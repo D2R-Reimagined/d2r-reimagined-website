@@ -1,47 +1,55 @@
 import { bindable, watch } from 'aurelia';
 
-import json from '../item-jsons/runewords.json';
 import { debounce, DebouncedFunction } from '../../utilities/debounce';
+import json from '../item-jsons/runewords.json';
 
 export class Runewords {
     runewords = json;
 
     @bindable search: string;
     @bindable searchRunes: string;
+    @bindable exclusiveType: boolean;
 
     private _debouncedSearchItem!: DebouncedFunction;
 
     filteredRunewords = [];
 
-    types = [
-        { value: undefined, label: 'Any' },
-        { value: 'Armor', label: 'Armor' },
-        { value: 'Helm', label: 'Helm' },
-        { value: 'Polearm', label: 'Polearm' },
-        { value: 'Any Shield', label: 'Any Shield' },
-        { value: 'Barbarian Item', label: 'Barbarian Item' },
-        { value: 'Circlet', label: 'Circlet' },
-        { value: 'Missile Weapon', label: 'Missile Weapon' },
-        { value: 'Melee Weapon', label: 'Melee Weapon' },
-        { value: 'Weapon', label: 'Weapon' },
-        { value: 'Wand', label: 'Wand' },
-        { value: 'Orb', label: 'Orb' },
-        { value: 'Sword', label: 'Sword' },
-        { value: 'Axe', label: 'Axe' },
-        { value: 'Amazon Bow', label: 'Amazon Bow' },
-        { value: 'Amazon Spear', label: 'Amazon Spear' },
-        { value: 'Spear', label: 'Spear' },
-        { value: 'Staff', label: 'Staff' },
-        { value: 'Mace', label: 'Mace' },
-        { value: 'Hammer', label: 'Hammer' },
-        { value: 'Paladin Item', label: 'Paladin Item' },
-        { value: 'Hand to Hand', label: 'Hand to Hand' },
-        { value: 'Club', label: 'Club' },
-        { value: 'Any Armor', label: 'Any Armor' },
-        { value: 'Scepter', label: 'Scepter' },
-        { value: 'Druid Item', label: 'Druid Item' },
-        { value: 'Necromancer Item', label: 'Necro Shield' },
-    ];
+    // The order of the value entries matters, going from specific to generic.
+    // When checking the exclusive box, only the first value element is selected.
+    types: { label: string, value: string[] }[] = [
+        // Parent types
+        { label: '-', value: [] },
+        { label: 'Any Armor', value: [ 'Armor', 'Any Armor'] },
+        { label: 'Any Helm', value: [ 'Helm' ] },
+        { label: 'Any Weapon', value: [ 'Weapon' ] },
+        { label: 'Any Melee Weapon', value: [ 'Melee Weapon', 'Weapon' ] },
+        { label: 'Any Missile Weapon', value: [ 'Missile Weapon', 'Weapon' ] },
+        { label: 'Any Shield', value: ['Any Shield'] },
+        // Specific weapon types
+        { label: 'Axe', value: [ 'Axe', 'Melee Weapon', 'Weapon' ] },
+        { label: 'Club', value: [ 'Club', 'Melee Weapon', 'Weapon'] },
+        { label: 'Hammer', value: [ 'Hammer', 'Melee Weapon', 'Weapon' ] },
+        { label: 'Hand to Hand', value: [ 'Hand to Hand', 'Melee Weapon', 'Weapon' ] },
+        { label: 'Mace', value: [ 'Mace', 'Melee Weapon', 'Weapon' ] },
+        { label: 'Orb', value: ['Orb'] },
+        { label: 'Polearm', value: [ 'Polearm', 'Melee Weapon', 'Weapon' ] },
+        { label: 'Scepter', value: ['Scepter', 'Melee Weapon', 'Weapon' ] },
+        { label: 'Staff', value: [ 'Staff', 'Melee Weapon', 'Weapon' ] },
+        { label: 'Spear', value: [ 'Spear', 'Melee Weapon', 'Weapon' ] },
+        { label: 'Sword', value: [ 'Sword', 'Melee Weapon', 'Weapon' ] },
+        { label: 'Wand', value: [ 'Wand', 'Melee Weapon', 'Weapon' ] },
+        // Specific armor types
+        { label: 'Circlet', value: [ 'Circlet', 'Helm' ] },
+        // Class specific types
+        { label: 'Amazon Bow', value: [ 'Amazon Bow', 'Missile Weapon', 'Weapon' ] },
+        { label: 'Amazon Spear', value: [ 'Amazon Spear', 'Spear', 'Melee Weapon', 'Weapon' ] },
+        { label: 'Necromancer Shield', value: [ 'Necromancer Item', 'Any Shield' ] },
+        { label: 'Barbarian Item', value: [ 'Barbarian Item' ] },
+        { label: 'Paladin Item', value: [ 'Paladin Item' ] },
+        { label: 'Druid Item', value: [ 'Druid Item' ] },
+    ]
+
+    selectedType: string[];
 
     amounts = [
         { value: undefined, label: 'Any' },
@@ -52,7 +60,6 @@ export class Runewords {
         { value: 6, label: '6 Sockets' }
     ];
 
-    selectedType: string;
     selectedAmount: number;
 
     attached() {
@@ -89,6 +96,13 @@ export class Runewords {
         }
     }
 
+    @watch('exclusiveType')
+    exclusiveTypeChanged() {
+        if (this._debouncedSearchItem) {
+            this._debouncedSearchItem();
+        }
+    }
+
     normalizeRuneName(name: string): string {
         // Remove " Rune" suffix and trim any extra spaces
         return name.replace(/ rune$/i, '').trim().toLowerCase();
@@ -98,10 +112,11 @@ export class Runewords {
         let filteringRunewords = this.runewords;
 
         // Type filtering
-        if (this.selectedType) {
+        if (this.selectedType?.length > 0) {
+            const selectedType = this.exclusiveType ? [this.selectedType[0]] : this.selectedType;
             filteringRunewords = filteringRunewords.filter((x) => {
                 for (const type of x.Types) {
-                    if (type.Index === this.selectedType || (type.Index === 'Merc Equip' && this.selectedType === 'Helm')) {
+                    if (selectedType.includes(type.Index) || (type.Index === 'Merc Equip' && selectedType.includes('Helm'))) {
                         return true;
                     }
                 }
@@ -140,7 +155,7 @@ export class Runewords {
         // Rune search filter
         if (this.searchRunes) {
             const inputRuneList = this.searchRunes.split(' ')
-                .map((rune) => rune.trim())
+                .map((rune) => rune.trim().toLowerCase())
                 .filter((rune) => rune.length > 0);
 
             found = found.filter((runeword) => {
