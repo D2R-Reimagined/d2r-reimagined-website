@@ -5,14 +5,30 @@ import json from '../item-jsons/uniques.json';
 
 export class Uniques {
     uniques = json;
+    private types = [
+        // The first element allows resetting the filter
+        { label: '-', value: undefined },
+        // Now follows a unique list of all possible types
+        ...[ ...new Set<string>(json.map(unique => unique.Type)).values() ]
+            // which is sorted alphabetically
+            .sort((a, b) => a.localeCompare(b))
+            // and converted into a selection list
+        .map(type => { return { label: type, value: type } })
+    ];
+
     @bindable search: string;
     @bindable class: string;
+    @bindable selectedType: string;
 
     private _debouncedSearchItem!: DebouncedFunction;
 
     attached() {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         this._debouncedSearchItem = debounce(this.updateList.bind(this), 350);
+        this.updateList();
+    }
+    @watch('class')
+    handleClassChanged() {
         this.updateList();
     }
 
@@ -23,7 +39,15 @@ export class Uniques {
         }
     }
 
+    @watch('selectedType')
+    handleTypeChanged() {
+        if (this._debouncedSearchItem) {
+            this._debouncedSearchItem();
+        }
+    }
+
     classes = [
+        { value: undefined, label: '-' },
         { value: 'Amazon', label: 'Amazon' },
         { value: 'Assassin', label: 'Assassin' },
         { value: 'Barbarian', label: 'Barbarian' },
@@ -33,48 +57,27 @@ export class Uniques {
         { value: 'Sorceress', label: 'Sorceress' }
     ];
 
-    classChanged() {
-        this.updateList();
-    }
+
 
     updateList() {
-        if (!this.search && !this.class) {
-            return;
+        const isMatchingClass = (unique) => {
+            return !this.class || unique.Equipment.RequiredClass?.toLowerCase().includes(this.class?.toLowerCase());
         }
-        this.uniques = json;
-
-        const foundUniques = [];
-
-        uniqueLoop:
-        for (const unique of json) {
-            if (this.search && unique.Name.toLowerCase().includes(this.search?.toLowerCase())) {
-                foundUniques.push(unique);
-                continue;
-            }
-            if (this.class) {
-                if (unique.Equipment.RequiredClass?.toLowerCase().includes(this.class?.toLowerCase())) {
-                    foundUniques.push(unique);
-                    continue;
-                }
-            }
-            if (this.search) {
-                for (const property of unique.Properties) {
-                    if (property.PropertyString?.toLowerCase().includes(this.search?.toLowerCase())) {
-                        foundUniques.push(unique);
-                        continue uniqueLoop;
-                    }
-                }
-                if (unique.Equipment.Name?.toLowerCase().includes(this.search?.toLowerCase())) {
-                    foundUniques.push(unique);
-                    continue uniqueLoop;
-                }
-            }
+        const isMatchingSearch = (unique) => {
+            if (!this.search) return true;
+            const search = this.search.toLowerCase();
+            const uniqueName = unique.Name.toLowerCase();
+            const properties = unique.Properties.map((property) => property.PropertyString.toLowerCase());
+            return uniqueName.includes(search) || properties.find(p => p.includes(search));
         }
-        this.uniques = foundUniques;
-    }
-
-    get filteredUniques() {
-        return this.uniques.filter(x => !x.Name.toLowerCase().includes('grabber'));
+        const isMatchingType = (unique) => {
+            return !this.selectedType || unique.Type === this.selectedType;
+        }
+        this.uniques = json.filter(unique =>
+            !unique.Name.toLowerCase().includes('grabber') &&
+            isMatchingSearch(unique) &&
+            isMatchingClass(unique) &&
+            isMatchingType(unique));
     }
 
     getDamageTypeString(type: number) {

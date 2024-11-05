@@ -22,7 +22,6 @@ export class CubeRecipes {
     }
 
     handleSearch() {
-        // console.log(this.search);
         if (!this.search) {
             this.recipes = json;
             return;
