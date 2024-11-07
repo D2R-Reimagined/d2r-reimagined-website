@@ -97,7 +97,7 @@ export class Runewords {
     }
 
     @watch('exclusiveType')
-    exclusiveTypeChanged() {
+    handleExclusiveTypeChange() {
         if (this._debouncedSearchItem) {
             this._debouncedSearchItem();
         }
