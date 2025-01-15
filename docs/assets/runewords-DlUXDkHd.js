@@ -1,7 +1,7 @@
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-B3fG7b_t.js";
+import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-B0bmGqGX.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
 const name = "runewords";
-const template = '<template>\n    <h3 class="text-center my-4">\n        ${filteredRunewords.length} Runewords Found\n    </h3>\n    <div class="container">\n        <div class="row align-content-center justify-content-center text-center mb-5">\n            <div class="col-12 col-md-4 col-lg-3">\n                <div class="au-select mb-2">\n                    <moo-select\n                            class="w-100"\n                            label="Select Socket Count"\n                            options.bind="amounts"\n                            class="standard-betsy-select"\n                            value.bind="selectedAmount"\n                    ></moo-select>\n                </div>\n            </div>\n            <div class="col-12 col-md-4 col-lg-3">\n                <div class="au-select mb-2">\n                    <moo-select\n                            class="w-100"\n                            label="Select Type"\n                            options.bind="types"\n                            class="standard-betsy-select"\n                            value.bind="selectedType"\n                    ></moo-select>\n                </div>\n            </div>\n            <div class="col-12 col-md-4 col-lg-3">\n                <div class="mb-2">\n                    <moo-text-field\n                            class="w-100"\n                            label="Search Runewords"\n                            type="text"\n                            value.bind="search"\n                    ></moo-text-field>\n                </div>\n            </div>\n            <div class="col-12 col-md-4 col-lg-3">\n                <div class="mb-2">\n                    <moo-text-field\n                            class="w-100"\n                            label="Runes"\n                            type="text"\n                            value.bind="searchRunes"\n                    ></moo-text-field>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class="row gy-5 px-5 text-center">\n        <div class="col-12 col-md-6 col-xxl-4" repeat.for="runeword of filteredRunewords">\n            <div class="card bg-dark p-2">\n                <div class="unique-text fs-4 mb-1">\n                    ${runeword.Name}\n                </div>\n                <div class="combo">\n                    <span repeat.for="rune of runeword.Runes">\n                        ${removeRuneFromName(rune.Name)} ${$index + 1 !== runeword.Runes.length ? \' + \' : \'\'}\n                    </span>\n                </div>\n                <div class="types py-2">\n                    <span repeat.for="type of runeword.Types">\n                        ${transformTypeName(type.Name)} ${$index + 1 !== runeword.Types.length ? \' or \' : \'\'}\n                    </span>\n                </div>\n                <div class="requirement" if.bind="runeword.RequiredLevel > 0">\n                    Level ${runeword.RequiredLevel} Required\n                </div>\n                <div class="mt-2">\n                    <div class="enhanced" repeat.for="property of runeword.Properties">\n                        ${property.PropertyString}\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</template>\n';
+const template = '<template>\n    <h3 class="text-center my-4">\n        ${filteredRunewords.length} Runewords Found\n    </h3>\n    <div class="container">\n        <div class="row align-content-center justify-content-center text-center mb-5">\n            <div class="col-12 col-md-4 col-lg-3">\n                <div class="au-select mb-2">\n                    <moo-select\n                            class="w-100"\n                            label="Select Socket Count"\n                            options.bind="amounts"\n                            class="standard-betsy-select"\n                            value.bind="selectedAmount"\n                    ></moo-select>\n                </div>\n            </div>\n            <div class="col-12 col-md-4 col-lg-3">\n                <div class="au-select mb-2">\n                    <moo-select\n                            class="w-100"\n                            label="Select Type"\n                            options.bind="types"\n                            class="standard-betsy-select"\n                            value.bind="selectedType"\n                    ></moo-select>\n                    <moo-checkbox checked.bind="exclusiveType" id="exclusiveType">Exact type only</moo-checkbox>\n                </div>\n            </div>\n            <div class="col-12 col-md-4 col-lg-3">\n                <div class="mb-2">\n                    <moo-text-field\n                            class="w-100"\n                            label="Search Runewords"\n                            type="text"\n                            value.bind="search"\n                    ></moo-text-field>\n                </div>\n            </div>\n            <div class="col-12 col-md-4 col-lg-3">\n                <div class="mb-2">\n                    <moo-text-field\n                            class="w-100"\n                            label="Runes"\n                            type="text"\n                            value.bind="searchRunes"\n                    ></moo-text-field>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class="row gy-5 px-5 text-center">\n        <div class="col-12 col-md-6 col-xxl-4" repeat.for="runeword of filteredRunewords">\n            <div class="card bg-dark p-2">\n                <div class="unique-text fs-4 mb-1">\n                    ${runeword.Name}\n                </div>\n                <div class="combo">\n                    <span repeat.for="rune of runeword.Runes">\n                        ${removeRuneFromName(rune.Name)} ${$index + 1 !== runeword.Runes.length ? \' + \' : \'\'}\n                    </span>\n                </div>\n                <div class="types py-2">\n                    <span repeat.for="type of runeword.Types">\n                        ${transformTypeName(type.Name)} ${$index + 1 !== runeword.Types.length ? \' or \' : \'\'}\n                    </span>\n                </div>\n                <div class="requirement" if.bind="runeword.RequiredLevel > 0">\n                    Level ${runeword.RequiredLevel} Required\n                </div>\n                <div class="mt-2">\n                    <div class="enhanced" repeat.for="property of runeword.Properties">\n                        ${property.PropertyString}\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</template>\n';
 const dependencies = [];
 const bindables = {};
 let _e;
@@ -17454,45 +17454,50 @@ var __privateIn = (member, obj) => Object(obj) !== obj ? __typeError('Cannot use
 var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
 var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "access private method"), method);
-var _selectedAmountChanged_dec, _selectedTypeChanged_dec, _handleSearchChanged_dec, _handleSearchRunesChanged_dec, _searchRunes_dec, _search_dec, _Runewords_decorators, _init;
-_Runewords_decorators = [customElement(__au2ViewDef)], _search_dec = [bindable], _searchRunes_dec = [bindable], _handleSearchRunesChanged_dec = [watch("searchRunes")], _handleSearchChanged_dec = [watch("search")], _selectedTypeChanged_dec = [watch("selectedType")], _selectedAmountChanged_dec = [watch("selectedAmount")];
+var _handleExclusiveTypeChanged_dec, _selectedAmountChanged_dec, _selectedTypeChanged_dec, _handleSearchChanged_dec, _handleSearchRunesChanged_dec, _exclusiveType_dec, _searchRunes_dec, _search_dec, _Runewords_decorators, _init;
+_Runewords_decorators = [customElement(__au2ViewDef)], _search_dec = [bindable], _searchRunes_dec = [bindable], _exclusiveType_dec = [bindable], _handleSearchRunesChanged_dec = [watch("searchRunes")], _handleSearchChanged_dec = [watch("search")], _selectedTypeChanged_dec = [watch("selectedType")], _selectedAmountChanged_dec = [watch("selectedAmount")], _handleExclusiveTypeChanged_dec = [watch("exclusiveType")];
 class Runewords {
   constructor() {
     __runInitializers(_init, 5, this);
     __publicField(this, "runewords", json);
     __publicField(this, "search", __runInitializers(_init, 8, this)), __runInitializers(_init, 11, this);
     __publicField(this, "searchRunes", __runInitializers(_init, 12, this)), __runInitializers(_init, 15, this);
+    __publicField(this, "exclusiveType", __runInitializers(_init, 16, this)), __runInitializers(_init, 19, this);
     __publicField(this, "_debouncedSearchItem");
     __publicField(this, "filteredRunewords", []);
     __publicField(this, "types", [
-      { value: void 0, label: "Any" },
-      { value: "Armor", label: "Armor" },
-      { value: "Helm", label: "Helm" },
-      { value: "Polearm", label: "Polearm" },
-      { value: "Any Shield", label: "Any Shield" },
-      { value: "Barbarian Item", label: "Barbarian Item" },
-      { value: "Circlet", label: "Circlet" },
-      { value: "Missile Weapon", label: "Missile Weapon" },
-      { value: "Melee Weapon", label: "Melee Weapon" },
-      { value: "Weapon", label: "Weapon" },
-      { value: "Wand", label: "Wand" },
-      { value: "Orb", label: "Orb" },
-      { value: "Sword", label: "Sword" },
-      { value: "Axe", label: "Axe" },
-      { value: "Amazon Bow", label: "Amazon Bow" },
-      { value: "Amazon Spear", label: "Amazon Spear" },
-      { value: "Spear", label: "Spear" },
-      { value: "Staff", label: "Staff" },
-      { value: "Mace", label: "Mace" },
-      { value: "Hammer", label: "Hammer" },
-      { value: "Paladin Item", label: "Paladin Item" },
-      { value: "Hand to Hand", label: "Hand to Hand" },
-      { value: "Club", label: "Club" },
-      { value: "Any Armor", label: "Any Armor" },
-      { value: "Scepter", label: "Scepter" },
-      { value: "Druid Item", label: "Druid Item" },
-      { value: "Necromancer Item", label: "Necro Shield" }
+      // Parent types
+      { label: "-", value: [] },
+      { label: "Any Armor", value: ["Armor", "Any Armor"] },
+      { label: "Any Helm", value: ["Helm"] },
+      { label: "Any Weapon", value: ["Weapon"] },
+      { label: "Any Melee Weapon", value: ["Melee Weapon", "Weapon"] },
+      { label: "Any Missile Weapon", value: ["Missile Weapon", "Weapon"] },
+      { label: "Any Shield", value: ["Any Shield"] },
+      // Specific weapon types
+      { label: "Axe", value: ["Axe", "Melee Weapon", "Weapon"] },
+      { label: "Club", value: ["Club", "Melee Weapon", "Weapon"] },
+      { label: "Hammer", value: ["Hammer", "Melee Weapon", "Weapon"] },
+      { label: "Hand to Hand", value: ["Hand to Hand", "Melee Weapon", "Weapon"] },
+      { label: "Mace", value: ["Mace", "Melee Weapon", "Weapon"] },
+      { label: "Orb", value: ["Orb"] },
+      { label: "Polearm", value: ["Polearm", "Melee Weapon", "Weapon"] },
+      { label: "Scepter", value: ["Scepter", "Melee Weapon", "Weapon"] },
+      { label: "Staff", value: ["Staff", "Melee Weapon", "Weapon"] },
+      { label: "Spear", value: ["Spear", "Melee Weapon", "Weapon"] },
+      { label: "Sword", value: ["Sword", "Melee Weapon", "Weapon"] },
+      { label: "Wand", value: ["Wand", "Melee Weapon", "Weapon"] },
+      // Specific armor types
+      { label: "Circlet", value: ["Circlet", "Helm"] },
+      // Class specific types
+      { label: "Amazon Bow", value: ["Amazon Bow", "Missile Weapon", "Weapon"] },
+      { label: "Amazon Spear", value: ["Amazon Spear", "Spear", "Melee Weapon", "Weapon"] },
+      { label: "Necromancer Shield", value: ["Necromancer Item", "Any Shield"] },
+      { label: "Barbarian Item", value: ["Barbarian Item"] },
+      { label: "Paladin Item", value: ["Paladin Item"] },
+      { label: "Druid Item", value: ["Druid Item"] }
     ]);
+    __publicField(this, "selectedType");
     __publicField(this, "amounts", [
       { value: void 0, label: "Any" },
       { value: 2, label: "2 Sockets" },
@@ -17501,7 +17506,6 @@ class Runewords {
       { value: 5, label: "5 Sockets" },
       { value: 6, label: "6 Sockets" }
     ]);
-    __publicField(this, "selectedType");
     __publicField(this, "selectedAmount");
   }
   attached() {
@@ -17528,15 +17532,21 @@ class Runewords {
       this._debouncedSearchItem();
     }
   }
+  handleExclusiveTypeChanged() {
+    if (this._debouncedSearchItem) {
+      this._debouncedSearchItem();
+    }
+  }
   normalizeRuneName(name2) {
     return name2.replace(/ rune$/i, "").trim().toLowerCase();
   }
   updateList() {
     let filteringRunewords = this.runewords;
-    if (this.selectedType) {
+    if (this.selectedType?.length > 0) {
+      const selectedType = this.exclusiveType ? [this.selectedType[0]] : this.selectedType;
       filteringRunewords = filteringRunewords.filter((x) => {
         for (const type of x.Types) {
-          if (type.Index === this.selectedType || type.Index === "Merc Equip" && this.selectedType === "Helm") {
+          if (selectedType.includes(type.Index) || type.Index === "Merc Equip" && selectedType.includes("Helm")) {
             return true;
           }
         }
@@ -17566,7 +17576,7 @@ class Runewords {
       });
     }
     if (this.searchRunes) {
-      const inputRuneList = this.searchRunes.split(" ").map((rune) => rune.trim()).filter((rune) => rune.length > 0);
+      const inputRuneList = this.searchRunes.split(" ").map((rune) => rune.trim().toLowerCase()).filter((rune) => rune.length > 0);
       found = found.filter((runeword) => {
         const runewordRuneNames = runeword.Runes.map((rune) => this.normalizeRuneName(rune.Name));
         return inputRuneList.every(
@@ -17593,8 +17603,10 @@ __decorateElement(_init, 1, "handleSearchRunesChanged", _handleSearchRunesChange
 __decorateElement(_init, 1, "handleSearchChanged", _handleSearchChanged_dec, Runewords);
 __decorateElement(_init, 1, "selectedTypeChanged", _selectedTypeChanged_dec, Runewords);
 __decorateElement(_init, 1, "selectedAmountChanged", _selectedAmountChanged_dec, Runewords);
+__decorateElement(_init, 1, "handleExclusiveTypeChanged", _handleExclusiveTypeChanged_dec, Runewords);
 __decorateElement(_init, 5, "search", _search_dec, Runewords);
 __decorateElement(_init, 5, "searchRunes", _searchRunes_dec, Runewords);
+__decorateElement(_init, 5, "exclusiveType", _exclusiveType_dec, Runewords);
 Runewords = __decorateElement(_init, 0, "Runewords", _Runewords_decorators, Runewords);
 __runInitializers(_init, 1, Runewords);
 export {
