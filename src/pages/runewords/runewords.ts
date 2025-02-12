@@ -1,7 +1,7 @@
 import { bindable, watch } from 'aurelia';
 
-import json from '../item-jsons/runewords.json';
 import { debounce, DebouncedFunction } from '../../utilities/debounce';
+import json from '../item-jsons/runewords.json';
 
 export class Runewords {
     runewords = json;
@@ -166,5 +166,18 @@ export class Runewords {
             default:
                 return name;
         }
+    }
+
+    actualLevelRequirement(runeword) {
+        for (const property of runeword.Properties) {
+            if (property.PropertyString && property.PropertyString.includes("To Required Level")) {
+                const value = property.PropertyString.substring(1, 3);
+                if(!runeword.RequiredLevel) {
+                    return parseInt(value.trim());
+                }
+                return runeword.RequiredLevel + parseInt(value.trim());
+            }
+        }
+        return runeword.RequiredLevel
     }
 }

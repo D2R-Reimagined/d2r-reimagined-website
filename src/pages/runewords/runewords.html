@@ -64,8 +64,8 @@
                         ${transformTypeName(type.Name)} ${$index + 1 !== runeword.Types.length ? ' or ' : ''}
                     </span>
                 </div>
-                <div class="requirement" if.bind="runeword.RequiredLevel > 0">
-                    Level ${runeword.RequiredLevel} Required
+                <div class="requirement" if.bind="actualLevelRequirement(runeword) > 0">
+                    Level ${actualLevelRequirement(runeword)} Required
                 </div>
                 <div class="mt-2">
                     <div class="enhanced" repeat.for="property of runeword.Properties">
