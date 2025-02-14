@@ -5068,7 +5068,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "18",
+                "PropertyString": "+18 to Fire Ball",
                 "Index": 1
             },
             {
@@ -5076,7 +5076,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "13",
+                "PropertyString": "+13 to Fire Wall",
                 "Index": 3
             },
             {
@@ -5084,7 +5084,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "10",
+                "PropertyString": "+10 to Meteor",
                 "Index": 5
             }
         ],
@@ -5092,6 +5092,10 @@
             {
                 "PropertyString": "+3",
                 "Index": 1
+            },
+            {
+                "PropertyString": "+3 to Fire Mastery",
+                "Index": 6
             },
             {
                 "PropertyString": "+20 Life stolen per hit",
@@ -5112,10 +5116,6 @@
             {
                 "PropertyString": "All Resistances +50",
                 "Index": 0
-            },
-            {
-                "PropertyString": "3",
-                "Index": 6
             }
         ],
         "Level": 1
@@ -8538,7 +8538,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "1",
+                        "PropertyString": "+1 to Terror",
                         "Index": 1
                     }
                 ],
@@ -10429,15 +10429,15 @@
         ],
         "PartialProperties": [
             {
-                "PropertyString": "2",
+                "PropertyString": "+2 to Revive",
                 "Index": 0
             },
             {
-                "PropertyString": "7",
+                "PropertyString": "+7 to Skeleton Mastery",
                 "Index": 2
             },
             {
-                "PropertyString": "4",
+                "PropertyString": "+4 to Shout",
                 "Index": 4
             }
         ],
@@ -11554,20 +11554,20 @@
                 "Code": "xtu",
                 "Properties": [
                     {
-                        "PropertyString": "+300-400 Defense",
-                        "Index": 0
-                    },
-                    {
-                        "PropertyString": "1",
+                        "PropertyString": "+1 to Dodge",
                         "Index": 1
                     },
                     {
-                        "PropertyString": "1",
+                        "PropertyString": "+1 to Evade",
                         "Index": 2
                     },
                     {
-                        "PropertyString": "1",
+                        "PropertyString": "+1 to Avoid",
                         "Index": 3
+                    },
+                    {
+                        "PropertyString": "+300-400 Defense",
+                        "Index": 0
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -12286,8 +12286,8 @@
                 "Type": "Merc Equip",
                 "Set": "Legacy of Vashna",
                 "SetPropertiesString": [
-                    "5 (2 Items)",
-                    "3 (3 Items)"
+                    "+5 to Raise Skeleton (2 Items)",
+                    "+3 to Skeleton Mastery (3 Items)"
                 ],
                 "Name": "Mask of Vashna",
                 "Index": "Mask of Vashna",
@@ -13247,6 +13247,10 @@
                 "Code": "utg",
                 "Properties": [
                     {
+                        "PropertyString": "+3 to Salvation",
+                        "Index": 3
+                    },
+                    {
                         "PropertyString": "+20 Faster Cast Rate",
                         "Index": 0
                     },
@@ -13257,10 +13261,6 @@
                     {
                         "PropertyString": "+60 to Mana",
                         "Index": 1
-                    },
-                    {
-                        "PropertyString": "3",
-                        "Index": 3
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -13621,16 +13621,16 @@
                 "Index": 0
             },
             {
+                "PropertyString": "+15 to Slow Missiles",
+                "Index": 3
+            },
+            {
                 "PropertyString": "All Resistances +50",
                 "Index": 1
             },
             {
                 "PropertyString": "5 to Experience Gained",
                 "Index": 2
-            },
-            {
-                "PropertyString": "15",
-                "Index": 3
             }
         ],
         "Level": 1
@@ -14092,10 +14092,10 @@
                 "Type": "Boots",
                 "Set": "Phrozen Heart's Mysticism",
                 "SetPropertiesString": [
-                    "+15 Kick Damage (5 Items)",
-                    "3 (2 Items)",
-                    "3 (3 Items)",
-                    "3 (4 Items)"
+                    "+3 to Dodge (2 Items)",
+                    "+3 to Evade (3 Items)",
+                    "+3 to Teleport (4 Items)",
+                    "+15 Kick Damage (5 Items)"
                 ],
                 "Name": "Featherfoot",
                 "Index": "Featherfoot",
@@ -14998,6 +14998,10 @@
                 "Code": "uhg",
                 "Properties": [
                     {
+                        "PropertyString": "+10 to Melee Mastery",
+                        "Index": 2
+                    },
+                    {
                         "PropertyString": "+15 Increased Attack Speed",
                         "Index": 1
                     },
@@ -15008,10 +15012,6 @@
                     {
                         "PropertyString": "+100-130 Enhanced Defense",
                         "Index": 0
-                    },
-                    {
-                        "PropertyString": "10",
-                        "Index": 2
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -15484,6 +15484,10 @@
                 "Code": "7fl",
                 "Properties": [
                     {
+                        "PropertyString": "+8 to Zeal",
+                        "Index": 3
+                    },
+                    {
                         "PropertyString": "+220-250% Enhanced Damage",
                         "Index": 0
                     },
@@ -15494,10 +15498,6 @@
                     {
                         "PropertyString": "75 bonus to Attack Rating",
                         "Index": 2
-                    },
-                    {
-                        "PropertyString": "8",
-                        "Index": 3
                     },
                     {
                         "PropertyString": "1",
@@ -15840,7 +15840,7 @@
                 "Type": "Bow",
                 "Set": "Blood Raven's Despair",
                 "SetPropertiesString": [
-                    "10 (2 Items)"
+                    "+10 to Immolation Arrow (2 Items)"
                 ],
                 "Name": "Blood Raven's Redemption",
                 "Index": "Blood Raven's Redemption",
@@ -15854,6 +15854,10 @@
                         "Index": 4
                     },
                     {
+                        "PropertyString": "+10-12 to Ice Arrow",
+                        "Index": 3
+                    },
+                    {
                         "PropertyString": "+200-300% Enhanced Damage",
                         "Index": 0
                     },
@@ -15864,10 +15868,6 @@
                     {
                         "PropertyString": "+100-150 to Maximum Damage",
                         "Index": 2
-                    },
-                    {
-                        "PropertyString": "10-12",
-                        "Index": 3
                     },
                     {
                         "PropertyString": "1",
@@ -15997,12 +15997,12 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "-1 to Light Radius",
-                        "Index": 0
+                        "PropertyString": "+12-15 to Sanctuary",
+                        "Index": 2
                     },
                     {
-                        "PropertyString": "12-15",
-                        "Index": 2
+                        "PropertyString": "-1 to Light Radius",
+                        "Index": 0
                     }
                 ],
                 "DamageArmorEnhanced": false,
@@ -16040,12 +16040,12 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "1 to Light Radius",
-                        "Index": 0
+                        "PropertyString": "+8-12 to Decrepify",
+                        "Index": 2
                     },
                     {
-                        "PropertyString": "8-12",
-                        "Index": 2
+                        "PropertyString": "1 to Light Radius",
+                        "Index": 0
                     }
                 ],
                 "DamageArmorEnhanced": false,
@@ -16068,9 +16068,9 @@
                 "Type": "Scepter",
                 "Set": "Narrow Path Between Light and Darkness",
                 "SetPropertiesString": [
+                    "+13-16 to Merc Static Field (3 Items)",
                     "Adds 1-50 to Lightning Damage (2 Items)",
-                    "Fire Resist +15% (4 Items)",
-                    "13-16 (3 Items)"
+                    "Fire Resist +15% (4 Items)"
                 ],
                 "Name": "Char's Hand of Blessed Light",
                 "Index": "Char's Hand of Blessed Light",
@@ -16728,8 +16728,8 @@
                 "Type": "Staff",
                 "Set": "Yohann's Savant",
                 "SetPropertiesString": [
-                    "+5 Mana stolen per hit (3 Items)",
-                    "1 (4 Items)"
+                    "+1 to Whirlwind (4 Items)",
+                    "+5 Mana stolen per hit (3 Items)"
                 ],
                 "Name": "Arcane Battlestaff",
                 "Index": "Arcane Battlestaff",
@@ -16824,9 +16824,9 @@
                 "Type": "Merc Equip",
                 "Set": "Zhoulomcrist's Dread",
                 "SetPropertiesString": [
-                    "Adds 25-35 to Cold Damage (3 Items)",
-                    "1 (4 Items)",
-                    "1 (5 Items)"
+                    "+1 to Warmth (4 Items)",
+                    "+1 to Warmth (5 Items)",
+                    "Adds 25-35 to Cold Damage (3 Items)"
                 ],
                 "Name": "Unholy Desires",
                 "Index": "Unholy Desires",
@@ -16881,6 +16881,10 @@
                 "Code": "72a",
                 "Properties": [
                     {
+                        "PropertyString": "+8 to Zeal",
+                        "Index": 3
+                    },
+                    {
                         "PropertyString": "+20 Increased Attack Speed",
                         "Index": 1
                     },
@@ -16895,10 +16899,6 @@
                     {
                         "PropertyString": "Level 15 Clay Golem (65 Charges)",
                         "Index": 4
-                    },
-                    {
-                        "PropertyString": "8",
-                        "Index": 3
                     },
                     {
                         "PropertyString": "1",
@@ -17040,6 +17040,10 @@
                 "Index": 0
             },
             {
+                "PropertyString": "+3 to Lower Resist",
+                "Index": 4
+            },
+            {
                 "PropertyString": "Magic Resist +25%",
                 "Index": 2
             },
@@ -17050,10 +17054,6 @@
             {
                 "PropertyString": "+30 Damage Reduced by 30%%",
                 "Index": 1
-            },
-            {
-                "PropertyString": "3",
-                "Index": 4
             }
         ],
         "Level": 1
@@ -17681,6 +17681,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+3 to Revive",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+300% Damage to Undead Damage to Undead",
                 "Index": 3
             },
@@ -17691,10 +17695,6 @@
             {
                 "PropertyString": "+50 better chance of getting magic item",
                 "Index": 2
-            },
-            {
-                "PropertyString": "3",
-                "Index": 4
             }
         ],
         "Level": 1
@@ -18173,6 +18173,10 @@
                 "Index": 2
             },
             {
+                "PropertyString": "+1 to Howl",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+100% Enhanced Damage",
                 "Index": 0
             },
@@ -18183,10 +18187,6 @@
             {
                 "PropertyString": "+50 better chance of getting magic item",
                 "Index": 1
-            },
-            {
-                "PropertyString": "1",
-                "Index": 3
             }
         ],
         "Level": 1
@@ -18893,6 +18893,10 @@
         ],
         "FullProperties": [
             {
+                "PropertyString": "+7 to Sacrifice",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+30 Increased Attack Speed",
                 "Index": 3
             },
@@ -18907,10 +18911,6 @@
             {
                 "PropertyString": "+ extra gold from monsters",
                 "Index": 0
-            },
-            {
-                "PropertyString": "7",
-                "Index": 2
             }
         ],
         "Level": 1
@@ -18966,9 +18966,9 @@
                 "Type": "Sword",
                 "Set": "Soldier's Cairn",
                 "SetPropertiesString": [
+                    "+3 to Melee Mastery (2 Items)",
                     "Adds 100-150 to Damage (3 Items)",
-                    "+8 Life stolen per hit (2 Items)",
-                    "3 (2 Items)"
+                    "+8 Life stolen per hit (2 Items)"
                 ],
                 "Name": "Warrior's Heroism",
                 "Index": "Warrior's Heroism",
@@ -20403,7 +20403,7 @@
                 "Set": "Wrath of Vengeance",
                 "SetPropertiesString": [
                     "37% Chance to cast level 10 chain lightning on striking (2 Items)",
-                    "6 (3 Items)"
+                    "+6 to Charged Strike (3 Items)"
                 ],
                 "Name": "Holy Fury",
                 "Index": "Holy Fury",
@@ -20514,9 +20514,9 @@
                 "Type": "Gloves",
                 "Set": "Wrath of Vengeance",
                 "SetPropertiesString": [
-                    "1 (2 Items)",
-                    "1 (3 Items)",
-                    "1 (4 Items)"
+                    "+1 to Frost Nova (2 Items)",
+                    "+1 to Blizzard (3 Items)",
+                    "+1 to Frozen Orb (4 Items)"
                 ],
                 "Name": "Guiding Force",
                 "Index": "Guiding Force",
@@ -20704,6 +20704,10 @@
                 "Code": "7tr",
                 "Properties": [
                     {
+                        "PropertyString": "+5-9 to Melee Mastery",
+                        "Index": 3
+                    },
+                    {
                         "PropertyString": "+30 Increased Attack Speed",
                         "Index": 2
                     },
@@ -20718,10 +20722,6 @@
                     {
                         "PropertyString": "+8 Life stolen per hit",
                         "Index": 4
-                    },
-                    {
-                        "PropertyString": "5-9",
-                        "Index": 3
                     },
                     {
                         "PropertyString": "1",
@@ -20807,16 +20807,16 @@
                 "Index": 0
             },
             {
+                "PropertyString": "+5 to Whirlwind",
+                "Index": 3
+            },
+            {
                 "PropertyString": "350 to Attack Rating",
                 "Index": 1
             },
             {
                 "PropertyString": "+15 Slows target by",
                 "Index": 2
-            },
-            {
-                "PropertyString": "5",
-                "Index": 3
             }
         ],
         "Level": 1
@@ -21353,6 +21353,10 @@
                 "Code": "uui",
                 "Properties": [
                     {
+                        "PropertyString": "+4-6 to Melee Mastery",
+                        "Index": 1
+                    },
+                    {
                         "PropertyString": "+1 Prevent Monster Heal",
                         "Index": 3
                     },
@@ -21363,10 +21367,6 @@
                     {
                         "PropertyString": "+25-30 better chance of getting magic item",
                         "Index": 2
-                    },
-                    {
-                        "PropertyString": "4-6",
-                        "Index": 1
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -21865,6 +21865,10 @@
                 "Code": "uhc",
                 "Properties": [
                     {
+                        "PropertyString": "+3-5 to Melee Mastery",
+                        "Index": 0
+                    },
+                    {
                         "PropertyString": "+25-35% Enhanced Damage",
                         "Index": 1
                     },
@@ -21879,10 +21883,6 @@
                     {
                         "PropertyString": "Requirements -20%",
                         "Index": 4
-                    },
-                    {
-                        "PropertyString": "3-5",
-                        "Index": 0
                     }
                 ],
                 "DamageArmorEnhanced": false,
@@ -21922,6 +21922,10 @@
                         "Index": 2
                     },
                     {
+                        "PropertyString": "+1-3 to Melee Mastery",
+                        "Index": 1
+                    },
+                    {
                         "PropertyString": "+15 Increased Attack Speed",
                         "Index": 3
                     },
@@ -21932,10 +21936,6 @@
                     {
                         "PropertyString": "10-15 to Dexterity",
                         "Index": 4
-                    },
-                    {
-                        "PropertyString": "1-3",
-                        "Index": 1
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -22051,9 +22051,9 @@
                 "Type": "Crossbow",
                 "Set": "Corthala Family Heirlooms",
                 "SetPropertiesString": [
-                    "Adds 20-100 to Damage (5 Items)",
-                    "10 (3 Items)",
-                    "6 (4 Items)"
+                    "+10 to Magic Arrow (3 Items)",
+                    "+6 to Guided Arrow (4 Items)",
+                    "Adds 20-100 to Damage (5 Items)"
                 ],
                 "Name": "Prince Karnd's Abomination",
                 "Index": "Prince Karnd's Abomination",
@@ -22267,6 +22267,10 @@
                 "Index": 0
             },
             {
+                "PropertyString": "+8 to Dodge",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+20 Increased Attack Speed",
                 "Index": 3
             },
@@ -22277,10 +22281,6 @@
             {
                 "PropertyString": "All Resistances +40",
                 "Index": 1
-            },
-            {
-                "PropertyString": "8",
-                "Index": 2
             }
         ],
         "Level": 1
@@ -22352,6 +22352,10 @@
                 "Code": "7cl",
                 "Properties": [
                     {
+                        "PropertyString": "+1-3 to Berserk",
+                        "Index": 3
+                    },
+                    {
                         "PropertyString": "+20 Increased Attack Speed",
                         "Index": 1
                     },
@@ -22366,10 +22370,6 @@
                     {
                         "PropertyString": "Cold Resist +35-45%",
                         "Index": 4
-                    },
-                    {
-                        "PropertyString": "1-3",
-                        "Index": 3
                     },
                     {
                         "PropertyString": "1",
@@ -22708,6 +22708,10 @@
                         "Index": 3
                     },
                     {
+                        "PropertyString": "+2 to Evade",
+                        "Index": 4
+                    },
+                    {
                         "PropertyString": "+135-175 Enhanced Defense",
                         "Index": 0
                     },
@@ -22718,10 +22722,6 @@
                     {
                         "PropertyString": "Requirements -60%",
                         "Index": 1
-                    },
-                    {
-                        "PropertyString": "2",
-                        "Index": 4
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -23614,6 +23614,10 @@
                 "Code": "zvb",
                 "Properties": [
                     {
+                        "PropertyString": "+4-8 to Avoid",
+                        "Index": 4
+                    },
+                    {
                         "PropertyString": "+15 Faster Run/Walk",
                         "Index": 1
                     },
@@ -23628,10 +23632,6 @@
                     {
                         "PropertyString": "25 to Dexterity",
                         "Index": 3
-                    },
-                    {
-                        "PropertyString": "4-8",
-                        "Index": 4
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -24249,8 +24249,8 @@
                 "Type": "Javelin",
                 "Set": "Lords of Hell",
                 "SetPropertiesString": [
-                    "+25 Increased Attack Speed (2 Items)",
-                    "8 (3 Items)"
+                    "+8 to Lightning Fury (3 Items)",
+                    "+25 Increased Attack Speed (2 Items)"
                 ],
                 "Name": "Heaven's Lances",
                 "Index": "Heaven's Lances",
@@ -24805,16 +24805,16 @@
                 "Index": 0
             },
             {
+                "PropertyString": "+10 to Energy Shield",
+                "Index": 2
+            },
+            {
                 "PropertyString": "Magic Resist +15%",
                 "Index": 3
             },
             {
                 "PropertyString": "+1 Cannot Be Frozen",
                 "Index": 1
-            },
-            {
-                "PropertyString": "10",
-                "Index": 2
             }
         ],
         "Level": 1
@@ -25069,6 +25069,10 @@
                 "Code": "uea",
                 "Properties": [
                     {
+                        "PropertyString": "+2-5 to Warmth",
+                        "Index": 4
+                    },
+                    {
                         "PropertyString": "+20 Faster Run/Walk",
                         "Index": 2
                     },
@@ -25091,10 +25095,6 @@
                     {
                         "PropertyString": "+10-15 Magic Damage Reduced by",
                         "Index": 6
-                    },
-                    {
-                        "PropertyString": "2-5",
-                        "Index": 4
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -25141,6 +25141,10 @@
                 "Index": 0
             },
             {
+                "PropertyString": "+1 to Amplify Damage",
+                "Index": 1
+            },
+            {
                 "PropertyString": "+30 Faster Cast Rate",
                 "Index": 4
             },
@@ -25151,10 +25155,6 @@
             {
                 "PropertyString": "+20 Damage Reduced by 20%%",
                 "Index": 2
-            },
-            {
-                "PropertyString": "1",
-                "Index": 1
             }
         ],
         "Level": 1

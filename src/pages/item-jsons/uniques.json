@@ -3484,6 +3484,10 @@
         "Code": "scp",
         "Properties": [
             {
+                "PropertyString": "+1 to Shout",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+100-150% Enhanced Damage",
                 "Index": 0
             },
@@ -3498,10 +3502,6 @@
             {
                 "PropertyString": "10 to Vitality",
                 "Index": 4
-            },
-            {
-                "PropertyString": "1",
-                "Index": 3
             },
             {
                 "PropertyString": "1",
@@ -5409,6 +5409,10 @@
                 "Index": 2
             },
             {
+                "PropertyString": "+1 to Critical Strike",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+15 Increased Attack Speed",
                 "Index": 4
             },
@@ -5423,10 +5427,6 @@
             {
                 "PropertyString": "+75 Increased Stack Size",
                 "Index": 6
-            },
-            {
-                "PropertyString": "1",
-                "Index": 3
             },
             {
                 "PropertyString": "1",
@@ -5745,6 +5745,10 @@
         "Code": "axf",
         "Properties": [
             {
+                "PropertyString": "+2 to Shout",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+25 Increased Attack Speed",
                 "Index": 4
             },
@@ -5759,10 +5763,6 @@
             {
                 "PropertyString": "51%",
                 "Index": 3
-            },
-            {
-                "PropertyString": "2",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -6158,6 +6158,14 @@
                 "Index": 4
             },
             {
+                "PropertyString": "+5-7 to Clay Golem",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+3 to Summon Spirit Wolf",
+                "Index": 7
+            },
+            {
                 "PropertyString": "+110-150% Enhanced Damage",
                 "Index": 0
             },
@@ -6176,14 +6184,6 @@
             {
                 "PropertyString": "+36-50 to Throw",
                 "Index": 3
-            },
-            {
-                "PropertyString": "5-7",
-                "Index": 6
-            },
-            {
-                "PropertyString": "3",
-                "Index": 7
             },
             {
                 "PropertyString": "1",
@@ -6331,6 +6331,14 @@
         "Code": "ci1",
         "Properties": [
             {
+                "PropertyString": "+10 to War Cry",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+1-6 to Conversion",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+10 Increased Attack Speed",
                 "Index": 3
             },
@@ -6349,14 +6357,6 @@
             {
                 "PropertyString": "All Resistances +15-20",
                 "Index": 6
-            },
-            {
-                "PropertyString": "10",
-                "Index": 4
-            },
-            {
-                "PropertyString": "1-6",
-                "Index": 5
             }
         ],
         "DamageArmorEnhanced": true,
@@ -6634,6 +6634,10 @@
                 "Index": 0
             },
             {
+                "PropertyString": "+1 to Warmth",
+                "Index": 7
+            },
+            {
                 "PropertyString": "88% Chance of Open Wounds",
                 "Index": 5
             },
@@ -6648,10 +6652,6 @@
             {
                 "PropertyString": "15-20% Damage Taken Goes To Mana",
                 "Index": 6
-            },
-            {
-                "PropertyString": "1",
-                "Index": 7
             },
             {
                 "PropertyString": "1",
@@ -7351,6 +7351,10 @@
         "Code": "skp",
         "Properties": [
             {
+                "PropertyString": "+1 to Warmth",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+15 Faster Cast Rate",
                 "Index": 1
             },
@@ -7365,10 +7369,6 @@
             {
                 "PropertyString": "+3-5 Replenish Life",
                 "Index": 3
-            },
-            {
-                "PropertyString": "1",
-                "Index": 2
             }
         ],
         "DamageArmorEnhanced": true,
@@ -8088,6 +8088,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+3-5 to Sacrifice",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+20-25% Enhanced Damage",
                 "Index": 2
             },
@@ -8098,10 +8102,6 @@
             {
                 "PropertyString": "+10-15 Damage Reduced by 10-15%%",
                 "Index": 3
-            },
-            {
-                "PropertyString": "3-5",
-                "Index": 4
             }
         ],
         "DamageArmorEnhanced": true,
@@ -9067,6 +9067,10 @@
                 "Index": 2
             },
             {
+                "PropertyString": "+2 to Bone Armor",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+15 Increased Attack Speed",
                 "Index": 3
             },
@@ -9077,10 +9081,6 @@
             {
                 "PropertyString": "+50-70 to Maximum Damage",
                 "Index": 1
-            },
-            {
-                "PropertyString": "2",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -9671,6 +9671,10 @@
         "Code": "lrg",
         "Properties": [
             {
+                "PropertyString": "+1 to Poison Dagger",
+                "Index": 6
+            },
+            {
                 "PropertyString": "+20 Faster Block Rate",
                 "Index": 2
             },
@@ -9693,10 +9697,6 @@
             {
                 "PropertyString": "+50 Poison Length Reduced by",
                 "Index": 3
-            },
-            {
-                "PropertyString": "1",
-                "Index": 6
             },
             {
                 "PropertyString": "1",
@@ -11118,6 +11118,10 @@
         "Code": "spk",
         "Properties": [
             {
+                "PropertyString": "+1-5 to Zeal",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+1",
                 "Index": 4
             },
@@ -11144,10 +11148,6 @@
             {
                 "PropertyString": "+30-40 Defense",
                 "Index": 7
-            },
-            {
-                "PropertyString": "1-5",
-                "Index": 3
             },
             {
                 "PropertyString": "1",
@@ -11304,6 +11304,10 @@
                 "Index": 0
             },
             {
+                "PropertyString": "+2 to Weaken",
+                "Index": 2
+            },
+            {
                 "PropertyString": "Adds 10-20 to Damage",
                 "Index": 4
             },
@@ -11314,10 +11318,6 @@
             {
                 "PropertyString": "Slain Monsters Rest in Peace",
                 "Index": 1
-            },
-            {
-                "PropertyString": "2",
-                "Index": 2
             },
             {
                 "PropertyString": "1",
@@ -11898,6 +11898,10 @@
         "Code": "bkf",
         "Properties": [
             {
+                "PropertyString": "+3-5 to Raise Skeleton",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+75-110% Enhanced Damage",
                 "Index": 1
             },
@@ -11916,10 +11920,6 @@
             {
                 "PropertyString": "10-20",
                 "Index": 0
-            },
-            {
-                "PropertyString": "3-5",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -12137,6 +12137,14 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+5 to Skeleton Mastery",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+1 to Raise Skeleton",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+75% Damage to Undead Damage to Undead",
                 "Index": 4
             },
@@ -12147,14 +12155,6 @@
             {
                 "PropertyString": "+3 Replenish Life",
                 "Index": 5
-            },
-            {
-                "PropertyString": "5",
-                "Index": 2
-            },
-            {
-                "PropertyString": "1",
-                "Index": 3
             }
         ],
         "DamageArmorEnhanced": true,
@@ -12469,6 +12469,10 @@
         "Code": "clw",
         "Properties": [
             {
+                "PropertyString": "+5 to Frost Nova",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+30 Increased Attack Speed",
                 "Index": 2
             },
@@ -12491,10 +12495,6 @@
             {
                 "PropertyString": "+2 to Claw Mastery (Assassin Only)",
                 "Index": 3
-            },
-            {
-                "PropertyString": "5",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -12861,6 +12861,10 @@
         "Code": "2hs",
         "Properties": [
             {
+                "PropertyString": "+2-4 to Cloak of Shadows",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+15 Increased Attack Speed",
                 "Index": 1
             },
@@ -12879,10 +12883,6 @@
             {
                 "PropertyString": "15 to Dexterity",
                 "Index": 5
-            },
-            {
-                "PropertyString": "2-4",
-                "Index": 2
             },
             {
                 "PropertyString": "1",
@@ -13278,6 +13278,10 @@
         "Code": "fhl",
         "Properties": [
             {
+                "PropertyString": "+3 to Summon Spirit Wolf",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+1-3 to Shape Shifting (Druid Only)",
                 "Index": 3
             },
@@ -13296,10 +13300,6 @@
             {
                 "PropertyString": "+3-5 to Mana after each Kill",
                 "Index": 5
-            },
-            {
-                "PropertyString": "3",
-                "Index": 4
             }
         ],
         "DamageArmorEnhanced": true,
@@ -14109,6 +14109,10 @@
         "Code": "ssp",
         "Properties": [
             {
+                "PropertyString": "+5 to Teeth",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+20 Increased Attack Speed",
                 "Index": 5
             },
@@ -14131,10 +14135,6 @@
             {
                 "PropertyString": "Level 30 Teeth (250 Charges)",
                 "Index": 4
-            },
-            {
-                "PropertyString": "5",
-                "Index": 3
             },
             {
                 "PropertyString": "1",
@@ -14753,6 +14753,10 @@
         "Code": "bsd",
         "Properties": [
             {
+                "PropertyString": "+1-3 to Sacrifice",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+15 Increased Attack Speed",
                 "Index": 3
             },
@@ -14771,10 +14775,6 @@
             {
                 "PropertyString": "35-50 to Life",
                 "Index": 4
-            },
-            {
-                "PropertyString": "1-3",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -14877,6 +14877,10 @@
         "Code": "kri",
         "Properties": [
             {
+                "PropertyString": "+1-3 to Sacrifice",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+175-200% Enhanced Damage",
                 "Index": 0
             },
@@ -14895,10 +14899,6 @@
             {
                 "PropertyString": "Socketed (2)",
                 "Index": 3
-            },
-            {
-                "PropertyString": "1-3",
-                "Index": 2
             },
             {
                 "PropertyString": "1",
@@ -15811,6 +15811,10 @@
                 "Index": 2
             },
             {
+                "PropertyString": "+3-6 to Melee Mastery",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+140-190% Enhanced Damage",
                 "Index": 0
             },
@@ -15821,10 +15825,6 @@
             {
                 "PropertyString": "Fire Resist +15-25%",
                 "Index": 5
-            },
-            {
-                "PropertyString": "3-6",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -16051,6 +16051,10 @@
                 "Index": 2
             },
             {
+                "PropertyString": "+2 to Melee Mastery",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+25-35 to Minimum Damage",
                 "Index": 0
             },
@@ -16065,10 +16069,6 @@
             {
                 "PropertyString": "+35 Deadly Strike",
                 "Index": 3
-            },
-            {
-                "PropertyString": "2",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -16107,6 +16107,22 @@
         "Code": "bst",
         "Properties": [
             {
+                "PropertyString": "+1-3 to Warmth",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+1-3 to Frozen Armor",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+1-3 to Bone Armor",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+1-3 to Cyclone Armor",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+20 Increased Attack Speed",
                 "Index": 5
             },
@@ -16117,22 +16133,6 @@
             {
                 "PropertyString": "Adds 15-30 to Damage",
                 "Index": 4
-            },
-            {
-                "PropertyString": "1-3",
-                "Index": 0
-            },
-            {
-                "PropertyString": "1-3",
-                "Index": 1
-            },
-            {
-                "PropertyString": "1-3",
-                "Index": 2
-            },
-            {
-                "PropertyString": "1-3",
-                "Index": 3
             },
             {
                 "PropertyString": "1",
@@ -16295,8 +16295,8 @@
     },
     {
         "Type": "Armor",
-        "Name": "Ghosly Chainmail",
-        "Index": "Ghosly Chainmail",
+        "Name": "Ghostly Chainmail",
+        "Index": "Ghostly Chainmail",
         "Enabled": true,
         "ItemLevel": 8,
         "RequiredLevel": 23,
@@ -16462,6 +16462,10 @@
         "Code": "mbt",
         "Properties": [
             {
+                "PropertyString": "+1 to Dodge",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+20 Faster Run/Walk",
                 "Index": 1
             },
@@ -16480,10 +16484,6 @@
             {
                 "PropertyString": "+6-9 Attacker Takes Damage of",
                 "Index": 4
-            },
-            {
-                "PropertyString": "1",
-                "Index": 3
             }
         ],
         "DamageArmorEnhanced": true,
@@ -17166,6 +17166,10 @@
         "Code": "glv",
         "Properties": [
             {
+                "PropertyString": "+1-2 to Poison Javelin",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+90-120% Enhanced Damage",
                 "Index": 0
             },
@@ -17188,10 +17192,6 @@
             {
                 "PropertyString": "Requirements -35%",
                 "Index": 2
-            },
-            {
-                "PropertyString": "1-2",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -17238,6 +17238,10 @@
                 "Index": 7
             },
             {
+                "PropertyString": "+2 to Meditation",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+1",
                 "Index": 5
             },
@@ -17260,10 +17264,6 @@
             {
                 "PropertyString": "+20-30 better chance of getting magic item",
                 "Index": 3
-            },
-            {
-                "PropertyString": "2",
-                "Index": 4
             }
         ],
         "DamageArmorEnhanced": true,
@@ -17356,11 +17356,11 @@
         "Code": "kit",
         "Properties": [
             {
-                "PropertyString": "+40 Faster Block Rate",
+                "PropertyString": "+20 Faster Block Rate",
                 "Index": 2
             },
             {
-                "PropertyString": "60-70% Increased Chance of Blocking",
+                "PropertyString": "30-50% Increased Chance of Blocking",
                 "Index": 1
             },
             {
@@ -17368,7 +17368,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+50 Damage Reduced by 50%%",
+                "PropertyString": "+5-10 Damage Reduced by 5-10%%",
                 "Index": 3
             },
             {
@@ -18258,6 +18258,10 @@
         "Code": "mau",
         "Properties": [
             {
+                "PropertyString": "+2-4 to Melee Mastery",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+15 Increased Attack Speed",
                 "Index": 5
             },
@@ -18276,10 +18280,6 @@
             {
                 "PropertyString": "Slain Monsters Rest in Peace",
                 "Index": 3
-            },
-            {
-                "PropertyString": "2-4",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -19230,6 +19230,10 @@
                 "Index": 2
             },
             {
+                "PropertyString": "+3-5 to Oak Sage",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+14-25 to Minimum Damage",
                 "Index": 0
             },
@@ -19244,10 +19248,6 @@
             {
                 "PropertyString": "Magic Resist +10-15%",
                 "Index": 4
-            },
-            {
-                "PropertyString": "3-5",
-                "Index": 3
             },
             {
                 "PropertyString": "1",
@@ -19640,6 +19640,10 @@
                 "Index": 4
             },
             {
+                "PropertyString": "+2 to Melee Mastery",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+150-200% Enhanced Damage",
                 "Index": 0
             },
@@ -19658,10 +19662,6 @@
             {
                 "PropertyString": "Hit blinds target +1",
                 "Index": 2
-            },
-            {
-                "PropertyString": "2",
-                "Index": 3
             },
             {
                 "PropertyString": "1",
@@ -19824,6 +19824,10 @@
         "Code": "hbw",
         "Properties": [
             {
+                "PropertyString": "+1-3 to Magic Arrow",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+20 Faster Hit Recovery",
                 "Index": 1
             },
@@ -19842,10 +19846,6 @@
             {
                 "PropertyString": "15 to Vitality",
                 "Index": 4
-            },
-            {
-                "PropertyString": "1-3",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -19888,6 +19888,10 @@
                 "Index": 4
             },
             {
+                "PropertyString": "+6 to Multiple Shot",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+25 Increased Attack Speed",
                 "Index": 3
             },
@@ -19898,10 +19902,6 @@
             {
                 "PropertyString": "Adds 10-20 to Damage",
                 "Index": 1
-            },
-            {
-                "PropertyString": "6",
-                "Index": 2
             },
             {
                 "PropertyString": "1",
@@ -20038,6 +20038,14 @@
         "Code": "gth",
         "Properties": [
             {
+                "PropertyString": "+8 to Golem Mastery",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+2-5 to BloodGolem",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+120-200 Enhanced Defense",
                 "Index": 0
             },
@@ -20052,14 +20060,6 @@
             {
                 "PropertyString": "Level 30 Clay Golem (5 Charges)",
                 "Index": 4
-            },
-            {
-                "PropertyString": "8",
-                "Index": 2
-            },
-            {
-                "PropertyString": "2-5",
-                "Index": 3
             }
         ],
         "DamageArmorEnhanced": true,
@@ -20390,6 +20390,10 @@
         "Code": "ba5",
         "Properties": [
             {
+                "PropertyString": "+6-10 to Inferno",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+25% Enhanced Damage",
                 "Index": 1
             },
@@ -20408,10 +20412,6 @@
             {
                 "PropertyString": "+10 Damage Reduced by 10%%",
                 "Index": 2
-            },
-            {
-                "PropertyString": "6-10",
-                "Index": 4
             }
         ],
         "DamageArmorEnhanced": true,
@@ -21052,6 +21052,10 @@
         "Code": "bal",
         "Properties": [
             {
+                "PropertyString": "+1 to Critical Strike",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+175-200% Enhanced Damage",
                 "Index": 0
             },
@@ -21078,10 +21082,6 @@
             {
                 "PropertyString": "+ Replenishes quantity",
                 "Index": 1
-            },
-            {
-                "PropertyString": "1",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -21548,6 +21548,14 @@
                 "Index": 3
             },
             {
+                "PropertyString": "+5-10 to Skeleton Mastery",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+3-5 to Raise Skeletal Mage",
+                "Index": 1
+            },
+            {
                 "PropertyString": "+200% Damage to Undead Damage to Undead",
                 "Index": 2
             },
@@ -21558,14 +21566,6 @@
             {
                 "PropertyString": "Regenerate Mana 25%",
                 "Index": 5
-            },
-            {
-                "PropertyString": "5-10",
-                "Index": 0
-            },
-            {
-                "PropertyString": "3-5",
-                "Index": 1
             }
         ],
         "DamageArmorEnhanced": false,
@@ -22746,6 +22746,10 @@
         "Code": "plt",
         "Properties": [
             {
+                "PropertyString": "+3-5 to Warmth",
+                "Index": 1
+            },
+            {
                 "PropertyString": "75 to Attack Rating",
                 "Index": 2
             },
@@ -22760,10 +22764,6 @@
             {
                 "PropertyString": "15 to Energy",
                 "Index": 4
-            },
-            {
-                "PropertyString": "3-5",
-                "Index": 1
             }
         ],
         "DamageArmorEnhanced": true,
@@ -24454,6 +24454,10 @@
         "Code": "kri",
         "Properties": [
             {
+                "PropertyString": "+1-5 to Poison Dagger",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+25 Increased Attack Speed",
                 "Index": 4
             },
@@ -24476,10 +24480,6 @@
             {
                 "PropertyString": "Socketed (1)",
                 "Index": 6
-            },
-            {
-                "PropertyString": "1-5",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -24838,6 +24838,10 @@
                 "Index": 2
             },
             {
+                "PropertyString": "+6 to Strafe",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+20 Increased Attack Speed",
                 "Index": 3
             },
@@ -24856,10 +24860,6 @@
             {
                 "PropertyString": "35 to Dexterity",
                 "Index": 5
-            },
-            {
-                "PropertyString": "6",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -25023,6 +25023,18 @@
                 "Index": 3
             },
             {
+                "PropertyString": "+1 to Holy Shield",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+1-3 to Vengeance",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+1-2 to Concentration",
+                "Index": 6
+            },
+            {
                 "PropertyString": "+30 Faster Block Rate",
                 "Index": 2
             },
@@ -25037,18 +25049,6 @@
             {
                 "PropertyString": "Socketed (2-3)",
                 "Index": 7
-            },
-            {
-                "PropertyString": "1",
-                "Index": 4
-            },
-            {
-                "PropertyString": "1-3",
-                "Index": 5
-            },
-            {
-                "PropertyString": "1-2",
-                "Index": 6
             },
             {
                 "PropertyString": "1",
@@ -25864,6 +25864,10 @@
                 "Index": 0
             },
             {
+                "PropertyString": "+3-5 to Guided Arrow",
+                "Index": 1
+            },
+            {
                 "PropertyString": "+30 Increased Attack Speed",
                 "Index": 2
             },
@@ -25890,10 +25894,6 @@
             {
                 "PropertyString": "+50 extra gold from monsters",
                 "Index": 5
-            },
-            {
-                "PropertyString": "3-5",
-                "Index": 1
             },
             {
                 "PropertyString": "1",
@@ -25973,6 +25973,10 @@
         "Code": "aar",
         "Properties": [
             {
+                "PropertyString": "+2-4 to Attract",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+25 to Maximum Damage",
                 "Index": 1
             },
@@ -25991,10 +25995,6 @@
             {
                 "PropertyString": "+150-200 Enhanced Defense",
                 "Index": 0
-            },
-            {
-                "PropertyString": "2-4",
-                "Index": 5
             }
         ],
         "DamageArmorEnhanced": true,
@@ -26193,6 +26193,10 @@
         "Code": "ci2",
         "Properties": [
             {
+                "PropertyString": "+2-4 to Teleport",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+20 Faster Block Rate",
                 "Index": 2
             },
@@ -26211,10 +26215,6 @@
             {
                 "PropertyString": "+8 Replenish Life",
                 "Index": 5
-            },
-            {
-                "PropertyString": "2-4",
-                "Index": 4
             }
         ],
         "DamageArmorEnhanced": true,
@@ -27689,6 +27689,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+2 to Revive",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+100-125 Enhanced Defense",
                 "Index": 0
             },
@@ -27711,10 +27715,6 @@
             {
                 "PropertyString": "3-5 to Experience Gained",
                 "Index": 3
-            },
-            {
-                "PropertyString": "2",
-                "Index": 2
             }
         ],
         "DamageArmorEnhanced": true,
@@ -28045,6 +28045,10 @@
                 "Index": 4
             },
             {
+                "PropertyString": "+1-3 to Melee Mastery",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+25 Increased Attack Speed",
                 "Index": 2
             },
@@ -28055,10 +28059,6 @@
             {
                 "PropertyString": "Adds 5-7 Mana stolen per hit",
                 "Index": 3
-            },
-            {
-                "PropertyString": "1-3",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -28221,6 +28221,10 @@
                 "Index": 4
             },
             {
+                "PropertyString": "+1-4 to Melee Mastery",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+20 Increased Attack Speed",
                 "Index": 3
             },
@@ -28239,10 +28243,6 @@
             {
                 "PropertyString": "+50 Slows target by",
                 "Index": 2
-            },
-            {
-                "PropertyString": "1-4",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -28345,6 +28345,10 @@
                 "Index": 2
             },
             {
+                "PropertyString": "+1-4 to Corpse Explosion",
+                "Index": 6
+            },
+            {
                 "PropertyString": "+15 Increased Attack Speed",
                 "Index": 5
             },
@@ -28363,10 +28367,6 @@
             {
                 "PropertyString": "Requirements +20%",
                 "Index": 4
-            },
-            {
-                "PropertyString": "1-4",
-                "Index": 6
             },
             {
                 "PropertyString": "1",
@@ -28533,6 +28533,10 @@
         "Code": "lbb",
         "Properties": [
             {
+                "PropertyString": "+3 to Strafe",
+                "Index": 1
+            },
+            {
                 "PropertyString": "+20 Piercing Attack",
                 "Index": 5
             },
@@ -28551,10 +28555,6 @@
             {
                 "PropertyString": "Poison Resist +40-50%",
                 "Index": 3
-            },
-            {
-                "PropertyString": "3",
-                "Index": 1
             },
             {
                 "PropertyString": "1",
@@ -28661,6 +28661,14 @@
                 "Index": 4
             },
             {
+                "PropertyString": "+1 to Frozen Orb",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+1 to Cold Mastery",
+                "Index": 6
+            },
+            {
                 "PropertyString": "+180-200% Enhanced Damage",
                 "Index": 0
             },
@@ -28675,14 +28683,6 @@
             {
                 "PropertyString": "+ Replenishes quantity",
                 "Index": 1
-            },
-            {
-                "PropertyString": "1",
-                "Index": 5
-            },
-            {
-                "PropertyString": "1",
-                "Index": 6
             },
             {
                 "PropertyString": "1",
@@ -29722,6 +29722,10 @@
         "Code": "gma",
         "Properties": [
             {
+                "PropertyString": "+1 to Find Item",
+                "Index": 1
+            },
+            {
                 "PropertyString": "+175-200% Enhanced Damage",
                 "Index": 0
             },
@@ -29744,10 +29748,6 @@
             {
                 "PropertyString": "Socketed (1-2)",
                 "Index": 6
-            },
-            {
-                "PropertyString": "1",
-                "Index": 1
             },
             {
                 "PropertyString": "1",
@@ -29854,6 +29854,10 @@
         "Code": "glv",
         "Properties": [
             {
+                "PropertyString": "+1 to Melee Mastery",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+80-100% Enhanced Damage",
                 "Index": 0
             },
@@ -29876,10 +29880,6 @@
             {
                 "PropertyString": "+60 Increased Stack Size",
                 "Index": 2
-            },
-            {
-                "PropertyString": "1",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -29922,6 +29922,10 @@
         "Code": "xap",
         "Properties": [
             {
+                "PropertyString": "+1 to Resist Lightning",
+                "Index": 6
+            },
+            {
                 "PropertyString": "+20 Faster Hit Recovery",
                 "Index": 3
             },
@@ -29944,10 +29948,6 @@
             {
                 "PropertyString": "Socketed (1)",
                 "Index": 5
-            },
-            {
-                "PropertyString": "1",
-                "Index": 6
             }
         ],
         "DamageArmorEnhanced": true,
@@ -31051,6 +31051,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+1-5 to Lower Resist",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+10 Faster Cast Rate",
                 "Index": 3
             },
@@ -31061,10 +31065,6 @@
             {
                 "PropertyString": "+20-25 better chance of getting magic item",
                 "Index": 4
-            },
-            {
-                "PropertyString": "1-5",
-                "Index": 2
             }
         ],
         "DamageArmorEnhanced": true,
@@ -32248,6 +32248,10 @@
                 "Index": 6
             },
             {
+                "PropertyString": "+2 to Ice Arrow",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+1",
                 "Index": 5
             },
@@ -32266,10 +32270,6 @@
             {
                 "PropertyString": "+20 Increase Maximum Mana",
                 "Index": 3
-            },
-            {
-                "PropertyString": "2",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -32308,6 +32308,10 @@
         "Code": "8sb",
         "Properties": [
             {
+                "PropertyString": "+4 to Guided Arrow",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+25 Increased Attack Speed",
                 "Index": 1
             },
@@ -32330,10 +32334,6 @@
             {
                 "PropertyString": "Level 35 Revive (8 Charges)",
                 "Index": 4
-            },
-            {
-                "PropertyString": "4",
-                "Index": 3
             },
             {
                 "PropertyString": "1",
@@ -32672,6 +32672,14 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+5 to Skeleton Mastery",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+1 to Revive",
+                "Index": 6
+            },
+            {
                 "PropertyString": "15-30% Increased Chance of Blocking",
                 "Index": 4
             },
@@ -32690,14 +32698,6 @@
             {
                 "PropertyString": "10% Damage Taken Goes To Mana",
                 "Index": 7
-            },
-            {
-                "PropertyString": "5",
-                "Index": 5
-            },
-            {
-                "PropertyString": "1",
-                "Index": 6
             },
             {
                 "PropertyString": "1",
@@ -33544,6 +33544,18 @@
         "Code": "wsd",
         "Properties": [
             {
+                "PropertyString": "+1 to Shout",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+1 to Battle Orders",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+1 to Battle Command",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+40 Increased Attack Speed",
                 "Index": 5
             },
@@ -33554,18 +33566,6 @@
             {
                 "PropertyString": "Requirements +50%",
                 "Index": 4
-            },
-            {
-                "PropertyString": "1",
-                "Index": 1
-            },
-            {
-                "PropertyString": "1",
-                "Index": 2
-            },
-            {
-                "PropertyString": "1",
-                "Index": 3
             },
             {
                 "PropertyString": "1",
@@ -34047,6 +34047,10 @@
         "Code": "xkp",
         "Properties": [
             {
+                "PropertyString": "+14 to Lightning Fury",
+                "Index": 1
+            },
+            {
                 "PropertyString": "-10 Increased Attack Speed",
                 "Index": 4
             },
@@ -34065,10 +34069,6 @@
             {
                 "PropertyString": "-10 to Dexterity",
                 "Index": 2
-            },
-            {
-                "PropertyString": "14",
-                "Index": 1
             }
         ],
         "DamageArmorEnhanced": true,
@@ -34965,6 +34965,10 @@
                 "Index": 3
             },
             {
+                "PropertyString": "+5 to Ice Arrow",
+                "Index": 1
+            },
+            {
                 "PropertyString": "+185-235% Enhanced Damage",
                 "Index": 0
             },
@@ -34983,10 +34987,6 @@
             {
                 "PropertyString": "Level 10 Chilling Armor (3 Charges)",
                 "Index": 2
-            },
-            {
-                "PropertyString": "5",
-                "Index": 1
             },
             {
                 "PropertyString": "1",
@@ -35336,6 +35336,10 @@
         "Code": "zvb",
         "Properties": [
             {
+                "PropertyString": "+1 to Increased Stamina",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+20 Faster Run/Walk",
                 "Index": 5
             },
@@ -35354,10 +35358,6 @@
             {
                 "PropertyString": "Cold Resist +25-35%",
                 "Index": 1
-            },
-            {
-                "PropertyString": "1",
-                "Index": 4
             }
         ],
         "DamageArmorEnhanced": true,
@@ -35519,6 +35519,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+2-4 to Vengeance",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+180-230% Enhanced Damage",
                 "Index": 0
             },
@@ -35533,10 +35537,6 @@
             {
                 "PropertyString": "Regenerate Mana 25%",
                 "Index": 5
-            },
-            {
-                "PropertyString": "2-4",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -35946,6 +35946,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+1-3 to Decrepify",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+20 Increased Attack Speed",
                 "Index": 2
             },
@@ -35960,10 +35964,6 @@
             {
                 "PropertyString": "Poison Resist +25%",
                 "Index": 3
-            },
-            {
-                "PropertyString": "1-3",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -36002,6 +36002,10 @@
         "Code": "9sb",
         "Properties": [
             {
+                "PropertyString": "+6 to Blade Shield",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+30 Increased Attack Speed",
                 "Index": 3
             },
@@ -36028,10 +36032,6 @@
             {
                 "PropertyString": "Lightning Resist +35%",
                 "Index": 7
-            },
-            {
-                "PropertyString": "6",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -36342,6 +36342,10 @@
                 "Index": 2
             },
             {
+                "PropertyString": "+6 to Exploding Arrow",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+25 Increased Attack Speed",
                 "Index": 1
             },
@@ -36356,10 +36360,6 @@
             {
                 "PropertyString": "Cold Resist +25-40%",
                 "Index": 4
-            },
-            {
-                "PropertyString": "6",
-                "Index": 3
             },
             {
                 "PropertyString": "1",
@@ -36398,6 +36398,10 @@
         "Code": "9s9",
         "Properties": [
             {
+                "PropertyString": "+5 to Attract",
+                "Index": 6
+            },
+            {
                 "PropertyString": "+140-225% Enhanced Damage",
                 "Index": 0
             },
@@ -36420,10 +36424,6 @@
             {
                 "PropertyString": "20-40",
                 "Index": 5
-            },
-            {
-                "PropertyString": "5",
-                "Index": 6
             },
             {
                 "PropertyString": "1",
@@ -39222,6 +39222,14 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+3 to Bone Armor",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+1 to Life Tap",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+20 Faster Hit Recovery",
                 "Index": 7
             },
@@ -39240,14 +39248,6 @@
             {
                 "PropertyString": "+50 Poison Length Reduced by",
                 "Index": 5
-            },
-            {
-                "PropertyString": "3",
-                "Index": 2
-            },
-            {
-                "PropertyString": "1",
-                "Index": 3
             }
         ],
         "DamageArmorEnhanced": true,
@@ -39283,6 +39283,10 @@
                 "Index": 7
             },
             {
+                "PropertyString": "+2-4 to Inner Sight",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+50% Enhanced Damage",
                 "Index": 1
             },
@@ -39305,10 +39309,6 @@
             {
                 "PropertyString": "All Resistances +20",
                 "Index": 2
-            },
-            {
-                "PropertyString": "2-4",
-                "Index": 5
             }
         ],
         "DamageArmorEnhanced": true,
@@ -39344,6 +39344,18 @@
                 "Index": 2
             },
             {
+                "PropertyString": "+5-8 to Shape Shifting",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+5-8 to Wearwolf",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+1-3 to Fury",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+30 Increased Attack Speed",
                 "Index": 1
             },
@@ -39358,18 +39370,6 @@
             {
                 "PropertyString": "Socketed (1-2)",
                 "Index": 7
-            },
-            {
-                "PropertyString": "5-8",
-                "Index": 3
-            },
-            {
-                "PropertyString": "5-8",
-                "Index": 4
-            },
-            {
-                "PropertyString": "1-3",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -40192,6 +40192,18 @@
         "Code": "9sr",
         "Properties": [
             {
+                "PropertyString": "+5 to Wearwolf",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+3-5 to Shape Shifting",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+3-5 to Fury",
+                "Index": 8
+            },
+            {
                 "PropertyString": "+40 Increased Attack Speed",
                 "Index": 6
             },
@@ -40210,18 +40222,6 @@
             {
                 "PropertyString": "3 to Experience Gained",
                 "Index": 3
-            },
-            {
-                "PropertyString": "5",
-                "Index": 4
-            },
-            {
-                "PropertyString": "3-5",
-                "Index": 5
-            },
-            {
-                "PropertyString": "3-5",
-                "Index": 8
             },
             {
                 "PropertyString": "1",
@@ -40260,6 +40260,10 @@
         "Code": "9gl",
         "Properties": [
             {
+                "PropertyString": "+6 to Charged Strike",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+175-235% Enhanced Damage",
                 "Index": 0
             },
@@ -40286,10 +40290,6 @@
             {
                 "PropertyString": "+ Replenishes quantity",
                 "Index": 1
-            },
-            {
-                "PropertyString": "6",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -40572,6 +40572,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+1 to Amplify Damage",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+200-250% Enhanced Damage",
                 "Index": 0
             },
@@ -40590,10 +40594,6 @@
             {
                 "PropertyString": "Fire Resist +35-50%",
                 "Index": 3
-            },
-            {
-                "PropertyString": "1",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -42366,6 +42366,14 @@
                 "Index": 3
             },
             {
+                "PropertyString": "+3-6 to Fire Mastery",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+6-8 to Fire Ball",
+                "Index": 7
+            },
+            {
                 "PropertyString": "+20 Faster Cast Rate",
                 "Index": 4
             },
@@ -42384,14 +42392,6 @@
             {
                 "PropertyString": "+15 Increase Maximum Mana",
                 "Index": 5
-            },
-            {
-                "PropertyString": "3-6",
-                "Index": 6
-            },
-            {
-                "PropertyString": "6-8",
-                "Index": 7
             },
             {
                 "PropertyString": "1",
@@ -42430,6 +42430,10 @@
         "Code": "9yw",
         "Properties": [
             {
+                "PropertyString": "+8 to Zeal",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+35 Increased Attack Speed",
                 "Index": 2
             },
@@ -42452,10 +42456,6 @@
             {
                 "PropertyString": "+3 Knockback",
                 "Index": 3
-            },
-            {
-                "PropertyString": "8",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -42691,6 +42691,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+1 to Holy Shield",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+10 Increased Attack Speed",
                 "Index": 5
             },
@@ -42709,10 +42713,6 @@
             {
                 "PropertyString": "Lightning Resist +35%",
                 "Index": 6
-            },
-            {
-                "PropertyString": "1",
-                "Index": 2
             },
             {
                 "PropertyString": "1",
@@ -43152,6 +43152,10 @@
                 "Index": 0
             },
             {
+                "PropertyString": "+3-5 to FireGolem",
+                "Index": 6
+            },
+            {
                 "PropertyString": "20-30 to Poison Skill Damage",
                 "Index": 3
             },
@@ -43170,10 +43174,6 @@
             {
                 "PropertyString": "+50 Poison Length Reduced by",
                 "Index": 5
-            },
-            {
-                "PropertyString": "3-5",
-                "Index": 6
             },
             {
                 "PropertyString": "1",
@@ -43216,6 +43216,10 @@
                 "Index": 4
             },
             {
+                "PropertyString": "+5 to Raven",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+30 Increased Attack Speed",
                 "Index": 2
             },
@@ -43234,10 +43238,6 @@
             {
                 "PropertyString": "Socketed (2)",
                 "Index": 5
-            },
-            {
-                "PropertyString": "5",
-                "Index": 3
             },
             {
                 "PropertyString": "1",
@@ -44582,6 +44582,10 @@
                 "Index": 3
             },
             {
+                "PropertyString": "+3 to Melee Mastery",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+30 Increased Attack Speed",
                 "Index": 2
             },
@@ -44604,10 +44608,6 @@
             {
                 "PropertyString": "100%",
                 "Index": 4
-            },
-            {
-                "PropertyString": "3",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -45074,6 +45074,10 @@
         "Code": "xmg",
         "Properties": [
             {
+                "PropertyString": "+1 to Salvation",
+                "Index": 1
+            },
+            {
                 "PropertyString": "+10 Faster Cast Rate",
                 "Index": 2
             },
@@ -45096,10 +45100,6 @@
             {
                 "PropertyString": "All Resistances +10-15",
                 "Index": 4
-            },
-            {
-                "PropertyString": "1",
-                "Index": 1
             }
         ],
         "DamageArmorEnhanced": true,
@@ -45808,6 +45808,18 @@
         "Code": "9fc",
         "Properties": [
             {
+                "PropertyString": "+1 to Battle Orders",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+1 to Revive",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+5-8 to Skeleton Mastery",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+25 Increased Attack Speed",
                 "Index": 7
             },
@@ -45826,18 +45838,6 @@
             {
                 "PropertyString": "25 to Dexterity",
                 "Index": 6
-            },
-            {
-                "PropertyString": "1",
-                "Index": 2
-            },
-            {
-                "PropertyString": "1",
-                "Index": 3
-            },
-            {
-                "PropertyString": "5-8",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -46887,6 +46887,10 @@
         "Code": "9sp",
         "Properties": [
             {
+                "PropertyString": "+3-5 to Melee Mastery",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+20 Increased Attack Speed",
                 "Index": 1
             },
@@ -46913,10 +46917,6 @@
             {
                 "PropertyString": "Socketed (1)",
                 "Index": 6
-            },
-            {
-                "PropertyString": "3-5",
-                "Index": 3
             },
             {
                 "PropertyString": "1",
@@ -47003,6 +47003,10 @@
         "Code": "9kr",
         "Properties": [
             {
+                "PropertyString": "+5-7 to Dim Vision",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+180-230% Enhanced Damage",
                 "Index": 0
             },
@@ -47025,10 +47029,6 @@
             {
                 "PropertyString": "+100 Defense",
                 "Index": 4
-            },
-            {
-                "PropertyString": "5-7",
-                "Index": 3
             },
             {
                 "PropertyString": "1",
@@ -47067,6 +47067,10 @@
         "Code": "9tr",
         "Properties": [
             {
+                "PropertyString": "+5 to Inferno",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+120-160% Enhanced Damage",
                 "Index": 0
             },
@@ -47089,10 +47093,6 @@
             {
                 "PropertyString": "Fire Resist +65%",
                 "Index": 6
-            },
-            {
-                "PropertyString": "5",
-                "Index": 2
             },
             {
                 "PropertyString": "1",
@@ -47439,6 +47439,10 @@
         "Code": "ztb",
         "Properties": [
             {
+                "PropertyString": "+1 to Find Item",
+                "Index": 6
+            },
+            {
                 "PropertyString": "+75-100 Enhanced Defense",
                 "Index": 0
             },
@@ -47461,10 +47465,6 @@
             {
                 "PropertyString": "+ better chance of getting magic item",
                 "Index": 3
-            },
-            {
-                "PropertyString": "1",
-                "Index": 6
             }
         ],
         "DamageArmorEnhanced": true,
@@ -48224,6 +48224,10 @@
         "Code": "9st",
         "Properties": [
             {
+                "PropertyString": "+1-3 to Valkyrie",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+205-255% Enhanced Damage",
                 "Index": 0
             },
@@ -48250,10 +48254,6 @@
             {
                 "PropertyString": "+40-50 better chance of getting magic item",
                 "Index": 6
-            },
-            {
-                "PropertyString": "1-3",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -49124,6 +49124,10 @@
                 "Index": 3
             },
             {
+                "PropertyString": "+10 to Melee Mastery",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+30 Faster Run/Walk",
                 "Index": 6
             },
@@ -49142,10 +49146,6 @@
             {
                 "PropertyString": "3-5 to Experience Gained",
                 "Index": 5
-            },
-            {
-                "PropertyString": "10",
-                "Index": 2
             },
             {
                 "PropertyString": "1",
@@ -49252,6 +49252,10 @@
         "Code": "9bl",
         "Properties": [
             {
+                "PropertyString": "+6 to Raven",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+30 Faster Run/Walk",
                 "Index": 2
             },
@@ -49278,10 +49282,6 @@
             {
                 "PropertyString": "Level 1 Teleport (250 Charges)",
                 "Index": 3
-            },
-            {
-                "PropertyString": "6",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -49384,6 +49384,10 @@
         "Code": "8lx",
         "Properties": [
             {
+                "PropertyString": "+1 to Freezing Arrow",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+20 Increased Attack Speed",
                 "Index": 1
             },
@@ -49406,10 +49410,6 @@
             {
                 "PropertyString": "+30-50 better chance of getting magic item",
                 "Index": 5
-            },
-            {
-                "PropertyString": "1",
-                "Index": 2
             },
             {
                 "PropertyString": "1",
@@ -49692,6 +49692,10 @@
                 "Index": 2
             },
             {
+                "PropertyString": "+7-12 to Whirlwind",
+                "Index": 1
+            },
+            {
                 "PropertyString": "+20 Faster Run/Walk",
                 "Index": 6
             },
@@ -49710,10 +49714,6 @@
             {
                 "PropertyString": "Requirements +25%",
                 "Index": 5
-            },
-            {
-                "PropertyString": "7-12",
-                "Index": 1
             }
         ],
         "DamageArmorEnhanced": true,
@@ -50569,6 +50569,10 @@
         "Code": "9wd",
         "Properties": [
             {
+                "PropertyString": "+3-5 to Slow Missiles",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+20 Increased Attack Speed",
                 "Index": 1
             },
@@ -50599,10 +50603,6 @@
             {
                 "PropertyString": "+1 Cannot Be Frozen",
                 "Index": 4
-            },
-            {
-                "PropertyString": "3-5",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -50961,6 +50961,10 @@
                 "Index": 3
             },
             {
+                "PropertyString": "+5-8 to Fire Wall",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+200-250% Enhanced Damage",
                 "Index": 0
             },
@@ -50983,10 +50987,6 @@
             {
                 "PropertyString": "Socketed (2)",
                 "Index": 7
-            },
-            {
-                "PropertyString": "5-8",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -51221,6 +51221,10 @@
         "Code": "8lb",
         "Properties": [
             {
+                "PropertyString": "+1 to Pierce",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+2",
                 "Index": 6
             },
@@ -51247,10 +51251,6 @@
             {
                 "PropertyString": "+30 to Mana",
                 "Index": 5
-            },
-            {
-                "PropertyString": "1",
-                "Index": 3
             },
             {
                 "PropertyString": "1",
@@ -51411,6 +51411,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+1 to Melee Mastery",
+                "Index": 5
+            },
+            {
                 "PropertyString": "15-30% Increased Chance of Blocking",
                 "Index": 4
             },
@@ -51433,10 +51437,6 @@
             {
                 "PropertyString": "+10-15 Damage Reduced by 10-15%%",
                 "Index": 6
-            },
-            {
-                "PropertyString": "1",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -52157,6 +52157,10 @@
                 "Index": 3
             },
             {
+                "PropertyString": "+4-7 to Bone Spirit",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+30 Increased Attack Speed",
                 "Index": 1
             },
@@ -52175,10 +52179,6 @@
             {
                 "PropertyString": "+1 Prevent Monster Heal",
                 "Index": 6
-            },
-            {
-                "PropertyString": "4-7",
-                "Index": 2
             },
             {
                 "PropertyString": "1",
@@ -52353,6 +52353,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+3 to Melee Mastery",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+25 Increased Attack Speed",
                 "Index": 2
             },
@@ -52367,10 +52371,6 @@
             {
                 "PropertyString": "+12 Life stolen per hit",
                 "Index": 3
-            },
-            {
-                "PropertyString": "3",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -52601,6 +52601,10 @@
                 "Index": 0
             },
             {
+                "PropertyString": "+5 to Dim Vision",
+                "Index": 1
+            },
+            {
                 "PropertyString": "+40 Faster Cast Rate",
                 "Index": 5
             },
@@ -52623,10 +52627,6 @@
             {
                 "PropertyString": "+50 to Mana",
                 "Index": 2
-            },
-            {
-                "PropertyString": "5",
-                "Index": 1
             },
             {
                 "PropertyString": "1",
@@ -52669,6 +52669,10 @@
                 "Index": 2
             },
             {
+                "PropertyString": "+3 to Immolation Arrow",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+30 Faster Run/Walk",
                 "Index": 7
             },
@@ -52691,10 +52695,6 @@
             {
                 "PropertyString": "Level 10 Slow Missiles (100 Charges)",
                 "Index": 6
-            },
-            {
-                "PropertyString": "3",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -53044,6 +53044,10 @@
         "Code": "zhb",
         "Properties": [
             {
+                "PropertyString": "+1 to Melee Mastery",
+                "Index": 6
+            },
+            {
                 "PropertyString": "+10 Increased Attack Speed",
                 "Index": 3
             },
@@ -53066,10 +53070,6 @@
             {
                 "PropertyString": "+5 Replenish Life",
                 "Index": 4
-            },
-            {
-                "PropertyString": "1",
-                "Index": 6
             }
         ],
         "DamageArmorEnhanced": true,
@@ -53105,6 +53105,10 @@
                 "Index": 6
             },
             {
+                "PropertyString": "+1 to Teleport",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+1-2",
                 "Index": 5
             },
@@ -53123,10 +53127,6 @@
             {
                 "PropertyString": "Adds 1-200 to Lightning Damage",
                 "Index": 2
-            },
-            {
-                "PropertyString": "1",
-                "Index": 3
             },
             {
                 "PropertyString": "1",
@@ -53241,6 +53241,10 @@
                 "Index": 2
             },
             {
+                "PropertyString": "+3-5 to Melee Mastery",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+50 Increased Attack Speed",
                 "Index": 3
             },
@@ -53267,10 +53271,6 @@
             {
                 "PropertyString": "Repairs 0.1 durability per second",
                 "Index": 6
-            },
-            {
-                "PropertyString": "3-5",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -53309,8 +53309,24 @@
         "Code": "ob9",
         "Properties": [
             {
+                "PropertyString": "+5-12 to Skeleton Mastery",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+1-3 to Revive",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+6-10 to Raise Skeletal Mage",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+2",
                 "Index": 6
+            },
+            {
+                "PropertyString": "+1 to Grim Ward",
+                "Index": 7
             },
             {
                 "PropertyString": "+40 Faster Cast Rate",
@@ -53323,22 +53339,6 @@
             {
                 "PropertyString": "+10 Reduces all Vendor Prices",
                 "Index": 4
-            },
-            {
-                "PropertyString": "5-12",
-                "Index": 0
-            },
-            {
-                "PropertyString": "1-3",
-                "Index": 1
-            },
-            {
-                "PropertyString": "6-10",
-                "Index": 2
-            },
-            {
-                "PropertyString": "1",
-                "Index": 7
             },
             {
                 "PropertyString": "1",
@@ -53913,6 +53913,10 @@
         "Code": "9b9",
         "Properties": [
             {
+                "PropertyString": "+3 to Stun",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+30 Faster Run/Walk",
                 "Index": 5
             },
@@ -53935,10 +53939,6 @@
             {
                 "PropertyString": "+3 Knockback",
                 "Index": 2
-            },
-            {
-                "PropertyString": "3",
-                "Index": 3
             },
             {
                 "PropertyString": "1",
@@ -54763,6 +54763,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+1 to Zeal",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+15 Deadly Strike",
                 "Index": 5
             },
@@ -54781,10 +54785,6 @@
             {
                 "PropertyString": "to Vitality",
                 "Index": 6
-            },
-            {
-                "PropertyString": "1",
-                "Index": 4
             }
         ],
         "DamageArmorEnhanced": true,
@@ -54820,6 +54820,10 @@
                 "Index": 5
             },
             {
+                "PropertyString": "+5 to Bone Wall",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+20 Faster Run/Walk",
                 "Index": 3
             },
@@ -54842,10 +54846,6 @@
             {
                 "PropertyString": "+200-300 Defense",
                 "Index": 0
-            },
-            {
-                "PropertyString": "5",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -55343,6 +55343,10 @@
                 "Index": 3
             },
             {
+                "PropertyString": "+8 to Melee Mastery",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+25 Increased Attack Speed",
                 "Index": 5
             },
@@ -55365,10 +55369,6 @@
             {
                 "PropertyString": "+35-50 to Mana",
                 "Index": 7
-            },
-            {
-                "PropertyString": "8",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -55407,6 +55407,14 @@
         "Code": "9wc",
         "Properties": [
             {
+                "PropertyString": "+5-8 to Skeleton Mastery",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+5-8 to Revive",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+35 Increased Attack Speed",
                 "Index": 1
             },
@@ -55425,14 +55433,6 @@
             {
                 "PropertyString": "+20 Slows target by",
                 "Index": 6
-            },
-            {
-                "PropertyString": "5-8",
-                "Index": 2
-            },
-            {
-                "PropertyString": "5-8",
-                "Index": 3
             },
             {
                 "PropertyString": "1",
@@ -56579,6 +56579,10 @@
         "Code": "9ts",
         "Properties": [
             {
+                "PropertyString": "+3-5 to Lightning Fury",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+225-270% Enhanced Damage",
                 "Index": 0
             },
@@ -56605,10 +56609,6 @@
             {
                 "PropertyString": "+ Replenishes quantity",
                 "Index": 1
-            },
-            {
-                "PropertyString": "3-5",
-                "Index": 3
             },
             {
                 "PropertyString": "1",
@@ -57277,6 +57277,10 @@
                 "Index": 4
             },
             {
+                "PropertyString": "+2-5 to Shiver Armor",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+200-275% Enhanced Damage",
                 "Index": 0
             },
@@ -57295,10 +57299,6 @@
             {
                 "PropertyString": "25 to Energy",
                 "Index": 1
-            },
-            {
-                "PropertyString": "2-5",
-                "Index": 2
             },
             {
                 "PropertyString": "1",
@@ -57457,6 +57457,10 @@
         "Code": "6lx",
         "Properties": [
             {
+                "PropertyString": "+1-3 to Multiple Shot",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+150-250% Enhanced Damage",
                 "Index": 2
             },
@@ -57471,10 +57475,6 @@
             {
                 "PropertyString": "Socketed (2-3)",
                 "Index": 3
-            },
-            {
-                "PropertyString": "1-3",
-                "Index": 0
             },
             {
                 "PropertyString": "1",
@@ -57927,6 +57927,10 @@
                 "Index": 3
             },
             {
+                "PropertyString": "+15-20 to Inferno",
+                "Index": 1
+            },
+            {
                 "PropertyString": "+66-95 to Unsummon",
                 "Index": 5
             },
@@ -57949,10 +57953,6 @@
             {
                 "PropertyString": "3-5 to Experience Gained",
                 "Index": 7
-            },
-            {
-                "PropertyString": "15-20",
-                "Index": 1
             },
             {
                 "PropertyString": "1",
@@ -58235,6 +58235,10 @@
                 "Index": 3
             },
             {
+                "PropertyString": "+1-3 to Melee Mastery",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+50 Increased Attack Speed",
                 "Index": 1
             },
@@ -58245,10 +58249,6 @@
             {
                 "PropertyString": "Socketed (3-6)",
                 "Index": 2
-            },
-            {
-                "PropertyString": "1-3",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -58427,6 +58427,10 @@
         "Code": "8sw",
         "Properties": [
             {
+                "PropertyString": "+1 to Weaken",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+30 Faster Run/Walk",
                 "Index": 2
             },
@@ -58449,10 +58453,6 @@
             {
                 "PropertyString": "Socketed (2)",
                 "Index": 6
-            },
-            {
-                "PropertyString": "1",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -58555,6 +58555,10 @@
         "Code": "xth",
         "Properties": [
             {
+                "PropertyString": "+2-4 to Fade",
+                "Index": 1
+            },
+            {
                 "PropertyString": "Slain Monsters Rest in Peace",
                 "Index": 2
             },
@@ -58569,10 +58573,6 @@
             {
                 "PropertyString": "Socketed (4)",
                 "Index": 3
-            },
-            {
-                "PropertyString": "2-4",
-                "Index": 1
             }
         ],
         "DamageArmorEnhanced": true,
@@ -59513,6 +59513,14 @@
                 "Index": 3
             },
             {
+                "PropertyString": "+5-8 to Poison Javelin",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+5-8 to Plague Javelin",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+25 Faster Run/Walk",
                 "Index": 2
             },
@@ -59535,14 +59543,6 @@
             {
                 "PropertyString": "+160-200 Enhanced Defense",
                 "Index": 0
-            },
-            {
-                "PropertyString": "5-8",
-                "Index": 4
-            },
-            {
-                "PropertyString": "5-8",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -59889,6 +59889,10 @@
         "Code": "7tr",
         "Properties": [
             {
+                "PropertyString": "+40 to Inferno",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+30 Increased Attack Speed",
                 "Index": 1
             },
@@ -59907,10 +59911,6 @@
             {
                 "PropertyString": "+25 Fire Absorb",
                 "Index": 5
-            },
-            {
-                "PropertyString": "40",
-                "Index": 2
             },
             {
                 "PropertyString": "1",
@@ -59953,6 +59953,10 @@
                 "Index": 3
             },
             {
+                "PropertyString": "+2 to Melee Mastery",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+100-125% Enhanced Damage",
                 "Index": 0
             },
@@ -59975,10 +59979,6 @@
             {
                 "PropertyString": "+65 Increased Stack Size",
                 "Index": 5
-            },
-            {
-                "PropertyString": "2",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -60320,6 +60320,10 @@
         "Code": "9b9",
         "Properties": [
             {
+                "PropertyString": "+3-5 to Melee Mastery",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+190-225% Enhanced Damage",
                 "Index": 0
             },
@@ -60346,10 +60350,6 @@
             {
                 "PropertyString": "+3-5 to Mana after each Kill",
                 "Index": 4
-            },
-            {
-                "PropertyString": "3-5",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -61156,6 +61156,10 @@
         "Code": "7cm",
         "Properties": [
             {
+                "PropertyString": "+1-20 to Whirlwind",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+225-275% Enhanced Damage",
                 "Index": 0
             },
@@ -61174,10 +61178,6 @@
             {
                 "PropertyString": "+15-25 Life after each Kill",
                 "Index": 4
-            },
-            {
-                "PropertyString": "1-20",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -61348,6 +61348,10 @@
         "Code": "7sr",
         "Properties": [
             {
+                "PropertyString": "+1 to Whirlwind",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+200-270% Enhanced Damage",
                 "Index": 0
             },
@@ -61366,10 +61370,6 @@
             {
                 "PropertyString": "Fire Resist +50%",
                 "Index": 6
-            },
-            {
-                "PropertyString": "1",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -61464,6 +61464,10 @@
         "Code": "7vo",
         "Properties": [
             {
+                "PropertyString": "+12 to Melee Mastery",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+3",
                 "Index": 3
             },
@@ -61490,10 +61494,6 @@
             {
                 "PropertyString": "+10-20 Fire Absorb",
                 "Index": 7
-            },
-            {
-                "PropertyString": "12",
-                "Index": 2
             },
             {
                 "PropertyString": "1",
@@ -61536,6 +61536,10 @@
                 "Index": 2
             },
             {
+                "PropertyString": "+3 to Whirlwind",
+                "Index": 8
+            },
+            {
                 "PropertyString": "+25 Faster Run/Walk",
                 "Index": 4
             },
@@ -61562,10 +61566,6 @@
             {
                 "PropertyString": "All Resistances +40-50",
                 "Index": 3
-            },
-            {
-                "PropertyString": "3",
-                "Index": 8
             },
             {
                 "PropertyString": "1",
@@ -61604,6 +61604,14 @@
         "Code": "6lb",
         "Properties": [
             {
+                "PropertyString": "+5 to Revive",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+5-12 to Skeleton Mastery",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+25 Increased Attack Speed",
                 "Index": 1
             },
@@ -61618,14 +61626,6 @@
             {
                 "PropertyString": "All Resistances +35",
                 "Index": 4
-            },
-            {
-                "PropertyString": "5",
-                "Index": 2
-            },
-            {
-                "PropertyString": "5-12",
-                "Index": 3
             },
             {
                 "PropertyString": "1",
@@ -61907,6 +61907,18 @@
         "Code": "xhb",
         "Properties": [
             {
+                "PropertyString": "+1 to Avoid",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+1 to Dodge",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+1 to Evade",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+30 Faster Hit Recovery",
                 "Index": 1
             },
@@ -61925,18 +61937,6 @@
             {
                 "PropertyString": "+3-5 to Mana after each Kill",
                 "Index": 7
-            },
-            {
-                "PropertyString": "1",
-                "Index": 2
-            },
-            {
-                "PropertyString": "1",
-                "Index": 3
-            },
-            {
-                "PropertyString": "1",
-                "Index": 4
             }
         ],
         "DamageArmorEnhanced": true,
@@ -62833,6 +62833,10 @@
         "Code": "7pi",
         "Properties": [
             {
+                "PropertyString": "+5 to Plague Javelin",
+                "Index": 6
+            },
+            {
                 "PropertyString": "+225-275% Enhanced Damage",
                 "Index": 0
             },
@@ -62859,10 +62863,6 @@
             {
                 "PropertyString": "+ Replenishes quantity",
                 "Index": 1
-            },
-            {
-                "PropertyString": "5",
-                "Index": 6
             },
             {
                 "PropertyString": "1",
@@ -63140,6 +63140,10 @@
                 "Index": 3
             },
             {
+                "PropertyString": "+3 to Valkyrie",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+30 Increased Attack Speed",
                 "Index": 5
             },
@@ -63158,10 +63162,6 @@
             {
                 "PropertyString": "-20% Target Defense",
                 "Index": 6
-            },
-            {
-                "PropertyString": "3",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -63596,6 +63596,10 @@
         "Code": "neg",
         "Properties": [
             {
+                "PropertyString": "+1 to Warmth",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+40 Faster Hit Recovery",
                 "Index": 2
             },
@@ -63622,10 +63626,6 @@
             {
                 "PropertyString": "Socketed (2)",
                 "Index": 7
-            },
-            {
-                "PropertyString": "1",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -64027,6 +64027,10 @@
         "Code": "7ax",
         "Properties": [
             {
+                "PropertyString": "+3-5 to Life Tap",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+190-280% Enhanced Damage",
                 "Index": 0
             },
@@ -64045,10 +64049,6 @@
             {
                 "PropertyString": "All Resistances +20-25",
                 "Index": 5
-            },
-            {
-                "PropertyString": "3-5",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -64513,6 +64513,10 @@
                 "Index": 0
             },
             {
+                "PropertyString": "+6 to Terror",
+                "Index": 4
+            },
+            {
                 "PropertyString": "Adds 7-8 Mana stolen per hit",
                 "Index": 2
             },
@@ -64527,10 +64531,6 @@
             {
                 "PropertyString": "55-80 to Life",
                 "Index": 3
-            },
-            {
-                "PropertyString": "6",
-                "Index": 4
             }
         ],
         "DamageArmorEnhanced": false,
@@ -64894,6 +64894,10 @@
         "Code": "6sw",
         "Properties": [
             {
+                "PropertyString": "+3-5 to Guided Arrow",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+150-200% Enhanced Damage",
                 "Index": 0
             },
@@ -64908,10 +64912,6 @@
             {
                 "PropertyString": "+33 Deadly Strike",
                 "Index": 1
-            },
-            {
-                "PropertyString": "3-5",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -65063,6 +65063,14 @@
                 "Index": 2
             },
             {
+                "PropertyString": "+8-20 to Wearwolf",
+                "Index": 7
+            },
+            {
+                "PropertyString": "+8-20 to Shape Shifting",
+                "Index": 8
+            },
+            {
                 "PropertyString": "+40 Faster Run/Walk",
                 "Index": 4
             },
@@ -65089,14 +65097,6 @@
             {
                 "PropertyString": "Socketed (1-2)",
                 "Index": 6
-            },
-            {
-                "PropertyString": "8-20",
-                "Index": 7
-            },
-            {
-                "PropertyString": "8-20",
-                "Index": 8
             },
             {
                 "PropertyString": "1",
@@ -68116,6 +68116,10 @@
         "Code": "ci2",
         "Properties": [
             {
+                "PropertyString": "+1 to Valkyrie",
+                "Index": 1
+            },
+            {
                 "PropertyString": "+100-140 Enhanced Defense",
                 "Index": 0
             },
@@ -68134,10 +68138,6 @@
             {
                 "PropertyString": "+10-15 Damage Reduced by 10-15%%",
                 "Index": 5
-            },
-            {
-                "PropertyString": "1",
-                "Index": 1
             }
         ],
         "DamageArmorEnhanced": true,
@@ -68800,6 +68800,10 @@
                 "Index": 4
             },
             {
+                "PropertyString": "+10 to Melee Mastery",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+100-150% Enhanced Damage",
                 "Index": 0
             },
@@ -68814,10 +68818,6 @@
             {
                 "PropertyString": "Socketed (1)",
                 "Index": 6
-            },
-            {
-                "PropertyString": "10",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -69574,6 +69574,10 @@
         "Code": "7ls",
         "Properties": [
             {
+                "PropertyString": "+7-14 to Arctic Blast",
+                "Index": 6
+            },
+            {
                 "PropertyString": "+25 Increased Attack Speed",
                 "Index": 4
             },
@@ -69596,10 +69600,6 @@
             {
                 "PropertyString": "+1 Half Freeze Duration",
                 "Index": 2
-            },
-            {
-                "PropertyString": "7-14",
-                "Index": 6
             },
             {
                 "PropertyString": "1",
@@ -69751,6 +69751,10 @@
                 "Index": 3
             },
             {
+                "PropertyString": "+1 to Bash",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+290-350% Enhanced Damage",
                 "Index": 0
             },
@@ -69773,10 +69777,6 @@
             {
                 "PropertyString": "Lightning Resist +40%",
                 "Index": 6
-            },
-            {
-                "PropertyString": "1",
-                "Index": 2
             },
             {
                 "PropertyString": "1",
@@ -70675,6 +70675,10 @@
                 "Index": 2
             },
             {
+                "PropertyString": "+12-18 to Inferno",
+                "Index": 7
+            },
+            {
                 "PropertyString": "+170-240% Enhanced Damage",
                 "Index": 0
             },
@@ -70693,10 +70697,6 @@
             {
                 "PropertyString": "+20-30 Fire Absorb",
                 "Index": 3
-            },
-            {
-                "PropertyString": "12-18",
-                "Index": 7
             },
             {
                 "PropertyString": "1",
@@ -70844,6 +70844,10 @@
         "Code": "ned",
         "Properties": [
             {
+                "PropertyString": "+3 to Teleport",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+20 Faster Run/Walk",
                 "Index": 3
             },
@@ -70870,10 +70874,6 @@
             {
                 "PropertyString": "+15 Damage Reduced by",
                 "Index": 6
-            },
-            {
-                "PropertyString": "3",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -72092,6 +72092,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+1 to Revive",
+                "Index": 6
+            },
+            {
                 "PropertyString": "20 to Strength",
                 "Index": 5
             },
@@ -72102,10 +72106,6 @@
             {
                 "PropertyString": "Magic Resist +20%",
                 "Index": 2
-            },
-            {
-                "PropertyString": "1",
-                "Index": 6
             },
             {
                 "PropertyString": "1",
@@ -73100,6 +73100,14 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+7 to Teleport",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+1 to Evade",
+                "Index": 7
+            },
+            {
                 "PropertyString": "+40 Faster Run/Walk",
                 "Index": 2
             },
@@ -73118,14 +73126,6 @@
             {
                 "PropertyString": "+1 You feel incorporeal...",
                 "Index": 6
-            },
-            {
-                "PropertyString": "7",
-                "Index": 3
-            },
-            {
-                "PropertyString": "1",
-                "Index": 7
             }
         ],
         "DamageArmorEnhanced": true,
@@ -73866,6 +73866,10 @@
         "Code": "7s8",
         "Properties": [
             {
+                "PropertyString": "+5 to Whirlwind",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+100-140% Enhanced Damage",
                 "Index": 0
             },
@@ -73888,10 +73892,6 @@
             {
                 "PropertyString": "Cold Resist +80%",
                 "Index": 6
-            },
-            {
-                "PropertyString": "5",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -75066,6 +75066,14 @@
                 "Index": 5
             },
             {
+                "PropertyString": "+1 to Revive",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+1 to Skeleton Mastery",
+                "Index": 2
+            },
+            {
                 "PropertyString": "Adds 50-200 to Damage",
                 "Index": 0
             },
@@ -75084,14 +75092,6 @@
             {
                 "PropertyString": "+15 Life after each Kill",
                 "Index": 4
-            },
-            {
-                "PropertyString": "1",
-                "Index": 1
-            },
-            {
-                "PropertyString": "1",
-                "Index": 2
             },
             {
                 "PropertyString": "1",
@@ -75130,6 +75130,14 @@
         "Code": "7qs",
         "Properties": [
             {
+                "PropertyString": "+8-12 to Fire Wall",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+8-12 to Fire Mastery",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+20 Increased Attack Speed",
                 "Index": 1
             },
@@ -75152,14 +75160,6 @@
             {
                 "PropertyString": "+15-30 Fire Absorb",
                 "Index": 5
-            },
-            {
-                "PropertyString": "8-12",
-                "Index": 3
-            },
-            {
-                "PropertyString": "8-12",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -76130,6 +76130,18 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+3-6 to Wearwolf",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+3-6 to Shape Shifting",
+                "Index": 7
+            },
+            {
+                "PropertyString": "+3-6 to Feral Rage",
+                "Index": 8
+            },
+            {
                 "PropertyString": "+120-150 Enhanced Defense",
                 "Index": 0
             },
@@ -76148,18 +76160,6 @@
             {
                 "PropertyString": "Level 15 Summon Fenris (18 Charges)",
                 "Index": 6
-            },
-            {
-                "PropertyString": "3-6",
-                "Index": 5
-            },
-            {
-                "PropertyString": "3-6",
-                "Index": 7
-            },
-            {
-                "PropertyString": "3-6",
-                "Index": 8
             }
         ],
         "DamageArmorEnhanced": true,
@@ -76451,6 +76451,14 @@
         "Code": "6bs",
         "Properties": [
             {
+                "PropertyString": "+6-8 to BloodGolem",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20 to Golem Mastery",
+                "Index": 1
+            },
+            {
                 "PropertyString": "+30 Faster Cast Rate",
                 "Index": 3
             },
@@ -76469,14 +76477,6 @@
             {
                 "PropertyString": "35% Damage Taken Goes To Mana",
                 "Index": 2
-            },
-            {
-                "PropertyString": "6-8",
-                "Index": 0
-            },
-            {
-                "PropertyString": "20",
-                "Index": 1
             },
             {
                 "PropertyString": "1",
@@ -76779,6 +76779,10 @@
         "Code": "pae",
         "Properties": [
             {
+                "PropertyString": "+10 to Hydra",
+                "Index": 5
+            },
+            {
                 "PropertyString": "Adds 211-371 to Fire Damage",
                 "Index": 4
             },
@@ -76801,10 +76805,6 @@
             {
                 "PropertyString": "+10-20 Fire Absorb",
                 "Index": 1
-            },
-            {
-                "PropertyString": "10",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -76957,6 +76957,10 @@
         "Code": "7wd",
         "Properties": [
             {
+                "PropertyString": "+6 to Find Item",
+                "Index": 8
+            },
+            {
                 "PropertyString": "+200-300% Enhanced Damage",
                 "Index": 0
             },
@@ -76987,10 +76991,6 @@
             {
                 "PropertyString": "5-15 to Experience Gained",
                 "Index": 3
-            },
-            {
-                "PropertyString": "6",
-                "Index": 8
             },
             {
                 "PropertyString": "1",
@@ -77105,6 +77105,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+5 to Grim Ward",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+25 Increased Attack Speed",
                 "Index": 4
             },
@@ -77119,10 +77123,6 @@
             {
                 "PropertyString": "100%",
                 "Index": 3
-            },
-            {
-                "PropertyString": "5",
-                "Index": 2
             },
             {
                 "PropertyString": "1",
@@ -77169,6 +77169,14 @@
                 "Index": 4
             },
             {
+                "PropertyString": "+2 to Meteor",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+2 to Fire Mastery",
+                "Index": 7
+            },
+            {
                 "PropertyString": "+20 Increased Attack Speed",
                 "Index": 5
             },
@@ -77183,14 +77191,6 @@
             {
                 "PropertyString": "+ Replenishes quantity",
                 "Index": 2
-            },
-            {
-                "PropertyString": "2",
-                "Index": 6
-            },
-            {
-                "PropertyString": "2",
-                "Index": 7
             },
             {
                 "PropertyString": "1",
@@ -77309,6 +77309,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+4 to Merc Enchant",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+125-150 Enhanced Defense",
                 "Index": 0
             },
@@ -77323,10 +77327,6 @@
             {
                 "PropertyString": "Fire Resist +20%",
                 "Index": 3
-            },
-            {
-                "PropertyString": "4",
-                "Index": 2
             }
         ],
         "DamageArmorEnhanced": true,
@@ -77533,6 +77533,10 @@
         "Code": "uhc",
         "Properties": [
             {
+                "PropertyString": "+1 to Iron Skin",
+                "Index": 7
+            },
+            {
                 "PropertyString": "+175-200 Enhanced Defense",
                 "Index": 0
             },
@@ -77559,10 +77563,6 @@
             {
                 "PropertyString": "Repairs 0.25 durability per second",
                 "Index": 6
-            },
-            {
-                "PropertyString": "1",
-                "Index": 7
             }
         ],
         "DamageArmorEnhanced": true,
@@ -77670,6 +77670,10 @@
                 "Index": 3
             },
             {
+                "PropertyString": "+3 to Teleport",
+                "Index": 6
+            },
+            {
                 "PropertyString": "+275-350% Enhanced Damage",
                 "Index": 0
             },
@@ -77692,10 +77696,6 @@
             {
                 "PropertyString": "+ Replenishes quantity",
                 "Index": 2
-            },
-            {
-                "PropertyString": "3",
-                "Index": 6
             },
             {
                 "PropertyString": "1",
@@ -78052,6 +78052,14 @@
         "Code": "72h",
         "Properties": [
             {
+                "PropertyString": "+3-5 to Thunder Storm",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+3-5 to Lightning Mastery",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+20 Increased Attack Speed",
                 "Index": 1
             },
@@ -78074,14 +78082,6 @@
             {
                 "PropertyString": "+10-20 Lightning Absorb",
                 "Index": 7
-            },
-            {
-                "PropertyString": "3-5",
-                "Index": 4
-            },
-            {
-                "PropertyString": "3-5",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -78200,6 +78200,10 @@
                 "Index": 3
             },
             {
+                "PropertyString": "+3 to Quickness",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+60 Faster Run/Walk",
                 "Index": 6
             },
@@ -78218,10 +78222,6 @@
             {
                 "PropertyString": "+1 You feel incorporeal...",
                 "Index": 4
-            },
-            {
-                "PropertyString": "3",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -78443,6 +78443,10 @@
                 "Index": 5
             },
             {
+                "PropertyString": "+2-5 to Teleport",
+                "Index": 1
+            },
+            {
                 "PropertyString": "+100-150 Defense",
                 "Index": 0
             },
@@ -78457,10 +78461,6 @@
             {
                 "PropertyString": "+75 better chance of getting magic item",
                 "Index": 3
-            },
-            {
-                "PropertyString": "2-5",
-                "Index": 1
             }
         ],
         "DamageArmorEnhanced": true,
@@ -79032,6 +79032,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+15-20 to Magic Arrow",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+40 Increased Attack Speed",
                 "Index": 2
             },
@@ -79054,10 +79058,6 @@
             {
                 "PropertyString": "+4-7 to Shape Shifting (Druid Only)",
                 "Index": 7
-            },
-            {
-                "PropertyString": "15-20",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -80121,28 +80121,28 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+130-200 Enhanced Defense",
-                "Index": 0
-            },
-            {
-                "PropertyString": "3-4",
+                "PropertyString": "+3-4 to Fade",
                 "Index": 1
             },
             {
-                "PropertyString": "3-4",
+                "PropertyString": "+3-4 to Quickness",
                 "Index": 2
             },
             {
-                "PropertyString": "3-4",
+                "PropertyString": "+3-4 to Teleport",
                 "Index": 3
             },
             {
-                "PropertyString": "3-4",
+                "PropertyString": "+3-4 to Shout",
                 "Index": 4
             },
             {
-                "PropertyString": "3-4",
+                "PropertyString": "+3-4 to Battle Orders",
                 "Index": 5
+            },
+            {
+                "PropertyString": "+130-200 Enhanced Defense",
+                "Index": 0
             }
         ],
         "DamageArmorEnhanced": true,
@@ -80292,6 +80292,10 @@
                 "Index": 9
             },
             {
+                "PropertyString": "+7 to Valkyrie",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+50 Increased Attack Speed",
                 "Index": 2
             },
@@ -80322,10 +80326,6 @@
             {
                 "PropertyString": "+20 Mana stolen per hit",
                 "Index": 3
-            },
-            {
-                "PropertyString": "7",
-                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -80542,6 +80542,10 @@
         "Code": "7bl",
         "Properties": [
             {
+                "PropertyString": "+10 to Find Item",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+25 Increased Attack Speed",
                 "Index": 5
             },
@@ -80560,10 +80564,6 @@
             {
                 "PropertyString": "Socketed (3)",
                 "Index": 2
-            },
-            {
-                "PropertyString": "10",
-                "Index": 0
             },
             {
                 "PropertyString": "1",
@@ -80674,6 +80674,10 @@
                 "Index": 2
             },
             {
+                "PropertyString": "+3 to Redemption",
+                "Index": 7
+            },
+            {
                 "PropertyString": "+20 Faster Run/Walk",
                 "Index": 8
             },
@@ -80700,10 +80704,6 @@
             {
                 "PropertyString": "+ Replenishes quantity",
                 "Index": 1
-            },
-            {
-                "PropertyString": "3",
-                "Index": 7
             },
             {
                 "PropertyString": "1",
@@ -80937,6 +80937,10 @@
                 "Index": 5
             },
             {
+                "PropertyString": "+3 to Battle Command",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+250-320% Enhanced Damage",
                 "Index": 0
             },
@@ -80955,10 +80959,6 @@
             {
                 "PropertyString": "+25 Magic Damage Reduced by",
                 "Index": 2
-            },
-            {
-                "PropertyString": "3",
-                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -81413,6 +81413,10 @@
                 "Index": 0
             },
             {
+                "PropertyString": "+5 to Teleport",
+                "Index": 3
+            },
+            {
                 "PropertyString": "25 to Strength",
                 "Index": 1
             },
@@ -81427,10 +81431,6 @@
             {
                 "PropertyString": "+1",
                 "Index": 6
-            },
-            {
-                "PropertyString": "5",
-                "Index": 3
             }
         ],
         "DamageArmorEnhanced": false,
@@ -81940,6 +81940,10 @@
         "Code": "nef",
         "Properties": [
             {
+                "PropertyString": "+8-12 to Melee Mastery",
+                "Index": 6
+            },
+            {
                 "PropertyString": "+1-2",
                 "Index": 9
             },
@@ -81974,10 +81978,6 @@
             {
                 "PropertyString": "+65 better chance of getting magic item",
                 "Index": 1
-            },
-            {
-                "PropertyString": "8-12",
-                "Index": 6
             },
             {
                 "PropertyString": "1",
@@ -82218,6 +82218,10 @@
                 "Index": 5
             },
             {
+                "PropertyString": "+15-20 to Melee Mastery",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+40 Increased Attack Speed",
                 "Index": 7
             },
@@ -82240,10 +82244,6 @@
             {
                 "PropertyString": "+60-100 better chance of getting magic item",
                 "Index": 4
-            },
-            {
-                "PropertyString": "15-20",
-                "Index": 2
             },
             {
                 "PropertyString": "1",

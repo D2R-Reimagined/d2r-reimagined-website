@@ -452,6 +452,10 @@
         "Code": "Scout",
         "Properties": [
             {
+                "PropertyString": "+1 to Dodge",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+10 Faster Run/Walk",
                 "Index": 0
             },
@@ -462,10 +466,6 @@
             {
                 "PropertyString": "5 to Dexterity",
                 "Index": 2
-            },
-            {
-                "PropertyString": "1",
-                "Index": 4
             },
             {
                 "PropertyString": "+15 Defense",
@@ -941,6 +941,14 @@
         "Code": "Jealousy",
         "Properties": [
             {
+                "PropertyString": "+3 to Jab",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+3 to Melee Mastery",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+20 Increased Attack Speed",
                 "Index": 5
             },
@@ -955,14 +963,6 @@
             {
                 "PropertyString": "+7 Life stolen per hit",
                 "Index": 1
-            },
-            {
-                "PropertyString": "3",
-                "Index": 3
-            },
-            {
-                "PropertyString": "3",
-                "Index": 4
             },
             {
                 "PropertyString": "+154 to Minimum Poison Damage",
@@ -1097,6 +1097,14 @@
         "Code": "Sting",
         "Properties": [
             {
+                "PropertyString": "+3 to Multiple Shot",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+5 to Ice Arrow",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+15 Increased Attack Speed",
                 "Index": 1
             },
@@ -1107,14 +1115,6 @@
             {
                 "PropertyString": "Adds 5-8 Mana stolen per hit",
                 "Index": 2
-            },
-            {
-                "PropertyString": "3",
-                "Index": 3
-            },
-            {
-                "PropertyString": "5",
-                "Index": 4
             },
             {
                 "PropertyString": "+30 Defense vs. Missile",
@@ -1789,6 +1789,10 @@
         "Code": "Distortion",
         "Properties": [
             {
+                "PropertyString": "+1 to Warp",
+                "Index": 1
+            },
+            {
                 "PropertyString": "+3-5 Faster Run/Walk",
                 "Index": 2
             },
@@ -1803,10 +1807,6 @@
             {
                 "PropertyString": "All Resistances +5-10",
                 "Index": 0
-            },
-            {
-                "PropertyString": "1",
-                "Index": 1
             },
             {
                 "PropertyString": "Lightning Resist +30%",
@@ -3221,6 +3221,10 @@
                 "Index": 5
             },
             {
+                "PropertyString": "+1-6 to Critical Strike",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+200-260% Enhanced Damage",
                 "Index": 0
             },
@@ -3239,10 +3243,6 @@
             {
                 "PropertyString": "+23 better chance of getting magic item",
                 "Index": 2
-            },
-            {
-                "PropertyString": "1-6",
-                "Index": 3
             },
             {
                 "PropertyString": "Adds 5-30 to Fire Damage (Weapon)",
@@ -3948,7 +3948,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "2",
+                "PropertyString": "+2 to Critical Strike",
                 "Index": 3
             },
             {
@@ -4914,6 +4914,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+5 to Zeal",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+160-200% Enhanced Damage",
                 "Index": 0
             },
@@ -4928,10 +4932,6 @@
             {
                 "PropertyString": "+35 Slows target by",
                 "Index": 4
-            },
-            {
-                "PropertyString": "5",
-                "Index": 5
             },
             {
                 "PropertyString": "10 to Vitality",
@@ -5411,6 +5411,10 @@
         "Code": "Deception",
         "Properties": [
             {
+                "PropertyString": "+1 to Teleport",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+165-205% Enhanced Damage",
                 "Index": 0
             },
@@ -5433,10 +5437,6 @@
             {
                 "PropertyString": "Level 18 Meteor (150 Charges)",
                 "Index": 6
-            },
-            {
-                "PropertyString": "1",
-                "Index": 2
             },
             {
                 "PropertyString": "10 to Vitality",
@@ -5767,6 +5767,10 @@
                 "Index": 0
             },
             {
+                "PropertyString": "+2-6 to Valkyrie",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+200-275% Enhanced Damage",
                 "Index": 1
             },
@@ -5785,10 +5789,6 @@
             {
                 "PropertyString": "Level 20 Revive (25 Charges)",
                 "Index": 6
-            },
-            {
-                "PropertyString": "2-6",
-                "Index": 4
             },
             {
                 "PropertyString": "+2 to Mana after each Kill",
@@ -5858,6 +5858,10 @@
         "Code": "Hustle (Torso)",
         "Properties": [
             {
+                "PropertyString": "+6 to Evade",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+65 Faster Run/Walk",
                 "Index": 0
             },
@@ -5868,10 +5872,6 @@
             {
                 "PropertyString": "All Resistances +10",
                 "Index": 2
-            },
-            {
-                "PropertyString": "6",
-                "Index": 3
             },
             {
                 "PropertyString": "+20 Faster Hit Recovery",
@@ -6103,6 +6103,10 @@
         "Code": "Pestilence",
         "Properties": [
             {
+                "PropertyString": "+3 to Poison Explosion",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+188% Enhanced Damage",
                 "Index": 3
             },
@@ -6125,10 +6129,6 @@
             {
                 "PropertyString": "+20-35 better chance of getting magic item",
                 "Index": 2
-            },
-            {
-                "PropertyString": "3",
-                "Index": 5
             },
             {
                 "PropertyString": "+9 to Minimum Damage",
@@ -7116,6 +7116,14 @@
         "Code": "Passion",
         "Properties": [
             {
+                "PropertyString": "+1 to Zeal",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+1 to Berserk",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+25 Increased Attack Speed",
                 "Index": 4
             },
@@ -7134,14 +7142,6 @@
             {
                 "PropertyString": "Level 3 Heart of Wolverine (12 Charges)",
                 "Index": 5
-            },
-            {
-                "PropertyString": "1",
-                "Index": 1
-            },
-            {
-                "PropertyString": "1",
-                "Index": 3
             },
             {
                 "PropertyString": "25%",
@@ -7859,6 +7859,10 @@
                 "Index": 2
             },
             {
+                "PropertyString": "+1 to Static Field",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+235% Enhanced Damage",
                 "Index": 0
             },
@@ -7877,10 +7881,6 @@
             {
                 "PropertyString": "2 to Experience Gained",
                 "Index": 6
-            },
-            {
-                "PropertyString": "1",
-                "Index": 5
             },
             {
                 "PropertyString": "+30 Enhanced Defense",
@@ -8136,7 +8136,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "1",
+                "PropertyString": "+1 to Warmth",
                 "Index": 3
             },
             {
@@ -9860,6 +9860,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+3 to Fanaticism",
+                "Index": 6
+            },
+            {
                 "PropertyString": "+25 Faster Cast Rate",
                 "Index": 4
             },
@@ -9874,10 +9878,6 @@
             {
                 "PropertyString": "+8 better chance of getting magic item Per Level (Based on Character Level)",
                 "Index": 5
-            },
-            {
-                "PropertyString": "3",
-                "Index": 6
             },
             {
                 "PropertyString": "10 to Energy",
@@ -10422,6 +10422,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+7 to Fend",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+260-300% Enhanced Damage",
                 "Index": 0
             },
@@ -10436,10 +10440,6 @@
             {
                 "PropertyString": "+35 better chance of getting magic item",
                 "Index": 4
-            },
-            {
-                "PropertyString": "7",
-                "Index": 3
             },
             {
                 "PropertyString": "20 bonus to Attack Rating",
@@ -10528,6 +10528,10 @@
         "Code": "Kingslayer",
         "Properties": [
             {
+                "PropertyString": "+1 to Vengeance",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+30 Increased Attack Speed",
                 "Index": 0
             },
@@ -10546,10 +10550,6 @@
             {
                 "PropertyString": "+40 extra gold from monsters",
                 "Index": 6
-            },
-            {
-                "PropertyString": "1",
-                "Index": 5
             },
             {
                 "PropertyString": "+1 Prevent Monster Heal",
@@ -11876,24 +11876,24 @@
                 "Index": 2
             },
             {
+                "PropertyString": "+2-6 to Battle Command",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+1-6 to Battle Orders",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+1-4 to Battle Cry",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+40 Increased Attack Speed",
                 "Index": 0
             },
             {
                 "PropertyString": "+12 Replenish Life",
                 "Index": 6
-            },
-            {
-                "PropertyString": "2-6",
-                "Index": 3
-            },
-            {
-                "PropertyString": "1-6",
-                "Index": 4
-            },
-            {
-                "PropertyString": "1-4",
-                "Index": 5
             },
             {
                 "PropertyString": "+7 Life stolen per hit",
@@ -11975,6 +11975,10 @@
                 "Index": 6
             },
             {
+                "PropertyString": "+1 to Whirlwind",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+35 Increased Attack Speed",
                 "Index": 4
             },
@@ -11985,10 +11989,6 @@
             {
                 "PropertyString": "+15 Life after each Demon Kill",
                 "Index": 0
-            },
-            {
-                "PropertyString": "1",
-                "Index": 3
             },
             {
                 "PropertyString": "10 to Strength",
@@ -13600,6 +13600,14 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+3 to Wearbear",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+3 to Shape Shifting",
+                "Index": 6
+            },
+            {
                 "PropertyString": "+40 Increased Attack Speed",
                 "Index": 0
             },
@@ -13614,14 +13622,6 @@
             {
                 "PropertyString": "Level 13 Summon Grizzly (5 Charges)",
                 "Index": 4
-            },
-            {
-                "PropertyString": "3",
-                "Index": 5
-            },
-            {
-                "PropertyString": "3",
-                "Index": 6
             },
             {
                 "PropertyString": "+20 Chance of Crushing Blow",
@@ -14729,6 +14729,10 @@
                 "Index": 4
             },
             {
+                "PropertyString": "+1 to Teleport",
+                "Index": 6
+            },
+            {
                 "PropertyString": "+45 Faster Run/Walk",
                 "Index": 2
             },
@@ -14747,10 +14751,6 @@
             {
                 "PropertyString": "+8 better chance of getting magic item Per Level (Based on Character Level)",
                 "Index": 5
-            },
-            {
-                "PropertyString": "1",
-                "Index": 6
             },
             {
                 "PropertyString": "+5 Increase Maximum Life",
@@ -15466,6 +15466,10 @@
                 "Index": 2
             },
             {
+                "PropertyString": "+10 to Thunder Storm",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+20 Increased Attack Speed",
                 "Index": 1
             },
@@ -15480,10 +15484,6 @@
             {
                 "PropertyString": "3 to Experience Gained",
                 "Index": 6
-            },
-            {
-                "PropertyString": "10",
-                "Index": 3
             },
             {
                 "PropertyString": "+1 Ignore Target's Defense",
@@ -15556,6 +15556,10 @@
                 "Index": 4
             },
             {
+                "PropertyString": "+1 to Teleport",
+                "Index": 6
+            },
+            {
                 "PropertyString": "+1 Prevent Monster Heal",
                 "Index": 5
             },
@@ -15566,10 +15570,6 @@
             {
                 "PropertyString": "+20 To Required Level",
                 "Index": 1
-            },
-            {
-                "PropertyString": "1",
-                "Index": 6
             },
             {
                 "PropertyString": "85-100 to Life",
@@ -17357,6 +17357,10 @@
                 "Index": 3
             },
             {
+                "PropertyString": "+8 to Teleport",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+60-100 to Minimum Damage",
                 "Index": 0
             },
@@ -17371,10 +17375,6 @@
             {
                 "PropertyString": "20 to Strength",
                 "Index": 6
-            },
-            {
-                "PropertyString": "8",
-                "Index": 2
             },
             {
                 "PropertyString": "Freezes target +6",
@@ -17852,28 +17852,28 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+17 To Required Level",
-                "Index": 0
-            },
-            {
-                "PropertyString": "1-4",
+                "PropertyString": "+1-4 to Shout",
                 "Index": 1
             },
             {
-                "PropertyString": "1-4",
+                "PropertyString": "+1-4 to Battle Orders",
                 "Index": 2
             },
             {
-                "PropertyString": "1-4",
+                "PropertyString": "+1-4 to Battle Command",
                 "Index": 3
             },
             {
-                "PropertyString": "1-4",
+                "PropertyString": "+1-4 to Shiver Armor",
                 "Index": 4
             },
             {
-                "PropertyString": "10-15",
+                "PropertyString": "+10-15 to Valkyrie",
                 "Index": 5
+            },
+            {
+                "PropertyString": "+17 To Required Level",
+                "Index": 0
             },
             {
                 "PropertyString": "+1 Indestructible",
@@ -17981,6 +17981,10 @@
                 "Index": 3
             },
             {
+                "PropertyString": "+20 to Melee Mastery",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+50 Increased Attack Speed",
                 "Index": 1
             },
@@ -17995,10 +17999,6 @@
             {
                 "PropertyString": "+10 To Required Level",
                 "Index": 0
-            },
-            {
-                "PropertyString": "20",
-                "Index": 4
             },
             {
                 "PropertyString": "+1 Prevent Monster Heal",
