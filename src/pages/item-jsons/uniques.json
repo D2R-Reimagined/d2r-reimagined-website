@@ -977,7 +977,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -2332,7 +2332,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -2409,10 +2409,6 @@
         "Code": "qui",
         "Properties": [
             {
-                "PropertyString": "+1 to Fire Skills",
-                "Index": 2
-            },
-            {
                 "PropertyString": "+1",
                 "Index": 1
             },
@@ -2427,6 +2423,10 @@
             {
                 "PropertyString": "Socketed (1-2)",
                 "Index": 4
+            },
+            {
+                "PropertyString": "+1 to Fire Skills",
+                "Index": 2
             }
         ],
         "DamageArmorEnhanced": true,
@@ -5456,7 +5456,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -6154,10 +6154,6 @@
         "Code": "lst",
         "Properties": [
             {
-                "PropertyString": "+1 to Fire Skills",
-                "Index": 4
-            },
-            {
                 "PropertyString": "+5-7 to Clay Golem",
                 "Index": 6
             },
@@ -6184,6 +6180,10 @@
             {
                 "PropertyString": "+36-50 to Throw",
                 "Index": 3
+            },
+            {
+                "PropertyString": "+1 to Fire Skills",
+                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -8940,7 +8940,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -10520,7 +10520,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -13812,10 +13812,6 @@
         "Code": "bst",
         "Properties": [
             {
-                "PropertyString": "+2 to Fire Skills",
-                "Index": 5
-            },
-            {
                 "PropertyString": "Adds 15-32 to Fire Damage",
                 "Index": 0
             },
@@ -13834,6 +13830,10 @@
             {
                 "PropertyString": "Fire Resist +30%",
                 "Index": 1
+            },
+            {
+                "PropertyString": "+2 to Fire Skills",
+                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -14096,7 +14096,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -14164,7 +14164,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -14483,10 +14483,6 @@
         "Code": "lsd",
         "Properties": [
             {
-                "PropertyString": "+2 to Fire Skills",
-                "Index": 7
-            },
-            {
                 "PropertyString": "+70-80% Enhanced Damage",
                 "Index": 5
             },
@@ -14505,6 +14501,10 @@
             {
                 "PropertyString": "+5 Life stolen per hit",
                 "Index": 1
+            },
+            {
+                "PropertyString": "+2 to Fire Skills",
+                "Index": 7
             },
             {
                 "PropertyString": "1",
@@ -15750,10 +15750,6 @@
         "Code": "tgl",
         "Properties": [
             {
-                "PropertyString": "+1 to Fire Skills",
-                "Index": 2
-            },
-            {
                 "PropertyString": "+20 Faster Cast Rate",
                 "Index": 0
             },
@@ -15772,6 +15768,10 @@
             {
                 "PropertyString": "Regenerate Mana 25%",
                 "Index": 1
+            },
+            {
+                "PropertyString": "+1 to Fire Skills",
+                "Index": 2
             }
         ],
         "DamageArmorEnhanced": true,
@@ -16226,7 +16226,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -16290,7 +16290,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -17221,7 +17221,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -19700,10 +19700,6 @@
         "Code": "scy",
         "Properties": [
             {
-                "PropertyString": "+1 to Fire Skills",
-                "Index": 4
-            },
-            {
                 "PropertyString": "+1",
                 "Index": 2
             },
@@ -19722,6 +19718,10 @@
             {
                 "PropertyString": "+1 Ignore Target's Defense",
                 "Index": 3
+            },
+            {
+                "PropertyString": "+1 to Fire Skills",
+                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -20619,10 +20619,6 @@
         "Code": "swb",
         "Properties": [
             {
-                "PropertyString": "+1 to Fire Skills",
-                "Index": 7
-            },
-            {
                 "PropertyString": "+10 Increased Attack Speed",
                 "Index": 0
             },
@@ -20645,6 +20641,10 @@
             {
                 "PropertyString": "Fire Resist +40%",
                 "Index": 4
+            },
+            {
+                "PropertyString": "+1 to Fire Skills",
+                "Index": 7
             },
             {
                 "PropertyString": "1",
@@ -21039,7 +21039,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -22733,7 +22733,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -24953,7 +24953,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -27550,7 +27550,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -27624,10 +27624,6 @@
         "Code": "hgl",
         "Properties": [
             {
-                "PropertyString": "+1 to Fire Skills",
-                "Index": 7
-            },
-            {
                 "PropertyString": "Adds 20-35 to Fire Damage",
                 "Index": 1
             },
@@ -27654,6 +27650,10 @@
             {
                 "PropertyString": "2-4 to Light Radius",
                 "Index": 6
+            },
+            {
+                "PropertyString": "+1 to Fire Skills",
+                "Index": 7
             }
         ],
         "DamageArmorEnhanced": true,
@@ -28712,7 +28712,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -29421,10 +29421,6 @@
         "Code": "9sb",
         "Properties": [
             {
-                "PropertyString": "+3 to Fire Skills",
-                "Index": 6
-            },
-            {
                 "PropertyString": "+140-160% Enhanced Damage",
                 "Index": 5
             },
@@ -29447,6 +29443,10 @@
             {
                 "PropertyString": "Level 6 Hydra (36 Charges)",
                 "Index": 0
+            },
+            {
+                "PropertyString": "+3 to Fire Skills",
+                "Index": 6
             },
             {
                 "PropertyString": "1",
@@ -29909,7 +29909,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -32579,7 +32579,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -35084,7 +35084,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -35152,7 +35152,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -35336,12 +35336,8 @@
         "Code": "zvb",
         "Properties": [
             {
-                "PropertyString": "+1 to Increased Stamina",
-                "Index": 4
-            },
-            {
                 "PropertyString": "+20 Faster Run/Walk",
-                "Index": 5
+                "Index": 4
             },
             {
                 "PropertyString": "+5-10 Chance of Crushing Blow",
@@ -36334,10 +36330,6 @@
         "Code": "8lx",
         "Properties": [
             {
-                "PropertyString": "+2 to Fire Skills",
-                "Index": 6
-            },
-            {
                 "PropertyString": "+1",
                 "Index": 2
             },
@@ -36360,6 +36352,10 @@
             {
                 "PropertyString": "Cold Resist +25-40%",
                 "Index": 4
+            },
+            {
+                "PropertyString": "+2 to Fire Skills",
+                "Index": 6
             },
             {
                 "PropertyString": "1",
@@ -36453,7 +36449,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -38718,10 +38714,6 @@
         "Code": "wst",
         "Properties": [
             {
-                "PropertyString": "+5 to Fire Skills",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+15-25 to Minimum Damage",
                 "Index": 1
             },
@@ -38744,6 +38736,10 @@
             {
                 "PropertyString": "+10-20 Cold Absorb",
                 "Index": 5
+            },
+            {
+                "PropertyString": "+5 to Fire Skills",
+                "Index": 0
             },
             {
                 "PropertyString": "1",
@@ -40319,7 +40315,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -43331,7 +43327,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -44054,10 +44050,6 @@
         "Code": "9xf",
         "Properties": [
             {
-                "PropertyString": "+5 to Fire Skills",
-                "Index": 4
-            },
-            {
                 "PropertyString": "+200-250% Enhanced Damage",
                 "Index": 0
             },
@@ -44084,6 +44076,10 @@
             {
                 "PropertyString": "+10 Fire Absorb",
                 "Index": 3
+            },
+            {
+                "PropertyString": "+5 to Fire Skills",
+                "Index": 4
             },
             {
                 "PropertyString": "1",
@@ -46243,7 +46239,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -48547,7 +48543,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -52792,7 +52788,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -52877,10 +52873,6 @@
         "Code": "xpl",
         "Properties": [
             {
-                "PropertyString": "+2 to Fire Skills",
-                "Index": 5
-            },
-            {
                 "PropertyString": "Adds 25-100 to Fire Damage",
                 "Index": 3
             },
@@ -52899,6 +52891,10 @@
             {
                 "PropertyString": "+1 Cannot Be Frozen",
                 "Index": 4
+            },
+            {
+                "PropertyString": "+2 to Fire Skills",
+                "Index": 5
             }
         ],
         "DamageArmorEnhanced": true,
@@ -56566,7 +56562,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -56638,7 +56634,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -57572,7 +57568,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -60008,7 +60004,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -60472,11 +60468,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+120-150 to Minimum Damage",
+                "PropertyString": "+90-120 to Minimum Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "+300-350 to Maximum Damage",
+                "PropertyString": "+200-250 to Maximum Damage",
                 "Index": 2
             },
             {
@@ -60501,7 +60497,7 @@
             "DamageTypes": [
                 {
                     "Type": 1,
-                    "DamageString": "(215-256) to (440-506)"
+                    "DamageString": "(185-226) to (340-406)"
                 }
             ],
             "EquipmentType": 1,
@@ -61028,10 +61024,6 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+2 to Fire Skills",
-                "Index": 2
-            },
-            {
                 "PropertyString": "+200-240% Enhanced Damage",
                 "Index": 0
             },
@@ -61058,6 +61050,10 @@
             {
                 "PropertyString": "+5-9 Damage Reduced by",
                 "Index": 6
+            },
+            {
+                "PropertyString": "+2 to Fire Skills",
+                "Index": 2
             },
             {
                 "PropertyString": "1",
@@ -62820,7 +62816,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -62892,7 +62888,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -64631,10 +64627,6 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+2 to Fire Skills",
-                "Index": 4
-            },
-            {
                 "PropertyString": "Adds 24-48 to Fire Damage",
                 "Index": 3
             },
@@ -64649,6 +64641,10 @@
             {
                 "PropertyString": "4 to Light Radius",
                 "Index": 1
+            },
+            {
+                "PropertyString": "+2 to Fire Skills",
+                "Index": 4
             }
         ],
         "DamageArmorEnhanced": false,
@@ -65566,7 +65562,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -67661,7 +67657,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -69055,7 +69051,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -69444,7 +69440,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -70118,7 +70114,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -70671,10 +70667,6 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+3 to Fire Skills",
-                "Index": 2
-            },
-            {
                 "PropertyString": "+12-18 to Inferno",
                 "Index": 7
             },
@@ -70697,6 +70689,10 @@
             {
                 "PropertyString": "+20-30 Fire Absorb",
                 "Index": 3
+            },
+            {
+                "PropertyString": "+3 to Fire Skills",
+                "Index": 2
             },
             {
                 "PropertyString": "1",
@@ -70779,59 +70775,6 @@
                 "Class": ""
             },
             "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Belt",
-        "Name": "Ecstacy of Ishtar",
-        "Index": "Ecstacy of Ishtar",
-        "Enabled": true,
-        "ItemLevel": 65,
-        "RequiredLevel": 71,
-        "Code": "utc",
-        "Properties": [
-            {
-                "PropertyString": "+50 Piercing Attack",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+100-200 Enhanced Defense",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+25 Increase Maximum Life",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+25 Increase Maximum Mana",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+25-30 Damage Reduced by",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+25-30 Magic Damage Reduced by",
-                "Index": 4
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageString": null,
-            "DamageStringPrefix": null,
-            "ArmorString": "120-180",
-            "EquipmentType": 0,
-            "Name": "Troll Belt",
-            "RequiredStrength": 151,
-            "RequiredDexterity": 0,
-            "Durability": 18,
-            "ItemLevel": 82,
-            "Type": {
-                "Name": "Belt",
-                "Index": "Belt",
-                "Class": ""
-            },
-            "RequiredClass": "Helm"
         }
     },
     {
@@ -74527,7 +74470,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -75373,7 +75316,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {
@@ -77525,6 +77468,59 @@
     },
     {
         "Type": "Belt",
+        "Name": "Ecstacy of Ishtar",
+        "Index": "Ecstacy of Ishtar",
+        "Enabled": true,
+        "ItemLevel": 86,
+        "RequiredLevel": 80,
+        "Code": "utc",
+        "Properties": [
+            {
+                "PropertyString": "+50 Piercing Attack",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+100-200 Enhanced Defense",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+10 Increase Maximum Life",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+10 Increase Maximum Mana",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+18-25 Damage Reduced by",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+10-15 Magic Damage Reduced by",
+                "Index": 4
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "120-180",
+            "EquipmentType": 0,
+            "Name": "Troll Belt",
+            "RequiredStrength": 151,
+            "RequiredDexterity": 0,
+            "Durability": 18,
+            "ItemLevel": 82,
+            "Type": {
+                "Name": "Belt",
+                "Index": "Belt",
+                "Class": ""
+            },
+            "RequiredClass": "Helm"
+        }
+    },
+    {
+        "Type": "Belt",
         "Name": "Ogre's Embrace",
         "Index": "Ogre's Embrace",
         "Enabled": true,
@@ -78251,7 +78247,7 @@
                 "Index": "Javelin",
                 "Class": ""
             },
-            "RequiredClass": "Spear"
+            "RequiredClass": ""
         }
     },
     {

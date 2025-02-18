@@ -1350,12 +1350,12 @@
                 "Code": "bst",
                 "Properties": [
                     {
-                        "PropertyString": "+1 to Fire Skills",
-                        "Index": 0
-                    },
-                    {
                         "PropertyString": "+10 to Maximum Fire Damage",
                         "Index": 1
+                    },
+                    {
+                        "PropertyString": "+1 to Fire Skills",
+                        "Index": 0
                     },
                     {
                         "PropertyString": "1",
@@ -7208,10 +7208,6 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Fire Skills",
-                "Index": 6
-            },
-            {
                 "PropertyString": "20 to Strength",
                 "Index": 4
             },
@@ -7234,6 +7230,10 @@
             {
                 "PropertyString": "All Resistances +50",
                 "Index": 3
+            },
+            {
+                "PropertyString": "+2 to Fire Skills",
+                "Index": 6
             }
         ],
         "Level": 1
@@ -20456,7 +20456,7 @@
                         "Index": "Javelin",
                         "Class": ""
                     },
-                    "RequiredClass": "Spear"
+                    "RequiredClass": ""
                 }
             },
             {
@@ -24303,7 +24303,7 @@
                         "Index": "Javelin",
                         "Class": ""
                     },
-                    "RequiredClass": "Spear"
+                    "RequiredClass": ""
                 }
             }
         ],

@@ -1170,10 +1170,6 @@
         "Code": "Leaf",
         "Properties": [
             {
-                "PropertyString": "+3 to Fire Skills",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+3 to Inferno (Sorceress Only)",
                 "Index": 3
             },
@@ -1192,6 +1188,10 @@
             {
                 "PropertyString": "Cold Resist +33%",
                 "Index": 2
+            },
+            {
+                "PropertyString": "+3 to Fire Skills",
+                "Index": 0
             },
             {
                 "PropertyString": "+2 to Mana after each Kill",
@@ -11227,10 +11227,6 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+3 to Fire Skills",
-                "Index": 0
-            },
-            {
                 "PropertyString": "10-15 to Enemy Fire Resistance",
                 "Index": 2
             },
@@ -11245,6 +11241,10 @@
             {
                 "PropertyString": "+50 Poison Length Reduced by",
                 "Index": 5
+            },
+            {
+                "PropertyString": "+3 to Fire Skills",
+                "Index": 0
             },
             {
                 "PropertyString": "+30 Defense vs. Missile",
