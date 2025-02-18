@@ -13,7 +13,7 @@ export class Uniques {
             // which is sorted alphabetically
             .sort((a, b) => a.localeCompare(b))
             // and converted into a selection list
-        .map(type => { return { label: type, value: type } })
+            .map(type => { return { label: type, value: type } })
     ];
 
     @bindable search: string;
@@ -68,7 +68,8 @@ export class Uniques {
             const search = this.search.toLowerCase();
             const uniqueName = unique.Name.toLowerCase();
             const properties = unique.Properties.map((property) => property.PropertyString.toLowerCase());
-            return uniqueName.includes(search) || properties.find(p => p.includes(search));
+            const baseName = unique.Equipment.Name.toLowerCase();
+            return uniqueName.includes(search) || properties.find(p => p.includes(search)) || baseName.includes(search);
         }
         const isMatchingType = (unique) => {
             return !this.selectedType || unique.Type === this.selectedType;
