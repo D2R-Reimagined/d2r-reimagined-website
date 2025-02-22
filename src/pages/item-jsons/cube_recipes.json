@@ -2016,6 +2016,13 @@
         "CubeRecipeDescription": "Ring + Orb Of Infusion + Topaz + Ohm Rune + Rare Jewel = "
     },
     {
+        "Description": "ITEM UPGRADE - Ring & Infusion Orb & Emerald & Gul-Rune & Rare Jewel = +8% Faster Attack Speed",
+        "Item": null,
+        "Output": "",
+        "Input": "Ring + Orb of Infusion + Emerald + Gul Rune + Rare Jewel ",
+        "CubeRecipeDescription": "Ring + Orb Of Infusion + Emerald + Gul Rune + Rare Jewel = "
+    },
+    {
         "Description": "ITEM UPGRADE - Ring & Infusion Orb & Emerald & Lo-Rune & Rare Jewel = +8% Faster Cast Rate",
         "Item": null,
         "Output": "",
