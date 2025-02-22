@@ -1991,12 +1991,16 @@
         "Code": "jew",
         "Properties": [
             {
-                "PropertyString": "+15-20% Enhanced Damage",
+                "PropertyString": "+40% Enhanced Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+5-8 to Maximum Damage",
+                "PropertyString": "+15 to Minimum Damage",
                 "Index": 1
+            },
+            {
+                "PropertyString": "+5-8 Deadly Strike",
+                "Index": 2
             }
         ],
         "DamageArmorEnhanced": false,
@@ -10317,7 +10321,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Requirements +25%",
+                "PropertyString": "Requirements Increased By +25%",
                 "Index": 1
             },
             {
@@ -11455,12 +11459,16 @@
         "Code": "jew",
         "Properties": [
             {
-                "PropertyString": "+20-29% Enhanced Damage",
+                "PropertyString": "+40% Enhanced Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+8-10 to Maximum Damage",
+                "PropertyString": "+15 to Maximum Damage",
                 "Index": 1
+            },
+            {
+                "PropertyString": "+5-8 Chance of Crushing Blow",
+                "Index": 2
             }
         ],
         "DamageArmorEnhanced": false,
@@ -21594,15 +21602,19 @@
         "Code": "jew",
         "Properties": [
             {
-                "PropertyString": "+25-50 Defense",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+25 extra gold from monsters",
+                "PropertyString": "Adds 1-140 to Lightning Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+10-15 better chance of getting magic item",
+                "PropertyString": "+1 to Maximum Lightning Resist",
+                "Index": 3
+            },
+            {
+                "PropertyString": "Lightning Resist +25-35%",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+24-28 better chance of getting magic item",
                 "Index": 1
             }
         ],
@@ -23278,7 +23290,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements +20%",
+                "PropertyString": "Requirements Increased By +20%",
                 "Index": 4
             },
             {
@@ -26046,7 +26058,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Requirements +25%",
+                "PropertyString": "Requirements Increased By +25%",
                 "Index": 1
             }
         ],
@@ -28365,7 +28377,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Requirements +20%",
+                "PropertyString": "Requirements Increased By +20%",
                 "Index": 4
             },
             {
@@ -33564,7 +33576,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements +50%",
+                "PropertyString": "Requirements Increased By +50%",
                 "Index": 4
             },
             {
@@ -34725,7 +34737,7 @@
                 "Index": 7
             },
             {
-                "PropertyString": "Requirements +35%",
+                "PropertyString": "Requirements Increased By +35%",
                 "Index": 5
             },
             {
@@ -36971,12 +36983,20 @@
         "Code": "jew",
         "Properties": [
             {
-                "PropertyString": "+15 Increased Attack Speed",
+                "PropertyString": "3-5 to Poison Skill Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "10-15 to Dexterity",
                 "Index": 1
             },
             {
-                "PropertyString": "+27-34% Enhanced Damage",
-                "Index": 0
+                "PropertyString": "+1 to Maximum Poison Resist",
+                "Index": 3
+            },
+            {
+                "PropertyString": "Poison Resist +25-35%",
+                "Index": 2
             }
         ],
         "DamageArmorEnhanced": false,
@@ -49708,7 +49728,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements +25%",
+                "PropertyString": "Requirements Increased By +25%",
                 "Index": 5
             }
         ],
@@ -55687,7 +55707,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Requirements +15%",
+                "PropertyString": "Requirements Increased By +15%",
                 "Index": 5
             },
             {
@@ -55861,7 +55881,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Requirements +10%",
+                "PropertyString": "Requirements Increased By +10%",
                 "Index": 6
             },
             {
@@ -60184,12 +60204,24 @@
         "Code": "jew",
         "Properties": [
             {
-                "PropertyString": "+15 Increased Attack Speed",
+                "PropertyString": "Adds 60-80 to Cold Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+35-40 to Mana",
                 "Index": 1
             },
             {
-                "PropertyString": "+37-40% Enhanced Damage",
-                "Index": 0
+                "PropertyString": "+2 Increase Maximum Mana",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+1 to Maximum Cold Resist",
+                "Index": 3
+            },
+            {
+                "PropertyString": "Cold Resist +25-35%",
+                "Index": 2
             }
         ],
         "DamageArmorEnhanced": false,
@@ -60218,11 +60250,15 @@
         "Code": "jew",
         "Properties": [
             {
-                "PropertyString": "+37-40% Enhanced Damage",
+                "PropertyString": "+40% Enhanced Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+12-15 to Maximum Damage",
+                "PropertyString": "+5-8 Piercing Attack",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+15 to Minimum Damage",
                 "Index": 1
             }
         ],
@@ -60484,7 +60520,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Requirements +25%",
+                "PropertyString": "Requirements Increased By +25%",
                 "Index": 6
             },
             {
@@ -71279,7 +71315,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Requirements +25%",
+                "PropertyString": "Requirements Increased By +25%",
                 "Index": 3
             },
             {
@@ -77443,7 +77479,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Requirements +40%",
+                "PropertyString": "Requirements Increased By +40%",
                 "Index": 1
             }
         ],
@@ -79173,7 +79209,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Requirements +50%",
+                "PropertyString": "Requirements Increased By +50%",
                 "Index": 3
             },
             {
@@ -79534,7 +79570,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Requirements +25%",
+                "PropertyString": "Requirements Increased By +25%",
                 "Index": 2
             },
             {
@@ -79590,7 +79626,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements +20%",
+                "PropertyString": "Requirements Increased By +20%",
                 "Index": 1
             }
         ],
@@ -80892,7 +80928,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Requirements +20%",
+                "PropertyString": "Requirements Increased By +20%",
                 "Index": 1
             }
         ],
@@ -82166,7 +82202,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Requirements +15%",
+                "PropertyString": "Requirements Increased By +15%",
                 "Index": 7
             },
             {
@@ -82628,7 +82664,7 @@
         "Type": "Ring",
         "Name": "Constricting Ring",
         "Index": "Constricting Ring",
-        "Enabled": false,
+        "Enabled": true,
         "ItemLevel": 95,
         "RequiredLevel": 95,
         "Code": "rin",
