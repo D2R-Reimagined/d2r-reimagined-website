@@ -1,4 +1,4 @@
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-DySkqa9N.js";
+import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-BC2ZGszo.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
 const name = "uniques";
 const template = '<template>\n    <h3 class="text-center my-4">\n        ${uniques.length} Uniques Found\n    </h3>\n    <div class="container">\n        <div class="row align-content-center justify-content-center text-center mb-5">\n            <div class="col-12 col-md-5 col-lg-4">\n                <div class="au-select mb-2">\n                    <moo-select\n                            class="w-100"\n                            label="Select Class"\n                            options.bind="classes"\n                            class="standard-betsy-select"\n                            value.bind="class"\n                    ></moo-select>\n                </div>\n            </div>\n            <div class="col-12 col-md-5 col-lg-4">\n                <div class="au-select mb-2">\n                    <moo-select\n                            class="w-100"\n                            label="Select Type"\n                            options.bind="types"\n                            class="standard-betsy-select"\n                            value.bind="selectedType"\n                    ></moo-select>\n                </div>\n            </div>\n            <div class="col-12 col-md-5 col-lg-4">\n                <moo-text-field\n                        class="w-100"\n                        label="Search Uniques"\n                        type="text"\n                        value.bind="search"\n                ></moo-text-field>\n            </div>\n        </div>\n    </div>\n\n    <div class="row gy-5 px-5 text-center">\n        <div class="col-12 col-md-6 col-xxl-4" repeat.for="unique of uniques">\n            <div class="card bg-dark p-2">\n                <div class="unique-text fs-5 mb-1">\n                    ${unique.Name}\n                </div>\n                <div class="armor mb-1" if.bind="unique.Equipment.Name">\n                    ${unique.Equipment.Name}\n                </div>\n                <div class="armor mb-1" if.bind="unique.Equipment.ArmorString">\n                    Armor: ${unique.Equipment.ArmorString}\n                </div>\n                <div class="damage" if.bind="unique.Equipment.DamageTypes"\n                     repeat.for="damage of unique.Equipment.DamageTypes">\n                    ${getDamageTypeString(damage.Type)} ${damage.DamageString}\n                </div>\n                <div class="requirement" if.bind="unique.RequiredLevel > 0">\n                    Level ${unique.RequiredLevel} Required\n                </div>\n                <div class="requirement" if.bind="unique.Equipment.RequiredStrength > 0">\n                    ${unique.Equipment.RequiredStrength} Strength Required\n                </div>\n                <div class="requirement" if.bind="unique.Equipment.RequiredDexterity > 0">\n                    ${unique.Equipment.RequiredDexterity} Dexterity Required\n                </div>\n                <div class="durability mt-1" if.bind="unique.Equipment.Durability > 0">\n                    ${unique.Equipment.Durability} Durability\n                </div>\n                <div class="mt-2">\n                    <div class="enhanced" repeat.for="property of unique.Properties">\n                        ${property.PropertyString}\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</template>\n';
@@ -2013,12 +2013,16 @@ const json = [
     Code: "jew",
     Properties: [
       {
-        PropertyString: "+15-20% Enhanced Damage",
+        PropertyString: "+40% Enhanced Damage",
         Index: 0
       },
       {
-        PropertyString: "+5-8 to Maximum Damage",
+        PropertyString: "+15 to Minimum Damage",
         Index: 1
+      },
+      {
+        PropertyString: "+5-8 Deadly Strike",
+        Index: 2
       }
     ],
     DamageArmorEnhanced: false,
@@ -10339,7 +10343,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "Requirements +25%",
+        PropertyString: "Requirements Increased By +25%",
         Index: 1
       },
       {
@@ -11477,12 +11481,16 @@ const json = [
     Code: "jew",
     Properties: [
       {
-        PropertyString: "+20-29% Enhanced Damage",
+        PropertyString: "+40% Enhanced Damage",
         Index: 0
       },
       {
-        PropertyString: "+8-10 to Maximum Damage",
+        PropertyString: "+15 to Maximum Damage",
         Index: 1
+      },
+      {
+        PropertyString: "+5-8 Chance of Crushing Blow",
+        Index: 2
       }
     ],
     DamageArmorEnhanced: false,
@@ -21616,15 +21624,19 @@ const json = [
     Code: "jew",
     Properties: [
       {
-        PropertyString: "+25-50 Defense",
-        Index: 2
-      },
-      {
-        PropertyString: "+25 extra gold from monsters",
+        PropertyString: "Adds 1-140 to Lightning Damage",
         Index: 0
       },
       {
-        PropertyString: "+10-15 better chance of getting magic item",
+        PropertyString: "+1 to Maximum Lightning Resist",
+        Index: 3
+      },
+      {
+        PropertyString: "Lightning Resist +25-35%",
+        Index: 2
+      },
+      {
+        PropertyString: "+24-28 better chance of getting magic item",
         Index: 1
       }
     ],
@@ -23300,7 +23312,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "Requirements +20%",
+        PropertyString: "Requirements Increased By +20%",
         Index: 4
       },
       {
@@ -26068,7 +26080,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "Requirements +25%",
+        PropertyString: "Requirements Increased By +25%",
         Index: 1
       }
     ],
@@ -28387,7 +28399,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "Requirements +20%",
+        PropertyString: "Requirements Increased By +20%",
         Index: 4
       },
       {
@@ -33586,7 +33598,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "Requirements +50%",
+        PropertyString: "Requirements Increased By +50%",
         Index: 4
       },
       {
@@ -34747,7 +34759,7 @@ const json = [
         Index: 7
       },
       {
-        PropertyString: "Requirements +35%",
+        PropertyString: "Requirements Increased By +35%",
         Index: 5
       },
       {
@@ -36993,12 +37005,20 @@ const json = [
     Code: "jew",
     Properties: [
       {
-        PropertyString: "+15 Increased Attack Speed",
+        PropertyString: "3-5 to Poison Skill Damage",
+        Index: 0
+      },
+      {
+        PropertyString: "10-15 to Dexterity",
         Index: 1
       },
       {
-        PropertyString: "+27-34% Enhanced Damage",
-        Index: 0
+        PropertyString: "+1 to Maximum Poison Resist",
+        Index: 3
+      },
+      {
+        PropertyString: "Poison Resist +25-35%",
+        Index: 2
       }
     ],
     DamageArmorEnhanced: false,
@@ -49730,7 +49750,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "Requirements +25%",
+        PropertyString: "Requirements Increased By +25%",
         Index: 5
       }
     ],
@@ -55709,7 +55729,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "Requirements +15%",
+        PropertyString: "Requirements Increased By +15%",
         Index: 5
       },
       {
@@ -55883,7 +55903,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "Requirements +10%",
+        PropertyString: "Requirements Increased By +10%",
         Index: 6
       },
       {
@@ -60206,12 +60226,24 @@ const json = [
     Code: "jew",
     Properties: [
       {
-        PropertyString: "+15 Increased Attack Speed",
+        PropertyString: "Adds 60-80 to Cold Damage",
+        Index: 0
+      },
+      {
+        PropertyString: "+35-40 to Mana",
         Index: 1
       },
       {
-        PropertyString: "+37-40% Enhanced Damage",
-        Index: 0
+        PropertyString: "+2 Increase Maximum Mana",
+        Index: 4
+      },
+      {
+        PropertyString: "+1 to Maximum Cold Resist",
+        Index: 3
+      },
+      {
+        PropertyString: "Cold Resist +25-35%",
+        Index: 2
       }
     ],
     DamageArmorEnhanced: false,
@@ -60240,11 +60272,15 @@ const json = [
     Code: "jew",
     Properties: [
       {
-        PropertyString: "+37-40% Enhanced Damage",
+        PropertyString: "+40% Enhanced Damage",
         Index: 0
       },
       {
-        PropertyString: "+12-15 to Maximum Damage",
+        PropertyString: "+5-8 Piercing Attack",
+        Index: 2
+      },
+      {
+        PropertyString: "+15 to Minimum Damage",
         Index: 1
       }
     ],
@@ -60506,7 +60542,7 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "Requirements +25%",
+        PropertyString: "Requirements Increased By +25%",
         Index: 6
       },
       {
@@ -71301,7 +71337,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "Requirements +25%",
+        PropertyString: "Requirements Increased By +25%",
         Index: 3
       },
       {
@@ -77465,7 +77501,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "Requirements +40%",
+        PropertyString: "Requirements Increased By +40%",
         Index: 1
       }
     ],
@@ -79195,7 +79231,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "Requirements +50%",
+        PropertyString: "Requirements Increased By +50%",
         Index: 3
       },
       {
@@ -79556,7 +79592,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "Requirements +25%",
+        PropertyString: "Requirements Increased By +25%",
         Index: 2
       },
       {
@@ -79612,7 +79648,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "Requirements +20%",
+        PropertyString: "Requirements Increased By +20%",
         Index: 1
       }
     ],
@@ -80914,7 +80950,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "Requirements +20%",
+        PropertyString: "Requirements Increased By +20%",
         Index: 1
       }
     ],
@@ -82188,7 +82224,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "Requirements +15%",
+        PropertyString: "Requirements Increased By +15%",
         Index: 7
       },
       {
@@ -82650,7 +82686,7 @@ const json = [
     Type: "Ring",
     Name: "Constricting Ring",
     Index: "Constricting Ring",
-    Enabled: false,
+    Enabled: true,
     ItemLevel: 95,
     RequiredLevel: 95,
     Code: "rin",
