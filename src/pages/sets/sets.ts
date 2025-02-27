@@ -86,6 +86,17 @@ export class Sets {
                             }
                         }
                     }
+                    if (this.class) {
+                        if (setItem.Equipment.Name.toLowerCase().includes(this.class?.toLowerCase())) {
+                            foundSets.push(set);
+                            continue loop1;
+                        }
+                    } else {
+                        if (setItem.Equipment.Name.toLowerCase().includes(this.search?.toLowerCase())) {
+                            foundSets.push(set);
+                            continue loop1;
+                        }
+                    }
                 }
             }
             this.sets = foundSets;
