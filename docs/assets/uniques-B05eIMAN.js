@@ -1,4 +1,4 @@
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-BC2ZGszo.js";
+import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-CE1RWHMQ.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
 const name = "uniques";
 const template = '<template>\n    <h3 class="text-center my-4">\n        ${uniques.length} Uniques Found\n    </h3>\n    <div class="container">\n        <div class="row align-content-center justify-content-center text-center mb-5">\n            <div class="col-12 col-md-5 col-lg-4">\n                <div class="au-select mb-2">\n                    <moo-select\n                            class="w-100"\n                            label="Select Class"\n                            options.bind="classes"\n                            class="standard-betsy-select"\n                            value.bind="class"\n                    ></moo-select>\n                </div>\n            </div>\n            <div class="col-12 col-md-5 col-lg-4">\n                <div class="au-select mb-2">\n                    <moo-select\n                            class="w-100"\n                            label="Select Type"\n                            options.bind="types"\n                            class="standard-betsy-select"\n                            value.bind="selectedType"\n                    ></moo-select>\n                </div>\n            </div>\n            <div class="col-12 col-md-5 col-lg-4">\n                <moo-text-field\n                        class="w-100"\n                        label="Search Uniques"\n                        type="text"\n                        value.bind="search"\n                ></moo-text-field>\n            </div>\n        </div>\n    </div>\n\n    <div class="row gy-5 px-5 text-center">\n        <div class="col-12 col-md-6 col-xxl-4" repeat.for="unique of uniques">\n            <div class="card bg-dark p-2">\n                <div class="unique-text fs-5 mb-1">\n                    ${unique.Name}\n                </div>\n                <div class="armor mb-1" if.bind="unique.Equipment.Name">\n                    ${unique.Equipment.Name}\n                </div>\n                <div class="armor mb-1" if.bind="unique.Equipment.ArmorString">\n                    Armor: ${unique.Equipment.ArmorString}\n                </div>\n                <div class="damage" if.bind="unique.Equipment.DamageTypes"\n                     repeat.for="damage of unique.Equipment.DamageTypes">\n                    ${getDamageTypeString(damage.Type)} ${damage.DamageString}\n                </div>\n                <div class="requirement" if.bind="unique.RequiredLevel > 0">\n                    Level ${unique.RequiredLevel} Required\n                </div>\n                <div class="requirement" if.bind="unique.Equipment.RequiredStrength > 0">\n                    ${unique.Equipment.RequiredStrength} Strength Required\n                </div>\n                <div class="requirement" if.bind="unique.Equipment.RequiredDexterity > 0">\n                    ${unique.Equipment.RequiredDexterity} Dexterity Required\n                </div>\n                <div class="durability mt-1" if.bind="unique.Equipment.Durability > 0">\n                    ${unique.Equipment.Durability} Durability\n                </div>\n                <div class="mt-2">\n                    <div class="enhanced" repeat.for="property of unique.Properties">\n                        ${property.PropertyString}\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</template>\n';
@@ -53363,7 +53363,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "+1 to Grim Ward",
+        PropertyString: "+1 to Decrepify",
         Index: 7
       },
       {
@@ -68798,7 +68798,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+10-15 to Shape Shifting (Druid Only)",
+        PropertyString: "+5-7 to Shape Shifting (Druid Only)",
         Index: 2
       },
       {
@@ -69921,31 +69921,43 @@ const json = [
   },
   {
     Type: "Knife",
-    Name: "Lich Dagger",
-    Index: "Lich Dagger",
+    Name: "Forbidden Rites",
+    Index: "Forbidden Rites",
     Enabled: true,
     ItemLevel: 65,
     RequiredLevel: 70,
     Code: "7dg",
     Properties: [
       {
-        PropertyString: "+200-245% Enhanced Damage",
-        Index: 0
+        PropertyString: "+30 Increased Attack Speed",
+        Index: 6
       },
       {
-        PropertyString: "+25 Faster Cast Rate",
-        Index: 6
+        PropertyString: "+200-245% Enhanced Damage",
+        Index: 0
       },
       {
         PropertyString: "Adds 20-40 to Damage",
         Index: 5
       },
       {
+        PropertyString: "+200 to Minimum Fire Damage",
+        Index: 11
+      },
+      {
+        PropertyString: "+60 to Minimum Lightning Damage",
+        Index: 9
+      },
+      {
+        PropertyString: "+120 to Minimum Cold Damage",
+        Index: 10
+      },
+      {
         PropertyString: "+12 Life stolen per hit",
         Index: 1
       },
       {
-        PropertyString: "15 to Fire Skill Damage",
+        PropertyString: "15-20 to Fire Skill Damage",
         Index: 2
       },
       {
@@ -69953,7 +69965,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "10-15 to Lightning Skill Damage",
+        PropertyString: "15-20 to Lightning Skill Damage",
         Index: 4
       },
       {
@@ -78728,47 +78740,43 @@ const json = [
     Code: "drb",
     Properties: [
       {
-        PropertyString: "2 to All Skills",
-        Index: 4
-      },
-      {
-        PropertyString: "+25 Increased Attack Speed",
-        Index: 6
-      },
-      {
-        PropertyString: "+25-50% Enhanced Damage",
-        Index: 5
-      },
-      {
-        PropertyString: "+6 Life stolen per hit",
-        Index: 8
-      },
-      {
-        PropertyString: "+7 to Summon Spirit Wolf (Druid Only)",
-        Index: 1
-      },
-      {
-        PropertyString: "+7 to Summon Fenris (Druid Only)",
-        Index: 2
-      },
-      {
-        PropertyString: "+7 to Summon Grizzly (Druid Only)",
-        Index: 3
-      },
-      {
-        PropertyString: "+150-200 Defense",
+        PropertyString: "+2-4 to Shape Shifting Skills (Druid only)",
         Index: 0
       },
       {
-        PropertyString: "25 to Dexterity",
+        PropertyString: "+20 Faster Hit Recovery",
+        Index: 6
+      },
+      {
+        PropertyString: "+30-60 Damage",
+        Index: 1
+      },
+      {
+        PropertyString: "+6 Life stolen per hit",
+        Index: 2
+      },
+      {
+        PropertyString: "+3-5 to Wearwolf (Druid Only)",
+        Index: 3
+      },
+      {
+        PropertyString: "+3-6 to Fury (Druid Only)",
+        Index: 4
+      },
+      {
+        PropertyString: "+3-5 to Feral Rage (Druid Only)",
+        Index: 5
+      },
+      {
+        PropertyString: "All Resistances +20",
         Index: 7
       }
     ],
-    DamageArmorEnhanced: true,
+    DamageArmorEnhanced: false,
     Equipment: {
       DamageString: null,
       DamageStringPrefix: null,
-      ArmorString: "251-301",
+      ArmorString: "101",
       EquipmentType: 0,
       Name: "Blood Spirit",
       RequiredStrength: 86,
@@ -79082,12 +79090,16 @@ const json = [
     Code: "6sw",
     Properties: [
       {
-        PropertyString: "+2",
+        PropertyString: "2 to All Skills",
         Index: 1
       },
       {
         PropertyString: "+15-20 to Magic Arrow",
         Index: 4
+      },
+      {
+        PropertyString: "+6 to Fanaticism",
+        Index: 7
       },
       {
         PropertyString: "+40 Increased Attack Speed",
@@ -79102,16 +79114,12 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "Adds 50-100 to Damage",
-        Index: 6
-      },
-      {
-        PropertyString: "+1 Prevent Monster Heal",
+        PropertyString: "+50 Piercing Attack",
         Index: 5
       },
       {
-        PropertyString: "+4-7 to Shape Shifting (Druid Only)",
-        Index: 7
+        PropertyString: "Adds 50-100 to Damage",
+        Index: 6
       },
       {
         PropertyString: "1",
@@ -79256,59 +79264,6 @@ const json = [
         Class: ""
       },
       RequiredClass: ""
-    }
-  },
-  {
-    Type: "Primal Helm",
-    Name: "Insight of the Ancients",
-    Index: "Insight of the Ancients",
-    Enabled: true,
-    ItemLevel: 77,
-    RequiredLevel: 82,
-    Code: "bae",
-    Properties: [
-      {
-        PropertyString: "+2",
-        Index: 5
-      },
-      {
-        PropertyString: "+100-140 Enhanced Defense",
-        Index: 0
-      },
-      {
-        PropertyString: "40 to Energy",
-        Index: 3
-      },
-      {
-        PropertyString: "10 to Experience Gained",
-        Index: 4
-      },
-      {
-        PropertyString: "Repairs 0.5 durability per second",
-        Index: 2
-      },
-      {
-        PropertyString: "Ethereal (Cannot Be Repaired)",
-        Index: 1
-      }
-    ],
-    DamageArmorEnhanced: true,
-    Equipment: {
-      DamageString: null,
-      DamageStringPrefix: null,
-      ArmorString: "230-276",
-      EquipmentType: 0,
-      Name: "Conqueror Crown",
-      RequiredStrength: 174,
-      RequiredDexterity: 0,
-      Durability: 50,
-      ItemLevel: 80,
-      Type: {
-        Name: "Primal Helm",
-        Index: "Primal Helm",
-        Class: "bar"
-      },
-      RequiredClass: "Barbarian"
     }
   },
   {
@@ -80023,12 +79978,24 @@ const json = [
     Code: "7gi",
     Properties: [
       {
-        PropertyString: "10% Chance to cast level 20 howl when struck",
+        PropertyString: "20% Chance to cast level 20 howl when struck",
         Index: 2
       },
       {
         PropertyString: "2 to All Skills",
         Index: 8
+      },
+      {
+        PropertyString: "+8 to BloodGolem",
+        Index: 1
+      },
+      {
+        PropertyString: "+5 to Golem Mastery",
+        Index: 10
+      },
+      {
+        PropertyString: "+40 Increased Attack Speed",
+        Index: 3
       },
       {
         PropertyString: "+275-325% Enhanced Damage",
@@ -80037,10 +80004,6 @@ const json = [
       {
         PropertyString: "+1024 to Minimum Poison Damage",
         Index: 7
-      },
-      {
-        PropertyString: "100%",
-        Index: 1
       },
       {
         PropertyString: "+5 to Maximum Poison Resist",
@@ -80053,10 +80016,6 @@ const json = [
       {
         PropertyString: "+50-75 Poison Length Reduced by",
         Index: 5
-      },
-      {
-        PropertyString: "Level 15 Bone Prison (77 Charges)",
-        Index: 3
       },
       {
         PropertyString: "1",
@@ -80289,28 +80248,24 @@ const json = [
     Code: "utg",
     Properties: [
       {
-        PropertyString: "1 to All Skills",
+        PropertyString: "+20 Increased Attack Speed",
         Index: 0
       },
       {
-        PropertyString: "+20 Faster Block Rate",
-        Index: 5
+        PropertyString: "+20 Faster Hit Recovery",
+        Index: 1
       },
       {
-        PropertyString: "20% Increased Chance of Blocking",
-        Index: 4
-      },
-      {
-        PropertyString: "+1-3 to Holy Shield (Paladin Only)",
+        PropertyString: "+2-3 to Holy Shield (Paladin Only)",
         Index: 2
       },
       {
-        PropertyString: "+1-3 to Fanaticism (Paladin Only)",
+        PropertyString: "+2-3 to Smite (Paladin Only)",
         Index: 3
       },
       {
-        PropertyString: "1 to Experience Gained",
-        Index: 1
+        PropertyString: "15 to Strength",
+        Index: 4
       }
     ],
     DamageArmorEnhanced: false,
@@ -80342,28 +80297,24 @@ const json = [
     Code: "obf",
     Properties: [
       {
-        PropertyString: "1-3 to All Skills",
-        Index: 9
+        PropertyString: "+1-2",
+        Index: 8
       },
       {
-        PropertyString: "+7 to Valkyrie",
-        Index: 5
+        PropertyString: "+2-4 to Zeal",
+        Index: 9
       },
       {
         PropertyString: "+50 Increased Attack Speed",
         Index: 2
       },
       {
+        PropertyString: "+175-225% Enhanced Damage",
+        Index: 5
+      },
+      {
         PropertyString: "+40 Faster Hit Recovery",
-        Index: 8
-      },
-      {
-        PropertyString: "+50 Faster Block Rate",
         Index: 7
-      },
-      {
-        PropertyString: "25-35% Increased Chance of Blocking",
-        Index: 6
       },
       {
         PropertyString: "+25-50 to Minimum Damage",
@@ -80378,7 +80329,11 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "+20 Mana stolen per hit",
+        PropertyString: "20 bonus to Attack Rating",
+        Index: 6
+      },
+      {
+        PropertyString: "+9 Life stolen per hit",
         Index: 3
       },
       {
@@ -80391,7 +80346,7 @@ const json = [
       DamageTypes: [
         {
           Type: 3,
-          DamageString: "(55-80) to (228-278)"
+          DamageString: "(107-147) to (320-397)"
         }
       ],
       EquipmentType: 1,
@@ -80660,12 +80615,8 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+40 Increased Attack Speed",
-        Index: 5
-      },
-      {
         PropertyString: "+300-340% Enhanced Damage",
-        Index: 7
+        Index: 6
       },
       {
         PropertyString: "+150-200 to Minimum Damage",
@@ -80676,12 +80627,12 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+1 Ignore Target's Defense",
-        Index: 4
+        PropertyString: "+9 Life stolen per hit",
+        Index: 5
       },
       {
-        PropertyString: "+20 Replenish Life",
-        Index: 6
+        PropertyString: "+40 Chance of Crushing Blow",
+        Index: 4
       },
       {
         PropertyString: "Repairs 0.25 durability per second",
@@ -80689,7 +80640,7 @@ const json = [
       },
       {
         PropertyString: "1",
-        Index: 8
+        Index: 7
       }
     ],
     DamageArmorEnhanced: true,
@@ -80971,74 +80922,6 @@ const json = [
         Class: ""
       },
       RequiredClass: "Helm"
-    }
-  },
-  {
-    Type: "Hand to Hand 2",
-    Name: "Enchanted Blades",
-    Index: "Enchanted Blades",
-    Enabled: true,
-    ItemLevel: 80,
-    RequiredLevel: 85,
-    Code: "7tw",
-    Properties: [
-      {
-        PropertyString: "6% Chance to cast level 12 lightning when struck",
-        Index: 6
-      },
-      {
-        PropertyString: "+1-2 to Shadow Disciplines (Assassin only)",
-        Index: 5
-      },
-      {
-        PropertyString: "+3 to Battle Command",
-        Index: 4
-      },
-      {
-        PropertyString: "+250-320% Enhanced Damage",
-        Index: 0
-      },
-      {
-        PropertyString: "Adds 75-200 Adds 75-200 magic damage",
-        Index: 3
-      },
-      {
-        PropertyString: "Magic Resist +25%",
-        Index: 1
-      },
-      {
-        PropertyString: "All Resistances +25",
-        Index: 7
-      },
-      {
-        PropertyString: "+25 Magic Damage Reduced by",
-        Index: 2
-      },
-      {
-        PropertyString: "1",
-        Index: 8
-      }
-    ],
-    DamageArmorEnhanced: true,
-    Equipment: {
-      DamageTypes: [
-        {
-          Type: 3,
-          DamageString: "(84-100) to (154-184)"
-        }
-      ],
-      EquipmentType: 1,
-      Name: "Runic Talons",
-      RequiredStrength: 115,
-      RequiredDexterity: 115,
-      Durability: 250,
-      ItemLevel: 81,
-      Type: {
-        Name: "Hand to Hand 2",
-        Index: "Hand to Hand 2",
-        Class: "ass"
-      },
-      RequiredClass: ""
     }
   },
   {
@@ -81635,11 +81518,19 @@ const json = [
         Index: 3
       },
       {
+        PropertyString: "+5 to Vigor",
+        Index: 6
+      },
+      {
+        PropertyString: "+40 Faster Run/Walk",
+        Index: 7
+      },
+      {
         PropertyString: "+60 Increased Attack Speed",
         Index: 1
       },
       {
-        PropertyString: "+150-200% Enhanced Damage",
+        PropertyString: "+250-350% Enhanced Damage",
         Index: 0
       },
       {
@@ -81647,16 +81538,12 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+35-50 Life after each Kill",
-        Index: 6
-      },
-      {
-        PropertyString: "Socketed (1)",
+        PropertyString: "+15-20 Life after each Kill",
         Index: 5
       },
       {
         PropertyString: "1",
-        Index: 7
+        Index: 8
       }
     ],
     DamageArmorEnhanced: true,
@@ -81664,7 +81551,7 @@ const json = [
       DamageTypes: [
         {
           Type: 1,
-          DamageString: "(82-99) to (445-534)"
+          DamageString: "(115-148) to (623-801)"
         }
       ],
       EquipmentType: 1,
@@ -81763,16 +81650,20 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "+20 Faster Block Rate",
+        PropertyString: "+25 Faster Cast Rate",
         Index: 6
-      },
-      {
-        PropertyString: "25% Increased Chance of Blocking",
-        Index: 5
       },
       {
         PropertyString: "+5-7 to Bone Spirit (Necromancer Only)",
         Index: 3
+      },
+      {
+        PropertyString: "+5-7 to Bone Spear (Necromancer Only)",
+        Index: 5
+      },
+      {
+        PropertyString: "+2-3 to Bone Prison (Necromancer Only)",
+        Index: 7
       },
       {
         PropertyString: "+125 extra gold from monsters",
@@ -81784,7 +81675,7 @@ const json = [
       },
       {
         PropertyString: "1",
-        Index: 7
+        Index: 8
       }
     ],
     DamageArmorEnhanced: false,
@@ -81884,6 +81775,10 @@ const json = [
         Index: 6
       },
       {
+        PropertyString: "18% Chance to cast level 18 dim vision on striking",
+        Index: 7
+      },
+      {
         PropertyString: "2 to All Skills",
         Index: 1
       },
@@ -81906,6 +81801,10 @@ const json = [
       {
         PropertyString: "Lightning Resist +65%",
         Index: 5
+      },
+      {
+        PropertyString: "-10 to Light Radius",
+        Index: 8
       }
     ],
     DamageArmorEnhanced: false,
@@ -81949,8 +81848,16 @@ const json = [
         Index: 2
       },
       {
+        PropertyString: "40% Increased Chance of Blocking",
+        Index: 8
+      },
+      {
         PropertyString: "+100-150 Enhanced Defense",
         Index: 0
+      },
+      {
+        PropertyString: "All Resistances +35",
+        Index: 7
       },
       {
         PropertyString: "Requirements -70%",
@@ -81994,55 +81901,47 @@ const json = [
     Code: "nef",
     Properties: [
       {
-        PropertyString: "+8-12 to Melee Mastery",
-        Index: 6
-      },
-      {
-        PropertyString: "+1-2",
-        Index: 9
-      },
-      {
-        PropertyString: "+20 Increased Attack Speed",
-        Index: 7
-      },
-      {
-        PropertyString: "+40 Faster Cast Rate",
-        Index: 4
-      },
-      {
-        PropertyString: "+100 Piercing Attack",
-        Index: 5
-      },
-      {
-        PropertyString: "Adds 10-30 to Damage",
-        Index: 8
-      },
-      {
-        PropertyString: "+200-300 Defense",
+        PropertyString: "+2-4 to Poison and Bone Skills (Necromancer only)",
         Index: 0
       },
       {
-        PropertyString: "25 to Strength",
-        Index: 3
-      },
-      {
-        PropertyString: "+150 extra gold from monsters",
-        Index: 2
-      },
-      {
-        PropertyString: "+65 better chance of getting magic item",
+        PropertyString: "+25 Faster Cast Rate",
         Index: 1
       },
       {
+        PropertyString: "+25 Faster Hit Recovery",
+        Index: 2
+      },
+      {
+        PropertyString: "+3-5 to Poison Nova (Necromancer Only)",
+        Index: 3
+      },
+      {
+        PropertyString: "+3-5 to Corpse Explosion (Necromancer Only)",
+        Index: 4
+      },
+      {
+        PropertyString: "+3-5 to Poison Explosion (Necromancer Only)",
+        Index: 5
+      },
+      {
+        PropertyString: "+150-225 Defense",
+        Index: 6
+      },
+      {
+        PropertyString: "All Resistances +15",
+        Index: 7
+      },
+      {
         PropertyString: "1",
-        Index: 10
+        Index: 8
       }
     ],
     DamageArmorEnhanced: true,
     Equipment: {
       DamageString: null,
       DamageStringPrefix: null,
-      ArmorString: "303-403",
+      ArmorString: "253-328",
       EquipmentType: 0,
       Name: "Bloodlord Skull",
       RequiredStrength: 106,
@@ -82058,49 +81957,110 @@ const json = [
     }
   },
   {
+    Type: "Primal Helm",
+    Name: "Insight of the Ancients",
+    Index: "Insight of the Ancients",
+    Enabled: true,
+    ItemLevel: 86,
+    RequiredLevel: 86,
+    Code: "bae",
+    Properties: [
+      {
+        PropertyString: "2 to All Skills",
+        Index: 5
+      },
+      {
+        PropertyString: "20 bonus to Attack Rating",
+        Index: 8
+      },
+      {
+        PropertyString: "+2-4 to Battle Orders (Barbarian Only)",
+        Index: 6
+      },
+      {
+        PropertyString: "+2-4 to Battle Command (Barbarian Only)",
+        Index: 7
+      },
+      {
+        PropertyString: "+200-250 Enhanced Defense",
+        Index: 0
+      },
+      {
+        PropertyString: "20 to Strength",
+        Index: 3
+      },
+      {
+        PropertyString: "10 to Experience Gained",
+        Index: 4
+      },
+      {
+        PropertyString: "Repairs 0.5 durability per second",
+        Index: 2
+      },
+      {
+        PropertyString: "Ethereal (Cannot Be Repaired)",
+        Index: 1
+      }
+    ],
+    DamageArmorEnhanced: true,
+    Equipment: {
+      DamageString: null,
+      DamageStringPrefix: null,
+      ArmorString: "345-402",
+      EquipmentType: 0,
+      Name: "Conqueror Crown",
+      RequiredStrength: 174,
+      RequiredDexterity: 0,
+      Durability: 50,
+      ItemLevel: 80,
+      Type: {
+        Name: "Primal Helm",
+        Index: "Primal Helm",
+        Class: "bar"
+      },
+      RequiredClass: "Barbarian"
+    }
+  },
+  {
     Type: "Pelt",
     Name: "Call of the Kindred",
     Index: "Call of the Kindred",
     Enabled: true,
-    ItemLevel: 82,
+    ItemLevel: 85,
     RequiredLevel: 86,
     Code: "drf",
     Properties: [
       {
-        PropertyString: "+1",
-        Index: 8
-      },
-      {
-        PropertyString: "+10 Increased Attack Speed",
-        Index: 4
-      },
-      {
-        PropertyString: "Adds 3-6 Mana stolen per hit",
-        Index: 7
-      },
-      {
-        PropertyString: "Adds 3-6 Life stolen per hit",
-        Index: 6
-      },
-      {
-        PropertyString: "+3-7 to Wearwolf (Druid Only)",
-        Index: 1
-      },
-      {
-        PropertyString: "+3-7 to Shape Shifting (Druid Only)",
-        Index: 2
-      },
-      {
-        PropertyString: "+3-7 to Wearbear (Druid Only)",
-        Index: 3
-      },
-      {
-        PropertyString: "+200-240 Defense",
+        PropertyString: "+2 to Summoning Skills (Druid only)",
         Index: 0
       },
       {
-        PropertyString: "50 to Life",
+        PropertyString: "+20 Faster Hit Recovery",
+        Index: 1
+      },
+      {
+        PropertyString: "+3-5 to Summon Spirit Wolf (Druid Only)",
+        Index: 4
+      },
+      {
+        PropertyString: "+3-5 to Summon Fenris (Druid Only)",
         Index: 5
+      },
+      {
+        PropertyString: "+3-5 to Summon Grizzly (Druid Only)",
+        Index: 6
+      },
+      {
+        PropertyString: "+200-240 Defense",
+        Index: 7
+      },
+      {
+        PropertyString: "to Life",
+        Index: 2
+      },
+      {
+        PropertyString: "+ to Mana",
+        Index: 3
       }
     ],
     DamageArmorEnhanced: true,
@@ -82192,15 +82152,15 @@ const json = [
   },
   {
     Type: "Sword",
-    Name: "Owlbear's Attack",
-    Index: "Owlbear's Attack",
+    Name: "Fury of the Owlbear",
+    Index: "Fury of the Owlbear",
     Enabled: true,
     ItemLevel: 83,
     RequiredLevel: 87,
     Code: "7wd",
     Properties: [
       {
-        PropertyString: "12% Chance to cast level 8 nova on striking",
+        PropertyString: "12% Chance to cast level 50 nova on striking",
         Index: 4
       },
       {
@@ -82208,23 +82168,27 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "+200-300% Enhanced Damage",
+        PropertyString: "+40 Increased Attack Speed",
+        Index: 9
+      },
+      {
+        PropertyString: "+275-325% Enhanced Damage",
         Index: 0
+      },
+      {
+        PropertyString: "15% Chance of Open Wounds",
+        Index: 3
       },
       {
         PropertyString: "+20 Slows target by",
         Index: 5
       },
       {
-        PropertyString: "+75-128 Attacker Takes Damage of",
-        Index: 3
-      },
-      {
         PropertyString: "15% Damage Taken Goes To Mana",
         Index: 2
       },
       {
-        PropertyString: "Requirements Increased By +15%",
+        PropertyString: "Requirements -15%",
         Index: 7
       },
       {
@@ -82241,7 +82205,7 @@ const json = [
       DamageTypes: [
         {
           Type: 3,
-          DamageString: "(120-160) to (150-200)"
+          DamageString: "(150-170) to (187-212)"
         }
       ],
       EquipmentType: 1,
@@ -82643,6 +82607,14 @@ const json = [
         Index: 0
       },
       {
+        PropertyString: "+25 Faster Block Rate",
+        Index: 7
+      },
+      {
+        PropertyString: "40% Increased Chance of Blocking",
+        Index: 6
+      },
+      {
         PropertyString: "+175 Enhanced Defense",
         Index: 1
       },
@@ -82680,6 +82652,82 @@ const json = [
         Class: "pal"
       },
       RequiredClass: "Paladin"
+    }
+  },
+  {
+    Type: "Hand to Hand 2",
+    Name: "Skaadi's Claws",
+    Index: "Skaadi's Claws",
+    Enabled: true,
+    ItemLevel: 85,
+    RequiredLevel: 88,
+    Code: "7tw",
+    Properties: [
+      {
+        PropertyString: "50 chance for finishing moves to not consume charges",
+        Index: 9
+      },
+      {
+        PropertyString: "18% Chance to cast level 12 glacial spike on striking",
+        Index: 6
+      },
+      {
+        PropertyString: "+2-3 to Martial Arts (Assassin only)",
+        Index: 5
+      },
+      {
+        PropertyString: "+3 to Cold Mastery",
+        Index: 2
+      },
+      {
+        PropertyString: "+3 to Frozen Armor",
+        Index: 4
+      },
+      {
+        PropertyString: "+250-320% Enhanced Damage",
+        Index: 0
+      },
+      {
+        PropertyString: "15-20 to Cold Skill Damage",
+        Index: 3
+      },
+      {
+        PropertyString: "+3-5 to Blades of Ice (Assassin Only)",
+        Index: 8
+      },
+      {
+        PropertyString: "Magic Resist +25%",
+        Index: 1
+      },
+      {
+        PropertyString: "All Resistances +25",
+        Index: 7
+      },
+      {
+        PropertyString: "1",
+        Index: 10
+      }
+    ],
+    DamageArmorEnhanced: true,
+    Equipment: {
+      DamageTypes: [
+        {
+          Type: 3,
+          DamageString: "(84-100) to (154-184)"
+        }
+      ],
+      EquipmentType: 1,
+      Name: "Runic Talons",
+      RequiredStrength: 115,
+      RequiredDexterity: 115,
+      Durability: 250,
+      ItemLevel: 81,
+      Type: {
+        Name: "Hand to Hand 2",
+        Index: "Hand to Hand 2",
+        Class: "ass"
+      },
+      RequiredClass: ""
     }
   },
   {

@@ -1,4 +1,4 @@
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-BC2ZGszo.js";
+import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-CE1RWHMQ.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
 const name = "cube-recipes";
 const template = '<template>\n    <h3 class="text-center my-4">\n        ${recipes.length} Recipes Found\n    </h3>\n    <div class="search my-2 text-center">\n        <form>\n            <label>Search Recipes</label><br>\n            <input type="text" value.bind="search" />\n        </form>\n    </div>\n    <div class="row gy-5 px-5 text-center">\n        <div class="col-12 col-md-6 col-xxl-4" repeat.for="recipe of recipes">\n            <div class="card bg-dark p-2">\n                <div class="unique-text">\n                    ${recipe.Description}\n                </div>\n                <div class="description" innerhtml.bind="recipe.Input | cubeInputs"></div>\n\n                <div class="unique-text">\n                    = <br>\n                    ${recipe.Output}\n                </div>\n            </div>\n        </div>\n    </div>\n</template>';
@@ -237,6 +237,13 @@ const json = [
     Output: "Magic Amulet",
     Input: "Magic Amulet + Rare Jewel + Um Rune + Gem ",
     CubeRecipeDescription: "Magic Amulet + Rare Jewel + Um Rune + Gem = Magic Amulet"
+  },
+  {
+    Description: "CRAFT ITEM - Amulet Magic & 1 Jewel Rare & Mal-Rune & Gem (Any) = +1 allskills, +10% Faster Cast Rate Amulet Crafted",
+    Item: null,
+    Output: "Magic Amulet",
+    Input: "Magic Amulet + Rare Jewel + Mal Rune + Gem ",
+    CubeRecipeDescription: "Magic Amulet + Rare Jewel + Mal Rune + Gem = Magic Amulet"
   },
   {
     Description: "CRAFT ITEM - Amulet Unique & Jewel Unique & Ohm-Rune & Sur-Rune = +2 Barbarian skill Amulet Crafted",
@@ -547,11 +554,109 @@ const json = [
     CubeRecipeDescription: "Rare Gloves + Rare Jewel + Um Rune + Gem = Gloves"
   },
   {
-    Description: "CRAFT ITEM - Gloves (Any) Rare & 1 Jewel Rare & Mal-Rune & Gem (Any) = Ias + Str + Dex Gloves Crafted",
+    Description: "CRAFT ITEM - Gloves (Any) Rare & 1 Jewel Rare & Mal-Rune & Shael-Rune & Topaz = +1 Random Assasin Skill Tab, +15-20% Faster Attack Speed Gloves Crafted",
     Item: null,
     Output: "Gloves",
-    Input: "Rare Gloves + Rare Jewel + Mal Rune + Gem ",
-    CubeRecipeDescription: "Rare Gloves + Rare Jewel + Mal Rune + Gem = Gloves"
+    Input: "Rare Gloves + Rare Jewel + Mal Rune + Topaz + Shael Rune ",
+    CubeRecipeDescription: "Rare Gloves + Rare Jewel + Mal Rune + Topaz + Shael Rune = Gloves"
+  },
+  {
+    Description: "CRAFT ITEM - Gloves (Any) Rare & 1 Jewel Rare & Mal-Rune & Shael-Rune & Ruby = +1 Random Barbarian Skill Tab, +15-20% Faster Attack Speed Gloves Crafted",
+    Item: null,
+    Output: "Gloves",
+    Input: "Rare Gloves + Rare Jewel + Mal Rune + Ruby + Shael Rune ",
+    CubeRecipeDescription: "Rare Gloves + Rare Jewel + Mal Rune + Ruby + Shael Rune = Gloves"
+  },
+  {
+    Description: "CRAFT ITEM - Gloves (Any) Rare & 1 Jewel Rare & Mal-Rune & Shael-Rune & Sapphire = +1 Random Sorceress Skill Tab, +15-20% Faster Attack Speed Gloves Crafted",
+    Item: null,
+    Output: "Gloves",
+    Input: "Rare Gloves + Rare Jewel + Mal Rune + Sapphire + Shael Rune ",
+    CubeRecipeDescription: "Rare Gloves + Rare Jewel + Mal Rune + Sapphire + Shael Rune = Gloves"
+  },
+  {
+    Description: "CRAFT ITEM - Gloves (Any) Rare & 1 Jewel Rare & Mal-Rune & Shael-Rune & Emerald = +1 Random Druid Skill Tab, +15-20% Faster Attack Speed Gloves Crafted",
+    Item: null,
+    Output: "Gloves",
+    Input: "Rare Gloves + Rare Jewel + Mal Rune + Emerald + Shael Rune ",
+    CubeRecipeDescription: "Rare Gloves + Rare Jewel + Mal Rune + Emerald + Shael Rune = Gloves"
+  },
+  {
+    Description: "CRAFT ITEM - Gloves (Any) Rare & 1 Jewel Rare & Mal-Rune & Shael-Rune & Skull = +1 Random Necromancer Skill Tab, +15-20% Faster Attack Speed Gloves Crafted",
+    Item: null,
+    Output: "Gloves",
+    Input: "Rare Gloves + Rare Jewel + Mal Rune + Skull + Shael Rune ",
+    CubeRecipeDescription: "Rare Gloves + Rare Jewel + Mal Rune + Skull + Shael Rune = Gloves"
+  },
+  {
+    Description: "CRAFT ITEM - Gloves (Any) Rare & 1 Jewel Rare & Mal-Rune & Shael-Rune & Amethyst = +1 Random Amazon Skill Tab, +15-20% Faster Attack Speed Gloves Crafted",
+    Item: null,
+    Output: "Gloves",
+    Input: "Rare Gloves + Rare Jewel + Mal Rune + Amethyst + Shael Rune ",
+    CubeRecipeDescription: "Rare Gloves + Rare Jewel + Mal Rune + Amethyst + Shael Rune = Gloves"
+  },
+  {
+    Description: "CRAFT ITEM - Gloves (Any) Rare & 1 Jewel Rare & Mal-Rune & Shael-Rune & Diamond = +1 Random Paladin Skill Tab, +15-20% Faster Attack Speed Gloves Crafted",
+    Item: null,
+    Output: "Gloves",
+    Input: "Rare Gloves + Rare Jewel + Mal Rune + Diamond + Shael Rune ",
+    CubeRecipeDescription: "Rare Gloves + Rare Jewel + Mal Rune + Diamond + Shael Rune = Gloves"
+  },
+  {
+    Description: "CRAFT ITEM - Gloves (Any) Rare & 1 Jewel Rare & Ist-Rune & Gem (Any) = +10-15FCR, +5-10 Energy, +2 mana/kill, 30 magic find Gloves Crafted",
+    Item: null,
+    Output: "Gloves",
+    Input: "Rare Gloves + Rare Jewel + Ist Rune + Gem ",
+    CubeRecipeDescription: "Rare Gloves + Rare Jewel + Ist Rune + Gem = Gloves"
+  },
+  {
+    Description: "CRAFT ITEM - Gloves (Any) Rare & 1 Jewel Rare & Mal-Rune & Dol-Rune & Topaz = +1 Random Assasin Skill Tab, +10-20% Faster Cast Rate Gloves Crafted",
+    Item: null,
+    Output: "Gloves",
+    Input: "Rare Gloves + Rare Jewel + Mal Rune + Topaz + Dol Rune ",
+    CubeRecipeDescription: "Rare Gloves + Rare Jewel + Mal Rune + Topaz + Dol Rune = Gloves"
+  },
+  {
+    Description: "CRAFT ITEM - Gloves (Any) Rare & 1 Jewel Rare & Mal-Rune & Dol-Rune & Ruby = +1 Random Barbarian Skill Tab, +10-20% Faster Cast Rate Gloves Crafted",
+    Item: null,
+    Output: "Gloves",
+    Input: "Rare Gloves + Rare Jewel + Mal Rune + Ruby + Dol Rune ",
+    CubeRecipeDescription: "Rare Gloves + Rare Jewel + Mal Rune + Ruby + Dol Rune = Gloves"
+  },
+  {
+    Description: "CRAFT ITEM - Gloves (Any) Rare & 1 Jewel Rare & Mal-Rune & Dol-Rune & Sapphire = +1 Random Sorceress Skill Tab, +10-20% Faster Cast Rate Gloves Crafted",
+    Item: null,
+    Output: "Gloves",
+    Input: "Rare Gloves + Rare Jewel + Mal Rune + Sapphire + Dol Rune ",
+    CubeRecipeDescription: "Rare Gloves + Rare Jewel + Mal Rune + Sapphire + Dol Rune = Gloves"
+  },
+  {
+    Description: "CRAFT ITEM - Gloves (Any) Rare & 1 Jewel Rare & Mal-Rune & Dol-Rune & Emerald = +1 Random Druid Skill Tab, +10-20% Faster Cast Rate Gloves Crafted",
+    Item: null,
+    Output: "Gloves",
+    Input: "Rare Gloves + Rare Jewel + Mal Rune + Emerald + Dol Rune ",
+    CubeRecipeDescription: "Rare Gloves + Rare Jewel + Mal Rune + Emerald + Dol Rune = Gloves"
+  },
+  {
+    Description: "CRAFT ITEM - Gloves (Any) Rare & 1 Jewel Rare & Mal-Rune & Dol-Rune & Skull = +1 Random Necromancer Skill Tab, +10-20% Faster Cast Rate Gloves Crafted",
+    Item: null,
+    Output: "Gloves",
+    Input: "Rare Gloves + Rare Jewel + Mal Rune + Skull + Dol Rune ",
+    CubeRecipeDescription: "Rare Gloves + Rare Jewel + Mal Rune + Skull + Dol Rune = Gloves"
+  },
+  {
+    Description: "CRAFT ITEM - Gloves (Any) Rare & 1 Jewel Rare & Mal-Rune & Dol-Rune & Amethyst = +1 Random Amazon Skill Tab, +10-20% Faster Cast Rate Gloves Crafted",
+    Item: null,
+    Output: "Gloves",
+    Input: "Rare Gloves + Rare Jewel + Mal Rune + Amethyst + Dol Rune ",
+    CubeRecipeDescription: "Rare Gloves + Rare Jewel + Mal Rune + Amethyst + Dol Rune = Gloves"
+  },
+  {
+    Description: "CRAFT ITEM - Gloves (Any) Rare & 1 Jewel Rare & Mal-Rune & Dol-Rune & Diamond = +1 Random Paladin Skill Tab, +10-20% Faster Cast Rate Gloves Crafted",
+    Item: null,
+    Output: "Gloves",
+    Input: "Rare Gloves + Rare Jewel + Mal Rune + Diamond + Dol Rune ",
+    CubeRecipeDescription: "Rare Gloves + Rare Jewel + Mal Rune + Diamond + Dol Rune = Gloves"
   },
   {
     Description: "CRAFT ITEM - Gloves (Any) Unique & 1 Jewel Unique & Ist-Rune & Vex-Rune = MF + Extra gold + Def% Gloves Crafted",
@@ -792,20 +897,6 @@ const json = [
     CubeRecipeDescription: "Rare Weapon + Rare Jewel + Mal Rune + Gem = Weapon"
   },
   {
-    Description: "CRAFT ITEM - Weapon (Any)  Rare & 1 Jewel Rare & Mal-Rune & Gem (Any) = Dmg + Dmg + Ias Weapon Crafted",
-    Item: null,
-    Output: "Weapon",
-    Input: "Rare Weapon + Rare Jewel + Mal Rune + Gem ",
-    CubeRecipeDescription: "Rare Weapon + Rare Jewel + Mal Rune + Gem = Weapon"
-  },
-  {
-    Description: "CRAFT ITEM - Weapon (Any) Rare & 1 Jewel Rare & Ist-Rune & Vex-Rune = Dmg% + All-skills + Ias Weapon Crafted",
-    Item: null,
-    Output: "Weapon",
-    Input: "Rare Weapon + Rare Jewel + Ist Rune + Vex Rune ",
-    CubeRecipeDescription: "Rare Weapon + Rare Jewel + Ist Rune + Vex Rune = Weapon"
-  },
-  {
     Description: "CRAFT ITEM - Weapon (Any) Rare & 1 Jewel Rare & Ist-Rune & Vex-Rune = Dmg% + All-skills + Ias Weapon Crafted",
     Item: null,
     Output: "Weapon",
@@ -818,20 +909,6 @@ const json = [
     Output: "Weapon",
     Input: "Unique Weapon + Unique Jewel + Gul Rune + Lo Rune ",
     CubeRecipeDescription: "Unique Weapon + Unique Jewel + Gul Rune + Lo Rune = Weapon"
-  },
-  {
-    Description: "CRAFT ITEM - Weapon (Any) Unique & 1 Jewel Unique & Gul-Rune & Lo-Rune = Dmg% + Hp-steal + Mana-steal + All-skills Weapon Crafted",
-    Item: null,
-    Output: "Weapon",
-    Input: "Unique Weapon + Unique Jewel + Gul Rune + Lo Rune ",
-    CubeRecipeDescription: "Unique Weapon + Unique Jewel + Gul Rune + Lo Rune = Weapon"
-  },
-  {
-    Description: "CRAFT ITEM - Weapon (Any) Unique & 1 Jewel Unique & Sur-Rune & Jah-Rune = Dmg% + Ias + MF + All-skills Weapon Crafted",
-    Item: null,
-    Output: "Weapon",
-    Input: "Unique Weapon + 2 Unique Jewel + Sur Rune + Jah Rune ",
-    CubeRecipeDescription: "Unique Weapon + 2 Unique Jewel + Sur Rune + Jah Rune = Weapon"
   },
   {
     Description: "CRAFT ITEM - Weapon (Any) Unique & 1 Jewel Unique & Sur-Rune & Jah-Rune = Dmg% + Ias + MF + All-skills Weapon Crafted",
@@ -869,11 +946,11 @@ const json = [
     CubeRecipeDescription: "Unique Weapon + 2 Unique Jewel + Ber Rune + Cham Rune + Zod Rune + Emerald = Weapon"
   },
   {
-    Description: "CRAFT ITEM - Weapon (Any) Unique & 2 Jewel Unique & Ber-Rune & Cham-Rune & Zod-Rune = Dmg% + Ias + MF + All-skills Weapon Crafted",
+    Description: "CRAFT ITEM - Weapon (Any) Unique & 2 Jewel Unique & Ber-Rune & Cham-Rune & Zod-Rune & Amethyst = Dmg% + Ias + MF + All-skills Weapon Crafted",
     Item: null,
     Output: "Weapon",
-    Input: "Unique Weapon + 2 Unique Jewel + Ber Rune + Cham Rune + Zod Rune ",
-    CubeRecipeDescription: "Unique Weapon + 2 Unique Jewel + Ber Rune + Cham Rune + Zod Rune = Weapon"
+    Input: "Unique Weapon + 2 Unique Jewel + Ber Rune + Cham Rune + Zod Rune + Amethyst ",
+    CubeRecipeDescription: "Unique Weapon + 2 Unique Jewel + Ber Rune + Cham Rune + Zod Rune + Amethyst = Weapon"
   },
   {
     Description: "CRAFT ITEM - Arrows & Gem (Any) & Tir-Rune = Replenishing Quiver",
@@ -1494,44 +1571,72 @@ const json = [
   {
     Description: "REPAIR MISSLE - Replenishing Quiver & Hp1 = Replenish Unique Arrows",
     Item: null,
-    Output: "500  Repair durability",
+    Output: "255 ",
     Input: "Barbed Arrows + Healing Potion ",
-    CubeRecipeDescription: "Barbed Arrows + Healing Potion = 500  Repair Durability"
+    CubeRecipeDescription: "Barbed Arrows + Healing Potion = 255 "
   },
   {
     Description: "REPAIR MISSLE - Quiver of Piercing & Hp1 = Replenish Unique Arrows",
     Item: null,
-    Output: "500  Repair durability",
+    Output: "255 ",
     Input: "Arrows of Piercing + Healing Potion ",
-    CubeRecipeDescription: "Arrows Of Piercing + Healing Potion = 500  Repair Durability"
+    CubeRecipeDescription: "Arrows Of Piercing + Healing Potion = 255 "
   },
   {
     Description: "REPAIR MISSLE - Quiver of Slaying & Hp1 = Replenish Unique Arrows",
     Item: null,
-    Output: "500  Repair durability",
+    Output: "255 ",
     Input: "Arrows of Slaying + Healing Potion ",
-    CubeRecipeDescription: "Arrows Of Slaying + Healing Potion = 500  Repair Durability"
+    CubeRecipeDescription: "Arrows Of Slaying + Healing Potion = 255 "
+  },
+  {
+    Description: "REPAIR MISSLE - Quiver of Amplified Slaying & Hp1 = Replenish Unique Arrows",
+    Item: null,
+    Output: "255 ",
+    Input: "Quiver of Amplified Slaying + Healing Potion ",
+    CubeRecipeDescription: "Quiver Of Amplified Slaying + Healing Potion = 255 "
+  },
+  {
+    Description: "REPAIR MISSLE - Quiver of Resistance Slaying & Hp1 = Replenish Unique Arrows",
+    Item: null,
+    Output: "255 ",
+    Input: "Quiver of Resistance Slaying + Healing Potion ",
+    CubeRecipeDescription: "Quiver Of Resistance Slaying + Healing Potion = 255 "
   },
   {
     Description: "REPAIR MISSLE - Replenishing Bolt Case & Hp1 = Replenish Unique Bolts",
     Item: null,
-    Output: "500  Repair durability",
+    Output: "255 ",
     Input: "Barbed Bolts + Healing Potion ",
-    CubeRecipeDescription: "Barbed Bolts + Healing Potion = 500  Repair Durability"
+    CubeRecipeDescription: "Barbed Bolts + Healing Potion = 255 "
   },
   {
     Description: "REPAIR MISSLE - Bolt Case of Piercing & Hp1 = Replenish Unique Bolts",
     Item: null,
-    Output: "500  Repair durability",
+    Output: "255 ",
     Input: "Bolts of Piercing + Healing Potion ",
-    CubeRecipeDescription: "Bolts Of Piercing + Healing Potion = 500  Repair Durability"
+    CubeRecipeDescription: "Bolts Of Piercing + Healing Potion = 255 "
   },
   {
     Description: "REPAIR MISSLE - Bolt Case of Slaying & Hp1 = Replenish Unique Bolts",
     Item: null,
-    Output: "500  Repair durability",
+    Output: "255 ",
     Input: "Bolts of Slaying + Healing Potion ",
-    CubeRecipeDescription: "Bolts Of Slaying + Healing Potion = 500  Repair Durability"
+    CubeRecipeDescription: "Bolts Of Slaying + Healing Potion = 255 "
+  },
+  {
+    Description: "REPAIR MISSLE - Bolt Case of Amplified Slaying & Hp1 = Replenish Unique Bolts",
+    Item: null,
+    Output: "255 ",
+    Input: " + Healing Potion ",
+    CubeRecipeDescription: " + Healing Potion = 255 "
+  },
+  {
+    Description: "REPAIR MISSLE - Bolt Case of Resistance Slaying & Hp1 = Replenish Unique Bolts",
+    Item: null,
+    Output: "255 ",
+    Input: " + Healing Potion ",
+    CubeRecipeDescription: " + Healing Potion = 255 "
   },
   {
     Description: "REPAIR NORMAL - Weapon & Ort-Rune & Gem (Any) = Fully Repaired and Recharged Weapon",
@@ -3487,6 +3592,13 @@ const json = [
     CubeRecipeDescription: "Slam Weapons + Orb Of Infusion + Amethyst + Cham Rune + Rare Jewel = Slam Weapons"
   },
   {
+    Description: "ITEM UPGRADE - 2H Weapon (Slam) & Infusion Orb & Amethyst & Cham-Rune & Nef-Rune & Rare Jewel = +50% Enhanced Damage & +50 Attack Rating & +Knockback",
+    Item: null,
+    Output: "Slam Weapons",
+    Input: "Slam Weapons + Orb of Infusion + Amethyst + Cham Rune + Rare Jewel + Nef Rune ",
+    CubeRecipeDescription: "Slam Weapons + Orb Of Infusion + Amethyst + Cham Rune + Rare Jewel + Nef Rune = Slam Weapons"
+  },
+  {
     Description: "ITEM UPGRADE - 2H Weapon (Slam) & Infusion Orb & Conversion Orb & Ruby & Zod-Rune & Unique Jewel = +4% Fire Skill Damage & -4% Enemy Fire Res",
     Item: null,
     Output: "Slam Weapons",
@@ -3674,6 +3786,13 @@ const json = [
     Output: "Spears and Polearms",
     Input: "Spears and Polearms + Orb of Infusion + Amethyst + Cham Rune + Rare Jewel ",
     CubeRecipeDescription: "Spears And Polearms + Orb Of Infusion + Amethyst + Cham Rune + Rare Jewel = Spears And Polearms"
+  },
+  {
+    Description: "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Infusion Orb & Amethyst & Cham-Rune & Nef-Rune & Rare Jewel = +50% Enhanced Damage & +50 Attack Rating & +Knockback",
+    Item: null,
+    Output: "Spears and Polearms",
+    Input: "Spears and Polearms + Orb of Infusion + Amethyst + Cham Rune + Rare Jewel + Nef Rune ",
+    CubeRecipeDescription: "Spears And Polearms + Orb Of Infusion + Amethyst + Cham Rune + Rare Jewel + Nef Rune = Spears And Polearms"
   },
   {
     Description: "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Infusion Orb & Conversion Orb & Ruby & Zod-Rune & Unique Jewel = +4% Fire Skill Damage & -4% Enemy Fire Res",
@@ -3865,6 +3984,13 @@ const json = [
     CubeRecipeDescription: "Missile Weapon + Orb Of Infusion + Amethyst + Cham Rune + Rare Jewel = Missile Weapon"
   },
   {
+    Description: "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Infusion Orb & Amethyst & Cham-Rune & Nef-Rune & Rare Jewel = +50% Enhanced Damage & +50 Attack Rating & +Knockback",
+    Item: null,
+    Output: "Missile Weapon",
+    Input: "Missile Weapon + Orb of Infusion + Amethyst + Cham Rune + Rare Jewel + Nef Rune ",
+    CubeRecipeDescription: "Missile Weapon + Orb Of Infusion + Amethyst + Cham Rune + Rare Jewel + Nef Rune = Missile Weapon"
+  },
+  {
     Description: "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Infusion Orb & Conversion Orb & Ruby & Zod-Rune & Unique Jewel = +4% Fire Skill Damage & -4% Enemy Fire Res",
     Item: null,
     Output: "Missile Weapon",
@@ -4047,11 +4173,18 @@ const json = [
     CubeRecipeDescription: "Weapon + Orb Of Infusion + Topaz + Jah Rune + Rare Jewel = Weapon"
   },
   {
-    Description: "ITEM UPGRADE - Weapon & Infusion Orb & Amethyst & Cham-Rune & Rare Jewel = +50% Enhanced Damage &  & +75 Attack Rating",
+    Description: "ITEM UPGRADE - Weapon & Infusion Orb & Amethyst & Cham-Rune & Rare Jewel = +50% Enhanced Damage &  & +50 Attack Rating",
     Item: null,
     Output: "Weapon",
     Input: "Weapon + Orb of Infusion + Amethyst + Cham Rune + Rare Jewel ",
     CubeRecipeDescription: "Weapon + Orb Of Infusion + Amethyst + Cham Rune + Rare Jewel = Weapon"
+  },
+  {
+    Description: "ITEM UPGRADE - Weapon & Infusion Orb & Amethyst & Cham-Rune & & Nef-Rune Rare Jewel = +50% Enhanced Damage & +50 Attack Rating + Knockback",
+    Item: null,
+    Output: "Weapon",
+    Input: "Weapon + Orb of Infusion + Amethyst + Cham Rune + Rare Jewel + Nef Rune ",
+    CubeRecipeDescription: "Weapon + Orb Of Infusion + Amethyst + Cham Rune + Rare Jewel + Nef Rune = Weapon"
   },
   {
     Description: "ITEM UPGRADE - Weapon & Infusion Orb & Conversion Orb & Ruby & Zod-Rune & Unique Jewel = +4% Fire Skill Damage & -4% Enemy Fire Res",
