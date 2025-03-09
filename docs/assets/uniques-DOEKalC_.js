@@ -1,4 +1,4 @@
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-CE1RWHMQ.js";
+import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-C4ldiT5Y.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
 const name = "uniques";
 const template = '<template>\n    <h3 class="text-center my-4">\n        ${uniques.length} Uniques Found\n    </h3>\n    <div class="container">\n        <div class="row align-content-center justify-content-center text-center mb-5">\n            <div class="col-12 col-md-5 col-lg-4">\n                <div class="au-select mb-2">\n                    <moo-select\n                            class="w-100"\n                            label="Select Class"\n                            options.bind="classes"\n                            class="standard-betsy-select"\n                            value.bind="class"\n                    ></moo-select>\n                </div>\n            </div>\n            <div class="col-12 col-md-5 col-lg-4">\n                <div class="au-select mb-2">\n                    <moo-select\n                            class="w-100"\n                            label="Select Type"\n                            options.bind="types"\n                            class="standard-betsy-select"\n                            value.bind="selectedType"\n                    ></moo-select>\n                </div>\n            </div>\n            <div class="col-12 col-md-5 col-lg-4">\n                <moo-text-field\n                        class="w-100"\n                        label="Search Uniques"\n                        type="text"\n                        value.bind="search"\n                ></moo-text-field>\n            </div>\n        </div>\n    </div>\n\n    <div class="row gy-5 px-5 text-center">\n        <div class="col-12 col-md-6 col-xxl-4" repeat.for="unique of uniques">\n            <div class="card bg-dark p-2">\n                <div class="unique-text fs-5 mb-1">\n                    ${unique.Name}\n                </div>\n                <div class="armor mb-1" if.bind="unique.Equipment.Name">\n                    ${unique.Equipment.Name}\n                </div>\n                <div class="armor mb-1" if.bind="unique.Equipment.ArmorString">\n                    Armor: ${unique.Equipment.ArmorString}\n                </div>\n                <div class="damage" if.bind="unique.Equipment.DamageTypes"\n                     repeat.for="damage of unique.Equipment.DamageTypes">\n                    ${getDamageTypeString(damage.Type)} ${damage.DamageString}\n                </div>\n                <div class="requirement" if.bind="unique.RequiredLevel > 0">\n                    Level ${unique.RequiredLevel} Required\n                </div>\n                <div class="requirement" if.bind="unique.Equipment.RequiredStrength > 0">\n                    ${unique.Equipment.RequiredStrength} Strength Required\n                </div>\n                <div class="requirement" if.bind="unique.Equipment.RequiredDexterity > 0">\n                    ${unique.Equipment.RequiredDexterity} Dexterity Required\n                </div>\n                <div class="durability mt-1" if.bind="unique.Equipment.Durability > 0">\n                    ${unique.Equipment.Durability} Durability\n                </div>\n                <div class="mt-2">\n                    <div class="enhanced" repeat.for="property of unique.Properties">\n                        ${property.PropertyString}\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</template>\n';
@@ -2001,44 +2001,6 @@ const json = [
         Class: "pal"
       },
       RequiredClass: "Paladin"
-    }
-  },
-  {
-    Type: "Jewel",
-    Name: "Tiger Eye",
-    Index: "Tiger Eye",
-    Enabled: true,
-    ItemLevel: 5,
-    RequiredLevel: 5,
-    Code: "jew",
-    Properties: [
-      {
-        PropertyString: "+40% Enhanced Damage",
-        Index: 0
-      },
-      {
-        PropertyString: "+15 to Minimum Damage",
-        Index: 1
-      },
-      {
-        PropertyString: "+5-8 Deadly Strike",
-        Index: 2
-      }
-    ],
-    DamageArmorEnhanced: false,
-    Equipment: {
-      EquipmentType: 2,
-      Name: "Jewel",
-      RequiredStrength: 0,
-      RequiredDexterity: 0,
-      Durability: 0,
-      ItemLevel: 0,
-      Type: {
-        Name: "Jewel",
-        Index: "Jewel",
-        Class: ""
-      },
-      RequiredClass: ""
     }
   },
   {
@@ -11469,44 +11431,6 @@ const json = [
         Class: ""
       },
       RequiredClass: "Helm"
-    }
-  },
-  {
-    Type: "Jewel",
-    Name: "Jade Facet",
-    Index: "Jade Facet",
-    Enabled: true,
-    ItemLevel: 18,
-    RequiredLevel: 18,
-    Code: "jew",
-    Properties: [
-      {
-        PropertyString: "+40% Enhanced Damage",
-        Index: 0
-      },
-      {
-        PropertyString: "+15 to Maximum Damage",
-        Index: 1
-      },
-      {
-        PropertyString: "+5-8 Chance of Crushing Blow",
-        Index: 2
-      }
-    ],
-    DamageArmorEnhanced: false,
-    Equipment: {
-      EquipmentType: 2,
-      Name: "Jewel",
-      RequiredStrength: 0,
-      RequiredDexterity: 0,
-      Durability: 0,
-      ItemLevel: 0,
-      Type: {
-        Name: "Jewel",
-        Index: "Jewel",
-        Class: ""
-      },
-      RequiredClass: ""
     }
   },
   {
@@ -21612,48 +21536,6 @@ const json = [
         Class: ""
       },
       RequiredClass: "Helm"
-    }
-  },
-  {
-    Type: "Jewel",
-    Name: "Topaz Facet",
-    Index: "Topaz Facet",
-    Enabled: true,
-    ItemLevel: 27,
-    RequiredLevel: 27,
-    Code: "jew",
-    Properties: [
-      {
-        PropertyString: "Adds 1-140 to Lightning Damage",
-        Index: 0
-      },
-      {
-        PropertyString: "+1 to Maximum Lightning Resist",
-        Index: 3
-      },
-      {
-        PropertyString: "Lightning Resist +25-35%",
-        Index: 2
-      },
-      {
-        PropertyString: "+24-28 better chance of getting magic item",
-        Index: 1
-      }
-    ],
-    DamageArmorEnhanced: false,
-    Equipment: {
-      EquipmentType: 2,
-      Name: "Jewel",
-      RequiredStrength: 0,
-      RequiredDexterity: 0,
-      Durability: 0,
-      ItemLevel: 0,
-      Type: {
-        Name: "Jewel",
-        Index: "Jewel",
-        Class: ""
-      },
-      RequiredClass: ""
     }
   },
   {
@@ -42404,16 +42286,16 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "+3-6 to Fire Mastery",
-        Index: 6
-      },
-      {
         PropertyString: "+6-8 to Fire Ball",
         Index: 7
       },
       {
         PropertyString: "+20 Faster Cast Rate",
         Index: 4
+      },
+      {
+        PropertyString: "35-40 to Fire Skill Damage",
+        Index: 6
       },
       {
         PropertyString: "+66-95 to Left Hand Throw",
@@ -51707,6 +51589,48 @@ const json = [
   },
   {
     Type: "Jewel",
+    Name: "Topaz Facet",
+    Index: "Topaz Facet",
+    Enabled: true,
+    ItemLevel: 49,
+    RequiredLevel: 49,
+    Code: "jew",
+    Properties: [
+      {
+        PropertyString: "Adds 1-140 to Lightning Damage",
+        Index: 0
+      },
+      {
+        PropertyString: "+1 to Maximum Lightning Resist",
+        Index: 3
+      },
+      {
+        PropertyString: "Lightning Resist +25-35%",
+        Index: 2
+      },
+      {
+        PropertyString: "+24-28 better chance of getting magic item",
+        Index: 1
+      }
+    ],
+    DamageArmorEnhanced: false,
+    Equipment: {
+      EquipmentType: 2,
+      Name: "Jewel",
+      RequiredStrength: 0,
+      RequiredDexterity: 0,
+      Durability: 0,
+      ItemLevel: 0,
+      Type: {
+        Name: "Jewel",
+        Index: "Jewel",
+        Class: ""
+      },
+      RequiredClass: ""
+    }
+  },
+  {
+    Type: "Jewel",
     Name: "Rainbow Facet",
     Index: "Rainbow Facet",
     Enabled: false,
@@ -60218,6 +60142,82 @@ const json = [
   },
   {
     Type: "Jewel",
+    Name: "Tiger Eye",
+    Index: "Tiger Eye",
+    Enabled: true,
+    ItemLevel: 58,
+    RequiredLevel: 58,
+    Code: "jew",
+    Properties: [
+      {
+        PropertyString: "+40% Enhanced Damage",
+        Index: 0
+      },
+      {
+        PropertyString: "+15 to Minimum Damage",
+        Index: 1
+      },
+      {
+        PropertyString: "+5-8 Deadly Strike",
+        Index: 2
+      }
+    ],
+    DamageArmorEnhanced: false,
+    Equipment: {
+      EquipmentType: 2,
+      Name: "Jewel",
+      RequiredStrength: 0,
+      RequiredDexterity: 0,
+      Durability: 0,
+      ItemLevel: 0,
+      Type: {
+        Name: "Jewel",
+        Index: "Jewel",
+        Class: ""
+      },
+      RequiredClass: ""
+    }
+  },
+  {
+    Type: "Jewel",
+    Name: "Jade Facet",
+    Index: "Jade Facet",
+    Enabled: true,
+    ItemLevel: 58,
+    RequiredLevel: 58,
+    Code: "jew",
+    Properties: [
+      {
+        PropertyString: "+40% Enhanced Damage",
+        Index: 0
+      },
+      {
+        PropertyString: "+15 to Maximum Damage",
+        Index: 1
+      },
+      {
+        PropertyString: "+5-8 Chance of Crushing Blow",
+        Index: 2
+      }
+    ],
+    DamageArmorEnhanced: false,
+    Equipment: {
+      EquipmentType: 2,
+      Name: "Jewel",
+      RequiredStrength: 0,
+      RequiredDexterity: 0,
+      Durability: 0,
+      ItemLevel: 0,
+      Type: {
+        Name: "Jewel",
+        Index: "Jewel",
+        Class: ""
+      },
+      RequiredClass: ""
+    }
+  },
+  {
+    Type: "Jewel",
     Name: "Sapphire Facet",
     Index: "Sapphire Facet",
     Enabled: true,
@@ -63322,15 +63322,19 @@ const json = [
     Code: "xar",
     Properties: [
       {
+        PropertyString: "+20-30 Faster Hit Recovery",
+        Index: 4
+      },
+      {
         PropertyString: "+200-250 Enhanced Defense",
         Index: 0
       },
       {
-        PropertyString: "All Resistances +50-75",
+        PropertyString: "All Resistances +30-40",
         Index: 2
       },
       {
-        PropertyString: "+30 Damage Reduced by 30%%",
+        PropertyString: "+15-20 Damage Reduced by 15-20%%",
         Index: 1
       },
       {
@@ -65004,11 +65008,11 @@ const json = [
     Code: "uh9",
     Properties: [
       {
-        PropertyString: "+10 Chance of Crushing Blow",
+        PropertyString: "+5 to Stun",
         Index: 2
       },
       {
-        PropertyString: "+1 Knockback",
+        PropertyString: "180-220 to Attack Rating",
         Index: 4
       },
       {
@@ -65020,7 +65024,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "Socketed (1-2)",
+        PropertyString: "+2-4 Health gained per hit",
         Index: 3
       }
     ],
@@ -66245,11 +66249,15 @@ const json = [
     Code: "uul",
     Properties: [
       {
-        PropertyString: "8% Chance to cast level 6 iron maiden when struck",
+        PropertyString: "10% Chance to cast level 12 inner sight when struck",
+        Index: 5
+      },
+      {
+        PropertyString: "Level 8-10 Thorns Aura When Equipped",
         Index: 6
       },
       {
-        PropertyString: "+20 Faster Hit Recovery",
+        PropertyString: "+30-40 Faster Hit Recovery",
         Index: 1
       },
       {
@@ -66257,20 +66265,16 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "Regenerate Mana 10%",
-        Index: 4
-      },
-      {
-        PropertyString: "Cold Resist +40-60%",
+        PropertyString: "+10-15 Damage Reduced by 10-15%%",
         Index: 3
       },
       {
-        PropertyString: "+9-14 Damage Reduced by",
-        Index: 2
+        PropertyString: "+10-15 Damage Reduced by",
+        Index: 4
       },
       {
-        PropertyString: "Repairs 0.05 durability per second",
-        Index: 5
+        PropertyString: "Requirements -25%",
+        Index: 2
       }
     ],
     DamageArmorEnhanced: true,
@@ -75147,10 +75151,6 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "+8-12 to Fire Mastery",
-        Index: 4
-      },
-      {
         PropertyString: "+20 Increased Attack Speed",
         Index: 1
       },
@@ -75160,23 +75160,23 @@ const json = [
       },
       {
         PropertyString: "15-20% Increased Chance of Blocking",
-        Index: 7
+        Index: 6
       },
       {
-        PropertyString: "20 to Fire Skill Damage",
+        PropertyString: "30-35 to Fire Skill Damage",
         Index: 2
       },
       {
         PropertyString: "All Resistances +35-50",
-        Index: 6
-      },
-      {
-        PropertyString: "+15-30 Fire Absorb",
         Index: 5
       },
       {
+        PropertyString: "+15-30 Fire Absorb",
+        Index: 4
+      },
+      {
         PropertyString: "1",
-        Index: 8
+        Index: 7
       }
     ],
     DamageArmorEnhanced: true,
@@ -75569,7 +75569,7 @@ const json = [
     Code: "pad",
     Properties: [
       {
-        PropertyString: "3% Chance to cast level 30 hydra when struck",
+        PropertyString: "10% Chance to cast level 30 hydra when struck",
         Index: 0
       },
       {
@@ -75589,11 +75589,11 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "All Resistances +50-75",
+        PropertyString: "All Resistances +35-50",
         Index: 3
       },
       {
-        PropertyString: "+35 Damage Reduced by 35%%",
+        PropertyString: "+15-25 Damage Reduced by 15-25%%",
         Index: 2
       },
       {
@@ -75714,7 +75714,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "All Resistances +35-65",
+        PropertyString: "All Resistances +35-50",
         Index: 5
       },
       {
@@ -77186,16 +77186,16 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "+2 to Fire Mastery",
-        Index: 7
-      },
-      {
         PropertyString: "+20 Increased Attack Speed",
         Index: 5
       },
       {
         PropertyString: "+260-325% Enhanced Damage",
         Index: 0
+      },
+      {
+        PropertyString: "20-25 to Fire Skill Damage",
+        Index: 7
       },
       {
         PropertyString: "+65 Increased Stack Size",
@@ -78122,10 +78122,6 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "+3-5 to Lightning Mastery",
-        Index: 5
-      },
-      {
         PropertyString: "+20 Increased Attack Speed",
         Index: 1
       },
@@ -78140,6 +78136,10 @@ const json = [
       {
         PropertyString: "10-15 to Enemy Lightning Resistance",
         Index: 3
+      },
+      {
+        PropertyString: "35-40 to Lightning Skill Damage",
+        Index: 5
       },
       {
         PropertyString: "Lightning Resist +45-65%",
@@ -81803,7 +81803,7 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "-10 to Light Radius",
+        PropertyString: "-4 to Light Radius",
         Index: 8
       }
     ],

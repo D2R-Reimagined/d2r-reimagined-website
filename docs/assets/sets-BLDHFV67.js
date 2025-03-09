@@ -1,4 +1,4 @@
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-CE1RWHMQ.js";
+import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-C4ldiT5Y.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
 const name = "sets";
 const template = '<template>\n    <h3 class="text-center my-4">\n        ${sets.length} Sets Found\n    </h3>\n    <div class="container">\n        <div class="row align-content-center justify-content-center text-center mb-5">\n            <div class="col-12 col-sm-6">\n                <div class="au-select mb-2">\n                    <moo-select\n                            class="w-100"\n                            label="Select Class"\n                            options.bind="classes"\n                            class="standard-betsy-select"\n                            value.bind="class"\n                    ></moo-select>\n                </div>\n            </div>\n            <div class="col-12 col-sm-6">\n                <moo-text-field\n                        class="w-100"\n                        label="Search Sets"\n                        type="text"\n                        value.bind="search"\n                ></moo-text-field>\n            </div>\n        </div>\n    </div>\n\n    <div class="row gy-5 px-5 text-center">\n        <div class="col-12 col-md-6 col-xxl-4" repeat.for="set of sets">\n            <div class="card bg-dark p-2">\n                <div class="set-text fs-5 mb-1">\n                    ${set.Name}\n                </div>\n\n                <div class="partial-sets set-text" repeat.for="partial of set.PartialProperties">\n                    ${partial.PropertyString} (${$index + 2} Items)\n                </div>\n\n                <div class="partial-sets set-text" repeat.for="full of set.FullProperties">\n                    ${full.PropertyString} (Full Set)\n                </div>\n\n                <div class="my-3" repeat.for="setItem of set.SetItems">\n                    <div class="set-text mb-1">\n                        ${setItem.Name}\n                    </div>\n\n                    <div class="armor mb-1" if.bind="setItem.Equipment.Name">\n                        ${setItem.Equipment.Name}\n                    </div>\n\n                    <div class="armor mt-1" if.bind="setItem.Equipment.ArmorString">\n                        Armor: ${setItem.Equipment.ArmorString}\n                    </div>\n\n                    <div class="damage" if.bind="setItem.Equipment.DamageTypes"\n                         repeat.for="damage of setItem.Equipment.DamageTypes">\n                        ${getDamageTypeString(damage.Type)} ${damage.DamageString}\n                    </div>\n\n                    <div class="requirement" if.bind="setItem.RequiredLevel > 0">\n                        Level ${setItem.RequiredLevel} Required\n                    </div>\n\n                    <div class="requirement" if.bind="setItem.Equipment.RequiredStrength > 0">\n                        ${setItem.Equipment.RequiredStrength} Strength Required\n                    </div>\n\n                    <div class="requirement" if.bind="setItem.Equipment.RequiredDexterity > 0">\n                        ${setItem.Equipment.RequiredDexterity} Dexterity Required\n                    </div>\n\n                    <div class="durability mt-1" if.bind="setItem.Equipment.Durability > 0">\n                        ${setItem.Equipment.Durability} Durability\n                    </div>\n\n                    <div class="enhanced" repeat.for="property of setItem.Properties">\n                        ${property.PropertyString}\n                    </div>\n\n                    <div class="set-text" repeat.for="setProperty of setItem.SetPropertiesString">\n                        ${setProperty}\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</template>\n';
@@ -20962,7 +20962,11 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+35-50 Damage Reduced by 35-50%%",
+            PropertyString: "40-50 to Life",
+            Index: 2
+          },
+          {
+            PropertyString: "+15-25 Damage Reduced by 15-25%%",
             Index: 0
           }
         ],
@@ -24371,10 +24375,8 @@ const json = [
         Type: "Ring",
         "Set": "Corruption Coils",
         SetPropertiesString: [
-          "100 to Fire Skill Damage (3 Items)",
-          "-20 Drain Life (2 Items)",
-          "-15 Drain Life (3 Items)",
-          "+200 better chance of getting magic item (2 Items)"
+          "40 to Fire Skill Damage (3 Items)",
+          "+50 better chance of getting magic item (2 Items)"
         ],
         Name: "Demonic Chuckle",
         Index: "Demonic Chuckle",
@@ -24412,10 +24414,8 @@ const json = [
         Type: "Ring",
         "Set": "Corruption Coils",
         SetPropertiesString: [
-          "100 to Lightning Skill Damage (3 Items)",
-          "-20 Drain Life (2 Items)",
-          "-15 Drain Life (3 Items)",
-          "+200 better chance of getting magic item (2 Items)"
+          "40 to Lightning Skill Damage (3 Items)",
+          "+100 extra gold from monsters (2 Items)"
         ],
         Name: "Evil Humor",
         Index: "Evil Humor",
@@ -24453,10 +24453,8 @@ const json = [
         Type: "Amulet",
         "Set": "Corruption Coils",
         SetPropertiesString: [
-          "100 to Cold Skill Damage (3 Items)",
-          "-20 Drain Life (2 Items)",
-          "-15 Drain Life (3 Items)",
-          "+200 better chance of getting magic item (2 Items)"
+          "10% Chance to cast level 20 taunt when struck (2 Items)",
+          "40 to Cold Skill Damage (3 Items)"
         ],
         Name: "Temptation's Death",
         Index: "Temptation's Death",
@@ -24493,25 +24491,25 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "-15 Drain Life",
+        PropertyString: "-50 Drain Life",
         Index: 0
       }
     ],
     FullProperties: [
       {
-        PropertyString: "10 to All Skills",
+        PropertyString: "5 to All Skills",
         Index: 4
       },
       {
-        PropertyString: "100 to Poison Skill Damage",
+        PropertyString: "40 to Poison Skill Damage",
         Index: 2
       },
       {
-        PropertyString: "-45 Drain Life",
+        PropertyString: "All Resistances -50",
         Index: 0
       },
       {
-        PropertyString: "-90 to Experience Gained",
+        PropertyString: "-40 to Experience Gained",
         Index: 1
       },
       {
