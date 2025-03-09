@@ -1982,44 +1982,6 @@
         }
     },
     {
-        "Type": "Jewel",
-        "Name": "Tiger Eye",
-        "Index": "Tiger Eye",
-        "Enabled": true,
-        "ItemLevel": 5,
-        "RequiredLevel": 5,
-        "Code": "jew",
-        "Properties": [
-            {
-                "PropertyString": "+40% Enhanced Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+15 to Minimum Damage",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+5-8 Deadly Strike",
-                "Index": 2
-            }
-        ],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "EquipmentType": 2,
-            "Name": "Jewel",
-            "RequiredStrength": 0,
-            "RequiredDexterity": 0,
-            "Durability": 0,
-            "ItemLevel": 0,
-            "Type": {
-                "Name": "Jewel",
-                "Index": "Jewel",
-                "Class": ""
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
         "Type": "Axe",
         "Name": "Gangrene Reaper",
         "Index": "Gangrene Reaper",
@@ -11447,44 +11409,6 @@
                 "Class": ""
             },
             "RequiredClass": "Helm"
-        }
-    },
-    {
-        "Type": "Jewel",
-        "Name": "Jade Facet",
-        "Index": "Jade Facet",
-        "Enabled": true,
-        "ItemLevel": 18,
-        "RequiredLevel": 18,
-        "Code": "jew",
-        "Properties": [
-            {
-                "PropertyString": "+40% Enhanced Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+15 to Maximum Damage",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+5-8 Chance of Crushing Blow",
-                "Index": 2
-            }
-        ],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "EquipmentType": 2,
-            "Name": "Jewel",
-            "RequiredStrength": 0,
-            "RequiredDexterity": 0,
-            "Durability": 0,
-            "ItemLevel": 0,
-            "Type": {
-                "Name": "Jewel",
-                "Index": "Jewel",
-                "Class": ""
-            },
-            "RequiredClass": ""
         }
     },
     {
@@ -21590,48 +21514,6 @@
                 "Class": ""
             },
             "RequiredClass": "Helm"
-        }
-    },
-    {
-        "Type": "Jewel",
-        "Name": "Topaz Facet",
-        "Index": "Topaz Facet",
-        "Enabled": true,
-        "ItemLevel": 27,
-        "RequiredLevel": 27,
-        "Code": "jew",
-        "Properties": [
-            {
-                "PropertyString": "Adds 1-140 to Lightning Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+1 to Maximum Lightning Resist",
-                "Index": 3
-            },
-            {
-                "PropertyString": "Lightning Resist +25-35%",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+24-28 better chance of getting magic item",
-                "Index": 1
-            }
-        ],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "EquipmentType": 2,
-            "Name": "Jewel",
-            "RequiredStrength": 0,
-            "RequiredDexterity": 0,
-            "Durability": 0,
-            "ItemLevel": 0,
-            "Type": {
-                "Name": "Jewel",
-                "Index": "Jewel",
-                "Class": ""
-            },
-            "RequiredClass": ""
         }
     },
     {
@@ -42382,16 +42264,16 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+3-6 to Fire Mastery",
-                "Index": 6
-            },
-            {
                 "PropertyString": "+6-8 to Fire Ball",
                 "Index": 7
             },
             {
                 "PropertyString": "+20 Faster Cast Rate",
                 "Index": 4
+            },
+            {
+                "PropertyString": "35-40 to Fire Skill Damage",
+                "Index": 6
             },
             {
                 "PropertyString": "+66-95 to Left Hand Throw",
@@ -51685,6 +51567,48 @@
     },
     {
         "Type": "Jewel",
+        "Name": "Topaz Facet",
+        "Index": "Topaz Facet",
+        "Enabled": true,
+        "ItemLevel": 49,
+        "RequiredLevel": 49,
+        "Code": "jew",
+        "Properties": [
+            {
+                "PropertyString": "Adds 1-140 to Lightning Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+1 to Maximum Lightning Resist",
+                "Index": 3
+            },
+            {
+                "PropertyString": "Lightning Resist +25-35%",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+24-28 better chance of getting magic item",
+                "Index": 1
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Jewel",
+            "RequiredStrength": 0,
+            "RequiredDexterity": 0,
+            "Durability": 0,
+            "ItemLevel": 0,
+            "Type": {
+                "Name": "Jewel",
+                "Index": "Jewel",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Jewel",
         "Name": "Rainbow Facet",
         "Index": "Rainbow Facet",
         "Enabled": false,
@@ -60196,6 +60120,82 @@
     },
     {
         "Type": "Jewel",
+        "Name": "Tiger Eye",
+        "Index": "Tiger Eye",
+        "Enabled": true,
+        "ItemLevel": 58,
+        "RequiredLevel": 58,
+        "Code": "jew",
+        "Properties": [
+            {
+                "PropertyString": "+40% Enhanced Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+15 to Minimum Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+5-8 Deadly Strike",
+                "Index": 2
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Jewel",
+            "RequiredStrength": 0,
+            "RequiredDexterity": 0,
+            "Durability": 0,
+            "ItemLevel": 0,
+            "Type": {
+                "Name": "Jewel",
+                "Index": "Jewel",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Jewel",
+        "Name": "Jade Facet",
+        "Index": "Jade Facet",
+        "Enabled": true,
+        "ItemLevel": 58,
+        "RequiredLevel": 58,
+        "Code": "jew",
+        "Properties": [
+            {
+                "PropertyString": "+40% Enhanced Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+15 to Maximum Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+5-8 Chance of Crushing Blow",
+                "Index": 2
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Jewel",
+            "RequiredStrength": 0,
+            "RequiredDexterity": 0,
+            "Durability": 0,
+            "ItemLevel": 0,
+            "Type": {
+                "Name": "Jewel",
+                "Index": "Jewel",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Jewel",
         "Name": "Sapphire Facet",
         "Index": "Sapphire Facet",
         "Enabled": true,
@@ -63300,15 +63300,19 @@
         "Code": "xar",
         "Properties": [
             {
+                "PropertyString": "+20-30 Faster Hit Recovery",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+200-250 Enhanced Defense",
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +50-75",
+                "PropertyString": "All Resistances +30-40",
                 "Index": 2
             },
             {
-                "PropertyString": "+30 Damage Reduced by 30%%",
+                "PropertyString": "+15-20 Damage Reduced by 15-20%%",
                 "Index": 1
             },
             {
@@ -64982,11 +64986,11 @@
         "Code": "uh9",
         "Properties": [
             {
-                "PropertyString": "+10 Chance of Crushing Blow",
+                "PropertyString": "+5 to Stun",
                 "Index": 2
             },
             {
-                "PropertyString": "+1 Knockback",
+                "PropertyString": "180-220 to Attack Rating",
                 "Index": 4
             },
             {
@@ -64998,7 +65002,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Socketed (1-2)",
+                "PropertyString": "+2-4 Health gained per hit",
                 "Index": 3
             }
         ],
@@ -66223,11 +66227,15 @@
         "Code": "uul",
         "Properties": [
             {
-                "PropertyString": "8% Chance to cast level 6 iron maiden when struck",
+                "PropertyString": "10% Chance to cast level 12 inner sight when struck",
+                "Index": 5
+            },
+            {
+                "PropertyString": "Level 8-10 Thorns Aura When Equipped",
                 "Index": 6
             },
             {
-                "PropertyString": "+20 Faster Hit Recovery",
+                "PropertyString": "+30-40 Faster Hit Recovery",
                 "Index": 1
             },
             {
@@ -66235,20 +66243,16 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Regenerate Mana 10%",
-                "Index": 4
-            },
-            {
-                "PropertyString": "Cold Resist +40-60%",
+                "PropertyString": "+10-15 Damage Reduced by 10-15%%",
                 "Index": 3
             },
             {
-                "PropertyString": "+9-14 Damage Reduced by",
-                "Index": 2
+                "PropertyString": "+10-15 Damage Reduced by",
+                "Index": 4
             },
             {
-                "PropertyString": "Repairs 0.05 durability per second",
-                "Index": 5
+                "PropertyString": "Requirements -25%",
+                "Index": 2
             }
         ],
         "DamageArmorEnhanced": true,
@@ -75125,10 +75129,6 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+8-12 to Fire Mastery",
-                "Index": 4
-            },
-            {
                 "PropertyString": "+20 Increased Attack Speed",
                 "Index": 1
             },
@@ -75138,23 +75138,23 @@
             },
             {
                 "PropertyString": "15-20% Increased Chance of Blocking",
-                "Index": 7
+                "Index": 6
             },
             {
-                "PropertyString": "20 to Fire Skill Damage",
+                "PropertyString": "30-35 to Fire Skill Damage",
                 "Index": 2
             },
             {
                 "PropertyString": "All Resistances +35-50",
-                "Index": 6
-            },
-            {
-                "PropertyString": "+15-30 Fire Absorb",
                 "Index": 5
             },
             {
+                "PropertyString": "+15-30 Fire Absorb",
+                "Index": 4
+            },
+            {
                 "PropertyString": "1",
-                "Index": 8
+                "Index": 7
             }
         ],
         "DamageArmorEnhanced": true,
@@ -75547,7 +75547,7 @@
         "Code": "pad",
         "Properties": [
             {
-                "PropertyString": "3% Chance to cast level 30 hydra when struck",
+                "PropertyString": "10% Chance to cast level 30 hydra when struck",
                 "Index": 0
             },
             {
@@ -75567,11 +75567,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "All Resistances +50-75",
+                "PropertyString": "All Resistances +35-50",
                 "Index": 3
             },
             {
-                "PropertyString": "+35 Damage Reduced by 35%%",
+                "PropertyString": "+15-25 Damage Reduced by 15-25%%",
                 "Index": 2
             },
             {
@@ -75692,7 +75692,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +35-65",
+                "PropertyString": "All Resistances +35-50",
                 "Index": 5
             },
             {
@@ -77164,16 +77164,16 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+2 to Fire Mastery",
-                "Index": 7
-            },
-            {
                 "PropertyString": "+20 Increased Attack Speed",
                 "Index": 5
             },
             {
                 "PropertyString": "+260-325% Enhanced Damage",
                 "Index": 0
+            },
+            {
+                "PropertyString": "20-25 to Fire Skill Damage",
+                "Index": 7
             },
             {
                 "PropertyString": "+65 Increased Stack Size",
@@ -78100,10 +78100,6 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+3-5 to Lightning Mastery",
-                "Index": 5
-            },
-            {
                 "PropertyString": "+20 Increased Attack Speed",
                 "Index": 1
             },
@@ -78118,6 +78114,10 @@
             {
                 "PropertyString": "10-15 to Enemy Lightning Resistance",
                 "Index": 3
+            },
+            {
+                "PropertyString": "35-40 to Lightning Skill Damage",
+                "Index": 5
             },
             {
                 "PropertyString": "Lightning Resist +45-65%",
@@ -81781,7 +81781,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "-10 to Light Radius",
+                "PropertyString": "-4 to Light Radius",
                 "Index": 8
             }
         ],

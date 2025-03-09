@@ -20940,7 +20940,11 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+35-50 Damage Reduced by 35-50%%",
+                        "PropertyString": "40-50 to Life",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "+15-25 Damage Reduced by 15-25%%",
                         "Index": 0
                     }
                 ],
@@ -24349,10 +24353,8 @@
                 "Type": "Ring",
                 "Set": "Corruption Coils",
                 "SetPropertiesString": [
-                    "100 to Fire Skill Damage (3 Items)",
-                    "-20 Drain Life (2 Items)",
-                    "-15 Drain Life (3 Items)",
-                    "+200 better chance of getting magic item (2 Items)"
+                    "40 to Fire Skill Damage (3 Items)",
+                    "+50 better chance of getting magic item (2 Items)"
                 ],
                 "Name": "Demonic Chuckle",
                 "Index": "Demonic Chuckle",
@@ -24390,10 +24392,8 @@
                 "Type": "Ring",
                 "Set": "Corruption Coils",
                 "SetPropertiesString": [
-                    "100 to Lightning Skill Damage (3 Items)",
-                    "-20 Drain Life (2 Items)",
-                    "-15 Drain Life (3 Items)",
-                    "+200 better chance of getting magic item (2 Items)"
+                    "40 to Lightning Skill Damage (3 Items)",
+                    "+100 extra gold from monsters (2 Items)"
                 ],
                 "Name": "Evil Humor",
                 "Index": "Evil Humor",
@@ -24431,10 +24431,8 @@
                 "Type": "Amulet",
                 "Set": "Corruption Coils",
                 "SetPropertiesString": [
-                    "100 to Cold Skill Damage (3 Items)",
-                    "-20 Drain Life (2 Items)",
-                    "-15 Drain Life (3 Items)",
-                    "+200 better chance of getting magic item (2 Items)"
+                    "10% Chance to cast level 20 taunt when struck (2 Items)",
+                    "40 to Cold Skill Damage (3 Items)"
                 ],
                 "Name": "Temptation's Death",
                 "Index": "Temptation's Death",
@@ -24471,25 +24469,25 @@
         ],
         "PartialProperties": [
             {
-                "PropertyString": "-15 Drain Life",
+                "PropertyString": "-50 Drain Life",
                 "Index": 0
             }
         ],
         "FullProperties": [
             {
-                "PropertyString": "10 to All Skills",
+                "PropertyString": "5 to All Skills",
                 "Index": 4
             },
             {
-                "PropertyString": "100 to Poison Skill Damage",
+                "PropertyString": "40 to Poison Skill Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "-45 Drain Life",
+                "PropertyString": "All Resistances -50",
                 "Index": 0
             },
             {
-                "PropertyString": "-90 to Experience Gained",
+                "PropertyString": "-40 to Experience Gained",
                 "Index": 1
             },
             {
