@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-DrOl2BvW.js","assets/debounce-ZwsFz6hU.js","assets/cube-recipes-BJXOl2Zy.css","assets/uniques-DajHg8HV.js","assets/sets-C8OxHmp1.js","assets/runewords-CcQZKA8w.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-wDigVuC8.js","assets/debounce-ZwsFz6hU.js","assets/cube-recipes-BJXOl2Zy.css","assets/uniques-D3vBt3eR.js","assets/sets-c8ga_tJR.js","assets/runewords-8N5Ui4ST.js"])))=>i.map(i=>d[i]);
 (function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) {
@@ -40387,27 +40387,27 @@ _App_decorators = [customElement(__au2ViewDef), route({
   routes: [
     {
       path: "",
-      component: __vitePreload(() => import("./home-BAxi2eQP.js"), true ? [] : void 0),
+      component: __vitePreload(() => import("./home-BJk1Ayw7.js"), true ? [] : void 0),
       title: "Home"
     },
     {
       path: "cube-recipes",
-      component: __vitePreload(() => import("./cube-recipes-DrOl2BvW.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
+      component: __vitePreload(() => import("./cube-recipes-wDigVuC8.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
       title: "Cube Recipes"
     },
     {
       path: "uniques",
-      component: __vitePreload(() => import("./uniques-DajHg8HV.js"), true ? __vite__mapDeps([3,1]) : void 0),
+      component: __vitePreload(() => import("./uniques-D3vBt3eR.js"), true ? __vite__mapDeps([3,1]) : void 0),
       title: "Uniques"
     },
     {
       path: "sets",
-      component: __vitePreload(() => import("./sets-C8OxHmp1.js"), true ? __vite__mapDeps([4,1]) : void 0),
+      component: __vitePreload(() => import("./sets-c8ga_tJR.js"), true ? __vite__mapDeps([4,1]) : void 0),
       title: "Sets"
     },
     {
       path: "runewords",
-      component: __vitePreload(() => import("./runewords-CcQZKA8w.js"), true ? __vite__mapDeps([5,1]) : void 0),
+      component: __vitePreload(() => import("./runewords-8N5Ui4ST.js"), true ? __vite__mapDeps([5,1]) : void 0),
       title: "Runewords"
     }
   ]
@@ -40563,22 +40563,34 @@ class RuneNameValueConverter {
         return "Ko (18)";
       case "Fal Rune":
         return "Fal (19)";
+      case "Lem Rune":
+        return "Lem (20)";
+      case "Pul Rune":
+        return "Pul (21)";
+      case "Um Rune":
+        return "Um (22)";
+      case "Mal Rune":
+        return "Mal (23)";
+      case "Ist Rune":
+        return "Ist (25)";
+      case "Gul Rune":
+        return "Gul (25)";
       case "Vex Rune":
-        return "Vex (20)";
+        return "Vex (26)";
       case "Ohm Rune":
-        return "Ohm (21)";
+        return "Ohm (27)";
       case "Lo Rune":
-        return "Lo (22)";
+        return "Lo (28)";
       case "Sur Rune":
-        return "Sur (23)";
+        return "Sur (29)";
       case "Ber Rune":
-        return "Ber (24)";
+        return "Ber (30)";
       case "Jah Rune":
-        return "Jah (25)";
+        return "Jah (31)";
       case "Cham Rune":
-        return "Cham (26)";
+        return "Cham (32)";
       case "Zod Rune":
-        return "Zod (27)";
+        return "Zod (33)";
     }
     return value;
   }
