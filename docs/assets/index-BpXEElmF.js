@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-wDigVuC8.js","assets/debounce-ZwsFz6hU.js","assets/cube-recipes-BJXOl2Zy.css","assets/uniques-D3vBt3eR.js","assets/sets-c8ga_tJR.js","assets/runewords-8N5Ui4ST.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-Brqqryex.js","assets/debounce-ZwsFz6hU.js","assets/cube-recipes-BJXOl2Zy.css","assets/uniques-C_n41EMN.js","assets/sets-DRFVfY8e.js","assets/runewords-C5aefL5Z.js"])))=>i.map(i=>d[i]);
 (function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) {
@@ -40387,27 +40387,27 @@ _App_decorators = [customElement(__au2ViewDef), route({
   routes: [
     {
       path: "",
-      component: __vitePreload(() => import("./home-BJk1Ayw7.js"), true ? [] : void 0),
+      component: __vitePreload(() => import("./home-DGLaK2Z1.js"), true ? [] : void 0),
       title: "Home"
     },
     {
       path: "cube-recipes",
-      component: __vitePreload(() => import("./cube-recipes-wDigVuC8.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
+      component: __vitePreload(() => import("./cube-recipes-Brqqryex.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
       title: "Cube Recipes"
     },
     {
       path: "uniques",
-      component: __vitePreload(() => import("./uniques-D3vBt3eR.js"), true ? __vite__mapDeps([3,1]) : void 0),
+      component: __vitePreload(() => import("./uniques-C_n41EMN.js"), true ? __vite__mapDeps([3,1]) : void 0),
       title: "Uniques"
     },
     {
       path: "sets",
-      component: __vitePreload(() => import("./sets-c8ga_tJR.js"), true ? __vite__mapDeps([4,1]) : void 0),
+      component: __vitePreload(() => import("./sets-DRFVfY8e.js"), true ? __vite__mapDeps([4,1]) : void 0),
       title: "Sets"
     },
     {
       path: "runewords",
-      component: __vitePreload(() => import("./runewords-8N5Ui4ST.js"), true ? __vite__mapDeps([5,1]) : void 0),
+      component: __vitePreload(() => import("./runewords-C5aefL5Z.js"), true ? __vite__mapDeps([5,1]) : void 0),
       title: "Runewords"
     }
   ]
@@ -40572,7 +40572,7 @@ class RuneNameValueConverter {
       case "Mal Rune":
         return "Mal (23)";
       case "Ist Rune":
-        return "Ist (25)";
+        return "Ist (24)";
       case "Gul Rune":
         return "Gul (25)";
       case "Vex Rune":
