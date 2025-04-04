@@ -42,22 +42,34 @@ export class RuneNameValueConverter {
                 return 'Ko (18)';
             case 'Fal Rune':
                 return 'Fal (19)';
+            case 'Lem Rune':
+                return 'Lem (20)';
+            case 'Pul Rune':
+                return 'Pul (21)';
+            case 'Um Rune':
+                return 'Um (22)';
+            case 'Mal Rune':
+                return 'Mal (23)';  
+            case 'Ist Rune':
+                return 'Ist (25)';
+            case 'Gul Rune':
+                return 'Gul (25)';  
             case 'Vex Rune':
-                return 'Vex (20)';
+                return 'Vex (26)';
             case 'Ohm Rune':
-                return 'Ohm (21)';
+                return 'Ohm (27)';
             case 'Lo Rune':
-                return 'Lo (22)';
+                return 'Lo (28)';
             case 'Sur Rune':
-                return 'Sur (23)';
+                return 'Sur (29)';
             case 'Ber Rune':
-                return 'Ber (24)';
+                return 'Ber (30)';
             case 'Jah Rune':
-                return 'Jah (25)';
+                return 'Jah (31)';
             case 'Cham Rune':
-                return 'Cham (26)';
+                return 'Cham (32)';
             case 'Zod Rune':
-                return 'Zod (27)';
+                return 'Zod (33)';
         }
         return value;
     }
