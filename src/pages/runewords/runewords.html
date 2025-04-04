@@ -57,7 +57,7 @@
                 </div>
                 <div class="combo">
                     <span repeat.for="rune of runeword.Runes">
-                        ${removeRuneFromName(rune.Name)} ${$index + 1 !== runeword.Runes.length ? ' + ' : ''}
+                        ${rune.Name | runeName} ${$index + 1 !== runeword.Runes.length ? ' + ' : ''}
                     </span>
                 </div>
                 <div class="types py-2">
