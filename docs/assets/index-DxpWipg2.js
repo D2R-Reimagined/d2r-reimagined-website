@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-BFr32A6v.js","assets/debounce-ZwsFz6hU.js","assets/cube-recipes-BJXOl2Zy.css","assets/uniques-BeUkOGfV.js","assets/sets-C4vSF5lw.js","assets/runewords-5pWAGba7.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-DrOl2BvW.js","assets/debounce-ZwsFz6hU.js","assets/cube-recipes-BJXOl2Zy.css","assets/uniques-DajHg8HV.js","assets/sets-C8OxHmp1.js","assets/runewords-CcQZKA8w.js"])))=>i.map(i=>d[i]);
 (function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) {
@@ -1613,7 +1613,7 @@ function __esDecorate$2(ctor, descriptorIn, decorators, contextIn, initializers,
   if (target) Object.defineProperty(target, contextIn.name, descriptor);
   done = true;
 }
-function __runInitializers$4(thisArg, initializers, value) {
+function __runInitializers$5(thisArg, initializers, value) {
   var useValue = arguments.length > 2;
   for (var i3 = 0; i3 < initializers.length; i3++) {
     value = useValue ? initializers[i3].call(thisArg, value) : initializers[i3].call(thisArg);
@@ -1821,7 +1821,7 @@ let DefaultLogger = (() => {
   return _a2 = class DefaultLogger {
     /* eslint-disable default-param-last */
     constructor(config = resolve(ILogConfig), factory = resolve(ILogEventFactory), sinks = resolve(all(ISink)), scope = resolve(optional(ILogScopes)) ?? [], parent = null) {
-      this.scope = (__runInitializers$4(this, _instanceExtraInitializers), scope);
+      this.scope = (__runInitializers$5(this, _instanceExtraInitializers), scope);
       this._scopedLoggers = createLookup$1();
       let traceSinks;
       let debugSinks;
@@ -26349,6 +26349,7 @@ let Button$1 = class Button extends buttonBaseClass {
     this.disabled = false;
     this.softDisabled = false;
     this.href = "";
+    this.download = "";
     this.target = "";
     this.trailingIcon = false;
     this.hasIcon = false;
@@ -26401,6 +26402,7 @@ let Button$1 = class Button extends buttonBaseClass {
       aria-haspopup="${ariaHasPopup || E$1}"
       aria-expanded="${ariaExpanded || E$1}"
       href=${this.href}
+      download=${this.download || E$1}
       target=${this.target || E$1}
       >${this.renderContent()}
     </a>`;
@@ -26449,6 +26451,9 @@ __decorate([
 __decorate([
   n$5()
 ], Button$1.prototype, "href", void 0);
+__decorate([
+  n$5()
+], Button$1.prototype, "download", void 0);
 __decorate([
   n$5()
 ], Button$1.prototype, "target", void 0);
@@ -27135,6 +27140,7 @@ class AssistChip extends Chip {
     super(...arguments);
     this.elevated = false;
     this.href = "";
+    this.download = "";
     this.target = "";
   }
   get primaryId() {
@@ -27161,6 +27167,7 @@ class AssistChip extends Chip {
           id="link"
           aria-label=${ariaLabel || E$1}
           href=${this.href}
+          download=${this.download || E$1}
           target=${this.target || E$1}
           >${content}</a
         >
@@ -27191,6 +27198,9 @@ __decorate([
 __decorate([
   n$5()
 ], AssistChip.prototype, "href", void 0);
+__decorate([
+  n$5()
+], AssistChip.prototype, "download", void 0);
 __decorate([
   n$5()
 ], AssistChip.prototype, "target", void 0);
@@ -28116,7 +28126,7 @@ class Dialog extends dialogBaseClass {
   handleSubmit(event) {
     const form = event.target;
     const { submitter } = event;
-    if (form.method !== "dialog" || !submitter) {
+    if (form.getAttribute("method") !== "dialog" || !submitter) {
       return;
     }
     this.close(submitter.getAttribute("value") ?? this.returnValue);
@@ -28964,6 +28974,7 @@ class IconButton extends iconButtonBaseClass {
     this.softDisabled = false;
     this.flipIconInRtl = false;
     this.href = "";
+    this.download = "";
     this.target = "";
     this.ariaLabelSelected = "";
     this.toggle = false;
@@ -29004,8 +29015,7 @@ class IconButton extends iconButtonBaseClass {
         ${this.renderRipple()}
         ${!this.selected ? this.renderIcon() : E$1}
         ${this.selected ? this.renderSelectedIcon() : E$1}
-        ${this.renderTouchTarget()}
-        ${this.href && this.renderLink()}
+        ${this.href ? this.renderLink() : this.renderTouchTarget()}
   </${tag}>`;
   }
   renderLink() {
@@ -29015,8 +29025,11 @@ class IconButton extends iconButtonBaseClass {
         class="link"
         id="link"
         href="${this.href}"
+        download="${this.download || E$1}"
         target="${this.target || E$1}"
-        aria-label="${ariaLabel || E$1}"></a>
+        aria-label="${ariaLabel || E$1}">
+        ${this.renderTouchTarget()}
+      </a>
     `;
   }
   getRenderClasses() {
@@ -29095,6 +29108,9 @@ __decorate([
 ], IconButton.prototype, "href", void 0);
 __decorate([
   n$5()
+], IconButton.prototype, "download", void 0);
+__decorate([
+  n$5()
 ], IconButton.prototype, "target", void 0);
 __decorate([
   n$5({ attribute: "aria-label-selected" })
@@ -29119,7 +29135,7 @@ __decorate([
  * Copyright 2024 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
-const styles$p = i$6`:host{display:inline-flex;outline:none;-webkit-tap-highlight-color:rgba(0,0,0,0);height:var(--_container-height);width:var(--_container-width);justify-content:center}:host([touch-target=wrapper]){margin:max(0px,(48px - var(--_container-height))/2) max(0px,(48px - var(--_container-width))/2)}md-focus-ring{--md-focus-ring-shape-start-start: var(--_container-shape-start-start);--md-focus-ring-shape-start-end: var(--_container-shape-start-end);--md-focus-ring-shape-end-end: var(--_container-shape-end-end);--md-focus-ring-shape-end-start: var(--_container-shape-end-start)}:host(:is([disabled],[soft-disabled])){pointer-events:none}.icon-button{place-items:center;background:none;border:none;box-sizing:border-box;cursor:pointer;display:flex;place-content:center;outline:none;padding:0;position:relative;text-decoration:none;user-select:none;z-index:0;flex:1;border-start-start-radius:var(--_container-shape-start-start);border-start-end-radius:var(--_container-shape-start-end);border-end-start-radius:var(--_container-shape-end-start);border-end-end-radius:var(--_container-shape-end-end)}.icon ::slotted(*){font-size:var(--_icon-size);height:var(--_icon-size);width:var(--_icon-size);font-weight:inherit}md-ripple{z-index:-1;border-start-start-radius:var(--_container-shape-start-start);border-start-end-radius:var(--_container-shape-start-end);border-end-start-radius:var(--_container-shape-end-start);border-end-end-radius:var(--_container-shape-end-end)}.flip-icon .icon{transform:scaleX(-1)}.icon{display:inline-flex}.link{height:100%;outline:none;position:absolute;width:100%}.touch{position:absolute;height:max(48px,100%);width:max(48px,100%)}:host([touch-target=none]) .touch{display:none}@media(forced-colors: active){:host(:is([disabled],[soft-disabled])){--_disabled-icon-color: GrayText;--_disabled-icon-opacity: 1}}
+const styles$p = i$6`:host{display:inline-flex;outline:none;-webkit-tap-highlight-color:rgba(0,0,0,0);height:var(--_container-height);width:var(--_container-width);justify-content:center}:host([touch-target=wrapper]){margin:max(0px,(48px - var(--_container-height))/2) max(0px,(48px - var(--_container-width))/2)}md-focus-ring{--md-focus-ring-shape-start-start: var(--_container-shape-start-start);--md-focus-ring-shape-start-end: var(--_container-shape-start-end);--md-focus-ring-shape-end-end: var(--_container-shape-end-end);--md-focus-ring-shape-end-start: var(--_container-shape-end-start)}:host(:is([disabled],[soft-disabled])){pointer-events:none}.icon-button{place-items:center;background:none;border:none;box-sizing:border-box;cursor:pointer;display:flex;place-content:center;outline:none;padding:0;position:relative;text-decoration:none;user-select:none;z-index:0;flex:1;border-start-start-radius:var(--_container-shape-start-start);border-start-end-radius:var(--_container-shape-start-end);border-end-start-radius:var(--_container-shape-end-start);border-end-end-radius:var(--_container-shape-end-end)}.icon ::slotted(*){font-size:var(--_icon-size);height:var(--_icon-size);width:var(--_icon-size);font-weight:inherit}md-ripple{z-index:-1;border-start-start-radius:var(--_container-shape-start-start);border-start-end-radius:var(--_container-shape-start-end);border-end-start-radius:var(--_container-shape-end-start);border-end-end-radius:var(--_container-shape-end-end)}.flip-icon .icon{transform:scaleX(-1)}.icon{display:inline-flex}.link{display:grid;height:100%;outline:none;place-items:center;position:absolute;width:100%}.touch{position:absolute;height:max(48px,100%);width:max(48px,100%)}:host([touch-target=none]) .touch{display:none}@media(forced-colors: active){:host(:is([disabled],[soft-disabled])){--_disabled-icon-color: GrayText;--_disabled-icon-opacity: 1}}
 `;
 /**
  * @license
@@ -29759,6 +29775,13 @@ class ListItemEl extends listItemBaseClass {
   }
   focus() {
     this.listItemRoot?.focus();
+  }
+  click() {
+    if (!this.listItemRoot) {
+      super.click();
+      return;
+    }
+    this.listItemRoot.click();
   }
 }
 ListItemEl.shadowRootOptions = {
@@ -30938,7 +30961,7 @@ __decorate([
  * Copyright 2024 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
-const styles$i = i$6`:host{--md-elevation-level: var(--md-menu-container-elevation, 2);--md-elevation-shadow-color: var(--md-menu-container-shadow-color, var(--md-sys-color-shadow, #000));min-width:112px;color:unset;display:contents}md-focus-ring{--md-focus-ring-shape: var(--md-menu-container-shape, var(--md-sys-shape-corner-extra-small, 4px))}.menu{border-radius:var(--md-menu-container-shape, var(--md-sys-shape-corner-extra-small, 4px));display:none;inset:auto;border:none;padding:0px;overflow:visible;background-color:rgba(0,0,0,0);color:inherit;opacity:0;z-index:20;position:absolute;user-select:none;max-height:inherit;height:inherit;min-width:inherit;max-width:inherit;scrollbar-width:inherit}.menu::backdrop{display:none}.fixed{position:fixed}.items{display:block;list-style-type:none;margin:0;outline:none;box-sizing:border-box;background-color:var(--md-menu-container-color, var(--md-sys-color-surface-container, #f3edf7));height:inherit;max-height:inherit;overflow:auto;min-width:inherit;max-width:inherit;border-radius:inherit;scrollbar-width:inherit}.item-padding{padding-block:8px}.has-overflow:not([popover]) .items{overflow:visible}.has-overflow.animating .items,.animating .items{overflow:hidden}.has-overflow.animating .items{pointer-events:none}.animating ::slotted(.md-menu-hidden){opacity:0}slot{display:block;height:inherit;max-height:inherit}::slotted(:is(md-divider,[role=separator])){margin:8px 0}@media(forced-colors: active){.menu{border-style:solid;border-color:CanvasText;border-width:1px}}
+const styles$i = i$6`:host{--md-elevation-level: var(--md-menu-container-elevation, 2);--md-elevation-shadow-color: var(--md-menu-container-shadow-color, var(--md-sys-color-shadow, #000));min-width:112px;color:unset;display:contents}md-focus-ring{--md-focus-ring-shape: var(--md-menu-container-shape, var(--md-sys-shape-corner-extra-small, 4px))}.menu{border-radius:var(--md-menu-container-shape, var(--md-sys-shape-corner-extra-small, 4px));display:none;inset:auto;border:none;padding:0px;overflow:visible;background-color:rgba(0,0,0,0);color:inherit;opacity:0;z-index:20;position:absolute;user-select:none;max-height:inherit;height:inherit;min-width:inherit;max-width:inherit;scrollbar-width:inherit}.menu::backdrop{display:none}.fixed{position:fixed}.items{display:block;list-style-type:none;margin:0;outline:none;box-sizing:border-box;background-color:var(--md-menu-container-color, var(--md-sys-color-surface-container, #f3edf7));height:inherit;max-height:inherit;overflow:auto;min-width:inherit;max-width:inherit;border-radius:inherit;scrollbar-width:inherit}.item-padding{padding-block:var(--md-menu-top-space, 8px) var(--md-menu-bottom-space, 8px)}.has-overflow:not([popover]) .items{overflow:visible}.has-overflow.animating .items,.animating .items{overflow:hidden}.has-overflow.animating .items{pointer-events:none}.animating ::slotted(.md-menu-hidden){opacity:0}slot{display:block;height:inherit;max-height:inherit}::slotted(:is(md-divider,[role=separator])){margin:8px 0}@media(forced-colors: active){.menu{border-style:solid;border-color:CanvasText;border-width:1px}}
 `;
 /**
  * @license
@@ -32440,6 +32463,7 @@ class Select extends selectBaseClass {
     };
   }
   renderField() {
+    const ariaLabel = this.ariaLabel || this.label;
     return u$1`
       <${this.fieldTag}
           aria-haspopup="listbox"
@@ -32447,7 +32471,7 @@ class Select extends selectBaseClass {
           part="field"
           id="field"
           tabindex=${this.disabled ? "-1" : "0"}
-          aria-label=${this.ariaLabel || E$1}
+          aria-label=${ariaLabel || E$1}
           aria-describedby="description"
           aria-expanded=${this.open ? "true" : "false"}
           aria-controls="listbox"
@@ -34746,6 +34770,21 @@ class TextField extends textFieldBaseClass {
     this.getInputOrTextarea().setSelectionRange(start2, end2, direction);
   }
   /**
+   * Shows the browser picker for an input element of type "date", "time", etc.
+   *
+   * For a full list of supported types, see:
+   * https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/showPicker#browser_compatibility
+   *
+   * https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/showPicker
+   */
+  showPicker() {
+    const input = this.getInput();
+    if (!input) {
+      return;
+    }
+    input.showPicker();
+  }
+  /**
    * Decrements the value of a numeric type text field by `step` or `n` `step`
    * number of times.
    *
@@ -36575,8 +36614,8 @@ const Popper = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   write
 }, Symbol.toStringTag, { value: "Module" }));
 /*!
-  * Bootstrap v5.3.3 (https://getbootstrap.com/)
-  * Copyright 2011-2024 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Bootstrap v5.3.4 (https://getbootstrap.com/)
+  * Copyright 2011-2025 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 const elementMap = /* @__PURE__ */ new Map();
@@ -36759,7 +36798,7 @@ const defineJQueryPlugin = (plugin) => {
   });
 };
 const execute = (possibleCallback, args = [], defaultValue = possibleCallback) => {
-  return typeof possibleCallback === "function" ? possibleCallback(...args) : defaultValue;
+  return typeof possibleCallback === "function" ? possibleCallback.call(...args) : defaultValue;
 };
 const executeAfterTransition = (callback, transitionElement, waitForTransition = true) => {
   if (!waitForTransition) {
@@ -37036,7 +37075,7 @@ const Manipulator = {
     const bsKeys = Object.keys(element.dataset).filter((key) => key.startsWith("bs") && !key.startsWith("bsConfig"));
     for (const key of bsKeys) {
       let pureKey = key.replace(/^bs/, "");
-      pureKey = pureKey.charAt(0).toLowerCase() + pureKey.slice(1, pureKey.length);
+      pureKey = pureKey.charAt(0).toLowerCase() + pureKey.slice(1);
       attributes2[pureKey] = normalizeData(element.dataset[key]);
     }
     return attributes2;
@@ -37084,7 +37123,7 @@ class Config {
     }
   }
 }
-const VERSION = "5.3.3";
+const VERSION = "5.3.4";
 class BaseComponent extends Config {
   constructor(element, config) {
     super();
@@ -38068,7 +38107,7 @@ class Dropdown extends BaseComponent {
   }
   _createPopper() {
     if (typeof Popper === "undefined") {
-      throw new TypeError("Bootstrap's dropdowns require Popper (https://popper.js.org)");
+      throw new TypeError("Bootstrap's dropdowns require Popper (https://popper.js.org/docs/v2/)");
     }
     let referenceElement = this._element;
     if (this._config.reference === "parent") {
@@ -38143,7 +38182,7 @@ class Dropdown extends BaseComponent {
     }
     return {
       ...defaultBsPopperConfig,
-      ...execute(this._config.popperConfig, [defaultBsPopperConfig])
+      ...execute(this._config.popperConfig, [void 0, defaultBsPopperConfig])
     };
   }
   _selectMenuItem({
@@ -39124,7 +39163,7 @@ class TemplateFactory extends Config {
     return this._config.sanitize ? sanitizeHtml(arg, this._config.allowList, this._config.sanitizeFn) : arg;
   }
   _resolvePossibleFunction(arg) {
-    return execute(arg, [this]);
+    return execute(arg, [void 0, this]);
   }
   _putElementInTemplate(element, templateElement) {
     if (this._config.html) {
@@ -39205,7 +39244,7 @@ const DefaultType$3 = {
 class Tooltip extends BaseComponent {
   constructor(element, config) {
     if (typeof Popper === "undefined") {
-      throw new TypeError("Bootstrap's tooltips require Popper (https://popper.js.org)");
+      throw new TypeError("Bootstrap's tooltips require Popper (https://popper.js.org/docs/v2/)");
     }
     super(element, config);
     this._isEnabled = true;
@@ -39245,7 +39284,6 @@ class Tooltip extends BaseComponent {
     if (!this._isEnabled) {
       return;
     }
-    this._activeTrigger.click = !this._activeTrigger.click;
     if (this._isShown()) {
       this._leave();
       return;
@@ -39417,7 +39455,7 @@ class Tooltip extends BaseComponent {
     return offset2;
   }
   _resolvePossibleFunction(arg) {
-    return execute(arg, [this._element]);
+    return execute(arg, [this._element, this._element]);
   }
   _getPopperConfig(attachment) {
     const defaultBsPopperConfig = {
@@ -39453,7 +39491,7 @@ class Tooltip extends BaseComponent {
     };
     return {
       ...defaultBsPopperConfig,
-      ...execute(this._config.popperConfig, [defaultBsPopperConfig])
+      ...execute(this._config.popperConfig, [void 0, defaultBsPopperConfig])
     };
   }
   _setListeners() {
@@ -40312,6 +40350,93 @@ const __au2ViewDef = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.define
   register,
   template: template$s
 }, Symbol.toStringTag, { value: "Module" }));
+var __create$2 = Object.create;
+var __defProp$2 = Object.defineProperty;
+var __getOwnPropDesc$2 = Object.getOwnPropertyDescriptor;
+var __knownSymbol$2 = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : Symbol.for("Symbol." + name2);
+var __typeError$2 = (msg) => {
+  throw TypeError(msg);
+};
+var __defNormalProp$2 = (obj, key, value) => key in obj ? __defProp$2(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __name$2 = (target, value) => __defProp$2(target, "name", { value, configurable: true });
+var __decoratorStart$2 = (base) => [, , , __create$2(null)];
+var __decoratorStrings$2 = ["class", "method", "getter", "setter", "accessor", "field", "value", "get", "set"];
+var __expectFn$2 = (fn2) => fn2 !== void 0 && typeof fn2 !== "function" ? __typeError$2("Function expected") : fn2;
+var __decoratorContext$2 = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings$2[kind], name: name2, metadata, addInitializer: (fn2) => done._ ? __typeError$2("Already initialized") : fns.push(__expectFn$2(fn2 || null)) });
+var __decoratorMetadata$2 = (array, target) => __defNormalProp$2(target, __knownSymbol$2("metadata"), array[3]);
+var __runInitializers$4 = (array, flags, self, value) => {
+  for (var i3 = 0, fns = array[flags >> 1], n3 = fns && fns.length; i3 < n3; i3++) fns[i3].call(self);
+  return value;
+};
+var __decorateElement$2 = (array, flags, name2, decorators, target, extra) => {
+  var it, done, ctx, k3 = flags & 7, p2 = false;
+  var j2 = 0;
+  var extraInitializers = array[j2] || (array[j2] = []);
+  var desc = k3 && (target = target.prototype, k3 < 5 && (k3 > 3 || !p2) && __getOwnPropDesc$2(target, name2));
+  __name$2(target, name2);
+  for (var i3 = decorators.length - 1; i3 >= 0; i3--) {
+    ctx = __decoratorContext$2(k3, name2, done = {}, array[3], extraInitializers);
+    it = (0, decorators[i3])(target, ctx), done._ = 1;
+    __expectFn$2(it) && (target = it);
+  }
+  return __decoratorMetadata$2(array, target), desc && __defProp$2(target, name2, desc), p2 ? k3 ^ 4 ? extra : desc : target;
+};
+var _App_decorators, _init$2;
+_App_decorators = [customElement(__au2ViewDef), route({
+  title: "D2R Reimagined",
+  routes: [
+    {
+      path: "",
+      component: __vitePreload(() => import("./home-BAxi2eQP.js"), true ? [] : void 0),
+      title: "Home"
+    },
+    {
+      path: "cube-recipes",
+      component: __vitePreload(() => import("./cube-recipes-DrOl2BvW.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
+      title: "Cube Recipes"
+    },
+    {
+      path: "uniques",
+      component: __vitePreload(() => import("./uniques-DajHg8HV.js"), true ? __vite__mapDeps([3,1]) : void 0),
+      title: "Uniques"
+    },
+    {
+      path: "sets",
+      component: __vitePreload(() => import("./sets-C8OxHmp1.js"), true ? __vite__mapDeps([4,1]) : void 0),
+      title: "Sets"
+    },
+    {
+      path: "runewords",
+      component: __vitePreload(() => import("./runewords-CcQZKA8w.js"), true ? __vite__mapDeps([5,1]) : void 0),
+      title: "Runewords"
+    }
+  ]
+})];
+class App {
+  fonts = [
+    { class: "font-classic", name: "Classic" },
+    { class: "font-resurrected", name: "Resurrected" },
+    { class: "font-neutral", name: "Neutral" }
+  ];
+  attached() {
+    this.loadFont();
+  }
+  handleFontSelected(font) {
+    window.localStorage.setItem("font", font.class);
+    this.loadFont();
+  }
+  loadFont() {
+    const selectedFont = window.localStorage.getItem("font") || "font-resurrected";
+    {
+      const allClasses = this.fonts.map((font) => font.class);
+      document.body.classList.remove(...allClasses);
+      document.body.classList.add(selectedFont);
+    }
+  }
+}
+_init$2 = __decoratorStart$2();
+App = __decorateElement$2(_init$2, 0, "App", _App_decorators, App);
+__runInitializers$4(_init$2, 1, App);
 var __create$1 = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc$1 = Object.getOwnPropertyDescriptor;
@@ -40343,62 +40468,24 @@ var __decorateElement$1 = (array, flags, name2, decorators, target, extra) => {
   }
   return __decoratorMetadata$1(array, target), desc && __defProp$1(target, name2, desc), p2 ? k3 ^ 4 ? extra : desc : target;
 };
-var _App_decorators, _init$1;
-_App_decorators = [customElement(__au2ViewDef), route({
-  title: "D2R Reimagined",
-  routes: [
-    {
-      path: "",
-      component: __vitePreload(() => import("./home-D_jEEI3f.js"), true ? [] : void 0),
-      title: "Home"
-    },
-    {
-      path: "cube-recipes",
-      component: __vitePreload(() => import("./cube-recipes-BFr32A6v.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
-      title: "Cube Recipes"
-    },
-    {
-      path: "uniques",
-      component: __vitePreload(() => import("./uniques-BeUkOGfV.js"), true ? __vite__mapDeps([3,1]) : void 0),
-      title: "Uniques"
-    },
-    {
-      path: "sets",
-      component: __vitePreload(() => import("./sets-C4vSF5lw.js"), true ? __vite__mapDeps([4,1]) : void 0),
-      title: "Sets"
-    },
-    {
-      path: "runewords",
-      component: __vitePreload(() => import("./runewords-5pWAGba7.js"), true ? __vite__mapDeps([5,1]) : void 0),
-      title: "Runewords"
+var _CubeInputsValueConverter_decorators, _init$1;
+_CubeInputsValueConverter_decorators = [valueConverter("cubeInputs")];
+class CubeInputsValueConverter {
+  toView(value) {
+    if (!value) {
+      return;
     }
-  ]
-})];
-class App {
-  fonts = [
-    { class: "font-classic", name: "Classic" },
-    { class: "font-resurrected", name: "Resurrected" },
-    { class: "font-neutral", name: "Neutral" }
-  ];
-  attached() {
-    this.loadFont();
-  }
-  handleFontSelected(font) {
-    window.localStorage.setItem("font", font.class);
-    this.loadFont();
-  }
-  loadFont() {
-    const selectedFont = window.localStorage.getItem("font") || "font-resurrected";
-    {
-      const allClasses = this.fonts.map((font) => font.class);
-      document.body.classList.remove(...allClasses);
-      document.body.classList.add(selectedFont);
+    let returnString = "";
+    const splitStrings = value.split(" + ");
+    for (const string of splitStrings) {
+      returnString += string + "<br>";
     }
+    return returnString;
   }
 }
 _init$1 = __decoratorStart$1();
-App = __decorateElement$1(_init$1, 0, "App", _App_decorators, App);
-__runInitializers$3(_init$1, 1, App);
+CubeInputsValueConverter = __decorateElement$1(_init$1, 0, "CubeInputsValueConverter", _CubeInputsValueConverter_decorators, CubeInputsValueConverter);
+__runInitializers$3(_init$1, 1, CubeInputsValueConverter);
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -40430,28 +40517,82 @@ var __decorateElement = (array, flags, name2, decorators, target, extra) => {
   }
   return __decoratorMetadata(array, target), desc && __defProp(target, name2, desc), p2 ? k3 ^ 4 ? extra : desc : target;
 };
-var _CubeInputsValueConverter_decorators, _init;
-_CubeInputsValueConverter_decorators = [valueConverter("cubeInputs")];
-class CubeInputsValueConverter {
+var _RuneNameValueConverter_decorators, _init;
+_RuneNameValueConverter_decorators = [valueConverter("runeName")];
+class RuneNameValueConverter {
   toView(value) {
     if (!value) {
       return;
     }
-    let returnString = "";
-    const splitStrings = value.split(" + ");
-    for (const string of splitStrings) {
-      returnString += string + "<br>";
+    switch (value) {
+      case "El Rune":
+        return "El (1)";
+      case "Eld Rune":
+        return "Eld (2)";
+      case "Tir Rune":
+        return "Tir (3)";
+      case "Nef Rune":
+        return "Nef (4)";
+      case "Eth Rune":
+        return "Eth (5)";
+      case "Ith Rune":
+        return "Ith (6)";
+      case "Tal Rune":
+        return "Tal (7)";
+      case "Ral Rune":
+        return "Ral (8)";
+      case "Ort Rune":
+        return "Ort (9)";
+      case "Thul Rune":
+        return "Thul (10)";
+      case "Amn Rune":
+        return "Amn (11)";
+      case "Sol Rune":
+        return "Sol (12)";
+      case "Shael Rune":
+        return "Shael (13)";
+      case "Dol Rune":
+        return "Dol (14)";
+      case "Hel Rune":
+        return "Hel (15)";
+      case "Io Rune":
+        return "Io (16)";
+      case "Lum Rune":
+        return "Lum (17)";
+      case "Ko Rune":
+        return "Ko (18)";
+      case "Fal Rune":
+        return "Fal (19)";
+      case "Vex Rune":
+        return "Vex (20)";
+      case "Ohm Rune":
+        return "Ohm (21)";
+      case "Lo Rune":
+        return "Lo (22)";
+      case "Sur Rune":
+        return "Sur (23)";
+      case "Ber Rune":
+        return "Ber (24)";
+      case "Jah Rune":
+        return "Jah (25)";
+      case "Cham Rune":
+        return "Cham (26)";
+      case "Zod Rune":
+        return "Zod (27)";
     }
-    return returnString;
+    return value;
   }
 }
 _init = __decoratorStart();
-CubeInputsValueConverter = __decorateElement(_init, 0, "CubeInputsValueConverter", _CubeInputsValueConverter_decorators, CubeInputsValueConverter);
-__runInitializers$2(_init, 1, CubeInputsValueConverter);
+RuneNameValueConverter = __decorateElement(_init, 0, "RuneNameValueConverter", _RuneNameValueConverter_decorators, RuneNameValueConverter);
+__runInitializers$2(_init, 1, RuneNameValueConverter);
 const Resources = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   get CubeInputsValueConverter() {
     return CubeInputsValueConverter;
+  },
+  get RuneNameValueConverter() {
+    return RuneNameValueConverter;
   }
 }, Symbol.toStringTag, { value: "Module" }));
 const g = /* @__PURE__ */ DI.createInterface("IValidationExpressionHydrator");
