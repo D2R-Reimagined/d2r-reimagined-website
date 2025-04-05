@@ -51,7 +51,7 @@ export class RuneNameValueConverter {
             case 'Mal Rune':
                 return 'Mal (23)';  
             case 'Ist Rune':
-                return 'Ist (25)';
+                return 'Ist (24)';
             case 'Gul Rune':
                 return 'Gul (25)';  
             case 'Vex Rune':
