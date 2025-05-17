@@ -29,6 +29,7 @@ export class Sets {
     @bindable class: string;
 
     classes = [
+        { value: null, label: '-' },
         { value: 'Amazon', label: 'Amazon' },
         { value: 'Assassin', label: 'Assassin' },
         { value: 'Barbarian', label: 'Barbarian' },
@@ -73,6 +74,18 @@ export class Sets {
                 }
 
                 for (const setItem of set?.SetItems) {
+                    if (this.class) {
+                        if (setItem.Name.toLowerCase().includes(this.class?.toLowerCase())) {
+                            foundSets.push(set);
+                            continue loop1;
+                        }
+                    } else {
+                        if (setItem.Name.toLowerCase().includes(this.search?.toLowerCase())) {
+                            foundSets.push(set);
+                            continue loop1;
+                        }
+                    }
+
                     for (const property of setItem?.Properties) {
                         if (this.class) {
                             if (property?.PropertyString?.toLowerCase()?.includes(this.class?.toLowerCase())) {
@@ -86,6 +99,7 @@ export class Sets {
                             }
                         }
                     }
+
                     if (this.class) {
                         if (setItem.Equipment.Name.toLowerCase().includes(this.class?.toLowerCase())) {
                             foundSets.push(set);
