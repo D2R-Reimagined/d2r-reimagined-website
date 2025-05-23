@@ -277,7 +277,20 @@
         "ItemLevel": 1,
         "RequiredLevel": 1,
         "Code": "cm4",
-        "Properties": [],
+        "Properties": [
+            {
+                "PropertyString": "+1 Charm Weight",
+                "Index": 2
+            },
+            {
+                "PropertyString": "Melee Splash (25 Percent)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-40 Enhanced Minimum Damage",
+                "Index": 1
+            }
+        ],
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
@@ -613,34 +626,6 @@
         }
     },
     {
-        "Type": "Armor",
-        "Name": "Summon Armor",
-        "Index": "Summon Armor",
-        "Enabled": false,
-        "ItemLevel": 1,
-        "RequiredLevel": 1,
-        "Code": "vf3",
-        "Properties": [],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "DamageString": null,
-            "DamageStringPrefix": null,
-            "ArmorString": "8",
-            "EquipmentType": 0,
-            "Name": "Summon Armor",
-            "RequiredStrength": 12,
-            "RequiredDexterity": 0,
-            "Durability": 20,
-            "ItemLevel": 1,
-            "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
-                "Class": ""
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
         "Type": "Item Grabber",
         "Name": "Rune Pliers",
         "Index": "Rune Pliers",
@@ -950,8 +935,12 @@
                 "Index": 4
             },
             {
-                "PropertyString": "1",
+                "PropertyString": "+ Replenishes quantity",
                 "Index": 6
+            },
+            {
+                "PropertyString": "1",
+                "Index": 7
             }
         ],
         "DamageArmorEnhanced": true,
@@ -1066,31 +1055,6 @@
                 "Class": ""
             },
             "RequiredClass": "Helm"
-        }
-    },
-    {
-        "Type": "Small Charm",
-        "Name": "Collin's Fury",
-        "Index": "t2 Splash Charm",
-        "Enabled": false,
-        "ItemLevel": 1,
-        "RequiredLevel": 3,
-        "Code": "cm4",
-        "Properties": [],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "EquipmentType": 2,
-            "Name": "Splash Charm",
-            "RequiredStrength": 0,
-            "RequiredDexterity": 0,
-            "Durability": 0,
-            "ItemLevel": 0,
-            "Type": {
-                "Name": "Small Charm",
-                "Index": "Small Charm",
-                "Class": ""
-            },
-            "RequiredClass": ""
         }
     },
     {
@@ -5298,6 +5262,44 @@
         }
     },
     {
+        "Type": "Small Charm",
+        "Name": "Collin's Fury",
+        "Index": "t2 Splash Charm",
+        "Enabled": false,
+        "ItemLevel": 1,
+        "RequiredLevel": 10,
+        "Code": "cm4",
+        "Properties": [
+            {
+                "PropertyString": "+1 Charm Weight",
+                "Index": 2
+            },
+            {
+                "PropertyString": "33 Percent Melee Splash Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-35 to -40 Enhanced Damage",
+                "Index": 1
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Splash Charm",
+            "RequiredStrength": 0,
+            "RequiredDexterity": 0,
+            "Durability": 0,
+            "ItemLevel": 0,
+            "Type": {
+                "Name": "Small Charm",
+                "Index": "Small Charm",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
         "Type": "Knife",
         "Name": "The Diggler",
         "Index": "The Diggler",
@@ -5395,8 +5397,12 @@
                 "Index": 6
             },
             {
-                "PropertyString": "1",
+                "PropertyString": "+ Replenishes quantity",
                 "Index": 7
+            },
+            {
+                "PropertyString": "1",
+                "Index": 8
             }
         ],
         "DamageArmorEnhanced": true,
@@ -5797,31 +5803,6 @@
                 "Class": ""
             },
             "RequiredClass": "Helm"
-        }
-    },
-    {
-        "Type": "Small Charm",
-        "Name": "Collin's Devastation",
-        "Index": "t3 Splash Charm",
-        "Enabled": false,
-        "ItemLevel": 1,
-        "RequiredLevel": 11,
-        "Code": "cm4",
-        "Properties": [],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "EquipmentType": 2,
-            "Name": "Splash Charm",
-            "RequiredStrength": 0,
-            "RequiredDexterity": 0,
-            "Durability": 0,
-            "ItemLevel": 0,
-            "Type": {
-                "Name": "Small Charm",
-                "Index": "Small Charm",
-                "Class": ""
-            },
-            "RequiredClass": ""
         }
     },
     {
@@ -6427,11 +6408,11 @@
                 "Index": 6
             },
             {
-                "PropertyString": "45 to Enemy Fire Resistance",
+                "PropertyString": "20 to Enemy Fire Resistance",
                 "Index": 4
             },
             {
-                "PropertyString": "45 to Enemy Cold Resistance",
+                "PropertyString": "20 to Enemy Cold Resistance",
                 "Index": 5
             },
             {
@@ -8911,8 +8892,8 @@
     },
     {
         "Type": "Armor",
-        "Name": "Armor of Gloom",
-        "Index": "Armor of Gloom",
+        "Name": "Gloomform",
+        "Index": "Gloomform",
         "Enabled": true,
         "ItemLevel": 1,
         "RequiredLevel": 15,
@@ -11850,12 +11831,16 @@
                 "Index": 2
             },
             {
+                "PropertyString": "+ Replenishes quantity",
+                "Index": 6
+            },
+            {
                 "PropertyString": "10-20",
                 "Index": 0
             },
             {
                 "PropertyString": "1",
-                "Index": 6
+                "Index": 7
             }
         ],
         "DamageArmorEnhanced": true,
@@ -13086,7 +13071,7 @@
         "Enabled": true,
         "ItemLevel": 20,
         "RequiredLevel": 20,
-        "Code": "tax",
+        "Code": "bal",
         "Properties": [
             {
                 "PropertyString": "+1",
@@ -13126,19 +13111,19 @@
             "DamageTypes": [
                 {
                     "Type": 3,
-                    "DamageString": "27 to 52"
+                    "DamageString": "29 to 58"
                 },
                 {
                     "Type": 2,
-                    "DamageString": "34 to 61"
+                    "DamageString": "41 to 67"
                 }
             ],
             "EquipmentType": 1,
-            "Name": "Throwing Axe",
+            "Name": "Balanced Axe",
             "RequiredStrength": 0,
-            "RequiredDexterity": 40,
+            "RequiredDexterity": 57,
             "Durability": 250,
-            "ItemLevel": 7,
+            "ItemLevel": 16,
             "Type": {
                 "Name": "Throwing Axe",
                 "Index": "Throwing Axe",
@@ -13608,6 +13593,44 @@
                 "Class": ""
             },
             "RequiredClass": "Helm"
+        }
+    },
+    {
+        "Type": "Small Charm",
+        "Name": "Collin's Devastation",
+        "Index": "t3 Splash Charm",
+        "Enabled": false,
+        "ItemLevel": 1,
+        "RequiredLevel": 20,
+        "Code": "cm4",
+        "Properties": [
+            {
+                "PropertyString": "+1 Charm Weight",
+                "Index": 2
+            },
+            {
+                "PropertyString": "33 Percent Melee Splash Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-30 to -35 Enhanced Damage",
+                "Index": 1
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Splash Charm",
+            "RequiredStrength": 0,
+            "RequiredDexterity": 0,
+            "Durability": 0,
+            "ItemLevel": 0,
+            "Type": {
+                "Name": "Small Charm",
+                "Index": "Small Charm",
+                "Class": ""
+            },
+            "RequiredClass": ""
         }
     },
     {
@@ -14381,31 +14404,6 @@
         }
     },
     {
-        "Type": "Small Charm",
-        "Name": "Tier 4 Splash Charm",
-        "Index": "t4 Splash Charm",
-        "Enabled": false,
-        "ItemLevel": 1,
-        "RequiredLevel": 21,
-        "Code": "cm4",
-        "Properties": [],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "EquipmentType": 2,
-            "Name": "Splash Charm",
-            "RequiredStrength": 0,
-            "RequiredDexterity": 0,
-            "Durability": 0,
-            "ItemLevel": 0,
-            "Type": {
-                "Name": "Small Charm",
-                "Index": "Small Charm",
-                "Class": ""
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
         "Type": "Sword",
         "Name": "Hellplague",
         "Index": "Hellplague",
@@ -14926,59 +14924,59 @@
         "Enabled": true,
         "ItemLevel": 8,
         "RequiredLevel": 22,
-        "Code": "bal",
+        "Code": "tax",
         "Properties": [
             {
-                "PropertyString": "Adds 10-20 to Damage",
+                "PropertyString": "+1-2",
                 "Index": 0
+            },
+            {
+                "PropertyString": "+15-20 Increased Attack Speed",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+15-20 Piercing Attack",
+                "Index": 1
             },
             {
                 "PropertyString": "30 bonus to Attack Rating",
                 "Index": 5
             },
             {
-                "PropertyString": "+122 to Minimum Poison Damage",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+20-40 Deadly Strike",
-                "Index": 6
-            },
-            {
-                "PropertyString": "+1 Prevent Monster Heal",
-                "Index": 3
-            },
-            {
                 "PropertyString": "15 to Dexterity",
                 "Index": 4
             },
             {
-                "PropertyString": "+60 Increased Stack Size",
-                "Index": 1
+                "PropertyString": "+2-3 Life after each Kill",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+ Replenishes quantity",
+                "Index": 6
             },
             {
                 "PropertyString": "1",
                 "Index": 7
             }
         ],
-        "DamageArmorEnhanced": true,
+        "DamageArmorEnhanced": false,
         "Equipment": {
             "DamageTypes": [
                 {
                     "Type": 3,
-                    "DamageString": "15 to 30"
+                    "DamageString": "4 to 7"
                 },
                 {
                     "Type": 2,
-                    "DamageString": "22 to 35"
+                    "DamageString": "8 to 12"
                 }
             ],
             "EquipmentType": 1,
-            "Name": "Balanced Axe",
+            "Name": "Throwing Axe",
             "RequiredStrength": 0,
-            "RequiredDexterity": 57,
+            "RequiredDexterity": 40,
             "Durability": 250,
-            "ItemLevel": 16,
+            "ItemLevel": 7,
             "Type": {
                 "Name": "Throwing Axe",
                 "Index": "Throwing Axe",
@@ -16131,8 +16129,12 @@
                 "Index": 4
             },
             {
-                "PropertyString": "1",
+                "PropertyString": "+ Replenishes quantity",
                 "Index": 7
+            },
+            {
+                "PropertyString": "1",
+                "Index": 8
             }
         ],
         "DamageArmorEnhanced": true,
@@ -17122,12 +17124,16 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+ Replenishes quantity",
+                "Index": 7
+            },
+            {
                 "PropertyString": "Requirements -35%",
                 "Index": 2
             },
             {
                 "PropertyString": "1",
-                "Index": 7
+                "Index": 8
             }
         ],
         "DamageArmorEnhanced": true,
@@ -17329,8 +17335,8 @@
     },
     {
         "Type": "Amazon Bow",
-        "Name": "Ragnarok Sliver",
-        "Index": "Ragnarok Sliver",
+        "Name": "Heartpiercer",
+        "Index": "Heartpiercer",
         "Enabled": true,
         "ItemLevel": 4,
         "RequiredLevel": 24,
@@ -17345,7 +17351,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+100-150% Enhanced Damage",
+                "PropertyString": "+125-175% Enhanced Damage",
                 "Index": 0
             },
             {
@@ -17353,12 +17359,12 @@
                 "Index": 7
             },
             {
-                "PropertyString": "+25 Chance of Crushing Blow",
-                "Index": 1
-            },
-            {
                 "PropertyString": "+ Deadly Strike",
                 "Index": 2
+            },
+            {
+                "PropertyString": "+2 to Critical Strike (Amazon Only)",
+                "Index": 1
             },
             {
                 "PropertyString": "15 to Dexterity",
@@ -17378,7 +17384,7 @@
             "DamageTypes": [
                 {
                     "Type": 1,
-                    "DamageString": "(28-32) to (63-72)"
+                    "DamageString": "(30-34) to (67-77)"
                 }
             ],
             "EquipmentType": 1,
@@ -19209,6 +19215,44 @@
         }
     },
     {
+        "Type": "Ring",
+        "Name": "Barilzar's Mazed Band",
+        "Index": "Barilzar's Mazed Band",
+        "Enabled": false,
+        "ItemLevel": 1,
+        "RequiredLevel": 25,
+        "Code": "rin",
+        "Properties": [
+            {
+                "PropertyString": "+1 to Warp",
+                "Index": 0
+            },
+            {
+                "PropertyString": "5 to Strength",
+                "Index": 2
+            },
+            {
+                "PropertyString": "All Resistances +5",
+                "Index": 1
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Ring",
+            "RequiredStrength": 0,
+            "RequiredDexterity": 0,
+            "Durability": 0,
+            "ItemLevel": 0,
+            "Type": {
+                "Name": "Ring",
+                "Index": "Ring",
+                "Class": ""
+            },
+            "RequiredClass": "Helm"
+        }
+    },
+    {
         "Type": "Sword",
         "Name": "Blacktongue",
         "Index": "Blacktongue",
@@ -19917,35 +19961,35 @@
     },
     {
         "Type": "Armor",
-        "Name": "Ion Storm",
-        "Index": "Ion Storm",
+        "Name": "Obsidian Husk",
+        "Index": "Obsidian Husk",
         "Enabled": true,
         "ItemLevel": 12,
         "RequiredLevel": 26,
         "Code": "fld",
         "Properties": [
             {
-                "PropertyString": "Adds 1-65 to Fire Damage",
+                "PropertyString": "+250-300 Enhanced Defense",
                 "Index": 0
             },
             {
-                "PropertyString": "+150-190 Defense",
+                "PropertyString": "30 to Vitality",
                 "Index": 1
             },
             {
-                "PropertyString": "4-7 to Experience Gained",
-                "Index": 2
+                "PropertyString": "Fire Resist +50%",
+                "Index": 3
             },
             {
-                "PropertyString": "Socketed (3-4)",
-                "Index": 3
+                "PropertyString": "+2-4 Damage Reduced by 2-4%%",
+                "Index": 2
             }
         ],
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "251-291",
+            "ArmorString": "357-408",
             "EquipmentType": 0,
             "Name": "Field Plate",
             "RequiredStrength": 55,
@@ -25288,31 +25332,6 @@
         }
     },
     {
-        "Type": "Small Charm",
-        "Name": "Tier 5 Splash Charm",
-        "Index": "t5 Splash Charm",
-        "Enabled": false,
-        "ItemLevel": 1,
-        "RequiredLevel": 29,
-        "Code": "cm4",
-        "Properties": [],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "EquipmentType": 2,
-            "Name": "Splash Charm",
-            "RequiredStrength": 0,
-            "RequiredDexterity": 0,
-            "Durability": 0,
-            "ItemLevel": 0,
-            "Type": {
-                "Name": "Small Charm",
-                "Index": "Small Charm",
-                "Class": ""
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
         "Type": "Sword",
         "Name": "Bloodletter",
         "Index": "Bloodletter",
@@ -26087,7 +26106,7 @@
         "Code": "ci2",
         "Properties": [
             {
-                "PropertyString": "+2-4 to Teleport",
+                "PropertyString": "+1 to Warp",
                 "Index": 4
             },
             {
@@ -26714,6 +26733,44 @@
                 "Class": ""
             },
             "RequiredClass": "Helm"
+        }
+    },
+    {
+        "Type": "Small Charm",
+        "Name": "Tier 4 Splash Charm",
+        "Index": "t4 Splash Charm",
+        "Enabled": false,
+        "ItemLevel": 1,
+        "RequiredLevel": 30,
+        "Code": "cm4",
+        "Properties": [
+            {
+                "PropertyString": "+1 Charm Weight",
+                "Index": 2
+            },
+            {
+                "PropertyString": "42 Percent Melee Splash Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-25 to -30 Enhanced Damage",
+                "Index": 1
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Splash Charm",
+            "RequiredStrength": 0,
+            "RequiredDexterity": 0,
+            "Durability": 0,
+            "ItemLevel": 0,
+            "Type": {
+                "Name": "Small Charm",
+                "Index": "Small Charm",
+                "Class": ""
+            },
+            "RequiredClass": ""
         }
     },
     {
@@ -29443,6 +29500,10 @@
                 "Index": 5
             },
             {
+                "PropertyString": "+20 Increased Attack Speed",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+150-180% Enhanced Damage",
                 "Index": 2
             },
@@ -29455,16 +29516,20 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 40-180 to Fire Damage",
-                "Index": 4
+                "PropertyString": "10-15 to Fire Skill Damage",
+                "Index": 7
             },
             {
                 "PropertyString": "+3 to Immolation Arrow (Amazon Only)",
                 "Index": 0
             },
             {
-                "PropertyString": "1",
+                "PropertyString": "+2 to Fire Skills",
                 "Index": 6
+            },
+            {
+                "PropertyString": "1",
+                "Index": 8
             }
         ],
         "DamageArmorEnhanced": true,
@@ -29776,8 +29841,12 @@
                 "Index": 2
             },
             {
-                "PropertyString": "1",
+                "PropertyString": "+ Replenishes quantity",
                 "Index": 7
+            },
+            {
+                "PropertyString": "1",
+                "Index": 8
             }
         ],
         "DamageArmorEnhanced": true,
@@ -29922,8 +29991,8 @@
     },
     {
         "Type": "Amazon Bow",
-        "Name": "Adamantine Leaf",
-        "Index": "Adamantine Leaf",
+        "Name": "Windrunner",
+        "Index": "Windrunner",
         "Enabled": true,
         "ItemLevel": 13,
         "RequiredLevel": 33,
@@ -32921,31 +32990,6 @@
         }
     },
     {
-        "Type": "Small Charm",
-        "Name": "Tier 6 Splash Charm",
-        "Index": "t6 Splash Charm",
-        "Enabled": false,
-        "ItemLevel": 1,
-        "RequiredLevel": 35,
-        "Code": "cm4",
-        "Properties": [],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "EquipmentType": 2,
-            "Name": "Splash Charm",
-            "RequiredStrength": 0,
-            "RequiredDexterity": 0,
-            "Durability": 0,
-            "ItemLevel": 0,
-            "Type": {
-                "Name": "Small Charm",
-                "Index": "Small Charm",
-                "Class": ""
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
         "Type": "Axe",
         "Name": "Coldkill",
         "Index": "Coldkill",
@@ -33219,19 +33263,19 @@
         "Code": "8mx",
         "Properties": [
             {
-                "PropertyString": "4% Chance to cast level 1 lower resist on striking",
+                "PropertyString": "8% Chance to cast level 3 lower resist on striking",
                 "Index": 1
             },
             {
-                "PropertyString": "9% Chance to cast level 6 poison nova when struck",
+                "PropertyString": "9% Chance to cast level 6 poison nova on striking",
                 "Index": 4
             },
             {
-                "PropertyString": "+2",
+                "PropertyString": "1-2 to All Skills",
                 "Index": 2
             },
             {
-                "PropertyString": "+10 Increased Attack Speed",
+                "PropertyString": "+20-30 Increased Attack Speed",
                 "Index": 5
             },
             {
@@ -33243,7 +33287,7 @@
                 "Index": 7
             },
             {
-                "PropertyString": "+192 to Minimum Poison Damage",
+                "PropertyString": "+600 to Minimum Poison Damage",
                 "Index": 0
             },
             {
@@ -33823,20 +33867,20 @@
         "Code": "xla",
         "Properties": [
             {
-                "PropertyString": "+25 Faster Hit Recovery",
-                "Index": 3
-            },
-            {
-                "PropertyString": "Adds 4-6 Life stolen per hit",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+1-3 to Poison Explosion (Necromancer Only)",
+                "PropertyString": "+3 to Corpse Explosion",
                 "Index": 6
             },
             {
-                "PropertyString": "+1-3 to Summon Resist (Necromancer Only)",
+                "PropertyString": "+3 to Bone Armor",
                 "Index": 7
+            },
+            {
+                "PropertyString": "+25 Faster Cast Rate",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+25 Faster Hit Recovery",
+                "Index": 3
             },
             {
                 "PropertyString": "+100-150 Enhanced Defense",
@@ -34714,74 +34758,6 @@
         }
     },
     {
-        "Type": "Wand",
-        "Name": "Dracolich Fang",
-        "Index": "Dracolich Fang",
-        "Enabled": true,
-        "ItemLevel": 37,
-        "RequiredLevel": 37,
-        "Code": "gwn",
-        "Properties": [
-            {
-                "PropertyString": "+1",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+100 Mana stolen per hit",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+100 Life stolen per hit",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+6-10 Replenish Life",
-                "Index": 3
-            },
-            {
-                "PropertyString": "Regenerate Mana 35%",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+10 Damage Reduced by 10%%",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+1 Cannot Be Frozen",
-                "Index": 6
-            },
-            {
-                "PropertyString": "+80-90 Poison Length Reduced by",
-                "Index": 7
-            },
-            {
-                "PropertyString": "1",
-                "Index": 8
-            }
-        ],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "DamageTypes": [
-                {
-                    "Type": 3,
-                    "DamageString": "5 to 11"
-                }
-            ],
-            "EquipmentType": 1,
-            "Name": "Grim Wand",
-            "RequiredStrength": 0,
-            "RequiredDexterity": 0,
-            "Durability": 250,
-            "ItemLevel": 26,
-            "Type": {
-                "Name": "Wand",
-                "Index": "Wand",
-                "Class": ""
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
         "Type": "Bow",
         "Name": "Telena's War Bow",
         "Index": "Telena's War Bow",
@@ -34951,8 +34927,12 @@
                 "Index": 6
             },
             {
-                "PropertyString": "1",
+                "PropertyString": "+ Replenishes quantity",
                 "Index": 8
+            },
+            {
+                "PropertyString": "1",
+                "Index": 9
             }
         ],
         "DamageArmorEnhanced": true,
@@ -35582,74 +35562,6 @@
             "Type": {
                 "Name": "Club",
                 "Index": "Club",
-                "Class": ""
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Knife",
-        "Name": "Blackbog's Sharp",
-        "Index": "Blackbog's Sharp",
-        "Enabled": true,
-        "ItemLevel": 46,
-        "RequiredLevel": 38,
-        "Code": "9kr",
-        "Properties": [
-            {
-                "PropertyString": "+30 Increased Attack Speed",
-                "Index": 3
-            },
-            {
-                "PropertyString": "Adds 15-45 to Damage",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+500 to Minimum Poison Damage",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+5 to Poison Dagger (Necromancer Only)",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+4 to Poison Explosion (Necromancer Only)",
-                "Index": 6
-            },
-            {
-                "PropertyString": "+4 to Poison Nova (Necromancer Only)",
-                "Index": 7
-            },
-            {
-                "PropertyString": "+50 Slows target by",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+50 Defense",
-                "Index": 1
-            },
-            {
-                "PropertyString": "1",
-                "Index": 8
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageTypes": [
-                {
-                    "Type": 3,
-                    "DamageString": "30 to 76"
-                }
-            ],
-            "EquipmentType": 1,
-            "Name": "Cinquedeas",
-            "RequiredStrength": 25,
-            "RequiredDexterity": 88,
-            "Durability": 250,
-            "ItemLevel": 42,
-            "Type": {
-                "Name": "Knife",
-                "Index": "Knife",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -36312,12 +36224,16 @@
                 "Index": 2
             },
             {
+                "PropertyString": "+ Replenishes quantity",
+                "Index": 7
+            },
+            {
                 "PropertyString": "20-40",
                 "Index": 5
             },
             {
                 "PropertyString": "1",
-                "Index": 7
+                "Index": 8
             }
         ],
         "DamageArmorEnhanced": true,
@@ -36344,78 +36260,6 @@
                 "Class": ""
             },
             "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Throwing Knife",
-        "Name": "Deadly Needle",
-        "Index": "Deadly Needle",
-        "Enabled": true,
-        "ItemLevel": 32,
-        "RequiredLevel": 38,
-        "Code": "bkf",
-        "Properties": [
-            {
-                "PropertyString": "+85-105% Enhanced Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Adds 25-50 to Damage",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+ Deadly Strike",
-                "Index": 5
-            },
-            {
-                "PropertyString": "15 to Strength",
-                "Index": 4
-            },
-            {
-                "PropertyString": "Lightning Resist +20-30%",
-                "Index": 7
-            },
-            {
-                "PropertyString": "Fire Resist +20-30%",
-                "Index": 6
-            },
-            {
-                "PropertyString": "+90 Increased Stack Size",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+ Replenishes quantity",
-                "Index": 3
-            },
-            {
-                "PropertyString": "1",
-                "Index": 8
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageTypes": [
-                {
-                    "Type": 3,
-                    "DamageString": "(26-27) to (64-66)"
-                },
-                {
-                    "Type": 2,
-                    "DamageString": "(36-37) to (70-72)"
-                }
-            ],
-            "EquipmentType": 1,
-            "Name": "Balanced Knife",
-            "RequiredStrength": 0,
-            "RequiredDexterity": 51,
-            "Durability": 250,
-            "ItemLevel": 13,
-            "Type": {
-                "Name": "Throwing Knife",
-                "Index": "Throwing Knife",
-                "Class": ""
-            },
-            "RequiredClass": "Knife"
         }
     },
     {
@@ -39297,6 +39141,44 @@
         }
     },
     {
+        "Type": "Small Charm",
+        "Name": "Tier 5 Splash Charm",
+        "Index": "t5 Splash Charm",
+        "Enabled": false,
+        "ItemLevel": 1,
+        "RequiredLevel": 40,
+        "Code": "cm4",
+        "Properties": [
+            {
+                "PropertyString": "+1 Charm Weight",
+                "Index": 2
+            },
+            {
+                "PropertyString": "42 Percent Melee Splash Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-20 to -25 Enhanced Damage",
+                "Index": 1
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Splash Charm",
+            "RequiredStrength": 0,
+            "RequiredDexterity": 0,
+            "Durability": 0,
+            "ItemLevel": 0,
+            "Type": {
+                "Name": "Small Charm",
+                "Index": "Small Charm",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
         "Type": "Axe",
         "Name": "Stormrider",
         "Index": "Stormrider",
@@ -40470,7 +40352,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+1 to Amplify Damage",
+                "PropertyString": "+1 to Lower Resist",
                 "Index": 5
             },
             {
@@ -40655,31 +40537,6 @@
                 "Class": "ass"
             },
             "RequiredClass": "Assassin"
-        }
-    },
-    {
-        "Type": "Small Charm",
-        "Name": "t7 Splash Charm",
-        "Index": "t7 Splash Charm",
-        "Enabled": false,
-        "ItemLevel": 1,
-        "RequiredLevel": 41,
-        "Code": "cm4",
-        "Properties": [],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "EquipmentType": 2,
-            "Name": "Splash Charm",
-            "RequiredStrength": 0,
-            "RequiredDexterity": 0,
-            "Durability": 0,
-            "ItemLevel": 0,
-            "Type": {
-                "Name": "Small Charm",
-                "Index": "Small Charm",
-                "Class": ""
-            },
-            "RequiredClass": ""
         }
     },
     {
@@ -42059,70 +41916,6 @@
         }
     },
     {
-        "Type": "Scepter",
-        "Name": "Crusader's Wrath",
-        "Index": "Crusader's Wrath",
-        "Enabled": true,
-        "ItemLevel": 30,
-        "RequiredLevel": 42,
-        "Code": "wsp",
-        "Properties": [
-            {
-                "PropertyString": "+60-100% Enhanced Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Adds 30-60 to Damage",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+6 Mana stolen per hit",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+22 Chance of Crushing Blow",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+3-5 to Blessed Hammer (Paladin Only)",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+1 Prevent Monster Heal",
-                "Index": 6
-            },
-            {
-                "PropertyString": "10 to Strength",
-                "Index": 3
-            },
-            {
-                "PropertyString": "1",
-                "Index": 7
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageTypes": [
-                {
-                    "Type": 3,
-                    "DamageString": "(46-50) to (87-94)"
-                }
-            ],
-            "EquipmentType": 1,
-            "Name": "War Scepter",
-            "RequiredStrength": 55,
-            "RequiredDexterity": 0,
-            "Durability": 250,
-            "ItemLevel": 21,
-            "Type": {
-                "Name": "Scepter",
-                "Index": "Scepter",
-                "Class": ""
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
         "Type": "Knife",
         "Name": "Sweet Whisper",
         "Index": "Sweet Whisper",
@@ -43481,8 +43274,8 @@
     },
     {
         "Type": "Gloves",
-        "Name": "Lady of the Lake",
-        "Index": "Lady of the Lake",
+        "Name": "Askarian Grips",
+        "Index": "Askarian Grips",
         "Enabled": true,
         "ItemLevel": 23,
         "RequiredLevel": 43,
@@ -43490,30 +43283,26 @@
         "Properties": [
             {
                 "PropertyString": "+1",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+1",
                 "Index": 2
             },
             {
-                "PropertyString": "+1",
+                "PropertyString": "+25 Increased Attack Speed",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+10 Chance of Crushing Blow",
                 "Index": 3
-            },
-            {
-                "PropertyString": "+15 Increased Attack Speed",
-                "Index": 6
-            },
-            {
-                "PropertyString": "+15 Faster Cast Rate",
-                "Index": 5
             },
             {
                 "PropertyString": "+120-140 Enhanced Defense",
                 "Index": 0
             },
             {
-                "PropertyString": "+40-50 to Mana",
+                "PropertyString": "15 to Strength",
+                "Index": 5
+            },
+            {
+                "PropertyString": "15 to Dexterity",
                 "Index": 4
             }
         ],
@@ -44672,7 +44461,7 @@
         "Code": "8sb",
         "Properties": [
             {
-                "PropertyString": "7% Chance to cast level 1 guided arrow when struck",
+                "PropertyString": "+8-10 to Poison Explosion",
                 "Index": 6
             },
             {
@@ -44684,12 +44473,12 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 25-50 to Damage",
-                "Index": 1
-            },
-            {
                 "PropertyString": "+333 to Minimum Poison Damage",
                 "Index": 3
+            },
+            {
+                "PropertyString": "20-30 to Poison Skill Damage",
+                "Index": 1
             },
             {
                 "PropertyString": "10 to Dexterity",
@@ -44709,7 +44498,7 @@
             "DamageTypes": [
                 {
                     "Type": 1,
-                    "DamageString": "(35-38) to (84-92)"
+                    "DamageString": "(10-13) to (34-42)"
                 }
             ],
             "EquipmentType": 1,
@@ -45482,23 +45271,27 @@
         "Code": "rin",
         "Properties": [
             {
-                "PropertyString": "40 to Life",
-                "Index": 3
+                "PropertyString": "3-5 to Fire Skill Damage",
+                "Index": 4
             },
             {
-                "PropertyString": "+15 Heal Stamina Plus",
-                "Index": 2
+                "PropertyString": "40 to Life",
+                "Index": 3
             },
             {
                 "PropertyString": "+15 Fire Absorb",
                 "Index": 5
             },
             {
-                "PropertyString": "+12-15 Magic Damage Reduced by",
-                "Index": 4
+                "PropertyString": "+3-5 to Mana after each Kill",
+                "Index": 2
             },
             {
                 "PropertyString": "+100 extra gold from monsters",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+1 to Fire Skills",
                 "Index": 0
             }
         ],
@@ -46182,8 +45975,12 @@
                 "Index": 1
             },
             {
-                "PropertyString": "1",
+                "PropertyString": "+ Replenishes quantity",
                 "Index": 7
+            },
+            {
+                "PropertyString": "1",
+                "Index": 8
             }
         ],
         "DamageArmorEnhanced": true,
@@ -46551,31 +46348,6 @@
         }
     },
     {
-        "Type": "Small Charm",
-        "Name": "t8 Splash Charm",
-        "Index": "t8 Splash Charm",
-        "Enabled": false,
-        "ItemLevel": 1,
-        "RequiredLevel": 45,
-        "Code": "cm4",
-        "Properties": [],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "EquipmentType": 2,
-            "Name": "Splash Charm",
-            "RequiredStrength": 0,
-            "RequiredDexterity": 0,
-            "Durability": 0,
-            "ItemLevel": 0,
-            "Type": {
-                "Name": "Small Charm",
-                "Index": "Small Charm",
-                "Class": ""
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
         "Type": "Sword",
         "Name": "Todesfaelle Flamme",
         "Index": "Todesfaelle Flamme",
@@ -46892,41 +46664,41 @@
         }
     },
     {
-        "Type": "Knife",
-        "Name": "Basilisk's Touch",
-        "Index": "Basilisk's Touch",
+        "Type": "Scepter",
+        "Name": "Celestial Knight",
+        "Index": "Celestial Knight",
         "Enabled": true,
-        "ItemLevel": 38,
+        "ItemLevel": 36,
         "RequiredLevel": 46,
-        "Code": "9kr",
+        "Code": "wsp",
         "Properties": [
             {
-                "PropertyString": "+5-7 to Dim Vision",
+                "PropertyString": "2 to All Skills",
                 "Index": 3
             },
             {
-                "PropertyString": "+180-230% Enhanced Damage",
-                "Index": 0
+                "PropertyString": "+3 to Valkyrie",
+                "Index": 4
             },
             {
-                "PropertyString": "+ to Maximum Damage",
-                "Index": 6
-            },
-            {
-                "PropertyString": "+1 Ignore Target's Defense",
+                "PropertyString": "+30 Increased Attack Speed",
                 "Index": 5
             },
             {
-                "PropertyString": "+657 to Minimum Poison Damage",
-                "Index": 2
+                "PropertyString": "+100-125% Enhanced Damage",
+                "Index": 0
             },
             {
-                "PropertyString": "+25 Slows target by",
+                "PropertyString": "+40-60 to Minimum Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "+100 Defense",
-                "Index": 4
+                "PropertyString": "+120-160 to Maximum Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "-20% Target Defense",
+                "Index": 6
             },
             {
                 "PropertyString": "1",
@@ -46938,7 +46710,75 @@
             "DamageTypes": [
                 {
                     "Type": 3,
-                    "DamageString": "(42-49) to (86-102)"
+                    "DamageString": "(60-82) to (154-198)"
+                }
+            ],
+            "EquipmentType": 1,
+            "Name": "War Scepter",
+            "RequiredStrength": 55,
+            "RequiredDexterity": 0,
+            "Durability": 250,
+            "ItemLevel": 21,
+            "Type": {
+                "Name": "Scepter",
+                "Index": "Scepter",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Knife",
+        "Name": "Basilisk's Touch",
+        "Index": "Basilisk's Touch",
+        "Enabled": true,
+        "ItemLevel": 38,
+        "RequiredLevel": 46,
+        "Code": "9kr",
+        "Properties": [
+            {
+                "PropertyString": "10% Chance to cast level 5 dim vision on striking",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+15-20 Increased Attack Speed",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+1 Ignore Target's Defense",
+                "Index": 6
+            },
+            {
+                "PropertyString": "50 to Attack Rating",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+657 to Minimum Poison Damage",
+                "Index": 3
+            },
+            {
+                "PropertyString": "15-20 to Poison Skill Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+25 Slows target by",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+2 to Fire Skills",
+                "Index": 7
+            },
+            {
+                "PropertyString": "1",
+                "Index": 8
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "DamageTypes": [
+                {
+                    "Type": 3,
+                    "DamageString": "15 to 31"
                 }
             ],
             "EquipmentType": 1,
@@ -48640,7 +48480,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+ to Poison and Bone Skills (Necromancer only)",
+                "PropertyString": "+1-2 to Poison and Bone Skills (Necromancer only)",
                 "Index": 1
             },
             {
@@ -51305,12 +51145,16 @@
         "Code": "xow",
         "Properties": [
             {
-                "PropertyString": "+1",
+                "PropertyString": "+1 to Melee Mastery",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+75% Enhanced Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "+1 to Melee Mastery",
-                "Index": 5
+                "PropertyString": "+20 Faster Block Rate",
+                "Index": 8
             },
             {
                 "PropertyString": "15-30% Increased Chance of Blocking",
@@ -51321,11 +51165,11 @@
                 "Index": 7
             },
             {
-                "PropertyString": "+6-35 to Throw",
+                "PropertyString": "+3 to Jab (Amazon Only)",
                 "Index": 2
             },
             {
-                "PropertyString": "+6-35 to Throw",
+                "PropertyString": "+3 to Fend (Amazon Only)",
                 "Index": 3
             },
             {
@@ -51338,7 +51182,7 @@
             },
             {
                 "PropertyString": "1",
-                "Index": 8
+                "Index": 9
             }
         ],
         "DamageArmorEnhanced": true,
@@ -51902,31 +51746,6 @@
         }
     },
     {
-        "Type": "Small Charm",
-        "Name": "t9 Splash Charm",
-        "Index": "t9 Splash Charm",
-        "Enabled": true,
-        "ItemLevel": 1,
-        "RequiredLevel": 49,
-        "Code": "cm5",
-        "Properties": [],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "EquipmentType": 2,
-            "Name": "Splash Charm",
-            "RequiredStrength": 0,
-            "RequiredDexterity": 0,
-            "Durability": 0,
-            "ItemLevel": 0,
-            "Type": {
-                "Name": "Small Charm",
-                "Index": "Small Charm",
-                "Class": ""
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
         "Type": "Shield",
         "Name": "Radament's Sphere",
         "Index": "Radament's Sphere",
@@ -51936,10 +51755,6 @@
         "Code": "xts",
         "Properties": [
             {
-                "PropertyString": "5% Chance to cast level 5 poison nova when struck",
-                "Index": 1
-            },
-            {
                 "PropertyString": "+20 Faster Block Rate",
                 "Index": 5
             },
@@ -51948,20 +51763,24 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+204 to Minimum Poison Damage",
-                "Index": 0
+                "PropertyString": "10 to Poison Skill Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "15 to Enemy Poison Resistance",
+                "Index": 2
             },
             {
                 "PropertyString": "+160-200 Enhanced Defense",
                 "Index": 3
             },
             {
-                "PropertyString": "Poison Resist +75%",
-                "Index": 2
+                "PropertyString": "All Resistances +30",
+                "Index": 6
             },
             {
-                "PropertyString": "Level 6 Poison Explosion (40 Charges)",
-                "Index": 6
+                "PropertyString": "+2 to Fire Skills",
+                "Index": 0
             },
             {
                 "PropertyString": "1",
@@ -52015,56 +51834,6 @@
             {
                 "PropertyString": "25 to Dexterity",
                 "Index": 4
-            }
-        ],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "EquipmentType": 2,
-            "Name": "Amulet",
-            "RequiredStrength": 0,
-            "RequiredDexterity": 0,
-            "Durability": 0,
-            "ItemLevel": 0,
-            "Type": {
-                "Name": "Amulet",
-                "Index": "Amulet",
-                "Class": ""
-            },
-            "RequiredClass": "Helm"
-        }
-    },
-    {
-        "Type": "Amulet",
-        "Name": "Crescent Moon",
-        "Index": "Crescent Moon",
-        "Enabled": true,
-        "ItemLevel": 58,
-        "RequiredLevel": 50,
-        "Code": "amu",
-        "Properties": [
-            {
-                "PropertyString": "Adds 11-15 Mana stolen per hit",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Adds 3-6 Life stolen per hit",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+45 to Mana",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+10 Magic Damage Reduced by",
-                "Index": 1
-            },
-            {
-                "PropertyString": "10% Damage Taken Goes To Mana",
-                "Index": 2
-            },
-            {
-                "PropertyString": "-2 to Light Radius",
-                "Index": 3
             }
         ],
         "DamageArmorEnhanced": false,
@@ -52773,12 +52542,16 @@
                 "Index": 7
             },
             {
+                "PropertyString": "+ Replenishes quantity",
+                "Index": 8
+            },
+            {
                 "PropertyString": "25-40",
                 "Index": 2
             },
             {
                 "PropertyString": "1",
-                "Index": 8
+                "Index": 9
             }
         ],
         "DamageArmorEnhanced": true,
@@ -53045,7 +52818,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+1 to Teleport",
+                "PropertyString": "+1 to Warp",
                 "Index": 3
             },
             {
@@ -53610,6 +53383,44 @@
                 "Class": ""
             },
             "RequiredClass": "Helm"
+        }
+    },
+    {
+        "Type": "Small Charm",
+        "Name": "Tier 6 Splash Charm",
+        "Index": "t6 Splash Charm",
+        "Enabled": false,
+        "ItemLevel": 1,
+        "RequiredLevel": 50,
+        "Code": "cm4",
+        "Properties": [
+            {
+                "PropertyString": "+1 Charm Weight",
+                "Index": 2
+            },
+            {
+                "PropertyString": "50 Percent Melee Splash Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-15 to -20 Enhanced Damage",
+                "Index": 1
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Splash Charm",
+            "RequiredStrength": 0,
+            "RequiredDexterity": 0,
+            "Durability": 0,
+            "ItemLevel": 0,
+            "Type": {
+                "Name": "Small Charm",
+                "Index": "Small Charm",
+                "Class": ""
+            },
+            "RequiredClass": ""
         }
     },
     {
@@ -54825,7 +54636,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+ to Summoning Skills (Necromancer only)",
+                "PropertyString": "+1-2 to Summoning Skills (Necromancer only)",
                 "Index": 1
             },
             {
@@ -57485,8 +57296,12 @@
                 "Index": 7
             },
             {
-                "PropertyString": "1",
+                "PropertyString": "+ Replenishes quantity",
                 "Index": 8
+            },
+            {
+                "PropertyString": "1",
+                "Index": 9
             }
         ],
         "DamageArmorEnhanced": true,
@@ -59156,78 +58971,6 @@
         }
     },
     {
-        "Type": "Throwing Knife",
-        "Name": "Swarming Blades",
-        "Index": "Swarming Blades",
-        "Enabled": true,
-        "ItemLevel": 55,
-        "RequiredLevel": 57,
-        "Code": "9tk",
-        "Properties": [
-            {
-                "PropertyString": "+60 Increased Attack Speed",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+100% Enhanced Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+ to Maximum Damage",
-                "Index": 1
-            },
-            {
-                "PropertyString": "-15% Target Defense",
-                "Index": 7
-            },
-            {
-                "PropertyString": "50-60 to Life",
-                "Index": 5
-            },
-            {
-                "PropertyString": "Poison Resist +25-35%",
-                "Index": 6
-            },
-            {
-                "PropertyString": "+100 Increased Stack Size",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+100-20 Replenishes quantity",
-                "Index": 4
-            },
-            {
-                "PropertyString": "1",
-                "Index": 8
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageTypes": [
-                {
-                    "Type": 3,
-                    "DamageString": "16 to 32"
-                },
-                {
-                    "Type": 2,
-                    "DamageString": "22 to 48"
-                }
-            ],
-            "EquipmentType": 1,
-            "Name": "Battle Dart",
-            "RequiredStrength": 25,
-            "RequiredDexterity": 52,
-            "Durability": 250,
-            "ItemLevel": 31,
-            "Type": {
-                "Name": "Throwing Knife",
-                "Index": "Throwing Knife",
-                "Class": ""
-            },
-            "RequiredClass": "Knife"
-        }
-    },
-    {
         "Type": "Armor",
         "Name": "Demonspike Coat",
         "Index": "Demonspike Coat",
@@ -59921,8 +59664,12 @@
                 "Index": 5
             },
             {
-                "PropertyString": "1",
+                "PropertyString": "+ Replenishes quantity",
                 "Index": 8
+            },
+            {
+                "PropertyString": "1",
+                "Index": 9
             }
         ],
         "DamageArmorEnhanced": true,
@@ -60071,11 +59818,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "15-25 to Cold Skill Damage",
+                "PropertyString": "10-20 to Cold Skill Damage",
                 "Index": 3
             },
             {
-                "PropertyString": "60 to Enemy Cold Resistance",
+                "PropertyString": "15-25 to Enemy Cold Resistance",
                 "Index": 6
             },
             {
@@ -61724,12 +61471,16 @@
                 "Index": 4
             },
             {
+                "PropertyString": "+ Replenishes quantity",
+                "Index": 8
+            },
+            {
                 "PropertyString": "30-50",
                 "Index": 2
             },
             {
                 "PropertyString": "1",
-                "Index": 8
+                "Index": 9
             }
         ],
         "DamageArmorEnhanced": true,
@@ -62045,8 +61796,8 @@
     },
     {
         "Type": "Amazon Bow",
-        "Name": "Distance Strike",
-        "Index": "Distance Strike",
+        "Name": "Distant Thunder",
+        "Index": "Distant Thunder",
         "Enabled": true,
         "ItemLevel": 55,
         "RequiredLevel": 60,
@@ -62284,6 +62035,44 @@
             "Type": {
                 "Name": "Medium Charm",
                 "Index": "Medium Charm",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Small Charm",
+        "Name": "t7 Splash Charm",
+        "Index": "t7 Splash Charm",
+        "Enabled": false,
+        "ItemLevel": 1,
+        "RequiredLevel": 60,
+        "Code": "cm4",
+        "Properties": [
+            {
+                "PropertyString": "+1 Charm Weight",
+                "Index": 2
+            },
+            {
+                "PropertyString": "50 Percent Melee Splash Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-10 to -15 Enhanced Damage",
+                "Index": 1
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Splash Charm",
+            "RequiredStrength": 0,
+            "RequiredDexterity": 0,
+            "Durability": 0,
+            "ItemLevel": 0,
+            "Type": {
+                "Name": "Small Charm",
+                "Index": "Small Charm",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -62825,8 +62614,12 @@
                 "Index": 3
             },
             {
-                "PropertyString": "1",
+                "PropertyString": "+ Replenishes quantity",
                 "Index": 7
+            },
+            {
+                "PropertyString": "1",
+                "Index": 8
             }
         ],
         "DamageArmorEnhanced": true,
@@ -63159,70 +62952,6 @@
         }
     },
     {
-        "Type": "Scepter",
-        "Name": "Celestial Knight",
-        "Index": "Celestial Knight",
-        "Enabled": true,
-        "ItemLevel": 55,
-        "RequiredLevel": 62,
-        "Code": "9ws",
-        "Properties": [
-            {
-                "PropertyString": "2 to All Skills",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+3 to Valkyrie",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+30 Increased Attack Speed",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+100-125% Enhanced Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+40-60 to Minimum Damage",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+120-160 to Maximum Damage",
-                "Index": 2
-            },
-            {
-                "PropertyString": "-20% Target Defense",
-                "Index": 6
-            },
-            {
-                "PropertyString": "1",
-                "Index": 7
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageTypes": [
-                {
-                    "Type": 3,
-                    "DamageString": "(72-96) to (196-245)"
-                }
-            ],
-            "EquipmentType": 1,
-            "Name": "Divine Scepter",
-            "RequiredStrength": 103,
-            "RequiredDexterity": 0,
-            "Durability": 250,
-            "ItemLevel": 45,
-            "Type": {
-                "Name": "Scepter",
-                "Index": "Scepter",
-                "Class": ""
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
         "Type": "Knife",
         "Name": "Fall Of Myth Drannor",
         "Index": "Fall Of Myth Drannor",
@@ -63291,29 +63020,105 @@
         }
     },
     {
+        "Type": "Wand",
+        "Name": "Dracolich Fang",
+        "Index": "Dracolich Fang",
+        "Enabled": true,
+        "ItemLevel": 60,
+        "RequiredLevel": 62,
+        "Code": "gwn",
+        "Properties": [
+            {
+                "PropertyString": "+3 to Curses (Necromancer only)",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+2",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20 Faster Cast Rate",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+66-95 to Unsummon",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+66-95 to Unsummon",
+                "Index": 5
+            },
+            {
+                "PropertyString": "Regenerate Mana 35%",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+75 Poison Length Reduced by",
+                "Index": 7
+            },
+            {
+                "PropertyString": "Socketed (2)",
+                "Index": 6
+            },
+            {
+                "PropertyString": "1",
+                "Index": 8
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "DamageTypes": [
+                {
+                    "Type": 3,
+                    "DamageString": "5 to 11"
+                }
+            ],
+            "EquipmentType": 1,
+            "Name": "Grim Wand",
+            "RequiredStrength": 0,
+            "RequiredDexterity": 0,
+            "Durability": 250,
+            "ItemLevel": 26,
+            "Type": {
+                "Name": "Wand",
+                "Index": "Wand",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
         "Type": "Armor",
-        "Name": "Adamantine Plate",
-        "Index": "Adamantine Plate",
+        "Name": "Will of the Zakarum",
+        "Index": "Will of the Zakarum",
         "Enabled": true,
         "ItemLevel": 53,
         "RequiredLevel": 62,
         "Code": "xar",
         "Properties": [
             {
+                "PropertyString": "18% Chance to cast level 15 iron maiden when struck",
+                "Index": 5
+            },
+            {
+                "PropertyString": "Level 6 Meditation Aura When Equipped",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+20-30 Faster Hit Recovery",
                 "Index": 4
             },
             {
-                "PropertyString": "+200-250 Enhanced Defense",
-                "Index": 0
-            },
-            {
-                "PropertyString": "All Resistances +30-40",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+15-20 Damage Reduced by 15-20%%",
+                "PropertyString": "+225-275 Enhanced Defense",
                 "Index": 1
+            },
+            {
+                "PropertyString": "All Resistances +20-30",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+10-15 Damage Reduced by 10-15%%",
+                "Index": 2
             },
             {
                 "PropertyString": "Repairs 0.2 durability per second",
@@ -63324,7 +63129,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "1254-1463",
+            "ArmorString": "1358-1567",
             "EquipmentType": 0,
             "Name": "Ornate Plate",
             "RequiredStrength": 170,
@@ -64663,16 +64468,16 @@
         "Code": "amu",
         "Properties": [
             {
-                "PropertyString": "2% Chance to cast level 13-19 meteor when struck",
+                "PropertyString": "+10 Faster Cast Rate",
                 "Index": 2
-            },
-            {
-                "PropertyString": "Adds 24-48 to Fire Damage",
-                "Index": 3
             },
             {
                 "PropertyString": "+10 Replenish Life",
                 "Index": 5
+            },
+            {
+                "PropertyString": "Fire Resist +15-30%",
+                "Index": 3
             },
             {
                 "PropertyString": "+ Absorbs Fire Damage",
@@ -65615,39 +65420,39 @@
         "Code": "uui",
         "Properties": [
             {
-                "PropertyString": "+30 Faster Hit Recovery",
-                "Index": 6
-            },
-            {
-                "PropertyString": "+25 Faster Block Rate",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+100-200 Enhanced Defense",
+                "PropertyString": "+2 to Lightning Skills (Sorceress only)",
                 "Index": 0
             },
             {
-                "PropertyString": "25 to Vitality",
-                "Index": 4
-            },
-            {
-                "PropertyString": "25 to Energy",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+4-8 Replenish Life",
+                "PropertyString": "+25 Faster Cast Rate",
                 "Index": 1
             },
             {
-                "PropertyString": "Regenerate Mana 50%",
+                "PropertyString": "+5 to Energy Shield (Sorceress Only)",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+200-275 Enhanced Defense",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+200 to Mana",
                 "Index": 2
+            },
+            {
+                "PropertyString": "+10 Increase Maximum Mana",
+                "Index": 4
+            },
+            {
+                "PropertyString": "Regenerate Mana 25%",
+                "Index": 6
             }
         ],
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "724-1086",
+            "ArmorString": "1086-1357",
             "EquipmentType": 0,
             "Name": "Dusk Shroud",
             "RequiredStrength": 77,
@@ -65764,7 +65569,7 @@
             "ArmorString": "240-360",
             "EquipmentType": 0,
             "Name": "Hyperion",
-            "RequiredStrength": 127,
+            "RequiredStrength": 156,
             "RequiredDexterity": 0,
             "Durability": 82,
             "ItemLevel": 64,
@@ -65790,11 +65595,15 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+1-3 to Javelin and Spear Skills (Amazon only)",
+                "PropertyString": "+2-3 to Javelin and Spear Skills (Amazon only)",
                 "Index": 5
             },
             {
-                "PropertyString": "+100-125% Enhanced Damage",
+                "PropertyString": "+20 Increased Attack Speed",
+                "Index": 8
+            },
+            {
+                "PropertyString": "+225-300% Enhanced Damage",
                 "Index": 0
             },
             {
@@ -65819,7 +65628,7 @@
             },
             {
                 "PropertyString": "1",
-                "Index": 8
+                "Index": 9
             }
         ],
         "DamageArmorEnhanced": true,
@@ -65827,11 +65636,11 @@
             "DamageTypes": [
                 {
                     "Type": 3,
-                    "DamageString": "(66-70) to (130-138)"
+                    "DamageString": "(88-102) to (173-200)"
                 },
                 {
                     "Type": 2,
-                    "DamageString": "(66-70) to (168-181)"
+                    "DamageString": "(88-102) to (235-276)"
                 }
             ],
             "EquipmentType": 1,
@@ -66047,20 +65856,24 @@
         "Code": "7bt",
         "Properties": [
             {
-                "PropertyString": "10% Chance to cast level 16-20 fire ball on attack",
+                "PropertyString": "25% Chance to cast level 40 fire ball on attack",
                 "Index": 6
             },
             {
-                "PropertyString": "+100% Enhanced Damage",
+                "PropertyString": "Level 22 Holy Fire Aura When Equipped",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+20 Increased Attack Speed",
+                "Index": 7
+            },
+            {
+                "PropertyString": "+250% Enhanced Damage",
                 "Index": 5
             },
             {
                 "PropertyString": "+ Enhanced Maximum Damage",
                 "Index": 2
-            },
-            {
-                "PropertyString": "+150-250 to Minimum Fire Damage",
-                "Index": 3
             },
             {
                 "PropertyString": "to Strength",
@@ -66076,7 +65889,7 @@
             },
             {
                 "PropertyString": "1",
-                "Index": 7
+                "Index": 8
             }
         ],
         "DamageArmorEnhanced": true,
@@ -66084,7 +65897,7 @@
             "DamageTypes": [
                 {
                     "Type": 1,
-                    "DamageString": "98 to 274"
+                    "DamageString": "171 to 479"
                 }
             ],
             "EquipmentType": 1,
@@ -67128,6 +66941,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+150% Enhanced Damage",
+                "Index": 6
+            },
+            {
                 "PropertyString": "Hit blinds target +1",
                 "Index": 4
             },
@@ -67136,27 +66953,27 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+100-200 Enhanced Defense",
+                "PropertyString": "+150-225 Enhanced Defense",
                 "Index": 0
+            },
+            {
+                "PropertyString": "40 to Dexterity",
+                "Index": 2
             },
             {
                 "PropertyString": "to Life",
                 "Index": 3
             },
             {
-                "PropertyString": "+15-25 Increase Maximum Mana",
-                "Index": 2
-            },
-            {
-                "PropertyString": "Socketed (1)",
-                "Index": 6
+                "PropertyString": "+15 Damage Reduced by 15%%",
+                "Index": 7
             }
         ],
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "730-1095",
+            "ArmorString": "912-1186",
             "EquipmentType": 0,
             "Name": "Wyrmhide",
             "RequiredStrength": 84,
@@ -67390,6 +67207,52 @@
                 "Class": ""
             },
             "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Amulet",
+        "Name": "Crescent Moon",
+        "Index": "Crescent Moon",
+        "Enabled": true,
+        "ItemLevel": 68,
+        "RequiredLevel": 68,
+        "Code": "amu",
+        "Properties": [
+            {
+                "PropertyString": "5-10 to Cold Skill Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+80 to Mana",
+                "Index": 3
+            },
+            {
+                "PropertyString": "Regenerate Mana 25%",
+                "Index": 4
+            },
+            {
+                "PropertyString": "4 to Light Radius",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+2 to Fire Skills",
+                "Index": 0
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Amulet",
+            "RequiredStrength": 0,
+            "RequiredDexterity": 0,
+            "Durability": 0,
+            "ItemLevel": 0,
+            "Type": {
+                "Name": "Amulet",
+                "Index": "Amulet",
+                "Class": ""
+            },
+            "RequiredClass": "Helm"
         }
     },
     {
@@ -67710,7 +67573,7 @@
         "Code": "uts",
         "Properties": [
             {
-                "PropertyString": "5% Chance to cast level 8 fade when struck",
+                "PropertyString": "+3",
                 "Index": 5
             },
             {
@@ -67730,7 +67593,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+6-11 Cold Absorb",
+                "PropertyString": "+10 Damage Reduced by 10%%",
                 "Index": 1
             },
             {
@@ -67948,6 +67811,66 @@
             "Type": {
                 "Name": "Sword",
                 "Index": "Sword",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Scepter",
+        "Name": "Crusader's Wrath",
+        "Index": "Crusader's Wrath",
+        "Enabled": true,
+        "ItemLevel": 62,
+        "RequiredLevel": 68,
+        "Code": "9ws",
+        "Properties": [
+            {
+                "PropertyString": "+2",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20 Faster Cast Rate",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+2-4 to Holy Shield (Paladin Only)",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+2-4 to Blessed Hammer (Paladin Only)",
+                "Index": 4
+            },
+            {
+                "PropertyString": "10-20 to Strength",
+                "Index": 3
+            },
+            {
+                "PropertyString": "10-20 to Vitality",
+                "Index": 5
+            },
+            {
+                "PropertyString": "1",
+                "Index": 6
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "DamageTypes": [
+                {
+                    "Type": 3,
+                    "DamageString": "16 to 38"
+                }
+            ],
+            "EquipmentType": 1,
+            "Name": "Divine Scepter",
+            "RequiredStrength": 103,
+            "RequiredDexterity": 0,
+            "Durability": 250,
+            "ItemLevel": 45,
+            "Type": {
+                "Name": "Scepter",
+                "Index": "Scepter",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -68470,8 +68393,12 @@
         "Code": "6l7",
         "Properties": [
             {
-                "PropertyString": "+1",
+                "PropertyString": "18% Chance to cast level 33 raven on attack",
                 "Index": 4
+            },
+            {
+                "PropertyString": "+40 Increased Attack Speed",
+                "Index": 6
             },
             {
                 "PropertyString": "+200% Enhanced Damage",
@@ -68495,7 +68422,7 @@
             },
             {
                 "PropertyString": "1",
-                "Index": 6
+                "Index": 7
             }
         ],
         "DamageArmorEnhanced": true,
@@ -68530,24 +68457,24 @@
         "Code": "rin",
         "Properties": [
             {
-                "PropertyString": "+1 Prevent Monster Heal",
-                "Index": 0
+                "PropertyString": "+2 to Oak Sage",
+                "Index": 4
             },
             {
                 "PropertyString": "Slain Monsters Rest in Peace",
                 "Index": 1
             },
             {
-                "PropertyString": "Poison Resist +20-30%",
+                "PropertyString": "All Resistances +5-15",
                 "Index": 3
             },
             {
-                "PropertyString": "+7-11 Damage Reduced by",
+                "PropertyString": "+3-5 Damage Reduced by 3-5%%",
                 "Index": 2
             },
             {
-                "PropertyString": "Level 5 Oak Sage (27 Charges)",
-                "Index": 4
+                "PropertyString": "+1 to Fire Skills",
+                "Index": 0
             }
         ],
         "DamageArmorEnhanced": false,
@@ -68604,8 +68531,12 @@
                 "Index": 5
             },
             {
-                "PropertyString": "1",
+                "PropertyString": "+ Replenishes quantity",
                 "Index": 7
+            },
+            {
+                "PropertyString": "1",
+                "Index": 8
             }
         ],
         "DamageArmorEnhanced": true,
@@ -68912,7 +68843,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+100 Replenishes quantity",
+                "PropertyString": "+ Replenishes quantity",
                 "Index": 1
             },
             {
@@ -69064,8 +68995,12 @@
                 "Index": 3
             },
             {
-                "PropertyString": "1",
+                "PropertyString": "+ Replenishes quantity",
                 "Index": 9
+            },
+            {
+                "PropertyString": "1",
+                "Index": 10
             }
         ],
         "DamageArmorEnhanced": true,
@@ -69517,8 +69452,12 @@
                 "Index": 4
             },
             {
-                "PropertyString": "1",
+                "PropertyString": "+ Replenishes quantity",
                 "Index": 6
+            },
+            {
+                "PropertyString": "1",
+                "Index": 7
             }
         ],
         "DamageArmorEnhanced": true,
@@ -70267,7 +70206,7 @@
             "ArmorString": "300-360",
             "EquipmentType": 0,
             "Name": "Hyperion",
-            "RequiredStrength": 127,
+            "RequiredStrength": 156,
             "RequiredDexterity": 0,
             "Durability": 82,
             "ItemLevel": 64,
@@ -70369,7 +70308,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+96-125 to Inner Sight (Amazon Only)",
+                "PropertyString": "+96-125 to Left Hand Swing",
                 "Index": 4
             },
             {
@@ -70839,7 +70778,7 @@
         "Code": "ned",
         "Properties": [
             {
-                "PropertyString": "+3 to Teleport",
+                "PropertyString": "+1 to Warp",
                 "Index": 4
             },
             {
@@ -72963,44 +72902,48 @@
     },
     {
         "Type": "Bow",
-        "Name": "Oathbow",
-        "Index": "Oathbow",
+        "Name": "Radament's Bite",
+        "Index": "Radament's Bite",
         "Enabled": true,
         "ItemLevel": 68,
         "RequiredLevel": 74,
         "Code": "6cb",
         "Properties": [
             {
-                "PropertyString": "+160-200% Enhanced Damage",
-                "Index": 0
+                "PropertyString": "13% Chance to cast level 7 corpse explosion when you Kill an Enemy",
+                "Index": 7
             },
             {
-                "PropertyString": "Adds 40-90 to Damage",
+                "PropertyString": "+1-2",
                 "Index": 1
             },
             {
-                "PropertyString": "25 to Strength",
-                "Index": 3
-            },
-            {
-                "PropertyString": "Magic Resist +25%",
-                "Index": 6
-            },
-            {
-                "PropertyString": "+20-30 Damage Reduced by",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+20-30 Magic Damage Reduced by",
-                "Index": 5
-            },
-            {
-                "PropertyString": "2-5 to Experience Gained",
+                "PropertyString": "+30-40 Increased Attack Speed",
                 "Index": 2
             },
             {
+                "PropertyString": "+200-250% Enhanced Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "20-30 to Poison Skill Damage",
+                "Index": 4
+            },
+            {
+                "PropertyString": "10-20 to Enemy Poison Resistance",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+2-3 to Poison Explosion (Necromancer Only)",
+                "Index": 3
+            },
+            {
+                "PropertyString": "All Resistances +20-30",
+                "Index": 6
+            },
+            {
                 "PropertyString": "1",
-                "Index": 7
+                "Index": 8
             }
         ],
         "DamageArmorEnhanced": true,
@@ -73008,7 +72951,7 @@
             "DamageTypes": [
                 {
                     "Type": 1,
-                    "DamageString": "(71-76) to (225-246)"
+                    "DamageString": "(36-42) to (156-182)"
                 }
             ],
             "EquipmentType": 1,
@@ -73035,28 +72978,36 @@
         "Code": "6mx",
         "Properties": [
             {
+                "PropertyString": "+30-40 Increased Attack Speed",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+220-260% Enhanced Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+175% Damage to Undead Damage to Undead",
-                "Index": 1
+                "PropertyString": "+20-30 Piercing Attack",
+                "Index": 5
             },
             {
-                "PropertyString": "300 to Attack Rating against Undead",
+                "PropertyString": "20-30 to Poison Skill Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "+10-15 Damage Reduced by 10-15%%",
+                "PropertyString": "15-20 to Enemy Poison Resistance",
                 "Index": 3
             },
             {
-                "PropertyString": "+15-25 Magic Damage Reduced by",
-                "Index": 4
+                "PropertyString": "+4-6 to Poison Explosion (Necromancer Only)",
+                "Index": 1
+            },
+            {
+                "PropertyString": "5-10% Reanimate as: Wight",
+                "Index": 6
             },
             {
                 "PropertyString": "1",
-                "Index": 5
+                "Index": 7
             }
         ],
         "DamageArmorEnhanced": true,
@@ -73095,7 +73046,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+7 to Teleport",
+                "PropertyString": "+1 to Warp",
                 "Index": 3
             },
             {
@@ -73661,7 +73612,7 @@
             "ArmorString": "478-578",
             "EquipmentType": 0,
             "Name": "Troll Nest",
-            "RequiredStrength": 106,
+            "RequiredStrength": 156,
             "RequiredDexterity": 0,
             "Durability": 74,
             "ItemLevel": 76,
@@ -73969,6 +73920,44 @@
         }
     },
     {
+        "Type": "Small Charm",
+        "Name": "t8 Splash Charm",
+        "Index": "t8 Splash Charm",
+        "Enabled": false,
+        "ItemLevel": 1,
+        "RequiredLevel": 75,
+        "Code": "cm4",
+        "Properties": [
+            {
+                "PropertyString": "+1 Charm Weight",
+                "Index": 2
+            },
+            {
+                "PropertyString": "50 Percent Melee Splash Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-5 to -10 Enhanced Damage",
+                "Index": 1
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Splash Charm",
+            "RequiredStrength": 0,
+            "RequiredDexterity": 0,
+            "Durability": 0,
+            "ItemLevel": 0,
+            "Type": {
+                "Name": "Small Charm",
+                "Index": "Small Charm",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
         "Type": "Large Charm",
         "Name": "Cold Rupture",
         "Index": "Cold Rupture",
@@ -74251,45 +74240,45 @@
         "Name": "Hellrack",
         "Index": "Hellrack",
         "Enabled": true,
-        "ItemLevel": 84,
+        "ItemLevel": 74,
         "RequiredLevel": 76,
         "Code": "6hx",
         "Properties": [
             {
-                "PropertyString": "+20 Increased Attack Speed",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+180-230% Enhanced Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "100-150 bonus to Attack Rating",
-                "Index": 3
-            },
-            {
-                "PropertyString": "Adds 63-324 to Fire Damage",
-                "Index": 1
-            },
-            {
-                "PropertyString": "Level 18 Immolation Arrow (150 Charges)",
+                "PropertyString": "+2 to Bow and Crossbow Skills (Amazon only)",
                 "Index": 5
             },
             {
-                "PropertyString": "Socketed (2)",
+                "PropertyString": "+60 Increased Attack Speed",
+                "Index": 1
+            },
+            {
+                "PropertyString": "20-25 to Fire Skill Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "15-20 to Enemy Fire Resistance",
+                "Index": 3
+            },
+            {
+                "PropertyString": "5% Reanimate as: Imp2",
                 "Index": 4
+            },
+            {
+                "PropertyString": "+3 to Fire Skills",
+                "Index": 0
             },
             {
                 "PropertyString": "1",
                 "Index": 6
             }
         ],
-        "DamageArmorEnhanced": true,
+        "DamageArmorEnhanced": false,
         "Equipment": {
             "DamageTypes": [
                 {
                     "Type": 1,
-                    "DamageString": "(89-105) to (254-300)"
+                    "DamageString": "32 to 91"
                 }
             ],
             "EquipmentType": 1,
@@ -74977,27 +74966,23 @@
     },
     {
         "Type": "Club",
-        "Name": "Blightsummoner",
-        "Index": "Blightsummoner",
+        "Name": "Rotbranch",
+        "Index": "Rotbranch",
         "Enabled": true,
         "ItemLevel": 72,
         "RequiredLevel": 77,
         "Code": "7sp",
         "Properties": [
             {
-                "PropertyString": "8% Chance to cast level 6 poison nova on striking",
-                "Index": 8
-            },
-            {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+30 Increased Attack Speed",
                 "Index": 2
             },
             {
-                "PropertyString": "+60-90 to Minimum Damage",
+                "PropertyString": "+60 to Minimum Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+180-235 to Maximum Damage",
+                "PropertyString": "+80 to Maximum Damage",
                 "Index": 1
             },
             {
@@ -75009,20 +74994,20 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Lightning Resist +35%",
-                "Index": 6
-            },
-            {
-                "PropertyString": "Poison Resist +90%",
-                "Index": 7
-            },
-            {
-                "PropertyString": "+15-25 Lightning Absorb",
+                "PropertyString": "15 to Enemy Poison Resistance",
                 "Index": 5
             },
             {
+                "PropertyString": "10 to Poison Skill Damage",
+                "Index": 7
+            },
+            {
+                "PropertyString": "+3 to Rabies (Druid Only)",
+                "Index": 6
+            },
+            {
                 "PropertyString": "1",
-                "Index": 9
+                "Index": 8
             }
         ],
         "DamageArmorEnhanced": true,
@@ -75030,7 +75015,7 @@
             "DamageTypes": [
                 {
                     "Type": 3,
-                    "DamageString": "(92-122) to (238-293)"
+                    "DamageString": "92 to 138"
                 }
             ],
             "EquipmentType": 1,
@@ -75061,15 +75046,23 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+1 to Revive",
+                "PropertyString": "+5 to Revive",
                 "Index": 1
             },
             {
-                "PropertyString": "+1 to Skeleton Mastery",
+                "PropertyString": "+10 to Skeleton Mastery",
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 50-200 to Damage",
+                "PropertyString": "+20 Increased Attack Speed",
+                "Index": 8
+            },
+            {
+                "PropertyString": "+20 Faster Cast Rate",
+                "Index": 4
+            },
+            {
+                "PropertyString": "Adds 50-100 to Damage",
                 "Index": 0
             },
             {
@@ -75085,12 +75078,8 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+15 Life after each Kill",
-                "Index": 4
-            },
-            {
                 "PropertyString": "1",
-                "Index": 8
+                "Index": 9
             }
         ],
         "DamageArmorEnhanced": true,
@@ -75098,7 +75087,7 @@
             "DamageTypes": [
                 {
                     "Type": 3,
-                    "DamageString": "93 to 253"
+                    "DamageString": "93 to 153"
                 }
             ],
             "EquipmentType": 1,
@@ -75117,7 +75106,7 @@
     },
     {
         "Type": "Scepter",
-        "Name": "Gabrial's Judgement",
+        "Name": "Wrath of Heaven",
         "Index": "Wrath Of Heaven",
         "Enabled": true,
         "ItemLevel": 72,
@@ -75680,31 +75669,39 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+35 Faster Block Rate",
-                "Index": 3
-            },
-            {
-                "PropertyString": "25-40% Increased Chance of Blocking",
+                "PropertyString": "15-20 to Lightning Skill Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "+150-200 Enhanced Defense",
+                "PropertyString": "15-20 to Fire Skill Damage",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+175-250 Enhanced Defense",
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +35-50",
-                "Index": 5
+                "PropertyString": "+3-5 to Maximum Lightning Resist",
+                "Index": 7
             },
             {
-                "PropertyString": "+20-30 Damage Reduced by 20-30%%",
+                "PropertyString": "+3-5 to Maximum Fire Resist",
+                "Index": 8
+            },
+            {
+                "PropertyString": "Magic Resist +10-15%",
                 "Index": 6
+            },
+            {
+                "PropertyString": "All Resistances +25",
+                "Index": 5
             }
         ],
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "1027-1233",
+            "ArmorString": "1130-1438",
             "EquipmentType": 0,
             "Name": "Balrog Skin",
             "RequiredStrength": 165,
@@ -75851,44 +75848,40 @@
         "Code": "obe",
         "Properties": [
             {
-                "PropertyString": "Level 5 Conviction Aura When Equipped",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+3",
+                "PropertyString": "+3 to Cold Skills (Sorceress only)",
                 "Index": 0
             },
             {
-                "PropertyString": "+200 Defense",
-                "Index": 2
+                "PropertyString": "+40 Faster Cast Rate",
+                "Index": 1
             },
             {
-                "PropertyString": "35 to Strength",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+25 Replenish Life",
-                "Index": 5
-            },
-            {
-                "PropertyString": "Regenerate Mana 150%",
+                "PropertyString": "10-15 to Cold Skill Damage",
                 "Index": 6
             },
             {
-                "PropertyString": "25% Damage Taken Goes To Mana",
-                "Index": 3
+                "PropertyString": "+3 to Frost Nova (Sorceress Only)",
+                "Index": 4
             },
             {
-                "PropertyString": "+100-200 extra gold from monsters",
-                "Index": 8
-            },
-            {
-                "PropertyString": "+50-75 better chance of getting magic item",
+                "PropertyString": "+3 to Frozen Armor (Sorceress Only)",
                 "Index": 7
             },
             {
+                "PropertyString": "+100-150 to Mana",
+                "Index": 3
+            },
+            {
+                "PropertyString": "Regenerate Mana 75%",
+                "Index": 5
+            },
+            {
+                "PropertyString": "25% Damage Taken Goes To Mana",
+                "Index": 2
+            },
+            {
                 "PropertyString": "1",
-                "Index": 9
+                "Index": 8
             }
         ],
         "DamageArmorEnhanced": false,
@@ -76514,8 +76507,16 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+66-95 to Jab (Amazon Only)",
+                "PropertyString": "+30 Faster Cast Rate",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+2-3 to Poison Nova (Necromancer Only)",
                 "Index": 1
+            },
+            {
+                "PropertyString": "+2-3 to Bone Armor (Necromancer Only)",
+                "Index": 7
             },
             {
                 "PropertyString": "75-100 to Life",
@@ -76530,12 +76531,8 @@
                 "Index": 5
             },
             {
-                "PropertyString": "3-5 to Experience Gained",
-                "Index": 6
-            },
-            {
                 "PropertyString": "1",
-                "Index": 7
+                "Index": 8
             }
         ],
         "DamageArmorEnhanced": false,
@@ -76634,10 +76631,6 @@
         "Code": "6hx",
         "Properties": [
             {
-                "PropertyString": "1 to All Skills",
-                "Index": 2
-            },
-            {
                 "PropertyString": "+20 Increased Attack Speed",
                 "Index": 1
             },
@@ -76658,12 +76651,16 @@
                 "Index": 7
             },
             {
-                "PropertyString": "55 to Life",
+                "PropertyString": "+2-4 to Multiple Shot (Amazon Only)",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+2-4 to Cold Arrow (Amazon Only)",
                 "Index": 4
             },
             {
-                "PropertyString": "+30 better chance of getting magic item",
-                "Index": 3
+                "PropertyString": "+3 to Fire Skills",
+                "Index": 2
             },
             {
                 "PropertyString": "1",
@@ -76761,6 +76758,70 @@
         }
     },
     {
+        "Type": "Knife",
+        "Name": "Blackbog's Sharp",
+        "Index": "Blackbog's Sharp",
+        "Enabled": true,
+        "ItemLevel": 75,
+        "RequiredLevel": 80,
+        "Code": "7kr",
+        "Properties": [
+            {
+                "PropertyString": "+30 Increased Attack Speed",
+                "Index": 3
+            },
+            {
+                "PropertyString": "Adds 15-45 to Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "100 to Attack Rating",
+                "Index": 1
+            },
+            {
+                "PropertyString": "20-25 to Enemy Poison Resistance",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+4-5 to Poison Dagger (Necromancer Only)",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+4-5 to Poison Nova (Necromancer Only)",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+50 Slows target by",
+                "Index": 0
+            },
+            {
+                "PropertyString": "1",
+                "Index": 7
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageTypes": [
+                {
+                    "Type": 3,
+                    "DamageString": "30 to 102"
+                }
+            ],
+            "EquipmentType": 1,
+            "Name": "Fanged Knife",
+            "RequiredStrength": 42,
+            "RequiredDexterity": 86,
+            "Durability": 250,
+            "ItemLevel": 83,
+            "Type": {
+                "Name": "Knife",
+                "Index": "Knife",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
         "Type": "Auric Shields",
         "Name": "Dragonscale",
         "Index": "Dragonscale",
@@ -76770,15 +76831,15 @@
         "Code": "pae",
         "Properties": [
             {
-                "PropertyString": "+10 to Hydra",
-                "Index": 5
-            },
-            {
-                "PropertyString": "Adds 211-371 to Fire Damage",
+                "PropertyString": "Level 12 Holy Fire Aura When Equipped",
                 "Index": 4
             },
             {
-                "PropertyString": "15 to Fire Skill Damage",
+                "PropertyString": "25 to Fire Skill Damage",
+                "Index": 5
+            },
+            {
+                "PropertyString": "20 to Enemy Fire Resistance",
                 "Index": 6
             },
             {
@@ -76786,15 +76847,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "15-25 to Strength",
+                "PropertyString": "25 to Strength",
                 "Index": 3
             },
             {
-                "PropertyString": "+5 to Maximum Fire Resist",
+                "PropertyString": "+3-5 to Maximum Fire Resist",
                 "Index": 2
             },
             {
-                "PropertyString": "+10-20 Fire Absorb",
+                "PropertyString": "+15-20 Fire Absorb",
                 "Index": 1
             },
             {
@@ -76948,8 +77009,16 @@
         "Code": "7wd",
         "Properties": [
             {
-                "PropertyString": "+6 to Find Item",
+                "PropertyString": "9% Chance to cast level 10 battle orders on attack",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+3 to Valkyrie",
                 "Index": 8
+            },
+            {
+                "PropertyString": "+25 Increased Attack Speed",
+                "Index": 1
             },
             {
                 "PropertyString": "+200-300% Enhanced Damage",
@@ -76960,28 +77029,20 @@
                 "Index": 7
             },
             {
-                "PropertyString": "25% Increased Chance of Blocking",
-                "Index": 1
-            },
-            {
-                "PropertyString": "Adds 64-125 to Fire Damage",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+256 Heal Stamina Plus",
-                "Index": 6
-            },
-            {
                 "PropertyString": "+20 Magic Absorb",
                 "Index": 5
             },
             {
-                "PropertyString": "+1 Half Freeze Duration",
+                "PropertyString": "+1 Cannot Be Frozen",
                 "Index": 4
             },
             {
                 "PropertyString": "5-15 to Experience Gained",
                 "Index": 3
+            },
+            {
+                "PropertyString": "Socketed (3)",
+                "Index": 6
             },
             {
                 "PropertyString": "1",
@@ -77144,6 +77205,158 @@
     },
     {
         "Type": "Throwing Knife",
+        "Name": "Butcher's Paring Knives",
+        "Index": "Butcher's Paring Knives",
+        "Enabled": true,
+        "ItemLevel": 80,
+        "RequiredLevel": 80,
+        "Code": "7bk",
+        "Properties": [
+            {
+                "PropertyString": "+1-2 to Poison and Bone Skills (Necromancer only)",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+1",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+1 to Throwing Mastery",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+15-25 Increased Attack Speed",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+85-105% Enhanced Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "20-30 to Poison Skill Damage",
+                "Index": 4
+            },
+            {
+                "PropertyString": "15-20 to Enemy Poison Resistance",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+ Replenishes quantity",
+                "Index": 7
+            },
+            {
+                "PropertyString": "1",
+                "Index": 8
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageTypes": [
+                {
+                    "Type": 3,
+                    "DamageString": "(49-55) to (64-71)"
+                },
+                {
+                    "Type": 2,
+                    "DamageString": "(42-47) to (72-79)"
+                }
+            ],
+            "EquipmentType": 1,
+            "Name": "Winged Knife",
+            "RequiredStrength": 45,
+            "RequiredDexterity": 142,
+            "Durability": 250,
+            "ItemLevel": 77,
+            "Type": {
+                "Name": "Throwing Knife",
+                "Index": "Throwing Knife",
+                "Class": ""
+            },
+            "RequiredClass": "Knife"
+        }
+    },
+    {
+        "Type": "Throwing Knife",
+        "Name": "Swarming Blades",
+        "Index": "Swarming Blades",
+        "Enabled": true,
+        "ItemLevel": 80,
+        "RequiredLevel": 80,
+        "Code": "7tk",
+        "Properties": [
+            {
+                "PropertyString": "10% Chance to cast level 1 quickness on striking",
+                "Index": 6
+            },
+            {
+                "PropertyString": "15% Chance to cast level 50 blade sentinel on striking",
+                "Index": 7
+            },
+            {
+                "PropertyString": "8% Chance to cast level 1 static field on striking",
+                "Index": 8
+            },
+            {
+                "PropertyString": "+1",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+250-300% Enhanced Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+20-30 Piercing Attack",
+                "Index": 4
+            },
+            {
+                "PropertyString": "20-25 to Enemy Poison Resistance",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+2-3 to Poison Explosion (Necromancer Only)",
+                "Index": 1
+            },
+            {
+                "PropertyString": "50-100 to Life",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+ Replenishes quantity",
+                "Index": 9
+            },
+            {
+                "PropertyString": "1",
+                "Index": 10
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageTypes": [
+                {
+                    "Type": 3,
+                    "DamageString": "(80-92) to (189-216)"
+                },
+                {
+                    "Type": 2,
+                    "DamageString": "(80-92) to (189-216)"
+                }
+            ],
+            "EquipmentType": 1,
+            "Name": "Flying Knife",
+            "RequiredStrength": 48,
+            "RequiredDexterity": 141,
+            "Durability": 250,
+            "ItemLevel": 64,
+            "Type": {
+                "Name": "Throwing Knife",
+                "Index": "Throwing Knife",
+                "Class": ""
+            },
+            "RequiredClass": "Knife"
+        }
+    },
+    {
+        "Type": "Throwing Knife",
         "Name": "Fallen Glory",
         "Index": "Fallen Glory",
         "Enabled": true,
@@ -77296,35 +77509,35 @@
         "Code": "xul",
         "Properties": [
             {
-                "PropertyString": "33% Chance to cast level 3 terror when struck",
+                "PropertyString": "33% Chance to cast level 3 terror on attack",
                 "Index": 1
             },
             {
-                "PropertyString": "+4 to Merc Enchant",
+                "PropertyString": "+45 Increased Attack Speed",
                 "Index": 2
             },
             {
-                "PropertyString": "+125-150 Enhanced Defense",
+                "PropertyString": "+1 Prevent Monster Heal",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+200-250 Enhanced Defense",
                 "Index": 0
             },
             {
-                "PropertyString": "to Dexterity",
+                "PropertyString": "15 to Strength",
                 "Index": 5
             },
             {
-                "PropertyString": "Lightning Resist +20%",
+                "PropertyString": "Requirements Increased By +40%",
                 "Index": 4
-            },
-            {
-                "PropertyString": "Fire Resist +20%",
-                "Index": 3
             }
         ],
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "711-790",
+            "ArmorString": "948-1106",
             "EquipmentType": 0,
             "Name": "Chaos Armor",
             "RequiredStrength": 140,
@@ -77353,11 +77566,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+30-50% Enhanced Damage",
+                "PropertyString": "+125-150% Enhanced Damage",
                 "Index": 5
             },
             {
-                "PropertyString": "+30 Faster Hit Recovery",
+                "PropertyString": "+20-40 Faster Hit Recovery",
                 "Index": 6
             },
             {
@@ -77406,12 +77619,20 @@
         "Code": "ush",
         "Properties": [
             {
-                "PropertyString": "15% Chance to cast level 3 lower resist when struck",
+                "PropertyString": "25% Chance to cast level 8 lower resist when struck",
                 "Index": 0
             },
             {
-                "PropertyString": "+1-2",
+                "PropertyString": "9% Chance to cast level 8 lower resist on attack",
+                "Index": 7
+            },
+            {
+                "PropertyString": "1 to All Skills",
                 "Index": 4
+            },
+            {
+                "PropertyString": "+25 Increased Attack Speed",
+                "Index": 8
             },
             {
                 "PropertyString": "+25 Faster Cast Rate",
@@ -77435,7 +77656,7 @@
             },
             {
                 "PropertyString": "1",
-                "Index": 7
+                "Index": 9
             }
         ],
         "DamageArmorEnhanced": true,
@@ -77445,7 +77666,7 @@
             "ArmorString": "477-540",
             "EquipmentType": 0,
             "Name": "Troll Nest",
-            "RequiredStrength": 106,
+            "RequiredStrength": 156,
             "RequiredDexterity": 0,
             "Durability": 74,
             "ItemLevel": 76,
@@ -77691,82 +77912,6 @@
             "Type": {
                 "Name": "Amazon Bow",
                 "Index": "Amazon Bow",
-                "Class": "ama"
-            },
-            "RequiredClass": "Amazon"
-        }
-    },
-    {
-        "Type": "Amazon Javelin",
-        "Name": "Pegasus Wing",
-        "Index": "Pegasus Wing",
-        "Enabled": true,
-        "ItemLevel": 74,
-        "RequiredLevel": 80,
-        "Code": "amf",
-        "Properties": [
-            {
-                "PropertyString": "2 to All Skills",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+1-3 to Javelin and Spear Skills (Amazon only)",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+3 to Teleport",
-                "Index": 6
-            },
-            {
-                "PropertyString": "+275-350% Enhanced Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+40 Faster Hit Recovery",
-                "Index": 7
-            },
-            {
-                "PropertyString": "+40 Faster Block Rate",
-                "Index": 8
-            },
-            {
-                "PropertyString": "3-5 to Experience Gained",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+100 Increased Stack Size",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+ Replenishes quantity",
-                "Index": 2
-            },
-            {
-                "PropertyString": "1",
-                "Index": 9
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageTypes": [
-                {
-                    "Type": 3,
-                    "DamageString": "(112-135) to (202-243)"
-                },
-                {
-                    "Type": 2,
-                    "DamageString": "(131-157) to (247-297)"
-                }
-            ],
-            "EquipmentType": 1,
-            "Name": "Matriarchal Javelin",
-            "RequiredStrength": 107,
-            "RequiredDexterity": 151,
-            "Durability": 250,
-            "ItemLevel": 65,
-            "Type": {
-                "Name": "Amazon Javelin",
-                "Index": "Amazon Javelin",
                 "Class": "ama"
             },
             "RequiredClass": "Amazon"
@@ -78168,11 +78313,15 @@
         "Code": "7qs",
         "Properties": [
             {
-                "PropertyString": "9% Chance to cast level 2 glacial spike on striking",
+                "PropertyString": "18% Chance to cast level 18 nova on striking",
+                "Index": 4
+            },
+            {
+                "PropertyString": "18% Chance to cast level 18 glacial spike on striking",
                 "Index": 5
             },
             {
-                "PropertyString": "3% Chance to cast level 7 frozen orb when struck",
+                "PropertyString": "18% Chance to cast level 18 fire ball on striking",
                 "Index": 6
             },
             {
@@ -78192,20 +78341,12 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Freezes target +3",
-                "Index": 4
-            },
-            {
-                "PropertyString": "Cold Resist +80%",
+                "PropertyString": "All Resistances +15-30",
                 "Index": 7
             },
             {
-                "PropertyString": "Fire Resist +50-80%",
-                "Index": 8
-            },
-            {
                 "PropertyString": "1",
-                "Index": 9
+                "Index": 8
             }
         ],
         "DamageArmorEnhanced": true,
@@ -78264,12 +78405,16 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+ Replenishes quantity",
+                "Index": 7
+            },
+            {
                 "PropertyString": "+1 You feel incorporeal...",
                 "Index": 4
             },
             {
                 "PropertyString": "1",
-                "Index": 7
+                "Index": 8
             }
         ],
         "DamageArmorEnhanced": true,
@@ -78474,59 +78619,6 @@
         }
     },
     {
-        "Type": "Boots",
-        "Name": "Lustwander",
-        "Index": "Lustwander",
-        "Enabled": true,
-        "ItemLevel": 85,
-        "RequiredLevel": 81,
-        "Code": "utb",
-        "Properties": [
-            {
-                "PropertyString": "1 to All Skills",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+2-5 to Teleport",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+100-150 Defense",
-                "Index": 0
-            },
-            {
-                "PropertyString": "All Resistances +25",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+150-250 extra gold from monsters",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+75 better chance of getting magic item",
-                "Index": 3
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageString": "50 to 145",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "159-209",
-            "EquipmentType": 0,
-            "Name": "Mirrored Boots",
-            "RequiredStrength": 163,
-            "RequiredDexterity": 0,
-            "Durability": 18,
-            "ItemLevel": 81,
-            "Type": {
-                "Name": "Boots",
-                "Index": "Boots",
-                "Class": ""
-            },
-            "RequiredClass": "Helm"
-        }
-    },
-    {
         "Type": "Orb",
         "Name": "Haven of Light",
         "Index": "Haven of Light",
@@ -78536,40 +78628,32 @@
         "Code": "obb",
         "Properties": [
             {
-                "PropertyString": "+2",
+                "PropertyString": "+3",
                 "Index": 0
             },
             {
-                "PropertyString": "30-50 to Enemy Lightning Resistance",
+                "PropertyString": "20-30 to Enemy Lightning Resistance",
                 "Index": 1
             },
             {
-                "PropertyString": "30-50 to Enemy Fire Resistance",
+                "PropertyString": "20-30 to Enemy Fire Resistance",
                 "Index": 2
             },
             {
-                "PropertyString": "30-50 to Enemy Cold Resistance",
+                "PropertyString": "+3 to Lightning Mastery (Sorceress Only)",
                 "Index": 3
             },
             {
-                "PropertyString": "+3 to Cold Mastery (Sorceress Only)",
+                "PropertyString": "+3 to Fire Mastery (Sorceress Only)",
                 "Index": 4
             },
             {
-                "PropertyString": "+3 to Lightning Mastery (Sorceress Only)",
+                "PropertyString": "+4-7 to Mana after each Kill",
                 "Index": 5
             },
             {
-                "PropertyString": "+3 to Fire Mastery (Sorceress Only)",
-                "Index": 6
-            },
-            {
-                "PropertyString": "+4-7 to Mana after each Kill",
-                "Index": 7
-            },
-            {
                 "PropertyString": "1",
-                "Index": 8
+                "Index": 6
             }
         ],
         "DamageArmorEnhanced": false,
@@ -78604,12 +78688,20 @@
         "Code": "pae",
         "Properties": [
             {
-                "PropertyString": "+1-3",
+                "PropertyString": "+2-3",
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 15-40 to Damage",
+                "PropertyString": "+20 Faster Cast Rate",
                 "Index": 2
+            },
+            {
+                "PropertyString": "+2-3 to Holy Bolt (Paladin Only)",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+3-5 to Fist of the Heavens (Paladin Only)",
+                "Index": 6
             },
             {
                 "PropertyString": "+ Defense",
@@ -78625,7 +78717,7 @@
             },
             {
                 "PropertyString": "1",
-                "Index": 5
+                "Index": 7
             }
         ],
         "DamageArmorEnhanced": false,
@@ -78665,10 +78757,6 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+ to Maximum Damage",
-                "Index": 6
-            },
-            {
                 "PropertyString": "+33 Chance of Crushing Blow",
                 "Index": 3
             },
@@ -78686,7 +78774,7 @@
             },
             {
                 "PropertyString": "Level 15 Decrepify (33 Charges)",
-                "Index": 7
+                "Index": 6
             }
         ],
         "DamageArmorEnhanced": true,
@@ -78883,28 +78971,36 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+30 Faster Cast Rate",
-                "Index": 5
-            },
-            {
-                "PropertyString": "7-15 to Enemy Fire Resistance",
-                "Index": 1
-            },
-            {
-                "PropertyString": "7-15 to Enemy Lightning Resistance",
-                "Index": 2
-            },
-            {
-                "PropertyString": "7-15 to Enemy Cold Resistance",
-                "Index": 3
-            },
-            {
-                "PropertyString": "Regenerate Mana 10%",
+                "PropertyString": "+60 Faster Cast Rate",
                 "Index": 4
             },
             {
-                "PropertyString": "1",
+                "PropertyString": "20-30 to Fire Skill Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "20-30 to Enemy Fire Resistance",
+                "Index": 2
+            },
+            {
+                "PropertyString": "Regenerate Mana 75%",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+2 to Fire Skills",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+2 to Fire Skills",
                 "Index": 6
+            },
+            {
+                "PropertyString": "+2 to Fire Skills",
+                "Index": 7
+            },
+            {
+                "PropertyString": "1",
+                "Index": 8
             }
         ],
         "DamageArmorEnhanced": false,
@@ -79449,11 +79545,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+250-350% Enhanced Damage",
+                "PropertyString": "+350-400% Enhanced Damage",
                 "Index": 0
             },
             {
@@ -79461,12 +79553,16 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+6 Knockback",
+                "PropertyString": "+20 Chance of Crushing Blow",
                 "Index": 2
             },
             {
                 "PropertyString": "to Strength",
                 "Index": 4
+            },
+            {
+                "PropertyString": "+5-10 Damage Reduced by 5-10%%",
+                "Index": 5
             },
             {
                 "PropertyString": "1",
@@ -79478,7 +79574,7 @@
             "DamageTypes": [
                 {
                     "Type": 3,
-                    "DamageString": "(67-72) to (369-446)"
+                    "DamageString": "(72-75) to (446-485)"
                 }
             ],
             "EquipmentType": 1,
@@ -79573,12 +79669,20 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+140-160% Enhanced Damage",
+                "PropertyString": "+200-250% Enhanced Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "+160-200 Enhanced Defense",
+                "PropertyString": "+250-300 Enhanced Defense",
                 "Index": 0
+            },
+            {
+                "PropertyString": "30 to Vitality",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+5-10 Damage Reduced by 5-10%%",
+                "Index": 6
             },
             {
                 "PropertyString": "Requirements Increased By +20%",
@@ -79589,7 +79693,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "1128-1302",
+            "ArmorString": "1519-1736",
             "EquipmentType": 0,
             "Name": "Lacquered Plate",
             "RequiredStrength": 208,
@@ -79614,8 +79718,8 @@
         "Code": "ci3",
         "Properties": [
             {
-                "PropertyString": "7% Chance to cast level 4 chain lightning when struck",
-                "Index": 6
+                "PropertyString": "Level 1 Salvation Aura When Equipped",
+                "Index": 5
             },
             {
                 "PropertyString": "1 to All Skills",
@@ -79630,15 +79734,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "25 to Strength",
+                "PropertyString": "20 to Strength",
                 "Index": 4
             },
             {
-                "PropertyString": "15 to Dexterity",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+250-300 extra gold from monsters",
+                "PropertyString": "+75-100 better chance of getting magic item",
                 "Index": 3
             }
         ],
@@ -79823,7 +79923,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Level 1 Might Aura When Equipped",
+                "PropertyString": "Level 6 Might Aura When Equipped",
                 "Index": 10
             },
             {
@@ -79831,11 +79931,15 @@
                 "Index": 9
             },
             {
+                "PropertyString": "+1 to Teleport",
+                "Index": 11
+            },
+            {
                 "PropertyString": "+20 Faster Run/Walk",
                 "Index": 6
             },
             {
-                "PropertyString": "+50-100% Damage to Demons Damage to Demons",
+                "PropertyString": "+200-250% Damage to Demons Damage to Demons",
                 "Index": 4
             },
             {
@@ -79896,19 +80000,23 @@
                 "Index": 3
             },
             {
-                "PropertyString": "8% Chance to cast level 19 ice blast when struck",
+                "PropertyString": "20% Chance to cast level 30 frozen armor when struck",
                 "Index": 4
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+40 Increased Attack Speed",
                 "Index": 2
             },
             {
-                "PropertyString": "+150-200% Enhanced Damage",
+                "PropertyString": "+200-250% Enhanced Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "Cold Resist +25%",
+                "PropertyString": "Adds 86-213 to Cold Damage",
+                "Index": 7
+            },
+            {
+                "PropertyString": "Cold Resist +50%",
                 "Index": 6
             },
             {
@@ -79916,12 +80024,12 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Socketed (3)",
+                "PropertyString": "Socketed (3-5)",
                 "Index": 1
             },
             {
                 "PropertyString": "1",
-                "Index": 7
+                "Index": 8
             }
         ],
         "DamageArmorEnhanced": true,
@@ -79929,7 +80037,7 @@
             "DamageTypes": [
                 {
                     "Type": 3,
-                    "DamageString": "(60-72) to (177-213)"
+                    "DamageString": "(72-84) to (213-248)"
                 }
             ],
             "EquipmentType": 1,
@@ -80120,7 +80228,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+3-4 to Teleport",
+                "PropertyString": "+1 to Warp",
                 "Index": 3
             },
             {
@@ -80218,8 +80326,8 @@
     },
     {
         "Type": "Gloves",
-        "Name": "Paladin's Quest",
-        "Index": "Paladin's Quest",
+        "Name": "Grip of the Faithful",
+        "Index": "Grip of the Faithful",
         "Enabled": true,
         "ItemLevel": 80,
         "RequiredLevel": 84,
@@ -80412,7 +80520,7 @@
         "Code": "upl",
         "Properties": [
             {
-                "PropertyString": "1-2 to All Skills",
+                "PropertyString": "2-3 to All Skills",
                 "Index": 2
             },
             {
@@ -80420,23 +80528,23 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+150-180 Enhanced Defense",
+                "PropertyString": "10-15 to Fire Skill Damage",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+225-275 Enhanced Defense",
                 "Index": 0
             },
             {
                 "PropertyString": "to Vitality",
                 "Index": 4
-            },
-            {
-                "PropertyString": "+10-15 Damage Reduced by",
-                "Index": 3
             }
         ],
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "1027-1150",
+            "ArmorString": "1335-1541",
             "EquipmentType": 0,
             "Name": "Balrog Skin",
             "RequiredStrength": 165,
@@ -80903,9 +81011,85 @@
         }
     },
     {
+        "Type": "Amazon Javelin",
+        "Name": "Pegasus Wing",
+        "Index": "Pegasus Wing",
+        "Enabled": true,
+        "ItemLevel": 80,
+        "RequiredLevel": 85,
+        "Code": "amf",
+        "Properties": [
+            {
+                "PropertyString": "2 to All Skills",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+1-3 to Javelin and Spear Skills (Amazon only)",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+1 to Teleport",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+275-350% Enhanced Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+40 Faster Hit Recovery",
+                "Index": 7
+            },
+            {
+                "PropertyString": "+40 Faster Block Rate",
+                "Index": 8
+            },
+            {
+                "PropertyString": "3-5 to Experience Gained",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+100 Increased Stack Size",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+ Replenishes quantity",
+                "Index": 2
+            },
+            {
+                "PropertyString": "1",
+                "Index": 9
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageTypes": [
+                {
+                    "Type": 3,
+                    "DamageString": "(112-135) to (202-243)"
+                },
+                {
+                    "Type": 2,
+                    "DamageString": "(131-157) to (247-297)"
+                }
+            ],
+            "EquipmentType": 1,
+            "Name": "Matriarchal Javelin",
+            "RequiredStrength": 107,
+            "RequiredDexterity": 151,
+            "Durability": 250,
+            "ItemLevel": 65,
+            "Type": {
+                "Name": "Amazon Javelin",
+                "Index": "Amazon Javelin",
+                "Class": "ama"
+            },
+            "RequiredClass": "Amazon"
+        }
+    },
+    {
         "Type": "Ring",
-        "Name": "Stone of Jordan",
-        "Index": "Stone of Jordan",
+        "Name": "Jordan's Sigil",
+        "Index": "Jordan's Sigil",
         "Enabled": true,
         "ItemLevel": 85,
         "RequiredLevel": 85,
@@ -81328,15 +81512,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+5 to Teleport",
+                "PropertyString": "+1 to Teleport",
                 "Index": 3
             },
             {
-                "PropertyString": "25 to Strength",
+                "PropertyString": "20 to Strength",
                 "Index": 1
             },
             {
-                "PropertyString": "All Resistances +25",
+                "PropertyString": "All Resistances +20",
                 "Index": 2
             },
             {
@@ -81409,6 +81593,114 @@
             "Type": {
                 "Name": "Large Charm",
                 "Index": "Large Charm",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Magic Bow Quiv",
+        "Name": "Quiver of Pestilence",
+        "Index": "Quiver of Pestilence",
+        "Enabled": true,
+        "ItemLevel": 1,
+        "RequiredLevel": 85,
+        "Code": "z01",
+        "Properties": [
+            {
+                "PropertyString": "5% Chance to cast level 10 corpse explosion on striking",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+20 Increased Attack Speed",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+25 Piercing Attack",
+                "Index": 3
+            },
+            {
+                "PropertyString": "10 to Enemy Poison Resistance",
+                "Index": 0
+            },
+            {
+                "PropertyString": "10 to Poison Skill Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+ Replenishes quantity",
+                "Index": 4
+            },
+            {
+                "PropertyString": "1",
+                "Index": 6
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Magic Arrows",
+            "RequiredStrength": 0,
+            "RequiredDexterity": 0,
+            "Durability": 0,
+            "ItemLevel": 0,
+            "Type": {
+                "Name": "Magic Bow Quiv",
+                "Index": "Magic Bow Quiv",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Magic Xbow Quiv",
+        "Name": "Bolt Case of Pestilence",
+        "Index": "Bolt Case of Pestilence",
+        "Enabled": true,
+        "ItemLevel": 1,
+        "RequiredLevel": 85,
+        "Code": "z02",
+        "Properties": [
+            {
+                "PropertyString": "5% Chance to cast level 10 corpse explosion on striking",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+20 Increased Attack Speed",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+25 Piercing Attack",
+                "Index": 3
+            },
+            {
+                "PropertyString": "10 to Enemy Poison Resistance",
+                "Index": 0
+            },
+            {
+                "PropertyString": "10 to Poison Skill Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+ Replenishes quantity",
+                "Index": 4
+            },
+            {
+                "PropertyString": "1",
+                "Index": 6
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Magic Bolts",
+            "RequiredStrength": 0,
+            "RequiredDexterity": 0,
+            "Durability": 0,
+            "ItemLevel": 0,
+            "Type": {
+                "Name": "Magic Xbow Quiv",
+                "Index": "Magic Xbow Quiv",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -81688,43 +81980,39 @@
         "Code": "uhn",
         "Properties": [
             {
-                "PropertyString": "+200-300 Enhanced Defense",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+300-500 Defense",
-                "Index": 1
-            },
-            {
-                "PropertyString": "Cold Resist +30-50%",
-                "Index": 6
-            },
-            {
-                "PropertyString": "Lightning Resist +70-80%",
+                "PropertyString": "Level 12 Thorns Aura When Equipped",
                 "Index": 5
             },
             {
-                "PropertyString": "Fire Resist +50-60%",
+                "PropertyString": "+250-300 Enhanced Defense",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+250 Defense",
+                "Index": 1
+            },
+            {
+                "PropertyString": "Magic Resist +30-50%",
+                "Index": 3
+            },
+            {
+                "PropertyString": "All Resistances +25-40",
                 "Index": 4
             },
             {
-                "PropertyString": "Poison Resist +45-80%",
-                "Index": 7
-            },
-            {
-                "PropertyString": "+30-50 Damage Reduced by 30-50%%",
+                "PropertyString": "+15-25 Damage Reduced by 15-25%%",
                 "Index": 2
             },
             {
-                "PropertyString": "+35-50 Magic Damage Reduced by",
-                "Index": 3
+                "PropertyString": "+80-120 Attacker Takes Damage of",
+                "Index": 6
             }
         ],
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "1500-2100",
+            "ArmorString": "1650-1850",
             "EquipmentType": 0,
             "Name": "Boneweave",
             "RequiredStrength": 158,
@@ -81867,6 +82155,59 @@
                 "Class": ""
             },
             "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Boots",
+        "Name": "Lustwander",
+        "Index": "Lustwander",
+        "Enabled": true,
+        "ItemLevel": 85,
+        "RequiredLevel": 86,
+        "Code": "utb",
+        "Properties": [
+            {
+                "PropertyString": "1 to All Skills",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+1 to Teleport",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+100-150 Defense",
+                "Index": 0
+            },
+            {
+                "PropertyString": "All Resistances +25",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+150-250 extra gold from monsters",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+75 better chance of getting magic item",
+                "Index": 3
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": "50 to 145",
+            "DamageStringPrefix": "Unhandled Damage Prefix",
+            "ArmorString": "159-209",
+            "EquipmentType": 0,
+            "Name": "Mirrored Boots",
+            "RequiredStrength": 163,
+            "RequiredDexterity": 0,
+            "Durability": 18,
+            "ItemLevel": 81,
+            "Type": {
+                "Name": "Boots",
+                "Index": "Boots",
+                "Class": ""
+            },
+            "RequiredClass": "Helm"
         }
     },
     {
@@ -82704,6 +83045,40 @@
                 "Name": "Hand to Hand 2",
                 "Index": "Hand to Hand 2",
                 "Class": "ass"
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Small Charm",
+        "Name": "t9 Splash Charm",
+        "Index": "t9 Splash Charm",
+        "Enabled": true,
+        "ItemLevel": 1,
+        "RequiredLevel": 90,
+        "Code": "cm5",
+        "Properties": [
+            {
+                "PropertyString": "+1 Charm Weight",
+                "Index": 1
+            },
+            {
+                "PropertyString": "splash7",
+                "Index": 0
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Splash Charm",
+            "RequiredStrength": 0,
+            "RequiredDexterity": 0,
+            "Durability": 0,
+            "ItemLevel": 0,
+            "Type": {
+                "Name": "Small Charm",
+                "Index": "Small Charm",
+                "Class": ""
             },
             "RequiredClass": ""
         }

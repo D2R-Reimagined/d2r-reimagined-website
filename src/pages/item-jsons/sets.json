@@ -2520,7 +2520,7 @@
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "22",
+                    "ArmorString": "2",
                     "EquipmentType": 0,
                     "Name": "Sash",
                     "RequiredStrength": 0,
@@ -5516,7 +5516,7 @@
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "204-254",
+                    "ArmorString": "54",
                     "EquipmentType": 0,
                     "Name": "Bramble Mitts",
                     "RequiredStrength": 50,
@@ -5606,7 +5606,7 @@
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "941-1086",
+                    "ArmorString": "361",
                     "EquipmentType": 0,
                     "Name": "Dusk Shroud",
                     "RequiredStrength": 77,
@@ -6971,7 +6971,7 @@
         ],
         "PartialProperties": [
             {
-                "PropertyString": "Poison Resist +25%",
+                "PropertyString": "+10 to Stun",
                 "Index": 0
             },
             {
@@ -6985,7 +6985,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "1 to All Skills",
+                "PropertyString": "2-3 to All Skills",
                 "Index": 7
             },
             {
@@ -6999,10 +6999,6 @@
             {
                 "PropertyString": "100 to Life",
                 "Index": 6
-            },
-            {
-                "PropertyString": "+100 Maximum Stamina",
-                "Index": 0
             },
             {
                 "PropertyString": "+100 extra gold from monsters",
@@ -10785,7 +10781,7 @@
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "148",
+                    "ArmorString": "52",
                     "EquipmentType": 0,
                     "Name": "Alpha Helm",
                     "RequiredStrength": 44,
@@ -13536,7 +13532,7 @@
                 "Equipment": {
                     "DamageString": "18 to 28",
                     "DamageStringPrefix": "Unhandled Damage Prefix",
-                    "ArmorString": "475-529",
+                    "ArmorString": "145",
                     "EquipmentType": 0,
                     "Name": "Aegis",
                     "RequiredStrength": 219,
@@ -14553,8 +14549,12 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "1",
+                        "PropertyString": "+ Replenishes quantity",
                         "Index": 4
+                    },
+                    {
+                        "PropertyString": "1",
+                        "Index": 5
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -15404,7 +15404,7 @@
                 "Equipment": {
                     "DamageString": "18 to 28",
                     "DamageStringPrefix": "Unhandled Damage Prefix",
-                    "ArmorString": "475-529",
+                    "ArmorString": "145",
                     "EquipmentType": 0,
                     "Name": "Aegis",
                     "RequiredStrength": 219,
@@ -15691,7 +15691,7 @@
                     "ArmorString": "429-492",
                     "EquipmentType": 0,
                     "Name": "Troll Nest",
-                    "RequiredStrength": 106,
+                    "RequiredStrength": 156,
                     "RequiredDexterity": 0,
                     "Durability": 74,
                     "ItemLevel": 76,
@@ -16160,7 +16160,7 @@
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "941-1086",
+                    "ArmorString": "361",
                     "EquipmentType": 0,
                     "Name": "Dusk Shroud",
                     "RequiredStrength": 77,
@@ -18341,7 +18341,7 @@
                     "ArmorString": "119",
                     "EquipmentType": 0,
                     "Name": "Hyperion",
-                    "RequiredStrength": 127,
+                    "RequiredStrength": 156,
                     "RequiredDexterity": 0,
                     "Durability": 82,
                     "ItemLevel": 64,
@@ -20193,8 +20193,12 @@
                         "Index": 4
                     },
                     {
-                        "PropertyString": "1",
+                        "PropertyString": "+ Replenishes quantity",
                         "Index": 5
+                    },
+                    {
+                        "PropertyString": "1",
+                        "Index": 6
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -20425,12 +20429,16 @@
                         "Index": 1
                     },
                     {
+                        "PropertyString": "+ Replenishes quantity",
+                        "Index": 4
+                    },
+                    {
                         "PropertyString": "25-100",
                         "Index": 2
                     },
                     {
                         "PropertyString": "1",
-                        "Index": 4
+                        "Index": 5
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -21248,7 +21256,7 @@
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "204-254",
+                    "ArmorString": "54",
                     "EquipmentType": 0,
                     "Name": "Bramble Mitts",
                     "RequiredStrength": 50,
@@ -21377,7 +21385,7 @@
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "941-1086",
+                    "ArmorString": "361",
                     "EquipmentType": 0,
                     "Name": "Dusk Shroud",
                     "RequiredStrength": 77,
@@ -24280,8 +24288,12 @@
                         "Index": 2
                     },
                     {
-                        "PropertyString": "1",
+                        "PropertyString": "+ Replenishes quantity",
                         "Index": 4
+                    },
+                    {
+                        "PropertyString": "1",
+                        "Index": 5
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -24506,7 +24518,6 @@
                 "Set": "Maadi's Paradox",
                 "SetPropertiesString": [
                     "+5 to Bone Spear (Necromancer Only) (3 Items)",
-                    "+5 to Bone Spear (Necromancer Only) (4 Items)",
                     "30 to Energy (2 Items)"
                 ],
                 "Name": "Maadi's Silence",
@@ -24631,15 +24642,15 @@
                         "Index": 4
                     },
                     {
-                        "PropertyString": "50 to Vitality",
+                        "PropertyString": "25 to Vitality",
                         "Index": 1
                     },
                     {
-                        "PropertyString": "50 to Energy",
+                        "PropertyString": "25 to Energy",
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+10-15 Increase Maximum Life",
+                        "PropertyString": "+10-15 Increase Maximum Mana",
                         "Index": 3
                     }
                 ],
@@ -24723,9 +24734,7 @@
                 "Type": "Voodoo Heads",
                 "Set": "Maadi's Paradox",
                 "SetPropertiesString": [
-                    "+1 Additional Bone Spear Projectiles (5 Items)",
-                    "+5 to BloodGolem (Necromancer Only) (3 Items)",
-                    "+5 to Golem Mastery (Necromancer Only) (4 Items)"
+                    "+1 Additional Bone Spear Projectiles (5 Items)"
                 ],
                 "Name": "Maadi's Soul",
                 "Index": "Maadi's Soul",
@@ -24743,11 +24752,11 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+20-50 Faster Block Rate",
+                        "PropertyString": "+20-35 Faster Block Rate",
                         "Index": 4
                     },
                     {
-                        "PropertyString": "20-50% Increased Chance of Blocking",
+                        "PropertyString": "20-35% Increased Chance of Blocking",
                         "Index": 3
                     },
                     {
@@ -24826,7 +24835,6 @@
                 "Set": "The Raven's Nest",
                 "SetPropertiesString": [
                     "+15 Faster Cast Rate (4 Items)",
-                    "+5 to Raven (Druid Only) (3 Items)",
                     "Cold Resist +30% (2 Items)"
                 ],
                 "Name": "The Raven's Talons",
@@ -24986,8 +24994,7 @@
                 "Set": "The Raven's Nest",
                 "SetPropertiesString": [
                     "2 +2 to raven hits (4 Items)",
-                    "+10 Faster Cast Rate (2 Items)",
-                    "+5 to Raven (Druid Only) (3 Items)"
+                    "+10 Faster Cast Rate (2 Items)"
                 ],
                 "Name": "The Raven's Beak",
                 "Index": "The Raven's Beak",
@@ -25330,6 +25337,312 @@
             {
                 "PropertyString": "All Resistances +30",
                 "Index": 0
+            }
+        ],
+        "Level": 1
+    },
+    {
+        "Index": "Panda's Polar Adventure",
+        "Name": "Panda's Polar Adventure",
+        "SetItems": [
+            {
+                "Type": "Pelt",
+                "Set": "Panda's Polar Adventure",
+                "SetPropertiesString": [],
+                "Name": "Panda's Pelt",
+                "Index": "Panda's Pelt",
+                "Enabled": true,
+                "ItemLevel": 30,
+                "RequiredLevel": 55,
+                "Code": "dr6",
+                "Properties": [
+                    {
+                        "PropertyString": "2-3 to All Skills",
+                        "Index": 4
+                    },
+                    {
+                        "PropertyString": "+2-4 to Polar Bear",
+                        "Index": 1
+                    },
+                    {
+                        "PropertyString": "+30 Faster Run/Walk",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "+30 Faster Hit Recovery",
+                        "Index": 3
+                    },
+                    {
+                        "PropertyString": "+1 Cannot Be Frozen",
+                        "Index": 0
+                    }
+                ],
+                "DamageArmorEnhanced": false,
+                "Equipment": {
+                    "DamageString": null,
+                    "DamageStringPrefix": null,
+                    "ArmorString": "52",
+                    "EquipmentType": 0,
+                    "Name": "Alpha Helm",
+                    "RequiredStrength": 44,
+                    "RequiredDexterity": 0,
+                    "Durability": 20,
+                    "ItemLevel": 35,
+                    "Type": {
+                        "Name": "Pelt",
+                        "Index": "Pelt",
+                        "Class": "dru"
+                    },
+                    "RequiredClass": "Druid"
+                }
+            },
+            {
+                "Type": "Gloves",
+                "Set": "Panda's Polar Adventure",
+                "SetPropertiesString": [],
+                "Name": "Panda's Mitts",
+                "Index": "Panda's Mitts",
+                "Enabled": true,
+                "ItemLevel": 25,
+                "RequiredLevel": 45,
+                "Code": "ulg",
+                "Properties": [
+                    {
+                        "PropertyString": "+2-5 to Polar Claws",
+                        "Index": 0
+                    },
+                    {
+                        "PropertyString": "+30 Increased Attack Speed",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "+5 Life stolen per hit",
+                        "Index": 1
+                    },
+                    {
+                        "PropertyString": "Freezes target +1",
+                        "Index": 4
+                    },
+                    {
+                        "PropertyString": "Fire Resist +15%",
+                        "Index": 3
+                    }
+                ],
+                "DamageArmorEnhanced": false,
+                "Equipment": {
+                    "DamageString": null,
+                    "DamageStringPrefix": null,
+                    "ArmorString": "54",
+                    "EquipmentType": 0,
+                    "Name": "Bramble Mitts",
+                    "RequiredStrength": 50,
+                    "RequiredDexterity": 0,
+                    "Durability": 12,
+                    "ItemLevel": 57,
+                    "Type": {
+                        "Name": "Gloves",
+                        "Index": "Gloves",
+                        "Class": ""
+                    },
+                    "RequiredClass": "Helm"
+                }
+            },
+            {
+                "Type": "Armor",
+                "Set": "Panda's Polar Adventure",
+                "SetPropertiesString": [],
+                "Name": "Panda's Coat",
+                "Index": "Panda's Coat",
+                "Enabled": true,
+                "ItemLevel": 70,
+                "RequiredLevel": 80,
+                "Code": "uui",
+                "Properties": [
+                    {
+                        "PropertyString": "2-3 to All Skills",
+                        "Index": 3
+                    },
+                    {
+                        "PropertyString": "+1 to Warmth",
+                        "Index": 0
+                    },
+                    {
+                        "PropertyString": "+15 Faster Cast Rate",
+                        "Index": 1
+                    },
+                    {
+                        "PropertyString": "+10 to Maximum Cold Resist",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "Cold Resist +50%",
+                        "Index": 4
+                    }
+                ],
+                "DamageArmorEnhanced": false,
+                "Equipment": {
+                    "DamageString": null,
+                    "DamageStringPrefix": null,
+                    "ArmorString": "361",
+                    "EquipmentType": 0,
+                    "Name": "Dusk Shroud",
+                    "RequiredStrength": 77,
+                    "RequiredDexterity": 0,
+                    "Durability": 20,
+                    "ItemLevel": 65,
+                    "Type": {
+                        "Name": "Armor",
+                        "Index": "Armor",
+                        "Class": ""
+                    },
+                    "RequiredClass": ""
+                }
+            },
+            {
+                "Type": "Belt",
+                "Set": "Panda's Polar Adventure",
+                "SetPropertiesString": [],
+                "Name": "Panda's Sash",
+                "Index": "Panda's Sash",
+                "Enabled": true,
+                "ItemLevel": 6,
+                "RequiredLevel": 12,
+                "Code": "lbl",
+                "Properties": [
+                    {
+                        "PropertyString": "20% Chance to cast level 20 tornado when struck",
+                        "Index": 3
+                    },
+                    {
+                        "PropertyString": "10 to Vitality",
+                        "Index": 1
+                    },
+                    {
+                        "PropertyString": "100 to Life",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "All Resistances +10",
+                        "Index": 0
+                    }
+                ],
+                "DamageArmorEnhanced": false,
+                "Equipment": {
+                    "DamageString": null,
+                    "DamageStringPrefix": null,
+                    "ArmorString": "2",
+                    "EquipmentType": 0,
+                    "Name": "Sash",
+                    "RequiredStrength": 0,
+                    "RequiredDexterity": 0,
+                    "Durability": 12,
+                    "ItemLevel": 3,
+                    "Type": {
+                        "Name": "Belt",
+                        "Index": "Belt",
+                        "Class": ""
+                    },
+                    "RequiredClass": "Helm"
+                }
+            },
+            {
+                "Type": "Shield",
+                "Set": "Panda's Polar Adventure",
+                "SetPropertiesString": [],
+                "Name": "Panda's Sled",
+                "Index": "Panda's Sled",
+                "Enabled": true,
+                "ItemLevel": 50,
+                "RequiredLevel": 60,
+                "Code": "uow",
+                "Properties": [
+                    {
+                        "PropertyString": "+5-8 to Summon Spirit Wolf",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "15% Increased Chance of Blocking",
+                        "Index": 3
+                    },
+                    {
+                        "PropertyString": "All Resistances +25",
+                        "Index": 1
+                    },
+                    {
+                        "PropertyString": "Requirements -30%",
+                        "Index": 0
+                    },
+                    {
+                        "PropertyString": "1",
+                        "Index": 4
+                    }
+                ],
+                "DamageArmorEnhanced": false,
+                "Equipment": {
+                    "DamageString": "18 to 28",
+                    "DamageStringPrefix": "Unhandled Damage Prefix",
+                    "ArmorString": "145",
+                    "EquipmentType": 0,
+                    "Name": "Aegis",
+                    "RequiredStrength": 219,
+                    "RequiredDexterity": 0,
+                    "Durability": 92,
+                    "ItemLevel": 79,
+                    "Type": {
+                        "Name": "Shield",
+                        "Index": "Shield",
+                        "Class": ""
+                    },
+                    "RequiredClass": ""
+                }
+            }
+        ],
+        "PartialProperties": [
+            {
+                "PropertyString": "10 to Enemy Cold Resistance",
+                "Index": 0
+            },
+            {
+                "PropertyString": "10 to Cold Skill Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+10 to Polar Bear",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+10 to Polar Claws",
+                "Index": 3
+            },
+            {
+                "PropertyString": "10 to Enemy Cold Resistance",
+                "Index": 4
+            },
+            {
+                "PropertyString": "10 to Cold Skill Damage",
+                "Index": 5
+            }
+        ],
+        "FullProperties": [
+            {
+                "PropertyString": "+10 to Polar Bear",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+10 to Polar Claws",
+                "Index": 3
+            },
+            {
+                "PropertyString": "20 to Cold Skill Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "20 to Enemy Cold Resistance",
+                "Index": 2
+            },
+            {
+                "PropertyString": "All Resistances +25",
+                "Index": 4
             }
         ],
         "Level": 1
