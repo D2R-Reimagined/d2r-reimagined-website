@@ -42,7 +42,7 @@
         "CubeRecipeDescription": "Rare Amulet + Orb Of Assemblage = Set Amulet"
     },
     {
-        "Description": "ASSEMBLAGE ARMOR - 1 Orb of Assemblage & 1 Rare Armor(Chest, Helmet, Gloves, Boots,OR Belt) = Set Armor",
+        "Description": "ASSEMBLAGE ARMOR - 1 Orb of Assemblage & 1 Rare Armor(Chest, Helmet, Gloves, Boots,OR Belt) = Set Armor\"",
         "Item": null,
         "Output": "Set Any Armor",
         "Input": "Rare Any Armor + Orb of Assemblage ",
@@ -175,11 +175,11 @@
         "CubeRecipeDescription": "Magic Amulet + Ith Rune + El Rune = Magic Magic Amulet"
     },
     {
-        "Description": "CRAFT ITEM - Any Magic Amulet + Orb of Infusion + AMN Rune + Gem(Any) = +1 Random Class All Skills Rare Amulet",
+        "Description": "CRAFT ITEM - Any Magic Amulet + Orb of Infusion + RAL Rune + Gem(Any) = +1 Random Class All Skills Rare Amulet",
         "Item": null,
         "Output": "Rare Magic Amulet",
-        "Input": "Magic Amulet + Orb of Infusion + Amn Rune + Gem ",
-        "CubeRecipeDescription": "Magic Amulet + Orb Of Infusion + Amn Rune + Gem = Rare Magic Amulet"
+        "Input": "Magic Amulet + Orb of Infusion + Ral Rune + Gem ",
+        "CubeRecipeDescription": "Magic Amulet + Orb Of Infusion + Ral Rune + Gem = Rare Magic Amulet"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Amulet + Rare Jewel + PUL r+ EL Rune + Ruby = +1 All Skills & +10-12% Faster Attack Speed Rare Amulet ",
@@ -485,142 +485,142 @@
     {
         "Description": "CRAFT ITEM - Any Magic Helm + ITH Rune + EL Rune = +100% CTC level Level 1 Shout on level up Magic Helm",
         "Item": null,
-        "Output": "Magic Merc Equip",
-        "Input": "Magic Merc Equip + Ith Rune + El Rune ",
-        "CubeRecipeDescription": "Magic Merc Equip + Ith Rune + El Rune = Magic Merc Equip"
+        "Output": "Magic Helm",
+        "Input": "Magic Helm + Ith Rune + El Rune ",
+        "CubeRecipeDescription": "Magic Helm + Ith Rune + El Rune = Magic Helm"
     },
     {
-        "Description": "CRAFT ITEM - Any Magic Helm + Orb of Infusion + AMN Rune + Gem (Any) = +15% Faster Hit Recovery Rare Helm",
+        "Description": "CRAFT ITEM - Any Magic Helm + Orb of Infusion + RAL Rune + Gem (Any) = +15% Faster Hit Recovery Rare Helm",
         "Item": null,
-        "Output": "Rare Merc Equip",
-        "Input": "Magic Merc Equip + Orb of Infusion + Amn Rune + Gem ",
-        "CubeRecipeDescription": "Magic Merc Equip + Orb Of Infusion + Amn Rune + Gem = Rare Merc Equip"
+        "Output": "Rare Helm",
+        "Input": "Magic Helm + Orb of Infusion + Ral Rune + Gem ",
+        "CubeRecipeDescription": "Magic Helm + Orb Of Infusion + Ral Rune + Gem = Rare Helm"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Helm + Rare Jewel + UM Rune + EL Rune + Gem (Any) = +20-25% All Resists & +20-30% Faster Hit Recovery Rare Helm",
         "Item": null,
-        "Output": "Rare Merc Equip",
-        "Input": "Rare Merc Equip + Rare Jewel + Um Rune + El Rune + Gem ",
-        "CubeRecipeDescription": "Rare Merc Equip + Rare Jewel + Um Rune + El Rune + Gem = Rare Merc Equip"
+        "Output": "Rare Helm",
+        "Input": "Rare Helm + Rare Jewel + Um Rune + El Rune + Gem ",
+        "CubeRecipeDescription": "Rare Helm + Rare Jewel + Um Rune + El Rune + Gem = Rare Helm"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Helm + Rare Jewel + PUL Rune + EL Rune +  Ruby = +1 Current Class Skills & +10-15% Increased Attack Speed Rare Helm",
         "Item": null,
-        "Output": "Rare Merc Equip",
-        "Input": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Ruby ",
-        "CubeRecipeDescription": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Ruby = Rare Merc Equip"
+        "Output": "Rare Helm",
+        "Input": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Ruby ",
+        "CubeRecipeDescription": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Ruby = Rare Helm"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Helm + Rare Jewel + PUL Rune + EL Rune +  Ruby = +1 Current Class Skills & +10-15% Increased Attack Speed Rare Helm",
         "Item": null,
-        "Output": "Rare Merc Equip",
-        "Input": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Ruby ",
-        "CubeRecipeDescription": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Ruby = Rare Merc Equip"
+        "Output": "Rare Helm",
+        "Input": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Ruby ",
+        "CubeRecipeDescription": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Ruby = Rare Helm"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Helm + Rare Jewel + PUL Rune + EL Rune +  Ruby = +1 Current Class Skills & +10-15% Increased Attack Speed Rare Helm",
         "Item": null,
-        "Output": "Rare Merc Equip",
-        "Input": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Ruby ",
-        "CubeRecipeDescription": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Ruby = Rare Merc Equip"
+        "Output": "Rare Helm",
+        "Input": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Ruby ",
+        "CubeRecipeDescription": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Ruby = Rare Helm"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Helm + Rare Jewel + PUL Rune + EL Rune +  Ruby = +1 Current Class Skills & +10-15% Increased Attack Speed Rare Helm",
         "Item": null,
-        "Output": "Rare Merc Equip",
-        "Input": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Ruby ",
-        "CubeRecipeDescription": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Ruby = Rare Merc Equip"
+        "Output": "Rare Helm",
+        "Input": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Ruby ",
+        "CubeRecipeDescription": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Ruby = Rare Helm"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Helm + Rare Jewel + PUL Rune + EL Rune +  Ruby = +1 Current Class Skills & +10-15% Increased Attack Speed Rare Helm",
         "Item": null,
-        "Output": "Rare Merc Equip",
-        "Input": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Ruby ",
-        "CubeRecipeDescription": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Ruby = Rare Merc Equip"
+        "Output": "Rare Helm",
+        "Input": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Ruby ",
+        "CubeRecipeDescription": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Ruby = Rare Helm"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Helm + Rare Jewel + PUL Rune + EL Rune +  Ruby = +1 Current Class Skills & +10-15% Increased Attack Speed Rare Helm",
         "Item": null,
-        "Output": "Rare Merc Equip",
-        "Input": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Ruby ",
-        "CubeRecipeDescription": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Ruby = Rare Merc Equip"
+        "Output": "Rare Helm",
+        "Input": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Ruby ",
+        "CubeRecipeDescription": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Ruby = Rare Helm"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Helm + Rare Jewel + PUL Rune + EL Rune +  Ruby = +1 Current Class Skills & +10-15% Increased Attack Speed Rare Helm",
         "Item": null,
-        "Output": "Rare Merc Equip",
-        "Input": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Ruby ",
-        "CubeRecipeDescription": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Ruby = Rare Merc Equip"
+        "Output": "Rare Helm",
+        "Input": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Ruby ",
+        "CubeRecipeDescription": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Ruby = Rare Helm"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Helm + Rare Jewel + PUL Rune + EL Rune + Sapphire = +1 Current Class Skills & +10-15% Faster Cast Rate Rare Helm",
         "Item": null,
-        "Output": "Rare Merc Equip",
-        "Input": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Sapphire ",
-        "CubeRecipeDescription": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Sapphire = Rare Merc Equip"
+        "Output": "Rare Helm",
+        "Input": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Sapphire ",
+        "CubeRecipeDescription": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Sapphire = Rare Helm"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Helm + Rare Jewel + PUL Rune + EL Rune + Sapphire = +1 Current Class Skills & +10-15% Faster Cast Rate Rare Helm",
         "Item": null,
-        "Output": "Rare Merc Equip",
-        "Input": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Sapphire ",
-        "CubeRecipeDescription": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Sapphire = Rare Merc Equip"
+        "Output": "Rare Helm",
+        "Input": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Sapphire ",
+        "CubeRecipeDescription": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Sapphire = Rare Helm"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Helm + Rare Jewel + PUL Rune + EL Rune + Sapphire = +1 Current Class Skills & +10-15% Faster Cast Rate Rare Helm",
         "Item": null,
-        "Output": "Rare Merc Equip",
-        "Input": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Sapphire ",
-        "CubeRecipeDescription": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Sapphire = Rare Merc Equip"
+        "Output": "Rare Helm",
+        "Input": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Sapphire ",
+        "CubeRecipeDescription": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Sapphire = Rare Helm"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Helm + Rare Jewel + PUL Rune + EL Rune + Sapphire = +1 Current Class Skills & +10-15% Faster Cast Rate Rare Helm",
         "Item": null,
-        "Output": "Rare Merc Equip",
-        "Input": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Sapphire ",
-        "CubeRecipeDescription": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Sapphire = Rare Merc Equip"
+        "Output": "Rare Helm",
+        "Input": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Sapphire ",
+        "CubeRecipeDescription": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Sapphire = Rare Helm"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Helm + Rare Jewel + PUL Rune + EL Rune + Sapphire = +1 Current Class Skills & +10-15% Faster Cast Rate Rare Helm",
         "Item": null,
-        "Output": "Rare Merc Equip",
-        "Input": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Sapphire ",
-        "CubeRecipeDescription": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Sapphire = Rare Merc Equip"
+        "Output": "Rare Helm",
+        "Input": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Sapphire ",
+        "CubeRecipeDescription": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Sapphire = Rare Helm"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Helm + Rare Jewel + PUL Rune + EL Rune + Sapphire = +1 Current Class Skills & +10-15% Faster Cast Rate Rare Helm",
         "Item": null,
-        "Output": "Rare Merc Equip",
-        "Input": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Sapphire ",
-        "CubeRecipeDescription": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Sapphire = Rare Merc Equip"
+        "Output": "Rare Helm",
+        "Input": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Sapphire ",
+        "CubeRecipeDescription": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Sapphire = Rare Helm"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Helm + Rare Jewel + PUL Rune + EL Rune + Sapphire = +1 Current Class Skills & +10-15% Faster Cast Rate Rare Helm",
         "Item": null,
-        "Output": "Rare Merc Equip",
-        "Input": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Sapphire ",
-        "CubeRecipeDescription": "Rare Merc Equip + Rare Jewel + Pul Rune + El Rune + Sapphire = Rare Merc Equip"
+        "Output": "Rare Helm",
+        "Input": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Sapphire ",
+        "CubeRecipeDescription": "Rare Helm + Rare Jewel + Pul Rune + El Rune + Sapphire = Rare Helm"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Helm + Unique Jewel + ZOD r+ VEX Rune + Ruby = +1-2 All Skills & +20-30% Enhanced Weapon Damage Crafted Helm",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Rare Merc Equip + Unique Jewel + Zod Rune + Vex Rune + Ruby ",
-        "CubeRecipeDescription": "Rare Merc Equip + Unique Jewel + Zod Rune + Vex Rune + Ruby = Merc Equip"
+        "Output": "Helm",
+        "Input": "Rare Helm + Unique Jewel + Zod Rune + Vex Rune + Ruby ",
+        "CubeRecipeDescription": "Rare Helm + Unique Jewel + Zod Rune + Vex Rune + Ruby = Helm"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Helm + Unique Jewel + ZOD r+ VEX Rune + Sapphire = +1-2 All Skills & +5-10% All Elemental Damage Crafted Helm",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Rare Merc Equip + Unique Jewel + Zod Rune + Vex Rune + Sapphire ",
-        "CubeRecipeDescription": "Rare Merc Equip + Unique Jewel + Zod Rune + Vex Rune + Sapphire = Merc Equip"
+        "Output": "Helm",
+        "Input": "Rare Helm + Unique Jewel + Zod Rune + Vex Rune + Sapphire ",
+        "CubeRecipeDescription": "Rare Helm + Unique Jewel + Zod Rune + Vex Rune + Sapphire = Helm"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Helm + Unique Jewel + BER r+ JAH Rune + Gem(Any) = +2 All Skills & +5-10% Physical Damage Reduction & +5-10% Max HP Crafted Helm",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Rare Merc Equip + Unique Jewel + Ber Rune + Jah Rune + Gem ",
-        "CubeRecipeDescription": "Rare Merc Equip + Unique Jewel + Ber Rune + Jah Rune + Gem = Merc Equip"
+        "Output": "Helm",
+        "Input": "Rare Helm + Unique Jewel + Ber Rune + Jah Rune + Gem ",
+        "CubeRecipeDescription": "Rare Helm + Unique Jewel + Ber Rune + Jah Rune + Gem = Helm"
     },
     {
         "Description": "CRAFT ITEM - Any Magic Body Armor + ITH Rune + EL Rune = +100% CTC level Level 5 Oak Sage on level up Magic Body Armor",
@@ -630,11 +630,11 @@
         "CubeRecipeDescription": "Magic Armor + Ith Rune + El Rune = Magic Armor"
     },
     {
-        "Description": "CRAFT ITEM - Any Magic Body Armor + Orb of Infusion + AMN Rune + Gem (Any) = +20% Faster Run/Walk & +100 Defense Rare Body Armor",
+        "Description": "CRAFT ITEM - Any Magic Body Armor + Orb of Infusion + RAL Rune + Gem (Any) = +20% Faster Run/Walk & +100 Defense Rare Body Armor",
         "Item": null,
         "Output": "Rare Armor",
-        "Input": "Magic Armor + Orb of Infusion + Amn Rune + Gem ",
-        "CubeRecipeDescription": "Magic Armor + Orb Of Infusion + Amn Rune + Gem = Rare Armor"
+        "Input": "Magic Armor + Orb of Infusion + Ral Rune + Gem ",
+        "CubeRecipeDescription": "Magic Armor + Orb Of Infusion + Ral Rune + Gem = Rare Armor"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Body Armor + Rare Jewel + UM Rune + IST Rune + Gem (Any) = +20-25 All Res & +20-40% Magic Find Rare Body Armor",
@@ -950,6 +950,13 @@
         "Output": "Magic Weapon",
         "Input": "Magic Weapon + Magic Jewel + Ral Rune + Sapphire ",
         "CubeRecipeDescription": "Magic Weapon + Magic Jewel + Ral Rune + Sapphire = Magic Weapon"
+    },
+    {
+        "Description": "CRAFT ITEM - Any Magic Weapon + Orb of Infusion + SOL Rune + SHAEL Rune + Gem (Any) = +1 Min Damage/lvl & +1 Max Damage/lvl & +20% Increased Attack Speed Rare Weapon",
+        "Item": null,
+        "Output": "Rare Weapon",
+        "Input": "Magic Weapon + Orb of Infusion + Sol Rune + Shael Rune + Gem ",
+        "CubeRecipeDescription": "Magic Weapon + Orb Of Infusion + Sol Rune + Shael Rune + Gem = Rare Weapon"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Weapon + Rare Jewel + LEM Rune + EL Rune + Gem (Any) = +1 All Skills & +125-150% Enhanced Weapon Damage & +30% Increased Attack Speed Rare Weapon",
@@ -1395,9 +1402,9 @@
     {
         "Description": "CONVERT ARMOR - El-Rune & Hel-Rune & any armor/shield = Armor/Shield Normal",
         "Item": null,
-        "Output": "Normal Any Armor",
-        "Input": "Any Armor + El Rune + Hel Rune ",
-        "CubeRecipeDescription": "Any Armor + El Rune + Hel Rune = Normal Any Armor"
+        "Output": "Normal Weapon",
+        "Input": "Weapon + El Rune + Hel Rune ",
+        "CubeRecipeDescription": "Weapon + El Rune + Hel Rune = Normal Weapon"
     },
     {
         "Description": "CONVERT WEAPON - El-Rune & Hel-Rune & any weapon = Weapon Normal",
@@ -1480,15 +1487,15 @@
         "Description": "RECYCLE ITEM - 5 Set Helms + ID Tome = Gem Cluster",
         "Item": null,
         "Output": "Gem Cluster",
-        "Input": "5 Set Merc Equip + Tome of Identify ",
-        "CubeRecipeDescription": "5 Set Merc Equip + Tome Of Identify = Gem Cluster"
+        "Input": "5 Set Helm + Tome of Identify ",
+        "CubeRecipeDescription": "5 Set Helm + Tome Of Identify = Gem Cluster"
     },
     {
         "Description": "RECYCLE ITEM - 5 Unique Helms + ID Tome = Gem Cluster",
         "Item": null,
         "Output": "Gem Cluster",
-        "Input": "5 Unique Merc Equip + Tome of Identify ",
-        "CubeRecipeDescription": "5 Unique Merc Equip + Tome Of Identify = Gem Cluster"
+        "Input": "5 Unique Helm + Tome of Identify ",
+        "CubeRecipeDescription": "5 Unique Helm + Tome Of Identify = Gem Cluster"
     },
     {
         "Description": "RECYCLE ITEM - 5 Set Shields + ID Tome = Gem Cluster",
@@ -1687,11 +1694,11 @@
         "CubeRecipeDescription": "9 Magic Jewel = Rare Jewel"
     },
     {
-        "Description": "UPGRADE JEWEL RARITY - 9 Jewel Rare = Jewel Unique (100% ilvl)",
+        "Description": "UPGRADE JEWEL RARITY - 6 Jewel Rare = Jewel Unique (100% ilvl)",
         "Item": null,
         "Output": "Unique Jewel",
-        "Input": "9 Rare Jewel ",
-        "CubeRecipeDescription": "9 Rare Jewel = Unique Jewel"
+        "Input": "6 Rare Jewel ",
+        "CubeRecipeDescription": "6 Rare Jewel = Unique Jewel"
     },
     {
         "Description": "UPGRADE CHARM TIER - T1 Splash Charm & Gem Bag (1 Gem) = T2 Splash Charm",
@@ -2998,219 +3005,219 @@
     {
         "Description": "ITEM UPGRADE - Helm & Topaz & Magic Jewel = +7% Magic Find  & +10% Gold Find",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Topaz + Magic Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Topaz + Magic Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Topaz + Magic Jewel ",
+        "CubeRecipeDescription": "Helm + Topaz + Magic Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Ruby & Magic Jewel = +15 HP & +2 Life / Kill",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Ruby + Magic Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Ruby + Magic Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Ruby + Magic Jewel ",
+        "CubeRecipeDescription": "Helm + Ruby + Magic Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Sapphire & Magic Jewel = +15 Mana & +2 Mana / Kill",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Sapphire + Magic Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Sapphire + Magic Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Sapphire + Magic Jewel ",
+        "CubeRecipeDescription": "Helm + Sapphire + Magic Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Emerald & Magic Jewel = +5 Dexterity & +5 Vitality",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Emerald + Magic Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Emerald + Magic Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Emerald + Magic Jewel ",
+        "CubeRecipeDescription": "Helm + Emerald + Magic Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Amethyst & Magic Jewel = +5 Strength & +5 Vitality",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Amethyst + Magic Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Amethyst + Magic Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Amethyst + Magic Jewel ",
+        "CubeRecipeDescription": "Helm + Amethyst + Magic Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Skull & Magic Jewel = +5 Energy & +5 Vitality",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Skull + Magic Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Skull + Magic Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Skull + Magic Jewel ",
+        "CubeRecipeDescription": "Helm + Skull + Magic Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Diamond & Magic Jewel = +2 All Resistances",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Diamond + Magic Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Diamond + Magic Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Diamond + Magic Jewel ",
+        "CubeRecipeDescription": "Helm + Diamond + Magic Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Eth-Rune & Magic Jewel = +4% Mana Regen",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Eth Rune + Magic Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Eth Rune + Magic Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Eth Rune + Magic Jewel ",
+        "CubeRecipeDescription": "Helm + Eth Rune + Magic Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Ith-Rune & Magic Jewel = +6% Damage Goes To Mana",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Ith Rune + Magic Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Ith Rune + Magic Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Ith Rune + Magic Jewel ",
+        "CubeRecipeDescription": "Helm + Ith Rune + Magic Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Sol-Rune & Magic Jewel = Physical Damage Reduced By 3",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Sol Rune + Magic Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Sol Rune + Magic Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Sol Rune + Magic Jewel ",
+        "CubeRecipeDescription": "Helm + Sol Rune + Magic Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Infusion Orb & Sapphire & Ith-Rune & Magic Jewel = +50 Mana & +4 Mana / Kill",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Orb of Infusion + Sapphire + Ith Rune + Magic Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Orb Of Infusion + Sapphire + Ith Rune + Magic Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Orb of Infusion + Sapphire + Ith Rune + Magic Jewel ",
+        "CubeRecipeDescription": "Helm + Orb Of Infusion + Sapphire + Ith Rune + Magic Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Infusion Orb & Emerald & Thul-Rune & Magic Jewel = Ignore Target's Defense",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Orb of Infusion + Emerald + Thul Rune + Magic Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Orb Of Infusion + Emerald + Thul Rune + Magic Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Orb of Infusion + Emerald + Thul Rune + Magic Jewel ",
+        "CubeRecipeDescription": "Helm + Orb Of Infusion + Emerald + Thul Rune + Magic Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Infusion Orb & Skull & Amn-Rune & Magic Jewel = +75 Thorns",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Orb of Infusion + Skull + Amn Rune + Magic Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Orb Of Infusion + Skull + Amn Rune + Magic Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Orb of Infusion + Skull + Amn Rune + Magic Jewel ",
+        "CubeRecipeDescription": "Helm + Orb Of Infusion + Skull + Amn Rune + Magic Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Infusion Orb & Ruby & Dol-Rune & Magic Jewel = +50 HP & +8 Life / Kill",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Orb of Infusion + Ruby + Dol Rune + Magic Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Orb Of Infusion + Ruby + Dol Rune + Magic Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Orb of Infusion + Ruby + Dol Rune + Magic Jewel ",
+        "CubeRecipeDescription": "Helm + Orb Of Infusion + Ruby + Dol Rune + Magic Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Infusion Orb & Skull & Lum-Rune & Magic Jewel = +8% Mana Regen",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Orb of Infusion + Skull + Lum Rune + Magic Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Orb Of Infusion + Skull + Lum Rune + Magic Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Orb of Infusion + Skull + Lum Rune + Magic Jewel ",
+        "CubeRecipeDescription": "Helm + Orb Of Infusion + Skull + Lum Rune + Magic Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Infusion Orb & Emerald & Fal-Rune & Magic Jewel = +10 Dexterity & +10 Vitality",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Orb of Infusion + Emerald + Fal Rune + Magic Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Orb Of Infusion + Emerald + Fal Rune + Magic Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Orb of Infusion + Emerald + Fal Rune + Magic Jewel ",
+        "CubeRecipeDescription": "Helm + Orb Of Infusion + Emerald + Fal Rune + Magic Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Infusion Orb & Amethyst & Fal-Rune & Magic Jewel = +10 Strength & +10 Vitality",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Orb of Infusion + Amethyst + Fal Rune + Magic Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Orb Of Infusion + Amethyst + Fal Rune + Magic Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Orb of Infusion + Amethyst + Fal Rune + Magic Jewel ",
+        "CubeRecipeDescription": "Helm + Orb Of Infusion + Amethyst + Fal Rune + Magic Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Infusion Orb & Sapphire & Fal-Rune & Magic Jewel = +10 Energy & +10 Vitality",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Orb of Infusion + Sapphire + Fal Rune + Magic Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Orb Of Infusion + Sapphire + Fal Rune + Magic Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Orb of Infusion + Sapphire + Fal Rune + Magic Jewel ",
+        "CubeRecipeDescription": "Helm + Orb Of Infusion + Sapphire + Fal Rune + Magic Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Infusion Orb & Diamond & Pul-Rune & Rare Jewel =+4 All Attributes",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Orb of Infusion + Diamond + Pul Rune + Rare Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Orb Of Infusion + Diamond + Pul Rune + Rare Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Orb of Infusion + Diamond + Pul Rune + Rare Jewel ",
+        "CubeRecipeDescription": "Helm + Orb Of Infusion + Diamond + Pul Rune + Rare Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Infusion Orb & Diamond & Um-Rune & Rare Jewel = +4 All Resistances",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Orb of Infusion + Diamond + Um Rune + Rare Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Orb Of Infusion + Diamond + Um Rune + Rare Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Orb of Infusion + Diamond + Um Rune + Rare Jewel ",
+        "CubeRecipeDescription": "Helm + Orb Of Infusion + Diamond + Um Rune + Rare Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Infusion Orb & Sapphire & Mal-Rune & Rare Jewel = Magic Damage Reduced By 3",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Orb of Infusion + Sapphire + Mal Rune + Rare Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Orb Of Infusion + Sapphire + Mal Rune + Rare Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Orb of Infusion + Sapphire + Mal Rune + Rare Jewel ",
+        "CubeRecipeDescription": "Helm + Orb Of Infusion + Sapphire + Mal Rune + Rare Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Infusion Orb & Topaz & Ist-Rune & Rare Jewel = +20% Magic Find  & +30% Gold Find",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Orb of Infusion + Topaz + Ist Rune + Rare Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Orb Of Infusion + Topaz + Ist Rune + Rare Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Orb of Infusion + Topaz + Ist Rune + Rare Jewel ",
+        "CubeRecipeDescription": "Helm + Orb Of Infusion + Topaz + Ist Rune + Rare Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Infusion Orb & Sapphire & Sur-Rune & Rare Jewel = +6% Max Mana",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Orb of Infusion + Sapphire + Sur Rune + Rare Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Orb Of Infusion + Sapphire + Sur Rune + Rare Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Orb of Infusion + Sapphire + Sur Rune + Rare Jewel ",
+        "CubeRecipeDescription": "Helm + Orb Of Infusion + Sapphire + Sur Rune + Rare Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Infusion Orb & Amethyst & Ber-Rune & Rare Jewel = +4% Damage Reduction",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Orb of Infusion + Amethyst + Ber Rune + Rare Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Orb Of Infusion + Amethyst + Ber Rune + Rare Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Orb of Infusion + Amethyst + Ber Rune + Rare Jewel ",
+        "CubeRecipeDescription": "Helm + Orb Of Infusion + Amethyst + Ber Rune + Rare Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Infusion Orb & Ruby & Jah-Rune & Rare Jewel = +6% Max HP",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Orb of Infusion + Ruby + Jah Rune + Rare Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Orb Of Infusion + Ruby + Jah Rune + Rare Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Orb of Infusion + Ruby + Jah Rune + Rare Jewel ",
+        "CubeRecipeDescription": "Helm + Orb Of Infusion + Ruby + Jah Rune + Rare Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Infusion Orb & Ruby & Cham-Rune & Unique Jewel = +2 Fire Skills",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Orb of Infusion + Ruby + Cham Rune + Unique Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Orb Of Infusion + Ruby + Cham Rune + Unique Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Orb of Infusion + Ruby + Cham Rune + Unique Jewel ",
+        "CubeRecipeDescription": "Helm + Orb Of Infusion + Ruby + Cham Rune + Unique Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Infusion Orb & Sapphire & Cham-Rune & Unique Jewel = +2 Cold Skills",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Orb of Infusion + Sapphire + Cham Rune + Unique Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Orb Of Infusion + Sapphire + Cham Rune + Unique Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Orb of Infusion + Sapphire + Cham Rune + Unique Jewel ",
+        "CubeRecipeDescription": "Helm + Orb Of Infusion + Sapphire + Cham Rune + Unique Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Infusion Orb & Topaz & Cham-Rune & Unique Jewel = +2 Lightning Skills",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Orb of Infusion + Topaz + Cham Rune + Unique Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Orb Of Infusion + Topaz + Cham Rune + Unique Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Orb of Infusion + Topaz + Cham Rune + Unique Jewel ",
+        "CubeRecipeDescription": "Helm + Orb Of Infusion + Topaz + Cham Rune + Unique Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Infusion Orb & Emerald & Cham-Rune & Unique Jewel = +2 Poison Skills",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Orb of Infusion + Emerald + Cham Rune + Unique Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Orb Of Infusion + Emerald + Cham Rune + Unique Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Orb of Infusion + Emerald + Cham Rune + Unique Jewel ",
+        "CubeRecipeDescription": "Helm + Orb Of Infusion + Emerald + Cham Rune + Unique Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Infusion Orb & Diamond & Cham-Rune & Unique Jewel = +2 Magic Skills",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Orb of Infusion + Diamond + Cham Rune + Unique Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Orb Of Infusion + Diamond + Cham Rune + Unique Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Orb of Infusion + Diamond + Cham Rune + Unique Jewel ",
+        "CubeRecipeDescription": "Helm + Orb Of Infusion + Diamond + Cham Rune + Unique Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Helm & Infusion Orb & Skull & Zod-Rune & Unique Jewel = +1 All Skills",
         "Item": null,
-        "Output": "Merc Equip",
-        "Input": "Merc Equip + Orb of Infusion + Skull + Zod Rune + Unique Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Orb Of Infusion + Skull + Zod Rune + Unique Jewel = Merc Equip"
+        "Output": "Helm",
+        "Input": "Helm + Orb of Infusion + Skull + Zod Rune + Unique Jewel ",
+        "CubeRecipeDescription": "Helm + Orb Of Infusion + Skull + Zod Rune + Unique Jewel = Helm"
     },
     {
         "Description": "ITEM UPGRADE - Shield & Topaz & Magic Jewel = +7% Magic Find  & +10% Gold Find",
@@ -3388,7 +3395,7 @@
         "CubeRecipeDescription": "Any Shield + Orb Of Infusion + Topaz + Ist Rune + Rare Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Infusion Orb & Sapphire & Sur-Rune & Rare Jewel = +10% Max Mana",
+        "Description": "ITEM UPGRADE - Shield & Infusion Orb & Sapphire & Sur-Rune & Rare Jewel = +6% Max Mana",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Orb of Infusion + Sapphire + Sur Rune + Rare Jewel ",
@@ -3402,7 +3409,7 @@
         "CubeRecipeDescription": "Any Shield + Orb Of Infusion + Ruby + Ber Rune + Rare Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Infusion Orb & Ruby & Jah-Rune & Rare Jewel = +10% Max HP",
+        "Description": "ITEM UPGRADE - Shield & Infusion Orb & Ruby & Jah-Rune & Rare Jewel = +6% Max HP",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Orb of Infusion + Ruby + Jah Rune + Rare Jewel ",
@@ -3570,7 +3577,7 @@
         "CubeRecipeDescription": "Armor + Orb Of Infusion + Topaz + Ist Rune + Rare Jewel = Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Infusion Orb & Sapphire & Sur-Rune & Rare Jewel = +12% Max Mana",
+        "Description": "ITEM UPGRADE - Chest & Infusion Orb & Sapphire & Sur-Rune & Rare Jewel = +8% Max Mana",
         "Item": null,
         "Output": "Armor",
         "Input": "Armor + Orb of Infusion + Sapphire + Sur Rune + Rare Jewel ",
@@ -3584,7 +3591,7 @@
         "CubeRecipeDescription": "Armor + Orb Of Infusion + Diamond + Ber Rune + Rare Jewel = Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Infusion Orb & Ruby & Jah-Rune & Rare Jewel = +12% Max HP",
+        "Description": "ITEM UPGRADE - Chest & Infusion Orb & Ruby & Jah-Rune & Rare Jewel = +8% Max HP",
         "Item": null,
         "Output": "Armor",
         "Input": "Armor + Orb of Infusion + Ruby + Jah Rune + Rare Jewel ",
@@ -3594,36 +3601,36 @@
         "Description": "ITEM UPGRADE - Chest & Infusion Orb & Amethyst & Cham-Rune & Unique Jewel = Absorb 4% Fire Damage",
         "Item": null,
         "Output": "Armor",
-        "Input": "Armor + Orb of Infusion + Amethyst + Cham Rune + jew.uni ",
-        "CubeRecipeDescription": "Armor + Orb Of Infusion + Amethyst + Cham Rune + Jew.Uni = Armor"
+        "Input": "Armor + Orb of Infusion + Amethyst + Cham Rune + Unique Jewel ",
+        "CubeRecipeDescription": "Armor + Orb Of Infusion + Amethyst + Cham Rune + Unique Jewel = Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Infusion Orb & Sapphire & Cham-Rune & Unique Jewel = Absorb 4% Cold Damage",
         "Item": null,
         "Output": "Armor",
-        "Input": "Armor + Orb of Infusion + Sapphire + Cham Rune + jew.uni ",
-        "CubeRecipeDescription": "Armor + Orb Of Infusion + Sapphire + Cham Rune + Jew.Uni = Armor"
+        "Input": "Armor + Orb of Infusion + Sapphire + Cham Rune + Unique Jewel ",
+        "CubeRecipeDescription": "Armor + Orb Of Infusion + Sapphire + Cham Rune + Unique Jewel = Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Infusion Orb & Topaz & Cham-Rune & Unique Jewel = Absorb 4% Lightning Damage",
         "Item": null,
         "Output": "Armor",
-        "Input": "Armor + Orb of Infusion + Topaz + Cham Rune + jew.uni ",
-        "CubeRecipeDescription": "Armor + Orb Of Infusion + Topaz + Cham Rune + Jew.Uni = Armor"
+        "Input": "Armor + Orb of Infusion + Topaz + Cham Rune + Unique Jewel ",
+        "CubeRecipeDescription": "Armor + Orb Of Infusion + Topaz + Cham Rune + Unique Jewel = Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Infusion Orb & Skull & Cham-Rune & Unique Jewel = Absorb 4% Magic Damage",
         "Item": null,
         "Output": "Armor",
-        "Input": "Armor + Orb of Infusion + Skull + Cham Rune + jew.uni ",
-        "CubeRecipeDescription": "Armor + Orb Of Infusion + Skull + Cham Rune + Jew.Uni = Armor"
+        "Input": "Armor + Orb of Infusion + Skull + Cham Rune + Unique Jewel ",
+        "CubeRecipeDescription": "Armor + Orb Of Infusion + Skull + Cham Rune + Unique Jewel = Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Infusion Orb & Amethyst & Zod-Rune & Unique Jewel = +2 Max All Resistances & +5 All Resistances",
         "Item": null,
         "Output": "Armor",
-        "Input": "Armor + Orb of Infusion + Amethyst + Zod Rune + jew.uni ",
-        "CubeRecipeDescription": "Armor + Orb Of Infusion + Amethyst + Zod Rune + Jew.Uni = Armor"
+        "Input": "Armor + Orb of Infusion + Amethyst + Zod Rune + Unique Jewel ",
+        "CubeRecipeDescription": "Armor + Orb Of Infusion + Amethyst + Zod Rune + Unique Jewel = Armor"
     },
     {
         "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Topaz & Magic Jewel = +15% Magic Find  & +30% Gold Find",
@@ -3640,14 +3647,14 @@
         "CubeRecipeDescription": "Slam Weapons + Ruby + Magic Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Sapphire & Magic Jewel = +10% Increased Cast Rate",
+        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Sapphire & Magic Jewel = +7% Increased Cast Rate",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Sapphire + Magic Jewel ",
         "CubeRecipeDescription": "Slam Weapons + Sapphire + Magic Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Emerald & Magic Jewel = +10% Increased Attack Speed",
+        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Emerald & Magic Jewel = +7% Increased Attack Speed",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Emerald + Magic Jewel ",
@@ -3843,14 +3850,14 @@
         "CubeRecipeDescription": "Spears And Polearms + Ruby + Magic Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Sapphire & Magic Jewel = +10% Increased Cast Rate",
+        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Sapphire & Magic Jewel = +7% Increased Cast Rate",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Sapphire + Magic Jewel ",
         "CubeRecipeDescription": "Spears And Polearms + Sapphire + Magic Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Emerald & Magic Jewel = +10% Increased Attack Speed",
+        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Emerald & Magic Jewel = +7% Increased Attack Speed",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Emerald + Magic Jewel ",
@@ -4046,14 +4053,14 @@
         "CubeRecipeDescription": "Missile Weapon + Ruby + Magic Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Sapphire & Magic Jewel = +10% Increased Cast Rate",
+        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Sapphire & Magic Jewel = +7% Increased Cast Rate",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Sapphire + Magic Jewel ",
         "CubeRecipeDescription": "Missile Weapon + Sapphire + Magic Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Emerald & Magic Jewel = +10% Increased Attack Speed",
+        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Emerald & Magic Jewel = +7% Increased Attack Speed",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Emerald + Magic Jewel ",
@@ -4249,14 +4256,14 @@
         "CubeRecipeDescription": "1H Weapons + Ruby + Magic Jewel = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Sapphire & Magic Jewel = +10% Increased Cast Rate",
+        "Description": "ITEM UPGRADE - Weapon & Sapphire & Magic Jewel = +7% Increased Cast Rate",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Sapphire + Magic Jewel ",
         "CubeRecipeDescription": "1H Weapons + Sapphire + Magic Jewel = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Emerald & Magic Jewel = +10% Increased Attack Speed",
+        "Description": "ITEM UPGRADE - Weapon & Emerald & Magic Jewel = +7% Increased Attack Speed",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Emerald + Magic Jewel ",
@@ -4510,226 +4517,226 @@
     {
         "Description": "SOCKET PUNCH 1 - Helmet Low Quality",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Low Quality Merc Equip + Magic Jewel ",
-        "CubeRecipeDescription": "Low Quality Merc Equip + Magic Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Low Quality Helm + Magic Jewel ",
+        "CubeRecipeDescription": "Low Quality Helm + Magic Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 1 - Helmet Normal Quality",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Normal Merc Equip + Magic Jewel ",
-        "CubeRecipeDescription": "Normal Merc Equip + Magic Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Normal Helm + Magic Jewel ",
+        "CubeRecipeDescription": "Normal Helm + Magic Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 1 - Helmet High Quality",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Merc Equip + Magic Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Magic Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Helm + Magic Jewel ",
+        "CubeRecipeDescription": "Helm + Magic Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 1 - Helmet Magic",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Magic Merc Equip + Magic Jewel ",
-        "CubeRecipeDescription": "Magic Merc Equip + Magic Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Magic Helm + Magic Jewel ",
+        "CubeRecipeDescription": "Magic Helm + Magic Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 1 - Helmet Rare",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Rare Merc Equip + Rare Jewel ",
-        "CubeRecipeDescription": "Rare Merc Equip + Rare Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Rare Helm + Rare Jewel ",
+        "CubeRecipeDescription": "Rare Helm + Rare Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 1 - Helmet Craft",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Merc Equip + Unique Jewel ",
-        "CubeRecipeDescription": "Merc Equip + Unique Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Helm + Unique Jewel ",
+        "CubeRecipeDescription": "Helm + Unique Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 1 - Helmet Set",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Set Merc Equip + Rare Jewel ",
-        "CubeRecipeDescription": "Set Merc Equip + Rare Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Set Helm + Rare Jewel ",
+        "CubeRecipeDescription": "Set Helm + Rare Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 1 - Helmet Unique",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Unique Merc Equip + Unique Jewel ",
-        "CubeRecipeDescription": "Unique Merc Equip + Unique Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Unique Helm + Unique Jewel ",
+        "CubeRecipeDescription": "Unique Helm + Unique Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 2 - Helmet Low Quality",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Low Quality Merc Equip + 2 Magic Jewel ",
-        "CubeRecipeDescription": "Low Quality Merc Equip + 2 Magic Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Low Quality Helm + 2 Magic Jewel ",
+        "CubeRecipeDescription": "Low Quality Helm + 2 Magic Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 2 - Helmet Normal Quality",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Normal Merc Equip + 2 Magic Jewel ",
-        "CubeRecipeDescription": "Normal Merc Equip + 2 Magic Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Normal Helm + 2 Magic Jewel ",
+        "CubeRecipeDescription": "Normal Helm + 2 Magic Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 2 - Helmet High Quality",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Merc Equip + 2 Magic Jewel ",
-        "CubeRecipeDescription": "Merc Equip + 2 Magic Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Helm + 2 Magic Jewel ",
+        "CubeRecipeDescription": "Helm + 2 Magic Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 2 - Helmet Magic",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Magic Merc Equip + 2 Magic Jewel ",
-        "CubeRecipeDescription": "Magic Merc Equip + 2 Magic Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Magic Helm + 2 Magic Jewel ",
+        "CubeRecipeDescription": "Magic Helm + 2 Magic Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 2 - Helmet Rare",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Rare Merc Equip + 2 Rare Jewel ",
-        "CubeRecipeDescription": "Rare Merc Equip + 2 Rare Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Rare Helm + 2 Rare Jewel ",
+        "CubeRecipeDescription": "Rare Helm + 2 Rare Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 2 - Helmet Craft",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Merc Equip + 2 Unique Jewel ",
-        "CubeRecipeDescription": "Merc Equip + 2 Unique Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Helm + 2 Unique Jewel ",
+        "CubeRecipeDescription": "Helm + 2 Unique Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 2 - Helmet Set",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Set Merc Equip + 2 Rare Jewel ",
-        "CubeRecipeDescription": "Set Merc Equip + 2 Rare Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Set Helm + 2 Rare Jewel ",
+        "CubeRecipeDescription": "Set Helm + 2 Rare Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 2 - Helmet Unique",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Unique Merc Equip + 2 Unique Jewel ",
-        "CubeRecipeDescription": "Unique Merc Equip + 2 Unique Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Unique Helm + 2 Unique Jewel ",
+        "CubeRecipeDescription": "Unique Helm + 2 Unique Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 3 - Helmet Low Quality",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Low Quality Merc Equip + 3 Magic Jewel ",
-        "CubeRecipeDescription": "Low Quality Merc Equip + 3 Magic Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Low Quality Helm + 3 Magic Jewel ",
+        "CubeRecipeDescription": "Low Quality Helm + 3 Magic Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 3 - Helmet Normal Quality",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Normal Merc Equip + 3 Magic Jewel ",
-        "CubeRecipeDescription": "Normal Merc Equip + 3 Magic Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Normal Helm + 3 Magic Jewel ",
+        "CubeRecipeDescription": "Normal Helm + 3 Magic Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 3 - Helmet High Quality",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Merc Equip + 3 Magic Jewel ",
-        "CubeRecipeDescription": "Merc Equip + 3 Magic Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Helm + 3 Magic Jewel ",
+        "CubeRecipeDescription": "Helm + 3 Magic Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 3 - Helmet Magic",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Magic Merc Equip + 3 Magic Jewel ",
-        "CubeRecipeDescription": "Magic Merc Equip + 3 Magic Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Magic Helm + 3 Magic Jewel ",
+        "CubeRecipeDescription": "Magic Helm + 3 Magic Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 3 - Helmet Rare",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Rare Merc Equip + 3 Rare Jewel ",
-        "CubeRecipeDescription": "Rare Merc Equip + 3 Rare Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Rare Helm + 3 Rare Jewel ",
+        "CubeRecipeDescription": "Rare Helm + 3 Rare Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 3 - Helmet Craft",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Merc Equip + 3 Unique Jewel ",
-        "CubeRecipeDescription": "Merc Equip + 3 Unique Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Helm + 3 Unique Jewel ",
+        "CubeRecipeDescription": "Helm + 3 Unique Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 3 - Helmet Set",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Set Merc Equip + 3 Rare Jewel ",
-        "CubeRecipeDescription": "Set Merc Equip + 3 Rare Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Set Helm + 3 Rare Jewel ",
+        "CubeRecipeDescription": "Set Helm + 3 Rare Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 3 - Helmet Unique",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Unique Merc Equip + 3 Unique Jewel ",
-        "CubeRecipeDescription": "Unique Merc Equip + 3 Unique Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Unique Helm + 3 Unique Jewel ",
+        "CubeRecipeDescription": "Unique Helm + 3 Unique Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 4 - Helmet Low Quality",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Low Quality Merc Equip + 4 Magic Jewel ",
-        "CubeRecipeDescription": "Low Quality Merc Equip + 4 Magic Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Low Quality Helm + 4 Magic Jewel ",
+        "CubeRecipeDescription": "Low Quality Helm + 4 Magic Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 4 - Helmet Normal Quality",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Normal Merc Equip + 4 Magic Jewel ",
-        "CubeRecipeDescription": "Normal Merc Equip + 4 Magic Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Normal Helm + 4 Magic Jewel ",
+        "CubeRecipeDescription": "Normal Helm + 4 Magic Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 4 - Helmet High Quality",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Merc Equip + 4 Magic Jewel ",
-        "CubeRecipeDescription": "Merc Equip + 4 Magic Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Helm + 4 Magic Jewel ",
+        "CubeRecipeDescription": "Helm + 4 Magic Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 4 - Helmet Magic",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Magic Merc Equip + 4 Magic Jewel ",
-        "CubeRecipeDescription": "Magic Merc Equip + 4 Magic Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Magic Helm + 4 Magic Jewel ",
+        "CubeRecipeDescription": "Magic Helm + 4 Magic Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 4 - Helmet Rare",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Rare Merc Equip + 4 Rare Jewel ",
-        "CubeRecipeDescription": "Rare Merc Equip + 4 Rare Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Rare Helm + 4 Rare Jewel ",
+        "CubeRecipeDescription": "Rare Helm + 4 Rare Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 4 - Helmet Craft",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Merc Equip + 4 Unique Jewel ",
-        "CubeRecipeDescription": "Merc Equip + 4 Unique Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Helm + 4 Unique Jewel ",
+        "CubeRecipeDescription": "Helm + 4 Unique Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 4 - Helmet Set",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Set Merc Equip + 4 Rare Jewel ",
-        "CubeRecipeDescription": "Set Merc Equip + 4 Rare Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Set Helm + 4 Rare Jewel ",
+        "CubeRecipeDescription": "Set Helm + 4 Rare Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 4 - Helmet Unique",
         "Item": null,
-        "Output": "Socketed Merc Equip",
-        "Input": "Unique Merc Equip + 4 Unique Jewel ",
-        "CubeRecipeDescription": "Unique Merc Equip + 4 Unique Jewel = Socketed Merc Equip"
+        "Output": "Socketed Helm",
+        "Input": "Unique Helm + 4 Unique Jewel ",
+        "CubeRecipeDescription": "Unique Helm + 4 Unique Jewel = Socketed Helm"
     },
     {
         "Description": "SOCKET PUNCH 1 - Body Armor Low Quality",
