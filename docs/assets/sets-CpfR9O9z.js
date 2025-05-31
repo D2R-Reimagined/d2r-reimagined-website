@@ -1,4 +1,4 @@
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-v4zDOC48.js";
+import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-e6YuMhVl.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
 const name = "sets";
 const template = '<template>\n    <h3 class="text-center my-4">\n        ${sets.length} Sets Found\n    </h3>\n    <div class="container">\n        <div class="row align-content-center justify-content-center text-center mb-5">\n            <div class="col-12 col-sm-6">\n                <div class="au-select mb-2">\n                    <moo-select\n                            class="w-100"\n                            label="Select Class"\n                            options.bind="classes"\n                            class="standard-betsy-select"\n                            value.bind="class"\n                    ></moo-select>\n                </div>\n            </div>\n            <div class="col-12 col-sm-6">\n                <moo-text-field\n                        class="w-100"\n                        label="Search Sets"\n                        type="text"\n                        value.bind="search"\n                ></moo-text-field>\n            </div>\n        </div>\n    </div>\n\n    <div class="row gy-5 px-5 text-center">\n        <div class="col-12 col-md-6 col-xxl-4" repeat.for="set of sets">\n            <div class="card bg-dark p-2">\n                <div class="set-text fs-5 mb-1">\n                    ${set.Name}\n                </div>\n\n                <div class="partial-sets set-text" repeat.for="partial of set.PartialProperties">\n                    ${partial.PropertyString} (${$index + 2} Items)\n                </div>\n\n                <div class="partial-sets set-text" repeat.for="full of set.FullProperties">\n                    ${full.PropertyString} (Full Set)\n                </div>\n\n                <div class="my-3" repeat.for="setItem of set.SetItems">\n                    <div class="set-text mb-1">\n                        ${setItem.Name}\n                    </div>\n\n                    <div class="armor mb-1" if.bind="setItem.Equipment.Name">\n                        ${setItem.Equipment.Name}\n                    </div>\n\n                    <div class="armor mt-1" if.bind="setItem.Equipment.ArmorString">\n                        Armor: ${setItem.Equipment.ArmorString}\n                    </div>\n\n                    <div class="damage" if.bind="setItem.Equipment.DamageTypes"\n                         repeat.for="damage of setItem.Equipment.DamageTypes">\n                        ${getDamageTypeString(damage.Type)} ${damage.DamageString}\n                    </div>\n\n                    <div class="requirement" if.bind="setItem.RequiredLevel > 0">\n                        Level ${setItem.RequiredLevel} Required\n                    </div>\n\n                    <div class="requirement" if.bind="setItem.Equipment.RequiredStrength > 0">\n                        ${setItem.Equipment.RequiredStrength} Strength Required\n                    </div>\n\n                    <div class="requirement" if.bind="setItem.Equipment.RequiredDexterity > 0">\n                        ${setItem.Equipment.RequiredDexterity} Dexterity Required\n                    </div>\n\n                    <div class="durability mt-1" if.bind="setItem.Equipment.Durability > 0">\n                        ${setItem.Equipment.Durability} Durability\n                    </div>\n\n                    <div class="enhanced" repeat.for="property of setItem.Properties">\n                        ${property.PropertyString}\n                    </div>\n\n                    <div class="set-text" repeat.for="setProperty of setItem.SetPropertiesString">\n                        ${setProperty}\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</template>\n';
@@ -46,10 +46,6 @@ const json = [
           {
             PropertyString: "+15 Defense",
             Index: 0
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: true,
@@ -107,7 +103,7 @@ const json = [
             Index: "Amulet",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -126,15 +122,11 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "75 to Attack Rating",
+            PropertyString: "+75 to Attack Rating",
             Index: 0
           },
           {
-            PropertyString: "1",
-            Index: 2
-          },
-          {
-            PropertyString: "+ to Maximum Damage",
+            PropertyString: "+1 to Maximum Damage (Per Character Level)",
             Index: 0
           }
         ],
@@ -169,11 +161,11 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "25 bonus to Attack Rating",
+        PropertyString: "+25 % bonus to Attack Rating",
         Index: 3
       },
       {
-        PropertyString: "+200% Damage to Undead Damage to Undead",
+        PropertyString: "+200% Damage to Undead",
         Index: 1
       },
       {
@@ -199,7 +191,7 @@ const json = [
         Type: "Boots",
         "Set": "Hsarus' Defense",
         SetPropertiesString: [
-          "to Attack Rating (2 Items)"
+          "+2.5 to Attack Rating (Per Character Level) (2 Items)"
         ],
         Name: "Hsarus' Iron Heel",
         Index: "Hsarus' Iron Heel",
@@ -209,7 +201,7 @@ const json = [
         Code: "mbt",
         Properties: [
           {
-            PropertyString: "+20 Faster Run/Walk",
+            PropertyString: "20% Faster Run/Walk",
             Index: 1
           },
           {
@@ -233,14 +225,14 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Shield",
         "Set": "Hsarus' Defense",
         SetPropertiesString: [
-          "+ Defense (2 Items)"
+          "+2.5 Defense (Per Character Level) (2 Items)"
         ],
         Name: "Hsarus' Iron Fist",
         Index: "Hsarus' Iron Fist",
@@ -254,12 +246,8 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+2 Damage Reduced by",
+            PropertyString: "Damage Reduced by 2",
             Index: 0
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: false,
@@ -285,7 +273,7 @@ const json = [
         Type: "Belt",
         "Set": "Hsarus' Defense",
         SetPropertiesString: [
-          "+ Defense (2 Items)"
+          "+2.5 Defense (Per Character Level) (2 Items)"
         ],
         Name: "Hsarus' Iron Stay",
         Index: "Hsarus' Iron Stay",
@@ -319,13 +307,13 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
     PartialProperties: [
       {
-        PropertyString: "+5 Attacker Takes Damage of",
+        PropertyString: "Attacker Takes Damage of +5",
         Index: 0
       }
     ],
@@ -353,7 +341,7 @@ const json = [
         Type: "Sword",
         "Set": "Cleglaw's Brace",
         SetPropertiesString: [
-          "+ to Maximum Damage (2 Items)"
+          "+1.25 to Maximum Damage (Per Character Level) (2 Items)"
         ],
         Name: "Cleglaw's Tooth",
         Index: "Cleglaw's Tooth",
@@ -363,16 +351,12 @@ const json = [
         Code: "lsd",
         Properties: [
           {
-            PropertyString: "30 bonus to Attack Rating",
+            PropertyString: "+30 % bonus to Attack Rating",
             Index: 0
           },
           {
-            PropertyString: "+50 Deadly Strike",
+            PropertyString: "50% Deadly Strike",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: false,
@@ -401,7 +385,7 @@ const json = [
         Type: "Shield",
         "Set": "Cleglaw's Brace",
         SetPropertiesString: [
-          "All Resistances +15 (2 Items)"
+          "All Resistances +15% (2 Items)"
         ],
         Name: "Cleglaw's Claw",
         Index: "Cleglaw's Claw",
@@ -417,10 +401,6 @@ const json = [
           {
             PropertyString: "+75 Poison Length Reduced by",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: true,
@@ -446,7 +426,7 @@ const json = [
         Type: "Gloves",
         "Set": "Cleglaw's Brace",
         SetPropertiesString: [
-          "to Attack Rating (2 Items)"
+          "+2.5 to Attack Rating (Per Character Level) (2 Items)"
         ],
         Name: "Cleglaw's Pincers",
         Index: "Cleglaw's Pincers",
@@ -480,7 +460,7 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -492,7 +472,7 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "+20 Increased Attack Speed",
+        PropertyString: "20% Increased Attack Speed",
         Index: 3
       },
       {
@@ -500,7 +480,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "+35 Chance of Crushing Blow",
+        PropertyString: "35% Chance of Crushing Blow",
         Index: 2
       },
       {
@@ -518,7 +498,7 @@ const json = [
         Type: "Amulet",
         "Set": "Iratha's Finery",
         SetPropertiesString: [
-          "All Resistances +15 (2 Items)"
+          "All Resistances +15% (2 Items)"
         ],
         Name: "Iratha's Collar",
         Index: "Iratha's Collar",
@@ -549,14 +529,14 @@ const json = [
             Index: "Amulet",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Gloves",
         "Set": "Iratha's Finery",
         SetPropertiesString: [
-          "+20 Increased Attack Speed (2 Items)"
+          "20% Increased Attack Speed (2 Items)"
         ],
         Name: "Iratha's Cuff",
         Index: "Iratha's Cuff",
@@ -590,14 +570,14 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Iratha's Finery",
         SetPropertiesString: [
-          "+ Defense (2 Items)"
+          "+2 Defense (Per Character Level) (2 Items)"
         ],
         Name: "Iratha's Coil",
         Index: "Iratha's Coil",
@@ -627,11 +607,11 @@ const json = [
           Durability: 50,
           ItemLevel: 29,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -672,7 +652,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -682,7 +662,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+20 Faster Run/Walk",
+        PropertyString: "20% Faster Run/Walk",
         Index: 2
       },
       {
@@ -712,7 +692,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "All Resistances +20",
+        PropertyString: "All Resistances +20%",
         Index: 0
       }
     ],
@@ -726,7 +706,7 @@ const json = [
         Type: "Sword",
         "Set": "Isenhart's Armory",
         SetPropertiesString: [
-          "to Attack Rating (2 Items)"
+          "+1.25 to Attack Rating (Per Character Level) (2 Items)"
         ],
         Name: "Isenhart's Lightbrand",
         Index: "Isenhart's Lightbrand",
@@ -736,16 +716,12 @@ const json = [
         Code: "bsd",
         Properties: [
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 1
           },
           {
             PropertyString: "+10 to Minimum Damage",
             Index: 0
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: true,
@@ -774,7 +750,7 @@ const json = [
         Type: "Shield",
         "Set": "Isenhart's Armory",
         SetPropertiesString: [
-          "All Resistances +8 (2 Items)"
+          "All Resistances +8% (2 Items)"
         ],
         Name: "Isenhart's Parry",
         Index: "Isenhart's Parry",
@@ -790,10 +766,6 @@ const json = [
           {
             PropertyString: "+4 Attacker Takes Lightning Damage of",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: true,
@@ -819,7 +791,7 @@ const json = [
         Type: "Armor",
         "Set": "Isenhart's Armory",
         SetPropertiesString: [
-          "+ Defense (2 Items)"
+          "+2 Defense (Per Character Level) (2 Items)"
         ],
         Name: "Isenhart's Case",
         Index: "Isenhart's Case",
@@ -833,7 +805,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+2 Magic Damage Reduced by",
+            PropertyString: "Magic Damage Reduced by 2",
             Index: 1
           }
         ],
@@ -857,10 +829,10 @@ const json = [
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Isenhart's Armory",
         SetPropertiesString: [
-          "All Resistances +8 (2 Items)"
+          "All Resistances +8% (2 Items)"
         ],
         Name: "Isenhart's Horns",
         Index: "Isenhart's Horns",
@@ -874,7 +846,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+2 Damage Reduced by",
+            PropertyString: "Damage Reduced by 2",
             Index: 1
           }
         ],
@@ -890,11 +862,11 @@ const json = [
           Durability: 30,
           ItemLevel: 15,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -910,7 +882,7 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "+20 Faster Run/Walk",
+        PropertyString: "20% Faster Run/Walk",
         Index: 4
       },
       {
@@ -918,7 +890,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "35 bonus to Attack Rating",
+        PropertyString: "+35 % bonus to Attack Rating",
         Index: 2
       },
       {
@@ -926,7 +898,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "All Resistances +10",
+        PropertyString: "All Resistances +10%",
         Index: 1
       }
     ],
@@ -940,7 +912,7 @@ const json = [
         Type: "Bow",
         "Set": "Vidala's Rig",
         SetPropertiesString: [
-          "to Attack Rating (2 Items)"
+          "+2 to Attack Rating (Per Character Level) (2 Items)"
         ],
         Name: "Vidala's Barb",
         Index: "Vidala's Barb",
@@ -952,10 +924,6 @@ const json = [
           {
             PropertyString: "Adds 1-20 Lightning damage",
             Index: 0
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: false,
@@ -984,7 +952,7 @@ const json = [
         Type: "Boots",
         "Set": "Vidala's Rig",
         SetPropertiesString: [
-          "All Resistances +8 (2 Items)"
+          "All Resistances +8% (2 Items)"
         ],
         Name: "Vidala's Fetlock",
         Index: "Vidala's Fetlock",
@@ -994,7 +962,7 @@ const json = [
         Code: "tbt",
         Properties: [
           {
-            PropertyString: "+30 Faster Run/Walk",
+            PropertyString: "30% Faster Run/Walk",
             Index: 1
           }
         ],
@@ -1014,14 +982,14 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Armor",
         "Set": "Vidala's Rig",
         SetPropertiesString: [
-          "+ Defense (3 Items)",
+          "+2.5 Defense (Per Character Level) (3 Items)",
           "Fire Resist +24% (2 Items)"
         ],
         Name: "Vidala's Ambush",
@@ -1063,7 +1031,7 @@ const json = [
         Type: "Amulet",
         "Set": "Vidala's Rig",
         SetPropertiesString: [
-          "+50 better chance of getting magic item (2 Items)"
+          "50% better chance of getting magic item (2 Items)"
         ],
         Name: "Vidala's Snare",
         Index: "Vidala's Snare",
@@ -1094,13 +1062,13 @@ const json = [
             Index: "Amulet",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
     PartialProperties: [
       {
-        PropertyString: "75 to Attack Rating",
+        PropertyString: "+75 to Attack Rating",
         Index: 0
       },
       {
@@ -1118,7 +1086,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+ to Maximum Cold Damage",
+        PropertyString: "+1.5 to Maximum Cold Damage (Per Character Level)",
         Index: 0
       },
       {
@@ -1140,7 +1108,7 @@ const json = [
         Type: "Shield",
         "Set": "Milabrega's Regalia",
         SetPropertiesString: [
-          "+50 Enhanced Defense (3 Items)",
+          "50% Enhanced Defense (3 Items)",
           "50 to Life (2 Items)"
         ],
         Name: "Milabrega's Orb",
@@ -1155,12 +1123,8 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+20 better chance of getting magic item",
+            PropertyString: "20% better chance of getting magic item",
             Index: 0
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: true,
@@ -1194,7 +1158,7 @@ const json = [
         Code: "wsp",
         Properties: [
           {
-            PropertyString: "+1",
+            PropertyString: "+1 to Paladin Skill Levels",
             Index: 0
           },
           {
@@ -1202,12 +1166,8 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "2 to Light Radius",
+            PropertyString: "+2 to Light Radius",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 3
           }
         ],
         DamageArmorEnhanced: true,
@@ -1233,7 +1193,7 @@ const json = [
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Milabrega's Regalia",
         SetPropertiesString: [
           "Cold Resist +40% (2 Items)"
@@ -1266,18 +1226,18 @@ const json = [
           Durability: 50,
           ItemLevel: 29,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Armor",
         "Set": "Milabrega's Regalia",
         SetPropertiesString: [
-          "+100 Enhanced Defense (2 Items)"
+          "100% Enhanced Defense (2 Items)"
         ],
         Name: "Milabrega's Robe",
         Index: "Milabrega's Robe",
@@ -1287,11 +1247,11 @@ const json = [
         Code: "aar",
         Properties: [
           {
-            PropertyString: "+2 Damage Reduced by",
+            PropertyString: "Damage Reduced by 2",
             Index: 1
           },
           {
-            PropertyString: "+3 Attacker Takes Damage of",
+            PropertyString: "Attacker Takes Damage of +3",
             Index: 0
           }
         ],
@@ -1317,15 +1277,15 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "75 to Attack Rating",
+        PropertyString: "+75 to Attack Rating",
         Index: 0
       },
       {
-        PropertyString: "+ to Maximum Lightning Damage",
+        PropertyString: "+2 to Maximum Lightning Damage (Per Character Level)",
         Index: 1
       },
       {
-        PropertyString: "125 to Attack Rating",
+        PropertyString: "+125 to Attack Rating",
         Index: 2
       },
       {
@@ -1335,7 +1295,7 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "+2",
+        PropertyString: "+2 to Paladin Skill Levels",
         Index: 1
       },
       {
@@ -1362,7 +1322,7 @@ const json = [
         "Set": "Cathan's Traps",
         SetPropertiesString: [
           "+50 to Mana (2 Items)",
-          "All Resistances +10 (3 Items)"
+          "All Resistances +10% (3 Items)"
         ],
         Name: "Cathan's Rule",
         Index: "Cathan's Rule",
@@ -1378,10 +1338,6 @@ const json = [
           {
             PropertyString: "+1 to Fire Skills",
             Index: 0
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: false,
@@ -1411,7 +1367,7 @@ const json = [
         "Set": "Cathan's Traps",
         SetPropertiesString: [
           "Fire Resist +30% (3 Items)",
-          "+5 Attacker Takes Damage of (2 Items)"
+          "Attacker Takes Damage of +5 (2 Items)"
         ],
         Name: "Cathan's Mesh",
         Index: "Cathan's Mesh",
@@ -1449,10 +1405,10 @@ const json = [
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Cathan's Traps",
         SetPropertiesString: [
-          "+ Defense (2 Items)"
+          "+2 Defense (Per Character Level) (2 Items)"
         ],
         Name: "Cathan's Visage",
         Index: "Cathan's Visage",
@@ -1482,19 +1438,19 @@ const json = [
           Durability: 20,
           ItemLevel: 19,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Amulet",
         "Set": "Cathan's Traps",
         SetPropertiesString: [
-          "50 to Attack Rating (2 Items)",
-          "+25 better chance of getting magic item (3 Items)"
+          "+50 to Attack Rating (2 Items)",
+          "25% better chance of getting magic item (3 Items)"
         ],
         Name: "Cathan's Sigil",
         Index: "Cathan's Sigil",
@@ -1504,7 +1460,7 @@ const json = [
         Code: "amu",
         Properties: [
           {
-            PropertyString: "+10 Faster Hit Recovery",
+            PropertyString: "10% Faster Hit Recovery",
             Index: 0
           },
           {
@@ -1525,7 +1481,7 @@ const json = [
             Index: "Amulet",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -1546,7 +1502,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+2 Damage Reduced by",
+            PropertyString: "Damage Reduced by 2",
             Index: 1
           }
         ],
@@ -1563,7 +1519,7 @@ const json = [
             Index: "Ring",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -1583,11 +1539,11 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "+10 Faster Cast Rate",
+        PropertyString: "10% Faster Cast Rate",
         Index: 3
       },
       {
-        PropertyString: "60 to Attack Rating",
+        PropertyString: "+60 to Attack Rating",
         Index: 0
       },
       {
@@ -1595,11 +1551,11 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "All Resistances +25",
+        PropertyString: "All Resistances +25%",
         Index: 2
       },
       {
-        PropertyString: "+3 Magic Damage Reduced by",
+        PropertyString: "Magic Damage Reduced by 3",
         Index: 1
       }
     ],
@@ -1613,7 +1569,7 @@ const json = [
         Type: "Axe",
         "Set": "Tancred's Battlegear",
         SetPropertiesString: [
-          "+20 Increased Attack Speed (3 Items)",
+          "20% Increased Attack Speed (3 Items)",
           "+20 to Mana (2 Items)"
         ],
         Name: "Tancred's Crowbill",
@@ -1628,12 +1584,8 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "75 to Attack Rating",
+            PropertyString: "+75 to Attack Rating",
             Index: 0
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: true,
@@ -1662,7 +1614,7 @@ const json = [
         Type: "Armor",
         "Set": "Tancred's Battlegear",
         SetPropertiesString: [
-          "+ Defense (2 Items)"
+          "+2 Defense (Per Character Level) (2 Items)"
         ],
         Name: "Tancred's Spine",
         Index: "Tancred's Spine",
@@ -1703,7 +1655,7 @@ const json = [
         Type: "Boots",
         "Set": "Tancred's Battlegear",
         SetPropertiesString: [
-          "+30 Faster Run/Walk (2 Items)",
+          "30% Faster Run/Walk (2 Items)",
           "10 to Strength (3 Items)"
         ],
         Name: "Tancred's Hobnails",
@@ -1738,15 +1690,15 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Amulet",
         "Set": "Tancred's Battlegear",
         SetPropertiesString: [
-          "60 to Attack Rating (3 Items)",
-          "+78 better chance of getting magic item (2 Items)"
+          "+60 to Attack Rating (3 Items)",
+          "78% better chance of getting magic item (2 Items)"
         ],
         Name: "Tancred's Weird",
         Index: "Tancred's Weird",
@@ -1756,11 +1708,11 @@ const json = [
         Code: "amu",
         Properties: [
           {
-            PropertyString: "+2 Damage Reduced by",
+            PropertyString: "Damage Reduced by 2",
             Index: 0
           },
           {
-            PropertyString: "+1 Magic Damage Reduced by",
+            PropertyString: "Magic Damage Reduced by 1",
             Index: 1
           }
         ],
@@ -1777,14 +1729,14 @@ const json = [
             Index: "Amulet",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Tancred's Battlegear",
         SetPropertiesString: [
-          "All Resistances +10 (2 Items)"
+          "All Resistances +10% (2 Items)"
         ],
         Name: "Tancred's Skull",
         Index: "Tancred's Skull",
@@ -1798,7 +1750,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "40 to Attack Rating",
+            PropertyString: "+40 to Attack Rating",
             Index: 1
           }
         ],
@@ -1814,11 +1766,11 @@ const json = [
           Durability: 40,
           ItemLevel: 22,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -1842,11 +1794,11 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "All Resistances +10",
+        PropertyString: "All Resistances +10%",
         Index: 1
       },
       {
-        PropertyString: "+75 extra gold from monsters",
+        PropertyString: "75% extra gold from monsters",
         Index: 0
       }
     ],
@@ -1860,7 +1812,7 @@ const json = [
         Type: "Gloves",
         "Set": "Sigon's Complete Steel",
         SetPropertiesString: [
-          "+30 Increased Attack Speed (2 Items)"
+          "30% Increased Attack Speed (2 Items)"
         ],
         Name: "Sigon's Gage",
         Index: "Sigon's Gage",
@@ -1870,7 +1822,7 @@ const json = [
         Code: "hgl",
         Properties: [
           {
-            PropertyString: "20 to Attack Rating",
+            PropertyString: "+20 to Attack Rating",
             Index: 1
           },
           {
@@ -1894,14 +1846,14 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Sigon's Complete Steel",
         SetPropertiesString: [
-          "to Attack Rating (2 Items)"
+          "+2 to Attack Rating (Per Character Level) (2 Items)"
         ],
         Name: "Sigon's Visor",
         Index: "Sigon's Visor",
@@ -1931,18 +1883,18 @@ const json = [
           Durability: 40,
           ItemLevel: 23,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Armor",
         "Set": "Sigon's Complete Steel",
         SetPropertiesString: [
-          "+20 Attacker Takes Damage of (2 Items)"
+          "Attacker Takes Damage of +20 (2 Items)"
         ],
         Name: "Sigon's Shelter",
         Index: "Sigon's Shelter",
@@ -1952,7 +1904,7 @@ const json = [
         Code: "gth",
         Properties: [
           {
-            PropertyString: "+25 Enhanced Defense",
+            PropertyString: "25% Enhanced Defense",
             Index: 0
           },
           {
@@ -1983,8 +1935,8 @@ const json = [
         Type: "Boots",
         "Set": "Sigon's Complete Steel",
         SetPropertiesString: [
-          "50 to Attack Rating (2 Items)",
-          "+50 better chance of getting magic item (3 Items)"
+          "+50 to Attack Rating (2 Items)",
+          "50% better chance of getting magic item (3 Items)"
         ],
         Name: "Sigon's Sabot",
         Index: "Sigon's Sabot",
@@ -1994,7 +1946,7 @@ const json = [
         Code: "hbt",
         Properties: [
           {
-            PropertyString: "+20 Faster Run/Walk",
+            PropertyString: "20% Faster Run/Walk",
             Index: 0
           },
           {
@@ -2018,14 +1970,14 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Belt",
         "Set": "Sigon's Complete Steel",
         SetPropertiesString: [
-          "+ Defense (2 Items)"
+          "+2 Defense (Per Character Level) (2 Items)"
         ],
         Name: "Sigon's Wrap",
         Index: "Sigon's Wrap",
@@ -2059,7 +2011,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -2080,10 +2032,6 @@ const json = [
           {
             PropertyString: "20% Increased Chance of Blocking",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: false,
@@ -2130,11 +2078,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+7 Damage Reduced by",
+        PropertyString: "Damage Reduced by 7",
         Index: 2
       },
       {
-        PropertyString: "+12 Attacker Takes Damage of",
+        PropertyString: "Attacker Takes Damage of +12",
         Index: 1
       }
     ],
@@ -2145,10 +2093,10 @@ const json = [
     Name: "Infernal Tools",
     SetItems: [
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Infernal Tools",
         SetPropertiesString: [
-          "+ Defense (2 Items)"
+          "+2 Defense (Per Character Level) (2 Items)"
         ],
         Name: "Infernal Cranium",
         Index: "Infernal Cranium",
@@ -2158,7 +2106,7 @@ const json = [
         Code: "cap",
         Properties: [
           {
-            PropertyString: "All Resistances +10",
+            PropertyString: "All Resistances +10%",
             Index: 0
           },
           {
@@ -2178,18 +2126,18 @@ const json = [
           Durability: 12,
           ItemLevel: 1,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Wand",
         "Set": "Infernal Tools",
         SetPropertiesString: [
-          "to Attack Rating (2 Items)"
+          "+2.5 to Attack Rating (Per Character Level) (2 Items)"
         ],
         Name: "Infernal Torch",
         Index: "Infernal Torch",
@@ -2199,16 +2147,12 @@ const json = [
         Code: "gwn",
         Properties: [
           {
-            PropertyString: "+1",
+            PropertyString: "+1 to Necromancer Skill Levels",
             Index: 1
           },
           {
             PropertyString: "+8 to Minimum Damage",
             Index: 0
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: true,
@@ -2272,7 +2216,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -2288,11 +2232,11 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "+1",
+        PropertyString: "+1 to Necromancer Skill Levels",
         Index: 1
       },
       {
-        PropertyString: "20 bonus to Attack Rating",
+        PropertyString: "+20 % bonus to Attack Rating",
         Index: 0
       },
       {
@@ -2319,10 +2263,10 @@ const json = [
     Name: "Berserker's Arsenal",
     SetItems: [
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Berserker's Arsenal",
         SetPropertiesString: [
-          "to Attack Rating (2 Items)"
+          "+2 to Attack Rating (Per Character Level) (2 Items)"
         ],
         Name: "Berserker's Headgear",
         Index: "Berserker's Headgear",
@@ -2352,18 +2296,18 @@ const json = [
           Durability: 24,
           ItemLevel: 11,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Armor",
         "Set": "Berserker's Arsenal",
         SetPropertiesString: [
-          "+ Defense (2 Items)"
+          "+3 Defense (Per Character Level) (2 Items)"
         ],
         Name: "Berserker's Hauberk",
         Index: "Berserker's Hauberk",
@@ -2373,11 +2317,11 @@ const json = [
         Code: "spl",
         Properties: [
           {
-            PropertyString: "+1",
+            PropertyString: "+1 to Barbarian Skill Levels",
             Index: 1
           },
           {
-            PropertyString: "+2 Magic Damage Reduced by",
+            PropertyString: "Magic Damage Reduced by 2",
             Index: 0
           }
         ],
@@ -2414,16 +2358,12 @@ const json = [
         Code: "2ax",
         Properties: [
           {
-            PropertyString: "30 bonus to Attack Rating",
+            PropertyString: "+30 % bonus to Attack Rating",
             Index: 0
           },
           {
             PropertyString: "+5 Mana stolen per hit",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: false,
@@ -2479,7 +2419,7 @@ const json = [
         Type: "Gloves",
         "Set": "Death's Disguise",
         SetPropertiesString: [
-          "+30 Increased Attack Speed (2 Items)"
+          "30% Increased Attack Speed (2 Items)"
         ],
         Name: "Death's Hand",
         Index: "Death's Hand",
@@ -2513,14 +2453,14 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Belt",
         "Set": "Death's Disguise",
         SetPropertiesString: [
-          "All Resistances +15 (2 Items)"
+          "All Resistances +15% (2 Items)"
         ],
         Name: "Death's Guard",
         Index: "Death's Guard",
@@ -2554,7 +2494,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -2577,10 +2517,6 @@ const json = [
           {
             PropertyString: "+4 Life stolen per hit",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: true,
@@ -2618,11 +2554,11 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "40 bonus to Attack Rating",
+        PropertyString: "+40 % bonus to Attack Rating",
         Index: 0
       },
       {
-        PropertyString: "All Resistances +25",
+        PropertyString: "All Resistances +25%",
         Index: 2
       }
     ],
@@ -2636,7 +2572,7 @@ const json = [
         Type: "Sword",
         "Set": "Angelic Raiment",
         SetPropertiesString: [
-          "+30 Increased Attack Speed (3 Items)",
+          "30% Increased Attack Speed (3 Items)",
           "+75% Enhanced Damage (2 Items)"
         ],
         Name: "Angelic Sickle",
@@ -2647,16 +2583,12 @@ const json = [
         Code: "sbr",
         Properties: [
           {
-            PropertyString: "75 to Attack Rating",
+            PropertyString: "+75 to Attack Rating",
             Index: 0
           },
           {
-            PropertyString: "+250% Damage to Undead Damage to Undead",
+            PropertyString: "+250% Damage to Undead",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: false,
@@ -2696,11 +2628,11 @@ const json = [
         Code: "rng",
         Properties: [
           {
-            PropertyString: "+40 Enhanced Defense",
+            PropertyString: "40% Enhanced Defense",
             Index: 1
           },
           {
-            PropertyString: "+3 Damage Reduced by",
+            PropertyString: "Damage Reduced by 3",
             Index: 0
           }
         ],
@@ -2727,8 +2659,8 @@ const json = [
         Type: "Ring",
         "Set": "Angelic Raiment",
         SetPropertiesString: [
-          "to Attack Rating (2 Items)",
-          "+50 better chance of getting magic item (3 Items)"
+          "+3 to Attack Rating (Per Character Level) (2 Items)",
+          "50% better chance of getting magic item (3 Items)"
         ],
         Name: "Angelic Halo",
         Index: "Angelic Halo",
@@ -2759,7 +2691,7 @@ const json = [
             Index: "Ring",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -2781,7 +2713,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "3 to Light Radius",
+            PropertyString: "+3 to Light Radius",
             Index: 0
           }
         ],
@@ -2798,7 +2730,7 @@ const json = [
             Index: "Amulet",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -2818,7 +2750,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "All Resistances +25",
+        PropertyString: "All Resistances +25%",
         Index: 0
       },
       {
@@ -2826,7 +2758,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "+40 better chance of getting magic item",
+        PropertyString: "40% better chance of getting magic item",
         Index: 2
       }
     ],
@@ -2840,7 +2772,7 @@ const json = [
         Type: "Bow",
         "Set": "Arctic Gear",
         SetPropertiesString: [
-          "to Attack Rating (2 Items)",
+          "+2 to Attack Rating (Per Character Level) (2 Items)",
           "Adds 20-30 to Cold Damage (3 Items)"
         ],
         Name: "Arctic Horn",
@@ -2855,12 +2787,8 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "20 bonus to Attack Rating",
+            PropertyString: "+20 % bonus to Attack Rating",
             Index: 0
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: true,
@@ -2889,7 +2817,7 @@ const json = [
         Type: "Armor",
         "Set": "Arctic Gear",
         SetPropertiesString: [
-          "+ Defense (2 Items)",
+          "+3 Defense (Per Character Level) (2 Items)",
           "Cold Resist +15% (3 Items)"
         ],
         Name: "Arctic Furs",
@@ -2900,11 +2828,11 @@ const json = [
         Code: "qui",
         Properties: [
           {
-            PropertyString: "+275-325 Enhanced Defense",
+            PropertyString: "275-325% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "All Resistances +10",
+            PropertyString: "All Resistances +10%",
             Index: 1
           }
         ],
@@ -2932,7 +2860,7 @@ const json = [
         "Set": "Arctic Gear",
         SetPropertiesString: [
           "Cold Resist +10% (3 Items)",
-          "+40 better chance of getting magic item (2 Items)"
+          "40% better chance of getting magic item (2 Items)"
         ],
         Name: "Arctic Binding",
         Index: "Arctic Binding",
@@ -2966,14 +2894,14 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Gloves",
         "Set": "Arctic Gear",
         SetPropertiesString: [
-          "50 to Attack Rating (2 Items)",
+          "+50 to Attack Rating (2 Items)",
           "10 to Dexterity (3 Items)"
         ],
         Name: "Arctic Mitts",
@@ -2984,7 +2912,7 @@ const json = [
         Code: "tgl",
         Properties: [
           {
-            PropertyString: "+10 Increased Attack Speed",
+            PropertyString: "10% Increased Attack Speed",
             Index: 1
           },
           {
@@ -3008,7 +2936,7 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -3024,7 +2952,7 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "+ to Maximum Cold Damage",
+        PropertyString: "+2 to Maximum Cold Damage (Per Character Level)",
         Index: 0
       },
       {
@@ -3043,7 +2971,7 @@ const json = [
         "Set": "Arcanna's Tricks",
         SetPropertiesString: [
           "Fire Resist +20% (3 Items)",
-          "+50 better chance of getting magic item (2 Items)"
+          "50% better chance of getting magic item (2 Items)"
         ],
         Name: "Arcanna's Sign",
         Index: "Arcanna's Sign",
@@ -3074,7 +3002,7 @@ const json = [
             Index: "Amulet",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -3092,16 +3020,12 @@ const json = [
         Code: "wst",
         Properties: [
           {
-            PropertyString: "+1",
+            PropertyString: "+1 to Sorceress Skill Levels",
             Index: 0
           },
           {
-            PropertyString: "+25 Deadly Strike",
+            PropertyString: "25% Deadly Strike",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: false,
@@ -3127,10 +3051,10 @@ const json = [
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Arcanna's Tricks",
         SetPropertiesString: [
-          "+ Defense (2 Items)",
+          "+3 Defense (Per Character Level) (2 Items)",
           "Lightning Resist +15% (3 Items)"
         ],
         Name: "Arcanna's Head",
@@ -3145,7 +3069,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+2 Attacker Takes Damage of",
+            PropertyString: "Attacker Takes Damage of +2",
             Index: 1
           }
         ],
@@ -3161,11 +3085,11 @@ const json = [
           Durability: 18,
           ItemLevel: 5,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -3183,11 +3107,11 @@ const json = [
         Code: "ltp",
         Properties: [
           {
-            PropertyString: "+3 Damage Reduced by",
+            PropertyString: "Damage Reduced by 3",
             Index: 1
           },
           {
-            PropertyString: "2 to Light Radius",
+            PropertyString: "+2 to Light Radius",
             Index: 0
           }
         ],
@@ -3231,7 +3155,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "+20 Faster Cast Rate",
+        PropertyString: "20% Faster Cast Rate",
         Index: 0
       },
       {
@@ -3250,7 +3174,7 @@ const json = [
     Name: "Natalya's Odium",
     SetItems: [
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Natalya's Odium",
         SetPropertiesString: [],
         Name: "Natalya's Totem",
@@ -3273,11 +3197,11 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "All Resistances +10-20",
+            PropertyString: "All Resistances +10-20%",
             Index: 3
           },
           {
-            PropertyString: "+3 Magic Damage Reduced by",
+            PropertyString: "Magic Damage Reduced by 3",
             Index: 4
           }
         ],
@@ -3293,11 +3217,11 @@ const json = [
           Durability: 40,
           ItemLevel: 50,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -3312,7 +3236,7 @@ const json = [
         Code: "7qr",
         Properties: [
           {
-            PropertyString: "+40 Increased Attack Speed",
+            PropertyString: "40% Increased Attack Speed",
             Index: 0
           },
           {
@@ -3324,11 +3248,11 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+200% Damage to Demons Damage to Demons",
+            PropertyString: "+200% Damage to Demons",
             Index: 6
           },
           {
-            PropertyString: "+200% Damage to Undead Damage to Undead",
+            PropertyString: "+200% Damage to Undead",
             Index: 5
           },
           {
@@ -3338,10 +3262,6 @@ const json = [
           {
             PropertyString: "+50 to Minimum Cold Damage",
             Index: 3
-          },
-          {
-            PropertyString: "1",
-            Index: 7
           }
         ],
         DamageArmorEnhanced: true,
@@ -3386,7 +3306,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "to Life",
+            PropertyString: "+1 to Life (Per Character Level)",
             Index: 1
           },
           {
@@ -3433,7 +3353,7 @@ const json = [
         Code: "xmb",
         Properties: [
           {
-            PropertyString: "+40 Faster Run/Walk",
+            PropertyString: "40% Faster Run/Walk",
             Index: 1
           },
           {
@@ -3441,7 +3361,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+ Heal Stamina Plus",
+            PropertyString: "+0.25 Heal Stamina Plus (Per Character Level)",
             Index: 2
           },
           {
@@ -3469,13 +3389,13 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
     PartialProperties: [
       {
-        PropertyString: "+15 Magic Damage Reduced by",
+        PropertyString: "Magic Damage Reduced by 15",
         Index: 0
       },
       {
@@ -3489,7 +3409,7 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "+3",
+        PropertyString: "+3 to Assassin Skill Levels",
         Index: 1
       },
       {
@@ -3505,11 +3425,11 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "All Resistances +50",
+        PropertyString: "All Resistances +50%",
         Index: 0
       },
       {
-        PropertyString: "+30 Damage Reduced by 30%%",
+        PropertyString: "+30 % Physical Damage Reduction",
         Index: 5
       },
       {
@@ -3539,7 +3459,7 @@ const json = [
         Code: "dr8",
         Properties: [
           {
-            PropertyString: "+25 Faster Hit Recovery",
+            PropertyString: "25% Faster Hit Recovery",
             Index: 3
           },
           {
@@ -3555,7 +3475,7 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "5 to Light Radius",
+            PropertyString: "+5 to Light Radius",
             Index: 2
           },
           {
@@ -3661,7 +3581,7 @@ const json = [
         Code: "9mt",
         Properties: [
           {
-            PropertyString: "+30 Increased Attack Speed",
+            PropertyString: "30% Increased Attack Speed",
             Index: 3
           },
           {
@@ -3669,7 +3589,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+200% Damage to Demons Damage to Demons",
+            PropertyString: "+200% Damage to Demons",
             Index: 4
           },
           {
@@ -3687,10 +3607,6 @@ const json = [
           {
             PropertyString: "Socketed (2-5)",
             Index: 6
-          },
-          {
-            PropertyString: "1",
-            Index: 7
           }
         ],
         DamageArmorEnhanced: true,
@@ -3735,7 +3651,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+40 Faster Run/Walk",
+            PropertyString: "40% Faster Run/Walk",
             Index: 4
           },
           {
@@ -3771,17 +3687,17 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
     PartialProperties: [
       {
-        PropertyString: "150 bonus to Attack Rating",
+        PropertyString: "+150 % bonus to Attack Rating",
         Index: 0
       },
       {
-        PropertyString: "+50 better chance of getting magic item",
+        PropertyString: "50% better chance of getting magic item",
         Index: 2
       },
       {
@@ -3791,7 +3707,7 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "+3",
+        PropertyString: "+3 to Druid Skill Levels",
         Index: 1
       },
       {
@@ -3811,7 +3727,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "All Resistances +50",
+        PropertyString: "All Resistances +50%",
         Index: 0
       }
     ],
@@ -3841,15 +3757,15 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+37 extra gold from monsters",
+            PropertyString: "37% extra gold from monsters",
             Index: 1
           },
           {
-            PropertyString: "+25-40 better chance of getting magic item",
+            PropertyString: "25-40% better chance of getting magic item",
             Index: 4
           },
           {
-            PropertyString: "4 to Light Radius",
+            PropertyString: "+4 to Light Radius",
             Index: 3
           },
           {
@@ -3880,8 +3796,8 @@ const json = [
         Type: "Armor",
         "Set": "Immortal King",
         SetPropertiesString: [
-          "+25 Faster Hit Recovery (2 Items)",
-          "+50 Enhanced Defense (6 Items)",
+          "25% Faster Hit Recovery (2 Items)",
+          "50% Enhanced Defense (6 Items)",
           "Cold Resist +40% (3 Items)",
           "Lightning Resist +40% (5 Items)",
           "Fire Resist +40% (4 Items)"
@@ -3934,10 +3850,10 @@ const json = [
         "Set": "Immortal King",
         SetPropertiesString: [
           "+2 to Combat Skills (Barbarian only) (6 Items)",
-          "+25 Faster Hit Recovery (3 Items)",
-          "+100 Enhanced Defense (4 Items)",
+          "25% Faster Hit Recovery (3 Items)",
+          "100% Enhanced Defense (4 Items)",
           "+105 Defense (2 Items)",
-          "+20 Damage Reduced by 20%% (5 Items)"
+          "+20 % Physical Damage Reduction (5 Items)"
         ],
         Name: "Immortal King's Detail",
         Index: "Immortal King's Detail",
@@ -3979,14 +3895,14 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Gloves",
         "Set": "Immortal King",
         SetPropertiesString: [
-          "+25 Increased Attack Speed (2 Items)",
+          "25% Increased Attack Speed (2 Items)",
           "+10 Mana stolen per hit (5 Items)",
           "+10 Life stolen per hit (4 Items)",
           "Freezes target +2 (6 Items)",
@@ -4032,7 +3948,7 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -4042,7 +3958,7 @@ const json = [
           "+2 to Masteries (Barbarian only) (3 Items)",
           "+160 Defense (4 Items)",
           "+1 Half Freeze Duration (5 Items)",
-          "+25 better chance of getting magic item (2 Items)"
+          "25% better chance of getting magic item (2 Items)"
         ],
         Name: "Immortal King's Pillar",
         Index: "Immortal King's Pillar",
@@ -4052,11 +3968,11 @@ const json = [
         Code: "xhb",
         Properties: [
           {
-            PropertyString: "+40 Faster Run/Walk",
+            PropertyString: "40% Faster Run/Walk",
             Index: 1
           },
           {
-            PropertyString: "110 to Attack Rating",
+            PropertyString: "+110 to Attack Rating",
             Index: 2
           },
           {
@@ -4084,7 +4000,7 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -4109,7 +4025,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+40 Increased Attack Speed",
+            PropertyString: "40% Increased Attack Speed",
             Index: 1
           },
           {
@@ -4117,24 +4033,20 @@ const json = [
             Index: 5
           },
           {
-            PropertyString: "+200% Damage to Demons Damage to Demons",
+            PropertyString: "+200% Damage to Demons",
             Index: 2
           },
           {
-            PropertyString: "+200% Damage to Undead Damage to Undead",
+            PropertyString: "+200% Damage to Undead",
             Index: 3
           },
           {
-            PropertyString: "+35-40 Chance of Crushing Blow",
+            PropertyString: "35-40% Chance of Crushing Blow",
             Index: 4
           },
           {
             PropertyString: "Socketed (2)",
             Index: 6
-          },
-          {
-            PropertyString: "1",
-            Index: 7
           }
         ],
         DamageArmorEnhanced: true,
@@ -4162,25 +4074,25 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "50 to Attack Rating",
+        PropertyString: "+50 to Attack Rating",
         Index: 0
       },
       {
-        PropertyString: "75 to Attack Rating",
+        PropertyString: "+75 to Attack Rating",
         Index: 2
       },
       {
-        PropertyString: "125 to Attack Rating",
+        PropertyString: "+125 to Attack Rating",
         Index: 4
       },
       {
-        PropertyString: "200 to Attack Rating",
+        PropertyString: "+200 to Attack Rating",
         Index: 6
       }
     ],
     FullProperties: [
       {
-        PropertyString: "+3",
+        PropertyString: "+3 to Barbarian Skill Levels",
         Index: 1
       },
       {
@@ -4188,11 +4100,11 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "All Resistances +50",
+        PropertyString: "All Resistances +50%",
         Index: 0
       },
       {
-        PropertyString: "+10 Magic Damage Reduced by",
+        PropertyString: "Magic Damage Reduced by 10",
         Index: 3
       }
     ],
@@ -4206,7 +4118,7 @@ const json = [
         Type: "Belt",
         "Set": "Tal Rasha's Wrappings",
         SetPropertiesString: [
-          "+10 Faster Cast Rate (3 Items)",
+          "10% Faster Cast Rate (3 Items)",
           "+60 Defense (2 Items)"
         ],
         Name: "Tal Rasha's Fine-Spun Cloth",
@@ -4229,7 +4141,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+10-15 better chance of getting magic item",
+            PropertyString: "10-15% better chance of getting magic item",
             Index: 4
           },
           {
@@ -4253,14 +4165,14 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Amulet",
         "Set": "Tal Rasha's Wrappings",
         SetPropertiesString: [
-          "+10 Faster Cast Rate (4 Items)"
+          "10% Faster Cast Rate (4 Items)"
         ],
         Name: "Tal Rasha's Adjudication",
         Index: "Tal Rasha's Adjudication",
@@ -4270,7 +4182,7 @@ const json = [
         Code: "amu",
         Properties: [
           {
-            PropertyString: "+2",
+            PropertyString: "+2 to Sorceress Skill Levels",
             Index: 1
           },
           {
@@ -4303,14 +4215,14 @@ const json = [
             Index: "Amulet",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Orb",
         "Set": "Tal Rasha's Wrappings",
         SetPropertiesString: [
-          "+1 (2 Items)",
+          "+1 to Sorceress Skill Levels (2 Items)",
           "15 to Enemy Fire Resistance (3 Items)",
           "15 to Enemy Lightning Resistance (4 Items)",
           "15 to Cold Skill Damage (5 Items)"
@@ -4323,7 +4235,7 @@ const json = [
         Code: "oba",
         Properties: [
           {
-            PropertyString: "+20 Faster Cast Rate",
+            PropertyString: "20% Faster Cast Rate",
             Index: 3
           },
           {
@@ -4349,10 +4261,6 @@ const json = [
           {
             PropertyString: "+77 to Mana",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 7
           }
         ],
         DamageArmorEnhanced: false,
@@ -4381,7 +4289,7 @@ const json = [
         Type: "Armor",
         "Set": "Tal Rasha's Wrappings",
         SetPropertiesString: [
-          "+10 Faster Cast Rate (2 Items)"
+          "10% Faster Cast Rate (2 Items)"
         ],
         Name: "Tal Rasha's Guardianship",
         Index: "Tal Rasha's Guardianship",
@@ -4407,11 +4315,11 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "+15 Magic Damage Reduced by",
+            PropertyString: "Magic Damage Reduced by 15",
             Index: 1
           },
           {
-            PropertyString: "+88 better chance of getting magic item",
+            PropertyString: "88% better chance of getting magic item",
             Index: 2
           },
           {
@@ -4439,7 +4347,7 @@ const json = [
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Tal Rasha's Wrappings",
         SetPropertiesString: [],
         Name: "Tal Rasha's Horadric Crest",
@@ -4470,7 +4378,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "All Resistances +15",
+            PropertyString: "All Resistances +15%",
             Index: 3
           }
         ],
@@ -4486,11 +4394,11 @@ const json = [
           Durability: 20,
           ItemLevel: 48,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -4500,17 +4408,17 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+65 better chance of getting magic item",
+        PropertyString: "65% better chance of getting magic item",
         Index: 2
       },
       {
-        PropertyString: "+25 Faster Hit Recovery",
+        PropertyString: "25% Faster Hit Recovery",
         Index: 4
       }
     ],
     FullProperties: [
       {
-        PropertyString: "+3",
+        PropertyString: "+3 to Sorceress Skill Levels",
         Index: 1
       },
       {
@@ -4526,7 +4434,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "All Resistances +50",
+        PropertyString: "All Resistances +50%",
         Index: 0
       }
     ],
@@ -4537,7 +4445,7 @@ const json = [
     Name: "Griswold's Legacy",
     SetItems: [
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Griswold's Legacy",
         SetPropertiesString: [
           "+2 to Offensive Auras (Paladin only) (2 Items)"
@@ -4550,19 +4458,19 @@ const json = [
         Code: "urn",
         Properties: [
           {
-            PropertyString: "+50-75 Enhanced Defense",
+            PropertyString: "50-75% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "All Resistances +5",
+            PropertyString: "All Resistances +5%",
             Index: 5
           },
           {
-            PropertyString: "+2 Absorbs Cold Damage",
+            PropertyString: "+0.25 Absorbs Cold Damage (Per Character Level)",
             Index: 1
           },
           {
-            PropertyString: "+20-30 better chance of getting magic item",
+            PropertyString: "20-30% better chance of getting magic item",
             Index: 4
           },
           {
@@ -4586,11 +4494,11 @@ const json = [
           Durability: 50,
           ItemLevel: 85,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -4660,7 +4568,7 @@ const json = [
         Code: "7ws",
         Properties: [
           {
-            PropertyString: "+40 Increased Attack Speed",
+            PropertyString: "40% Increased Attack Speed",
             Index: 1
           },
           {
@@ -4668,7 +4576,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+200% Damage to Undead Damage to Undead",
+            PropertyString: "+200% Damage to Undead",
             Index: 2
           },
           {
@@ -4678,10 +4586,6 @@ const json = [
           {
             PropertyString: "Socketed (3-4)",
             Index: 4
-          },
-          {
-            PropertyString: "1",
-            Index: 5
           }
         ],
         DamageArmorEnhanced: true,
@@ -4718,7 +4622,7 @@ const json = [
         Code: "paf",
         Properties: [
           {
-            PropertyString: "+65 Faster Block Rate",
+            PropertyString: "65% Faster Block Rate",
             Index: 2
           },
           {
@@ -4730,16 +4634,12 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "All Resistances +45",
+            PropertyString: "All Resistances +45%",
             Index: 4
           },
           {
             PropertyString: "Socketed (3)",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 5
           }
         ],
         DamageArmorEnhanced: true,
@@ -4774,15 +4674,15 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "+3",
+        PropertyString: "+3 to Paladin Skill Levels",
         Index: 1
       },
       {
-        PropertyString: "+30 Faster Hit Recovery",
+        PropertyString: "30% Faster Hit Recovery",
         Index: 5
       },
       {
-        PropertyString: "200 to Attack Rating",
+        PropertyString: "+200 to Attack Rating",
         Index: 2
       },
       {
@@ -4790,7 +4690,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "All Resistances +50",
+        PropertyString: "All Resistances +50%",
         Index: 0
       }
     ],
@@ -4801,7 +4701,7 @@ const json = [
     Name: "Trang-Oul's Avatar",
     SetItems: [
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Trang-Oul's Avatar",
         SetPropertiesString: [],
         Name: "Trang-Oul's Guise",
@@ -4812,7 +4712,7 @@ const json = [
         Code: "uh9",
         Properties: [
           {
-            PropertyString: "+25 Faster Hit Recovery",
+            PropertyString: "25% Faster Hit Recovery",
             Index: 1
           },
           {
@@ -4828,7 +4728,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+20 Attacker Takes Damage of",
+            PropertyString: "Attacker Takes Damage of +20",
             Index: 2
           }
         ],
@@ -4844,11 +4744,11 @@ const json = [
           Durability: 40,
           ItemLevel: 84,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -4856,7 +4756,7 @@ const json = [
         "Set": "Trang-Oul's Avatar",
         SetPropertiesString: [
           "Lightning Resist +50% (3 Items)",
-          "+25 Damage Reduced by 25%% (5 Items)"
+          "+25 % Physical Damage Reduction (5 Items)"
         ],
         Name: "Trang-Oul's Scales",
         Index: "Trang-Oul's Scales",
@@ -4870,11 +4770,11 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+40 Faster Run/Walk",
+            PropertyString: "40% Faster Run/Walk",
             Index: 4
           },
           {
-            PropertyString: "+150 Enhanced Defense",
+            PropertyString: "150% Enhanced Defense",
             Index: 5
           },
           {
@@ -4950,10 +4850,6 @@ const json = [
           {
             PropertyString: "Poison Resist +40%",
             Index: 5
-          },
-          {
-            PropertyString: "1",
-            Index: 7
           }
         ],
         DamageArmorEnhanced: true,
@@ -4991,7 +4887,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+20 Faster Cast Rate",
+            PropertyString: "20% Faster Cast Rate",
             Index: 1
           },
           {
@@ -5023,7 +4919,7 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -5080,7 +4976,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -5112,7 +5008,7 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "+3",
+        PropertyString: "+3 to Necromancer Skill Levels",
         Index: 1
       },
       {
@@ -5136,7 +5032,7 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "All Resistances +50",
+        PropertyString: "All Resistances +50%",
         Index: 0
       }
     ],
@@ -5151,8 +5047,8 @@ const json = [
         "Set": "M'avina's Battle Hymn",
         SetPropertiesString: [
           "1 to All Skills (2 Items)",
-          "50 bonus to Attack Rating (3 Items)",
-          "All Resistances +25 (4 Items)"
+          "+50 % bonus to Attack Rating (3 Items)",
+          "All Resistances +25% (4 Items)"
         ],
         Name: "M'avina's True Sight",
         Index: "M'avina's True Sight",
@@ -5162,7 +5058,7 @@ const json = [
         Code: "ci3",
         Properties: [
           {
-            PropertyString: "+30 Increased Attack Speed",
+            PropertyString: "30% Increased Attack Speed",
             Index: 2
           },
           {
@@ -5201,7 +5097,7 @@ const json = [
         Type: "Armor",
         "Set": "M'avina's Battle Hymn",
         SetPropertiesString: [
-          "+30 Faster Hit Recovery (3 Items)"
+          "30% Faster Hit Recovery (3 Items)"
         ],
         Name: "M'avina's Embrace",
         Index: "M'avina's Embrace",
@@ -5219,7 +5115,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+ Defense",
+            PropertyString: "+4 Defense (Per Character Level)",
             Index: 4
           },
           {
@@ -5227,7 +5123,7 @@ const json = [
             Index: 5
           },
           {
-            PropertyString: "+5-12 Magic Damage Reduced by",
+            PropertyString: "Magic Damage Reduced by 5",
             Index: 2
           },
           {
@@ -5289,7 +5185,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+56 extra gold from monsters",
+            PropertyString: "56% extra gold from monsters",
             Index: 3
           }
         ],
@@ -5309,14 +5205,14 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Belt",
         "Set": "M'avina's Battle Hymn",
         SetPropertiesString: [
-          "All Resistances +25 (4 Items)"
+          "All Resistances +25% (4 Items)"
         ],
         Name: "M'avina's Tenet",
         Index: "M'avina's Tenet",
@@ -5326,7 +5222,7 @@ const json = [
         Code: "zvb",
         Properties: [
           {
-            PropertyString: "+20 Faster Run/Walk",
+            PropertyString: "20% Faster Run/Walk",
             Index: 1
           },
           {
@@ -5338,7 +5234,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "5 to Light Radius",
+            PropertyString: "+5 to Light Radius",
             Index: 3
           }
         ],
@@ -5358,7 +5254,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -5377,7 +5273,7 @@ const json = [
         Code: "amc",
         Properties: [
           {
-            PropertyString: "+40 Increased Attack Speed",
+            PropertyString: "40% Increased Attack Speed",
             Index: 1
           },
           {
@@ -5389,12 +5285,8 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "50 to Attack Rating",
+            PropertyString: "+50 to Attack Rating",
             Index: 3
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: true,
@@ -5432,11 +5324,11 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "+3",
+        PropertyString: "+3 to Amazon Skill Levels",
         Index: 1
       },
       {
-        PropertyString: "100 to Attack Rating",
+        PropertyString: "+100 to Attack Rating",
         Index: 3
       },
       {
@@ -5444,11 +5336,11 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "All Resistances +50",
+        PropertyString: "All Resistances +50%",
         Index: 0
       },
       {
-        PropertyString: "+100 better chance of getting magic item",
+        PropertyString: "100% better chance of getting magic item",
         Index: 4
       }
     ],
@@ -5482,7 +5374,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+8-10 Attacker Takes Damage of",
+            PropertyString: "Attacker Takes Damage of +8-10",
             Index: 3
           }
         ],
@@ -5499,7 +5391,7 @@ const json = [
             Index: "Amulet",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -5518,11 +5410,11 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 1
           },
           {
-            PropertyString: "+350% Damage to Demons Damage to Demons",
+            PropertyString: "+350% Damage to Demons",
             Index: 3
           },
           {
@@ -5550,7 +5442,7 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -5565,7 +5457,7 @@ const json = [
         Code: "xlb",
         Properties: [
           {
-            PropertyString: "+30 Faster Run/Walk",
+            PropertyString: "30% Faster Run/Walk",
             Index: 1
           },
           {
@@ -5593,7 +5485,7 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -5667,7 +5559,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "All Resistances +15",
+            PropertyString: "All Resistances +15%",
             Index: 3
           }
         ],
@@ -5687,7 +5579,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -5719,7 +5611,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "All Resistances +50",
+        PropertyString: "All Resistances +50%",
         Index: 0
       }
     ],
@@ -5745,20 +5637,16 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+40 Increased Attack Speed",
+            PropertyString: "40% Increased Attack Speed",
             Index: 1
           },
           {
-            PropertyString: "+ to Maximum Damage",
+            PropertyString: "+1.5 to Maximum Damage (Per Character Level)",
             Index: 0
           },
           {
             PropertyString: "+20-30 to Minimum Fire Damage",
             Index: 3
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: false,
@@ -5799,7 +5687,7 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "+30 Faster Block Rate",
+            PropertyString: "30% Faster Block Rate",
             Index: 6
           },
           {
@@ -5819,12 +5707,8 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+30 Attacker Takes Damage of",
+            PropertyString: "Attacker Takes Damage of +30",
             Index: 3
-          },
-          {
-            PropertyString: "1",
-            Index: 7
           }
         ],
         DamageArmorEnhanced: true,
@@ -5898,7 +5782,7 @@ const json = [
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Heaven's Brethren",
         SetPropertiesString: [],
         Name: "Ondal's Almighty",
@@ -5913,7 +5797,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+24 Faster Hit Recovery",
+            PropertyString: "24% Faster Hit Recovery",
             Index: 5
           },
           {
@@ -5945,11 +5829,11 @@ const json = [
           Durability: 40,
           ItemLevel: 79,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -5963,7 +5847,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+ to Maximum Fire Damage",
+        PropertyString: "+3 to Maximum Fire Damage (Per Character Level)",
         Index: 3
       }
     ],
@@ -5973,11 +5857,11 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "All Resistances +50",
+        PropertyString: "All Resistances +50%",
         Index: 0
       },
       {
-        PropertyString: "+24 Damage Reduced by 24%%",
+        PropertyString: "+24 % Physical Damage Reduction",
         Index: 4
       },
       {
@@ -5985,7 +5869,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "5 to Light Radius",
+        PropertyString: "+5 to Light Radius",
         Index: 3
       }
     ],
@@ -5996,7 +5880,7 @@ const json = [
     Name: "Orphan's Call",
     SetItems: [
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Orphan's Call",
         SetPropertiesString: [],
         Name: "Guillaume's Face",
@@ -6007,19 +5891,19 @@ const json = [
         Code: "xhm",
         Properties: [
           {
-            PropertyString: "+30 Faster Hit Recovery",
+            PropertyString: "30% Faster Hit Recovery",
             Index: 1
           },
           {
-            PropertyString: "+35 Chance of Crushing Blow",
+            PropertyString: "35% Chance of Crushing Blow",
             Index: 2
           },
           {
-            PropertyString: "+15 Deadly Strike",
+            PropertyString: "15% Deadly Strike",
             Index: 3
           },
           {
-            PropertyString: "+120 Enhanced Defense",
+            PropertyString: "120% Enhanced Defense",
             Index: 0
           },
           {
@@ -6039,11 +5923,11 @@ const json = [
           Durability: 40,
           ItemLevel: 51,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -6066,7 +5950,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+75 Enhanced Defense",
+            PropertyString: "75% Enhanced Defense",
             Index: 0
           },
           {
@@ -6090,7 +5974,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -6105,15 +5989,15 @@ const json = [
         Code: "xvg",
         Properties: [
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 2
           },
           {
-            PropertyString: "100 to Attack Rating",
+            PropertyString: "+100 to Attack Rating",
             Index: 4
           },
           {
-            PropertyString: "+50 Enhanced Defense",
+            PropertyString: "50% Enhanced Defense",
             Index: 0
           },
           {
@@ -6121,7 +6005,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "3 to Light Radius",
+            PropertyString: "+3 to Light Radius",
             Index: 3
           }
         ],
@@ -6141,7 +6025,7 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -6156,7 +6040,7 @@ const json = [
         Code: "xml",
         Properties: [
           {
-            PropertyString: "+40 Faster Block Rate",
+            PropertyString: "40% Faster Block Rate",
             Index: 1
           },
           {
@@ -6164,7 +6048,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+175 Enhanced Defense",
+            PropertyString: "175% Enhanced Defense",
             Index: 0
           },
           {
@@ -6172,12 +6056,8 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "5 to Light Radius",
+            PropertyString: "+5 to Light Radius",
             Index: 4
-          },
-          {
-            PropertyString: "1",
-            Index: 5
           }
         ],
         DamageArmorEnhanced: true,
@@ -6206,7 +6086,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+5 Attacker Takes Damage of",
+        PropertyString: "Attacker Takes Damage of +5",
         Index: 2
       },
       {
@@ -6232,11 +6112,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "All Resistances +15",
+        PropertyString: "All Resistances +15%",
         Index: 4
       },
       {
-        PropertyString: "+80 better chance of getting magic item",
+        PropertyString: "80% better chance of getting magic item",
         Index: 5
       }
     ],
@@ -6247,7 +6127,7 @@ const json = [
     Name: "Hwanin's Majesty",
     SetItems: [
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Hwanin's Majesty",
         SetPropertiesString: [],
         Name: "Hwanin's Splendor",
@@ -6258,7 +6138,7 @@ const json = [
         Code: "xrn",
         Properties: [
           {
-            PropertyString: "+100 Enhanced Defense",
+            PropertyString: "100% Enhanced Defense",
             Index: 3
           },
           {
@@ -6270,7 +6150,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+10 Magic Damage Reduced by",
+            PropertyString: "Magic Damage Reduced by 10",
             Index: 1
           }
         ],
@@ -6286,11 +6166,11 @@ const json = [
           Durability: 50,
           ItemLevel: 55,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -6360,7 +6240,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+ Defense",
+            PropertyString: "+1.5 Defense (Per Character Level)",
             Index: 2
           },
           {
@@ -6384,7 +6264,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -6407,7 +6287,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+40 Increased Attack Speed",
+            PropertyString: "40% Increased Attack Speed",
             Index: 3
           },
           {
@@ -6415,16 +6295,12 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "330 to Attack Rating",
+            PropertyString: "+330 to Attack Rating",
             Index: 0
           },
           {
             PropertyString: "Adds 5-25 to Lightning Damage",
             Index: 5
-          },
-          {
-            PropertyString: "1",
-            Index: 6
           }
         ],
         DamageArmorEnhanced: true,
@@ -6466,7 +6342,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+30 Faster Run/Walk",
+        PropertyString: "30% Faster Run/Walk",
         Index: 2
       },
       {
@@ -6474,7 +6350,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "All Resistances +30",
+        PropertyString: "All Resistances +30%",
         Index: 3
       }
     ],
@@ -6500,7 +6376,7 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "+40 Increased Attack Speed",
+            PropertyString: "40% Increased Attack Speed",
             Index: 2
           },
           {
@@ -6508,7 +6384,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+318% Damage to Demons Damage to Demons",
+            PropertyString: "+318% Damage to Demons",
             Index: 3
           },
           {
@@ -6522,10 +6398,6 @@ const json = [
           {
             PropertyString: "15 to Dexterity",
             Index: 5
-          },
-          {
-            PropertyString: "1",
-            Index: 7
           }
         ],
         DamageArmorEnhanced: true,
@@ -6562,11 +6434,11 @@ const json = [
         Code: "upl",
         Properties: [
           {
-            PropertyString: "+30 Faster Hit Recovery",
+            PropertyString: "30% Faster Hit Recovery",
             Index: 1
           },
           {
-            PropertyString: "300 to Attack Rating against Demons",
+            PropertyString: "+300 to Attack Rating against Demons",
             Index: 3
           },
           {
@@ -6602,7 +6474,7 @@ const json = [
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Sazabi's Grand Tribute",
         SetPropertiesString: [],
         Name: "Sazabi's Mental Sheath",
@@ -6641,17 +6513,17 @@ const json = [
           Durability: 30,
           ItemLevel: 45,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
     PartialProperties: [
       {
-        PropertyString: "+40 Faster Run/Walk",
+        PropertyString: "40% Faster Run/Walk",
         Index: 0
       },
       {
@@ -6673,11 +6545,11 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "All Resistances +30",
+        PropertyString: "All Resistances +30%",
         Index: 0
       },
       {
-        PropertyString: "+16 Damage Reduced by 16%%",
+        PropertyString: "+16 % Physical Damage Reduction",
         Index: 4
       }
     ],
@@ -6699,7 +6571,7 @@ const json = [
         Code: "7gd",
         Properties: [
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 2
           },
           {
@@ -6707,16 +6579,12 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+35 Chance of Crushing Blow",
+            PropertyString: "35% Chance of Crushing Blow",
             Index: 0
           },
           {
-            PropertyString: "All Resistances +20",
+            PropertyString: "All Resistances +20%",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: true,
@@ -6757,7 +6625,7 @@ const json = [
         Code: "7wd",
         Properties: [
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 2
           },
           {
@@ -6775,10 +6643,6 @@ const json = [
           {
             PropertyString: "Fire Resist +50%",
             Index: 0
-          },
-          {
-            PropertyString: "1",
-            Index: 5
           }
         ],
         DamageArmorEnhanced: true,
@@ -6811,15 +6675,15 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "200 to Attack Rating",
+        PropertyString: "+200 to Attack Rating",
         Index: 2
       },
       {
-        PropertyString: "+200% Damage to Demons Damage to Demons",
+        PropertyString: "+200% Damage to Demons",
         Index: 5
       },
       {
-        PropertyString: "+200% Damage to Undead Damage to Undead",
+        PropertyString: "+200% Damage to Undead",
         Index: 4
       },
       {
@@ -6831,7 +6695,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "+20 Deadly Strike",
+        PropertyString: "20% Deadly Strike",
         Index: 7
       },
       {
@@ -6846,7 +6710,7 @@ const json = [
     Name: "Cow King's Leathers",
     SetItems: [
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Cow King's Leathers",
         SetPropertiesString: [],
         Name: "Cow King's Horns",
@@ -6865,7 +6729,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+10 Attacker Takes Damage of",
+            PropertyString: "Attacker Takes Damage of +10",
             Index: 3
           },
           {
@@ -6885,11 +6749,11 @@ const json = [
           Durability: 12,
           ItemLevel: 34,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -6908,7 +6772,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+60 Enhanced Defense",
+            PropertyString: "60% Enhanced Defense",
             Index: 1
           },
           {
@@ -6916,7 +6780,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "All Resistances +18",
+            PropertyString: "All Resistances +18%",
             Index: 0
           }
         ],
@@ -6951,7 +6815,7 @@ const json = [
         Code: "vbt",
         Properties: [
           {
-            PropertyString: "+30 Faster Run/Walk",
+            PropertyString: "30% Faster Run/Walk",
             Index: 1
           },
           {
@@ -6967,7 +6831,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+25 better chance of getting magic item",
+            PropertyString: "25% better chance of getting magic item",
             Index: 2
           }
         ],
@@ -6987,7 +6851,7 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -7011,7 +6875,7 @@ const json = [
         Index: 7
       },
       {
-        PropertyString: "+30 Increased Attack Speed",
+        PropertyString: "30% Increased Attack Speed",
         Index: 5
       },
       {
@@ -7027,11 +6891,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+100 extra gold from monsters",
+        PropertyString: "100% extra gold from monsters",
         Index: 2
       },
       {
-        PropertyString: "+100 better chance of getting magic item",
+        PropertyString: "100% better chance of getting magic item",
         Index: 3
       }
     ],
@@ -7061,7 +6925,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+30 Faster Cast Rate",
+            PropertyString: "30% Faster Cast Rate",
             Index: 3
           },
           {
@@ -7079,10 +6943,6 @@ const json = [
           {
             PropertyString: "Level 11 Teleport (69 Charges)",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 7
           }
         ],
         DamageArmorEnhanced: true,
@@ -7131,7 +6991,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "All Resistances +25",
+            PropertyString: "All Resistances +25%",
             Index: 2
           },
           {
@@ -7190,7 +7050,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "5 to Light Radius",
+            PropertyString: "+5 to Light Radius",
             Index: 2
           }
         ],
@@ -7220,7 +7080,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+ better chance of getting magic item",
+        PropertyString: "+1.5% better chance of getting magic item (Per Character Level)",
         Index: 1
       }
     ],
@@ -7250,7 +7110,7 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "All Resistances +50",
+        PropertyString: "All Resistances +50%",
         Index: 3
       },
       {
@@ -7265,7 +7125,7 @@ const json = [
     Name: "Sander's Folly",
     SetItems: [
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Sander's Folly",
         SetPropertiesString: [],
         Name: "Sander's Paragon",
@@ -7276,15 +7136,15 @@ const json = [
         Code: "cap",
         Properties: [
           {
-            PropertyString: "+ Defense",
+            PropertyString: "+1 Defense (Per Character Level)",
             Index: 2
           },
           {
-            PropertyString: "+8 Attacker Takes Damage of",
+            PropertyString: "Attacker Takes Damage of +8",
             Index: 1
           },
           {
-            PropertyString: "+35 better chance of getting magic item",
+            PropertyString: "35% better chance of getting magic item",
             Index: 0
           }
         ],
@@ -7300,11 +7160,11 @@ const json = [
           Durability: 12,
           ItemLevel: 1,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -7319,11 +7179,11 @@ const json = [
         Code: "vbt",
         Properties: [
           {
-            PropertyString: "+40 Faster Run/Walk",
+            PropertyString: "40% Faster Run/Walk",
             Index: 0
           },
           {
-            PropertyString: "100 to Attack Rating",
+            PropertyString: "+100 to Attack Rating",
             Index: 1
           },
           {
@@ -7351,7 +7211,7 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -7366,7 +7226,7 @@ const json = [
         Code: "vgl",
         Properties: [
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 1
           },
           {
@@ -7398,7 +7258,7 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -7417,7 +7277,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+20 Faster Cast Rate",
+            PropertyString: "20% Faster Cast Rate",
             Index: 3
           },
           {
@@ -7431,10 +7291,6 @@ const json = [
           {
             PropertyString: "+25 to Mana",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 5
           }
         ],
         DamageArmorEnhanced: true,
@@ -7466,7 +7322,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "75 to Attack Rating",
+        PropertyString: "+75 to Attack Rating",
         Index: 2
       }
     ],
@@ -7484,7 +7340,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+50 better chance of getting magic item",
+        PropertyString: "50% better chance of getting magic item",
         Index: 1
       }
     ],
@@ -7514,10 +7370,6 @@ const json = [
           {
             PropertyString: "+5 Life stolen per hit",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: true,
@@ -7556,11 +7408,11 @@ const json = [
         Code: "mgl",
         Properties: [
           {
-            PropertyString: "+10 Increased Attack Speed",
+            PropertyString: "10% Increased Attack Speed",
             Index: 0
           },
           {
-            PropertyString: "+75 Enhanced Defense",
+            PropertyString: "75% Enhanced Defense",
             Index: 1
           },
           {
@@ -7584,14 +7436,14 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Midnight Calling",
         SetPropertiesString: [
-          "+6 Magic Damage Reduced by (2 Items)"
+          "Magic Damage Reduced by 6 (2 Items)"
         ],
         Name: "Jakira's Hood",
         Index: "Jakira's Hood",
@@ -7601,7 +7453,7 @@ const json = [
         Code: "cap",
         Properties: [
           {
-            PropertyString: "+1",
+            PropertyString: "+1 to Assassin Skill Levels",
             Index: 0
           },
           {
@@ -7625,18 +7477,18 @@ const json = [
           Durability: 12,
           ItemLevel: 1,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Armor",
         "Set": "Midnight Calling",
         SetPropertiesString: [
-          "+8 Damage Reduced by (3 Items)"
+          "Damage Reduced by 8 (3 Items)"
         ],
         Name: "Jakira's Leather Jerkin",
         Index: "Jakira's Leather Jerkin",
@@ -7690,19 +7542,19 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "+1",
+        PropertyString: "+1 to Assassin Skill Levels",
         Index: 0
       },
       {
-        PropertyString: "+15 Increased Attack Speed",
+        PropertyString: "15% Increased Attack Speed",
         Index: 2
       },
       {
-        PropertyString: "All Resistances +20",
+        PropertyString: "All Resistances +20%",
         Index: 3
       },
       {
-        PropertyString: "+50 better chance of getting magic item",
+        PropertyString: "50% better chance of getting magic item",
         Index: 1
       }
     ],
@@ -7745,7 +7597,7 @@ const json = [
             Index: "Ring",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -7762,16 +7614,12 @@ const json = [
         Code: "mau",
         Properties: [
           {
-            PropertyString: "+15 Increased Attack Speed",
+            PropertyString: "15% Increased Attack Speed",
             Index: 1
           },
           {
             PropertyString: "+140-200% Enhanced Damage",
             Index: 0
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: true,
@@ -7815,7 +7663,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+80-120 Enhanced Defense",
+            PropertyString: "80-120% Enhanced Defense",
             Index: 0
           }
         ],
@@ -7852,7 +7700,7 @@ const json = [
         Code: "dr3",
         Properties: [
           {
-            PropertyString: "+1",
+            PropertyString: "+1 to Druid Skill Levels",
             Index: 1
           },
           {
@@ -7866,7 +7714,7 @@ const json = [
           DamageStringPrefix: null,
           ArmorString: "48-58",
           EquipmentType: 0,
-          Name: "        ",
+          Name: "Antlers        ",
           RequiredStrength: 24,
           RequiredDexterity: 0,
           Durability: 20,
@@ -7896,15 +7744,15 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+1",
+        PropertyString: "+1 to Druid Skill Levels",
         Index: 0
       },
       {
-        PropertyString: "All Resistances +30",
+        PropertyString: "All Resistances +30%",
         Index: 3
       },
       {
-        PropertyString: "+50 better chance of getting magic item",
+        PropertyString: "50% better chance of getting magic item",
         Index: 1
       }
     ],
@@ -7918,7 +7766,7 @@ const json = [
         Type: "Voodoo Heads",
         "Set": "Grimlock's Grave",
         SetPropertiesString: [
-          "+100 Enhanced Defense (2 Items)"
+          "100% Enhanced Defense (2 Items)"
         ],
         Name: "Grimlock's Skull",
         Index: "Grimlock's Skull",
@@ -7928,16 +7776,12 @@ const json = [
         Code: "ne2",
         Properties: [
           {
-            PropertyString: "+20 Faster Block Rate",
+            PropertyString: "20% Faster Block Rate",
             Index: 1
           },
           {
             PropertyString: "25-30% Increased Chance of Blocking",
             Index: 0
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: false,
@@ -7946,7 +7790,7 @@ const json = [
           DamageStringPrefix: null,
           ArmorString: "4",
           EquipmentType: 0,
-          Name: "          ",
+          Name: "Zombie Head",
           RequiredStrength: 14,
           RequiredDexterity: 0,
           Durability: 20,
@@ -7973,7 +7817,7 @@ const json = [
         Code: "bwn",
         Properties: [
           {
-            PropertyString: "+1",
+            PropertyString: "+1 to Necromancer Skill Levels",
             Index: 0
           },
           {
@@ -8022,7 +7866,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+10 Damage Reduced by 10%%",
+            PropertyString: "+10 % Physical Damage Reduction",
             Index: 0
           }
         ],
@@ -8059,7 +7903,7 @@ const json = [
         Code: "mbl",
         Properties: [
           {
-            PropertyString: "+15 Faster Hit Recovery",
+            PropertyString: "15% Faster Hit Recovery",
             Index: 1
           },
           {
@@ -8083,7 +7927,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -8099,7 +7943,7 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "+1",
+        PropertyString: "+1 to Necromancer Skill Levels",
         Index: 0
       },
       {
@@ -8107,11 +7951,11 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "All Resistances +25",
+        PropertyString: "All Resistances +25%",
         Index: 3
       },
       {
-        PropertyString: "+50 better chance of getting magic item",
+        PropertyString: "50% better chance of getting magic item",
         Index: 1
       }
     ],
@@ -8137,16 +7981,12 @@ const json = [
         Code: "ob2",
         Properties: [
           {
-            PropertyString: "+1",
+            PropertyString: "+1 to Sorceress Skill Levels",
             Index: 0
           },
           {
             PropertyString: "+2-4 to Mana after each Kill",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: false,
@@ -8158,7 +7998,7 @@ const json = [
             }
           ],
           EquipmentType: 1,
-          Name: "       ",
+          Name: "Sacred Globe",
           RequiredStrength: 0,
           RequiredDexterity: 0,
           Durability: 250,
@@ -8175,7 +8015,7 @@ const json = [
         Type: "Armor",
         "Set": "Corgina's Element",
         SetPropertiesString: [
-          "+ to Mana (3 Items)",
+          "+1 to Mana (Per Character Level) (3 Items)",
           "10% Damage Taken Goes To Mana (2 Items)"
         ],
         Name: "Corgina's Plate",
@@ -8186,11 +8026,11 @@ const json = [
         Code: "ltp",
         Properties: [
           {
-            PropertyString: "+75-105 Enhanced Defense",
+            PropertyString: "75-105% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "All Resistances +20",
+            PropertyString: "All Resistances +20%",
             Index: 1
           }
         ],
@@ -8217,7 +8057,7 @@ const json = [
         Type: "Shield",
         "Set": "Corgina's Element",
         SetPropertiesString: [
-          "+15 Faster Block Rate (2 Items)",
+          "15% Faster Block Rate (2 Items)",
           "Cold Resist +20% (3 Items)",
           "Lightning Resist +20% (4 Items)"
         ],
@@ -8235,10 +8075,6 @@ const json = [
           {
             PropertyString: "+20-30 Defense",
             Index: 0
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: true,
@@ -8275,11 +8111,11 @@ const json = [
         Code: "lbt",
         Properties: [
           {
-            PropertyString: "+20 Faster Run/Walk",
+            PropertyString: "20% Faster Run/Walk",
             Index: 0
           },
           {
-            PropertyString: "+20 Faster Hit Recovery",
+            PropertyString: "20% Faster Hit Recovery",
             Index: 1
           }
         ],
@@ -8299,7 +8135,7 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -8309,13 +8145,13 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+20 Faster Cast Rate",
+        PropertyString: "20% Faster Cast Rate",
         Index: 2
       }
     ],
     FullProperties: [
       {
-        PropertyString: "+1",
+        PropertyString: "+1 to Sorceress Skill Levels",
         Index: 0
       },
       {
@@ -8327,11 +8163,11 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "10 to Lightning Skill Damage",
+        PropertyString: "+10 to Lightning Skill Damage",
         Index: 4
       },
       {
-        PropertyString: "+50 better chance of getting magic item",
+        PropertyString: "50% better chance of getting magic item",
         Index: 1
       }
     ],
@@ -8345,7 +8181,7 @@ const json = [
         Type: "Amazon Bow",
         "Set": "Sheena's Grace",
         SetPropertiesString: [
-          "+25 Increased Attack Speed (4 Items)"
+          "25% Increased Attack Speed (4 Items)"
         ],
         Name: "Sheena's Heartwood",
         Index: "Sheena's Heartwood",
@@ -8361,10 +8197,6 @@ const json = [
           {
             PropertyString: "35-55% Chance of Open Wounds",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: true,
@@ -8393,7 +8225,7 @@ const json = [
         Type: "Amulet",
         "Set": "Sheena's Grace",
         SetPropertiesString: [
-          "All Resistances +12 (3 Items)"
+          "All Resistances +12% (3 Items)"
         ],
         Name: "Sheena's Choker",
         Index: "Sheena's Choker",
@@ -8420,7 +8252,7 @@ const json = [
             Index: "Amulet",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -8428,8 +8260,8 @@ const json = [
         "Set": "Sheena's Grace",
         SetPropertiesString: [
           "+5 Life stolen per hit (4 Items)",
-          "+12 Damage Reduced by (2 Items)",
-          "+8 Magic Damage Reduced by (3 Items)"
+          "Damage Reduced by 12 (2 Items)",
+          "Magic Damage Reduced by 8 (3 Items)"
         ],
         Name: "Sheena's Elven Mail",
         Index: "Sheena's Elven Mail",
@@ -8504,13 +8336,13 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
     PartialProperties: [
       {
-        PropertyString: "+15 Increased Attack Speed",
+        PropertyString: "15% Increased Attack Speed",
         Index: 0
       },
       {
@@ -8520,7 +8352,7 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "+1",
+        PropertyString: "+1 to Amazon Skill Levels",
         Index: 0
       },
       {
@@ -8528,11 +8360,11 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "All Resistances +35",
+        PropertyString: "All Resistances +35%",
         Index: 3
       },
       {
-        PropertyString: "+50 better chance of getting magic item",
+        PropertyString: "50% better chance of getting magic item",
         Index: 1
       }
     ],
@@ -8556,7 +8388,7 @@ const json = [
         Code: "ba4",
         Properties: [
           {
-            PropertyString: "+1",
+            PropertyString: "+1 to Barbarian Skill Levels",
             Index: 0
           },
           {
@@ -8588,7 +8420,7 @@ const json = [
         "Set": "Talonrage's Fury",
         SetPropertiesString: [
           "40 to Life (2 Items)",
-          "+10 Damage Reduced by 10%% (4 Items)"
+          "+10 % Physical Damage Reduction (4 Items)"
         ],
         Name: "Chaos Heart",
         Index: "Chaos Heart",
@@ -8598,7 +8430,7 @@ const json = [
         Code: "fld",
         Properties: [
           {
-            PropertyString: "+90-120 Enhanced Defense",
+            PropertyString: "90-120% Enhanced Defense",
             Index: 0
           },
           {
@@ -8629,7 +8461,7 @@ const json = [
         Type: "Spear",
         "Set": "Talonrage's Fury",
         SetPropertiesString: [
-          "+30 Increased Attack Speed (2 Items)"
+          "30% Increased Attack Speed (2 Items)"
         ],
         Name: "Warlord's Pike",
         Index: "Warlord's Pike",
@@ -8645,10 +8477,6 @@ const json = [
           {
             PropertyString: "Repairs 0.05 durability per second",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: true,
@@ -8687,7 +8515,7 @@ const json = [
         Code: "hgl",
         Properties: [
           {
-            PropertyString: "+10 Chance of Crushing Blow",
+            PropertyString: "10% Chance of Crushing Blow",
             Index: 1
           },
           {
@@ -8711,7 +8539,7 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -8727,19 +8555,19 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "+1",
+        PropertyString: "+1 to Barbarian Skill Levels",
         Index: 0
       },
       {
-        PropertyString: "+30 Faster Hit Recovery",
+        PropertyString: "30% Faster Hit Recovery",
         Index: 2
       },
       {
-        PropertyString: "All Resistances +25",
+        PropertyString: "All Resistances +25%",
         Index: 3
       },
       {
-        PropertyString: "+50 better chance of getting magic item",
+        PropertyString: "50% better chance of getting magic item",
         Index: 1
       }
     ],
@@ -8810,10 +8638,6 @@ const json = [
           {
             PropertyString: "Adds 10-20 to Cold Damage",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: true,
@@ -8842,7 +8666,7 @@ const json = [
         Type: "Auric Shields",
         "Set": "Greyhawk's Mantle",
         SetPropertiesString: [
-          "+25 Faster Block Rate (3 Items)"
+          "25% Faster Block Rate (3 Items)"
         ],
         Name: "Greyhawk's Deflector",
         Index: "Greyhawk's Deflector",
@@ -8858,10 +8682,6 @@ const json = [
           {
             PropertyString: "Socketed (1-4)",
             Index: 0
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: false,
@@ -8884,7 +8704,7 @@ const json = [
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Greyhawk's Mantle",
         SetPropertiesString: [
           "20 to Life (3 Items)"
@@ -8917,11 +8737,11 @@ const json = [
           Durability: 30,
           ItemLevel: 15,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -8937,11 +8757,11 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "+1",
+        PropertyString: "+1 to Paladin Skill Levels",
         Index: 0
       },
       {
-        PropertyString: "All Resistances +30",
+        PropertyString: "All Resistances +30%",
         Index: 3
       },
       {
@@ -8949,7 +8769,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+50 better chance of getting magic item",
+        PropertyString: "50% better chance of getting magic item",
         Index: 1
       }
     ],
@@ -8973,16 +8793,12 @@ const json = [
         Code: "bsh",
         Properties: [
           {
-            PropertyString: "+65-90 Enhanced Defense",
+            PropertyString: "65-90% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "+5-10 Damage Reduced by 5-10%%",
+            PropertyString: "+5-10 % Physical Damage Reduction",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: true,
@@ -9008,7 +8824,7 @@ const json = [
         Type: "Gloves",
         "Set": "Silent Runnings",
         SetPropertiesString: [
-          "+25 better chance of getting magic item (3 Items)"
+          "25% better chance of getting magic item (3 Items)"
         ],
         Name: "Ferrit's Paw",
         Index: "Ferrit's Paw",
@@ -9018,7 +8834,7 @@ const json = [
         Code: "vgl",
         Properties: [
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 0
           },
           {
@@ -9042,14 +8858,14 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Armor",
         "Set": "Silent Runnings",
         SetPropertiesString: [
-          "+8 Damage Reduced by 8%% (3 Items)"
+          "+8 % Physical Damage Reduction (3 Items)"
         ],
         Name: "Turtle's Shell",
         Index: "Turtle's Shell",
@@ -9059,11 +8875,11 @@ const json = [
         Code: "ful",
         Properties: [
           {
-            PropertyString: "+20 Faster Hit Recovery",
+            PropertyString: "20% Faster Hit Recovery",
             Index: 1
           },
           {
-            PropertyString: "+90-130 Enhanced Defense",
+            PropertyString: "90-130% Enhanced Defense",
             Index: 0
           }
         ],
@@ -9104,7 +8920,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "All Resistances +10-15",
+            PropertyString: "All Resistances +10-15%",
             Index: 1
           }
         ],
@@ -9124,11 +8940,11 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Silent Runnings",
         SetPropertiesString: [],
         Name: "Beast Collar",
@@ -9159,25 +8975,25 @@ const json = [
           Durability: 40,
           ItemLevel: 22,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
     PartialProperties: [
       {
-        PropertyString: "+20 Faster Run/Walk",
+        PropertyString: "20% Faster Run/Walk",
         Index: 0
       },
       {
-        PropertyString: "+20 Faster Hit Recovery",
+        PropertyString: "20% Faster Hit Recovery",
         Index: 2
       },
       {
-        PropertyString: "+20 Faster Block Rate",
+        PropertyString: "20% Faster Block Rate",
         Index: 4
       }
     ],
@@ -9187,7 +9003,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "All Resistances +30",
+        PropertyString: "All Resistances +30%",
         Index: 1
       },
       {
@@ -9195,11 +9011,11 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "+150 extra gold from monsters",
+        PropertyString: "150% extra gold from monsters",
         Index: 4
       },
       {
-        PropertyString: "+75 better chance of getting magic item",
+        PropertyString: "75% better chance of getting magic item",
         Index: 2
       }
     ],
@@ -9213,7 +9029,7 @@ const json = [
         Type: "Circlet",
         "Set": "Snowmane's Jewelry",
         SetPropertiesString: [
-          "+15 Faster Hit Recovery (3 Items)",
+          "15% Faster Hit Recovery (3 Items)",
           "20 to Life (2 Items)"
         ],
         Name: "Jeweled Circlet",
@@ -9255,7 +9071,7 @@ const json = [
         Type: "Belt",
         "Set": "Snowmane's Jewelry",
         SetPropertiesString: [
-          "+10 Damage Reduced by 10%% (4 Items)"
+          "+10 % Physical Damage Reduction (4 Items)"
         ],
         Name: "Jeweled Belt",
         Index: "Jeweled Belt",
@@ -9265,11 +9081,11 @@ const json = [
         Code: "hbl",
         Properties: [
           {
-            PropertyString: "+100-125 Enhanced Defense",
+            PropertyString: "100-125% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "All Resistances +10-15",
+            PropertyString: "All Resistances +10-15%",
             Index: 1
           }
         ],
@@ -9289,7 +9105,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -9297,7 +9113,7 @@ const json = [
         "Set": "Snowmane's Jewelry",
         SetPropertiesString: [
           "30 to Life (3 Items)",
-          "+15 better chance of getting magic item (4 Items)"
+          "15% better chance of getting magic item (4 Items)"
         ],
         Name: "Ruby Ring",
         Index: "Ruby Ring",
@@ -9307,11 +9123,11 @@ const json = [
         Code: "rin",
         Properties: [
           {
-            PropertyString: "All Resistances +10-15",
+            PropertyString: "All Resistances +10-15%",
             Index: 0
           },
           {
-            PropertyString: "+6-8 Magic Damage Reduced by",
+            PropertyString: "Magic Damage Reduced by 6",
             Index: 1
           }
         ],
@@ -9328,7 +9144,7 @@ const json = [
             Index: "Ring",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -9345,11 +9161,11 @@ const json = [
         Code: "amu",
         Properties: [
           {
-            PropertyString: "All Resistances +15-20",
+            PropertyString: "All Resistances +15-20%",
             Index: 0
           },
           {
-            PropertyString: "+20-30 better chance of getting magic item",
+            PropertyString: "20-30% better chance of getting magic item",
             Index: 1
           }
         ],
@@ -9366,17 +9182,17 @@ const json = [
             Index: "Amulet",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
     PartialProperties: [
       {
-        PropertyString: "+30 better chance of getting magic item",
+        PropertyString: "30% better chance of getting magic item",
         Index: 0
       },
       {
-        PropertyString: "All Resistances +15",
+        PropertyString: "All Resistances +15%",
         Index: 2
       }
     ],
@@ -9386,7 +9202,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+20 Faster Run/Walk",
+        PropertyString: "20% Faster Run/Walk",
         Index: 3
       },
       {
@@ -9448,7 +9264,7 @@ const json = [
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Four Seasons",
         SetPropertiesString: [
           "+10 to Maximum Lightning Resist (3 Items)",
@@ -9466,7 +9282,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "10-15 to Lightning Skill Damage",
+            PropertyString: "+10-15 to Lightning Skill Damage",
             Index: 1
           }
         ],
@@ -9482,11 +9298,11 @@ const json = [
           Durability: 40,
           ItemLevel: 23,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -9528,7 +9344,7 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -9571,17 +9387,17 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
     PartialProperties: [
       {
-        PropertyString: "10 to Strength",
+        PropertyString: "+10 to All Attributes",
         Index: 0
       },
       {
-        PropertyString: "All Resistances +25",
+        PropertyString: "All Resistances +25%",
         Index: 2
       }
     ],
@@ -9603,7 +9419,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "All Resistances +30",
+        PropertyString: "All Resistances +30%",
         Index: 1
       }
     ],
@@ -9618,7 +9434,7 @@ const json = [
         "Set": "Forgotten Treasures",
         SetPropertiesString: [
           "Magic Resist +10% (4 Items)",
-          "+15 Damage Reduced by 15%% (6 Items)"
+          "+15 % Physical Damage Reduction (6 Items)"
         ],
         Name: "Fernandez' Plate",
         Index: "Fernandez' Plate",
@@ -9628,7 +9444,7 @@ const json = [
         Code: "brs",
         Properties: [
           {
-            PropertyString: "+75-120 Enhanced Defense",
+            PropertyString: "75-120% Enhanced Defense",
             Index: 0
           },
           {
@@ -9656,7 +9472,7 @@ const json = [
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Forgotten Treasures",
         SetPropertiesString: [
           "+30 to Mana (2 Items)",
@@ -9670,7 +9486,7 @@ const json = [
         Code: "msk",
         Properties: [
           {
-            PropertyString: "+60-100 Enhanced Defense",
+            PropertyString: "60-100% Enhanced Defense",
             Index: 0
           },
           {
@@ -9690,11 +9506,11 @@ const json = [
           Durability: 20,
           ItemLevel: 19,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -9736,7 +9552,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -9754,7 +9570,7 @@ const json = [
         Code: "vgl",
         Properties: [
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 1
           },
           {
@@ -9778,14 +9594,14 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Boots",
         "Set": "Forgotten Treasures",
         SetPropertiesString: [
-          "+20 Faster Hit Recovery (3 Items)",
+          "20% Faster Hit Recovery (3 Items)",
           "10 to Dexterity (5 Items)"
         ],
         Name: "Xavier's Greaves",
@@ -9796,11 +9612,11 @@ const json = [
         Code: "tbt",
         Properties: [
           {
-            PropertyString: "+30 Faster Run/Walk",
+            PropertyString: "30% Faster Run/Walk",
             Index: 1
           },
           {
-            PropertyString: "+80-110 Enhanced Defense",
+            PropertyString: "80-110% Enhanced Defense",
             Index: 0
           }
         ],
@@ -9820,14 +9636,14 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Shield",
         "Set": "Forgotten Treasures",
         SetPropertiesString: [
-          "+25 Faster Block Rate (2 Items)",
+          "25% Faster Block Rate (2 Items)",
           "20% Increased Chance of Blocking (4 Items)"
         ],
         Name: "Quincy's Shield",
@@ -9838,16 +9654,12 @@ const json = [
         Code: "spk",
         Properties: [
           {
-            PropertyString: "+100-135 Enhanced Defense",
+            PropertyString: "100-135% Enhanced Defense",
             Index: 0
           },
           {
             PropertyString: "Socketed (3)",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: true,
@@ -9894,7 +9706,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "All Resistances +40",
+        PropertyString: "All Resistances +40%",
         Index: 1
       },
       {
@@ -9902,11 +9714,11 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "+200 extra gold from monsters",
+        PropertyString: "200% extra gold from monsters",
         Index: 4
       },
       {
-        PropertyString: "+100 better chance of getting magic item",
+        PropertyString: "100% better chance of getting magic item",
         Index: 2
       }
     ],
@@ -9930,7 +9742,7 @@ const json = [
         Code: "xtg",
         Properties: [
           {
-            PropertyString: "+10 Increased Attack Speed",
+            PropertyString: "10% Increased Attack Speed",
             Index: 0
           },
           {
@@ -9938,7 +9750,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+80-100 Enhanced Defense",
+            PropertyString: "80-100% Enhanced Defense",
             Index: 3
           },
           {
@@ -9962,7 +9774,7 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -9979,11 +9791,11 @@ const json = [
         Code: "pa8",
         Properties: [
           {
-            PropertyString: "+20 Faster Hit Recovery",
+            PropertyString: "20% Faster Hit Recovery",
             Index: 2
           },
           {
-            PropertyString: "+20 Faster Block Rate",
+            PropertyString: "20% Faster Block Rate",
             Index: 1
           },
           {
@@ -9991,12 +9803,8 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+ Defense",
+            PropertyString: "+1 Defense (Per Character Level)",
             Index: 3
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: false,
@@ -10033,7 +9841,7 @@ const json = [
         Code: "amu",
         Properties: [
           {
-            PropertyString: "+1",
+            PropertyString: "+1 to Paladin Skill Levels",
             Index: 0
           },
           {
@@ -10062,7 +9870,7 @@ const json = [
             Index: "Amulet",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -10070,7 +9878,7 @@ const json = [
         "Set": "Insight of Brother Laz",
         SetPropertiesString: [
           "12% Chance to cast level 1 fire wall on striking (3 Items)",
-          "+ to Maximum Damage (4 Items)"
+          "+1 to Maximum Damage (Per Character Level) (4 Items)"
         ],
         Name: "Wrath of Brother Laz",
         Index: "Wrath of Brother Laz",
@@ -10080,7 +9888,7 @@ const json = [
         Code: "9sc",
         Properties: [
           {
-            PropertyString: "+1",
+            PropertyString: "+1 to Paladin Skill Levels",
             Index: 2
           },
           {
@@ -10094,10 +9902,6 @@ const json = [
           {
             PropertyString: "+1 Ignore Target's Defense",
             Index: 3
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: true,
@@ -10137,7 +9941,7 @@ const json = [
         Code: "xld",
         Properties: [
           {
-            PropertyString: "+100-200 Enhanced Defense",
+            PropertyString: "100-200% Enhanced Defense",
             Index: 0
           },
           {
@@ -10149,7 +9953,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+15 Damage Reduced by 15%%",
+            PropertyString: "+15 % Physical Damage Reduction",
             Index: 1
           }
         ],
@@ -10175,7 +9979,7 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "+50 better chance of getting magic item",
+        PropertyString: "50% better chance of getting magic item",
         Index: 0
       },
       {
@@ -10189,7 +9993,7 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "+2",
+        PropertyString: "+2 to Paladin Skill Levels",
         Index: 0
       },
       {
@@ -10201,7 +10005,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "All Resistances +60",
+        PropertyString: "All Resistances +60%",
         Index: 1
       },
       {
@@ -10209,7 +10013,7 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "+50 better chance of getting magic item",
+        PropertyString: "50% better chance of getting magic item",
         Index: 2
       }
     ],
@@ -10237,7 +10041,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+ Defense",
+            PropertyString: "+4 Defense (Per Character Level)",
             Index: 0
           },
           {
@@ -10268,7 +10072,7 @@ const json = [
         Type: "Voodoo Heads",
         "Set": "Hades' Underworld",
         SetPropertiesString: [
-          "+20 Damage Reduced by 20%% (4 Items)"
+          "+20 % Physical Damage Reduction (4 Items)"
         ],
         Name: "Dracolich",
         Index: "Dracolich",
@@ -10282,16 +10086,12 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+ Defense",
+            PropertyString: "+2 Defense (Per Character Level)",
             Index: 1
           },
           {
             PropertyString: "Fire Resist +25-40%",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 3
           }
         ],
         DamageArmorEnhanced: false,
@@ -10325,11 +10125,11 @@ const json = [
         Code: "rin",
         Properties: [
           {
-            PropertyString: "+10 Faster Cast Rate",
+            PropertyString: "10% Faster Cast Rate",
             Index: 1
           },
           {
-            PropertyString: "+ to Mana",
+            PropertyString: "+1 to Mana (Per Character Level)",
             Index: 2
           },
           {
@@ -10337,7 +10137,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "All Resistances +8-15",
+            PropertyString: "All Resistances +8-15%",
             Index: 3
           }
         ],
@@ -10354,7 +10154,7 @@ const json = [
             Index: "Ring",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -10371,11 +10171,11 @@ const json = [
         Code: "xlb",
         Properties: [
           {
-            PropertyString: "+30 Faster Run/Walk",
+            PropertyString: "30% Faster Run/Walk",
             Index: 1
           },
           {
-            PropertyString: "+ Defense",
+            PropertyString: "+1 Defense (Per Character Level)",
             Index: 0
           },
           {
@@ -10399,15 +10199,15 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Hades' Underworld",
         SetPropertiesString: [
-          "+100 extra gold from monsters (3 Items)",
-          "+35 better chance of getting magic item (4 Items)"
+          "100% extra gold from monsters (3 Items)",
+          "35% better chance of getting magic item (4 Items)"
         ],
         Name: "Lord Hades' Throne",
         Index: "Lord Hades' Throne",
@@ -10417,11 +10217,11 @@ const json = [
         Code: "xrn",
         Properties: [
           {
-            PropertyString: "+20 Faster Hit Recovery",
+            PropertyString: "20% Faster Hit Recovery",
             Index: 1
           },
           {
-            PropertyString: "+100 Enhanced Defense",
+            PropertyString: "100% Enhanced Defense",
             Index: 0
           },
           {
@@ -10441,11 +10241,11 @@ const json = [
           Durability: 50,
           ItemLevel: 55,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -10465,7 +10265,7 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "+2",
+        PropertyString: "+2 to Necromancer Skill Levels",
         Index: 0
       },
       {
@@ -10481,7 +10281,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "+50 better chance of getting magic item",
+        PropertyString: "50% better chance of getting magic item",
         Index: 4
       }
     ],
@@ -10495,7 +10295,7 @@ const json = [
         Type: "Primal Helm",
         "Set": "Darque's Cabal",
         SetPropertiesString: [
-          "+15 Increased Attack Speed (4 Items)",
+          "15% Increased Attack Speed (4 Items)",
           "+15 to Maximum Damage (2 Items)"
         ],
         Name: "Secret Society",
@@ -10510,11 +10310,11 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+1",
+            PropertyString: "+1 to Barbarian Skill Levels",
             Index: 0
           },
           {
-            PropertyString: "+100 Enhanced Defense",
+            PropertyString: "100% Enhanced Defense",
             Index: 3
           },
           {
@@ -10545,7 +10345,7 @@ const json = [
         Type: "Armor",
         "Set": "Darque's Cabal",
         SetPropertiesString: [
-          "+100% Damage to Demons Damage to Demons (2 Items)"
+          "+100% Damage to Demons (2 Items)"
         ],
         Name: "Fallen Angels",
         Index: "Fallen Angels",
@@ -10555,11 +10355,11 @@ const json = [
         Code: "xth",
         Properties: [
           {
-            PropertyString: "+180-220 Enhanced Defense",
+            PropertyString: "180-220% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "All Resistances +20-30",
+            PropertyString: "All Resistances +20-30%",
             Index: 1
           },
           {
@@ -10590,7 +10390,7 @@ const json = [
         Type: "Sword",
         "Set": "Darque's Cabal",
         SetPropertiesString: [
-          "+40 Increased Attack Speed (2 Items)",
+          "40% Increased Attack Speed (2 Items)",
           "Adds 50-125 to Damage (3 Items)",
           "+1 Prevent Monster Heal (4 Items)"
         ],
@@ -10608,10 +10408,6 @@ const json = [
           {
             PropertyString: "+220-300% Enhanced Damage",
             Index: 0
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: true,
@@ -10644,7 +10440,7 @@ const json = [
         Type: "Shield",
         "Set": "Darque's Cabal",
         SetPropertiesString: [
-          "+20 Faster Block Rate (3 Items)"
+          "20% Faster Block Rate (3 Items)"
         ],
         Name: "Dawn's Blessing",
         Index: "Dawn's Blessing",
@@ -10658,16 +10454,12 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+25 Faster Hit Recovery",
+            PropertyString: "25% Faster Hit Recovery",
             Index: 1
           },
           {
             PropertyString: "25-35% Increased Chance of Blocking",
             Index: 0
-          },
-          {
-            PropertyString: "1",
-            Index: 3
           }
         ],
         DamageArmorEnhanced: false,
@@ -10692,33 +10484,33 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "+200% Damage to Undead Damage to Undead",
+        PropertyString: "+200% Damage to Undead",
         Index: 0
       },
       {
-        PropertyString: "+200% Damage to Demons Damage to Demons",
+        PropertyString: "+200% Damage to Demons",
         Index: 2
       }
     ],
     FullProperties: [
       {
-        PropertyString: "+2",
+        PropertyString: "+2 to Barbarian Skill Levels",
         Index: 0
       },
       {
-        PropertyString: "25 to Strength",
-        Index: 2
+        PropertyString: "All Resistances +40%",
+        Index: 1
       },
       {
-        PropertyString: "All Resistances +40",
-        Index: 1
+        PropertyString: "+25 to All Attributes",
+        Index: 2
       },
       {
         PropertyString: "3 to Experience Gained",
         Index: 3
       },
       {
-        PropertyString: "+125 better chance of getting magic item",
+        PropertyString: "125% better chance of getting magic item",
         Index: 4
       }
     ],
@@ -10732,7 +10524,7 @@ const json = [
         Type: "Armor",
         "Set": "Red Havoc's Challenge",
         SetPropertiesString: [
-          "+ to Maximum Damage (3 Items)"
+          "+1 to Maximum Damage (Per Character Level) (3 Items)"
         ],
         Name: "Cry of the Wolf",
         Index: "Cry of the Wolf",
@@ -10742,11 +10534,11 @@ const json = [
         Code: "xcl",
         Properties: [
           {
-            PropertyString: "+20 Faster Run/Walk",
+            PropertyString: "20% Faster Run/Walk",
             Index: 2
           },
           {
-            PropertyString: "+ Enhanced Defense",
+            PropertyString: "+2% Enhanced Defense (Per Character Level)",
             Index: 1
           },
           {
@@ -10777,7 +10569,7 @@ const json = [
         Type: "Pelt",
         "Set": "Red Havoc's Challenge",
         SetPropertiesString: [
-          "+25 better chance of getting magic item (2 Items)"
+          "25% better chance of getting magic item (2 Items)"
         ],
         Name: "Full Moon Frenzy",
         Index: "Full Moon Frenzy",
@@ -10791,7 +10583,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+180 Enhanced Defense",
+            PropertyString: "180% Enhanced Defense",
             Index: 0
           },
           {
@@ -10826,7 +10618,7 @@ const json = [
         Type: "Hammer",
         "Set": "Red Havoc's Challenge",
         SetPropertiesString: [
-          "All Resistances +35 (3 Items)"
+          "All Resistances +35% (3 Items)"
         ],
         Name: "Torment of Innocence",
         Index: "Torment of Innocence",
@@ -10836,7 +10628,7 @@ const json = [
         Code: "9m9",
         Properties: [
           {
-            PropertyString: "+50 Increased Attack Speed",
+            PropertyString: "50% Increased Attack Speed",
             Index: 1
           },
           {
@@ -10844,16 +10636,12 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "20 bonus to Attack Rating",
+            PropertyString: "+20 % bonus to Attack Rating",
             Index: 3
           },
           {
             PropertyString: "Requirements -40%",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: true,
@@ -10892,11 +10680,11 @@ const json = [
         Code: "zlb",
         Properties: [
           {
-            PropertyString: "+20 Faster Cast Rate",
+            PropertyString: "20% Faster Cast Rate",
             Index: 3
           },
           {
-            PropertyString: "+90-110 Enhanced Defense",
+            PropertyString: "90-110% Enhanced Defense",
             Index: 0
           },
           {
@@ -10904,7 +10692,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "All Resistances +10-15",
+            PropertyString: "All Resistances +10-15%",
             Index: 2
           }
         ],
@@ -10924,7 +10712,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -10944,15 +10732,15 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "+2",
+        PropertyString: "+2 to Druid Skill Levels",
         Index: 0
       },
       {
-        PropertyString: "30 bonus to Attack Rating",
+        PropertyString: "+30 % bonus to Attack Rating",
         Index: 2
       },
       {
-        PropertyString: "All Resistances +50",
+        PropertyString: "All Resistances +50%",
         Index: 1
       },
       {
@@ -10960,7 +10748,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "+60 better chance of getting magic item",
+        PropertyString: "60% better chance of getting magic item",
         Index: 4
       }
     ],
@@ -10974,7 +10762,7 @@ const json = [
         Type: "Boots",
         "Set": "Mishy's Avatar",
         SetPropertiesString: [
-          "+20 Faster Hit Recovery (2 Items)"
+          "20% Faster Hit Recovery (2 Items)"
         ],
         Name: "Elven Grace",
         Index: "Elven Grace",
@@ -10988,7 +10776,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+120-150 Enhanced Defense",
+            PropertyString: "120-150% Enhanced Defense",
             Index: 0
           },
           {
@@ -11016,14 +10804,14 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Armor",
         "Set": "Mishy's Avatar",
         SetPropertiesString: [
-          "+15 Increased Attack Speed (3 Items)",
+          "15% Increased Attack Speed (3 Items)",
           "25 to Life (4 Items)"
         ],
         Name: "Woodland Protector",
@@ -11034,11 +10822,11 @@ const json = [
         Code: "xhn",
         Properties: [
           {
-            PropertyString: "+100-120 Enhanced Defense",
+            PropertyString: "100-120% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "to Life",
+            PropertyString: "+1 to Life (Per Character Level)",
             Index: 2
           },
           {
@@ -11085,7 +10873,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+20 Faster Cast Rate",
+            PropertyString: "20% Faster Cast Rate",
             Index: 1
           },
           {
@@ -11157,14 +10945,14 @@ const json = [
             Index: "Ring",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Gloves",
         "Set": "Mishy's Avatar",
         SetPropertiesString: [
-          "+20 Increased Attack Speed (5 Items)"
+          "20% Increased Attack Speed (5 Items)"
         ],
         Name: "Maiden's Kiss",
         Index: "Maiden's Kiss",
@@ -11206,7 +10994,7 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -11223,7 +11011,7 @@ const json = [
         Code: "am7",
         Properties: [
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 1
           },
           {
@@ -11233,10 +11021,6 @@ const json = [
           {
             PropertyString: "Socketed (3)",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 3
           }
         ],
         DamageArmorEnhanced: true,
@@ -11264,7 +11048,7 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "150 to Attack Rating",
+        PropertyString: "+150 to Attack Rating",
         Index: 0
       },
       {
@@ -11282,7 +11066,7 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "+2",
+        PropertyString: "+2 to Amazon Skill Levels",
         Index: 0
       },
       {
@@ -11290,7 +11074,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "All Resistances +50",
+        PropertyString: "All Resistances +50%",
         Index: 1
       },
       {
@@ -11298,7 +11082,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+50 better chance of getting magic item",
+        PropertyString: "50% better chance of getting magic item",
         Index: 4
       }
     ],
@@ -11328,16 +11112,12 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+20 Faster Cast Rate",
+            PropertyString: "20% Faster Cast Rate",
             Index: 1
           },
           {
             PropertyString: "+20 Increase Maximum Mana",
             Index: 3
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: false,
@@ -11384,7 +11164,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+100-120 Enhanced Defense",
+            PropertyString: "100-120% Enhanced Defense",
             Index: 0
           },
           {
@@ -11416,7 +11196,7 @@ const json = [
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Joel's Sanctuary",
         SetPropertiesString: [
           "+1 Half Freeze Duration (3 Items)"
@@ -11437,7 +11217,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+100-120 Enhanced Defense",
+            PropertyString: "100-120% Enhanced Defense",
             Index: 0
           },
           {
@@ -11461,11 +11241,11 @@ const json = [
           Durability: 12,
           ItemLevel: 34,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -11482,7 +11262,7 @@ const json = [
         Code: "xuc",
         Properties: [
           {
-            PropertyString: "10-20 to Lightning Skill Damage",
+            PropertyString: "+10-20 to Lightning Skill Damage",
             Index: 1
           },
           {
@@ -11490,7 +11270,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+100-120 Enhanced Defense",
+            PropertyString: "100-120% Enhanced Defense",
             Index: 0
           },
           {
@@ -11500,10 +11280,6 @@ const json = [
           {
             PropertyString: "+10-20 Lightning Absorb",
             Index: 3
-          },
-          {
-            PropertyString: "1",
-            Index: 5
           }
         ],
         DamageArmorEnhanced: true,
@@ -11538,11 +11314,11 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "+2",
+        PropertyString: "+2 to Sorceress Skill Levels",
         Index: 0
       },
       {
-        PropertyString: "All Resistances +50",
+        PropertyString: "All Resistances +50%",
         Index: 1
       },
       {
@@ -11554,7 +11330,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+50 better chance of getting magic item",
+        PropertyString: "50% better chance of getting magic item",
         Index: 3
       }
     ],
@@ -11615,7 +11391,7 @@ const json = [
         Type: "Gloves",
         "Set": "JBouley's Scion",
         SetPropertiesString: [
-          "All Resistances +15 (3 Items)"
+          "All Resistances +15% (3 Items)"
         ],
         Name: "Night's Caress",
         Index: "Night's Caress",
@@ -11629,11 +11405,11 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 1
           },
           {
-            PropertyString: "+ Defense",
+            PropertyString: "+1.5 Defense (Per Character Level)",
             Index: 0
           }
         ],
@@ -11653,7 +11429,7 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -11671,7 +11447,7 @@ const json = [
         Code: "9qr",
         Properties: [
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 1
           },
           {
@@ -11681,10 +11457,6 @@ const json = [
           {
             PropertyString: "Socketed (1)",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 3
           }
         ],
         DamageArmorEnhanced: true,
@@ -11723,7 +11495,7 @@ const json = [
         Code: "ztb",
         Properties: [
           {
-            PropertyString: "+80 Enhanced Defense",
+            PropertyString: "80% Enhanced Defense",
             Index: 4
           },
           {
@@ -11735,7 +11507,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "All Resistances +15",
+            PropertyString: "All Resistances +15%",
             Index: 1
           },
           {
@@ -11759,23 +11531,23 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
     PartialProperties: [
       {
-        PropertyString: "+33 Deadly Strike",
+        PropertyString: "33% Deadly Strike",
         Index: 0
       },
       {
-        PropertyString: "+20 Increased Attack Speed",
+        PropertyString: "20% Increased Attack Speed",
         Index: 2
       }
     ],
     FullProperties: [
       {
-        PropertyString: "+2",
+        PropertyString: "+2 to Assassin Skill Levels",
         Index: 0
       },
       {
@@ -11783,7 +11555,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "All Resistances +40",
+        PropertyString: "All Resistances +40%",
         Index: 1
       },
       {
@@ -11791,7 +11563,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+50 better chance of getting magic item",
+        PropertyString: "50% better chance of getting magic item",
         Index: 4
       }
     ],
@@ -11842,7 +11614,7 @@ const json = [
             Index: "Ring",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -11857,7 +11629,7 @@ const json = [
         Code: "rin",
         Properties: [
           {
-            PropertyString: "+20 Faster Cast Rate",
+            PropertyString: "20% Faster Cast Rate",
             Index: 2
           },
           {
@@ -11869,7 +11641,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+25-35 better chance of getting magic item",
+            PropertyString: "25-35% better chance of getting magic item",
             Index: 3
           }
         ],
@@ -11886,7 +11658,7 @@ const json = [
             Index: "Ring",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -11905,15 +11677,15 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "10 to Strength",
+            PropertyString: "+10 to All Attributes",
             Index: 2
           },
           {
-            PropertyString: "All Resistances +15-25",
+            PropertyString: "All Resistances +15-25%",
             Index: 3
           },
           {
-            PropertyString: "+40-50 better chance of getting magic item",
+            PropertyString: "40-50% better chance of getting magic item",
             Index: 1
           }
         ],
@@ -11930,7 +11702,7 @@ const json = [
             Index: "Amulet",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -11938,8 +11710,8 @@ const json = [
         "Set": "Forsaken Divinity",
         SetPropertiesString: [
           "1 to All Skills (4 Items)",
-          "+100 extra gold from monsters (2 Items)",
-          "+50 better chance of getting magic item (3 Items)"
+          "100% extra gold from monsters (2 Items)",
+          "50% better chance of getting magic item (3 Items)"
         ],
         Name: "Hell's Embrace",
         Index: "Hell's Embrace",
@@ -11949,7 +11721,7 @@ const json = [
         Code: "xtp",
         Properties: [
           {
-            PropertyString: "+160-200 Enhanced Defense",
+            PropertyString: "160-200% Enhanced Defense",
             Index: 0
           },
           {
@@ -11993,7 +11765,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+50 Increased Attack Speed",
+        PropertyString: "50% Increased Attack Speed",
         Index: 4
       },
       {
@@ -12001,7 +11773,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "All Resistances +25",
+        PropertyString: "All Resistances +25%",
         Index: 1
       },
       {
@@ -12029,7 +11801,7 @@ const json = [
         Code: "xsh",
         Properties: [
           {
-            PropertyString: "+125-155 Enhanced Defense",
+            PropertyString: "125-155% Enhanced Defense",
             Index: 0
           },
           {
@@ -12037,16 +11809,12 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "All Resistances +20-30",
+            PropertyString: "All Resistances +20-30%",
             Index: 2
           },
           {
-            PropertyString: "+15 Damage Reduced by 15%%",
+            PropertyString: "+15 % Physical Damage Reduction",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: true,
@@ -12072,8 +11840,8 @@ const json = [
         Type: "Sword",
         "Set": "Volf's Undead Legion",
         SetPropertiesString: [
-          "+20 Increased Attack Speed (2 Items)",
-          "+100% Damage to Demons Damage to Demons (4 Items)"
+          "20% Increased Attack Speed (2 Items)",
+          "+100% Damage to Demons (4 Items)"
         ],
         Name: "Death Knight's Demon Blade",
         Index: "Death Knight's Demon Blade",
@@ -12093,10 +11861,6 @@ const json = [
           {
             PropertyString: "+15 Life stolen per hit",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 3
           }
         ],
         DamageArmorEnhanced: true,
@@ -12122,10 +11886,10 @@ const json = [
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Volf's Undead Legion",
         SetPropertiesString: [
-          "+1 (4 Items)",
+          "+1 to Sorceress Skill Levels (4 Items)",
           "15 to Strength (3 Items)"
         ],
         Name: "Lich's Evil Grin",
@@ -12136,7 +11900,7 @@ const json = [
         Code: "xh9",
         Properties: [
           {
-            PropertyString: "+25 Faster Cast Rate",
+            PropertyString: "25% Faster Cast Rate",
             Index: 1
           },
           {
@@ -12160,11 +11924,11 @@ const json = [
           Durability: 40,
           ItemLevel: 50,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -12181,15 +11945,15 @@ const json = [
         Code: "xlt",
         Properties: [
           {
-            PropertyString: "+25 Faster Hit Recovery",
+            PropertyString: "25% Faster Hit Recovery",
             Index: 2
           },
           {
-            PropertyString: "+80-120 Enhanced Defense",
+            PropertyString: "80-120% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "+ Defense",
+            PropertyString: "+2 Defense (Per Character Level)",
             Index: 1
           }
         ],
@@ -12229,7 +11993,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+300% Damage to Undead Damage to Undead",
+        PropertyString: "+300% Damage to Undead",
         Index: 3
       },
       {
@@ -12241,7 +12005,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "All Resistances +35",
+        PropertyString: "All Resistances +35%",
         Index: 1
       }
     ],
@@ -12266,20 +12030,16 @@ const json = [
         Code: "9dg",
         Properties: [
           {
-            PropertyString: "+75 Increased Attack Speed",
+            PropertyString: "75% Increased Attack Speed",
             Index: 1
           },
           {
-            PropertyString: "+10 Faster Cast Rate",
+            PropertyString: "10% Faster Cast Rate",
             Index: 2
           },
           {
             PropertyString: "Adds 35-70 to Damage",
             Index: 0
-          },
-          {
-            PropertyString: "1",
-            Index: 3
           }
         ],
         DamageArmorEnhanced: true,
@@ -12305,7 +12065,7 @@ const json = [
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Legacy of Vashna",
         SetPropertiesString: [
           "+5 to Raise Skeleton (2 Items)",
@@ -12319,15 +12079,15 @@ const json = [
         Code: "xsk",
         Properties: [
           {
-            PropertyString: "+15 Faster Run/Walk",
+            PropertyString: "15% Faster Run/Walk",
             Index: 1
           },
           {
-            PropertyString: "+10 Faster Cast Rate",
+            PropertyString: "10% Faster Cast Rate",
             Index: 2
           },
           {
-            PropertyString: "+100-115 Enhanced Defense",
+            PropertyString: "100-115% Enhanced Defense",
             Index: 0
           }
         ],
@@ -12343,11 +12103,11 @@ const json = [
           Durability: 20,
           ItemLevel: 48,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -12364,11 +12124,11 @@ const json = [
         Code: "xea",
         Properties: [
           {
-            PropertyString: "+1",
+            PropertyString: "+1 to Necromancer Skill Levels",
             Index: 2
           },
           {
-            PropertyString: "+50% Damage to Undead Damage to Undead",
+            PropertyString: "+50% Damage to Undead",
             Index: 3
           },
           {
@@ -12402,7 +12162,7 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "+25 better chance of getting magic item",
+        PropertyString: "25% better chance of getting magic item",
         Index: 0
       }
     ],
@@ -12420,7 +12180,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "All Resistances +50",
+        PropertyString: "All Resistances +50%",
         Index: 1
       },
       {
@@ -12448,7 +12208,7 @@ const json = [
         Code: "9pa",
         Properties: [
           {
-            PropertyString: "+30 Increased Attack Speed",
+            PropertyString: "30% Increased Attack Speed",
             Index: 1
           },
           {
@@ -12458,10 +12218,6 @@ const json = [
           {
             PropertyString: "+12 Knockback",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 3
           }
         ],
         DamageArmorEnhanced: true,
@@ -12500,15 +12256,15 @@ const json = [
         Code: "xng",
         Properties: [
           {
-            PropertyString: "+25 Faster Hit Recovery",
+            PropertyString: "25% Faster Hit Recovery",
             Index: 2
           },
           {
-            PropertyString: "+120-150 Enhanced Defense",
+            PropertyString: "120-150% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "All Resistances +15",
+            PropertyString: "All Resistances +15%",
             Index: 3
           },
           {
@@ -12536,7 +12292,7 @@ const json = [
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Salander's Tirade",
         SetPropertiesString: [
           "+35 to Mana (2 Items)"
@@ -12549,7 +12305,7 @@ const json = [
         Code: "xlm",
         Properties: [
           {
-            PropertyString: "+75-120 Enhanced Defense",
+            PropertyString: "75-120% Enhanced Defense",
             Index: 0
           },
           {
@@ -12573,17 +12329,17 @@ const json = [
           Durability: 24,
           ItemLevel: 42,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
     PartialProperties: [
       {
-        PropertyString: "+20 Increased Attack Speed",
+        PropertyString: "20% Increased Attack Speed",
         Index: 0
       }
     ],
@@ -12593,7 +12349,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+30 Faster Hit Recovery",
+        PropertyString: "30% Faster Hit Recovery",
         Index: 3
       },
       {
@@ -12601,7 +12357,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "All Resistances +25",
+        PropertyString: "All Resistances +25%",
         Index: 2
       },
       {
@@ -12629,7 +12385,7 @@ const json = [
         Code: "xcl",
         Properties: [
           {
-            PropertyString: "+ Defense",
+            PropertyString: "+4 Defense (Per Character Level)",
             Index: 0
           },
           {
@@ -12660,7 +12416,7 @@ const json = [
         Type: "Shield",
         "Set": "Jerik's Dragon Armor",
         SetPropertiesString: [
-          "+30 Faster Block Rate (3 Items)",
+          "30% Faster Block Rate (3 Items)",
           "20% Increased Chance of Blocking (2 Items)"
         ],
         Name: "Black Dragon Hide Shield",
@@ -12671,16 +12427,12 @@ const json = [
         Code: "xit",
         Properties: [
           {
-            PropertyString: "+100 Enhanced Defense",
+            PropertyString: "100% Enhanced Defense",
             Index: 1
           },
           {
-            PropertyString: "All Resistances +60",
+            PropertyString: "All Resistances +60%",
             Index: 0
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: true,
@@ -12703,10 +12455,10 @@ const json = [
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Jerik's Dragon Armor",
         SetPropertiesString: [
-          "+20 Magic Damage Reduced by (3 Items)"
+          "Magic Damage Reduced by 20 (3 Items)"
         ],
         Name: "Green Dragon Mask",
         Index: "Green Dragon Mask",
@@ -12716,7 +12468,7 @@ const json = [
         Code: "xhm",
         Properties: [
           {
-            PropertyString: "+100-125 Enhanced Defense",
+            PropertyString: "100-125% Enhanced Defense",
             Index: 2
           },
           {
@@ -12724,7 +12476,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+20-25 Damage Reduced by",
+            PropertyString: "Damage Reduced by 20",
             Index: 3
           },
           {
@@ -12744,17 +12496,17 @@ const json = [
           Durability: 40,
           ItemLevel: 51,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
     PartialProperties: [
       {
-        PropertyString: "All Resistances +15",
+        PropertyString: "All Resistances +15%",
         Index: 0
       }
     ],
@@ -12764,16 +12516,16 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "-15 Faster Run/Walk",
+        PropertyString: "-15% Faster Run/Walk",
         Index: 3
       },
       {
-        PropertyString: "+5 to Maximum Fire Resist",
-        Index: 4
+        PropertyString: "All Resistances +25%",
+        Index: 1
       },
       {
-        PropertyString: "All Resistances +25",
-        Index: 1
+        PropertyString: "+5 to All Maximum Resistances",
+        Index: 4
       },
       {
         PropertyString: "2 to Experience Gained",
@@ -12791,8 +12543,8 @@ const json = [
         "Set": "Onyx's Primal Rage",
         SetPropertiesString: [
           "30 to Strength (4 Items)",
-          "+15 Damage Reduced by (2 Items)",
-          "+15 Magic Damage Reduced by (3 Items)"
+          "Damage Reduced by 15 (2 Items)",
+          "Magic Damage Reduced by 15 (3 Items)"
         ],
         Name: "Onyx's Fallen Star",
         Index: "Onyx's Fallen Star",
@@ -12802,15 +12554,15 @@ const json = [
         Code: "uhb",
         Properties: [
           {
-            PropertyString: "+25 Faster Run/Walk",
+            PropertyString: "25% Faster Run/Walk",
             Index: 2
           },
           {
-            PropertyString: "+20 Faster Hit Recovery",
+            PropertyString: "20% Faster Hit Recovery",
             Index: 3
           },
           {
-            PropertyString: "+170-200 Enhanced Defense",
+            PropertyString: "170-200% Enhanced Defense",
             Index: 0
           },
           {
@@ -12834,14 +12586,14 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Sword",
         "Set": "Onyx's Primal Rage",
         SetPropertiesString: [
-          "+40 Increased Attack Speed (4 Items)",
+          "40% Increased Attack Speed (4 Items)",
           "+7 Mana stolen per hit (2 Items)",
           "+12 Life stolen per hit (3 Items)"
         ],
@@ -12861,16 +12613,12 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+ Attacker Takes Damage of",
+            PropertyString: "+2 Attacker Takes Damage of (Per Character Level)",
             Index: 2
           },
           {
             PropertyString: "10% Damage Taken Goes To Mana",
             Index: 3
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: true,
@@ -12914,7 +12662,7 @@ const json = [
         Code: "7gs",
         Properties: [
           {
-            PropertyString: "+30 Increased Attack Speed",
+            PropertyString: "30% Increased Attack Speed",
             Index: 2
           },
           {
@@ -12922,16 +12670,12 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+ to Maximum Damage",
+            PropertyString: "+3 to Maximum Damage (Per Character Level)",
             Index: 1
           },
           {
             PropertyString: "Socketed (2)",
             Index: 3
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: true,
@@ -12965,7 +12709,7 @@ const json = [
         "Set": "Onyx's Primal Rage",
         SetPropertiesString: [
           "15% Chance to cast level 7 meteor when struck (3 Items)",
-          "+1 (2 Items)"
+          "+1 to Barbarian Skill Levels (2 Items)"
         ],
         Name: "Onyx's Meteor Shower",
         Index: "Onyx's Meteor Shower",
@@ -12975,11 +12719,11 @@ const json = [
         Code: "upl",
         Properties: [
           {
-            PropertyString: "+40 Faster Hit Recovery",
+            PropertyString: "40% Faster Hit Recovery",
             Index: 1
           },
           {
-            PropertyString: "+160-200 Enhanced Defense",
+            PropertyString: "160-200% Enhanced Defense",
             Index: 0
           },
           {
@@ -13014,8 +12758,8 @@ const json = [
         Type: "Primal Helm",
         "Set": "Onyx's Primal Rage",
         SetPropertiesString: [
-          "+20 Increased Attack Speed (3 Items)",
-          "to Attack Rating (4 Items)",
+          "20% Increased Attack Speed (3 Items)",
+          "+4 to Attack Rating (Per Character Level) (4 Items)",
           "3 to Experience Gained (2 Items)"
         ],
         Name: "Onyx's Celestial Rage",
@@ -13026,15 +12770,15 @@ const json = [
         Code: "baf",
         Properties: [
           {
-            PropertyString: "+2",
+            PropertyString: "+2 to Barbarian Skill Levels",
             Index: 0
           },
           {
-            PropertyString: "15-25 to Strength",
+            PropertyString: "+15-25 to All Attributes",
             Index: 2
           },
           {
-            PropertyString: "+15-20 Damage Reduced by 15-20%%",
+            PropertyString: "+15-20 % Physical Damage Reduction",
             Index: 1
           }
         ],
@@ -13060,7 +12804,7 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "All Resistances +25",
+        PropertyString: "All Resistances +25%",
         Index: 0
       },
       {
@@ -13078,7 +12822,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "All Resistances +50",
+        PropertyString: "All Resistances +50%",
         Index: 1
       },
       {
@@ -13086,7 +12830,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+100 better chance of getting magic item",
+        PropertyString: "100% better chance of getting magic item",
         Index: 3
       }
     ],
@@ -13097,11 +12841,11 @@ const json = [
     Name: "Brother Laz' Calling",
     SetItems: [
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Brother Laz' Calling",
         SetPropertiesString: [
-          "+1 (2 Items)",
-          "+20 Faster Hit Recovery (3 Items)",
+          "+1 to Paladin Skill Levels (2 Items)",
+          "20% Faster Hit Recovery (3 Items)",
           "3 to Experience Gained (4 Items)"
         ],
         Name: "Teachings of Brother Laz",
@@ -13112,11 +12856,11 @@ const json = [
         Code: "urn",
         Properties: [
           {
-            PropertyString: "+100-150 Enhanced Defense",
+            PropertyString: "100-150% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "All Resistances +20-30",
+            PropertyString: "All Resistances +20-30%",
             Index: 1
           },
           {
@@ -13136,11 +12880,11 @@ const json = [
           Durability: 50,
           ItemLevel: 85,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -13149,7 +12893,7 @@ const json = [
         SetPropertiesString: [
           "1 to All Skills (2 Items)",
           "Slain Monsters Rest in Peace (3 Items)",
-          "+15 Damage Reduced by 15%% (4 Items)"
+          "+15 % Physical Damage Reduction (4 Items)"
         ],
         Name: "Holy Aura",
         Index: "Holy Aura",
@@ -13163,7 +12907,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+140-190 Enhanced Defense",
+            PropertyString: "140-190% Enhanced Defense",
             Index: 0
           },
           {
@@ -13210,7 +12954,7 @@ const json = [
         Code: "pae",
         Properties: [
           {
-            PropertyString: "+40 Faster Block Rate",
+            PropertyString: "40% Faster Block Rate",
             Index: 2
           },
           {
@@ -13218,7 +12962,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+ Defense",
+            PropertyString: "+4 Defense (Per Character Level)",
             Index: 0
           },
           {
@@ -13226,12 +12970,8 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "All Resistances +20-30",
+            PropertyString: "All Resistances +20-30%",
             Index: 3
-          },
-          {
-            PropertyString: "1",
-            Index: 5
           }
         ],
         DamageArmorEnhanced: false,
@@ -13258,8 +12998,8 @@ const json = [
         "Set": "Brother Laz' Calling",
         SetPropertiesString: [
           "10% Chance to cast level 3 amplify damage when struck (2 Items)",
-          "All Resistances +15 (3 Items)",
-          "+50 better chance of getting magic item (4 Items)"
+          "All Resistances +15% (3 Items)",
+          "50% better chance of getting magic item (4 Items)"
         ],
         Name: "Glory of Salvation",
         Index: "Glory of Salvation",
@@ -13273,11 +13013,11 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+20 Faster Cast Rate",
+            PropertyString: "20% Faster Cast Rate",
             Index: 0
           },
           {
-            PropertyString: "+75-125 Enhanced Defense",
+            PropertyString: "75-125% Enhanced Defense",
             Index: 2
           },
           {
@@ -13301,7 +13041,7 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -13319,7 +13059,7 @@ const json = [
         Code: "7qs",
         Properties: [
           {
-            PropertyString: "+30 Increased Attack Speed",
+            PropertyString: "30% Increased Attack Speed",
             Index: 3
           },
           {
@@ -13331,12 +13071,8 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+300% Damage to Demons Damage to Demons",
+            PropertyString: "+300% Damage to Demons",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: true,
@@ -13364,11 +13100,11 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "15 to Strength",
+        PropertyString: "+15 to All Attributes",
         Index: 0
       },
       {
-        PropertyString: "+33 Chance of Crushing Blow",
+        PropertyString: "33% Chance of Crushing Blow",
         Index: 2
       },
       {
@@ -13382,7 +13118,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "All Resistances +50",
+        PropertyString: "All Resistances +50%",
         Index: 1
       },
       {
@@ -13390,7 +13126,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+75 better chance of getting magic item",
+        PropertyString: "75% better chance of getting magic item",
         Index: 3
       }
     ],
@@ -13404,13 +13140,13 @@ const json = [
         Type: "Circlet",
         "Set": "The Mysterious Spin",
         SetPropertiesString: [
-          "+ Defense (3 Items)",
-          "to Life (5 Items)",
-          "+ to Mana (5 Items)",
-          "All Resistances +15 (2 Items)",
-          "All Resistances +15 (3 Items)",
-          "+100 extra gold from monsters (4 Items)",
-          "+25 better chance of getting magic item (4 Items)"
+          "+1.5 Defense (Per Character Level) (3 Items)",
+          "+1.25 to Life (Per Character Level) (5 Items)",
+          "+1 to Mana (Per Character Level) (5 Items)",
+          "All Resistances +15% (2 Items)",
+          "All Resistances +15% (3 Items)",
+          "100% extra gold from monsters (4 Items)",
+          "25% better chance of getting magic item (4 Items)"
         ],
         Name: "Spin's Enigma",
         Index: "Spin's Enigma",
@@ -13447,12 +13183,12 @@ const json = [
         Type: "Armor",
         "Set": "The Mysterious Spin",
         SetPropertiesString: [
-          "+20 Faster Cast Rate (5 Items)",
-          "+20 Faster Hit Recovery (5 Items)",
-          "+120 Enhanced Defense (3 Items)",
+          "20% Faster Cast Rate (5 Items)",
+          "20% Faster Hit Recovery (5 Items)",
+          "120% Enhanced Defense (3 Items)",
           "Magic Resist +15% (4 Items)",
-          "All Resistances +15 (4 Items)",
-          "+15 Damage Reduced by 15%% (2 Items)"
+          "All Resistances +15% (4 Items)",
+          "+15 % Physical Damage Reduction (2 Items)"
         ],
         Name: "Spin's Paradox",
         Index: "Spin's Paradox",
@@ -13489,12 +13225,12 @@ const json = [
         Type: "Belt",
         "Set": "The Mysterious Spin",
         SetPropertiesString: [
-          "All Resistances +10 (5 Items)",
+          "All Resistances +10% (5 Items)",
           "+10 Cold Absorb (2 Items)",
           "+10 Lightning Absorb (3 Items)",
           "+10 Fire Absorb (4 Items)",
           "+50 Poison Length Reduced by (5 Items)",
-          "+25 better chance of getting magic item (4 Items)"
+          "25% better chance of getting magic item (4 Items)"
         ],
         Name: "Spin's Mystery",
         Index: "Spin's Mystery",
@@ -13524,19 +13260,19 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Shield",
         "Set": "The Mysterious Spin",
         SetPropertiesString: [
-          "+40 Faster Block Rate (3 Items)",
+          "40% Faster Block Rate (3 Items)",
           "40% Increased Chance of Blocking (2 Items)",
-          "+110 Enhanced Defense (5 Items)",
+          "110% Enhanced Defense (5 Items)",
           "+15 Replenish Life (4 Items)",
           "Regenerate Mana 75% (4 Items)",
-          "+15 Damage Reduced by 15%% (5 Items)"
+          "+15 % Physical Damage Reduction (5 Items)"
         ],
         Name: "Spin's Conundrum",
         Index: "Spin's Conundrum",
@@ -13548,10 +13284,6 @@ const json = [
           {
             PropertyString: "Requirements -80%",
             Index: 0
-          },
-          {
-            PropertyString: "1",
-            Index: 1
           }
         ],
         DamageArmorEnhanced: false,
@@ -13579,7 +13311,7 @@ const json = [
         SetPropertiesString: [
           "10 to Fire Skill Damage (2 Items)",
           "10 to Cold Skill Damage (3 Items)",
-          "10 to Lightning Skill Damage (4 Items)",
+          "+10 to Lightning Skill Damage (4 Items)",
           "Cold Resist +25% (3 Items)",
           "Lightning Resist +25% (4 Items)",
           "Fire Resist +25% (2 Items)"
@@ -13594,10 +13326,6 @@ const json = [
           {
             PropertyString: "2 to All Skills",
             Index: 0
-          },
-          {
-            PropertyString: "1",
-            Index: 1
           }
         ],
         DamageArmorEnhanced: false,
@@ -13625,15 +13353,15 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "+25 better chance of getting magic item",
+        PropertyString: "25% better chance of getting magic item",
         Index: 0
       },
       {
-        PropertyString: "+25 better chance of getting magic item",
+        PropertyString: "25% better chance of getting magic item",
         Index: 2
       },
       {
-        PropertyString: "+50 better chance of getting magic item",
+        PropertyString: "50% better chance of getting magic item",
         Index: 4
       }
     ],
@@ -13647,7 +13375,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "All Resistances +50",
+        PropertyString: "All Resistances +50%",
         Index: 1
       },
       {
@@ -13665,8 +13393,8 @@ const json = [
         Type: "Armor",
         "Set": "Darkmage's Astral Projection",
         SetPropertiesString: [
-          "All Resistances +15 (4 Items)",
-          "+15 Damage Reduced by 15%% (2 Items)"
+          "All Resistances +15% (4 Items)",
+          "+15 % Physical Damage Reduction (2 Items)"
         ],
         Name: "Darkmage's Falling Star",
         Index: "Darkmage's Falling Star",
@@ -13680,7 +13408,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+150-180 Enhanced Defense",
+            PropertyString: "150-180% Enhanced Defense",
             Index: 0
           },
           {
@@ -13731,11 +13459,11 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+30 Increased Attack Speed",
+            PropertyString: "30% Increased Attack Speed",
             Index: 1
           },
           {
-            PropertyString: "+125-150 Enhanced Defense",
+            PropertyString: "125-150% Enhanced Defense",
             Index: 0
           },
           {
@@ -13759,7 +13487,7 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -13782,11 +13510,11 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+30 Faster Run/Walk",
+            PropertyString: "30% Faster Run/Walk",
             Index: 1
           },
           {
-            PropertyString: "+140-170 Enhanced Defense",
+            PropertyString: "140-170% Enhanced Defense",
             Index: 0
           },
           {
@@ -13810,7 +13538,7 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -13819,7 +13547,7 @@ const json = [
         SetPropertiesString: [
           "8% Chance to cast level 12 meteor on striking (4 Items)",
           "1 to All Skills (3 Items)",
-          "+25 Chance of Crushing Blow (5 Items)"
+          "25% Chance of Crushing Blow (5 Items)"
         ],
         Name: "Darkmage's Meteor Shower",
         Index: "Darkmage's Meteor Shower",
@@ -13833,7 +13561,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+25 Increased Attack Speed",
+            PropertyString: "25% Increased Attack Speed",
             Index: 1
           },
           {
@@ -13843,10 +13571,6 @@ const json = [
           {
             PropertyString: "Ethereal (Cannot Be Repaired)",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: true,
@@ -13875,7 +13599,7 @@ const json = [
         Type: "Pelt",
         "Set": "Darkmage's Astral Projection",
         SetPropertiesString: [
-          "+2 (3 Items)",
+          "+2 to Druid Skill Levels (3 Items)",
           "135 to Life (4 Items)",
           "+75 to Mana (5 Items)"
         ],
@@ -13891,11 +13615,11 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+20 Faster Hit Recovery",
+            PropertyString: "20% Faster Hit Recovery",
             Index: 1
           },
           {
-            PropertyString: "+190-220 Enhanced Defense",
+            PropertyString: "190-220% Enhanced Defense",
             Index: 0
           },
           {
@@ -13925,15 +13649,15 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "10 to Strength",
+        PropertyString: "+10 to All Attributes",
         Index: 0
       },
       {
-        PropertyString: "20 to Strength",
+        PropertyString: "+20 to All Attributes",
         Index: 2
       },
       {
-        PropertyString: "20 to Strength",
+        PropertyString: "+20 to All Attributes",
         Index: 4
       }
     ],
@@ -13943,7 +13667,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "All Resistances +50",
+        PropertyString: "All Resistances +50%",
         Index: 1
       },
       {
@@ -13951,7 +13675,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+100 better chance of getting magic item",
+        PropertyString: "100% better chance of getting magic item",
         Index: 3
       }
     ],
@@ -13965,8 +13689,8 @@ const json = [
         Type: "Hand to Hand 2",
         "Set": "Phrozen Heart's Mysticism",
         SetPropertiesString: [
-          "+20 Chance of Crushing Blow (3 Items)",
-          "+20 Deadly Strike (2 Items)",
+          "20% Chance of Crushing Blow (3 Items)",
+          "20% Deadly Strike (2 Items)",
           "2 to Experience Gained (4 Items)"
         ],
         Name: "Cryptic Claws",
@@ -13987,10 +13711,6 @@ const json = [
           {
             PropertyString: "+6 Replenish Life",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 3
           }
         ],
         DamageArmorEnhanced: true,
@@ -14019,7 +13739,7 @@ const json = [
         Type: "Armor",
         "Set": "Phrozen Heart's Mysticism",
         SetPropertiesString: [
-          "+20 Damage Reduced by 20%% (2 Items)",
+          "+20 % Physical Damage Reduction (2 Items)",
           "+1 Cannot Be Frozen (4 Items)",
           "+50 Poison Length Reduced by (3 Items)"
         ],
@@ -14031,11 +13751,11 @@ const json = [
         Code: "ung",
         Properties: [
           {
-            PropertyString: "+30 Faster Hit Recovery",
+            PropertyString: "30% Faster Hit Recovery",
             Index: 0
           },
           {
-            PropertyString: "+160-200 Enhanced Defense",
+            PropertyString: "160-200% Enhanced Defense",
             Index: 1
           },
           {
@@ -14066,7 +13786,7 @@ const json = [
         Type: "Gloves",
         "Set": "Phrozen Heart's Mysticism",
         SetPropertiesString: [
-          "+20 Increased Attack Speed (2 Items)",
+          "20% Increased Attack Speed (2 Items)",
           "+50% Enhanced Damage (3 Items)",
           "15 to Strength (5 Items)",
           "15 to Dexterity (4 Items)"
@@ -14079,7 +13799,7 @@ const json = [
         Code: "uvg",
         Properties: [
           {
-            PropertyString: "+100-140 Enhanced Defense",
+            PropertyString: "100-140% Enhanced Defense",
             Index: 0
           },
           {
@@ -14087,7 +13807,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "All Resistances +10-15",
+            PropertyString: "All Resistances +10-15%",
             Index: 2
           }
         ],
@@ -14107,7 +13827,7 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -14127,11 +13847,11 @@ const json = [
         Code: "ulb",
         Properties: [
           {
-            PropertyString: "+40 Faster Run/Walk",
+            PropertyString: "40% Faster Run/Walk",
             Index: 2
           },
           {
-            PropertyString: "+125-150 Enhanced Defense",
+            PropertyString: "125-150% Enhanced Defense",
             Index: 0
           },
           {
@@ -14155,7 +13875,7 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -14163,8 +13883,8 @@ const json = [
         "Set": "Phrozen Heart's Mysticism",
         SetPropertiesString: [
           "+10 Kick Damage (3 Items)",
-          "+15 Damage Reduced by 15%% (4 Items)",
-          "+50 better chance of getting magic item (2 Items)"
+          "+15 % Physical Damage Reduction (4 Items)",
+          "50% better chance of getting magic item (2 Items)"
         ],
         Name: "Winter's Discord",
         Index: "Winter's Discord",
@@ -14178,11 +13898,11 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "20 bonus to Attack Rating",
+            PropertyString: "+20 % bonus to Attack Rating",
             Index: 2
           },
           {
-            PropertyString: "+100-120 Enhanced Defense",
+            PropertyString: "100-120% Enhanced Defense",
             Index: 0
           }
         ],
@@ -14202,7 +13922,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -14230,7 +13950,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "All Resistances +50",
+        PropertyString: "All Resistances +50%",
         Index: 1
       },
       {
@@ -14238,7 +13958,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+100 better chance of getting magic item",
+        PropertyString: "100% better chance of getting magic item",
         Index: 3
       }
     ],
@@ -14252,8 +13972,8 @@ const json = [
         Type: "Amulet",
         "Set": "Chaos Energy",
         SetPropertiesString: [
-          "All Resistances +23 (3 Items)",
-          "+35 better chance of getting magic item (4 Items)"
+          "All Resistances +23% (3 Items)",
+          "35% better chance of getting magic item (4 Items)"
         ],
         Name: "Soulstone of Power",
         Index: "Soulstone of Power",
@@ -14267,7 +13987,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+15 Faster Cast Rate",
+            PropertyString: "15% Faster Cast Rate",
             Index: 1
           },
           {
@@ -14275,7 +13995,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+10 Damage Reduced by 10%%",
+            PropertyString: "+10 % Physical Damage Reduction",
             Index: 3
           }
         ],
@@ -14292,11 +14012,11 @@ const json = [
             Index: "Amulet",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Chaos Energy",
         SetPropertiesString: [
           "+50 to Mana (2 Items)",
@@ -14314,11 +14034,11 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+20 Faster Hit Recovery",
+            PropertyString: "20% Faster Hit Recovery",
             Index: 1
           },
           {
-            PropertyString: "+120-165 Enhanced Defense",
+            PropertyString: "120-165% Enhanced Defense",
             Index: 0
           },
           {
@@ -14338,11 +14058,11 @@ const json = [
           Durability: 18,
           ItemLevel: 63,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -14350,7 +14070,7 @@ const json = [
         "Set": "Chaos Energy",
         SetPropertiesString: [
           "+55 to Mana (5 Items)",
-          "All Resistances +22 (3 Items)"
+          "All Resistances +22% (3 Items)"
         ],
         Name: "Chaotic Shield",
         Index: "Chaotic Shield",
@@ -14364,20 +14084,16 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+3",
+            PropertyString: "+3 to Necromancer Skill Levels",
             Index: 0
           },
           {
-            PropertyString: "+30 Faster Block Rate",
+            PropertyString: "30% Faster Block Rate",
             Index: 3
           },
           {
             PropertyString: "20-40% Increased Chance of Blocking",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: false,
@@ -14403,9 +14119,9 @@ const json = [
         Type: "Boots",
         "Set": "Chaos Energy",
         SetPropertiesString: [
-          "+30 Faster Run/Walk (2 Items)",
-          "+20 Increased Attack Speed (4 Items)",
-          "+25 better chance of getting magic item (3 Items)"
+          "30% Faster Run/Walk (2 Items)",
+          "20% Increased Attack Speed (4 Items)",
+          "25% better chance of getting magic item (3 Items)"
         ],
         Name: "Treads of Energy",
         Index: "Treads of Energy",
@@ -14423,11 +14139,11 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+100 Enhanced Defense",
+            PropertyString: "100% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "to Energy",
+            PropertyString: "+0.75 to Energy (Per Character Level)",
             Index: 1
           }
         ],
@@ -14447,7 +14163,7 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -14470,7 +14186,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+40 Faster Cast Rate",
+            PropertyString: "40% Faster Cast Rate",
             Index: 0
           },
           {
@@ -14526,7 +14242,7 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "All Resistances +50",
+        PropertyString: "All Resistances +50%",
         Index: 1
       },
       {
@@ -14534,7 +14250,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+100 better chance of getting magic item",
+        PropertyString: "100% better chance of getting magic item",
         Index: 3
       }
     ],
@@ -14548,8 +14264,8 @@ const json = [
         Type: "Amazon Javelin",
         "Set": "Aiel Shieldmaiden",
         SetPropertiesString: [
-          "+2 (3 Items)",
-          "+20 Increased Attack Speed (2 Items)"
+          "+2 to Amazon Skill Levels (3 Items)",
+          "20% Increased Attack Speed (2 Items)"
         ],
         Name: "Chiad's Lances",
         Index: "Chiad's Lances",
@@ -14573,10 +14289,6 @@ const json = [
           {
             PropertyString: "Adds 35-70 to Damage",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: true,
@@ -14609,8 +14321,8 @@ const json = [
         Type: "Shield",
         "Set": "Aiel Shieldmaiden",
         SetPropertiesString: [
-          "All Resistances +25 (4 Items)",
-          "+20 Damage Reduced by 20%% (3 Items)"
+          "All Resistances +25% (4 Items)",
+          "+20 % Physical Damage Reduction (3 Items)"
         ],
         Name: "Chiad's Wall",
         Index: "Chiad's Wall",
@@ -14620,7 +14332,7 @@ const json = [
         Code: "uit",
         Properties: [
           {
-            PropertyString: "+30 Faster Block Rate",
+            PropertyString: "30% Faster Block Rate",
             Index: 3
           },
           {
@@ -14628,16 +14340,12 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+180-220 Enhanced Defense",
+            PropertyString: "180-220% Enhanced Defense",
             Index: 0
           },
           {
             PropertyString: "Requirements -40%",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: true,
@@ -14674,7 +14382,7 @@ const json = [
         Code: "ucl",
         Properties: [
           {
-            PropertyString: "+175-200 Enhanced Defense",
+            PropertyString: "175-200% Enhanced Defense",
             Index: 0
           },
           {
@@ -14714,7 +14422,7 @@ const json = [
         "Set": "Aiel Shieldmaiden",
         SetPropertiesString: [
           "35 to Life (3 Items)",
-          "+20 better chance of getting magic item (2 Items)"
+          "20% better chance of getting magic item (2 Items)"
         ],
         Name: "Chiad's Halo",
         Index: "Chiad's Halo",
@@ -14728,7 +14436,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 0
           },
           {
@@ -14753,14 +14461,14 @@ const json = [
             Index: "Ring",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Belt",
         "Set": "Aiel Shieldmaiden",
         SetPropertiesString: [
-          "25 to Lightning Skill Damage (3 Items)",
+          "+25 to Lightning Skill Damage (3 Items)",
           "+15 Life after each Kill (4 Items)"
         ],
         Name: "Chiad's Valor",
@@ -14775,11 +14483,11 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+160-200 Enhanced Defense",
+            PropertyString: "160-200% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "15 to Strength",
+            PropertyString: "+15 to All Attributes",
             Index: 2
           },
           {
@@ -14803,7 +14511,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -14831,7 +14539,7 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "All Resistances +50",
+        PropertyString: "All Resistances +50%",
         Index: 1
       },
       {
@@ -14839,7 +14547,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+100 better chance of getting magic item",
+        PropertyString: "100% better chance of getting magic item",
         Index: 3
       }
     ],
@@ -14861,7 +14569,7 @@ const json = [
         Code: "7ga",
         Properties: [
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 2
           },
           {
@@ -14869,7 +14577,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+ to Maximum Damage",
+            PropertyString: "+2.25 to Maximum Damage (Per Character Level)",
             Index: 1
           },
           {
@@ -14879,10 +14587,6 @@ const json = [
           {
             PropertyString: "+1 Knockback",
             Index: 3
-          },
-          {
-            PropertyString: "1",
-            Index: 5
           }
         ],
         DamageArmorEnhanced: true,
@@ -14923,15 +14627,15 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+170-200 Enhanced Defense",
+            PropertyString: "170-200% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "All Resistances +20-30",
+            PropertyString: "All Resistances +20-30%",
             Index: 3
           },
           {
-            PropertyString: "+15-25 Damage Reduced by 15-25%%",
+            PropertyString: "+15-25 % Physical Damage Reduction",
             Index: 1
           },
           {
@@ -14959,7 +14663,7 @@ const json = [
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Myhrginoc's Warbreeder",
         SetPropertiesString: [],
         Name: "Myhrginoc's Crimson Crusader",
@@ -14974,7 +14678,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+ Defense",
+            PropertyString: "+2 Defense (Per Character Level)",
             Index: 0
           },
           {
@@ -14998,19 +14702,19 @@ const json = [
           Durability: 24,
           ItemLevel: 68,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Gloves",
         "Set": "Myhrginoc's Warbreeder",
         SetPropertiesString: [
-          "+22 Chance of Crushing Blow (2 Items)",
-          "+16 Deadly Strike (3 Items)"
+          "22% Chance of Crushing Blow (2 Items)",
+          "16% Deadly Strike (3 Items)"
         ],
         Name: "Myhrginoc's Deathmonger",
         Index: "Myhrginoc's Deathmonger",
@@ -15024,7 +14728,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+15 Increased Attack Speed",
+            PropertyString: "15% Increased Attack Speed",
             Index: 1
           },
           {
@@ -15032,7 +14736,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+100-130 Enhanced Defense",
+            PropertyString: "100-130% Enhanced Defense",
             Index: 0
           }
         ],
@@ -15052,13 +14756,13 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
     PartialProperties: [
       {
-        PropertyString: "+30 Increased Attack Speed",
+        PropertyString: "30% Increased Attack Speed",
         Index: 0
       },
       {
@@ -15080,12 +14784,12 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "15 to Strength",
-        Index: 2
+        PropertyString: "All Resistances +50%",
+        Index: 1
       },
       {
-        PropertyString: "All Resistances +50",
-        Index: 1
+        PropertyString: "+15 to All Attributes",
+        Index: 2
       }
     ],
     Level: 1
@@ -15098,8 +14802,8 @@ const json = [
         Type: "Polearm",
         "Set": "Nefarious Ways",
         SetPropertiesString: [
-          "+ extra gold from monsters (3 Items)",
-          "+ better chance of getting magic item (2 Items)"
+          "+4% extra gold from monsters (Per Character Level) (3 Items)",
+          "+2% better chance of getting magic item (Per Character Level) (2 Items)"
         ],
         Name: "Sin and Greed",
         Index: "Sin and Greed",
@@ -15113,7 +14817,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+40 Increased Attack Speed",
+            PropertyString: "40% Increased Attack Speed",
             Index: 2
           },
           {
@@ -15121,12 +14825,8 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "Requirements Increased By +20%",
+            PropertyString: "20% Requirements Increased By",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: true,
@@ -15163,7 +14863,7 @@ const json = [
         Code: "ult",
         Properties: [
           {
-            PropertyString: "+30 Increased Attack Speed",
+            PropertyString: "30% Increased Attack Speed",
             Index: 3
           },
           {
@@ -15171,11 +14871,11 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+40 Faster Hit Recovery",
+            PropertyString: "40% Faster Hit Recovery",
             Index: 1
           },
           {
-            PropertyString: "+125-175 Enhanced Defense",
+            PropertyString: "125-175% Enhanced Defense",
             Index: 0
           }
         ],
@@ -15202,7 +14902,7 @@ const json = [
         Type: "Boots",
         "Set": "Nefarious Ways",
         SetPropertiesString: [
-          "+30 better chance of getting magic item (3 Items)"
+          "30% better chance of getting magic item (3 Items)"
         ],
         Name: "Evil Reputation",
         Index: "Evil Reputation",
@@ -15212,7 +14912,7 @@ const json = [
         Code: "utb",
         Properties: [
           {
-            PropertyString: "+50 Faster Run/Walk",
+            PropertyString: "50% Faster Run/Walk",
             Index: 1
           },
           {
@@ -15244,11 +14944,11 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Nefarious Ways",
         SetPropertiesString: [
           "+7 to Mana after each Kill (2 Items)"
@@ -15275,10 +14975,6 @@ const json = [
           {
             PropertyString: "+15-25 Life after each Kill",
             Index: 3
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: false,
@@ -15293,11 +14989,11 @@ const json = [
           Durability: 20,
           ItemLevel: 74,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -15317,11 +15013,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+50 Chance of Crushing Blow",
+        PropertyString: "50% Chance of Crushing Blow",
         Index: 3
       },
       {
-        PropertyString: "+50 Deadly Strike",
+        PropertyString: "50% Deadly Strike",
         Index: 2
       },
       {
@@ -15329,7 +15025,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "All Resistances +100",
+        PropertyString: "All Resistances +100%",
         Index: 1
       }
     ],
@@ -15343,7 +15039,7 @@ const json = [
         Type: "Amulet",
         "Set": "Kraj's Memorial",
         SetPropertiesString: [
-          "All Resistances +18 (2 Items)",
+          "All Resistances +18% (2 Items)",
           "+1 Half Freeze Duration (3 Items)"
         ],
         Name: "Eternal Sleep",
@@ -15383,7 +15079,7 @@ const json = [
             Index: "Amulet",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -15391,7 +15087,7 @@ const json = [
         "Set": "Kraj's Memorial",
         SetPropertiesString: [
           "Level 4 Cleansing Aura When Equipped (4 Items)",
-          "+25 Faster Hit Recovery (3 Items)",
+          "25% Faster Hit Recovery (3 Items)",
           "35% Increased Chance of Blocking (2 Items)"
         ],
         Name: "Calming Peace",
@@ -15402,11 +15098,11 @@ const json = [
         Code: "uow",
         Properties: [
           {
-            PropertyString: "+140-160 Enhanced Defense",
+            PropertyString: "140-160% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "+ Defense",
+            PropertyString: "+2 Defense (Per Character Level)",
             Index: 1
           },
           {
@@ -15414,12 +15110,8 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+25-35 Damage Reduced by 25-35%%",
+            PropertyString: "+25-35 % Physical Damage Reduction",
             Index: 3
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: true,
@@ -15455,11 +15147,11 @@ const json = [
         Code: "uld",
         Properties: [
           {
-            PropertyString: "+25 Faster Hit Recovery",
+            PropertyString: "25% Faster Hit Recovery",
             Index: 1
           },
           {
-            PropertyString: "+100-130 Enhanced Defense",
+            PropertyString: "100-130% Enhanced Defense",
             Index: 0
           },
           {
@@ -15494,7 +15186,7 @@ const json = [
         Type: "Mace",
         "Set": "Kraj's Memorial",
         SetPropertiesString: [
-          "+25 Increased Attack Speed (2 Items)",
+          "25% Increased Attack Speed (2 Items)",
           "+18 Life after each Kill (3 Items)",
           "+3 to Mana after each Kill (4 Items)"
         ],
@@ -15518,12 +15210,8 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "75 bonus to Attack Rating",
+            PropertyString: "+75 % bonus to Attack Rating",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: true,
@@ -15555,7 +15243,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+75 better chance of getting magic item",
+        PropertyString: "75% better chance of getting magic item",
         Index: 2
       }
     ],
@@ -15577,7 +15265,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "All Resistances +50",
+        PropertyString: "All Resistances +50%",
         Index: 1
       }
     ],
@@ -15591,7 +15279,7 @@ const json = [
         Type: "Armor",
         "Set": "The Darkest Weaves",
         SetPropertiesString: [
-          "+50 Faster Hit Recovery (2 Items)"
+          "50% Faster Hit Recovery (2 Items)"
         ],
         Name: "Sundered Heart",
         Index: "Sundered Heart",
@@ -15601,7 +15289,7 @@ const json = [
         Code: "uth",
         Properties: [
           {
-            PropertyString: "+170-200 Enhanced Defense",
+            PropertyString: "170-200% Enhanced Defense",
             Index: 0
           },
           {
@@ -15632,7 +15320,7 @@ const json = [
         Type: "Sword",
         "Set": "The Darkest Weaves",
         SetPropertiesString: [
-          "+ to Maximum Damage (2 Items)"
+          "+1 to Maximum Damage (Per Character Level) (2 Items)"
         ],
         Name: "Soulreaver",
         Index: "Soulreaver",
@@ -15648,10 +15336,6 @@ const json = [
           {
             PropertyString: "Socketed (6)",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: true,
@@ -15680,7 +15364,7 @@ const json = [
         Type: "Shield",
         "Set": "The Darkest Weaves",
         SetPropertiesString: [
-          "+50 Faster Block Rate (2 Items)"
+          "50% Faster Block Rate (2 Items)"
         ],
         Name: "Throws of Hatred",
         Index: "Throws of Hatred",
@@ -15694,16 +15378,12 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+170-210 Enhanced Defense",
+            PropertyString: "170-210% Enhanced Defense",
             Index: 0
           },
           {
             PropertyString: "Socketed (3)",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 3
           }
         ],
         DamageArmorEnhanced: true,
@@ -15728,7 +15408,7 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "20 to Strength",
+        PropertyString: "+20 to All Attributes",
         Index: 0
       }
     ],
@@ -15738,7 +15418,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+50 Faster Run/Walk",
+        PropertyString: "50% Faster Run/Walk",
         Index: 2
       },
       {
@@ -15750,7 +15430,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "All Resistances +25",
+        PropertyString: "All Resistances +25%",
         Index: 1
       }
     ],
@@ -15761,10 +15441,10 @@ const json = [
     Name: "Blood Raven's Despair",
     SetItems: [
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Blood Raven's Despair",
         SetPropertiesString: [
-          "10 to Strength (2 Items)"
+          "+10 to All Attributes (2 Items)"
         ],
         Name: "Blood Raven's Pain",
         Index: "Blood Raven's Pain",
@@ -15802,11 +15482,11 @@ const json = [
           Durability: 40,
           ItemLevel: 84,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -15823,7 +15503,7 @@ const json = [
         Code: "utu",
         Properties: [
           {
-            PropertyString: "+25 Faster Hit Recovery",
+            PropertyString: "25% Faster Hit Recovery",
             Index: 1
           },
           {
@@ -15890,10 +15570,6 @@ const json = [
           {
             PropertyString: "+100-150 to Maximum Damage",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 5
           }
         ],
         DamageArmorEnhanced: true,
@@ -15950,11 +15626,11 @@ const json = [
     Name: "Narrow Path Between Light and Darkness",
     SetItems: [
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Narrow Path Between Light and Darkness",
         SetPropertiesString: [
           "25% Chance to cast level 1 frost nova when struck (3 Items)",
-          "+15 Increased Attack Speed (2 Items)"
+          "15% Increased Attack Speed (2 Items)"
         ],
         Name: "Char's Grimace of Death",
         Index: "Char's Grimace of Death",
@@ -15964,7 +15640,7 @@ const json = [
         Code: "xh9",
         Properties: [
           {
-            PropertyString: "+113 Enhanced Defense",
+            PropertyString: "113% Enhanced Defense",
             Index: 3
           },
           {
@@ -15992,11 +15668,11 @@ const json = [
           Durability: 40,
           ItemLevel: 50,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -16005,7 +15681,7 @@ const json = [
         SetPropertiesString: [
           "+45 to Mana (2 Items)",
           "Regenerate Mana 10% (4 Items)",
-          "+10 Magic Damage Reduced by (3 Items)"
+          "Magic Damage Reduced by 10 (3 Items)"
         ],
         Name: "Char's Annulus of Obscurity",
         Index: "Char's Annulus of Obscurity",
@@ -16015,7 +15691,7 @@ const json = [
         Code: "rin",
         Properties: [
           {
-            PropertyString: "+1",
+            PropertyString: "+1 to Paladin Skill Levels",
             Index: 1
           },
           {
@@ -16040,7 +15716,7 @@ const json = [
             Index: "Ring",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -16048,7 +15724,7 @@ const json = [
         "Set": "Narrow Path Between Light and Darkness",
         SetPropertiesString: [
           "45 to Life (2 Items)",
-          "+10 Damage Reduced by (3 Items)"
+          "Damage Reduced by 10 (3 Items)"
         ],
         Name: "Char's Blessed Reflection",
         Index: "Char's Blessed Reflection",
@@ -16058,7 +15734,7 @@ const json = [
         Code: "rin",
         Properties: [
           {
-            PropertyString: "+1",
+            PropertyString: "+1 to Necromancer Skill Levels",
             Index: 1
           },
           {
@@ -16066,7 +15742,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "1 to Light Radius",
+            PropertyString: "+1 to Light Radius",
             Index: 0
           }
         ],
@@ -16083,7 +15759,7 @@ const json = [
             Index: "Ring",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -16114,16 +15790,12 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+15 Faster Cast Rate",
+            PropertyString: "15% Faster Cast Rate",
             Index: 2
           },
           {
             PropertyString: "Socketed (2)",
             Index: 0
-          },
-          {
-            PropertyString: "1",
-            Index: 5
           }
         ],
         DamageArmorEnhanced: true,
@@ -16162,15 +15834,15 @@ const json = [
         Code: "uui",
         Properties: [
           {
-            PropertyString: "+65-110 Enhanced Defense",
+            PropertyString: "65-110% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "All Resistances +15-25",
+            PropertyString: "All Resistances +15-25%",
             Index: 2
           },
           {
-            PropertyString: "+10-15 Damage Reduced by 10-15%%",
+            PropertyString: "+10-15 % Physical Damage Reduction",
             Index: 3
           },
           {
@@ -16214,11 +15886,11 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+10 to Maximum Fire Resist",
+        PropertyString: "+10 to All Maximum Resistances",
         Index: 0
       },
       {
-        PropertyString: "All Resistances +25",
+        PropertyString: "All Resistances +25%",
         Index: 1
       }
     ],
@@ -16240,11 +15912,11 @@ const json = [
         Code: "ztb",
         Properties: [
           {
-            PropertyString: "+10 Increased Attack Speed",
+            PropertyString: "10% Increased Attack Speed",
             Index: 3
           },
           {
-            PropertyString: "+40-60 Enhanced Defense",
+            PropertyString: "40-60% Enhanced Defense",
             Index: 4
           },
           {
@@ -16252,15 +15924,15 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+50-80 extra gold from monsters",
+            PropertyString: "50-80% extra gold from monsters",
             Index: 5
           },
           {
-            PropertyString: "+30 better chance of getting magic item",
+            PropertyString: "30% better chance of getting magic item",
             Index: 0
           },
           {
-            PropertyString: "2 to Light Radius",
+            PropertyString: "+2 to Light Radius",
             Index: 1
           }
         ],
@@ -16280,7 +15952,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -16295,7 +15967,7 @@ const json = [
         Code: "xtb",
         Properties: [
           {
-            PropertyString: "+25 Faster Run/Walk",
+            PropertyString: "25% Faster Run/Walk",
             Index: 4
           },
           {
@@ -16303,7 +15975,7 @@ const json = [
             Index: 6
           },
           {
-            PropertyString: "+150-190 Enhanced Defense",
+            PropertyString: "150-190% Enhanced Defense",
             Index: 5
           },
           {
@@ -16315,11 +15987,11 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+5-10 Attacker Takes Damage of",
+            PropertyString: "Attacker Takes Damage of +5-10",
             Index: 7
           },
           {
-            PropertyString: "+30-50 better chance of getting magic item",
+            PropertyString: "30-50% better chance of getting magic item",
             Index: 2
           }
         ],
@@ -16339,7 +16011,7 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -16361,15 +16033,15 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+160-200 Enhanced Defense",
+            PropertyString: "160-200% Enhanced Defense",
             Index: 2
           },
           {
-            PropertyString: "+10 Magic Damage Reduced by",
+            PropertyString: "Magic Damage Reduced by 10",
             Index: 4
           },
           {
-            PropertyString: "+ better chance of getting magic item",
+            PropertyString: "+1.25% better chance of getting magic item (Per Character Level)",
             Index: 1
           },
           {
@@ -16401,7 +16073,7 @@ const json = [
         "Set": "Treasure Hunter",
         SetPropertiesString: [
           "44 to Life (5 Items)",
-          "+15 better chance of getting magic item (4 Items)"
+          "15% better chance of getting magic item (4 Items)"
         ],
         Name: "Kingpin's Signet",
         Index: "Kingpin's Signet",
@@ -16411,19 +16083,19 @@ const json = [
         Code: "rin",
         Properties: [
           {
-            PropertyString: "50-80 to Attack Rating",
+            PropertyString: "+50-80 to Attack Rating",
             Index: 2
           },
           {
-            PropertyString: "+3 Magic Damage Reduced by",
+            PropertyString: "Magic Damage Reduced by 3",
             Index: 0
           },
           {
-            PropertyString: "+3-7 Attacker Takes Damage of",
+            PropertyString: "Attacker Takes Damage of +3-7",
             Index: 1
           },
           {
-            PropertyString: "+10-15 better chance of getting magic item",
+            PropertyString: "10-15% better chance of getting magic item",
             Index: 3
           }
         ],
@@ -16440,11 +16112,11 @@ const json = [
             Index: "Ring",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Treasure Hunter",
         SetPropertiesString: [],
         Name: "Kingpin's Crown",
@@ -16459,23 +16131,23 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "2 to Strength",
-            Index: 0
-          },
-          {
-            PropertyString: "to Life",
+            PropertyString: "+1.5 to Life (Per Character Level)",
             Index: 2
           },
           {
-            PropertyString: "+ to Mana",
+            PropertyString: "+1.5 to Mana (Per Character Level)",
             Index: 1
           },
           {
-            PropertyString: "+10 Damage Reduced by 10%%",
+            PropertyString: "+2 to All Attributes",
+            Index: 0
+          },
+          {
+            PropertyString: "+10 % Physical Damage Reduction",
             Index: 5
           },
           {
-            PropertyString: "+50 better chance of getting magic item",
+            PropertyString: "50% better chance of getting magic item",
             Index: 4
           }
         ],
@@ -16491,11 +16163,11 @@ const json = [
           Durability: 12,
           ItemLevel: 58,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -16524,20 +16196,16 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+ extra gold from monsters",
+            PropertyString: "+2.5% extra gold from monsters (Per Character Level)",
             Index: 1
           },
           {
-            PropertyString: "+ better chance of getting magic item",
+            PropertyString: "+1% better chance of getting magic item (Per Character Level)",
             Index: 2
           },
           {
             PropertyString: "Socketed (2)",
             Index: 0
-          },
-          {
-            PropertyString: "1",
-            Index: 6
           }
         ],
         DamageArmorEnhanced: true,
@@ -16565,19 +16233,19 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "+25 better chance of getting magic item",
+        PropertyString: "25% better chance of getting magic item",
         Index: 0
       },
       {
-        PropertyString: "+25 better chance of getting magic item",
+        PropertyString: "25% better chance of getting magic item",
         Index: 2
       },
       {
-        PropertyString: "+25 better chance of getting magic item",
+        PropertyString: "25% better chance of getting magic item",
         Index: 4
       },
       {
-        PropertyString: "+25 better chance of getting magic item",
+        PropertyString: "25% better chance of getting magic item",
         Index: 6
       }
     ],
@@ -16587,11 +16255,11 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "All Resistances +35",
+        PropertyString: "All Resistances +35%",
         Index: 2
       },
       {
-        PropertyString: "+200 better chance of getting magic item",
+        PropertyString: "200% better chance of getting magic item",
         Index: 0
       }
     ],
@@ -16602,7 +16270,7 @@ const json = [
     Name: "Yohann's Savant",
     SetItems: [
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Yohann's Savant",
         SetPropertiesString: [],
         Name: "Wiseman's Cap",
@@ -16613,7 +16281,7 @@ const json = [
         Code: "crn",
         Properties: [
           {
-            PropertyString: "+1",
+            PropertyString: "+1 to Sorceress Skill Levels",
             Index: 0
           },
           {
@@ -16641,11 +16309,11 @@ const json = [
           Durability: 50,
           ItemLevel: 29,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -16670,11 +16338,11 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+15-25 Damage Reduced by",
+            PropertyString: "Damage Reduced by 15",
             Index: 1
           },
           {
-            PropertyString: "+15-25 Magic Damage Reduced by",
+            PropertyString: "Magic Damage Reduced by 15",
             Index: 2
           }
         ],
@@ -16701,7 +16369,7 @@ const json = [
         Type: "Gloves",
         "Set": "Yohann's Savant",
         SetPropertiesString: [
-          "+35 better chance of getting magic item (3 Items)"
+          "35% better chance of getting magic item (3 Items)"
         ],
         Name: "Gloves of Knowledge",
         Index: "Gloves of Knowledge",
@@ -16711,7 +16379,7 @@ const json = [
         Code: "xmg",
         Properties: [
           {
-            PropertyString: "+20 Faster Cast Rate",
+            PropertyString: "20% Faster Cast Rate",
             Index: 1
           },
           {
@@ -16743,7 +16411,7 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -16761,7 +16429,7 @@ const json = [
         Code: "8bs",
         Properties: [
           {
-            PropertyString: "+30 Increased Attack Speed",
+            PropertyString: "30% Increased Attack Speed",
             Index: 2
           },
           {
@@ -16775,10 +16443,6 @@ const json = [
           {
             PropertyString: "Adds 6-8 Life stolen per hit",
             Index: 3
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: true,
@@ -16828,11 +16492,11 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "All Resistances +35",
+        PropertyString: "All Resistances +35%",
         Index: 2
       },
       {
-        PropertyString: "+75 better chance of getting magic item",
+        PropertyString: "75% better chance of getting magic item",
         Index: 3
       }
     ],
@@ -16843,7 +16507,7 @@ const json = [
     Name: "Zhoulomcrist's Dread",
     SetItems: [
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Zhoulomcrist's Dread",
         SetPropertiesString: [
           "+1 to Warmth (4 Items)",
@@ -16858,7 +16522,7 @@ const json = [
         Code: "xap",
         Properties: [
           {
-            PropertyString: "+15 Faster Cast Rate",
+            PropertyString: "15% Faster Cast Rate",
             Index: 1
           },
           {
@@ -16882,11 +16546,11 @@ const json = [
           Durability: 12,
           ItemLevel: 34,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -16907,7 +16571,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 1
           },
           {
@@ -16921,10 +16585,6 @@ const json = [
           {
             PropertyString: "Level 15 Clay Golem (65 Charges)",
             Index: 4
-          },
-          {
-            PropertyString: "1",
-            Index: 5
           }
         ],
         DamageArmorEnhanced: true,
@@ -16953,8 +16613,8 @@ const json = [
         Type: "Armor",
         "Set": "Zhoulomcrist's Dread",
         SetPropertiesString: [
-          "+20 Damage Reduced by (3 Items)",
-          "+25 Magic Damage Reduced by (4 Items)"
+          "Damage Reduced by 20 (3 Items)",
+          "Magic Damage Reduced by 25 (4 Items)"
         ],
         Name: "Shadowed Plate",
         Index: "Shadowed Plate",
@@ -16968,11 +16628,11 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+30 Faster Hit Recovery",
+            PropertyString: "30% Faster Hit Recovery",
             Index: 0
           },
           {
-            PropertyString: "+175-195 Enhanced Defense",
+            PropertyString: "175-195% Enhanced Defense",
             Index: 3
           },
           {
@@ -17013,11 +16673,11 @@ const json = [
         Code: "rin",
         Properties: [
           {
-            PropertyString: "+10 Faster Cast Rate",
+            PropertyString: "10% Faster Cast Rate",
             Index: 1
           },
           {
-            PropertyString: "10-20 bonus to Attack Rating",
+            PropertyString: "+10-20 % bonus to Attack Rating",
             Index: 3
           },
           {
@@ -17042,7 +16702,7 @@ const json = [
             Index: "Ring",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -17070,11 +16730,11 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "All Resistances +50",
+        PropertyString: "All Resistances +50%",
         Index: 3
       },
       {
-        PropertyString: "+30 Damage Reduced by 30%%",
+        PropertyString: "+30 % Physical Damage Reduction",
         Index: 1
       }
     ],
@@ -17088,11 +16748,11 @@ const json = [
         Type: "Gloves",
         "Set": "The Warlord of Blood",
         SetPropertiesString: [
-          "20 bonus to Attack Rating (4 Items)",
-          "+15 Chance of Crushing Blow (3 Items)",
-          "+15 Deadly Strike (2 Items)",
+          "+20 % bonus to Attack Rating (4 Items)",
+          "15% Chance of Crushing Blow (3 Items)",
+          "15% Deadly Strike (2 Items)",
           "+250 Defense (6 Items)",
-          "+10 Damage Reduced by 10%% (5 Items)"
+          "+10 % Physical Damage Reduction (5 Items)"
         ],
         Name: "Tortured Soul Gauntlets",
         Index: "Tortured Soul Gauntlets",
@@ -17102,7 +16762,7 @@ const json = [
         Code: "hgl",
         Properties: [
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 0
           },
           {
@@ -17126,7 +16786,7 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -17136,8 +16796,8 @@ const json = [
           "Adds 10-20 to Damage (3 Items)",
           "+313 Defense (6 Items)",
           "Magic Resist +10% (4 Items)",
-          "All Resistances +10 (2 Items)",
-          "+ Attacker Takes Damage of (5 Items)"
+          "All Resistances +10% (2 Items)",
+          "+1.5 Attacker Takes Damage of (Per Character Level) (5 Items)"
         ],
         Name: "Hell's Torment Greaves",
         Index: "Hell's Torment Greaves",
@@ -17151,7 +16811,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+30 Faster Run/Walk",
+            PropertyString: "30% Faster Run/Walk",
             Index: 0
           }
         ],
@@ -17171,11 +16831,11 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "The Warlord of Blood",
         SetPropertiesString: [
           "Adds 25-200 to Lightning Damage (6 Items)",
@@ -17194,7 +16854,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+120-170 Enhanced Defense",
+            PropertyString: "120-170% Enhanced Defense",
             Index: 4
           },
           {
@@ -17218,11 +16878,11 @@ const json = [
           Durability: 40,
           ItemLevel: 51,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -17241,7 +16901,7 @@ const json = [
         Code: "zhb",
         Properties: [
           {
-            PropertyString: "+180-200 Enhanced Defense",
+            PropertyString: "180-200% Enhanced Defense",
             Index: 1
           },
           {
@@ -17249,11 +16909,11 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+22-40 Damage Reduced by",
+            PropertyString: "Damage Reduced by 22",
             Index: 3
           },
           {
-            PropertyString: "+20-40 Magic Damage Reduced by",
+            PropertyString: "Magic Damage Reduced by 20",
             Index: 4
           },
           {
@@ -17277,7 +16937,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -17292,7 +16952,7 @@ const json = [
         Code: "upk",
         Properties: [
           {
-            PropertyString: "+40 Faster Block Rate",
+            PropertyString: "40% Faster Block Rate",
             Index: 1
           },
           {
@@ -17308,20 +16968,16 @@ const json = [
             Index: 5
           },
           {
-            PropertyString: "+160-200 Enhanced Defense",
+            PropertyString: "160-200% Enhanced Defense",
             Index: 4
           },
           {
-            PropertyString: "All Resistances +35-50",
+            PropertyString: "All Resistances +35-50%",
             Index: 3
           },
           {
-            PropertyString: "+15-20 Damage Reduced by 15-20%%",
+            PropertyString: "+15-20 % Physical Damage Reduction",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 7
           }
         ],
         DamageArmorEnhanced: true,
@@ -17358,7 +17014,7 @@ const json = [
         Code: "utp",
         Properties: [
           {
-            PropertyString: "+180-220 Enhanced Defense",
+            PropertyString: "180-220% Enhanced Defense",
             Index: 0
           },
           {
@@ -17408,11 +17064,11 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "All Resistances +20",
+        PropertyString: "All Resistances +20%",
         Index: 4
       },
       {
-        PropertyString: "+50 better chance of getting magic item",
+        PropertyString: "50% better chance of getting magic item",
         Index: 6
       }
     ],
@@ -17426,11 +17082,11 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+200 extra gold from monsters",
+        PropertyString: "200% extra gold from monsters",
         Index: 3
       },
       {
-        PropertyString: "+50 better chance of getting magic item",
+        PropertyString: "50% better chance of getting magic item",
         Index: 1
       }
     ],
@@ -17444,7 +17100,7 @@ const json = [
         Type: "Belt",
         "Set": "Darque Necromancy",
         SetPropertiesString: [
-          "+ to Mana (5 Items)"
+          "+1 to Mana (Per Character Level) (5 Items)"
         ],
         Name: "Dying Curses",
         Index: "Dying Curses",
@@ -17462,7 +17118,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+100-120 Enhanced Defense",
+            PropertyString: "100-120% Enhanced Defense",
             Index: 0
           }
         ],
@@ -17482,7 +17138,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -17503,20 +17159,16 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+30 Faster Block Rate",
+            PropertyString: "30% Faster Block Rate",
             Index: 1
           },
           {
-            PropertyString: "+80-140 Enhanced Defense",
+            PropertyString: "80-140% Enhanced Defense",
             Index: 0
           },
           {
             PropertyString: "Socketed (1)",
             Index: 3
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: true,
@@ -17558,16 +17210,12 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+25 Faster Cast Rate",
+            PropertyString: "25% Faster Cast Rate",
             Index: 1
           },
           {
             PropertyString: "+1-5 Replenish Life",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: false,
@@ -17609,7 +17257,7 @@ const json = [
         Code: "xtp",
         Properties: [
           {
-            PropertyString: "+30 Faster Hit Recovery",
+            PropertyString: "30% Faster Hit Recovery",
             Index: 2
           },
           {
@@ -17617,7 +17265,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+10-15 Damage Reduced by 10-15%%",
+            PropertyString: "+10-15 % Physical Damage Reduction",
             Index: 1
           }
         ],
@@ -17644,7 +17292,7 @@ const json = [
         Type: "Amulet",
         "Set": "Darque Necromancy",
         SetPropertiesString: [
-          "+100 extra gold from monsters (5 Items)"
+          "100% extra gold from monsters (5 Items)"
         ],
         Name: "Legacy in Blood",
         Index: "Legacy in Blood",
@@ -17658,11 +17306,11 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+10 Increased Attack Speed",
+            PropertyString: "10% Increased Attack Speed",
             Index: 1
           },
           {
-            PropertyString: "+50-75 better chance of getting magic item",
+            PropertyString: "50-75% better chance of getting magic item",
             Index: 2
           }
         ],
@@ -17679,21 +17327,21 @@ const json = [
             Index: "Amulet",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
     PartialProperties: [
       {
-        PropertyString: "+1",
+        PropertyString: "+1 to Necromancer Skill Levels",
         Index: 0
       },
       {
-        PropertyString: "+1",
+        PropertyString: "+1 to Necromancer Skill Levels",
         Index: 2
       },
       {
-        PropertyString: "+1",
+        PropertyString: "+1 to Necromancer Skill Levels",
         Index: 4
       }
     ],
@@ -17707,15 +17355,15 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "+300% Damage to Undead Damage to Undead",
+        PropertyString: "+300% Damage to Undead",
         Index: 3
       },
       {
-        PropertyString: "All Resistances +30",
+        PropertyString: "All Resistances +30%",
         Index: 0
       },
       {
-        PropertyString: "+50 better chance of getting magic item",
+        PropertyString: "50% better chance of getting magic item",
         Index: 2
       }
     ],
@@ -17737,15 +17385,15 @@ const json = [
         Code: "uvg",
         Properties: [
           {
-            PropertyString: "+15 Increased Attack Speed",
+            PropertyString: "15% Increased Attack Speed",
             Index: 1
           },
           {
-            PropertyString: "+15 Faster Cast Rate",
+            PropertyString: "15% Faster Cast Rate",
             Index: 2
           },
           {
-            PropertyString: "+90-130 Enhanced Defense",
+            PropertyString: "90-130% Enhanced Defense",
             Index: 0
           },
           {
@@ -17777,7 +17425,7 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -17792,7 +17440,7 @@ const json = [
         Code: "umb",
         Properties: [
           {
-            PropertyString: "+25 Faster Run/Walk",
+            PropertyString: "25% Faster Run/Walk",
             Index: 1
           },
           {
@@ -17800,7 +17448,7 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "+80-120 Enhanced Defense",
+            PropertyString: "80-120% Enhanced Defense",
             Index: 0
           },
           {
@@ -17808,7 +17456,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "All Resistances +10-20",
+            PropertyString: "All Resistances +10-20%",
             Index: 3
           }
         ],
@@ -17828,11 +17476,11 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Marhawkman's Disguise",
         SetPropertiesString: [],
         Name: "Andariel's Mask",
@@ -17875,11 +17523,11 @@ const json = [
           Durability: 20,
           ItemLevel: 48,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -17908,15 +17556,15 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+120-150 Enhanced Defense",
+            PropertyString: "120-150% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "+20-30 Damage Reduced by",
+            PropertyString: "Damage Reduced by 20",
             Index: 2
           },
           {
-            PropertyString: "+20-30 Magic Damage Reduced by",
+            PropertyString: "Magic Damage Reduced by 20",
             Index: 3
           }
         ],
@@ -17968,7 +17616,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "All Resistances +30",
+        PropertyString: "All Resistances +30%",
         Index: 3
       }
     ],
@@ -17990,7 +17638,7 @@ const json = [
         Code: "xui",
         Properties: [
           {
-            PropertyString: "+100-120 Enhanced Defense",
+            PropertyString: "100-120% Enhanced Defense",
             Index: 0
           },
           {
@@ -18002,7 +17650,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+15-25 Damage Reduced by",
+            PropertyString: "Damage Reduced by 15",
             Index: 2
           }
         ],
@@ -18050,10 +17698,6 @@ const json = [
           {
             PropertyString: "15-20 to Enemy Fire Resistance",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 3
           }
         ],
         DamageArmorEnhanced: true,
@@ -18090,7 +17734,7 @@ const json = [
         Code: "uml",
         Properties: [
           {
-            PropertyString: "+20 Faster Block Rate",
+            PropertyString: "20% Faster Block Rate",
             Index: 2
           },
           {
@@ -18102,16 +17746,12 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+ Defense",
+            PropertyString: "+2 Defense (Per Character Level)",
             Index: 0
           },
           {
             PropertyString: "Cold Resist +25-35%",
             Index: 4
-          },
-          {
-            PropertyString: "1",
-            Index: 5
           }
         ],
         DamageArmorEnhanced: false,
@@ -18147,7 +17787,7 @@ const json = [
         Code: "xhb",
         Properties: [
           {
-            PropertyString: "+20 Faster Run/Walk",
+            PropertyString: "20% Faster Run/Walk",
             Index: 1
           },
           {
@@ -18159,7 +17799,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+100-125 Enhanced Defense",
+            PropertyString: "100-125% Enhanced Defense",
             Index: 0
           }
         ],
@@ -18179,7 +17819,7 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -18207,7 +17847,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "+50 better chance of getting magic item",
+        PropertyString: "50% better chance of getting magic item",
         Index: 1
       }
     ],
@@ -18286,16 +17926,12 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+20 Faster Cast Rate",
+            PropertyString: "20% Faster Cast Rate",
             Index: 1
           },
           {
             PropertyString: "+35-50 to Mana",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: false,
@@ -18336,11 +17972,11 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+30 Faster Hit Recovery",
+            PropertyString: "30% Faster Hit Recovery",
             Index: 3
           },
           {
-            PropertyString: "+35 Faster Block Rate",
+            PropertyString: "35% Faster Block Rate",
             Index: 2
           },
           {
@@ -18348,12 +17984,8 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "+40-75 better chance of getting magic item",
+            PropertyString: "40-75% better chance of getting magic item",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 5
           }
         ],
         DamageArmorEnhanced: false,
@@ -18400,11 +18032,11 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+200 extra gold from monsters",
+        PropertyString: "200% extra gold from monsters",
         Index: 0
       },
       {
-        PropertyString: "+100 better chance of getting magic item",
+        PropertyString: "100% better chance of getting magic item",
         Index: 1
       }
     ],
@@ -18418,7 +18050,7 @@ const json = [
         Type: "Armor",
         "Set": "Cedric's Jinx",
         SetPropertiesString: [
-          "+ Defense (3 Items)"
+          "+5 Defense (Per Character Level) (3 Items)"
         ],
         Name: "Call of Gylandra",
         Index: "Call of Gylandra",
@@ -18428,15 +18060,15 @@ const json = [
         Code: "xla",
         Properties: [
           {
-            PropertyString: "+120-200 Enhanced Defense",
+            PropertyString: "120-200% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "All Resistances +15-25",
+            PropertyString: "All Resistances +15-25%",
             Index: 2
           },
           {
-            PropertyString: "+15-25 Damage Reduced by 15-25%%",
+            PropertyString: "+15-25 % Physical Damage Reduction",
             Index: 1
           },
           {
@@ -18478,7 +18110,7 @@ const json = [
         Code: "7wh",
         Properties: [
           {
-            PropertyString: "+60 Increased Attack Speed",
+            PropertyString: "60% Increased Attack Speed",
             Index: 1
           },
           {
@@ -18488,10 +18120,6 @@ const json = [
           {
             PropertyString: "Socketed (2)",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 3
           }
         ],
         DamageArmorEnhanced: true,
@@ -18540,12 +18168,8 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+ Defense",
+            PropertyString: "+1.62 Defense (Per Character Level)",
             Index: 0
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: false,
@@ -18612,15 +18236,15 @@ const json = [
         Code: "xtu",
         Properties: [
           {
-            PropertyString: "+160-200 Enhanced Defense",
+            PropertyString: "160-200% Enhanced Defense",
             Index: 2
           },
           {
-            PropertyString: "+75 extra gold from monsters",
+            PropertyString: "75% extra gold from monsters",
             Index: 1
           },
           {
-            PropertyString: "+25-30 better chance of getting magic item",
+            PropertyString: "25-30% better chance of getting magic item",
             Index: 0
           }
         ],
@@ -18667,7 +18291,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+200% Damage to Demons Damage to Demons",
+            PropertyString: "+200% Damage to Demons",
             Index: 3
           },
           {
@@ -18677,10 +18301,6 @@ const json = [
           {
             PropertyString: "+10-15 Fire Absorb",
             Index: 4
-          },
-          {
-            PropertyString: "1",
-            Index: 6
           }
         ],
         DamageArmorEnhanced: true,
@@ -18723,15 +18343,15 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+5 Increased Attack Speed",
+            PropertyString: "5% Increased Attack Speed",
             Index: 0
           },
           {
-            PropertyString: "+10 Faster Cast Rate",
+            PropertyString: "10% Faster Cast Rate",
             Index: 1
           },
           {
-            PropertyString: "8-15 to Strength",
+            PropertyString: "+8-15 to All Attributes",
             Index: 2
           }
         ],
@@ -18748,7 +18368,7 @@ const json = [
             Index: "Ring",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -18766,7 +18386,7 @@ const json = [
         Code: "amu",
         Properties: [
           {
-            PropertyString: "+10 Faster Hit Recovery",
+            PropertyString: "10% Faster Hit Recovery",
             Index: 0
           },
           {
@@ -18791,7 +18411,7 @@ const json = [
             Index: "Amulet",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -18806,11 +18426,11 @@ const json = [
         Code: "uuc",
         Properties: [
           {
-            PropertyString: "+20 Faster Hit Recovery",
+            PropertyString: "20% Faster Hit Recovery",
             Index: 4
           },
           {
-            PropertyString: "+20 Faster Block Rate",
+            PropertyString: "20% Faster Block Rate",
             Index: 3
           },
           {
@@ -18818,16 +18438,12 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+130-150 Enhanced Defense",
+            PropertyString: "130-150% Enhanced Defense",
             Index: 0
           },
           {
             PropertyString: "+5-8 Replenish Life",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 5
           }
         ],
         DamageArmorEnhanced: true,
@@ -18853,11 +18469,11 @@ const json = [
         Type: "Boots",
         "Set": "Dragon Reborn",
         SetPropertiesString: [
-          "+30 Faster Run/Walk (3 Items)",
-          "to Life (6 Items)",
-          "+ to Mana (5 Items)",
-          "All Resistances +15 (4 Items)",
-          "+25 better chance of getting magic item (2 Items)"
+          "30% Faster Run/Walk (3 Items)",
+          "+1 to Life (Per Character Level) (6 Items)",
+          "+0.62 to Mana (Per Character Level) (5 Items)",
+          "All Resistances +15% (4 Items)",
+          "25% better chance of getting magic item (2 Items)"
         ],
         Name: "Aviendha's Gift",
         Index: "Aviendha's Gift",
@@ -18891,7 +18507,7 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -18901,11 +18517,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+35 better chance of getting magic item",
+        PropertyString: "35% better chance of getting magic item",
         Index: 2
       },
       {
-        PropertyString: "+65 better chance of getting magic item",
+        PropertyString: "65% better chance of getting magic item",
         Index: 4
       },
       {
@@ -18919,7 +18535,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+30 Increased Attack Speed",
+        PropertyString: "30% Increased Attack Speed",
         Index: 3
       },
       {
@@ -18927,11 +18543,11 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "All Resistances +40",
+        PropertyString: "All Resistances +40%",
         Index: 1
       },
       {
-        PropertyString: "+ extra gold from monsters",
+        PropertyString: "+3.12% extra gold from monsters (Per Character Level)",
         Index: 0
       }
     ],
@@ -18957,11 +18573,11 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+30 Faster Hit Recovery",
+            PropertyString: "30% Faster Hit Recovery",
             Index: 2
           },
           {
-            PropertyString: "+130-170 Enhanced Defense",
+            PropertyString: "130-170% Enhanced Defense",
             Index: 0
           }
         ],
@@ -19000,7 +18616,7 @@ const json = [
         Code: "9cm",
         Properties: [
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 1
           },
           {
@@ -19010,10 +18626,6 @@ const json = [
           {
             PropertyString: "Socketed (1-4)",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 3
           }
         ],
         DamageArmorEnhanced: true,
@@ -19056,11 +18668,11 @@ const json = [
         Code: "utg",
         Properties: [
           {
-            PropertyString: "+25 Increased Attack Speed",
+            PropertyString: "25% Increased Attack Speed",
             Index: 1
           },
           {
-            PropertyString: "+7-15 Deadly Strike",
+            PropertyString: "7-15% Deadly Strike",
             Index: 2
           },
           {
@@ -19088,7 +18700,7 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -19108,7 +18720,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "All Resistances +20",
+        PropertyString: "All Resistances +20%",
         Index: 1
       }
     ],
@@ -19130,19 +18742,19 @@ const json = [
         Code: "xcl",
         Properties: [
           {
-            PropertyString: "+30 Faster Hit Recovery",
+            PropertyString: "30% Faster Hit Recovery",
             Index: 1
           },
           {
-            PropertyString: "+170-210 Enhanced Defense",
+            PropertyString: "170-210% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "to Life",
+            PropertyString: "+1.25 to Life (Per Character Level)",
             Index: 2
           },
           {
-            PropertyString: "+ to Mana",
+            PropertyString: "+0.75 to Mana (Per Character Level)",
             Index: 3
           }
         ],
@@ -19177,7 +18789,7 @@ const json = [
         Code: "7sm",
         Properties: [
           {
-            PropertyString: "+15 Increased Attack Speed",
+            PropertyString: "15% Increased Attack Speed",
             Index: 2
           },
           {
@@ -19189,16 +18801,12 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "25 to Lightning Skill Damage",
+            PropertyString: "+25 to Lightning Skill Damage",
             Index: 3
           },
           {
             PropertyString: "+8-15 Lightning Absorb",
             Index: 4
-          },
-          {
-            PropertyString: "1",
-            Index: 5
           }
         ],
         DamageArmorEnhanced: true,
@@ -19227,7 +18835,7 @@ const json = [
         Type: "Shield",
         "Set": "Gweibret's Rule",
         SetPropertiesString: [
-          "+20 Faster Block Rate (4 Items)",
+          "20% Faster Block Rate (4 Items)",
           "20% Increased Chance of Blocking (3 Items)"
         ],
         Name: "King's Prescript",
@@ -19238,24 +18846,20 @@ const json = [
         Code: "xit",
         Properties: [
           {
-            PropertyString: "+125 Enhanced Defense",
+            PropertyString: "125% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "All Resistances +15-20",
+            PropertyString: "All Resistances +15-20%",
             Index: 2
           },
           {
-            PropertyString: "+15 Damage Reduced by 15%%",
+            PropertyString: "+15 % Physical Damage Reduction",
             Index: 1
           },
           {
             PropertyString: "Socketed (1)",
             Index: 3
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: true,
@@ -19281,7 +18885,7 @@ const json = [
         Type: "Belt",
         "Set": "Gweibret's Rule",
         SetPropertiesString: [
-          "+10 Faster Cast Rate (2 Items)",
+          "10% Faster Cast Rate (2 Items)",
           "+30 to Mana (3 Items)",
           "Regenerate Mana 50% (4 Items)"
         ],
@@ -19293,7 +18897,7 @@ const json = [
         Code: "umc",
         Properties: [
           {
-            PropertyString: "+ Defense",
+            PropertyString: "+1.62 Defense (Per Character Level)",
             Index: 0
           },
           {
@@ -19317,7 +18921,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -19332,11 +18936,11 @@ const json = [
         Code: "amu",
         Properties: [
           {
-            PropertyString: "+1-2",
+            PropertyString: "+1-2 to Barbarian Skill Levels",
             Index: 0
           },
           {
-            PropertyString: "+10 Increased Attack Speed",
+            PropertyString: "10% Increased Attack Speed",
             Index: 3
           },
           {
@@ -19361,7 +18965,7 @@ const json = [
             Index: "Amulet",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -19397,11 +19001,11 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "All Resistances +35",
+        PropertyString: "All Resistances +35%",
         Index: 5
       },
       {
-        PropertyString: "+ better chance of getting magic item",
+        PropertyString: "+1.5% better chance of getting magic item (Per Character Level)",
         Index: 1
       }
     ],
@@ -19416,7 +19020,7 @@ const json = [
         "Set": "Haunted Asylum",
         SetPropertiesString: [
           "+200 Defense (4 Items)",
-          "+50 better chance of getting magic item (5 Items)"
+          "50% better chance of getting magic item (5 Items)"
         ],
         Name: "Astral Body",
         Index: "Astral Body",
@@ -19426,19 +19030,19 @@ const json = [
         Code: "xhn",
         Properties: [
           {
-            PropertyString: "+15 Increased Attack Speed",
+            PropertyString: "15% Increased Attack Speed",
             Index: 1
           },
           {
-            PropertyString: "+15 Faster Hit Recovery",
+            PropertyString: "15% Faster Hit Recovery",
             Index: 2
           },
           {
-            PropertyString: "+15 Faster Block Rate",
+            PropertyString: "15% Faster Block Rate",
             Index: 3
           },
           {
-            PropertyString: "+175-225 Enhanced Defense",
+            PropertyString: "175-225% Enhanced Defense",
             Index: 0
           },
           {
@@ -19493,10 +19097,6 @@ const json = [
           {
             PropertyString: "+225-250 Defense",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: true,
@@ -19525,7 +19125,7 @@ const json = [
         Type: "Shield",
         "Set": "Haunted Asylum",
         SetPropertiesString: [
-          "All Resistances +25 (5 Items)"
+          "All Resistances +25% (5 Items)"
         ],
         Name: "Phantasm of Horror",
         Index: "Phantasm of Horror",
@@ -19535,7 +19135,7 @@ const json = [
         Code: "xsh",
         Properties: [
           {
-            PropertyString: "+15 Faster Block Rate",
+            PropertyString: "15% Faster Block Rate",
             Index: 2
           },
           {
@@ -19543,16 +19143,12 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+100% Damage to Demons Damage to Demons",
+            PropertyString: "+100% Damage to Demons",
             Index: 3
           },
           {
-            PropertyString: "+75-100 Enhanced Defense",
+            PropertyString: "75-100% Enhanced Defense",
             Index: 0
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: true,
@@ -19575,7 +19171,7 @@ const json = [
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Haunted Asylum",
         SetPropertiesString: [],
         Name: "Haunted Wisdom",
@@ -19590,15 +19186,15 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+30 Faster Cast Rate",
+            PropertyString: "30% Faster Cast Rate",
             Index: 3
           },
           {
-            PropertyString: "+75-100 Enhanced Defense",
+            PropertyString: "75-100% Enhanced Defense",
             Index: 1
           },
           {
-            PropertyString: "+ Defense",
+            PropertyString: "+1.75 Defense (Per Character Level)",
             Index: 0
           },
           {
@@ -19606,7 +19202,7 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "+20-50 better chance of getting magic item",
+            PropertyString: "20-50% better chance of getting magic item",
             Index: 5
           }
         ],
@@ -19622,11 +19218,11 @@ const json = [
           Durability: 30,
           ItemLevel: 54,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -19649,7 +19245,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+180-220 Enhanced Defense",
+            PropertyString: "180-220% Enhanced Defense",
             Index: 0
           },
           {
@@ -19673,7 +19269,7 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -19697,11 +19293,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+ extra gold from monsters",
+        PropertyString: "+5% extra gold from monsters (Per Character Level)",
         Index: 2
       },
       {
-        PropertyString: "+ better chance of getting magic item",
+        PropertyString: "+2.5% better chance of getting magic item (Per Character Level)",
         Index: 1
       }
     ],
@@ -19735,7 +19331,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+135-180 Enhanced Defense",
+            PropertyString: "135-180% Enhanced Defense",
             Index: 0
           }
         ],
@@ -19763,7 +19359,7 @@ const json = [
         "Set": "Alyssa's Archery",
         SetPropertiesString: [
           "+50 to Minimum Damage (3 Items)",
-          "+ to Maximum Damage (2 Items)"
+          "+2 to Maximum Damage (Per Character Level) (2 Items)"
         ],
         Name: "Alyssa's Leafblighter",
         Index: "Alyssa's Leafblighter",
@@ -19773,7 +19369,7 @@ const json = [
         Code: "8l8",
         Properties: [
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 1
           },
           {
@@ -19783,10 +19379,6 @@ const json = [
           {
             PropertyString: "Socketed (3)",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 3
           }
         ],
         DamageArmorEnhanced: true,
@@ -19815,7 +19407,7 @@ const json = [
         Type: "Boots",
         "Set": "Alyssa's Archery",
         SetPropertiesString: [
-          "+30 Faster Run/Walk (3 Items)"
+          "30% Faster Run/Walk (3 Items)"
         ],
         Name: "Alyssa's Sandals",
         Index: "Alyssa's Sandals",
@@ -19833,7 +19425,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+160-200 Enhanced Defense",
+            PropertyString: "160-200% Enhanced Defense",
             Index: 0
           },
           {
@@ -19857,7 +19449,7 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -19881,7 +19473,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "+300 better chance of getting magic item",
+        PropertyString: "300% better chance of getting magic item",
         Index: 0
       }
     ],
@@ -19903,7 +19495,7 @@ const json = [
         Code: "xlt",
         Properties: [
           {
-            PropertyString: "+150-190 Enhanced Defense",
+            PropertyString: "150-190% Enhanced Defense",
             Index: 0
           },
           {
@@ -19950,11 +19542,11 @@ const json = [
         Code: "7dg",
         Properties: [
           {
-            PropertyString: "+1-2",
+            PropertyString: "+1-2 to Necromancer Skill Levels",
             Index: 5
           },
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 1
           },
           {
@@ -19962,7 +19554,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+20 Faster Cast Rate",
+            PropertyString: "20% Faster Cast Rate",
             Index: 4
           },
           {
@@ -19972,10 +19564,6 @@ const json = [
           {
             PropertyString: "10-20 to Enemy Poison Resistance",
             Index: 3
-          },
-          {
-            PropertyString: "1",
-            Index: 6
           }
         ],
         DamageArmorEnhanced: true,
@@ -20006,7 +19594,7 @@ const json = [
         SetPropertiesString: [
           "22% Increased Chance of Blocking (2 Items)",
           "15 to Dexterity (3 Items)",
-          "+25 better chance of getting magic item (4 Items)"
+          "25% better chance of getting magic item (4 Items)"
         ],
         Name: "Wall of Modius",
         Index: "Wall of Modius",
@@ -20022,10 +19610,6 @@ const json = [
           {
             PropertyString: "15% Damage Taken Goes To Mana",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: false,
@@ -20059,7 +19643,7 @@ const json = [
         Code: "zvb",
         Properties: [
           {
-            PropertyString: "+120-130 Enhanced Defense",
+            PropertyString: "120-130% Enhanced Defense",
             Index: 0
           },
           {
@@ -20091,7 +19675,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -20115,11 +19699,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+30 Faster Cast Rate",
+        PropertyString: "30% Faster Cast Rate",
         Index: 3
       },
       {
-        PropertyString: "25 bonus to Attack Rating",
+        PropertyString: "+25 % bonus to Attack Rating",
         Index: 2
       }
     ],
@@ -20149,15 +19733,15 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+130-160 Enhanced Defense",
+            PropertyString: "130-160% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "+ Defense",
+            PropertyString: "+3 Defense (Per Character Level)",
             Index: 1
           },
           {
-            PropertyString: "+15 Damage Reduced by 15%%",
+            PropertyString: "+15 % Physical Damage Reduction",
             Index: 2
           }
         ],
@@ -20195,7 +19779,7 @@ const json = [
         Code: "7bk",
         Properties: [
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 1
           },
           {
@@ -20213,10 +19797,6 @@ const json = [
           {
             PropertyString: "+1 Cannot Be Frozen",
             Index: 4
-          },
-          {
-            PropertyString: "1",
-            Index: 5
           }
         ],
         DamageArmorEnhanced: true,
@@ -20246,7 +19826,7 @@ const json = [
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Hannibal's Demise",
         SetPropertiesString: [
           "Lightning Resist +30% (3 Items)"
@@ -20259,16 +19839,16 @@ const json = [
         Code: "xhl",
         Properties: [
           {
-            PropertyString: "+170-200 Enhanced Defense",
+            PropertyString: "170-200% Enhanced Defense",
             Index: 0
-          },
-          {
-            PropertyString: "10-20 to Strength",
-            Index: 1
           },
           {
             PropertyString: "Fire Resist +25-35%",
             Index: 3
+          },
+          {
+            PropertyString: "+10-20 to All Attributes",
+            Index: 1
           },
           {
             PropertyString: "1-2 to Experience Gained",
@@ -20287,19 +19867,19 @@ const json = [
           Durability: 30,
           ItemLevel: 45,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Boots",
         "Set": "Hannibal's Demise",
         SetPropertiesString: [
-          "+20 Faster Run/Walk (2 Items)",
-          "100 to Attack Rating (3 Items)"
+          "20% Faster Run/Walk (2 Items)",
+          "+100 to Attack Rating (3 Items)"
         ],
         Name: "Hanabal's Bending Knee",
         Index: "Hannibal's Bending Knee",
@@ -20309,7 +19889,7 @@ const json = [
         Code: "xtb",
         Properties: [
           {
-            PropertyString: "+100-120 Enhanced Defense",
+            PropertyString: "100-120% Enhanced Defense",
             Index: 0
           },
           {
@@ -20317,7 +19897,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+300 extra gold from monsters",
+            PropertyString: "300% extra gold from monsters",
             Index: 2
           }
         ],
@@ -20337,7 +19917,7 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -20361,7 +19941,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+150 better chance of getting magic item",
+        PropertyString: "150% better chance of getting magic item",
         Index: 0
       }
     ],
@@ -20385,11 +19965,11 @@ const json = [
         Code: "xth",
         Properties: [
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 1
           },
           {
-            PropertyString: "+180-220 Enhanced Defense",
+            PropertyString: "180-220% Enhanced Defense",
             Index: 0
           },
           {
@@ -20449,10 +20029,6 @@ const json = [
           {
             PropertyString: "25-100",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: true,
@@ -20497,11 +20073,11 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "+25 Faster Run/Walk",
+            PropertyString: "25% Faster Run/Walk",
             Index: 1
           },
           {
-            PropertyString: "+130-150 Enhanced Defense",
+            PropertyString: "130-150% Enhanced Defense",
             Index: 0
           },
           {
@@ -20509,7 +20085,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+15-25 better chance of getting magic item",
+            PropertyString: "15-25% better chance of getting magic item",
             Index: 2
           }
         ],
@@ -20529,7 +20105,7 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -20548,11 +20124,11 @@ const json = [
         Code: "umg",
         Properties: [
           {
-            PropertyString: "+20 Faster Cast Rate",
+            PropertyString: "20% Faster Cast Rate",
             Index: 0
           },
           {
-            PropertyString: "+ to Mana",
+            PropertyString: "+1 to Mana (Per Character Level)",
             Index: 1
           },
           {
@@ -20576,7 +20152,7 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -20601,7 +20177,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+75-120 Enhanced Defense",
+            PropertyString: "75-120% Enhanced Defense",
             Index: 2
           },
           {
@@ -20625,7 +20201,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -20645,15 +20221,15 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "+10 to Maximum Fire Resist",
-        Index: 2
-      },
-      {
-        PropertyString: "All Resistances +50",
+        PropertyString: "All Resistances +50%",
         Index: 0
       },
       {
-        PropertyString: "+50 Damage Reduced by 50%%",
+        PropertyString: "+10 to All Maximum Resistances",
+        Index: 2
+      },
+      {
+        PropertyString: "+50 % Physical Damage Reduction",
         Index: 1
       }
     ],
@@ -20679,7 +20255,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+ Defense",
+            PropertyString: "+3 Defense (Per Character Level)",
             Index: 0
           },
           {
@@ -20687,11 +20263,11 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "All Resistances +20",
+            PropertyString: "All Resistances +20%",
             Index: 4
           },
           {
-            PropertyString: "+15-20 Magic Damage Reduced by",
+            PropertyString: "Magic Damage Reduced by 15",
             Index: 3
           }
         ],
@@ -20730,7 +20306,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+30 Increased Attack Speed",
+            PropertyString: "30% Increased Attack Speed",
             Index: 2
           },
           {
@@ -20744,10 +20320,6 @@ const json = [
           {
             PropertyString: "+8 Life stolen per hit",
             Index: 4
-          },
-          {
-            PropertyString: "1",
-            Index: 5
           }
         ],
         DamageArmorEnhanced: true,
@@ -20786,7 +20358,7 @@ const json = [
         Code: "zmb",
         Properties: [
           {
-            PropertyString: "+ Defense",
+            PropertyString: "+1.5 Defense (Per Character Level)",
             Index: 0
           },
           {
@@ -20798,7 +20370,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+20-25 better chance of getting magic item",
+            PropertyString: "20-25% better chance of getting magic item",
             Index: 1
           }
         ],
@@ -20818,7 +20390,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -20833,7 +20405,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "350 to Attack Rating",
+        PropertyString: "+350 to Attack Rating",
         Index: 1
       },
       {
@@ -20851,7 +20423,7 @@ const json = [
         Type: "Armor",
         "Set": "Kaldorn's Majesty",
         SetPropertiesString: [
-          "All Resistances +50 (4 Items)"
+          "All Resistances +50% (4 Items)"
         ],
         Name: "Firecam Gilded Plate",
         Index: "Firecam Gilded Plate",
@@ -20861,15 +20433,15 @@ const json = [
         Code: "xar",
         Properties: [
           {
-            PropertyString: "+20 Faster Hit Recovery",
+            PropertyString: "20% Faster Hit Recovery",
             Index: 2
           },
           {
-            PropertyString: "+150-180 Enhanced Defense",
+            PropertyString: "150-180% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "All Resistances +30-50",
+            PropertyString: "All Resistances +30-50%",
             Index: 1
           }
         ],
@@ -20904,7 +20476,7 @@ const json = [
         Code: "7o7",
         Properties: [
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 2
           },
           {
@@ -20918,10 +20490,6 @@ const json = [
           {
             PropertyString: "Socketed (1-3)",
             Index: 3
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: true,
@@ -20947,7 +20515,7 @@ const json = [
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Kaldorn's Majesty",
         SetPropertiesString: [],
         Name: "Windspar Mask",
@@ -20958,7 +20526,7 @@ const json = [
         Code: "uhm",
         Properties: [
           {
-            PropertyString: "+155-185 Enhanced Defense",
+            PropertyString: "155-185% Enhanced Defense",
             Index: 1
           },
           {
@@ -20966,7 +20534,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+15-25 Damage Reduced by 15-25%%",
+            PropertyString: "+15-25 % Physical Damage Reduction",
             Index: 0
           }
         ],
@@ -20982,11 +20550,11 @@ const json = [
           Durability: 40,
           ItemLevel: 79,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -21001,11 +20569,11 @@ const json = [
         Code: "xhg",
         Properties: [
           {
-            PropertyString: "+40 Increased Attack Speed",
+            PropertyString: "40% Increased Attack Speed",
             Index: 0
           },
           {
-            PropertyString: "+175-200 Enhanced Defense",
+            PropertyString: "175-200% Enhanced Defense",
             Index: 1
           }
         ],
@@ -21025,7 +20593,7 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -21064,7 +20632,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -21088,7 +20656,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "25 to Strength",
+        PropertyString: "+25 to All Attributes",
         Index: 1
       },
       {
@@ -21096,11 +20664,11 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+125 extra gold from monsters",
+        PropertyString: "125% extra gold from monsters",
         Index: 4
       },
       {
-        PropertyString: "+125 better chance of getting magic item",
+        PropertyString: "125% better chance of getting magic item",
         Index: 3
       }
     ],
@@ -21157,7 +20725,7 @@ const json = [
         Type: "Staff",
         "Set": "Warlock's Exploration",
         SetPropertiesString: [
-          "+20 Faster Cast Rate (3 Items)",
+          "20% Faster Cast Rate (3 Items)",
           "2 to Experience Gained (4 Items)"
         ],
         Name: "Staff of Elemental Mastery",
@@ -21174,10 +20742,6 @@ const json = [
           {
             PropertyString: "+35 Increase Maximum Mana",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 2
           }
         ],
         DamageArmorEnhanced: false,
@@ -21203,13 +20767,13 @@ const json = [
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Warlock's Exploration",
         SetPropertiesString: [
           "+150 Defense (5 Items)",
-          "2 to Strength (3 Items)",
           "+40 Increase Maximum Life (4 Items)",
-          "+50 better chance of getting magic item (2 Items)"
+          "+2 to All Attributes (3 Items)",
+          "50% better chance of getting magic item (2 Items)"
         ],
         Name: "Lilarcor Cap",
         Index: "Lilarcor Cap",
@@ -21223,7 +20787,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+75-100 Enhanced Defense",
+            PropertyString: "75-100% Enhanced Defense",
             Index: 1
           }
         ],
@@ -21239,11 +20803,11 @@ const json = [
           Durability: 12,
           ItemLevel: 34,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -21282,7 +20846,7 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -21321,21 +20885,21 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
     PartialProperties: [
       {
-        PropertyString: "All Resistances +25",
+        PropertyString: "All Resistances +25%",
         Index: 0
       },
       {
-        PropertyString: "All Resistances +25",
+        PropertyString: "All Resistances +25%",
         Index: 2
       },
       {
-        PropertyString: "+25 Damage Reduced by 25%%",
+        PropertyString: "+25 % Physical Damage Reduction",
         Index: 4
       }
     ],
@@ -21345,7 +20909,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "All Resistances +50",
+        PropertyString: "All Resistances +50%",
         Index: 2
       },
       {
@@ -21357,7 +20921,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "+75 better chance of getting magic item",
+        PropertyString: "75% better chance of getting magic item",
         Index: 1
       }
     ],
@@ -21387,11 +20951,11 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+160-200 Enhanced Defense",
+            PropertyString: "160-200% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "+25-30 better chance of getting magic item",
+            PropertyString: "25-30% better chance of getting magic item",
             Index: 2
           }
         ],
@@ -21446,10 +21010,6 @@ const json = [
           {
             PropertyString: "Cold Resist +40-50%",
             Index: 4
-          },
-          {
-            PropertyString: "1",
-            Index: 5
           }
         ],
         DamageArmorEnhanced: true,
@@ -21486,11 +21046,11 @@ const json = [
         Code: "uml",
         Properties: [
           {
-            PropertyString: "+40 Faster Block Rate",
+            PropertyString: "40% Faster Block Rate",
             Index: 1
           },
           {
-            PropertyString: "+120-160 Enhanced Defense",
+            PropertyString: "120-160% Enhanced Defense",
             Index: 0
           },
           {
@@ -21498,20 +21058,16 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "+10-15 Damage Reduced by 10-15%%",
+            PropertyString: "+10-15 % Physical Damage Reduction",
             Index: 2
           },
           {
-            PropertyString: "+15-20 Damage Reduced by",
+            PropertyString: "Damage Reduced by 15",
             Index: 3
           },
           {
             PropertyString: "+8-12 Life after each Kill",
             Index: 5
-          },
-          {
-            PropertyString: "1",
-            Index: 6
           }
         ],
         DamageArmorEnhanced: true,
@@ -21545,7 +21101,7 @@ const json = [
         Code: "rin",
         Properties: [
           {
-            PropertyString: "125-200 to Attack Rating",
+            PropertyString: "+125-200 to Attack Rating",
             Index: 3
           },
           {
@@ -21561,7 +21117,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+ Attacker Takes Damage of",
+            PropertyString: "+1 Attacker Takes Damage of (Per Character Level)",
             Index: 4
           }
         ],
@@ -21578,7 +21134,7 @@ const json = [
             Index: "Ring",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -21586,10 +21142,10 @@ const json = [
         "Set": "Amaunator's Peace",
         SetPropertiesString: [
           "+20 to Maximum Damage (6 Items)",
-          "8-15 to Lightning Skill Damage (5 Items)",
+          "+8-15 to Lightning Skill Damage (5 Items)",
           "10-15 to Dexterity (2 Items)",
           "Lightning Resist +30% (3 Items)",
-          "+33 better chance of getting magic item (4 Items)"
+          "33% better chance of getting magic item (4 Items)"
         ],
         Name: "Holy Boots of Amaunator",
         Index: "Holy Boots of Amaunator",
@@ -21599,11 +21155,11 @@ const json = [
         Code: "hbt",
         Properties: [
           {
-            PropertyString: "+20 Faster Run/Walk",
+            PropertyString: "20% Faster Run/Walk",
             Index: 1
           },
           {
-            PropertyString: "+ Defense",
+            PropertyString: "+1 Defense (Per Character Level)",
             Index: 0
           }
         ],
@@ -21623,7 +21179,7 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -21631,7 +21187,7 @@ const json = [
         "Set": "Amaunator's Peace",
         SetPropertiesString: [
           "Regenerate Mana 33% (5 Items)",
-          "+33 better chance of getting magic item (4 Items)"
+          "33% better chance of getting magic item (4 Items)"
         ],
         Name: "Holy Sash of Amaunator",
         Index: "Holy Sash of Amaunator",
@@ -21641,7 +21197,7 @@ const json = [
         Code: "zlb",
         Properties: [
           {
-            PropertyString: "+190-230 Enhanced Defense",
+            PropertyString: "190-230% Enhanced Defense",
             Index: 0
           },
           {
@@ -21649,7 +21205,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+10-15 Magic Damage Reduced by",
+            PropertyString: "Magic Damage Reduced by 10",
             Index: 2
           }
         ],
@@ -21669,25 +21225,25 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
     PartialProperties: [
       {
-        PropertyString: "+25 better chance of getting magic item",
+        PropertyString: "25% better chance of getting magic item",
         Index: 0
       },
       {
-        PropertyString: "+25 better chance of getting magic item",
+        PropertyString: "25% better chance of getting magic item",
         Index: 2
       },
       {
-        PropertyString: "+25 better chance of getting magic item",
+        PropertyString: "25% better chance of getting magic item",
         Index: 4
       },
       {
-        PropertyString: "+25 better chance of getting magic item",
+        PropertyString: "25% better chance of getting magic item",
         Index: 6
       }
     ],
@@ -21701,11 +21257,11 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "All Resistances +25",
+        PropertyString: "All Resistances +25%",
         Index: 2
       },
       {
-        PropertyString: "+100 extra gold from monsters",
+        PropertyString: "100% extra gold from monsters",
         Index: 1
       }
     ],
@@ -21727,19 +21283,19 @@ const json = [
         Code: "uea",
         Properties: [
           {
-            PropertyString: "+25 Increased Attack Speed",
+            PropertyString: "25% Increased Attack Speed",
             Index: 2
           },
           {
-            PropertyString: "+30 Faster Cast Rate",
+            PropertyString: "30% Faster Cast Rate",
             Index: 0
           },
           {
-            PropertyString: "+20 Faster Hit Recovery",
+            PropertyString: "20% Faster Hit Recovery",
             Index: 1
           },
           {
-            PropertyString: "to Dexterity",
+            PropertyString: "+0.5 to Dexterity (Per Character Level)",
             Index: 4
           },
           {
@@ -21770,7 +21326,7 @@ const json = [
         Type: "Axe",
         "Set": "Tika's Request",
         SetPropertiesString: [
-          "+ to Maximum Damage (4 Items)"
+          "+2.5 to Maximum Damage (Per Character Level) (4 Items)"
         ],
         Name: "Hallowed Redeemer",
         Index: "Hallowed Redeemer",
@@ -21780,7 +21336,7 @@ const json = [
         Code: "7ba",
         Properties: [
           {
-            PropertyString: "+30 Increased Attack Speed",
+            PropertyString: "30% Increased Attack Speed",
             Index: 1
           },
           {
@@ -21798,10 +21354,6 @@ const json = [
           {
             PropertyString: "Socketed (2)",
             Index: 4
-          },
-          {
-            PropertyString: "1",
-            Index: 5
           }
         ],
         DamageArmorEnhanced: true,
@@ -21827,10 +21379,10 @@ const json = [
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Tika's Request",
         SetPropertiesString: [
-          "+25 better chance of getting magic item (3 Items)"
+          "25% better chance of getting magic item (3 Items)"
         ],
         Name: "Draconian Mask",
         Index: "Draconian Mask",
@@ -21848,11 +21400,11 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+120-150 Enhanced Defense",
+            PropertyString: "120-150% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "+ Defense",
+            PropertyString: "+1 Defense (Per Character Level)",
             Index: 1
           },
           {
@@ -21872,11 +21424,11 @@ const json = [
           Durability: 24,
           ItemLevel: 42,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -21903,7 +21455,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+10-20 Damage Reduced by 10-20%%",
+            PropertyString: "+10-20 % Physical Damage Reduction",
             Index: 2
           },
           {
@@ -21927,7 +21479,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -21952,11 +21504,11 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+15 Increased Attack Speed",
+            PropertyString: "15% Increased Attack Speed",
             Index: 3
           },
           {
-            PropertyString: "+250 Enhanced Defense",
+            PropertyString: "250% Enhanced Defense",
             Index: 0
           },
           {
@@ -21980,21 +21532,21 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
     PartialProperties: [
       {
-        PropertyString: "All Resistances +10",
+        PropertyString: "All Resistances +10%",
         Index: 0
       },
       {
-        PropertyString: "All Resistances +25",
+        PropertyString: "All Resistances +25%",
         Index: 2
       },
       {
-        PropertyString: "All Resistances +40",
+        PropertyString: "All Resistances +40%",
         Index: 4
       }
     ],
@@ -22012,11 +21564,11 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "+50 better chance of getting magic item",
+        PropertyString: "50% better chance of getting magic item",
         Index: 1
       },
       {
-        PropertyString: "+ better chance of getting magic item",
+        PropertyString: "+1.5% better chance of getting magic item (Per Character Level)",
         Index: 2
       }
     ],
@@ -22042,7 +21594,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+230-300 Enhanced Defense",
+            PropertyString: "230-300% Enhanced Defense",
             Index: 0
           },
           {
@@ -22050,7 +21602,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "All Resistances +10-20",
+            PropertyString: "All Resistances +10-20%",
             Index: 1
           }
         ],
@@ -22089,7 +21641,7 @@ const json = [
         Code: "6rx",
         Properties: [
           {
-            PropertyString: "+60 Increased Attack Speed",
+            PropertyString: "60% Increased Attack Speed",
             Index: 2
           },
           {
@@ -22132,7 +21684,7 @@ const json = [
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Corthala Family Heirlooms",
         SetPropertiesString: [],
         Name: "Yavin's Infernal Visage",
@@ -22155,7 +21707,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "All Resistances +10-20",
+            PropertyString: "All Resistances +10-20%",
             Index: 1
           }
         ],
@@ -22171,18 +21723,18 @@ const json = [
           Durability: 40,
           ItemLevel: 84,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Gloves",
         "Set": "Corthala Family Heirlooms",
         SetPropertiesString: [
-          "+20 Increased Attack Speed (3 Items)"
+          "20% Increased Attack Speed (3 Items)"
         ],
         Name: "Prince Gwar's Bracers",
         Index: "Prince Gwar's Bracers",
@@ -22200,7 +21752,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+ Defense",
+            PropertyString: "+2 Defense (Per Character Level)",
             Index: 0
           },
           {
@@ -22224,14 +21776,14 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Boots",
         "Set": "Corthala Family Heirlooms",
         SetPropertiesString: [
-          "+30 Faster Run/Walk (4 Items)"
+          "30% Faster Run/Walk (4 Items)"
         ],
         Name: "Lady Daan's Celeritous Jambeau",
         Index: "Lady Daan's Celeritous Jambeau",
@@ -22241,7 +21793,7 @@ const json = [
         Code: "xmb",
         Properties: [
           {
-            PropertyString: "+10 Increased Attack Speed",
+            PropertyString: "10% Increased Attack Speed",
             Index: 3
           },
           {
@@ -22249,7 +21801,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+ Defense",
+            PropertyString: "+1.75 Defense (Per Character Level)",
             Index: 0
           },
           {
@@ -22273,17 +21825,17 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
     PartialProperties: [
       {
-        PropertyString: "+15 Faster Hit Recovery",
+        PropertyString: "15% Faster Hit Recovery",
         Index: 0
       },
       {
-        PropertyString: "+25 Faster Hit Recovery",
+        PropertyString: "25% Faster Hit Recovery",
         Index: 2
       }
     ],
@@ -22297,15 +21849,15 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+20 Increased Attack Speed",
+        PropertyString: "20% Increased Attack Speed",
         Index: 3
       },
       {
-        PropertyString: "+ Deadly Strike",
+        PropertyString: "+0.75% Deadly Strike (Per Character Level)",
         Index: 4
       },
       {
-        PropertyString: "All Resistances +40",
+        PropertyString: "All Resistances +40%",
         Index: 1
       }
     ],
@@ -22331,11 +21883,11 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+20 Faster Hit Recovery",
+            PropertyString: "20% Faster Hit Recovery",
             Index: 1
           },
           {
-            PropertyString: "+150-190 Enhanced Defense",
+            PropertyString: "150-190% Enhanced Defense",
             Index: 0
           },
           {
@@ -22382,7 +21934,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 1
           },
           {
@@ -22396,10 +21948,6 @@ const json = [
           {
             PropertyString: "Cold Resist +35-45%",
             Index: 4
-          },
-          {
-            PropertyString: "1",
-            Index: 5
           }
         ],
         DamageArmorEnhanced: true,
@@ -22436,7 +21984,7 @@ const json = [
         Code: "xow",
         Properties: [
           {
-            PropertyString: "+25 Faster Block Rate",
+            PropertyString: "25% Faster Block Rate",
             Index: 3
           },
           {
@@ -22444,20 +21992,16 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+100-130 Enhanced Defense",
+            PropertyString: "100-130% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "All Resistances +25-35",
+            PropertyString: "All Resistances +25-35%",
             Index: 4
           },
           {
             PropertyString: "Level 13 Amplify Damage (100 Charges)",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 5
           }
         ],
         DamageArmorEnhanced: true,
@@ -22480,7 +22024,7 @@ const json = [
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Knight's Gallantry",
         SetPropertiesString: [],
         Name: "Helm of Chivalry",
@@ -22495,7 +22039,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+120-140 Enhanced Defense",
+            PropertyString: "120-140% Enhanced Defense",
             Index: 0
           },
           {
@@ -22523,11 +22067,11 @@ const json = [
           Durability: 18,
           ItemLevel: 63,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -22546,7 +22090,7 @@ const json = [
         Code: "hbl",
         Properties: [
           {
-            PropertyString: "+100-120 Enhanced Defense",
+            PropertyString: "100-120% Enhanced Defense",
             Index: 0
           },
           {
@@ -22570,17 +22114,17 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
     PartialProperties: [
       {
-        PropertyString: "+20 Deadly Strike",
+        PropertyString: "20% Deadly Strike",
         Index: 0
       },
       {
-        PropertyString: "+20 Chance of Crushing Blow",
+        PropertyString: "20% Chance of Crushing Blow",
         Index: 2
       }
     ],
@@ -22590,15 +22134,15 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "to Life",
+        PropertyString: "+3 to Life (Per Character Level)",
         Index: 1
       },
       {
-        PropertyString: "+ to Mana",
+        PropertyString: "+1.5 to Mana (Per Character Level)",
         Index: 2
       },
       {
-        PropertyString: "All Resistances +60",
+        PropertyString: "All Resistances +60%",
         Index: 3
       }
     ],
@@ -22624,7 +22168,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+30 Faster Hit Recovery",
+            PropertyString: "30% Faster Hit Recovery",
             Index: 3
           },
           {
@@ -22679,11 +22223,11 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "+120-140 Enhanced Defense",
+            PropertyString: "120-140% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "+15 Damage Reduced by 15%%",
+            PropertyString: "+15 % Physical Damage Reduction",
             Index: 1
           },
           {
@@ -22693,10 +22237,6 @@ const json = [
           {
             PropertyString: "Requirements -50%",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 6
           }
         ],
         DamageArmorEnhanced: true,
@@ -22719,7 +22259,7 @@ const json = [
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Lord Sith's Province",
         SetPropertiesString: [],
         Name: "Dark Cataclysm",
@@ -22738,7 +22278,7 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "+135-175 Enhanced Defense",
+            PropertyString: "135-175% Enhanced Defense",
             Index: 0
           },
           {
@@ -22762,11 +22302,11 @@ const json = [
           Durability: 50,
           ItemLevel: 85,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -22787,11 +22327,11 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+20 Faster Cast Rate",
+            PropertyString: "20% Faster Cast Rate",
             Index: 1
           },
           {
-            PropertyString: "+ to Mana",
+            PropertyString: "+0.75 to Mana (Per Character Level)",
             Index: 2
           },
           {
@@ -22801,10 +22341,6 @@ const json = [
           {
             PropertyString: "1 to Experience Gained",
             Index: 4
-          },
-          {
-            PropertyString: "1",
-            Index: 5
           }
         ],
         DamageArmorEnhanced: false,
@@ -22850,11 +22386,11 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "+30 Faster Hit Recovery",
+        PropertyString: "30% Faster Hit Recovery",
         Index: 2
       },
       {
-        PropertyString: "All Resistances +30",
+        PropertyString: "All Resistances +30%",
         Index: 1
       },
       {
@@ -22862,7 +22398,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "+75 better chance of getting magic item",
+        PropertyString: "75% better chance of getting magic item",
         Index: 0
       }
     ],
@@ -22884,7 +22420,7 @@ const json = [
         Code: "upl",
         Properties: [
           {
-            PropertyString: "+160-200 Enhanced Defense",
+            PropertyString: "160-200% Enhanced Defense",
             Index: 0
           },
           {
@@ -22892,11 +22428,11 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+20-25 Magic Damage Reduced by",
+            PropertyString: "Magic Damage Reduced by 20",
             Index: 4
           },
           {
-            PropertyString: "+ better chance of getting magic item",
+            PropertyString: "+1.25% better chance of getting magic item (Per Character Level)",
             Index: 2
           },
           {
@@ -22941,11 +22477,11 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+175% Damage to Demons Damage to Demons",
+            PropertyString: "+175% Damage to Demons",
             Index: 4
           },
           {
-            PropertyString: "+350% Damage to Undead Damage to Undead",
+            PropertyString: "+350% Damage to Undead",
             Index: 3
           },
           {
@@ -22955,10 +22491,6 @@ const json = [
           {
             PropertyString: "Adds 15-18 Life stolen per hit",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 5
           }
         ],
         DamageArmorEnhanced: true,
@@ -22999,19 +22531,19 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 4
           },
           {
-            PropertyString: "+110-130 Enhanced Defense",
+            PropertyString: "110-130% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "All Resistances +10-15",
+            PropertyString: "All Resistances +10-15%",
             Index: 2
           },
           {
-            PropertyString: "+10-15 Damage Reduced by 10-15%%",
+            PropertyString: "+10-15 % Physical Damage Reduction",
             Index: 1
           }
         ],
@@ -23031,14 +22563,14 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Boots",
         "Set": "Kai Lord's Valiance",
         SetPropertiesString: [
-          "+30 Faster Run/Walk (3 Items)"
+          "30% Faster Run/Walk (3 Items)"
         ],
         Name: "Hallowed Greaves",
         Index: "Hallowed Greaves",
@@ -23048,11 +22580,11 @@ const json = [
         Code: "xtb",
         Properties: [
           {
-            PropertyString: "+1",
+            PropertyString: "+1 to Paladin Skill Levels",
             Index: 4
           },
           {
-            PropertyString: "+30 Faster Hit Recovery",
+            PropertyString: "30% Faster Hit Recovery",
             Index: 3
           },
           {
@@ -23060,11 +22592,11 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+125-150 Enhanced Defense",
+            PropertyString: "125-150% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "+75 extra gold from monsters",
+            PropertyString: "75% extra gold from monsters",
             Index: 2
           }
         ],
@@ -23084,7 +22616,7 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -23092,7 +22624,7 @@ const json = [
         "Set": "Kai Lord's Valiance",
         SetPropertiesString: [
           "Level 6 Holy Shock Aura When Equipped (2 Items)",
-          "+65 better chance of getting magic item (3 Items)"
+          "65% better chance of getting magic item (3 Items)"
         ],
         Name: "Sunspear Deflector",
         Index: "Sunspear Deflector",
@@ -23102,7 +22634,7 @@ const json = [
         Code: "xow",
         Properties: [
           {
-            PropertyString: "+15 Faster Block Rate",
+            PropertyString: "15% Faster Block Rate",
             Index: 2
           },
           {
@@ -23110,12 +22642,8 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+175-200 Enhanced Defense",
+            PropertyString: "175-200% Enhanced Defense",
             Index: 0
-          },
-          {
-            PropertyString: "1",
-            Index: 3
           }
         ],
         DamageArmorEnhanced: true,
@@ -23140,11 +22668,11 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "+10 Increased Attack Speed",
+        PropertyString: "10% Increased Attack Speed",
         Index: 0
       },
       {
-        PropertyString: "+10 Increased Attack Speed",
+        PropertyString: "10% Increased Attack Speed",
         Index: 2
       }
     ],
@@ -23193,7 +22721,7 @@ const json = [
         Code: "ult",
         Properties: [
           {
-            PropertyString: "+200% Damage to Demons Damage to Demons",
+            PropertyString: "+200% Damage to Demons",
             Index: 0
           },
           {
@@ -23201,7 +22729,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+100-125 Enhanced Defense",
+            PropertyString: "100-125% Enhanced Defense",
             Index: 1
           }
         ],
@@ -23225,7 +22753,7 @@ const json = [
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Path of Bravery",
         SetPropertiesString: [
           "20 to Enemy Cold Resistance (2 Items)",
@@ -23245,11 +22773,11 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+125-150 Enhanced Defense",
+            PropertyString: "125-150% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "+15 Damage Reduced by 15%%",
+            PropertyString: "+15 % Physical Damage Reduction",
             Index: 1
           }
         ],
@@ -23265,11 +22793,11 @@ const json = [
           Durability: 18,
           ItemLevel: 37,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -23293,11 +22821,11 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+125-150 Enhanced Defense",
+            PropertyString: "125-150% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "All Resistances +35-40",
+            PropertyString: "All Resistances +35-40%",
             Index: 1
           }
         ],
@@ -23317,7 +22845,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -23341,7 +22869,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+120-140 Enhanced Defense",
+            PropertyString: "120-140% Enhanced Defense",
             Index: 0
           },
           {
@@ -23365,14 +22893,14 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Gloves",
         "Set": "Path of Bravery",
         SetPropertiesString: [
-          "+20 Increased Attack Speed (3 Items)"
+          "20% Increased Attack Speed (3 Items)"
         ],
         Name: "Imperial Gauntlets",
         Index: "Imperial Gauntlets",
@@ -23382,11 +22910,11 @@ const json = [
         Code: "uhg",
         Properties: [
           {
-            PropertyString: "+30 Faster Cast Rate",
+            PropertyString: "30% Faster Cast Rate",
             Index: 1
           },
           {
-            PropertyString: "+120-150 Enhanced Defense",
+            PropertyString: "120-150% Enhanced Defense",
             Index: 0
           },
           {
@@ -23414,7 +22942,7 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -23435,7 +22963,7 @@ const json = [
         Code: "9ws",
         Properties: [
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 1
           },
           {
@@ -23447,7 +22975,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "5 to Light Radius",
+            PropertyString: "+5 to Light Radius",
             Index: 4
           },
           {
@@ -23480,15 +23008,15 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "+20 Faster Hit Recovery",
+        PropertyString: "20% Faster Hit Recovery",
         Index: 0
       },
       {
-        PropertyString: "+20 Faster Hit Recovery",
+        PropertyString: "20% Faster Hit Recovery",
         Index: 2
       },
       {
-        PropertyString: "+30 Faster Block Rate",
+        PropertyString: "30% Faster Block Rate",
         Index: 4
       }
     ],
@@ -23498,7 +23026,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+30 Faster Run/Walk",
+        PropertyString: "30% Faster Run/Walk",
         Index: 3
       },
       {
@@ -23528,7 +23056,7 @@ const json = [
         Code: "uld",
         Properties: [
           {
-            PropertyString: "+20 Faster Run/Walk",
+            PropertyString: "20% Faster Run/Walk",
             Index: 4
           },
           {
@@ -23540,11 +23068,11 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+25 Damage Reduced by 25%%",
+            PropertyString: "+25 % Physical Damage Reduction",
             Index: 0
           },
           {
-            PropertyString: "+35-50 Damage Reduced by",
+            PropertyString: "Damage Reduced by 35",
             Index: 1
           }
         ],
@@ -23571,7 +23099,7 @@ const json = [
         Type: "Polearm",
         "Set": "Terror of the Deep",
         SetPropertiesString: [
-          "+45 Increased Attack Speed (4 Items)",
+          "45% Increased Attack Speed (4 Items)",
           "Adds 50-250 to Damage (3 Items)"
         ],
         Name: "Feeding Frenzy",
@@ -23582,7 +23110,7 @@ const json = [
         Code: "7wc",
         Properties: [
           {
-            PropertyString: "+3",
+            PropertyString: "+3 to Barbarian Skill Levels",
             Index: 4
           },
           {
@@ -23600,10 +23128,6 @@ const json = [
           {
             PropertyString: "Requirements -25%",
             Index: 1
-          },
-          {
-            PropertyString: "1",
-            Index: 5
           }
         ],
         DamageArmorEnhanced: true,
@@ -23644,15 +23168,15 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "+15 Faster Run/Walk",
+            PropertyString: "15% Faster Run/Walk",
             Index: 1
           },
           {
-            PropertyString: "+15 Faster Hit Recovery",
+            PropertyString: "15% Faster Hit Recovery",
             Index: 2
           },
           {
-            PropertyString: "+130-160 Enhanced Defense",
+            PropertyString: "130-160% Enhanced Defense",
             Index: 0
           },
           {
@@ -23676,7 +23200,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -23691,11 +23215,11 @@ const json = [
         Code: "xvb",
         Properties: [
           {
-            PropertyString: "+15-25 Chance of Crushing Blow",
+            PropertyString: "15-25% Chance of Crushing Blow",
             Index: 3
           },
           {
-            PropertyString: "+100 Enhanced Defense",
+            PropertyString: "100% Enhanced Defense",
             Index: 0
           },
           {
@@ -23703,7 +23227,7 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "+10 Damage Reduced by 10%%",
+            PropertyString: "+10 % Physical Damage Reduction",
             Index: 1
           }
         ],
@@ -23723,7 +23247,7 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -23733,7 +23257,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+25 Deadly Strike",
+        PropertyString: "25% Deadly Strike",
         Index: 2
       }
     ],
@@ -23755,7 +23279,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "+66 Chance of Crushing Blow",
+        PropertyString: "66% Chance of Crushing Blow",
         Index: 1
       }
     ],
@@ -23777,23 +23301,23 @@ const json = [
         Code: "uth",
         Properties: [
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 5
           },
           {
-            PropertyString: "+20 Faster Cast Rate",
+            PropertyString: "20% Faster Cast Rate",
             Index: 0
           },
           {
-            PropertyString: "+20 Faster Hit Recovery",
+            PropertyString: "20% Faster Hit Recovery",
             Index: 2
           },
           {
-            PropertyString: "+20-25 Faster Block Rate",
+            PropertyString: "20-25% Faster Block Rate",
             Index: 1
           },
           {
-            PropertyString: "+ better chance of getting magic item",
+            PropertyString: "+1.12% better chance of getting magic item (Per Character Level)",
             Index: 3
           },
           {
@@ -23838,7 +23362,7 @@ const json = [
         Code: "9b9",
         Properties: [
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 4
           },
           {
@@ -23846,20 +23370,16 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+15 Chance of Crushing Blow",
+            PropertyString: "15% Chance of Crushing Blow",
             Index: 2
           },
           {
-            PropertyString: "+15 Deadly Strike",
+            PropertyString: "15% Deadly Strike",
             Index: 1
           },
           {
             PropertyString: "-1 to -5 Drain Life",
             Index: 3
-          },
-          {
-            PropertyString: "1",
-            Index: 5
           }
         ],
         DamageArmorEnhanced: true,
@@ -23893,8 +23413,8 @@ const json = [
         "Set": "Celestial Hierarchy",
         SetPropertiesString: [
           "Regenerate Mana 50% (3 Items)",
-          "All Resistances +10 (4 Items)",
-          "+35 better chance of getting magic item (5 Items)"
+          "All Resistances +10% (4 Items)",
+          "35% better chance of getting magic item (5 Items)"
         ],
         Name: "Virtue",
         Index: "Virtue",
@@ -23904,7 +23424,7 @@ const json = [
         Code: "zlb",
         Properties: [
           {
-            PropertyString: "+80-110 Enhanced Defense",
+            PropertyString: "80-110% Enhanced Defense",
             Index: 0
           },
           {
@@ -23936,7 +23456,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -23953,15 +23473,15 @@ const json = [
         Code: "utb",
         Properties: [
           {
-            PropertyString: "+50 Faster Run/Walk",
+            PropertyString: "50% Faster Run/Walk",
             Index: 2
           },
           {
-            PropertyString: "-20 Faster Hit Recovery",
+            PropertyString: "-20% Faster Hit Recovery",
             Index: 4
           },
           {
-            PropertyString: "+180-210 Enhanced Defense",
+            PropertyString: "180-210% Enhanced Defense",
             Index: 0
           },
           {
@@ -23989,11 +23509,11 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Celestial Hierarchy",
         SetPropertiesString: [],
         Name: "Cherubim",
@@ -24012,7 +23532,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "to Energy",
+            PropertyString: "+0.5 to Energy (Per Character Level)",
             Index: 4
           },
           {
@@ -24036,11 +23556,11 @@ const json = [
           Durability: 24,
           ItemLevel: 68,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -24088,21 +23608,21 @@ const json = [
             Index: "Ring",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
     PartialProperties: [
       {
-        PropertyString: "+20 better chance of getting magic item",
+        PropertyString: "20% better chance of getting magic item",
         Index: 0
       },
       {
-        PropertyString: "+25 better chance of getting magic item",
+        PropertyString: "25% better chance of getting magic item",
         Index: 2
       },
       {
-        PropertyString: "+45 better chance of getting magic item",
+        PropertyString: "45% better chance of getting magic item",
         Index: 4
       },
       {
@@ -24120,7 +23640,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "All Resistances +40",
+        PropertyString: "All Resistances +40%",
         Index: 0
       }
     ],
@@ -24150,7 +23670,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+140-160 Enhanced Defense",
+            PropertyString: "140-160% Enhanced Defense",
             Index: 2
           },
           {
@@ -24181,7 +23701,7 @@ const json = [
         Type: "Ring",
         "Set": "Lords of Hell",
         SetPropertiesString: [
-          "+50 better chance of getting magic item (4 Items)"
+          "50% better chance of getting magic item (4 Items)"
         ],
         Name: "Diablo's Soulstone Ring",
         Index: "Diablo's Soulstone Ring",
@@ -24203,11 +23723,11 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+10 Damage Reduced by 10%%",
+            PropertyString: "+10 % Physical Damage Reduction",
             Index: 3
           },
           {
-            PropertyString: "+20-25 Magic Damage Reduced by",
+            PropertyString: "Magic Damage Reduced by 20",
             Index: 4
           }
         ],
@@ -24224,7 +23744,7 @@ const json = [
             Index: "Ring",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -24251,7 +23771,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+35-50 better chance of getting magic item",
+            PropertyString: "35-50% better chance of getting magic item",
             Index: 1
           }
         ],
@@ -24268,7 +23788,7 @@ const json = [
             Index: "Amulet",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -24276,7 +23796,7 @@ const json = [
         "Set": "Lords of Hell",
         SetPropertiesString: [
           "+8 to Lightning Fury (3 Items)",
-          "+25 Increased Attack Speed (2 Items)"
+          "25% Increased Attack Speed (2 Items)"
         ],
         Name: "Heaven's Lances",
         Index: "Heaven's Lances",
@@ -24300,10 +23820,6 @@ const json = [
           {
             PropertyString: "+ Replenishes quantity",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: true,
@@ -24361,7 +23877,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "All Resistances +40",
+        PropertyString: "All Resistances +40%",
         Index: 3
       }
     ],
@@ -24376,7 +23892,7 @@ const json = [
         "Set": "Corruption Coils",
         SetPropertiesString: [
           "40 to Fire Skill Damage (3 Items)",
-          "+50 better chance of getting magic item (2 Items)"
+          "50% better chance of getting magic item (2 Items)"
         ],
         Name: "Demonic Chuckle",
         Index: "Demonic Chuckle",
@@ -24407,15 +23923,15 @@ const json = [
             Index: "Ring",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Ring",
         "Set": "Corruption Coils",
         SetPropertiesString: [
-          "40 to Lightning Skill Damage (3 Items)",
-          "+100 extra gold from monsters (2 Items)"
+          "+40 to Lightning Skill Damage (3 Items)",
+          "100% extra gold from monsters (2 Items)"
         ],
         Name: "Evil Humor",
         Index: "Evil Humor",
@@ -24446,7 +23962,7 @@ const json = [
             Index: "Ring",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -24485,7 +24001,7 @@ const json = [
             Index: "Amulet",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -24505,7 +24021,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "All Resistances -50",
+        PropertyString: "All Resistances -50%",
         Index: 0
       },
       {
@@ -24513,7 +24029,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "+100 better chance of getting magic item",
+        PropertyString: "100% better chance of getting magic item",
         Index: 3
       }
     ],
@@ -24547,11 +24063,11 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+10-15 Damage Reduced by",
+            PropertyString: "Damage Reduced by 10",
             Index: 1
           },
           {
-            PropertyString: "+10-15 Magic Damage Reduced by",
+            PropertyString: "Magic Damage Reduced by 10",
             Index: 0
           }
         ],
@@ -24571,15 +24087,15 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
-        Type: "Merc Equip",
+        Type: "Helm",
         "Set": "Maadi's Paradox",
         SetPropertiesString: [
-          "+15-20 Faster Run/Walk (2 Items)",
-          "+15 Faster Cast Rate (3 Items)"
+          "15-20% Faster Run/Walk (2 Items)",
+          "15% Faster Cast Rate (3 Items)"
         ],
         Name: "Maadi's Vision",
         Index: "Maadi's Vision",
@@ -24589,11 +24105,11 @@ const json = [
         Code: "uh9",
         Properties: [
           {
-            PropertyString: "+20-30 Faster Hit Recovery",
+            PropertyString: "20-30% Faster Hit Recovery",
             Index: 2
           },
           {
-            PropertyString: "+150-200 Enhanced Defense",
+            PropertyString: "150-200% Enhanced Defense",
             Index: 0
           },
           {
@@ -24601,11 +24117,11 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "All Resistances +10",
+            PropertyString: "All Resistances +10%",
             Index: 3
           },
           {
-            PropertyString: "+30-50 better chance of getting magic item",
+            PropertyString: "30-50% better chance of getting magic item",
             Index: 4
           }
         ],
@@ -24621,11 +24137,11 @@ const json = [
           Durability: 40,
           ItemLevel: 84,
           Type: {
-            Name: "Merc Equip",
-            Index: "Merc Equip",
+            Name: "Helm",
+            Index: "Helm",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -24635,7 +24151,7 @@ const json = [
           "50 to Vitality (2 Items)",
           "50 to Energy (3 Items)",
           "+10 Magic Absorb (4 Items)",
-          "+10 Magic Damage Reduced by (5 Items)"
+          "Magic Damage Reduced by 10 (5 Items)"
         ],
         Name: "Maadi's Spirit",
         Index: "Maadi's Spirit",
@@ -24645,7 +24161,7 @@ const json = [
         Code: "uhn",
         Properties: [
           {
-            PropertyString: "+150-200 Enhanced Defense",
+            PropertyString: "150-200% Enhanced Defense",
             Index: 0
           },
           {
@@ -24688,8 +24204,8 @@ const json = [
         Type: "Wand",
         "Set": "Maadi's Paradox",
         SetPropertiesString: [
-          "+25 Faster Cast Rate (2 Items)",
-          "All Resistances +20 (3 Items)"
+          "25% Faster Cast Rate (2 Items)",
+          "All Resistances +20% (3 Items)"
         ],
         Name: "Maadi's Torch",
         Index: "Maadi's Torch",
@@ -24707,16 +24223,12 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+30 Faster Cast Rate",
+            PropertyString: "30% Faster Cast Rate",
             Index: 2
           },
           {
-            PropertyString: "+10-30 better chance of getting magic item",
+            PropertyString: "10-30% better chance of getting magic item",
             Index: 3
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: false,
@@ -24761,11 +24273,11 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+20-30 Faster Cast Rate",
+            PropertyString: "20-30% Faster Cast Rate",
             Index: 1
           },
           {
-            PropertyString: "+20-50 Faster Block Rate",
+            PropertyString: "20-50% Faster Block Rate",
             Index: 4
           },
           {
@@ -24773,16 +24285,12 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+150-200 Enhanced Defense",
+            PropertyString: "150-200% Enhanced Defense",
             Index: 5
           },
           {
-            PropertyString: "All Resistances +20",
+            PropertyString: "All Resistances +20%",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 6
           }
         ],
         DamageArmorEnhanced: true,
@@ -24807,7 +24315,7 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "All Resistances +50",
+        PropertyString: "All Resistances +50%",
         Index: 0
       },
       {
@@ -24847,7 +24355,7 @@ const json = [
         Type: "Gloves",
         "Set": "The Raven's Nest",
         SetPropertiesString: [
-          "+15 Faster Cast Rate (4 Items)",
+          "15% Faster Cast Rate (4 Items)",
           "+5 to Raven (Druid Only) (3 Items)",
           "Cold Resist +30% (2 Items)"
         ],
@@ -24859,16 +24367,16 @@ const json = [
         Code: "lgl",
         Properties: [
           {
-            PropertyString: "+5-10 Faster Cast Rate",
+            PropertyString: "5-10% Faster Cast Rate",
             Index: 0
           },
           {
-            PropertyString: "5-10 to Strength",
-            Index: 2
+            PropertyString: "All Resistances +5-10%",
+            Index: 1
           },
           {
-            PropertyString: "All Resistances +5-10",
-            Index: 1
+            PropertyString: "+5-10 to All Attributes",
+            Index: 2
           }
         ],
         DamageArmorEnhanced: false,
@@ -24887,15 +24395,15 @@ const json = [
             Index: "Gloves",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
         Type: "Boots",
         "Set": "The Raven's Nest",
         SetPropertiesString: [
-          "+30 Faster Run/Walk (2 Items)",
-          "All Resistances +20 (3 Items)"
+          "30% Faster Run/Walk (2 Items)",
+          "All Resistances +20% (3 Items)"
         ],
         Name: "The Raven's Feet",
         Index: "The Raven's Feet",
@@ -24905,7 +24413,7 @@ const json = [
         Code: "mbt",
         Properties: [
           {
-            PropertyString: "+10 Faster Run/Walk",
+            PropertyString: "10% Faster Run/Walk",
             Index: 2
           },
           {
@@ -24913,11 +24421,11 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "All Resistances +10",
+            PropertyString: "All Resistances +10%",
             Index: 1
           },
           {
-            PropertyString: "+10-25 better chance of getting magic item",
+            PropertyString: "10-25% better chance of getting magic item",
             Index: 3
           }
         ],
@@ -24937,7 +24445,7 @@ const json = [
             Index: "Boots",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       },
       {
@@ -24956,15 +24464,15 @@ const json = [
         Code: "xpk",
         Properties: [
           {
-            PropertyString: "+20 Faster Run/Walk",
+            PropertyString: "20% Faster Run/Walk",
             Index: 4
           },
           {
-            PropertyString: "+20-30 Faster Cast Rate",
+            PropertyString: "20-30% Faster Cast Rate",
             Index: 3
           },
           {
-            PropertyString: "+20-30 Faster Block Rate",
+            PropertyString: "20-30% Faster Block Rate",
             Index: 2
           },
           {
@@ -24972,16 +24480,12 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+100 Enhanced Defense",
+            PropertyString: "100% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "All Resistances +20-30",
+            PropertyString: "All Resistances +20-30%",
             Index: 5
-          },
-          {
-            PropertyString: "1",
-            Index: 6
           }
         ],
         DamageArmorEnhanced: true,
@@ -25008,7 +24512,7 @@ const json = [
         "Set": "The Raven's Nest",
         SetPropertiesString: [
           "2 +2 to raven hits (4 Items)",
-          "+10 Faster Cast Rate (2 Items)",
+          "10% Faster Cast Rate (2 Items)",
           "+5 to Raven (Druid Only) (3 Items)"
         ],
         Name: "The Raven's Beak",
@@ -25027,15 +24531,15 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+15-30 Increased Attack Speed",
+            PropertyString: "15-30% Increased Attack Speed",
             Index: 3
           },
           {
-            PropertyString: "+20-30 Faster Cast Rate",
+            PropertyString: "20-30% Faster Cast Rate",
             Index: 1
           },
           {
-            PropertyString: "+15-30 Faster Hit Recovery",
+            PropertyString: "15-30% Faster Hit Recovery",
             Index: 2
           },
           {
@@ -25045,10 +24549,6 @@ const json = [
           {
             PropertyString: "Hit blinds target +1",
             Index: 5
-          },
-          {
-            PropertyString: "1",
-            Index: 6
           }
         ],
         DamageArmorEnhanced: false,
@@ -25093,11 +24593,11 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "+20 Faster Run/Walk",
+            PropertyString: "20% Faster Run/Walk",
             Index: 2
           },
           {
-            PropertyString: "+100-125 Enhanced Defense",
+            PropertyString: "100-125% Enhanced Defense",
             Index: 0
           },
           {
@@ -25109,11 +24609,11 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+10-15 Damage Reduced by",
+            PropertyString: "Damage Reduced by 10",
             Index: 5
           },
           {
-            PropertyString: "+10-15 Magic Damage Reduced by",
+            PropertyString: "Magic Damage Reduced by 10",
             Index: 6
           }
         ],
@@ -25147,7 +24647,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "All Resistances +40",
+        PropertyString: "All Resistances +40%",
         Index: 2
       },
       {
@@ -25165,7 +24665,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "+30 Faster Cast Rate",
+        PropertyString: "30% Faster Cast Rate",
         Index: 4
       },
       {
@@ -25173,7 +24673,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "+20 Damage Reduced by 20%%",
+        PropertyString: "+20 % Physical Damage Reduction",
         Index: 2
       }
     ],
@@ -25187,7 +24687,7 @@ const json = [
         Type: "Hammer",
         "Set": "Tools of Vindication",
         SetPropertiesString: [
-          "+40 Increased Attack Speed (2 Items)"
+          "40% Increased Attack Speed (2 Items)"
         ],
         Name: "Hand of the Vindicator",
         Index: "Hand of the Vindicator",
@@ -25197,7 +24697,7 @@ const json = [
         Code: "whm",
         Properties: [
           {
-            PropertyString: "+20 Increased Attack Speed",
+            PropertyString: "20% Increased Attack Speed",
             Index: 1
           },
           {
@@ -25207,10 +24707,6 @@ const json = [
           {
             PropertyString: "+3 to Vengeance (Paladin Only)",
             Index: 2
-          },
-          {
-            PropertyString: "1",
-            Index: 3
           }
         ],
         DamageArmorEnhanced: false,
@@ -25241,7 +24737,7 @@ const json = [
         SetPropertiesString: [
           "+ to Minimum Damage (3 Items)",
           "Cold Resist +30% (2 Items)",
-          "+15 Damage Reduced by 15%% (3 Items)"
+          "+15 % Physical Damage Reduction (3 Items)"
         ],
         Name: "Bulwark of the Vindicator",
         Index: "Bulwark of the Vindicator",
@@ -25255,20 +24751,16 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+40 Faster Hit Recovery",
+            PropertyString: "40% Faster Hit Recovery",
             Index: 1
           },
           {
-            PropertyString: "+55 Faster Block Rate",
+            PropertyString: "55% Faster Block Rate",
             Index: 2
           },
           {
-            PropertyString: "All Resistances +35",
+            PropertyString: "All Resistances +35%",
             Index: 0
-          },
-          {
-            PropertyString: "1",
-            Index: 4
           }
         ],
         DamageArmorEnhanced: false,
@@ -25318,7 +24810,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+30 better chance of getting magic item",
+            PropertyString: "30% better chance of getting magic item",
             Index: 3
           }
         ],
@@ -25338,7 +24830,7 @@ const json = [
             Index: "Belt",
             Class: ""
           },
-          RequiredClass: "Helm"
+          RequiredClass: ""
         }
       }
     ],
@@ -25350,7 +24842,7 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "All Resistances +30",
+        PropertyString: "All Resistances +30%",
         Index: 0
       }
     ],
