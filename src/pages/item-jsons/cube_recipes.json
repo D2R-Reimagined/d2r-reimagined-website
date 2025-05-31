@@ -1045,16 +1045,16 @@
     {
         "Description": "CRAFT ITEM - Bolt Case of Slaying & Vex Rune & 1 Jewel Rare = Quiver of Amplified Slaying",
         "Item": null,
-        "Output": "",
+        "Output": "Bolt Case of Amplified Slaying",
         "Input": "Bolts of Slaying + Rare Jewel + Vex Rune ",
-        "CubeRecipeDescription": "Bolts Of Slaying + Rare Jewel + Vex Rune = "
+        "CubeRecipeDescription": "Bolts Of Slaying + Rare Jewel + Vex Rune = Bolt Case Of Amplified Slaying"
     },
     {
         "Description": "CRAFT ITEM - Bolt Case of Slaying & Ohm Rune & 1 Jewel Rare = Quiver of Resistance Slaying",
         "Item": null,
-        "Output": "",
+        "Output": "Bolt Case of Resistance Slaying",
         "Input": "Bolts of Slaying + Rare Jewel + Ohm Rune ",
-        "CubeRecipeDescription": "Bolts Of Slaying + Rare Jewel + Ohm Rune = "
+        "CubeRecipeDescription": "Bolts Of Slaying + Rare Jewel + Ohm Rune = Bolt Case Of Resistance Slaying"
     },
     {
         "Description": "CRAFT ITEM - Charm Grand & Jewel Magic & Amn Rune & EL Rune = Crafted Grand Charm +40-60Hp & +20-30 replenish",
@@ -1746,15 +1746,15 @@
         "Description": "REPAIR MISSLE - Bolt Case of Amplified Slaying & Hp1 = Replenish Unique Bolts",
         "Item": null,
         "Output": "255 ",
-        "Input": " + Healing Potion ",
-        "CubeRecipeDescription": " + Healing Potion = 255 "
+        "Input": "Bolt Case of Amplified Slaying + Healing Potion ",
+        "CubeRecipeDescription": "Bolt Case Of Amplified Slaying + Healing Potion = 255 "
     },
     {
         "Description": "REPAIR MISSLE - Bolt Case of Resistance Slaying & Hp1 = Replenish Unique Bolts",
         "Item": null,
         "Output": "255 ",
-        "Input": " + Healing Potion ",
-        "CubeRecipeDescription": " + Healing Potion = 255 "
+        "Input": "Bolt Case of Resistance Slaying + Healing Potion ",
+        "CubeRecipeDescription": "Bolt Case Of Resistance Slaying + Healing Potion = 255 "
     },
     {
         "Description": "REPAIR NORMAL - Weapon & Ort-Rune & Gem (Any) = Fully Repaired and Recharged Weapon",

@@ -187,7 +187,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "40 to Attack Rating",
+                "PropertyString": "+40 to Attack Rating",
                 "Index": 3
             },
             {
@@ -231,7 +231,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "40 to Attack Rating",
+                "PropertyString": "+40 to Attack Rating",
                 "Index": 3
             },
             {
@@ -730,7 +730,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "20 bonus to Attack Rating",
+                "PropertyString": "+20 % bonus to Attack Rating",
                 "Index": 1
             },
             {
@@ -742,7 +742,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "2 to Light Radius",
+                "PropertyString": "+2 to Light Radius",
                 "Index": 2
             }
         ],
@@ -891,7 +891,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "30 to Attack Rating",
+                "PropertyString": "+30 to Attack Rating",
                 "Index": 1
             },
             {
@@ -1408,7 +1408,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "3 to Light Radius",
+                "PropertyString": "+3 to Light Radius",
                 "Index": 3
             }
         ],
@@ -1448,7 +1448,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "35 to Attack Rating",
+                "PropertyString": "+35 to Attack Rating",
                 "Index": 4
             },
             {
@@ -1512,7 +1512,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+3-10 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +3-10",
                 "Index": 0
             }
         ],
@@ -2588,7 +2588,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "4 to Light Radius",
+                "PropertyString": "+4 to Light Radius",
                 "Index": 3
             }
         ],
@@ -2628,7 +2628,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "28 to Attack Rating",
+                "PropertyString": "+28 to Attack Rating",
                 "Index": 0
             },
             {
@@ -2644,7 +2644,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "2 to Light Radius",
+                "PropertyString": "+2 to Light Radius",
                 "Index": 3
             }
         ],
@@ -2745,7 +2745,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "1 to Light Radius",
+                "PropertyString": "+1 to Light Radius",
                 "Index": 3
             }
         ],
@@ -2778,7 +2778,7 @@
         "Code": "rin",
         "Properties": [
             {
-                "PropertyString": "50-75 to Attack Rating",
+                "PropertyString": "+50-75 to Attack Rating",
                 "Index": 2
             },
             {
@@ -2786,7 +2786,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+3 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +3",
                 "Index": 1
             },
             {
@@ -3105,7 +3105,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "2 to Light Radius",
+                "PropertyString": "+2 to Light Radius",
                 "Index": 3
             }
         ],
@@ -3145,7 +3145,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "35 to Attack Rating",
+                "PropertyString": "+35 to Attack Rating",
                 "Index": 0
             },
             {
@@ -3157,7 +3157,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "2 to Light Radius",
+                "PropertyString": "+2 to Light Radius",
                 "Index": 2
             }
         ],
@@ -3544,7 +3544,7 @@
         "Code": "lgl",
         "Properties": [
             {
-                "PropertyString": "75 to Attack Rating",
+                "PropertyString": "+75 to Attack Rating",
                 "Index": 4
             },
             {
@@ -3925,7 +3925,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "15 bonus to Attack Rating",
+                "PropertyString": "+15 % bonus to Attack Rating",
                 "Index": 2
             },
             {
@@ -3989,7 +3989,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "2 to Light Radius",
+                "PropertyString": "+2 to Light Radius",
                 "Index": 2
             }
         ],
@@ -4089,7 +4089,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "40 to Attack Rating",
+                "PropertyString": "+40 to Attack Rating",
                 "Index": 5
             },
             {
@@ -4271,7 +4271,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+2 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +2",
                 "Index": 3
             }
         ],
@@ -4657,7 +4657,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "3 to Light Radius",
+                "PropertyString": "+3 to Light Radius",
                 "Index": 3
             }
         ],
@@ -4751,7 +4751,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "7 to Light Radius",
+                "PropertyString": "+7 to Light Radius",
                 "Index": 2
             },
             {
@@ -6639,7 +6639,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "3 to Light Radius",
+                "PropertyString": "+3 to Light Radius",
                 "Index": 0
             }
         ],
@@ -6747,7 +6747,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "50 to Attack Rating",
+                "PropertyString": "+50 to Attack Rating",
                 "Index": 3
             }
         ],
@@ -7327,7 +7327,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "30 to Attack Rating",
+                "PropertyString": "+30 to Attack Rating",
                 "Index": 2
             },
             {
@@ -7424,7 +7424,7 @@
         "Code": "hla",
         "Properties": [
             {
-                "PropertyString": "50 to Attack Rating",
+                "PropertyString": "+50 to Attack Rating",
                 "Index": 1
             },
             {
@@ -7477,7 +7477,7 @@
         "Code": "rng",
         "Properties": [
             {
-                "PropertyString": "20 to Attack Rating",
+                "PropertyString": "+20 to Attack Rating",
                 "Index": 0
             },
             {
@@ -7497,7 +7497,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "3 to Light Radius",
+                "PropertyString": "+3 to Light Radius",
                 "Index": 2
             }
         ],
@@ -8034,7 +8034,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "50 bonus to Attack Rating",
+                "PropertyString": "+50 % bonus to Attack Rating",
                 "Index": 1
             },
             {
@@ -8050,7 +8050,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "2 to Light Radius",
+                "PropertyString": "+2 to Light Radius",
                 "Index": 3
             }
         ],
@@ -8094,7 +8094,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "50 bonus to Attack Rating",
+                "PropertyString": "+50 % bonus to Attack Rating",
                 "Index": 0
             },
             {
@@ -8244,11 +8244,11 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+5 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +5",
                 "Index": 0
             },
             {
-                "PropertyString": "+5 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +5",
                 "Index": 5
             }
         ],
@@ -8281,7 +8281,7 @@
         "Code": "mgl",
         "Properties": [
             {
-                "PropertyString": "25 to Attack Rating",
+                "PropertyString": "+25 to Attack Rating",
                 "Index": 2
             },
             {
@@ -8301,7 +8301,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "2 to Light Radius",
+                "PropertyString": "+2 to Light Radius",
                 "Index": 4
             }
         ],
@@ -8399,7 +8399,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "1-5 to Light Radius",
+                "PropertyString": "+1-5 to Light Radius",
                 "Index": 1
             }
         ],
@@ -8479,7 +8479,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "225 to Attack Rating",
+                "PropertyString": "+225 to Attack Rating",
                 "Index": 5
             },
             {
@@ -8931,7 +8931,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "150 to Attack Rating",
+                "PropertyString": "+150 to Attack Rating",
                 "Index": 5
             },
             {
@@ -9410,7 +9410,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "75 to Attack Rating",
+                "PropertyString": "+75 to Attack Rating",
                 "Index": 5
             },
             {
@@ -9624,7 +9624,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "100 to Attack Rating",
+                "PropertyString": "+100 to Attack Rating",
                 "Index": 2
             },
             {
@@ -9850,7 +9850,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "3 to Light Radius",
+                "PropertyString": "+3 to Light Radius",
                 "Index": 3
             }
         ],
@@ -10047,7 +10047,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "75 to Attack Rating",
+                "PropertyString": "+75 to Attack Rating",
                 "Index": 4
             },
             {
@@ -10217,7 +10217,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "125 to Attack Rating",
+                "PropertyString": "+125 to Attack Rating",
                 "Index": 3
             },
             {
@@ -10346,7 +10346,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "50 to Attack Rating",
+                "PropertyString": "+50 to Attack Rating",
                 "Index": 3
             },
             {
@@ -10510,7 +10510,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "3-5 to Light Radius",
+                "PropertyString": "+3-5 to Light Radius",
                 "Index": 1
             },
             {
@@ -11097,7 +11097,7 @@
         "Code": "kri",
         "Properties": [
             {
-                "PropertyString": "100-150 to Attack Rating",
+                "PropertyString": "+100-150 to Attack Rating",
                 "Index": 0
             },
             {
@@ -11153,7 +11153,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "45 to Attack Rating",
+                "PropertyString": "+45 to Attack Rating",
                 "Index": 1
             },
             {
@@ -11564,7 +11564,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+8-12 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +8-12",
                 "Index": 3
             }
         ],
@@ -11707,7 +11707,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "100-200 to Attack Rating",
+                "PropertyString": "+100-200 to Attack Rating",
                 "Index": 5
             },
             {
@@ -11775,7 +11775,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "200 to Attack Rating",
+                "PropertyString": "+200 to Attack Rating",
                 "Index": 3
             },
             {
@@ -11885,7 +11885,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+15 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +15",
                 "Index": 3
             }
         ],
@@ -12045,7 +12045,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "60 to Attack Rating",
+                "PropertyString": "+60 to Attack Rating",
                 "Index": 2
             },
             {
@@ -12158,7 +12158,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "2 to Light Radius",
+                "PropertyString": "+2 to Light Radius",
                 "Index": 3
             }
         ],
@@ -13088,7 +13088,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "50-100 to Attack Rating",
+                "PropertyString": "+50-100 to Attack Rating",
                 "Index": 4
             },
             {
@@ -13329,7 +13329,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "3 to Light Radius",
+                "PropertyString": "+3 to Light Radius",
                 "Index": 2
             }
         ],
@@ -13928,7 +13928,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+8 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +8",
                 "Index": 0
             }
         ],
@@ -13980,7 +13980,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "4 to Light Radius",
+                "PropertyString": "+4 to Light Radius",
                 "Index": 2
             }
         ],
@@ -14350,7 +14350,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "30 bonus to Attack Rating",
+                "PropertyString": "+30 % bonus to Attack Rating",
                 "Index": 5
             },
             {
@@ -15007,7 +15007,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "100-150 to Attack Rating",
+                "PropertyString": "+100-150 to Attack Rating",
                 "Index": 0
             },
             {
@@ -15236,7 +15236,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "120 to Attack Rating",
+                "PropertyString": "+120 to Attack Rating",
                 "Index": 3
             },
             {
@@ -15284,7 +15284,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "100 to Attack Rating",
+                "PropertyString": "+100 to Attack Rating",
                 "Index": 5
             },
             {
@@ -15304,7 +15304,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+15-20 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +15-20",
                 "Index": 4
             }
         ],
@@ -15759,7 +15759,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+6-9 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +6-9",
                 "Index": 4
             }
         ],
@@ -15800,7 +15800,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "10-15 to Lightning Skill Damage",
+                "PropertyString": "+10-15 to Lightning Skill Damage",
                 "Index": 3
             },
             {
@@ -16980,7 +16980,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "4 to Light Radius",
+                "PropertyString": "+4 to Light Radius",
                 "Index": 2
             }
         ],
@@ -17020,7 +17020,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "55 to Attack Rating",
+                "PropertyString": "+55 to Attack Rating",
                 "Index": 2
             },
             {
@@ -17072,7 +17072,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "50-100 to Attack Rating",
+                "PropertyString": "+50-100 to Attack Rating",
                 "Index": 3
             },
             {
@@ -17124,7 +17124,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "28 to Attack Rating",
+                "PropertyString": "+28 to Attack Rating",
                 "Index": 2
             },
             {
@@ -17188,7 +17188,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+3 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +3",
                 "Index": 1
             },
             {
@@ -17225,7 +17225,7 @@
         "Code": "amu",
         "Properties": [
             {
-                "PropertyString": "10 bonus to Attack Rating",
+                "PropertyString": "+10 % bonus to Attack Rating",
                 "Index": 5
             },
             {
@@ -17731,7 +17731,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "50 bonus to Attack Rating",
+                "PropertyString": "+50 % bonus to Attack Rating",
                 "Index": 3
             },
             {
@@ -17835,7 +17835,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "10-15 to Lightning Skill Damage",
+                "PropertyString": "+10-15 to Lightning Skill Damage",
                 "Index": 3
             },
             {
@@ -17896,7 +17896,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "15-20 to Lightning Skill Damage",
+                "PropertyString": "+15-20 to Lightning Skill Damage",
                 "Index": 3
             },
             {
@@ -18282,7 +18282,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "3-5 to Light Radius",
+                "PropertyString": "+3-5 to Light Radius",
                 "Index": 3
             },
             {
@@ -18431,7 +18431,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "50 to Attack Rating",
+                "PropertyString": "+50 to Attack Rating",
                 "Index": 2
             },
             {
@@ -18551,7 +18551,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "50-100 to Attack Rating",
+                "PropertyString": "+50-100 to Attack Rating",
                 "Index": 4
             },
             {
@@ -18603,7 +18603,7 @@
         "Code": "plt",
         "Properties": [
             {
-                "PropertyString": "35 to Attack Rating",
+                "PropertyString": "+35 to Attack Rating",
                 "Index": 2
             },
             {
@@ -18773,7 +18773,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "15 to Lightning Skill Damage",
+                "PropertyString": "+15 to Lightning Skill Damage",
                 "Index": 5
             },
             {
@@ -19540,7 +19540,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "50 to Attack Rating",
+                "PropertyString": "+50 to Attack Rating",
                 "Index": 3
             },
             {
@@ -19588,7 +19588,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "100-150 to Attack Rating",
+                "PropertyString": "+100-150 to Attack Rating",
                 "Index": 0
             },
             {
@@ -19640,7 +19640,7 @@
                 "Index": 7
             },
             {
-                "PropertyString": "60 to Attack Rating",
+                "PropertyString": "+60 to Attack Rating",
                 "Index": 4
             },
             {
@@ -19660,7 +19660,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "3 to Light Radius",
+                "PropertyString": "+3 to Light Radius",
                 "Index": 5
             }
         ],
@@ -19704,7 +19704,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "50-75 to Attack Rating",
+                "PropertyString": "+50-75 to Attack Rating",
                 "Index": 3
             },
             {
@@ -19768,7 +19768,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "70 to Attack Rating",
+                "PropertyString": "+70 to Attack Rating",
                 "Index": 3
             },
             {
@@ -19836,7 +19836,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "2 to Light Radius",
+                "PropertyString": "+2 to Light Radius",
                 "Index": 1
             }
         ],
@@ -19885,7 +19885,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "25-35 bonus to Attack Rating",
+                "PropertyString": "+25-35 % bonus to Attack Rating",
                 "Index": 3
             },
             {
@@ -20177,7 +20177,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "125 to Attack Rating",
+                "PropertyString": "+125 to Attack Rating",
                 "Index": 3
             },
             {
@@ -20759,7 +20759,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "50 bonus to Attack Rating",
+                "PropertyString": "+50 % bonus to Attack Rating",
                 "Index": 3
             },
             {
@@ -20972,7 +20972,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+10 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +10",
                 "Index": 2
             },
             {
@@ -20980,7 +20980,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "2 to Light Radius",
+                "PropertyString": "+2 to Light Radius",
                 "Index": 3
             }
         ],
@@ -21025,7 +21025,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "2 to Light Radius",
+                "PropertyString": "+2 to Light Radius",
                 "Index": 2
             }
         ],
@@ -21082,7 +21082,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+15 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +15",
                 "Index": 1
             }
         ],
@@ -21134,7 +21134,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "100 to Attack Rating",
+                "PropertyString": "+100 to Attack Rating",
                 "Index": 1
             },
             {
@@ -21393,7 +21393,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "150 to Attack Rating",
+                "PropertyString": "+150 to Attack Rating",
                 "Index": 3
             },
             {
@@ -21505,7 +21505,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "200 to Attack Rating",
+                "PropertyString": "+200 to Attack Rating",
                 "Index": 1
             },
             {
@@ -21569,7 +21569,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "20 bonus to Attack Rating",
+                "PropertyString": "+20 % bonus to Attack Rating",
                 "Index": 4
             },
             {
@@ -21689,7 +21689,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "75 to Attack Rating",
+                "PropertyString": "+75 to Attack Rating",
                 "Index": 2
             },
             {
@@ -22305,7 +22305,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "60 to Attack Rating",
+                "PropertyString": "+60 to Attack Rating",
                 "Index": 4
             },
             {
@@ -22522,7 +22522,7 @@
         "Code": "gth",
         "Properties": [
             {
-                "PropertyString": "45 to Attack Rating",
+                "PropertyString": "+45 to Attack Rating",
                 "Index": 1
             },
             {
@@ -22750,7 +22750,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+8 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +8",
                 "Index": 0
             }
         ],
@@ -22963,7 +22963,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "2 to Light Radius",
+                "PropertyString": "+2 to Light Radius",
                 "Index": 4
             }
         ],
@@ -23057,7 +23057,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "75 to Attack Rating",
+                "PropertyString": "+75 to Attack Rating",
                 "Index": 4
             },
             {
@@ -23305,7 +23305,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "3-7 to Light Radius",
+                "PropertyString": "+3-7 to Light Radius",
                 "Index": 4
             }
         ],
@@ -23469,7 +23469,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "100 to Attack Rating",
+                "PropertyString": "+100 to Attack Rating",
                 "Index": 4
             },
             {
@@ -24190,7 +24190,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "100-250 to Attack Rating",
+                "PropertyString": "+100-250 to Attack Rating",
                 "Index": 5
             },
             {
@@ -24288,7 +24288,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "90 to Attack Rating",
+                "PropertyString": "+90 to Attack Rating",
                 "Index": 1
             },
             {
@@ -25143,7 +25143,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "1-3 to Light Radius",
+                "PropertyString": "+1-3 to Light Radius",
                 "Index": 6
             }
         ],
@@ -25367,7 +25367,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "25 bonus to Attack Rating",
+                "PropertyString": "+25 % bonus to Attack Rating",
                 "Index": 2
             },
             {
@@ -25708,7 +25708,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "150 to Attack Rating",
+                "PropertyString": "+150 to Attack Rating",
                 "Index": 1
             },
             {
@@ -25949,7 +25949,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+15 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +15",
                 "Index": 5
             },
             {
@@ -26099,7 +26099,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "100 to Attack Rating",
+                "PropertyString": "+100 to Attack Rating",
                 "Index": 4
             },
             {
@@ -26412,7 +26412,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "2-4 to Light Radius",
+                "PropertyString": "+2-4 to Light Radius",
                 "Index": 6
             },
             {
@@ -26865,7 +26865,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+20 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +20",
                 "Index": 5
             },
             {
@@ -27895,7 +27895,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "20 bonus to Attack Rating",
+                "PropertyString": "+20 % bonus to Attack Rating",
                 "Index": 7
             },
             {
@@ -27903,7 +27903,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "10 to Lightning Skill Damage",
+                "PropertyString": "+10 to Lightning Skill Damage",
                 "Index": 4
             },
             {
@@ -28073,7 +28073,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+25 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +25",
                 "Index": 0
             }
         ],
@@ -28643,7 +28643,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "75 to Attack Rating",
+                "PropertyString": "+75 to Attack Rating",
                 "Index": 3
             },
             {
@@ -28724,7 +28724,7 @@
                 "Index": 9
             },
             {
-                "PropertyString": "25 bonus to Attack Rating",
+                "PropertyString": "+25 % bonus to Attack Rating",
                 "Index": 7
             },
             {
@@ -28800,7 +28800,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "4-7 to Light Radius",
+                "PropertyString": "+4-7 to Light Radius",
                 "Index": 5
             }
         ],
@@ -29143,7 +29143,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "20-25 bonus to Attack Rating",
+                "PropertyString": "+20-25 % bonus to Attack Rating",
                 "Index": 4
             },
             {
@@ -30108,7 +30108,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "150-250 to Attack Rating",
+                "PropertyString": "+150-250 to Attack Rating",
                 "Index": 4
             },
             {
@@ -30293,7 +30293,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "4 to Light Radius",
+                "PropertyString": "+4 to Light Radius",
                 "Index": 0
             },
             {
@@ -30346,7 +30346,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "150 to Attack Rating",
+                "PropertyString": "+150 to Attack Rating",
                 "Index": 4
             },
             {
@@ -30411,7 +30411,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+47 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +47",
                 "Index": 3
             },
             {
@@ -30982,7 +30982,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "200 to Attack Rating",
+                "PropertyString": "+200 to Attack Rating",
                 "Index": 1
             },
             {
@@ -31285,7 +31285,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "1-7 to Light Radius",
+                "PropertyString": "+1-7 to Light Radius",
                 "Index": 3
             }
         ],
@@ -33498,7 +33498,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "200 to Attack Rating",
+                "PropertyString": "+200 to Attack Rating",
                 "Index": 5
             },
             {
@@ -34020,7 +34020,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "150-200 to Attack Rating",
+                "PropertyString": "+150-200 to Attack Rating",
                 "Index": 5
             },
             {
@@ -34539,7 +34539,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "35 bonus to Attack Rating",
+                "PropertyString": "+35 % bonus to Attack Rating",
                 "Index": 5
             },
             {
@@ -35630,7 +35630,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "25 bonus to Attack Rating",
+                "PropertyString": "+25 % bonus to Attack Rating",
                 "Index": 0
             },
             {
@@ -35646,7 +35646,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "3 to Light Radius",
+                "PropertyString": "+3 to Light Radius",
                 "Index": 1
             }
         ],
@@ -36239,7 +36239,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "10-15 to Lightning Skill Damage",
+                "PropertyString": "+10-15 to Lightning Skill Damage",
                 "Index": 6
             },
             {
@@ -36540,7 +36540,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "2-4 to Light Radius",
+                "PropertyString": "+2-4 to Light Radius",
                 "Index": 5
             }
         ],
@@ -37625,7 +37625,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "25 bonus to Attack Rating",
+                "PropertyString": "+25 % bonus to Attack Rating",
                 "Index": 6
             },
             {
@@ -38320,7 +38320,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "1 to Light Radius",
+                "PropertyString": "+1 to Light Radius",
                 "Index": 0
             }
         ],
@@ -38849,7 +38849,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "25 bonus to Attack Rating",
+                "PropertyString": "+25 % bonus to Attack Rating",
                 "Index": 6
             },
             {
@@ -39012,7 +39012,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "35 bonus to Attack Rating",
+                "PropertyString": "+35 % bonus to Attack Rating",
                 "Index": 4
             },
             {
@@ -39080,7 +39080,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "100 bonus to Attack Rating",
+                "PropertyString": "+100 % bonus to Attack Rating",
                 "Index": 2
             },
             {
@@ -39100,7 +39100,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "4 to Light Radius",
+                "PropertyString": "+4 to Light Radius",
                 "Index": 5
             }
         ],
@@ -39156,7 +39156,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "2 to Light Radius",
+                "PropertyString": "+2 to Light Radius",
                 "Index": 4
             },
             {
@@ -39204,7 +39204,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "50 bonus to Attack Rating",
+                "PropertyString": "+50 % bonus to Attack Rating",
                 "Index": 7
             },
             {
@@ -39550,7 +39550,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+5-10 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +5-10",
                 "Index": 7
             },
             {
@@ -39660,7 +39660,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "20 bonus to Attack Rating",
+                "PropertyString": "+20 % bonus to Attack Rating",
                 "Index": 4
             },
             {
@@ -40074,7 +40074,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "20 bonus to Attack Rating",
+                "PropertyString": "+20 % bonus to Attack Rating",
                 "Index": 7
             },
             {
@@ -40143,7 +40143,7 @@
                 "Index": 8
             },
             {
-                "PropertyString": "20 bonus to Attack Rating",
+                "PropertyString": "+20 % bonus to Attack Rating",
                 "Index": 4
             },
             {
@@ -40203,7 +40203,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "20 bonus to Attack Rating",
+                "PropertyString": "+20 % bonus to Attack Rating",
                 "Index": 4
             },
             {
@@ -41066,7 +41066,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "100-200 to Attack Rating",
+                "PropertyString": "+100-200 to Attack Rating",
                 "Index": 6
             },
             {
@@ -41122,7 +41122,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "200-250 to Attack Rating",
+                "PropertyString": "+200-250 to Attack Rating",
                 "Index": 3
             },
             {
@@ -41442,7 +41442,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "25 bonus to Attack Rating",
+                "PropertyString": "+25 % bonus to Attack Rating",
                 "Index": 4
             },
             {
@@ -41836,7 +41836,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "10-15 to Lightning Skill Damage",
+                "PropertyString": "+10-15 to Lightning Skill Damage",
                 "Index": 1
             },
             {
@@ -42294,7 +42294,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "200-250 to Attack Rating",
+                "PropertyString": "+200-250 to Attack Rating",
                 "Index": 1
             },
             {
@@ -42444,7 +42444,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "200-450 to Attack Rating",
+                "PropertyString": "+200-450 to Attack Rating",
                 "Index": 2
             },
             {
@@ -42512,7 +42512,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "20 bonus to Attack Rating",
+                "PropertyString": "+20 % bonus to Attack Rating",
                 "Index": 6
             },
             {
@@ -43043,7 +43043,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "200 to Attack Rating",
+                "PropertyString": "+200 to Attack Rating",
                 "Index": 7
             },
             {
@@ -43341,7 +43341,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+26 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +26",
                 "Index": 2
             },
             {
@@ -43413,7 +43413,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "2 to Light Radius",
+                "PropertyString": "+2 to Light Radius",
                 "Index": 3
             }
         ],
@@ -43465,7 +43465,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "200-250 to Attack Rating",
+                "PropertyString": "+200-250 to Attack Rating",
                 "Index": 8
             },
             {
@@ -43481,7 +43481,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+8 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +8",
                 "Index": 3
             },
             {
@@ -43545,7 +43545,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "4 to Light Radius",
+                "PropertyString": "+4 to Light Radius",
                 "Index": 0
             }
         ],
@@ -43624,7 +43624,7 @@
         "Code": "rin",
         "Properties": [
             {
-                "PropertyString": "150-250 to Attack Rating",
+                "PropertyString": "+150-250 to Attack Rating",
                 "Index": 5
             },
             {
@@ -43874,7 +43874,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "225 to Attack Rating",
+                "PropertyString": "+225 to Attack Rating",
                 "Index": 5
             },
             {
@@ -44222,7 +44222,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "50 bonus to Attack Rating",
+                "PropertyString": "+50 % bonus to Attack Rating",
                 "Index": 2
             },
             {
@@ -44562,7 +44562,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "10 bonus to Attack Rating",
+                "PropertyString": "+10 % bonus to Attack Rating",
                 "Index": 3
             },
             {
@@ -44718,7 +44718,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "100-150 bonus to Attack Rating",
+                "PropertyString": "+100-150 % bonus to Attack Rating",
                 "Index": 1
             },
             {
@@ -45549,7 +45549,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "1-3 to Light Radius",
+                "PropertyString": "+1-3 to Light Radius",
                 "Index": 5
             },
             {
@@ -46007,7 +46007,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "25 bonus to Attack Rating",
+                "PropertyString": "+25 % bonus to Attack Rating",
                 "Index": 6
             },
             {
@@ -46694,7 +46694,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+15 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +15",
                 "Index": 1
             }
         ],
@@ -46878,7 +46878,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+20-40 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +20-40",
                 "Index": 0
             }
         ],
@@ -47401,7 +47401,7 @@
         "Code": "xsh",
         "Properties": [
             {
-                "PropertyString": "20 bonus to Attack Rating",
+                "PropertyString": "+20 % bonus to Attack Rating",
                 "Index": 4
             },
             {
@@ -47769,7 +47769,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "50-75 to Attack Rating",
+                "PropertyString": "+50-75 to Attack Rating",
                 "Index": 3
             },
             {
@@ -47819,7 +47819,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "632 to Attack Rating",
+                "PropertyString": "+632 to Attack Rating",
                 "Index": 6
             },
             {
@@ -47932,7 +47932,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "3-5 to Lightning Skill Damage",
+                "PropertyString": "+3-5 to Lightning Skill Damage",
                 "Index": 2
             }
         ],
@@ -48100,7 +48100,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "3-5 to Lightning Skill Damage",
+                "PropertyString": "+3-5 to Lightning Skill Damage",
                 "Index": 2
             }
         ],
@@ -49008,7 +49008,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "20 bonus to Attack Rating",
+                "PropertyString": "+20 % bonus to Attack Rating",
                 "Index": 2
             },
             {
@@ -49604,7 +49604,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "3-5 to Lightning Skill Damage",
+                "PropertyString": "+3-5 to Lightning Skill Damage",
                 "Index": 2
             }
         ],
@@ -51831,7 +51831,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "200 to Attack Rating",
+                "PropertyString": "+200 to Attack Rating",
                 "Index": 6
             },
             {
@@ -52209,7 +52209,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "25 bonus to Attack Rating",
+                "PropertyString": "+25 % bonus to Attack Rating",
                 "Index": 3
             },
             {
@@ -53801,7 +53801,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "50-100 bonus to Attack Rating",
+                "PropertyString": "+50-100 % bonus to Attack Rating",
                 "Index": 5
             },
             {
@@ -53989,7 +53989,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "50 bonus to Attack Rating",
+                "PropertyString": "+50 % bonus to Attack Rating",
                 "Index": 5
             },
             {
@@ -54655,7 +54655,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "35 bonus to Attack Rating",
+                "PropertyString": "+35 % bonus to Attack Rating",
                 "Index": 6
             },
             {
@@ -55651,7 +55651,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+50-100 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +50-100",
                 "Index": 3
             },
             {
@@ -55797,7 +55797,7 @@
     },
     {
         "Type": "Knife",
-        "Name": "",
+        "Name": "Thief's Lockpicker",
         "Index": "Thief's Lockpicker",
         "Enabled": true,
         "ItemLevel": 55,
@@ -56399,7 +56399,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "25 bonus to Attack Rating",
+                "PropertyString": "+25 % bonus to Attack Rating",
                 "Index": 2
             },
             {
@@ -57141,7 +57141,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "7 to Light Radius",
+                "PropertyString": "+7 to Light Radius",
                 "Index": 0
             }
         ],
@@ -57235,7 +57235,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "30 bonus to Attack Rating",
+                "PropertyString": "+30 % bonus to Attack Rating",
                 "Index": 4
             },
             {
@@ -57810,7 +57810,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+20-25 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +20-25",
                 "Index": 5
             },
             {
@@ -58195,7 +58195,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "1-3 to Light Radius",
+                "PropertyString": "+1-3 to Light Radius",
                 "Index": 6
             }
         ],
@@ -58293,7 +58293,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "35-50 bonus to Attack Rating",
+                "PropertyString": "+35-50 % bonus to Attack Rating",
                 "Index": 5
             },
             {
@@ -58350,7 +58350,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "20 bonus to Attack Rating",
+                "PropertyString": "+20 % bonus to Attack Rating",
                 "Index": 5
             },
             {
@@ -58366,7 +58366,7 @@
                 "Index": 7
             },
             {
-                "PropertyString": "+5 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +5",
                 "Index": 3
             },
             {
@@ -58374,7 +58374,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "3 to Light Radius",
+                "PropertyString": "+3 to Light Radius",
                 "Index": 2
             }
         ],
@@ -58478,7 +58478,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "150-200 bonus to Attack Rating",
+                "PropertyString": "+150-200 % bonus to Attack Rating",
                 "Index": 2
             },
             {
@@ -58542,7 +58542,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "250 to Attack Rating",
+                "PropertyString": "+250 to Attack Rating",
                 "Index": 3
             },
             {
@@ -59150,7 +59150,7 @@
                 "Index": 7
             },
             {
-                "PropertyString": "+25-35 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +25-35",
                 "Index": 6
             },
             {
@@ -59507,7 +59507,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "250 to Attack Rating",
+                "PropertyString": "+250 to Attack Rating",
                 "Index": 7
             },
             {
@@ -59906,7 +59906,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+55-77 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +55-77",
                 "Index": 3
             }
         ],
@@ -59963,7 +59963,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "3 to Light Radius",
+                "PropertyString": "+3 to Light Radius",
                 "Index": 3
             },
             {
@@ -60015,7 +60015,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "30 bonus to Attack Rating",
+                "PropertyString": "+30 % bonus to Attack Rating",
                 "Index": 5
             },
             {
@@ -60203,7 +60203,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "10-15 to Lightning Skill Damage",
+                "PropertyString": "+10-15 to Lightning Skill Damage",
                 "Index": 6
             },
             {
@@ -60506,7 +60506,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "2 to Light Radius",
+                "PropertyString": "+2 to Light Radius",
                 "Index": 6
             },
             {
@@ -60783,7 +60783,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "60-120 bonus to Attack Rating",
+                "PropertyString": "+60-120 % bonus to Attack Rating",
                 "Index": 3
             },
             {
@@ -61917,7 +61917,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "200 bonus to Attack Rating",
+                "PropertyString": "+200 % bonus to Attack Rating",
                 "Index": 0
             },
             {
@@ -61989,7 +61989,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "4 to Light Radius",
+                "PropertyString": "+4 to Light Radius",
                 "Index": 1
             },
             {
@@ -62157,7 +62157,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "2 to Light Radius",
+                "PropertyString": "+2 to Light Radius",
                 "Index": 6
             }
         ],
@@ -62292,7 +62292,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "180-220 to Attack Rating",
+                "PropertyString": "+180-220 to Attack Rating",
                 "Index": 4
             },
             {
@@ -63124,7 +63124,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "35-50 to Lightning Skill Damage",
+                "PropertyString": "+35-50 to Lightning Skill Damage",
                 "Index": 2
             },
             {
@@ -63176,7 +63176,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "35 bonus to Attack Rating",
+                "PropertyString": "+35 % bonus to Attack Rating",
                 "Index": 6
             },
             {
@@ -64391,7 +64391,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "20-25 bonus to Attack Rating",
+                "PropertyString": "+20-25 % bonus to Attack Rating",
                 "Index": 4
             },
             {
@@ -64554,7 +64554,7 @@
     },
     {
         "Type": "Jewel",
-        "Name": "",
+        "Name": "Diamond Facet",
         "Index": "Diamond Facet",
         "Enabled": true,
         "ItemLevel": 67,
@@ -64953,7 +64953,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "150-180 bonus to Attack Rating",
+                "PropertyString": "+150-180 % bonus to Attack Rating",
                 "Index": 4
             },
             {
@@ -65564,7 +65564,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "40 bonus to Attack Rating",
+                "PropertyString": "+40 % bonus to Attack Rating",
                 "Index": 2
             },
             {
@@ -66166,7 +66166,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+20-30 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +20-30",
                 "Index": 7
             },
             {
@@ -66347,7 +66347,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "100 bonus to Attack Rating",
+                "PropertyString": "+100 % bonus to Attack Rating",
                 "Index": 8
             },
             {
@@ -66929,7 +66929,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "15 to Lightning Skill Damage",
+                "PropertyString": "+15 to Lightning Skill Damage",
                 "Index": 4
             },
             {
@@ -67009,7 +67009,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "15-20 to Lightning Skill Damage",
+                "PropertyString": "+15-20 to Lightning Skill Damage",
                 "Index": 4
             },
             {
@@ -67476,7 +67476,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "35 bonus to Attack Rating",
+                "PropertyString": "+35 % bonus to Attack Rating",
                 "Index": 4
             },
             {
@@ -67641,7 +67641,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "200-250 to Attack Rating",
+                "PropertyString": "+200-250 to Attack Rating",
                 "Index": 3
             },
             {
@@ -67697,7 +67697,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "200-300 bonus to Attack Rating",
+                "PropertyString": "+200-300 % bonus to Attack Rating",
                 "Index": 1
             },
             {
@@ -68125,7 +68125,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "10-20 to Lightning Skill Damage",
+                "PropertyString": "+10-20 to Lightning Skill Damage",
                 "Index": 3
             },
             {
@@ -68193,7 +68193,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "3 to Light Radius",
+                "PropertyString": "+3 to Light Radius",
                 "Index": 6
             },
             {
@@ -68313,7 +68313,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "7 to Light Radius",
+                "PropertyString": "+7 to Light Radius",
                 "Index": 4
             },
             {
@@ -68981,7 +68981,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "5 to Light Radius",
+                "PropertyString": "+5 to Light Radius",
                 "Index": 3
             },
             {
@@ -69619,7 +69619,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "270-350 to Attack Rating",
+                "PropertyString": "+270-350 to Attack Rating",
                 "Index": 5
             },
             {
@@ -70425,7 +70425,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "10-15 to Lightning Skill Damage",
+                "PropertyString": "+10-15 to Lightning Skill Damage",
                 "Index": 4
             },
             {
@@ -71142,7 +71142,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "100-150 bonus to Attack Rating",
+                "PropertyString": "+100-150 % bonus to Attack Rating",
                 "Index": 3
             },
             {
@@ -71198,7 +71198,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "10-15 to Lightning Skill Damage",
+                "PropertyString": "+10-15 to Lightning Skill Damage",
                 "Index": 3
             },
             {
@@ -71624,7 +71624,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "40-75 bonus to Attack Rating",
+                "PropertyString": "+40-75 % bonus to Attack Rating",
                 "Index": 5
             },
             {
@@ -71771,7 +71771,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "300 to Attack Rating",
+                "PropertyString": "+300 to Attack Rating",
                 "Index": 3
             },
             {
@@ -72815,7 +72815,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "1 to Light Radius",
+                "PropertyString": "+1 to Light Radius",
                 "Index": 8
             }
         ],
@@ -74644,7 +74644,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "50 bonus to Attack Rating",
+                "PropertyString": "+50 % bonus to Attack Rating",
                 "Index": 4
             },
             {
@@ -74704,7 +74704,7 @@
         "Code": "amu",
         "Properties": [
             {
-                "PropertyString": "400-450 to Attack Rating",
+                "PropertyString": "+400-450 to Attack Rating",
                 "Index": 2
             },
             {
@@ -74826,7 +74826,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "35-40 to Lightning Skill Damage",
+                "PropertyString": "+35-40 to Lightning Skill Damage",
                 "Index": 5
             },
             {
@@ -76012,7 +76012,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "7 to Light Radius",
+                "PropertyString": "+7 to Light Radius",
                 "Index": 3
             },
             {
@@ -76345,7 +76345,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "100 bonus to Attack Rating",
+                "PropertyString": "+100 % bonus to Attack Rating",
                 "Index": 8
             },
             {
@@ -76433,7 +76433,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "4 to Light Radius",
+                "PropertyString": "+4 to Light Radius",
                 "Index": 1
             },
             {
@@ -76949,7 +76949,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "20 bonus to Attack Rating",
+                "PropertyString": "+20 % bonus to Attack Rating",
                 "Index": 6
             },
             {
@@ -77017,7 +77017,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+20 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +20",
                 "Index": 3
             }
         ],
@@ -77127,7 +77127,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "3 to Light Radius",
+                "PropertyString": "+3 to Light Radius",
                 "Index": 6
             }
         ],
@@ -77588,7 +77588,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "25 bonus to Attack Rating",
+                "PropertyString": "+25 % bonus to Attack Rating",
                 "Index": 5
             },
             {
@@ -77818,7 +77818,7 @@
     },
     {
         "Type": "Magic Xbow Quiv",
-        "Name": "",
+        "Name": "Bolt Case of Amplified Slaying",
         "Index": "Bolt Case of Amplified Slaying",
         "Enabled": true,
         "ItemLevel": 1,
@@ -77868,7 +77868,7 @@
     },
     {
         "Type": "Magic Xbow Quiv",
-        "Name": "",
+        "Name": "Bolt Case of Resistance Slaying",
         "Index": "Bolt Case of Resistance Slaying",
         "Enabled": true,
         "ItemLevel": 1,
@@ -78351,7 +78351,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "35 bonus to Attack Rating",
+                "PropertyString": "+35 % bonus to Attack Rating",
                 "Index": 3
             },
             {
@@ -78530,7 +78530,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "20 bonus to Attack Rating",
+                "PropertyString": "+20 % bonus to Attack Rating",
                 "Index": 8
             },
             {

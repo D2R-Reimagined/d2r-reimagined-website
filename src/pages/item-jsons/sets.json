@@ -100,7 +100,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "75 to Attack Rating",
+                        "PropertyString": "+75 to Attack Rating",
                         "Index": 0
                     },
                     {
@@ -139,7 +139,7 @@
         ],
         "FullProperties": [
             {
-                "PropertyString": "25 bonus to Attack Rating",
+                "PropertyString": "+25 % bonus to Attack Rating",
                 "Index": 3
             },
             {
@@ -291,7 +291,7 @@
         ],
         "PartialProperties": [
             {
-                "PropertyString": "+5 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +5",
                 "Index": 0
             }
         ],
@@ -329,7 +329,7 @@
                 "Code": "lsd",
                 "Properties": [
                     {
-                        "PropertyString": "30 bonus to Attack Rating",
+                        "PropertyString": "+30 % bonus to Attack Rating",
                         "Index": 0
                     },
                     {
@@ -868,7 +868,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "35 bonus to Attack Rating",
+                "PropertyString": "+35 % bonus to Attack Rating",
                 "Index": 2
             },
             {
@@ -1046,7 +1046,7 @@
         ],
         "PartialProperties": [
             {
-                "PropertyString": "75 to Attack Rating",
+                "PropertyString": "+75 to Attack Rating",
                 "Index": 0
             },
             {
@@ -1144,7 +1144,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "2 to Light Radius",
+                        "PropertyString": "+2 to Light Radius",
                         "Index": 2
                     }
                 ],
@@ -1229,7 +1229,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+3 Attacker Takes Damage of",
+                        "PropertyString": "Attacker Takes Damage of +3",
                         "Index": 0
                     }
                 ],
@@ -1255,7 +1255,7 @@
         ],
         "PartialProperties": [
             {
-                "PropertyString": "75 to Attack Rating",
+                "PropertyString": "+75 to Attack Rating",
                 "Index": 0
             },
             {
@@ -1263,7 +1263,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "125 to Attack Rating",
+                "PropertyString": "+125 to Attack Rating",
                 "Index": 2
             },
             {
@@ -1345,7 +1345,7 @@
                 "Set": "Cathan's Traps",
                 "SetPropertiesString": [
                     "Fire Resist +30% (3 Items)",
-                    "+5 Attacker Takes Damage of (2 Items)"
+                    "Attacker Takes Damage of +5 (2 Items)"
                 ],
                 "Name": "Cathan's Mesh",
                 "Index": "Cathan's Mesh",
@@ -1427,7 +1427,7 @@
                 "Type": "Amulet",
                 "Set": "Cathan's Traps",
                 "SetPropertiesString": [
-                    "50 to Attack Rating (2 Items)",
+                    "+50 to Attack Rating (2 Items)",
                     "25% better chance of getting magic item (3 Items)"
                 ],
                 "Name": "Cathan's Sigil",
@@ -1521,7 +1521,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "60 to Attack Rating",
+                "PropertyString": "+60 to Attack Rating",
                 "Index": 0
             },
             {
@@ -1562,7 +1562,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "75 to Attack Rating",
+                        "PropertyString": "+75 to Attack Rating",
                         "Index": 0
                     }
                 ],
@@ -1675,7 +1675,7 @@
                 "Type": "Amulet",
                 "Set": "Tancred's Battlegear",
                 "SetPropertiesString": [
-                    "60 to Attack Rating (3 Items)",
+                    "+60 to Attack Rating (3 Items)",
                     "78% better chance of getting magic item (2 Items)"
                 ],
                 "Name": "Tancred's Weird",
@@ -1728,7 +1728,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "40 to Attack Rating",
+                        "PropertyString": "+40 to Attack Rating",
                         "Index": 1
                     }
                 ],
@@ -1800,7 +1800,7 @@
                 "Code": "hgl",
                 "Properties": [
                     {
-                        "PropertyString": "20 to Attack Rating",
+                        "PropertyString": "+20 to Attack Rating",
                         "Index": 1
                     },
                     {
@@ -1872,7 +1872,7 @@
                 "Type": "Armor",
                 "Set": "Sigon's Complete Steel",
                 "SetPropertiesString": [
-                    "+20 Attacker Takes Damage of (2 Items)"
+                    "Attacker Takes Damage of +20 (2 Items)"
                 ],
                 "Name": "Sigon's Shelter",
                 "Index": "Sigon's Shelter",
@@ -1913,7 +1913,7 @@
                 "Type": "Boots",
                 "Set": "Sigon's Complete Steel",
                 "SetPropertiesString": [
-                    "50 to Attack Rating (2 Items)",
+                    "+50 to Attack Rating (2 Items)",
                     "50% better chance of getting magic item (3 Items)"
                 ],
                 "Name": "Sigon's Sabot",
@@ -2060,7 +2060,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+12 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +12",
                 "Index": 1
             }
         ],
@@ -2214,7 +2214,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "20 bonus to Attack Rating",
+                "PropertyString": "+20 % bonus to Attack Rating",
                 "Index": 0
             },
             {
@@ -2336,7 +2336,7 @@
                 "Code": "2ax",
                 "Properties": [
                     {
-                        "PropertyString": "30 bonus to Attack Rating",
+                        "PropertyString": "+30 % bonus to Attack Rating",
                         "Index": 0
                     },
                     {
@@ -2532,7 +2532,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "40 bonus to Attack Rating",
+                "PropertyString": "+40 % bonus to Attack Rating",
                 "Index": 0
             },
             {
@@ -2561,7 +2561,7 @@
                 "Code": "sbr",
                 "Properties": [
                     {
-                        "PropertyString": "75 to Attack Rating",
+                        "PropertyString": "+75 to Attack Rating",
                         "Index": 0
                     },
                     {
@@ -2691,7 +2691,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "3 to Light Radius",
+                        "PropertyString": "+3 to Light Radius",
                         "Index": 0
                     }
                 ],
@@ -2765,7 +2765,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "20 bonus to Attack Rating",
+                        "PropertyString": "+20 % bonus to Attack Rating",
                         "Index": 0
                     }
                 ],
@@ -2879,7 +2879,7 @@
                 "Type": "Gloves",
                 "Set": "Arctic Gear",
                 "SetPropertiesString": [
-                    "50 to Attack Rating (2 Items)",
+                    "+50 to Attack Rating (2 Items)",
                     "10 to Dexterity (3 Items)"
                 ],
                 "Name": "Arctic Mitts",
@@ -3047,7 +3047,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+2 Attacker Takes Damage of",
+                        "PropertyString": "Attacker Takes Damage of +2",
                         "Index": 1
                     }
                 ],
@@ -3089,7 +3089,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "2 to Light Radius",
+                        "PropertyString": "+2 to Light Radius",
                         "Index": 0
                     }
                 ],
@@ -3453,7 +3453,7 @@
                         "Index": 4
                     },
                     {
-                        "PropertyString": "5 to Light Radius",
+                        "PropertyString": "+5 to Light Radius",
                         "Index": 2
                     },
                     {
@@ -3671,7 +3671,7 @@
         ],
         "PartialProperties": [
             {
-                "PropertyString": "150 bonus to Attack Rating",
+                "PropertyString": "+150 % bonus to Attack Rating",
                 "Index": 0
             },
             {
@@ -3743,7 +3743,7 @@
                         "Index": 4
                     },
                     {
-                        "PropertyString": "4 to Light Radius",
+                        "PropertyString": "+4 to Light Radius",
                         "Index": 3
                     },
                     {
@@ -3950,7 +3950,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "110 to Attack Rating",
+                        "PropertyString": "+110 to Attack Rating",
                         "Index": 2
                     },
                     {
@@ -4052,19 +4052,19 @@
         ],
         "PartialProperties": [
             {
-                "PropertyString": "50 to Attack Rating",
+                "PropertyString": "+50 to Attack Rating",
                 "Index": 0
             },
             {
-                "PropertyString": "75 to Attack Rating",
+                "PropertyString": "+75 to Attack Rating",
                 "Index": 2
             },
             {
-                "PropertyString": "125 to Attack Rating",
+                "PropertyString": "+125 to Attack Rating",
                 "Index": 4
             },
             {
-                "PropertyString": "200 to Attack Rating",
+                "PropertyString": "+200 to Attack Rating",
                 "Index": 6
             }
         ],
@@ -4444,7 +4444,7 @@
                         "Index": 5
                     },
                     {
-                        "PropertyString": "+0.25 Absorbs Cold Damage (Per on Character Level)",
+                        "PropertyString": "+0.25 Absorbs Cold Damage (Per Character Level)",
                         "Index": 1
                     },
                     {
@@ -4660,7 +4660,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "200 to Attack Rating",
+                "PropertyString": "+200 to Attack Rating",
                 "Index": 2
             },
             {
@@ -4706,7 +4706,7 @@
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+20 Attacker Takes Damage of",
+                        "PropertyString": "Attacker Takes Damage of +20",
                         "Index": 2
                     }
                 ],
@@ -5025,7 +5025,7 @@
                 "Set": "M'avina's Battle Hymn",
                 "SetPropertiesString": [
                     "1 to All Skills (2 Items)",
-                    "50 bonus to Attack Rating (3 Items)",
+                    "+50 % bonus to Attack Rating (3 Items)",
                     "All Resistances +25% (4 Items)"
                 ],
                 "Name": "M'avina's True Sight",
@@ -5212,7 +5212,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "5 to Light Radius",
+                        "PropertyString": "+5 to Light Radius",
                         "Index": 3
                     }
                 ],
@@ -5263,7 +5263,7 @@
                         "Index": 2
                     },
                     {
-                        "PropertyString": "50 to Attack Rating",
+                        "PropertyString": "+50 to Attack Rating",
                         "Index": 3
                     }
                 ],
@@ -5306,7 +5306,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "100 to Attack Rating",
+                "PropertyString": "+100 to Attack Rating",
                 "Index": 3
             },
             {
@@ -5352,7 +5352,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+8-10 Attacker Takes Damage of",
+                        "PropertyString": "Attacker Takes Damage of +8-10",
                         "Index": 3
                     }
                 ],
@@ -5685,7 +5685,7 @@
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+30 Attacker Takes Damage of",
+                        "PropertyString": "Attacker Takes Damage of +30",
                         "Index": 3
                     }
                 ],
@@ -5847,7 +5847,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "5 to Light Radius",
+                "PropertyString": "+5 to Light Radius",
                 "Index": 3
             }
         ],
@@ -5971,7 +5971,7 @@
                         "Index": 2
                     },
                     {
-                        "PropertyString": "100 to Attack Rating",
+                        "PropertyString": "+100 to Attack Rating",
                         "Index": 4
                     },
                     {
@@ -5983,7 +5983,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "3 to Light Radius",
+                        "PropertyString": "+3 to Light Radius",
                         "Index": 3
                     }
                 ],
@@ -6034,7 +6034,7 @@
                         "Index": 3
                     },
                     {
-                        "PropertyString": "5 to Light Radius",
+                        "PropertyString": "+5 to Light Radius",
                         "Index": 4
                     }
                 ],
@@ -6064,7 +6064,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+5 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +5",
                 "Index": 2
             },
             {
@@ -6273,7 +6273,7 @@
                         "Index": 4
                     },
                     {
-                        "PropertyString": "330 to Attack Rating",
+                        "PropertyString": "+330 to Attack Rating",
                         "Index": 0
                     },
                     {
@@ -6653,7 +6653,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "200 to Attack Rating",
+                "PropertyString": "+200 to Attack Rating",
                 "Index": 2
             },
             {
@@ -6707,7 +6707,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+10 Attacker Takes Damage of",
+                        "PropertyString": "Attacker Takes Damage of +10",
                         "Index": 3
                     },
                     {
@@ -7028,7 +7028,7 @@
                         "Index": 3
                     },
                     {
-                        "PropertyString": "5 to Light Radius",
+                        "PropertyString": "+5 to Light Radius",
                         "Index": 2
                     }
                 ],
@@ -7118,7 +7118,7 @@
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+8 Attacker Takes Damage of",
+                        "PropertyString": "Attacker Takes Damage of +8",
                         "Index": 1
                     },
                     {
@@ -7161,7 +7161,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "100 to Attack Rating",
+                        "PropertyString": "+100 to Attack Rating",
                         "Index": 1
                     },
                     {
@@ -7300,7 +7300,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "75 to Attack Rating",
+                "PropertyString": "+75 to Attack Rating",
                 "Index": 2
             }
         ],
@@ -8141,7 +8141,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "10 to Lightning Skill Damage",
+                "PropertyString": "+10 to Lightning Skill Damage",
                 "Index": 4
             },
             {
@@ -9260,7 +9260,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "10-15 to Lightning Skill Damage",
+                        "PropertyString": "+10-15 to Lightning Skill Damage",
                         "Index": 1
                     }
                 ],
@@ -10614,7 +10614,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "20 bonus to Attack Rating",
+                        "PropertyString": "+20 % bonus to Attack Rating",
                         "Index": 3
                     },
                     {
@@ -10714,7 +10714,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "30 bonus to Attack Rating",
+                "PropertyString": "+30 % bonus to Attack Rating",
                 "Index": 2
             },
             {
@@ -11026,7 +11026,7 @@
         ],
         "PartialProperties": [
             {
-                "PropertyString": "150 to Attack Rating",
+                "PropertyString": "+150 to Attack Rating",
                 "Index": 0
             },
             {
@@ -11240,7 +11240,7 @@
                 "Code": "xuc",
                 "Properties": [
                     {
-                        "PropertyString": "10-20 to Lightning Skill Damage",
+                        "PropertyString": "+10-20 to Lightning Skill Damage",
                         "Index": 1
                     },
                     {
@@ -13289,7 +13289,7 @@
                 "SetPropertiesString": [
                     "10 to Fire Skill Damage (2 Items)",
                     "10 to Cold Skill Damage (3 Items)",
-                    "10 to Lightning Skill Damage (4 Items)",
+                    "+10 to Lightning Skill Damage (4 Items)",
                     "Cold Resist +25% (3 Items)",
                     "Lightning Resist +25% (4 Items)",
                     "Fire Resist +25% (2 Items)"
@@ -13876,7 +13876,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "20 bonus to Attack Rating",
+                        "PropertyString": "+20 % bonus to Attack Rating",
                         "Index": 2
                     },
                     {
@@ -14446,7 +14446,7 @@
                 "Type": "Belt",
                 "Set": "Aiel Shieldmaiden",
                 "SetPropertiesString": [
-                    "25 to Lightning Skill Damage (3 Items)",
+                    "+25 to Lightning Skill Damage (3 Items)",
                     "+15 Life after each Kill (4 Items)"
                 ],
                 "Name": "Chiad's Valor",
@@ -15188,7 +15188,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "75 bonus to Attack Rating",
+                        "PropertyString": "+75 % bonus to Attack Rating",
                         "Index": 2
                     }
                 ],
@@ -15720,7 +15720,7 @@
                         "Index": 2
                     },
                     {
-                        "PropertyString": "1 to Light Radius",
+                        "PropertyString": "+1 to Light Radius",
                         "Index": 0
                     }
                 ],
@@ -15910,7 +15910,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "2 to Light Radius",
+                        "PropertyString": "+2 to Light Radius",
                         "Index": 1
                     }
                 ],
@@ -15965,7 +15965,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+5-10 Attacker Takes Damage of",
+                        "PropertyString": "Attacker Takes Damage of +5-10",
                         "Index": 7
                     },
                     {
@@ -16061,7 +16061,7 @@
                 "Code": "rin",
                 "Properties": [
                     {
-                        "PropertyString": "50-80 to Attack Rating",
+                        "PropertyString": "+50-80 to Attack Rating",
                         "Index": 2
                     },
                     {
@@ -16069,7 +16069,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+3-7 Attacker Takes Damage of",
+                        "PropertyString": "Attacker Takes Damage of +3-7",
                         "Index": 1
                     },
                     {
@@ -16655,7 +16655,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "10-20 bonus to Attack Rating",
+                        "PropertyString": "+10-20 % bonus to Attack Rating",
                         "Index": 3
                     },
                     {
@@ -16726,7 +16726,7 @@
                 "Type": "Gloves",
                 "Set": "The Warlord of Blood",
                 "SetPropertiesString": [
-                    "20 bonus to Attack Rating (4 Items)",
+                    "+20 % bonus to Attack Rating (4 Items)",
                     "15% Chance of Crushing Blow (3 Items)",
                     "15% Deadly Strike (2 Items)",
                     "+250 Defense (6 Items)",
@@ -18779,7 +18779,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "25 to Lightning Skill Damage",
+                        "PropertyString": "+25 to Lightning Skill Damage",
                         "Index": 3
                     },
                     {
@@ -19681,7 +19681,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "25 bonus to Attack Rating",
+                "PropertyString": "+25 % bonus to Attack Rating",
                 "Index": 2
             }
         ],
@@ -19857,7 +19857,7 @@
                 "Set": "Hannibal's Demise",
                 "SetPropertiesString": [
                     "20% Faster Run/Walk (2 Items)",
-                    "100 to Attack Rating (3 Items)"
+                    "+100 to Attack Rating (3 Items)"
                 ],
                 "Name": "Hanabal's Bending Knee",
                 "Index": "Hannibal's Bending Knee",
@@ -20383,7 +20383,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "350 to Attack Rating",
+                "PropertyString": "+350 to Attack Rating",
                 "Index": 1
             },
             {
@@ -21079,7 +21079,7 @@
                 "Code": "rin",
                 "Properties": [
                     {
-                        "PropertyString": "125-200 to Attack Rating",
+                        "PropertyString": "+125-200 to Attack Rating",
                         "Index": 3
                     },
                     {
@@ -21120,7 +21120,7 @@
                 "Set": "Amaunator's Peace",
                 "SetPropertiesString": [
                     "+20 to Maximum Damage (6 Items)",
-                    "8-15 to Lightning Skill Damage (5 Items)",
+                    "+8-15 to Lightning Skill Damage (5 Items)",
                     "10-15 to Dexterity (2 Items)",
                     "Lightning Resist +30% (3 Items)",
                     "33% better chance of getting magic item (4 Items)"
@@ -22953,7 +22953,7 @@
                         "Index": 3
                     },
                     {
-                        "PropertyString": "5 to Light Radius",
+                        "PropertyString": "+5 to Light Radius",
                         "Index": 4
                     },
                     {
@@ -23908,7 +23908,7 @@
                 "Type": "Ring",
                 "Set": "Corruption Coils",
                 "SetPropertiesString": [
-                    "40 to Lightning Skill Damage (3 Items)",
+                    "+40 to Lightning Skill Damage (3 Items)",
                     "100% extra gold from monsters (2 Items)"
                 ],
                 "Name": "Evil Humor",
