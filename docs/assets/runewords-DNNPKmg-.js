@@ -1,4 +1,4 @@
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-e6YuMhVl.js";
+import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-CgTtr8GI.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
 const name = "runewords";
 const template = '<template>\n    <h3 class="text-center my-4">\n        ${filteredRunewords.length} Runewords Found\n    </h3>\n    <div class="container">\n        <div class="row align-content-center justify-content-center text-center mb-5">\n            <div class="col-12 col-md-4 col-lg-3">\n                <div class="au-select mb-2">\n                    <moo-select\n                            class="w-100"\n                            label="Select Socket Count"\n                            options.bind="amounts"\n                            class="standard-betsy-select"\n                            value.bind="selectedAmount"\n                    ></moo-select>\n                </div>\n            </div>\n            <div class="col-12 col-md-4 col-lg-3">\n                <div class="au-select mb-2">\n                    <moo-select\n                            class="w-100"\n                            label="Select Type"\n                            options.bind="types"\n                            class="standard-betsy-select"\n                            value.bind="selectedType"\n                    ></moo-select>\n                    <moo-checkbox checked.bind="exclusiveType" id="exclusiveType">Exact type only</moo-checkbox>\n                </div>\n            </div>\n            <div class="col-12 col-md-4 col-lg-3">\n                <div class="mb-2">\n                    <moo-text-field\n                            class="w-100"\n                            label="Search Runewords"\n                            type="text"\n                            value.bind="search"\n                    ></moo-text-field>\n                </div>\n            </div>\n            <div class="col-12 col-md-4 col-lg-3">\n                <div class="mb-2">\n                    <moo-text-field\n                            class="w-100"\n                            label="Runes"\n                            type="text"\n                            value.bind="searchRunes"\n                    ></moo-text-field>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class="row gy-5 px-5 text-center">\n        <div class="col-12 col-md-6 col-xxl-4" repeat.for="runeword of filteredRunewords">\n            <div class="card bg-dark p-2">\n                <div class="unique-text fs-4 mb-1">\n                    ${runeword.Name}\n                </div>\n                <div class="combo">\n                    <span repeat.for="rune of runeword.Runes">\n                        ${rune.Name | runeName} ${$index + 1 !== runeword.Runes.length ? \' + \' : \'\'}\n                    </span>\n                </div>\n                <div class="types py-2">\n                    <span repeat.for="type of runeword.Types">\n                        ${transformTypeName(type.Name)} ${$index + 1 !== runeword.Types.length ? \' or \' : \'\'}\n                    </span>\n                </div>\n                <div class="requirement" if.bind="actualLevelRequirement(runeword) > 0">\n                    Level ${actualLevelRequirement(runeword)} Required\n                </div>\n                <div class="mt-2">\n                    <div class="enhanced" repeat.for="property of runeword.Properties">\n                        ${property.PropertyString}\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</template>\n';
@@ -59,7 +59,7 @@ const json = [
     Code: "Law",
     Properties: [
       {
-        PropertyString: "15% Increased Attack Speed",
+        PropertyString: "+15% Increased Attack Speed",
         Index: 2
       },
       {
@@ -71,11 +71,11 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "+30 Slows target by",
+        PropertyString: "Slows target by 30",
         Index: 5
       },
       {
-        PropertyString: "48 to Life",
+        PropertyString: "+48 to Life",
         Index: 3
       },
       {
@@ -142,11 +142,11 @@ const json = [
     Code: "Knowledge",
     Properties: [
       {
-        PropertyString: "1 to All Skills",
+        PropertyString: "+1 to All Skills",
         Index: 3
       },
       {
-        PropertyString: "15% Increased Attack Speed",
+        PropertyString: "+15% Increased Attack Speed",
         Index: 4
       },
       {
@@ -239,7 +239,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "30-50% Enhanced Defense",
+        PropertyString: "+30-50% Enhanced Defense",
         Index: 1
       },
       {
@@ -247,7 +247,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "20-25% better chance of getting magic item",
+        PropertyString: "+20-25% better chance of getting magic item",
         Index: 3
       },
       {
@@ -352,7 +352,7 @@ const json = [
     Code: "Nadir",
     Properties: [
       {
-        PropertyString: "50% Enhanced Defense",
+        PropertyString: "+50% Enhanced Defense",
         Index: 0
       },
       {
@@ -445,7 +445,7 @@ const json = [
     Code: "Steel",
     Properties: [
       {
-        PropertyString: "25% Increased Attack Speed",
+        PropertyString: "+25% Increased Attack Speed",
         Index: 0
       },
       {
@@ -465,7 +465,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "50% Chance of Open Wounds",
+        PropertyString: "+50% Chance of Open Wounds",
         Index: 3
       },
       {
@@ -522,11 +522,11 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "10% Faster Run/Walk",
+        PropertyString: "+10% Faster Run/Walk",
         Index: 0
       },
       {
-        PropertyString: "10% Faster Hit Recovery",
+        PropertyString: "+10% Faster Hit Recovery",
         Index: 1
       },
       {
@@ -591,7 +591,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "100% Faster Run/Walk",
+        PropertyString: "+100% Faster Run/Walk",
         Index: 1
       },
       {
@@ -674,15 +674,15 @@ const json = [
     Code: "Chance",
     Properties: [
       {
-        PropertyString: "15% Faster Cast Rate",
+        PropertyString: "+15% Faster Cast Rate",
         Index: 3
       },
       {
-        PropertyString: "20% Faster Block Rate",
+        PropertyString: "+20% Faster Block Rate",
         Index: 1
       },
       {
-        PropertyString: "15% Increased Chance of Blocking",
+        PropertyString: "+15% Increased Chance of Blocking",
         Index: 0
       },
       {
@@ -698,15 +698,15 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "15% Damage Taken Goes To Mana",
+        PropertyString: "+15% Damage Taken Goes To Mana",
         Index: 0
       },
       {
-        PropertyString: "75% extra gold from monsters",
+        PropertyString: "+75% extra gold from monsters",
         Index: 5
       },
       {
-        PropertyString: "20-30% better chance of getting magic item",
+        PropertyString: "+20-30% better chance of getting magic item",
         Index: 4
       }
     ],
@@ -765,7 +765,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "100% Chance of Open Wounds",
+        PropertyString: "+100% Chance of Open Wounds",
         Index: 0
       },
       {
@@ -789,7 +789,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "15% Damage Taken Goes To Mana",
+        PropertyString: "+15% Damage Taken Goes To Mana",
         Index: 0
       },
       {
@@ -848,15 +848,15 @@ const json = [
     Code: "Peace Reimagined",
     Properties: [
       {
-        PropertyString: "20% Increased Attack Speed",
+        PropertyString: "+20% Increased Attack Speed",
         Index: 2
       },
       {
-        PropertyString: "20% Faster Hit Recovery",
+        PropertyString: "+20% Faster Hit Recovery",
         Index: 3
       },
       {
-        PropertyString: "20% Faster Block Rate",
+        PropertyString: "+20% Faster Block Rate",
         Index: 4
       },
       {
@@ -938,11 +938,11 @@ const json = [
     Code: "Penitence",
     Properties: [
       {
-        PropertyString: "15% Faster Hit Recovery",
+        PropertyString: "+15% Faster Hit Recovery",
         Index: 1
       },
       {
-        PropertyString: "15% Faster Block Rate",
+        PropertyString: "+15% Faster Block Rate",
         Index: 0
       },
       {
@@ -958,19 +958,19 @@ const json = [
         Index: 2
       },
       {
+        PropertyString: "+15% Damage Taken Goes To Mana (Armor)",
+        Index: 0
+      },
+      {
         PropertyString: "+2 to Mana after each Kill (Armor)",
         Index: 0
       },
       {
-        PropertyString: "15% Damage Taken Goes To Mana (Armor)",
+        PropertyString: "+15% Damage Taken Goes To Mana (Shield)",
         Index: 0
       },
       {
         PropertyString: "+2 to Mana after each Kill (Shield)",
-        Index: 0
-      },
-      {
-        PropertyString: "15% Damage Taken Goes To Mana (Shield)",
         Index: 0
       }
     ],
@@ -1023,7 +1023,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "20% Increased Attack Speed",
+        PropertyString: "+20% Increased Attack Speed",
         Index: 5
       },
       {
@@ -1039,7 +1039,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+154 to Minimum Poison Damage",
+        PropertyString: "76 Poison Damage Over 5 Seconds",
         Index: 0
       },
       {
@@ -1092,15 +1092,15 @@ const json = [
     Code: "Stealth",
     Properties: [
       {
-        PropertyString: "25% Faster Run/Walk",
+        PropertyString: "+25% Faster Run/Walk",
         Index: 2
       },
       {
-        PropertyString: "25% Faster Cast Rate",
+        PropertyString: "+25% Faster Cast Rate",
         Index: 3
       },
       {
-        PropertyString: "25% Faster Hit Recovery",
+        PropertyString: "+25% Faster Hit Recovery",
         Index: 4
       },
       {
@@ -1179,7 +1179,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "15% Increased Attack Speed",
+        PropertyString: "+15% Increased Attack Speed",
         Index: 1
       },
       {
@@ -1337,15 +1337,15 @@ const json = [
     Code: "Patience",
     Properties: [
       {
-        PropertyString: "15% Faster Run/Walk",
+        PropertyString: "+15% Faster Run/Walk",
         Index: 5
       },
       {
-        PropertyString: "20% Faster Hit Recovery",
+        PropertyString: "+20% Faster Hit Recovery",
         Index: 0
       },
       {
-        PropertyString: "20-25 to Life",
+        PropertyString: "+20-25 to Life",
         Index: 2
       },
       {
@@ -1393,7 +1393,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "7% Increased Chance of Blocking (Shield)",
+        PropertyString: "+7% Increased Chance of Blocking (Shield)",
         Index: 0
       },
       {
@@ -1452,7 +1452,7 @@ const json = [
     Code: "Ancient's Pledge",
     Properties: [
       {
-        PropertyString: "50% Enhanced Defense",
+        PropertyString: "+50% Enhanced Defense",
         Index: 2
       },
       {
@@ -1476,7 +1476,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "10% Damage Taken Goes To Mana",
+        PropertyString: "+10% Damage Taken Goes To Mana",
         Index: 3
       }
     ],
@@ -1561,7 +1561,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "+154 to Minimum Poison Damage",
+        PropertyString: "76 Poison Damage Over 5 Seconds",
         Index: 0
       },
       {
@@ -1642,11 +1642,11 @@ const json = [
     Code: "Temptation",
     Properties: [
       {
-        PropertyString: "1 to All Skills",
+        PropertyString: "+1 to All Skills",
         Index: 2
       },
       {
-        PropertyString: "20% Increased Attack Speed",
+        PropertyString: "+20% Increased Attack Speed",
         Index: 4
       },
       {
@@ -1723,7 +1723,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "90-120% Enhanced Defense",
+        PropertyString: "+90-120% Enhanced Defense",
         Index: 3
       },
       {
@@ -1796,11 +1796,11 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "25% Faster Run/Walk",
+        PropertyString: "+25% Faster Run/Walk",
         Index: 0
       },
       {
-        PropertyString: "25% Increased Attack Speed",
+        PropertyString: "+25% Increased Attack Speed",
         Index: 1
       },
       {
@@ -1879,11 +1879,11 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "3-5% Faster Run/Walk",
+        PropertyString: "+3-5% Faster Run/Walk",
         Index: 2
       },
       {
-        PropertyString: "6-10% Increased Attack Speed",
+        PropertyString: "+6-10% Increased Attack Speed",
         Index: 4
       },
       {
@@ -1903,7 +1903,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "15% Damage Taken Goes To Mana",
+        PropertyString: "+15% Damage Taken Goes To Mana",
         Index: 0
       }
     ],
@@ -1962,7 +1962,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "30% Faster Block Rate",
+        PropertyString: "+30% Faster Block Rate",
         Index: 6
       },
       {
@@ -1982,7 +1982,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+154 to Minimum Poison Damage",
+        PropertyString: "76 Poison Damage Over 5 Seconds",
         Index: 0
       },
       {
@@ -2063,11 +2063,11 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "20% Increased Attack Speed",
+        PropertyString: "+20% Increased Attack Speed",
         Index: 2
       },
       {
-        PropertyString: "20-30% Increased Chance of Blocking",
+        PropertyString: "+20-30% Increased Chance of Blocking",
         Index: 4
       },
       {
@@ -2173,7 +2173,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "15% Faster Cast Rate",
+        PropertyString: "+15% Faster Cast Rate",
         Index: 2
       },
       {
@@ -2205,7 +2205,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "7% Increased Chance of Blocking (Shield)",
+        PropertyString: "+7% Increased Chance of Blocking (Shield)",
         Index: 0
       },
       {
@@ -2353,11 +2353,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "66% Chance of Crushing Blow",
+        PropertyString: "+66% Chance of Crushing Blow",
         Index: 5
       },
       {
-        PropertyString: "34% Deadly Strike",
+        PropertyString: "+34% Deadly Strike",
         Index: 6
       },
       {
@@ -2432,7 +2432,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "35% Increased Attack Speed",
+        PropertyString: "+35% Increased Attack Speed",
         Index: 1
       },
       {
@@ -2509,7 +2509,7 @@ const json = [
     Code: "Hunger",
     Properties: [
       {
-        PropertyString: "15-30% Increased Chance of Blocking",
+        PropertyString: "+15-30% Increased Chance of Blocking",
         Index: 1
       },
       {
@@ -2529,7 +2529,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "+10-15 % Physical Damage Reduction",
+        PropertyString: "+10-15% Physical Damage Reduction",
         Index: 2
       },
       {
@@ -2696,7 +2696,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "20% Increased Attack Speed",
+        PropertyString: "+20% Increased Attack Speed",
         Index: 2
       },
       {
@@ -2765,11 +2765,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20% Faster Cast Rate",
+        PropertyString: "+20% Faster Cast Rate",
         Index: 3
       },
       {
-        PropertyString: "75-100% Enhanced Defense",
+        PropertyString: "+75-100% Enhanced Defense",
         Index: 1
       },
       {
@@ -2789,7 +2789,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "15% Damage Taken Goes To Mana",
+        PropertyString: "+15% Damage Taken Goes To Mana",
         Index: 0
       }
     ],
@@ -2842,7 +2842,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20% Faster Cast Rate",
+        PropertyString: "+20% Faster Cast Rate",
         Index: 4
       },
       {
@@ -2924,15 +2924,15 @@ const json = [
     Code: "Spirit",
     Properties: [
       {
-        PropertyString: "2 to All Skills",
+        PropertyString: "+2 to All Skills",
         Index: 6
       },
       {
-        PropertyString: "25-35% Faster Cast Rate",
+        PropertyString: "+25-35% Faster Cast Rate",
         Index: 4
       },
       {
-        PropertyString: "55% Faster Hit Recovery",
+        PropertyString: "+55% Faster Hit Recovery",
         Index: 0
       },
       {
@@ -2952,11 +2952,11 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "+154 to Minimum Poison Damage (Weapon)",
+        PropertyString: "+7 Life stolen per hit (Weapon)",
         Index: 0
       },
       {
-        PropertyString: "+7 Life stolen per hit (Weapon)",
+        PropertyString: "76 Poison Damage Over 5 Seconds (Weapon)",
         Index: 0
       },
       {
@@ -3029,7 +3029,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "25% Chance of Crushing Blow",
+        PropertyString: "+25% Chance of Crushing Blow",
         Index: 3
       },
       {
@@ -3199,7 +3199,7 @@ const json = [
     Code: "Honor",
     Properties: [
       {
-        PropertyString: "1 to All Skills",
+        PropertyString: "+1 to All Skills",
         Index: 2
       },
       {
@@ -3211,7 +3211,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "25% Deadly Strike",
+        PropertyString: "+25% Deadly Strike",
         Index: 4
       },
       {
@@ -3239,7 +3239,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "15% Damage Taken Goes To Mana",
+        PropertyString: "+15% Damage Taken Goes To Mana",
         Index: 0
       },
       {
@@ -3335,7 +3335,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "35% Faster Cast Rate",
+        PropertyString: "+35% Faster Cast Rate",
         Index: 4
       },
       {
@@ -3347,12 +3347,8 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "23% better chance of getting magic item",
+        PropertyString: "+23% better chance of getting magic item",
         Index: 2
-      },
-      {
-        PropertyString: "+154 to Minimum Poison Damage (Weapon)",
-        Index: 0
       },
       {
         PropertyString: "+2 to Mana after each Kill (Weapon)",
@@ -3360,6 +3356,10 @@ const json = [
       },
       {
         PropertyString: "+9 to Minimum Damage (Weapon)",
+        Index: 0
+      },
+      {
+        PropertyString: "76 Poison Damage Over 5 Seconds (Weapon)",
         Index: 0
       },
       {
@@ -3424,7 +3424,7 @@ const json = [
     Code: "Lore",
     Properties: [
       {
-        PropertyString: "1 to All Skills",
+        PropertyString: "+1 to All Skills",
         Index: 1
       },
       {
@@ -3499,7 +3499,7 @@ const json = [
     Code: "Radiance",
     Properties: [
       {
-        PropertyString: "75% Enhanced Defense",
+        PropertyString: "+75% Enhanced Defense",
         Index: 5
       },
       {
@@ -3527,7 +3527,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "15% Damage Taken Goes To Mana",
+        PropertyString: "+15% Damage Taken Goes To Mana",
         Index: 0
       },
       {
@@ -3586,7 +3586,7 @@ const json = [
     Code: "Thirst",
     Properties: [
       {
-        PropertyString: "1 to All Skills",
+        PropertyString: "+1 to All Skills",
         Index: 0
       },
       {
@@ -3671,7 +3671,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "25% Faster Cast Rate",
+        PropertyString: "+25% Faster Cast Rate",
         Index: 4
       },
       {
@@ -3736,11 +3736,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "25% Faster Run/Walk",
+        PropertyString: "+25% Faster Run/Walk",
         Index: 4
       },
       {
-        PropertyString: "25% Faster Hit Recovery",
+        PropertyString: "+25% Faster Hit Recovery",
         Index: 3
       },
       {
@@ -3756,7 +3756,7 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "50 to Life",
+        PropertyString: "+50 to Life",
         Index: 2
       },
       {
@@ -3809,11 +3809,11 @@ const json = [
     Code: "Rhyme",
     Properties: [
       {
-        PropertyString: "40% Faster Block Rate",
+        PropertyString: "+40% Faster Block Rate",
         Index: 0
       },
       {
-        PropertyString: "20% Increased Chance of Blocking",
+        PropertyString: "+20% Increased Chance of Blocking",
         Index: 1
       },
       {
@@ -3829,11 +3829,11 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "50% extra gold from monsters",
+        PropertyString: "+50% extra gold from monsters",
         Index: 4
       },
       {
-        PropertyString: "25% better chance of getting magic item",
+        PropertyString: "+25% better chance of getting magic item",
         Index: 5
       }
     ],
@@ -3888,7 +3888,7 @@ const json = [
     Code: "Sorrow",
     Properties: [
       {
-        PropertyString: "40% Increased Attack Speed",
+        PropertyString: "+40% Increased Attack Speed",
         Index: 1
       },
       {
@@ -3971,7 +3971,7 @@ const json = [
     Code: "Whisper",
     Properties: [
       {
-        PropertyString: "60% Increased Attack Speed",
+        PropertyString: "+60% Increased Attack Speed",
         Index: 0
       },
       {
@@ -4062,7 +4062,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "20% Faster Hit Recovery",
+        PropertyString: "+20% Faster Hit Recovery",
         Index: 0
       },
       {
@@ -4131,7 +4131,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "50% Chance of Open Wounds",
+        PropertyString: "+50% Chance of Open Wounds",
         Index: 6
       },
       {
@@ -4139,7 +4139,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+15 Slows target by",
+        PropertyString: "Slows target by 15",
         Index: 3
       },
       {
@@ -4206,11 +4206,11 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "20% Faster Run/Walk",
+        PropertyString: "+20% Faster Run/Walk",
         Index: 2
       },
       {
-        PropertyString: "100-125% Enhanced Defense",
+        PropertyString: "+100-125% Enhanced Defense",
         Index: 0
       },
       {
@@ -4234,7 +4234,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "15% Damage Taken Goes To Mana",
+        PropertyString: "+15% Damage Taken Goes To Mana",
         Index: 0
       },
       {
@@ -4295,11 +4295,11 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "30% Faster Block Rate",
+        PropertyString: "+30% Faster Block Rate",
         Index: 2
       },
       {
-        PropertyString: "50% Increased Chance of Blocking",
+        PropertyString: "+50% Increased Chance of Blocking",
         Index: 1
       },
       {
@@ -4475,7 +4475,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "40 to Life",
+        PropertyString: "+40 to Life",
         Index: 3
       },
       {
@@ -4544,7 +4544,7 @@ const json = [
     Code: "Black",
     Properties: [
       {
-        PropertyString: "15% Increased Attack Speed",
+        PropertyString: "+15% Increased Attack Speed",
         Index: 2
       },
       {
@@ -4560,7 +4560,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "40% Chance of Crushing Blow",
+        PropertyString: "+40% Chance of Crushing Blow",
         Index: 0
       },
       {
@@ -4631,7 +4631,7 @@ const json = [
     Code: "Bulwark",
     Properties: [
       {
-        PropertyString: "20% Faster Hit Recovery",
+        PropertyString: "+20% Faster Hit Recovery",
         Index: 0
       },
       {
@@ -4639,7 +4639,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "75-100% Enhanced Defense",
+        PropertyString: "+75-100% Enhanced Defense",
         Index: 1
       },
       {
@@ -4647,7 +4647,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+5 Increase Maximum Life",
+        PropertyString: "+5% Increased Maximum Life",
         Index: 0
       },
       {
@@ -4655,7 +4655,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "+10-15 % Physical Damage Reduction",
+        PropertyString: "+10-15% Physical Damage Reduction",
         Index: 2
       },
       {
@@ -4718,11 +4718,11 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "20% Faster Hit Recovery",
+        PropertyString: "+20% Faster Hit Recovery",
         Index: 0
       },
       {
-        PropertyString: "75-100% Enhanced Defense",
+        PropertyString: "+75-100% Enhanced Defense",
         Index: 1
       },
       {
@@ -4730,7 +4730,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+5 Increase Maximum Life",
+        PropertyString: "+5% Increased Maximum Life",
         Index: 0
       },
       {
@@ -4793,11 +4793,11 @@ const json = [
     Code: "Ground",
     Properties: [
       {
-        PropertyString: "20% Faster Hit Recovery",
+        PropertyString: "+20% Faster Hit Recovery",
         Index: 0
       },
       {
-        PropertyString: "75-100% Enhanced Defense",
+        PropertyString: "+75-100% Enhanced Defense",
         Index: 1
       },
       {
@@ -4805,7 +4805,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+5 Increase Maximum Life",
+        PropertyString: "+5% Increased Maximum Life",
         Index: 0
       },
       {
@@ -4813,7 +4813,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+10-15 Lightning Absorb",
+        PropertyString: "+10-15 % Lightning Absorb",
         Index: 3
       }
     ],
@@ -4858,7 +4858,7 @@ const json = [
     Code: "Hatred",
     Properties: [
       {
-        PropertyString: "1 to All Skills",
+        PropertyString: "+1 to All Skills",
         Index: 1
       },
       {
@@ -4886,7 +4886,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "50% better chance of getting magic item",
+        PropertyString: "+50% better chance of getting magic item",
         Index: 2
       }
     ],
@@ -4941,11 +4941,11 @@ const json = [
     Code: "Hearth",
     Properties: [
       {
-        PropertyString: "20% Faster Hit Recovery",
+        PropertyString: "+20% Faster Hit Recovery",
         Index: 0
       },
       {
-        PropertyString: "75-100% Enhanced Defense",
+        PropertyString: "+75-100% Enhanced Defense",
         Index: 1
       },
       {
@@ -4953,7 +4953,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+5 Increase Maximum Life",
+        PropertyString: "+5% Increased Maximum Life",
         Index: 0
       },
       {
@@ -4961,7 +4961,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+10-15 Cold Absorb",
+        PropertyString: "+10-15 % Cold Absorb",
         Index: 3
       },
       {
@@ -5028,7 +5028,7 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "40% Increased Attack Speed",
+        PropertyString: "+40% Increased Attack Speed",
         Index: 6
       },
       {
@@ -5044,7 +5044,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+35 Slows target by",
+        PropertyString: "Slows target by 35",
         Index: 4
       },
       {
@@ -5120,19 +5120,19 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "1 to All Skills",
+        PropertyString: "+1 to All Skills",
         Index: 4
       },
       {
-        PropertyString: "15% Increased Attack Speed",
+        PropertyString: "+15% Increased Attack Speed",
         Index: 2
       },
       {
-        PropertyString: "15% Faster Block Rate",
+        PropertyString: "+15% Faster Block Rate",
         Index: 5
       },
       {
-        PropertyString: "35-50 to Life",
+        PropertyString: "+35-50 to Life",
         Index: 6
       },
       {
@@ -5233,7 +5233,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "15-25 to Fire Skill Damage",
+        PropertyString: "+15-25% to Fire Skill Damage",
         Index: 5
       },
       {
@@ -5249,7 +5249,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+10 Fire Absorb",
+        PropertyString: "+10 % Fire Absorb",
         Index: 3
       },
       {
@@ -5314,11 +5314,11 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "15% Faster Cast Rate",
+        PropertyString: "+15% Faster Cast Rate",
         Index: 3
       },
       {
-        PropertyString: "10 to Poison Skill Damage",
+        PropertyString: "+10% to Poison Skill Damage",
         Index: 4
       },
       {
@@ -5381,11 +5381,11 @@ const json = [
     Code: "Temper",
     Properties: [
       {
-        PropertyString: "20% Faster Hit Recovery",
+        PropertyString: "+20% Faster Hit Recovery",
         Index: 0
       },
       {
-        PropertyString: "75-100% Enhanced Defense",
+        PropertyString: "+75-100% Enhanced Defense",
         Index: 1
       },
       {
@@ -5393,7 +5393,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+5 Increase Maximum Life",
+        PropertyString: "+5% Increased Maximum Life",
         Index: 0
       },
       {
@@ -5401,7 +5401,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+10-15 Fire Absorb",
+        PropertyString: "+10-15 % Fire Absorb",
         Index: 3
       }
     ],
@@ -5450,7 +5450,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20% Faster Cast Rate",
+        PropertyString: "+20% Faster Cast Rate",
         Index: 2
       },
       {
@@ -5541,7 +5541,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "40% Faster Hit Recovery",
+        PropertyString: "+40% Faster Hit Recovery",
         Index: 3
       },
       {
@@ -5553,7 +5553,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "15 to Fire Skill Damage",
+        PropertyString: "+15% to Fire Skill Damage",
         Index: 5
       },
       {
@@ -5638,7 +5638,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "33% Faster Cast Rate",
+        PropertyString: "+33% Faster Cast Rate",
         Index: 3
       },
       {
@@ -5658,7 +5658,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "50% Enhanced Defense",
+        PropertyString: "+50% Enhanced Defense",
         Index: 2
       },
       {
@@ -5670,7 +5670,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+20 Increase Maximum Mana",
+        PropertyString: "+20% Increased Maximum Mana",
         Index: 0
       },
       {
@@ -5719,11 +5719,11 @@ const json = [
     Code: "Smoke",
     Properties: [
       {
-        PropertyString: "20% Faster Hit Recovery",
+        PropertyString: "+20% Faster Hit Recovery",
         Index: 3
       },
       {
-        PropertyString: "75% Enhanced Defense",
+        PropertyString: "+75% Enhanced Defense",
         Index: 1
       },
       {
@@ -5788,19 +5788,19 @@ const json = [
     Code: "Splendor",
     Properties: [
       {
-        PropertyString: "1 to All Skills",
+        PropertyString: "+1 to All Skills",
         Index: 0
       },
       {
-        PropertyString: "10% Faster Cast Rate",
+        PropertyString: "+10% Faster Cast Rate",
         Index: 1
       },
       {
-        PropertyString: "20% Faster Block Rate",
+        PropertyString: "+20% Faster Block Rate",
         Index: 2
       },
       {
-        PropertyString: "60-100% Enhanced Defense",
+        PropertyString: "+60-100% Enhanced Defense",
         Index: 3
       },
       {
@@ -5812,11 +5812,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "50% extra gold from monsters",
+        PropertyString: "+50% extra gold from monsters",
         Index: 4
       },
       {
-        PropertyString: "20% better chance of getting magic item",
+        PropertyString: "+20% better chance of getting magic item",
         Index: 5
       },
       {
@@ -5921,7 +5921,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "15% Damage Taken Goes To Mana",
+        PropertyString: "+15% Damage Taken Goes To Mana",
         Index: 0
       },
       {
@@ -5984,15 +5984,15 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "65% Faster Run/Walk",
+        PropertyString: "+65% Faster Run/Walk",
         Index: 0
       },
       {
-        PropertyString: "40% Increased Attack Speed",
+        PropertyString: "+40% Increased Attack Speed",
         Index: 1
       },
       {
-        PropertyString: "20% Faster Hit Recovery",
+        PropertyString: "+20% Faster Hit Recovery",
         Index: 0
       },
       {
@@ -6067,7 +6067,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "30% Increased Attack Speed",
+        PropertyString: "+30% Increased Attack Speed",
         Index: 1
       },
       {
@@ -6146,7 +6146,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20% Faster Hit Recovery",
+        PropertyString: "+20% Faster Hit Recovery",
         Index: 0
       },
       {
@@ -6237,11 +6237,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+800 to Minimum Poison Damage",
+        PropertyString: "313 Poison Damage Over 4 Seconds",
         Index: 0
       },
       {
-        PropertyString: "20 to Poison Skill Damage",
+        PropertyString: "+20% to Poison Skill Damage",
         Index: 4
       },
       {
@@ -6261,7 +6261,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "20-35% better chance of getting magic item",
+        PropertyString: "+20-35% better chance of getting magic item",
         Index: 2
       }
     ],
@@ -6393,7 +6393,7 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "20% Increased Attack Speed",
+        PropertyString: "+20% Increased Attack Speed",
         Index: 0
       },
       {
@@ -6401,7 +6401,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "25% Faster Hit Recovery",
+        PropertyString: "+25% Faster Hit Recovery",
         Index: 4
       },
       {
@@ -6490,7 +6490,7 @@ const json = [
     Code: "Envy",
     Properties: [
       {
-        PropertyString: "30% Increased Attack Speed",
+        PropertyString: "+30% Increased Attack Speed",
         Index: 1
       },
       {
@@ -6530,7 +6530,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "35% better chance of getting magic item",
+        PropertyString: "+35% better chance of getting magic item",
         Index: 5
       }
     ],
@@ -6585,11 +6585,11 @@ const json = [
     Code: "Fortune's Favor",
     Properties: [
       {
-        PropertyString: "1 to All Skills",
+        PropertyString: "+1 to All Skills",
         Index: 1
       },
       {
-        PropertyString: "30-50 to Life",
+        PropertyString: "+30-50 to Life",
         Index: 2
       },
       {
@@ -6597,7 +6597,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "200% extra gold from monsters",
+        PropertyString: "+200% extra gold from monsters",
         Index: 5
       },
       {
@@ -6704,7 +6704,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "50 to Life",
+        PropertyString: "+50 to Life",
         Index: 4
       },
       {
@@ -6800,7 +6800,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "40% Faster Hit Recovery",
+        PropertyString: "+40% Faster Hit Recovery",
         Index: 5
       },
       {
@@ -6812,11 +6812,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "25 to Enemy Fire Resistance",
+        PropertyString: "-25% to Enemy Fire Resistance",
         Index: 3
       },
       {
-        PropertyString: "40% Chance of Crushing Blow",
+        PropertyString: "+40% Chance of Crushing Blow",
         Index: 1
       },
       {
@@ -6905,7 +6905,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "40% Increased Attack Speed",
+        PropertyString: "+40% Increased Attack Speed",
         Index: 0
       },
       {
@@ -7030,7 +7030,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20-30% Increased Attack Speed",
+        PropertyString: "+20-30% Increased Attack Speed",
         Index: 2
       },
       {
@@ -7189,7 +7189,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "75% extra gold from monsters",
+        PropertyString: "+75% extra gold from monsters",
         Index: 0
       }
     ],
@@ -7262,7 +7262,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "25% Increased Attack Speed",
+        PropertyString: "+25% Increased Attack Speed",
         Index: 4
       },
       {
@@ -7294,7 +7294,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "75% extra gold from monsters",
+        PropertyString: "+75% extra gold from monsters",
         Index: 0
       },
       {
@@ -7353,19 +7353,19 @@ const json = [
     Code: "Piety",
     Properties: [
       {
-        PropertyString: "1 to All Skills",
+        PropertyString: "+1 to All Skills",
         Index: 3
       },
       {
-        PropertyString: "20% Faster Cast Rate",
+        PropertyString: "+20% Faster Cast Rate",
         Index: 4
       },
       {
-        PropertyString: "20% Faster Hit Recovery",
+        PropertyString: "+20% Faster Hit Recovery",
         Index: 0
       },
       {
-        PropertyString: "90-125% Enhanced Defense",
+        PropertyString: "+90-125% Enhanced Defense",
         Index: 0
       },
       {
@@ -7389,7 +7389,7 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "50% extra gold from monsters",
+        PropertyString: "+50% extra gold from monsters",
         Index: 0
       }
     ],
@@ -7462,11 +7462,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+20-30 to Lightning Skill Damage",
+        PropertyString: "+20-30% to Lightning Skill Damage",
         Index: 3
       },
       {
-        PropertyString: "75% extra gold from monsters",
+        PropertyString: "+75% extra gold from monsters",
         Index: 0
       }
     ],
@@ -7533,11 +7533,11 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "45% Increased Attack Speed",
+        PropertyString: "+45% Increased Attack Speed",
         Index: 3
       },
       {
-        PropertyString: "20% Faster Hit Recovery",
+        PropertyString: "+20% Faster Hit Recovery",
         Index: 0
       },
       {
@@ -7545,7 +7545,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "50% extra gold from monsters",
+        PropertyString: "+50% extra gold from monsters",
         Index: 0
       }
     ],
@@ -7653,7 +7653,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "24 to Enemy Cold Resistance",
+        PropertyString: "-24% to Enemy Cold Resistance",
         Index: 5
       },
       {
@@ -7665,7 +7665,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "75% extra gold from monsters",
+        PropertyString: "+75% extra gold from monsters",
         Index: 0
       },
       {
@@ -7732,11 +7732,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "300% extra gold from monsters",
+        PropertyString: "+300% extra gold from monsters",
         Index: 0
       },
       {
-        PropertyString: "100% better chance of getting magic item",
+        PropertyString: "+100% better chance of getting magic item",
         Index: 1
       }
     ],
@@ -7795,7 +7795,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "40% Increased Attack Speed",
+        PropertyString: "+40% Increased Attack Speed",
         Index: 4
       },
       {
@@ -7819,11 +7819,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "30% Deadly Strike",
+        PropertyString: "+30% Deadly Strike",
         Index: 5
       },
       {
-        PropertyString: "75 to Life",
+        PropertyString: "+75 to Life",
         Index: 1
       },
       {
@@ -7904,7 +7904,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "50% Faster Run/Walk",
+        PropertyString: "+50% Faster Run/Walk",
         Index: 3
       },
       {
@@ -7912,7 +7912,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20% Faster Hit Recovery",
+        PropertyString: "+20% Faster Hit Recovery",
         Index: 0
       },
       {
@@ -7920,7 +7920,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "30% Enhanced Defense",
+        PropertyString: "+30% Enhanced Defense",
         Index: 0
       },
       {
@@ -8009,7 +8009,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "30% Enhanced Defense",
+        PropertyString: "+30% Enhanced Defense",
         Index: 0
       },
       {
@@ -8033,7 +8033,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "50% extra gold from monsters",
+        PropertyString: "+50% extra gold from monsters",
         Index: 0
       }
     ],
@@ -8088,7 +8088,7 @@ const json = [
     Code: "War",
     Properties: [
       {
-        PropertyString: "30% Increased Attack Speed",
+        PropertyString: "+30% Increased Attack Speed",
         Index: 2
       },
       {
@@ -8096,7 +8096,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "25% Faster Hit Recovery",
+        PropertyString: "+25% Faster Hit Recovery",
         Index: 6
       },
       {
@@ -8108,7 +8108,7 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "100-140% Enhanced Defense",
+        PropertyString: "+100-140% Enhanced Defense",
         Index: 0
       },
       {
@@ -8116,7 +8116,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+20-25 % Physical Damage Reduction",
+        PropertyString: "+20-25% Physical Damage Reduction",
         Index: 3
       },
       {
@@ -8187,7 +8187,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "30% Enhanced Defense",
+        PropertyString: "+30% Enhanced Defense",
         Index: 0
       },
       {
@@ -8207,7 +8207,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "15% Damage Taken Goes To Mana",
+        PropertyString: "+15% Damage Taken Goes To Mana",
         Index: 0
       }
     ],
@@ -8278,7 +8278,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "30% Enhanced Defense",
+        PropertyString: "+30% Enhanced Defense",
         Index: 0
       },
       {
@@ -8359,7 +8359,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "20% Increased Attack Speed",
+        PropertyString: "+20% Increased Attack Speed",
         Index: 0
       },
       {
@@ -8371,11 +8371,11 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "35 to Enemy Lightning Resistance",
+        PropertyString: "-35% to Enemy Lightning Resistance",
         Index: 0
       },
       {
-        PropertyString: "25% Chance of Open Wounds",
+        PropertyString: "+25% Chance of Open Wounds",
         Index: 0
       },
       {
@@ -8446,7 +8446,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "40% Faster Hit Recovery",
+        PropertyString: "+40% Faster Hit Recovery",
         Index: 0
       },
       {
@@ -8454,15 +8454,15 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "15% Chance of Crushing Blow",
+        PropertyString: "+15% Chance of Crushing Blow",
         Index: 3
       },
       {
-        PropertyString: "33% Chance of Open Wounds",
+        PropertyString: "+33% Chance of Open Wounds",
         Index: 4
       },
       {
-        PropertyString: "150-200% Enhanced Defense",
+        PropertyString: "+150-200% Enhanced Defense",
         Index: 5
       },
       {
@@ -8529,11 +8529,11 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "10% Faster Hit Recovery",
+        PropertyString: "+10% Faster Hit Recovery",
         Index: 3
       },
       {
-        PropertyString: "200-260% Enhanced Defense",
+        PropertyString: "+200-260% Enhanced Defense",
         Index: 0
       },
       {
@@ -8549,7 +8549,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "5% Damage Taken Goes To Mana",
+        PropertyString: "+5% Damage Taken Goes To Mana",
         Index: 4
       },
       {
@@ -8620,7 +8620,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "25-35% Increased Chance of Blocking",
+        PropertyString: "+25-35% Increased Chance of Blocking",
         Index: 2
       },
       {
@@ -8703,11 +8703,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20% Increased Attack Speed",
+        PropertyString: "+20% Increased Attack Speed",
         Index: 5
       },
       {
-        PropertyString: "10% Chance of Crushing Blow",
+        PropertyString: "+10% Chance of Crushing Blow",
         Index: 6
       },
       {
@@ -8715,7 +8715,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "115-160% Enhanced Defense",
+        PropertyString: "+115-160% Enhanced Defense",
         Index: 1
       },
       {
@@ -8800,7 +8800,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "20% Increased Attack Speed",
+        PropertyString: "+20% Increased Attack Speed",
         Index: 4
       },
       {
@@ -8812,7 +8812,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "25% Chance of Open Wounds",
+        PropertyString: "+25% Chance of Open Wounds",
         Index: 0
       },
       {
@@ -8824,11 +8824,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "75 to Life",
+        PropertyString: "+75 to Life",
         Index: 5
       },
       {
-        PropertyString: "+15 Fire Absorb",
+        PropertyString: "+15 % Fire Absorb",
         Index: 6
       },
       {
@@ -8897,11 +8897,11 @@ const json = [
     Code: "Stone",
     Properties: [
       {
-        PropertyString: "60% Faster Hit Recovery",
+        PropertyString: "+60% Faster Hit Recovery",
         Index: 6
       },
       {
-        PropertyString: "250-290% Enhanced Defense",
+        PropertyString: "+250-290% Enhanced Defense",
         Index: 0
       },
       {
@@ -8999,15 +8999,15 @@ const json = [
     Code: "Voice",
     Properties: [
       {
-        PropertyString: "10-15 to Cold Skill Damage",
+        PropertyString: "+10-15% to Cold Skill Damage",
         Index: 1
       },
       {
-        PropertyString: "10-15 to Fire Skill Damage",
+        PropertyString: "+10-15% to Fire Skill Damage",
         Index: 2
       },
       {
-        PropertyString: "+10-15 to Lightning Skill Damage",
+        PropertyString: "+10-15% to Lightning Skill Damage",
         Index: 3
       },
       {
@@ -9023,7 +9023,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "15% Damage Taken Goes To Mana (Armor)",
+        PropertyString: "+15% Damage Taken Goes To Mana (Armor)",
         Index: 0
       },
       {
@@ -9039,7 +9039,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "15% Damage Taken Goes To Mana (Shield)",
+        PropertyString: "+15% Damage Taken Goes To Mana (Shield)",
         Index: 0
       },
       {
@@ -9199,7 +9199,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "20% Increased Attack Speed",
+        PropertyString: "+20% Increased Attack Speed",
         Index: 0
       },
       {
@@ -9215,11 +9215,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "35 to Enemy Fire Resistance",
+        PropertyString: "-35% to Enemy Fire Resistance",
         Index: 0
       },
       {
-        PropertyString: "25% Chance of Open Wounds",
+        PropertyString: "+25% Chance of Open Wounds",
         Index: 0
       },
       {
@@ -9300,7 +9300,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "20% Increased Attack Speed",
+        PropertyString: "+20% Increased Attack Speed",
         Index: 0
       },
       {
@@ -9316,11 +9316,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "35 to Enemy Cold Resistance",
+        PropertyString: "-35% to Enemy Cold Resistance",
         Index: 0
       },
       {
-        PropertyString: "25% Chance of Open Wounds",
+        PropertyString: "+25% Chance of Open Wounds",
         Index: 0
       },
       {
@@ -9401,7 +9401,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "20% Increased Attack Speed",
+        PropertyString: "+20% Increased Attack Speed",
         Index: 0
       },
       {
@@ -9413,15 +9413,15 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "+154 to Minimum Poison Damage",
+        PropertyString: "76 Poison Damage Over 5 Seconds",
         Index: 0
       },
       {
-        PropertyString: "35 to Enemy Poison Resistance",
+        PropertyString: "-35% to Enemy Poison Resistance",
         Index: 0
       },
       {
-        PropertyString: "25% Chance of Open Wounds",
+        PropertyString: "+25% Chance of Open Wounds",
         Index: 0
       },
       {
@@ -9484,7 +9484,7 @@ const json = [
     Code: "Blood",
     Properties: [
       {
-        PropertyString: "2 to All Skills",
+        PropertyString: "+2 to All Skills",
         Index: 4
       },
       {
@@ -9496,11 +9496,11 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+10-15 Increase Maximum Life",
+        PropertyString: "+10-15% Increased Maximum Life",
         Index: 5
       },
       {
-        PropertyString: "+10-15 % Physical Damage Reduction",
+        PropertyString: "+10-15% Physical Damage Reduction",
         Index: 6
       },
       {
@@ -9512,11 +9512,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20% Increased Attack Speed (Weapon)",
+        PropertyString: "+20% Increased Attack Speed (Weapon)",
         Index: 0
       },
       {
-        PropertyString: "20% Faster Hit Recovery (Armor)",
+        PropertyString: "+20% Faster Hit Recovery (Armor)",
         Index: 0
       },
       {
@@ -9524,7 +9524,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20% Faster Block Rate (Shield)",
+        PropertyString: "+20% Faster Block Rate (Shield)",
         Index: 0
       },
       {
@@ -9581,7 +9581,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20% Increased Attack Speed",
+        PropertyString: "+20% Increased Attack Speed",
         Index: 0
       },
       {
@@ -9589,7 +9589,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+35 Increase Maximum Mana",
+        PropertyString: "+35% Increased Maximum Mana",
         Index: 2
       },
       {
@@ -9601,11 +9601,11 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "80-120% extra gold from monsters",
+        PropertyString: "+80-120% extra gold from monsters",
         Index: 6
       },
       {
-        PropertyString: "40% better chance of getting magic item",
+        PropertyString: "+40% better chance of getting magic item",
         Index: 5
       }
     ],
@@ -9698,7 +9698,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "50% Increased Attack Speed",
+        PropertyString: "+50% Increased Attack Speed",
         Index: 2
       },
       {
@@ -9775,11 +9775,11 @@ const json = [
     Code: "Prudence",
     Properties: [
       {
-        PropertyString: "25% Faster Hit Recovery",
+        PropertyString: "+25% Faster Hit Recovery",
         Index: 0
       },
       {
-        PropertyString: "140-170% Enhanced Defense",
+        PropertyString: "+140-170% Enhanced Defense",
         Index: 1
       },
       {
@@ -9882,7 +9882,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "15% Damage Taken Goes To Mana",
+        PropertyString: "+15% Damage Taken Goes To Mana",
         Index: 0
       }
     ],
@@ -9937,19 +9937,19 @@ const json = [
     Code: "Sanctuary",
     Properties: [
       {
-        PropertyString: "20% Faster Hit Recovery",
+        PropertyString: "+20% Faster Hit Recovery",
         Index: 5
       },
       {
-        PropertyString: "20% Faster Block Rate",
+        PropertyString: "+20% Faster Block Rate",
         Index: 1
       },
       {
-        PropertyString: "20% Increased Chance of Blocking",
+        PropertyString: "+20% Increased Chance of Blocking",
         Index: 0
       },
       {
-        PropertyString: "130-160% Enhanced Defense",
+        PropertyString: "+130-160% Enhanced Defense",
         Index: 2
       },
       {
@@ -10026,7 +10026,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "25% Faster Cast Rate",
+        PropertyString: "+25% Faster Cast Rate",
         Index: 4
       },
       {
@@ -10105,11 +10105,11 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "+312 to Minimum Poison Damage",
+        PropertyString: "214 Poison Damage Over 7 Seconds",
         Index: 0
       },
       {
-        PropertyString: "+154 to Minimum Poison Damage",
+        PropertyString: "76 Poison Damage Over 5 Seconds",
         Index: 0
       },
       {
@@ -10206,7 +10206,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20% Increased Attack Speed",
+        PropertyString: "+20% Increased Attack Speed",
         Index: 0
       },
       {
@@ -10218,7 +10218,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "25% Chance of Open Wounds",
+        PropertyString: "+25% Chance of Open Wounds",
         Index: 0
       },
       {
@@ -10301,7 +10301,7 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "2 to All Skills",
+        PropertyString: "+2 to All Skills",
         Index: 6
       },
       {
@@ -10313,11 +10313,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "50% extra gold from monsters",
+        PropertyString: "+50% extra gold from monsters",
         Index: 0
       },
       {
-        PropertyString: "25% better chance of getting magic item",
+        PropertyString: "+25% better chance of getting magic item",
         Index: 0
       },
       {
@@ -10386,31 +10386,31 @@ const json = [
     Code: "Glory",
     Properties: [
       {
-        PropertyString: "2 to All Skills",
+        PropertyString: "+2 to All Skills",
         Index: 0
       },
       {
-        PropertyString: "35% Faster Cast Rate",
+        PropertyString: "+35% Faster Cast Rate",
         Index: 2
       },
       {
-        PropertyString: "25% Faster Hit Recovery",
+        PropertyString: "+25% Faster Hit Recovery",
         Index: 1
       },
       {
-        PropertyString: "75-125% Enhanced Defense",
+        PropertyString: "+75-125% Enhanced Defense",
         Index: 5
       },
       {
-        PropertyString: "+25 Increase Maximum Life",
+        PropertyString: "+25% Increased Maximum Life",
         Index: 4
       },
       {
-        PropertyString: "+25 Increase Maximum Mana",
+        PropertyString: "+25% Increased Maximum Mana",
         Index: 3
       },
       {
-        PropertyString: "100% better chance of getting magic item",
+        PropertyString: "+100% better chance of getting magic item",
         Index: 0
       },
       {
@@ -10473,19 +10473,19 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20% Faster Hit Recovery",
+        PropertyString: "+20% Faster Hit Recovery",
         Index: 6
       },
       {
-        PropertyString: "15% Increased Chance of Blocking",
+        PropertyString: "+15% Increased Chance of Blocking",
         Index: 5
       },
       {
-        PropertyString: "20 to Enemy Lightning Resistance",
+        PropertyString: "-20% to Enemy Lightning Resistance",
         Index: 3
       },
       {
-        PropertyString: "20 to Cold Skill Damage",
+        PropertyString: "+20% to Cold Skill Damage",
         Index: 4
       },
       {
@@ -10505,7 +10505,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "30% better chance of getting magic item",
+        PropertyString: "+30% better chance of getting magic item",
         Index: 0
       }
     ],
@@ -10588,7 +10588,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "40% Increased Attack Speed",
+        PropertyString: "+40% Increased Attack Speed",
         Index: 0
       },
       {
@@ -10612,11 +10612,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+20 Slows target by",
+        PropertyString: "Slows target by 20",
         Index: 2
       },
       {
-        PropertyString: "35% better chance of getting magic item",
+        PropertyString: "+35% better chance of getting magic item",
         Index: 4
       },
       {
@@ -10694,7 +10694,7 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "30% Increased Attack Speed",
+        PropertyString: "+30% Increased Attack Speed",
         Index: 0
       },
       {
@@ -10710,11 +10710,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "33% Chance of Crushing Blow",
+        PropertyString: "+33% Chance of Crushing Blow",
         Index: 3
       },
       {
-        PropertyString: "50% Chance of Open Wounds",
+        PropertyString: "+50% Chance of Open Wounds",
         Index: 4
       },
       {
@@ -10726,7 +10726,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "40% extra gold from monsters",
+        PropertyString: "+40% extra gold from monsters",
         Index: 6
       }
     ],
@@ -10781,7 +10781,7 @@ const json = [
     Code: "Mosaic",
     Properties: [
       {
-        PropertyString: "50 chance for finishing moves to not consume charges",
+        PropertyString: "+50% chance for finishing moves to not consume charges",
         Index: 1
       },
       {
@@ -10789,7 +10789,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20% Increased Attack Speed",
+        PropertyString: "+20% Increased Attack Speed",
         Index: 2
       },
       {
@@ -10801,15 +10801,15 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "8-15 to Fire Skill Damage",
+        PropertyString: "+8-15% to Fire Skill Damage",
         Index: 4
       },
       {
-        PropertyString: "8-15 to Cold Skill Damage",
+        PropertyString: "+8-15% to Cold Skill Damage",
         Index: 5
       },
       {
-        PropertyString: "+8-15 to Lightning Skill Damage",
+        PropertyString: "+8-15% to Lightning Skill Damage",
         Index: 6
       },
       {
@@ -10915,11 +10915,11 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "38% Damage Taken Goes To Mana",
+        PropertyString: "+38% Damage Taken Goes To Mana",
         Index: 5
       },
       {
-        PropertyString: "75% extra gold from monsters",
+        PropertyString: "+75% extra gold from monsters",
         Index: 0
       },
       {
@@ -11000,7 +11000,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20% Increased Attack Speed",
+        PropertyString: "+20% Increased Attack Speed",
         Index: 1
       },
       {
@@ -11020,7 +11020,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "25% Chance of Open Wounds",
+        PropertyString: "+25% Chance of Open Wounds",
         Index: 0
       },
       {
@@ -11099,7 +11099,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "100-150 to Life",
+        PropertyString: "+100-150 to Life",
         Index: 2
       },
       {
@@ -11223,7 +11223,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "50% Chance of Crushing Blow",
+        PropertyString: "+50% Chance of Crushing Blow",
         Index: 4
       },
       {
@@ -11306,11 +11306,11 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "15-20 to Fire Skill Damage",
+        PropertyString: "+15-20% to Fire Skill Damage",
         Index: 3
       },
       {
-        PropertyString: "15-20 to Enemy Fire Resistance",
+        PropertyString: "-15-20% to Enemy Fire Resistance",
         Index: 4
       },
       {
@@ -11389,11 +11389,11 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "10-15 to Enemy Fire Resistance",
+        PropertyString: "-10-15% to Enemy Fire Resistance",
         Index: 2
       },
       {
-        PropertyString: "30% Enhanced Defense",
+        PropertyString: "+30% Enhanced Defense",
         Index: 0
       },
       {
@@ -11497,11 +11497,11 @@ const json = [
     Code: "Heart of the Oak",
     Properties: [
       {
-        PropertyString: "3 to All Skills",
+        PropertyString: "+3 to All Skills",
         Index: 3
       },
       {
-        PropertyString: "40% Faster Cast Rate",
+        PropertyString: "+40% Faster Cast Rate",
         Index: 0
       },
       {
@@ -11529,7 +11529,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "+15 Increase Maximum Mana",
+        PropertyString: "+15% Increased Maximum Mana",
         Index: 2
       },
       {
@@ -11606,7 +11606,7 @@ const json = [
     Code: "Innocence",
     Properties: [
       {
-        PropertyString: "2 to All Skills",
+        PropertyString: "+2 to All Skills",
         Index: 3
       },
       {
@@ -11622,7 +11622,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+25 Increase Maximum Life",
+        PropertyString: "+25% Increased Maximum Life",
         Index: 4
       },
       {
@@ -11634,11 +11634,11 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "75% extra gold from monsters",
+        PropertyString: "+75% extra gold from monsters",
         Index: 0
       },
       {
-        PropertyString: "30% better chance of getting magic item",
+        PropertyString: "+30% better chance of getting magic item",
         Index: 0
       },
       {
@@ -11691,7 +11691,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "35-50% Increased Chance of Blocking",
+        PropertyString: "+35-50% Increased Chance of Blocking",
         Index: 6
       },
       {
@@ -11804,11 +11804,11 @@ const json = [
     Code: "Silence",
     Properties: [
       {
-        PropertyString: "2 to All Skills",
+        PropertyString: "+2 to All Skills",
         Index: 5
       },
       {
-        PropertyString: "20% Increased Attack Speed",
+        PropertyString: "+20% Increased Attack Speed",
         Index: 3
       },
       {
@@ -11816,7 +11816,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "20% Faster Hit Recovery",
+        PropertyString: "+20% Faster Hit Recovery",
         Index: 6
       },
       {
@@ -11848,7 +11848,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "30% better chance of getting magic item",
+        PropertyString: "+30% better chance of getting magic item",
         Index: 0
       },
       {
@@ -11931,7 +11931,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "50% Faster Hit Recovery",
+        PropertyString: "+50% Faster Hit Recovery",
         Index: 1
       },
       {
@@ -11955,11 +11955,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "100-140% extra gold from monsters",
+        PropertyString: "+100-140% extra gold from monsters",
         Index: 4
       },
       {
-        PropertyString: "60-80% better chance of getting magic item",
+        PropertyString: "+60-80% better chance of getting magic item",
         Index: 5
       }
     ],
@@ -12034,7 +12034,7 @@ const json = [
     Code: "Call to Arms",
     Properties: [
       {
-        PropertyString: "1 to All Skills",
+        PropertyString: "+1 to All Skills",
         Index: 2
       },
       {
@@ -12050,7 +12050,7 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "40% Increased Attack Speed",
+        PropertyString: "+40% Increased Attack Speed",
         Index: 0
       },
       {
@@ -12074,7 +12074,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "30% better chance of getting magic item",
+        PropertyString: "+30% better chance of getting magic item",
         Index: 0
       }
     ],
@@ -12141,7 +12141,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "35% Increased Attack Speed",
+        PropertyString: "+35% Increased Attack Speed",
         Index: 4
       },
       {
@@ -12153,7 +12153,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "25% Chance of Open Wounds",
+        PropertyString: "+25% Chance of Open Wounds",
         Index: 0
       },
       {
@@ -12238,7 +12238,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "30% Faster Block Rate",
+        PropertyString: "+30% Faster Block Rate",
         Index: 0
       },
       {
@@ -12246,7 +12246,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "220-260% Enhanced Defense",
+        PropertyString: "+220-260% Enhanced Defense",
         Index: 2
       },
       {
@@ -12262,7 +12262,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "25% better chance of getting magic item",
+        PropertyString: "+25% better chance of getting magic item",
         Index: 0
       },
       {
@@ -12349,7 +12349,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "20% Increased Attack Speed",
+        PropertyString: "+20% Increased Attack Speed",
         Index: 0
       },
       {
@@ -12373,7 +12373,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "40-60% better chance of getting magic item",
+        PropertyString: "+40-60% better chance of getting magic item",
         Index: 5
       },
       {
@@ -12436,11 +12436,11 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "1 to All Skills",
+        PropertyString: "+1 to All Skills",
         Index: 2
       },
       {
-        PropertyString: "20% Increased Attack Speed",
+        PropertyString: "+20% Increased Attack Speed",
         Index: 4
       },
       {
@@ -12448,7 +12448,7 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "125-200% Enhanced Defense",
+        PropertyString: "+125-200% Enhanced Defense",
         Index: 1
       },
       {
@@ -12456,7 +12456,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "75-100 to Life",
+        PropertyString: "+75-100 to Life",
         Index: 3
       },
       {
@@ -12553,7 +12553,7 @@ const json = [
     Code: "Victory",
     Properties: [
       {
-        PropertyString: "60% Increased Attack Speed",
+        PropertyString: "+60% Increased Attack Speed",
         Index: 3
       },
       {
@@ -12573,11 +12573,11 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "75% extra gold from monsters",
+        PropertyString: "+75% extra gold from monsters",
         Index: 0
       },
       {
-        PropertyString: "30% better chance of getting magic item",
+        PropertyString: "+30% better chance of getting magic item",
         Index: 0
       },
       {
@@ -12672,11 +12672,11 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "25% Faster Cast Rate",
+        PropertyString: "+25% Faster Cast Rate",
         Index: 5
       },
       {
-        PropertyString: "200% Enhanced Defense",
+        PropertyString: "+200% Enhanced Defense",
         Index: 2
       },
       {
@@ -12692,15 +12692,15 @@ const json = [
         Index: 0
       },
       {
+        PropertyString: "+20% Deadly Strike (Weapon)",
+        Index: 0
+      },
+      {
         PropertyString: "+50 to Attack Rating (Weapon)",
         Index: 1
       },
       {
         PropertyString: "+9 to Minimum Damage (Weapon)",
-        Index: 0
-      },
-      {
-        PropertyString: "20% Deadly Strike (Weapon)",
         Index: 0
       },
       {
@@ -12828,7 +12828,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "30-40% Increased Attack Speed",
+        PropertyString: "+30-40% Increased Attack Speed",
         Index: 1
       },
       {
@@ -12852,11 +12852,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20-25 to Enemy Poison Resistance",
+        PropertyString: "-20-25% to Enemy Poison Resistance",
         Index: 5
       },
       {
-        PropertyString: "20% Deadly Strike",
+        PropertyString: "+20% Deadly Strike",
         Index: 0
       },
       {
@@ -12927,7 +12927,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "150-300% Enhanced Defense",
+        PropertyString: "+150-300% Enhanced Defense",
         Index: 0
       },
       {
@@ -12951,11 +12951,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "70-100% extra gold from monsters",
+        PropertyString: "+70-100% extra gold from monsters",
         Index: 5
       },
       {
-        PropertyString: "40-70% better chance of getting magic item",
+        PropertyString: "+40-70% better chance of getting magic item",
         Index: 1
       },
       {
@@ -13028,11 +13028,11 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "50% Faster Hit Recovery",
+        PropertyString: "+50% Faster Hit Recovery",
         Index: 0
       },
       {
-        PropertyString: "25-50 to Poison Skill Damage",
+        PropertyString: "+25-50% to Poison Skill Damage",
         Index: 4
       },
       {
@@ -13040,7 +13040,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "+5 Increase Maximum Mana",
+        PropertyString: "+5% Increased Maximum Mana",
         Index: 0
       },
       {
@@ -13152,11 +13152,11 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "+5 Increase Maximum Mana (Armor)",
+        PropertyString: "+5 to Maximum Lightning Resist (Armor)",
         Index: 0
       },
       {
-        PropertyString: "+5 to Maximum Lightning Resist (Armor)",
+        PropertyString: "+5% Increased Maximum Mana (Armor)",
         Index: 0
       },
       {
@@ -13249,7 +13249,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20% Faster Block Rate",
+        PropertyString: "+20% Faster Block Rate",
         Index: 6
       },
       {
@@ -13261,7 +13261,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+5 Increase Maximum Mana",
+        PropertyString: "+5% Increased Maximum Mana",
         Index: 0
       },
       {
@@ -13273,7 +13273,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+10 % Physical Damage Reduction",
+        PropertyString: "+10% Physical Damage Reduction",
         Index: 5
       },
       {
@@ -13366,7 +13366,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "40% Increased Attack Speed",
+        PropertyString: "+40% Increased Attack Speed",
         Index: 0
       },
       {
@@ -13374,15 +13374,15 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+1024 to Minimum Poison Damage",
+        PropertyString: "500 Poison Damage Over 5 Seconds",
         Index: 3
       },
       {
-        PropertyString: "50% Deadly Strike",
+        PropertyString: "+50% Deadly Strike",
         Index: 4
       },
       {
-        PropertyString: "25% Chance of Open Wounds",
+        PropertyString: "+25% Chance of Open Wounds",
         Index: 0
       },
       {
@@ -13471,15 +13471,15 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "2 to All Skills",
+        PropertyString: "+2 to All Skills",
         Index: 0
       },
       {
-        PropertyString: "25% Faster Cast Rate",
+        PropertyString: "+25% Faster Cast Rate",
         Index: 2
       },
       {
-        PropertyString: "20% Faster Hit Recovery",
+        PropertyString: "+20% Faster Hit Recovery",
         Index: 0
       },
       {
@@ -13487,7 +13487,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "+20 Increase Maximum Mana",
+        PropertyString: "+20% Increased Maximum Mana",
         Index: 1
       },
       {
@@ -13495,11 +13495,11 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "50% extra gold from monsters",
+        PropertyString: "+50% extra gold from monsters",
         Index: 0
       },
       {
-        PropertyString: "30-50% better chance of getting magic item",
+        PropertyString: "+30-50% better chance of getting magic item",
         Index: 4
       }
     ],
@@ -13578,7 +13578,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "50% Increased Attack Speed",
+        PropertyString: "+50% Increased Attack Speed",
         Index: 4
       },
       {
@@ -13598,15 +13598,15 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "25 to Enemy Lightning Resistance",
+        PropertyString: "-25% to Enemy Lightning Resistance",
         Index: 5
       },
       {
-        PropertyString: "+25 to Lightning Skill Damage",
+        PropertyString: "+25% to Lightning Skill Damage",
         Index: 6
       },
       {
-        PropertyString: "20% Deadly Strike",
+        PropertyString: "+20% Deadly Strike",
         Index: 0
       },
       {
@@ -13614,7 +13614,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "30% better chance of getting magic item",
+        PropertyString: "+30% better chance of getting magic item",
         Index: 0
       }
     ],
@@ -13663,11 +13663,11 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "20% Faster Run/Walk",
+        PropertyString: "+20% Faster Run/Walk",
         Index: 2
       },
       {
-        PropertyString: "40% Increased Attack Speed",
+        PropertyString: "+40% Increased Attack Speed",
         Index: 1
       },
       {
@@ -13675,7 +13675,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "15% Faster Hit Recovery",
+        PropertyString: "+15% Faster Hit Recovery",
         Index: 6
       },
       {
@@ -13687,7 +13687,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "+5 Increase Maximum Mana",
+        PropertyString: "+5% Increased Maximum Mana",
         Index: 0
       },
       {
@@ -13802,7 +13802,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "40% Increased Attack Speed",
+        PropertyString: "+40% Increased Attack Speed",
         Index: 0
       },
       {
@@ -13810,11 +13810,11 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "20% Chance of Crushing Blow",
+        PropertyString: "+20% Chance of Crushing Blow",
         Index: 0
       },
       {
-        PropertyString: "25% Chance of Open Wounds",
+        PropertyString: "+25% Chance of Open Wounds",
         Index: 0
       },
       {
@@ -13911,7 +13911,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+8 % Physical Damage Reduction",
+        PropertyString: "+8% Physical Damage Reduction",
         Index: 0
       }
     ],
@@ -13976,7 +13976,7 @@ const json = [
     Code: "Chains of Honor",
     Properties: [
       {
-        PropertyString: "2 to All Skills",
+        PropertyString: "+2 to All Skills",
         Index: 5
       },
       {
@@ -13992,7 +13992,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "70% Enhanced Defense",
+        PropertyString: "+70% Enhanced Defense",
         Index: 1
       },
       {
@@ -14008,11 +14008,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+8 % Physical Damage Reduction",
+        PropertyString: "+8% Physical Damage Reduction",
         Index: 0
       },
       {
-        PropertyString: "25% better chance of getting magic item",
+        PropertyString: "+25% better chance of getting magic item",
         Index: 0
       }
     ],
@@ -14095,7 +14095,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+33 Slows target by",
+        PropertyString: "Slows target by 33",
         Index: 2
       },
       {
@@ -14103,7 +14103,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "+5 Increase Maximum Mana",
+        PropertyString: "+5% Increased Maximum Mana",
         Index: 0
       },
       {
@@ -14111,7 +14111,7 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "+8 % Physical Damage Reduction",
+        PropertyString: "+8% Physical Damage Reduction",
         Index: 0
       },
       {
@@ -14127,7 +14127,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "25% better chance of getting magic item",
+        PropertyString: "+25% better chance of getting magic item",
         Index: 0
       },
       {
@@ -14209,7 +14209,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "35% Faster Run/Walk",
+        PropertyString: "+35% Faster Run/Walk",
         Index: 1
       },
       {
@@ -14217,11 +14217,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "45-55 to Enemy Lightning Resistance",
+        PropertyString: "-45-55% to Enemy Lightning Resistance",
         Index: 5
       },
       {
-        PropertyString: "40% Chance of Crushing Blow",
+        PropertyString: "+40% Chance of Crushing Blow",
         Index: 0
       },
       {
@@ -14233,7 +14233,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "30% better chance of getting magic item",
+        PropertyString: "+30% better chance of getting magic item",
         Index: 0
       },
       {
@@ -14315,15 +14315,15 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "40% Faster Cast Rate",
+        PropertyString: "+40% Faster Cast Rate",
         Index: 2
       },
       {
-        PropertyString: "20% Faster Block Rate",
+        PropertyString: "+20% Faster Block Rate",
         Index: 4
       },
       {
-        PropertyString: "20-30% Increased Chance of Blocking",
+        PropertyString: "+20-30% Increased Chance of Blocking",
         Index: 3
       },
       {
@@ -14335,15 +14335,15 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "+8 % Physical Damage Reduction (Armor)",
+        PropertyString: "+25% better chance of getting magic item (Armor)",
         Index: 0
       },
       {
-        PropertyString: "25% better chance of getting magic item (Armor)",
+        PropertyString: "+50% extra gold from monsters (Armor)",
         Index: 0
       },
       {
-        PropertyString: "50% extra gold from monsters (Armor)",
+        PropertyString: "+8% Physical Damage Reduction (Armor)",
         Index: 0
       },
       {
@@ -14351,15 +14351,15 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+8 % Physical Damage Reduction (Shield)",
+        PropertyString: "+25% better chance of getting magic item (Shield)",
         Index: 0
       },
       {
-        PropertyString: "25% better chance of getting magic item (Shield)",
+        PropertyString: "+50% extra gold from monsters (Shield)",
         Index: 0
       },
       {
-        PropertyString: "50% extra gold from monsters (Shield)",
+        PropertyString: "+8% Physical Damage Reduction (Shield)",
         Index: 0
       },
       {
@@ -14452,7 +14452,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "30% Enhanced Defense",
+        PropertyString: "+30% Enhanced Defense",
         Index: 0
       },
       {
@@ -14460,7 +14460,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+8 % Physical Damage Reduction",
+        PropertyString: "+8% Physical Damage Reduction",
         Index: 0
       },
       {
@@ -14557,7 +14557,7 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "+5 Increase Maximum Life",
+        PropertyString: "+5% Increased Maximum Life",
         Index: 0
       },
       {
@@ -14632,7 +14632,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "30% Faster Cast Rate",
+        PropertyString: "+30% Faster Cast Rate",
         Index: 2
       },
       {
@@ -14640,7 +14640,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "25% Chance of Open Wounds",
+        PropertyString: "+25% Chance of Open Wounds",
         Index: 0
       },
       {
@@ -14648,11 +14648,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+25 Increase Maximum Life",
+        PropertyString: "+25% Increased Maximum Life",
         Index: 6
       },
       {
-        PropertyString: "+50 Increase Maximum Mana",
+        PropertyString: "+50% Increased Maximum Mana",
         Index: 5
       },
       {
@@ -14772,11 +14772,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20% Chance of Crushing Blow",
+        PropertyString: "+20% Chance of Crushing Blow",
         Index: 0
       },
       {
-        PropertyString: "20% Deadly Strike",
+        PropertyString: "+20% Deadly Strike",
         Index: 0
       },
       {
@@ -14848,7 +14848,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "20-30% Faster Hit Recovery",
+        PropertyString: "+20-30% Faster Hit Recovery",
         Index: 2
       },
       {
@@ -14864,11 +14864,15 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "15-25% better chance of getting magic item",
+        PropertyString: "+15-25% better chance of getting magic item",
         Index: 6
       },
       {
-        PropertyString: "+5 Increase Maximum Life (Armor)",
+        PropertyString: "+30% Enhanced Defense (Armor)",
+        Index: 0
+      },
+      {
+        PropertyString: "+5% Increased Maximum Life (Armor)",
         Index: 0
       },
       {
@@ -14876,19 +14880,15 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "30% Enhanced Defense (Armor)",
+        PropertyString: "+30% Enhanced Defense (Shield)",
+        Index: 0
+      },
+      {
+        PropertyString: "+50 to Life (Shield)",
         Index: 0
       },
       {
         PropertyString: "10 to Vitality (Shield)",
-        Index: 0
-      },
-      {
-        PropertyString: "30% Enhanced Defense (Shield)",
-        Index: 0
-      },
-      {
-        PropertyString: "50 to Life (Shield)",
         Index: 0
       }
     ],
@@ -14943,7 +14943,7 @@ const json = [
     Code: "Enigma",
     Properties: [
       {
-        PropertyString: "2 to All Skills",
+        PropertyString: "+2 to All Skills",
         Index: 4
       },
       {
@@ -14951,7 +14951,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "45% Faster Run/Walk",
+        PropertyString: "+45% Faster Run/Walk",
         Index: 2
       },
       {
@@ -14963,11 +14963,11 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "+5 Increase Maximum Life",
+        PropertyString: "+5% Increased Maximum Life",
         Index: 0
       },
       {
-        PropertyString: "+8 % Physical Damage Reduction",
+        PropertyString: "+8% Physical Damage Reduction",
         Index: 0
       },
       {
@@ -14975,7 +14975,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "15% Damage Taken Goes To Mana",
+        PropertyString: "+15% Damage Taken Goes To Mana",
         Index: 0
       },
       {
@@ -15048,7 +15048,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "1-2 to All Skills",
+        PropertyString: "+1-2 to All Skills",
         Index: 6
       },
       {
@@ -15064,7 +15064,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+5 Increase Maximum Life",
+        PropertyString: "+5% Increased Maximum Life",
         Index: 0
       },
       {
@@ -15084,7 +15084,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "50% extra gold from monsters",
+        PropertyString: "+50% extra gold from monsters",
         Index: 0
       }
     ],
@@ -15164,7 +15164,7 @@ const json = [
     Code: "Famine",
     Properties: [
       {
-        PropertyString: "30% Increased Attack Speed",
+        PropertyString: "+30% Increased Attack Speed",
         Index: 2
       },
       {
@@ -15255,7 +15255,7 @@ const json = [
     Code: "Fury",
     Properties: [
       {
-        PropertyString: "40% Increased Attack Speed",
+        PropertyString: "+40% Increased Attack Speed",
         Index: 1
       },
       {
@@ -15267,11 +15267,11 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "33% Deadly Strike",
+        PropertyString: "+33% Deadly Strike",
         Index: 5
       },
       {
-        PropertyString: "66% Chance of Open Wounds",
+        PropertyString: "+66% Chance of Open Wounds",
         Index: 3
       },
       {
@@ -15283,7 +15283,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "+5 Increase Maximum Life",
+        PropertyString: "+5% Increased Maximum Life",
         Index: 0
       },
       {
@@ -15372,19 +15372,19 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "20% Faster Hit Recovery",
+        PropertyString: "+20% Faster Hit Recovery",
         Index: 0
       },
       {
-        PropertyString: "25-30 to Cold Skill Damage",
+        PropertyString: "+25-30% to Cold Skill Damage",
         Index: 4
       },
       {
-        PropertyString: "20 to Enemy Cold Resistance",
+        PropertyString: "-20% to Enemy Cold Resistance",
         Index: 5
       },
       {
-        PropertyString: "+5 Increase Maximum Life",
+        PropertyString: "+5% Increased Maximum Life",
         Index: 0
       },
       {
@@ -15482,7 +15482,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "28 to Enemy Fire Resistance",
+        PropertyString: "-28% to Enemy Fire Resistance",
         Index: 4
       },
       {
@@ -15498,7 +15498,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+7 Mana stolen per hit (Weapon)",
+        PropertyString: "+20% Deadly Strike (Weapon)",
         Index: 0
       },
       {
@@ -15506,7 +15506,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20% Deadly Strike (Weapon)",
+        PropertyString: "+7 Mana stolen per hit (Weapon)",
         Index: 0
       },
       {
@@ -15522,7 +15522,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "50 to Life (Shield)",
+        PropertyString: "+50 to Life (Shield)",
         Index: 0
       }
     ],
@@ -15589,7 +15589,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "40% Faster Hit Recovery",
+        PropertyString: "+40% Faster Hit Recovery",
         Index: 5
       },
       {
@@ -15605,11 +15605,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+5 Increase Maximum Life",
+        PropertyString: "+5% Increased Maximum Life",
         Index: 0
       },
       {
-        PropertyString: "25% better chance of getting magic item",
+        PropertyString: "+25% better chance of getting magic item",
         Index: 0
       },
       {
@@ -15696,7 +15696,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "20% Increased Attack Speed",
+        PropertyString: "+20% Increased Attack Speed",
         Index: 1
       },
       {
@@ -15712,7 +15712,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "25% Chance of Open Wounds",
+        PropertyString: "+25% Chance of Open Wounds",
         Index: 0
       },
       {
@@ -15724,7 +15724,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "+25 Lightning Absorb",
+        PropertyString: "+25 % Lightning Absorb",
         Index: 5
       },
       {
@@ -15790,15 +15790,15 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "160-220% Enhanced Defense",
+        PropertyString: "+160-220% Enhanced Defense",
         Index: 0
       },
       {
-        PropertyString: "35-50 to Life",
+        PropertyString: "+35-50 to Life",
         Index: 2
       },
       {
-        PropertyString: "+10-20 Increase Maximum Life",
+        PropertyString: "+10-20% Increased Maximum Life",
         Index: 3
       },
       {
@@ -15806,7 +15806,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "+5 Increase Maximum Life (Armor)",
+        PropertyString: "+5% Increased Maximum Life (Armor)",
         Index: 0
       },
       {
@@ -15814,7 +15814,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "50 to Life (Shield)",
+        PropertyString: "+50 to Life (Shield)",
         Index: 0
       },
       {
@@ -15863,7 +15863,7 @@ const json = [
     Code: "Wisdom Reimagined",
     Properties: [
       {
-        PropertyString: "2 to All Skills",
+        PropertyString: "+2 to All Skills",
         Index: 0
       },
       {
@@ -15988,7 +15988,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "30% Increased Attack Speed",
+        PropertyString: "+30% Increased Attack Speed",
         Index: 5
       },
       {
@@ -16012,7 +16012,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20% Chance of Crushing Blow",
+        PropertyString: "+20% Chance of Crushing Blow",
         Index: 0
       },
       {
@@ -16107,11 +16107,11 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "2 to All Skills",
+        PropertyString: "+2 to All Skills",
         Index: 1
       },
       {
-        PropertyString: "20% Increased Attack Speed",
+        PropertyString: "+20% Increased Attack Speed",
         Index: 0
       },
       {
@@ -16131,11 +16131,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "35% Chance of Crushing Blow",
+        PropertyString: "+35% Chance of Crushing Blow",
         Index: 6
       },
       {
-        PropertyString: "20% Deadly Strike",
+        PropertyString: "+20% Deadly Strike",
         Index: 0
       },
       {
@@ -16250,11 +16250,11 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "2 to All Skills",
+        PropertyString: "+2 to All Skills",
         Index: 5
       },
       {
-        PropertyString: "45% Increased Attack Speed",
+        PropertyString: "+45% Increased Attack Speed",
         Index: 2
       },
       {
@@ -16262,15 +16262,15 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "40-60 to Enemy Cold Resistance",
+        PropertyString: "-40-60% to Enemy Cold Resistance",
         Index: 4
       },
       {
-        PropertyString: "20% Deadly Strike",
+        PropertyString: "+20% Deadly Strike",
         Index: 0
       },
       {
-        PropertyString: "25% Chance of Open Wounds",
+        PropertyString: "+25% Chance of Open Wounds",
         Index: 0
       },
       {
@@ -16365,7 +16365,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "20% Increased Attack Speed",
+        PropertyString: "+20% Increased Attack Speed",
         Index: 0
       },
       {
@@ -16385,11 +16385,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20-25 to Cold Skill Damage",
+        PropertyString: "+20-25% to Cold Skill Damage",
         Index: 5
       },
       {
-        PropertyString: "20-25 to Fire Skill Damage",
+        PropertyString: "+20-25% to Fire Skill Damage",
         Index: 6
       },
       {
@@ -16478,7 +16478,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "33% Increased Attack Speed",
+        PropertyString: "+33% Increased Attack Speed",
         Index: 0
       },
       {
@@ -16490,7 +16490,7 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "20 to Enemy Fire Resistance",
+        PropertyString: "-20% to Enemy Fire Resistance",
         Index: 6
       },
       {
@@ -16498,7 +16498,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20% Deadly Strike",
+        PropertyString: "+20% Deadly Strike",
         Index: 0
       },
       {
@@ -16643,7 +16643,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20% Chance of Crushing Blow",
+        PropertyString: "+20% Chance of Crushing Blow",
         Index: 0
       },
       {
@@ -16722,11 +16722,11 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "25% Chance of Crushing Blow",
+        PropertyString: "+25% Chance of Crushing Blow",
         Index: 5
       },
       {
-        PropertyString: "50-80% Enhanced Defense",
+        PropertyString: "+50-80% Enhanced Defense",
         Index: 3
       },
       {
@@ -16821,7 +16821,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "3 to All Skills",
+        PropertyString: "+3 to All Skills",
         Index: 0
       },
       {
@@ -16829,7 +16829,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "20% Faster Hit Recovery",
+        PropertyString: "+20% Faster Hit Recovery",
         Index: 0
       },
       {
@@ -16857,7 +16857,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "15% Damage Taken Goes To Mana",
+        PropertyString: "+15% Damage Taken Goes To Mana",
         Index: 0
       }
     ],
@@ -16946,7 +16946,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "3 to All Skills",
+        PropertyString: "+3 to All Skills",
         Index: 4
       },
       {
@@ -16962,7 +16962,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20% Chance of Crushing Blow",
+        PropertyString: "+20% Chance of Crushing Blow",
         Index: 0
       },
       {
@@ -17075,11 +17075,11 @@ const json = [
     Code: "Peril",
     Properties: [
       {
-        PropertyString: "1 to All Skills",
+        PropertyString: "+1 to All Skills",
         Index: 4
       },
       {
-        PropertyString: "75% Increased Attack Speed",
+        PropertyString: "+75% Increased Attack Speed",
         Index: 3
       },
       {
@@ -17099,7 +17099,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "+16 % Physical Damage Reduction",
+        PropertyString: "+16% Physical Damage Reduction",
         Index: 0
       },
       {
@@ -17188,11 +17188,11 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "1-2 to All Skills",
+        PropertyString: "+1-2 to All Skills",
         Index: 6
       },
       {
-        PropertyString: "20% Increased Attack Speed",
+        PropertyString: "+20% Increased Attack Speed",
         Index: 0
       },
       {
@@ -17200,7 +17200,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "23 to Enemy Poison Resistance",
+        PropertyString: "-23% to Enemy Poison Resistance",
         Index: 3
       },
       {
@@ -17208,7 +17208,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "25% Chance of Open Wounds",
+        PropertyString: "+25% Chance of Open Wounds",
         Index: 0
       },
       {
@@ -17302,7 +17302,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "20% Deadly Strike",
+        PropertyString: "+20% Deadly Strike",
         Index: 0
       },
       {
@@ -17377,11 +17377,11 @@ const json = [
     Code: "Rain Reimagined",
     Properties: [
       {
-        PropertyString: "4 to All Skills",
+        PropertyString: "+4 to All Skills",
         Index: 1
       },
       {
-        PropertyString: "100-150 to Life",
+        PropertyString: "+100-150 to Life",
         Index: 2
       },
       {
@@ -17401,7 +17401,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "+16 % Physical Damage Reduction",
+        PropertyString: "+16% Physical Damage Reduction",
         Index: 0
       },
       {
@@ -17498,7 +17498,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "20% Faster Hit Recovery",
+        PropertyString: "+20% Faster Hit Recovery",
         Index: 0
       },
       {
@@ -17514,7 +17514,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+5 Increase Maximum Mana",
+        PropertyString: "+5% Increased Maximum Mana",
         Index: 0
       },
       {
@@ -17682,11 +17682,11 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "2 to All Skills",
+        PropertyString: "+2 to All Skills",
         Index: 4
       },
       {
-        PropertyString: "20% Faster Hit Recovery",
+        PropertyString: "+20% Faster Hit Recovery",
         Index: 0
       },
       {
@@ -17769,23 +17769,23 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "2 to All Skills",
+        PropertyString: "+2 to All Skills",
         Index: 0
       },
       {
-        PropertyString: "25% Deadly Strike",
+        PropertyString: "+25% Deadly Strike",
         Index: 6
       },
       {
-        PropertyString: "+20 Slows target by",
+        PropertyString: "Slows target by 20",
         Index: 5
       },
       {
-        PropertyString: "160-200% Enhanced Defense",
+        PropertyString: "+160-200% Enhanced Defense",
         Index: 3
       },
       {
-        PropertyString: "+8 % Physical Damage Reduction",
+        PropertyString: "+8% Physical Damage Reduction",
         Index: 0
       },
       {
@@ -17890,7 +17890,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "60% Increased Attack Speed",
+        PropertyString: "+60% Increased Attack Speed",
         Index: 0
       },
       {
@@ -18017,7 +18017,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "+15 % Physical Damage Reduction",
+        PropertyString: "+15% Physical Damage Reduction",
         Index: 4
       },
       {
@@ -18122,7 +18122,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "15% Damage Taken Goes To Mana",
+        PropertyString: "+15% Damage Taken Goes To Mana",
         Index: 0
       },
       {
@@ -18227,7 +18227,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "50% Increased Attack Speed",
+        PropertyString: "+50% Increased Attack Speed",
         Index: 1
       },
       {
@@ -18239,7 +18239,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20% Chance of Crushing Blow",
+        PropertyString: "+20% Chance of Crushing Blow",
         Index: 0
       },
       {
@@ -18255,7 +18255,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "30% better chance of getting magic item",
+        PropertyString: "+30% better chance of getting magic item",
         Index: 0
       },
       {
@@ -18326,19 +18326,19 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20% Increased Attack Speed",
+        PropertyString: "+20% Increased Attack Speed",
         Index: 5
       },
       {
-        PropertyString: "20% Faster Hit Recovery",
+        PropertyString: "+20% Faster Hit Recovery",
         Index: 0
       },
       {
-        PropertyString: "+15 Increase Maximum Life",
+        PropertyString: "+15% Increased Maximum Life",
         Index: 2
       },
       {
-        PropertyString: "+15 Increase Maximum Mana",
+        PropertyString: "+15% Increased Maximum Mana",
         Index: 1
       },
       {
@@ -18443,15 +18443,15 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "4 to All Skills",
+        PropertyString: "+4 to All Skills",
         Index: 0
       },
       {
-        PropertyString: "65% Faster Cast Rate",
+        PropertyString: "+65% Faster Cast Rate",
         Index: 2
       },
       {
-        PropertyString: "60% Faster Hit Recovery",
+        PropertyString: "+60% Faster Hit Recovery",
         Index: 3
       },
       {
@@ -18467,7 +18467,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+15-25 Increase Maximum Life",
+        PropertyString: "+15-25% Increased Maximum Life",
         Index: 5
       },
       {
@@ -18479,11 +18479,11 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "75% extra gold from monsters",
+        PropertyString: "+75% extra gold from monsters",
         Index: 0
       },
       {
-        PropertyString: "30% better chance of getting magic item",
+        PropertyString: "+30% better chance of getting magic item",
         Index: 0
       }
     ],
@@ -18560,15 +18560,15 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "50% Faster Hit Recovery",
+        PropertyString: "+50% Faster Hit Recovery",
         Index: 2
       },
       {
-        PropertyString: "20% Faster Block Rate",
+        PropertyString: "+20% Faster Block Rate",
         Index: 0
       },
       {
-        PropertyString: "55% Increased Chance of Blocking",
+        PropertyString: "+55% Increased Chance of Blocking",
         Index: 0
       },
       {
@@ -18576,7 +18576,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "50 to Life",
+        PropertyString: "+50 to Life",
         Index: 0
       },
       {
@@ -18588,7 +18588,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "25% better chance of getting magic item",
+        PropertyString: "+25% better chance of getting magic item",
         Index: 0
       }
     ],
@@ -18665,7 +18665,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "50% Faster Cast Rate",
+        PropertyString: "+50% Faster Cast Rate",
         Index: 1
       },
       {
@@ -18677,7 +18677,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+20 % Physical Damage Reduction",
+        PropertyString: "+20% Physical Damage Reduction",
         Index: 4
       },
       {
@@ -18689,7 +18689,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "20% Damage Taken Goes To Mana",
+        PropertyString: "+20% Damage Taken Goes To Mana",
         Index: 5
       }
     ],
@@ -18764,11 +18764,11 @@ const json = [
     Code: "Starlight",
     Properties: [
       {
-        PropertyString: "3 to All Skills",
+        PropertyString: "+3 to All Skills",
         Index: 0
       },
       {
-        PropertyString: "20% Faster Hit Recovery",
+        PropertyString: "+20% Faster Hit Recovery",
         Index: 6
       },
       {
@@ -18776,11 +18776,11 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "100-200% Enhanced Defense",
+        PropertyString: "+100-200% Enhanced Defense",
         Index: 2
       },
       {
-        PropertyString: "150-300% better chance of getting magic item",
+        PropertyString: "+150-300% better chance of getting magic item",
         Index: 4
       },
       {
@@ -18800,12 +18800,12 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+50 to Attack Rating (Weapon)",
-        Index: 1
+        PropertyString: "+30% better chance of getting magic item (Weapon)",
+        Index: 0
       },
       {
-        PropertyString: "30% better chance of getting magic item (Weapon)",
-        Index: 0
+        PropertyString: "+50 to Attack Rating (Weapon)",
+        Index: 1
       },
       {
         PropertyString: "Requirements -20% (Weapon)",
@@ -18824,7 +18824,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "25% better chance of getting magic item (Armor)",
+        PropertyString: "+25% better chance of getting magic item (Armor)",
         Index: 0
       },
       {
@@ -18844,7 +18844,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "25% better chance of getting magic item (Shield)",
+        PropertyString: "+25% better chance of getting magic item (Shield)",
         Index: 0
       },
       {

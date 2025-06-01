@@ -1,4 +1,4 @@
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-e6YuMhVl.js";
+import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-CgTtr8GI.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
 const name = "cube-recipes";
 const template = '<template>\n    <h3 class="text-center my-4">\n        ${recipes.length} Recipes Found\n    </h3>\n    <div class="search my-2 text-center">\n        <form>\n            <label>Search Recipes</label><br>\n            <input type="text" value.bind="search" />\n        </form>\n    </div>\n    <div class="row gy-5 px-5 text-center">\n        <div class="col-12 col-md-6 col-xxl-4" repeat.for="recipe of recipes">\n            <div class="card bg-dark p-2">\n                <div class="unique-text">\n                    ${recipe.Description}\n                </div>\n                <div class="description" innerhtml.bind="recipe.Input | cubeInputs"></div>\n\n                <div class="unique-text">\n                    = <br>\n                    ${recipe.Output}\n                </div>\n            </div>\n        </div>\n    </div>\n</template>';
@@ -1247,6 +1247,27 @@ const json = [
     CubeRecipeDescription: "5 Orb Of Infusion + Mephisto's Animus + Baal's Calamity + Diablo's Ire = Orb Of Conversion"
   },
   {
+    Description: "CRAFT ITEM - Unique Armor & Corruption Orb & Mephisto's Animus & Baal's Calamity & Diablo's Ire = Rerolled Unique Item",
+    Item: null,
+    Output: "Any Armor",
+    Input: "Unique Any Armor + Orb of Corruption + Mephisto's Animus + Baal's Calamity + Diablo's Ire ",
+    CubeRecipeDescription: "Unique Any Armor + Orb Of Corruption + Mephisto's Animus + Baal's Calamity + Diablo's Ire = Any Armor"
+  },
+  {
+    Description: "CRAFT ITEM - Unique Shield & Corruption Orb & Mephisto's Animus & Baal's Calamity & Diablo's Ire = Rerolled Unique Item",
+    Item: null,
+    Output: "Any Shield",
+    Input: "Unique Any Shield + Orb of Corruption + Mephisto's Animus + Baal's Calamity + Diablo's Ire ",
+    CubeRecipeDescription: "Unique Any Shield + Orb Of Corruption + Mephisto's Animus + Baal's Calamity + Diablo's Ire = Any Shield"
+  },
+  {
+    Description: "CRAFT ITEM - Unique Weapon & Corruption Orb & Mephisto's Animus & Baal's Calamity & Diablo's Ire = Rerolled Unique Item",
+    Item: null,
+    Output: "Weapon",
+    Input: "Unique Weapon + Orb of Corruption + Mephisto's Animus + Baal's Calamity + Diablo's Ire ",
+    CubeRecipeDescription: "Unique Weapon + Orb Of Corruption + Mephisto's Animus + Baal's Calamity + Diablo's Ire = Weapon"
+  },
+  {
     Description: "CRAFT ITEM - Any Armor & Infusion Orb & Mephisto's Animus & Baal's Calamity & Diablo's Ire = Superior, Elite Item",
     Item: null,
     Output: "elite Any Armor",
@@ -1551,57 +1572,134 @@ const json = [
     Description: "UPGRADE CHARM TIER - T1 Splash Charm & Gem Bag (1 Gem) = T2 Splash Charm",
     Item: null,
     Output: "Gem Bag",
-    Input: "Gem Bag + Collin's Might ",
-    CubeRecipeDescription: "Gem Bag + Collin's Might = Gem Bag"
+    Input: "Gem Bag + Collin's Lesser Might ",
+    CubeRecipeDescription: "Gem Bag + Collin's Lesser Might = Gem Bag"
   },
   {
     Description: "UPGRADE CHARM TIER - T2 Splash Charm & Nef-Rune & Gem Bag (1 Gem) = T3 Splash Charm",
     Item: null,
     Output: "Gem Bag",
-    Input: "Gem Bag + Collin's Fury + Nef Rune ",
-    CubeRecipeDescription: "Gem Bag + Collin's Fury + Nef Rune = Gem Bag"
+    Input: "Gem Bag + Collin's Minor Might + Nef Rune ",
+    CubeRecipeDescription: "Gem Bag + Collin's Minor Might + Nef Rune = Gem Bag"
   },
   {
     Description: "UPGRADE CHARM TIER - T3 Splash Charm & Sol-Rune & Gem Bag (1 Gem) = T4 Splash Charm",
     Item: null,
     Output: "Gem Bag",
-    Input: "Gem Bag + Collin's Devastation + Sol Rune ",
-    CubeRecipeDescription: "Gem Bag + Collin's Devastation + Sol Rune = Gem Bag"
+    Input: "Gem Bag + Collin's Might + Sol Rune ",
+    CubeRecipeDescription: "Gem Bag + Collin's Might + Sol Rune = Gem Bag"
   },
   {
     Description: "UPGRADE CHARM TIER - T4 Splash Charm & Hel-Rune & Gem Bag (2 Gems) & Magic Jewel = T5 Splash Charm",
     Item: null,
     Output: "Gem Bag",
-    Input: "Gem Bag + Tier 4 Splash Charm + Hel Rune + Magic Jewel ",
-    CubeRecipeDescription: "Gem Bag + Tier 4 Splash Charm + Hel Rune + Magic Jewel = Gem Bag"
+    Input: "Gem Bag + Collin's Greater Might + Hel Rune + Magic Jewel ",
+    CubeRecipeDescription: "Gem Bag + Collin's Greater Might + Hel Rune + Magic Jewel = Gem Bag"
   },
   {
     Description: "UPGRADE CHARM TIER - T5 Splash Charm & Fal-Rune & Gem Bag (3 Gems) & 2 Magic Jewels = T6 Splash Charm",
     Item: null,
     Output: "Gem Bag",
-    Input: "Gem Bag + Tier 5 Splash Charm + Fal Rune + 2 Magic Jewel ",
-    CubeRecipeDescription: "Gem Bag + Tier 5 Splash Charm + Fal Rune + 2 Magic Jewel = Gem Bag"
+    Input: "Gem Bag + Collin's Fury + Fal Rune + 2 Magic Jewel ",
+    CubeRecipeDescription: "Gem Bag + Collin's Fury + Fal Rune + 2 Magic Jewel = Gem Bag"
   },
   {
     Description: "UPGRADE CHARM TIER - T6 Splash Charm & Pul-Rune & Eth-Rune & Gem Bag (4 Gems) & 3 Magic Jewels = T7 Splash Charm",
     Item: null,
     Output: "Gem Bag",
-    Input: "Gem Bag + Tier 6 Splash Charm + Pul Rune + Eth Rune + 3 Magic Jewel ",
-    CubeRecipeDescription: "Gem Bag + Tier 6 Splash Charm + Pul Rune + Eth Rune + 3 Magic Jewel = Gem Bag"
+    Input: "Gem Bag + Collin's Greater Fury + Pul Rune + Eth Rune + 3 Magic Jewel ",
+    CubeRecipeDescription: "Gem Bag + Collin's Greater Fury + Pul Rune + Eth Rune + 3 Magic Jewel = Gem Bag"
   },
   {
     Description: "UPGRADE CHARM TIER - T7 Splash Charm & Mal-Rune & Tal-Rune & Gem Bag (5 Gems) & 4 Magic Jewels = T8 Splash Charm",
     Item: null,
     Output: "Gem Bag",
-    Input: "Gem Bag + t7 Splash Charm + Mal Rune + Tal Rune + 4 Magic Jewel ",
-    CubeRecipeDescription: "Gem Bag + T7 Splash Charm + Mal Rune + Tal Rune + 4 Magic Jewel = Gem Bag"
+    Input: "Gem Bag + Collin's Devestation + Mal Rune + Tal Rune + 4 Magic Jewel ",
+    CubeRecipeDescription: "Gem Bag + Collin's Devestation + Mal Rune + Tal Rune + 4 Magic Jewel = Gem Bag"
   },
   {
     Description: "UPGRADE CHARM TIER - T8 Splash Charm & Ohm-Rune & Ral-Rune & Gem Bag (10 Gems) & Rare Jewel & Magic Small Charm = T9 Splash Charm",
     Item: null,
     Output: "Gem Bag",
-    Input: "Gem Bag + t8 Splash Charm + Ohm Rune + Ral Rune + Rare Jewel + Magic Small Charm ",
-    CubeRecipeDescription: "Gem Bag + T8 Splash Charm + Ohm Rune + Ral Rune + Rare Jewel + Magic Small Charm = Gem Bag"
+    Input: "Gem Bag + Collin's Furious Devestation + Ohm Rune + Ral Rune + Rare Jewel + Magic Small Charm ",
+    CubeRecipeDescription: "Gem Bag + Collin's Furious Devestation + Ohm Rune + Ral Rune + Rare Jewel + Magic Small Charm = Gem Bag"
+  },
+  {
+    Description: "UPGRADE CHARM TIER - Hellfire Torch (0/10) & Corruption Orb & Standard of Heroes = 1/10 Upgrades",
+    Item: null,
+    Output: "",
+    Input: "Hellfire Torch + Orb of Corruption + Standard of Heroes ",
+    CubeRecipeDescription: "Hellfire Torch + Orb Of Corruption + Standard Of Heroes = "
+  },
+  {
+    Description: "UPGRADE CHARM TIER - Hellfire Torch (1/10) & Corruption Orb & Standard of Heroes = 2/10 Upgrades",
+    Item: null,
+    Output: "",
+    Input: "Hellfire Torch + Orb of Corruption + Standard of Heroes ",
+    CubeRecipeDescription: "Hellfire Torch + Orb Of Corruption + Standard Of Heroes = "
+  },
+  {
+    Description: "UPGRADE CHARM TIER - Hellfire Torch (2/10) & Corruption Orb & Standard of Heroes = 3/10 Upgrades",
+    Item: null,
+    Output: "",
+    Input: "Hellfire Torch + Orb of Corruption + Standard of Heroes ",
+    CubeRecipeDescription: "Hellfire Torch + Orb Of Corruption + Standard Of Heroes = "
+  },
+  {
+    Description: "UPGRADE CHARM TIER - Hellfire Torch (3/10) & Corruption Orb & Standard of Heroes = 4/10 Upgrades",
+    Item: null,
+    Output: "",
+    Input: "Hellfire Torch + Orb of Corruption + Standard of Heroes ",
+    CubeRecipeDescription: "Hellfire Torch + Orb Of Corruption + Standard Of Heroes = "
+  },
+  {
+    Description: "UPGRADE CHARM TIER - Hellfire Torch (4/10) & Corruption Orb & Standard of Heroes = 5/10 Upgrades",
+    Item: null,
+    Output: "",
+    Input: "Hellfire Torch + Orb of Corruption + Standard of Heroes ",
+    CubeRecipeDescription: "Hellfire Torch + Orb Of Corruption + Standard Of Heroes = "
+  },
+  {
+    Description: "UPGRADE CHARM TIER - Hellfire Torch (5/10) & Corruption Orb & Standard of Heroes = 6/10 Upgrades",
+    Item: null,
+    Output: "",
+    Input: "Hellfire Torch + Orb of Corruption + Standard of Heroes ",
+    CubeRecipeDescription: "Hellfire Torch + Orb Of Corruption + Standard Of Heroes = "
+  },
+  {
+    Description: "UPGRADE CHARM TIER - Hellfire Torch (6/10) & Corruption Orb & Standard of Heroes = 7/10 Upgrades",
+    Item: null,
+    Output: "",
+    Input: "Hellfire Torch + Orb of Corruption + Standard of Heroes ",
+    CubeRecipeDescription: "Hellfire Torch + Orb Of Corruption + Standard Of Heroes = "
+  },
+  {
+    Description: "UPGRADE CHARM TIER - Hellfire Torch (7/10) & Corruption Orb & Standard of Heroes = 8/10 Upgrades",
+    Item: null,
+    Output: "",
+    Input: "Hellfire Torch + Orb of Corruption + Standard of Heroes ",
+    CubeRecipeDescription: "Hellfire Torch + Orb Of Corruption + Standard Of Heroes = "
+  },
+  {
+    Description: "UPGRADE CHARM TIER - Hellfire Torch (8/10) & Corruption Orb & Standard of Heroes = 9/10 Upgrades",
+    Item: null,
+    Output: "",
+    Input: "Hellfire Torch + Orb of Corruption + Standard of Heroes ",
+    CubeRecipeDescription: "Hellfire Torch + Orb Of Corruption + Standard Of Heroes = "
+  },
+  {
+    Description: "UPGRADE CHARM TIER - Hellfire Torch (9/10) & Corruption Orb & Standard of Heroes = Obsidian Beacon",
+    Item: null,
+    Output: "Obsidian Beacon",
+    Input: "Hellfire Torch + Orb of Corruption + Standard of Heroes ",
+    CubeRecipeDescription: "Hellfire Torch + Orb Of Corruption + Standard Of Heroes = Obsidian Beacon"
+  },
+  {
+    Description: "UPGRADE CHARM - Annihilus & Infusion Orb & Conversion Orb & Shadow Orb & Corruption Orb & Assemblage Orb",
+    Item: null,
+    Output: "Black Soulstone",
+    Input: "Annihilus + Orb of Infusion + Orb of Conversion + Orb of Shadows + Orb of Corruption + Orb of Assemblage ",
+    CubeRecipeDescription: "Annihilus + Orb Of Infusion + Orb Of Conversion + Orb Of Shadows + Orb Of Corruption + Orb Of Assemblage = Black Soulstone"
   },
   {
     Description: "UPGRADE ARMOR QUALITY - Armor Rare Normal & Ral-Rune & Thul-Rune & Amethyst = Armor Rare Exceptional",
@@ -4404,6 +4502,55 @@ const json = [
     CubeRecipeDescription: "Skull Grabber = Amethyst Grabber"
   },
   {
+    Description: "GEMBAG TRANSFER OUT GEM - Gem Bag & Amethyst Grabber = Amethyst",
+    Item: null,
+    Output: "Gem Bag",
+    Input: "Gem Bag + Amethyst Grabber ",
+    CubeRecipeDescription: "Gem Bag + Amethyst Grabber = Gem Bag"
+  },
+  {
+    Description: "GEMBAG TRANSFER OUT GEM - Gem Bag & Topaz Grabber = Topaz",
+    Item: null,
+    Output: "Gem Bag",
+    Input: "Gem Bag + Topaz Grabber ",
+    CubeRecipeDescription: "Gem Bag + Topaz Grabber = Gem Bag"
+  },
+  {
+    Description: "GEMBAG TRANSFER OUT GEM - Gem Bag & Sapphire Grabber = Sapphire",
+    Item: null,
+    Output: "Gem Bag",
+    Input: "Gem Bag + Sapphire Grabber ",
+    CubeRecipeDescription: "Gem Bag + Sapphire Grabber = Gem Bag"
+  },
+  {
+    Description: "GEMBAG TRANSFER OUT GEM - Gem Bag & Emerald Grabber = Emerald",
+    Item: null,
+    Output: "Gem Bag",
+    Input: "Gem Bag + Emerald Grabber ",
+    CubeRecipeDescription: "Gem Bag + Emerald Grabber = Gem Bag"
+  },
+  {
+    Description: "GEMBAG TRANSFER OUT GEM - Gem Bag & Diamond Grabber = Diamond",
+    Item: null,
+    Output: "Gem Bag",
+    Input: "Gem Bag + Diamond Grabber ",
+    CubeRecipeDescription: "Gem Bag + Diamond Grabber = Gem Bag"
+  },
+  {
+    Description: "GEMBAG TRANSFER OUT GEM - Gem Bag & Ruby Grabber = Ruby",
+    Item: null,
+    Output: "Gem Bag",
+    Input: "Gem Bag + Ruby Grabber ",
+    CubeRecipeDescription: "Gem Bag + Ruby Grabber = Gem Bag"
+  },
+  {
+    Description: "GEMBAG TRANSFER OUT GEM - Gem Bag & Skull Grabber = Skull",
+    Item: null,
+    Output: "Gem Bag",
+    Input: "Gem Bag + Skull Grabber ",
+    CubeRecipeDescription: "Gem Bag + Skull Grabber = Gem Bag"
+  },
+  {
     Description: "KEYCHAIN CHANGE GRABBER - Terror Key Grabber = Hate Key Grabber",
     Item: null,
     Output: "Hate Key Grabber",
@@ -4425,1124 +4572,88 @@ const json = [
     CubeRecipeDescription: "Desctruction Key Grabber = Terror Key Grabber"
   },
   {
-    Description: "SOCKET PUNCH 1 - Helmet Low Quality",
+    Description: "KEYCHAIN TRANSFER IN KEY - Keychain & Terror Key = Terror Key qty +1",
     Item: null,
-    Output: "Socketed Helm",
-    Input: "Low Quality Helm + Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Helm + Magic Jewel = Socketed Helm"
+    Output: "Storage for Keys",
+    Input: "Storage for Keys + Key of Terror ",
+    CubeRecipeDescription: "Storage For Keys + Key Of Terror = Storage For Keys"
   },
   {
-    Description: "SOCKET PUNCH 1 - Helmet Normal Quality",
+    Description: "KEYCHAIN TRANSFER IN KEY - Keychain & Hate Key = Hate Key qty + 1",
     Item: null,
-    Output: "Socketed Helm",
-    Input: "Normal Helm + Magic Jewel ",
-    CubeRecipeDescription: "Normal Helm + Magic Jewel = Socketed Helm"
+    Output: "Storage for Keys",
+    Input: "Storage for Keys + Key of Hate ",
+    CubeRecipeDescription: "Storage For Keys + Key Of Hate = Storage For Keys"
   },
   {
-    Description: "SOCKET PUNCH 1 - Helmet High Quality",
+    Description: "KEYCHAIN TRANSFER IN KEY - Keychain & Destruction Key = Destruction Key qty + 1",
     Item: null,
-    Output: "Socketed Helm",
-    Input: "Helm + Magic Jewel ",
-    CubeRecipeDescription: "Helm + Magic Jewel = Socketed Helm"
+    Output: "Storage for Keys",
+    Input: "Storage for Keys + Key of Destruction ",
+    CubeRecipeDescription: "Storage For Keys + Key Of Destruction = Storage For Keys"
   },
   {
-    Description: "SOCKET PUNCH 1 - Helmet Magic",
+    Description: "KEYCHAIN TRANSFER IN KEY - Keychain & 2 Terror Key = Terror Key qty + 2",
     Item: null,
-    Output: "Socketed Helm",
-    Input: "Magic Helm + Magic Jewel ",
-    CubeRecipeDescription: "Magic Helm + Magic Jewel = Socketed Helm"
+    Output: "Storage for Keys",
+    Input: "Storage for Keys + 2 Key of Terror ",
+    CubeRecipeDescription: "Storage For Keys + 2 Key Of Terror = Storage For Keys"
   },
   {
-    Description: "SOCKET PUNCH 1 - Helmet Rare",
+    Description: "KEYCHAIN TRANSFER IN KEY - Keychain & 2 Hate Key = Hate Key qty + 2",
     Item: null,
-    Output: "Socketed Helm",
-    Input: "Rare Helm + Rare Jewel ",
-    CubeRecipeDescription: "Rare Helm + Rare Jewel = Socketed Helm"
+    Output: "Storage for Keys",
+    Input: "Storage for Keys + 2 Key of Hate ",
+    CubeRecipeDescription: "Storage For Keys + 2 Key Of Hate = Storage For Keys"
   },
   {
-    Description: "SOCKET PUNCH 1 - Helmet Craft",
+    Description: "KEYCHAIN TRANSFER IN KEY - Keychain & 2 Destruction Key = Destruction Key qty + 2",
     Item: null,
-    Output: "Socketed Helm",
-    Input: "Helm + Unique Jewel ",
-    CubeRecipeDescription: "Helm + Unique Jewel = Socketed Helm"
+    Output: "Storage for Keys",
+    Input: "Storage for Keys + 2 Key of Destruction ",
+    CubeRecipeDescription: "Storage For Keys + 2 Key Of Destruction = Storage For Keys"
   },
   {
-    Description: "SOCKET PUNCH 1 - Helmet Set",
+    Description: "KEYCHAIN TRANSFER IN KEY - Keychain & 3 Terror Key = Terror Key qty + 3",
     Item: null,
-    Output: "Socketed Helm",
-    Input: "Set Helm + Rare Jewel ",
-    CubeRecipeDescription: "Set Helm + Rare Jewel = Socketed Helm"
+    Output: "Storage for Keys",
+    Input: "Storage for Keys + 3 Key of Terror ",
+    CubeRecipeDescription: "Storage For Keys + 3 Key Of Terror = Storage For Keys"
   },
   {
-    Description: "SOCKET PUNCH 1 - Helmet Unique",
+    Description: "KEYCHAIN TRANSFER IN KEY - Keychain & 3 Hate Key = Hate Key qty + 3",
     Item: null,
-    Output: "Socketed Helm",
-    Input: "Unique Helm + Unique Jewel ",
-    CubeRecipeDescription: "Unique Helm + Unique Jewel = Socketed Helm"
+    Output: "Storage for Keys",
+    Input: "Storage for Keys + 3 Key of Hate ",
+    CubeRecipeDescription: "Storage For Keys + 3 Key Of Hate = Storage For Keys"
   },
   {
-    Description: "SOCKET PUNCH 2 - Helmet Low Quality",
+    Description: "KEYCHAIN TRANSFER IN KEY - Keychain & 3 Destruction Key = Destruction Key qty + 3",
     Item: null,
-    Output: "Socketed Helm",
-    Input: "Low Quality Helm + 2 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Helm + 2 Magic Jewel = Socketed Helm"
+    Output: "Storage for Keys",
+    Input: "Storage for Keys + 3 Key of Destruction ",
+    CubeRecipeDescription: "Storage For Keys + 3 Key Of Destruction = Storage For Keys"
   },
   {
-    Description: "SOCKET PUNCH 2 - Helmet Normal Quality",
+    Description: "KEYCHAIN TRANSFER OUT KEY - Keychain & Terror Key Grabber = Terror Key qty - 1 & 1 Terror Key",
     Item: null,
-    Output: "Socketed Helm",
-    Input: "Normal Helm + 2 Magic Jewel ",
-    CubeRecipeDescription: "Normal Helm + 2 Magic Jewel = Socketed Helm"
+    Output: "Storage for Keys",
+    Input: "Storage for Keys + Terror Key Grabber ",
+    CubeRecipeDescription: "Storage For Keys + Terror Key Grabber = Storage For Keys"
   },
   {
-    Description: "SOCKET PUNCH 2 - Helmet High Quality",
+    Description: "KEYCHAIN TRANSFER OUT KEY - Keychain & Hate Key Grabber = Hate Key qty - 1 & 1 Hate Key",
     Item: null,
-    Output: "Socketed Helm",
-    Input: "Helm + 2 Magic Jewel ",
-    CubeRecipeDescription: "Helm + 2 Magic Jewel = Socketed Helm"
+    Output: "Storage for Keys",
+    Input: "Storage for Keys + Hate Key Grabber ",
+    CubeRecipeDescription: "Storage For Keys + Hate Key Grabber = Storage For Keys"
   },
   {
-    Description: "SOCKET PUNCH 2 - Helmet Magic",
+    Description: "KEYCHAIN TRANSFER OUT KEY - Keychain & Destruction Key Grabber = Destruction Key qty - 1 & 1 Destruction Key",
     Item: null,
-    Output: "Socketed Helm",
-    Input: "Magic Helm + 2 Magic Jewel ",
-    CubeRecipeDescription: "Magic Helm + 2 Magic Jewel = Socketed Helm"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Helmet Rare",
-    Item: null,
-    Output: "Socketed Helm",
-    Input: "Rare Helm + 2 Rare Jewel ",
-    CubeRecipeDescription: "Rare Helm + 2 Rare Jewel = Socketed Helm"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Helmet Craft",
-    Item: null,
-    Output: "Socketed Helm",
-    Input: "Helm + 2 Unique Jewel ",
-    CubeRecipeDescription: "Helm + 2 Unique Jewel = Socketed Helm"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Helmet Set",
-    Item: null,
-    Output: "Socketed Helm",
-    Input: "Set Helm + 2 Rare Jewel ",
-    CubeRecipeDescription: "Set Helm + 2 Rare Jewel = Socketed Helm"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Helmet Unique",
-    Item: null,
-    Output: "Socketed Helm",
-    Input: "Unique Helm + 2 Unique Jewel ",
-    CubeRecipeDescription: "Unique Helm + 2 Unique Jewel = Socketed Helm"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Helmet Low Quality",
-    Item: null,
-    Output: "Socketed Helm",
-    Input: "Low Quality Helm + 3 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Helm + 3 Magic Jewel = Socketed Helm"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Helmet Normal Quality",
-    Item: null,
-    Output: "Socketed Helm",
-    Input: "Normal Helm + 3 Magic Jewel ",
-    CubeRecipeDescription: "Normal Helm + 3 Magic Jewel = Socketed Helm"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Helmet High Quality",
-    Item: null,
-    Output: "Socketed Helm",
-    Input: "Helm + 3 Magic Jewel ",
-    CubeRecipeDescription: "Helm + 3 Magic Jewel = Socketed Helm"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Helmet Magic",
-    Item: null,
-    Output: "Socketed Helm",
-    Input: "Magic Helm + 3 Magic Jewel ",
-    CubeRecipeDescription: "Magic Helm + 3 Magic Jewel = Socketed Helm"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Helmet Rare",
-    Item: null,
-    Output: "Socketed Helm",
-    Input: "Rare Helm + 3 Rare Jewel ",
-    CubeRecipeDescription: "Rare Helm + 3 Rare Jewel = Socketed Helm"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Helmet Craft",
-    Item: null,
-    Output: "Socketed Helm",
-    Input: "Helm + 3 Unique Jewel ",
-    CubeRecipeDescription: "Helm + 3 Unique Jewel = Socketed Helm"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Helmet Set",
-    Item: null,
-    Output: "Socketed Helm",
-    Input: "Set Helm + 3 Rare Jewel ",
-    CubeRecipeDescription: "Set Helm + 3 Rare Jewel = Socketed Helm"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Helmet Unique",
-    Item: null,
-    Output: "Socketed Helm",
-    Input: "Unique Helm + 3 Unique Jewel ",
-    CubeRecipeDescription: "Unique Helm + 3 Unique Jewel = Socketed Helm"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Helmet Low Quality",
-    Item: null,
-    Output: "Socketed Helm",
-    Input: "Low Quality Helm + 4 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Helm + 4 Magic Jewel = Socketed Helm"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Helmet Normal Quality",
-    Item: null,
-    Output: "Socketed Helm",
-    Input: "Normal Helm + 4 Magic Jewel ",
-    CubeRecipeDescription: "Normal Helm + 4 Magic Jewel = Socketed Helm"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Helmet High Quality",
-    Item: null,
-    Output: "Socketed Helm",
-    Input: "Helm + 4 Magic Jewel ",
-    CubeRecipeDescription: "Helm + 4 Magic Jewel = Socketed Helm"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Helmet Magic",
-    Item: null,
-    Output: "Socketed Helm",
-    Input: "Magic Helm + 4 Magic Jewel ",
-    CubeRecipeDescription: "Magic Helm + 4 Magic Jewel = Socketed Helm"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Helmet Rare",
-    Item: null,
-    Output: "Socketed Helm",
-    Input: "Rare Helm + 4 Rare Jewel ",
-    CubeRecipeDescription: "Rare Helm + 4 Rare Jewel = Socketed Helm"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Helmet Craft",
-    Item: null,
-    Output: "Socketed Helm",
-    Input: "Helm + 4 Unique Jewel ",
-    CubeRecipeDescription: "Helm + 4 Unique Jewel = Socketed Helm"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Helmet Set",
-    Item: null,
-    Output: "Socketed Helm",
-    Input: "Set Helm + 4 Rare Jewel ",
-    CubeRecipeDescription: "Set Helm + 4 Rare Jewel = Socketed Helm"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Helmet Unique",
-    Item: null,
-    Output: "Socketed Helm",
-    Input: "Unique Helm + 4 Unique Jewel ",
-    CubeRecipeDescription: "Unique Helm + 4 Unique Jewel = Socketed Helm"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Body Armor Low Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Low Quality Armor + Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Armor + Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Body Armor Normal Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Normal Armor + Magic Jewel ",
-    CubeRecipeDescription: "Normal Armor + Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Body Armor High Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Armor + Magic Jewel ",
-    CubeRecipeDescription: "Armor + Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Body Armor Magic",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Magic Armor + Magic Jewel ",
-    CubeRecipeDescription: "Magic Armor + Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Body Armor Rare",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Rare Armor + Rare Jewel ",
-    CubeRecipeDescription: "Rare Armor + Rare Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Body Armor Craft",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Armor + Unique Jewel ",
-    CubeRecipeDescription: "Armor + Unique Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Body Armor Set",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Set Armor + Rare Jewel ",
-    CubeRecipeDescription: "Set Armor + Rare Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Body Armor Unique",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Unique Armor + Unique Jewel ",
-    CubeRecipeDescription: "Unique Armor + Unique Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Body Armor Low Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Low Quality Armor + 2 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Armor + 2 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Body Armor Normal Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Normal Armor + 2 Magic Jewel ",
-    CubeRecipeDescription: "Normal Armor + 2 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Body Armor High Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Armor + 2 Magic Jewel ",
-    CubeRecipeDescription: "Armor + 2 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Body Armor Magic",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Magic Armor + 2 Magic Jewel ",
-    CubeRecipeDescription: "Magic Armor + 2 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Body Armor Rare",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Rare Armor + 2 Rare Jewel ",
-    CubeRecipeDescription: "Rare Armor + 2 Rare Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Body Armor Craft",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Armor + 2 Unique Jewel ",
-    CubeRecipeDescription: "Armor + 2 Unique Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Body Armor Set",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Set Armor + 2 Rare Jewel ",
-    CubeRecipeDescription: "Set Armor + 2 Rare Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Body Armor Unique",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Unique Armor + 2 Unique Jewel ",
-    CubeRecipeDescription: "Unique Armor + 2 Unique Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Body Armor Low Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Low Quality Armor + 3 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Armor + 3 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Body Armor Normal Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Normal Armor + 3 Magic Jewel ",
-    CubeRecipeDescription: "Normal Armor + 3 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Body Armor High Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Armor + 3 Magic Jewel ",
-    CubeRecipeDescription: "Armor + 3 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Body Armor Magic",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Magic Armor + 3 Magic Jewel ",
-    CubeRecipeDescription: "Magic Armor + 3 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Body Armor Rare",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Rare Armor + 3 Rare Jewel ",
-    CubeRecipeDescription: "Rare Armor + 3 Rare Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Body Armor Craft",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Armor + 3 Unique Jewel ",
-    CubeRecipeDescription: "Armor + 3 Unique Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Body Armor Set",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Set Armor + 3 Rare Jewel ",
-    CubeRecipeDescription: "Set Armor + 3 Rare Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Body Armor Unique",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Unique Armor + 3 Unique Jewel ",
-    CubeRecipeDescription: "Unique Armor + 3 Unique Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Body Armor Low Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Low Quality Armor + 4 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Armor + 4 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Body Armor Normal Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Normal Armor + 4 Magic Jewel ",
-    CubeRecipeDescription: "Normal Armor + 4 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Body Armor High Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Armor + 4 Magic Jewel ",
-    CubeRecipeDescription: "Armor + 4 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Body Armor Magic",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Magic Armor + 4 Magic Jewel ",
-    CubeRecipeDescription: "Magic Armor + 4 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Body Armor Rare",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Rare Armor + 4 Rare Jewel ",
-    CubeRecipeDescription: "Rare Armor + 4 Rare Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Body Armor Craft",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Armor + 4 Unique Jewel ",
-    CubeRecipeDescription: "Armor + 4 Unique Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Body Armor Set",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Set Armor + 4 Rare Jewel ",
-    CubeRecipeDescription: "Set Armor + 4 Rare Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Body Armor Unique",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Unique Armor + 4 Unique Jewel ",
-    CubeRecipeDescription: "Unique Armor + 4 Unique Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Body Armor Low Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Low Quality Armor + 5 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Armor + 5 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Body Armor Normal Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Normal Armor + 5 Magic Jewel ",
-    CubeRecipeDescription: "Normal Armor + 5 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Body Armor High Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Armor + 5 Magic Jewel ",
-    CubeRecipeDescription: "Armor + 5 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Body Armor Magic",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Magic Armor + 5 Magic Jewel ",
-    CubeRecipeDescription: "Magic Armor + 5 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Body Armor Rare",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Rare Armor + 5 Rare Jewel ",
-    CubeRecipeDescription: "Rare Armor + 5 Rare Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Body Armor Craft",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Armor + 5 Unique Jewel ",
-    CubeRecipeDescription: "Armor + 5 Unique Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Body Armor Set",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Set Armor + 5 Rare Jewel ",
-    CubeRecipeDescription: "Set Armor + 5 Rare Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Body Armor Unique",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Unique Armor + 5 Unique Jewel ",
-    CubeRecipeDescription: "Unique Armor + 5 Unique Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Body Armor Low Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Low Quality Armor + 6 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Armor + 6 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Body Armor Normal Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Normal Armor + 6 Magic Jewel ",
-    CubeRecipeDescription: "Normal Armor + 6 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Body Armor High Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Armor + 6 Magic Jewel ",
-    CubeRecipeDescription: "Armor + 6 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Body Armor Magic",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Magic Armor + 6 Magic Jewel ",
-    CubeRecipeDescription: "Magic Armor + 6 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Body Armor Rare",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Rare Armor + 6 Rare Jewel ",
-    CubeRecipeDescription: "Rare Armor + 6 Rare Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Body Armor Craft",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Armor + 6 Unique Jewel ",
-    CubeRecipeDescription: "Armor + 6 Unique Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Body Armor Set",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Set Armor + 6 Rare Jewel ",
-    CubeRecipeDescription: "Set Armor + 6 Rare Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Body Armor Unique",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Unique Armor + 6 Unique Jewel ",
-    CubeRecipeDescription: "Unique Armor + 6 Unique Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Shield Low Quality",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Low Quality Any Shield + Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Any Shield + Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Shield Normal Quality",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Normal Any Shield + Magic Jewel ",
-    CubeRecipeDescription: "Normal Any Shield + Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Shield High Quality",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Any Shield + Magic Jewel ",
-    CubeRecipeDescription: "Any Shield + Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Shield Magic",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Magic Any Shield + Magic Jewel ",
-    CubeRecipeDescription: "Magic Any Shield + Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Shield Rare",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Rare Any Shield + Rare Jewel ",
-    CubeRecipeDescription: "Rare Any Shield + Rare Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Shield Craft",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Any Shield + Unique Jewel ",
-    CubeRecipeDescription: "Any Shield + Unique Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Shield Set",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Set Any Shield + Rare Jewel ",
-    CubeRecipeDescription: "Set Any Shield + Rare Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Shield Unique",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Unique Any Shield + Unique Jewel ",
-    CubeRecipeDescription: "Unique Any Shield + Unique Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Shield Low Quality",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Low Quality Any Shield + 2 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Any Shield + 2 Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Shield Normal Quality",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Normal Any Shield + 2 Magic Jewel ",
-    CubeRecipeDescription: "Normal Any Shield + 2 Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Shield High Quality",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Any Shield + 2 Magic Jewel ",
-    CubeRecipeDescription: "Any Shield + 2 Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Shield Magic",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Magic Any Shield + 2 Magic Jewel ",
-    CubeRecipeDescription: "Magic Any Shield + 2 Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Shield Rare",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Rare Any Shield + 2 Rare Jewel ",
-    CubeRecipeDescription: "Rare Any Shield + 2 Rare Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Shield Craft",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Any Shield + 2 Unique Jewel ",
-    CubeRecipeDescription: "Any Shield + 2 Unique Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Shield Set",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Set Any Shield + 2 Rare Jewel ",
-    CubeRecipeDescription: "Set Any Shield + 2 Rare Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Shield Unique",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Unique Any Shield + 2 Unique Jewel ",
-    CubeRecipeDescription: "Unique Any Shield + 2 Unique Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Shield Low Quality",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Low Quality Any Shield + 3 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Any Shield + 3 Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Shield Normal Quality",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Normal Any Shield + 3 Magic Jewel ",
-    CubeRecipeDescription: "Normal Any Shield + 3 Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Shield High Quality",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Any Shield + 3 Magic Jewel ",
-    CubeRecipeDescription: "Any Shield + 3 Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Shield Magic",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Magic Any Shield + 3 Magic Jewel ",
-    CubeRecipeDescription: "Magic Any Shield + 3 Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Shield Rare",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Rare Any Shield + 3 Rare Jewel ",
-    CubeRecipeDescription: "Rare Any Shield + 3 Rare Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Shield Craft",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Any Shield + 3 Unique Jewel ",
-    CubeRecipeDescription: "Any Shield + 3 Unique Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Shield Set",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Set Any Shield + 3 Rare Jewel ",
-    CubeRecipeDescription: "Set Any Shield + 3 Rare Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Shield Unique",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Unique Any Shield + 3 Unique Jewel ",
-    CubeRecipeDescription: "Unique Any Shield + 3 Unique Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Shield Low Quality",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Low Quality Any Shield + 4 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Any Shield + 4 Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Shield Normal Quality",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Normal Any Shield + 4 Magic Jewel ",
-    CubeRecipeDescription: "Normal Any Shield + 4 Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Shield High Quality",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Any Shield + 4 Magic Jewel ",
-    CubeRecipeDescription: "Any Shield + 4 Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Shield Magic",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Magic Any Shield + 4 Magic Jewel ",
-    CubeRecipeDescription: "Magic Any Shield + 4 Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Shield Rare",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Rare Any Shield + 4 Rare Jewel ",
-    CubeRecipeDescription: "Rare Any Shield + 4 Rare Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Shield Craft",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Any Shield + 4 Unique Jewel ",
-    CubeRecipeDescription: "Any Shield + 4 Unique Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Shield Set",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Set Any Shield + 4 Rare Jewel ",
-    CubeRecipeDescription: "Set Any Shield + 4 Rare Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Shield Unique",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Unique Any Shield + 4 Unique Jewel ",
-    CubeRecipeDescription: "Unique Any Shield + 4 Unique Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Weapon Low Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Low Quality Weapon + Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Weapon + Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Weapon Normal Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Normal Weapon + Magic Jewel ",
-    CubeRecipeDescription: "Normal Weapon + Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Weapon High Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Weapon + Magic Jewel ",
-    CubeRecipeDescription: "Weapon + Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Weapon Magic",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Magic Weapon + Magic Jewel ",
-    CubeRecipeDescription: "Magic Weapon + Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Weapon Rare",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Rare Weapon + Rare Jewel ",
-    CubeRecipeDescription: "Rare Weapon + Rare Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Weapon Craft",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Weapon + Unique Jewel ",
-    CubeRecipeDescription: "Weapon + Unique Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Weapon Set",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Set Weapon + Rare Jewel ",
-    CubeRecipeDescription: "Set Weapon + Rare Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Weapon Unique",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Unique Weapon + Unique Jewel ",
-    CubeRecipeDescription: "Unique Weapon + Unique Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Weapon Low Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Low Quality Weapon + 2 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Weapon + 2 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Weapon Normal Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Normal Weapon + 2 Magic Jewel ",
-    CubeRecipeDescription: "Normal Weapon + 2 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Weapon High Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Weapon + 2 Magic Jewel ",
-    CubeRecipeDescription: "Weapon + 2 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Weapon Magic",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Magic Weapon + 2 Magic Jewel ",
-    CubeRecipeDescription: "Magic Weapon + 2 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Weapon Rare",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Rare Weapon + 2 Rare Jewel ",
-    CubeRecipeDescription: "Rare Weapon + 2 Rare Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Weapon Craft",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Weapon + 2 Unique Jewel ",
-    CubeRecipeDescription: "Weapon + 2 Unique Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Weapon Set",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Set Weapon + 2 Rare Jewel ",
-    CubeRecipeDescription: "Set Weapon + 2 Rare Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Weapon Unique",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Unique Weapon + 2 Unique Jewel ",
-    CubeRecipeDescription: "Unique Weapon + 2 Unique Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Weapon Low Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Low Quality Weapon + 3 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Weapon + 3 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Weapon Normal Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Normal Weapon + 3 Magic Jewel ",
-    CubeRecipeDescription: "Normal Weapon + 3 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Weapon High Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Weapon + 3 Magic Jewel ",
-    CubeRecipeDescription: "Weapon + 3 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Weapon Magic",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Magic Weapon + 3 Magic Jewel ",
-    CubeRecipeDescription: "Magic Weapon + 3 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Weapon Rare",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Rare Weapon + 3 Rare Jewel ",
-    CubeRecipeDescription: "Rare Weapon + 3 Rare Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Weapon Craft",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Weapon + 3 Unique Jewel ",
-    CubeRecipeDescription: "Weapon + 3 Unique Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Weapon Set",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Set Weapon + 3 Rare Jewel ",
-    CubeRecipeDescription: "Set Weapon + 3 Rare Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Weapon Unique",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Unique Weapon + 3 Unique Jewel ",
-    CubeRecipeDescription: "Unique Weapon + 3 Unique Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Weapon Low Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Low Quality Weapon + 4 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Weapon + 4 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Weapon Normal Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Normal Weapon + 4 Magic Jewel ",
-    CubeRecipeDescription: "Normal Weapon + 4 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Weapon High Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Weapon + 4 Magic Jewel ",
-    CubeRecipeDescription: "Weapon + 4 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Weapon Magic",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Magic Weapon + 4 Magic Jewel ",
-    CubeRecipeDescription: "Magic Weapon + 4 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Weapon Rare",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Rare Weapon + 4 Rare Jewel ",
-    CubeRecipeDescription: "Rare Weapon + 4 Rare Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Weapon Craft",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Weapon + 4 Unique Jewel ",
-    CubeRecipeDescription: "Weapon + 4 Unique Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Weapon Set",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Set Weapon + 4 Rare Jewel ",
-    CubeRecipeDescription: "Set Weapon + 4 Rare Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Weapon Unique",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Unique Weapon + 4 Unique Jewel ",
-    CubeRecipeDescription: "Unique Weapon + 4 Unique Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Weapon Low Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Low Quality Weapon + 5 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Weapon + 5 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Weapon Normal Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Normal Weapon + 5 Magic Jewel ",
-    CubeRecipeDescription: "Normal Weapon + 5 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Weapon High Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Weapon + 5 Magic Jewel ",
-    CubeRecipeDescription: "Weapon + 5 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Weapon Magic",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Magic Weapon + 5 Magic Jewel ",
-    CubeRecipeDescription: "Magic Weapon + 5 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Weapon Rare",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Rare Weapon + 5 Rare Jewel ",
-    CubeRecipeDescription: "Rare Weapon + 5 Rare Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Weapon Craft",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Weapon + 5 Unique Jewel ",
-    CubeRecipeDescription: "Weapon + 5 Unique Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Weapon Set",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Set Weapon + 5 Rare Jewel ",
-    CubeRecipeDescription: "Set Weapon + 5 Rare Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Weapon Unique",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Unique Weapon + 5 Unique Jewel ",
-    CubeRecipeDescription: "Unique Weapon + 5 Unique Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Weapon Low Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Low Quality Weapon + 6 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Weapon + 6 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Weapon Normal Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Normal Weapon + 6 Magic Jewel ",
-    CubeRecipeDescription: "Normal Weapon + 6 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Weapon High Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Weapon + 6 Magic Jewel ",
-    CubeRecipeDescription: "Weapon + 6 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Weapon Magic",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Magic Weapon + 6 Magic Jewel ",
-    CubeRecipeDescription: "Magic Weapon + 6 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Weapon Rare",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Rare Weapon + 6 Rare Jewel ",
-    CubeRecipeDescription: "Rare Weapon + 6 Rare Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Weapon Craft",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Weapon + 6 Unique Jewel ",
-    CubeRecipeDescription: "Weapon + 6 Unique Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Weapon Set",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Set Weapon + 6 Rare Jewel ",
-    CubeRecipeDescription: "Set Weapon + 6 Rare Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Weapon Unique",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Unique Weapon + 6 Unique Jewel ",
-    CubeRecipeDescription: "Unique Weapon + 6 Unique Jewel = Socketed Weapon"
+    Output: "Storage for Keys",
+    Input: "Storage for Keys + Desctruction Key Grabber ",
+    CubeRecipeDescription: "Storage For Keys + Desctruction Key Grabber = Storage For Keys"
   }
 ];
 var __create = Object.create;
