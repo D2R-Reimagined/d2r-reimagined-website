@@ -37,7 +37,7 @@
         "Code": "Law",
         "Properties": [
             {
-                "PropertyString": "+15 Increased Attack Speed",
+                "PropertyString": "+15% Increased Attack Speed",
                 "Index": 2
             },
             {
@@ -49,11 +49,11 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+30 Slows target by",
+                "PropertyString": "Slows target by 30",
                 "Index": 5
             },
             {
-                "PropertyString": "48 to Life",
+                "PropertyString": "+48 to Life",
                 "Index": 3
             },
             {
@@ -120,11 +120,11 @@
         "Code": "Knowledge",
         "Properties": [
             {
-                "PropertyString": "1 to All Skills",
+                "PropertyString": "+1 to All Skills",
                 "Index": 3
             },
             {
-                "PropertyString": "+15 Increased Attack Speed",
+                "PropertyString": "+15% Increased Attack Speed",
                 "Index": 4
             },
             {
@@ -136,7 +136,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "150 to Attack Rating",
+                "PropertyString": "+150 to Attack Rating",
                 "Index": 1
             },
             {
@@ -144,7 +144,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "3 to Light Radius",
+                "PropertyString": "+3 to Light Radius",
                 "Index": 0
             },
             {
@@ -217,36 +217,44 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+30-50 Enhanced Defense",
+                "PropertyString": "+30-50% Enhanced Defense",
                 "Index": 1
             },
             {
-                "PropertyString": "+5 to all Attributes",
+                "PropertyString": "+5 to All Attributes",
                 "Index": 2
             },
             {
-                "PropertyString": "+20-25 better chance of getting magic item",
+                "PropertyString": "+20-25% better chance of getting magic item",
                 "Index": 3
+            },
+            {
+                "PropertyString": "+1 to Light Radius (Weapon)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+1 to Light Radius (Weapon)",
+                "Index": 0
             },
             {
                 "PropertyString": "+2 to Mana after each Kill (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "1 to Light Radius (Weapon)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "1 to Light Radius (Weapon)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "50 to Attack Rating (Weapon)",
+                "PropertyString": "+50 to Attack Rating (Weapon)",
                 "Index": 1
             },
             {
-                "PropertyString": "50 to Attack Rating (Weapon)",
+                "PropertyString": "+50 to Attack Rating (Weapon)",
                 "Index": 1
+            },
+            {
+                "PropertyString": "+1 to Light Radius (Armor)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+1 to Light Radius (Armor)",
+                "Index": 0
             },
             {
                 "PropertyString": "+15 Defense (Armor)",
@@ -261,11 +269,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "1 to Light Radius (Armor)",
+                "PropertyString": "+1 to Light Radius (Shield)",
                 "Index": 0
             },
             {
-                "PropertyString": "1 to Light Radius (Armor)",
+                "PropertyString": "+1 to Light Radius (Shield)",
                 "Index": 0
             },
             {
@@ -278,14 +286,6 @@
             },
             {
                 "PropertyString": "+2 to Mana after each Kill (Shield)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "1 to Light Radius (Shield)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "1 to Light Radius (Shield)",
                 "Index": 0
             }
         ],
@@ -330,7 +330,7 @@
         "Code": "Nadir",
         "Properties": [
             {
-                "PropertyString": "+50 Enhanced Defense",
+                "PropertyString": "+50% Enhanced Defense",
                 "Index": 0
             },
             {
@@ -350,7 +350,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "-33 extra gold from monsters",
+                "PropertyString": "-33% extra gold from monsters",
                 "Index": 4
             },
             {
@@ -423,7 +423,7 @@
         "Code": "Steel",
         "Properties": [
             {
-                "PropertyString": "+25 Increased Attack Speed",
+                "PropertyString": "+25% Increased Attack Speed",
                 "Index": 0
             },
             {
@@ -439,11 +439,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "50 to Attack Rating",
+                "PropertyString": "+50 to Attack Rating",
                 "Index": 1
             },
             {
-                "PropertyString": "50% Chance of Open Wounds",
+                "PropertyString": "+50% Chance of Open Wounds",
                 "Index": 3
             },
             {
@@ -451,7 +451,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "1 to Light Radius",
+                "PropertyString": "+1 to Light Radius",
                 "Index": 0
             }
         ],
@@ -500,11 +500,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+10 Faster Run/Walk",
+                "PropertyString": "+10% Faster Run/Walk",
                 "Index": 0
             },
             {
-                "PropertyString": "+10 Faster Hit Recovery",
+                "PropertyString": "+10% Faster Hit Recovery",
                 "Index": 1
             },
             {
@@ -520,7 +520,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "12 to Light Radius",
+                "PropertyString": "+12 to Light Radius",
                 "Index": 3
             }
         ],
@@ -569,15 +569,15 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+100 Faster Run/Walk",
+                "PropertyString": "+100% Faster Run/Walk",
                 "Index": 1
             },
             {
-                "PropertyString": "50 to Attack Rating",
+                "PropertyString": "+50 to Attack Rating",
                 "Index": 1
             },
             {
-                "PropertyString": "-3.75% Drain Life (Per on Character Level)",
+                "PropertyString": "-3.75 Drain Life (Per Character Level)",
                 "Index": 0
             },
             {
@@ -585,15 +585,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "-100 extra gold from monsters",
+                "PropertyString": "-100% extra gold from monsters",
                 "Index": 5
             },
             {
-                "PropertyString": "-100 better chance of getting magic item",
+                "PropertyString": "-100% better chance of getting magic item",
                 "Index": 4
             },
             {
-                "PropertyString": "1 to Light Radius",
+                "PropertyString": "+1 to Light Radius",
                 "Index": 0
             },
             {
@@ -652,15 +652,15 @@
         "Code": "Chance",
         "Properties": [
             {
-                "PropertyString": "+15 Faster Cast Rate",
+                "PropertyString": "+15% Faster Cast Rate",
                 "Index": 3
             },
             {
-                "PropertyString": "+20 Faster Block Rate",
+                "PropertyString": "+20% Faster Block Rate",
                 "Index": 1
             },
             {
-                "PropertyString": "15% Increased Chance of Blocking",
+                "PropertyString": "+15% Increased Chance of Blocking",
                 "Index": 0
             },
             {
@@ -676,15 +676,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "15% Damage Taken Goes To Mana",
+                "PropertyString": "+15% Damage Taken Goes To Mana",
                 "Index": 0
             },
             {
-                "PropertyString": "+75 extra gold from monsters",
+                "PropertyString": "+75% extra gold from monsters",
                 "Index": 5
             },
             {
-                "PropertyString": "+20-30 better chance of getting magic item",
+                "PropertyString": "+20-30% better chance of getting magic item",
                 "Index": 4
             }
         ],
@@ -743,7 +743,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "100% Chance of Open Wounds",
+                "PropertyString": "+100% Chance of Open Wounds",
                 "Index": 0
             },
             {
@@ -767,11 +767,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "15% Damage Taken Goes To Mana",
+                "PropertyString": "+15% Damage Taken Goes To Mana",
                 "Index": 0
             },
             {
-                "PropertyString": "0 to Light Radius",
+                "PropertyString": "+0 to Light Radius",
                 "Index": 4
             }
         ],
@@ -821,11 +821,11 @@
         "Code": "Penitence",
         "Properties": [
             {
-                "PropertyString": "+15 Faster Hit Recovery",
+                "PropertyString": "+15% Faster Hit Recovery",
                 "Index": 1
             },
             {
-                "PropertyString": "+15 Faster Block Rate",
+                "PropertyString": "+15% Faster Block Rate",
                 "Index": 0
             },
             {
@@ -833,7 +833,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+50 Poison Length Reduced by",
+                "PropertyString": "Poison Length Reduced by 50",
                 "Index": 4
             },
             {
@@ -841,19 +841,19 @@
                 "Index": 2
             },
             {
+                "PropertyString": "+15% Damage Taken Goes To Mana (Armor)",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+2 to Mana after each Kill (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "15% Damage Taken Goes To Mana (Armor)",
+                "PropertyString": "+15% Damage Taken Goes To Mana (Shield)",
                 "Index": 0
             },
             {
                 "PropertyString": "+2 to Mana after each Kill (Shield)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "15% Damage Taken Goes To Mana (Shield)",
                 "Index": 0
             }
         ],
@@ -906,7 +906,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 5
             },
             {
@@ -922,7 +922,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+154 to Minimum Poison Damage",
+                "PropertyString": "76 Poison Damage Over 5 Seconds",
                 "Index": 0
             },
             {
@@ -975,15 +975,15 @@
         "Code": "Stealth",
         "Properties": [
             {
-                "PropertyString": "+25 Faster Run/Walk",
+                "PropertyString": "+25% Faster Run/Walk",
                 "Index": 2
             },
             {
-                "PropertyString": "+25 Faster Cast Rate",
+                "PropertyString": "+25% Faster Cast Rate",
                 "Index": 3
             },
             {
-                "PropertyString": "+25 Faster Hit Recovery",
+                "PropertyString": "+25% Faster Hit Recovery",
                 "Index": 4
             },
             {
@@ -999,7 +999,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+3 Magic Damage Reduced by",
+                "PropertyString": "Magic Damage Reduced by 3",
                 "Index": 0
             }
         ],
@@ -1062,7 +1062,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+15 Increased Attack Speed",
+                "PropertyString": "+15% Increased Attack Speed",
                 "Index": 1
             },
             {
@@ -1143,7 +1143,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+2 Defense (Per on Character Level)",
+                "PropertyString": "+2 Defense (Per Character Level)",
                 "Index": 1
             },
             {
@@ -1220,15 +1220,15 @@
         "Code": "Patience",
         "Properties": [
             {
-                "PropertyString": "+15 Faster Run/Walk",
+                "PropertyString": "+15% Faster Run/Walk",
                 "Index": 5
             },
             {
-                "PropertyString": "+20 Faster Hit Recovery",
+                "PropertyString": "+20% Faster Hit Recovery",
                 "Index": 0
             },
             {
-                "PropertyString": "20-25 to Life",
+                "PropertyString": "+20-25 to Life",
                 "Index": 2
             },
             {
@@ -1276,7 +1276,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "7% Increased Chance of Blocking (Shield)",
+                "PropertyString": "+7% Increased Chance of Blocking (Shield)",
                 "Index": 0
             },
             {
@@ -1335,7 +1335,7 @@
         "Code": "Ancient's Pledge",
         "Properties": [
             {
-                "PropertyString": "+50 Enhanced Defense",
+                "PropertyString": "+50% Enhanced Defense",
                 "Index": 2
             },
             {
@@ -1351,7 +1351,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +13",
+                "PropertyString": "All Resistances +13%",
                 "Index": 1
             },
             {
@@ -1359,7 +1359,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "10% Damage Taken Goes To Mana",
+                "PropertyString": "+10% Damage Taken Goes To Mana",
                 "Index": 3
             }
         ],
@@ -1444,7 +1444,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+154 to Minimum Poison Damage",
+                "PropertyString": "76 Poison Damage Over 5 Seconds",
                 "Index": 0
             },
             {
@@ -1525,11 +1525,11 @@
         "Code": "Temptation",
         "Properties": [
             {
-                "PropertyString": "1 to All Skills",
+                "PropertyString": "+1 to All Skills",
                 "Index": 2
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 4
             },
             {
@@ -1537,7 +1537,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "50 to Attack Rating",
+                "PropertyString": "+50 to Attack Rating",
                 "Index": 1
             },
             {
@@ -1549,7 +1549,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+-10 to all Attributes",
+                "PropertyString": "-10 to All Attributes",
                 "Index": 3
             },
             {
@@ -1557,7 +1557,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "1 to Light Radius",
+                "PropertyString": "+1 to Light Radius",
                 "Index": 0
             }
         ],
@@ -1606,7 +1606,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+90-120 Enhanced Defense",
+                "PropertyString": "+90-120% Enhanced Defense",
                 "Index": 3
             },
             {
@@ -1679,11 +1679,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+25 Faster Run/Walk",
+                "PropertyString": "+25% Faster Run/Walk",
                 "Index": 0
             },
             {
-                "PropertyString": "+25 Increased Attack Speed",
+                "PropertyString": "+25% Increased Attack Speed",
                 "Index": 1
             },
             {
@@ -1691,7 +1691,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "66 to Attack Rating",
+                "PropertyString": "+66 to Attack Rating",
                 "Index": 3
             },
             {
@@ -1762,16 +1762,12 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+3-5 Faster Run/Walk",
+                "PropertyString": "+3-5% Faster Run/Walk",
                 "Index": 2
             },
             {
-                "PropertyString": "+6-10 Increased Attack Speed",
+                "PropertyString": "+6-10% Increased Attack Speed",
                 "Index": 4
-            },
-            {
-                "PropertyString": "+10-15 to all Attributes",
-                "Index": 3
             },
             {
                 "PropertyString": "Cold Resist +30%",
@@ -1782,11 +1778,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +5-10",
+                "PropertyString": "All Resistances +5-10%",
                 "Index": 0
             },
             {
-                "PropertyString": "15% Damage Taken Goes To Mana",
+                "PropertyString": "+10-15 to All Attributes",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+15% Damage Taken Goes To Mana",
                 "Index": 0
             }
         ],
@@ -1845,11 +1845,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+30 Faster Block Rate",
+                "PropertyString": "+30% Faster Block Rate",
                 "Index": 6
             },
             {
-                "PropertyString": "10 bonus to Attack Rating",
+                "PropertyString": "+10 % bonus to Attack Rating",
                 "Index": 0
             },
             {
@@ -1865,7 +1865,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+154 to Minimum Poison Damage",
+                "PropertyString": "76 Poison Damage Over 5 Seconds",
                 "Index": 0
             },
             {
@@ -1877,7 +1877,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "All Resistances +15",
+                "PropertyString": "All Resistances +15%",
                 "Index": 3
             }
         ],
@@ -1946,11 +1946,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 2
             },
             {
-                "PropertyString": "20-30% Increased Chance of Blocking",
+                "PropertyString": "+20-30% Increased Chance of Blocking",
                 "Index": 4
             },
             {
@@ -1962,7 +1962,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "All Resistances +15-25",
+                "PropertyString": "All Resistances +15-25%",
                 "Index": 6
             },
             {
@@ -2056,7 +2056,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+15 Faster Cast Rate",
+                "PropertyString": "+15% Faster Cast Rate",
                 "Index": 2
             },
             {
@@ -2088,7 +2088,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "7% Increased Chance of Blocking (Shield)",
+                "PropertyString": "+7% Increased Chance of Blocking (Shield)",
                 "Index": 0
             },
             {
@@ -2236,11 +2236,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+66 Chance of Crushing Blow",
+                "PropertyString": "+66% Chance of Crushing Blow",
                 "Index": 5
             },
             {
-                "PropertyString": "+34 Deadly Strike",
+                "PropertyString": "+34% Deadly Strike",
                 "Index": 6
             },
             {
@@ -2315,7 +2315,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+35 Increased Attack Speed",
+                "PropertyString": "+35% Increased Attack Speed",
                 "Index": 1
             },
             {
@@ -2331,7 +2331,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+8-9 to all Attributes",
+                "PropertyString": "+8-9 to All Attributes",
                 "Index": 6
             },
             {
@@ -2343,7 +2343,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+14 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +14",
                 "Index": 0
             },
             {
@@ -2392,7 +2392,7 @@
         "Code": "Hunger",
         "Properties": [
             {
-                "PropertyString": "15-30% Increased Chance of Blocking",
+                "PropertyString": "+15-30% Increased Chance of Blocking",
                 "Index": 1
             },
             {
@@ -2408,15 +2408,15 @@
                 "Index": 4
             },
             {
-                "PropertyString": "All Resistances +20",
+                "PropertyString": "All Resistances +20%",
                 "Index": 3
             },
             {
-                "PropertyString": "+10-15 Damage Reduced by 10-15%%",
+                "PropertyString": "+10-15% Physical Damage Reduction",
                 "Index": 2
             },
             {
-                "PropertyString": "+14 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +14",
                 "Index": 0
             },
             {
@@ -2488,7 +2488,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "150 to Attack Rating",
+                "PropertyString": "+150 to Attack Rating",
                 "Index": 1
             },
             {
@@ -2579,7 +2579,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 2
             },
             {
@@ -2648,31 +2648,31 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Faster Cast Rate",
+                "PropertyString": "+20% Faster Cast Rate",
                 "Index": 3
             },
             {
-                "PropertyString": "+75-100 Enhanced Defense",
+                "PropertyString": "+75-100% Enhanced Defense",
                 "Index": 1
-            },
-            {
-                "PropertyString": "+10 to all Attributes",
-                "Index": 5
             },
             {
                 "PropertyString": "+40-60 to Mana",
                 "Index": 2
             },
             {
-                "PropertyString": "All Resistances +20",
+                "PropertyString": "All Resistances +20%",
                 "Index": 4
             },
             {
-                "PropertyString": "+14 Attacker Takes Damage of",
+                "PropertyString": "+10 to All Attributes",
+                "Index": 5
+            },
+            {
+                "PropertyString": "Attacker Takes Damage of +14",
                 "Index": 0
             },
             {
-                "PropertyString": "15% Damage Taken Goes To Mana",
+                "PropertyString": "+15% Damage Taken Goes To Mana",
                 "Index": 0
             }
         ],
@@ -2725,7 +2725,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Faster Cast Rate",
+                "PropertyString": "+20% Faster Cast Rate",
                 "Index": 4
             },
             {
@@ -2807,15 +2807,15 @@
         "Code": "Spirit",
         "Properties": [
             {
-                "PropertyString": "2 to All Skills",
+                "PropertyString": "+2 to All Skills",
                 "Index": 6
             },
             {
-                "PropertyString": "+25-35 Faster Cast Rate",
+                "PropertyString": "+25-35% Faster Cast Rate",
                 "Index": 4
             },
             {
-                "PropertyString": "+55 Faster Hit Recovery",
+                "PropertyString": "+55% Faster Hit Recovery",
                 "Index": 0
             },
             {
@@ -2835,11 +2835,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+154 to Minimum Poison Damage (Weapon)",
+                "PropertyString": "+7 Life stolen per hit (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Life stolen per hit (Weapon)",
+                "PropertyString": "76 Poison Damage Over 5 Seconds (Weapon)",
                 "Index": 0
             },
             {
@@ -2851,7 +2851,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+14 Attacker Takes Damage of (Shield)",
+                "PropertyString": "Attacker Takes Damage of +14 (Shield)",
                 "Index": 0
             },
             {
@@ -2912,7 +2912,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+25 Chance of Crushing Blow",
+                "PropertyString": "+25% Chance of Crushing Blow",
                 "Index": 3
             },
             {
@@ -2928,7 +2928,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+14 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +14",
                 "Index": 0
             }
         ],
@@ -3003,7 +3003,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+14 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +14",
                 "Index": 0
             },
             {
@@ -3082,7 +3082,7 @@
         "Code": "Honor",
         "Properties": [
             {
-                "PropertyString": "1 to All Skills",
+                "PropertyString": "+1 to All Skills",
                 "Index": 2
             },
             {
@@ -3090,11 +3090,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "200 to Attack Rating",
+                "PropertyString": "+200 to Attack Rating",
                 "Index": 3
             },
             {
-                "PropertyString": "+25 Deadly Strike",
+                "PropertyString": "+25% Deadly Strike",
                 "Index": 4
             },
             {
@@ -3110,7 +3110,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+7 Damage Reduced by",
+                "PropertyString": "Damage Reduced by 7",
                 "Index": 0
             },
             {
@@ -3118,15 +3118,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+14 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +14",
                 "Index": 0
             },
             {
-                "PropertyString": "15% Damage Taken Goes To Mana",
+                "PropertyString": "+15% Damage Taken Goes To Mana",
                 "Index": 0
             },
             {
-                "PropertyString": "1 to Light Radius",
+                "PropertyString": "+1 to Light Radius",
                 "Index": 0
             }
         ],
@@ -3218,24 +3218,20 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+35 Faster Cast Rate",
+                "PropertyString": "+35% Faster Cast Rate",
                 "Index": 4
             },
             {
-                "PropertyString": "180-250 bonus to Attack Rating",
+                "PropertyString": "+180-250 % bonus to Attack Rating",
                 "Index": 1
             },
             {
-                "PropertyString": "+5 to all Attributes",
+                "PropertyString": "+5 to All Attributes",
                 "Index": 6
             },
             {
-                "PropertyString": "+23 better chance of getting magic item",
+                "PropertyString": "+23% better chance of getting magic item",
                 "Index": 2
-            },
-            {
-                "PropertyString": "+154 to Minimum Poison Damage (Weapon)",
-                "Index": 0
             },
             {
                 "PropertyString": "+2 to Mana after each Kill (Weapon)",
@@ -3243,6 +3239,10 @@
             },
             {
                 "PropertyString": "+9 to Minimum Damage (Weapon)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "76 Poison Damage Over 5 Seconds (Weapon)",
                 "Index": 0
             },
             {
@@ -3254,7 +3254,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Damage Reduced by (Armor)",
+                "PropertyString": "Damage Reduced by 7 (Armor)",
                 "Index": 0
             },
             {
@@ -3307,7 +3307,7 @@
         "Code": "Lore",
         "Properties": [
             {
-                "PropertyString": "1 to All Skills",
+                "PropertyString": "+1 to All Skills",
                 "Index": 1
             },
             {
@@ -3319,7 +3319,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Damage Reduced by",
+                "PropertyString": "Damage Reduced by 7",
                 "Index": 0
             },
             {
@@ -3327,7 +3327,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "2 to Light Radius",
+                "PropertyString": "+2 to Light Radius",
                 "Index": 2
             }
         ],
@@ -3382,7 +3382,7 @@
         "Code": "Radiance",
         "Properties": [
             {
-                "PropertyString": "+75 Enhanced Defense",
+                "PropertyString": "+75% Enhanced Defense",
                 "Index": 5
             },
             {
@@ -3402,19 +3402,19 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+7 Damage Reduced by",
+                "PropertyString": "Damage Reduced by 7",
                 "Index": 0
             },
             {
-                "PropertyString": "+3 Magic Damage Reduced by",
+                "PropertyString": "Magic Damage Reduced by 3",
                 "Index": 3
             },
             {
-                "PropertyString": "15% Damage Taken Goes To Mana",
+                "PropertyString": "+15% Damage Taken Goes To Mana",
                 "Index": 0
             },
             {
-                "PropertyString": "5 to Light Radius",
+                "PropertyString": "+5 to Light Radius",
                 "Index": 0
             }
         ],
@@ -3469,7 +3469,7 @@
         "Code": "Thirst",
         "Properties": [
             {
-                "PropertyString": "1 to All Skills",
+                "PropertyString": "+1 to All Skills",
                 "Index": 0
             },
             {
@@ -3554,7 +3554,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+25 Faster Cast Rate",
+                "PropertyString": "+25% Faster Cast Rate",
                 "Index": 4
             },
             {
@@ -3619,11 +3619,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+25 Faster Run/Walk",
+                "PropertyString": "+25% Faster Run/Walk",
                 "Index": 4
             },
             {
-                "PropertyString": "+25 Faster Hit Recovery",
+                "PropertyString": "+25% Faster Hit Recovery",
                 "Index": 3
             },
             {
@@ -3639,15 +3639,15 @@
                 "Index": 5
             },
             {
-                "PropertyString": "50 to Life",
+                "PropertyString": "+50 to Life",
                 "Index": 2
             },
             {
-                "PropertyString": "+7 Damage Reduced by",
+                "PropertyString": "Damage Reduced by 7",
                 "Index": 0
             },
             {
-                "PropertyString": "+14 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +14",
                 "Index": 0
             }
         ],
@@ -3692,11 +3692,11 @@
         "Code": "Rhyme",
         "Properties": [
             {
-                "PropertyString": "+40 Faster Block Rate",
+                "PropertyString": "+40% Faster Block Rate",
                 "Index": 0
             },
             {
-                "PropertyString": "20% Increased Chance of Blocking",
+                "PropertyString": "+20% Increased Chance of Blocking",
                 "Index": 1
             },
             {
@@ -3704,7 +3704,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +25",
+                "PropertyString": "All Resistances +25%",
                 "Index": 2
             },
             {
@@ -3712,11 +3712,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+50 extra gold from monsters",
+                "PropertyString": "+50% extra gold from monsters",
                 "Index": 4
             },
             {
-                "PropertyString": "+25 better chance of getting magic item",
+                "PropertyString": "+25% better chance of getting magic item",
                 "Index": 5
             }
         ],
@@ -3771,7 +3771,7 @@
         "Code": "Sorrow",
         "Properties": [
             {
-                "PropertyString": "+40 Increased Attack Speed",
+                "PropertyString": "+40% Increased Attack Speed",
                 "Index": 1
             },
             {
@@ -3854,7 +3854,7 @@
         "Code": "Whisper",
         "Properties": [
             {
-                "PropertyString": "+60 Increased Attack Speed",
+                "PropertyString": "+60% Increased Attack Speed",
                 "Index": 0
             },
             {
@@ -3945,7 +3945,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+20 Faster Hit Recovery",
+                "PropertyString": "+20% Faster Hit Recovery",
                 "Index": 0
             },
             {
@@ -3953,7 +3953,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+14 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +14",
                 "Index": 0
             }
         ],
@@ -4008,19 +4008,19 @@
         "Code": "Duriel's Fang",
         "Properties": [
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 0
             },
             {
-                "PropertyString": "50 to Attack Rating",
+                "PropertyString": "+50 to Attack Rating",
                 "Index": 3
             },
             {
-                "PropertyString": "10-15 to Poison Skill Damage",
+                "PropertyString": "+10-15% to Poison Skill Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "5-8 to Enemy Poison Resistance",
+                "PropertyString": "-5-8% to Enemy Poison Resistance",
                 "Index": 2
             },
             {
@@ -4089,7 +4089,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "50% Chance of Open Wounds",
+                "PropertyString": "+50% Chance of Open Wounds",
                 "Index": 6
             },
             {
@@ -4097,7 +4097,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+15 Slows target by",
+                "PropertyString": "Slows target by 15",
                 "Index": 3
             },
             {
@@ -4164,11 +4164,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+20 Faster Run/Walk",
+                "PropertyString": "+20% Faster Run/Walk",
                 "Index": 2
             },
             {
-                "PropertyString": "+100-125 Enhanced Defense",
+                "PropertyString": "+100-125% Enhanced Defense",
                 "Index": 0
             },
             {
@@ -4192,11 +4192,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "15% Damage Taken Goes To Mana",
+                "PropertyString": "+15% Damage Taken Goes To Mana",
                 "Index": 0
             },
             {
-                "PropertyString": "1 to Light Radius",
+                "PropertyString": "+1 to Light Radius",
                 "Index": 0
             },
             {
@@ -4253,11 +4253,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+30 Faster Block Rate",
+                "PropertyString": "+30% Faster Block Rate",
                 "Index": 2
             },
             {
-                "PropertyString": "50% Increased Chance of Blocking",
+                "PropertyString": "+50% Increased Chance of Blocking",
                 "Index": 1
             },
             {
@@ -4352,15 +4352,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 to all Attributes",
-                "Index": 4
-            },
-            {
                 "PropertyString": "-3 Drain Life",
                 "Index": 2
             },
             {
-                "PropertyString": "+15-20 Damage Reduced by",
+                "PropertyString": "+20 to All Attributes",
+                "Index": 4
+            },
+            {
+                "PropertyString": "Damage Reduced by 15",
                 "Index": 6
             },
             {
@@ -4433,12 +4433,12 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+10 to all Attributes",
-                "Index": 4
+                "PropertyString": "+40 to Life",
+                "Index": 3
             },
             {
-                "PropertyString": "40 to Life",
-                "Index": 3
+                "PropertyString": "+10 to All Attributes",
+                "Index": 4
             }
         ],
         "DamageArmorEnhanced": false,
@@ -4502,7 +4502,7 @@
         "Code": "Black",
         "Properties": [
             {
-                "PropertyString": "+15 Increased Attack Speed",
+                "PropertyString": "+15% Increased Attack Speed",
                 "Index": 2
             },
             {
@@ -4510,7 +4510,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "200 to Attack Rating",
+                "PropertyString": "+200 to Attack Rating",
                 "Index": 4
             },
             {
@@ -4518,7 +4518,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+40 Chance of Crushing Blow",
+                "PropertyString": "+40% Chance of Crushing Blow",
                 "Index": 0
             },
             {
@@ -4530,7 +4530,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 Magic Damage Reduced by",
+                "PropertyString": "Magic Damage Reduced by 2",
                 "Index": 3
             },
             {
@@ -4589,7 +4589,7 @@
         "Code": "Bulwark",
         "Properties": [
             {
-                "PropertyString": "+20 Faster Hit Recovery",
+                "PropertyString": "+20% Faster Hit Recovery",
                 "Index": 0
             },
             {
@@ -4597,7 +4597,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+75-100 Enhanced Defense",
+                "PropertyString": "+75-100% Enhanced Defense",
                 "Index": 1
             },
             {
@@ -4605,7 +4605,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+5 Increase Maximum Life",
+                "PropertyString": "+5% Increased Maximum Life",
                 "Index": 0
             },
             {
@@ -4613,11 +4613,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+10-15 Damage Reduced by 10-15%%",
+                "PropertyString": "+10-15% Physical Damage Reduction",
                 "Index": 2
             },
             {
-                "PropertyString": "+7 Damage Reduced by",
+                "PropertyString": "Damage Reduced by 7",
                 "Index": 0
             }
         ],
@@ -4676,11 +4676,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+20 Faster Hit Recovery",
+                "PropertyString": "+20% Faster Hit Recovery",
                 "Index": 0
             },
             {
-                "PropertyString": "+75-100 Enhanced Defense",
+                "PropertyString": "+75-100% Enhanced Defense",
                 "Index": 1
             },
             {
@@ -4688,7 +4688,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+5 Increase Maximum Life",
+                "PropertyString": "+5% Increased Maximum Life",
                 "Index": 0
             },
             {
@@ -4696,7 +4696,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+50 Poison Length Reduced by",
+                "PropertyString": "Poison Length Reduced by 50",
                 "Index": 3
             }
         ],
@@ -4751,11 +4751,11 @@
         "Code": "Ground",
         "Properties": [
             {
-                "PropertyString": "+20 Faster Hit Recovery",
+                "PropertyString": "+20% Faster Hit Recovery",
                 "Index": 0
             },
             {
-                "PropertyString": "+75-100 Enhanced Defense",
+                "PropertyString": "+75-100% Enhanced Defense",
                 "Index": 1
             },
             {
@@ -4763,7 +4763,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+5 Increase Maximum Life",
+                "PropertyString": "+5% Increased Maximum Life",
                 "Index": 0
             },
             {
@@ -4771,7 +4771,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+10-15 Lightning Absorb",
+                "PropertyString": "+10-15 % Lightning Absorb",
                 "Index": 3
             }
         ],
@@ -4816,7 +4816,7 @@
         "Code": "Hatred",
         "Properties": [
             {
-                "PropertyString": "1 to All Skills",
+                "PropertyString": "+1 to All Skills",
                 "Index": 1
             },
             {
@@ -4844,7 +4844,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+50 better chance of getting magic item",
+                "PropertyString": "+50% better chance of getting magic item",
                 "Index": 2
             }
         ],
@@ -4899,11 +4899,11 @@
         "Code": "Hearth",
         "Properties": [
             {
-                "PropertyString": "+20 Faster Hit Recovery",
+                "PropertyString": "+20% Faster Hit Recovery",
                 "Index": 0
             },
             {
-                "PropertyString": "+75-100 Enhanced Defense",
+                "PropertyString": "+75-100% Enhanced Defense",
                 "Index": 1
             },
             {
@@ -4911,7 +4911,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+5 Increase Maximum Life",
+                "PropertyString": "+5% Increased Maximum Life",
                 "Index": 0
             },
             {
@@ -4919,7 +4919,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+10-15 Cold Absorb",
+                "PropertyString": "+10-15 % Cold Absorb",
                 "Index": 3
             },
             {
@@ -4986,7 +4986,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+40 Increased Attack Speed",
+                "PropertyString": "+40% Increased Attack Speed",
                 "Index": 6
             },
             {
@@ -4994,7 +4994,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "35 bonus to Attack Rating",
+                "PropertyString": "+35 % bonus to Attack Rating",
                 "Index": 3
             },
             {
@@ -5002,7 +5002,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+35 Slows target by",
+                "PropertyString": "Slows target by 35",
                 "Index": 4
             },
             {
@@ -5078,19 +5078,19 @@
                 "Index": 1
             },
             {
-                "PropertyString": "1 to All Skills",
+                "PropertyString": "+1 to All Skills",
                 "Index": 4
             },
             {
-                "PropertyString": "+15 Increased Attack Speed",
+                "PropertyString": "+15% Increased Attack Speed",
                 "Index": 2
             },
             {
-                "PropertyString": "+15 Faster Block Rate",
+                "PropertyString": "+15% Faster Block Rate",
                 "Index": 5
             },
             {
-                "PropertyString": "35-50 to Life",
+                "PropertyString": "+35-50 to Life",
                 "Index": 6
             },
             {
@@ -5191,7 +5191,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "15-25 to Fire Skill Damage",
+                "PropertyString": "+15-25% to Fire Skill Damage",
                 "Index": 5
             },
             {
@@ -5207,7 +5207,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+10 Fire Absorb",
+                "PropertyString": "+10 % Fire Absorb",
                 "Index": 3
             },
             {
@@ -5272,11 +5272,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+15 Faster Cast Rate",
+                "PropertyString": "+15% Faster Cast Rate",
                 "Index": 3
             },
             {
-                "PropertyString": "10 to Poison Skill Damage",
+                "PropertyString": "+10% to Poison Skill Damage",
                 "Index": 4
             },
             {
@@ -5339,11 +5339,11 @@
         "Code": "Temper",
         "Properties": [
             {
-                "PropertyString": "+20 Faster Hit Recovery",
+                "PropertyString": "+20% Faster Hit Recovery",
                 "Index": 0
             },
             {
-                "PropertyString": "+75-100 Enhanced Defense",
+                "PropertyString": "+75-100% Enhanced Defense",
                 "Index": 1
             },
             {
@@ -5351,7 +5351,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+5 Increase Maximum Life",
+                "PropertyString": "+5% Increased Maximum Life",
                 "Index": 0
             },
             {
@@ -5359,7 +5359,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+10-15 Fire Absorb",
+                "PropertyString": "+10-15 % Fire Absorb",
                 "Index": 3
             }
         ],
@@ -5408,7 +5408,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Faster Cast Rate",
+                "PropertyString": "+20% Faster Cast Rate",
                 "Index": 2
             },
             {
@@ -5436,7 +5436,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+4 Magic Damage Reduced by",
+                "PropertyString": "Magic Damage Reduced by 4",
                 "Index": 1
             }
         ],
@@ -5499,7 +5499,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+40 Faster Hit Recovery",
+                "PropertyString": "+40% Faster Hit Recovery",
                 "Index": 3
             },
             {
@@ -5511,7 +5511,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "15 to Fire Skill Damage",
+                "PropertyString": "+15% to Fire Skill Damage",
                 "Index": 5
             },
             {
@@ -5596,7 +5596,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+33 Faster Cast Rate",
+                "PropertyString": "+33% Faster Cast Rate",
                 "Index": 3
             },
             {
@@ -5616,7 +5616,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+50 Enhanced Defense",
+                "PropertyString": "+50% Enhanced Defense",
                 "Index": 2
             },
             {
@@ -5628,11 +5628,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Increase Maximum Mana",
+                "PropertyString": "+20% Increased Maximum Mana",
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Magic Damage Reduced by",
+                "PropertyString": "Magic Damage Reduced by 7",
                 "Index": 1
             }
         ],
@@ -5677,11 +5677,11 @@
         "Code": "Smoke",
         "Properties": [
             {
-                "PropertyString": "+20 Faster Hit Recovery",
+                "PropertyString": "+20% Faster Hit Recovery",
                 "Index": 3
             },
             {
-                "PropertyString": "+75 Enhanced Defense",
+                "PropertyString": "+75% Enhanced Defense",
                 "Index": 1
             },
             {
@@ -5693,7 +5693,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +50",
+                "PropertyString": "All Resistances +50%",
                 "Index": 2
             },
             {
@@ -5746,19 +5746,19 @@
         "Code": "Splendor",
         "Properties": [
             {
-                "PropertyString": "1 to All Skills",
+                "PropertyString": "+1 to All Skills",
                 "Index": 0
             },
             {
-                "PropertyString": "+10 Faster Cast Rate",
+                "PropertyString": "+10% Faster Cast Rate",
                 "Index": 1
             },
             {
-                "PropertyString": "+20 Faster Block Rate",
+                "PropertyString": "+20% Faster Block Rate",
                 "Index": 2
             },
             {
-                "PropertyString": "+60-100 Enhanced Defense",
+                "PropertyString": "+60-100% Enhanced Defense",
                 "Index": 3
             },
             {
@@ -5770,15 +5770,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+50 extra gold from monsters",
+                "PropertyString": "+50% extra gold from monsters",
                 "Index": 4
             },
             {
-                "PropertyString": "+20 better chance of getting magic item",
+                "PropertyString": "+20% better chance of getting magic item",
                 "Index": 5
             },
             {
-                "PropertyString": "3 to Light Radius",
+                "PropertyString": "+3 to Light Radius",
                 "Index": 6
             }
         ],
@@ -5871,7 +5871,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+7 Damage Reduced by",
+                "PropertyString": "Damage Reduced by 7",
                 "Index": 0
             },
             {
@@ -5879,7 +5879,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "15% Damage Taken Goes To Mana",
+                "PropertyString": "+15% Damage Taken Goes To Mana",
                 "Index": 0
             },
             {
@@ -5942,15 +5942,15 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+65 Faster Run/Walk",
+                "PropertyString": "+65% Faster Run/Walk",
                 "Index": 0
             },
             {
-                "PropertyString": "+40 Increased Attack Speed",
+                "PropertyString": "+40% Increased Attack Speed",
                 "Index": 1
             },
             {
-                "PropertyString": "+20 Faster Hit Recovery",
+                "PropertyString": "+20% Faster Hit Recovery",
                 "Index": 0
             },
             {
@@ -5958,7 +5958,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +10",
+                "PropertyString": "All Resistances +10%",
                 "Index": 2
             },
             {
@@ -6025,7 +6025,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+30 Increased Attack Speed",
+                "PropertyString": "+30% Increased Attack Speed",
                 "Index": 1
             },
             {
@@ -6104,7 +6104,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Faster Hit Recovery",
+                "PropertyString": "+20% Faster Hit Recovery",
                 "Index": 0
             },
             {
@@ -6183,7 +6183,7 @@
         "Code": "Pestilence",
         "Properties": [
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 5
             },
             {
@@ -6199,7 +6199,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "10 to Poison Skill Damage",
+                "PropertyString": "+10% to Poison Skill Damage",
                 "Index": 4
             },
             {
@@ -6351,7 +6351,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 0
             },
             {
@@ -6359,7 +6359,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+25 Faster Hit Recovery",
+                "PropertyString": "+25% Faster Hit Recovery",
                 "Index": 4
             },
             {
@@ -6448,7 +6448,7 @@
         "Code": "Envy",
         "Properties": [
             {
-                "PropertyString": "+30 Increased Attack Speed",
+                "PropertyString": "+30% Increased Attack Speed",
                 "Index": 1
             },
             {
@@ -6480,7 +6480,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +25",
+                "PropertyString": "All Resistances +25%",
                 "Index": 6
             },
             {
@@ -6488,7 +6488,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+35 better chance of getting magic item",
+                "PropertyString": "+35% better chance of getting magic item",
                 "Index": 5
             }
         ],
@@ -6543,19 +6543,19 @@
         "Code": "Fortune's Favor",
         "Properties": [
             {
-                "PropertyString": "1 to All Skills",
+                "PropertyString": "+1 to All Skills",
                 "Index": 1
             },
             {
-                "PropertyString": "30-50 to Life",
+                "PropertyString": "+30-50 to Life",
                 "Index": 2
             },
             {
-                "PropertyString": "All Resistances +10",
+                "PropertyString": "All Resistances +10%",
                 "Index": 3
             },
             {
-                "PropertyString": "+200 extra gold from monsters",
+                "PropertyString": "+200% extra gold from monsters",
                 "Index": 5
             },
             {
@@ -6662,11 +6662,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "50 to Life",
+                "PropertyString": "+50 to Life",
                 "Index": 4
             },
             {
-                "PropertyString": "All Resistances +30",
+                "PropertyString": "All Resistances +30%",
                 "Index": 5
             },
             {
@@ -6758,7 +6758,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+40 Faster Hit Recovery",
+                "PropertyString": "+40% Faster Hit Recovery",
                 "Index": 5
             },
             {
@@ -6770,11 +6770,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "25 to Enemy Fire Resistance",
+                "PropertyString": "-25% to Enemy Fire Resistance",
                 "Index": 3
             },
             {
-                "PropertyString": "+40 Chance of Crushing Blow",
+                "PropertyString": "+40% Chance of Crushing Blow",
                 "Index": 1
             },
             {
@@ -6790,7 +6790,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +20-30",
+                "PropertyString": "All Resistances +20-30%",
                 "Index": 6
             },
             {
@@ -6887,7 +6887,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20-30 Increased Attack Speed",
+                "PropertyString": "+20-30% Increased Attack Speed",
                 "Index": 2
             },
             {
@@ -6899,7 +6899,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "50 to Attack Rating",
+                "PropertyString": "+50 to Attack Rating",
                 "Index": 1
             },
             {
@@ -6927,11 +6927,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+8 Damage Reduced by",
+                "PropertyString": "Damage Reduced by 8",
                 "Index": 4
             },
             {
-                "PropertyString": "1 to Light Radius",
+                "PropertyString": "+1 to Light Radius",
                 "Index": 0
             },
             {
@@ -7046,7 +7046,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+75 extra gold from monsters",
+                "PropertyString": "+75% extra gold from monsters",
                 "Index": 0
             }
         ],
@@ -7119,7 +7119,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+25 Increased Attack Speed",
+                "PropertyString": "+25% Increased Attack Speed",
                 "Index": 4
             },
             {
@@ -7127,7 +7127,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "50-80 bonus to Attack Rating",
+                "PropertyString": "+50-80 % bonus to Attack Rating",
                 "Index": 2
             },
             {
@@ -7151,7 +7151,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+75 extra gold from monsters",
+                "PropertyString": "+75% extra gold from monsters",
                 "Index": 0
             },
             {
@@ -7210,19 +7210,19 @@
         "Code": "Piety",
         "Properties": [
             {
-                "PropertyString": "1 to All Skills",
+                "PropertyString": "+1 to All Skills",
                 "Index": 3
             },
             {
-                "PropertyString": "+20 Faster Cast Rate",
+                "PropertyString": "+20% Faster Cast Rate",
                 "Index": 4
             },
             {
-                "PropertyString": "+20 Faster Hit Recovery",
+                "PropertyString": "+20% Faster Hit Recovery",
                 "Index": 0
             },
             {
-                "PropertyString": "+90-125 Enhanced Defense",
+                "PropertyString": "+90-125% Enhanced Defense",
                 "Index": 0
             },
             {
@@ -7242,11 +7242,11 @@
                 "Index": 6
             },
             {
-                "PropertyString": "All Resistances +15-25",
+                "PropertyString": "All Resistances +15-25%",
                 "Index": 5
             },
             {
-                "PropertyString": "+50 extra gold from monsters",
+                "PropertyString": "+50% extra gold from monsters",
                 "Index": 0
             }
         ],
@@ -7319,11 +7319,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "20-30 to Lightning Skill Damage",
+                "PropertyString": "+20-30% to Lightning Skill Damage",
                 "Index": 3
             },
             {
-                "PropertyString": "+75 extra gold from monsters",
+                "PropertyString": "+75% extra gold from monsters",
                 "Index": 0
             }
         ],
@@ -7390,11 +7390,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+45 Increased Attack Speed",
+                "PropertyString": "+45% Increased Attack Speed",
                 "Index": 3
             },
             {
-                "PropertyString": "+20 Faster Hit Recovery",
+                "PropertyString": "+20% Faster Hit Recovery",
                 "Index": 0
             },
             {
@@ -7402,7 +7402,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+50 extra gold from monsters",
+                "PropertyString": "+50% extra gold from monsters",
                 "Index": 0
             }
         ],
@@ -7490,7 +7490,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "50 to Attack Rating",
+                "PropertyString": "+50 to Attack Rating",
                 "Index": 1
             },
             {
@@ -7510,7 +7510,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "24 to Enemy Cold Resistance",
+                "PropertyString": "-24% to Enemy Cold Resistance",
                 "Index": 5
             },
             {
@@ -7522,11 +7522,11 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+75 extra gold from monsters",
+                "PropertyString": "+75% extra gold from monsters",
                 "Index": 0
             },
             {
-                "PropertyString": "1 to Light Radius",
+                "PropertyString": "+1 to Light Radius",
                 "Index": 0
             }
         ],
@@ -7589,11 +7589,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+300 extra gold from monsters",
+                "PropertyString": "+300% extra gold from monsters",
                 "Index": 0
             },
             {
-                "PropertyString": "+100 better chance of getting magic item",
+                "PropertyString": "+100% better chance of getting magic item",
                 "Index": 1
             }
         ],
@@ -7652,7 +7652,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+40 Increased Attack Speed",
+                "PropertyString": "+40% Increased Attack Speed",
                 "Index": 4
             },
             {
@@ -7664,7 +7664,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "50 to Attack Rating",
+                "PropertyString": "+50 to Attack Rating",
                 "Index": 1
             },
             {
@@ -7676,11 +7676,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+30 Deadly Strike",
+                "PropertyString": "+30% Deadly Strike",
                 "Index": 5
             },
             {
-                "PropertyString": "75 to Life",
+                "PropertyString": "+75 to Life",
                 "Index": 1
             },
             {
@@ -7688,7 +7688,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "1 to Light Radius",
+                "PropertyString": "+1 to Light Radius",
                 "Index": 0
             },
             {
@@ -7761,7 +7761,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+50 Faster Run/Walk",
+                "PropertyString": "+50% Faster Run/Walk",
                 "Index": 3
             },
             {
@@ -7769,7 +7769,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Faster Hit Recovery",
+                "PropertyString": "+20% Faster Hit Recovery",
                 "Index": 0
             },
             {
@@ -7777,11 +7777,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+30 Enhanced Defense",
+                "PropertyString": "+30% Enhanced Defense",
                 "Index": 0
             },
             {
-                "PropertyString": "+14 Damage Reduced by",
+                "PropertyString": "Damage Reduced by 14",
                 "Index": 0
             },
             {
@@ -7866,7 +7866,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+30 Enhanced Defense",
+                "PropertyString": "+30% Enhanced Defense",
                 "Index": 0
             },
             {
@@ -7890,7 +7890,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+50 extra gold from monsters",
+                "PropertyString": "+50% extra gold from monsters",
                 "Index": 0
             }
         ],
@@ -7945,7 +7945,7 @@
         "Code": "War",
         "Properties": [
             {
-                "PropertyString": "+30 Increased Attack Speed",
+                "PropertyString": "+30% Increased Attack Speed",
                 "Index": 2
             },
             {
@@ -7953,7 +7953,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+25 Faster Hit Recovery",
+                "PropertyString": "+25% Faster Hit Recovery",
                 "Index": 6
             },
             {
@@ -7965,7 +7965,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+100-140 Enhanced Defense",
+                "PropertyString": "+100-140% Enhanced Defense",
                 "Index": 0
             },
             {
@@ -7973,7 +7973,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20-25 Damage Reduced by 20-25%%",
+                "PropertyString": "+20-25% Physical Damage Reduction",
                 "Index": 3
             },
             {
@@ -8036,7 +8036,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "15-25 bonus to Attack Rating",
+                "PropertyString": "+15-25 % bonus to Attack Rating",
                 "Index": 2
             },
             {
@@ -8044,7 +8044,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+30 Enhanced Defense",
+                "PropertyString": "+30% Enhanced Defense",
                 "Index": 0
             },
             {
@@ -8064,7 +8064,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "15% Damage Taken Goes To Mana",
+                "PropertyString": "+15% Damage Taken Goes To Mana",
                 "Index": 0
             }
         ],
@@ -8135,7 +8135,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+30 Enhanced Defense",
+                "PropertyString": "+30% Enhanced Defense",
                 "Index": 0
             },
             {
@@ -8143,7 +8143,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Damage Reduced by",
+                "PropertyString": "Damage Reduced by 7",
                 "Index": 0
             }
         ],
@@ -8216,7 +8216,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 0
             },
             {
@@ -8228,11 +8228,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "35 to Enemy Lightning Resistance",
+                "PropertyString": "-35% to Enemy Lightning Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "25% Chance of Open Wounds",
+                "PropertyString": "+25% Chance of Open Wounds",
                 "Index": 0
             },
             {
@@ -8303,7 +8303,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+40 Faster Hit Recovery",
+                "PropertyString": "+40% Faster Hit Recovery",
                 "Index": 0
             },
             {
@@ -8311,15 +8311,15 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+15 Chance of Crushing Blow",
+                "PropertyString": "+15% Chance of Crushing Blow",
                 "Index": 3
             },
             {
-                "PropertyString": "33% Chance of Open Wounds",
+                "PropertyString": "+33% Chance of Open Wounds",
                 "Index": 4
             },
             {
-                "PropertyString": "+150-200 Enhanced Defense",
+                "PropertyString": "+150-200% Enhanced Defense",
                 "Index": 5
             },
             {
@@ -8327,7 +8327,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +15",
+                "PropertyString": "All Resistances +15%",
                 "Index": 0
             }
         ],
@@ -8386,11 +8386,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+10 Faster Hit Recovery",
+                "PropertyString": "+10% Faster Hit Recovery",
                 "Index": 3
             },
             {
-                "PropertyString": "+200-260 Enhanced Defense",
+                "PropertyString": "+200-260% Enhanced Defense",
                 "Index": 0
             },
             {
@@ -8398,7 +8398,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +45",
+                "PropertyString": "All Resistances +45%",
                 "Index": 1
             },
             {
@@ -8406,7 +8406,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "5% Damage Taken Goes To Mana",
+                "PropertyString": "+5% Damage Taken Goes To Mana",
                 "Index": 4
             },
             {
@@ -8477,7 +8477,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "25-35% Increased Chance of Blocking",
+                "PropertyString": "+25-35% Increased Chance of Blocking",
                 "Index": 2
             },
             {
@@ -8489,11 +8489,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "All Resistances +30",
+                "PropertyString": "All Resistances +30%",
                 "Index": 0
             },
             {
-                "PropertyString": "+35-50 Magic Damage Reduced by",
+                "PropertyString": "Magic Damage Reduced by 35",
                 "Index": 6
             },
             {
@@ -8560,11 +8560,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 5
             },
             {
-                "PropertyString": "+10 Chance of Crushing Blow",
+                "PropertyString": "+10% Chance of Crushing Blow",
                 "Index": 6
             },
             {
@@ -8572,7 +8572,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+115-160 Enhanced Defense",
+                "PropertyString": "+115-160% Enhanced Defense",
                 "Index": 1
             },
             {
@@ -8588,7 +8588,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "All Resistances +15",
+                "PropertyString": "All Resistances +15%",
                 "Index": 0
             }
         ],
@@ -8657,7 +8657,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 4
             },
             {
@@ -8669,7 +8669,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "25% Chance of Open Wounds",
+                "PropertyString": "+25% Chance of Open Wounds",
                 "Index": 0
             },
             {
@@ -8681,11 +8681,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "75 to Life",
+                "PropertyString": "+75 to Life",
                 "Index": 5
             },
             {
-                "PropertyString": "+15 Fire Absorb",
+                "PropertyString": "+15 % Fire Absorb",
                 "Index": 6
             },
             {
@@ -8754,11 +8754,11 @@
         "Code": "Stone",
         "Properties": [
             {
-                "PropertyString": "+60 Faster Hit Recovery",
+                "PropertyString": "+60% Faster Hit Recovery",
                 "Index": 6
             },
             {
-                "PropertyString": "+250-290 Enhanced Defense",
+                "PropertyString": "+250-290% Enhanced Defense",
                 "Index": 0
             },
             {
@@ -8778,7 +8778,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +15",
+                "PropertyString": "All Resistances +15%",
                 "Index": 0
             },
             {
@@ -8856,15 +8856,15 @@
         "Code": "Voice",
         "Properties": [
             {
-                "PropertyString": "10-15 to Cold Skill Damage",
+                "PropertyString": "+10-15% to Cold Skill Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "10-15 to Fire Skill Damage",
+                "PropertyString": "+10-15% to Fire Skill Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "10-15 to Lightning Skill Damage",
+                "PropertyString": "+10-15% to Lightning Skill Damage",
                 "Index": 3
             },
             {
@@ -8872,7 +8872,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "All Resistances +7-10",
+                "PropertyString": "All Resistances +7-10%",
                 "Index": 4
             },
             {
@@ -8880,15 +8880,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+14 Attacker Takes Damage of (Armor)",
+                "PropertyString": "+15% Damage Taken Goes To Mana (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "15% Damage Taken Goes To Mana (Armor)",
+                "PropertyString": "All Resistances +15% (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +15 (Armor)",
+                "PropertyString": "Attacker Takes Damage of +14 (Armor)",
                 "Index": 0
             },
             {
@@ -8896,15 +8896,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+14 Attacker Takes Damage of (Shield)",
+                "PropertyString": "+15% Damage Taken Goes To Mana (Shield)",
                 "Index": 0
             },
             {
-                "PropertyString": "15% Damage Taken Goes To Mana (Shield)",
+                "PropertyString": "All Resistances +22% (Shield)",
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +22 (Shield)",
+                "PropertyString": "Attacker Takes Damage of +14 (Shield)",
                 "Index": 0
             },
             {
@@ -8979,11 +8979,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "All Resistances +30",
+                "PropertyString": "All Resistances +30%",
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Damage Reduced by",
+                "PropertyString": "Damage Reduced by 7",
                 "Index": 0
             }
         ],
@@ -9056,7 +9056,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 0
             },
             {
@@ -9072,11 +9072,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "35 to Enemy Fire Resistance",
+                "PropertyString": "-35% to Enemy Fire Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "25% Chance of Open Wounds",
+                "PropertyString": "+25% Chance of Open Wounds",
                 "Index": 0
             },
             {
@@ -9157,7 +9157,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 0
             },
             {
@@ -9173,11 +9173,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "35 to Enemy Cold Resistance",
+                "PropertyString": "-35% to Enemy Cold Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "25% Chance of Open Wounds",
+                "PropertyString": "+25% Chance of Open Wounds",
                 "Index": 0
             },
             {
@@ -9258,7 +9258,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 0
             },
             {
@@ -9270,15 +9270,15 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+154 to Minimum Poison Damage",
+                "PropertyString": "76 Poison Damage Over 5 Seconds",
                 "Index": 0
             },
             {
-                "PropertyString": "35 to Enemy Poison Resistance",
+                "PropertyString": "-35% to Enemy Poison Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "25% Chance of Open Wounds",
+                "PropertyString": "+25% Chance of Open Wounds",
                 "Index": 0
             },
             {
@@ -9341,7 +9341,7 @@
         "Code": "Blood",
         "Properties": [
             {
-                "PropertyString": "2 to All Skills",
+                "PropertyString": "+2 to All Skills",
                 "Index": 4
             },
             {
@@ -9353,11 +9353,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+10-15 Increase Maximum Life",
+                "PropertyString": "+10-15% Increased Maximum Life",
                 "Index": 5
             },
             {
-                "PropertyString": "+10-15 Damage Reduced by 10-15%%",
+                "PropertyString": "+10-15% Physical Damage Reduction",
                 "Index": 6
             },
             {
@@ -9369,23 +9369,23 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Increased Attack Speed (Weapon)",
+                "PropertyString": "+20% Increased Attack Speed (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Faster Hit Recovery (Armor)",
+                "PropertyString": "+20% Faster Hit Recovery (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Magic Damage Reduced by (Armor)",
+                "PropertyString": "Magic Damage Reduced by 7 (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Faster Block Rate (Shield)",
+                "PropertyString": "+20% Faster Block Rate (Shield)",
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Magic Damage Reduced by (Shield)",
+                "PropertyString": "Magic Damage Reduced by 7 (Shield)",
                 "Index": 0
             }
         ],
@@ -9438,7 +9438,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 0
             },
             {
@@ -9446,11 +9446,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+35 Increase Maximum Mana",
+                "PropertyString": "+35% Increased Maximum Mana",
                 "Index": 2
             },
             {
-                "PropertyString": "All Resistances +35-50",
+                "PropertyString": "All Resistances +35-50%",
                 "Index": 3
             },
             {
@@ -9458,11 +9458,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+80-120 extra gold from monsters",
+                "PropertyString": "+80-120% extra gold from monsters",
                 "Index": 6
             },
             {
-                "PropertyString": "+40 better chance of getting magic item",
+                "PropertyString": "+40% better chance of getting magic item",
                 "Index": 5
             }
         ],
@@ -9555,7 +9555,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+50 Increased Attack Speed",
+                "PropertyString": "+50% Increased Attack Speed",
                 "Index": 2
             },
             {
@@ -9632,23 +9632,23 @@
         "Code": "Prudence",
         "Properties": [
             {
-                "PropertyString": "+25 Faster Hit Recovery",
+                "PropertyString": "+25% Faster Hit Recovery",
                 "Index": 0
             },
             {
-                "PropertyString": "+140-170 Enhanced Defense",
+                "PropertyString": "+140-170% Enhanced Defense",
                 "Index": 1
             },
             {
-                "PropertyString": "All Resistances +25-35",
+                "PropertyString": "All Resistances +25-35%",
                 "Index": 2
             },
             {
-                "PropertyString": "+3 Damage Reduced by",
+                "PropertyString": "Damage Reduced by 3",
                 "Index": 3
             },
             {
-                "PropertyString": "+17 Magic Damage Reduced by",
+                "PropertyString": "Magic Damage Reduced by 17",
                 "Index": 4
             },
             {
@@ -9656,7 +9656,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "1 to Light Radius",
+                "PropertyString": "+1 to Light Radius",
                 "Index": 5
             },
             {
@@ -9735,11 +9735,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Magic Damage Reduced by",
+                "PropertyString": "Magic Damage Reduced by 7",
                 "Index": 0
             },
             {
-                "PropertyString": "15% Damage Taken Goes To Mana",
+                "PropertyString": "+15% Damage Taken Goes To Mana",
                 "Index": 0
             }
         ],
@@ -9794,19 +9794,19 @@
         "Code": "Sanctuary",
         "Properties": [
             {
-                "PropertyString": "+20 Faster Hit Recovery",
+                "PropertyString": "+20% Faster Hit Recovery",
                 "Index": 5
             },
             {
-                "PropertyString": "+20 Faster Block Rate",
+                "PropertyString": "+20% Faster Block Rate",
                 "Index": 1
             },
             {
-                "PropertyString": "20% Increased Chance of Blocking",
+                "PropertyString": "+20% Increased Chance of Blocking",
                 "Index": 0
             },
             {
-                "PropertyString": "+130-160 Enhanced Defense",
+                "PropertyString": "+130-160% Enhanced Defense",
                 "Index": 2
             },
             {
@@ -9818,11 +9818,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +50-70",
+                "PropertyString": "All Resistances +50-70%",
                 "Index": 4
             },
             {
-                "PropertyString": "+7 Magic Damage Reduced by",
+                "PropertyString": "Magic Damage Reduced by 7",
                 "Index": 0
             },
             {
@@ -9883,7 +9883,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+25 Faster Cast Rate",
+                "PropertyString": "+25% Faster Cast Rate",
                 "Index": 4
             },
             {
@@ -9899,7 +9899,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Magic Damage Reduced by",
+                "PropertyString": "Magic Damage Reduced by 7",
                 "Index": 0
             },
             {
@@ -9980,7 +9980,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 0
             },
             {
@@ -9992,7 +9992,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "25% Chance of Open Wounds",
+                "PropertyString": "+25% Chance of Open Wounds",
                 "Index": 0
             },
             {
@@ -10075,7 +10075,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "2 to All Skills",
+                "PropertyString": "+2 to All Skills",
                 "Index": 6
             },
             {
@@ -10087,11 +10087,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+50 extra gold from monsters",
+                "PropertyString": "+50% extra gold from monsters",
                 "Index": 0
             },
             {
-                "PropertyString": "+25 better chance of getting magic item",
+                "PropertyString": "+25% better chance of getting magic item",
                 "Index": 0
             },
             {
@@ -10160,31 +10160,31 @@
         "Code": "Glory",
         "Properties": [
             {
-                "PropertyString": "2 to All Skills",
+                "PropertyString": "+2 to All Skills",
                 "Index": 0
             },
             {
-                "PropertyString": "+35 Faster Cast Rate",
+                "PropertyString": "+35% Faster Cast Rate",
                 "Index": 2
             },
             {
-                "PropertyString": "+25 Faster Hit Recovery",
+                "PropertyString": "+25% Faster Hit Recovery",
                 "Index": 1
             },
             {
-                "PropertyString": "+75-125 Enhanced Defense",
+                "PropertyString": "+75-125% Enhanced Defense",
                 "Index": 5
             },
             {
-                "PropertyString": "+25 Increase Maximum Life",
+                "PropertyString": "+25% Increased Maximum Life",
                 "Index": 4
             },
             {
-                "PropertyString": "+25 Increase Maximum Mana",
+                "PropertyString": "+25% Increased Maximum Mana",
                 "Index": 3
             },
             {
-                "PropertyString": "+100 better chance of getting magic item",
+                "PropertyString": "+100% better chance of getting magic item",
                 "Index": 0
             },
             {
@@ -10247,19 +10247,19 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Faster Hit Recovery",
+                "PropertyString": "+20% Faster Hit Recovery",
                 "Index": 6
             },
             {
-                "PropertyString": "15% Increased Chance of Blocking",
+                "PropertyString": "+15% Increased Chance of Blocking",
                 "Index": 5
             },
             {
-                "PropertyString": "20 to Enemy Lightning Resistance",
+                "PropertyString": "-20% to Enemy Lightning Resistance",
                 "Index": 3
             },
             {
-                "PropertyString": "20 to Cold Skill Damage",
+                "PropertyString": "+20% to Cold Skill Damage",
                 "Index": 4
             },
             {
@@ -10279,7 +10279,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+30 better chance of getting magic item",
+                "PropertyString": "+30% better chance of getting magic item",
                 "Index": 0
             }
         ],
@@ -10362,7 +10362,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+40 Increased Attack Speed",
+                "PropertyString": "+40% Increased Attack Speed",
                 "Index": 0
             },
             {
@@ -10370,11 +10370,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "20 bonus to Attack Rating",
+                "PropertyString": "+20 % bonus to Attack Rating",
                 "Index": 0
             },
             {
-                "PropertyString": "50 to Attack Rating",
+                "PropertyString": "+50 to Attack Rating",
                 "Index": 1
             },
             {
@@ -10386,15 +10386,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Slows target by",
+                "PropertyString": "Slows target by 20",
                 "Index": 2
             },
             {
-                "PropertyString": "+35 better chance of getting magic item",
+                "PropertyString": "+35% better chance of getting magic item",
                 "Index": 4
             },
             {
-                "PropertyString": "1 to Light Radius",
+                "PropertyString": "+1 to Light Radius",
                 "Index": 0
             }
         ],
@@ -10468,7 +10468,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+30 Increased Attack Speed",
+                "PropertyString": "+30% Increased Attack Speed",
                 "Index": 0
             },
             {
@@ -10480,15 +10480,15 @@
                 "Index": 2
             },
             {
-                "PropertyString": "20 bonus to Attack Rating",
+                "PropertyString": "+20 % bonus to Attack Rating",
                 "Index": 0
             },
             {
-                "PropertyString": "+33 Chance of Crushing Blow",
+                "PropertyString": "+33% Chance of Crushing Blow",
                 "Index": 3
             },
             {
-                "PropertyString": "50% Chance of Open Wounds",
+                "PropertyString": "+50% Chance of Open Wounds",
                 "Index": 4
             },
             {
@@ -10500,7 +10500,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+40 extra gold from monsters",
+                "PropertyString": "+40% extra gold from monsters",
                 "Index": 6
             }
         ],
@@ -10555,7 +10555,7 @@
         "Code": "Mosaic",
         "Properties": [
             {
-                "PropertyString": "50 chance for finishing moves to not consume charges",
+                "PropertyString": "+50% chance for finishing moves to not consume charges",
                 "Index": 1
             },
             {
@@ -10563,7 +10563,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 2
             },
             {
@@ -10571,19 +10571,19 @@
                 "Index": 3
             },
             {
-                "PropertyString": "20 bonus to Attack Rating",
+                "PropertyString": "+20 % bonus to Attack Rating",
                 "Index": 0
             },
             {
-                "PropertyString": "8-15 to Fire Skill Damage",
+                "PropertyString": "+8-15% to Fire Skill Damage",
                 "Index": 4
             },
             {
-                "PropertyString": "8-15 to Cold Skill Damage",
+                "PropertyString": "+8-15% to Cold Skill Damage",
                 "Index": 5
             },
             {
-                "PropertyString": "8-15 to Lightning Skill Damage",
+                "PropertyString": "+8-15% to Lightning Skill Damage",
                 "Index": 6
             },
             {
@@ -10669,7 +10669,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "20 bonus to Attack Rating",
+                "PropertyString": "+20 % bonus to Attack Rating",
                 "Index": 0
             },
             {
@@ -10681,19 +10681,19 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+5-10 to all Attributes",
-                "Index": 4
-            },
-            {
                 "PropertyString": "10 to Dexterity",
                 "Index": 0
             },
             {
-                "PropertyString": "38% Damage Taken Goes To Mana",
+                "PropertyString": "+5-10 to All Attributes",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+38% Damage Taken Goes To Mana",
                 "Index": 5
             },
             {
-                "PropertyString": "+75 extra gold from monsters",
+                "PropertyString": "+75% extra gold from monsters",
                 "Index": 0
             },
             {
@@ -10774,7 +10774,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 1
             },
             {
@@ -10786,7 +10786,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "20 bonus to Attack Rating",
+                "PropertyString": "+20 % bonus to Attack Rating",
                 "Index": 0
             },
             {
@@ -10794,7 +10794,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "25% Chance of Open Wounds",
+                "PropertyString": "+25% Chance of Open Wounds",
                 "Index": 0
             },
             {
@@ -10873,7 +10873,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "100-150 to Life",
+                "PropertyString": "+100-150 to Life",
                 "Index": 2
             },
             {
@@ -10981,11 +10981,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "20 bonus to Attack Rating",
+                "PropertyString": "+20 % bonus to Attack Rating",
                 "Index": 0
             },
             {
-                "PropertyString": "50 to Attack Rating",
+                "PropertyString": "+50 to Attack Rating",
                 "Index": 1
             },
             {
@@ -10997,7 +10997,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+50 Chance of Crushing Blow",
+                "PropertyString": "+50% Chance of Crushing Blow",
                 "Index": 4
             },
             {
@@ -11005,7 +11005,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "1 to Light Radius",
+                "PropertyString": "+1 to Light Radius",
                 "Index": 0
             },
             {
@@ -11080,11 +11080,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "15-20 to Fire Skill Damage",
+                "PropertyString": "+15-20% to Fire Skill Damage",
                 "Index": 3
             },
             {
-                "PropertyString": "15-20 to Enemy Fire Resistance",
+                "PropertyString": "-15-20% to Enemy Fire Resistance",
                 "Index": 4
             },
             {
@@ -11104,7 +11104,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "5 to Light Radius",
+                "PropertyString": "+5 to Light Radius",
                 "Index": 6
             }
         ],
@@ -11163,11 +11163,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "10-15 to Enemy Fire Resistance",
+                "PropertyString": "-10-15% to Enemy Fire Resistance",
                 "Index": 2
             },
             {
-                "PropertyString": "+30 Enhanced Defense",
+                "PropertyString": "+30% Enhanced Defense",
                 "Index": 0
             },
             {
@@ -11187,7 +11187,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+50 Poison Length Reduced by",
+                "PropertyString": "Poison Length Reduced by 50",
                 "Index": 5
             },
             {
@@ -11271,11 +11271,11 @@
         "Code": "Heart of the Oak",
         "Properties": [
             {
-                "PropertyString": "3 to All Skills",
+                "PropertyString": "+3 to All Skills",
                 "Index": 3
             },
             {
-                "PropertyString": "+40 Faster Cast Rate",
+                "PropertyString": "+40% Faster Cast Rate",
                 "Index": 0
             },
             {
@@ -11303,11 +11303,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+15 Increase Maximum Mana",
+                "PropertyString": "+15% Increased Maximum Mana",
                 "Index": 2
             },
             {
-                "PropertyString": "All Resistances +30-40",
+                "PropertyString": "All Resistances +30-40%",
                 "Index": 5
             },
             {
@@ -11380,7 +11380,7 @@
         "Code": "Innocence",
         "Properties": [
             {
-                "PropertyString": "2 to All Skills",
+                "PropertyString": "+2 to All Skills",
                 "Index": 3
             },
             {
@@ -11396,23 +11396,23 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+15-25 to all Attributes",
-                "Index": 5
+                "PropertyString": "+25% Increased Maximum Life",
+                "Index": 4
             },
             {
-                "PropertyString": "+25 Increase Maximum Life",
-                "Index": 4
+                "PropertyString": "+15-25 to All Attributes",
+                "Index": 5
             },
             {
                 "PropertyString": "-3 to Experience Gained",
                 "Index": 6
             },
             {
-                "PropertyString": "+75 extra gold from monsters",
+                "PropertyString": "+75% extra gold from monsters",
                 "Index": 0
             },
             {
-                "PropertyString": "+30 better chance of getting magic item",
+                "PropertyString": "+30% better chance of getting magic item",
                 "Index": 0
             },
             {
@@ -11465,7 +11465,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "35-50% Increased Chance of Blocking",
+                "PropertyString": "+35-50% Increased Chance of Blocking",
                 "Index": 6
             },
             {
@@ -11489,7 +11489,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +40-50",
+                "PropertyString": "All Resistances +40-50%",
                 "Index": 4
             },
             {
@@ -11578,11 +11578,11 @@
         "Code": "Silence",
         "Properties": [
             {
-                "PropertyString": "2 to All Skills",
+                "PropertyString": "+2 to All Skills",
                 "Index": 5
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 3
             },
             {
@@ -11590,7 +11590,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+20 Faster Hit Recovery",
+                "PropertyString": "+20% Faster Hit Recovery",
                 "Index": 6
             },
             {
@@ -11614,7 +11614,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +75",
+                "PropertyString": "All Resistances +75%",
                 "Index": 4
             },
             {
@@ -11622,7 +11622,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+30 better chance of getting magic item",
+                "PropertyString": "+30% better chance of getting magic item",
                 "Index": 0
             },
             {
@@ -11676,7 +11676,7 @@
         "Code": "Arcane2",
         "Properties": [
             {
-                "PropertyString": "3 to All Skills",
+                "PropertyString": "+3 to All Skills",
                 "Index": 0
             },
             {
@@ -11684,7 +11684,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+50 Faster Cast Rate",
+                "PropertyString": "+50% Faster Cast Rate",
                 "Index": 1
             },
             {
@@ -11700,7 +11700,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+20 Increase Maximum Mana",
+                "PropertyString": "+20% Increased Maximum Mana",
                 "Index": 2
             },
             {
@@ -11787,7 +11787,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+50 Faster Hit Recovery",
+                "PropertyString": "+50% Faster Hit Recovery",
                 "Index": 1
             },
             {
@@ -11807,15 +11807,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+28 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +28",
                 "Index": 0
             },
             {
-                "PropertyString": "+100-140 extra gold from monsters",
+                "PropertyString": "+100-140% extra gold from monsters",
                 "Index": 4
             },
             {
-                "PropertyString": "+60-80 better chance of getting magic item",
+                "PropertyString": "+60-80% better chance of getting magic item",
                 "Index": 5
             }
         ],
@@ -11874,23 +11874,23 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 2
             },
             {
-                "PropertyString": "+20 Faster Cast Rate",
+                "PropertyString": "+20% Faster Cast Rate",
                 "Index": 3
             },
             {
-                "PropertyString": "20 to Lightning Skill Damage",
+                "PropertyString": "+20% to Lightning Skill Damage",
                 "Index": 4
             },
             {
-                "PropertyString": "20 to Fire Skill Damage",
+                "PropertyString": "+20% to Fire Skill Damage",
                 "Index": 5
             },
             {
-                "PropertyString": "+200-250 Enhanced Defense",
+                "PropertyString": "+200-250% Enhanced Defense",
                 "Index": 1
             },
             {
@@ -11902,7 +11902,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +30",
+                "PropertyString": "All Resistances +30%",
                 "Index": 6
             }
         ],
@@ -11977,7 +11977,7 @@
         "Code": "Call to Arms",
         "Properties": [
             {
-                "PropertyString": "1 to All Skills",
+                "PropertyString": "+1 to All Skills",
                 "Index": 2
             },
             {
@@ -11993,7 +11993,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+40 Increased Attack Speed",
+                "PropertyString": "+40% Increased Attack Speed",
                 "Index": 0
             },
             {
@@ -12017,7 +12017,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+30 better chance of getting magic item",
+                "PropertyString": "+30% better chance of getting magic item",
                 "Index": 0
             }
         ],
@@ -12084,7 +12084,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+35 Increased Attack Speed",
+                "PropertyString": "+35% Increased Attack Speed",
                 "Index": 4
             },
             {
@@ -12096,7 +12096,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "25% Chance of Open Wounds",
+                "PropertyString": "+25% Chance of Open Wounds",
                 "Index": 0
             },
             {
@@ -12181,7 +12181,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+30 Faster Block Rate",
+                "PropertyString": "+30% Faster Block Rate",
                 "Index": 0
             },
             {
@@ -12189,7 +12189,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+220-260 Enhanced Defense",
+                "PropertyString": "+220-260% Enhanced Defense",
                 "Index": 2
             },
             {
@@ -12205,7 +12205,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+25 better chance of getting magic item",
+                "PropertyString": "+25% better chance of getting magic item",
                 "Index": 0
             },
             {
@@ -12292,7 +12292,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 0
             },
             {
@@ -12304,7 +12304,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "20 bonus to Attack Rating",
+                "PropertyString": "+20 % bonus to Attack Rating",
                 "Index": 0
             },
             {
@@ -12316,7 +12316,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+40-60 better chance of getting magic item",
+                "PropertyString": "+40-60% better chance of getting magic item",
                 "Index": 5
             },
             {
@@ -12379,11 +12379,11 @@
                 "Index": 6
             },
             {
-                "PropertyString": "1 to All Skills",
+                "PropertyString": "+1 to All Skills",
                 "Index": 2
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 4
             },
             {
@@ -12391,7 +12391,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+125-200 Enhanced Defense",
+                "PropertyString": "+125-200% Enhanced Defense",
                 "Index": 1
             },
             {
@@ -12399,7 +12399,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "75-100 to Life",
+                "PropertyString": "+75-100 to Life",
                 "Index": 3
             },
             {
@@ -12407,7 +12407,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+14 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +14",
                 "Index": 0
             },
             {
@@ -12496,7 +12496,7 @@
         "Code": "Victory",
         "Properties": [
             {
-                "PropertyString": "+60 Increased Attack Speed",
+                "PropertyString": "+60% Increased Attack Speed",
                 "Index": 3
             },
             {
@@ -12516,11 +12516,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+75 extra gold from monsters",
+                "PropertyString": "+75% extra gold from monsters",
                 "Index": 0
             },
             {
-                "PropertyString": "+30 better chance of getting magic item",
+                "PropertyString": "+30% better chance of getting magic item",
                 "Index": 0
             },
             {
@@ -12615,11 +12615,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+25 Faster Cast Rate",
+                "PropertyString": "+25% Faster Cast Rate",
                 "Index": 5
             },
             {
-                "PropertyString": "+200 Enhanced Defense",
+                "PropertyString": "+200% Enhanced Defense",
                 "Index": 2
             },
             {
@@ -12627,19 +12627,23 @@
                 "Index": 3
             },
             {
-                "PropertyString": "All Resistances +25-30",
+                "PropertyString": "All Resistances +25-30%",
                 "Index": 4
             },
             {
-                "PropertyString": "+20 Deadly Strike (Weapon)",
+                "PropertyString": "+1 to Light Radius (Weapon)",
                 "Index": 0
+            },
+            {
+                "PropertyString": "+20% Deadly Strike (Weapon)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+50 to Attack Rating (Weapon)",
+                "Index": 1
             },
             {
                 "PropertyString": "+9 to Minimum Damage (Weapon)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "1 to Light Radius (Weapon)",
                 "Index": 0
             },
             {
@@ -12647,8 +12651,8 @@
                 "Index": 0
             },
             {
-                "PropertyString": "50 to Attack Rating (Weapon)",
-                "Index": 1
+                "PropertyString": "+1 to Light Radius (Armor)",
+                "Index": 0
             },
             {
                 "PropertyString": "+15 Defense (Armor)",
@@ -12659,15 +12663,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Damage Reduced by (Armor)",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+7 Replenish Life (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "1 to Light Radius (Armor)",
+                "PropertyString": "Damage Reduced by 7 (Armor)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+1 to Light Radius (Shield)",
                 "Index": 0
             },
             {
@@ -12679,15 +12683,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Damage Reduced by (Shield)",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+7 Replenish Life (Shield)",
                 "Index": 0
             },
             {
-                "PropertyString": "1 to Light Radius (Shield)",
+                "PropertyString": "Damage Reduced by 7 (Shield)",
                 "Index": 0
             }
         ],
@@ -12764,11 +12764,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Damage Reduced by",
+                "PropertyString": "Damage Reduced by 7",
                 "Index": 0
             },
             {
-                "PropertyString": "1 to Light Radius",
+                "PropertyString": "+1 to Light Radius",
                 "Index": 0
             }
         ],
@@ -12852,7 +12852,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+30-40 Increased Attack Speed",
+                "PropertyString": "+30-40% Increased Attack Speed",
                 "Index": 1
             },
             {
@@ -12876,11 +12876,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "20-25 to Enemy Poison Resistance",
+                "PropertyString": "-20-25% to Enemy Poison Resistance",
                 "Index": 5
             },
             {
-                "PropertyString": "+20 Deadly Strike",
+                "PropertyString": "+20% Deadly Strike",
                 "Index": 0
             },
             {
@@ -12951,7 +12951,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+150-300 Enhanced Defense",
+                "PropertyString": "+150-300% Enhanced Defense",
                 "Index": 0
             },
             {
@@ -12975,11 +12975,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+70-100 extra gold from monsters",
+                "PropertyString": "+70-100% extra gold from monsters",
                 "Index": 5
             },
             {
-                "PropertyString": "+40-70 better chance of getting magic item",
+                "PropertyString": "+40-70% better chance of getting magic item",
                 "Index": 1
             },
             {
@@ -13052,11 +13052,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+50 Faster Hit Recovery",
+                "PropertyString": "+50% Faster Hit Recovery",
                 "Index": 0
             },
             {
-                "PropertyString": "25-50 to Poison Skill Damage",
+                "PropertyString": "+25-50% to Poison Skill Damage",
                 "Index": 4
             },
             {
@@ -13064,7 +13064,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+5 Increase Maximum Mana",
+                "PropertyString": "+5% Increased Maximum Mana",
                 "Index": 0
             },
             {
@@ -13168,23 +13168,23 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+3-5 to all Attributes",
-                "Index": 5
-            },
-            {
                 "PropertyString": "+0.38 to Strength (Per Character Level)",
                 "Index": 4
             },
             {
-                "PropertyString": "+5 Increase Maximum Mana (Armor)",
-                "Index": 0
+                "PropertyString": "+3-5 to All Attributes",
+                "Index": 5
             },
             {
                 "PropertyString": "+5 to Maximum Lightning Resist (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Damage Reduced by (Armor)",
+                "PropertyString": "+5% Increased Maximum Mana (Armor)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Damage Reduced by 7 (Armor)",
                 "Index": 0
             },
             {
@@ -13196,7 +13196,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Damage Reduced by (Shield)",
+                "PropertyString": "Damage Reduced by 7 (Shield)",
                 "Index": 0
             }
         ],
@@ -13265,19 +13265,19 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+30 Faster Cast Rate",
+                "PropertyString": "+30% Faster Cast Rate",
                 "Index": 1
             },
             {
-                "PropertyString": "20 to Fire Skill Damage",
+                "PropertyString": "+20% to Fire Skill Damage",
                 "Index": 4
             },
             {
-                "PropertyString": "20 to Cold Skill Damage",
+                "PropertyString": "+20% to Cold Skill Damage",
                 "Index": 5
             },
             {
-                "PropertyString": "20 to Lightning Skill Damage",
+                "PropertyString": "+20% to Lightning Skill Damage",
                 "Index": 6
             },
             {
@@ -13285,7 +13285,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+10 Increase Maximum Mana",
+                "PropertyString": "+10% Increased Maximum Mana",
                 "Index": 3
             },
             {
@@ -13293,7 +13293,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "All Resistances +15",
+                "PropertyString": "All Resistances +15%",
                 "Index": 0
             },
             {
@@ -13390,7 +13390,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+40 Increased Attack Speed",
+                "PropertyString": "+40% Increased Attack Speed",
                 "Index": 0
             },
             {
@@ -13398,19 +13398,19 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+20 Faster Hit Recovery",
+                "PropertyString": "+20% Faster Hit Recovery",
                 "Index": 5
             },
             {
-                "PropertyString": "+10 Chance of Crushing Blow",
+                "PropertyString": "+10% Chance of Crushing Blow",
                 "Index": 4
             },
             {
-                "PropertyString": "+10 Deadly Strike",
+                "PropertyString": "+10% Deadly Strike",
                 "Index": 3
             },
             {
-                "PropertyString": "25% Chance of Open Wounds",
+                "PropertyString": "+25% Chance of Open Wounds",
                 "Index": 0
             },
             {
@@ -13422,7 +13422,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+5 Damage Reduced by 5%%",
+                "PropertyString": "+5% Physical Damage Reduction",
                 "Index": 6
             }
         ],
@@ -13491,15 +13491,15 @@
                 "Index": 5
             },
             {
-                "PropertyString": "2 to All Skills",
+                "PropertyString": "+2 to All Skills",
                 "Index": 0
             },
             {
-                "PropertyString": "+25 Faster Cast Rate",
+                "PropertyString": "+25% Faster Cast Rate",
                 "Index": 2
             },
             {
-                "PropertyString": "+20 Faster Hit Recovery",
+                "PropertyString": "+20% Faster Hit Recovery",
                 "Index": 0
             },
             {
@@ -13507,19 +13507,19 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+10-20 to all Attributes",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+20 Increase Maximum Mana",
+                "PropertyString": "+20% Increased Maximum Mana",
                 "Index": 1
             },
             {
-                "PropertyString": "+50 extra gold from monsters",
+                "PropertyString": "+10-20 to All Attributes",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+50% extra gold from monsters",
                 "Index": 0
             },
             {
-                "PropertyString": "+30-50 better chance of getting magic item",
+                "PropertyString": "+30-50% better chance of getting magic item",
                 "Index": 4
             }
         ],
@@ -13598,7 +13598,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+50 Increased Attack Speed",
+                "PropertyString": "+50% Increased Attack Speed",
                 "Index": 4
             },
             {
@@ -13606,7 +13606,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "20 bonus to Attack Rating",
+                "PropertyString": "+20 % bonus to Attack Rating",
                 "Index": 0
             },
             {
@@ -13618,15 +13618,15 @@
                 "Index": 2
             },
             {
-                "PropertyString": "25 to Enemy Lightning Resistance",
+                "PropertyString": "-25% to Enemy Lightning Resistance",
                 "Index": 5
             },
             {
-                "PropertyString": "25 to Lightning Skill Damage",
+                "PropertyString": "+25% to Lightning Skill Damage",
                 "Index": 6
             },
             {
-                "PropertyString": "+20 Deadly Strike",
+                "PropertyString": "+20% Deadly Strike",
                 "Index": 0
             },
             {
@@ -13634,7 +13634,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+30 better chance of getting magic item",
+                "PropertyString": "+30% better chance of getting magic item",
                 "Index": 0
             }
         ],
@@ -13683,11 +13683,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+20 Faster Run/Walk",
+                "PropertyString": "+20% Faster Run/Walk",
                 "Index": 2
             },
             {
-                "PropertyString": "+40 Increased Attack Speed",
+                "PropertyString": "+40% Increased Attack Speed",
                 "Index": 1
             },
             {
@@ -13695,7 +13695,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+15 Faster Hit Recovery",
+                "PropertyString": "+15% Faster Hit Recovery",
                 "Index": 6
             },
             {
@@ -13707,11 +13707,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+5 Increase Maximum Mana",
+                "PropertyString": "+5% Increased Maximum Mana",
                 "Index": 0
             },
             {
-                "PropertyString": "1 to Light Radius",
+                "PropertyString": "+1 to Light Radius",
                 "Index": 0
             },
             {
@@ -13822,7 +13822,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+40 Increased Attack Speed",
+                "PropertyString": "+40% Increased Attack Speed",
                 "Index": 0
             },
             {
@@ -13830,11 +13830,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+20 Chance of Crushing Blow",
+                "PropertyString": "+20% Chance of Crushing Blow",
                 "Index": 0
             },
             {
-                "PropertyString": "25% Chance of Open Wounds",
+                "PropertyString": "+25% Chance of Open Wounds",
                 "Index": 0
             },
             {
@@ -13899,11 +13899,11 @@
         "Code": "Rathma's Husk",
         "Properties": [
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 5
             },
             {
-                "PropertyString": "20 to Poison Skill Damage",
+                "PropertyString": "+20% to Poison Skill Damage",
                 "Index": 1
             },
             {
@@ -13915,15 +13915,15 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+200-250 Enhanced Defense",
+                "PropertyString": "+200-250% Enhanced Defense",
                 "Index": 6
             },
             {
-                "PropertyString": "All Resistances +30",
+                "PropertyString": "All Resistances +30%",
                 "Index": 2
             },
             {
-                "PropertyString": "+8 Damage Reduced by 8%%",
+                "PropertyString": "+8% Physical Damage Reduction",
                 "Index": 0
             },
             {
@@ -13992,7 +13992,7 @@
         "Code": "Chains of Honor",
         "Properties": [
             {
-                "PropertyString": "2 to All Skills",
+                "PropertyString": "+2 to All Skills",
                 "Index": 5
             },
             {
@@ -14008,7 +14008,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+70 Enhanced Defense",
+                "PropertyString": "+70% Enhanced Defense",
                 "Index": 1
             },
             {
@@ -14020,15 +14020,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +65",
+                "PropertyString": "All Resistances +65%",
                 "Index": 0
             },
             {
-                "PropertyString": "+8 Damage Reduced by 8%%",
+                "PropertyString": "+8% Physical Damage Reduction",
                 "Index": 0
             },
             {
-                "PropertyString": "+25 better chance of getting magic item",
+                "PropertyString": "+25% better chance of getting magic item",
                 "Index": 0
             }
         ],
@@ -14111,7 +14111,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+33 Slows target by",
+                "PropertyString": "Slows target by 33",
                 "Index": 2
             },
             {
@@ -14119,7 +14119,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+5 Increase Maximum Mana",
+                "PropertyString": "+5% Increased Maximum Mana",
                 "Index": 0
             },
             {
@@ -14127,11 +14127,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+8 Damage Reduced by 8%%",
+                "PropertyString": "+8% Physical Damage Reduction",
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Damage Reduced by",
+                "PropertyString": "Damage Reduced by 7",
                 "Index": 0
             },
             {
@@ -14139,11 +14139,11 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+14 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +14",
                 "Index": 0
             },
             {
-                "PropertyString": "+25 better chance of getting magic item",
+                "PropertyString": "+25% better chance of getting magic item",
                 "Index": 0
             },
             {
@@ -14225,7 +14225,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+35 Faster Run/Walk",
+                "PropertyString": "+35% Faster Run/Walk",
                 "Index": 1
             },
             {
@@ -14233,11 +14233,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "45-55 to Enemy Lightning Resistance",
+                "PropertyString": "-45-55% to Enemy Lightning Resistance",
                 "Index": 5
             },
             {
-                "PropertyString": "+40 Chance of Crushing Blow",
+                "PropertyString": "+40% Chance of Crushing Blow",
                 "Index": 0
             },
             {
@@ -14249,7 +14249,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+30 better chance of getting magic item",
+                "PropertyString": "+30% better chance of getting magic item",
                 "Index": 0
             },
             {
@@ -14331,15 +14331,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+40 Faster Cast Rate",
+                "PropertyString": "+40% Faster Cast Rate",
                 "Index": 2
             },
             {
-                "PropertyString": "+20 Faster Block Rate",
+                "PropertyString": "+20% Faster Block Rate",
                 "Index": 4
             },
             {
-                "PropertyString": "20-30% Increased Chance of Blocking",
+                "PropertyString": "+20-30% Increased Chance of Blocking",
                 "Index": 3
             },
             {
@@ -14351,35 +14351,35 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+25 better chance of getting magic item (Armor)",
+                "PropertyString": "+25% better chance of getting magic item (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "+50 extra gold from monsters (Armor)",
+                "PropertyString": "+50% extra gold from monsters (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "+8 Damage Reduced by 8%% (Armor)",
+                "PropertyString": "+8% Physical Damage Reduction (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +15 (Armor)",
+                "PropertyString": "All Resistances +15% (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "+25 better chance of getting magic item (Shield)",
+                "PropertyString": "+25% better chance of getting magic item (Shield)",
                 "Index": 0
             },
             {
-                "PropertyString": "+50 extra gold from monsters (Shield)",
+                "PropertyString": "+50% extra gold from monsters (Shield)",
                 "Index": 0
             },
             {
-                "PropertyString": "+8 Damage Reduced by 8%% (Shield)",
+                "PropertyString": "+8% Physical Damage Reduction (Shield)",
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +22 (Shield)",
+                "PropertyString": "All Resistances +22% (Shield)",
                 "Index": 0
             }
         ],
@@ -14446,11 +14446,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+30 Faster Hit Recovery",
+                "PropertyString": "+30% Faster Hit Recovery",
                 "Index": 1
             },
             {
-                "PropertyString": "+200-250 Enhanced Defense",
+                "PropertyString": "+200-250% Enhanced Defense",
                 "Index": 6
             },
             {
@@ -14462,15 +14462,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +40",
+                "PropertyString": "All Resistances +40%",
                 "Index": 4
             },
             {
-                "PropertyString": "+8 Damage Reduced by 8%%",
+                "PropertyString": "+8% Physical Damage Reduction",
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Magic Damage Reduced by",
+                "PropertyString": "Magic Damage Reduced by 7",
                 "Index": 0
             }
         ],
@@ -14538,11 +14538,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "15 to Poison Skill Damage",
+                "PropertyString": "+15% to Poison Skill Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "15 to Enemy Poison Resistance",
+                "PropertyString": "-15% to Enemy Poison Resistance",
                 "Index": 6
             },
             {
@@ -14550,15 +14550,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +15",
+                "PropertyString": "All Resistances +15%",
                 "Index": 4
             },
             {
-                "PropertyString": "+13 Damage Reduced by 13%%",
+                "PropertyString": "+13% Physical Damage Reduction",
                 "Index": 5
             },
             {
-                "PropertyString": "+7 Magic Damage Reduced by",
+                "PropertyString": "Magic Damage Reduced by 7",
                 "Index": 0
             },
             {
@@ -14651,7 +14651,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+30 Enhanced Defense",
+                "PropertyString": "+30% Enhanced Defense",
                 "Index": 0
             },
             {
@@ -14659,11 +14659,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+8 Damage Reduced by 8%%",
+                "PropertyString": "+8% Physical Damage Reduction",
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Magic Damage Reduced by",
+                "PropertyString": "Magic Damage Reduced by 7",
                 "Index": 0
             },
             {
@@ -14756,7 +14756,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+5 Increase Maximum Life",
+                "PropertyString": "+5% Increased Maximum Life",
                 "Index": 0
             },
             {
@@ -14768,7 +14768,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Magic Damage Reduced by",
+                "PropertyString": "Magic Damage Reduced by 7",
                 "Index": 0
             }
         ],
@@ -14831,7 +14831,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+30 Faster Cast Rate",
+                "PropertyString": "+30% Faster Cast Rate",
                 "Index": 2
             },
             {
@@ -14839,7 +14839,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "25% Chance of Open Wounds",
+                "PropertyString": "+25% Chance of Open Wounds",
                 "Index": 0
             },
             {
@@ -14847,11 +14847,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+25 Increase Maximum Life",
+                "PropertyString": "+25% Increased Maximum Life",
                 "Index": 6
             },
             {
-                "PropertyString": "+50 Increase Maximum Mana",
+                "PropertyString": "+50% Increased Maximum Mana",
                 "Index": 5
             },
             {
@@ -14971,11 +14971,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Chance of Crushing Blow",
+                "PropertyString": "+20% Chance of Crushing Blow",
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Deadly Strike",
+                "PropertyString": "+20% Deadly Strike",
                 "Index": 0
             },
             {
@@ -15047,7 +15047,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+20-30 Faster Hit Recovery",
+                "PropertyString": "+20-30% Faster Hit Recovery",
                 "Index": 2
             },
             {
@@ -15059,19 +15059,19 @@
                 "Index": 4
             },
             {
-                "PropertyString": "All Resistances +5-20",
+                "PropertyString": "All Resistances +5-20%",
                 "Index": 5
             },
             {
-                "PropertyString": "+15-25 better chance of getting magic item",
+                "PropertyString": "+15-25% better chance of getting magic item",
                 "Index": 6
             },
             {
-                "PropertyString": "+30 Enhanced Defense (Armor)",
+                "PropertyString": "+30% Enhanced Defense (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "+5 Increase Maximum Life (Armor)",
+                "PropertyString": "+5% Increased Maximum Life (Armor)",
                 "Index": 0
             },
             {
@@ -15079,15 +15079,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+30 Enhanced Defense (Shield)",
+                "PropertyString": "+30% Enhanced Defense (Shield)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+50 to Life (Shield)",
                 "Index": 0
             },
             {
                 "PropertyString": "10 to Vitality (Shield)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "50 to Life (Shield)",
                 "Index": 0
             }
         ],
@@ -15142,7 +15142,7 @@
         "Code": "Enigma",
         "Properties": [
             {
-                "PropertyString": "2 to All Skills",
+                "PropertyString": "+2 to All Skills",
                 "Index": 4
             },
             {
@@ -15150,7 +15150,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+45 Faster Run/Walk",
+                "PropertyString": "+45% Faster Run/Walk",
                 "Index": 2
             },
             {
@@ -15162,11 +15162,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+5 Increase Maximum Life",
+                "PropertyString": "+5% Increased Maximum Life",
                 "Index": 0
             },
             {
-                "PropertyString": "+8 Damage Reduced by 8%%",
+                "PropertyString": "+8% Physical Damage Reduction",
                 "Index": 0
             },
             {
@@ -15174,7 +15174,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "15% Damage Taken Goes To Mana",
+                "PropertyString": "+15% Damage Taken Goes To Mana",
                 "Index": 0
             },
             {
@@ -15247,7 +15247,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "1-2 to All Skills",
+                "PropertyString": "+1-2 to All Skills",
                 "Index": 6
             },
             {
@@ -15255,7 +15255,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "300 bonus to Attack Rating",
+                "PropertyString": "+300 % bonus to Attack Rating",
                 "Index": 1
             },
             {
@@ -15263,7 +15263,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+5 Increase Maximum Life",
+                "PropertyString": "+5% Increased Maximum Life",
                 "Index": 0
             },
             {
@@ -15271,7 +15271,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +15",
+                "PropertyString": "All Resistances +15%",
                 "Index": 3
             },
             {
@@ -15283,7 +15283,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+50 extra gold from monsters",
+                "PropertyString": "+50% extra gold from monsters",
                 "Index": 0
             }
         ],
@@ -15363,7 +15363,7 @@
         "Code": "Famine",
         "Properties": [
             {
-                "PropertyString": "+30 Increased Attack Speed",
+                "PropertyString": "+30% Increased Attack Speed",
                 "Index": 2
             },
             {
@@ -15454,7 +15454,7 @@
         "Code": "Fury",
         "Properties": [
             {
-                "PropertyString": "+40 Increased Attack Speed",
+                "PropertyString": "+40% Increased Attack Speed",
                 "Index": 1
             },
             {
@@ -15466,11 +15466,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+33 Deadly Strike",
+                "PropertyString": "+33% Deadly Strike",
                 "Index": 5
             },
             {
-                "PropertyString": "66% Chance of Open Wounds",
+                "PropertyString": "+66% Chance of Open Wounds",
                 "Index": 3
             },
             {
@@ -15482,7 +15482,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+5 Increase Maximum Life",
+                "PropertyString": "+5% Increased Maximum Life",
                 "Index": 0
             },
             {
@@ -15571,19 +15571,19 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+20 Faster Hit Recovery",
+                "PropertyString": "+20% Faster Hit Recovery",
                 "Index": 0
             },
             {
-                "PropertyString": "25-30 to Cold Skill Damage",
+                "PropertyString": "+25-30% to Cold Skill Damage",
                 "Index": 4
             },
             {
-                "PropertyString": "20 to Enemy Cold Resistance",
+                "PropertyString": "-20% to Enemy Cold Resistance",
                 "Index": 5
             },
             {
-                "PropertyString": "+5 Increase Maximum Life",
+                "PropertyString": "+5% Increased Maximum Life",
                 "Index": 0
             },
             {
@@ -15591,7 +15591,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+14 Attacker Takes Damage of",
+                "PropertyString": "Attacker Takes Damage of +14",
                 "Index": 0
             },
             {
@@ -15681,7 +15681,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "28 to Enemy Fire Resistance",
+                "PropertyString": "-28% to Enemy Fire Resistance",
                 "Index": 4
             },
             {
@@ -15697,7 +15697,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Deadly Strike (Weapon)",
+                "PropertyString": "+20% Deadly Strike (Weapon)",
                 "Index": 0
             },
             {
@@ -15721,7 +15721,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "50 to Life (Shield)",
+                "PropertyString": "+50 to Life (Shield)",
                 "Index": 0
             }
         ],
@@ -15794,11 +15794,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+20 Faster Cast Rate",
+                "PropertyString": "+20% Faster Cast Rate",
                 "Index": 2
             },
             {
-                "PropertyString": "+20 Faster Hit Recovery",
+                "PropertyString": "+20% Faster Hit Recovery",
                 "Index": 0
             },
             {
@@ -15806,7 +15806,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+200-250 Enhanced Defense",
+                "PropertyString": "+200-250% Enhanced Defense",
                 "Index": 3
             },
             {
@@ -15818,11 +15818,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+5 Increase Maximum Life",
+                "PropertyString": "+5% Increased Maximum Life",
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +35",
+                "PropertyString": "All Resistances +35%",
                 "Index": 4
             }
         ],
@@ -15889,11 +15889,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+40 Faster Hit Recovery",
+                "PropertyString": "+40% Faster Hit Recovery",
                 "Index": 5
             },
             {
-                "PropertyString": "50 bonus to Attack Rating",
+                "PropertyString": "+50 % bonus to Attack Rating",
                 "Index": 2
             },
             {
@@ -15905,11 +15905,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+5 Increase Maximum Life",
+                "PropertyString": "+5% Increased Maximum Life",
                 "Index": 0
             },
             {
-                "PropertyString": "+25 better chance of getting magic item",
+                "PropertyString": "+25% better chance of getting magic item",
                 "Index": 0
             },
             {
@@ -15996,7 +15996,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 1
             },
             {
@@ -16012,7 +16012,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "25% Chance of Open Wounds",
+                "PropertyString": "+25% Chance of Open Wounds",
                 "Index": 0
             },
             {
@@ -16024,7 +16024,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+25 Lightning Absorb",
+                "PropertyString": "+25 % Lightning Absorb",
                 "Index": 5
             },
             {
@@ -16090,15 +16090,15 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+160-220 Enhanced Defense",
+                "PropertyString": "+160-220% Enhanced Defense",
                 "Index": 0
             },
             {
-                "PropertyString": "35-50 to Life",
+                "PropertyString": "+35-50 to Life",
                 "Index": 2
             },
             {
-                "PropertyString": "+10-20 Increase Maximum Life",
+                "PropertyString": "+10-20% Increased Maximum Life",
                 "Index": 3
             },
             {
@@ -16106,19 +16106,19 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+14 Attacker Takes Damage of (Armor)",
+                "PropertyString": "+5% Increased Maximum Life (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "+5 Increase Maximum Life (Armor)",
+                "PropertyString": "Attacker Takes Damage of +14 (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "+14 Attacker Takes Damage of (Shield)",
+                "PropertyString": "+50 to Life (Shield)",
                 "Index": 0
             },
             {
-                "PropertyString": "50 to Life (Shield)",
+                "PropertyString": "Attacker Takes Damage of +14 (Shield)",
                 "Index": 0
             }
         ],
@@ -16211,7 +16211,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+30 Increased Attack Speed",
+                "PropertyString": "+30% Increased Attack Speed",
                 "Index": 5
             },
             {
@@ -16235,7 +16235,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Chance of Crushing Blow",
+                "PropertyString": "+20% Chance of Crushing Blow",
                 "Index": 0
             },
             {
@@ -16243,7 +16243,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +35",
+                "PropertyString": "All Resistances +35%",
                 "Index": 6
             },
             {
@@ -16330,11 +16330,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "2 to All Skills",
+                "PropertyString": "+2 to All Skills",
                 "Index": 1
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 0
             },
             {
@@ -16354,11 +16354,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+35 Chance of Crushing Blow",
+                "PropertyString": "+35% Chance of Crushing Blow",
                 "Index": 6
             },
             {
-                "PropertyString": "+20 Deadly Strike",
+                "PropertyString": "+20% Deadly Strike",
                 "Index": 0
             },
             {
@@ -16453,7 +16453,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "2 to All Skills",
+                "PropertyString": "+2 to All Skills",
                 "Index": 5
             },
             {
@@ -16461,23 +16461,23 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+40 Faster Cast Rate",
+                "PropertyString": "+40% Faster Cast Rate",
                 "Index": 2
             },
             {
-                "PropertyString": "15-25 to Cold Skill Damage",
+                "PropertyString": "+15-25% to Cold Skill Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "40-60 to Enemy Cold Resistance",
+                "PropertyString": "-40-60% to Enemy Cold Resistance",
                 "Index": 4
             },
             {
-                "PropertyString": "+20 Deadly Strike",
+                "PropertyString": "+20% Deadly Strike",
                 "Index": 0
             },
             {
-                "PropertyString": "25% Chance of Open Wounds",
+                "PropertyString": "+25% Chance of Open Wounds",
                 "Index": 0
             },
             {
@@ -16485,7 +16485,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+30 Increase Maximum Mana",
+                "PropertyString": "+30% Increased Maximum Mana",
                 "Index": 3
             },
             {
@@ -16592,11 +16592,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "2 to All Skills",
+                "PropertyString": "+2 to All Skills",
                 "Index": 5
             },
             {
-                "PropertyString": "+45 Increased Attack Speed",
+                "PropertyString": "+45% Increased Attack Speed",
                 "Index": 2
             },
             {
@@ -16604,15 +16604,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "40-60 to Enemy Cold Resistance",
+                "PropertyString": "-40-60% to Enemy Cold Resistance",
                 "Index": 4
             },
             {
-                "PropertyString": "+20 Deadly Strike",
+                "PropertyString": "+20% Deadly Strike",
                 "Index": 0
             },
             {
-                "PropertyString": "25% Chance of Open Wounds",
+                "PropertyString": "+25% Chance of Open Wounds",
                 "Index": 0
             },
             {
@@ -16707,7 +16707,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 0
             },
             {
@@ -16727,11 +16727,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "20-25 to Cold Skill Damage",
+                "PropertyString": "+20-25% to Cold Skill Damage",
                 "Index": 5
             },
             {
-                "PropertyString": "20-25 to Fire Skill Damage",
+                "PropertyString": "+20-25% to Fire Skill Damage",
                 "Index": 6
             },
             {
@@ -16820,7 +16820,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+33 Increased Attack Speed",
+                "PropertyString": "+33% Increased Attack Speed",
                 "Index": 0
             },
             {
@@ -16832,7 +16832,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "20 to Enemy Fire Resistance",
+                "PropertyString": "-20% to Enemy Fire Resistance",
                 "Index": 6
             },
             {
@@ -16840,7 +16840,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Deadly Strike",
+                "PropertyString": "+20% Deadly Strike",
                 "Index": 0
             },
             {
@@ -16985,7 +16985,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Chance of Crushing Blow",
+                "PropertyString": "+20% Chance of Crushing Blow",
                 "Index": 0
             },
             {
@@ -17064,11 +17064,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+25 Chance of Crushing Blow",
+                "PropertyString": "+25% Chance of Crushing Blow",
                 "Index": 5
             },
             {
-                "PropertyString": "+50-80 Enhanced Defense",
+                "PropertyString": "+50-80% Enhanced Defense",
                 "Index": 3
             },
             {
@@ -17080,7 +17080,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +10",
+                "PropertyString": "All Resistances +10%",
                 "Index": 4
             },
             {
@@ -17163,7 +17163,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "3 to All Skills",
+                "PropertyString": "+3 to All Skills",
                 "Index": 0
             },
             {
@@ -17171,7 +17171,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+20 Faster Hit Recovery",
+                "PropertyString": "+20% Faster Hit Recovery",
                 "Index": 0
             },
             {
@@ -17191,7 +17191,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +40",
+                "PropertyString": "All Resistances +40%",
                 "Index": 5
             },
             {
@@ -17199,7 +17199,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "15% Damage Taken Goes To Mana",
+                "PropertyString": "+15% Damage Taken Goes To Mana",
                 "Index": 0
             }
         ],
@@ -17272,7 +17272,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+30 Increased Attack Speed",
+                "PropertyString": "+30% Increased Attack Speed",
                 "Index": 3
             },
             {
@@ -17280,7 +17280,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+200-250 Enhanced Defense",
+                "PropertyString": "+200-250% Enhanced Defense",
                 "Index": 2
             },
             {
@@ -17288,11 +17288,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +30",
+                "PropertyString": "All Resistances +30%",
                 "Index": 4
             },
             {
-                "PropertyString": "+8 Damage Reduced by 8%%",
+                "PropertyString": "+8% Physical Damage Reduction",
                 "Index": 0
             },
             {
@@ -17385,11 +17385,11 @@
         "Code": "Peril",
         "Properties": [
             {
-                "PropertyString": "1 to All Skills",
+                "PropertyString": "+1 to All Skills",
                 "Index": 4
             },
             {
-                "PropertyString": "+75 Increased Attack Speed",
+                "PropertyString": "+75% Increased Attack Speed",
                 "Index": 3
             },
             {
@@ -17401,15 +17401,15 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+20-30 to all Attributes",
-                "Index": 6
-            },
-            {
                 "PropertyString": "+10 to Maximum Lightning Resist",
                 "Index": 0
             },
             {
-                "PropertyString": "+16 Damage Reduced by 16%%",
+                "PropertyString": "+20-30 to All Attributes",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+16% Physical Damage Reduction",
                 "Index": 0
             },
             {
@@ -17498,11 +17498,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "1-2 to All Skills",
+                "PropertyString": "+1-2 to All Skills",
                 "Index": 6
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 0
             },
             {
@@ -17510,7 +17510,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "23 to Enemy Poison Resistance",
+                "PropertyString": "-23% to Enemy Poison Resistance",
                 "Index": 3
             },
             {
@@ -17518,7 +17518,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "25% Chance of Open Wounds",
+                "PropertyString": "+25% Chance of Open Wounds",
                 "Index": 0
             },
             {
@@ -17600,7 +17600,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "260-300 bonus to Attack Rating",
+                "PropertyString": "+260-300 % bonus to Attack Rating",
                 "Index": 2
             },
             {
@@ -17612,7 +17612,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+20 Deadly Strike",
+                "PropertyString": "+20% Deadly Strike",
                 "Index": 0
             },
             {
@@ -17695,27 +17695,27 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 5
             },
             {
-                "PropertyString": "+30 Faster Hit Recovery",
+                "PropertyString": "+30% Faster Hit Recovery",
                 "Index": 2
             },
             {
-                "PropertyString": "+200-250 Enhanced Defense",
+                "PropertyString": "+200-250% Enhanced Defense",
                 "Index": 6
             },
             {
-                "PropertyString": "+25 to all Attributes",
+                "PropertyString": "+25 to All Attributes",
                 "Index": 3
             },
             {
-                "PropertyString": "All Resistances +20",
+                "PropertyString": "All Resistances +20%",
                 "Index": 4
             },
             {
-                "PropertyString": "+16 Damage Reduced by 16%%",
+                "PropertyString": "+16% Physical Damage Reduction",
                 "Index": 0
             },
             {
@@ -17808,7 +17808,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+20 Faster Hit Recovery",
+                "PropertyString": "+20% Faster Hit Recovery",
                 "Index": 0
             },
             {
@@ -17824,11 +17824,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+5 Increase Maximum Mana",
+                "PropertyString": "+5% Increased Maximum Mana",
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +15",
+                "PropertyString": "All Resistances +15%",
                 "Index": 0
             },
             {
@@ -17925,7 +17925,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 to all Attributes",
+                "PropertyString": "+20 to All Attributes",
                 "Index": 6
             }
         ],
@@ -17992,15 +17992,15 @@
                 "Index": 3
             },
             {
-                "PropertyString": "2 to All Skills",
+                "PropertyString": "+2 to All Skills",
                 "Index": 4
             },
             {
-                "PropertyString": "+20 Faster Hit Recovery",
+                "PropertyString": "+20% Faster Hit Recovery",
                 "Index": 0
             },
             {
-                "PropertyString": "+25 to all Attributes",
+                "PropertyString": "+25 to All Attributes",
                 "Index": 5
             },
             {
@@ -18008,7 +18008,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+80 Poison Length Reduced by",
+                "PropertyString": "Poison Length Reduced by 80",
                 "Index": 6
             },
             {
@@ -18079,23 +18079,23 @@
                 "Index": 0
             },
             {
-                "PropertyString": "2 to All Skills",
+                "PropertyString": "+2 to All Skills",
                 "Index": 0
             },
             {
-                "PropertyString": "+25 Deadly Strike",
+                "PropertyString": "+25% Deadly Strike",
                 "Index": 6
             },
             {
-                "PropertyString": "+20 Slows target by",
+                "PropertyString": "Slows target by 20",
                 "Index": 5
             },
             {
-                "PropertyString": "+160-200 Enhanced Defense",
+                "PropertyString": "+160-200% Enhanced Defense",
                 "Index": 3
             },
             {
-                "PropertyString": "+8 Damage Reduced by 8%%",
+                "PropertyString": "+8% Physical Damage Reduction",
                 "Index": 0
             },
             {
@@ -18196,7 +18196,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+60 Increased Attack Speed",
+                "PropertyString": "+60% Increased Attack Speed",
                 "Index": 0
             },
             {
@@ -18208,7 +18208,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "50 to Attack Rating",
+                "PropertyString": "+50 to Attack Rating",
                 "Index": 1
             },
             {
@@ -18232,11 +18232,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+30 to all Attributes",
+                "PropertyString": "+30 to All Attributes",
                 "Index": 5
             },
             {
-                "PropertyString": "1 to Light Radius",
+                "PropertyString": "+1 to Light Radius",
                 "Index": 0
             },
             {
@@ -18315,15 +18315,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20-30 to all Attributes",
+                "PropertyString": "+20-30 to All Attributes",
                 "Index": 1
             },
             {
-                "PropertyString": "All Resistances +20-40",
+                "PropertyString": "All Resistances +20-40%",
                 "Index": 3
             },
             {
-                "PropertyString": "+15 Damage Reduced by 15%%",
+                "PropertyString": "+15% Physical Damage Reduction",
                 "Index": 4
             },
             {
@@ -18420,7 +18420,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "All Resistances +15",
+                "PropertyString": "All Resistances +15%",
                 "Index": 0
             },
             {
@@ -18428,7 +18428,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "15% Damage Taken Goes To Mana",
+                "PropertyString": "+15% Damage Taken Goes To Mana",
                 "Index": 0
             },
             {
@@ -18533,7 +18533,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+50 Increased Attack Speed",
+                "PropertyString": "+50% Increased Attack Speed",
                 "Index": 1
             },
             {
@@ -18545,7 +18545,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Chance of Crushing Blow",
+                "PropertyString": "+20% Chance of Crushing Blow",
                 "Index": 0
             },
             {
@@ -18557,11 +18557,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +25",
+                "PropertyString": "All Resistances +25%",
                 "Index": 6
             },
             {
-                "PropertyString": "+30 better chance of getting magic item",
+                "PropertyString": "+30% better chance of getting magic item",
                 "Index": 0
             },
             {
@@ -18632,19 +18632,19 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Increased Attack Speed",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 5
             },
             {
-                "PropertyString": "+20 Faster Hit Recovery",
+                "PropertyString": "+20% Faster Hit Recovery",
                 "Index": 0
             },
             {
-                "PropertyString": "+15 Increase Maximum Life",
+                "PropertyString": "+15% Increased Maximum Life",
                 "Index": 2
             },
             {
-                "PropertyString": "+15 Increase Maximum Mana",
+                "PropertyString": "+15% Increased Maximum Mana",
                 "Index": 1
             },
             {
@@ -18652,7 +18652,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +30-50",
+                "PropertyString": "All Resistances +30-50%",
                 "Index": 3
             },
             {
@@ -18749,15 +18749,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "4 to All Skills",
+                "PropertyString": "+4 to All Skills",
                 "Index": 0
             },
             {
-                "PropertyString": "+65 Faster Cast Rate",
+                "PropertyString": "+65% Faster Cast Rate",
                 "Index": 2
             },
             {
-                "PropertyString": "+60 Faster Hit Recovery",
+                "PropertyString": "+60% Faster Hit Recovery",
                 "Index": 3
             },
             {
@@ -18773,7 +18773,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+15-25 Increase Maximum Life",
+                "PropertyString": "+15-25% Increased Maximum Life",
                 "Index": 5
             },
             {
@@ -18781,15 +18781,15 @@
                 "Index": 6
             },
             {
-                "PropertyString": "All Resistances +60-70",
+                "PropertyString": "All Resistances +60-70%",
                 "Index": 4
             },
             {
-                "PropertyString": "+75 extra gold from monsters",
+                "PropertyString": "+75% extra gold from monsters",
                 "Index": 0
             },
             {
-                "PropertyString": "+30 better chance of getting magic item",
+                "PropertyString": "+30% better chance of getting magic item",
                 "Index": 0
             }
         ],
@@ -18866,15 +18866,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+50 Faster Hit Recovery",
+                "PropertyString": "+50% Faster Hit Recovery",
                 "Index": 2
             },
             {
-                "PropertyString": "+20 Faster Block Rate",
+                "PropertyString": "+20% Faster Block Rate",
                 "Index": 0
             },
             {
-                "PropertyString": "55% Increased Chance of Blocking",
+                "PropertyString": "+55% Increased Chance of Blocking",
                 "Index": 0
             },
             {
@@ -18882,11 +18882,11 @@
                 "Index": 6
             },
             {
-                "PropertyString": "50 to Life",
+                "PropertyString": "+50 to Life",
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +30-50",
+                "PropertyString": "All Resistances +30-50%",
                 "Index": 3
             },
             {
@@ -18894,7 +18894,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+25 better chance of getting magic item",
+                "PropertyString": "+25% better chance of getting magic item",
                 "Index": 0
             }
         ],
@@ -18971,7 +18971,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+50 Faster Cast Rate",
+                "PropertyString": "+50% Faster Cast Rate",
                 "Index": 1
             },
             {
@@ -18983,7 +18983,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Damage Reduced by 20%%",
+                "PropertyString": "+20% Physical Damage Reduction",
                 "Index": 4
             },
             {
@@ -18995,7 +18995,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "20% Damage Taken Goes To Mana",
+                "PropertyString": "+20% Damage Taken Goes To Mana",
                 "Index": 5
             }
         ],
@@ -19070,11 +19070,11 @@
         "Code": "Starlight",
         "Properties": [
             {
-                "PropertyString": "3 to All Skills",
+                "PropertyString": "+3 to All Skills",
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Faster Hit Recovery",
+                "PropertyString": "+20% Faster Hit Recovery",
                 "Index": 6
             },
             {
@@ -19082,11 +19082,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+100-200 Enhanced Defense",
+                "PropertyString": "+100-200% Enhanced Defense",
                 "Index": 2
             },
             {
-                "PropertyString": "+150-300 better chance of getting magic item",
+                "PropertyString": "+150-300% better chance of getting magic item",
                 "Index": 4
             },
             {
@@ -19102,15 +19102,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+30 better chance of getting magic item (Weapon)",
+                "PropertyString": "+1 to Light Radius (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "1 to Light Radius (Weapon)",
+                "PropertyString": "+30% better chance of getting magic item (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "50 to Attack Rating (Weapon)",
+                "PropertyString": "+50 to Attack Rating (Weapon)",
                 "Index": 1
             },
             {
@@ -19122,15 +19122,15 @@
                 "Index": 0
             },
             {
+                "PropertyString": "+1 to Light Radius (Armor)",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+15 Defense (Armor)",
                 "Index": 1
             },
             {
-                "PropertyString": "+25 better chance of getting magic item (Armor)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "1 to Light Radius (Armor)",
+                "PropertyString": "+25% better chance of getting magic item (Armor)",
                 "Index": 0
             },
             {
@@ -19142,15 +19142,15 @@
                 "Index": 0
             },
             {
+                "PropertyString": "+1 to Light Radius (Shield)",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+15 Defense (Shield)",
                 "Index": 1
             },
             {
-                "PropertyString": "+25 better chance of getting magic item (Shield)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "1 to Light Radius (Shield)",
+                "PropertyString": "+25% better chance of getting magic item (Shield)",
                 "Index": 0
             },
             {
