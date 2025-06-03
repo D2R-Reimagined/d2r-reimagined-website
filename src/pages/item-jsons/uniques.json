@@ -2251,6 +2251,10 @@
         "Code": "qui",
         "Properties": [
             {
+                "PropertyString": "+1 to Fire Skills",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+1 to Necromancer Skill Levels",
                 "Index": 1
             },
@@ -2265,10 +2269,6 @@
             {
                 "PropertyString": "Socketed (1-2)",
                 "Index": 4
-            },
-            {
-                "PropertyString": "+1 to Fire Skills",
-                "Index": 2
             }
         ],
         "DamageArmorEnhanced": true,
@@ -5837,6 +5837,10 @@
         "Code": "lst",
         "Properties": [
             {
+                "PropertyString": "+1 to Fire Skills",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+5-7 to Clay Golem",
                 "Index": 6
             },
@@ -5863,10 +5867,6 @@
             {
                 "PropertyString": "+2 to random Sorceress Skill",
                 "Index": 3
-            },
-            {
-                "PropertyString": "+1 to Fire Skills",
-                "Index": 4
             }
         ],
         "DamageArmorEnhanced": true,
@@ -13175,6 +13175,10 @@
         "Code": "bst",
         "Properties": [
             {
+                "PropertyString": "+2 to Fire Skills",
+                "Index": 5
+            },
+            {
                 "PropertyString": "Adds 15-32 to Fire Damage",
                 "Index": 0
             },
@@ -13193,10 +13197,6 @@
             {
                 "PropertyString": "Fire Resist +30%",
                 "Index": 1
-            },
-            {
-                "PropertyString": "+2 to Fire Skills",
-                "Index": 5
             }
         ],
         "DamageArmorEnhanced": false,
@@ -13797,6 +13797,10 @@
         "Code": "lsd",
         "Properties": [
             {
+                "PropertyString": "+2 to Fire Skills",
+                "Index": 7
+            },
+            {
                 "PropertyString": "+70-80% Enhanced Damage",
                 "Index": 5
             },
@@ -13815,10 +13819,6 @@
             {
                 "PropertyString": "+5 Life stolen per hit",
                 "Index": 1
-            },
-            {
-                "PropertyString": "+2 to Fire Skills",
-                "Index": 7
             }
         ],
         "DamageArmorEnhanced": true,
@@ -14996,6 +14996,10 @@
         "Code": "tgl",
         "Properties": [
             {
+                "PropertyString": "+1 to Fire Skills",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+20% Faster Cast Rate",
                 "Index": 0
             },
@@ -15014,10 +15018,6 @@
             {
                 "PropertyString": "Regenerate Mana 25%",
                 "Index": 1
-            },
-            {
-                "PropertyString": "+1 to Fire Skills",
-                "Index": 2
             }
         ],
         "DamageArmorEnhanced": true,
@@ -15976,7 +15976,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Level 8 Concentrate (100 Charges)",
+                "PropertyString": "Level 8 Carnage (100 Charges)",
                 "Index": 4
             }
         ],
@@ -18800,6 +18800,10 @@
         "Code": "scy",
         "Properties": [
             {
+                "PropertyString": "+1 to Fire Skills",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+1 to Druid Skill Levels",
                 "Index": 2
             },
@@ -18818,10 +18822,6 @@
             {
                 "PropertyString": "+1 Ignore Target's Defense",
                 "Index": 3
-            },
-            {
-                "PropertyString": "+1 to Fire Skills",
-                "Index": 4
             }
         ],
         "DamageArmorEnhanced": true,
@@ -19679,6 +19679,10 @@
         "Code": "swb",
         "Properties": [
             {
+                "PropertyString": "+1 to Fire Skills",
+                "Index": 7
+            },
+            {
                 "PropertyString": "+10% Increased Attack Speed",
                 "Index": 0
             },
@@ -19701,10 +19705,6 @@
             {
                 "PropertyString": "Fire Resist +40%",
                 "Index": 4
-            },
-            {
-                "PropertyString": "+1 to Fire Skills",
-                "Index": 7
             }
         ],
         "DamageArmorEnhanced": true,
@@ -26371,6 +26371,10 @@
         "Code": "hgl",
         "Properties": [
             {
+                "PropertyString": "+1 to Fire Skills",
+                "Index": 7
+            },
+            {
                 "PropertyString": "Adds 20-35 to Fire Damage",
                 "Index": 1
             },
@@ -26397,10 +26401,6 @@
             {
                 "PropertyString": "+2-4 to Light Radius",
                 "Index": 6
-            },
-            {
-                "PropertyString": "+1 to Fire Skills",
-                "Index": 7
             }
         ],
         "DamageArmorEnhanced": true,
@@ -28092,6 +28092,10 @@
         "Code": "9sb",
         "Properties": [
             {
+                "PropertyString": "+3 to Fire Skills",
+                "Index": 6
+            },
+            {
                 "PropertyString": "+140-160% Enhanced Damage",
                 "Index": 5
             },
@@ -28114,10 +28118,6 @@
             {
                 "PropertyString": "Level 6 Hydra (36 Charges)",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+3 to Fire Skills",
-                "Index": 6
             }
         ],
         "DamageArmorEnhanced": true,
@@ -28208,6 +28208,10 @@
         "Code": "8lb",
         "Properties": [
             {
+                "PropertyString": "+2 to Fire Skills",
+                "Index": 6
+            },
+            {
                 "PropertyString": "+3 to Bow and Crossbow Skills (Amazon only)",
                 "Index": 5
             },
@@ -28234,10 +28238,6 @@
             {
                 "PropertyString": "+3 to Immolation Arrow (Amazon Only)",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+2 to Fire Skills",
-                "Index": 6
             }
         ],
         "DamageArmorEnhanced": true,
@@ -29021,7 +29021,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+5-7 to Hunger (Druid Only)",
+                "PropertyString": "+5-7 to Toxic Fangs (Druid Only)",
                 "Index": 3
             },
             {
@@ -34552,6 +34552,10 @@
         "Code": "8lx",
         "Properties": [
             {
+                "PropertyString": "+2 to Fire Skills",
+                "Index": 6
+            },
+            {
                 "PropertyString": "+1 to Amazon Skill Levels",
                 "Index": 2
             },
@@ -34574,10 +34578,6 @@
             {
                 "PropertyString": "Cold Resist +25-40%",
                 "Index": 4
-            },
-            {
-                "PropertyString": "+2 to Fire Skills",
-                "Index": 6
             }
         ],
         "DamageArmorEnhanced": true,
@@ -36768,6 +36768,10 @@
         "Code": "wst",
         "Properties": [
             {
+                "PropertyString": "+5 to Fire Skills",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+15-25 to Minimum Damage",
                 "Index": 1
             },
@@ -36790,10 +36794,6 @@
             {
                 "PropertyString": "+10-20 Cold Absorb",
                 "Index": 5
-            },
-            {
-                "PropertyString": "+5 to Fire Skills",
-                "Index": 0
             }
         ],
         "DamageArmorEnhanced": true,
@@ -41825,6 +41825,10 @@
         "Code": "9xf",
         "Properties": [
             {
+                "PropertyString": "+5 to Fire Skills",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+200-250% Enhanced Damage",
                 "Index": 0
             },
@@ -41851,10 +41855,6 @@
             {
                 "PropertyString": "+10 % Fire Absorb",
                 "Index": 3
-            },
-            {
-                "PropertyString": "+5 to Fire Skills",
-                "Index": 4
             }
         ],
         "DamageArmorEnhanced": true,
@@ -42505,7 +42505,7 @@
         "Code": "8sb",
         "Properties": [
             {
-                "PropertyString": "+8-10 to Poison Explosion",
+                "PropertyString": "+8-10 to Poison Volley",
                 "Index": 6
             },
             {
@@ -43283,6 +43283,10 @@
         "Code": "rin",
         "Properties": [
             {
+                "PropertyString": "+1 to Fire Skills",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+3-5% to Fire Skill Damage",
                 "Index": 4
             },
@@ -43301,10 +43305,6 @@
             {
                 "PropertyString": "+100% extra gold from monsters",
                 "Index": 1
-            },
-            {
-                "PropertyString": "+1 to Fire Skills",
-                "Index": 0
             }
         ],
         "DamageArmorEnhanced": false,
@@ -44677,6 +44677,10 @@
                 "Index": 0
             },
             {
+                "PropertyString": "+2 to Poison Skills",
+                "Index": 7
+            },
+            {
                 "PropertyString": "+15-20% Increased Attack Speed",
                 "Index": 4
             },
@@ -44699,10 +44703,6 @@
             {
                 "PropertyString": "Slows target by 25",
                 "Index": 2
-            },
-            {
-                "PropertyString": "+2 to Fire Skills",
-                "Index": 7
             }
         ],
         "DamageArmorEnhanced": false,
@@ -49503,6 +49503,10 @@
         "Code": "xts",
         "Properties": [
             {
+                "PropertyString": "+2 to Poison Skills",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+20% Faster Block Rate",
                 "Index": 5
             },
@@ -49525,10 +49529,6 @@
             {
                 "PropertyString": "All Resistances +30%",
                 "Index": 6
-            },
-            {
-                "PropertyString": "+2 to Fire Skills",
-                "Index": 0
             }
         ],
         "DamageArmorEnhanced": true,
@@ -50286,6 +50286,10 @@
         "Code": "xpl",
         "Properties": [
             {
+                "PropertyString": "+2 to Fire Skills",
+                "Index": 5
+            },
+            {
                 "PropertyString": "Adds 25-100 to Fire Damage",
                 "Index": 3
             },
@@ -50304,10 +50308,6 @@
             {
                 "PropertyString": "+1 Cannot Be Frozen",
                 "Index": 4
-            },
-            {
-                "PropertyString": "+2 to Fire Skills",
-                "Index": 5
             }
         ],
         "DamageArmorEnhanced": true,
@@ -51332,7 +51332,7 @@
         "Code": "9b9",
         "Properties": [
             {
-                "PropertyString": "+3 to Stun",
+                "PropertyString": "+3 to Tectonic Slam",
                 "Index": 3
             },
             {
@@ -57615,7 +57615,7 @@
         "Code": "9m9",
         "Properties": [
             {
-                "PropertyString": "9% Chance to cast level 5 stun on striking",
+                "PropertyString": "9% Chance to cast level 5 Tectonic Slam on striking",
                 "Index": 3
             },
             {
@@ -58167,6 +58167,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+2 to Fire Skills",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+200-240% Enhanced Damage",
                 "Index": 0
             },
@@ -58193,10 +58197,6 @@
             {
                 "PropertyString": "Damage Reduced by 5",
                 "Index": 6
-            },
-            {
-                "PropertyString": "+2 to Fire Skills",
-                "Index": 2
             }
         ],
         "DamageArmorEnhanced": true,
@@ -61660,6 +61660,10 @@
         "Code": "amu",
         "Properties": [
             {
+                "PropertyString": "+2 to Fire Skills",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+10% Faster Cast Rate",
                 "Index": 2
             },
@@ -61678,10 +61682,6 @@
             {
                 "PropertyString": "+4 to Light Radius",
                 "Index": 1
-            },
-            {
-                "PropertyString": "+2 to Fire Skills",
-                "Index": 4
             }
         ],
         "DamageArmorEnhanced": false,
@@ -61975,7 +61975,7 @@
         "Code": "uh9",
         "Properties": [
             {
-                "PropertyString": "+5 to Stun",
+                "PropertyString": "+5 to Tectonic Slam",
                 "Index": 2
             },
             {
@@ -64303,6 +64303,10 @@
         "Code": "amu",
         "Properties": [
             {
+                "PropertyString": "+2 to Cold Skills",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+5-10% to Cold Skill Damage",
                 "Index": 1
             },
@@ -64317,10 +64321,6 @@
             {
                 "PropertyString": "+4 to Light Radius",
                 "Index": 2
-            },
-            {
-                "PropertyString": "+2 to Fire Skills",
-                "Index": 0
             }
         ],
         "DamageArmorEnhanced": false,
@@ -65473,6 +65473,10 @@
         "Code": "rin",
         "Properties": [
             {
+                "PropertyString": "+1 to Poison Skills",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+2 to Oak Sage",
                 "Index": 4
             },
@@ -65487,10 +65491,6 @@
             {
                 "PropertyString": "+3-5% Physical Damage Reduction",
                 "Index": 2
-            },
-            {
-                "PropertyString": "+1 to Fire Skills",
-                "Index": 0
             }
         ],
         "DamageArmorEnhanced": false,
@@ -67446,7 +67446,7 @@
         "Code": "7br",
         "Properties": [
             {
-                "PropertyString": "15% Chance to cast level 9 poison explosion on striking",
+                "PropertyString": "15% Chance to cast level 9 Poison Volley on striking",
                 "Index": 4
             },
             {
@@ -67558,6 +67558,10 @@
                 "Index": 4
             },
             {
+                "PropertyString": "+3 to Fire Skills",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+12-18 to Inferno",
                 "Index": 7
             },
@@ -67580,10 +67584,6 @@
             {
                 "PropertyString": "+20-30 % Fire Absorb",
                 "Index": 3
-            },
-            {
-                "PropertyString": "+3 to Fire Skills",
-                "Index": 2
             }
         ],
         "DamageArmorEnhanced": true,
@@ -69726,7 +69726,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+2-3 to Poison Explosion (Necromancer Only)",
+                "PropertyString": "+2-3 to Poison Volley (Necromancer Only)",
                 "Index": 3
             },
             {
@@ -69786,7 +69786,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+4-6 to Poison Explosion (Necromancer Only)",
+                "PropertyString": "+4-6 to Poison Volley (Necromancer Only)",
                 "Index": 1
             },
             {
@@ -71001,6 +71001,10 @@
         "Code": "6hx",
         "Properties": [
             {
+                "PropertyString": "+3 to Fire Skills",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+2 to Bow and Crossbow Skills (Amazon only)",
                 "Index": 5
             },
@@ -71019,10 +71023,6 @@
             {
                 "PropertyString": "5% Reanimate as: Imp2",
                 "Index": 4
-            },
-            {
-                "PropertyString": "+3 to Fire Skills",
-                "Index": 0
             }
         ],
         "DamageArmorEnhanced": false,
@@ -73275,6 +73275,10 @@
         "Code": "6hx",
         "Properties": [
             {
+                "PropertyString": "+3 to Cold Skills",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+20% Increased Attack Speed",
                 "Index": 1
             },
@@ -73301,10 +73305,6 @@
             {
                 "PropertyString": "+2-4 to Cold Arrow (Amazon Only)",
                 "Index": 4
-            },
-            {
-                "PropertyString": "+3 to Fire Skills",
-                "Index": 2
             }
         ],
         "DamageArmorEnhanced": true,
@@ -73773,7 +73773,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+5 to Concentrate",
+                "PropertyString": "+5 to Carnage",
                 "Index": 2
             },
             {
@@ -73921,7 +73921,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+2-3 to Poison Explosion (Necromancer Only)",
+                "PropertyString": "+2-3 to Poison Volley (Necromancer Only)",
                 "Index": 1
             },
             {
@@ -75531,6 +75531,18 @@
                 "Index": 0
             },
             {
+                "PropertyString": "+2 to Fire Skills",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+2 to Cold Skills",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+2 to Lightning Skills",
+                "Index": 7
+            },
+            {
                 "PropertyString": "+60% Faster Cast Rate",
                 "Index": 4
             },
@@ -75545,18 +75557,6 @@
             {
                 "PropertyString": "Regenerate Mana 75%",
                 "Index": 3
-            },
-            {
-                "PropertyString": "+2 to Fire Skills",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+2 to Fire Skills",
-                "Index": 6
-            },
-            {
-                "PropertyString": "+2 to Fire Skills",
-                "Index": 7
             }
         ],
         "DamageArmorEnhanced": false,
@@ -78684,7 +78684,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+3-5 to Poison Explosion (Necromancer Only)",
+                "PropertyString": "+3-5 to Poison Volley (Necromancer Only)",
                 "Index": 5
             },
             {

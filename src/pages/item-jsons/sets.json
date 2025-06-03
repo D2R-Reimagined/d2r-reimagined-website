@@ -1310,12 +1310,12 @@
                 "Code": "bst",
                 "Properties": [
                     {
-                        "PropertyString": "+10 to Maximum Fire Damage",
-                        "Index": 1
-                    },
-                    {
                         "PropertyString": "+1 to Fire Skills",
                         "Index": 0
+                    },
+                    {
+                        "PropertyString": "+10 to Maximum Fire Damage",
+                        "Index": 1
                     }
                 ],
                 "DamageArmorEnhanced": false,
@@ -6835,7 +6835,7 @@
         ],
         "PartialProperties": [
             {
-                "PropertyString": "+10 to Stun",
+                "PropertyString": "+10 to Tectonic Slam",
                 "Index": 0
             },
             {
@@ -7064,6 +7064,10 @@
                 "Index": 0
             },
             {
+                "PropertyString": "+2 to Fire Skills",
+                "Index": 6
+            },
+            {
                 "PropertyString": "20 to Strength",
                 "Index": 4
             },
@@ -7086,10 +7090,6 @@
             {
                 "PropertyString": "All Resistances +50%",
                 "Index": 3
-            },
-            {
-                "PropertyString": "+2 to Fire Skills",
-                "Index": 6
             }
         ],
         "Level": 1

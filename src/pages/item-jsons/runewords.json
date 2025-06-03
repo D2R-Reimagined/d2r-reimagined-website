@@ -1127,6 +1127,10 @@
         "Code": "Leaf",
         "Properties": [
             {
+                "PropertyString": "+3 to Fire Skills",
+                "Index": 0
+            },
+            {
                 "PropertyString": "Adds 5-30 to Fire Damage",
                 "Index": 0
             },
@@ -1152,10 +1156,6 @@
             },
             {
                 "PropertyString": "+2 to Mana after each Kill",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+3 to Fire Skills",
                 "Index": 0
             }
         ],
@@ -4008,6 +4008,10 @@
         "Code": "Duriel's Fang",
         "Properties": [
             {
+                "PropertyString": "+1-2 to Poison Skills",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+20% Increased Attack Speed",
                 "Index": 0
             },
@@ -4025,10 +4029,6 @@
             },
             {
                 "PropertyString": "+2 to Mana after each Kill",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+1-2 to Fire Skills",
                 "Index": 0
             }
         ],
@@ -6183,6 +6183,10 @@
         "Code": "Pestilence",
         "Properties": [
             {
+                "PropertyString": "+1 to Poison Skills",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+20% Increased Attack Speed",
                 "Index": 5
             },
@@ -6207,7 +6211,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+3 to Poison Explosion (Necromancer Only)",
+                "PropertyString": "+3 to Poison Volley (Necromancer Only)",
                 "Index": 2
             },
             {
@@ -6216,10 +6220,6 @@
             },
             {
                 "PropertyString": "10 to Vitality",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+1 to Fire Skills",
                 "Index": 0
             }
         ],
@@ -11163,6 +11163,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+3 to Fire Skills",
+                "Index": 0
+            },
+            {
                 "PropertyString": "-10-15% to Enemy Fire Resistance",
                 "Index": 2
             },
@@ -11189,10 +11193,6 @@
             {
                 "PropertyString": "Poison Length Reduced by 50",
                 "Index": 5
-            },
-            {
-                "PropertyString": "+3 to Fire Skills",
-                "Index": 0
             }
         ],
         "DamageArmorEnhanced": false,
@@ -13899,6 +13899,10 @@
         "Code": "Rathma's Husk",
         "Properties": [
             {
+                "PropertyString": "+2 to Poison Skills",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+20% Increased Attack Speed",
                 "Index": 5
             },
@@ -13911,7 +13915,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+2 to Poison Explosion (Necromancer Only)",
+                "PropertyString": "+2 to Poison Volley (Necromancer Only)",
                 "Index": 4
             },
             {
@@ -13924,10 +13928,6 @@
             },
             {
                 "PropertyString": "+8% Physical Damage Reduction",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+2 to Fire Skills",
                 "Index": 0
             }
         ],
@@ -14534,6 +14534,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+2 to Poison Skills",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+1 to Venom",
                 "Index": 3
             },
@@ -14559,10 +14563,6 @@
             },
             {
                 "PropertyString": "Magic Damage Reduced by 7",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+2 to Fire Skills",
                 "Index": 0
             }
         ],
