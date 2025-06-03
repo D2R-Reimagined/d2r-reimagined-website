@@ -1,4 +1,4 @@
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-v4zDOC48.js";
+import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-CgTtr8GI.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
 const name = "cube-recipes";
 const template = '<template>\n    <h3 class="text-center my-4">\n        ${recipes.length} Recipes Found\n    </h3>\n    <div class="search my-2 text-center">\n        <form>\n            <label>Search Recipes</label><br>\n            <input type="text" value.bind="search" />\n        </form>\n    </div>\n    <div class="row gy-5 px-5 text-center">\n        <div class="col-12 col-md-6 col-xxl-4" repeat.for="recipe of recipes">\n            <div class="card bg-dark p-2">\n                <div class="unique-text">\n                    ${recipe.Description}\n                </div>\n                <div class="description" innerhtml.bind="recipe.Input | cubeInputs"></div>\n\n                <div class="unique-text">\n                    = <br>\n                    ${recipe.Output}\n                </div>\n            </div>\n        </div>\n    </div>\n</template>';
@@ -703,30 +703,30 @@ const json = [
   {
     Description: "CRAFT ITEM - Helm (Any) Rare & 1 Jewel Rare & Um-Rune & Gem (Any) = All-skills + Def% Helm Crafted",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Rare Merc Equip + Rare Jewel + Um Rune + Gem ",
-    CubeRecipeDescription: "Rare Merc Equip + Rare Jewel + Um Rune + Gem = Merc Equip"
+    Output: "Helm",
+    Input: "Rare Helm + Rare Jewel + Um Rune + Gem ",
+    CubeRecipeDescription: "Rare Helm + Rare Jewel + Um Rune + Gem = Helm"
   },
   {
     Description: "CRAFT ITEM - Helm (Any) Rare & 1 Jewel Rare & Mal-Rune & Gem (Any) = Fcr + Fhr Helm Crafted",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Rare Merc Equip + Rare Jewel + Mal Rune + Gem ",
-    CubeRecipeDescription: "Rare Merc Equip + Rare Jewel + Mal Rune + Gem = Merc Equip"
+    Output: "Helm",
+    Input: "Rare Helm + Rare Jewel + Mal Rune + Gem ",
+    CubeRecipeDescription: "Rare Helm + Rare Jewel + Mal Rune + Gem = Helm"
   },
   {
     Description: "CRAFT ITEM - Helm (Any) Unique & 1 Jewel Unique & Ist-Rune & Vex-Rune = All-skills + Energy + Def% Helm Crafted",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Unique Merc Equip + Unique Jewel + Ist Rune + Vex Rune ",
-    CubeRecipeDescription: "Unique Merc Equip + Unique Jewel + Ist Rune + Vex Rune = Merc Equip"
+    Output: "Helm",
+    Input: "Unique Helm + Unique Jewel + Ist Rune + Vex Rune ",
+    CubeRecipeDescription: "Unique Helm + Unique Jewel + Ist Rune + Vex Rune = Helm"
   },
   {
     Description: "CRAFT ITEM - Helm (Any) Unique & 2 Jewel Unique & Ohm-Rune & Cham-Rune = All-skills + Dmg-to-Mana + Fbr + Hp-kill Helm Crafted",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Unique Merc Equip + 2 Unique Jewel + Ohm Rune + Cham Rune ",
-    CubeRecipeDescription: "Unique Merc Equip + 2 Unique Jewel + Ohm Rune + Cham Rune = Merc Equip"
+    Output: "Helm",
+    Input: "Unique Helm + 2 Unique Jewel + Ohm Rune + Cham Rune ",
+    CubeRecipeDescription: "Unique Helm + 2 Unique Jewel + Ohm Rune + Cham Rune = Helm"
   },
   {
     Description: "CRAFT ITEM - Shield (Any) Magic & ELD-Rune & TIR-Rune = +2mana/kill & +2life/kill & +5 all res Shield Crafted",
@@ -1067,16 +1067,16 @@ const json = [
   {
     Description: "CRAFT ITEM - Bolt Case of Slaying & Vex Rune & 1 Jewel Rare = Quiver of Amplified Slaying",
     Item: null,
-    Output: "",
+    Output: "Bolt Case of Amplified Slaying",
     Input: "Bolts of Slaying + Rare Jewel + Vex Rune ",
-    CubeRecipeDescription: "Bolts Of Slaying + Rare Jewel + Vex Rune = "
+    CubeRecipeDescription: "Bolts Of Slaying + Rare Jewel + Vex Rune = Bolt Case Of Amplified Slaying"
   },
   {
     Description: "CRAFT ITEM - Bolt Case of Slaying & Ohm Rune & 1 Jewel Rare = Quiver of Resistance Slaying",
     Item: null,
-    Output: "",
+    Output: "Bolt Case of Resistance Slaying",
     Input: "Bolts of Slaying + Rare Jewel + Ohm Rune ",
-    CubeRecipeDescription: "Bolts Of Slaying + Rare Jewel + Ohm Rune = "
+    CubeRecipeDescription: "Bolts Of Slaying + Rare Jewel + Ohm Rune = Bolt Case Of Resistance Slaying"
   },
   {
     Description: "CRAFT ITEM - Charm Grand & Jewel Magic & Amn Rune & EL Rune = Crafted Grand Charm +40-60Hp & +20-30 replenish",
@@ -1245,6 +1245,27 @@ const json = [
     Output: "Orb of Conversion",
     Input: "5 Orb of Infusion + Mephisto's Animus + Baal's Calamity + Diablo's Ire ",
     CubeRecipeDescription: "5 Orb Of Infusion + Mephisto's Animus + Baal's Calamity + Diablo's Ire = Orb Of Conversion"
+  },
+  {
+    Description: "CRAFT ITEM - Unique Armor & Corruption Orb & Mephisto's Animus & Baal's Calamity & Diablo's Ire = Rerolled Unique Item",
+    Item: null,
+    Output: "Any Armor",
+    Input: "Unique Any Armor + Orb of Corruption + Mephisto's Animus + Baal's Calamity + Diablo's Ire ",
+    CubeRecipeDescription: "Unique Any Armor + Orb Of Corruption + Mephisto's Animus + Baal's Calamity + Diablo's Ire = Any Armor"
+  },
+  {
+    Description: "CRAFT ITEM - Unique Shield & Corruption Orb & Mephisto's Animus & Baal's Calamity & Diablo's Ire = Rerolled Unique Item",
+    Item: null,
+    Output: "Any Shield",
+    Input: "Unique Any Shield + Orb of Corruption + Mephisto's Animus + Baal's Calamity + Diablo's Ire ",
+    CubeRecipeDescription: "Unique Any Shield + Orb Of Corruption + Mephisto's Animus + Baal's Calamity + Diablo's Ire = Any Shield"
+  },
+  {
+    Description: "CRAFT ITEM - Unique Weapon & Corruption Orb & Mephisto's Animus & Baal's Calamity & Diablo's Ire = Rerolled Unique Item",
+    Item: null,
+    Output: "Weapon",
+    Input: "Unique Weapon + Orb of Corruption + Mephisto's Animus + Baal's Calamity + Diablo's Ire ",
+    CubeRecipeDescription: "Unique Weapon + Orb Of Corruption + Mephisto's Animus + Baal's Calamity + Diablo's Ire = Weapon"
   },
   {
     Description: "CRAFT ITEM - Any Armor & Infusion Orb & Mephisto's Animus & Baal's Calamity & Diablo's Ire = Superior, Elite Item",
@@ -1551,57 +1572,134 @@ const json = [
     Description: "UPGRADE CHARM TIER - T1 Splash Charm & Gem Bag (1 Gem) = T2 Splash Charm",
     Item: null,
     Output: "Gem Bag",
-    Input: "Gem Bag + Collin's Might ",
-    CubeRecipeDescription: "Gem Bag + Collin's Might = Gem Bag"
+    Input: "Gem Bag + Collin's Lesser Might ",
+    CubeRecipeDescription: "Gem Bag + Collin's Lesser Might = Gem Bag"
   },
   {
     Description: "UPGRADE CHARM TIER - T2 Splash Charm & Nef-Rune & Gem Bag (1 Gem) = T3 Splash Charm",
     Item: null,
     Output: "Gem Bag",
-    Input: "Gem Bag + Collin's Fury + Nef Rune ",
-    CubeRecipeDescription: "Gem Bag + Collin's Fury + Nef Rune = Gem Bag"
+    Input: "Gem Bag + Collin's Minor Might + Nef Rune ",
+    CubeRecipeDescription: "Gem Bag + Collin's Minor Might + Nef Rune = Gem Bag"
   },
   {
     Description: "UPGRADE CHARM TIER - T3 Splash Charm & Sol-Rune & Gem Bag (1 Gem) = T4 Splash Charm",
     Item: null,
     Output: "Gem Bag",
-    Input: "Gem Bag + Collin's Devastation + Sol Rune ",
-    CubeRecipeDescription: "Gem Bag + Collin's Devastation + Sol Rune = Gem Bag"
+    Input: "Gem Bag + Collin's Might + Sol Rune ",
+    CubeRecipeDescription: "Gem Bag + Collin's Might + Sol Rune = Gem Bag"
   },
   {
     Description: "UPGRADE CHARM TIER - T4 Splash Charm & Hel-Rune & Gem Bag (2 Gems) & Magic Jewel = T5 Splash Charm",
     Item: null,
     Output: "Gem Bag",
-    Input: "Gem Bag + Tier 4 Splash Charm + Hel Rune + Magic Jewel ",
-    CubeRecipeDescription: "Gem Bag + Tier 4 Splash Charm + Hel Rune + Magic Jewel = Gem Bag"
+    Input: "Gem Bag + Collin's Greater Might + Hel Rune + Magic Jewel ",
+    CubeRecipeDescription: "Gem Bag + Collin's Greater Might + Hel Rune + Magic Jewel = Gem Bag"
   },
   {
     Description: "UPGRADE CHARM TIER - T5 Splash Charm & Fal-Rune & Gem Bag (3 Gems) & 2 Magic Jewels = T6 Splash Charm",
     Item: null,
     Output: "Gem Bag",
-    Input: "Gem Bag + Tier 5 Splash Charm + Fal Rune + 2 Magic Jewel ",
-    CubeRecipeDescription: "Gem Bag + Tier 5 Splash Charm + Fal Rune + 2 Magic Jewel = Gem Bag"
+    Input: "Gem Bag + Collin's Fury + Fal Rune + 2 Magic Jewel ",
+    CubeRecipeDescription: "Gem Bag + Collin's Fury + Fal Rune + 2 Magic Jewel = Gem Bag"
   },
   {
     Description: "UPGRADE CHARM TIER - T6 Splash Charm & Pul-Rune & Eth-Rune & Gem Bag (4 Gems) & 3 Magic Jewels = T7 Splash Charm",
     Item: null,
     Output: "Gem Bag",
-    Input: "Gem Bag + Tier 6 Splash Charm + Pul Rune + Eth Rune + 3 Magic Jewel ",
-    CubeRecipeDescription: "Gem Bag + Tier 6 Splash Charm + Pul Rune + Eth Rune + 3 Magic Jewel = Gem Bag"
+    Input: "Gem Bag + Collin's Greater Fury + Pul Rune + Eth Rune + 3 Magic Jewel ",
+    CubeRecipeDescription: "Gem Bag + Collin's Greater Fury + Pul Rune + Eth Rune + 3 Magic Jewel = Gem Bag"
   },
   {
     Description: "UPGRADE CHARM TIER - T7 Splash Charm & Mal-Rune & Tal-Rune & Gem Bag (5 Gems) & 4 Magic Jewels = T8 Splash Charm",
     Item: null,
     Output: "Gem Bag",
-    Input: "Gem Bag + t7 Splash Charm + Mal Rune + Tal Rune + 4 Magic Jewel ",
-    CubeRecipeDescription: "Gem Bag + T7 Splash Charm + Mal Rune + Tal Rune + 4 Magic Jewel = Gem Bag"
+    Input: "Gem Bag + Collin's Devestation + Mal Rune + Tal Rune + 4 Magic Jewel ",
+    CubeRecipeDescription: "Gem Bag + Collin's Devestation + Mal Rune + Tal Rune + 4 Magic Jewel = Gem Bag"
   },
   {
     Description: "UPGRADE CHARM TIER - T8 Splash Charm & Ohm-Rune & Ral-Rune & Gem Bag (10 Gems) & Rare Jewel & Magic Small Charm = T9 Splash Charm",
     Item: null,
     Output: "Gem Bag",
-    Input: "Gem Bag + t8 Splash Charm + Ohm Rune + Ral Rune + Rare Jewel + Magic Small Charm ",
-    CubeRecipeDescription: "Gem Bag + T8 Splash Charm + Ohm Rune + Ral Rune + Rare Jewel + Magic Small Charm = Gem Bag"
+    Input: "Gem Bag + Collin's Furious Devestation + Ohm Rune + Ral Rune + Rare Jewel + Magic Small Charm ",
+    CubeRecipeDescription: "Gem Bag + Collin's Furious Devestation + Ohm Rune + Ral Rune + Rare Jewel + Magic Small Charm = Gem Bag"
+  },
+  {
+    Description: "UPGRADE CHARM TIER - Hellfire Torch (0/10) & Corruption Orb & Standard of Heroes = 1/10 Upgrades",
+    Item: null,
+    Output: "",
+    Input: "Hellfire Torch + Orb of Corruption + Standard of Heroes ",
+    CubeRecipeDescription: "Hellfire Torch + Orb Of Corruption + Standard Of Heroes = "
+  },
+  {
+    Description: "UPGRADE CHARM TIER - Hellfire Torch (1/10) & Corruption Orb & Standard of Heroes = 2/10 Upgrades",
+    Item: null,
+    Output: "",
+    Input: "Hellfire Torch + Orb of Corruption + Standard of Heroes ",
+    CubeRecipeDescription: "Hellfire Torch + Orb Of Corruption + Standard Of Heroes = "
+  },
+  {
+    Description: "UPGRADE CHARM TIER - Hellfire Torch (2/10) & Corruption Orb & Standard of Heroes = 3/10 Upgrades",
+    Item: null,
+    Output: "",
+    Input: "Hellfire Torch + Orb of Corruption + Standard of Heroes ",
+    CubeRecipeDescription: "Hellfire Torch + Orb Of Corruption + Standard Of Heroes = "
+  },
+  {
+    Description: "UPGRADE CHARM TIER - Hellfire Torch (3/10) & Corruption Orb & Standard of Heroes = 4/10 Upgrades",
+    Item: null,
+    Output: "",
+    Input: "Hellfire Torch + Orb of Corruption + Standard of Heroes ",
+    CubeRecipeDescription: "Hellfire Torch + Orb Of Corruption + Standard Of Heroes = "
+  },
+  {
+    Description: "UPGRADE CHARM TIER - Hellfire Torch (4/10) & Corruption Orb & Standard of Heroes = 5/10 Upgrades",
+    Item: null,
+    Output: "",
+    Input: "Hellfire Torch + Orb of Corruption + Standard of Heroes ",
+    CubeRecipeDescription: "Hellfire Torch + Orb Of Corruption + Standard Of Heroes = "
+  },
+  {
+    Description: "UPGRADE CHARM TIER - Hellfire Torch (5/10) & Corruption Orb & Standard of Heroes = 6/10 Upgrades",
+    Item: null,
+    Output: "",
+    Input: "Hellfire Torch + Orb of Corruption + Standard of Heroes ",
+    CubeRecipeDescription: "Hellfire Torch + Orb Of Corruption + Standard Of Heroes = "
+  },
+  {
+    Description: "UPGRADE CHARM TIER - Hellfire Torch (6/10) & Corruption Orb & Standard of Heroes = 7/10 Upgrades",
+    Item: null,
+    Output: "",
+    Input: "Hellfire Torch + Orb of Corruption + Standard of Heroes ",
+    CubeRecipeDescription: "Hellfire Torch + Orb Of Corruption + Standard Of Heroes = "
+  },
+  {
+    Description: "UPGRADE CHARM TIER - Hellfire Torch (7/10) & Corruption Orb & Standard of Heroes = 8/10 Upgrades",
+    Item: null,
+    Output: "",
+    Input: "Hellfire Torch + Orb of Corruption + Standard of Heroes ",
+    CubeRecipeDescription: "Hellfire Torch + Orb Of Corruption + Standard Of Heroes = "
+  },
+  {
+    Description: "UPGRADE CHARM TIER - Hellfire Torch (8/10) & Corruption Orb & Standard of Heroes = 9/10 Upgrades",
+    Item: null,
+    Output: "",
+    Input: "Hellfire Torch + Orb of Corruption + Standard of Heroes ",
+    CubeRecipeDescription: "Hellfire Torch + Orb Of Corruption + Standard Of Heroes = "
+  },
+  {
+    Description: "UPGRADE CHARM TIER - Hellfire Torch (9/10) & Corruption Orb & Standard of Heroes = Obsidian Beacon",
+    Item: null,
+    Output: "Obsidian Beacon",
+    Input: "Hellfire Torch + Orb of Corruption + Standard of Heroes ",
+    CubeRecipeDescription: "Hellfire Torch + Orb Of Corruption + Standard Of Heroes = Obsidian Beacon"
+  },
+  {
+    Description: "UPGRADE CHARM - Annihilus & Infusion Orb & Conversion Orb & Shadow Orb & Corruption Orb & Assemblage Orb",
+    Item: null,
+    Output: "Black Soulstone",
+    Input: "Annihilus + Orb of Infusion + Orb of Conversion + Orb of Shadows + Orb of Corruption + Orb of Assemblage ",
+    CubeRecipeDescription: "Annihilus + Orb Of Infusion + Orb Of Conversion + Orb Of Shadows + Orb Of Corruption + Orb Of Assemblage = Black Soulstone"
   },
   {
     Description: "UPGRADE ARMOR QUALITY - Armor Rare Normal & Ral-Rune & Thul-Rune & Amethyst = Armor Rare Exceptional",
@@ -1768,15 +1866,15 @@ const json = [
     Description: "REPAIR MISSLE - Bolt Case of Amplified Slaying & Hp1 = Replenish Unique Bolts",
     Item: null,
     Output: "255 ",
-    Input: " + Healing Potion ",
-    CubeRecipeDescription: " + Healing Potion = 255 "
+    Input: "Bolt Case of Amplified Slaying + Healing Potion ",
+    CubeRecipeDescription: "Bolt Case Of Amplified Slaying + Healing Potion = 255 "
   },
   {
     Description: "REPAIR MISSLE - Bolt Case of Resistance Slaying & Hp1 = Replenish Unique Bolts",
     Item: null,
     Output: "255 ",
-    Input: " + Healing Potion ",
-    CubeRecipeDescription: " + Healing Potion = 255 "
+    Input: "Bolt Case of Resistance Slaying + Healing Potion ",
+    CubeRecipeDescription: "Bolt Case Of Resistance Slaying + Healing Potion = 255 "
   },
   {
     Description: "REPAIR NORMAL - Weapon & Ort-Rune & Gem (Any) = Fully Repaired and Recharged Weapon",
@@ -2943,219 +3041,219 @@ const json = [
   {
     Description: "ITEM UPGRADE - Helm & Topaz & Magic Jewel = +7% Magic Find  & +10% Gold Find",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Topaz + Magic Jewel ",
-    CubeRecipeDescription: "Merc Equip + Topaz + Magic Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Topaz + Magic Jewel ",
+    CubeRecipeDescription: "Helm + Topaz + Magic Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Ruby & Magic Jewel = +15 HP & +2 Life / Kill",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Ruby + Magic Jewel ",
-    CubeRecipeDescription: "Merc Equip + Ruby + Magic Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Ruby + Magic Jewel ",
+    CubeRecipeDescription: "Helm + Ruby + Magic Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Sapphire & Magic Jewel = +15 Mana & +2 Mana / Kill",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Sapphire + Magic Jewel ",
-    CubeRecipeDescription: "Merc Equip + Sapphire + Magic Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Sapphire + Magic Jewel ",
+    CubeRecipeDescription: "Helm + Sapphire + Magic Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Emerald & Magic Jewel = +5 Dexterity & +5 Vitality",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Emerald + Magic Jewel ",
-    CubeRecipeDescription: "Merc Equip + Emerald + Magic Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Emerald + Magic Jewel ",
+    CubeRecipeDescription: "Helm + Emerald + Magic Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Amethyst & Magic Jewel = +5 Strength & +5 Vitality",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Amethyst + Magic Jewel ",
-    CubeRecipeDescription: "Merc Equip + Amethyst + Magic Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Amethyst + Magic Jewel ",
+    CubeRecipeDescription: "Helm + Amethyst + Magic Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Skull & Magic Jewel = +5 Energy & +5 Vitality",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Skull + Magic Jewel ",
-    CubeRecipeDescription: "Merc Equip + Skull + Magic Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Skull + Magic Jewel ",
+    CubeRecipeDescription: "Helm + Skull + Magic Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Diamond & Magic Jewel = +2 All Resistances",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Diamond + Magic Jewel ",
-    CubeRecipeDescription: "Merc Equip + Diamond + Magic Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Diamond + Magic Jewel ",
+    CubeRecipeDescription: "Helm + Diamond + Magic Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Eth-Rune & Magic Jewel = +4% Mana Regen",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Eth Rune + Magic Jewel ",
-    CubeRecipeDescription: "Merc Equip + Eth Rune + Magic Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Eth Rune + Magic Jewel ",
+    CubeRecipeDescription: "Helm + Eth Rune + Magic Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Ith-Rune & Magic Jewel = +6% Damage Goes To Mana",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Ith Rune + Magic Jewel ",
-    CubeRecipeDescription: "Merc Equip + Ith Rune + Magic Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Ith Rune + Magic Jewel ",
+    CubeRecipeDescription: "Helm + Ith Rune + Magic Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Sol-Rune & Magic Jewel = Physical Damage Reduced By 3",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Sol Rune + Magic Jewel ",
-    CubeRecipeDescription: "Merc Equip + Sol Rune + Magic Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Sol Rune + Magic Jewel ",
+    CubeRecipeDescription: "Helm + Sol Rune + Magic Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Infusion Orb & Sapphire & Ith-Rune & Magic Jewel = +50 Mana & +4 Mana / Kill",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orb of Infusion + Sapphire + Ith Rune + Magic Jewel ",
-    CubeRecipeDescription: "Merc Equip + Orb Of Infusion + Sapphire + Ith Rune + Magic Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Orb of Infusion + Sapphire + Ith Rune + Magic Jewel ",
+    CubeRecipeDescription: "Helm + Orb Of Infusion + Sapphire + Ith Rune + Magic Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Infusion Orb & Emerald & Thul-Rune & Magic Jewel = Ignore Target's Defense",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orb of Infusion + Emerald + Thul Rune + Magic Jewel ",
-    CubeRecipeDescription: "Merc Equip + Orb Of Infusion + Emerald + Thul Rune + Magic Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Orb of Infusion + Emerald + Thul Rune + Magic Jewel ",
+    CubeRecipeDescription: "Helm + Orb Of Infusion + Emerald + Thul Rune + Magic Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Infusion Orb & Skull & Amn-Rune & Magic Jewel = +75 Thorns",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orb of Infusion + Skull + Amn Rune + Magic Jewel ",
-    CubeRecipeDescription: "Merc Equip + Orb Of Infusion + Skull + Amn Rune + Magic Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Orb of Infusion + Skull + Amn Rune + Magic Jewel ",
+    CubeRecipeDescription: "Helm + Orb Of Infusion + Skull + Amn Rune + Magic Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Infusion Orb & Ruby & Dol-Rune & Magic Jewel = +50 HP & +8 Life / Kill",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orb of Infusion + Ruby + Dol Rune + Magic Jewel ",
-    CubeRecipeDescription: "Merc Equip + Orb Of Infusion + Ruby + Dol Rune + Magic Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Orb of Infusion + Ruby + Dol Rune + Magic Jewel ",
+    CubeRecipeDescription: "Helm + Orb Of Infusion + Ruby + Dol Rune + Magic Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Infusion Orb & Skull & Lum-Rune & Magic Jewel = +8% Mana Regen",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orb of Infusion + Skull + Lum Rune + Magic Jewel ",
-    CubeRecipeDescription: "Merc Equip + Orb Of Infusion + Skull + Lum Rune + Magic Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Orb of Infusion + Skull + Lum Rune + Magic Jewel ",
+    CubeRecipeDescription: "Helm + Orb Of Infusion + Skull + Lum Rune + Magic Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Infusion Orb & Emerald & Fal-Rune & Magic Jewel = +10 Dexterity & +10 Vitality",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orb of Infusion + Emerald + Fal Rune + Magic Jewel ",
-    CubeRecipeDescription: "Merc Equip + Orb Of Infusion + Emerald + Fal Rune + Magic Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Orb of Infusion + Emerald + Fal Rune + Magic Jewel ",
+    CubeRecipeDescription: "Helm + Orb Of Infusion + Emerald + Fal Rune + Magic Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Infusion Orb & Amethyst & Fal-Rune & Magic Jewel = +10 Strength & +10 Vitality",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orb of Infusion + Amethyst + Fal Rune + Magic Jewel ",
-    CubeRecipeDescription: "Merc Equip + Orb Of Infusion + Amethyst + Fal Rune + Magic Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Orb of Infusion + Amethyst + Fal Rune + Magic Jewel ",
+    CubeRecipeDescription: "Helm + Orb Of Infusion + Amethyst + Fal Rune + Magic Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Infusion Orb & Sapphire & Fal-Rune & Magic Jewel = +10 Energy & +10 Vitality",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orb of Infusion + Sapphire + Fal Rune + Magic Jewel ",
-    CubeRecipeDescription: "Merc Equip + Orb Of Infusion + Sapphire + Fal Rune + Magic Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Orb of Infusion + Sapphire + Fal Rune + Magic Jewel ",
+    CubeRecipeDescription: "Helm + Orb Of Infusion + Sapphire + Fal Rune + Magic Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Infusion Orb & Diamond & Pul-Rune & Rare Jewel =+4 All Attributes",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orb of Infusion + Diamond + Pul Rune + Rare Jewel ",
-    CubeRecipeDescription: "Merc Equip + Orb Of Infusion + Diamond + Pul Rune + Rare Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Orb of Infusion + Diamond + Pul Rune + Rare Jewel ",
+    CubeRecipeDescription: "Helm + Orb Of Infusion + Diamond + Pul Rune + Rare Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Infusion Orb & Diamond & Um-Rune & Rare Jewel = +4 All Resistances",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orb of Infusion + Diamond + Um Rune + Rare Jewel ",
-    CubeRecipeDescription: "Merc Equip + Orb Of Infusion + Diamond + Um Rune + Rare Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Orb of Infusion + Diamond + Um Rune + Rare Jewel ",
+    CubeRecipeDescription: "Helm + Orb Of Infusion + Diamond + Um Rune + Rare Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Infusion Orb & Sapphire & Mal-Rune & Rare Jewel = Magic Damage Reduced By 3",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orb of Infusion + Sapphire + Mal Rune + Rare Jewel ",
-    CubeRecipeDescription: "Merc Equip + Orb Of Infusion + Sapphire + Mal Rune + Rare Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Orb of Infusion + Sapphire + Mal Rune + Rare Jewel ",
+    CubeRecipeDescription: "Helm + Orb Of Infusion + Sapphire + Mal Rune + Rare Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Infusion Orb & Topaz & Ist-Rune & Rare Jewel = +20% Magic Find  & +30% Gold Find",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orb of Infusion + Topaz + Ist Rune + Rare Jewel ",
-    CubeRecipeDescription: "Merc Equip + Orb Of Infusion + Topaz + Ist Rune + Rare Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Orb of Infusion + Topaz + Ist Rune + Rare Jewel ",
+    CubeRecipeDescription: "Helm + Orb Of Infusion + Topaz + Ist Rune + Rare Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Infusion Orb & Sapphire & Sur-Rune & Rare Jewel = +6% Max Mana",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orb of Infusion + Sapphire + Sur Rune + Rare Jewel ",
-    CubeRecipeDescription: "Merc Equip + Orb Of Infusion + Sapphire + Sur Rune + Rare Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Orb of Infusion + Sapphire + Sur Rune + Rare Jewel ",
+    CubeRecipeDescription: "Helm + Orb Of Infusion + Sapphire + Sur Rune + Rare Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Infusion Orb & Amethyst & Ber-Rune & Rare Jewel = +4% Damage Reduction",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orb of Infusion + Amethyst + Ber Rune + Rare Jewel ",
-    CubeRecipeDescription: "Merc Equip + Orb Of Infusion + Amethyst + Ber Rune + Rare Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Orb of Infusion + Amethyst + Ber Rune + Rare Jewel ",
+    CubeRecipeDescription: "Helm + Orb Of Infusion + Amethyst + Ber Rune + Rare Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Infusion Orb & Ruby & Jah-Rune & Rare Jewel = +6% Max HP",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orb of Infusion + Ruby + Jah Rune + Rare Jewel ",
-    CubeRecipeDescription: "Merc Equip + Orb Of Infusion + Ruby + Jah Rune + Rare Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Orb of Infusion + Ruby + Jah Rune + Rare Jewel ",
+    CubeRecipeDescription: "Helm + Orb Of Infusion + Ruby + Jah Rune + Rare Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Infusion Orb & Ruby & Cham-Rune & Unique Jewel = +2 Fire Skills",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orb of Infusion + Ruby + Cham Rune + Unique Jewel ",
-    CubeRecipeDescription: "Merc Equip + Orb Of Infusion + Ruby + Cham Rune + Unique Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Orb of Infusion + Ruby + Cham Rune + Unique Jewel ",
+    CubeRecipeDescription: "Helm + Orb Of Infusion + Ruby + Cham Rune + Unique Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Infusion Orb & Sapphire & Cham-Rune & Unique Jewel = +2 Cold Skills",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orb of Infusion + Sapphire + Cham Rune + Unique Jewel ",
-    CubeRecipeDescription: "Merc Equip + Orb Of Infusion + Sapphire + Cham Rune + Unique Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Orb of Infusion + Sapphire + Cham Rune + Unique Jewel ",
+    CubeRecipeDescription: "Helm + Orb Of Infusion + Sapphire + Cham Rune + Unique Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Infusion Orb & Topaz & Cham-Rune & Unique Jewel = +2 Lightning Skills",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orb of Infusion + Topaz + Cham Rune + Unique Jewel ",
-    CubeRecipeDescription: "Merc Equip + Orb Of Infusion + Topaz + Cham Rune + Unique Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Orb of Infusion + Topaz + Cham Rune + Unique Jewel ",
+    CubeRecipeDescription: "Helm + Orb Of Infusion + Topaz + Cham Rune + Unique Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Infusion Orb & Emerald & Cham-Rune & Unique Jewel = +2 Poison Skills",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orb of Infusion + Emerald + Cham Rune + Unique Jewel ",
-    CubeRecipeDescription: "Merc Equip + Orb Of Infusion + Emerald + Cham Rune + Unique Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Orb of Infusion + Emerald + Cham Rune + Unique Jewel ",
+    CubeRecipeDescription: "Helm + Orb Of Infusion + Emerald + Cham Rune + Unique Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Infusion Orb & Diamond & Cham-Rune & Unique Jewel = +2 Magic Skills",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orb of Infusion + Diamond + Cham Rune + Unique Jewel ",
-    CubeRecipeDescription: "Merc Equip + Orb Of Infusion + Diamond + Cham Rune + Unique Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Orb of Infusion + Diamond + Cham Rune + Unique Jewel ",
+    CubeRecipeDescription: "Helm + Orb Of Infusion + Diamond + Cham Rune + Unique Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Helm & Infusion Orb & Skull & Zod-Rune & Unique Jewel = +1 All Skills",
     Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orb of Infusion + Skull + Zod Rune + Unique Jewel ",
-    CubeRecipeDescription: "Merc Equip + Orb Of Infusion + Skull + Zod Rune + Unique Jewel = Merc Equip"
+    Output: "Helm",
+    Input: "Helm + Orb of Infusion + Skull + Zod Rune + Unique Jewel ",
+    CubeRecipeDescription: "Helm + Orb Of Infusion + Skull + Zod Rune + Unique Jewel = Helm"
   },
   {
     Description: "ITEM UPGRADE - Shield & Topaz & Magic Jewel = +7% Magic Find  & +10% Gold Find",
@@ -4404,6 +4502,55 @@ const json = [
     CubeRecipeDescription: "Skull Grabber = Amethyst Grabber"
   },
   {
+    Description: "GEMBAG TRANSFER OUT GEM - Gem Bag & Amethyst Grabber = Amethyst",
+    Item: null,
+    Output: "Gem Bag",
+    Input: "Gem Bag + Amethyst Grabber ",
+    CubeRecipeDescription: "Gem Bag + Amethyst Grabber = Gem Bag"
+  },
+  {
+    Description: "GEMBAG TRANSFER OUT GEM - Gem Bag & Topaz Grabber = Topaz",
+    Item: null,
+    Output: "Gem Bag",
+    Input: "Gem Bag + Topaz Grabber ",
+    CubeRecipeDescription: "Gem Bag + Topaz Grabber = Gem Bag"
+  },
+  {
+    Description: "GEMBAG TRANSFER OUT GEM - Gem Bag & Sapphire Grabber = Sapphire",
+    Item: null,
+    Output: "Gem Bag",
+    Input: "Gem Bag + Sapphire Grabber ",
+    CubeRecipeDescription: "Gem Bag + Sapphire Grabber = Gem Bag"
+  },
+  {
+    Description: "GEMBAG TRANSFER OUT GEM - Gem Bag & Emerald Grabber = Emerald",
+    Item: null,
+    Output: "Gem Bag",
+    Input: "Gem Bag + Emerald Grabber ",
+    CubeRecipeDescription: "Gem Bag + Emerald Grabber = Gem Bag"
+  },
+  {
+    Description: "GEMBAG TRANSFER OUT GEM - Gem Bag & Diamond Grabber = Diamond",
+    Item: null,
+    Output: "Gem Bag",
+    Input: "Gem Bag + Diamond Grabber ",
+    CubeRecipeDescription: "Gem Bag + Diamond Grabber = Gem Bag"
+  },
+  {
+    Description: "GEMBAG TRANSFER OUT GEM - Gem Bag & Ruby Grabber = Ruby",
+    Item: null,
+    Output: "Gem Bag",
+    Input: "Gem Bag + Ruby Grabber ",
+    CubeRecipeDescription: "Gem Bag + Ruby Grabber = Gem Bag"
+  },
+  {
+    Description: "GEMBAG TRANSFER OUT GEM - Gem Bag & Skull Grabber = Skull",
+    Item: null,
+    Output: "Gem Bag",
+    Input: "Gem Bag + Skull Grabber ",
+    CubeRecipeDescription: "Gem Bag + Skull Grabber = Gem Bag"
+  },
+  {
     Description: "KEYCHAIN CHANGE GRABBER - Terror Key Grabber = Hate Key Grabber",
     Item: null,
     Output: "Hate Key Grabber",
@@ -4425,3140 +4572,88 @@ const json = [
     CubeRecipeDescription: "Desctruction Key Grabber = Terror Key Grabber"
   },
   {
-    Description: "SOCKET PUNCH 1 - Helmet Low Quality",
+    Description: "KEYCHAIN TRANSFER IN KEY - Keychain & Terror Key = Terror Key qty +1",
     Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Low Quality Merc Equip + Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Merc Equip + Magic Jewel = Socketed Merc Equip"
+    Output: "Storage for Keys",
+    Input: "Storage for Keys + Key of Terror ",
+    CubeRecipeDescription: "Storage For Keys + Key Of Terror = Storage For Keys"
   },
   {
-    Description: "SOCKET PUNCH 1 - Helmet Normal Quality",
+    Description: "KEYCHAIN TRANSFER IN KEY - Keychain & Hate Key = Hate Key qty + 1",
     Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Normal Merc Equip + Magic Jewel ",
-    CubeRecipeDescription: "Normal Merc Equip + Magic Jewel = Socketed Merc Equip"
+    Output: "Storage for Keys",
+    Input: "Storage for Keys + Key of Hate ",
+    CubeRecipeDescription: "Storage For Keys + Key Of Hate = Storage For Keys"
   },
   {
-    Description: "SOCKET PUNCH 1 - Helmet High Quality",
+    Description: "KEYCHAIN TRANSFER IN KEY - Keychain & Destruction Key = Destruction Key qty + 1",
     Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Merc Equip + Magic Jewel ",
-    CubeRecipeDescription: "Merc Equip + Magic Jewel = Socketed Merc Equip"
+    Output: "Storage for Keys",
+    Input: "Storage for Keys + Key of Destruction ",
+    CubeRecipeDescription: "Storage For Keys + Key Of Destruction = Storage For Keys"
   },
   {
-    Description: "SOCKET PUNCH 1 - Helmet Magic",
+    Description: "KEYCHAIN TRANSFER IN KEY - Keychain & 2 Terror Key = Terror Key qty + 2",
     Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Magic Merc Equip + Magic Jewel ",
-    CubeRecipeDescription: "Magic Merc Equip + Magic Jewel = Socketed Merc Equip"
+    Output: "Storage for Keys",
+    Input: "Storage for Keys + 2 Key of Terror ",
+    CubeRecipeDescription: "Storage For Keys + 2 Key Of Terror = Storage For Keys"
   },
   {
-    Description: "SOCKET PUNCH 1 - Helmet Rare",
+    Description: "KEYCHAIN TRANSFER IN KEY - Keychain & 2 Hate Key = Hate Key qty + 2",
     Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Rare Merc Equip + Rare Jewel ",
-    CubeRecipeDescription: "Rare Merc Equip + Rare Jewel = Socketed Merc Equip"
+    Output: "Storage for Keys",
+    Input: "Storage for Keys + 2 Key of Hate ",
+    CubeRecipeDescription: "Storage For Keys + 2 Key Of Hate = Storage For Keys"
   },
   {
-    Description: "SOCKET PUNCH 1 - Helmet Craft",
+    Description: "KEYCHAIN TRANSFER IN KEY - Keychain & 2 Destruction Key = Destruction Key qty + 2",
     Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Merc Equip + Unique Jewel ",
-    CubeRecipeDescription: "Merc Equip + Unique Jewel = Socketed Merc Equip"
+    Output: "Storage for Keys",
+    Input: "Storage for Keys + 2 Key of Destruction ",
+    CubeRecipeDescription: "Storage For Keys + 2 Key Of Destruction = Storage For Keys"
   },
   {
-    Description: "SOCKET PUNCH 1 - Helmet Set",
+    Description: "KEYCHAIN TRANSFER IN KEY - Keychain & 3 Terror Key = Terror Key qty + 3",
     Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Set Merc Equip + Rare Jewel ",
-    CubeRecipeDescription: "Set Merc Equip + Rare Jewel = Socketed Merc Equip"
+    Output: "Storage for Keys",
+    Input: "Storage for Keys + 3 Key of Terror ",
+    CubeRecipeDescription: "Storage For Keys + 3 Key Of Terror = Storage For Keys"
   },
   {
-    Description: "SOCKET PUNCH 1 - Helmet Unique",
+    Description: "KEYCHAIN TRANSFER IN KEY - Keychain & 3 Hate Key = Hate Key qty + 3",
     Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Unique Merc Equip + Unique Jewel ",
-    CubeRecipeDescription: "Unique Merc Equip + Unique Jewel = Socketed Merc Equip"
+    Output: "Storage for Keys",
+    Input: "Storage for Keys + 3 Key of Hate ",
+    CubeRecipeDescription: "Storage For Keys + 3 Key Of Hate = Storage For Keys"
   },
   {
-    Description: "SOCKET PUNCH 2 - Helmet Low Quality",
+    Description: "KEYCHAIN TRANSFER IN KEY - Keychain & 3 Destruction Key = Destruction Key qty + 3",
     Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Low Quality Merc Equip + 2 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Merc Equip + 2 Magic Jewel = Socketed Merc Equip"
+    Output: "Storage for Keys",
+    Input: "Storage for Keys + 3 Key of Destruction ",
+    CubeRecipeDescription: "Storage For Keys + 3 Key Of Destruction = Storage For Keys"
   },
   {
-    Description: "SOCKET PUNCH 2 - Helmet Normal Quality",
+    Description: "KEYCHAIN TRANSFER OUT KEY - Keychain & Terror Key Grabber = Terror Key qty - 1 & 1 Terror Key",
     Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Normal Merc Equip + 2 Magic Jewel ",
-    CubeRecipeDescription: "Normal Merc Equip + 2 Magic Jewel = Socketed Merc Equip"
+    Output: "Storage for Keys",
+    Input: "Storage for Keys + Terror Key Grabber ",
+    CubeRecipeDescription: "Storage For Keys + Terror Key Grabber = Storage For Keys"
   },
   {
-    Description: "SOCKET PUNCH 2 - Helmet High Quality",
+    Description: "KEYCHAIN TRANSFER OUT KEY - Keychain & Hate Key Grabber = Hate Key qty - 1 & 1 Hate Key",
     Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Merc Equip + 2 Magic Jewel ",
-    CubeRecipeDescription: "Merc Equip + 2 Magic Jewel = Socketed Merc Equip"
+    Output: "Storage for Keys",
+    Input: "Storage for Keys + Hate Key Grabber ",
+    CubeRecipeDescription: "Storage For Keys + Hate Key Grabber = Storage For Keys"
   },
   {
-    Description: "SOCKET PUNCH 2 - Helmet Magic",
+    Description: "KEYCHAIN TRANSFER OUT KEY - Keychain & Destruction Key Grabber = Destruction Key qty - 1 & 1 Destruction Key",
     Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Magic Merc Equip + 2 Magic Jewel ",
-    CubeRecipeDescription: "Magic Merc Equip + 2 Magic Jewel = Socketed Merc Equip"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Helmet Rare",
-    Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Rare Merc Equip + 2 Rare Jewel ",
-    CubeRecipeDescription: "Rare Merc Equip + 2 Rare Jewel = Socketed Merc Equip"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Helmet Craft",
-    Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Merc Equip + 2 Unique Jewel ",
-    CubeRecipeDescription: "Merc Equip + 2 Unique Jewel = Socketed Merc Equip"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Helmet Set",
-    Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Set Merc Equip + 2 Rare Jewel ",
-    CubeRecipeDescription: "Set Merc Equip + 2 Rare Jewel = Socketed Merc Equip"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Helmet Unique",
-    Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Unique Merc Equip + 2 Unique Jewel ",
-    CubeRecipeDescription: "Unique Merc Equip + 2 Unique Jewel = Socketed Merc Equip"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Helmet Low Quality",
-    Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Low Quality Merc Equip + 3 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Merc Equip + 3 Magic Jewel = Socketed Merc Equip"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Helmet Normal Quality",
-    Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Normal Merc Equip + 3 Magic Jewel ",
-    CubeRecipeDescription: "Normal Merc Equip + 3 Magic Jewel = Socketed Merc Equip"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Helmet High Quality",
-    Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Merc Equip + 3 Magic Jewel ",
-    CubeRecipeDescription: "Merc Equip + 3 Magic Jewel = Socketed Merc Equip"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Helmet Magic",
-    Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Magic Merc Equip + 3 Magic Jewel ",
-    CubeRecipeDescription: "Magic Merc Equip + 3 Magic Jewel = Socketed Merc Equip"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Helmet Rare",
-    Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Rare Merc Equip + 3 Rare Jewel ",
-    CubeRecipeDescription: "Rare Merc Equip + 3 Rare Jewel = Socketed Merc Equip"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Helmet Craft",
-    Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Merc Equip + 3 Unique Jewel ",
-    CubeRecipeDescription: "Merc Equip + 3 Unique Jewel = Socketed Merc Equip"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Helmet Set",
-    Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Set Merc Equip + 3 Rare Jewel ",
-    CubeRecipeDescription: "Set Merc Equip + 3 Rare Jewel = Socketed Merc Equip"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Helmet Unique",
-    Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Unique Merc Equip + 3 Unique Jewel ",
-    CubeRecipeDescription: "Unique Merc Equip + 3 Unique Jewel = Socketed Merc Equip"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Helmet Low Quality",
-    Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Low Quality Merc Equip + 4 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Merc Equip + 4 Magic Jewel = Socketed Merc Equip"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Helmet Normal Quality",
-    Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Normal Merc Equip + 4 Magic Jewel ",
-    CubeRecipeDescription: "Normal Merc Equip + 4 Magic Jewel = Socketed Merc Equip"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Helmet High Quality",
-    Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Merc Equip + 4 Magic Jewel ",
-    CubeRecipeDescription: "Merc Equip + 4 Magic Jewel = Socketed Merc Equip"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Helmet Magic",
-    Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Magic Merc Equip + 4 Magic Jewel ",
-    CubeRecipeDescription: "Magic Merc Equip + 4 Magic Jewel = Socketed Merc Equip"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Helmet Rare",
-    Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Rare Merc Equip + 4 Rare Jewel ",
-    CubeRecipeDescription: "Rare Merc Equip + 4 Rare Jewel = Socketed Merc Equip"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Helmet Craft",
-    Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Merc Equip + 4 Unique Jewel ",
-    CubeRecipeDescription: "Merc Equip + 4 Unique Jewel = Socketed Merc Equip"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Helmet Set",
-    Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Set Merc Equip + 4 Rare Jewel ",
-    CubeRecipeDescription: "Set Merc Equip + 4 Rare Jewel = Socketed Merc Equip"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Helmet Unique",
-    Item: null,
-    Output: "Socketed Merc Equip",
-    Input: "Unique Merc Equip + 4 Unique Jewel ",
-    CubeRecipeDescription: "Unique Merc Equip + 4 Unique Jewel = Socketed Merc Equip"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Body Armor Low Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Low Quality Armor + Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Armor + Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Body Armor Normal Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Normal Armor + Magic Jewel ",
-    CubeRecipeDescription: "Normal Armor + Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Body Armor High Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Armor + Magic Jewel ",
-    CubeRecipeDescription: "Armor + Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Body Armor Magic",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Magic Armor + Magic Jewel ",
-    CubeRecipeDescription: "Magic Armor + Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Body Armor Rare",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Rare Armor + Rare Jewel ",
-    CubeRecipeDescription: "Rare Armor + Rare Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Body Armor Craft",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Armor + Unique Jewel ",
-    CubeRecipeDescription: "Armor + Unique Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Body Armor Set",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Set Armor + Rare Jewel ",
-    CubeRecipeDescription: "Set Armor + Rare Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Body Armor Unique",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Unique Armor + Unique Jewel ",
-    CubeRecipeDescription: "Unique Armor + Unique Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Body Armor Low Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Low Quality Armor + 2 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Armor + 2 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Body Armor Normal Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Normal Armor + 2 Magic Jewel ",
-    CubeRecipeDescription: "Normal Armor + 2 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Body Armor High Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Armor + 2 Magic Jewel ",
-    CubeRecipeDescription: "Armor + 2 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Body Armor Magic",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Magic Armor + 2 Magic Jewel ",
-    CubeRecipeDescription: "Magic Armor + 2 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Body Armor Rare",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Rare Armor + 2 Rare Jewel ",
-    CubeRecipeDescription: "Rare Armor + 2 Rare Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Body Armor Craft",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Armor + 2 Unique Jewel ",
-    CubeRecipeDescription: "Armor + 2 Unique Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Body Armor Set",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Set Armor + 2 Rare Jewel ",
-    CubeRecipeDescription: "Set Armor + 2 Rare Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Body Armor Unique",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Unique Armor + 2 Unique Jewel ",
-    CubeRecipeDescription: "Unique Armor + 2 Unique Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Body Armor Low Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Low Quality Armor + 3 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Armor + 3 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Body Armor Normal Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Normal Armor + 3 Magic Jewel ",
-    CubeRecipeDescription: "Normal Armor + 3 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Body Armor High Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Armor + 3 Magic Jewel ",
-    CubeRecipeDescription: "Armor + 3 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Body Armor Magic",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Magic Armor + 3 Magic Jewel ",
-    CubeRecipeDescription: "Magic Armor + 3 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Body Armor Rare",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Rare Armor + 3 Rare Jewel ",
-    CubeRecipeDescription: "Rare Armor + 3 Rare Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Body Armor Craft",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Armor + 3 Unique Jewel ",
-    CubeRecipeDescription: "Armor + 3 Unique Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Body Armor Set",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Set Armor + 3 Rare Jewel ",
-    CubeRecipeDescription: "Set Armor + 3 Rare Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Body Armor Unique",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Unique Armor + 3 Unique Jewel ",
-    CubeRecipeDescription: "Unique Armor + 3 Unique Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Body Armor Low Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Low Quality Armor + 4 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Armor + 4 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Body Armor Normal Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Normal Armor + 4 Magic Jewel ",
-    CubeRecipeDescription: "Normal Armor + 4 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Body Armor High Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Armor + 4 Magic Jewel ",
-    CubeRecipeDescription: "Armor + 4 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Body Armor Magic",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Magic Armor + 4 Magic Jewel ",
-    CubeRecipeDescription: "Magic Armor + 4 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Body Armor Rare",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Rare Armor + 4 Rare Jewel ",
-    CubeRecipeDescription: "Rare Armor + 4 Rare Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Body Armor Craft",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Armor + 4 Unique Jewel ",
-    CubeRecipeDescription: "Armor + 4 Unique Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Body Armor Set",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Set Armor + 4 Rare Jewel ",
-    CubeRecipeDescription: "Set Armor + 4 Rare Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Body Armor Unique",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Unique Armor + 4 Unique Jewel ",
-    CubeRecipeDescription: "Unique Armor + 4 Unique Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Body Armor Low Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Low Quality Armor + 5 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Armor + 5 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Body Armor Normal Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Normal Armor + 5 Magic Jewel ",
-    CubeRecipeDescription: "Normal Armor + 5 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Body Armor High Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Armor + 5 Magic Jewel ",
-    CubeRecipeDescription: "Armor + 5 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Body Armor Magic",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Magic Armor + 5 Magic Jewel ",
-    CubeRecipeDescription: "Magic Armor + 5 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Body Armor Rare",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Rare Armor + 5 Rare Jewel ",
-    CubeRecipeDescription: "Rare Armor + 5 Rare Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Body Armor Craft",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Armor + 5 Unique Jewel ",
-    CubeRecipeDescription: "Armor + 5 Unique Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Body Armor Set",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Set Armor + 5 Rare Jewel ",
-    CubeRecipeDescription: "Set Armor + 5 Rare Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Body Armor Unique",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Unique Armor + 5 Unique Jewel ",
-    CubeRecipeDescription: "Unique Armor + 5 Unique Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Body Armor Low Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Low Quality Armor + 6 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Armor + 6 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Body Armor Normal Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Normal Armor + 6 Magic Jewel ",
-    CubeRecipeDescription: "Normal Armor + 6 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Body Armor High Quality",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Armor + 6 Magic Jewel ",
-    CubeRecipeDescription: "Armor + 6 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Body Armor Magic",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Magic Armor + 6 Magic Jewel ",
-    CubeRecipeDescription: "Magic Armor + 6 Magic Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Body Armor Rare",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Rare Armor + 6 Rare Jewel ",
-    CubeRecipeDescription: "Rare Armor + 6 Rare Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Body Armor Craft",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Armor + 6 Unique Jewel ",
-    CubeRecipeDescription: "Armor + 6 Unique Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Body Armor Set",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Set Armor + 6 Rare Jewel ",
-    CubeRecipeDescription: "Set Armor + 6 Rare Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Body Armor Unique",
-    Item: null,
-    Output: "Socketed Armor",
-    Input: "Unique Armor + 6 Unique Jewel ",
-    CubeRecipeDescription: "Unique Armor + 6 Unique Jewel = Socketed Armor"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Shield Low Quality",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Low Quality Any Shield + Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Any Shield + Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Shield Normal Quality",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Normal Any Shield + Magic Jewel ",
-    CubeRecipeDescription: "Normal Any Shield + Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Shield High Quality",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Any Shield + Magic Jewel ",
-    CubeRecipeDescription: "Any Shield + Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Shield Magic",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Magic Any Shield + Magic Jewel ",
-    CubeRecipeDescription: "Magic Any Shield + Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Shield Rare",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Rare Any Shield + Rare Jewel ",
-    CubeRecipeDescription: "Rare Any Shield + Rare Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Shield Craft",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Any Shield + Unique Jewel ",
-    CubeRecipeDescription: "Any Shield + Unique Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Shield Set",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Set Any Shield + Rare Jewel ",
-    CubeRecipeDescription: "Set Any Shield + Rare Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Shield Unique",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Unique Any Shield + Unique Jewel ",
-    CubeRecipeDescription: "Unique Any Shield + Unique Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Shield Low Quality",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Low Quality Any Shield + 2 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Any Shield + 2 Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Shield Normal Quality",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Normal Any Shield + 2 Magic Jewel ",
-    CubeRecipeDescription: "Normal Any Shield + 2 Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Shield High Quality",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Any Shield + 2 Magic Jewel ",
-    CubeRecipeDescription: "Any Shield + 2 Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Shield Magic",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Magic Any Shield + 2 Magic Jewel ",
-    CubeRecipeDescription: "Magic Any Shield + 2 Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Shield Rare",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Rare Any Shield + 2 Rare Jewel ",
-    CubeRecipeDescription: "Rare Any Shield + 2 Rare Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Shield Craft",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Any Shield + 2 Unique Jewel ",
-    CubeRecipeDescription: "Any Shield + 2 Unique Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Shield Set",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Set Any Shield + 2 Rare Jewel ",
-    CubeRecipeDescription: "Set Any Shield + 2 Rare Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Shield Unique",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Unique Any Shield + 2 Unique Jewel ",
-    CubeRecipeDescription: "Unique Any Shield + 2 Unique Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Shield Low Quality",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Low Quality Any Shield + 3 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Any Shield + 3 Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Shield Normal Quality",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Normal Any Shield + 3 Magic Jewel ",
-    CubeRecipeDescription: "Normal Any Shield + 3 Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Shield High Quality",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Any Shield + 3 Magic Jewel ",
-    CubeRecipeDescription: "Any Shield + 3 Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Shield Magic",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Magic Any Shield + 3 Magic Jewel ",
-    CubeRecipeDescription: "Magic Any Shield + 3 Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Shield Rare",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Rare Any Shield + 3 Rare Jewel ",
-    CubeRecipeDescription: "Rare Any Shield + 3 Rare Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Shield Craft",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Any Shield + 3 Unique Jewel ",
-    CubeRecipeDescription: "Any Shield + 3 Unique Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Shield Set",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Set Any Shield + 3 Rare Jewel ",
-    CubeRecipeDescription: "Set Any Shield + 3 Rare Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Shield Unique",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Unique Any Shield + 3 Unique Jewel ",
-    CubeRecipeDescription: "Unique Any Shield + 3 Unique Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Shield Low Quality",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Low Quality Any Shield + 4 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Any Shield + 4 Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Shield Normal Quality",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Normal Any Shield + 4 Magic Jewel ",
-    CubeRecipeDescription: "Normal Any Shield + 4 Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Shield High Quality",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Any Shield + 4 Magic Jewel ",
-    CubeRecipeDescription: "Any Shield + 4 Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Shield Magic",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Magic Any Shield + 4 Magic Jewel ",
-    CubeRecipeDescription: "Magic Any Shield + 4 Magic Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Shield Rare",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Rare Any Shield + 4 Rare Jewel ",
-    CubeRecipeDescription: "Rare Any Shield + 4 Rare Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Shield Craft",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Any Shield + 4 Unique Jewel ",
-    CubeRecipeDescription: "Any Shield + 4 Unique Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Shield Set",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Set Any Shield + 4 Rare Jewel ",
-    CubeRecipeDescription: "Set Any Shield + 4 Rare Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Shield Unique",
-    Item: null,
-    Output: "Socketed Any Shield",
-    Input: "Unique Any Shield + 4 Unique Jewel ",
-    CubeRecipeDescription: "Unique Any Shield + 4 Unique Jewel = Socketed Any Shield"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Weapon Low Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Low Quality Weapon + Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Weapon + Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Weapon Normal Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Normal Weapon + Magic Jewel ",
-    CubeRecipeDescription: "Normal Weapon + Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Weapon High Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Weapon + Magic Jewel ",
-    CubeRecipeDescription: "Weapon + Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Weapon Magic",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Magic Weapon + Magic Jewel ",
-    CubeRecipeDescription: "Magic Weapon + Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Weapon Rare",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Rare Weapon + Rare Jewel ",
-    CubeRecipeDescription: "Rare Weapon + Rare Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Weapon Craft",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Weapon + Unique Jewel ",
-    CubeRecipeDescription: "Weapon + Unique Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Weapon Set",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Set Weapon + Rare Jewel ",
-    CubeRecipeDescription: "Set Weapon + Rare Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 1 - Weapon Unique",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Unique Weapon + Unique Jewel ",
-    CubeRecipeDescription: "Unique Weapon + Unique Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Weapon Low Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Low Quality Weapon + 2 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Weapon + 2 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Weapon Normal Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Normal Weapon + 2 Magic Jewel ",
-    CubeRecipeDescription: "Normal Weapon + 2 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Weapon High Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Weapon + 2 Magic Jewel ",
-    CubeRecipeDescription: "Weapon + 2 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Weapon Magic",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Magic Weapon + 2 Magic Jewel ",
-    CubeRecipeDescription: "Magic Weapon + 2 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Weapon Rare",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Rare Weapon + 2 Rare Jewel ",
-    CubeRecipeDescription: "Rare Weapon + 2 Rare Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Weapon Craft",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Weapon + 2 Unique Jewel ",
-    CubeRecipeDescription: "Weapon + 2 Unique Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Weapon Set",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Set Weapon + 2 Rare Jewel ",
-    CubeRecipeDescription: "Set Weapon + 2 Rare Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 2 - Weapon Unique",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Unique Weapon + 2 Unique Jewel ",
-    CubeRecipeDescription: "Unique Weapon + 2 Unique Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Weapon Low Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Low Quality Weapon + 3 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Weapon + 3 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Weapon Normal Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Normal Weapon + 3 Magic Jewel ",
-    CubeRecipeDescription: "Normal Weapon + 3 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Weapon High Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Weapon + 3 Magic Jewel ",
-    CubeRecipeDescription: "Weapon + 3 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Weapon Magic",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Magic Weapon + 3 Magic Jewel ",
-    CubeRecipeDescription: "Magic Weapon + 3 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Weapon Rare",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Rare Weapon + 3 Rare Jewel ",
-    CubeRecipeDescription: "Rare Weapon + 3 Rare Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Weapon Craft",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Weapon + 3 Unique Jewel ",
-    CubeRecipeDescription: "Weapon + 3 Unique Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Weapon Set",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Set Weapon + 3 Rare Jewel ",
-    CubeRecipeDescription: "Set Weapon + 3 Rare Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 3 - Weapon Unique",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Unique Weapon + 3 Unique Jewel ",
-    CubeRecipeDescription: "Unique Weapon + 3 Unique Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Weapon Low Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Low Quality Weapon + 4 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Weapon + 4 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Weapon Normal Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Normal Weapon + 4 Magic Jewel ",
-    CubeRecipeDescription: "Normal Weapon + 4 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Weapon High Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Weapon + 4 Magic Jewel ",
-    CubeRecipeDescription: "Weapon + 4 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Weapon Magic",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Magic Weapon + 4 Magic Jewel ",
-    CubeRecipeDescription: "Magic Weapon + 4 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Weapon Rare",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Rare Weapon + 4 Rare Jewel ",
-    CubeRecipeDescription: "Rare Weapon + 4 Rare Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Weapon Craft",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Weapon + 4 Unique Jewel ",
-    CubeRecipeDescription: "Weapon + 4 Unique Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Weapon Set",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Set Weapon + 4 Rare Jewel ",
-    CubeRecipeDescription: "Set Weapon + 4 Rare Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 4 - Weapon Unique",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Unique Weapon + 4 Unique Jewel ",
-    CubeRecipeDescription: "Unique Weapon + 4 Unique Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Weapon Low Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Low Quality Weapon + 5 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Weapon + 5 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Weapon Normal Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Normal Weapon + 5 Magic Jewel ",
-    CubeRecipeDescription: "Normal Weapon + 5 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Weapon High Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Weapon + 5 Magic Jewel ",
-    CubeRecipeDescription: "Weapon + 5 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Weapon Magic",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Magic Weapon + 5 Magic Jewel ",
-    CubeRecipeDescription: "Magic Weapon + 5 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Weapon Rare",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Rare Weapon + 5 Rare Jewel ",
-    CubeRecipeDescription: "Rare Weapon + 5 Rare Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Weapon Craft",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Weapon + 5 Unique Jewel ",
-    CubeRecipeDescription: "Weapon + 5 Unique Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Weapon Set",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Set Weapon + 5 Rare Jewel ",
-    CubeRecipeDescription: "Set Weapon + 5 Rare Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 5 - Weapon Unique",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Unique Weapon + 5 Unique Jewel ",
-    CubeRecipeDescription: "Unique Weapon + 5 Unique Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Weapon Low Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Low Quality Weapon + 6 Magic Jewel ",
-    CubeRecipeDescription: "Low Quality Weapon + 6 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Weapon Normal Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Normal Weapon + 6 Magic Jewel ",
-    CubeRecipeDescription: "Normal Weapon + 6 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Weapon High Quality",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Weapon + 6 Magic Jewel ",
-    CubeRecipeDescription: "Weapon + 6 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Weapon Magic",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Magic Weapon + 6 Magic Jewel ",
-    CubeRecipeDescription: "Magic Weapon + 6 Magic Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Weapon Rare",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Rare Weapon + 6 Rare Jewel ",
-    CubeRecipeDescription: "Rare Weapon + 6 Rare Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Weapon Craft",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Weapon + 6 Unique Jewel ",
-    CubeRecipeDescription: "Weapon + 6 Unique Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Weapon Set",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Set Weapon + 6 Rare Jewel ",
-    CubeRecipeDescription: "Set Weapon + 6 Rare Jewel = Socketed Weapon"
-  },
-  {
-    Description: "SOCKET PUNCH 6 - Weapon Unique",
-    Item: null,
-    Output: "Socketed Weapon",
-    Input: "Unique Weapon + 6 Unique Jewel ",
-    CubeRecipeDescription: "Unique Weapon + 6 Unique Jewel = Socketed Weapon"
-  },
-  {
-    Description: "Weapon Dye - Base -> White",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + White Dye ",
-    CubeRecipeDescription: "Weapon + White Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Base -> Black",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Black Dye ",
-    CubeRecipeDescription: "Weapon + Black Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Base -> Blue",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Blue Dye ",
-    CubeRecipeDescription: "Weapon + Blue Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Base -> Red",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Red Dye ",
-    CubeRecipeDescription: "Weapon + Red Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Base -> Green",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Green Dye ",
-    CubeRecipeDescription: "Weapon + Green Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Base -> Yellow",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Yellow Dye ",
-    CubeRecipeDescription: "Weapon + Yellow Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Base -> Purple",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Purple Dye ",
-    CubeRecipeDescription: "Weapon + Purple Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Base -> Orange",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Orange Dye ",
-    CubeRecipeDescription: "Weapon + Orange Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - White -> Black",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Black Dye ",
-    CubeRecipeDescription: "Weapon + Black Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - White -> Blue",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Blue Dye ",
-    CubeRecipeDescription: "Weapon + Blue Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - White -> Red",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Red Dye ",
-    CubeRecipeDescription: "Weapon + Red Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - White -> Green",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Green Dye ",
-    CubeRecipeDescription: "Weapon + Green Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - White -> Yellow",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Yellow Dye ",
-    CubeRecipeDescription: "Weapon + Yellow Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - White -> Purple",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Purple Dye ",
-    CubeRecipeDescription: "Weapon + Purple Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - White -> Orange",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Orange Dye ",
-    CubeRecipeDescription: "Weapon + Orange Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - White -> Base",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Dye Remover ",
-    CubeRecipeDescription: "Weapon + Dye Remover = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Black -> White",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + White Dye ",
-    CubeRecipeDescription: "Weapon + White Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Black -> Blue",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Blue Dye ",
-    CubeRecipeDescription: "Weapon + Blue Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Black -> Red",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Red Dye ",
-    CubeRecipeDescription: "Weapon + Red Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Black -> Green",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Green Dye ",
-    CubeRecipeDescription: "Weapon + Green Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Black -> Yellow",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Yellow Dye ",
-    CubeRecipeDescription: "Weapon + Yellow Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Black -> Purple",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Purple Dye ",
-    CubeRecipeDescription: "Weapon + Purple Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Black -> Orange",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Orange Dye ",
-    CubeRecipeDescription: "Weapon + Orange Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Black -> Base",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Dye Remover ",
-    CubeRecipeDescription: "Weapon + Dye Remover = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Blue -> White",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + White Dye ",
-    CubeRecipeDescription: "Weapon + White Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Blue -> Black",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Black Dye ",
-    CubeRecipeDescription: "Weapon + Black Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Blue -> Red",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Red Dye ",
-    CubeRecipeDescription: "Weapon + Red Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Blue -> Green",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Green Dye ",
-    CubeRecipeDescription: "Weapon + Green Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Blue -> Yellow",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Yellow Dye ",
-    CubeRecipeDescription: "Weapon + Yellow Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Blue -> Purple",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Purple Dye ",
-    CubeRecipeDescription: "Weapon + Purple Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Blue -> Orange",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Orange Dye ",
-    CubeRecipeDescription: "Weapon + Orange Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Blue -> Base",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Dye Remover ",
-    CubeRecipeDescription: "Weapon + Dye Remover = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Red -> White",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + White Dye ",
-    CubeRecipeDescription: "Weapon + White Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Red -> Black",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Black Dye ",
-    CubeRecipeDescription: "Weapon + Black Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Red -> Blue",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Blue Dye ",
-    CubeRecipeDescription: "Weapon + Blue Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Red -> Green",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Green Dye ",
-    CubeRecipeDescription: "Weapon + Green Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Red -> Yellow",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Yellow Dye ",
-    CubeRecipeDescription: "Weapon + Yellow Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Red -> Purple",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Purple Dye ",
-    CubeRecipeDescription: "Weapon + Purple Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Red -> Orange",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Orange Dye ",
-    CubeRecipeDescription: "Weapon + Orange Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Red -> Base",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Dye Remover ",
-    CubeRecipeDescription: "Weapon + Dye Remover = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Green -> White",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + White Dye ",
-    CubeRecipeDescription: "Weapon + White Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Green -> Black",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Black Dye ",
-    CubeRecipeDescription: "Weapon + Black Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Green -> Blue",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Blue Dye ",
-    CubeRecipeDescription: "Weapon + Blue Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Green -> Red",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Red Dye ",
-    CubeRecipeDescription: "Weapon + Red Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Green -> Yellow",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Yellow Dye ",
-    CubeRecipeDescription: "Weapon + Yellow Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Green -> Purple",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Purple Dye ",
-    CubeRecipeDescription: "Weapon + Purple Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Green -> Orange",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Orange Dye ",
-    CubeRecipeDescription: "Weapon + Orange Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Green -> Base",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Dye Remover ",
-    CubeRecipeDescription: "Weapon + Dye Remover = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Yellow -> White",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + White Dye ",
-    CubeRecipeDescription: "Weapon + White Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Yellow -> Black",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Black Dye ",
-    CubeRecipeDescription: "Weapon + Black Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Yellow -> Blue",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Blue Dye ",
-    CubeRecipeDescription: "Weapon + Blue Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Yellow -> Red",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Red Dye ",
-    CubeRecipeDescription: "Weapon + Red Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Yellow -> Green",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Green Dye ",
-    CubeRecipeDescription: "Weapon + Green Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Yellow -> Purple",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Purple Dye ",
-    CubeRecipeDescription: "Weapon + Purple Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Yellow -> Orange",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Orange Dye ",
-    CubeRecipeDescription: "Weapon + Orange Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Yellow -> Base",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Dye Remover ",
-    CubeRecipeDescription: "Weapon + Dye Remover = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Purple -> White",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + White Dye ",
-    CubeRecipeDescription: "Weapon + White Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Purple -> Black",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Black Dye ",
-    CubeRecipeDescription: "Weapon + Black Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Purple -> Blue",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Blue Dye ",
-    CubeRecipeDescription: "Weapon + Blue Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Purple -> Red",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Red Dye ",
-    CubeRecipeDescription: "Weapon + Red Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Purple -> Green",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Green Dye ",
-    CubeRecipeDescription: "Weapon + Green Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Purple -> Yellow",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Yellow Dye ",
-    CubeRecipeDescription: "Weapon + Yellow Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Purple -> Orange",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Orange Dye ",
-    CubeRecipeDescription: "Weapon + Orange Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Purple -> Base",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Dye Remover ",
-    CubeRecipeDescription: "Weapon + Dye Remover = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Orange -> White",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + White Dye ",
-    CubeRecipeDescription: "Weapon + White Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Orange -> Black",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Black Dye ",
-    CubeRecipeDescription: "Weapon + Black Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Orange -> Blue",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Blue Dye ",
-    CubeRecipeDescription: "Weapon + Blue Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Orange -> Red",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Red Dye ",
-    CubeRecipeDescription: "Weapon + Red Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Orange -> Green",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Green Dye ",
-    CubeRecipeDescription: "Weapon + Green Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Orange -> Yellow",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Yellow Dye ",
-    CubeRecipeDescription: "Weapon + Yellow Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Orange -> Purple",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Purple Dye ",
-    CubeRecipeDescription: "Weapon + Purple Dye = Weapon"
-  },
-  {
-    Description: "Weapon Dye - Orange -> Base",
-    Item: null,
-    Output: "Weapon",
-    Input: "Weapon + Dye Remover ",
-    CubeRecipeDescription: "Weapon + Dye Remover = Weapon"
-  },
-  {
-    Description: "Helm Dye - Base -> White",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + White Dye ",
-    CubeRecipeDescription: "Merc Equip + White Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Base -> Black",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Black Dye ",
-    CubeRecipeDescription: "Merc Equip + Black Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Base -> Blue",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Blue Dye ",
-    CubeRecipeDescription: "Merc Equip + Blue Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Base -> Red",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Red Dye ",
-    CubeRecipeDescription: "Merc Equip + Red Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Base -> Green",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Green Dye ",
-    CubeRecipeDescription: "Merc Equip + Green Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Base -> Yellow",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Yellow Dye ",
-    CubeRecipeDescription: "Merc Equip + Yellow Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Base -> Purple",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Purple Dye ",
-    CubeRecipeDescription: "Merc Equip + Purple Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Base -> Orange",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orange Dye ",
-    CubeRecipeDescription: "Merc Equip + Orange Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - White -> Black",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Black Dye ",
-    CubeRecipeDescription: "Merc Equip + Black Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - White -> Blue",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Blue Dye ",
-    CubeRecipeDescription: "Merc Equip + Blue Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - White -> Red",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Red Dye ",
-    CubeRecipeDescription: "Merc Equip + Red Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - White -> Green",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Green Dye ",
-    CubeRecipeDescription: "Merc Equip + Green Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - White -> Yellow",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Yellow Dye ",
-    CubeRecipeDescription: "Merc Equip + Yellow Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - White -> Purple",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Purple Dye ",
-    CubeRecipeDescription: "Merc Equip + Purple Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - White -> Orange",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orange Dye ",
-    CubeRecipeDescription: "Merc Equip + Orange Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - White -> Base",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Dye Remover ",
-    CubeRecipeDescription: "Merc Equip + Dye Remover = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Black -> White",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + White Dye ",
-    CubeRecipeDescription: "Merc Equip + White Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Black -> Blue",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Blue Dye ",
-    CubeRecipeDescription: "Merc Equip + Blue Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Black -> Red",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Red Dye ",
-    CubeRecipeDescription: "Merc Equip + Red Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Black -> Green",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Green Dye ",
-    CubeRecipeDescription: "Merc Equip + Green Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Black -> Yellow",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Yellow Dye ",
-    CubeRecipeDescription: "Merc Equip + Yellow Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Black -> Purple",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Purple Dye ",
-    CubeRecipeDescription: "Merc Equip + Purple Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Black -> Orange",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orange Dye ",
-    CubeRecipeDescription: "Merc Equip + Orange Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Black -> Base",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Dye Remover ",
-    CubeRecipeDescription: "Merc Equip + Dye Remover = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Blue -> White",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + White Dye ",
-    CubeRecipeDescription: "Merc Equip + White Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Blue -> Black",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Black Dye ",
-    CubeRecipeDescription: "Merc Equip + Black Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Blue -> Red",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Red Dye ",
-    CubeRecipeDescription: "Merc Equip + Red Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Blue -> Green",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Green Dye ",
-    CubeRecipeDescription: "Merc Equip + Green Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Blue -> Yellow",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Yellow Dye ",
-    CubeRecipeDescription: "Merc Equip + Yellow Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Blue -> Purple",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Purple Dye ",
-    CubeRecipeDescription: "Merc Equip + Purple Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Blue -> Orange",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orange Dye ",
-    CubeRecipeDescription: "Merc Equip + Orange Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Blue -> Base",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Dye Remover ",
-    CubeRecipeDescription: "Merc Equip + Dye Remover = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Red -> White",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + White Dye ",
-    CubeRecipeDescription: "Merc Equip + White Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Red -> Black",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Black Dye ",
-    CubeRecipeDescription: "Merc Equip + Black Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Red -> Blue",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Blue Dye ",
-    CubeRecipeDescription: "Merc Equip + Blue Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Red -> Green",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Green Dye ",
-    CubeRecipeDescription: "Merc Equip + Green Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Red -> Yellow",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Yellow Dye ",
-    CubeRecipeDescription: "Merc Equip + Yellow Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Red -> Purple",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Purple Dye ",
-    CubeRecipeDescription: "Merc Equip + Purple Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Red -> Orange",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orange Dye ",
-    CubeRecipeDescription: "Merc Equip + Orange Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Red -> Base",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Dye Remover ",
-    CubeRecipeDescription: "Merc Equip + Dye Remover = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Green -> White",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + White Dye ",
-    CubeRecipeDescription: "Merc Equip + White Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Green -> Black",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Black Dye ",
-    CubeRecipeDescription: "Merc Equip + Black Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Green -> Blue",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Blue Dye ",
-    CubeRecipeDescription: "Merc Equip + Blue Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Green -> Red",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Red Dye ",
-    CubeRecipeDescription: "Merc Equip + Red Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Green -> Yellow",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Yellow Dye ",
-    CubeRecipeDescription: "Merc Equip + Yellow Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Green -> Purple",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Purple Dye ",
-    CubeRecipeDescription: "Merc Equip + Purple Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Green -> Orange",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orange Dye ",
-    CubeRecipeDescription: "Merc Equip + Orange Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Green -> Base",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Dye Remover ",
-    CubeRecipeDescription: "Merc Equip + Dye Remover = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Yellow -> White",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + White Dye ",
-    CubeRecipeDescription: "Merc Equip + White Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Yellow -> Black",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Black Dye ",
-    CubeRecipeDescription: "Merc Equip + Black Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Yellow -> Blue",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Blue Dye ",
-    CubeRecipeDescription: "Merc Equip + Blue Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Yellow -> Red",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Red Dye ",
-    CubeRecipeDescription: "Merc Equip + Red Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Yellow -> Green",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Green Dye ",
-    CubeRecipeDescription: "Merc Equip + Green Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Yellow -> Purple",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Purple Dye ",
-    CubeRecipeDescription: "Merc Equip + Purple Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Yellow -> Orange",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orange Dye ",
-    CubeRecipeDescription: "Merc Equip + Orange Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Yellow -> Base",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Dye Remover ",
-    CubeRecipeDescription: "Merc Equip + Dye Remover = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Purple -> White",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + White Dye ",
-    CubeRecipeDescription: "Merc Equip + White Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Purple -> Black",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Black Dye ",
-    CubeRecipeDescription: "Merc Equip + Black Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Purple -> Blue",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Blue Dye ",
-    CubeRecipeDescription: "Merc Equip + Blue Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Purple -> Red",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Red Dye ",
-    CubeRecipeDescription: "Merc Equip + Red Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Purple -> Green",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Green Dye ",
-    CubeRecipeDescription: "Merc Equip + Green Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Purple -> Yellow",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Yellow Dye ",
-    CubeRecipeDescription: "Merc Equip + Yellow Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Purple -> Orange",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Orange Dye ",
-    CubeRecipeDescription: "Merc Equip + Orange Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Purple -> Base",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Dye Remover ",
-    CubeRecipeDescription: "Merc Equip + Dye Remover = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Orange -> White",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + White Dye ",
-    CubeRecipeDescription: "Merc Equip + White Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Orange -> Black",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Black Dye ",
-    CubeRecipeDescription: "Merc Equip + Black Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Orange -> Blue",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Blue Dye ",
-    CubeRecipeDescription: "Merc Equip + Blue Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Orange -> Red",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Red Dye ",
-    CubeRecipeDescription: "Merc Equip + Red Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Orange -> Green",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Green Dye ",
-    CubeRecipeDescription: "Merc Equip + Green Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Orange -> Yellow",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Yellow Dye ",
-    CubeRecipeDescription: "Merc Equip + Yellow Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Orange -> Purple",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Purple Dye ",
-    CubeRecipeDescription: "Merc Equip + Purple Dye = Merc Equip"
-  },
-  {
-    Description: "Helm Dye - Orange -> Base",
-    Item: null,
-    Output: "Merc Equip",
-    Input: "Merc Equip + Dye Remover ",
-    CubeRecipeDescription: "Merc Equip + Dye Remover = Merc Equip"
-  },
-  {
-    Description: "Shield Dye - Base -> White",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + White Dye ",
-    CubeRecipeDescription: "Any Shield + White Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Base -> Black",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Black Dye ",
-    CubeRecipeDescription: "Any Shield + Black Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Base -> Blue",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Blue Dye ",
-    CubeRecipeDescription: "Any Shield + Blue Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Base -> Red",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Red Dye ",
-    CubeRecipeDescription: "Any Shield + Red Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Base -> Green",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Green Dye ",
-    CubeRecipeDescription: "Any Shield + Green Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Base -> Yellow",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Yellow Dye ",
-    CubeRecipeDescription: "Any Shield + Yellow Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Base -> Purple",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Purple Dye ",
-    CubeRecipeDescription: "Any Shield + Purple Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Base -> Orange",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Orange Dye ",
-    CubeRecipeDescription: "Any Shield + Orange Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - White -> Black",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Black Dye ",
-    CubeRecipeDescription: "Any Shield + Black Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - White -> Blue",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Blue Dye ",
-    CubeRecipeDescription: "Any Shield + Blue Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - White -> Red",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Red Dye ",
-    CubeRecipeDescription: "Any Shield + Red Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - White -> Green",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Green Dye ",
-    CubeRecipeDescription: "Any Shield + Green Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - White -> Yellow",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Yellow Dye ",
-    CubeRecipeDescription: "Any Shield + Yellow Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - White -> Purple",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Purple Dye ",
-    CubeRecipeDescription: "Any Shield + Purple Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - White -> Orange",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Orange Dye ",
-    CubeRecipeDescription: "Any Shield + Orange Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - White -> Base",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Dye Remover ",
-    CubeRecipeDescription: "Any Shield + Dye Remover = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Black -> White",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + White Dye ",
-    CubeRecipeDescription: "Any Shield + White Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Black -> Blue",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Blue Dye ",
-    CubeRecipeDescription: "Any Shield + Blue Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Black -> Red",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Red Dye ",
-    CubeRecipeDescription: "Any Shield + Red Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Black -> Green",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Green Dye ",
-    CubeRecipeDescription: "Any Shield + Green Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Black -> Yellow",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Yellow Dye ",
-    CubeRecipeDescription: "Any Shield + Yellow Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Black -> Purple",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Purple Dye ",
-    CubeRecipeDescription: "Any Shield + Purple Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Black -> Orange",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Orange Dye ",
-    CubeRecipeDescription: "Any Shield + Orange Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Black -> Base",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Dye Remover ",
-    CubeRecipeDescription: "Any Shield + Dye Remover = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Blue -> White",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + White Dye ",
-    CubeRecipeDescription: "Any Shield + White Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Blue -> Black",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Black Dye ",
-    CubeRecipeDescription: "Any Shield + Black Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Blue -> Red",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Red Dye ",
-    CubeRecipeDescription: "Any Shield + Red Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Blue -> Green",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Green Dye ",
-    CubeRecipeDescription: "Any Shield + Green Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Blue -> Yellow",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Yellow Dye ",
-    CubeRecipeDescription: "Any Shield + Yellow Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Blue -> Purple",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Purple Dye ",
-    CubeRecipeDescription: "Any Shield + Purple Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Blue -> Orange",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Orange Dye ",
-    CubeRecipeDescription: "Any Shield + Orange Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Blue -> Base",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Dye Remover ",
-    CubeRecipeDescription: "Any Shield + Dye Remover = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Red -> White",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + White Dye ",
-    CubeRecipeDescription: "Any Shield + White Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Red -> Black",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Black Dye ",
-    CubeRecipeDescription: "Any Shield + Black Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Red -> Blue",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Blue Dye ",
-    CubeRecipeDescription: "Any Shield + Blue Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Red -> Green",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Green Dye ",
-    CubeRecipeDescription: "Any Shield + Green Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Red -> Yellow",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Yellow Dye ",
-    CubeRecipeDescription: "Any Shield + Yellow Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Red -> Purple",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Purple Dye ",
-    CubeRecipeDescription: "Any Shield + Purple Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Red -> Orange",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Orange Dye ",
-    CubeRecipeDescription: "Any Shield + Orange Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Red -> Base",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Dye Remover ",
-    CubeRecipeDescription: "Any Shield + Dye Remover = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Green -> White",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + White Dye ",
-    CubeRecipeDescription: "Any Shield + White Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Green -> Black",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Black Dye ",
-    CubeRecipeDescription: "Any Shield + Black Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Green -> Blue",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Blue Dye ",
-    CubeRecipeDescription: "Any Shield + Blue Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Green -> Red",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Red Dye ",
-    CubeRecipeDescription: "Any Shield + Red Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Green -> Yellow",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Yellow Dye ",
-    CubeRecipeDescription: "Any Shield + Yellow Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Green -> Purple",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Purple Dye ",
-    CubeRecipeDescription: "Any Shield + Purple Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Green -> Orange",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Orange Dye ",
-    CubeRecipeDescription: "Any Shield + Orange Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Green -> Base",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Dye Remover ",
-    CubeRecipeDescription: "Any Shield + Dye Remover = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Yellow -> White",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + White Dye ",
-    CubeRecipeDescription: "Any Shield + White Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Yellow -> Black",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Black Dye ",
-    CubeRecipeDescription: "Any Shield + Black Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Yellow -> Blue",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Blue Dye ",
-    CubeRecipeDescription: "Any Shield + Blue Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Yellow -> Red",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Red Dye ",
-    CubeRecipeDescription: "Any Shield + Red Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Yellow -> Green",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Green Dye ",
-    CubeRecipeDescription: "Any Shield + Green Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Yellow -> Purple",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Purple Dye ",
-    CubeRecipeDescription: "Any Shield + Purple Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Yellow -> Orange",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Orange Dye ",
-    CubeRecipeDescription: "Any Shield + Orange Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Yellow -> Base",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Dye Remover ",
-    CubeRecipeDescription: "Any Shield + Dye Remover = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Purple -> White",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + White Dye ",
-    CubeRecipeDescription: "Any Shield + White Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Purple -> Black",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Black Dye ",
-    CubeRecipeDescription: "Any Shield + Black Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Purple -> Blue",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Blue Dye ",
-    CubeRecipeDescription: "Any Shield + Blue Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Purple -> Red",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Red Dye ",
-    CubeRecipeDescription: "Any Shield + Red Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Purple -> Green",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Green Dye ",
-    CubeRecipeDescription: "Any Shield + Green Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Purple -> Yellow",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Yellow Dye ",
-    CubeRecipeDescription: "Any Shield + Yellow Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Purple -> Orange",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Orange Dye ",
-    CubeRecipeDescription: "Any Shield + Orange Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Purple -> Base",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Dye Remover ",
-    CubeRecipeDescription: "Any Shield + Dye Remover = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Orange -> White",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + White Dye ",
-    CubeRecipeDescription: "Any Shield + White Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Orange -> Black",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Black Dye ",
-    CubeRecipeDescription: "Any Shield + Black Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Orange -> Blue",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Blue Dye ",
-    CubeRecipeDescription: "Any Shield + Blue Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Orange -> Red",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Red Dye ",
-    CubeRecipeDescription: "Any Shield + Red Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Orange -> Green",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Green Dye ",
-    CubeRecipeDescription: "Any Shield + Green Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Orange -> Yellow",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Yellow Dye ",
-    CubeRecipeDescription: "Any Shield + Yellow Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Orange -> Purple",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Purple Dye ",
-    CubeRecipeDescription: "Any Shield + Purple Dye = Any Shield"
-  },
-  {
-    Description: "Shield Dye - Orange -> Base",
-    Item: null,
-    Output: "Any Shield",
-    Input: "Any Shield + Dye Remover ",
-    CubeRecipeDescription: "Any Shield + Dye Remover = Any Shield"
-  },
-  {
-    Description: "Armor Dye - Base -> White",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + White Dye ",
-    CubeRecipeDescription: "Armor + White Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Base -> Black",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Black Dye ",
-    CubeRecipeDescription: "Armor + Black Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Base -> Blue",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Blue Dye ",
-    CubeRecipeDescription: "Armor + Blue Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Base -> Red",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Red Dye ",
-    CubeRecipeDescription: "Armor + Red Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Base -> Green",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Green Dye ",
-    CubeRecipeDescription: "Armor + Green Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Base -> Yellow",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Yellow Dye ",
-    CubeRecipeDescription: "Armor + Yellow Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Base -> Purple",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Purple Dye ",
-    CubeRecipeDescription: "Armor + Purple Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Base -> Orange",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Orange Dye ",
-    CubeRecipeDescription: "Armor + Orange Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - White -> Black",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Black Dye ",
-    CubeRecipeDescription: "Armor + Black Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - White -> Blue",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Blue Dye ",
-    CubeRecipeDescription: "Armor + Blue Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - White -> Red",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Red Dye ",
-    CubeRecipeDescription: "Armor + Red Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - White -> Green",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Green Dye ",
-    CubeRecipeDescription: "Armor + Green Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - White -> Yellow",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Yellow Dye ",
-    CubeRecipeDescription: "Armor + Yellow Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - White -> Purple",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Purple Dye ",
-    CubeRecipeDescription: "Armor + Purple Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - White -> Orange",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Orange Dye ",
-    CubeRecipeDescription: "Armor + Orange Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - White -> Base",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Dye Remover ",
-    CubeRecipeDescription: "Armor + Dye Remover = Armor"
-  },
-  {
-    Description: "Armor Dye - Black -> White",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + White Dye ",
-    CubeRecipeDescription: "Armor + White Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Black -> Blue",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Blue Dye ",
-    CubeRecipeDescription: "Armor + Blue Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Black -> Red",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Red Dye ",
-    CubeRecipeDescription: "Armor + Red Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Black -> Green",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Green Dye ",
-    CubeRecipeDescription: "Armor + Green Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Black -> Yellow",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Yellow Dye ",
-    CubeRecipeDescription: "Armor + Yellow Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Black -> Purple",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Purple Dye ",
-    CubeRecipeDescription: "Armor + Purple Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Black -> Orange",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Orange Dye ",
-    CubeRecipeDescription: "Armor + Orange Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Black -> Base",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Dye Remover ",
-    CubeRecipeDescription: "Armor + Dye Remover = Armor"
-  },
-  {
-    Description: "Armor Dye - Blue -> White",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + White Dye ",
-    CubeRecipeDescription: "Armor + White Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Blue -> Black",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Black Dye ",
-    CubeRecipeDescription: "Armor + Black Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Blue -> Red",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Red Dye ",
-    CubeRecipeDescription: "Armor + Red Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Blue -> Green",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Green Dye ",
-    CubeRecipeDescription: "Armor + Green Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Blue -> Yellow",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Yellow Dye ",
-    CubeRecipeDescription: "Armor + Yellow Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Blue -> Purple",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Purple Dye ",
-    CubeRecipeDescription: "Armor + Purple Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Blue -> Orange",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Orange Dye ",
-    CubeRecipeDescription: "Armor + Orange Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Blue -> Base",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Dye Remover ",
-    CubeRecipeDescription: "Armor + Dye Remover = Armor"
-  },
-  {
-    Description: "Armor Dye - Red -> White",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + White Dye ",
-    CubeRecipeDescription: "Armor + White Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Red -> Black",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Black Dye ",
-    CubeRecipeDescription: "Armor + Black Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Red -> Blue",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Blue Dye ",
-    CubeRecipeDescription: "Armor + Blue Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Red -> Green",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Green Dye ",
-    CubeRecipeDescription: "Armor + Green Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Red -> Yellow",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Yellow Dye ",
-    CubeRecipeDescription: "Armor + Yellow Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Red -> Purple",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Purple Dye ",
-    CubeRecipeDescription: "Armor + Purple Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Red -> Orange",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Orange Dye ",
-    CubeRecipeDescription: "Armor + Orange Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Red -> Base",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Dye Remover ",
-    CubeRecipeDescription: "Armor + Dye Remover = Armor"
-  },
-  {
-    Description: "Armor Dye - Green -> White",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + White Dye ",
-    CubeRecipeDescription: "Armor + White Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Green -> Black",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Black Dye ",
-    CubeRecipeDescription: "Armor + Black Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Green -> Blue",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Blue Dye ",
-    CubeRecipeDescription: "Armor + Blue Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Green -> Red",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Red Dye ",
-    CubeRecipeDescription: "Armor + Red Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Green -> Yellow",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Yellow Dye ",
-    CubeRecipeDescription: "Armor + Yellow Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Green -> Purple",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Purple Dye ",
-    CubeRecipeDescription: "Armor + Purple Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Green -> Orange",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Orange Dye ",
-    CubeRecipeDescription: "Armor + Orange Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Green -> Base",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Dye Remover ",
-    CubeRecipeDescription: "Armor + Dye Remover = Armor"
-  },
-  {
-    Description: "Armor Dye - Yellow -> White",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + White Dye ",
-    CubeRecipeDescription: "Armor + White Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Yellow -> Black",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Black Dye ",
-    CubeRecipeDescription: "Armor + Black Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Yellow -> Blue",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Blue Dye ",
-    CubeRecipeDescription: "Armor + Blue Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Yellow -> Red",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Red Dye ",
-    CubeRecipeDescription: "Armor + Red Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Yellow -> Green",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Green Dye ",
-    CubeRecipeDescription: "Armor + Green Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Yellow -> Purple",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Purple Dye ",
-    CubeRecipeDescription: "Armor + Purple Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Yellow -> Orange",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Orange Dye ",
-    CubeRecipeDescription: "Armor + Orange Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Yellow -> Base",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Dye Remover ",
-    CubeRecipeDescription: "Armor + Dye Remover = Armor"
-  },
-  {
-    Description: "Armor Dye - Purple -> White",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + White Dye ",
-    CubeRecipeDescription: "Armor + White Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Purple -> Black",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Black Dye ",
-    CubeRecipeDescription: "Armor + Black Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Purple -> Blue",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Blue Dye ",
-    CubeRecipeDescription: "Armor + Blue Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Purple -> Red",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Red Dye ",
-    CubeRecipeDescription: "Armor + Red Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Purple -> Green",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Green Dye ",
-    CubeRecipeDescription: "Armor + Green Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Purple -> Yellow",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Yellow Dye ",
-    CubeRecipeDescription: "Armor + Yellow Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Purple -> Orange",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Orange Dye ",
-    CubeRecipeDescription: "Armor + Orange Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Purple -> Base",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Dye Remover ",
-    CubeRecipeDescription: "Armor + Dye Remover = Armor"
-  },
-  {
-    Description: "Armor Dye - Orange -> White",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + White Dye ",
-    CubeRecipeDescription: "Armor + White Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Orange -> Black",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Black Dye ",
-    CubeRecipeDescription: "Armor + Black Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Orange -> Blue",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Blue Dye ",
-    CubeRecipeDescription: "Armor + Blue Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Orange -> Red",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Red Dye ",
-    CubeRecipeDescription: "Armor + Red Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Orange -> Green",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Green Dye ",
-    CubeRecipeDescription: "Armor + Green Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Orange -> Yellow",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Yellow Dye ",
-    CubeRecipeDescription: "Armor + Yellow Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Orange -> Purple",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Purple Dye ",
-    CubeRecipeDescription: "Armor + Purple Dye = Armor"
-  },
-  {
-    Description: "Armor Dye - Orange -> Base",
-    Item: null,
-    Output: "Armor",
-    Input: "Armor + Dye Remover ",
-    CubeRecipeDescription: "Armor + Dye Remover = Armor"
+    Output: "Storage for Keys",
+    Input: "Storage for Keys + Desctruction Key Grabber ",
+    CubeRecipeDescription: "Storage For Keys + Desctruction Key Grabber = Storage For Keys"
   }
 ];
 var __create = Object.create;
