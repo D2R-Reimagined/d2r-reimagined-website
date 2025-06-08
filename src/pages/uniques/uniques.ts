@@ -76,15 +76,10 @@ export class Uniques {
         }
         this.uniques = json.filter(unique =>
             !unique.Name.toLowerCase().includes('grabber') && 
-            !unique.Name.toLowerCase().includes('pliers') && 
-            !unique.Name.toLowerCase().includes('gem bag') &&
+                !unique.Name.toLowerCase().includes('pliers') && 
+                !unique.Name.toLowerCase().includes('gem bag') &&
             !unique.Name.toLowerCase().includes('storage for keys') &&
             !unique.Name.toLowerCase().includes('rainbow facet') &&
-            !unique.Name.toLowerCase().includes('amulet of the viper') &&
-            !unique.Name.toLowerCase().includes('staff of kings') &&
-            !unique.Name.toLowerCase().includes('horadric staff') &&
-            !unique.Name.toLowerCase().includes('khalim\'s ') &&
-            !unique.Name.toLowerCase().includes('hell forge hammer') &&
             isMatchingSearch(unique) &&
             isMatchingClass(unique) &&
             isMatchingType(unique));
