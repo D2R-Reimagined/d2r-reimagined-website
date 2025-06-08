@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-Cf413Kw3.js","assets/debounce-ZwsFz6hU.js","assets/cube-recipes-BJXOl2Zy.css","assets/uniques-BASVppED.js","assets/sets-BOwqQ1z0.js","assets/runewords-DOBknoQS.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-C_dgydJU.js","assets/debounce-ZwsFz6hU.js","assets/cube-recipes-BJXOl2Zy.css","assets/uniques-D5LGt9u3.js","assets/sets-D6sFweU-.js","assets/runewords-DNNPKmg-.js"])))=>i.map(i=>d[i]);
 (function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) {
@@ -59,8 +59,8 @@ const Metadata = {
         metadata[keys[0]] = metadata[keys[1]] = value;
         return;
       default: {
-        for (let i4 = 0; i4 < length; ++i4) {
-          metadata[keys[i4]] = value;
+        for (let i3 = 0; i3 < length; ++i3) {
+          metadata[keys[i3]] = value;
         }
         return;
       }
@@ -193,8 +193,8 @@ const errorsMap$4 = {
 };
 const getMessageByCode$4 = (name2, ...details) => {
   let cooked = errorsMap$4[name2];
-  for (let i4 = 0; i4 < details.length; ++i4) {
-    cooked = cooked.replace(`{{${i4}}}`, String(details[i4]));
+  for (let i3 = 0; i3 < details.length; ++i3) {
+    cooked = cooked.replace(`{{${i3}}}`, String(details[i3]));
   }
   return cooked;
 };
@@ -204,7 +204,7 @@ const isArrayIndex = /* @__PURE__ */ (() => {
   let result = false;
   let length = 0;
   let ch = 0;
-  let i4 = 0;
+  let i3 = 0;
   return (value) => {
     switch (typeof value) {
       case "number":
@@ -219,10 +219,10 @@ const isArrayIndex = /* @__PURE__ */ (() => {
           return isNumericLookup[value] = false;
         }
         ch = 0;
-        i4 = 0;
-        for (; i4 < length; ++i4) {
-          ch = value.charCodeAt(i4);
-          if (i4 === 0 && ch === 48 && length > 1 || ch < 48 || ch > 57) {
+        i3 = 0;
+        for (; i3 < length; ++i3) {
+          ch = value.charCodeAt(i3);
+          if (i3 === 0 && ch === 48 && length > 1 || ch < 48 || ch > 57) {
             return isNumericLookup[value] = false;
           }
         }
@@ -272,12 +272,12 @@ const baseCase = /* @__PURE__ */ function() {
     let curKind = 0;
     let nextChar2 = input.charAt(0);
     let nextKind = charToKind(nextChar2);
-    let i4 = 0;
-    for (; i4 < len; ++i4) {
+    let i3 = 0;
+    for (; i3 < len; ++i3) {
       prevKind = curKind;
       curChar = nextChar2;
       curKind = nextKind;
-      nextChar2 = input.charAt(i4 + 1);
+      nextChar2 = input.charAt(i3 + 1);
       nextKind = charToKind(nextChar2);
       if (curKind === 0) {
         if (output.length > 0) {
@@ -337,9 +337,9 @@ const kebabCase = /* @__PURE__ */ function() {
 const toArray = (input) => {
   const length = input.length;
   const arr = Array(length);
-  let i4 = 0;
-  for (; i4 < length; ++i4) {
-    arr[i4] = input[i4];
+  let i3 = 0;
+  for (; i3 < length; ++i3) {
+    arr[i3] = input[i3];
   }
   return arr;
 };
@@ -360,9 +360,9 @@ const mergeArrays = (...arrays) => {
   const arraysLen = arrays.length;
   let arrayLen = 0;
   let array;
-  let i4 = 0;
-  for (; i4 < arraysLen; ++i4) {
-    array = arrays[i4];
+  let i3 = 0;
+  for (; i3 < arraysLen; ++i3) {
+    array = arrays[i3];
     if (array !== void 0) {
       arrayLen = array.length;
       let j2 = 0;
@@ -376,9 +376,9 @@ const mergeArrays = (...arrays) => {
 const firstDefined = (...values) => {
   const len = values.length;
   let value;
-  let i4 = 0;
-  for (; len > i4; ++i4) {
-    value = values[i4];
+  let i3 = 0;
+  for (; len > i3; ++i3) {
+    value = values[i3];
     if (value !== void 0) {
       return value;
     }
@@ -393,15 +393,15 @@ const getPrototypeChain = /* @__PURE__ */ function() {
   const getPrototypeOf = Object.getPrototypeOf;
   const cache2 = /* @__PURE__ */ new WeakMap();
   let proto = functionPrototype;
-  let i4 = 0;
+  let i3 = 0;
   let chain = void 0;
   return function(Type) {
     chain = cache2.get(Type);
     if (chain === void 0) {
       cache2.set(Type, chain = [proto = Type]);
-      i4 = 0;
+      i3 = 0;
       while ((proto = getPrototypeOf(proto)) !== functionPrototype) {
-        chain[++i4] = proto;
+        chain[++i3] = proto;
       }
     }
     return chain;
@@ -414,12 +414,12 @@ const isNativeFunction = /* @__PURE__ */ (() => {
   const lookup2 = /* @__PURE__ */ new WeakMap();
   let isNative = false;
   let sourceText = "";
-  let i4 = 0;
+  let i3 = 0;
   return (fn2) => {
     isNative = lookup2.get(fn2);
     if (isNative == null) {
-      i4 = (sourceText = fn2.toString()).length;
-      isNative = i4 > 28 && sourceText.indexOf("[native code] }") === i4 - 15;
+      i3 = (sourceText = fn2.toString()).length;
+      isNative = i3 > 28 && sourceText.indexOf("[native code] }") === i3 - 15;
       lookup2.set(fn2, isNative);
     }
     return isNative;
@@ -435,11 +435,11 @@ const onResolveAll = (...maybePromises) => {
   let maybePromise = void 0;
   let firstPromise = void 0;
   let promises = void 0;
-  let i4 = 0;
+  let i3 = 0;
   let ii = maybePromises.length;
-  for (; i4 < ii; ++i4) {
-    maybePromise = maybePromises[i4];
-    if (isPromise(maybePromise = maybePromises[i4])) {
+  for (; i3 < ii; ++i3) {
+    maybePromise = maybePromises[i3];
+    if (isPromise(maybePromise = maybePromises[i3])) {
       if (firstPromise === void 0) {
         firstPromise = maybePromise;
       } else if (promises === void 0) {
@@ -697,11 +697,11 @@ class Container {
     let value;
     let j2;
     let jj;
-    let i4 = 0;
+    let i3 = 0;
     let ii = params.length;
     let def2;
-    for (; i4 < ii; ++i4) {
-      current = params[i4];
+    for (; i3 < ii; ++i3) {
+      current = params[i3];
       if (!isObjectOrFunction(current)) {
         continue;
       }
@@ -1159,9 +1159,9 @@ const buildAllResponse = (resolver, handler, requestor) => {
     const state = resolver._state;
     const ii = state.length;
     const results = Array(ii);
-    let i4 = 0;
-    for (; i4 < ii; ++i4) {
-      results[i4] = state[i4].resolve(handler, requestor);
+    let i3 = 0;
+    for (; i3 < ii; ++i3) {
+      results[i3] = state[i3].resolve(handler, requestor);
     }
     return results;
   }
@@ -1213,8 +1213,8 @@ const cloneArrayWithPossibleProps = (source) => {
   const keys = Object.keys(source);
   const len = keys.length;
   let key;
-  for (let i4 = 0; i4 < len; ++i4) {
-    key = keys[i4];
+  for (let i3 = 0; i3 < len; ++i3) {
+    key = keys[i3];
     if (!isArrayIndex(key)) {
       clone[key] = source[key];
     }
@@ -1254,19 +1254,19 @@ const getDependencies = (Type) => {
         dependencies2 = cloneArrayWithPossibleProps(designParamtypes);
         let len = annotationParamtypes.length;
         let auAnnotationParamtype;
-        let i4 = 0;
-        for (; i4 < len; ++i4) {
-          auAnnotationParamtype = annotationParamtypes[i4];
+        let i3 = 0;
+        for (; i3 < len; ++i3) {
+          auAnnotationParamtype = annotationParamtypes[i3];
           if (auAnnotationParamtype !== void 0) {
-            dependencies2[i4] = auAnnotationParamtype;
+            dependencies2[i3] = auAnnotationParamtype;
           }
         }
         const keys = Object.keys(annotationParamtypes);
         let key2;
-        i4 = 0;
+        i3 = 0;
         len = keys.length;
-        for (i4 = 0; i4 < len; ++i4) {
-          key2 = keys[i4];
+        for (i3 = 0; i3 < len; ++i3) {
+          key2 = keys[i3];
           if (!isArrayIndex(key2)) {
             dependencies2[key2] = annotationParamtypes[key2];
           }
@@ -1304,11 +1304,11 @@ const inject = (...dependencies2) => {
       case "class": {
         const annotationParamtypes = getOrCreateAnnotationParamTypes(context);
         let dep;
-        let i4 = 0;
-        for (; i4 < dependencies2.length; ++i4) {
-          dep = dependencies2[i4];
+        let i3 = 0;
+        for (; i3 < dependencies2.length; ++i3) {
+          dep = dependencies2[i3];
           if (dep !== void 0) {
-            annotationParamtypes[i4] = dep;
+            annotationParamtypes[i3] = dep;
           }
         }
         break;
@@ -1590,7 +1590,7 @@ function __esDecorate$2(ctor, descriptorIn, decorators, contextIn, initializers,
   var target = ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
   var descriptor = target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {};
   var _2, done = false;
-  for (var i4 = decorators.length - 1; i4 >= 0; i4--) {
+  for (var i3 = decorators.length - 1; i3 >= 0; i3--) {
     var context = {};
     for (var p2 in contextIn) context[p2] = p2 === "access" ? {} : contextIn[p2];
     for (var p2 in contextIn.access) context.access[p2] = contextIn.access[p2];
@@ -1598,7 +1598,7 @@ function __esDecorate$2(ctor, descriptorIn, decorators, contextIn, initializers,
       if (done) throw new TypeError("Cannot add initializers after decoration has completed");
       extraInitializers.push(accept(f2 || null));
     };
-    var result = (0, decorators[i4])(kind === "accessor" ? { get: descriptor.get, set: descriptor.set } : descriptor[key], context);
+    var result = (0, decorators[i3])(kind === "accessor" ? { get: descriptor.get, set: descriptor.set } : descriptor[key], context);
     if (kind === "accessor") {
       if (result === void 0) continue;
       if (result === null || typeof result !== "object") throw new TypeError("Object expected");
@@ -1615,8 +1615,8 @@ function __esDecorate$2(ctor, descriptorIn, decorators, contextIn, initializers,
 }
 function __runInitializers$5(thisArg, initializers, value) {
   var useValue = arguments.length > 2;
-  for (var i4 = 0; i4 < initializers.length; i4++) {
-    value = useValue ? initializers[i4].call(thisArg, value) : initializers[i4].call(thisArg);
+  for (var i3 = 0; i3 < initializers.length; i3++) {
+    value = useValue ? initializers[i3].call(thisArg, value) : initializers[i3].call(thisArg);
   }
   return useValue ? value : void 0;
 }
@@ -1941,8 +1941,8 @@ let DefaultLogger = (() => {
     _emit(sinks, level, msgOrGetMsg, optionalParams) {
       const message = isFunction(msgOrGetMsg) ? msgOrGetMsg() : msgOrGetMsg;
       const event = this._factory.createLogEvent(this, level, message, optionalParams);
-      for (let i4 = 0, ii = sinks.length; i4 < ii; ++i4) {
-        sinks[i4].handleEvent(event);
+      for (let i3 = 0, ii = sinks.length; i3 < ii; ++i3) {
+        sinks[i3].handleEvent(event);
       }
     }
   }, (() => {
@@ -2098,15 +2098,15 @@ class EventAggregator {
       if (subscribers !== void 0) {
         subscribers = subscribers.slice();
         const numSubscribers = subscribers.length;
-        for (let i4 = 0; i4 < numSubscribers; i4++) {
-          subscribers[i4](message, channelOrInstance);
+        for (let i3 = 0; i3 < numSubscribers; i3++) {
+          subscribers[i3](message, channelOrInstance);
         }
       }
     } else {
       const subscribers = this.messageHandlers.slice();
       const numSubscribers = subscribers.length;
-      for (let i4 = 0; i4 < numSubscribers; i4++) {
-        subscribers[i4].handle(channelOrInstance);
+      for (let i3 = 0; i3 < numSubscribers; i3++) {
+        subscribers[i3].handle(channelOrInstance);
       }
     }
   }
@@ -2603,12 +2603,12 @@ const errorsMap$3 = {
 };
 const getMessageByCode$3 = (name2, ...details) => {
   let cooked = errorsMap$3[name2];
-  for (let i4 = 0; i4 < details.length; ++i4) {
-    const regex = new RegExp(`{{${i4}(:.*)?}}`, "g");
+  for (let i3 = 0; i3 < details.length; ++i3) {
+    const regex = new RegExp(`{{${i3}(:.*)?}}`, "g");
     let matches2 = regex.exec(cooked);
     while (matches2 != null) {
       const method = matches2[1]?.slice(1);
-      let value = details[i4];
+      let value = details[i3];
       if (value != null) {
         switch (method) {
           case "toString":
@@ -3850,9 +3850,9 @@ const { CharScanners, IdParts } = /* @__PURE__ */ (() => {
   };
   const decompress = (lookup2, $set, compressed, value) => {
     const rangeCount = compressed.length;
-    for (let i4 = 0; i4 < rangeCount; i4 += 2) {
-      const start2 = compressed[i4];
-      let end2 = compressed[i4 + 1];
+    for (let i3 = 0; i3 < rangeCount; i3 += 2) {
+      const start2 = compressed[i3];
+      let end2 = compressed[i3 + 1];
       end2 = end2 > 0 ? end2 : start2 + 1;
       if (lookup2) {
         lookup2.fill(value, start2, end2);
@@ -4247,12 +4247,12 @@ const errorsMap$2 = {
 };
 const getMessageByCode$2 = (name2, ...details) => {
   let cooked = errorsMap$2[name2];
-  for (let i4 = 0; i4 < details.length; ++i4) {
-    const regex = new RegExp(`{{${i4}(:.*)?}}`, "g");
+  for (let i3 = 0; i3 < details.length; ++i3) {
+    const regex = new RegExp(`{{${i3}(:.*)?}}`, "g");
     let matches2 = regex.exec(cooked);
     while (matches2 != null) {
       const method = matches2[1]?.slice(1);
-      let value = details[i4];
+      let value = details[i3];
       if (value != null) {
         switch (method) {
           case "nodeName":
@@ -4432,9 +4432,9 @@ class AttrParsingState {
     const nextStates = this._nextStates;
     const len = nextStates.length;
     let child = null;
-    let i4 = 0;
-    for (; i4 < len; ++i4) {
-      child = nextStates[i4];
+    let i3 = 0;
+    for (; i3 < len; ++i3) {
+      child = nextStates[i3];
       if (charSpec.equals(child.charSpec)) {
         return child;
       }
@@ -4462,10 +4462,10 @@ class AttrParsingState {
     const len = nextStates.length;
     let childLen = 0;
     let child = null;
-    let i4 = 0;
+    let i3 = 0;
     let j2 = 0;
-    for (; i4 < len; ++i4) {
-      child = nextStates[i4];
+    for (; i3 < len; ++i3) {
+      child = nextStates[i3];
       if (child.charSpec.has(ch)) {
         results.push(child);
         childLen = child._patterns.length;
@@ -4489,17 +4489,17 @@ let StaticSegment$1 = class StaticSegment {
     this.text = text;
     const len = this._len = text.length;
     const specs = this._specs = [];
-    let i4 = 0;
-    for (; len > i4; ++i4) {
-      specs.push(new CharSpec(text[i4], false, false, false));
+    let i3 = 0;
+    for (; len > i3; ++i3) {
+      specs.push(new CharSpec(text[i3], false, false, false));
     }
   }
   eachChar(callback) {
     const len = this._len;
     const specs = this._specs;
-    let i4 = 0;
-    for (; len > i4; ++i4) {
-      callback(specs[i4]);
+    let i3 = 0;
+    for (; len > i3; ++i3) {
+      callback(specs[i3]);
     }
   }
 };
@@ -4545,11 +4545,11 @@ class SyntaxInterpreter {
     let segments;
     let len;
     let charSpecCb;
-    let i4 = 0;
+    let i3 = 0;
     let j2;
-    while (ii > i4) {
+    while (ii > i3) {
       currentState = this._rootState;
-      def2 = defs[i4];
+      def2 = defs[i3];
       pattern = def2.pattern;
       types = new SegmentTypes();
       segments = this._parse(def2, types);
@@ -4560,17 +4560,17 @@ class SyntaxInterpreter {
       }
       currentState._types = types;
       currentState._isEndpoint = true;
-      ++i4;
+      ++i3;
     }
   }
   interpret(name2) {
     const interpretation = new Interpretation();
     const len = name2.length;
     let states = this._initialStates;
-    let i4 = 0;
+    let i3 = 0;
     let state;
-    for (; i4 < len; ++i4) {
-      states = this._getNextStates(states, name2.charAt(i4), interpretation);
+    for (; i3 < len; ++i3) {
+      states = this._getNextStates(states, name2.charAt(i3), interpretation);
       if (states.length === 0) {
         break;
       }
@@ -4591,9 +4591,9 @@ class SyntaxInterpreter {
     const nextStates = [];
     let state = null;
     const len = states.length;
-    let i4 = 0;
-    for (; i4 < len; ++i4) {
-      state = states[i4];
+    let i3 = 0;
+    for (; i3 < len; ++i3) {
+      state = states[i3];
       nextStates.push(...state.findMatches(ch, interpretation));
     }
     return nextStates;
@@ -4604,35 +4604,35 @@ class SyntaxInterpreter {
     const pattern = def2.pattern;
     const len = pattern.length;
     const symbols = def2.symbols;
-    let i4 = 0;
+    let i3 = 0;
     let start2 = 0;
     let c2 = "";
-    while (i4 < len) {
-      c2 = pattern.charAt(i4);
+    while (i3 < len) {
+      c2 = pattern.charAt(i3);
       if (symbols.length === 0 || !symbols.includes(c2)) {
-        if (i4 === start2) {
-          if (c2 === "P" && pattern.slice(i4, i4 + 4) === "PART") {
-            start2 = i4 = i4 + 4;
+        if (i3 === start2) {
+          if (c2 === "P" && pattern.slice(i3, i3 + 4) === "PART") {
+            start2 = i3 = i3 + 4;
             result.push(new DynamicSegment$1(symbols));
             ++types.dynamics;
           } else {
-            ++i4;
+            ++i3;
           }
         } else {
-          ++i4;
+          ++i3;
         }
-      } else if (i4 !== start2) {
-        result.push(new StaticSegment$1(pattern.slice(start2, i4)));
+      } else if (i3 !== start2) {
+        result.push(new StaticSegment$1(pattern.slice(start2, i3)));
         ++types.statics;
-        start2 = i4;
+        start2 = i3;
       } else {
-        result.push(new SymbolSegment(pattern.slice(start2, i4 + 1)));
+        result.push(new SymbolSegment(pattern.slice(start2, i3 + 1)));
         ++types.symbols;
-        start2 = ++i4;
+        start2 = ++i3;
       }
     }
-    if (start2 !== i4) {
-      result.push(new StaticSegment$1(pattern.slice(start2, i4)));
+    if (start2 !== i3) {
+      result.push(new StaticSegment$1(pattern.slice(start2, i3)));
       ++types.statics;
     }
     return result;
@@ -4641,9 +4641,9 @@ class SyntaxInterpreter {
 function isEndpoint(a2) {
   return a2._isEndpoint;
 }
-function sortEndpoint(a2, b2) {
+function sortEndpoint(a2, b3) {
   const aTypes = a2._types;
-  const bTypes = b2._types;
+  const bTypes = b3._types;
   if (aTypes.statics !== bTypes.statics) {
     return bTypes.statics - aTypes.statics;
   }
@@ -5223,10 +5223,10 @@ class ForBindingCommand {
     let props2 = emptyArray;
     if (forOf.semiIdx > -1) {
       const attr = info2.attr.rawValue.slice(forOf.semiIdx + 1);
-      const i4 = attr.indexOf(":");
-      if (i4 > -1) {
-        const attrName = attr.slice(0, i4).trim();
-        const attrValue = attr.slice(i4 + 1).trim();
+      const i3 = attr.indexOf(":");
+      if (i3 > -1) {
+        const attrName = attr.slice(0, i3).trim();
+        const attrValue = attr.slice(i3 + 1).trim();
         const attrSyntax = this._attrParser.parse(attrName, attrValue);
         props2 = [new MultiAttrInstruction(attrValue, attrSyntax.target, attrSyntax.command)];
       }
@@ -5401,10 +5401,10 @@ const insertManyBefore$1 = (parent, target, newChildNodes) => {
     return;
   }
   const ii = newChildNodes.length;
-  let i4 = 0;
-  while (ii > i4) {
-    parent.insertBefore(newChildNodes[i4], target);
-    ++i4;
+  let i3 = 0;
+  while (ii > i3) {
+    parent.insertBefore(newChildNodes[i3], target);
+    ++i3;
   }
 };
 const appendToTemplate = (parent, child) => {
@@ -5412,10 +5412,10 @@ const appendToTemplate = (parent, child) => {
 };
 const appendManyToTemplate = (parent, children) => {
   const ii = children.length;
-  let i4 = 0;
-  while (ii > i4) {
-    parent.content.appendChild(children[i4]);
-    ++i4;
+  let i3 = 0;
+  while (ii > i3) {
+    parent.content.appendChild(children[i3]);
+    ++i3;
   }
 };
 const isElement$3 = (node) => node.nodeType === 1;
@@ -5438,11 +5438,11 @@ class TemplateCompiler {
     const content = isTemplateElement ? template2.content : template2;
     const hooks = TemplateCompilerHooks.findAll(container);
     const ii = hooks.length;
-    let i4 = 0;
+    let i3 = 0;
     if (ii > 0) {
-      while (ii > i4) {
-        hooks[i4].compiling?.(template2);
-        ++i4;
+      while (ii > i3) {
+        hooks[i3].compiling?.(template2);
+        ++i3;
       }
     }
     if (template2.hasAttribute(localTemplateIdentifier)) {
@@ -5469,7 +5469,7 @@ class TemplateCompiler {
     const isCustomElement = elDef !== null;
     const exprParser = context._exprParser;
     const ii = attrSyntaxs.length;
-    let i4 = 0;
+    let i3 = 0;
     let attrSyntax;
     let attrDef = null;
     let attrInstructions;
@@ -5482,8 +5482,8 @@ class TemplateCompiler {
     let isMultiBindings;
     let attrTarget;
     let attrValue;
-    for (; ii > i4; ++i4) {
-      attrSyntax = attrSyntaxs[i4];
+    for (; ii > i3; ++i3) {
+      attrSyntax = attrSyntaxs[i3];
       attrTarget = attrSyntax.target;
       attrValue = attrSyntax.rawValue;
       if (attrTarget === "...$attrs") {
@@ -5593,7 +5593,7 @@ class TemplateCompiler {
     const attrs = el.attributes;
     const exprParser = context._exprParser;
     let ii = attrs.length;
-    let i4 = 0;
+    let i3 = 0;
     let attr;
     let attrName;
     let attrValue;
@@ -5608,8 +5608,8 @@ class TemplateCompiler {
     let isMultiBindings;
     let realAttrTarget;
     let realAttrValue;
-    for (; ii > i4; ++i4) {
-      attr = attrs[i4];
+    for (; ii > i3; ++i3) {
+      attr = attrs[i3];
       attrName = attr.name;
       attrValue = attr.value;
       attrSyntax = context._attrParser.parse(attrName, attrValue);
@@ -5650,7 +5650,7 @@ class TemplateCompiler {
           }
         }
         el.removeAttribute(attrName);
-        --i4;
+        --i3;
         --ii;
         (attrInstructions ??= []).push(new HydrateAttributeInstruction(
           // todo: def/ def.Type or def.name should be configurable
@@ -5666,7 +5666,7 @@ class TemplateCompiler {
         expr = exprParser.parse(realAttrValue, etInterpolation$1);
         if (expr != null) {
           el.removeAttribute(attrName);
-          --i4;
+          --i3;
           --ii;
           instructions.push(new InterpolationInstruction(
             expr,
@@ -5734,7 +5734,7 @@ class TemplateCompiler {
     const letInstructions = [];
     const exprParser = context._exprParser;
     let toBindingContext = false;
-    let i4 = 0;
+    let i3 = 0;
     let attr;
     let attrSyntax;
     let attrName;
@@ -5743,8 +5743,8 @@ class TemplateCompiler {
     let realAttrTarget;
     let realAttrValue;
     let expr;
-    for (; ii > i4; ++i4) {
-      attr = attrs[i4];
+    for (; ii > i3; ++i3) {
+      attr = attrs[i3];
       attrName = attr.name;
       attrValue = attr.value;
       if (attrName === "to-binding-context") {
@@ -5788,13 +5788,13 @@ class TemplateCompiler {
     const exprParser = context._exprParser;
     const removeAttr = this.debug ? noop$1 : () => {
       el.removeAttribute(attrName);
-      --i4;
+      --i3;
       --ii;
     };
     let attrs = el.attributes;
     let instructions;
     let ii = attrs.length;
-    let i4 = 0;
+    let i3 = 0;
     let attr;
     let attrName;
     let attrValue;
@@ -5833,8 +5833,8 @@ class TemplateCompiler {
       attrs = el.attributes;
       ii = attrs.length;
     }
-    for (; ii > i4; ++i4) {
-      attr = attrs[i4];
+    for (; ii > i3; ++i3) {
+      attr = attrs[i3];
       attrName = attr.name;
       attrValue = attr.value;
       switch (attrName) {
@@ -6025,8 +6025,8 @@ class TemplateCompiler {
     let shouldCompileContent;
     if (tcInstructions != null) {
       ii = tcInstructions.length - 1;
-      i4 = ii;
-      tcInstruction = tcInstructions[i4];
+      i3 = ii;
+      tcInstruction = tcInstructions[i3];
       let template2;
       if (isMarker(el)) {
         template2 = context.t();
@@ -6132,8 +6132,8 @@ class TemplateCompiler {
         instructions: childContext.rows,
         needsCompile: false
       };
-      while (i4-- > 0) {
-        tcInstruction = tcInstructions[i4];
+      while (i3-- > 0) {
+        tcInstruction = tcInstructions[i3];
         template2 = context.t();
         marker = context._marker();
         appendManyToTemplate(template2, [
@@ -6146,7 +6146,7 @@ class TemplateCompiler {
           type: definitionTypeElement,
           template: template2,
           needsCompile: false,
-          instructions: [[tcInstructions[i4 + 1]]]
+          instructions: [[tcInstructions[i3 + 1]]]
         };
       }
       context.rows.push([tcInstruction]);
@@ -6238,7 +6238,7 @@ class TemplateCompiler {
     const next = node.nextSibling;
     let parts;
     let expressions;
-    let i4;
+    let i3;
     let ii;
     let part;
     if (expr !== null) {
@@ -6246,7 +6246,7 @@ class TemplateCompiler {
       if (part = parts[0]) {
         insertBefore(parent, context._text(part), node);
       }
-      for (i4 = 0, ii = expressions.length; ii > i4; ++i4) {
+      for (i3 = 0, ii = expressions.length; ii > i3; ++i3) {
         insertManyBefore$1(parent, node, [
           // context.h(MARKER_NODE_NAME),
           context._marker(),
@@ -6254,10 +6254,10 @@ class TemplateCompiler {
           // so give it an empty space instead
           context._text(" ")
         ]);
-        if (part = parts[i4 + 1]) {
+        if (part = parts[i3 + 1]) {
           insertBefore(parent, context._text(part), node);
         }
-        context.rows.push([new TextBindingInstruction(expressions[i4])]);
+        context.rows.push([new TextBindingInstruction(expressions[i3])]);
       }
       parent.removeChild(node);
     }
@@ -6276,21 +6276,21 @@ class TemplateCompiler {
     let attrSyntax;
     let command;
     let bindable2;
-    for (let i4 = 0; i4 < valueLength; ++i4) {
-      ch = attrRawValue.charCodeAt(i4);
+    for (let i3 = 0; i3 < valueLength; ++i3) {
+      ch = attrRawValue.charCodeAt(i3);
       if (ch === 92) {
-        ++i4;
+        ++i3;
       } else if (ch === 58) {
-        attrName = attrRawValue.slice(start2, i4);
-        while (attrRawValue.charCodeAt(++i4) <= 32)
+        attrName = attrRawValue.slice(start2, i3);
+        while (attrRawValue.charCodeAt(++i3) <= 32)
           ;
-        start2 = i4;
-        for (; i4 < valueLength; ++i4) {
-          ch = attrRawValue.charCodeAt(i4);
+        start2 = i3;
+        for (; i3 < valueLength; ++i3) {
+          ch = attrRawValue.charCodeAt(i3);
           if (ch === 92) {
-            ++i4;
+            ++i3;
           } else if (ch === 59) {
-            attrValue = attrRawValue.slice(start2, i4);
+            attrValue = attrRawValue.slice(start2, i3);
             break;
           }
         }
@@ -6313,9 +6313,9 @@ class TemplateCompiler {
           commandBuildInfo.def = attrDef;
           instructions.push(command.build(commandBuildInfo, context._exprParser, context._attrMapper));
         }
-        while (i4 < valueLength && attrRawValue.charCodeAt(++i4) <= 32)
+        while (i3 < valueLength && attrRawValue.charCodeAt(++i3) <= 32)
           ;
-        start2 = i4;
+        start2 = i3;
         attrName = void 0;
         attrValue = void 0;
       }
@@ -6405,7 +6405,7 @@ class TemplateCompiler {
   /** @internal */
   _shouldReorderAttrs(el, instructions) {
     const nodeName = el.nodeName;
-    return nodeName === "INPUT" && orderSensitiveInputType[el.type] === 1 || nodeName === "SELECT" && (el.hasAttribute("multiple") || instructions?.some((i4) => i4.type === propertyBinding && i4.to === "multiple"));
+    return nodeName === "INPUT" && orderSensitiveInputType[el.type] === 1 || nodeName === "SELECT" && (el.hasAttribute("multiple") || instructions?.some((i3) => i3.type === propertyBinding && i3.to === "multiple"));
   }
   /** @internal */
   _reorder(el, instructions) {
@@ -6416,17 +6416,17 @@ class TemplateCompiler {
         let checkedIndex = void 0;
         let found = 0;
         let instruction;
-        for (let i4 = 0; i4 < _instructions.length && found < 3; i4++) {
-          instruction = _instructions[i4];
+        for (let i3 = 0; i3 < _instructions.length && found < 3; i3++) {
+          instruction = _instructions[i3];
           switch (instruction.to) {
             case "model":
             case "value":
             case "matcher":
-              modelOrValueOrMatcherIndex = i4;
+              modelOrValueOrMatcherIndex = i3;
               found++;
               break;
             case "checked":
-              checkedIndex = i4;
+              checkedIndex = i3;
               found++;
               break;
           }
@@ -6442,15 +6442,15 @@ class TemplateCompiler {
         let multipleIndex = 0;
         let found = 0;
         let instruction;
-        for (let i4 = 0; i4 < _instructions.length && found < 2; ++i4) {
-          instruction = _instructions[i4];
+        for (let i3 = 0; i3 < _instructions.length && found < 2; ++i3) {
+          instruction = _instructions[i3];
           switch (instruction.to) {
             case "multiple":
-              multipleIndex = i4;
+              multipleIndex = i3;
               found++;
               break;
             case "value":
-              valueIndex = i4;
+              valueIndex = i3;
               found++;
               break;
           }
@@ -6582,17 +6582,17 @@ class CompilationContext {
 const hasInlineBindings = (rawValue) => {
   const len = rawValue.length;
   let ch = 0;
-  let i4 = 0;
-  while (len > i4) {
-    ch = rawValue.charCodeAt(i4);
+  let i3 = 0;
+  while (len > i3) {
+    ch = rawValue.charCodeAt(i3);
     if (ch === 92) {
-      ++i4;
+      ++i3;
     } else if (ch === 58) {
       return true;
-    } else if (ch === 36 && rawValue.charCodeAt(i4 + 1) === 123) {
+    } else if (ch === 36 && rawValue.charCodeAt(i3 + 1) === 123) {
       return false;
     }
-    ++i4;
+    ++i3;
   }
   return false;
 };
@@ -6930,12 +6930,12 @@ const errorsMap$1 = {
 };
 const getMessageByCode$1 = (name2, ...details) => {
   let cooked = errorsMap$1[name2];
-  for (let i4 = 0; i4 < details.length; ++i4) {
-    const regex = new RegExp(`{{${i4}(:.*)?}}`, "g");
+  for (let i3 = 0; i3 < details.length; ++i3) {
+    const regex = new RegExp(`{{${i3}(:.*)?}}`, "g");
     let matches2 = regex.exec(cooked);
     while (matches2 != null) {
       const method = matches2[1]?.slice(1);
-      let value = details[i4];
+      let value = details[i3];
       if (value != null) {
         switch (method) {
           case "typeof":
@@ -7068,12 +7068,12 @@ const { astAssign, astEvaluate, astBind, astUnbind } = /* @__PURE__ */ (() => {
       case ekAccessThis2: {
         let oc = s2.overrideContext;
         let currentScope = s2;
-        let i4 = ast.ancestor;
-        while (i4-- && oc) {
+        let i3 = ast.ancestor;
+        while (i3-- && oc) {
           currentScope = currentScope.parent;
           oc = currentScope?.overrideContext ?? null;
         }
-        return i4 < 1 && currentScope ? currentScope.bindingContext : void 0;
+        return i3 < 1 && currentScope ? currentScope.bindingContext : void 0;
       }
       case ekAccessBoundary2: {
         let currentScope = s2;
@@ -7118,8 +7118,8 @@ const { astAssign, astEvaluate, astBind, astUnbind } = /* @__PURE__ */ (() => {
         return ast.elements.map((expr) => astEvaluate2(expr, s2, e2, c2));
       case ekObjectLiteral2: {
         const instance = {};
-        for (let i4 = 0; i4 < ast.keys.length; ++i4) {
-          instance[ast.keys[i4]] = astEvaluate2(ast.values[i4], s2, e2, c2);
+        for (let i3 = 0; i3 < ast.keys.length; ++i3) {
+          instance[ast.keys[i3]] = astEvaluate2(ast.values[i3], s2, e2, c2);
         }
         return instance;
       }
@@ -7137,9 +7137,9 @@ const { astAssign, astEvaluate, astBind, astUnbind } = /* @__PURE__ */ (() => {
       }
       case ekTemplate2: {
         let result = ast.cooked[0];
-        for (let i4 = 0; i4 < ast.expressions.length; ++i4) {
-          result += rtSafeString(astEvaluate2(ast.expressions[i4], s2, e2, c2));
-          result += ast.cooked[i4 + 1];
+        for (let i3 = 0; i3 < ast.expressions.length; ++i3) {
+          result += rtSafeString(astEvaluate2(ast.expressions[i3], s2, e2, c2));
+          result += ast.cooked[i3 + 1];
         }
         return result;
       }
@@ -7241,11 +7241,11 @@ const { astAssign, astEvaluate, astBind, astUnbind } = /* @__PURE__ */ (() => {
           const params = ast.args;
           const rest = ast.rest;
           const lastIdx = params.length - 1;
-          const context = params.reduce((map, param, i4) => {
-            if (rest && i4 === lastIdx) {
-              map[param.name] = args.slice(i4);
+          const context = params.reduce((map, param, i3) => {
+            if (rest && i3 === lastIdx) {
+              map[param.name] = args.slice(i3);
             } else {
-              map[param.name] = args[i4];
+              map[param.name] = args[i3];
             }
             return map;
           }, {});
@@ -7392,10 +7392,10 @@ const { astAssign, astEvaluate, astBind, astUnbind } = /* @__PURE__ */ (() => {
       case ekInterpolation2:
         if (ast.isMulti) {
           let result = ast.parts[0];
-          let i4 = 0;
-          for (; i4 < ast.expressions.length; ++i4) {
-            result += rtSafeString(astEvaluate2(ast.expressions[i4], s2, e2, c2));
-            result += ast.parts[i4 + 1];
+          let i3 = 0;
+          for (; i3 < ast.expressions.length; ++i3) {
+            result += rtSafeString(astEvaluate2(ast.expressions[i3], s2, e2, c2));
+            result += ast.parts[i3 + 1];
           }
           return result;
         } else {
@@ -7478,10 +7478,10 @@ const { astAssign, astEvaluate, astBind, astUnbind } = /* @__PURE__ */ (() => {
       case ekObjectDestructuring2: {
         const list = ast.list;
         const len = list.length;
-        let i4;
+        let i3;
         let item;
-        for (i4 = 0; i4 < len; i4++) {
-          item = list[i4];
+        for (i3 = 0; i3 < len; i3++) {
+          item = list[i3];
           switch (item.$kind) {
             case ekDestructuringAssignmentLeaf2:
               astAssign2(item, s2, e2, val);
@@ -7559,45 +7559,45 @@ const { astAssign, astEvaluate, astBind, astUnbind } = /* @__PURE__ */ (() => {
         return void 0;
     }
   }
-  function astBind2(ast, s2, b2) {
+  function astBind2(ast, s2, b3) {
     switch (ast.$kind) {
       case ekBindingBehavior2: {
-        b2.bindBehavior?.(ast.name, s2, ast.args.map((a2) => astEvaluate2(a2, s2, b2, null)));
-        astBind2(ast.expression, s2, b2);
+        b3.bindBehavior?.(ast.name, s2, ast.args.map((a2) => astEvaluate2(a2, s2, b3, null)));
+        astBind2(ast.expression, s2, b3);
         break;
       }
       case ekValueConverter2: {
-        b2.bindConverter?.(ast.name);
-        astBind2(ast.expression, s2, b2);
+        b3.bindConverter?.(ast.name);
+        astBind2(ast.expression, s2, b3);
         break;
       }
       case ekForOfStatement2: {
-        astBind2(ast.iterable, s2, b2);
+        astBind2(ast.iterable, s2, b3);
         break;
       }
       case ekCustom2: {
-        ast.bind?.(s2, b2);
+        ast.bind?.(s2, b3);
       }
     }
   }
-  function astUnbind2(ast, s2, b2) {
+  function astUnbind2(ast, s2, b3) {
     switch (ast.$kind) {
       case ekBindingBehavior2: {
-        b2.unbindBehavior?.(ast.name, s2);
-        astUnbind2(ast.expression, s2, b2);
+        b3.unbindBehavior?.(ast.name, s2);
+        astUnbind2(ast.expression, s2, b3);
         break;
       }
       case ekValueConverter2: {
-        b2.unbindConverter?.(ast.name);
-        astUnbind2(ast.expression, s2, b2);
+        b3.unbindConverter?.(ast.name);
+        astUnbind2(ast.expression, s2, b3);
         break;
       }
       case ekForOfStatement2: {
-        astUnbind2(ast.iterable, s2, b2);
+        astUnbind2(ast.iterable, s2, b3);
         break;
       }
       case ekCustom2: {
-        ast.unbind?.(s2, b2);
+        ast.unbind?.(s2, b3);
       }
     }
   }
@@ -7638,9 +7638,9 @@ const AccessorType = /* @__PURE__ */ rtObjectFreeze({
 });
 function createIndexMap(length = 0) {
   const arr = Array(length);
-  let i4 = 0;
-  while (i4 < length) {
-    arr[i4] = i4++;
+  let i3 = 0;
+  while (i3 < length) {
+    arr[i3] = i3++;
   }
   arr.deletedIndices = [];
   arr.deletedItems = [];
@@ -7713,9 +7713,9 @@ const subscriberCollection = /* @__PURE__ */ (() => {
     notifyCollection(collection, indexMap) {
       const _subs = this._subs.slice(0);
       const len = _subs.length;
-      let i4 = 0;
-      for (; i4 < len; ++i4) {
-        _subs[i4].handleCollectionChange(collection, indexMap);
+      let i3 = 0;
+      for (; i3 < len; ++i3) {
+        _subs[i3].handleCollectionChange(collection, indexMap);
       }
       return;
     }
@@ -7815,34 +7815,34 @@ function unsubscribe(subscriber) {
 const getArrayObserver = /* @__PURE__ */ (() => {
   const lookupMetadataKey = Symbol.for("__au_arr_obs__");
   const observerLookup = Array[lookupMetadataKey] ?? rtDefineHiddenProp(Array, lookupMetadataKey, /* @__PURE__ */ new WeakMap());
-  function sortCompare(x2, y3) {
-    if (x2 === y3) {
+  function sortCompare(x2, y2) {
+    if (x2 === y2) {
       return 0;
     }
     x2 = x2 === null ? "null" : x2.toString();
-    y3 = y3 === null ? "null" : y3.toString();
-    return x2 < y3 ? -1 : 1;
+    y2 = y2 === null ? "null" : y2.toString();
+    return x2 < y2 ? -1 : 1;
   }
-  function preSortCompare(x2, y3) {
+  function preSortCompare(x2, y2) {
     if (x2 === void 0) {
-      if (y3 === void 0) {
+      if (y2 === void 0) {
         return 0;
       } else {
         return 1;
       }
     }
-    if (y3 === void 0) {
+    if (y2 === void 0) {
       return -1;
     }
     return 0;
   }
   function insertionSort(arr, indexMap, from, to, compareFn) {
     let velement, ielement, vtmp, itmp, order2;
-    let i4, j2;
-    for (i4 = from + 1; i4 < to; i4++) {
-      velement = arr[i4];
-      ielement = indexMap[i4];
-      for (j2 = i4 - 1; j2 >= from; j2--) {
+    let i3, j2;
+    for (i3 = from + 1; i3 < to; i3++) {
+      velement = arr[i3];
+      ielement = indexMap[i3];
+      for (j2 = i3 - 1; j2 >= from; j2--) {
         vtmp = arr[j2];
         itmp = indexMap[j2];
         order2 = compareFn(vtmp, velement);
@@ -7858,7 +7858,7 @@ const getArrayObserver = /* @__PURE__ */ (() => {
     }
   }
   function quickSort(arr, indexMap, from, to, compareFn) {
-    let thirdIndex = 0, i4 = 0;
+    let thirdIndex = 0, i3 = 0;
     let v0, v1, v2;
     let i0, i1, i22;
     let c01, c02, c12;
@@ -7919,34 +7919,34 @@ const getArrayObserver = /* @__PURE__ */ (() => {
       indexMap[thirdIndex] = indexMap[lowEnd];
       arr[lowEnd] = vpivot;
       indexMap[lowEnd] = ipivot;
-      partition: for (i4 = lowEnd + 1; i4 < highStart; i4++) {
-        velement = arr[i4];
-        ielement = indexMap[i4];
+      partition: for (i3 = lowEnd + 1; i3 < highStart; i3++) {
+        velement = arr[i3];
+        ielement = indexMap[i3];
         order2 = compareFn(velement, vpivot);
         if (order2 < 0) {
-          arr[i4] = arr[lowEnd];
-          indexMap[i4] = indexMap[lowEnd];
+          arr[i3] = arr[lowEnd];
+          indexMap[i3] = indexMap[lowEnd];
           arr[lowEnd] = velement;
           indexMap[lowEnd] = ielement;
           lowEnd++;
         } else if (order2 > 0) {
           do {
             highStart--;
-            if (highStart == i4) {
+            if (highStart == i3) {
               break partition;
             }
             vtopElement = arr[highStart];
             order2 = compareFn(vtopElement, vpivot);
           } while (order2 > 0);
-          arr[i4] = arr[highStart];
-          indexMap[i4] = indexMap[highStart];
+          arr[i3] = arr[highStart];
+          indexMap[i3] = indexMap[highStart];
           arr[highStart] = velement;
           indexMap[highStart] = ielement;
           if (order2 < 0) {
-            velement = arr[i4];
-            ielement = indexMap[i4];
-            arr[i4] = arr[lowEnd];
-            indexMap[i4] = indexMap[lowEnd];
+            velement = arr[i3];
+            ielement = indexMap[i3];
+            arr[i3] = arr[lowEnd];
+            indexMap[i3] = indexMap[lowEnd];
             arr[lowEnd] = velement;
             indexMap[lowEnd] = ielement;
             lowEnd++;
@@ -7986,11 +7986,11 @@ const getArrayObserver = /* @__PURE__ */ (() => {
           return len;
         }
         this.length = o2.indexMap.length = len + argCount;
-        let i4 = len;
-        while (i4 < this.length) {
-          this[i4] = args[i4 - len];
-          o2.indexMap[i4] = -2;
-          i4++;
+        let i3 = len;
+        while (i3 < this.length) {
+          this[i3] = args[i3 - len];
+          o2.indexMap[i3] = -2;
+          i3++;
         }
         o2.notify();
         return this.length;
@@ -8003,9 +8003,9 @@ const getArrayObserver = /* @__PURE__ */ (() => {
         }
         const argCount = args.length;
         const inserts = new Array(argCount);
-        let i4 = 0;
-        while (i4 < argCount) {
-          inserts[i4++] = -2;
+        let i3 = 0;
+        while (i3 < argCount) {
+          inserts[i3++] = -2;
         }
         $unshift.apply(o2.indexMap, inserts);
         const len = $unshift.apply(this, args);
@@ -8059,30 +8059,30 @@ const getArrayObserver = /* @__PURE__ */ (() => {
         const indexMap = o2.indexMap;
         const argCount = args.length;
         const actualDeleteCount = argCount === 0 ? 0 : argCount === 1 ? len - actualStart : deleteCount;
-        let i4 = actualStart;
+        let i3 = actualStart;
         if (actualDeleteCount > 0) {
-          const to = i4 + actualDeleteCount;
-          while (i4 < to) {
-            if (indexMap[i4] > -1) {
-              indexMap.deletedIndices.push(indexMap[i4]);
-              indexMap.deletedItems.push(this[i4]);
+          const to = i3 + actualDeleteCount;
+          while (i3 < to) {
+            if (indexMap[i3] > -1) {
+              indexMap.deletedIndices.push(indexMap[i3]);
+              indexMap.deletedItems.push(this[i3]);
             }
-            i4++;
+            i3++;
           }
         }
-        i4 = 0;
+        i3 = 0;
         if (argCount > 2) {
           const itemCount = argCount - 2;
           const inserts = new Array(itemCount);
-          while (i4 < itemCount) {
-            inserts[i4++] = -2;
+          while (i3 < itemCount) {
+            inserts[i3++] = -2;
           }
           $splice.call(indexMap, start2, deleteCount, ...inserts);
         } else {
           $splice.apply(indexMap, args);
         }
         const deleted = $splice.apply(this, args);
-        if (actualDeleteCount > 0 || i4 > 0) {
+        if (actualDeleteCount > 0 || i3 > 0) {
           o2.notify();
         }
         return deleted;
@@ -8125,20 +8125,20 @@ const getArrayObserver = /* @__PURE__ */ (() => {
           return this;
         }
         quickSort(this, o2.indexMap, 0, len, preSortCompare);
-        let i4 = 0;
-        while (i4 < len) {
-          if (this[i4] === void 0) {
+        let i3 = 0;
+        while (i3 < len) {
+          if (this[i3] === void 0) {
             break;
           }
-          i4++;
+          i3++;
         }
         if (compareFn === void 0 || !isFunction(compareFn)) {
           compareFn = sortCompare;
         }
-        quickSort(this, o2.indexMap, 0, i4, compareFn);
+        quickSort(this, o2.indexMap, 0, i3, compareFn);
         let shouldNotify = false;
-        for (i4 = 0, len = o2.indexMap.length; len > i4; ++i4) {
-          if (o2.indexMap[i4] !== i4) {
+        for (i3 = 0, len = o2.indexMap.length; len > i3; ++i3) {
+          if (o2.indexMap[i3] !== i3) {
             shouldNotify = true;
             break;
           }
@@ -8299,13 +8299,13 @@ const getSetObserver = /* @__PURE__ */ (() => {
       const size = this.size;
       if (size > 0) {
         const indexMap = o2.indexMap;
-        let i4 = 0;
+        let i3 = 0;
         for (const key of this.keys()) {
-          if (indexMap[i4] > -1) {
-            indexMap.deletedIndices.push(indexMap[i4]);
+          if (indexMap[i3] > -1) {
+            indexMap.deletedIndices.push(indexMap[i3]);
             indexMap.deletedItems.push(key);
           }
-          i4++;
+          i3++;
         }
         $clear.call(this);
         indexMap.length = 0;
@@ -8323,22 +8323,22 @@ const getSetObserver = /* @__PURE__ */ (() => {
       if (size === 0) {
         return false;
       }
-      let i4 = 0;
+      let i3 = 0;
       const indexMap = o2.indexMap;
       for (const entry of this.keys()) {
         if (entry === value) {
-          if (indexMap[i4] > -1) {
-            indexMap.deletedIndices.push(indexMap[i4]);
+          if (indexMap[i3] > -1) {
+            indexMap.deletedIndices.push(indexMap[i3]);
             indexMap.deletedItems.push(entry);
           }
-          indexMap.splice(i4, 1);
+          indexMap.splice(i3, 1);
           const deleteResult = $delete.call(this, value);
           if (deleteResult === true) {
             o2.notify();
           }
           return deleteResult;
         }
-        i4++;
+        i3++;
       }
       return false;
     }
@@ -8396,18 +8396,18 @@ const getMapObserver = /* @__PURE__ */ (() => {
       $set.call(this, key, value);
       const newSize = this.size;
       if (newSize === oldSize) {
-        let i4 = 0;
+        let i3 = 0;
         for (const entry of this.entries()) {
           if (entry[0] === key) {
             if (entry[1] !== oldValue) {
-              o2.indexMap.deletedIndices.push(o2.indexMap[i4]);
+              o2.indexMap.deletedIndices.push(o2.indexMap[i3]);
               o2.indexMap.deletedItems.push(entry);
-              o2.indexMap[i4] = -2;
+              o2.indexMap[i3] = -2;
               o2.notify();
             }
             return this;
           }
-          i4++;
+          i3++;
         }
         return this;
       }
@@ -8424,13 +8424,13 @@ const getMapObserver = /* @__PURE__ */ (() => {
       const size = this.size;
       if (size > 0) {
         const indexMap = o2.indexMap;
-        let i4 = 0;
+        let i3 = 0;
         for (const key of this.keys()) {
-          if (indexMap[i4] > -1) {
-            indexMap.deletedIndices.push(indexMap[i4]);
+          if (indexMap[i3] > -1) {
+            indexMap.deletedIndices.push(indexMap[i3]);
             indexMap.deletedItems.push(key);
           }
-          i4++;
+          i3++;
         }
         $clear.call(this);
         indexMap.length = 0;
@@ -8448,22 +8448,22 @@ const getMapObserver = /* @__PURE__ */ (() => {
       if (size === 0) {
         return false;
       }
-      let i4 = 0;
+      let i3 = 0;
       const indexMap = o2.indexMap;
       for (const entry of this.keys()) {
         if (entry === value) {
-          if (indexMap[i4] > -1) {
-            indexMap.deletedIndices.push(indexMap[i4]);
+          if (indexMap[i3] > -1) {
+            indexMap.deletedIndices.push(indexMap[i3]);
             indexMap.deletedItems.push(entry);
           }
-          indexMap.splice(i4, 1);
+          indexMap.splice(i3, 1);
           const deleteResult = $delete.call(this, value);
           if (deleteResult === true) {
             o2.notify();
           }
           return deleteResult;
         }
-        ++i4;
+        ++i3;
       }
       return false;
     }
@@ -8505,11 +8505,11 @@ const getMapObserver = /* @__PURE__ */ (() => {
 })();
 const connectableDecorator = /* @__PURE__ */ (() => {
   class BindingObserverRecord {
-    constructor(b2) {
+    constructor(b3) {
       this.version = 0;
       this.count = 0;
       this.o = /* @__PURE__ */ new Map();
-      this.b = b2;
+      this.b = b3;
     }
     /**
      * Add, and subscribe to a given observer
@@ -8777,24 +8777,24 @@ const arrayHandler = {
 };
 function wrappedArrayMap(cb, thisArg) {
   const raw = getRaw(this);
-  const res = raw.map((v2, i4) => (
+  const res = raw.map((v2, i3) => (
     // do we wrap `thisArg`?
-    unwrap$1(cb.call(thisArg, wrap$1(v2), i4, this))
+    unwrap$1(cb.call(thisArg, wrap$1(v2), i3, this))
   ));
   observeCollection(_connectable, raw);
   return wrap$1(res);
 }
 function wrappedArrayEvery(cb, thisArg) {
   const raw = getRaw(this);
-  const res = raw.every((v2, i4) => cb.call(thisArg, wrap$1(v2), i4, this));
+  const res = raw.every((v2, i3) => cb.call(thisArg, wrap$1(v2), i3, this));
   observeCollection(_connectable, raw);
   return res;
 }
 function wrappedArrayFilter(cb, thisArg) {
   const raw = getRaw(this);
-  const res = raw.filter((v2, i4) => (
+  const res = raw.filter((v2, i3) => (
     // do we wrap `thisArg`?
-    unwrap$1(cb.call(thisArg, wrap$1(v2), i4, this))
+    unwrap$1(cb.call(thisArg, wrap$1(v2), i3, this))
   ));
   observeCollection(_connectable, raw);
   return wrap$1(res);
@@ -8819,13 +8819,13 @@ function wrappedArrayLastIndexOf(v2) {
 }
 function wrappedArrayFindIndex(cb, thisArg) {
   const raw = getRaw(this);
-  const res = raw.findIndex((v2, i4) => unwrap$1(cb.call(thisArg, wrap$1(v2), i4, this)));
+  const res = raw.findIndex((v2, i3) => unwrap$1(cb.call(thisArg, wrap$1(v2), i3, this)));
   observeCollection(_connectable, raw);
   return res;
 }
 function wrappedArrayFind(cb, thisArg) {
   const raw = getRaw(this);
-  const res = raw.find((v2, i4) => cb(wrap$1(v2), i4, this), thisArg);
+  const res = raw.find((v2, i3) => cb(wrap$1(v2), i3, this), thisArg);
   observeCollection(_connectable, raw);
   return wrap$1(res);
 }
@@ -8837,7 +8837,7 @@ function wrappedArrayFlat() {
 function wrappedArrayFlatMap(cb, thisArg) {
   const raw = getRaw(this);
   observeCollection(_connectable, raw);
-  return getProxy(raw.flatMap((v2, i4) => wrap$1(cb.call(thisArg, wrap$1(v2), i4, this))));
+  return getProxy(raw.flatMap((v2, i3) => wrap$1(cb.call(thisArg, wrap$1(v2), i3, this))));
 }
 function wrappedArrayJoin(separator) {
   const raw = getRaw(this);
@@ -8867,7 +8867,7 @@ function wrappedArrayReverse(..._args) {
 }
 function wrappedArraySome(cb, thisArg) {
   const raw = getRaw(this);
-  const res = raw.some((v2, i4) => unwrap$1(cb.call(thisArg, wrap$1(v2), i4, this)));
+  const res = raw.some((v2, i3) => unwrap$1(cb.call(thisArg, wrap$1(v2), i3, this)));
   observeCollection(_connectable, raw);
   return res;
 }
@@ -8884,13 +8884,13 @@ function wrappedArraySlice(start2, end2) {
 }
 function wrappedReduce(cb, initValue) {
   const raw = getRaw(this);
-  const res = raw.reduce((curr, v2, i4) => cb(curr, wrap$1(v2), i4, this), initValue);
+  const res = raw.reduce((curr, v2, i3) => cb(curr, wrap$1(v2), i3, this), initValue);
   observeCollection(_connectable, raw);
   return wrap$1(res);
 }
 function wrappedReduceRight(cb, initValue) {
   const raw = getRaw(this);
-  const res = raw.reduceRight((curr, v2, i4) => cb(curr, wrap$1(v2), i4, this), initValue);
+  const res = raw.reduceRight((curr, v2, i3) => cb(curr, wrap$1(v2), i3, this), initValue);
   observeCollection(_connectable, raw);
   return wrap$1(res);
 }
@@ -9195,9 +9195,9 @@ class DirtyChecker {
       const tracked = this.tracked;
       const len = tracked.length;
       let current;
-      let i4 = 0;
-      for (; i4 < len; ++i4) {
-        current = tracked[i4];
+      let i3 = 0;
+      for (; i3 < len; ++i3) {
+        current = tracked[i3];
         if (current.isDirty()) {
           current.flush();
         }
@@ -9765,11 +9765,11 @@ class TaskQueue {
         this._pending.length = 0;
       }
       if (this._delayed.length > 0) {
-        for (let i4 = 0; i4 < this._delayed.length; ++i4) {
-          curr = this._delayed[i4];
+        for (let i3 = 0; i3 < this._delayed.length; ++i3) {
+          curr = this._delayed[i3];
           if (curr.queueTime <= now) {
             this._processing.push(curr);
-            this._delayed.splice(i4--, 1);
+            this._delayed.splice(i3--, 1);
           }
         }
       }
@@ -9794,11 +9794,11 @@ class TaskQueue {
         this._pending.length = 0;
       }
       if (this._delayed.length > 0) {
-        for (let i4 = 0; i4 < this._delayed.length; ++i4) {
-          curr = this._delayed[i4];
+        for (let i3 = 0; i3 < this._delayed.length; ++i3) {
+          curr = this._delayed[i3];
           if (curr.queueTime <= now) {
             this._processing.push(curr);
-            this._delayed.splice(i4--, 1);
+            this._delayed.splice(i3--, 1);
           }
         }
       }
@@ -10751,12 +10751,12 @@ const errorsMap = {
 };
 const getMessageByCode = (name2, ...details) => {
   let cooked = errorsMap[name2];
-  for (let i4 = 0; i4 < details.length; ++i4) {
-    const regex = new RegExp(`{{${i4}(:.*)?}}`, "g");
+  for (let i3 = 0; i3 < details.length; ++i3) {
+    const regex = new RegExp(`{{${i3}(:.*)?}}`, "g");
     let matches2 = regex.exec(cooked);
     while (matches2 != null) {
       const method = matches2[1]?.slice(1);
-      let value = details[i4];
+      let value = details[i3];
       if (value != null) {
         switch (method) {
           case "nodeName":
@@ -11626,9 +11626,9 @@ const ValueConverter = objectFreeze({
   }
 });
 class BindingTargetSubscriber {
-  constructor(b2, flushQueue) {
+  constructor(b3, flushQueue) {
     this._value = void 0;
-    this.b = b2;
+    this.b = b3;
     this._flushQueue = flushQueue;
   }
   flush() {
@@ -11636,8 +11636,8 @@ class BindingTargetSubscriber {
   }
   // deepscan-disable-next-line
   handleChange(value, _2) {
-    const b2 = this.b;
-    if (value !== astEvaluate(b2.ast, b2._scope, b2, null)) {
+    const b3 = this.b;
+    if (value !== astEvaluate(b3.ast, b3._scope, b3, null)) {
       this._value = value;
       this._flushQueue.add(this);
     }
@@ -11660,12 +11660,12 @@ const mixinAstEvaluator = /* @__PURE__ */ (() => {
   function evaluatorGet(key) {
     return this.l.get(key);
   }
-  function evaluatorGetBehavior(b2, name2) {
-    let resourceLookup = behaviorResourceLookupCache.get(b2);
+  function evaluatorGetBehavior(b3, name2) {
+    let resourceLookup = behaviorResourceLookupCache.get(b3);
     if (resourceLookup == null) {
-      behaviorResourceLookupCache.set(b2, resourceLookup = new ResourceLookup());
+      behaviorResourceLookupCache.set(b3, resourceLookup = new ResourceLookup());
     }
-    return resourceLookup[name2] ??= BindingBehavior.get(b2.l, name2);
+    return resourceLookup[name2] ??= BindingBehavior.get(b3.l, name2);
   }
   function evaluatorBindBehavior(name2, scope, args) {
     const behavior = evaluatorGetBehavior(this, name2);
@@ -11689,12 +11689,12 @@ const mixinAstEvaluator = /* @__PURE__ */ (() => {
       applied[name2] = false;
     }
   }
-  function evaluatorGetConverter(b2, name2) {
-    let resourceLookup = converterResourceLookupCache.get(b2);
+  function evaluatorGetConverter(b3, name2) {
+    let resourceLookup = converterResourceLookupCache.get(b3);
     if (resourceLookup == null) {
-      converterResourceLookupCache.set(b2, resourceLookup = new ResourceLookup());
+      converterResourceLookupCache.set(b3, resourceLookup = new ResourceLookup());
     }
-    return resourceLookup[name2] ??= ValueConverter.get(b2.l, name2);
+    return resourceLookup[name2] ??= ValueConverter.get(b3.l, name2);
   }
   function evaluatorBindConverter(name2) {
     const vc = evaluatorGetConverter(this, name2);
@@ -11705,9 +11705,9 @@ const mixinAstEvaluator = /* @__PURE__ */ (() => {
     if (signals != null) {
       const signaler = this.l.get(ISignaler);
       const ii = signals.length;
-      let i4 = 0;
-      for (; i4 < ii; ++i4) {
-        signaler.addSignalListener(signals[i4], this);
+      let i3 = 0;
+      for (; i3 < ii; ++i3) {
+        signaler.addSignalListener(signals[i3], this);
       }
     }
   }
@@ -11717,9 +11717,9 @@ const mixinAstEvaluator = /* @__PURE__ */ (() => {
       return;
     }
     const signaler = this.l.get(ISignaler);
-    let i4 = 0;
-    for (; i4 < vc.signals.length; ++i4) {
-      signaler.removeSignalListener(vc.signals[i4], this);
+    let i3 = 0;
+    for (; i3 < vc.signals.length; ++i3) {
+      signaler.removeSignalListener(vc.signals[i3], this);
     }
   }
   function evaluatorUseConverter(name2, mode, value, args) {
@@ -12033,9 +12033,9 @@ class InterpolationBinding {
     const expressions = ast.expressions;
     const partBindings = this.partBindings = Array(expressions.length);
     const ii = expressions.length;
-    let i4 = 0;
-    for (; ii > i4; ++i4) {
-      partBindings[i4] = new InterpolationPartBinding(expressions[i4], target, targetProperty, locator, observerLocator, strict, this);
+    let i3 = 0;
+    for (; ii > i3; ++i3) {
+      partBindings[i3] = new InterpolationPartBinding(expressions[i3], target, targetProperty, locator, observerLocator, strict, this);
     }
   }
   /** @internal */
@@ -12047,13 +12047,13 @@ class InterpolationBinding {
     const staticParts = this.ast.parts;
     const ii = partBindings.length;
     let result = "";
-    let i4 = 0;
+    let i3 = 0;
     if (ii === 1) {
       result = staticParts[0] + partBindings[0]._value + staticParts[1];
     } else {
       result = staticParts[0];
-      for (; ii > i4; ++i4) {
-        result += partBindings[i4]._value + staticParts[i4 + 1];
+      for (; ii > i3; ++i3) {
+        result += partBindings[i3]._value + staticParts[i3 + 1];
       }
     }
     const targetObserver = this._targetObserver;
@@ -12081,9 +12081,9 @@ class InterpolationBinding {
     this._scope = _scope;
     const partBindings = this.partBindings;
     const ii = partBindings.length;
-    let i4 = 0;
-    for (; ii > i4; ++i4) {
-      partBindings[i4].bind(_scope);
+    let i3 = 0;
+    for (; ii > i3; ++i3) {
+      partBindings[i3].bind(_scope);
     }
     this.updateTarget();
     this.isBound = true;
@@ -12096,9 +12096,9 @@ class InterpolationBinding {
     this._scope = void 0;
     const partBindings = this.partBindings;
     const ii = partBindings.length;
-    let i4 = 0;
-    for (; ii > i4; ++i4) {
-      partBindings[i4].unbind();
+    let i3 = 0;
+    for (; ii > i3; ++i3) {
+      partBindings[i3].unbind();
     }
     this._task?.cancel();
     this._task = null;
@@ -12842,10 +12842,10 @@ const insertManyBefore = (parent, target, newChildNodes) => {
     return;
   }
   const ii = newChildNodes.length;
-  let i4 = 0;
-  while (ii > i4) {
-    parent.insertBefore(newChildNodes[i4], target);
-    ++i4;
+  let i3 = 0;
+  while (ii > i3) {
+    parent.insertBefore(newChildNodes[i3], target);
+    ++i3;
   }
 };
 const createMutationObserver = (node, callback) => new node.ownerDocument.defaultView.MutationObserver(callback);
@@ -12933,10 +12933,10 @@ class SpreadBinding {
         /* ErrorNames.no_spread_scope_context_found */
       );
     }
-    this._innerBindings.forEach((b2) => b2.bind(innerScope));
+    this._innerBindings.forEach((b3) => b3.bind(innerScope));
   }
   unbind() {
-    this._innerBindings.forEach((b2) => b2.unbind());
+    this._innerBindings.forEach((b3) => b3.unbind());
     this.isBound = false;
   }
   addBinding(binding) {
@@ -13121,11 +13121,11 @@ class ClassAttributeAccessor {
     const classList = this.obj.classList;
     const classesToAdd = getClassesToAdd(this._value);
     const ii = classesToAdd.length;
-    let i4 = 0;
+    let i3 = 0;
     let name2;
     if (ii > 0) {
-      for (; i4 < ii; i4++) {
-        name2 = classesToAdd[i4];
+      for (; i3 < ii; i3++) {
+        name2 = classesToAdd[i3];
         name2 = this.mapping[name2] || name2;
         if (name2.length === 0) {
           continue;
@@ -13160,9 +13160,9 @@ function getClassesToAdd(object) {
     const len = object.length;
     if (len > 0) {
       const classes2 = [];
-      let i4 = 0;
-      for (; len > i4; ++i4) {
-        classes2.push(...getClassesToAdd(object[i4]));
+      let i3 = 0;
+      for (; len > i3; ++i3) {
+        classes2.push(...getClassesToAdd(object[i3]));
       }
       return classes2;
     } else {
@@ -13314,12 +13314,12 @@ const CustomElementRenderer = /* @__PURE__ */ renderer(class CustomElementRender
     const renderers = this._rendering.renderers;
     const props2 = instruction.props;
     const ii = props2.length;
-    let i4 = 0;
+    let i3 = 0;
     let propInst;
-    while (ii > i4) {
-      propInst = props2[i4];
+    while (ii > i3) {
+      propInst = props2[i3];
       renderers[propInst.type].render(renderingCtrl, childCtrl, propInst, platform, exprParser, observerLocator);
-      ++i4;
+      ++i3;
     }
     renderingCtrl.addChild(childCtrl);
   }
@@ -13372,12 +13372,12 @@ const CustomAttributeRenderer = /* @__PURE__ */ renderer(class CustomAttributeRe
     const renderers = this._rendering.renderers;
     const props2 = instruction.props;
     const ii = props2.length;
-    let i4 = 0;
+    let i3 = 0;
     let propInst;
-    while (ii > i4) {
-      propInst = props2[i4];
+    while (ii > i3) {
+      propInst = props2[i3];
       renderers[propInst.type].render(renderingCtrl, childController, propInst, platform, exprParser, observerLocator);
-      ++i4;
+      ++i3;
     }
     renderingCtrl.addChild(childController);
   }
@@ -13433,12 +13433,12 @@ const TemplateControllerRenderer = /* @__PURE__ */ renderer(class TemplateContro
     const renderers = this._rendering.renderers;
     const props2 = instruction.props;
     const ii = props2.length;
-    let i4 = 0;
+    let i3 = 0;
     let propInst;
-    while (ii > i4) {
-      propInst = props2[i4];
+    while (ii > i3) {
+      propInst = props2[i3];
       renderers[propInst.type].render(renderingCtrl, childController, propInst, platform, exprParser, observerLocator);
-      ++i4;
+      ++i3;
     }
     renderingCtrl.addChild(childController);
   }
@@ -13456,12 +13456,12 @@ const LetElementRenderer = /* @__PURE__ */ renderer(class LetElementRenderer2 {
     const ii = childInstructions.length;
     let childInstruction;
     let expr;
-    let i4 = 0;
-    while (ii > i4) {
-      childInstruction = childInstructions[i4];
+    let i3 = 0;
+    while (ii > i3) {
+      childInstruction = childInstructions[i3];
       expr = ensureExpression(exprParser, childInstruction.from, etIsProperty);
       renderingCtrl.addBinding(new LetBinding(container, observerLocator, expr, childInstruction.to, toBindingContext, renderingCtrl.strict ?? false));
-      ++i4;
+      ++i3;
     }
   }
 });
@@ -13634,7 +13634,7 @@ const SpreadRenderer = /* @__PURE__ */ renderer(class SpreadRenderer2 {
     this.target = InstructionType.spreadTransferedBinding;
   }
   render(renderingCtrl, target, instruction, platform, exprParser, observerLocator) {
-    SpreadBinding.create(renderingCtrl.container.get(IHydrationContext), target, void 0, this._rendering, this._compiler, platform, exprParser, observerLocator).forEach((b2) => renderingCtrl.addBinding(b2));
+    SpreadBinding.create(renderingCtrl.container.get(IHydrationContext), target, void 0, this._rendering, this._compiler, platform, exprParser, observerLocator).forEach((b3) => renderingCtrl.addBinding(b3));
   }
 });
 const SpreadValueRenderer = /* @__PURE__ */ renderer(class SpreadValueRenderer2 {
@@ -13654,13 +13654,13 @@ const SpreadValueRenderer = /* @__PURE__ */ renderer(class SpreadValueRenderer2 
 function addClasses(classList, className) {
   const len = className.length;
   let start2 = 0;
-  for (let i4 = 0; i4 < len; ++i4) {
-    if (className.charCodeAt(i4) === 32) {
-      if (i4 !== start2) {
-        classList.add(className.slice(start2, i4));
+  for (let i3 = 0; i3 < len; ++i3) {
+    if (className.charCodeAt(i3) === 32) {
+      if (i3 !== start2) {
+        classList.add(className.slice(start2, i3));
       }
-      start2 = i4 + 1;
-    } else if (i4 + 1 === len) {
+      start2 = i3 + 1;
+    } else if (i3 + 1 === len) {
       classList.add(className.slice(start2));
     }
   }
@@ -13810,7 +13810,7 @@ class Rendering {
     const rows = definition.instructions;
     const renderers = this.renderers;
     const ii = targets.length;
-    let i4 = 0;
+    let i3 = 0;
     let j2 = 0;
     let jj = rows.length;
     let row;
@@ -13831,9 +13831,9 @@ class Rendering {
       }
     }
     if (ii > 0) {
-      while (ii > i4) {
-        row = rows[i4];
-        target = targets[i4];
+      while (ii > i3) {
+        row = rows[i3];
+        target = targets[i3];
         j2 = 0;
         jj = row.length;
         while (jj > j2) {
@@ -13841,7 +13841,7 @@ class Rendering {
           renderers[instruction.type].render(controller, target, instruction, this._platform, this._exprParser, this._observerLocator);
           ++j2;
         }
-        ++i4;
+        ++i3;
       }
     }
   }
@@ -14404,15 +14404,15 @@ class Controller {
     if (this.debug) {
       this.logger.trace(`bind()`);
     }
-    let i4 = 0;
+    let i3 = 0;
     let ii = 0;
     let ret = void 0;
     if (this.bindings !== null) {
-      i4 = 0;
+      i3 = 0;
       ii = this.bindings.length;
-      while (ii > i4) {
-        this.bindings[i4].bind(this.scope);
-        ++i4;
+      while (ii > i3) {
+        this.bindings[i3].bind(this.scope);
+        ++i3;
       }
     }
     if (this.vmKind !== vmkSynth && this._lifecycleHooks.bound != null) {
@@ -14454,9 +14454,9 @@ class Controller {
         this.shadowRoot.append(...nodes);
         break;
       case targetLocation: {
-        let i4 = 0;
-        for (; i4 < nodes.length; ++i4) {
-          this.location.parentNode.insertBefore(nodes[i4], this.location);
+        let i3 = 0;
+        for (; i3 < nodes.length; ++i3) {
+          this.location.parentNode.insertBefore(nodes[i3], this.location);
         }
         break;
       }
@@ -14493,7 +14493,7 @@ class Controller {
         this.nodes.insertBefore(this.location);
         break;
     }
-    let i4 = 0;
+    let i3 = 0;
     let ret = void 0;
     if (this.vmKind !== vmkSynth && this._lifecycleHooks.attaching != null) {
       if (this.debug) {
@@ -14517,15 +14517,15 @@ class Controller {
       });
     }
     if (this.children !== null) {
-      for (; i4 < this.children.length; ++i4) {
-        void this.children[i4].activate(this.$initiator, this, this.scope);
+      for (; i3 < this.children.length; ++i3) {
+        void this.children[i3].activate(this.$initiator, this, this.scope);
       }
     }
     this._leaveActivating();
   }
   deactivate(initiator, _parent) {
     let prevActivation = void 0;
-    switch (this.state & ~released) {
+    switch (this.state & -17) {
       case activated:
         this.state = deactivating;
         break;
@@ -14552,11 +14552,11 @@ class Controller {
     if (initiator === this) {
       this._enterDetaching();
     }
-    let i4 = 0;
+    let i3 = 0;
     let ret;
     if (this.children !== null) {
-      for (i4 = 0; i4 < this.children.length; ++i4) {
-        void this.children[i4].deactivate(initiator, this);
+      for (i3 = 0; i3 < this.children.length; ++i3) {
+        void this.children[i3].deactivate(initiator, this);
       }
     }
     return onResolve(prevActivation, () => {
@@ -14620,10 +14620,10 @@ class Controller {
     if (this.debug) {
       this.logger.trace(`unbind()`);
     }
-    let i4 = 0;
+    let i3 = 0;
     if (this.bindings !== null) {
-      for (; i4 < this.bindings.length; ++i4) {
-        this.bindings[i4].unbind();
+      for (; i3 < this.bindings.length; ++i3) {
+        this.bindings[i3].unbind();
       }
     }
     this.parent = null;
@@ -14900,8 +14900,8 @@ class Controller {
     }
     if (this.children !== null) {
       const { children } = this;
-      for (let i4 = 0, ii = children.length; i4 < ii; ++i4) {
-        if (children[i4].accept(visitor) === true) {
+      for (let i3 = 0, ii = children.length; i3 < ii; ++i3) {
+        if (children[i3].accept(visitor) === true) {
           return true;
         }
       }
@@ -14956,8 +14956,8 @@ function createObservers(controller, definition, instance) {
       callPropertiesChanged();
     };
   })() : noop$1;
-  for (let i4 = 0; i4 < length; ++i4) {
-    const name2 = observableNames[i4];
+  for (let i3 = 0; i3 < length; ++i3) {
+    const name2 = observableNames[i3];
     const bindable2 = bindables2[name2];
     const handler = bindable2.callback;
     const obs = locator.getObserver(instance, name2);
@@ -14998,9 +14998,9 @@ function createWatchers(controller, context, definition, instance) {
   let expression;
   let callback;
   let ast;
-  let i4 = 0;
-  for (; ii > i4; ++i4) {
-    ({ expression, callback } = watches[i4]);
+  let i3 = 0;
+  for (; ii > i3; ++i3) {
+    ({ expression, callback } = watches[i3]);
     callback = isFunction(callback) ? callback : Reflect.get(instance, callback);
     if (!isFunction(callback)) {
       throw createMappedError$2(506, callback);
@@ -15165,8 +15165,8 @@ function getEffectiveParentNode(node) {
 function setEffectiveParentNode(childNodeOrNodeSequence, parentNode) {
   if (childNodeOrNodeSequence.platform !== void 0 && !(childNodeOrNodeSequence instanceof childNodeOrNodeSequence.platform.Node)) {
     const nodes = childNodeOrNodeSequence.childNodes;
-    for (let i4 = 0, ii = nodes.length; i4 < ii; ++i4) {
-      effectiveParentNodeOverrides.set(nodes[i4], parentNode);
+    for (let i3 = 0, ii = nodes.length; i3 < ii; ++i3) {
+      effectiveParentNodeOverrides.set(nodes[i3], parentNode);
     }
   } else {
     effectiveParentNodeOverrides.set(childNodeOrNodeSequence, parentNode);
@@ -15202,28 +15202,28 @@ class FragmentNodeSequence {
     this._isLinked = false;
     this.ref = null;
     const targetNodeList = (this.f = fragment).querySelectorAll("au-m");
-    let i4 = 0;
+    let i3 = 0;
     let ii = targetNodeList.length;
     let targets = this.t = Array(ii);
     let target;
     let marker;
-    while (ii > i4) {
-      marker = targetNodeList[i4];
+    while (ii > i3) {
+      marker = targetNodeList[i3];
       target = marker.nextSibling;
       marker.remove();
       if (target.nodeType === 8) {
         marker = target;
         (target = target.nextSibling).$start = marker;
       }
-      targets[i4] = target;
-      ++i4;
+      targets[i3] = target;
+      ++i3;
     }
     const childNodeList = fragment.childNodes;
     const childNodes = this.childNodes = Array(ii = childNodeList.length);
-    i4 = 0;
-    while (ii > i4) {
-      childNodes[i4] = childNodeList[i4];
-      ++i4;
+    i3 = 0;
+    while (ii > i3) {
+      childNodes[i3] = childNodeList[i3];
+      ++i3;
     }
     this._firstChild = fragment.firstChild;
     this._lastChild = fragment.lastChild;
@@ -16048,20 +16048,20 @@ class SelectValueObserver {
       return selection;
     }
     const ii = options.length;
-    let i4 = 0;
+    let i3 = 0;
     let option;
-    while (ii > i4) {
-      option = options[i4];
+    while (ii > i3) {
+      option = options[i3];
       if (option.selected) {
         selection[selection.length] = hasOwnProperty.call(option, "model") ? option.model : option.value;
       }
-      ++i4;
+      ++i3;
     }
     return selection;
   }
   /** @internal */
-  static _defaultMatcher(a2, b2) {
-    return a2 === b2;
+  static _defaultMatcher(a2, b3) {
+    return a2 === b3;
   }
   constructor(obj, _key, config, observerLocator) {
     this.type = atNode | atObserver | atLayout;
@@ -16102,9 +16102,9 @@ class SelectValueObserver {
     const $isArray = isArray(value);
     const matcher = obj.matcher ?? SelectValueObserver._defaultMatcher;
     const options = obj.options;
-    let i4 = options.length;
-    while (i4-- > 0) {
-      const option = options[i4];
+    let i3 = options.length;
+    while (i3-- > 0) {
+      const option = options[i3];
       const optionValue = hasOwnProperty.call(option, "model") ? option.model : option.value;
       if ($isArray) {
         option.selected = value.findIndex((item) => !!matcher(optionValue, item)) !== -1;
@@ -16118,7 +16118,7 @@ class SelectValueObserver {
     const options = obj.options;
     const len = options.length;
     const currentValue = this._value;
-    let i4 = 0;
+    let i3 = 0;
     if (obj.multiple) {
       if (!(currentValue instanceof Array)) {
         return true;
@@ -16126,42 +16126,42 @@ class SelectValueObserver {
       let option2;
       const matcher = obj.matcher || SelectValueObserver._defaultMatcher;
       const values = [];
-      while (i4 < len) {
-        option2 = options[i4];
+      while (i3 < len) {
+        option2 = options[i3];
         if (option2.selected) {
           values.push(hasOwnProperty.call(option2, "model") ? option2.model : option2.value);
         }
-        ++i4;
+        ++i3;
       }
       let a2;
-      i4 = 0;
-      while (i4 < currentValue.length) {
-        a2 = currentValue[i4];
-        if (values.findIndex((b2) => !!matcher(a2, b2)) === -1) {
-          currentValue.splice(i4, 1);
+      i3 = 0;
+      while (i3 < currentValue.length) {
+        a2 = currentValue[i3];
+        if (values.findIndex((b3) => !!matcher(a2, b3)) === -1) {
+          currentValue.splice(i3, 1);
         } else {
-          ++i4;
+          ++i3;
         }
       }
-      i4 = 0;
-      while (i4 < values.length) {
-        a2 = values[i4];
-        if (currentValue.findIndex((b2) => !!matcher(a2, b2)) === -1) {
+      i3 = 0;
+      while (i3 < values.length) {
+        a2 = values[i3];
+        if (currentValue.findIndex((b3) => !!matcher(a2, b3)) === -1) {
           currentValue.push(a2);
         }
-        ++i4;
+        ++i3;
       }
       return false;
     }
     let value = null;
     let option;
-    while (i4 < len) {
-      option = options[i4];
+    while (i3 < len) {
+      option = options[i3];
       if (option.selected) {
         value = hasOwnProperty.call(option, "model") ? option.model : option.value;
         break;
       }
-      ++i4;
+      ++i3;
     }
     this._oldValue = this._value;
     this._value = value;
@@ -16307,9 +16307,9 @@ class StyleAttributeAccessor {
     const len = currentValue.length;
     if (len > 0) {
       const styles2 = [];
-      let i4 = 0;
-      for (; len > i4; ++i4) {
-        styles2.push(...this._getStyleTuples(currentValue[i4]));
+      let i3 = 0;
+      for (; len > i3; ++i3) {
+        styles2.push(...this._getStyleTuples(currentValue[i3]));
       }
       return styles2;
     }
@@ -16341,10 +16341,10 @@ class StyleAttributeAccessor {
       let tuple;
       let name2;
       let value;
-      let i4 = 0;
+      let i3 = 0;
       const len = styleTuples.length;
-      for (; i4 < len; ++i4) {
-        tuple = styleTuples[i4];
+      for (; i3 < len; ++i3) {
+        tuple = styleTuples[i3];
         name2 = tuple[0];
         value = tuple[1];
         this.setProperty(name2, value);
@@ -16665,8 +16665,8 @@ function getCollectionObserver(collection, observerLocator) {
 function throwMappingExisted(nodeName, key) {
   throw createMappedError$2(653, nodeName, key);
 }
-function defaultMatcher(a2, b2) {
-  return a2 === b2;
+function defaultMatcher(a2, b3) {
+  return a2 === b3;
 }
 class CheckedObserver {
   constructor(obj, _key, config, observerLocator) {
@@ -17048,9 +17048,9 @@ class Repeat {
     const ii = bindings.length;
     let binding = void 0;
     let forOf;
-    let i4 = 0;
-    for (; ii > i4; ++i4) {
-      binding = bindings[i4];
+    let i3 = 0;
+    for (; ii > i3; ++i3) {
+      binding = bindings[i3];
       if (binding.target === this && binding.targetProperty === "items") {
         forOf = this.forOf = binding.ast;
         this._forOfBinding = binding;
@@ -17127,50 +17127,50 @@ class Repeat {
       const binding = this._forOfBinding;
       const hasDestructuredLocal = this._hasDestructuredLocal;
       indexMap = createIndexMap(newLen);
-      let i4 = 0;
+      let i3 = 0;
       if (oldLen === 0) {
-        for (; i4 < newLen; ++i4) {
-          indexMap[i4] = -2;
+        for (; i3 < newLen; ++i3) {
+          indexMap[i3] = -2;
         }
       } else if (newLen === 0) {
-        for (i4 = 0; i4 < oldLen; ++i4) {
-          indexMap.deletedIndices.push(i4);
-          indexMap.deletedItems.push(getItem(hasDestructuredLocal, dec, oldScopes[i4], binding, local));
+        for (i3 = 0; i3 < oldLen; ++i3) {
+          indexMap.deletedIndices.push(i3);
+          indexMap.deletedItems.push(getItem(hasDestructuredLocal, dec, oldScopes[i3], binding, local));
         }
       } else if (hasKey) {
         const oldKeys = Array(oldLen);
-        for (i4 = 0; i4 < oldLen; ++i4) {
-          oldKeys[i4] = getKeyValue(hasDestructuredLocal, key, dec, oldScopes[i4], binding, local);
+        for (i3 = 0; i3 < oldLen; ++i3) {
+          oldKeys[i3] = getKeyValue(hasDestructuredLocal, key, dec, oldScopes[i3], binding, local);
         }
         const newKeys = Array(oldLen);
-        for (i4 = 0; i4 < newLen; ++i4) {
-          newKeys[i4] = getKeyValue(hasDestructuredLocal, key, dec, newScopes[i4], binding, local);
+        for (i3 = 0; i3 < newLen; ++i3) {
+          newKeys[i3] = getKeyValue(hasDestructuredLocal, key, dec, newScopes[i3], binding, local);
         }
-        for (i4 = 0; i4 < newLen; ++i4) {
-          if (oldKeys.includes(newKeys[i4])) {
-            indexMap[i4] = oldKeys.indexOf(newKeys[i4]);
+        for (i3 = 0; i3 < newLen; ++i3) {
+          if (oldKeys.includes(newKeys[i3])) {
+            indexMap[i3] = oldKeys.indexOf(newKeys[i3]);
           } else {
-            indexMap[i4] = -2;
+            indexMap[i3] = -2;
           }
         }
-        for (i4 = 0; i4 < oldLen; ++i4) {
-          if (!newKeys.includes(oldKeys[i4])) {
-            indexMap.deletedIndices.push(i4);
-            indexMap.deletedItems.push(getItem(hasDestructuredLocal, dec, oldScopes[i4], binding, local));
+        for (i3 = 0; i3 < oldLen; ++i3) {
+          if (!newKeys.includes(oldKeys[i3])) {
+            indexMap.deletedIndices.push(i3);
+            indexMap.deletedItems.push(getItem(hasDestructuredLocal, dec, oldScopes[i3], binding, local));
           }
         }
       } else {
-        for (i4 = 0; i4 < newLen; ++i4) {
-          if (oldScopes.includes(newScopes[i4])) {
-            indexMap[i4] = oldScopes.indexOf(newScopes[i4]);
+        for (i3 = 0; i3 < newLen; ++i3) {
+          if (oldScopes.includes(newScopes[i3])) {
+            indexMap[i3] = oldScopes.indexOf(newScopes[i3]);
           } else {
-            indexMap[i4] = -2;
+            indexMap[i3] = -2;
           }
         }
-        for (i4 = 0; i4 < oldLen; ++i4) {
-          if (!newScopes.includes(oldScopes[i4])) {
-            indexMap.deletedIndices.push(i4);
-            indexMap.deletedItems.push(getItem(hasDestructuredLocal, dec, oldScopes[i4], binding, local));
+        for (i3 = 0; i3 < oldLen; ++i3) {
+          if (!newScopes.includes(oldScopes[i3])) {
+            indexMap.deletedIndices.push(i3);
+            indexMap.deletedItems.push(getItem(hasDestructuredLocal, dec, oldScopes[i3], binding, local));
           }
         }
       }
@@ -17230,34 +17230,34 @@ class Repeat {
       if (hasKey) {
         const keys = Array(len);
         if (typeof key === "string") {
-          for (let i4 = 0; i4 < len; ++i4) {
-            keys[i4] = items[i4][key];
+          for (let i3 = 0; i3 < len; ++i3) {
+            keys[i3] = items[i3][key];
           }
         } else {
-          for (let i4 = 0; i4 < len; ++i4) {
-            const scope = createScope(items[i4], forOf, parentScope, binding, local, hasDestructuredLocal);
-            setItem(hasDestructuredLocal, forOf.declaration, scope, binding, local, items[i4]);
-            keys[i4] = astEvaluate(key, scope, binding, null);
+          for (let i3 = 0; i3 < len; ++i3) {
+            const scope = createScope(items[i3], forOf, parentScope, binding, local, hasDestructuredLocal);
+            setItem(hasDestructuredLocal, forOf.declaration, scope, binding, local, items[i3]);
+            keys[i3] = astEvaluate(key, scope, binding, null);
           }
         }
-        for (let i4 = 0; i4 < len; ++i4) {
-          scopes[i4] = getScope(oldScopeMap, newScopeMap, keys[i4], items[i4], forOf, parentScope, binding, local, hasDestructuredLocal);
+        for (let i3 = 0; i3 < len; ++i3) {
+          scopes[i3] = getScope(oldScopeMap, newScopeMap, keys[i3], items[i3], forOf, parentScope, binding, local, hasDestructuredLocal);
         }
       } else {
-        for (let i4 = 0; i4 < len; ++i4) {
-          scopes[i4] = getScope(oldScopeMap, newScopeMap, items[i4], items[i4], forOf, parentScope, binding, local, hasDestructuredLocal);
+        for (let i3 = 0; i3 < len; ++i3) {
+          scopes[i3] = getScope(oldScopeMap, newScopeMap, items[i3], items[i3], forOf, parentScope, binding, local, hasDestructuredLocal);
         }
       }
     } else {
       const oldLen = oldScopes.length;
-      for (let i4 = 0; i4 < len; ++i4) {
-        const src = indexMap[i4];
+      for (let i3 = 0; i3 < len; ++i3) {
+        const src = indexMap[i3];
         if (src >= 0 && src < oldLen) {
-          scopes[i4] = oldScopes[src];
+          scopes[i3] = oldScopes[src];
         } else {
-          scopes[i4] = createScope(items[i4], forOf, parentScope, binding, local, hasDestructuredLocal);
+          scopes[i3] = createScope(items[i3], forOf, parentScope, binding, local, hasDestructuredLocal);
         }
-        setItem(hasDestructuredLocal, forOf.declaration, scopes[i4], binding, local, items[i4]);
+        setItem(hasDestructuredLocal, forOf.declaration, scopes[i3], binding, local, items[i3]);
       }
     }
     oldScopeMap.clear();
@@ -17285,11 +17285,11 @@ class Repeat {
     const { $controller, _factory, _location, _scopes } = this;
     const newLen = $items.length;
     const views = this.views = Array(newLen);
-    for (let i4 = 0; i4 < newLen; ++i4) {
-      view = views[i4] = _factory.create().setLocation(_location);
+    for (let i3 = 0; i3 < newLen; ++i3) {
+      view = views[i3] = _factory.create().setLocation(_location);
       view.nodes.unlink();
-      scope = _scopes[i4];
-      setContextualProperties(scope.overrideContext, i4, newLen);
+      scope = _scopes[i3];
+      setContextualProperties(scope.overrideContext, i3, newLen);
       ret = view.activate(initiator ?? view, $controller, scope);
       if (isPromise(ret)) {
         (promises ??= []).push(ret);
@@ -17304,11 +17304,11 @@ class Repeat {
     let promises = void 0;
     let ret;
     let view;
-    let i4 = 0;
+    let i3 = 0;
     const { views, $controller } = this;
     const ii = views.length;
-    for (; ii > i4; ++i4) {
-      view = views[i4];
+    for (; ii > i3; ++i3) {
+      view = views[i3];
       view.release();
       ret = view.deactivate(initiator ?? view, $controller);
       if (isPromise(ret)) {
@@ -17327,18 +17327,18 @@ class Repeat {
     const { $controller, views } = this;
     const deleted = indexMap.deletedIndices.slice().sort(compareNumber);
     const deletedLen = deleted.length;
-    let i4 = 0;
-    for (; deletedLen > i4; ++i4) {
-      view = views[deleted[i4]];
+    let i3 = 0;
+    for (; deletedLen > i3; ++i3) {
+      view = views[deleted[i3]];
       view.release();
       ret = view.deactivate(view, $controller);
       if (isPromise(ret)) {
         (promises ?? (promises = [])).push(ret);
       }
     }
-    i4 = 0;
-    for (; deletedLen > i4; ++i4) {
-      views.splice(deleted[i4] - i4, 1);
+    i3 = 0;
+    for (; deletedLen > i3; ++i3) {
+      views.splice(deleted[i3] - i3, 1);
     }
     if (promises !== void 0) {
       return promises.length === 1 ? promises[0] : Promise.all(promises);
@@ -17349,46 +17349,46 @@ class Repeat {
     let promises = void 0;
     let ret;
     let view;
-    let i4 = 0;
+    let i3 = 0;
     const { $controller, _factory, _location, views, _scopes, _oldViews } = this;
     const newLen = indexMap.length;
-    for (; newLen > i4; ++i4) {
-      if (indexMap[i4] === -2) {
+    for (; newLen > i3; ++i3) {
+      if (indexMap[i3] === -2) {
         view = _factory.create();
-        views.splice(i4, 0, view);
+        views.splice(i3, 0, view);
       }
     }
     if (views.length !== newLen) {
       throw createMappedError$2(814, [views.length, newLen]);
     }
     let source = 0;
-    i4 = 0;
-    for (; i4 < indexMap.length; ++i4) {
-      if ((source = indexMap[i4]) !== -2) {
-        views[i4] = _oldViews[source];
+    i3 = 0;
+    for (; i3 < indexMap.length; ++i3) {
+      if ((source = indexMap[i3]) !== -2) {
+        views[i3] = _oldViews[source];
       }
     }
     const seq = longestIncreasingSubsequence(indexMap);
     const seqLen = seq.length;
     let next;
     let j2 = seqLen - 1;
-    i4 = newLen - 1;
-    for (; i4 >= 0; --i4) {
-      view = views[i4];
-      next = views[i4 + 1];
+    i3 = newLen - 1;
+    for (; i3 >= 0; --i3) {
+      view = views[i3];
+      next = views[i3 + 1];
       view.nodes.link(next?.nodes ?? _location);
-      if (indexMap[i4] === -2) {
+      if (indexMap[i3] === -2) {
         view.setLocation(_location);
-        setContextualProperties(_scopes[i4].overrideContext, i4, newLen);
-        ret = view.activate(view, $controller, _scopes[i4]);
+        setContextualProperties(_scopes[i3].overrideContext, i3, newLen);
+        ret = view.activate(view, $controller, _scopes[i3]);
         if (isPromise(ret)) {
           (promises ?? (promises = [])).push(ret);
         }
-      } else if (j2 < 0 || seqLen === 1 || i4 !== seq[j2]) {
-        setContextualProperties(view.scope.overrideContext, i4, newLen);
+      } else if (j2 < 0 || seqLen === 1 || i3 !== seq[j2]) {
+        setContextualProperties(view.scope.overrideContext, i3, newLen);
         view.nodes.insertBefore(view.location);
       } else {
-        setContextualProperties(view.scope.overrideContext, i4, newLen);
+        setContextualProperties(view.scope.overrideContext, i3, newLen);
         --j2;
       }
     }
@@ -17403,8 +17403,8 @@ class Repeat {
   accept(visitor) {
     const { views } = this;
     if (views !== void 0) {
-      for (let i4 = 0, ii = views.length; i4 < ii; ++i4) {
-        if (views[i4].accept(visitor) === true) {
+      for (let i3 = 0, ii = views.length; i3 < ii; ++i3) {
+        if (views[i3].accept(visitor) === true) {
           return true;
         }
       }
@@ -17430,19 +17430,19 @@ function longestIncreasingSubsequence(indexMap) {
   let cursor = 0;
   let cur = 0;
   let prev = 0;
-  let i4 = 0;
+  let i3 = 0;
   let j2 = 0;
   let low = 0;
   let high = 0;
   let mid = 0;
-  for (; i4 < len; i4++) {
-    cur = indexMap[i4];
+  for (; i3 < len; i3++) {
+    cur = indexMap[i3];
     if (cur !== -2) {
       j2 = prevIndices[cursor];
       prev = indexMap[j2];
       if (prev !== -2 && prev < cur) {
-        tailIndices[i4] = j2;
-        prevIndices[++cursor] = i4;
+        tailIndices[i3] = j2;
+        prevIndices[++cursor] = i3;
         continue;
       }
       low = 0;
@@ -17459,21 +17459,21 @@ function longestIncreasingSubsequence(indexMap) {
       prev = indexMap[prevIndices[low]];
       if (cur < prev || prev === -2) {
         if (low > 0) {
-          tailIndices[i4] = prevIndices[low - 1];
+          tailIndices[i3] = prevIndices[low - 1];
         }
-        prevIndices[low] = i4;
+        prevIndices[low] = i3;
       }
     }
   }
-  i4 = ++cursor;
-  const result = new Int32Array(i4);
+  i3 = ++cursor;
+  const result = new Int32Array(i3);
   cur = prevIndices[cursor - 1];
   while (cursor-- > 0) {
     result[cursor] = cur;
     cur = tailIndices[cur];
   }
-  while (i4-- > 0)
-    prevIndices[i4] = 0;
+  while (i3-- > 0)
+    prevIndices[i3] = 0;
   return result;
 }
 class RepeatOverrideContext {
@@ -17536,9 +17536,9 @@ const _arrayHandler = {
   /* istanbul ignore next */
   iterate(value, func) {
     const ii = value.length;
-    let i4 = 0;
-    for (; i4 < ii; ++i4) {
-      func(value[i4], i4, value);
+    let i3 = 0;
+    for (; i3 < ii; ++i3) {
+      func(value[i3], i3, value);
     }
   }
   // getCount: items => items.length,
@@ -17547,10 +17547,10 @@ const _setHandler = {
   handles: isSet,
   getObserver: getCollectionObserver$1,
   iterate(value, func) {
-    let i4 = 0;
+    let i3 = 0;
     let key;
     for (key of value.keys()) {
-      func(key, i4++, value);
+      func(key, i3++, value);
     }
   }
   // getCount: s => s.size,
@@ -17559,10 +17559,10 @@ const _mapHandler = {
   handles: isMap,
   getObserver: getCollectionObserver$1,
   iterate(value, func) {
-    let i4 = 0;
+    let i3 = 0;
     let entry;
     for (entry of value.entries()) {
-      func(entry, i4++, value);
+      func(entry, i3++, value);
     }
   }
   // getCount: s => s.size,
@@ -17570,9 +17570,9 @@ const _mapHandler = {
 const _numberHandler = {
   handles: isNumber,
   iterate(value, func) {
-    let i4 = 0;
-    for (; i4 < value; ++i4) {
-      func(i4, i4, value);
+    let i3 = 0;
+    for (; i3 < value; ++i3) {
+      func(i3, i3, value);
     }
   }
   // getCount: v => v,
@@ -17641,7 +17641,7 @@ const createScope = (item, forOf, parentScope, binding, local, hasDestructuredLo
   }
   return Scope.fromParent(parentScope, new BindingContext(local, item), new RepeatOverrideContext());
 };
-const compareNumber = (a2, b2) => a2 - b2;
+const compareNumber = (a2, b3) => a2 - b3;
 class With {
   constructor() {
     this.view = resolve(IViewFactory).create().setLocation(resolve(IRenderLocation));
@@ -17650,11 +17650,11 @@ class With {
     const $controller = this.$controller;
     const bindings = this.view.bindings;
     let scope;
-    let i4 = 0, ii = 0;
+    let i3 = 0, ii = 0;
     if ($controller.isActive && bindings != null) {
       scope = Scope.fromParent($controller.scope, newValue === void 0 ? {} : newValue);
-      for (ii = bindings.length; ii > i4; ++i4) {
-        bindings[i4].bind(scope);
+      for (ii = bindings.length; ii > i3; ++i3) {
+        bindings[i3].bind(scope);
       }
     }
   }
@@ -17741,8 +17741,8 @@ let Switch$1 = class Switch {
     } else {
       const cases = this.cases;
       const idx = cases.indexOf($case);
-      for (let i4 = idx, ii = cases.length; i4 < ii && fallThrough; i4++) {
-        const c2 = cases[i4];
+      for (let i3 = idx, ii = cases.length; i3 < ii && fallThrough; i3++) {
+        const c2 = cases[i3];
         newActiveCases.push(c2);
         fallThrough = c2.fallThrough;
       }
@@ -18671,14 +18671,14 @@ AuSlot.$au = {
   },
   bindables: ["expose", "slotchange"]
 };
-const comparePosition = (a2, b2) => a2.compareDocumentPosition(b2);
+const comparePosition = (a2, b3) => a2.compareDocumentPosition(b3);
 const isMutationWithinLocation = (location, records) => {
   for (const { addedNodes, removedNodes, nextSibling } of records) {
-    let i4 = 0;
+    let i3 = 0;
     let ii = addedNodes.length;
     let node;
-    for (; i4 < ii; ++i4) {
-      node = addedNodes[i4];
+    for (; i3 < ii; ++i3) {
+      node = addedNodes[i3];
       if (comparePosition(location.$start, node) === /* DOCUMENT_POSITION_FOLLOWING */
       4 && comparePosition(location, node) === /* DOCUMENT_POSITION_PRECEDING */
       2) {
@@ -18825,7 +18825,7 @@ class AuCompose {
           projections: _instruction.projections,
           captures: capturedBindingAttrs
         }, vmDef, compositionLocation);
-        this._createSpreadBindings(compositionHost, vmDef, transferedToHostBindingAttrs).forEach((b2) => controller.addBinding(b2));
+        this._createSpreadBindings(compositionHost, vmDef, transferedToHostBindingAttrs).forEach((b3) => controller.addBinding(b3));
         return new CompositionController(
           controller,
           (attachInitiator) => controller.activate(attachInitiator ?? controller, $controller, $controller.scope.parent),
@@ -18846,7 +18846,7 @@ class AuCompose {
         const scope = this.scopeBehavior === "auto" ? Scope.fromParent(this.parent.scope, comp) : Scope.create(comp);
         controller.setHost(compositionHost);
         if (compositionLocation == null) {
-          this._createSpreadBindings(compositionHost, targetDef, aucomposeCapturedAttrs).forEach((b2) => controller.addBinding(b2));
+          this._createSpreadBindings(compositionHost, targetDef, aucomposeCapturedAttrs).forEach((b3) => controller.addBinding(b3));
         } else {
           controller.setLocation(compositionLocation);
         }
@@ -19358,17 +19358,17 @@ class Candidate {
     for (const param of endpoint.params) {
       params[param.name] = void 0;
     }
-    for (let i4 = 0, ii = states.length; i4 < ii; ++i4) {
-      const state = states[i4];
+    for (let i3 = 0, ii = states.length; i3 < ii; ++i3) {
+      const state = states[i3];
       if (state.isDynamic) {
         const segment = state.segment;
         const name2 = segment.name;
         if (params[name2] === void 0) {
-          params[name2] = chars[i4];
+          params[name2] = chars[i3];
         } else {
-          params[name2] += chars[i4];
+          params[name2] += chars[i3];
         }
-        const checkConstraint = state.isConstrained && !Object.is(states[i4 + 1]?.segment, segment);
+        const checkConstraint = state.isConstrained && !Object.is(states[i3 + 1]?.segment, segment);
         if (!checkConstraint)
           continue;
         this.satisfiesConstraints = this.satisfiesConstraints && state.satisfiesConstraint(params[name2]);
@@ -19407,9 +19407,9 @@ class Candidate {
    * Parameter name is `b` because the method should be used like so: `states.sort((a, b) => a.compareTo(b))`.
    * This will bring the candidate with the highest score to the first position of the array.
    */
-  compareTo(b2) {
+  compareTo(b3) {
     const statesA = this.states;
-    const statesB = b2.states;
+    const statesB = b3.states;
     for (let iA = 0, iB = 0, ii = Math.max(statesA.length, statesB.length); iA < ii; ++iA) {
       let stateA = statesA[iA];
       if (stateA === void 0) {
@@ -19445,7 +19445,7 @@ class Candidate {
       ++iB;
     }
     const skippedStatesA = this.skippedStates;
-    const skippedStatesB = b2.skippedStates;
+    const skippedStatesB = b3.skippedStates;
     const skippedStatesALen = skippedStatesA.length;
     const skippedStatesBLen = skippedStatesB.length;
     if (skippedStatesALen < skippedStatesBLen) {
@@ -19454,9 +19454,9 @@ class Candidate {
     if (skippedStatesALen > skippedStatesBLen) {
       return -1;
     }
-    for (let i4 = 0; i4 < skippedStatesALen; ++i4) {
-      const skippedStateA = skippedStatesA[i4];
-      const skippedStateB = skippedStatesB[i4];
+    for (let i3 = 0; i3 < skippedStatesALen; ++i3) {
+      const skippedStateA = skippedStatesA[i3];
+      const skippedStateB = skippedStatesB[i3];
       if (skippedStateA.length < skippedStateB.length) {
         return 1;
       }
@@ -19470,8 +19470,8 @@ class Candidate {
 function hasEndpoint(candidate) {
   return candidate.head.endpoint !== null;
 }
-function compareChains(a2, b2) {
-  return a2.compareTo(b2);
+function compareChains(a2, b3) {
+  return a2.compareTo(b3);
 }
 class RecognizeResult {
   get isEmpty() {
@@ -19596,8 +19596,8 @@ class RouteRecognizer {
       path = path.slice(0, -1);
     }
     const result = new RecognizeResult(this.rootState);
-    for (let i4 = 0, ii = path.length; i4 < ii; ++i4) {
-      const ch = path.charAt(i4);
+    for (let i3 = 0, ii = path.length; i3 < ii; ++i3) {
+      const ch = path.charAt(i3);
       result.advance(ch);
       if (result.isEmpty) {
         return null;
@@ -19711,17 +19711,17 @@ class StaticSegment2 {
   appendTo(state) {
     const { value, value: { length } } = this;
     if (this.caseSensitive) {
-      for (let i4 = 0; i4 < length; ++i4) {
+      for (let i3 = 0; i3 < length; ++i3) {
         state = state.append(
           /* segment */
           this,
           /* value   */
-          value.charAt(i4)
+          value.charAt(i3)
         );
       }
     } else {
-      for (let i4 = 0; i4 < length; ++i4) {
-        const ch = value.charAt(i4);
+      for (let i3 = 0; i3 < length; ++i3) {
+        const ch = value.charAt(i3);
         state = state.append(
           /* segment */
           this,
@@ -19732,8 +19732,8 @@ class StaticSegment2 {
     }
     return state;
   }
-  equals(b2) {
-    return b2.kind === 4 && b2.caseSensitive === this.caseSensitive && b2.value === this.value;
+  equals(b3) {
+    return b3.kind === 4 && b3.caseSensitive === this.caseSensitive && b3.value === this.value;
   }
 }
 class DynamicSegment2 {
@@ -19757,8 +19757,8 @@ class DynamicSegment2 {
     );
     return state;
   }
-  equals(b2) {
-    return b2.kind === 3 && b2.optional === this.optional && b2.name === this.name;
+  equals(b3) {
+    return b3.kind === 3 && b3.optional === this.optional && b3.name === this.name;
   }
   satisfiesPattern(value) {
     if (this.pattern === null)
@@ -19781,8 +19781,8 @@ class StarSegment {
     );
     return state;
   }
-  equals(b2) {
-    return (b2.kind === 2 || b2.kind === 1) && b2.name === this.name;
+  equals(b3) {
+    return (b3.kind === 2 || b3.kind === 1) && b3.name === this.name;
   }
 }
 const createError = (msg) => new Error(msg);
@@ -20464,9 +20464,9 @@ function mergeDistinct(prev, next) {
     const p2 = prev.shift();
     const prevVpa = p2.context.vpa;
     if (merged.every((m2) => m2.context.vpa !== prevVpa)) {
-      const i4 = next.findIndex((n3) => n3.context.vpa === prevVpa);
-      if (i4 >= 0) {
-        merged.push(...next.splice(0, i4 + 1));
+      const i3 = next.findIndex((n3) => n3.context.vpa === prevVpa);
+      if (i3 >= 0) {
+        merged.push(...next.splice(0, i3 + 1));
       } else {
         merged.push(p2);
       }
@@ -20556,9 +20556,9 @@ function validateRouteConfig(config, parentPath) {
         break;
       case "path":
         if (value instanceof Array) {
-          for (let i4 = 0; i4 < value.length; ++i4) {
-            if (typeof value[i4] !== "string") {
-              expectType("string", `${path}[${i4}]`, value[i4]);
+          for (let i3 = 0; i3 < value.length; ++i3) {
+            if (typeof value[i3] !== "string") {
+              expectType("string", `${path}[${i3}]`, value[i3]);
             }
           }
         } else if (typeof value !== "string") {
@@ -20614,9 +20614,9 @@ function validateRedirectRouteConfig(config, parentPath) {
     switch (key) {
       case "path":
         if (value instanceof Array) {
-          for (let i4 = 0; i4 < value.length; ++i4) {
-            if (typeof value[i4] !== "string") {
-              expectType("string", `${path}[${i4}]`, value[i4]);
+          for (let i3 = 0; i3 < value.length; ++i3) {
+            if (typeof value[i3] !== "string") {
+              expectType("string", `${path}[${i3}]`, value[i3]);
             }
           }
         } else if (typeof value !== "string") {
@@ -20659,30 +20659,30 @@ function validateComponent(component, parentPath, property) {
       expectType("function, object or string (see Routeable)", parentPath, component);
   }
 }
-function shallowEquals(a2, b2) {
-  if (a2 === b2) {
+function shallowEquals(a2, b3) {
+  if (a2 === b3) {
     return true;
   }
-  if (typeof a2 !== typeof b2) {
+  if (typeof a2 !== typeof b3) {
     return false;
   }
-  if (a2 === null || b2 === null) {
+  if (a2 === null || b3 === null) {
     return false;
   }
-  if (Object.getPrototypeOf(a2) !== Object.getPrototypeOf(b2)) {
+  if (Object.getPrototypeOf(a2) !== Object.getPrototypeOf(b3)) {
     return false;
   }
   const aKeys = Object.keys(a2);
-  const bKeys = Object.keys(b2);
+  const bKeys = Object.keys(b3);
   if (aKeys.length !== bKeys.length) {
     return false;
   }
-  for (let i4 = 0, ii = aKeys.length; i4 < ii; ++i4) {
-    const key = aKeys[i4];
-    if (key !== bKeys[i4]) {
+  for (let i3 = 0, ii = aKeys.length; i3 < ii; ++i3) {
+    const key = aKeys[i3];
+    if (key !== bKeys[i3]) {
       return false;
     }
-    if (a2[key] !== b2[key]) {
+    if (a2[key] !== b3[key]) {
       return false;
     }
   }
@@ -21188,8 +21188,8 @@ class ParserState {
   _append(str) {
     const bufferIndex = this._bufferIndex;
     const buffers = this._buffers;
-    for (let i4 = 0; i4 < bufferIndex; ++i4) {
-      buffers[i4] += str;
+    for (let i3 = 0; i3 < bufferIndex; ++i3) {
+      buffers[i3] += str;
     }
   }
 }
@@ -21603,15 +21603,15 @@ class ViewportAgent {
         if (this._currTransition === null)
           throw new Error(getMessage(3350, this));
         trace(logger, 3303, this);
-        const b2 = Batch._start((b1) => {
+        const b3 = Batch._start((b1) => {
           this._activate(initiator, this._currTransition, b1);
         });
         const p2 = new Promise((resolve2) => {
-          b2._continueWith(() => {
+          b3._continueWith(() => {
             resolve2();
           });
         });
-        return b2._start()._done ? void 0 : p2;
+        return b3._start()._done ? void 0 : p2;
       }
       default:
         this._unexpectedState("activateFromViewport 2");
@@ -21639,15 +21639,15 @@ class ViewportAgent {
         if (this._currTransition === null)
           throw new Error(getMessage(3351, this));
         trace(logger, 3307, this);
-        const b2 = Batch._start((b1) => {
+        const b3 = Batch._start((b1) => {
           this._deactivate(initiator, this._currTransition, b1);
         });
         const p2 = new Promise((resolve2) => {
-          b2._continueWith(() => {
+          b3._continueWith(() => {
             resolve2();
           });
         });
-        return b2._start()._done ? void 0 : p2;
+        return b3._start()._done ? void 0 : p2;
       }
     }
   }
@@ -21690,7 +21690,7 @@ class ViewportAgent {
     return true;
   }
   /** @internal */
-  _canUnload(tr, b2) {
+  _canUnload(tr, b3) {
     if (this._currTransition === null) {
       this._currTransition = tr;
     }
@@ -21698,7 +21698,7 @@ class ViewportAgent {
     if (tr.guardsResult !== true) {
       return;
     }
-    b2._push();
+    b3._push();
     const logger = /* @__PURE__ */ this._logger.scopeTo("canUnload()");
     void onResolve(this._cancellationPromise, () => {
       Batch._start((b1) => {
@@ -21735,12 +21735,12 @@ class ViewportAgent {
             tr._handleError(new Error(`Unexpected state at canUnload of ${this}`));
         }
       })._continueWith(() => {
-        b2._pop();
+        b3._pop();
       })._start();
     });
   }
   /** @internal */
-  _canLoad(tr, b2) {
+  _canLoad(tr, b3) {
     if (this._currTransition === null) {
       this._currTransition = tr;
     }
@@ -21748,7 +21748,7 @@ class ViewportAgent {
     if (tr.guardsResult !== true) {
       return;
     }
-    b2._push();
+    b3._push();
     const logger = /* @__PURE__ */ this._logger.scopeTo("canLoad()");
     Batch._start((b1) => {
       switch (this._nextState) {
@@ -21813,14 +21813,14 @@ class ViewportAgent {
       }
     })._continueWith(() => {
       trace(logger, 3323, this);
-      b2._pop();
+      b3._pop();
     })._start();
   }
   /** @internal */
-  _unloading(tr, b2) {
+  _unloading(tr, b3) {
     ensureTransitionHasNotErrored(tr);
     ensureGuardsResultIsTrue(this, tr);
-    b2._push();
+    b3._push();
     const logger = /* @__PURE__ */ this._logger.scopeTo("unloading()");
     Batch._start((b1) => {
       trace(logger, 3324, this);
@@ -21852,21 +21852,21 @@ class ViewportAgent {
         case 8192:
           trace(logger, 3328, this);
           for (const node of this._currNode.children) {
-            node.context.vpa._unloading(tr, b2);
+            node.context.vpa._unloading(tr, b3);
           }
           return;
         default:
           this._unexpectedState("unloading");
       }
     })._continueWith(() => {
-      b2._pop();
+      b3._pop();
     })._start();
   }
   /** @internal */
-  _loading(tr, b2) {
+  _loading(tr, b3) {
     ensureTransitionHasNotErrored(tr);
     ensureGuardsResultIsTrue(this, tr);
-    b2._push();
+    b3._push();
     const logger = /* @__PURE__ */ this._logger.scopeTo("loading()");
     Batch._start((b1) => {
       switch (this._nextState) {
@@ -21904,14 +21904,14 @@ class ViewportAgent {
       }
     })._continueWith(() => {
       trace(logger, 3332, this);
-      b2._pop();
+      b3._pop();
     })._start();
   }
   /** @internal */
-  _deactivate(initiator, tr, b2) {
+  _deactivate(initiator, tr, b3) {
     ensureTransitionHasNotErrored(tr);
     ensureGuardsResultIsTrue(this, tr);
-    b2._push();
+    b3._push();
     const logger = /* @__PURE__ */ this._logger.scopeTo("deactivate()");
     switch (this._currState) {
       case 256:
@@ -21920,7 +21920,7 @@ class ViewportAgent {
         switch (this._$plan) {
           case "none":
           case "invoke-lifecycles":
-            b2._pop();
+            b3._pop();
             return;
           case "replace": {
             const controller = this.hostController;
@@ -21932,28 +21932,28 @@ class ViewportAgent {
                 }
               });
             }, () => {
-              b2._pop();
+              b3._pop();
             });
           }
         }
         return;
       case 8192:
         trace(logger, 3334, this);
-        b2._pop();
+        b3._pop();
         return;
       case 128:
         trace(logger, 3335, this);
-        b2._pop();
+        b3._pop();
         return;
       default:
         this._unexpectedState("deactivate");
     }
   }
   /** @internal */
-  _activate(initiator, tr, b2) {
+  _activate(initiator, tr, b3) {
     ensureTransitionHasNotErrored(tr);
     ensureGuardsResultIsTrue(this, tr);
-    b2._push();
+    b3._push();
     const logger = /* @__PURE__ */ this._logger.scopeTo("activate()");
     if (this._nextState === 32) {
       trace(logger, 3336, this);
@@ -21964,7 +21964,7 @@ class ViewportAgent {
       })._continueWith((b1) => {
         this._activate(initiator, tr, b1);
       })._continueWith(() => {
-        b2._pop();
+        b3._pop();
       })._start();
       return;
     }
@@ -21990,28 +21990,28 @@ class ViewportAgent {
         })._continueWith((b1) => {
           this._processDynamicChildren(tr, b1);
         })._continueWith(() => {
-          b2._pop();
+          b3._pop();
         })._start();
         return;
       case 64:
         trace(logger, 3338, this);
-        b2._pop();
+        b3._pop();
         return;
       default:
         this._unexpectedState("activate");
     }
   }
   /** @internal */
-  _swap(tr, b2) {
+  _swap(tr, b3) {
     const logger = /* @__PURE__ */ this._logger.scopeTo("swap()");
     if (this._currState === 8192) {
       trace(logger, 3339, this);
-      this._activate(null, tr, b2);
+      this._activate(null, tr, b3);
       return;
     }
     if (this._nextState === 64) {
       trace(logger, 3340, this);
-      this._deactivate(null, tr, b2);
+      this._deactivate(null, tr, b3);
       return;
     }
     ensureTransitionHasNotErrored(tr);
@@ -22027,7 +22027,7 @@ class ViewportAgent {
         trace(logger, 3341, this);
         const nodes = mergeDistinct(this._nextNode.children, this._currNode.children);
         for (const node of nodes) {
-          node.context.vpa._swap(tr, b2);
+          node.context.vpa._swap(tr, b3);
         }
         return;
       }
@@ -22036,7 +22036,7 @@ class ViewportAgent {
         const controller = this.hostController;
         const curCA = this._curCA;
         const nextCA = this._nextCA;
-        b2._push();
+        b3._push();
         Batch._start((b1) => {
           tr._run(() => {
             b1._push();
@@ -22054,18 +22054,18 @@ class ViewportAgent {
         })._continueWith((b1) => {
           this._processDynamicChildren(tr, b1);
         })._continueWith(() => {
-          b2._pop();
+          b3._pop();
         })._start();
         return;
       }
     }
   }
   /** @internal */
-  _processDynamicChildren(tr, b2) {
+  _processDynamicChildren(tr, b3) {
     trace(this._logger, 3343, this);
     const next = this._nextNode;
     tr._run(() => {
-      b2._push();
+      b3._push();
       const ctx = next.context;
       return onResolve(ctx.allResolved, () => {
         const existingChildren = next.children.slice();
@@ -22107,7 +22107,7 @@ class ViewportAgent {
           });
         }
       })._continueWith(() => {
-        b2._pop();
+        b3._pop();
       })._start();
     });
   }
@@ -22401,14 +22401,14 @@ class RouteNode {
     if (this.context === instructions.options.context) {
       const nodeChildren = this.children;
       const instructionChildren = instructions.children;
-      for (let i4 = 0, ii = nodeChildren.length; i4 < ii; ++i4) {
+      for (let i3 = 0, ii = nodeChildren.length; i3 < ii; ++i3) {
         for (let j2 = 0, jj = instructionChildren.length; j2 < jj; ++j2) {
           const instructionChild = instructionChildren[j2];
           const instructionEndpoint = matchEndpoint ? instructionChild.recognizedRoute?.route.endpoint : null;
-          const nodeChild = nodeChildren[i4 + j2] ?? null;
+          const nodeChild = nodeChildren[i3 + j2] ?? null;
           const instruction = nodeChild !== null ? nodeChild.isInstructionsFinalized ? nodeChild.instruction : nodeChild._originalInstruction : null;
           const childEndpoint = instruction?.recognizedRoute?.route.endpoint;
-          if (i4 + j2 < ii && ((instructionEndpoint?.equalsOrResidual(childEndpoint) ?? false) || (instruction?.contains(instructionChild) ?? false))) {
+          if (i3 + j2 < ii && ((instructionEndpoint?.equalsOrResidual(childEndpoint) ?? false) || (instruction?.contains(instructionChild) ?? false))) {
             if (j2 + 1 === jj) {
               return true;
             }
@@ -22487,8 +22487,8 @@ class RouteNode {
     );
     const children = this.children;
     const len = children.length;
-    for (let i4 = 0; i4 < len; ++i4) {
-      clone.children.push(children[i4]._clone());
+    for (let i3 = 0; i3 < len; ++i3) {
+      clone.children.push(children[i3]._clone());
     }
     clone._version = this._version + 1;
     if (clone.context.node === this) {
@@ -22639,7 +22639,7 @@ function createAndAppendNodes(log, node, vi) {
           rr.residue = null;
           vi.component.value = noResidue ? path : path.slice(0, -(residue.length + 1));
           let addResidue = !noResidue;
-          for (let i4 = 0; i4 < collapse; ++i4) {
+          for (let i3 = 0; i3 < collapse; ++i3) {
             const child = vi.children[0];
             if (residue?.startsWith(child.component.value) ?? false) {
               addResidue = false;
@@ -23167,40 +23167,40 @@ class Router {
       const prev = tr.previousRouteTree.root.children;
       const next = tr.routeTree.root.children;
       const all2 = mergeDistinct(prev, next);
-      Batch._start((b2) => {
+      Batch._start((b3) => {
         trace(logger, 3261, prev.length);
         for (const node of prev) {
-          node.context.vpa._canUnload(tr, b2);
+          node.context.vpa._canUnload(tr, b3);
         }
-      })._continueWith((b2) => {
+      })._continueWith((b3) => {
         if (tr.guardsResult !== true) {
-          b2._push();
+          b3._push();
           this._cancelNavigation(tr);
         }
-      })._continueWith((b2) => {
+      })._continueWith((b3) => {
         trace(logger, 3262, next.length);
         for (const node of next) {
-          node.context.vpa._canLoad(tr, b2);
+          node.context.vpa._canLoad(tr, b3);
         }
-      })._continueWith((b2) => {
+      })._continueWith((b3) => {
         if (tr.guardsResult !== true) {
-          b2._push();
+          b3._push();
           this._cancelNavigation(tr);
         }
-      })._continueWith((b2) => {
+      })._continueWith((b3) => {
         trace(logger, 3263, prev.length);
         for (const node of prev) {
-          node.context.vpa._unloading(tr, b2);
+          node.context.vpa._unloading(tr, b3);
         }
-      })._continueWith((b2) => {
+      })._continueWith((b3) => {
         trace(logger, 3264, next.length);
         for (const node of next) {
-          node.context.vpa._loading(tr, b2);
+          node.context.vpa._loading(tr, b3);
         }
-      })._continueWith((b2) => {
+      })._continueWith((b3) => {
         trace(logger, 3265, all2.length);
         for (const node of all2) {
-          node.context.vpa._swap(tr, b2);
+          node.context.vpa._swap(tr, b3);
         }
       })._continueWith(() => {
         trace(
@@ -23480,8 +23480,8 @@ class ViewportInstruction {
     const otherVp = other.viewport ?? null;
     if (vp !== null && otherVp !== null && vp !== otherVp)
       return false;
-    for (let i4 = 0, ii = otherChildren.length; i4 < ii; ++i4) {
-      if (!thisChildren[i4].contains(otherChildren[i4])) {
+    for (let i3 = 0, ii = otherChildren.length; i3 < ii; ++i3) {
+      if (!thisChildren[i3].contains(otherChildren[i3])) {
         return false;
       }
     }
@@ -23496,8 +23496,8 @@ class ViewportInstruction {
     if (!this.component.equals(other.component) || this.viewport !== other.viewport || !shallowEquals(this.params, other.params)) {
       return false;
     }
-    for (let i4 = 0, ii = thisChildren.length; i4 < ii; ++i4) {
-      if (!thisChildren[i4].equals(otherChildren[i4])) {
+    for (let i3 = 0, ii = thisChildren.length; i3 < ii; ++i3) {
+      if (!thisChildren[i3].equals(otherChildren[i3])) {
         return false;
       }
     }
@@ -23541,14 +23541,14 @@ function stringifyParams(params) {
       namedKeys.push(key);
     }
   }
-  for (let i4 = 0; i4 < numKeys; ++i4) {
-    const indexKeyIdx = indexKeys.indexOf(i4);
+  for (let i3 = 0; i3 < numKeys; ++i3) {
+    const indexKeyIdx = indexKeys.indexOf(i3);
     if (indexKeyIdx > -1) {
-      values[i4] = params[i4];
+      values[i3] = params[i3];
       indexKeys.splice(indexKeyIdx, 1);
     } else {
       const namedKey = namedKeys.shift();
-      values[i4] = `${namedKey}=${params[namedKey]}`;
+      values[i3] = `${namedKey}=${params[namedKey]}`;
     }
   }
   return `(${values.join(",")})`;
@@ -23573,14 +23573,14 @@ class ViewportInstructionTree {
       const len = instructionOrInstructions.length;
       const children = new Array(len);
       const query2 = new URLSearchParams(options.queryParams ?? emptyObject);
-      for (let i4 = 0; i4 < len; i4++) {
-        const instruction = instructionOrInstructions[i4];
+      for (let i3 = 0; i3 < len; i3++) {
+        const instruction = instructionOrInstructions[i3];
         const eagerVi2 = hasContext ? context._generateViewportInstruction(instruction) : null;
         if (eagerVi2 !== null) {
-          children[i4] = eagerVi2.vi;
+          children[i3] = eagerVi2.vi;
           mergeURLSearchParams(query2, eagerVi2.query, false);
         } else {
-          children[i4] = ViewportInstruction.create(instruction);
+          children[i3] = ViewportInstruction.create(instruction);
         }
       }
       return new ViewportInstructionTree(options, false, children, query2, options.fragment);
@@ -23599,8 +23599,8 @@ class ViewportInstructionTree {
     if (thisChildren.length !== otherChildren.length) {
       return false;
     }
-    for (let i4 = 0, ii = thisChildren.length; i4 < ii; ++i4) {
-      if (!thisChildren[i4].equals(otherChildren[i4])) {
+    for (let i3 = 0, ii = thisChildren.length; i3 < ii; ++i3) {
+      if (!thisChildren[i3].equals(otherChildren[i3])) {
         return false;
       }
     }
@@ -23781,15 +23781,15 @@ class ComponentAgent {
     this._controller.dispose();
   }
   /** @internal */
-  _canUnload(tr, next, b2) {
+  _canUnload(tr, next, b3) {
     trace(this._logger, 3056, next, this._canUnloadHooks.length);
-    b2._push();
+    b3._push();
     let promise = Promise.resolve();
     for (const hook of this._canUnloadHooks) {
-      b2._push();
+      b3._push();
       promise = promise.then(() => new Promise((res) => {
         if (tr.guardsResult !== true) {
-          b2._pop();
+          b3._pop();
           res();
           return;
         }
@@ -23799,16 +23799,16 @@ class ComponentAgent {
           if (tr.guardsResult === true && ret === false) {
             tr.guardsResult = false;
           }
-          b2._pop();
+          b3._pop();
           res();
         });
       }));
     }
     if (this._hasCanUnload) {
-      b2._push();
+      b3._push();
       promise = promise.then(() => {
         if (tr.guardsResult !== true) {
-          b2._pop();
+          b3._pop();
           return;
         }
         tr._run(() => {
@@ -23817,23 +23817,23 @@ class ComponentAgent {
           if (tr.guardsResult === true && ret === false) {
             tr.guardsResult = false;
           }
-          b2._pop();
+          b3._pop();
         });
       });
     }
-    b2._pop();
+    b3._pop();
   }
   /** @internal */
-  _canLoad(tr, next, b2) {
+  _canLoad(tr, next, b3) {
     trace(this._logger, 3057, next, this._canLoadHooks.length);
     const rootCtx = this._ctx.root;
-    b2._push();
+    b3._push();
     let promise = Promise.resolve();
     for (const hook of this._canLoadHooks) {
-      b2._push();
+      b3._push();
       promise = promise.then(() => new Promise((res) => {
         if (tr.guardsResult !== true) {
-          b2._pop();
+          b3._pop();
           res();
           return;
         }
@@ -23843,16 +23843,16 @@ class ComponentAgent {
           if (tr.guardsResult === true && ret != null && ret !== true) {
             tr.guardsResult = ret === false ? false : ViewportInstructionTree.create(ret, this._routerOptions, void 0, rootCtx);
           }
-          b2._pop();
+          b3._pop();
           res();
         });
       }));
     }
     if (this._hasCanLoad) {
-      b2._push();
+      b3._push();
       promise = promise.then(() => {
         if (tr.guardsResult !== true) {
-          b2._pop();
+          b3._pop();
           return;
         }
         tr._run(() => {
@@ -23861,55 +23861,55 @@ class ComponentAgent {
           if (tr.guardsResult === true && ret != null && ret !== true) {
             tr.guardsResult = ret === false ? false : ViewportInstructionTree.create(ret, this._routerOptions, void 0, rootCtx);
           }
-          b2._pop();
+          b3._pop();
         });
       });
     }
-    b2._pop();
+    b3._pop();
   }
   /** @internal */
-  _unloading(tr, next, b2) {
+  _unloading(tr, next, b3) {
     trace(this._logger, 3058, next, this._unloadHooks.length);
-    b2._push();
+    b3._push();
     for (const hook of this._unloadHooks) {
       tr._run(() => {
-        b2._push();
+        b3._push();
         return hook.unloading(this._instance, next, this._routeNode);
       }, () => {
-        b2._pop();
+        b3._pop();
       });
     }
     if (this._hasUnload) {
       tr._run(() => {
-        b2._push();
+        b3._push();
         return this._instance.unloading(next, this._routeNode);
       }, () => {
-        b2._pop();
+        b3._pop();
       });
     }
-    b2._pop();
+    b3._pop();
   }
   /** @internal */
-  _loading(tr, next, b2) {
+  _loading(tr, next, b3) {
     trace(this._logger, 3059, next, this._loadHooks.length);
-    b2._push();
+    b3._push();
     for (const hook of this._loadHooks) {
       tr._run(() => {
-        b2._push();
+        b3._push();
         return hook.loading(this._instance, next.params, next, this._routeNode);
       }, () => {
-        b2._pop();
+        b3._pop();
       });
     }
     if (this._hasLoad) {
       tr._run(() => {
-        b2._push();
+        b3._push();
         return this._instance.loading(next.params, next, this._routeNode);
       }, () => {
-        b2._pop();
+        b3._pop();
       });
     }
-    b2._pop();
+    b3._pop();
   }
 }
 const IRouteContext = /* @__PURE__ */ DI.createInterface("IRouteContext");
@@ -24013,9 +24013,9 @@ class RouteContext {
     }
     const navModel = this._navigationModel;
     const hasNavModel = navModel !== null;
-    let i4 = 0;
-    for (; i4 < len; i4++) {
-      const childRoute = childrenRoutes[i4];
+    let i3 = 0;
+    for (; i3 < len; i3++) {
+      const childRoute = childrenRoutes[i3];
       if (childRoute instanceof Promise) {
         allPromises.push(this._addRoute(childRoute));
         continue;
@@ -24306,8 +24306,8 @@ class RouteContext {
       };
     }
     let maxScore = 0;
-    for (let i4 = 0; i4 < numPaths; i4++) {
-      const res = core(paths[i4]);
+    for (let i3 = 0; i3 < numPaths; i3++) {
+      const res = core(paths[i3]);
       if (res === null)
         continue;
       if (result === null) {
@@ -24374,8 +24374,8 @@ class RouteContext {
   /** @internal */
   _printTree() {
     const tree = [];
-    for (let i4 = 0; i4 < this.path.length; ++i4) {
-      tree.push(`${" ".repeat(i4)}${this.path[i4]}`);
+    for (let i3 = 0; i3 < this.path.length; ++i3) {
+      tree.push(`${" ".repeat(i3)}${this.path[i3]}`);
     }
     return tree.join("\n");
   }
@@ -24754,27 +24754,27 @@ const RouterConfiguration = {
     };
   }
 };
-var extendStatics = function(d2, b2) {
-  extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d3, b3) {
-    d3.__proto__ = b3;
-  } || function(d3, b3) {
-    for (var p2 in b3) if (Object.prototype.hasOwnProperty.call(b3, p2)) d3[p2] = b3[p2];
+var extendStatics = function(d2, b3) {
+  extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d3, b4) {
+    d3.__proto__ = b4;
+  } || function(d3, b4) {
+    for (var p2 in b4) if (Object.prototype.hasOwnProperty.call(b4, p2)) d3[p2] = b4[p2];
   };
-  return extendStatics(d2, b2);
+  return extendStatics(d2, b3);
 };
-function __extends(d2, b2) {
-  if (typeof b2 !== "function" && b2 !== null)
-    throw new TypeError("Class extends value " + String(b2) + " is not a constructor or null");
-  extendStatics(d2, b2);
+function __extends(d2, b3) {
+  if (typeof b3 !== "function" && b3 !== null)
+    throw new TypeError("Class extends value " + String(b3) + " is not a constructor or null");
+  extendStatics(d2, b3);
   function __() {
     this.constructor = d2;
   }
-  d2.prototype = b2 === null ? Object.create(b2) : (__.prototype = b2.prototype, new __());
+  d2.prototype = b3 === null ? Object.create(b3) : (__.prototype = b3.prototype, new __());
 }
 var __assign = function() {
   __assign = Object.assign || function __assign2(t2) {
-    for (var s2, i4 = 1, n3 = arguments.length; i4 < n3; i4++) {
-      s2 = arguments[i4];
+    for (var s2, i3 = 1, n3 = arguments.length; i3 < n3; i3++) {
+      s2 = arguments[i3];
       for (var p2 in s2) if (Object.prototype.hasOwnProperty.call(s2, p2)) t2[p2] = s2[p2];
     }
     return t2;
@@ -24784,16 +24784,16 @@ var __assign = function() {
 function __decorate(decorators, target, key, desc) {
   var c2 = arguments.length, r2 = c2 < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d2;
   if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r2 = Reflect.decorate(decorators, target, key, desc);
-  else for (var i4 = decorators.length - 1; i4 >= 0; i4--) if (d2 = decorators[i4]) r2 = (c2 < 3 ? d2(r2) : c2 > 3 ? d2(target, key, r2) : d2(target, key)) || r2;
+  else for (var i3 = decorators.length - 1; i3 >= 0; i3--) if (d2 = decorators[i3]) r2 = (c2 < 3 ? d2(r2) : c2 > 3 ? d2(target, key, r2) : d2(target, key)) || r2;
   return c2 > 3 && r2 && Object.defineProperty(target, key, r2), r2;
 }
 function __values(o2) {
-  var s2 = typeof Symbol === "function" && Symbol.iterator, m2 = s2 && o2[s2], i4 = 0;
+  var s2 = typeof Symbol === "function" && Symbol.iterator, m2 = s2 && o2[s2], i3 = 0;
   if (m2) return m2.call(o2);
   if (o2 && typeof o2.length === "number") return {
     next: function() {
-      if (o2 && i4 >= o2.length) o2 = void 0;
-      return { value: o2 && o2[i4++], done: !o2 };
+      if (o2 && i3 >= o2.length) o2 = void 0;
+      return { value: o2 && o2[i3++], done: !o2 };
     }
   };
   throw new TypeError(s2 ? "Object is not iterable." : "Symbol.iterator is not defined.");
@@ -24801,14 +24801,14 @@ function __values(o2) {
 function __read(o2, n3) {
   var m2 = typeof Symbol === "function" && o2[Symbol.iterator];
   if (!m2) return o2;
-  var i4 = m2.call(o2), r2, ar = [], e2;
+  var i3 = m2.call(o2), r2, ar = [], e2;
   try {
-    while ((n3 === void 0 || n3-- > 0) && !(r2 = i4.next()).done) ar.push(r2.value);
+    while ((n3 === void 0 || n3-- > 0) && !(r2 = i3.next()).done) ar.push(r2.value);
   } catch (error2) {
     e2 = { error: error2 };
   } finally {
     try {
-      if (r2 && !r2.done && (m2 = i4["return"])) m2.call(i4);
+      if (r2 && !r2.done && (m2 = i3["return"])) m2.call(i3);
     } finally {
       if (e2) throw e2.error;
     }
@@ -24816,10 +24816,10 @@ function __read(o2, n3) {
   return ar;
 }
 function __spreadArray(to, from, pack) {
-  if (pack || arguments.length === 2) for (var i4 = 0, l2 = from.length, ar; i4 < l2; i4++) {
-    if (ar || !(i4 in from)) {
-      if (!ar) ar = Array.prototype.slice.call(from, 0, i4);
-      ar[i4] = from[i4];
+  if (pack || arguments.length === 2) for (var i3 = 0, l2 = from.length, ar; i3 < l2; i3++) {
+    if (ar || !(i3 in from)) {
+      if (!ar) ar = Array.prototype.slice.call(from, 0, i3);
+      ar[i3] = from[i3];
     }
   }
   return to.concat(ar || Array.prototype.slice.call(from));
@@ -24843,10 +24843,10 @@ const t$3 = (t2) => (e2, o2) => {
  * Copyright 2019 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const t$2 = globalThis, e$7 = t$2.ShadowRoot && (void 0 === t$2.ShadyCSS || t$2.ShadyCSS.nativeShadow) && "adoptedStyleSheets" in Document.prototype && "replace" in CSSStyleSheet.prototype, s$2 = Symbol(), o$7 = /* @__PURE__ */ new WeakMap();
+const t$2 = globalThis, e$7 = t$2.ShadowRoot && (void 0 === t$2.ShadyCSS || t$2.ShadyCSS.nativeShadow) && "adoptedStyleSheets" in Document.prototype && "replace" in CSSStyleSheet.prototype, s$1 = Symbol(), o$6 = /* @__PURE__ */ new WeakMap();
 let n$7 = class n {
   constructor(t2, e2, o2) {
-    if (this._$cssResult$ = true, o2 !== s$2) throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");
+    if (this._$cssResult$ = true, o2 !== s$1) throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");
     this.cssText = t2, this.t = e2;
   }
   get styleSheet() {
@@ -24854,7 +24854,7 @@ let n$7 = class n {
     const s2 = this.t;
     if (e$7 && void 0 === t2) {
       const e2 = void 0 !== s2 && 1 === s2.length;
-      e2 && (t2 = o$7.get(s2)), void 0 === t2 && ((this.o = t2 = new CSSStyleSheet()).replaceSync(this.cssText), e2 && o$7.set(s2, t2));
+      e2 && (t2 = o$6.get(s2)), void 0 === t2 && ((this.o = t2 = new CSSStyleSheet()).replaceSync(this.cssText), e2 && o$6.set(s2, t2));
     }
     return t2;
   }
@@ -24862,13 +24862,13 @@ let n$7 = class n {
     return this.cssText;
   }
 };
-const r$6 = (t2) => new n$7("string" == typeof t2 ? t2 : t2 + "", void 0, s$2), i$6 = (t2, ...e2) => {
+const r$7 = (t2) => new n$7("string" == typeof t2 ? t2 : t2 + "", void 0, s$1), i$6 = (t2, ...e2) => {
   const o2 = 1 === t2.length ? t2[0] : e2.reduce((e3, s2, o3) => e3 + ((t3) => {
     if (true === t3._$cssResult$) return t3.cssText;
     if ("number" == typeof t3) return t3;
     throw Error("Value passed to 'css' function must be a 'css' function result: " + t3 + ". Use 'unsafeCSS' to pass non-literal values, but take care to ensure page security.");
   })(s2) + t2[o3 + 1], t2[0]);
-  return new n$7(o2, t2, s$2);
+  return new n$7(o2, t2, s$1);
 }, S$2 = (s2, o2) => {
   if (e$7) s2.adoptedStyleSheets = o2.map((t2) => t2 instanceof CSSStyleSheet ? t2 : t2.styleSheet);
   else for (const e2 of o2) {
@@ -24878,14 +24878,14 @@ const r$6 = (t2) => new n$7("string" == typeof t2 ? t2 : t2 + "", void 0, s$2), 
 }, c$2 = e$7 ? (t2) => t2 : (t2) => t2 instanceof CSSStyleSheet ? ((t3) => {
   let e2 = "";
   for (const s2 of t3.cssRules) e2 += s2.cssText;
-  return r$6(e2);
+  return r$7(e2);
 })(t2) : t2;
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const { is: i$5, defineProperty: e$6, getOwnPropertyDescriptor: h$1, getOwnPropertyNames: r$5, getOwnPropertySymbols: o$6, getPrototypeOf: n$6 } = Object, a$2 = globalThis, c$1 = a$2.trustedTypes, l$3 = c$1 ? c$1.emptyScript : "", p$2 = a$2.reactiveElementPolyfillSupport, d$1 = (t2, s2) => t2, u$3 = { toAttribute(t2, s2) {
+const { is: i$5, defineProperty: e$6, getOwnPropertyDescriptor: r$6, getOwnPropertyNames: h$1, getOwnPropertySymbols: o$5, getPrototypeOf: n$6 } = Object, a$2 = globalThis, c$1 = a$2.trustedTypes, l$3 = c$1 ? c$1.emptyScript : "", p$2 = a$2.reactiveElementPolyfillSupport, d$1 = (t2, s2) => t2, u$3 = { toAttribute(t2, s2) {
   switch (s2) {
     case Boolean:
       t2 = t2 ? l$3 : null;
@@ -24896,51 +24896,53 @@ const { is: i$5, defineProperty: e$6, getOwnPropertyDescriptor: h$1, getOwnPrope
   }
   return t2;
 }, fromAttribute(t2, s2) {
-  let i4 = t2;
+  let i3 = t2;
   switch (s2) {
     case Boolean:
-      i4 = null !== t2;
+      i3 = null !== t2;
       break;
     case Number:
-      i4 = null === t2 ? null : Number(t2);
+      i3 = null === t2 ? null : Number(t2);
       break;
     case Object:
     case Array:
       try {
-        i4 = JSON.parse(t2);
+        i3 = JSON.parse(t2);
       } catch (t3) {
-        i4 = null;
+        i3 = null;
       }
   }
-  return i4;
-} }, f$2 = (t2, s2) => !i$5(t2, s2), b$1 = { attribute: true, type: String, converter: u$3, reflect: false, useDefault: false, hasChanged: f$2 };
+  return i3;
+} }, f$2 = (t2, s2) => !i$5(t2, s2), y$2 = { attribute: true, type: String, converter: u$3, reflect: false, hasChanged: f$2 };
 Symbol.metadata ??= Symbol("metadata"), a$2.litPropertyMetadata ??= /* @__PURE__ */ new WeakMap();
-let y$2 = class y extends HTMLElement {
+let b$1 = class b extends HTMLElement {
   static addInitializer(t2) {
     this._$Ei(), (this.l ??= []).push(t2);
   }
   static get observedAttributes() {
     return this.finalize(), this._$Eh && [...this._$Eh.keys()];
   }
-  static createProperty(t2, s2 = b$1) {
-    if (s2.state && (s2.attribute = false), this._$Ei(), this.prototype.hasOwnProperty(t2) && ((s2 = Object.create(s2)).wrapped = true), this.elementProperties.set(t2, s2), !s2.noAccessor) {
-      const i4 = Symbol(), h2 = this.getPropertyDescriptor(t2, i4, s2);
-      void 0 !== h2 && e$6(this.prototype, t2, h2);
+  static createProperty(t2, s2 = y$2) {
+    if (s2.state && (s2.attribute = false), this._$Ei(), this.elementProperties.set(t2, s2), !s2.noAccessor) {
+      const i3 = Symbol(), r2 = this.getPropertyDescriptor(t2, i3, s2);
+      void 0 !== r2 && e$6(this.prototype, t2, r2);
     }
   }
-  static getPropertyDescriptor(t2, s2, i4) {
-    const { get: e2, set: r2 } = h$1(this.prototype, t2) ?? { get() {
+  static getPropertyDescriptor(t2, s2, i3) {
+    const { get: e2, set: h2 } = r$6(this.prototype, t2) ?? { get() {
       return this[s2];
     }, set(t3) {
       this[s2] = t3;
     } };
-    return { get: e2, set(s3) {
-      const h2 = e2?.call(this);
-      r2?.call(this, s3), this.requestUpdate(t2, h2, i4);
+    return { get() {
+      return e2?.call(this);
+    }, set(s3) {
+      const r2 = e2?.call(this);
+      h2.call(this, s3), this.requestUpdate(t2, r2, i3);
     }, configurable: true, enumerable: true };
   }
   static getPropertyOptions(t2) {
-    return this.elementProperties.get(t2) ?? b$1;
+    return this.elementProperties.get(t2) ?? y$2;
   }
   static _$Ei() {
     if (this.hasOwnProperty(d$1("elementProperties"))) return;
@@ -24950,32 +24952,32 @@ let y$2 = class y extends HTMLElement {
   static finalize() {
     if (this.hasOwnProperty(d$1("finalized"))) return;
     if (this.finalized = true, this._$Ei(), this.hasOwnProperty(d$1("properties"))) {
-      const t3 = this.properties, s2 = [...r$5(t3), ...o$6(t3)];
-      for (const i4 of s2) this.createProperty(i4, t3[i4]);
+      const t3 = this.properties, s2 = [...h$1(t3), ...o$5(t3)];
+      for (const i3 of s2) this.createProperty(i3, t3[i3]);
     }
     const t2 = this[Symbol.metadata];
     if (null !== t2) {
       const s2 = litPropertyMetadata.get(t2);
-      if (void 0 !== s2) for (const [t3, i4] of s2) this.elementProperties.set(t3, i4);
+      if (void 0 !== s2) for (const [t3, i3] of s2) this.elementProperties.set(t3, i3);
     }
     this._$Eh = /* @__PURE__ */ new Map();
     for (const [t3, s2] of this.elementProperties) {
-      const i4 = this._$Eu(t3, s2);
-      void 0 !== i4 && this._$Eh.set(i4, t3);
+      const i3 = this._$Eu(t3, s2);
+      void 0 !== i3 && this._$Eh.set(i3, t3);
     }
     this.elementStyles = this.finalizeStyles(this.styles);
   }
   static finalizeStyles(s2) {
-    const i4 = [];
+    const i3 = [];
     if (Array.isArray(s2)) {
       const e2 = new Set(s2.flat(1 / 0).reverse());
-      for (const s3 of e2) i4.unshift(c$2(s3));
-    } else void 0 !== s2 && i4.push(c$2(s2));
-    return i4;
+      for (const s3 of e2) i3.unshift(c$2(s3));
+    } else void 0 !== s2 && i3.push(c$2(s2));
+    return i3;
   }
   static _$Eu(t2, s2) {
-    const i4 = s2.attribute;
-    return false === i4 ? void 0 : "string" == typeof i4 ? i4 : "string" == typeof t2 ? t2.toLowerCase() : void 0;
+    const i3 = s2.attribute;
+    return false === i3 ? void 0 : "string" == typeof i3 ? i3 : "string" == typeof t2 ? t2.toLowerCase() : void 0;
   }
   constructor() {
     super(), this._$Ep = void 0, this.isUpdatePending = false, this.hasUpdated = false, this._$Em = null, this._$Ev();
@@ -24991,7 +24993,7 @@ let y$2 = class y extends HTMLElement {
   }
   _$E_() {
     const t2 = /* @__PURE__ */ new Map(), s2 = this.constructor.elementProperties;
-    for (const i4 of s2.keys()) this.hasOwnProperty(i4) && (t2.set(i4, this[i4]), delete this[i4]);
+    for (const i3 of s2.keys()) this.hasOwnProperty(i3) && (t2.set(i3, this[i3]), delete this[i3]);
     t2.size > 0 && (this._$Ep = t2);
   }
   createRenderRoot() {
@@ -25006,35 +25008,34 @@ let y$2 = class y extends HTMLElement {
   disconnectedCallback() {
     this._$EO?.forEach((t2) => t2.hostDisconnected?.());
   }
-  attributeChangedCallback(t2, s2, i4) {
-    this._$AK(t2, i4);
+  attributeChangedCallback(t2, s2, i3) {
+    this._$AK(t2, i3);
   }
-  _$ET(t2, s2) {
-    const i4 = this.constructor.elementProperties.get(t2), e2 = this.constructor._$Eu(t2, i4);
-    if (void 0 !== e2 && true === i4.reflect) {
-      const h2 = (void 0 !== i4.converter?.toAttribute ? i4.converter : u$3).toAttribute(s2, i4.type);
-      this._$Em = t2, null == h2 ? this.removeAttribute(e2) : this.setAttribute(e2, h2), this._$Em = null;
+  _$EC(t2, s2) {
+    const i3 = this.constructor.elementProperties.get(t2), e2 = this.constructor._$Eu(t2, i3);
+    if (void 0 !== e2 && true === i3.reflect) {
+      const r2 = (void 0 !== i3.converter?.toAttribute ? i3.converter : u$3).toAttribute(s2, i3.type);
+      this._$Em = t2, null == r2 ? this.removeAttribute(e2) : this.setAttribute(e2, r2), this._$Em = null;
     }
   }
   _$AK(t2, s2) {
-    const i4 = this.constructor, e2 = i4._$Eh.get(t2);
+    const i3 = this.constructor, e2 = i3._$Eh.get(t2);
     if (void 0 !== e2 && this._$Em !== e2) {
-      const t3 = i4.getPropertyOptions(e2), h2 = "function" == typeof t3.converter ? { fromAttribute: t3.converter } : void 0 !== t3.converter?.fromAttribute ? t3.converter : u$3;
-      this._$Em = e2, this[e2] = h2.fromAttribute(s2, t3.type) ?? this._$Ej?.get(e2) ?? null, this._$Em = null;
+      const t3 = i3.getPropertyOptions(e2), r2 = "function" == typeof t3.converter ? { fromAttribute: t3.converter } : void 0 !== t3.converter?.fromAttribute ? t3.converter : u$3;
+      this._$Em = e2, this[e2] = r2.fromAttribute(s2, t3.type), this._$Em = null;
     }
   }
-  requestUpdate(t2, s2, i4) {
+  requestUpdate(t2, s2, i3) {
     if (void 0 !== t2) {
-      const e2 = this.constructor, h2 = this[t2];
-      if (i4 ??= e2.getPropertyOptions(t2), !((i4.hasChanged ?? f$2)(h2, s2) || i4.useDefault && i4.reflect && h2 === this._$Ej?.get(t2) && !this.hasAttribute(e2._$Eu(t2, i4)))) return;
-      this.C(t2, s2, i4);
+      if (i3 ??= this.constructor.getPropertyOptions(t2), !(i3.hasChanged ?? f$2)(this[t2], s2)) return;
+      this.P(t2, s2, i3);
     }
-    false === this.isUpdatePending && (this._$ES = this._$EP());
+    false === this.isUpdatePending && (this._$ES = this._$ET());
   }
-  C(t2, s2, { useDefault: i4, reflect: e2, wrapped: h2 }, r2) {
-    i4 && !(this._$Ej ??= /* @__PURE__ */ new Map()).has(t2) && (this._$Ej.set(t2, r2 ?? s2 ?? this[t2]), true !== h2 || void 0 !== r2) || (this._$AL.has(t2) || (this.hasUpdated || i4 || (s2 = void 0), this._$AL.set(t2, s2)), true === e2 && this._$Em !== t2 && (this._$Eq ??= /* @__PURE__ */ new Set()).add(t2));
+  P(t2, s2, i3) {
+    this._$AL.has(t2) || this._$AL.set(t2, s2), true === i3.reflect && this._$Em !== t2 && (this._$Ej ??= /* @__PURE__ */ new Set()).add(t2);
   }
-  async _$EP() {
+  async _$ET() {
     this.isUpdatePending = true;
     try {
       await this._$ES;
@@ -25055,17 +25056,14 @@ let y$2 = class y extends HTMLElement {
         this._$Ep = void 0;
       }
       const t3 = this.constructor.elementProperties;
-      if (t3.size > 0) for (const [s3, i4] of t3) {
-        const { wrapped: t4 } = i4, e2 = this[s3];
-        true !== t4 || this._$AL.has(s3) || void 0 === e2 || this.C(s3, void 0, i4, e2);
-      }
+      if (t3.size > 0) for (const [s3, i3] of t3) true !== i3.wrapped || this._$AL.has(s3) || void 0 === this[s3] || this.P(s3, this[s3], i3);
     }
     let t2 = false;
     const s2 = this._$AL;
     try {
-      t2 = this.shouldUpdate(s2), t2 ? (this.willUpdate(s2), this._$EO?.forEach((t3) => t3.hostUpdate?.()), this.update(s2)) : this._$EM();
+      t2 = this.shouldUpdate(s2), t2 ? (this.willUpdate(s2), this._$EO?.forEach((t3) => t3.hostUpdate?.()), this.update(s2)) : this._$EU();
     } catch (s3) {
-      throw t2 = false, this._$EM(), s3;
+      throw t2 = false, this._$EU(), s3;
     }
     t2 && this._$AE(s2);
   }
@@ -25074,7 +25072,7 @@ let y$2 = class y extends HTMLElement {
   _$AE(t2) {
     this._$EO?.forEach((t3) => t3.hostUpdated?.()), this.hasUpdated || (this.hasUpdated = true, this.firstUpdated(t2)), this.updated(t2);
   }
-  _$EM() {
+  _$EU() {
     this._$AL = /* @__PURE__ */ new Map(), this.isUpdatePending = false;
   }
   get updateComplete() {
@@ -25087,29 +25085,29 @@ let y$2 = class y extends HTMLElement {
     return true;
   }
   update(t2) {
-    this._$Eq &&= this._$Eq.forEach((t3) => this._$ET(t3, this[t3])), this._$EM();
+    this._$Ej &&= this._$Ej.forEach((t3) => this._$EC(t3, this[t3])), this._$EU();
   }
   updated(t2) {
   }
   firstUpdated(t2) {
   }
 };
-y$2.elementStyles = [], y$2.shadowRootOptions = { mode: "open" }, y$2[d$1("elementProperties")] = /* @__PURE__ */ new Map(), y$2[d$1("finalized")] = /* @__PURE__ */ new Map(), p$2?.({ ReactiveElement: y$2 }), (a$2.reactiveElementVersions ??= []).push("2.1.0");
+b$1.elementStyles = [], b$1.shadowRootOptions = { mode: "open" }, b$1[d$1("elementProperties")] = /* @__PURE__ */ new Map(), b$1[d$1("finalized")] = /* @__PURE__ */ new Map(), p$2?.({ ReactiveElement: b$1 }), (a$2.reactiveElementVersions ??= []).push("2.0.4");
 /**
  * @license
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const o$5 = { attribute: true, type: String, converter: u$3, reflect: false, hasChanged: f$2 }, r$4 = (t2 = o$5, e2, r2) => {
-  const { kind: n3, metadata: i4 } = r2;
-  let s2 = globalThis.litPropertyMetadata.get(i4);
-  if (void 0 === s2 && globalThis.litPropertyMetadata.set(i4, s2 = /* @__PURE__ */ new Map()), "setter" === n3 && ((t2 = Object.create(t2)).wrapped = true), s2.set(r2.name, t2), "accessor" === n3) {
+const o$4 = { attribute: true, type: String, converter: u$3, reflect: false, hasChanged: f$2 }, r$5 = (t2 = o$4, e2, r2) => {
+  const { kind: n3, metadata: i3 } = r2;
+  let s2 = globalThis.litPropertyMetadata.get(i3);
+  if (void 0 === s2 && globalThis.litPropertyMetadata.set(i3, s2 = /* @__PURE__ */ new Map()), s2.set(r2.name, t2), "accessor" === n3) {
     const { name: o2 } = r2;
     return { set(r3) {
       const n4 = e2.get.call(this);
       e2.set.call(this, r3), this.requestUpdate(o2, n4, t2);
     }, init(e3) {
-      return void 0 !== e3 && this.C(o2, void 0, t2, e3), e3;
+      return void 0 !== e3 && this.P(o2, void 0, t2), e3;
     } };
   }
   if ("setter" === n3) {
@@ -25122,9 +25120,9 @@ const o$5 = { attribute: true, type: String, converter: u$3, reflect: false, has
   throw Error("Unsupported decorator location: " + n3);
 };
 function n$5(t2) {
-  return (e2, o2) => "object" == typeof o2 ? r$4(t2, e2, o2) : ((t3, e3, o3) => {
+  return (e2, o2) => "object" == typeof o2 ? r$5(t2, e2, o2) : ((t3, e3, o3) => {
     const r2 = e3.hasOwnProperty(o3);
-    return e3.constructor.createProperty(o3, t3), r2 ? Object.getOwnPropertyDescriptor(e3, o3) : void 0;
+    return e3.constructor.createProperty(o3, r2 ? { ...t3, wrapped: true } : t3), r2 ? Object.getOwnPropertyDescriptor(e3, o3) : void 0;
   })(t2, e2, o2);
 }
 /**
@@ -25132,7 +25130,7 @@ function n$5(t2) {
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-function r$3(r2) {
+function r$4(r2) {
   return n$5({ ...r2, state: true, attribute: false });
 }
 /**
@@ -25147,7 +25145,7 @@ const e$5 = (e2, t2, c2) => (c2.configurable = true, c2.enumerable = true, Refle
  * SPDX-License-Identifier: BSD-3-Clause
  */
 function e$4(e2, r2) {
-  return (n3, s2, i4) => {
+  return (n3, s2, i3) => {
     const o2 = (t2) => t2.renderRoot?.querySelector(e2) ?? null;
     return e$5(n3, s2, { get() {
       return o2(this);
@@ -25160,7 +25158,7 @@ function e$4(e2, r2) {
  * SPDX-License-Identifier: BSD-3-Clause
  */
 let e$3;
-function r$2(r2) {
+function r$3(r2) {
   return (n3, o2) => e$5(n3, o2, { get() {
     return (this.renderRoot ?? (e$3 ??= document.createDocumentFragment())).querySelectorAll(r2);
   } });
@@ -25170,7 +25168,7 @@ function r$2(r2) {
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-function r$1(r2) {
+function r$2(r2) {
   return (n3, e2) => e$5(n3, e2, { async get() {
     return await this.updateComplete, this.renderRoot?.querySelector(r2) ?? null;
   } });
@@ -25180,7 +25178,7 @@ function r$1(r2) {
  * Copyright 2021 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-function o$4(o2) {
+function o$3(o2) {
   return (e2, n3) => {
     const { slot: r2, selector: s2 } = o2 ?? {}, c2 = "slot" + (r2 ? `[name=${r2}]` : ":not([name])");
     return e$5(e2, n3, { get() {
@@ -25208,23 +25206,23 @@ function n$4(n3) {
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const t$1 = globalThis, i$4 = t$1.trustedTypes, s$1 = i$4 ? i$4.createPolicy("lit-html", { createHTML: (t2) => t2 }) : void 0, e$2 = "$lit$", h = `lit$${Math.random().toFixed(9).slice(2)}$`, o$3 = "?" + h, n$3 = `<${o$3}>`, r = document, l$2 = () => r.createComment(""), c = (t2) => null === t2 || "object" != typeof t2 && "function" != typeof t2, a$1 = Array.isArray, u$2 = (t2) => a$1(t2) || "function" == typeof t2?.[Symbol.iterator], d = "[ 	\n\f\r]", f$1 = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, v$1 = /-->/g, _ = />/g, m$1 = RegExp(`>|${d}(?:([^\\s"'>=/]+)(${d}*=${d}*(?:[^ 	
-\f\r"'\`<>=]|("|')|))|$)`, "g"), p$1 = /'/g, g$1 = /"/g, $$1 = /^(?:script|style|textarea|title)$/i, y$1 = (t2) => (i4, ...s2) => ({ _$litType$: t2, strings: i4, values: s2 }), x$1 = y$1(1), T$1 = Symbol.for("lit-noChange"), E$1 = Symbol.for("lit-nothing"), A$2 = /* @__PURE__ */ new WeakMap(), C = r.createTreeWalker(r, 129);
-function P$2(t2, i4) {
+const t$1 = globalThis, i$4 = t$1.trustedTypes, s = i$4 ? i$4.createPolicy("lit-html", { createHTML: (t2) => t2 }) : void 0, e$2 = "$lit$", h = `lit$${Math.random().toFixed(9).slice(2)}$`, o$2 = "?" + h, n$3 = `<${o$2}>`, r$1 = document, l$2 = () => r$1.createComment(""), c = (t2) => null === t2 || "object" != typeof t2 && "function" != typeof t2, a$1 = Array.isArray, u$2 = (t2) => a$1(t2) || "function" == typeof t2?.[Symbol.iterator], d = "[ 	\n\f\r]", f$1 = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, v$1 = /-->/g, _ = />/g, m$1 = RegExp(`>|${d}(?:([^\\s"'>=/]+)(${d}*=${d}*(?:[^ 	
+\f\r"'\`<>=]|("|')|))|$)`, "g"), p$1 = /'/g, g$1 = /"/g, $$1 = /^(?:script|style|textarea|title)$/i, y$1 = (t2) => (i3, ...s2) => ({ _$litType$: t2, strings: i3, values: s2 }), x$1 = y$1(1), T$1 = Symbol.for("lit-noChange"), E$1 = Symbol.for("lit-nothing"), A$2 = /* @__PURE__ */ new WeakMap(), C = r$1.createTreeWalker(r$1, 129);
+function P$2(t2, i3) {
   if (!a$1(t2) || !t2.hasOwnProperty("raw")) throw Error("invalid template strings array");
-  return void 0 !== s$1 ? s$1.createHTML(i4) : i4;
+  return void 0 !== s ? s.createHTML(i3) : i3;
 }
-const V$1 = (t2, i4) => {
+const V$1 = (t2, i3) => {
   const s2 = t2.length - 1, o2 = [];
-  let r2, l2 = 2 === i4 ? "<svg>" : 3 === i4 ? "<math>" : "", c2 = f$1;
-  for (let i5 = 0; i5 < s2; i5++) {
-    const s3 = t2[i5];
-    let a2, u2, d2 = -1, y3 = 0;
-    for (; y3 < s3.length && (c2.lastIndex = y3, u2 = c2.exec(s3), null !== u2); ) y3 = c2.lastIndex, c2 === f$1 ? "!--" === u2[1] ? c2 = v$1 : void 0 !== u2[1] ? c2 = _ : void 0 !== u2[2] ? ($$1.test(u2[2]) && (r2 = RegExp("</" + u2[2], "g")), c2 = m$1) : void 0 !== u2[3] && (c2 = m$1) : c2 === m$1 ? ">" === u2[0] ? (c2 = r2 ?? f$1, d2 = -1) : void 0 === u2[1] ? d2 = -2 : (d2 = c2.lastIndex - u2[2].length, a2 = u2[1], c2 = void 0 === u2[3] ? m$1 : '"' === u2[3] ? g$1 : p$1) : c2 === g$1 || c2 === p$1 ? c2 = m$1 : c2 === v$1 || c2 === _ ? c2 = f$1 : (c2 = m$1, r2 = void 0);
-    const x2 = c2 === m$1 && t2[i5 + 1].startsWith("/>") ? " " : "";
-    l2 += c2 === f$1 ? s3 + n$3 : d2 >= 0 ? (o2.push(a2), s3.slice(0, d2) + e$2 + s3.slice(d2) + h + x2) : s3 + h + (-2 === d2 ? i5 : x2);
+  let r2, l2 = 2 === i3 ? "<svg>" : 3 === i3 ? "<math>" : "", c2 = f$1;
+  for (let i4 = 0; i4 < s2; i4++) {
+    const s3 = t2[i4];
+    let a2, u2, d2 = -1, y2 = 0;
+    for (; y2 < s3.length && (c2.lastIndex = y2, u2 = c2.exec(s3), null !== u2); ) y2 = c2.lastIndex, c2 === f$1 ? "!--" === u2[1] ? c2 = v$1 : void 0 !== u2[1] ? c2 = _ : void 0 !== u2[2] ? ($$1.test(u2[2]) && (r2 = RegExp("</" + u2[2], "g")), c2 = m$1) : void 0 !== u2[3] && (c2 = m$1) : c2 === m$1 ? ">" === u2[0] ? (c2 = r2 ?? f$1, d2 = -1) : void 0 === u2[1] ? d2 = -2 : (d2 = c2.lastIndex - u2[2].length, a2 = u2[1], c2 = void 0 === u2[3] ? m$1 : '"' === u2[3] ? g$1 : p$1) : c2 === g$1 || c2 === p$1 ? c2 = m$1 : c2 === v$1 || c2 === _ ? c2 = f$1 : (c2 = m$1, r2 = void 0);
+    const x2 = c2 === m$1 && t2[i4 + 1].startsWith("/>") ? " " : "";
+    l2 += c2 === f$1 ? s3 + n$3 : d2 >= 0 ? (o2.push(a2), s3.slice(0, d2) + e$2 + s3.slice(d2) + h + x2) : s3 + h + (-2 === d2 ? i4 : x2);
   }
-  return [P$2(t2, l2 + (t2[s2] || "<?>") + (2 === i4 ? "</svg>" : 3 === i4 ? "</math>" : "")), o2];
+  return [P$2(t2, l2 + (t2[s2] || "<?>") + (2 === i3 ? "</svg>" : 3 === i3 ? "</math>" : "")), o2];
 };
 let N$1 = class N {
   constructor({ strings: t2, _$litType$: s2 }, n3) {
@@ -25239,18 +25237,18 @@ let N$1 = class N {
     for (; null !== (r2 = C.nextNode()) && d2.length < u2; ) {
       if (1 === r2.nodeType) {
         if (r2.hasAttributes()) for (const t3 of r2.getAttributeNames()) if (t3.endsWith(e$2)) {
-          const i4 = v2[a2++], s3 = r2.getAttribute(t3).split(h), e2 = /([.?@])?(.*)/.exec(i4);
+          const i3 = v2[a2++], s3 = r2.getAttribute(t3).split(h), e2 = /([.?@])?(.*)/.exec(i3);
           d2.push({ type: 1, index: c2, name: e2[2], strings: s3, ctor: "." === e2[1] ? H : "?" === e2[1] ? I$1 : "@" === e2[1] ? L$1 : k$1 }), r2.removeAttribute(t3);
         } else t3.startsWith(h) && (d2.push({ type: 6, index: c2 }), r2.removeAttribute(t3));
         if ($$1.test(r2.tagName)) {
           const t3 = r2.textContent.split(h), s3 = t3.length - 1;
           if (s3 > 0) {
             r2.textContent = i$4 ? i$4.emptyScript : "";
-            for (let i4 = 0; i4 < s3; i4++) r2.append(t3[i4], l$2()), C.nextNode(), d2.push({ type: 2, index: ++c2 });
+            for (let i3 = 0; i3 < s3; i3++) r2.append(t3[i3], l$2()), C.nextNode(), d2.push({ type: 2, index: ++c2 });
             r2.append(t3[s3], l$2());
           }
         }
-      } else if (8 === r2.nodeType) if (r2.data === o$3) d2.push({ type: 2, index: c2 });
+      } else if (8 === r2.nodeType) if (r2.data === o$2) d2.push({ type: 2, index: c2 });
       else {
         let t3 = -1;
         for (; -1 !== (t3 = r2.data.indexOf(h, t3 + 1)); ) d2.push({ type: 7, index: c2 }), t3 += h.length - 1;
@@ -25258,20 +25256,20 @@ let N$1 = class N {
       c2++;
     }
   }
-  static createElement(t2, i4) {
-    const s2 = r.createElement("template");
+  static createElement(t2, i3) {
+    const s2 = r$1.createElement("template");
     return s2.innerHTML = t2, s2;
   }
 };
-function S$1(t2, i4, s2 = t2, e2) {
-  if (i4 === T$1) return i4;
+function S$1(t2, i3, s2 = t2, e2) {
+  if (i3 === T$1) return i3;
   let h2 = void 0 !== e2 ? s2._$Co?.[e2] : s2._$Cl;
-  const o2 = c(i4) ? void 0 : i4._$litDirective$;
-  return h2?.constructor !== o2 && (h2?._$AO?.(false), void 0 === o2 ? h2 = void 0 : (h2 = new o2(t2), h2._$AT(t2, s2, e2)), void 0 !== e2 ? (s2._$Co ??= [])[e2] = h2 : s2._$Cl = h2), void 0 !== h2 && (i4 = S$1(t2, h2._$AS(t2, i4.values), h2, e2)), i4;
+  const o2 = c(i3) ? void 0 : i3._$litDirective$;
+  return h2?.constructor !== o2 && (h2?._$AO?.(false), void 0 === o2 ? h2 = void 0 : (h2 = new o2(t2), h2._$AT(t2, s2, e2)), void 0 !== e2 ? (s2._$Co ??= [])[e2] = h2 : s2._$Cl = h2), void 0 !== h2 && (i3 = S$1(t2, h2._$AS(t2, i3.values), h2, e2)), i3;
 }
 let M$2 = class M {
-  constructor(t2, i4) {
-    this._$AV = [], this._$AN = void 0, this._$AD = t2, this._$AM = i4;
+  constructor(t2, i3) {
+    this._$AV = [], this._$AN = void 0, this._$AD = t2, this._$AM = i3;
   }
   get parentNode() {
     return this._$AM.parentNode;
@@ -25280,34 +25278,34 @@ let M$2 = class M {
     return this._$AM._$AU;
   }
   u(t2) {
-    const { el: { content: i4 }, parts: s2 } = this._$AD, e2 = (t2?.creationScope ?? r).importNode(i4, true);
+    const { el: { content: i3 }, parts: s2 } = this._$AD, e2 = (t2?.creationScope ?? r$1).importNode(i3, true);
     C.currentNode = e2;
     let h2 = C.nextNode(), o2 = 0, n3 = 0, l2 = s2[0];
     for (; void 0 !== l2; ) {
       if (o2 === l2.index) {
-        let i5;
-        2 === l2.type ? i5 = new R(h2, h2.nextSibling, this, t2) : 1 === l2.type ? i5 = new l2.ctor(h2, l2.name, l2.strings, this, t2) : 6 === l2.type && (i5 = new z$1(h2, this, t2)), this._$AV.push(i5), l2 = s2[++n3];
+        let i4;
+        2 === l2.type ? i4 = new R(h2, h2.nextSibling, this, t2) : 1 === l2.type ? i4 = new l2.ctor(h2, l2.name, l2.strings, this, t2) : 6 === l2.type && (i4 = new z$1(h2, this, t2)), this._$AV.push(i4), l2 = s2[++n3];
       }
       o2 !== l2?.index && (h2 = C.nextNode(), o2++);
     }
-    return C.currentNode = r, e2;
+    return C.currentNode = r$1, e2;
   }
   p(t2) {
-    let i4 = 0;
-    for (const s2 of this._$AV) void 0 !== s2 && (void 0 !== s2.strings ? (s2._$AI(t2, s2, i4), i4 += s2.strings.length - 2) : s2._$AI(t2[i4])), i4++;
+    let i3 = 0;
+    for (const s2 of this._$AV) void 0 !== s2 && (void 0 !== s2.strings ? (s2._$AI(t2, s2, i3), i3 += s2.strings.length - 2) : s2._$AI(t2[i3])), i3++;
   }
 };
 class R {
   get _$AU() {
     return this._$AM?._$AU ?? this._$Cv;
   }
-  constructor(t2, i4, s2, e2) {
-    this.type = 2, this._$AH = E$1, this._$AN = void 0, this._$AA = t2, this._$AB = i4, this._$AM = s2, this.options = e2, this._$Cv = e2?.isConnected ?? true;
+  constructor(t2, i3, s2, e2) {
+    this.type = 2, this._$AH = E$1, this._$AN = void 0, this._$AA = t2, this._$AB = i3, this._$AM = s2, this.options = e2, this._$Cv = e2?.isConnected ?? true;
   }
   get parentNode() {
     let t2 = this._$AA.parentNode;
-    const i4 = this._$AM;
-    return void 0 !== i4 && 11 === t2?.nodeType && (t2 = i4.parentNode), t2;
+    const i3 = this._$AM;
+    return void 0 !== i3 && 11 === t2?.nodeType && (t2 = i3.parentNode), t2;
   }
   get startNode() {
     return this._$AA;
@@ -25315,8 +25313,8 @@ class R {
   get endNode() {
     return this._$AB;
   }
-  _$AI(t2, i4 = this) {
-    t2 = S$1(this, t2, i4), c(t2) ? t2 === E$1 || null == t2 || "" === t2 ? (this._$AH !== E$1 && this._$AR(), this._$AH = E$1) : t2 !== this._$AH && t2 !== T$1 && this._(t2) : void 0 !== t2._$litType$ ? this.$(t2) : void 0 !== t2.nodeType ? this.T(t2) : u$2(t2) ? this.k(t2) : this._(t2);
+  _$AI(t2, i3 = this) {
+    t2 = S$1(this, t2, i3), c(t2) ? t2 === E$1 || null == t2 || "" === t2 ? (this._$AH !== E$1 && this._$AR(), this._$AH = E$1) : t2 !== this._$AH && t2 !== T$1 && this._(t2) : void 0 !== t2._$litType$ ? this.$(t2) : void 0 !== t2.nodeType ? this.T(t2) : u$2(t2) ? this.k(t2) : this._(t2);
   }
   O(t2) {
     return this._$AA.parentNode.insertBefore(t2, this._$AB);
@@ -25325,31 +25323,31 @@ class R {
     this._$AH !== t2 && (this._$AR(), this._$AH = this.O(t2));
   }
   _(t2) {
-    this._$AH !== E$1 && c(this._$AH) ? this._$AA.nextSibling.data = t2 : this.T(r.createTextNode(t2)), this._$AH = t2;
+    this._$AH !== E$1 && c(this._$AH) ? this._$AA.nextSibling.data = t2 : this.T(r$1.createTextNode(t2)), this._$AH = t2;
   }
   $(t2) {
-    const { values: i4, _$litType$: s2 } = t2, e2 = "number" == typeof s2 ? this._$AC(t2) : (void 0 === s2.el && (s2.el = N$1.createElement(P$2(s2.h, s2.h[0]), this.options)), s2);
-    if (this._$AH?._$AD === e2) this._$AH.p(i4);
+    const { values: i3, _$litType$: s2 } = t2, e2 = "number" == typeof s2 ? this._$AC(t2) : (void 0 === s2.el && (s2.el = N$1.createElement(P$2(s2.h, s2.h[0]), this.options)), s2);
+    if (this._$AH?._$AD === e2) this._$AH.p(i3);
     else {
       const t3 = new M$2(e2, this), s3 = t3.u(this.options);
-      t3.p(i4), this.T(s3), this._$AH = t3;
+      t3.p(i3), this.T(s3), this._$AH = t3;
     }
   }
   _$AC(t2) {
-    let i4 = A$2.get(t2.strings);
-    return void 0 === i4 && A$2.set(t2.strings, i4 = new N$1(t2)), i4;
+    let i3 = A$2.get(t2.strings);
+    return void 0 === i3 && A$2.set(t2.strings, i3 = new N$1(t2)), i3;
   }
   k(t2) {
     a$1(this._$AH) || (this._$AH = [], this._$AR());
-    const i4 = this._$AH;
+    const i3 = this._$AH;
     let s2, e2 = 0;
-    for (const h2 of t2) e2 === i4.length ? i4.push(s2 = new R(this.O(l$2()), this.O(l$2()), this, this.options)) : s2 = i4[e2], s2._$AI(h2), e2++;
-    e2 < i4.length && (this._$AR(s2 && s2._$AB.nextSibling, e2), i4.length = e2);
+    for (const h2 of t2) e2 === i3.length ? i3.push(s2 = new R(this.O(l$2()), this.O(l$2()), this, this.options)) : s2 = i3[e2], s2._$AI(h2), e2++;
+    e2 < i3.length && (this._$AR(s2 && s2._$AB.nextSibling, e2), i3.length = e2);
   }
-  _$AR(t2 = this._$AA.nextSibling, i4) {
-    for (this._$AP?.(false, true, i4); t2 && t2 !== this._$AB; ) {
-      const i5 = t2.nextSibling;
-      t2.remove(), t2 = i5;
+  _$AR(t2 = this._$AA.nextSibling, i3) {
+    for (this._$AP?.(false, true, i3); t2 && t2 !== this._$AB; ) {
+      const i4 = t2.nextSibling;
+      t2.remove(), t2 = i4;
     }
   }
   setConnected(t2) {
@@ -25363,17 +25361,17 @@ let k$1 = class k {
   get _$AU() {
     return this._$AM._$AU;
   }
-  constructor(t2, i4, s2, e2, h2) {
-    this.type = 1, this._$AH = E$1, this._$AN = void 0, this.element = t2, this.name = i4, this._$AM = e2, this.options = h2, s2.length > 2 || "" !== s2[0] || "" !== s2[1] ? (this._$AH = Array(s2.length - 1).fill(new String()), this.strings = s2) : this._$AH = E$1;
+  constructor(t2, i3, s2, e2, h2) {
+    this.type = 1, this._$AH = E$1, this._$AN = void 0, this.element = t2, this.name = i3, this._$AM = e2, this.options = h2, s2.length > 2 || "" !== s2[0] || "" !== s2[1] ? (this._$AH = Array(s2.length - 1).fill(new String()), this.strings = s2) : this._$AH = E$1;
   }
-  _$AI(t2, i4 = this, s2, e2) {
+  _$AI(t2, i3 = this, s2, e2) {
     const h2 = this.strings;
     let o2 = false;
-    if (void 0 === h2) t2 = S$1(this, t2, i4, 0), o2 = !c(t2) || t2 !== this._$AH && t2 !== T$1, o2 && (this._$AH = t2);
+    if (void 0 === h2) t2 = S$1(this, t2, i3, 0), o2 = !c(t2) || t2 !== this._$AH && t2 !== T$1, o2 && (this._$AH = t2);
     else {
       const e3 = t2;
       let n3, r2;
-      for (t2 = h2[0], n3 = 0; n3 < h2.length - 1; n3++) r2 = S$1(this, e3[s2 + n3], i4, n3), r2 === T$1 && (r2 = this._$AH[n3]), o2 ||= !c(r2) || r2 !== this._$AH[n3], r2 === E$1 ? t2 = E$1 : t2 !== E$1 && (t2 += (r2 ?? "") + h2[n3 + 1]), this._$AH[n3] = r2;
+      for (t2 = h2[0], n3 = 0; n3 < h2.length - 1; n3++) r2 = S$1(this, e3[s2 + n3], i3, n3), r2 === T$1 && (r2 = this._$AH[n3]), o2 ||= !c(r2) || r2 !== this._$AH[n3], r2 === E$1 ? t2 = E$1 : t2 !== E$1 && (t2 += (r2 ?? "") + h2[n3 + 1]), this._$AH[n3] = r2;
     }
     o2 && !e2 && this.j(t2);
   }
@@ -25398,11 +25396,11 @@ let I$1 = class I extends k$1 {
   }
 };
 let L$1 = class L extends k$1 {
-  constructor(t2, i4, s2, e2, h2) {
-    super(t2, i4, s2, e2, h2), this.type = 5;
+  constructor(t2, i3, s2, e2, h2) {
+    super(t2, i3, s2, e2, h2), this.type = 5;
   }
-  _$AI(t2, i4 = this) {
-    if ((t2 = S$1(this, t2, i4, 0) ?? E$1) === T$1) return;
+  _$AI(t2, i3 = this) {
+    if ((t2 = S$1(this, t2, i3, 0) ?? E$1) === T$1) return;
     const s2 = this._$AH, e2 = t2 === E$1 && s2 !== E$1 || t2.capture !== s2.capture || t2.once !== s2.once || t2.passive !== s2.passive, h2 = t2 !== E$1 && (s2 === E$1 || e2);
     e2 && this.element.removeEventListener(this.name, this, s2), h2 && this.element.addEventListener(this.name, this, t2), this._$AH = t2;
   }
@@ -25411,8 +25409,8 @@ let L$1 = class L extends k$1 {
   }
 };
 let z$1 = class z {
-  constructor(t2, i4, s2) {
-    this.element = t2, this.type = 6, this._$AN = void 0, this._$AM = i4, this.options = s2;
+  constructor(t2, i3, s2) {
+    this.element = t2, this.type = 6, this._$AN = void 0, this._$AM = i3, this.options = s2;
   }
   get _$AU() {
     return this._$AM._$AU;
@@ -25422,13 +25420,13 @@ let z$1 = class z {
   }
 };
 const j$1 = t$1.litHtmlPolyfillSupport;
-j$1?.(N$1, R), (t$1.litHtmlVersions ??= []).push("3.3.0");
-const B$1 = (t2, i4, s2) => {
-  const e2 = s2?.renderBefore ?? i4;
+j$1?.(N$1, R), (t$1.litHtmlVersions ??= []).push("3.2.1");
+const B$1 = (t2, i3, s2) => {
+  const e2 = s2?.renderBefore ?? i3;
   let h2 = e2._$litPart$;
   if (void 0 === h2) {
     const t3 = s2?.renderBefore ?? null;
-    e2._$litPart$ = h2 = new R(i4.insertBefore(l$2(), t3), t3, void 0, s2 ?? {});
+    e2._$litPart$ = h2 = new R(i3.insertBefore(l$2(), t3), t3, void 0, s2 ?? {});
   }
   return h2._$AI(t2), h2;
 };
@@ -25437,8 +25435,7 @@ const B$1 = (t2, i4, s2) => {
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const s = globalThis;
-let i$3 = class i extends y$2 {
+class r extends b$1 {
   constructor() {
     super(...arguments), this.renderOptions = { host: this }, this._$Do = void 0;
   }
@@ -25447,8 +25444,8 @@ let i$3 = class i extends y$2 {
     return this.renderOptions.renderBefore ??= t2.firstChild, t2;
   }
   update(t2) {
-    const r2 = this.render();
-    this.hasUpdated || (this.renderOptions.isConnected = this.isConnected), super.update(t2), this._$Do = B$1(r2, this.renderRoot, this.renderOptions);
+    const s2 = this.render();
+    this.hasUpdated || (this.renderOptions.isConnected = this.isConnected), super.update(t2), this._$Do = B$1(s2, this.renderRoot, this.renderOptions);
   }
   connectedCallback() {
     super.connectedCallback(), this._$Do?.setConnected(true);
@@ -25459,17 +25456,17 @@ let i$3 = class i extends y$2 {
   render() {
     return T$1;
   }
-};
-i$3._$litElement$ = true, i$3["finalized"] = true, s.litElementHydrateSupport?.({ LitElement: i$3 });
-const o$2 = s.litElementPolyfillSupport;
-o$2?.({ LitElement: i$3 });
-(s.litElementVersions ??= []).push("4.2.0");
+}
+r._$litElement$ = true, r["finalized"] = true, globalThis.litElementHydrateSupport?.({ LitElement: r });
+const i$3 = globalThis.litElementPolyfillSupport;
+i$3?.({ LitElement: r });
+(globalThis.litElementVersions ??= []).push("4.1.1");
 /**
  * @license
  * Copyright 2022 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
-let Elevation$1 = class Elevation extends i$3 {
+let Elevation$1 = class Elevation extends r {
   connectedCallback() {
     super.connectedCallback();
     this.setAttribute("aria-hidden", "true");
@@ -25583,7 +25580,7 @@ class AttachableController {
  * SPDX-License-Identifier: Apache-2.0
  */
 const EVENTS$1 = ["focusin", "focusout", "pointerdown"];
-class FocusRing extends i$3 {
+class FocusRing extends r {
   constructor() {
     super(...arguments);
     this.visible = false;
@@ -25674,14 +25671,14 @@ MdFocusRing = __decorate([
  * SPDX-License-Identifier: BSD-3-Clause
  */
 const t = { ATTRIBUTE: 1, PROPERTY: 3, BOOLEAN_ATTRIBUTE: 4 }, e$1 = (t2) => (...e2) => ({ _$litDirective$: t2, values: e2 });
-let i$2 = class i2 {
+let i$2 = class i {
   constructor(t2) {
   }
   get _$AU() {
     return this._$AM._$AU;
   }
-  _$AT(t2, e2, i4) {
-    this._$Ct = t2, this._$AM = e2, this._$Ci = i4;
+  _$AT(t2, e2, i3) {
+    this._$Ct = t2, this._$AM = e2, this._$Ci = i3;
   }
   _$AS(t2, e2) {
     return this.update(t2, e2);
@@ -25702,16 +25699,16 @@ const e = e$1(class extends i$2 {
   render(t2) {
     return " " + Object.keys(t2).filter((s2) => t2[s2]).join(" ") + " ";
   }
-  update(s2, [i4]) {
+  update(s2, [i3]) {
     if (void 0 === this.st) {
       this.st = /* @__PURE__ */ new Set(), void 0 !== s2.strings && (this.nt = new Set(s2.strings.join(" ").split(/\s/).filter((t2) => "" !== t2)));
-      for (const t2 in i4) i4[t2] && !this.nt?.has(t2) && this.st.add(t2);
-      return this.render(i4);
+      for (const t2 in i3) i3[t2] && !this.nt?.has(t2) && this.st.add(t2);
+      return this.render(i3);
     }
     const r2 = s2.element.classList;
-    for (const t2 of this.st) t2 in i4 || (r2.remove(t2), this.st.delete(t2));
-    for (const t2 in i4) {
-      const s3 = !!i4[t2];
+    for (const t2 of this.st) t2 in i3 || (r2.remove(t2), this.st.delete(t2));
+    for (const t2 in i3) {
+      const s3 = !!i3[t2];
       s3 === this.st.has(t2) || this.nt?.has(t2) || (s3 ? (r2.add(t2), this.st.add(t2)) : (r2.remove(t2), this.st.delete(t2)));
     }
     return T$1;
@@ -25771,7 +25768,7 @@ const EVENTS = [
 ];
 const TOUCH_DELAY_MS = 150;
 const FORCED_COLORS = window.matchMedia("(forced-colors: active)");
-class Ripple extends i$3 {
+class Ripple extends r {
   constructor() {
     super(...arguments);
     this.disabled = false;
@@ -26022,9 +26019,9 @@ class Ripple extends i$3 {
    *
    * This is only needed for the "stuck" contextmenu longpress on Chrome.
    */
-  inBounds({ x: x2, y: y3 }) {
+  inBounds({ x: x2, y: y2 }) {
     const { top: top2, left: left2, bottom: bottom2, right: right2 } = this.getBoundingClientRect();
-    return x2 >= left2 && x2 <= right2 && y3 >= top2 && y3 <= bottom2;
+    return x2 >= left2 && x2 <= right2 && y2 >= top2 && y2 <= bottom2;
   }
   isTouch({ pointerType }) {
     return pointerType === "touch";
@@ -26069,10 +26066,10 @@ __decorate([
   n$5({ type: Boolean, reflect: true })
 ], Ripple.prototype, "disabled", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], Ripple.prototype, "hovered", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], Ripple.prototype, "pressed", void 0);
 __decorate([
   e$4(".surface")
@@ -26333,7 +26330,7 @@ async function squelchEventsForMicrotask() {
  * Copyright 2019 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
-const buttonBaseClass = mixinDelegatesAria(mixinElementInternals(i$3));
+const buttonBaseClass = mixinDelegatesAria(mixinElementInternals(r));
 let Button$1 = class Button extends buttonBaseClass {
   get name() {
     return this.getAttribute("name") ?? "";
@@ -26476,7 +26473,7 @@ __decorate([
   e$4(".button")
 ], Button$1.prototype, "buttonElement", void 0);
 __decorate([
-  o$4({ slot: "icon", flatten: true })
+  o$3({ slot: "icon", flatten: true })
 ], Button$1.prototype, "assignedIcons", void 0);
 /**
  * @license
@@ -26875,7 +26872,7 @@ class CheckboxValidator extends Validator {
  * Copyright 2019 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
-const checkboxBaseClass = mixinDelegatesAria(mixinConstraintValidation(mixinFormAssociated(mixinElementInternals(i$3))));
+const checkboxBaseClass = mixinDelegatesAria(mixinConstraintValidation(mixinFormAssociated(mixinElementInternals(r))));
 class Checkbox extends checkboxBaseClass {
   constructor() {
     super();
@@ -26979,7 +26976,7 @@ class Checkbox extends checkboxBaseClass {
   }
 }
 Checkbox.shadowRootOptions = {
-  ...i$3.shadowRootOptions,
+  ...r.shadowRootOptions,
   delegatesFocus: true
 };
 __decorate([
@@ -26995,13 +26992,13 @@ __decorate([
   n$5()
 ], Checkbox.prototype, "value", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], Checkbox.prototype, "prevChecked", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], Checkbox.prototype, "prevDisabled", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], Checkbox.prototype, "prevIndeterminate", void 0);
 __decorate([
   e$4("input")
@@ -27029,7 +27026,7 @@ MdCheckbox = __decorate([
  * Copyright 2023 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
-const chipBaseClass = mixinDelegatesAria(i$3);
+const chipBaseClass = mixinDelegatesAria(r);
 class Chip extends chipBaseClass {
   /**
    * Whether or not the primary ripple is disabled (defaults to `disabled`).
@@ -27115,7 +27112,7 @@ class Chip extends chipBaseClass {
   }
 }
 Chip.shadowRootOptions = {
-  ...i$3.shadowRootOptions,
+  ...r.shadowRootOptions,
   delegatesFocus: true
 };
 __decorate([
@@ -27244,7 +27241,7 @@ MdAssistChip = __decorate([
  * Copyright 2023 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
-class ChipSet extends i$3 {
+class ChipSet extends r {
   get chips() {
     return this.childElements.filter((child) => child instanceof Chip);
   }
@@ -27333,7 +27330,7 @@ class ChipSet extends i$3 {
   }
 }
 __decorate([
-  o$4()
+  o$3()
 ], ChipSet.prototype, "childElements", void 0);
 /**
  * @license
@@ -27769,7 +27766,7 @@ MdSuggestionChip = __decorate([
  * Copyright 2023 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
-class Divider extends i$3 {
+class Divider extends r {
   constructor() {
     super(...arguments);
     this.inset = false;
@@ -27920,7 +27917,7 @@ const DIALOG_DEFAULT_CLOSE_ANIMATION = {
  * Copyright 2023 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
-const dialogBaseClass = mixinDelegatesAria(i$3);
+const dialogBaseClass = mixinDelegatesAria(r);
 class Dialog extends dialogBaseClass {
   // We do not use `delegatesFocus: true` due to a Chromium bug with
   // selecting text.
@@ -28296,10 +28293,10 @@ __decorate([
   e$4(".actions")
 ], Dialog.prototype, "actions", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], Dialog.prototype, "isAtScrollTop", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], Dialog.prototype, "isAtScrollBottom", void 0);
 __decorate([
   e$4(".scroller")
@@ -28314,13 +28311,13 @@ __decorate([
   e$4(".focus-trap")
 ], Dialog.prototype, "firstFocusTrap", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], Dialog.prototype, "hasHeadline", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], Dialog.prototype, "hasActions", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], Dialog.prototype, "hasIcon", void 0);
 function isFocusable$1(element) {
   const knownFocusableElements = ":is(button,input,select,textarea,object,:is(a,area)[href],[tabindex],[contenteditable=true])";
@@ -28361,7 +28358,7 @@ MdDialog = __decorate([
  * Copyright 2023 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
-const fabBaseClass = mixinDelegatesAria(i$3);
+const fabBaseClass = mixinDelegatesAria(r);
 class SharedFab extends fabBaseClass {
   constructor() {
     super(...arguments);
@@ -28511,7 +28508,7 @@ MdFab = __decorate([
  * Copyright 2021 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
-class Field extends i$3 {
+class Field extends r {
   constructor() {
     super(...arguments);
     this.disabled = false;
@@ -28769,16 +28766,16 @@ __decorate([
   n$5({ type: Boolean, attribute: "has-end" })
 ], Field.prototype, "hasEnd", void 0);
 __decorate([
-  o$4({ slot: "aria-describedby" })
+  o$3({ slot: "aria-describedby" })
 ], Field.prototype, "slottedAriaDescribedBy", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], Field.prototype, "isAnimating", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], Field.prototype, "refreshErrorAlert", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], Field.prototype, "disableTransitions", void 0);
 __decorate([
   e$4(".label.floating")
@@ -28873,7 +28870,7 @@ MdOutlinedField = __decorate([
  * Copyright 2022 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
-class Icon extends i$3 {
+class Icon extends r {
   render() {
     return x$1`<slot></slot>`;
   }
@@ -28925,12 +28922,12 @@ const a = Symbol.for(""), o$1 = (t2) => {
             take care to ensure page security.`);
 })(e2) + t2[a2 + 1], t2[0]), r: a }), l$1 = /* @__PURE__ */ new Map(), n$2 = (t2) => (r2, ...e2) => {
   const a2 = e2.length;
-  let s2, i4;
+  let s2, i3;
   const n3 = [], u2 = [];
   let c2, $2 = 0, f2 = false;
   for (; $2 < a2; ) {
-    for (c2 = r2[$2]; $2 < a2 && void 0 !== (i4 = e2[$2], s2 = o$1(i4)); ) c2 += s2 + r2[++$2], f2 = true;
-    $2 !== a2 && u2.push(i4), n3.push(c2), $2++;
+    for (c2 = r2[$2]; $2 < a2 && void 0 !== (i3 = e2[$2], s2 = o$1(i3)); ) c2 += s2 + r2[++$2], f2 = true;
+    $2 !== a2 && u2.push(i3), n3.push(c2), $2++;
   }
   if ($2 === a2 && n3.push(r2[a2]), f2) {
     const t3 = n3.join("$$lit$$");
@@ -28951,7 +28948,7 @@ function isRtl(el, shouldCheck = true) {
  * Copyright 2018 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
-const iconButtonBaseClass = mixinDelegatesAria(mixinElementInternals(i$3));
+const iconButtonBaseClass = mixinDelegatesAria(mixinElementInternals(r));
 class IconButton extends iconButtonBaseClass {
   get name() {
     return this.getAttribute("name") ?? "";
@@ -29131,7 +29128,7 @@ __decorate([
   n$5({ reflect: true })
 ], IconButton.prototype, "value", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], IconButton.prototype, "flipIcon", void 0);
 /**
  * @license
@@ -29260,12 +29257,12 @@ function deactivateActiveItem(items, isActivatable = isItemNotDisabled) {
   return activeItem;
 }
 function getActiveItem(items, isActivatable = isItemNotDisabled) {
-  for (let i4 = 0; i4 < items.length; i4++) {
-    const item = items[i4];
+  for (let i3 = 0; i3 < items.length; i3++) {
+    const item = items[i3];
     if (item.tabIndex === 0 && isActivatable(item)) {
       return {
         item,
-        index: i4
+        index: i3
       };
     }
   }
@@ -29280,8 +29277,8 @@ function getFirstActivatableItem(items, isActivatable = isItemNotDisabled) {
   return null;
 }
 function getLastActivatableItem(items, isActivatable = isItemNotDisabled) {
-  for (let i4 = items.length - 1; i4 >= 0; i4--) {
-    const item = items[i4];
+  for (let i3 = items.length - 1; i3 >= 0; i3--) {
+    const item = items[i3];
     if (isActivatable(item)) {
       return item;
     }
@@ -29289,8 +29286,8 @@ function getLastActivatableItem(items, isActivatable = isItemNotDisabled) {
   return null;
 }
 function getNextItem(items, index, isActivatable = isItemNotDisabled, wrap2 = true) {
-  for (let i4 = 1; i4 < items.length; i4++) {
-    const nextIndex = (i4 + index) % items.length;
+  for (let i3 = 1; i3 < items.length; i3++) {
+    const nextIndex = (i3 + index) % items.length;
     if (nextIndex < index && !wrap2) {
       return null;
     }
@@ -29302,8 +29299,8 @@ function getNextItem(items, index, isActivatable = isItemNotDisabled, wrap2 = tr
   return items[index] ? items[index] : null;
 }
 function getPrevItem(items, index, isActivatable = isItemNotDisabled, wrap2 = true) {
-  for (let i4 = 1; i4 < items.length; i4++) {
-    const prevIndex = (index - i4 + items.length) % items.length;
+  for (let i3 = 1; i3 < items.length; i3++) {
+    const prevIndex = (index - i3 + items.length) % items.length;
     if (prevIndex > index && !wrap2) {
       return null;
     }
@@ -29495,7 +29492,7 @@ class ListController {
  * SPDX-License-Identifier: Apache-2.0
  */
 const NAVIGABLE_KEY_SET = new Set(Object.values(NavigableKeys));
-class List extends i$3 {
+class List extends r {
   /** @export */
   get items() {
     return this.listController.items;
@@ -29551,7 +29548,7 @@ class List extends i$3 {
   }
 }
 __decorate([
-  o$4({ flatten: true })
+  o$3({ flatten: true })
 ], List.prototype, "slotItems", void 0);
 /**
  * @license
@@ -29576,7 +29573,7 @@ MdList = __decorate([
  * Copyright 2023 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
-class Item extends i$3 {
+class Item extends r {
   constructor() {
     super(...arguments);
     this.multiline = false;
@@ -29618,7 +29615,7 @@ __decorate([
   n$5({ type: Boolean, reflect: true })
 ], Item.prototype, "multiline", void 0);
 __decorate([
-  r$2(".text slot")
+  r$3(".text slot")
 ], Item.prototype, "textSlots", void 0);
 function slotHasContent(slot) {
   for (const node of slot.assignedNodes({ flatten: true })) {
@@ -29653,7 +29650,7 @@ MdItem = __decorate([
  * Copyright 2022 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
-const listItemBaseClass = mixinDelegatesAria(i$3);
+const listItemBaseClass = mixinDelegatesAria(r);
 class ListItemEl extends listItemBaseClass {
   constructor() {
     super(...arguments);
@@ -29788,7 +29785,7 @@ class ListItemEl extends listItemBaseClass {
   }
 }
 ListItemEl.shadowRootOptions = {
-  ...i$3.shadowRootOptions,
+  ...r.shadowRootOptions,
   delegatesFocus: true
 };
 __decorate([
@@ -29832,7 +29829,7 @@ MdListItem = __decorate([
  * Copyright 2018 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const n$1 = "important", i3 = " !" + n$1, o = e$1(class extends i$2 {
+const n$1 = "important", i2 = " !" + n$1, o = e$1(class extends i$2 {
   constructor(t$12) {
     if (super(t$12), t$12.type !== t.ATTRIBUTE || "style" !== t$12.name || t$12.strings?.length > 2) throw Error("The `styleMap` directive must be used in the `style` attribute and must be the only part in the attribute.");
   }
@@ -29850,7 +29847,7 @@ const n$1 = "important", i3 = " !" + n$1, o = e$1(class extends i$2 {
       const e3 = r2[t2];
       if (null != e3) {
         this.ft.add(t2);
-        const r3 = "string" == typeof e3 && e3.endsWith(i3);
+        const r3 = "string" == typeof e3 && e3.endsWith(i2);
         t2.includes("-") || r3 ? s2.setProperty(t2, r3 ? e3.slice(0, -11) : e3, r3 ? n$1 : "") : s2[t2] = e3;
       }
     }
@@ -30299,7 +30296,7 @@ class TypeaheadController {
     const rebaseIndexOnActive = (record) => {
       return (record[TYPEAHEAD_RECORD.INDEX] + numRecords - lastActiveIndex) % numRecords;
     };
-    const matchingRecords = this.typeaheadRecords.filter((record) => !record[TYPEAHEAD_RECORD.ITEM].disabled && record[TYPEAHEAD_RECORD.TEXT].startsWith(this.typaheadBuffer)).sort((a2, b2) => rebaseIndexOnActive(a2) - rebaseIndexOnActive(b2));
+    const matchingRecords = this.typeaheadRecords.filter((record) => !record[TYPEAHEAD_RECORD.ITEM].disabled && record[TYPEAHEAD_RECORD.TEXT].startsWith(this.typaheadBuffer)).sort((a2, b3) => rebaseIndexOnActive(a2) - rebaseIndexOnActive(b3));
     if (matchingRecords.length === 0) {
       clearTimeout(this.cancelTypeaheadTimeout);
       if (this.lastActiveRecord) {
@@ -30348,7 +30345,7 @@ function getFocusedElement(activeDoc = document) {
   }
   return activeEl;
 }
-class Menu extends i$3 {
+class Menu extends r {
   /**
    * Whether the menu is animating upwards or downwards when opening. This is
    * helpful for calculating some animation calculations.
@@ -30698,12 +30695,12 @@ class Menu extends i$3 {
     ], { duration: FULL_DURATION, easing: EASING.EMPHASIZED });
     const surfaceOpacityAnimation = surfaceEl.animate([{ opacity: 0 }, { opacity: 1 }], SURFACE_OPACITY_DURATION);
     const childrenAnimations = [];
-    for (let i4 = 0; i4 < children.length; i4++) {
-      const directionalIndex = openingUpwards ? children.length - 1 - i4 : i4;
+    for (let i3 = 0; i3 < children.length; i3++) {
+      const directionalIndex = openingUpwards ? children.length - 1 - i3 : i3;
       const child = children[directionalIndex];
       const animation = child.animate([{ opacity: 0 }, { opacity: 1 }], {
         duration: ITEM_OPACITY_DURATION,
-        delay: DELAY_BETWEEN_ITEMS * i4
+        delay: DELAY_BETWEEN_ITEMS * i3
       });
       child.classList.toggle("md-menu-hidden", true);
       animation.addEventListener("finish", () => {
@@ -30778,12 +30775,12 @@ class Menu extends i$3 {
     ], { duration: FULL_DURATION, easing: EASING.EMPHASIZED_ACCELERATE });
     const surfaceOpacityAnimation = surfaceEl.animate([{ opacity: 1 }, { opacity: 0 }], { duration: SURFACE_OPACITY_DURATION, delay: SURFACE_OPACITY_DELAY });
     const childrenAnimations = [];
-    for (let i4 = 0; i4 < children.length; i4++) {
-      const directionalIndex = closingDownwards ? i4 : children.length - 1 - i4;
+    for (let i3 = 0; i3 < children.length; i3++) {
+      const directionalIndex = closingDownwards ? i3 : children.length - 1 - i3;
       const child = children[directionalIndex];
       const animation = child.animate([{ opacity: 1 }, { opacity: 0 }], {
         duration: ITEM_OPACITY_DURATION,
-        delay: ITEM_OPACITY_INITIAL_DELAY + DELAY_BETWEEN_ITEMS * i4
+        delay: ITEM_OPACITY_INITIAL_DELAY + DELAY_BETWEEN_ITEMS * i3
       });
       animation.addEventListener("finish", () => {
         child.classList.toggle("md-menu-hidden", true);
@@ -30954,10 +30951,10 @@ __decorate([
   n$5({ type: Boolean, attribute: "no-navigation-wrap" })
 ], Menu.prototype, "noNavigationWrap", void 0);
 __decorate([
-  o$4({ flatten: true })
+  o$3({ flatten: true })
 ], Menu.prototype, "slotItems", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], Menu.prototype, "typeaheadActive", void 0);
 /**
  * @license
@@ -31098,7 +31095,7 @@ class MenuItemController {
  * Copyright 2022 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
-const menuItemBaseClass = mixinDelegatesAria(i$3);
+const menuItemBaseClass = mixinDelegatesAria(r);
 class MenuItemEl extends menuItemBaseClass {
   constructor() {
     super(...arguments);
@@ -31228,7 +31225,7 @@ class MenuItemEl extends menuItemBaseClass {
   }
 }
 MenuItemEl.shadowRootOptions = {
-  ...i$3.shadowRootOptions,
+  ...r.shadowRootOptions,
   delegatesFocus: true
 };
 __decorate([
@@ -31253,10 +31250,10 @@ __decorate([
   e$4(".list-item")
 ], MenuItemEl.prototype, "listItemRoot", void 0);
 __decorate([
-  o$4({ slot: "headline" })
+  o$3({ slot: "headline" })
 ], MenuItemEl.prototype, "headlineElements", void 0);
 __decorate([
-  o$4({ slot: "supporting-text" })
+  o$3({ slot: "supporting-text" })
 ], MenuItemEl.prototype, "supportingTextElements", void 0);
 __decorate([
   n$4({ slot: "" })
@@ -31287,7 +31284,7 @@ MdMenuItem = __decorate([
  * Copyright 2023 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
-class SubMenu extends i$3 {
+class SubMenu extends r {
   get item() {
     return this.items[0] ?? null;
   }
@@ -31543,10 +31540,10 @@ __decorate([
   n$5({ type: Boolean, reflect: true, attribute: "md-sub-menu" })
 ], SubMenu.prototype, "isSubMenu", void 0);
 __decorate([
-  o$4({ slot: "item", flatten: true })
+  o$3({ slot: "item", flatten: true })
 ], SubMenu.prototype, "items", void 0);
 __decorate([
-  o$4({ slot: "menu", flatten: true })
+  o$3({ slot: "menu", flatten: true })
 ], SubMenu.prototype, "menus", void 0);
 /**
  * @license
@@ -31571,7 +31568,7 @@ MdSubMenu = __decorate([
  * Copyright 2023 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
-const progressBaseClass = mixinDelegatesAria(i$3);
+const progressBaseClass = mixinDelegatesAria(r);
 class Progress extends progressBaseClass {
   constructor() {
     super(...arguments);
@@ -31827,9 +31824,9 @@ class RadioValidator extends Validator {
     if (prevGroup.length !== nextGroup.length) {
       return false;
     }
-    for (let i4 = 0; i4 < prevGroup.length; i4++) {
-      const prev = prevGroup[i4];
-      const next = nextGroup[i4];
+    for (let i3 = 0; i3 < prevGroup.length; i3++) {
+      const prev = prevGroup[i3];
+      const next = nextGroup[i3];
       if (prev.checked !== next.checked || prev.required !== next.required) {
         return false;
       }
@@ -31983,7 +31980,7 @@ class SingleSelectionController {
 var _a$3;
 const CHECKED = Symbol("checked");
 let maskId = 0;
-const radioBaseClass = mixinConstraintValidation(mixinFormAssociated(mixinElementInternals(mixinFocusable(i$3))));
+const radioBaseClass = mixinConstraintValidation(mixinFormAssociated(mixinElementInternals(mixinFocusable(r))));
 class Radio extends radioBaseClass {
   /**
    * Whether or not the radio is selected.
@@ -32297,10 +32294,10 @@ class SelectValidator extends Validator {
  */
 function getSelectedItems(items) {
   const selectedItemRecords = [];
-  for (let i4 = 0; i4 < items.length; i4++) {
-    const item = items[i4];
+  for (let i3 = 0; i3 < items.length; i3++) {
+    const item = items[i3];
     if (item.selected) {
-      selectedItemRecords.push([item, i4]);
+      selectedItemRecords.push([item, i3]);
     }
   }
   return selectedItemRecords;
@@ -32312,7 +32309,7 @@ function getSelectedItems(items) {
  */
 var _a$2;
 const VALUE = Symbol("value");
-const selectBaseClass = mixinDelegatesAria(mixinOnReportValidity(mixinConstraintValidation(mixinFormAssociated(mixinElementInternals(i$3)))));
+const selectBaseClass = mixinDelegatesAria(mixinOnReportValidity(mixinConstraintValidation(mixinFormAssociated(mixinElementInternals(r)))));
 class Select extends selectBaseClass {
   /**
    * The value of the currently selected option.
@@ -32806,7 +32803,7 @@ class Select extends selectBaseClass {
   }
 }
 Select.shadowRootOptions = {
-  ...i$3.shadowRootOptions,
+  ...r.shadowRootOptions,
   delegatesFocus: true
 };
 __decorate([
@@ -32855,19 +32852,19 @@ __decorate([
   n$5({ type: Number, attribute: "selected-index" })
 ], Select.prototype, "selectedIndex", null);
 __decorate([
-  r$3()
+  r$4()
 ], Select.prototype, "nativeError", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], Select.prototype, "nativeErrorText", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], Select.prototype, "focused", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], Select.prototype, "open", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], Select.prototype, "defaultFocus", void 0);
 __decorate([
   e$4(".field")
@@ -32879,7 +32876,7 @@ __decorate([
   e$4("#label")
 ], Select.prototype, "labelEl", void 0);
 __decorate([
-  o$4({ slot: "leading-icon", flatten: true })
+  o$3({ slot: "leading-icon", flatten: true })
 ], Select.prototype, "leadingIcons", void 0);
 /**
  * @license
@@ -33038,7 +33035,7 @@ class SelectOptionController {
  * Copyright 2023 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
-const selectOptionBaseClass = mixinDelegatesAria(i$3);
+const selectOptionBaseClass = mixinDelegatesAria(r);
 class SelectOptionEl extends selectOptionBaseClass {
   constructor() {
     super(...arguments);
@@ -33161,7 +33158,7 @@ class SelectOptionEl extends selectOptionBaseClass {
   }
 }
 SelectOptionEl.shadowRootOptions = {
-  ...i$3.shadowRootOptions,
+  ...r.shadowRootOptions,
   delegatesFocus: true
 };
 __decorate([
@@ -33180,10 +33177,10 @@ __decorate([
   e$4(".list-item")
 ], SelectOptionEl.prototype, "listItemRoot", void 0);
 __decorate([
-  o$4({ slot: "headline" })
+  o$3({ slot: "headline" })
 ], SelectOptionEl.prototype, "headlineElements", void 0);
 __decorate([
-  o$4({ slot: "supporting-text" })
+  o$3({ slot: "supporting-text" })
 ], SelectOptionEl.prototype, "supportingTextElements", void 0);
 __decorate([
   n$4({ slot: "" })
@@ -33225,7 +33222,7 @@ function n2(n3, r2, t2) {
  * Copyright 2023 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
-const sliderBaseClass = mixinDelegatesAria(mixinFormAssociated(mixinElementInternals(i$3)));
+const sliderBaseClass = mixinDelegatesAria(mixinFormAssociated(mixinElementInternals(r)));
 class Slider extends sliderBaseClass {
   /**
    * The HTML name to use in form submission for a range slider's starting
@@ -33683,7 +33680,7 @@ class Slider extends sliderBaseClass {
   }
 }
 Slider.shadowRootOptions = {
-  ...i$3.shadowRootOptions,
+  ...r.shadowRootOptions,
   delegatesFocus: true
 };
 __decorate([
@@ -33741,7 +33738,7 @@ __decorate([
   e$4(".handle.start")
 ], Slider.prototype, "handleStart", void 0);
 __decorate([
-  r$1("md-ripple.start")
+  r$2("md-ripple.start")
 ], Slider.prototype, "rippleStart", void 0);
 __decorate([
   e$4("input.end")
@@ -33750,40 +33747,40 @@ __decorate([
   e$4(".handle.end")
 ], Slider.prototype, "handleEnd", void 0);
 __decorate([
-  r$1("md-ripple.end")
+  r$2("md-ripple.end")
 ], Slider.prototype, "rippleEnd", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], Slider.prototype, "handleStartHover", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], Slider.prototype, "handleEndHover", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], Slider.prototype, "startOnTop", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], Slider.prototype, "handlesOverlapping", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], Slider.prototype, "renderValueStart", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], Slider.prototype, "renderValueEnd", void 0);
-function inBounds({ x: x2, y: y3 }, element) {
+function inBounds({ x: x2, y: y2 }, element) {
   if (!element) {
     return false;
   }
   const { top: top2, left: left2, bottom: bottom2, right: right2 } = element.getBoundingClientRect();
-  return x2 >= left2 && x2 <= right2 && y3 >= top2 && y3 <= bottom2;
+  return x2 >= left2 && x2 <= right2 && y2 >= top2 && y2 <= bottom2;
 }
 function isOverlapping(elA, elB) {
   if (!(elA && elB)) {
     return false;
   }
   const a2 = elA.getBoundingClientRect();
-  const b2 = elB.getBoundingClientRect();
-  return !(a2.top > b2.bottom || a2.right < b2.left || a2.bottom < b2.top || a2.left > b2.right);
+  const b3 = elB.getBoundingClientRect();
+  return !(a2.top > b3.bottom || a2.right < b3.left || a2.bottom < b3.top || a2.left > b3.right);
 }
 /**
  * @license
@@ -33860,7 +33857,7 @@ function setupDispatchHooks(element, ...eventTypes) {
  * Copyright 2021 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
-const switchBaseClass = mixinDelegatesAria(mixinConstraintValidation(mixinFormAssociated(mixinElementInternals(i$3))));
+const switchBaseClass = mixinDelegatesAria(mixinConstraintValidation(mixinFormAssociated(mixinElementInternals(r))));
 class Switch2 extends switchBaseClass {
   constructor() {
     super();
@@ -34045,7 +34042,7 @@ MdSwitch = __decorate([
 var _a$1;
 const INDICATOR = Symbol("indicator");
 const ANIMATE_INDICATOR = Symbol("animateIndicator");
-const tabBaseClass = mixinFocusable(i$3);
+const tabBaseClass = mixinFocusable(r);
 let Tab$1 = class Tab extends tabBaseClass {
   /**
    * @deprecated use `active`
@@ -34180,13 +34177,13 @@ __decorate([
   e$4(".indicator")
 ], Tab$1.prototype, _a$1, void 0);
 __decorate([
-  r$3()
+  r$4()
 ], Tab$1.prototype, "fullWidthIndicator", void 0);
 __decorate([
   n$4({ flatten: true })
 ], Tab$1.prototype, "assignedDefaultNodes", void 0);
 __decorate([
-  o$4({ slot: "icon", flatten: true })
+  o$3({ slot: "icon", flatten: true })
 ], Tab$1.prototype, "assignedIcons", void 0);
 function shouldReduceMotion() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -34270,7 +34267,7 @@ MdSecondaryTab = __decorate([
  * Copyright 2023 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
-class Tabs extends i$3 {
+class Tabs extends r {
   /**
    * The currently selected tab, `null` only when there are no tab children.
    *
@@ -34458,7 +34455,7 @@ class Tabs extends i$3 {
   }
 }
 __decorate([
-  o$4({ flatten: true, selector: "[md-tab]" })
+  o$3({ flatten: true, selector: "[md-tab]" })
 ], Tabs.prototype, "tabs", void 0);
 __decorate([
   n$5({ type: Number, attribute: "active-tab-index" })
@@ -34519,15 +34516,15 @@ const l = e$1(class extends i$2 {
   render(r2) {
     return r2;
   }
-  update(i4, [t$12]) {
+  update(i3, [t$12]) {
     if (t$12 === T$1 || t$12 === E$1) return t$12;
-    const o2 = i4.element, l2 = i4.name;
-    if (i4.type === t.PROPERTY) {
+    const o2 = i3.element, l2 = i3.name;
+    if (i3.type === t.PROPERTY) {
       if (t$12 === o2[l2]) return T$1;
-    } else if (i4.type === t.BOOLEAN_ATTRIBUTE) {
+    } else if (i3.type === t.BOOLEAN_ATTRIBUTE) {
       if (!!t$12 === o2.hasAttribute(l2)) return T$1;
-    } else if (i4.type === t.ATTRIBUTE && o2.getAttribute(l2) === t$12 + "") return T$1;
-    return m(i4), t$12;
+    } else if (i3.type === t.ATTRIBUTE && o2.getAttribute(l2) === t$12 + "") return T$1;
+    return m(i3), t$12;
   }
 });
 /**
@@ -34646,7 +34643,7 @@ function isInputState(state) {
  * Copyright 2021 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
-const textFieldBaseClass = mixinDelegatesAria(mixinOnReportValidity(mixinConstraintValidation(mixinFormAssociated(mixinElementInternals(i$3)))));
+const textFieldBaseClass = mixinDelegatesAria(mixinOnReportValidity(mixinConstraintValidation(mixinFormAssociated(mixinElementInternals(r)))));
 class TextField extends textFieldBaseClass {
   constructor() {
     super(...arguments);
@@ -35050,7 +35047,7 @@ class TextField extends textFieldBaseClass {
   }
 }
 TextField.shadowRootOptions = {
-  ...i$3.shadowRootOptions,
+  ...r.shadowRootOptions,
   delegatesFocus: true
 };
 __decorate([
@@ -35135,16 +35132,16 @@ __decorate([
   n$5({ reflect: true })
 ], TextField.prototype, "autocomplete", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], TextField.prototype, "dirty", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], TextField.prototype, "focused", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], TextField.prototype, "nativeError", void 0);
 __decorate([
-  r$3()
+  r$4()
 ], TextField.prototype, "nativeErrorText", void 0);
 __decorate([
   e$4(".input")
@@ -35153,10 +35150,10 @@ __decorate([
   e$4(".field")
 ], TextField.prototype, "field", void 0);
 __decorate([
-  o$4({ slot: "leading-icon" })
+  o$3({ slot: "leading-icon" })
 ], TextField.prototype, "leadingIcons", void 0);
 __decorate([
-  o$4({ slot: "trailing-icon" })
+  o$3({ slot: "trailing-icon" })
 ], TextField.prototype, "trailingIcons", void 0);
 /**
  * @license
@@ -35381,18 +35378,18 @@ function getBoundingClientRect(element, includeScale, isFixedStrategy) {
   var _ref = isElement$1(element) ? getWindow(element) : window, visualViewport = _ref.visualViewport;
   var addVisualOffsets = !isLayoutViewport() && isFixedStrategy;
   var x2 = (clientRect.left + (addVisualOffsets && visualViewport ? visualViewport.offsetLeft : 0)) / scaleX;
-  var y3 = (clientRect.top + (addVisualOffsets && visualViewport ? visualViewport.offsetTop : 0)) / scaleY;
+  var y2 = (clientRect.top + (addVisualOffsets && visualViewport ? visualViewport.offsetTop : 0)) / scaleY;
   var width = clientRect.width / scaleX;
   var height = clientRect.height / scaleY;
   return {
     width,
     height,
-    top: y3,
+    top: y2,
     right: x2 + width,
-    bottom: y3 + height,
+    bottom: y2 + height,
     left: x2,
     x: x2,
-    y: y3
+    y: y2
   };
 }
 function getLayoutRect(element) {
@@ -35592,26 +35589,26 @@ var unsetSides = {
   left: "auto"
 };
 function roundOffsetsByDPR(_ref, win) {
-  var x2 = _ref.x, y3 = _ref.y;
+  var x2 = _ref.x, y2 = _ref.y;
   var dpr = win.devicePixelRatio || 1;
   return {
     x: round(x2 * dpr) / dpr || 0,
-    y: round(y3 * dpr) / dpr || 0
+    y: round(y2 * dpr) / dpr || 0
   };
 }
 function mapToStyles(_ref2) {
   var _Object$assign2;
   var popper2 = _ref2.popper, popperRect = _ref2.popperRect, placement = _ref2.placement, variation = _ref2.variation, offsets = _ref2.offsets, position = _ref2.position, gpuAcceleration = _ref2.gpuAcceleration, adaptive = _ref2.adaptive, roundOffsets = _ref2.roundOffsets, isFixed = _ref2.isFixed;
-  var _offsets$x = offsets.x, x2 = _offsets$x === void 0 ? 0 : _offsets$x, _offsets$y = offsets.y, y3 = _offsets$y === void 0 ? 0 : _offsets$y;
+  var _offsets$x = offsets.x, x2 = _offsets$x === void 0 ? 0 : _offsets$x, _offsets$y = offsets.y, y2 = _offsets$y === void 0 ? 0 : _offsets$y;
   var _ref3 = typeof roundOffsets === "function" ? roundOffsets({
     x: x2,
-    y: y3
+    y: y2
   }) : {
     x: x2,
-    y: y3
+    y: y2
   };
   x2 = _ref3.x;
-  y3 = _ref3.y;
+  y2 = _ref3.y;
   var hasX = offsets.hasOwnProperty("x");
   var hasY = offsets.hasOwnProperty("y");
   var sideX = left;
@@ -35635,8 +35632,8 @@ function mapToStyles(_ref2) {
         // $FlowFixMe[prop-missing]
         offsetParent[heightProp]
       );
-      y3 -= offsetY - popperRect.height;
-      y3 *= gpuAcceleration ? 1 : -1;
+      y2 -= offsetY - popperRect.height;
+      y2 *= gpuAcceleration ? 1 : -1;
     }
     if (placement === left || (placement === top || placement === bottom) && variation === end) {
       sideX = right;
@@ -35653,18 +35650,18 @@ function mapToStyles(_ref2) {
   }, adaptive && unsetSides);
   var _ref4 = roundOffsets === true ? roundOffsetsByDPR({
     x: x2,
-    y: y3
+    y: y2
   }, getWindow(popper2)) : {
     x: x2,
-    y: y3
+    y: y2
   };
   x2 = _ref4.x;
-  y3 = _ref4.y;
+  y2 = _ref4.y;
   if (gpuAcceleration) {
     var _Object$assign;
-    return Object.assign({}, commonStyles, (_Object$assign = {}, _Object$assign[sideY] = hasY ? "0" : "", _Object$assign[sideX] = hasX ? "0" : "", _Object$assign.transform = (win.devicePixelRatio || 1) <= 1 ? "translate(" + x2 + "px, " + y3 + "px)" : "translate3d(" + x2 + "px, " + y3 + "px, 0)", _Object$assign));
+    return Object.assign({}, commonStyles, (_Object$assign = {}, _Object$assign[sideY] = hasY ? "0" : "", _Object$assign[sideX] = hasX ? "0" : "", _Object$assign.transform = (win.devicePixelRatio || 1) <= 1 ? "translate(" + x2 + "px, " + y2 + "px)" : "translate3d(" + x2 + "px, " + y2 + "px, 0)", _Object$assign));
   }
-  return Object.assign({}, commonStyles, (_Object$assign2 = {}, _Object$assign2[sideY] = hasY ? y3 + "px" : "", _Object$assign2[sideX] = hasX ? x2 + "px" : "", _Object$assign2.transform = "", _Object$assign2));
+  return Object.assign({}, commonStyles, (_Object$assign2 = {}, _Object$assign2[sideY] = hasY ? y2 + "px" : "", _Object$assign2[sideX] = hasX ? x2 + "px" : "", _Object$assign2.transform = "", _Object$assign2));
 }
 function computeStyles(_ref5) {
   var state = _ref5.state, options = _ref5.options;
@@ -35779,21 +35776,21 @@ function getViewportRect(element, strategy) {
   var width = html.clientWidth;
   var height = html.clientHeight;
   var x2 = 0;
-  var y3 = 0;
+  var y2 = 0;
   if (visualViewport) {
     width = visualViewport.width;
     height = visualViewport.height;
     var layoutViewport = isLayoutViewport();
     if (layoutViewport || !layoutViewport && strategy === "fixed") {
       x2 = visualViewport.offsetLeft;
-      y3 = visualViewport.offsetTop;
+      y2 = visualViewport.offsetTop;
     }
   }
   return {
     width,
     height,
     x: x2 + getWindowScrollBarX(element),
-    y: y3
+    y: y2
   };
 }
 function getDocumentRect(element) {
@@ -35804,7 +35801,7 @@ function getDocumentRect(element) {
   var width = max(html.scrollWidth, html.clientWidth, body ? body.scrollWidth : 0, body ? body.clientWidth : 0);
   var height = max(html.scrollHeight, html.clientHeight, body ? body.scrollHeight : 0, body ? body.clientHeight : 0);
   var x2 = -winScroll.scrollLeft + getWindowScrollBarX(element);
-  var y3 = -winScroll.scrollTop;
+  var y2 = -winScroll.scrollTop;
   if (getComputedStyle$1(body || html).direction === "rtl") {
     x2 += max(html.clientWidth, body ? body.clientWidth : 0) - width;
   }
@@ -35812,7 +35809,7 @@ function getDocumentRect(element) {
     width,
     height,
     x: x2,
-    y: y3
+    y: y2
   };
 }
 function isScrollParent(element) {
@@ -36006,8 +36003,8 @@ function computeAutoPlacement(state, options) {
     })[getBasePlacement(placement2)];
     return acc;
   }, {});
-  return Object.keys(overflows).sort(function(a2, b2) {
-    return overflows[a2] - overflows[b2];
+  return Object.keys(overflows).sort(function(a2, b3) {
+    return overflows[a2] - overflows[b3];
   });
 }
 function getExpandedFallbackPlacements(placement) {
@@ -36042,8 +36039,8 @@ function flip(_ref) {
   var checksMap = /* @__PURE__ */ new Map();
   var makeFallbackChecks = true;
   var firstFittingPlacement = placements2[0];
-  for (var i4 = 0; i4 < placements2.length; i4++) {
-    var placement = placements2[i4];
+  for (var i3 = 0; i3 < placements2.length; i3++) {
+    var placement = placements2[i3];
     var _basePlacement = getBasePlacement(placement);
     var isStartVariation = getVariation(placement) === start;
     var isVertical = [top, bottom].indexOf(_basePlacement) >= 0;
@@ -36188,10 +36185,10 @@ function offset(_ref2) {
     acc[placement] = distanceAndSkiddingToXY(placement, state.rects, offset2);
     return acc;
   }, {});
-  var _data$state$placement = data[state.placement], x2 = _data$state$placement.x, y3 = _data$state$placement.y;
+  var _data$state$placement = data[state.placement], x2 = _data$state$placement.x, y2 = _data$state$placement.y;
   if (state.modifiersData.popperOffsets != null) {
     state.modifiersData.popperOffsets.x += x2;
-    state.modifiersData.popperOffsets.y += y3;
+    state.modifiersData.popperOffsets.y += y2;
   }
   state.modifiersData[name2] = data;
 }
@@ -36617,7 +36614,7 @@ const Popper = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   write
 }, Symbol.toStringTag, { value: "Module" }));
 /*!
-  * Bootstrap v5.3.6 (https://getbootstrap.com/)
+  * Bootstrap v5.3.4 (https://getbootstrap.com/)
   * Copyright 2011-2025 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -37126,7 +37123,7 @@ class Config {
     }
   }
 }
-const VERSION = "5.3.6";
+const VERSION = "5.3.4";
 class BaseComponent extends Config {
   constructor(element, config) {
     super();
@@ -37146,7 +37143,6 @@ class BaseComponent extends Config {
       this[propertyName] = null;
     }
   }
-  // Private
   _queueCallback(callback, element, isAnimated = true) {
     executeAfterTransition(callback, element, isAnimated);
   }
@@ -37899,10 +37895,10 @@ class Collapse extends BaseComponent {
     this._element.style[dimension] = "";
     this._queueCallback(complete, this._element, true);
   }
-  // Private
   _isShown(element = this._element) {
     return element.classList.contains(CLASS_NAME_SHOW$7);
   }
+  // Private
   _configAfterMerge(config) {
     config.toggle = Boolean(config.toggle);
     config.parent = getElement(config.parent);
@@ -38101,7 +38097,6 @@ class Dropdown extends BaseComponent {
     this._element.setAttribute("aria-expanded", "false");
     Manipulator.removeDataAttribute(this._menu, "popper");
     EventHandler.trigger(this._element, EVENT_HIDDEN$5, relatedTarget);
-    this._element.focus();
   }
   _getConfig(config) {
     config = super._getConfig(config);
@@ -40336,7 +40331,7 @@ const __vitePreload = function preload(baseModule, deps, importerUrl) {
   });
 };
 const name = "app";
-const template$s = '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">\r\n    <div class="container-fluid">\r\n        <a class="navbar-brand" href="/">\r\n            D2R Reimagined\r\n        </a>\r\n        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">\r\n            <span class="navbar-toggler-icon"></span>\r\n        </button>\r\n        <div class="collapse navbar-collapse" id="navbarSupportedContent">\r\n            <ul class="navbar-nav me-auto mb-2 mb-lg-0">\r\n                <li class="nav-item mx-3">\r\n                    <a class="nav-link active" aria-current="page" href="/">Home</a>\r\n                </li>\r\n                <li class="nav-item mx-3">\r\n                    <a class="nav-link active cursor-pointer" aria-current="page" href="/cube-recipes">\r\n                        Cube Recipes\r\n                    </a>\r\n                </li>\r\n                <li class="nav-item mx-3">\r\n                    <a class="nav-link active cursor-pointer" aria-current="page" href="/uniques">\r\n                        Uniques\r\n                    </a>\r\n                </li>\r\n                <li class="nav-item mx-3">\r\n                    <a class="nav-link active cursor-pointer" aria-current="page" href="/sets">\r\n                        Sets\r\n                    </a>\r\n                </li>\r\n                <li class="nav-item mx-3">\r\n                    <a class="nav-link active cursor-pointer" aria-current="page" href="/runewords">\r\n                        Runewords\r\n                    </a>\r\n                </li>\r\n                <li class="nav-item mx-3">\r\n                    <a class="nav-link active cursor-pointer" aria-current="page" href="https://d2r-reimagined.com/talonrage" external>\r\n                        Original Talonrage Docs\r\n                    </a>\r\n                </li>\r\n            </ul>\r\n            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">\r\n                <li class="nav-item mx-3 dropdown">\r\n                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">\r\n                        Font\r\n                    </a>\r\n                    <ul class="dropdown-menu dropdown-menu-end">\r\n                        <li repeat.for="font of fonts"><a class="dropdown-item ${font.class} cursor-pointer" click.trigger="handleFontSelected(font)">${font.name}</a></li>\r\n                    </ul>\r\n                </li>\r\n                <li class="nav-item mx-3 d-flex align-items-center">\r\n                    <a href="https://discord.gg/9zZkYrSA8C" target="_blank">\r\n                        <svg width=32" height="32" viewBox="0 -28.5 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">\r\n                            <g>\r\n                                <path d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z" fill="#5865F2" fill-rule="nonzero">\r\n    \r\n                                </path>\r\n                            </g>\r\n                        </svg>\r\n                    </a>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n</nav>\r\n\r\n<div class="container-fluid">\r\n    <au-viewport default="Home"></au-viewport>\r\n</div>\r\n';
+const template$s = '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">\n    <div class="container-fluid">\n        <a class="navbar-brand" href="/">\n            D2R Reimagined\n        </a>\n        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">\n            <span class="navbar-toggler-icon"></span>\n        </button>\n        <div class="collapse navbar-collapse" id="navbarSupportedContent">\n            <ul class="navbar-nav me-auto mb-2 mb-lg-0">\n                <li class="nav-item mx-3">\n                    <a class="nav-link active" aria-current="page" href="/">Home</a>\n                </li>\n                <li class="nav-item mx-3">\n                    <a class="nav-link active cursor-pointer" aria-current="page" href="/cube-recipes">\n                        Cube Recipes\n                    </a>\n                </li>\n                <li class="nav-item mx-3">\n                    <a class="nav-link active cursor-pointer" aria-current="page" href="/uniques">\n                        Uniques\n                    </a>\n                </li>\n                <li class="nav-item mx-3">\n                    <a class="nav-link active cursor-pointer" aria-current="page" href="/sets">\n                        Sets\n                    </a>\n                </li>\n                <li class="nav-item mx-3">\n                    <a class="nav-link active cursor-pointer" aria-current="page" href="/runewords">\n                        Runewords\n                    </a>\n                </li>\n                <li class="nav-item mx-3">\n                    <a class="nav-link active cursor-pointer" aria-current="page" href="https://d2r-reimagined.com/talonrage" external>\n                        Original Talonrage Docs\n                    </a>\n                </li>\n            </ul>\n            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">\n                <li class="nav-item mx-3 dropdown">\n                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">\n                        Font\n                    </a>\n                    <ul class="dropdown-menu dropdown-menu-end">\n                        <li repeat.for="font of fonts"><a class="dropdown-item ${font.class} cursor-pointer" click.trigger="handleFontSelected(font)">${font.name}</a></li>\n                    </ul>\n                </li>\n                <li class="nav-item mx-3 d-flex align-items-center">\n                    <a href="https://discord.gg/9zZkYrSA8C" target="_blank">\n                        <svg width=32" height="32" viewBox="0 -28.5 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">\n                            <g>\n                                <path d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z" fill="#5865F2" fill-rule="nonzero">\n    \n                                </path>\n                            </g>\n                        </svg>\n                    </a>\n                </li>\n            </ul>\n        </div>\n    </div>\n</nav>\n\n<div class="container-fluid">\n    <au-viewport default="Home"></au-viewport>\n</div>\n';
 const dependencies = [];
 const bindables = {};
 let _e;
@@ -40370,7 +40365,7 @@ var __expectFn$2 = (fn2) => fn2 !== void 0 && typeof fn2 !== "function" ? __type
 var __decoratorContext$2 = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings$2[kind], name: name2, metadata, addInitializer: (fn2) => done._ ? __typeError$2("Already initialized") : fns.push(__expectFn$2(fn2 || null)) });
 var __decoratorMetadata$2 = (array, target) => __defNormalProp$2(target, __knownSymbol$2("metadata"), array[3]);
 var __runInitializers$4 = (array, flags, self, value) => {
-  for (var i4 = 0, fns = array[flags >> 1], n3 = fns && fns.length; i4 < n3; i4++) fns[i4].call(self);
+  for (var i3 = 0, fns = array[flags >> 1], n3 = fns && fns.length; i3 < n3; i3++) fns[i3].call(self);
   return value;
 };
 var __decorateElement$2 = (array, flags, name2, decorators, target, extra) => {
@@ -40379,9 +40374,9 @@ var __decorateElement$2 = (array, flags, name2, decorators, target, extra) => {
   var extraInitializers = array[j2] || (array[j2] = []);
   var desc = k3 && (target = target.prototype, k3 < 5 && (k3 > 3 || !p2) && __getOwnPropDesc$2(target, name2));
   __name$2(target, name2);
-  for (var i4 = decorators.length - 1; i4 >= 0; i4--) {
+  for (var i3 = decorators.length - 1; i3 >= 0; i3--) {
     ctx = __decoratorContext$2(k3, name2, done = {}, array[3], extraInitializers);
-    it = (0, decorators[i4])(target, ctx), done._ = 1;
+    it = (0, decorators[i3])(target, ctx), done._ = 1;
     __expectFn$2(it) && (target = it);
   }
   return __decoratorMetadata$2(array, target), desc && __defProp$2(target, name2, desc), p2 ? k3 ^ 4 ? extra : desc : target;
@@ -40392,27 +40387,27 @@ _App_decorators = [customElement(__au2ViewDef), route({
   routes: [
     {
       path: "",
-      component: __vitePreload(() => import("./home-BeDdpLv4.js"), true ? [] : void 0),
+      component: __vitePreload(() => import("./home-BJ8wC_Aj.js"), true ? [] : void 0),
       title: "Home"
     },
     {
       path: "cube-recipes",
-      component: __vitePreload(() => import("./cube-recipes-Cf413Kw3.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
+      component: __vitePreload(() => import("./cube-recipes-C_dgydJU.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
       title: "Cube Recipes"
     },
     {
       path: "uniques",
-      component: __vitePreload(() => import("./uniques-BASVppED.js"), true ? __vite__mapDeps([3,1]) : void 0),
+      component: __vitePreload(() => import("./uniques-D5LGt9u3.js"), true ? __vite__mapDeps([3,1]) : void 0),
       title: "Uniques"
     },
     {
       path: "sets",
-      component: __vitePreload(() => import("./sets-BOwqQ1z0.js"), true ? __vite__mapDeps([4,1]) : void 0),
+      component: __vitePreload(() => import("./sets-D6sFweU-.js"), true ? __vite__mapDeps([4,1]) : void 0),
       title: "Sets"
     },
     {
       path: "runewords",
-      component: __vitePreload(() => import("./runewords-DOBknoQS.js"), true ? __vite__mapDeps([5,1]) : void 0),
+      component: __vitePreload(() => import("./runewords-DNNPKmg-.js"), true ? __vite__mapDeps([5,1]) : void 0),
       title: "Runewords"
     }
   ]
@@ -40457,7 +40452,7 @@ var __expectFn$1 = (fn2) => fn2 !== void 0 && typeof fn2 !== "function" ? __type
 var __decoratorContext$1 = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings$1[kind], name: name2, metadata, addInitializer: (fn2) => done._ ? __typeError$1("Already initialized") : fns.push(__expectFn$1(fn2 || null)) });
 var __decoratorMetadata$1 = (array, target) => __defNormalProp$1(target, __knownSymbol$1("metadata"), array[3]);
 var __runInitializers$3 = (array, flags, self, value) => {
-  for (var i4 = 0, fns = array[flags >> 1], n3 = fns && fns.length; i4 < n3; i4++) fns[i4].call(self);
+  for (var i3 = 0, fns = array[flags >> 1], n3 = fns && fns.length; i3 < n3; i3++) fns[i3].call(self);
   return value;
 };
 var __decorateElement$1 = (array, flags, name2, decorators, target, extra) => {
@@ -40466,9 +40461,9 @@ var __decorateElement$1 = (array, flags, name2, decorators, target, extra) => {
   var extraInitializers = array[j2] || (array[j2] = []);
   var desc = k3 && (target = target.prototype, k3 < 5 && (k3 > 3 || !p2) && __getOwnPropDesc$1(target, name2));
   __name$1(target, name2);
-  for (var i4 = decorators.length - 1; i4 >= 0; i4--) {
+  for (var i3 = decorators.length - 1; i3 >= 0; i3--) {
     ctx = __decoratorContext$1(k3, name2, done = {}, array[3], extraInitializers);
-    it = (0, decorators[i4])(target, ctx), done._ = 1;
+    it = (0, decorators[i3])(target, ctx), done._ = 1;
     __expectFn$1(it) && (target = it);
   }
   return __decoratorMetadata$1(array, target), desc && __defProp$1(target, name2, desc), p2 ? k3 ^ 4 ? extra : desc : target;
@@ -40506,7 +40501,7 @@ var __expectFn = (fn2) => fn2 !== void 0 && typeof fn2 !== "function" ? __typeEr
 var __decoratorContext = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings[kind], name: name2, metadata, addInitializer: (fn2) => done._ ? __typeError("Already initialized") : fns.push(__expectFn(fn2 || null)) });
 var __decoratorMetadata = (array, target) => __defNormalProp(target, __knownSymbol("metadata"), array[3]);
 var __runInitializers$2 = (array, flags, self, value) => {
-  for (var i4 = 0, fns = array[flags >> 1], n3 = fns && fns.length; i4 < n3; i4++) fns[i4].call(self);
+  for (var i3 = 0, fns = array[flags >> 1], n3 = fns && fns.length; i3 < n3; i3++) fns[i3].call(self);
   return value;
 };
 var __decorateElement = (array, flags, name2, decorators, target, extra) => {
@@ -40515,9 +40510,9 @@ var __decorateElement = (array, flags, name2, decorators, target, extra) => {
   var extraInitializers = array[j2] || (array[j2] = []);
   var desc = k3 && (target = target.prototype, k3 < 5 && (k3 > 3 || !p2) && __getOwnPropDesc(target, name2));
   __name(target, name2);
-  for (var i4 = decorators.length - 1; i4 >= 0; i4--) {
+  for (var i3 = decorators.length - 1; i3 >= 0; i3--) {
     ctx = __decoratorContext(k3, name2, done = {}, array[3], extraInitializers);
-    it = (0, decorators[i4])(target, ctx), done._ = 1;
+    it = (0, decorators[i3])(target, ctx), done._ = 1;
     __expectFn(it) && (target = it);
   }
   return __decoratorMetadata(array, target), desc && __defProp(target, name2, desc), p2 ? k3 ^ 4 ? extra : desc : target;
@@ -40615,7 +40610,7 @@ const Resources = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePro
 const g = /* @__PURE__ */ DI.createInterface("IValidationExpressionHydrator");
 const p = Metadata.get;
 const v = Metadata.define;
-const y2 = Metadata.delete;
+const y = Metadata.delete;
 const { annotation: P$1 } = Protocol;
 const w = P$1.keyFor;
 const createMappedError$1 = (e2, ...t2) => new Error(`AUR${String(e2).padStart(4, "0")}:${t2.map(String)}`);
@@ -40626,8 +40621,8 @@ const E = Object.freeze({
   define(e2, t2, s2) {
     this.setDefaultMessage(e2, t2, s2);
   },
-  setDefaultMessage(e2, { aliases: t2 }, i4) {
-    const r2 = i4 ? p(this.aliasKey, e2) : void 0;
+  setDefaultMessage(e2, { aliases: t2 }, i3) {
+    const r2 = i3 ? p(this.aliasKey, e2) : void 0;
     if (r2 !== void 0) {
       const e3 = {
         ...Object.fromEntries(r2.map(({ name: e4, defaultMessage: t3 }) => [e4, t3])),
@@ -40764,15 +40759,15 @@ class StateRule extends BaseValidationRule {
     this.stateFunction = t2;
     this.messages = s2;
     this.i = null;
-    const i4 = [];
+    const i3 = [];
     for (const [e3, t3] of Object.entries(s2)) {
-      i4.push({
+      i3.push({
         name: e3,
         defaultMessage: t3
       });
     }
     E.setDefaultMessage(this, {
-      aliases: i4
+      aliases: i3
     }, false);
   }
   execute(e2, t2) {
@@ -40845,7 +40840,7 @@ E.define(BaseValidationRule, {
     defaultMessage: `\${$displayName} is invalid.`
   }]
 }, false);
-const b = /* @__PURE__ */ DI.createInterface("ICustomMessages");
+const b2 = /* @__PURE__ */ DI.createInterface("ICustomMessages");
 class RuleProperty {
   constructor(e2, t2 = void 0, s2 = void 0) {
     this.expression = e2;
@@ -40862,13 +40857,13 @@ const V = Object.freeze({
   name: "validation-rules",
   defaultRuleSetName: "__default",
   set(e2, t2, s2) {
-    const i4 = `${V.name}:${s2 ?? V.defaultRuleSetName}`;
-    v(t2, e2, w(i4));
+    const i3 = `${V.name}:${s2 ?? V.defaultRuleSetName}`;
+    v(t2, e2, w(i3));
     const r2 = p(this.allRulesAnnotations, e2);
     if (r2 === void 0) {
-      v([i4], e2, this.allRulesAnnotations);
+      v([i3], e2, this.allRulesAnnotations);
     } else {
-      r2.push(i4);
+      r2.push(i3);
     }
   },
   get(e2, t2) {
@@ -40878,10 +40873,10 @@ const V = Object.freeze({
   unset(e2, t2) {
     const s2 = p(this.allRulesAnnotations, e2);
     if (!Array.isArray(s2)) return;
-    for (const i4 of s2.slice(0)) {
-      if (i4.startsWith(V.name) && (t2 === void 0 || i4.endsWith(t2))) {
-        y2(w(i4), e2);
-        const t3 = s2.indexOf(i4);
+    for (const i3 of s2.slice(0)) {
+      if (i3.startsWith(V.name) && (t2 === void 0 || i3.endsWith(t2))) {
+        y(w(i3), e2);
+        const t3 = s2.indexOf(i3);
         if (t3 > -1) {
           s2.splice(t3, 1);
         }
@@ -40894,11 +40889,11 @@ const V = Object.freeze({
   }
 });
 class ValidationMessageEvaluationContext {
-  constructor(e2, t2, s2, i4, r2, n3) {
+  constructor(e2, t2, s2, i3, r2, n3) {
     this.messageProvider = e2;
     this.$displayName = t2;
     this.$propertyName = s2;
-    this.$value = i4;
+    this.$value = i3;
     this.$rule = r2;
     this.$object = n3;
   }
@@ -40907,10 +40902,10 @@ class ValidationMessageEvaluationContext {
   }
 }
 class PropertyRule {
-  constructor(e2, t2, s2, i4, r2 = [[]]) {
+  constructor(e2, t2, s2, i3, r2 = [[]]) {
     this.validationRules = t2;
     this.messageProvider = s2;
-    this.property = i4;
+    this.property = i3;
     this.$rules = r2;
     this.l = e2;
   }
@@ -40932,12 +40927,12 @@ class PropertyRule {
         [A$1]: e2
       });
     }
-    const i4 = this.property.expression;
+    const i3 = this.property.expression;
     let r2;
-    if (i4 === void 0) {
+    if (i3 === void 0) {
       r2 = e2;
     } else {
-      r2 = astEvaluate(i4, s2, this, null);
+      r2 = astEvaluate(i3, s2, this, null);
     }
     let n3 = true;
     const validateRuleset = async (s3) => {
@@ -40947,21 +40942,21 @@ class PropertyRule {
           s4 = await s4;
         }
         n3 = n3 && s4;
-        const { displayName: i6, name: a2 } = this.property;
+        const { displayName: i5, name: a2 } = this.property;
         let u2;
         if (!s4) {
-          const s5 = Scope.create(new ValidationMessageEvaluationContext(this.messageProvider, this.messageProvider.getDisplayName(a2, i6), a2, r2, t3, e2));
+          const s5 = Scope.create(new ValidationMessageEvaluationContext(this.messageProvider, this.messageProvider.getDisplayName(a2, i5), a2, r2, t3, e2));
           u2 = astEvaluate(this.messageProvider.getMessage(t3), s5, this, null);
         }
         return new ValidationResult(s4, u2, a2, e2, t3, this);
       };
-      const i5 = [];
+      const i4 = [];
       for (const r3 of s3) {
         if (r3.canExecute(e2) && (t2 === void 0 || r3.tag === t2)) {
-          i5.push(validateRule(r3));
+          i4.push(validateRule(r3));
         }
       }
-      return Promise.all(i5);
+      return Promise.all(i4);
     };
     const accumulateResult = async (e3, t3) => {
       const s3 = await validateRuleset(t3);
@@ -41095,12 +41090,12 @@ class ValidationRules {
   }
   ensure(e2) {
     const [t2, s2] = parsePropertyName(e2, this.parser);
-    let i4 = this.rules.find((e3) => e3.property.name == t2);
-    if (i4 === void 0) {
-      i4 = new PropertyRule(this.locator, this, this.messageProvider, new RuleProperty(s2, t2));
-      this.rules.push(i4);
+    let i3 = this.rules.find((e3) => e3.property.name == t2);
+    if (i3 === void 0) {
+      i3 = new PropertyRule(this.locator, this, this.messageProvider, new RuleProperty(s2, t2));
+      this.rules.push(i3);
     }
-    return i4;
+    return i3;
   }
   ensureObject() {
     const e2 = new PropertyRule(this.locator, this, this.messageProvider, new RuleProperty());
@@ -41128,9 +41123,9 @@ class ValidationRules {
   }
   applyModelBasedRules(e2, t2) {
     const s2 = /* @__PURE__ */ new Set();
-    for (const i4 of t2) {
-      const t3 = i4.tag;
-      const r2 = this.deserializer.hydrateRuleset(i4.ruleset, this);
+    for (const i3 of t2) {
+      const t3 = i3.tag;
+      const r2 = this.deserializer.hydrateRuleset(i3.ruleset, this);
       V.set(e2, r2, t3);
       s2.add(t3);
     }
@@ -41158,11 +41153,11 @@ function parsePropertyName(e2, t2) {
   return [e2, t2.parse(`${A$1}.${e2}`, "IsProperty")];
 }
 class ValidationResult {
-  constructor(e2, t2, s2, i4, r2, n3, a2 = false) {
+  constructor(e2, t2, s2, i3, r2, n3, a2 = false) {
     this.valid = e2;
     this.message = t2;
     this.propertyName = s2;
-    this.object = i4;
+    this.object = i3;
     this.rule = r2;
     this.propertyRule = n3;
     this.isManual = a2;
@@ -41175,7 +41170,7 @@ class ValidationResult {
 ValidationResult.nextId = 0;
 const N2 = /* @__PURE__ */ new Set(["displayName", "propertyName", "value", "object", "config", "getDisplayName"]);
 class ValidationMessageProvider {
-  constructor(e2 = resolve(ILogger), t2 = resolve(b)) {
+  constructor(e2 = resolve(ILogger), t2 = resolve(b2)) {
     this.registeredMessages = /* @__PURE__ */ new WeakMap();
     this.parser = resolve(IExpressionParser);
     this.logger = e2.scopeTo(ValidationMessageProvider.name);
@@ -41194,13 +41189,13 @@ class ValidationMessageProvider {
         return e3;
       }
     }
-    const i4 = E.getDefaultMessages(e2);
+    const i3 = E.getDefaultMessages(e2);
     let r2;
-    const n3 = i4.length;
+    const n3 = i3.length;
     if (n3 === 1 && t2 === void 0) {
-      r2 = i4[0].defaultMessage;
+      r2 = i3[0].defaultMessage;
     } else {
-      r2 = i4.find((e3) => e3.name === t2)?.defaultMessage;
+      r2 = i3.find((e3) => e3.name === t2)?.defaultMessage;
     }
     if (!r2) {
       r2 = E.getDefaultMessages(BaseValidationRule)[0].defaultMessage;
@@ -41208,14 +41203,14 @@ class ValidationMessageProvider {
     return this.setMessage(e2, r2);
   }
   setMessage(e2, t2, s2) {
-    const i4 = this.parseMessage(t2);
+    const i3 = this.parseMessage(t2);
     const r2 = this.registeredMessages;
     let n3 = r2.get(e2);
     if (n3 === void 0) {
       r2.set(e2, n3 = /* @__PURE__ */ new Map());
     }
-    n3.set(s2 ?? e2.messageKey, i4);
-    return i4;
+    n3.set(s2 ?? e2.messageKey, i3);
+    return i3;
   }
   parseMessage(e2) {
     const t2 = this.parser.parse(e2, "Interpolation");
@@ -41431,8 +41426,8 @@ class ValidationDeserializer {
   }
   static deserialize(e2, t2) {
     const s2 = this.container.get(z2);
-    const i4 = this.container.get(IExpressionParser);
-    const r2 = new ValidationDeserializer(this.container, s2, i4);
+    const i3 = this.container.get(IExpressionParser);
+    const r2 = new ValidationDeserializer(this.container, s2, i3);
     const n3 = JSON.parse(e2);
     return r2.hydrate(n3, t2);
   }
@@ -41454,9 +41449,9 @@ class ValidationDeserializer {
       case RegexRule.$TYPE: {
         const t3 = e2;
         const s2 = t3.pattern;
-        const i4 = this.astDeserializer;
-        const r2 = new RegexRule(new RegExp(i4.hydrate(s2.source), s2.flags), t3.messageKey);
-        r2.tag = i4.hydrate(t3.tag);
+        const i3 = this.astDeserializer;
+        const r2 = new RegexRule(new RegExp(i3.hydrate(s2.source), s2.flags), t3.messageKey);
+        r2.tag = i3.hydrate(t3.tag);
         return r2;
       }
       case LengthRule.$TYPE: {
@@ -41486,27 +41481,27 @@ class ValidationDeserializer {
       case EqualsRule.$TYPE: {
         const t3 = e2;
         const s2 = this.astDeserializer;
-        const i4 = new EqualsRule(typeof t3.expectedValue !== "object" ? s2.hydrate(t3.expectedValue) : t3.expectedValue);
-        i4.messageKey = t3.messageKey;
-        i4.tag = s2.hydrate(t3.tag);
-        return i4;
+        const i3 = new EqualsRule(typeof t3.expectedValue !== "object" ? s2.hydrate(t3.expectedValue) : t3.expectedValue);
+        i3.messageKey = t3.messageKey;
+        i3.tag = s2.hydrate(t3.tag);
+        return i3;
       }
       case RuleProperty.$TYPE: {
         const t3 = e2;
         const s2 = this.astDeserializer;
-        let i4 = t3.name;
-        i4 = i4 === "undefined" ? void 0 : s2.hydrate(i4);
+        let i3 = t3.name;
+        i3 = i3 === "undefined" ? void 0 : s2.hydrate(i3);
         let r2 = t3.expression;
         if (r2 !== null && r2 !== void 0) {
           r2 = s2.hydrate(r2);
-        } else if (i4 !== void 0) {
-          [, r2] = parsePropertyName(i4, this.parser);
+        } else if (i3 !== void 0) {
+          [, r2] = parsePropertyName(i3, this.parser);
         } else {
           r2 = void 0;
         }
         let n3 = t3.displayName;
         n3 = n3 === "undefined" ? void 0 : s2.hydrate(n3);
-        return new RuleProperty(r2, i4, n3);
+        return new RuleProperty(r2, i3, n3);
       }
       case PropertyRule.$TYPE: {
         const s2 = e2;
@@ -41533,18 +41528,18 @@ class ModelValidationExpressionHydrator {
   }
   hydrateRuleset(e2, t2) {
     const s2 = [];
-    const iterate = (e3, i4 = []) => {
+    const iterate = (e3, i3 = []) => {
       for (const [r2, n3] of e3) {
         if (this.isModelPropertyRule(n3)) {
           const e4 = n3.rules.map((e5) => Object.entries(e5).map(([e6, t3]) => this.hydrateRule(e6, t3)));
-          const a2 = i4.join(".");
+          const a2 = i3.join(".");
           const u2 = this.hydrateRuleProperty({
             name: a2 !== "" ? `${a2}.${r2}` : r2,
             displayName: n3.displayName
           });
           s2.push(new PropertyRule(this.l, t2, this.messageProvider, u2, e4));
         } else {
-          iterate(Object.entries(n3), [...i4, r2]);
+          iterate(Object.entries(n3), [...i3, r2]);
         }
       }
     };
@@ -41599,15 +41594,15 @@ class ModelValidationExpressionHydrator {
       t2.messageKey = s2;
     }
     t2.tag = e2.tag;
-    const i4 = e2.when;
-    if (i4) {
-      if (typeof i4 === "string") {
-        const e3 = this.parser.parse(i4, "None");
+    const i3 = e2.when;
+    if (i3) {
+      if (typeof i3 === "string") {
+        const e3 = this.parser.parse(i3, "None");
         t2.canExecute = (t3) => astEvaluate(e3, Scope.create({
           $object: t3
         }), this, null);
-      } else if (typeof i4 === "function") {
-        t2.canExecute = i4;
+      } else if (typeof i3 === "function") {
+        t2.canExecute = i3;
       }
     }
   }
@@ -41653,17 +41648,17 @@ class ModelValidationExpressionHydrator {
     if (!t2 || typeof t2 !== "string") {
       throw createMappedError$1(4106, typeof t2);
     }
-    const [s2, i4] = parsePropertyName(t2, this.parser);
-    return new RuleProperty(i4, s2, e2.displayName);
+    const [s2, i3] = parsePropertyName(t2, this.parser);
+    return new RuleProperty(i3, s2, e2.displayName);
   }
 }
 mixinAstEvaluator(ModelValidationExpressionHydrator);
 class ValidateInstruction {
-  constructor(e2 = void 0, t2 = void 0, s2 = void 0, i4 = void 0, r2 = void 0) {
+  constructor(e2 = void 0, t2 = void 0, s2 = void 0, i3 = void 0, r2 = void 0) {
     this.object = e2;
     this.propertyName = t2;
     this.rules = s2;
-    this.objectTag = i4;
+    this.objectTag = i3;
     this.propertyTag = r2;
   }
 }
@@ -41672,15 +41667,15 @@ class StandardValidator {
   async validate(e2) {
     const t2 = e2.object;
     const s2 = e2.propertyName;
-    const i4 = e2.propertyTag;
+    const i3 = e2.propertyTag;
     const r2 = e2.rules ?? V.get(t2, e2.objectTag) ?? [];
     const n3 = Scope.create({
       [A$1]: t2
     });
     if (s2 !== void 0) {
-      return await r2.find((e3) => e3.property.name === s2)?.validate(t2, i4, n3) ?? [];
+      return await r2.find((e3) => e3.property.name === s2)?.validate(t2, i3, n3) ?? [];
     }
-    return (await Promise.all(r2.map(async (e3) => e3.validate(t2, i4, n3)))).flat();
+    return (await Promise.all(r2.map(async (e3) => e3.validate(t2, i3, n3)))).flat();
   }
 }
 function getDefaultValidationConfiguration() {
@@ -41697,7 +41692,7 @@ function createConfiguration$1(e2) {
     register(t2) {
       const s2 = getDefaultValidationConfiguration();
       e2(s2);
-      t2.register(Registration.instance(b, s2.CustomMessages), Registration.singleton(B, s2.ValidatorType), Registration.singleton(z2, s2.MessageProviderType), Registration.singleton(g, s2.HydratorType), Registration.transient(M$1, ValidationRules), ValidationDeserializer);
+      t2.register(Registration.instance(b2, s2.CustomMessages), Registration.singleton(B, s2.ValidatorType), Registration.singleton(z2, s2.MessageProviderType), Registration.singleton(g, s2.HydratorType), Registration.transient(M$1, ValidationRules), ValidationDeserializer);
       return t2;
     },
     customize(t2) {
@@ -41706,7 +41701,7 @@ function createConfiguration$1(e2) {
   };
 }
 const L2 = /* @__PURE__ */ createConfiguration$1(noop$1);
-function __esDecorate$1(t2, i4, e2, s2, n3, r2) {
+function __esDecorate$1(t2, i3, e2, s2, n3, r2) {
   function accept(t3) {
     if (t3 !== void 0 && typeof t3 !== "function") throw new TypeError("Function expected");
     return t3;
@@ -41739,84 +41734,84 @@ function __esDecorate$1(t2, i4, e2, s2, n3, r2) {
   }
   c2 = true;
 }
-function __runInitializers$1(t2, i4, e2) {
+function __runInitializers$1(t2, i3, e2) {
   var s2 = arguments.length > 2;
-  for (var n3 = 0; n3 < i4.length; n3++) {
-    e2 = s2 ? i4[n3].call(t2, e2) : i4[n3].call(t2);
+  for (var n3 = 0; n3 < i3.length; n3++) {
+    e2 = s2 ? i3[n3].call(t2, e2) : i3[n3].call(t2);
   }
   return s2 ? e2 : void 0;
 }
-typeof SuppressedError === "function" ? SuppressedError : function(t2, i4, e2) {
+typeof SuppressedError === "function" ? SuppressedError : function(t2, i3, e2) {
   var s2 = new Error(e2);
-  return s2.name = "SuppressedError", s2.error = t2, s2.suppressed = i4, s2;
+  return s2.name = "SuppressedError", s2.error = t2, s2.suppressed = i3, s2;
 };
-const createMappedError = (t2, ...i4) => new Error(`AUR${String(t2).padStart(4, "0")}:${i4.map(String)}`);
+const createMappedError = (t2, ...i3) => new Error(`AUR${String(t2).padStart(4, "0")}:${i3.map(String)}`);
 class ControllerValidateResult {
-  constructor(t2, i4, e2) {
+  constructor(t2, i3, e2) {
     this.valid = t2;
-    this.results = i4;
+    this.results = i3;
     this.instruction = e2;
   }
 }
 class ValidationResultTarget {
-  constructor(t2, i4) {
+  constructor(t2, i3) {
     this.result = t2;
-    this.targets = i4;
+    this.targets = i3;
   }
 }
 class ValidationEvent {
-  constructor(t2, i4, e2) {
+  constructor(t2, i3, e2) {
     this.kind = t2;
-    this.addedResults = i4;
+    this.addedResults = i3;
     this.removedResults = e2;
   }
 }
 class BindingInfo {
-  constructor(t2, i4, e2, s2 = void 0) {
+  constructor(t2, i3, e2, s2 = void 0) {
     this.target = t2;
-    this.scope = i4;
+    this.scope = i3;
     this.rules = e2;
     this.propertyInfo = s2;
   }
 }
 class PropertyInfo {
-  constructor(t2, i4) {
+  constructor(t2, i3) {
     this.object = t2;
-    this.propertyName = i4;
+    this.propertyName = i3;
   }
 }
-function getPropertyInfo(t2, i4) {
-  let e2 = i4.propertyInfo;
+function getPropertyInfo(t2, i3) {
+  let e2 = i3.propertyInfo;
   if (e2 !== void 0) {
     return e2;
   }
-  const s2 = i4.scope;
+  const s2 = i3.scope;
   let n3 = t2.ast.expression;
   let r2 = true;
   let o2 = "";
   while (n3 !== void 0 && n3?.$kind !== "AccessScope") {
-    let i5;
+    let i4;
     switch (n3.$kind) {
       case "BindingBehavior":
       case "ValueConverter":
         n3 = n3.expression;
         continue;
       case "AccessMember":
-        i5 = n3.name;
+        i4 = n3.name;
         break;
       case "AccessKeyed": {
         const e4 = n3.key;
         if (r2) {
           r2 = e4.$kind === "PrimitiveLiteral";
         }
-        i5 = `[${astEvaluate(e4, s2, t2, null).toString()}]`;
+        i4 = `[${astEvaluate(e4, s2, t2, null).toString()}]`;
         break;
       }
       default:
         throw createMappedError(4205, n3.constructor.name);
     }
     const e3 = o2.startsWith("[") ? "" : ".";
-    o2 = o2.length === 0 ? i5 : `${i5}${e3}${o2}`;
+    o2 = o2.length === 0 ? i4 : `${i4}${e3}${o2}`;
     n3 = n3.object;
   }
   if (n3 === void 0) {
@@ -41834,7 +41829,7 @@ function getPropertyInfo(t2, i4) {
   }
   e2 = new PropertyInfo(a2, o2);
   if (r2) {
-    i4.propertyInfo = e2;
+    i3.propertyInfo = e2;
   }
   return e2;
 }
@@ -41852,19 +41847,19 @@ class ValidationController {
     this.platform = resolve(IPlatform);
     this.locator = resolve(IServiceLocator);
   }
-  addObject(t2, i4) {
-    this.objects.set(t2, i4);
+  addObject(t2, i3) {
+    this.objects.set(t2, i3);
   }
   removeObject(t2) {
     this.objects.delete(t2);
-    this.processResultDelta("reset", this.results.filter((i4) => i4.object === t2), []);
+    this.processResultDelta("reset", this.results.filter((i3) => i3.object === t2), []);
   }
-  addError(t2, i4, e2) {
+  addError(t2, i3, e2) {
     let s2;
     if (e2 !== void 0) {
       [s2] = parsePropertyName(e2, this.parser);
     }
-    const n3 = new ValidationResult(false, t2, s2, i4, void 0, void 0, true);
+    const n3 = new ValidationResult(false, t2, s2, i3, void 0, void 0, true);
     this.processResultDelta("validate", [], [n3]);
     return n3;
   }
@@ -41879,34 +41874,34 @@ class ValidationController {
   removeSubscriber(t2) {
     this.subscribers.delete(t2);
   }
-  registerBinding(t2, i4) {
-    this.bindings.set(t2, i4);
+  registerBinding(t2, i3) {
+    this.bindings.set(t2, i3);
   }
   unregisterBinding(t2) {
     this.resetBinding(t2);
     this.bindings.delete(t2);
   }
   async validate(t2) {
-    const { object: i4, objectTag: e2 } = t2 ?? {};
+    const { object: i3, objectTag: e2 } = t2 ?? {};
     let s2;
-    if (i4 !== void 0) {
-      s2 = [new ValidateInstruction(i4, t2?.propertyName, t2?.rules ?? this.objects.get(i4), e2, t2?.propertyTag)];
+    if (i3 !== void 0) {
+      s2 = [new ValidateInstruction(i3, t2?.propertyName, t2?.rules ?? this.objects.get(i3), e2, t2?.propertyTag)];
     } else {
-      s2 = [...Array.from(this.objects.entries()).map(([t3, i5]) => new ValidateInstruction(t3, void 0, i5, e2)), ...Array.from(this.bindings.entries()).reduce((i5, [s3, n4]) => {
-        if (!s3.isBound) return i5;
+      s2 = [...Array.from(this.objects.entries()).map(([t3, i4]) => new ValidateInstruction(t3, void 0, i4, e2)), ...Array.from(this.bindings.entries()).reduce((i4, [s3, n4]) => {
+        if (!s3.isBound) return i4;
         const r2 = getPropertyInfo(s3, n4);
         if (r2 !== void 0 && !this.objects.has(r2.object)) {
-          i5.push(new ValidateInstruction(r2.object, r2.propertyName, n4.rules, e2, t2?.propertyTag));
+          i4.push(new ValidateInstruction(r2.object, r2.propertyName, n4.rules, e2, t2?.propertyTag));
         }
-        return i5;
+        return i4;
       }, [])];
     }
     this.validating = true;
     const n3 = this.platform.domQueue.queueTask(async () => {
       try {
-        const i5 = await Promise.all(s2.map(async (t3) => this.validator.validate(t3)));
-        const e3 = i5.reduce((t3, i6) => {
-          t3.push(...i6);
+        const i4 = await Promise.all(s2.map(async (t3) => this.validator.validate(t3)));
+        const e3 = i4.reduce((t3, i5) => {
+          t3.push(...i5);
           return t3;
         }, []);
         const n4 = this.getInstructionPredicate(t2);
@@ -41920,20 +41915,20 @@ class ValidationController {
     return n3.result;
   }
   reset(t2) {
-    const i4 = this.getInstructionPredicate(t2);
-    const e2 = this.results.filter(i4);
+    const i3 = this.getInstructionPredicate(t2);
+    const e2 = this.results.filter(i3);
     this.processResultDelta("reset", e2, []);
   }
   async validateBinding(t2) {
     if (!t2.isBound) {
       return;
     }
-    const i4 = this.bindings.get(t2);
-    if (i4 === void 0) {
+    const i3 = this.bindings.get(t2);
+    if (i3 === void 0) {
       return;
     }
-    const e2 = getPropertyInfo(t2, i4);
-    const s2 = i4.rules;
+    const e2 = getPropertyInfo(t2, i3);
+    const s2 = i3.rules;
     if (e2 === void 0) {
       return;
     }
@@ -41941,80 +41936,80 @@ class ValidationController {
     await this.validate(new ValidateInstruction(n3, r2, s2));
   }
   resetBinding(t2) {
-    const i4 = this.bindings.get(t2);
-    if (i4 === void 0) {
+    const i3 = this.bindings.get(t2);
+    if (i3 === void 0) {
       return;
     }
-    const e2 = getPropertyInfo(t2, i4);
+    const e2 = getPropertyInfo(t2, i3);
     if (e2 === void 0) {
       return;
     }
-    i4.propertyInfo = void 0;
+    i3.propertyInfo = void 0;
     const { object: s2, propertyName: n3 } = e2;
     this.reset(new ValidateInstruction(s2, n3));
   }
   async revalidateErrors() {
-    const t2 = this.results.reduce((t3, { isManual: i5, object: e2, propertyRule: s2, rule: n3, valid: r2 }) => {
-      if (!r2 && !i5 && s2 !== void 0 && e2 !== void 0 && n3 !== void 0) {
-        let i6 = t3.get(e2);
-        if (i6 === void 0) {
-          t3.set(e2, i6 = /* @__PURE__ */ new Map());
+    const t2 = this.results.reduce((t3, { isManual: i4, object: e2, propertyRule: s2, rule: n3, valid: r2 }) => {
+      if (!r2 && !i4 && s2 !== void 0 && e2 !== void 0 && n3 !== void 0) {
+        let i5 = t3.get(e2);
+        if (i5 === void 0) {
+          t3.set(e2, i5 = /* @__PURE__ */ new Map());
         }
-        let r3 = i6.get(s2);
+        let r3 = i5.get(s2);
         if (r3 === void 0) {
-          i6.set(s2, r3 = []);
+          i5.set(s2, r3 = []);
         }
         r3.push(n3);
       }
       return t3;
     }, /* @__PURE__ */ new Map());
-    const i4 = [];
+    const i3 = [];
     for (const [e2, s2] of t2) {
-      i4.push(this.validate(new ValidateInstruction(e2, void 0, Array.from(s2).map(([{ validationRules: t3, messageProvider: i5, property: e3 }, s3]) => new PropertyRule(this.locator, t3, i5, e3, [s3])))));
+      i3.push(this.validate(new ValidateInstruction(e2, void 0, Array.from(s2).map(([{ validationRules: t3, messageProvider: i4, property: e3 }, s3]) => new PropertyRule(this.locator, t3, i4, e3, [s3])))));
     }
-    await Promise.all(i4);
+    await Promise.all(i3);
   }
   getInstructionPredicate(t2) {
     if (t2 === void 0) {
       return () => true;
     }
-    const i4 = t2.propertyName;
+    const i3 = t2.propertyName;
     const e2 = t2.rules;
-    return (s2) => !s2.isManual && s2.object === t2.object && (i4 === void 0 || s2.propertyName === i4) && (e2 === void 0 || e2.includes(s2.propertyRule) || e2.some((t3) => s2.propertyRule === void 0 || t3.$rules.flat().every((t4) => s2.propertyRule.$rules.flat().includes(t4))));
+    return (s2) => !s2.isManual && s2.object === t2.object && (i3 === void 0 || s2.propertyName === i3) && (e2 === void 0 || e2.includes(s2.propertyRule) || e2.some((t3) => s2.propertyRule === void 0 || t3.$rules.flat().every((t4) => s2.propertyRule.$rules.flat().includes(t4))));
   }
-  getAssociatedElements({ object: t2, propertyName: i4 }) {
+  getAssociatedElements({ object: t2, propertyName: i3 }) {
     const e2 = [];
     for (const [s2, n3] of this.bindings.entries()) {
       const r2 = getPropertyInfo(s2, n3);
-      if (r2 !== void 0 && r2.object === t2 && r2.propertyName === i4) {
+      if (r2 !== void 0 && r2.object === t2 && r2.propertyName === i3) {
         e2.push(n3.target);
       }
     }
     return e2;
   }
-  processResultDelta(t2, i4, e2) {
+  processResultDelta(t2, i3, e2) {
     const s2 = new ValidationEvent(t2, [], []);
     e2 = e2.slice(0);
     const n3 = this.elements;
-    for (const t3 of i4) {
-      const i5 = n3.get(t3);
+    for (const t3 of i3) {
+      const i4 = n3.get(t3);
       n3.delete(t3);
-      s2.removedResults.push(new ValidationResultTarget(t3, i5));
-      const r2 = e2.findIndex((i6) => i6.rule === t3.rule && i6.object === t3.object && i6.propertyName === t3.propertyName);
+      s2.removedResults.push(new ValidationResultTarget(t3, i4));
+      const r2 = e2.findIndex((i5) => i5.rule === t3.rule && i5.object === t3.object && i5.propertyName === t3.propertyName);
       if (r2 === -1) {
         this.results.splice(this.results.indexOf(t3), 1);
       } else {
-        const i6 = e2.splice(r2, 1)[0];
-        const o2 = this.getAssociatedElements(i6);
-        n3.set(i6, o2);
-        s2.addedResults.push(new ValidationResultTarget(i6, o2));
-        this.results.splice(this.results.indexOf(t3), 1, i6);
+        const i5 = e2.splice(r2, 1)[0];
+        const o2 = this.getAssociatedElements(i5);
+        n3.set(i5, o2);
+        s2.addedResults.push(new ValidationResultTarget(i5, o2));
+        this.results.splice(this.results.indexOf(t3), 1, i5);
       }
     }
     for (const t3 of e2) {
-      const i5 = this.getAssociatedElements(t3);
-      s2.addedResults.push(new ValidationResultTarget(t3, i5));
-      n3.set(t3, i5);
+      const i4 = this.getAssociatedElements(t3);
+      s2.addedResults.push(new ValidationResultTarget(t3, i4));
+      n3.set(t3, i4);
       this.results.push(t3);
     }
     for (const t3 of this.subscribers) {
@@ -42029,12 +42024,12 @@ class ValidationControllerFactory {
   registerTransformer(t2) {
     return false;
   }
-  construct(t2, i4) {
-    return t2.invoke(ValidationController, i4);
+  construct(t2, i3) {
+    return t2.invoke(ValidationController, i3);
   }
 }
-function compareDocumentPositionFlat(t2, i4) {
-  switch (t2.compareDocumentPosition(i4) & 2) {
+function compareDocumentPositionFlat(t2, i3) {
+  switch (t2.compareDocumentPosition(i3) & 2) {
     case 0:
       return 0;
     case 2:
@@ -42074,26 +42069,26 @@ let M2 = (() => {
       this.scopedController = resolve(optional(I2));
     }
     handleValidationEvent(t3) {
-      for (const { result: i4 } of t3.removedResults) {
-        const t4 = this.errors.findIndex((t5) => t5.result === i4);
+      for (const { result: i3 } of t3.removedResults) {
+        const t4 = this.errors.findIndex((t5) => t5.result === i3);
         if (t4 !== -1) {
           this.errors.splice(t4, 1);
         }
       }
-      for (const { result: i4, targets: e3 } of t3.addedResults) {
-        if (i4.valid) {
+      for (const { result: i3, targets: e3 } of t3.addedResults) {
+        if (i3.valid) {
           continue;
         }
         const t4 = e3.filter((t5) => this.host.contains(t5));
         if (t4.length > 0) {
-          this.errors.push(new ValidationResultTarget(i4, t4));
+          this.errors.push(new ValidationResultTarget(i3, t4));
         }
       }
-      this.errors.sort((t4, i4) => {
-        if (t4.targets[0] === i4.targets[0]) {
+      this.errors.sort((t4, i3) => {
+        if (t4.targets[0] === i3.targets[0]) {
           return 0;
         }
-        return compareDocumentPositionFlat(t4.targets[0], i4.targets[0]);
+        return compareDocumentPositionFlat(t4.targets[0], i3.targets[0]);
       });
     }
     binding() {
@@ -42104,7 +42099,7 @@ let M2 = (() => {
       this.controller.removeSubscriber(this);
     }
   }, (() => {
-    const i4 = typeof Symbol === "function" && Symbol.metadata ? /* @__PURE__ */ Object.create(null) : void 0;
+    const i3 = typeof Symbol === "function" && Symbol.metadata ? /* @__PURE__ */ Object.create(null) : void 0;
     e2 = [bindable];
     o2 = [bindable];
     __esDecorate$1(null, null, e2, {
@@ -42115,11 +42110,11 @@ let M2 = (() => {
       access: {
         has: (t3) => "controller" in t3,
         get: (t3) => t3.controller,
-        set: (t3, i5) => {
-          t3.controller = i5;
+        set: (t3, i4) => {
+          t3.controller = i4;
         }
       },
-      metadata: i4
+      metadata: i3
     }, n3, r2);
     __esDecorate$1(null, null, o2, {
       kind: "field",
@@ -42129,17 +42124,17 @@ let M2 = (() => {
       access: {
         has: (t3) => "errors" in t3,
         get: (t3) => t3.errors,
-        set: (t3, i5) => {
-          t3.errors = i5;
+        set: (t3, i4) => {
+          t3.errors = i4;
         }
       },
-      metadata: i4
+      metadata: i3
     }, a2, l2);
-    if (i4) Object.defineProperty(t2, Symbol.metadata, {
+    if (i3) Object.defineProperty(t2, Symbol.metadata, {
       enumerable: true,
       configurable: true,
       writable: true,
-      value: i4
+      value: i3
     });
   })(), t2;
 })();
@@ -42151,26 +42146,26 @@ class ValidationErrorsCustomAttribute {
     this.scopedController = resolve(optional(I2));
   }
   handleValidationEvent(t2) {
-    for (const { result: i4 } of t2.removedResults) {
-      const t3 = this.errorsInternal.findIndex((t4) => t4.result === i4);
+    for (const { result: i3 } of t2.removedResults) {
+      const t3 = this.errorsInternal.findIndex((t4) => t4.result === i3);
       if (t3 !== -1) {
         this.errorsInternal.splice(t3, 1);
       }
     }
-    for (const { result: i4, targets: e2 } of t2.addedResults) {
-      if (i4.valid) {
+    for (const { result: i3, targets: e2 } of t2.addedResults) {
+      if (i3.valid) {
         continue;
       }
       const t3 = e2.filter((t4) => this.host.contains(t4));
       if (t3.length > 0) {
-        this.errorsInternal.push(new ValidationResultTarget(i4, t3));
+        this.errorsInternal.push(new ValidationResultTarget(i3, t3));
       }
     }
-    this.errorsInternal.sort((t3, i4) => {
-      if (t3.targets[0] === i4.targets[0]) {
+    this.errorsInternal.sort((t3, i3) => {
+      if (t3.targets[0] === i3.targets[0]) {
         return 0;
       }
-      return compareDocumentPositionFlat(t3.targets[0], i4.targets[0]);
+      return compareDocumentPositionFlat(t3.targets[0], i3.targets[0]);
     });
     this.errors = this.errorsInternal;
   }
@@ -42209,28 +42204,28 @@ class ValidateBindingBehavior {
     this.p = resolve(IPlatform);
     this.oL = resolve(IObserverLocator);
   }
-  bind(t2, i4) {
-    if (!(i4 instanceof PropertyBinding)) {
+  bind(t2, i3) {
+    if (!(i3 instanceof PropertyBinding)) {
       throw createMappedError(4200);
     }
-    let e2 = k2.get(i4);
+    let e2 = k2.get(i3);
     if (e2 == null) {
-      k2.set(i4, e2 = new ValidationConnector(this.p, this.oL, i4.get(j), i4, i4.get(IContainer)));
+      k2.set(i3, e2 = new ValidationConnector(this.p, this.oL, i3.get(j), i3, i3.get(IContainer)));
     }
-    let s2 = O.get(i4);
+    let s2 = O.get(i3);
     if (s2 == null) {
-      O.set(i4, s2 = new WithValidationTargetSubscriber(e2, i4, i4.get(IFlushQueue)));
+      O.set(i3, s2 = new WithValidationTargetSubscriber(e2, i3, i3.get(IFlushQueue)));
     }
     e2.start(t2);
-    i4.useTargetSubscriber(s2);
+    i3.useTargetSubscriber(s2);
   }
-  unbind(t2, i4) {
-    k2.get(i4)?.stop();
+  unbind(t2, i3) {
+    k2.get(i3)?.stop();
   }
 }
 BindingBehavior.define("validate", ValidateBindingBehavior);
 class ValidationConnector {
-  constructor(t2, i4, e2, s2, n3) {
+  constructor(t2, i3, e2, s2, n3) {
     this.isChangeTrigger = false;
     this.isDirty = false;
     this.validatedOnce = false;
@@ -42240,11 +42235,11 @@ class ValidationConnector {
     this.target = s2.target;
     this.defaultTrigger = e2;
     this.p = t2;
-    this.oL = i4;
+    this.oL = i3;
     this.l = n3;
-    this.t = new BindingMediator("handleTriggerChange", this, i4, n3);
-    this.i = new BindingMediator("handleControllerChange", this, i4, n3);
-    this.h = new BindingMediator("handleRulesChange", this, i4, n3);
+    this.t = new BindingMediator("handleTriggerChange", this, i3, n3);
+    this.i = new BindingMediator("handleControllerChange", this, i3, n3);
+    this.h = new BindingMediator("handleRulesChange", this, i3, n3);
     if (n3.has(I2, true)) {
       this.scopedController = n3.get(I2);
     }
@@ -42264,8 +42259,8 @@ class ValidationConnector {
   start(t2) {
     this.scope = t2;
     this.target = this.V();
-    const i4 = this.C();
-    if (!this.B(i4) && this.bindingInfo != null) {
+    const i3 = this.C();
+    if (!this.B(i3) && this.bindingInfo != null) {
       this.controller?.registerBinding(this.propertyBinding, this.bindingInfo);
       this.controller?.addSubscriber(this);
     }
@@ -42282,26 +42277,26 @@ class ValidationConnector {
     this.controller?.unregisterBinding(this.propertyBinding);
     this.controller?.removeSubscriber(this);
   }
-  handleTriggerChange(t2, i4) {
+  handleTriggerChange(t2, i3) {
     this.B(new ValidateArgumentsDelta(void 0, this._(t2), void 0));
   }
-  handleControllerChange(t2, i4) {
+  handleControllerChange(t2, i3) {
     this.B(new ValidateArgumentsDelta(this.R(t2), void 0, void 0));
   }
-  handleRulesChange(t2, i4) {
+  handleRulesChange(t2, i3) {
     this.B(new ValidateArgumentsDelta(void 0, void 0, this.T(t2)));
   }
   handleValidationEvent(t2) {
     if (this.validatedOnce || !this.isChangeTrigger) return;
-    const i4 = this.triggerEvent;
-    if (i4 === null) return;
+    const i3 = this.triggerEvent;
+    if (i3 === null) return;
     const e2 = this.bindingInfo.propertyInfo?.propertyName;
     if (e2 === void 0) return;
     this.validatedOnce = t2.addedResults.find((t3) => t3.result.propertyName === e2) !== void 0;
   }
   C() {
     const t2 = this.scope;
-    let i4;
+    let i3;
     let e2;
     let s2;
     let n3 = this.propertyBinding.ast;
@@ -42319,13 +42314,13 @@ class ValidationConnector {
           s2 = this.R(astEvaluate(o3, t2, this, this.i));
           break;
         case 2:
-          i4 = this.T(astEvaluate(o3, t2, this, this.h));
+          i3 = this.T(astEvaluate(o3, t2, this, this.h));
           break;
         default:
           throw createMappedError(4201, n4 + 1, astEvaluate(o3, t2, this, null));
       }
     }
-    return new ValidateArgumentsDelta(this.R(s2), this._(e2), i4);
+    return new ValidateArgumentsDelta(this.R(s2), this._(e2), i3);
   }
   validateBinding() {
     const t2 = this.task;
@@ -42335,18 +42330,18 @@ class ValidationConnector {
     }
   }
   B(t2) {
-    const i4 = t2.trigger ?? this.trigger;
+    const i3 = t2.trigger ?? this.trigger;
     const e2 = t2.controller ?? this.controller;
     const s2 = t2.rules;
-    if (this.trigger !== i4) {
+    if (this.trigger !== i3) {
       let t3 = this.triggerEvent;
       if (t3 !== null) {
         this.target.removeEventListener(t3, this);
       }
       this.validatedOnce = false;
       this.isDirty = false;
-      this.trigger = i4;
-      this.isChangeTrigger = i4 === D.change || i4 === D.changeOrBlur || i4 === D.changeOrFocusout;
+      this.trigger = i3;
+      this.isChangeTrigger = i3 === D.change || i3 === D.changeOrBlur || i3 === D.changeOrFocusout;
       t3 = this.triggerEvent = this.I(this.trigger);
       if (t3 !== null) {
         this.target.addEventListener(t3, this);
@@ -42388,26 +42383,26 @@ class ValidationConnector {
     if (t2 instanceof this.p.Node) {
       return t2;
     } else {
-      const i4 = t2?.$controller;
-      if (i4 === void 0) {
+      const i3 = t2?.$controller;
+      if (i3 === void 0) {
         throw createMappedError(4204);
       }
-      return i4.host;
+      return i3.host;
     }
   }
   I(t2) {
-    let i4 = null;
+    let i3 = null;
     switch (t2) {
       case D.blur:
       case D.changeOrBlur:
-        i4 = "blur";
+        i3 = "blur";
         break;
       case D.focusout:
       case D.changeOrFocusout:
-        i4 = "focusout";
+        i3 = "focusout";
         break;
     }
-    return i4;
+    return i3;
   }
   P(t2) {
     return this.bindingInfo = new BindingInfo(this.target, this.scope, t2);
@@ -42416,31 +42411,31 @@ class ValidationConnector {
 connectable(ValidationConnector, null);
 mixinNoopAstEvaluator(ValidationConnector);
 class WithValidationTargetSubscriber extends BindingTargetSubscriber {
-  constructor(t2, i4, e2) {
-    super(i4, e2);
+  constructor(t2, i3, e2) {
+    super(i3, e2);
     this.vs = t2;
   }
-  handleChange(t2, i4) {
-    super.handleChange(t2, i4);
+  handleChange(t2, i3) {
+    super.handleChange(t2, i3);
     this.vs.u();
   }
 }
 class ValidateArgumentsDelta {
-  constructor(t2, i4, e2) {
+  constructor(t2, i3, e2) {
     this.controller = t2;
-    this.trigger = i4;
+    this.trigger = i3;
     this.rules = e2;
   }
 }
 class BindingMediator {
-  constructor(t2, i4, e2, s2) {
+  constructor(t2, i3, e2, s2) {
     this.key = t2;
-    this.binding = i4;
+    this.binding = i3;
     this.oL = e2;
     this.l = s2;
   }
-  handleChange(t2, i4) {
-    this.binding[this.key](t2, i4);
+  handleChange(t2, i3) {
+    this.binding[this.key](t2, i3);
   }
 }
 connectable(BindingMediator, null);
@@ -42457,31 +42452,31 @@ function getDefaultValidationHtmlConfiguration() {
 function createConfiguration(t2) {
   return {
     optionsProvider: t2,
-    register(i4) {
+    register(i3) {
       const e2 = getDefaultValidationHtmlConfiguration();
       t2(e2);
-      i4.registerFactory(I2, new e2.ValidationControllerFactoryType());
-      i4.register(L2.customize((t3) => {
-        for (const i5 of Object.keys(t3)) {
-          if (i5 in e2) {
-            t3[i5] = e2[i5];
+      i3.registerFactory(I2, new e2.ValidationControllerFactoryType());
+      i3.register(L2.customize((t3) => {
+        for (const i4 of Object.keys(t3)) {
+          if (i4 in e2) {
+            t3[i4] = e2[i4];
           }
         }
       }), Registration.instance(j, e2.DefaultTrigger), ValidateBindingBehavior);
       if (e2.UseSubscriberCustomAttribute) {
-        i4.register(ValidationErrorsCustomAttribute);
+        i3.register(ValidationErrorsCustomAttribute);
       }
       const s2 = e2.SubscriberCustomElementTemplate;
       if (s2) {
-        i4.register(CustomElement.define({
+        i3.register(CustomElement.define({
           ...A,
           template: s2
         }, M2));
       }
-      return i4;
+      return i3;
     },
-    customize(i4) {
-      return createConfiguration(i4 ?? t2);
+    customize(i3) {
+      return createConfiguration(i3 ?? t2);
     }
   };
 }
@@ -43293,9 +43288,9 @@ function getNormalizedEventCoords(evt, pageOffset, clientRect) {
   if (!evt) {
     return { x: 0, y: 0 };
   }
-  var x2 = pageOffset.x, y3 = pageOffset.y;
+  var x2 = pageOffset.x, y2 = pageOffset.y;
   var documentX = x2 + clientRect.left;
-  var documentY = y3 + clientRect.top;
+  var documentY = y2 + clientRect.top;
   var normalizedX;
   var normalizedY;
   if (evt.type === "touchstart") {
@@ -44960,8 +44955,8 @@ function initState() {
 }
 function initSortedIndex(listItemCount, getPrimaryTextByItemIndex) {
   var sortedIndexByFirstChar = /* @__PURE__ */ new Map();
-  for (var i4 = 0; i4 < listItemCount; i4++) {
-    var primaryText = getPrimaryTextByItemIndex(i4).trim();
+  for (var i3 = 0; i3 < listItemCount; i3++) {
+    var primaryText = getPrimaryTextByItemIndex(i3).trim();
     if (!primaryText) {
       continue;
     }
@@ -44969,7 +44964,7 @@ function initSortedIndex(listItemCount, getPrimaryTextByItemIndex) {
     if (!sortedIndexByFirstChar.has(firstChar)) {
       sortedIndexByFirstChar.set(firstChar, []);
     }
-    sortedIndexByFirstChar.get(firstChar).push({ text: primaryText.toLowerCase(), index: i4 });
+    sortedIndexByFirstChar.get(firstChar).push({ text: primaryText.toLowerCase(), index: i3 });
   }
   sortedIndexByFirstChar.forEach(function(values) {
     values.sort(function(first, second) {
@@ -45299,13 +45294,13 @@ var MDCListFoundation = (
     MDCListFoundation2.prototype.getSelectedIndexFromDOM = function() {
       var selectedIndex = numbers$1.UNSET_INDEX;
       var listItemsCount = this.adapter.getListItemCount();
-      for (var i4 = 0; i4 < listItemsCount; i4++) {
-        var hasSelectedClass = this.adapter.listItemAtIndexHasClass(i4, cssClasses$5.LIST_ITEM_SELECTED_CLASS);
-        var hasActivatedClass = this.adapter.listItemAtIndexHasClass(i4, cssClasses$5.LIST_ITEM_ACTIVATED_CLASS);
+      for (var i3 = 0; i3 < listItemsCount; i3++) {
+        var hasSelectedClass = this.adapter.listItemAtIndexHasClass(i3, cssClasses$5.LIST_ITEM_SELECTED_CLASS);
+        var hasActivatedClass = this.adapter.listItemAtIndexHasClass(i3, cssClasses$5.LIST_ITEM_ACTIVATED_CLASS);
         if (!(hasSelectedClass || hasActivatedClass)) {
           continue;
         }
-        selectedIndex = i4;
+        selectedIndex = i3;
         break;
       }
       return selectedIndex;
@@ -45663,14 +45658,14 @@ var MDCListFoundation = (
       var currentlySelected = options.isUserInteraction ? new Set(currentIndex === numbers$1.UNSET_INDEX ? [] : currentIndex) : null;
       var selectionAttribute = this.getSelectionAttribute();
       var changedIndices = [];
-      for (var i4 = 0; i4 < this.adapter.getListItemCount(); i4++) {
-        var previousIsChecked = currentlySelected === null || currentlySelected === void 0 ? void 0 : currentlySelected.has(i4);
-        var newIsChecked = index.indexOf(i4) >= 0;
+      for (var i3 = 0; i3 < this.adapter.getListItemCount(); i3++) {
+        var previousIsChecked = currentlySelected === null || currentlySelected === void 0 ? void 0 : currentlySelected.has(i3);
+        var newIsChecked = index.indexOf(i3) >= 0;
         if (newIsChecked !== previousIsChecked) {
-          changedIndices.push(i4);
+          changedIndices.push(i3);
         }
-        this.adapter.setCheckedCheckboxOrRadioAtIndex(i4, newIsChecked);
-        this.adapter.setAttributeForElementIndex(i4, selectionAttribute, newIsChecked ? "true" : "false");
+        this.adapter.setCheckedCheckboxOrRadioAtIndex(i3, newIsChecked);
+        this.adapter.setAttributeForElementIndex(i3, selectionAttribute, newIsChecked ? "true" : "false");
       }
       this.selectedIndex = index;
       if (options.isUserInteraction && changedIndices.length) {
@@ -45684,19 +45679,19 @@ var MDCListFoundation = (
       var _a2 = __read([fromIndex, toIndex].sort(), 2), startIndex = _a2[0], endIndex = _a2[1];
       var selectionAttribute = this.getSelectionAttribute();
       var changedIndices = [];
-      for (var i4 = startIndex; i4 <= endIndex; i4++) {
-        if (this.isIndexDisabled(i4)) {
+      for (var i3 = startIndex; i3 <= endIndex; i3++) {
+        if (this.isIndexDisabled(i3)) {
           continue;
         }
-        var previousIsChecked = currentlySelected.has(i4);
+        var previousIsChecked = currentlySelected.has(i3);
         if (newIsChecked !== previousIsChecked) {
-          changedIndices.push(i4);
-          this.adapter.setCheckedCheckboxOrRadioAtIndex(i4, newIsChecked);
-          this.adapter.setAttributeForElementIndex(i4, selectionAttribute, "" + newIsChecked);
+          changedIndices.push(i3);
+          this.adapter.setCheckedCheckboxOrRadioAtIndex(i3, newIsChecked);
+          this.adapter.setAttributeForElementIndex(i3, selectionAttribute, "" + newIsChecked);
           if (newIsChecked) {
-            currentlySelected.add(i4);
+            currentlySelected.add(i3);
           } else {
-            currentlySelected.delete(i4);
+            currentlySelected.delete(i3);
           }
         }
       }
@@ -45751,8 +45746,8 @@ var MDCListFoundation = (
         if (index.length === 0) {
           return true;
         } else {
-          return index.some(function(i4) {
-            return _this.isIndexInRange(i4);
+          return index.some(function(i3) {
+            return _this.isIndexInRange(i3);
           });
         }
       } else if (typeof index === "number") {
@@ -45792,8 +45787,8 @@ var MDCListFoundation = (
       if (newCheckedValue) {
         selectedIndexes.push(index);
       } else {
-        selectedIndexes = selectedIndexes.filter(function(i4) {
-          return i4 !== index;
+        selectedIndexes = selectedIndexes.filter(function(i3) {
+          return i3 !== index;
         });
       }
       this.selectedIndex = selectedIndexes;
@@ -45808,9 +45803,9 @@ var MDCListFoundation = (
         this.setCheckboxAtIndex([], { isUserInteraction });
       } else {
         var allIndexes = [];
-        for (var i4 = 0; i4 < count; i4++) {
-          if (!this.isIndexDisabled(i4) || currentlySelectedIndexes.indexOf(i4) > -1) {
-            allIndexes.push(i4);
+        for (var i3 = 0; i3 < count; i3++) {
+          if (!this.isIndexDisabled(i3) || currentlySelectedIndexes.indexOf(i3) > -1) {
+            allIndexes.push(i3);
           }
         }
         this.setCheckboxAtIndex(allIndexes, { isUserInteraction });
@@ -47549,7 +47544,7 @@ function __esDecorate(ctor, descriptorIn, decorators, contextIn, initializers, e
   var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
   var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
   var _2, done = false;
-  for (var i4 = decorators.length - 1; i4 >= 0; i4--) {
+  for (var i3 = decorators.length - 1; i3 >= 0; i3--) {
     var context = {};
     for (var p2 in contextIn) context[p2] = p2 === "access" ? {} : contextIn[p2];
     for (var p2 in contextIn.access) context.access[p2] = contextIn.access[p2];
@@ -47557,7 +47552,7 @@ function __esDecorate(ctor, descriptorIn, decorators, contextIn, initializers, e
       if (done) throw new TypeError("Cannot add initializers after decoration has completed");
       extraInitializers.push(accept(f2 || null));
     };
-    var result = (0, decorators[i4])(kind === "accessor" ? { get: descriptor.get, set: descriptor.set } : descriptor[key], context);
+    var result = (0, decorators[i3])(kind === "accessor" ? { get: descriptor.get, set: descriptor.set } : descriptor[key], context);
     if (kind === "accessor") {
       if (result === void 0) continue;
       if (result === null || typeof result !== "object") throw new TypeError("Object expected");
@@ -47574,8 +47569,8 @@ function __esDecorate(ctor, descriptorIn, decorators, contextIn, initializers, e
 }
 function __runInitializers(thisArg, initializers, value) {
   var useValue = arguments.length > 2;
-  for (var i4 = 0; i4 < initializers.length; i4++) {
-    value = useValue ? initializers[i4].call(thisArg, value) : initializers[i4].call(thisArg);
+  for (var i3 = 0; i3 < initializers.length; i3++) {
+    value = useValue ? initializers[i3].call(thisArg, value) : initializers[i3].call(thisArg);
   }
   return useValue ? value : void 0;
 }

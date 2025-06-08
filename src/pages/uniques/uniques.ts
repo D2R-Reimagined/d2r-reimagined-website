@@ -75,11 +75,7 @@ export class Uniques {
             return !this.selectedType || unique.Type === this.selectedType;
         }
         this.uniques = json.filter(unique =>
-            !unique.Name.toLowerCase().includes('grabber') && 
-                !unique.Name.toLowerCase().includes('pliers') && 
-                !unique.Name.toLowerCase().includes('gem bag') &&
-            !unique.Name.toLowerCase().includes('storage for keys') &&
-            !unique.Name.toLowerCase().includes('rainbow facet') &&
+            !unique.Name.toLowerCase().includes('grabber') &&
             isMatchingSearch(unique) &&
             isMatchingClass(unique) &&
             isMatchingType(unique));

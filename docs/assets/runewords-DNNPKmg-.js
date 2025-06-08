@@ -1,7 +1,7 @@
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-BwtIiJTo.js";
+import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-CgTtr8GI.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
 const name = "runewords";
-const template = '<template>\r\n    <h3 class="text-center my-4">\r\n        ${filteredRunewords.length} Runewords Found\r\n    </h3>\r\n    <div class="container">\r\n        <div class="row align-content-center justify-content-center text-center mb-5">\r\n            <div class="col-12 col-md-4 col-lg-3">\r\n                <div class="au-select mb-2">\r\n                    <moo-select\r\n                            class="w-100"\r\n                            label="Select Socket Count"\r\n                            options.bind="amounts"\r\n                            class="standard-betsy-select"\r\n                            value.bind="selectedAmount"\r\n                    ></moo-select>\r\n                </div>\r\n            </div>\r\n            <div class="col-12 col-md-4 col-lg-3">\r\n                <div class="au-select mb-2">\r\n                    <moo-select\r\n                            class="w-100"\r\n                            label="Select Type"\r\n                            options.bind="types"\r\n                            class="standard-betsy-select"\r\n                            value.bind="selectedType"\r\n                    ></moo-select>\r\n                    <moo-checkbox checked.bind="exclusiveType" id="exclusiveType">Exact type only</moo-checkbox>\r\n                </div>\r\n            </div>\r\n            <div class="col-12 col-md-4 col-lg-3">\r\n                <div class="mb-2">\r\n                    <moo-text-field\r\n                            class="w-100"\r\n                            label="Search Runewords"\r\n                            type="text"\r\n                            value.bind="search"\r\n                    ></moo-text-field>\r\n                </div>\r\n            </div>\r\n            <div class="col-12 col-md-4 col-lg-3">\r\n                <div class="mb-2">\r\n                    <moo-text-field\r\n                            class="w-100"\r\n                            label="Runes"\r\n                            type="text"\r\n                            value.bind="searchRunes"\r\n                    ></moo-text-field>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class="row gy-5 px-5 text-center">\r\n        <div class="col-12 col-md-6 col-xxl-4" repeat.for="runeword of filteredRunewords">\r\n            <div class="card bg-dark p-2">\r\n                <div class="unique-text fs-4 mb-1">\r\n                    ${runeword.Name}\r\n                </div>\r\n                <div class="combo">\r\n                    <span repeat.for="rune of runeword.Runes">\r\n                        ${rune.Name | runeName} ${$index + 1 !== runeword.Runes.length ? \' + \' : \'\'}\r\n                    </span>\r\n                </div>\r\n                <div class="types py-2">\r\n                    <span repeat.for="type of runeword.Types">\r\n                        ${transformTypeName(type.Name)} ${$index + 1 !== runeword.Types.length ? \' or \' : \'\'}\r\n                    </span>\r\n                </div>\r\n                <div class="requirement" if.bind="actualLevelRequirement(runeword) > 0">\r\n                    Level ${actualLevelRequirement(runeword)} Required\r\n                </div>\r\n                <div class="mt-2">\r\n                    <div class="enhanced" repeat.for="property of runeword.Properties">\r\n                        ${property.PropertyString}\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</template>\r\n';
+const template = '<template>\n    <h3 class="text-center my-4">\n        ${filteredRunewords.length} Runewords Found\n    </h3>\n    <div class="container">\n        <div class="row align-content-center justify-content-center text-center mb-5">\n            <div class="col-12 col-md-4 col-lg-3">\n                <div class="au-select mb-2">\n                    <moo-select\n                            class="w-100"\n                            label="Select Socket Count"\n                            options.bind="amounts"\n                            class="standard-betsy-select"\n                            value.bind="selectedAmount"\n                    ></moo-select>\n                </div>\n            </div>\n            <div class="col-12 col-md-4 col-lg-3">\n                <div class="au-select mb-2">\n                    <moo-select\n                            class="w-100"\n                            label="Select Type"\n                            options.bind="types"\n                            class="standard-betsy-select"\n                            value.bind="selectedType"\n                    ></moo-select>\n                    <moo-checkbox checked.bind="exclusiveType" id="exclusiveType">Exact type only</moo-checkbox>\n                </div>\n            </div>\n            <div class="col-12 col-md-4 col-lg-3">\n                <div class="mb-2">\n                    <moo-text-field\n                            class="w-100"\n                            label="Search Runewords"\n                            type="text"\n                            value.bind="search"\n                    ></moo-text-field>\n                </div>\n            </div>\n            <div class="col-12 col-md-4 col-lg-3">\n                <div class="mb-2">\n                    <moo-text-field\n                            class="w-100"\n                            label="Runes"\n                            type="text"\n                            value.bind="searchRunes"\n                    ></moo-text-field>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class="row gy-5 px-5 text-center">\n        <div class="col-12 col-md-6 col-xxl-4" repeat.for="runeword of filteredRunewords">\n            <div class="card bg-dark p-2">\n                <div class="unique-text fs-4 mb-1">\n                    ${runeword.Name}\n                </div>\n                <div class="combo">\n                    <span repeat.for="rune of runeword.Runes">\n                        ${rune.Name | runeName} ${$index + 1 !== runeword.Runes.length ? \' + \' : \'\'}\n                    </span>\n                </div>\n                <div class="types py-2">\n                    <span repeat.for="type of runeword.Types">\n                        ${transformTypeName(type.Name)} ${$index + 1 !== runeword.Types.length ? \' or \' : \'\'}\n                    </span>\n                </div>\n                <div class="requirement" if.bind="actualLevelRequirement(runeword) > 0">\n                    Level ${actualLevelRequirement(runeword)} Required\n                </div>\n                <div class="mt-2">\n                    <div class="enhanced" repeat.for="property of runeword.Properties">\n                        ${property.PropertyString}\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</template>\n';
 const dependencies = [];
 const bindables = {};
 let _e;
@@ -54,7 +54,6 @@ const json = [
     Name: "Law",
     Index: "Law",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 33,
     RequiredLevel: 0,
     Code: "Law",
@@ -138,7 +137,6 @@ const json = [
     Name: "Knowledge",
     Index: "Knowledge",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 11,
     RequiredLevel: 11,
     Code: "Knowledge",
@@ -232,7 +230,6 @@ const json = [
     Name: "Desire",
     Index: "Desire",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 13,
     RequiredLevel: 13,
     Code: "Desire",
@@ -350,7 +347,6 @@ const json = [
     Name: "Nadir",
     Index: "Nadir",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 13,
     RequiredLevel: 13,
     Code: "Nadir",
@@ -444,7 +440,6 @@ const json = [
     Name: "Steel",
     Index: "Steel",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 13,
     RequiredLevel: 13,
     Code: "Steel",
@@ -518,7 +513,6 @@ const json = [
     Name: "Scout",
     Index: "Scout",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 13,
     RequiredLevel: 13,
     Code: "Scout",
@@ -588,7 +582,6 @@ const json = [
     Name: "Old Ben's Walking Stick",
     Index: "Old Ben's Walking Stick",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 13,
     RequiredLevel: 13,
     Code: "Old Ben's Walking Stick",
@@ -676,7 +669,6 @@ const json = [
     Name: "Chance",
     Index: "Chance",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 15,
     RequiredLevel: 15,
     Code: "Chance",
@@ -764,7 +756,6 @@ const json = [
     Name: "Malice",
     Index: "Malice",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 15,
     RequiredLevel: 15,
     Code: "Malice",
@@ -812,6 +803,101 @@ const json = [
   {
     Runes: [
       {
+        Name: "Tir Rune",
+        ItemLevel: 13,
+        RequiredLevel: 13,
+        Type: {
+          Name: "Rune",
+          Index: "Rune",
+          Class: ""
+        }
+      },
+      {
+        Name: "Eth Rune",
+        ItemLevel: 15,
+        RequiredLevel: 15,
+        Type: {
+          Name: "Rune",
+          Index: "Rune",
+          Class: ""
+        }
+      },
+      {
+        Name: "El Rune",
+        ItemLevel: 11,
+        RequiredLevel: 11,
+        Type: {
+          Name: "Rune",
+          Index: "Rune",
+          Class: ""
+        }
+      }
+    ],
+    Types: [
+      {
+        Name: "Melee Weapon",
+        Index: "Melee Weapon",
+        Class: ""
+      }
+    ],
+    Name: "Peace Reimagined",
+    Index: "Peace Reimagined",
+    Enabled: true,
+    ItemLevel: 15,
+    RequiredLevel: 15,
+    Code: "Peace Reimagined",
+    Properties: [
+      {
+        PropertyString: "+20% Increased Attack Speed",
+        Index: 2
+      },
+      {
+        PropertyString: "+20% Faster Hit Recovery",
+        Index: 3
+      },
+      {
+        PropertyString: "+20% Faster Block Rate",
+        Index: 4
+      },
+      {
+        PropertyString: "Adds 20-40 to Damage",
+        Index: 1
+      },
+      {
+        PropertyString: "+15 Defense",
+        Index: 1
+      },
+      {
+        PropertyString: "Regenerate Mana 15%",
+        Index: 0
+      },
+      {
+        PropertyString: "All Resistances +15%",
+        Index: 6
+      },
+      {
+        PropertyString: "+2 to Mana after each Kill",
+        Index: 0
+      },
+      {
+        PropertyString: "+1 to Light Radius",
+        Index: 0
+      },
+      {
+        PropertyString: "+6 To Required Level",
+        Index: 0
+      },
+      {
+        PropertyString: "+1 You feel incorporeal...",
+        Index: 5
+      }
+    ],
+    DamageArmorEnhanced: false,
+    Equipment: null
+  },
+  {
+    Runes: [
+      {
         Name: "Ith Rune",
         ItemLevel: 15,
         RequiredLevel: 15,
@@ -847,7 +933,6 @@ const json = [
     Name: "Penitence",
     Index: "Penitence",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 15,
     RequiredLevel: 15,
     Code: "Penitence",
@@ -865,7 +950,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "Poison Length Reduced by 50",
+        PropertyString: "+50 Poison Length Reduced by",
         Index: 4
       },
       {
@@ -925,7 +1010,6 @@ const json = [
     Name: "Jealousy",
     Index: "Jealousy",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 17,
     RequiredLevel: 17,
     Code: "Jealousy",
@@ -1003,7 +1087,6 @@ const json = [
     Name: "Stealth",
     Index: "Stealth",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 17,
     RequiredLevel: 17,
     Code: "Stealth",
@@ -1083,7 +1166,6 @@ const json = [
     Name: "Sting",
     Index: "Sting",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 17,
     RequiredLevel: 17,
     Code: "Sting",
@@ -1157,15 +1239,10 @@ const json = [
     Name: "Leaf",
     Index: "Leaf",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 19,
     RequiredLevel: 19,
     Code: "Leaf",
     Properties: [
-      {
-        PropertyString: "+3 to Fire Skills",
-        Index: 0
-      },
       {
         PropertyString: "Adds 5-30 to Fire Damage",
         Index: 0
@@ -1192,6 +1269,10 @@ const json = [
       },
       {
         PropertyString: "+2 to Mana after each Kill",
+        Index: 0
+      },
+      {
+        PropertyString: "+3 to Fire Skills",
         Index: 0
       }
     ],
@@ -1251,7 +1332,6 @@ const json = [
     Name: "Patience",
     Index: "Patience",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 19,
     RequiredLevel: 19,
     Code: "Patience",
@@ -1367,7 +1447,6 @@ const json = [
     Name: "Ancient's Pledge",
     Index: "Ancient's Pledge",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 21,
     RequiredLevel: 21,
     Code: "Ancient's Pledge",
@@ -1457,7 +1536,6 @@ const json = [
     Name: "Holy Thunder",
     Index: "Holy Thunder",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 21,
     RequiredLevel: 21,
     Code: "Holy Thunder",
@@ -1559,7 +1637,6 @@ const json = [
     Name: "Temptation",
     Index: "Temptation",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 21,
     RequiredLevel: 21,
     Code: "Temptation",
@@ -1637,7 +1714,6 @@ const json = [
     Name: "Youth",
     Index: "Youth",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 21,
     RequiredLevel: 21,
     Code: "Youth",
@@ -1711,7 +1787,6 @@ const json = [
     Name: "Zephyr",
     Index: "Zephyr",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 21,
     RequiredLevel: 21,
     Code: "Zephyr",
@@ -1795,7 +1870,6 @@ const json = [
     Name: "Distortion",
     Index: "Distortion",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 23,
     RequiredLevel: 23,
     Code: "Distortion",
@@ -1879,7 +1953,6 @@ const json = [
     Name: "Pattern",
     Index: "Pattern",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 23,
     RequiredLevel: 23,
     Code: "Pattern",
@@ -1981,7 +2054,6 @@ const json = [
     Name: "Prayer",
     Index: "Prayer",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 33,
     RequiredLevel: 23,
     Code: "Prayer",
@@ -2092,7 +2164,6 @@ const json = [
     Name: "Revenge",
     Index: "Revenge",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 23,
     RequiredLevel: 23,
     Code: "Revenge",
@@ -2178,7 +2249,6 @@ const json = [
     Name: "Snowdrop",
     Index: "Snowdrop",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 23,
     RequiredLevel: 23,
     Code: "Snowdrop",
@@ -2266,7 +2336,6 @@ const json = [
     Name: "Friendship",
     Index: "Friendship",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 33,
     RequiredLevel: 25,
     Code: "Friendship",
@@ -2354,7 +2423,6 @@ const json = [
     Name: "Edge",
     Index: "Edge",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 25,
     RequiredLevel: 25,
     Code: "Edge",
@@ -2436,7 +2504,6 @@ const json = [
     Name: "Hunger",
     Index: "Hunger",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 33,
     RequiredLevel: 25,
     Code: "Hunger",
@@ -2529,7 +2596,6 @@ const json = [
     Name: "King's Grace",
     Index: "King's Grace",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 25,
     RequiredLevel: 25,
     Code: "King's Grace",
@@ -2617,7 +2683,6 @@ const json = [
     Name: "Lightning",
     Index: "Lightning",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 25,
     RequiredLevel: 25,
     Code: "Lightning",
@@ -2691,7 +2756,6 @@ const json = [
     Name: "Nature's Kingdom",
     Index: "Nature's Kingdom",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 25,
     RequiredLevel: 25,
     Code: "Nature's Kingdom",
@@ -2765,7 +2829,6 @@ const json = [
     Name: "Serendipity",
     Index: "Serendipity",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 25,
     RequiredLevel: 25,
     Code: "Serendipity",
@@ -2856,7 +2919,6 @@ const json = [
     Name: "Spirit",
     Index: "Spirit",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 25,
     RequiredLevel: 25,
     Code: "Spirit",
@@ -2958,7 +3020,6 @@ const json = [
     Name: "Strength",
     Index: "Strength",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 25,
     RequiredLevel: 25,
     Code: "Strength",
@@ -3034,7 +3095,6 @@ const json = [
     Name: "Myth",
     Index: "Myth",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 33,
     RequiredLevel: 25,
     Code: "Myth",
@@ -3134,7 +3194,6 @@ const json = [
     Name: "Honor",
     Index: "Honor",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 27,
     RequiredLevel: 27,
     Code: "Honor",
@@ -3259,7 +3318,6 @@ const json = [
     Name: "Insight",
     Index: "Insight",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 27,
     RequiredLevel: 27,
     Code: "Insight",
@@ -3361,7 +3419,6 @@ const json = [
     Name: "Lore",
     Index: "Lore",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 27,
     RequiredLevel: 27,
     Code: "Lore",
@@ -3437,7 +3494,6 @@ const json = [
     Name: "Radiance",
     Index: "Radiance",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 27,
     RequiredLevel: 27,
     Code: "Radiance",
@@ -3525,7 +3581,6 @@ const json = [
     Name: "Thirst",
     Index: "Thirst",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 27,
     RequiredLevel: 27,
     Code: "Thirst",
@@ -3603,7 +3658,6 @@ const json = [
     Name: "Truth",
     Index: "Truth",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 27,
     RequiredLevel: 27,
     Code: "Truth",
@@ -3673,7 +3727,6 @@ const json = [
     Name: "Void",
     Index: "Void",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 27,
     RequiredLevel: 27,
     Code: "Void",
@@ -3751,7 +3804,6 @@ const json = [
     Name: "Rhyme",
     Index: "Rhyme",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 29,
     RequiredLevel: 29,
     Code: "Rhyme",
@@ -3831,7 +3883,6 @@ const json = [
     Name: "Sorrow",
     Index: "Sorrow",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 33,
     RequiredLevel: 29,
     Code: "Sorrow",
@@ -3915,7 +3966,6 @@ const json = [
     Name: "Whisper",
     Index: "Whisper",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 29,
     RequiredLevel: 29,
     Code: "Whisper",
@@ -3991,7 +4041,6 @@ const json = [
     Name: "Peace",
     Index: "Peace",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 29,
     RequiredLevel: 29,
     Code: "Peace",
@@ -4031,82 +4080,6 @@ const json = [
   {
     Runes: [
       {
-        Name: "Shael Rune",
-        ItemLevel: 29,
-        RequiredLevel: 29,
-        Type: {
-          Name: "Rune",
-          Index: "Rune",
-          Class: ""
-        }
-      },
-      {
-        Name: "Tir Rune",
-        ItemLevel: 13,
-        RequiredLevel: 13,
-        Type: {
-          Name: "Rune",
-          Index: "Rune",
-          Class: ""
-        }
-      }
-    ],
-    Types: [
-      {
-        Name: "Sword",
-        Index: "Sword",
-        Class: ""
-      },
-      {
-        Name: "Knife",
-        Index: "Knife",
-        Class: ""
-      },
-      {
-        Name: "Hand to Hand",
-        Index: "Hand to Hand",
-        Class: "ass"
-      }
-    ],
-    Name: "Duriel's Fang",
-    Index: "Duriel's Fang",
-    Enabled: true,
-    Rarity: 0,
-    ItemLevel: 29,
-    RequiredLevel: 29,
-    Code: "Duriel's Fang",
-    Properties: [
-      {
-        PropertyString: "+1-2 to Poison Skills",
-        Index: 0
-      },
-      {
-        PropertyString: "+20% Increased Attack Speed",
-        Index: 0
-      },
-      {
-        PropertyString: "+50 to Attack Rating",
-        Index: 3
-      },
-      {
-        PropertyString: "+10-15% to Poison Skill Damage",
-        Index: 1
-      },
-      {
-        PropertyString: "-5-8% to Enemy Poison Resistance",
-        Index: 2
-      },
-      {
-        PropertyString: "+2 to Mana after each Kill",
-        Index: 0
-      }
-    ],
-    DamageArmorEnhanced: false,
-    Equipment: null
-  },
-  {
-    Runes: [
-      {
         Name: "Tir Rune",
         ItemLevel: 13,
         RequiredLevel: 13,
@@ -4137,7 +4110,6 @@ const json = [
     Name: "Beauty",
     Index: "Beauty",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 31,
     RequiredLevel: 31,
     Code: "Beauty",
@@ -4225,7 +4197,6 @@ const json = [
     Name: "Dread",
     Index: "Dread",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 31,
     RequiredLevel: 31,
     Code: "Dread",
@@ -4311,7 +4282,6 @@ const json = [
     Name: "Heaven's Will",
     Index: "Heaven's Will",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 31,
     RequiredLevel: 31,
     Code: "Heaven's Will",
@@ -4395,7 +4365,6 @@ const json = [
     Name: "Punishment",
     Index: "Punishment",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 31,
     RequiredLevel: 31,
     Code: "Punishment",
@@ -4477,7 +4446,6 @@ const json = [
     Name: "Vengeance",
     Index: "Vengeance",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 31,
     RequiredLevel: 31,
     Code: "Vengeance",
@@ -4571,7 +4539,6 @@ const json = [
     Name: "Black",
     Index: "Black",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 35,
     RequiredLevel: 35,
     Code: "Black",
@@ -4659,7 +4626,6 @@ const json = [
     Name: "Bulwark",
     Index: "Bulwark",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 35,
     RequiredLevel: 35,
     Code: "Bulwark",
@@ -4743,7 +4709,6 @@ const json = [
     Name: "Cure",
     Index: "Cure",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 35,
     RequiredLevel: 35,
     Code: "Cure",
@@ -4773,7 +4738,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "Poison Length Reduced by 50",
+        PropertyString: "+50 Poison Length Reduced by",
         Index: 3
       }
     ],
@@ -4823,7 +4788,6 @@ const json = [
     Name: "Ground",
     Index: "Ground",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 35,
     RequiredLevel: 35,
     Code: "Ground",
@@ -4889,7 +4853,6 @@ const json = [
     Name: "Hatred",
     Index: "Hatred",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 35,
     RequiredLevel: 35,
     Code: "Hatred",
@@ -4973,7 +4936,6 @@ const json = [
     Name: "Hearth",
     Index: "Hearth",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 35,
     RequiredLevel: 35,
     Code: "Hearth",
@@ -5053,7 +5015,6 @@ const json = [
     Name: "Holy Tears",
     Index: "Holy Tears",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 35,
     RequiredLevel: 35,
     Code: "Holy Tears",
@@ -5146,7 +5107,6 @@ const json = [
     Name: "Madness",
     Index: "Madness",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 35,
     RequiredLevel: 35,
     Code: "Madness",
@@ -5260,7 +5220,6 @@ const json = [
     Name: "Red",
     Index: "Red",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 35,
     RequiredLevel: 35,
     Code: "Red",
@@ -5338,7 +5297,6 @@ const json = [
     Name: "Shadow of Doubt",
     Index: "Shadow of Doubt",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 35,
     RequiredLevel: 35,
     Code: "Shadow of Doubt",
@@ -5418,7 +5376,6 @@ const json = [
     Name: "Temper",
     Index: "Temper",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 35,
     RequiredLevel: 35,
     Code: "Temper",
@@ -5484,7 +5441,6 @@ const json = [
     Name: "White",
     Index: "White",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 35,
     RequiredLevel: 35,
     Code: "White",
@@ -5572,13 +5528,12 @@ const json = [
     Name: "Deception",
     Index: "Deception",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 37,
     RequiredLevel: 37,
     Code: "Deception",
     Properties: [
       {
-        PropertyString: "+1 to Warp",
+        PropertyString: "+1 to Teleport",
         Index: 2
       },
       {
@@ -5674,7 +5629,6 @@ const json = [
     Name: "Memory",
     Index: "Memory",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 37,
     RequiredLevel: 37,
     Code: "Memory",
@@ -5760,7 +5714,6 @@ const json = [
     Name: "Smoke",
     Index: "Smoke",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 37,
     RequiredLevel: 37,
     Code: "Smoke",
@@ -5830,7 +5783,6 @@ const json = [
     Name: "Splendor",
     Index: "Splendor",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 37,
     RequiredLevel: 37,
     Code: "Splendor",
@@ -5928,7 +5880,6 @@ const json = [
     Name: "Harmony",
     Index: "Harmony",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 39,
     RequiredLevel: 39,
     Code: "Harmony",
@@ -6024,7 +5975,6 @@ const json = [
     Name: "Hustle",
     Index: "Hustle (Torso)",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 39,
     RequiredLevel: 39,
     Code: "Hustle (Torso)",
@@ -6104,7 +6054,6 @@ const json = [
     Name: "Hustle",
     Index: "Hustle (Weapon)",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 39,
     RequiredLevel: 39,
     Code: "Hustle (Weapon)",
@@ -6184,7 +6133,6 @@ const json = [
     Name: "Melody",
     Index: "Melody",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 39,
     RequiredLevel: 39,
     Code: "Melody",
@@ -6264,29 +6212,24 @@ const json = [
     ],
     Types: [
       {
-        Name: "Weapon",
-        Index: "Weapon",
+        Name: "Axe",
+        Index: "Axe",
         Class: ""
       }
     ],
     Name: "Pestilence",
     Index: "Pestilence",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 39,
     RequiredLevel: 39,
     Code: "Pestilence",
     Properties: [
       {
-        PropertyString: "+1 to Poison Skills",
-        Index: 0
-      },
-      {
-        PropertyString: "+20% Increased Attack Speed",
+        PropertyString: "+3 to Poison Explosion",
         Index: 5
       },
       {
-        PropertyString: "+150-175% Enhanced Damage",
+        PropertyString: "+188% Enhanced Damage",
         Index: 3
       },
       {
@@ -6294,20 +6237,16 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+1 Ignore Target's Defense",
-        Index: 6
+        PropertyString: "313 Poison Damage Over 4 Seconds",
+        Index: 0
       },
       {
-        PropertyString: "+10% to Poison Skill Damage",
+        PropertyString: "+20% to Poison Skill Damage",
         Index: 4
       },
       {
-        PropertyString: "+3 to Poison Dagger (Necromancer Only)",
+        PropertyString: "+1 Prevent Monster Heal",
         Index: 1
-      },
-      {
-        PropertyString: "+3 to Poison Volley (Necromancer Only)",
-        Index: 2
       },
       {
         PropertyString: "10 to Dexterity",
@@ -6316,6 +6255,14 @@ const json = [
       {
         PropertyString: "10 to Vitality",
         Index: 0
+      },
+      {
+        PropertyString: "+50 Poison Length Reduced by",
+        Index: 6
+      },
+      {
+        PropertyString: "+20-35% better chance of getting magic item",
+        Index: 2
       }
     ],
     DamageArmorEnhanced: false,
@@ -6354,7 +6301,6 @@ const json = [
     Name: "Question",
     Index: "Question",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 39,
     RequiredLevel: 39,
     Code: "Question",
@@ -6438,7 +6384,6 @@ const json = [
     Name: "Water",
     Index: "Water",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 39,
     RequiredLevel: 39,
     Code: "Water",
@@ -6540,7 +6485,6 @@ const json = [
     Name: "Envy",
     Index: "Envy",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 41,
     RequiredLevel: 41,
     Code: "Envy",
@@ -6636,7 +6580,6 @@ const json = [
     Name: "Fortune's Favor",
     Index: "Fortune's Favor",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 41,
     RequiredLevel: 41,
     Code: "Fortune's Favor",
@@ -6736,7 +6679,6 @@ const json = [
     Name: "Lionheart",
     Index: "Lionheart",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 41,
     RequiredLevel: 41,
     Code: "Lionheart",
@@ -6845,7 +6787,6 @@ const json = [
     Name: "Obedience",
     Index: "Obedience",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 41,
     RequiredLevel: 41,
     Code: "Obedience",
@@ -6897,6 +6838,107 @@ const json = [
       {
         PropertyString: "Requirements -20%",
         Index: 0
+      }
+    ],
+    DamageArmorEnhanced: false,
+    Equipment: null
+  },
+  {
+    Runes: [
+      {
+        Name: "Shael Rune",
+        ItemLevel: 29,
+        RequiredLevel: 29,
+        Type: {
+          Name: "Rune",
+          Index: "Rune",
+          Class: ""
+        }
+      },
+      {
+        Name: "Fal Rune",
+        ItemLevel: 41,
+        RequiredLevel: 41,
+        Type: {
+          Name: "Rune",
+          Index: "Rune",
+          Class: ""
+        }
+      },
+      {
+        Name: "Ko Rune",
+        ItemLevel: 39,
+        RequiredLevel: 39,
+        Type: {
+          Name: "Rune",
+          Index: "Rune",
+          Class: ""
+        }
+      },
+      {
+        Name: "Shael Rune",
+        ItemLevel: 29,
+        RequiredLevel: 29,
+        Type: {
+          Name: "Rune",
+          Index: "Rune",
+          Class: ""
+        }
+      }
+    ],
+    Types: [
+      {
+        Name: "Amazon Spear",
+        Index: "Amazon Spear",
+        Class: "ama"
+      }
+    ],
+    Name: "Principle Reimagined",
+    Index: "Principle Reimagined",
+    Enabled: true,
+    ItemLevel: 41,
+    RequiredLevel: 41,
+    Code: "Principle Reimagined",
+    Properties: [
+      {
+        PropertyString: "+2 to Amazon Skill Levels",
+        Index: 3
+      },
+      {
+        PropertyString: "+40% Increased Attack Speed",
+        Index: 0
+      },
+      {
+        PropertyString: "+200-260% Enhanced Damage",
+        Index: 0
+      },
+      {
+        PropertyString: "Slain Monsters Rest in Peace",
+        Index: 1
+      },
+      {
+        PropertyString: "10 to Strength",
+        Index: 0
+      },
+      {
+        PropertyString: "10 to Dexterity",
+        Index: 0
+      },
+      {
+        PropertyString: "All Resistances +35%",
+        Index: 4
+      },
+      {
+        PropertyString: "2 to Experience Gained",
+        Index: 2
+      },
+      {
+        PropertyString: "Level 20 Thunder Storm (10 Charges)",
+        Index: 5
+      },
+      {
+        PropertyString: "Level 10 Cyclone Armor (22 Charges)",
+        Index: 6
       }
     ],
     DamageArmorEnhanced: false,
@@ -6975,7 +7017,6 @@ const json = [
     Name: "Unbending Will",
     Index: "Unbending Will",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 41,
     RequiredLevel: 41,
     Code: "Unbending Will",
@@ -7107,7 +7148,6 @@ const json = [
     Name: "Lawbringer",
     Index: "Lawbringer",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 43,
     RequiredLevel: 43,
     Code: "Lawbringer",
@@ -7209,7 +7249,6 @@ const json = [
     Name: "Passion",
     Index: "Passion",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 43,
     RequiredLevel: 43,
     Code: "Passion",
@@ -7309,7 +7348,6 @@ const json = [
     Name: "Piety",
     Index: "Piety",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 43,
     RequiredLevel: 43,
     Code: "Piety",
@@ -7391,7 +7429,6 @@ const json = [
     Name: "Tempest",
     Index: "Tempest",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 43,
     RequiredLevel: 43,
     Code: "Tempest",
@@ -7479,7 +7516,6 @@ const json = [
     Name: "Treachery",
     Index: "Treachery",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 43,
     RequiredLevel: 43,
     Code: "Treachery",
@@ -7584,7 +7620,6 @@ const json = [
     Name: "Voice of Reason",
     Index: "Voice of Reason",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 43,
     RequiredLevel: 43,
     Code: "Voice of Reason",
@@ -7684,7 +7719,6 @@ const json = [
     Name: "Wealth",
     Index: "Wealth",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 43,
     RequiredLevel: 43,
     Code: "Wealth",
@@ -7752,7 +7786,6 @@ const json = [
     Name: "Love",
     Index: "Love",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 45,
     RequiredLevel: 45,
     Code: "Love",
@@ -7862,7 +7895,6 @@ const json = [
     Name: "Shadow",
     Index: "Shadow",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 45,
     RequiredLevel: 45,
     Code: "Shadow",
@@ -7956,7 +7988,6 @@ const json = [
     Name: "Thunder",
     Index: "Thunder",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 45,
     RequiredLevel: 45,
     Code: "Thunder",
@@ -8052,7 +8083,6 @@ const json = [
     Name: "War",
     Index: "War",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 45,
     RequiredLevel: 45,
     Code: "War",
@@ -8140,7 +8170,6 @@ const json = [
     Name: "Wisdom",
     Index: "Wisdom",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 45,
     RequiredLevel: 45,
     Code: "Wisdom",
@@ -8228,7 +8257,6 @@ const json = [
     Name: "Enlightenment",
     Index: "Enlightenment",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 45,
     RequiredLevel: 45,
     Code: "Enlightenment",
@@ -8318,7 +8346,6 @@ const json = [
     Name: "Crescent Moon",
     Index: "Crescent Moon",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 47,
     RequiredLevel: 47,
     Code: "Crescent Moon",
@@ -8410,7 +8437,6 @@ const json = [
     Name: "Duress",
     Index: "Duress",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 47,
     RequiredLevel: 47,
     Code: "Duress",
@@ -8494,7 +8520,6 @@ const json = [
     Name: "Gloom",
     Index: "Gloom",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 47,
     RequiredLevel: 47,
     Code: "Gloom",
@@ -8578,7 +8603,6 @@ const json = [
     Name: "Judgement",
     Index: "Judgement",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 47,
     RequiredLevel: 47,
     Code: "Judgement",
@@ -8666,7 +8690,6 @@ const json = [
     Name: "Oblivion",
     Index: "Oblivion",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 47,
     RequiredLevel: 47,
     Code: "Oblivion",
@@ -8768,7 +8791,6 @@ const json = [
     Name: "Pillar of Faith",
     Index: "Pillar of Faith",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 47,
     RequiredLevel: 47,
     Code: "Pillar of Faith",
@@ -8870,7 +8892,6 @@ const json = [
     Name: "Stone",
     Index: "Stone",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 47,
     RequiredLevel: 47,
     Code: "Stone",
@@ -8973,7 +8994,6 @@ const json = [
     Name: "Voice",
     Index: "Voice",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 47,
     RequiredLevel: 47,
     Code: "Voice",
@@ -9081,7 +9101,6 @@ const json = [
     Name: "Bone",
     Index: "Bone",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 47,
     RequiredLevel: 47,
     Code: "Bone",
@@ -9164,13 +9183,12 @@ const json = [
         Class: ""
       }
     ],
-    Name: "Searing Moon",
-    Index: "Searing Moon",
+    Name: "Blood Moon",
+    Index: "Blood Moon",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 47,
     RequiredLevel: 47,
-    Code: "Searing Moon",
+    Code: "Blood Moon",
     Properties: [
       {
         PropertyString: "15% Chance to cast level 13 meteor on striking",
@@ -9269,7 +9287,6 @@ const json = [
     Name: "Winter Moon",
     Index: "Winter Moon",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 47,
     RequiredLevel: 47,
     Code: "Winter Moon",
@@ -9371,7 +9388,6 @@ const json = [
     Name: "Harvest Moon",
     Index: "Harvest Moon",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 47,
     RequiredLevel: 47,
     Code: "Harvest Moon",
@@ -9463,7 +9479,6 @@ const json = [
     Name: "Blood",
     Index: "Blood",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 49,
     RequiredLevel: 49,
     Code: "Blood",
@@ -9553,7 +9568,6 @@ const json = [
     Name: "Lust",
     Index: "Lust",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 49,
     RequiredLevel: 49,
     Code: "Lust",
@@ -9671,7 +9685,6 @@ const json = [
     Name: "Oath",
     Index: "Oath",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 49,
     RequiredLevel: 49,
     Code: "Oath",
@@ -9757,7 +9770,6 @@ const json = [
     Name: "Prudence",
     Index: "Prudence",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 49,
     RequiredLevel: 49,
     Code: "Prudence",
@@ -9841,7 +9853,6 @@ const json = [
     Name: "Rain",
     Index: "Rain",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 49,
     RequiredLevel: 49,
     Code: "Rain",
@@ -9921,7 +9932,6 @@ const json = [
     Name: "Sanctuary",
     Index: "Sanctuary",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 49,
     RequiredLevel: 49,
     Code: "Sanctuary",
@@ -9999,7 +10009,6 @@ const json = [
     Name: "Terror",
     Index: "Terror",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 49,
     RequiredLevel: 49,
     Code: "Terror",
@@ -10021,7 +10030,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "+4 to random Necromancer Skill",
+        PropertyString: "+7 to random Necromancer Skill",
         Index: 2
       },
       {
@@ -10039,6 +10048,89 @@ const json = [
       {
         PropertyString: "+1% better chance of getting magic item (Per Character Level)",
         Index: 5
+      }
+    ],
+    DamageArmorEnhanced: false,
+    Equipment: null
+  },
+  {
+    Runes: [
+      {
+        Name: "Tal Rune",
+        ItemLevel: 17,
+        RequiredLevel: 17,
+        Type: {
+          Name: "Rune",
+          Index: "Rune",
+          Class: ""
+        }
+      },
+      {
+        Name: "Dol Rune",
+        ItemLevel: 31,
+        RequiredLevel: 31,
+        Type: {
+          Name: "Rune",
+          Index: "Rune",
+          Class: ""
+        }
+      },
+      {
+        Name: "Mal Rune",
+        ItemLevel: 49,
+        RequiredLevel: 49,
+        Type: {
+          Name: "Rune",
+          Index: "Rune",
+          Class: ""
+        }
+      }
+    ],
+    Types: [
+      {
+        Name: "Weapon",
+        Index: "Weapon",
+        Class: ""
+      }
+    ],
+    Name: "Venom",
+    Index: "Venom",
+    Enabled: true,
+    ItemLevel: 49,
+    RequiredLevel: 49,
+    Code: "Venom",
+    Properties: [
+      {
+        PropertyString: "+1 Ignore Target's Defense",
+        Index: 1
+      },
+      {
+        PropertyString: "214 Poison Damage Over 7 Seconds",
+        Index: 0
+      },
+      {
+        PropertyString: "76 Poison Damage Over 5 Seconds",
+        Index: 0
+      },
+      {
+        PropertyString: "+7 Mana stolen per hit",
+        Index: 4
+      },
+      {
+        PropertyString: "+1 Prevent Monster Heal",
+        Index: 0
+      },
+      {
+        PropertyString: "25% Hit Causes Monster To Flee",
+        Index: 0
+      },
+      {
+        PropertyString: "Level 15 Poison Explosion (27 Charges)",
+        Index: 2
+      },
+      {
+        PropertyString: "Level 13 Poison Nova (11 Charges)",
+        Index: 3
       }
     ],
     DamageArmorEnhanced: false,
@@ -10097,7 +10189,6 @@ const json = [
     Name: "Full Moon",
     Index: "Full Moon",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 49,
     RequiredLevel: 49,
     Code: "Full Moon",
@@ -10189,7 +10280,6 @@ const json = [
     Name: "Delirium",
     Index: "Delirium",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 51,
     RequiredLevel: 51,
     Code: "Delirium",
@@ -10291,7 +10381,6 @@ const json = [
     Name: "Glory",
     Index: "Glory",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 51,
     RequiredLevel: 51,
     Code: "Glory",
@@ -10375,7 +10464,6 @@ const json = [
     Name: "Thought",
     Index: "Thought",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 51,
     RequiredLevel: 51,
     Code: "Thought",
@@ -10487,7 +10575,6 @@ const json = [
     Name: "Despair",
     Index: "Despair",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 53,
     RequiredLevel: 53,
     Code: "Despair",
@@ -10598,7 +10685,6 @@ const json = [
     Name: "Kingslayer",
     Index: "Kingslayer",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 53,
     RequiredLevel: 53,
     Code: "Kingslayer",
@@ -10690,7 +10776,6 @@ const json = [
     Name: "Mosaic",
     Index: "Mosaic",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 53,
     RequiredLevel: 53,
     Code: "Mosaic",
@@ -10797,7 +10882,6 @@ const json = [
     Name: "Rift",
     Index: "Rift",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 53,
     RequiredLevel: 53,
     Code: "Rift",
@@ -10903,7 +10987,6 @@ const json = [
     Name: "Still Water",
     Index: "Still Water",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 53,
     RequiredLevel: 53,
     Code: "Still Water",
@@ -10999,7 +11082,6 @@ const json = [
     Name: "Principle",
     Index: "Principle",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 53,
     RequiredLevel: 53,
     Code: "Principle",
@@ -11104,7 +11186,6 @@ const json = [
     Name: "Death",
     Index: "Death",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 55,
     RequiredLevel: 55,
     Code: "Death",
@@ -11208,7 +11289,6 @@ const json = [
     Name: "Flame",
     Index: "Flame",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 55,
     RequiredLevel: 55,
     Code: "Flame",
@@ -11300,7 +11380,6 @@ const json = [
     Name: "Flickering Flame",
     Index: "Flickering Flame",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 55,
     RequiredLevel: 55,
     Code: "Flickering Flame",
@@ -11308,10 +11387,6 @@ const json = [
       {
         PropertyString: "Level 4-8 Resist Fire Aura When Equipped",
         Index: 1
-      },
-      {
-        PropertyString: "+3 to Fire Skills",
-        Index: 0
       },
       {
         PropertyString: "-10-15% to Enemy Fire Resistance",
@@ -11338,8 +11413,12 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "Poison Length Reduced by 50",
+        PropertyString: "+50 Poison Length Reduced by",
         Index: 5
+      },
+      {
+        PropertyString: "+3 to Fire Skills",
+        Index: 0
       }
     ],
     DamageArmorEnhanced: false,
@@ -11413,7 +11492,6 @@ const json = [
     Name: "Heart of the Oak",
     Index: "Heart of the Oak",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 55,
     RequiredLevel: 55,
     Code: "Heart of the Oak",
@@ -11523,7 +11601,6 @@ const json = [
     Name: "Innocence",
     Index: "Innocence",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 55,
     RequiredLevel: 55,
     Code: "Innocence",
@@ -11605,7 +11682,6 @@ const json = [
     Name: "Loyalty",
     Index: "Loyalty",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 55,
     RequiredLevel: 55,
     Code: "Loyalty",
@@ -11723,7 +11799,6 @@ const json = [
     Name: "Silence",
     Index: "Silence",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 55,
     RequiredLevel: 55,
     Code: "Silence",
@@ -11797,89 +11872,6 @@ const json = [
         }
       },
       {
-        Name: "Lum Rune",
-        ItemLevel: 37,
-        RequiredLevel: 37,
-        Type: {
-          Name: "Rune",
-          Index: "Rune",
-          Class: ""
-        }
-      }
-    ],
-    Types: [
-      {
-        Name: "Wand",
-        Index: "Wand",
-        Class: ""
-      },
-      {
-        Name: "Orb",
-        Index: "Orb",
-        Class: "sor"
-      }
-    ],
-    Name: "Arcane",
-    Index: "Arcane2",
-    Enabled: true,
-    Rarity: 0,
-    ItemLevel: 55,
-    RequiredLevel: 55,
-    Code: "Arcane2",
-    Properties: [
-      {
-        PropertyString: "+3 to All Skills",
-        Index: 0
-      },
-      {
-        PropertyString: "+1 to Warmth",
-        Index: 4
-      },
-      {
-        PropertyString: "+50% Faster Cast Rate",
-        Index: 1
-      },
-      {
-        PropertyString: "+7 Mana stolen per hit",
-        Index: 0
-      },
-      {
-        PropertyString: "10 to Energy",
-        Index: 0
-      },
-      {
-        PropertyString: "+100 to Mana",
-        Index: 6
-      },
-      {
-        PropertyString: "+20% Increased Maximum Mana",
-        Index: 2
-      },
-      {
-        PropertyString: "Regenerate Mana 75%",
-        Index: 3
-      },
-      {
-        PropertyString: "5-10 to Experience Gained",
-        Index: 5
-      }
-    ],
-    DamageArmorEnhanced: false,
-    Equipment: null
-  },
-  {
-    Runes: [
-      {
-        Name: "Vex Rune",
-        ItemLevel: 55,
-        RequiredLevel: 55,
-        Type: {
-          Name: "Rune",
-          Index: "Rune",
-          Class: ""
-        }
-      },
-      {
         Name: "Amn Rune",
         ItemLevel: 25,
         RequiredLevel: 25,
@@ -11930,7 +11922,6 @@ const json = [
     Name: "Wonder",
     Index: "Wonder",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 55,
     RequiredLevel: 55,
     Code: "Wonder",
@@ -11970,94 +11961,6 @@ const json = [
       {
         PropertyString: "+60-80% better chance of getting magic item",
         Index: 5
-      }
-    ],
-    DamageArmorEnhanced: false,
-    Equipment: null
-  },
-  {
-    Runes: [
-      {
-        Name: "Vex Rune",
-        ItemLevel: 55,
-        RequiredLevel: 55,
-        Type: {
-          Name: "Rune",
-          Index: "Rune",
-          Class: ""
-        }
-      },
-      {
-        Name: "Um Rune",
-        ItemLevel: 47,
-        RequiredLevel: 47,
-        Type: {
-          Name: "Rune",
-          Index: "Rune",
-          Class: ""
-        }
-      },
-      {
-        Name: "Dol Rune",
-        ItemLevel: 31,
-        RequiredLevel: 31,
-        Type: {
-          Name: "Rune",
-          Index: "Rune",
-          Class: ""
-        }
-      }
-    ],
-    Types: [
-      {
-        Name: "Armor",
-        Index: "Armor",
-        Class: ""
-      }
-    ],
-    Name: "Natalya's Shroud",
-    Index: "Natalya's Shroud",
-    Enabled: true,
-    Rarity: 0,
-    ItemLevel: 55,
-    RequiredLevel: 55,
-    Code: "Natalya's Shroud",
-    Properties: [
-      {
-        PropertyString: "+2 to Assassin Skill Levels",
-        Index: 0
-      },
-      {
-        PropertyString: "+20% Increased Attack Speed",
-        Index: 2
-      },
-      {
-        PropertyString: "+20% Faster Cast Rate",
-        Index: 3
-      },
-      {
-        PropertyString: "+20% to Lightning Skill Damage",
-        Index: 4
-      },
-      {
-        PropertyString: "+20% to Fire Skill Damage",
-        Index: 5
-      },
-      {
-        PropertyString: "+200-250% Enhanced Defense",
-        Index: 1
-      },
-      {
-        PropertyString: "+7 Replenish Life",
-        Index: 0
-      },
-      {
-        PropertyString: "+5 to Maximum Fire Resist",
-        Index: 0
-      },
-      {
-        PropertyString: "All Resistances +30%",
-        Index: 6
       }
     ],
     DamageArmorEnhanced: false,
@@ -12126,7 +12029,6 @@ const json = [
     Name: "Call to Arms",
     Index: "Call to Arms",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 57,
     RequiredLevel: 57,
     Code: "Call to Arms",
@@ -12222,7 +12124,6 @@ const json = [
     Name: "Chaos",
     Index: "Chaos",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 57,
     RequiredLevel: 57,
     Code: "Chaos",
@@ -12320,7 +12221,6 @@ const json = [
     Name: "Exile",
     Index: "Exile",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 57,
     RequiredLevel: 57,
     Code: "Exile",
@@ -12436,7 +12336,6 @@ const json = [
     Name: "Praise",
     Index: "Praise",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 57,
     RequiredLevel: 57,
     Code: "Praise",
@@ -12528,7 +12427,6 @@ const json = [
     Name: "Trust",
     Index: "Trust",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 57,
     RequiredLevel: 57,
     Code: "Trust",
@@ -12650,7 +12548,6 @@ const json = [
     Name: "Victory",
     Index: "Victory",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 57,
     RequiredLevel: 57,
     Code: "Victory",
@@ -12749,8 +12646,8 @@ const json = [
         Class: ""
       },
       {
-        Name: "Armor",
-        Index: "Armor",
+        Name: "Any Armor",
+        Index: "Any Armor",
         Class: ""
       },
       {
@@ -12762,7 +12659,6 @@ const json = [
     Name: "Fortitude",
     Index: "Fortitude",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 59,
     RequiredLevel: 59,
     Code: "Fortitude",
@@ -12858,88 +12754,6 @@ const json = [
   {
     Runes: [
       {
-        Name: "El Rune",
-        ItemLevel: 11,
-        RequiredLevel: 11,
-        Type: {
-          Name: "Rune",
-          Index: "Rune",
-          Class: ""
-        }
-      },
-      {
-        Name: "Sol Rune",
-        ItemLevel: 27,
-        RequiredLevel: 27,
-        Type: {
-          Name: "Rune",
-          Index: "Rune",
-          Class: ""
-        }
-      },
-      {
-        Name: "Dol Rune",
-        ItemLevel: 31,
-        RequiredLevel: 31,
-        Type: {
-          Name: "Rune",
-          Index: "Rune",
-          Class: ""
-        }
-      },
-      {
-        Name: "Lo Rune",
-        ItemLevel: 59,
-        RequiredLevel: 59,
-        Type: {
-          Name: "Rune",
-          Index: "Rune",
-          Class: ""
-        }
-      }
-    ],
-    Types: [
-      {
-        Name: "Helm",
-        Index: "Helm",
-        Class: ""
-      }
-    ],
-    Name: "Fortitude (Helm Removed)",
-    Index: "Fortitude (Dummy)",
-    Enabled: true,
-    Rarity: 0,
-    ItemLevel: 59,
-    RequiredLevel: 59,
-    Code: "Fortitude (Dummy)",
-    Properties: [
-      {
-        PropertyString: "+15 Defense",
-        Index: 1
-      },
-      {
-        PropertyString: "+7 Replenish Life",
-        Index: 0
-      },
-      {
-        PropertyString: "+5 to Maximum Lightning Resist",
-        Index: 0
-      },
-      {
-        PropertyString: "Damage Reduced by 7",
-        Index: 0
-      },
-      {
-        PropertyString: "+1 to Light Radius",
-        Index: 0
-      }
-    ],
-    DamageArmorEnhanced: false,
-    Equipment: null
-  },
-  {
-    Runes: [
-      {
         Name: "Eth Rune",
         ItemLevel: 15,
         RequiredLevel: 15,
@@ -13005,7 +12819,6 @@ const json = [
     Name: "Grief",
     Index: "Grief",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 59,
     RequiredLevel: 59,
     Code: "Grief",
@@ -13105,7 +12918,6 @@ const json = [
     Name: "Night",
     Index: "Night",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 59,
     RequiredLevel: 59,
     Code: "Night",
@@ -13207,7 +13019,6 @@ const json = [
     Name: "Bramble",
     Index: "Bramble",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 61,
     RequiredLevel: 61,
     Code: "Bramble",
@@ -13308,7 +13119,6 @@ const json = [
     Name: "Dragon",
     Index: "Dragon",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 61,
     RequiredLevel: 61,
     Code: "Dragon",
@@ -13414,46 +13224,45 @@ const json = [
     ],
     Types: [
       {
-        Name: "Armor",
-        Index: "Armor",
-        Class: ""
+        Name: "Druid Item",
+        Index: "Druid Item",
+        Class: "dru"
       }
     ],
-    Name: "Mantle of Lazarus",
-    Index: "Mantle of Lazarus",
+    Name: "Enlightenment Reimagined",
+    Index: "Enlightenment Reimagined",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 61,
     RequiredLevel: 61,
-    Code: "Mantle of Lazarus",
+    Code: "Enlightenment Reimagined",
     Properties: [
       {
-        PropertyString: "+2 to Sorceress Skill Levels",
-        Index: 0
-      },
-      {
-        PropertyString: "+30% Faster Cast Rate",
-        Index: 1
-      },
-      {
-        PropertyString: "+20% to Fire Skill Damage",
+        PropertyString: "30% Chance to cast level 20 cyclone armor when struck",
         Index: 4
       },
       {
-        PropertyString: "+20% to Cold Skill Damage",
-        Index: 5
+        PropertyString: "+2 to Elemental Skills (Druid only)",
+        Index: 3
       },
       {
-        PropertyString: "+20% to Lightning Skill Damage",
+        PropertyString: "+2 to Druid Skill Levels",
+        Index: 0
+      },
+      {
+        PropertyString: "+20% Faster Block Rate",
         Index: 6
+      },
+      {
+        PropertyString: "+3 to random Druid Skill",
+        Index: 1
       },
       {
         PropertyString: "10 to Energy",
         Index: 0
       },
       {
-        PropertyString: "+10% Increased Maximum Mana",
-        Index: 3
+        PropertyString: "+5% Increased Maximum Mana",
+        Index: 0
       },
       {
         PropertyString: "Regenerate Mana 75%",
@@ -13462,6 +13271,10 @@ const json = [
       {
         PropertyString: "All Resistances +15%",
         Index: 0
+      },
+      {
+        PropertyString: "+10% Physical Damage Reduction",
+        Index: 5
       },
       {
         PropertyString: "+2 to Mana after each Kill",
@@ -13536,25 +13349,20 @@ const json = [
         Class: ""
       },
       {
-        Name: "Axe",
-        Index: "Axe",
+        Name: "Sword",
+        Index: "Sword",
         Class: ""
       }
     ],
-    Name: "Eclipse",
-    Index: "Eclipse",
+    Name: "Plague Reimagined",
+    Index: "Plague Reimagined",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 61,
     RequiredLevel: 61,
-    Code: "Eclipse",
+    Code: "Plague Reimagined",
     Properties: [
       {
-        PropertyString: "8% Chance to cast level 5 amplify damage on striking",
-        Index: 0
-      },
-      {
-        PropertyString: "+1 to Critical Strike",
+        PropertyString: "15% Chance to cast level 27 poison nova on striking",
         Index: 1
       },
       {
@@ -13562,20 +13370,16 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+300-350% Enhanced Damage",
+        PropertyString: "+200-250% Enhanced Damage",
         Index: 2
       },
       {
-        PropertyString: "+20% Faster Hit Recovery",
-        Index: 5
-      },
-      {
-        PropertyString: "+10% Chance of Crushing Blow",
-        Index: 4
-      },
-      {
-        PropertyString: "+10% Deadly Strike",
+        PropertyString: "500 Poison Damage Over 5 Seconds",
         Index: 3
+      },
+      {
+        PropertyString: "+50% Deadly Strike",
+        Index: 4
       },
       {
         PropertyString: "+25% Chance of Open Wounds",
@@ -13590,8 +13394,16 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+5% Physical Damage Reduction",
+        PropertyString: "+10 to Maximum Poison Resist",
+        Index: 5
+      },
+      {
+        PropertyString: "Poison Resist +80%",
         Index: 6
+      },
+      {
+        PropertyString: "+10 To Required Level",
+        Index: 0
       }
     ],
     DamageArmorEnhanced: false,
@@ -13650,7 +13462,6 @@ const json = [
     Name: "Siren's Song",
     Index: "Siren's Song",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 61,
     RequiredLevel: 61,
     Code: "Siren's Song",
@@ -13758,7 +13569,6 @@ const json = [
     Name: "Tradition",
     Index: "Tradition",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 61,
     RequiredLevel: 61,
     Code: "Tradition",
@@ -13844,7 +13654,6 @@ const json = [
     Name: "Wind",
     Index: "Wind",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 61,
     RequiredLevel: 61,
     Code: "Wind",
@@ -13976,7 +13785,6 @@ const json = [
     Name: "Beast",
     Index: "Beast",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 63,
     RequiredLevel: 63,
     Code: "Beast",
@@ -14058,46 +13866,49 @@ const json = [
     ],
     Types: [
       {
-        Name: "Armor",
-        Index: "Armor",
-        Class: ""
+        Name: "Necromancer Item",
+        Index: "Necromancer Item",
+        Class: "nec"
       }
     ],
-    Name: "Rathma's Husk",
-    Index: "Rathma's Husk",
+    Name: "Bone Reimagined",
+    Index: "Bone Reimagined",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 63,
     RequiredLevel: 63,
-    Code: "Rathma's Husk",
+    Code: "Bone Reimagined",
     Properties: [
       {
-        PropertyString: "+2 to Poison Skills",
-        Index: 0
-      },
-      {
-        PropertyString: "+20% Increased Attack Speed",
-        Index: 5
-      },
-      {
-        PropertyString: "+20% to Poison Skill Damage",
+        PropertyString: "+4 to Poison and Bone Skills (Necromancer only)",
         Index: 1
       },
       {
-        PropertyString: "+2 to Poison Dagger (Necromancer Only)",
+        PropertyString: "+2 to Necromancer Skill Levels",
+        Index: 0
+      },
+      {
+        PropertyString: "+3 to Bone Armor (Necromancer Only)",
+        Index: 2
+      },
+      {
+        PropertyString: "+3 to Bone Wall (Necromancer Only)",
         Index: 3
       },
       {
-        PropertyString: "+2 to Poison Volley (Necromancer Only)",
+        PropertyString: "+3 to Bone Spear (Necromancer Only)",
         Index: 4
       },
       {
-        PropertyString: "+200-250% Enhanced Defense",
+        PropertyString: "+3 to Bone Prison (Necromancer Only)",
+        Index: 5
+      },
+      {
+        PropertyString: "+3 to Bone Spirit (Necromancer Only)",
         Index: 6
       },
       {
-        PropertyString: "All Resistances +30%",
-        Index: 2
+        PropertyString: "All Resistances +15%",
+        Index: 0
       },
       {
         PropertyString: "+8% Physical Damage Reduction",
@@ -14160,7 +13971,6 @@ const json = [
     Name: "Chains of Honor",
     Index: "Chains of Honor",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 63,
     RequiredLevel: 63,
     Code: "Chains of Honor",
@@ -14272,7 +14082,6 @@ const json = [
     Name: "Eternity",
     Index: "Eternity",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 63,
     RequiredLevel: 63,
     Code: "Eternity",
@@ -14387,7 +14196,6 @@ const json = [
     Name: "Infinity",
     Index: "Infinity",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 63,
     RequiredLevel: 63,
     Code: "Infinity",
@@ -14494,7 +14302,6 @@ const json = [
     Name: "Knight's Vigil",
     Index: "Knight's Vigil",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 63,
     RequiredLevel: 63,
     Code: "Knight's Vigil",
@@ -14566,191 +14373,6 @@ const json = [
   {
     Runes: [
       {
-        Name: "Ber Rune",
-        ItemLevel: 63,
-        RequiredLevel: 63,
-        Type: {
-          Name: "Rune",
-          Index: "Rune",
-          Class: ""
-        }
-      },
-      {
-        Name: "Mal Rune",
-        ItemLevel: 49,
-        RequiredLevel: 49,
-        Type: {
-          Name: "Rune",
-          Index: "Rune",
-          Class: ""
-        }
-      },
-      {
-        Name: "Lo Rune",
-        ItemLevel: 59,
-        RequiredLevel: 59,
-        Type: {
-          Name: "Rune",
-          Index: "Rune",
-          Class: ""
-        }
-      }
-    ],
-    Types: [
-      {
-        Name: "Armor",
-        Index: "Armor",
-        Class: ""
-      }
-    ],
-    Name: "Mail of the Askari",
-    Index: "Mail of the Askari",
-    Enabled: true,
-    Rarity: 0,
-    ItemLevel: 63,
-    RequiredLevel: 63,
-    Code: "Mail of the Askari",
-    Properties: [
-      {
-        PropertyString: "Level 12 Vigor Aura When Equipped",
-        Index: 5
-      },
-      {
-        PropertyString: "+2 to Amazon Skill Levels",
-        Index: 0
-      },
-      {
-        PropertyString: "+150-200% Enhanced Damage",
-        Index: 3
-      },
-      {
-        PropertyString: "+30% Faster Hit Recovery",
-        Index: 1
-      },
-      {
-        PropertyString: "+200-250% Enhanced Defense",
-        Index: 6
-      },
-      {
-        PropertyString: "40 to Dexterity",
-        Index: 2
-      },
-      {
-        PropertyString: "+5 to Maximum Lightning Resist",
-        Index: 0
-      },
-      {
-        PropertyString: "All Resistances +40%",
-        Index: 4
-      },
-      {
-        PropertyString: "+8% Physical Damage Reduction",
-        Index: 0
-      },
-      {
-        PropertyString: "Magic Damage Reduced by 7",
-        Index: 0
-      }
-    ],
-    DamageArmorEnhanced: false,
-    Equipment: null
-  },
-  {
-    Runes: [
-      {
-        Name: "Ber Rune",
-        ItemLevel: 63,
-        RequiredLevel: 63,
-        Type: {
-          Name: "Rune",
-          Index: "Rune",
-          Class: ""
-        }
-      },
-      {
-        Name: "Dol Rune",
-        ItemLevel: 31,
-        RequiredLevel: 31,
-        Type: {
-          Name: "Rune",
-          Index: "Rune",
-          Class: ""
-        }
-      },
-      {
-        Name: "Mal Rune",
-        ItemLevel: 49,
-        RequiredLevel: 49,
-        Type: {
-          Name: "Rune",
-          Index: "Rune",
-          Class: ""
-        }
-      }
-    ],
-    Types: [
-      {
-        Name: "Helm",
-        Index: "Helm",
-        Class: ""
-      },
-      {
-        Name: "Circlet",
-        Index: "Circlet",
-        Class: ""
-      }
-    ],
-    Name: "Venom",
-    Index: "Venom",
-    Enabled: true,
-    Rarity: 0,
-    ItemLevel: 63,
-    RequiredLevel: 63,
-    Code: "Venom",
-    Properties: [
-      {
-        PropertyString: "Level 8 Cleansing Aura When Equipped",
-        Index: 1
-      },
-      {
-        PropertyString: "+2 to Poison Skills",
-        Index: 0
-      },
-      {
-        PropertyString: "+1 to Venom",
-        Index: 3
-      },
-      {
-        PropertyString: "+15% to Poison Skill Damage",
-        Index: 2
-      },
-      {
-        PropertyString: "-15% to Enemy Poison Resistance",
-        Index: 6
-      },
-      {
-        PropertyString: "+7 Replenish Life",
-        Index: 0
-      },
-      {
-        PropertyString: "All Resistances +15%",
-        Index: 4
-      },
-      {
-        PropertyString: "+13% Physical Damage Reduction",
-        Index: 5
-      },
-      {
-        PropertyString: "Magic Damage Reduced by 7",
-        Index: 0
-      }
-    ],
-    DamageArmorEnhanced: false,
-    Equipment: null
-  },
-  {
-    Runes: [
-      {
         Name: "Pul Rune",
         ItemLevel: 45,
         RequiredLevel: 45,
@@ -14801,7 +14423,6 @@ const json = [
     Name: "Wrath",
     Index: "Wrath",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 63,
     RequiredLevel: 63,
     Code: "Wrath",
@@ -14907,7 +14528,6 @@ const json = [
     Name: "Brand",
     Index: "Brand",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 65,
     RequiredLevel: 65,
     Code: "Brand",
@@ -14999,7 +14619,6 @@ const json = [
     Name: "Daylight",
     Index: "Daylight",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 65,
     RequiredLevel: 65,
     Code: "Daylight",
@@ -15116,7 +14735,6 @@ const json = [
     Name: "Destruction",
     Index: "Destruction",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 65,
     RequiredLevel: 65,
     Code: "Destruction",
@@ -15217,7 +14835,6 @@ const json = [
     Name: "Dream",
     Index: "Dream",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 65,
     RequiredLevel: 65,
     Code: "Dream",
@@ -15321,7 +14938,6 @@ const json = [
     Name: "Enigma",
     Index: "Enigma",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 65,
     RequiredLevel: 65,
     Code: "Enigma",
@@ -15423,7 +15039,6 @@ const json = [
     Name: "Faith",
     Index: "Faith",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 65,
     RequiredLevel: 65,
     Code: "Faith",
@@ -15544,7 +15159,6 @@ const json = [
     Name: "Famine",
     Index: "Famine",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 65,
     RequiredLevel: 65,
     Code: "Famine",
@@ -15636,7 +15250,6 @@ const json = [
     Name: "Fury",
     Index: "Fury",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 65,
     RequiredLevel: 65,
     Code: "Fury",
@@ -15738,7 +15351,6 @@ const json = [
     Name: "Ice",
     Index: "Ice",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 65,
     RequiredLevel: 65,
     Code: "Ice",
@@ -15849,7 +15461,6 @@ const json = [
     Name: "Phoenix",
     Index: "Phoenix",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 65,
     RequiredLevel: 65,
     Code: "Phoenix",
@@ -15931,108 +15542,6 @@ const json = [
         }
       },
       {
-        Name: "Fal Rune",
-        ItemLevel: 41,
-        RequiredLevel: 41,
-        Type: {
-          Name: "Rune",
-          Index: "Rune",
-          Class: ""
-        }
-      },
-      {
-        Name: "Ko Rune",
-        ItemLevel: 39,
-        RequiredLevel: 39,
-        Type: {
-          Name: "Rune",
-          Index: "Rune",
-          Class: ""
-        }
-      },
-      {
-        Name: "Shael Rune",
-        ItemLevel: 29,
-        RequiredLevel: 29,
-        Type: {
-          Name: "Rune",
-          Index: "Rune",
-          Class: ""
-        }
-      }
-    ],
-    Types: [
-      {
-        Name: "Armor",
-        Index: "Armor",
-        Class: ""
-      }
-    ],
-    Name: "Akarat's Devotion",
-    Index: "Akarat's Devotion",
-    Enabled: true,
-    Rarity: 0,
-    ItemLevel: 65,
-    RequiredLevel: 65,
-    Code: "Akarat's Devotion",
-    Properties: [
-      {
-        PropertyString: "Level 8 Redemption Aura When Equipped",
-        Index: 0
-      },
-      {
-        PropertyString: "+2 to Paladin Skill Levels",
-        Index: 1
-      },
-      {
-        PropertyString: "+20% Faster Cast Rate",
-        Index: 2
-      },
-      {
-        PropertyString: "+20% Faster Hit Recovery",
-        Index: 0
-      },
-      {
-        PropertyString: "+3 to Blessed Hammer (Paladin Only)",
-        Index: 5
-      },
-      {
-        PropertyString: "+200-250% Enhanced Defense",
-        Index: 3
-      },
-      {
-        PropertyString: "50 to Strength",
-        Index: 6
-      },
-      {
-        PropertyString: "10 to Dexterity",
-        Index: 0
-      },
-      {
-        PropertyString: "+5% Increased Maximum Life",
-        Index: 0
-      },
-      {
-        PropertyString: "All Resistances +35%",
-        Index: 4
-      }
-    ],
-    DamageArmorEnhanced: false,
-    Equipment: null
-  },
-  {
-    Runes: [
-      {
-        Name: "Jah Rune",
-        ItemLevel: 65,
-        RequiredLevel: 65,
-        Type: {
-          Name: "Rune",
-          Index: "Rune",
-          Class: ""
-        }
-      },
-      {
         Name: "Ist Rune",
         ItemLevel: 51,
         RequiredLevel: 51,
@@ -16063,7 +15572,6 @@ const json = [
     Name: "Prowess in Battle",
     Index: "Prowess in Battle",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 65,
     RequiredLevel: 65,
     Code: "Prowess in Battle",
@@ -16175,7 +15683,6 @@ const json = [
     Name: "Storm",
     Index: "Storm",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 65,
     RequiredLevel: 65,
     Code: "Storm",
@@ -16266,7 +15773,6 @@ const json = [
     Name: "Time",
     Index: "Time",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 65,
     RequiredLevel: 65,
     Code: "Time",
@@ -16314,6 +15820,83 @@ const json = [
       {
         PropertyString: "Attacker Takes Damage of +14 (Shield)",
         Index: 0
+      }
+    ],
+    DamageArmorEnhanced: false,
+    Equipment: null
+  },
+  {
+    Runes: [
+      {
+        Name: "Jah Rune",
+        ItemLevel: 65,
+        RequiredLevel: 65,
+        Type: {
+          Name: "Rune",
+          Index: "Rune",
+          Class: ""
+        }
+      },
+      {
+        Name: "Lum Rune",
+        ItemLevel: 37,
+        RequiredLevel: 37,
+        Type: {
+          Name: "Rune",
+          Index: "Rune",
+          Class: ""
+        }
+      }
+    ],
+    Types: [
+      {
+        Name: "Wand",
+        Index: "Wand",
+        Class: ""
+      }
+    ],
+    Name: "Wisdom Reimagined",
+    Index: "Wisdom Reimagined",
+    Enabled: true,
+    ItemLevel: 65,
+    RequiredLevel: 65,
+    Code: "Wisdom Reimagined",
+    Properties: [
+      {
+        PropertyString: "+2 to All Skills",
+        Index: 0
+      },
+      {
+        PropertyString: "+1 Ignore Target's Defense",
+        Index: 0
+      },
+      {
+        PropertyString: "10 to Energy",
+        Index: 0
+      },
+      {
+        PropertyString: "+5 Replenish Life",
+        Index: 1
+      },
+      {
+        PropertyString: "+2 to Mana (Per Character Level)",
+        Index: 2
+      },
+      {
+        PropertyString: "Regenerate Mana 75%",
+        Index: 3
+      },
+      {
+        PropertyString: "Magic Resist +20%",
+        Index: 4
+      },
+      {
+        PropertyString: "3-5 to Experience Gained",
+        Index: 5
+      },
+      {
+        PropertyString: "+10 Reduces all Vendor Prices",
+        Index: 6
       }
     ],
     DamageArmorEnhanced: false,
@@ -16392,7 +15975,6 @@ const json = [
     Name: "Armageddon",
     Index: "Armageddon",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 67,
     RequiredLevel: 67,
     Code: "Armageddon",
@@ -16516,7 +16098,6 @@ const json = [
     Name: "Broken Promise",
     Index: "Broken Promise",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 67,
     RequiredLevel: 67,
     Code: "Broken Promise",
@@ -16628,126 +16209,6 @@ const json = [
     ],
     Types: [
       {
-        Name: "Staff",
-        Index: "Staff",
-        Class: ""
-      }
-    ],
-    Name: "Doom",
-    Index: "Doom",
-    Enabled: true,
-    Rarity: 0,
-    ItemLevel: 67,
-    RequiredLevel: 67,
-    Code: "Doom",
-    Properties: [
-      {
-        PropertyString: "5% Chance to cast level 18 cyclone armor when struck",
-        Index: 6
-      },
-      {
-        PropertyString: "Level 12 Holy Freeze Aura When Equipped",
-        Index: 1
-      },
-      {
-        PropertyString: "+2 to All Skills",
-        Index: 5
-      },
-      {
-        PropertyString: "+50% Enhanced Damage",
-        Index: 0
-      },
-      {
-        PropertyString: "+40% Faster Cast Rate",
-        Index: 2
-      },
-      {
-        PropertyString: "+15-25% to Cold Skill Damage",
-        Index: 0
-      },
-      {
-        PropertyString: "-40-60% to Enemy Cold Resistance",
-        Index: 4
-      },
-      {
-        PropertyString: "+20% Deadly Strike",
-        Index: 0
-      },
-      {
-        PropertyString: "+25% Chance of Open Wounds",
-        Index: 0
-      },
-      {
-        PropertyString: "Freezes target +3",
-        Index: 0
-      },
-      {
-        PropertyString: "+30% Increased Maximum Mana",
-        Index: 3
-      },
-      {
-        PropertyString: "Requirements -20%",
-        Index: 0
-      }
-    ],
-    DamageArmorEnhanced: false,
-    Equipment: null
-  },
-  {
-    Runes: [
-      {
-        Name: "Hel Rune",
-        ItemLevel: 33,
-        RequiredLevel: 0,
-        Type: {
-          Name: "Rune",
-          Index: "Rune",
-          Class: ""
-        }
-      },
-      {
-        Name: "Ohm Rune",
-        ItemLevel: 57,
-        RequiredLevel: 57,
-        Type: {
-          Name: "Rune",
-          Index: "Rune",
-          Class: ""
-        }
-      },
-      {
-        Name: "Um Rune",
-        ItemLevel: 47,
-        RequiredLevel: 47,
-        Type: {
-          Name: "Rune",
-          Index: "Rune",
-          Class: ""
-        }
-      },
-      {
-        Name: "Lo Rune",
-        ItemLevel: 59,
-        RequiredLevel: 59,
-        Type: {
-          Name: "Rune",
-          Index: "Rune",
-          Class: ""
-        }
-      },
-      {
-        Name: "Cham Rune",
-        ItemLevel: 67,
-        RequiredLevel: 67,
-        Type: {
-          Name: "Rune",
-          Index: "Rune",
-          Class: ""
-        }
-      }
-    ],
-    Types: [
-      {
         Name: "Axe",
         Index: "Axe",
         Class: ""
@@ -16776,7 +16237,6 @@ const json = [
     Name: "Doom",
     Index: "Doom",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 67,
     RequiredLevel: 67,
     Code: "Doom",
@@ -16892,7 +16352,6 @@ const json = [
     Name: "Elation",
     Index: "Elation",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 67,
     RequiredLevel: 67,
     Code: "Elation",
@@ -17002,7 +16461,6 @@ const json = [
     Name: "Hand of Justice",
     Index: "Hand of Justice",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 67,
     RequiredLevel: 67,
     Code: "Hand of Justice",
@@ -17148,7 +16606,6 @@ const json = [
     Name: "Last Wish",
     Index: "Last Wish",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 67,
     RequiredLevel: 67,
     Code: "Last Wish",
@@ -17248,7 +16705,6 @@ const json = [
     Name: "Metamorphosis",
     Index: "Metamorphosis",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 67,
     RequiredLevel: 67,
     Code: "Metamorphosis",
@@ -17356,7 +16812,6 @@ const json = [
     Name: "Mist",
     Index: "Mist",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 67,
     RequiredLevel: 67,
     Code: "Mist",
@@ -17450,61 +16905,92 @@ const json = [
           Index: "Rune",
           Class: ""
         }
+      },
+      {
+        Name: "Tir Rune",
+        ItemLevel: 13,
+        RequiredLevel: 13,
+        Type: {
+          Name: "Rune",
+          Index: "Rune",
+          Class: ""
+        }
+      },
+      {
+        Name: "Ral Rune",
+        ItemLevel: 19,
+        RequiredLevel: 19,
+        Type: {
+          Name: "Rune",
+          Index: "Rune",
+          Class: ""
+        }
       }
     ],
     Types: [
       {
-        Name: "Armor",
-        Index: "Armor",
+        Name: "Spear",
+        Index: "Spear",
         Class: ""
       }
     ],
-    Name: "Qual-Kehk's Oath",
-    Index: "Qual-Kehk's Oath",
+    Name: "Myth Reimagined",
+    Index: "Myth Reimagined",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 67,
     RequiredLevel: 67,
-    Code: "Qual-Kehk's Oath",
+    Code: "Myth Reimagined",
     Properties: [
       {
-        PropertyString: "9% Chance to cast level 8 decrepify on striking",
-        Index: 5
+        PropertyString: "100% Chance to cast level 60 nova when you Die",
+        Index: 6
       },
       {
-        PropertyString: "+2 to Barbarian Skill Levels",
-        Index: 0
+        PropertyString: "+3 to All Skills",
+        Index: 4
       },
       {
-        PropertyString: "+30% Increased Attack Speed",
+        PropertyString: "+80-120% Enhanced Damage",
         Index: 3
       },
       {
-        PropertyString: "+200-250% Enhanced Damage",
+        PropertyString: "Adds 200-400 to Damage",
         Index: 1
       },
       {
-        PropertyString: "+200-250% Enhanced Defense",
-        Index: 2
+        PropertyString: "Adds 5-30 to Fire Damage",
+        Index: 0
+      },
+      {
+        PropertyString: "+20% Chance of Crushing Blow",
+        Index: 0
+      },
+      {
+        PropertyString: "Freezes target +3",
+        Index: 0
       },
       {
         PropertyString: "10 to Strength",
         Index: 0
       },
       {
-        PropertyString: "All Resistances +30%",
-        Index: 4
+        PropertyString: "All Resistances +50%",
+        Index: 5
       },
       {
-        PropertyString: "+8% Physical Damage Reduction",
+        PropertyString: "+2 to Mana after each Kill",
         Index: 0
       },
       {
-        PropertyString: "+1 Cannot Be Frozen",
+        PropertyString: "Repairs 0.15 durability per second",
+        Index: 2
+      },
+      {
+        PropertyString: "+8 To Required Level",
         Index: 0
       },
       {
-        PropertyString: "Requirements -15%",
+        PropertyString: "Requirements -20%",
         Index: 0
       }
     ],
@@ -17584,7 +17070,6 @@ const json = [
     Name: "Peril",
     Index: "Peril",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 67,
     RequiredLevel: 67,
     Code: "Peril",
@@ -17686,7 +17171,6 @@ const json = [
     Name: "Plague",
     Index: "Plague",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 67,
     RequiredLevel: 67,
     Code: "Plague",
@@ -17793,7 +17277,6 @@ const json = [
     Name: "Pride",
     Index: "Pride",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 67,
     RequiredLevel: 67,
     Code: "Pride",
@@ -17881,45 +17364,40 @@ const json = [
     ],
     Types: [
       {
-        Name: "Armor",
-        Index: "Armor",
+        Name: "Circlet",
+        Index: "Circlet",
         Class: ""
       }
     ],
-    Name: "Bark of the Great Oak",
-    Index: "Bark of the Great Oak",
+    Name: "Rain Reimagined",
+    Index: "Rain Reimagined",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 67,
     RequiredLevel: 67,
-    Code: "Bark of the Great Oak",
+    Code: "Rain Reimagined",
     Properties: [
       {
-        PropertyString: "Level 18 Defiance Aura When Equipped",
-        Index: 0
-      },
-      {
-        PropertyString: "+2 to Druid Skill Levels",
+        PropertyString: "+4 to All Skills",
         Index: 1
       },
       {
-        PropertyString: "+20% Increased Attack Speed",
-        Index: 5
-      },
-      {
-        PropertyString: "+30% Faster Hit Recovery",
+        PropertyString: "+100-150 to Life",
         Index: 2
       },
       {
-        PropertyString: "+200-250% Enhanced Defense",
+        PropertyString: "+20 Replenish Life",
+        Index: 5
+      },
+      {
+        PropertyString: "+60-100 to Mana",
+        Index: 3
+      },
+      {
+        PropertyString: "Regenerate Mana 100%",
         Index: 6
       },
       {
         PropertyString: "+25 to All Attributes",
-        Index: 3
-      },
-      {
-        PropertyString: "All Resistances +20%",
         Index: 4
       },
       {
@@ -17928,6 +17406,10 @@ const json = [
       },
       {
         PropertyString: "+1 Cannot Be Frozen",
+        Index: 0
+      },
+      {
+        PropertyString: "+22 To Required Level",
         Index: 0
       }
     ],
@@ -18007,7 +17489,6 @@ const json = [
     Name: "Valor",
     Index: "Valor",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 67,
     RequiredLevel: 67,
     Code: "Valor",
@@ -18101,7 +17582,6 @@ const json = [
     Name: "Wings of Hope",
     Index: "Wings of Hope",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 67,
     RequiredLevel: 67,
     Code: "Wings of Hope",
@@ -18115,7 +17595,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "+1 to Warp",
+        PropertyString: "+8 to Teleport",
         Index: 2
       },
       {
@@ -18185,7 +17665,6 @@ const json = [
     Name: "Woe",
     Index: "Woe",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 67,
     RequiredLevel: 67,
     Code: "Woe",
@@ -18219,7 +17698,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "Poison Length Reduced by 80",
+        PropertyString: "+80 Poison Length Reduced by",
         Index: 6
       },
       {
@@ -18277,7 +17756,6 @@ const json = [
     Name: "Authority",
     Index: "Authority",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 69,
     RequiredLevel: 69,
     Code: "Authority",
@@ -18399,11 +17877,14 @@ const json = [
     Name: "Breath of the Dying",
     Index: "Breath of the Dying",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 69,
     RequiredLevel: 69,
     Code: "Breath of the Dying",
     Properties: [
+      {
+        PropertyString: "50% Chance to cast level 20 poison nova when you Kill an Enemy",
+        Index: 4
+      },
       {
         PropertyString: "+1 Indestructible",
         Index: 0
@@ -18414,7 +17895,7 @@ const json = [
       },
       {
         PropertyString: "+350-400% Enhanced Damage",
-        Index: 4
+        Index: 5
       },
       {
         PropertyString: "-25% Target Defense",
@@ -18446,7 +17927,7 @@ const json = [
       },
       {
         PropertyString: "+30 to All Attributes",
-        Index: 5
+        Index: 6
       },
       {
         PropertyString: "+1 to Light Radius",
@@ -18503,7 +17984,6 @@ const json = [
     Name: "Darkness",
     Index: "Darkness",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 69,
     RequiredLevel: 69,
     Code: "Darkness",
@@ -18601,7 +18081,6 @@ const json = [
     Name: "Humility",
     Index: "Humility",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 69,
     RequiredLevel: 69,
     Code: "Humility",
@@ -18727,7 +18206,6 @@ const json = [
     Name: "Morning Dew",
     Index: "Morning Dew",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 69,
     RequiredLevel: 69,
     Code: "Morning Dew",
@@ -18831,7 +18309,6 @@ const json = [
     Name: "Mystery",
     Index: "Mystery",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 69,
     RequiredLevel: 69,
     Code: "Mystery",
@@ -18953,7 +18430,6 @@ const json = [
     Name: "Obsession",
     Index: "Obsession",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 69,
     RequiredLevel: 69,
     Code: "Obsession",
@@ -19067,7 +18543,6 @@ const json = [
     Name: "Purity",
     Index: "Purity",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 69,
     RequiredLevel: 69,
     Code: "Purity",
@@ -19173,7 +18648,6 @@ const json = [
     Name: "Reason",
     Index: "Reason",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 69,
     RequiredLevel: 69,
     Code: "Reason",
@@ -19195,7 +18669,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "+4 to random Sorceress Skill",
+        PropertyString: "+7 to random Sorceress Skill",
         Index: 6
       },
       {
@@ -19285,7 +18759,6 @@ const json = [
     Name: "Starlight",
     Index: "Starlight",
     Enabled: true,
-    Rarity: 0,
     ItemLevel: 69,
     RequiredLevel: 69,
     Code: "Starlight",
