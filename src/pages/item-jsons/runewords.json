@@ -232,11 +232,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1 to Light Radius (Weapon)",
-                "Index": 0
+                "PropertyString": "+100 to Attack Rating (Weapon)",
+                "Index": 1
             },
             {
-                "PropertyString": "+1 to Light Radius (Weapon)",
+                "PropertyString": "+2 to Light Radius (Weapon)",
                 "Index": 0
             },
             {
@@ -244,52 +244,28 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+50 to Attack Rating (Weapon)",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+50 to Attack Rating (Weapon)",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+1 to Light Radius (Armor)",
+                "PropertyString": "+2 to Light Radius (Armor)",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+1 to Light Radius (Armor)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+15 Defense (Armor)",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+15 Defense (Armor)",
-                "Index": 1
             },
             {
                 "PropertyString": "+2 to Mana after each Kill (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "+1 to Light Radius (Shield)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+1 to Light Radius (Shield)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+15 Defense (Shield)",
+                "PropertyString": "+30 Defense (Armor)",
                 "Index": 1
             },
             {
-                "PropertyString": "+15 Defense (Shield)",
-                "Index": 1
+                "PropertyString": "+2 to Light Radius (Shield)",
+                "Index": 0
             },
             {
                 "PropertyString": "+2 to Mana after each Kill (Shield)",
                 "Index": 0
+            },
+            {
+                "PropertyString": "+30 Defense (Shield)",
+                "Index": 1
             }
         ],
         "DamageArmorEnhanced": false,
@@ -3279,11 +3255,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+9 to Minimum Damage (Weapon)",
+                "PropertyString": "Adds 5-30 to Fire Damage (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 5-30 to Fire Damage (Weapon)",
+                "PropertyString": "Adds 9 to Damage (Weapon)",
                 "Index": 0
             },
             {
@@ -12782,11 +12758,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+9 to Minimum Damage (Weapon)",
+                "PropertyString": "25% Hit Causes Monster To Flee (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "25% Hit Causes Monster To Flee (Weapon)",
+                "PropertyString": "Adds 9 to Damage (Weapon)",
                 "Index": 0
             },
             {
@@ -15861,15 +15837,11 @@
                 "Index": 6
             },
             {
+                "PropertyString": "+14% Mana stolen per hit (Weapon)",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+20% Deadly Strike (Weapon)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+7% Mana stolen per hit (Weapon)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+7% Mana stolen per hit (Weapon)",
                 "Index": 0
             },
             {
@@ -15877,11 +15849,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+5 to Maximum Fire Resist (Shield)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+5 to Maximum Fire Resist (Shield)",
+                "PropertyString": "+10 to Maximum Fire Resist (Shield)",
                 "Index": 0
             },
             {
