@@ -43,6 +43,9 @@
                 <div class="unique-text fs-5 mb-1">
                     ${unique.Name}
                 </div>
+                <div class="rarity mb-1" if.bind="unique.Rarity > 0">
+                    Rarity: ${unique.Rarity}
+                </div>
                 <div class="armor mb-1" if.bind="unique.Equipment.Name">
                     ${unique.Equipment.Name}
                 </div>
