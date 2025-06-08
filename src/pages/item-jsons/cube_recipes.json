@@ -2058,7 +2058,7 @@
         "CubeRecipeDescription": "Etheral Any Shield + 2 Rare Jewel + Pul Rune = Any Shield Repair Durability"
     },
     {
-        "Description": "REPAIR MISSLE - Any Quiver or Any Bolt Case + HP Potion = Restore Quantity to 255",
+        "Description": "REPAIR MISSLE - Any Quiver or Any Bolt Case + HP Potion = Restore Quantity to Full",
         "Item": null,
         "Output": "Missile",
         "Input": "Missile + Healing Potion ",
