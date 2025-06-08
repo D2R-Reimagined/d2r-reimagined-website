@@ -32,6 +32,7 @@
         "Name": "Law",
         "Index": "Law",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 33,
         "RequiredLevel": 0,
         "Code": "Law",
@@ -115,6 +116,7 @@
         "Name": "Knowledge",
         "Index": "Knowledge",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 11,
         "RequiredLevel": 11,
         "Code": "Knowledge",
@@ -208,6 +210,7 @@
         "Name": "Desire",
         "Index": "Desire",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 13,
         "RequiredLevel": 13,
         "Code": "Desire",
@@ -325,6 +328,7 @@
         "Name": "Nadir",
         "Index": "Nadir",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 13,
         "RequiredLevel": 13,
         "Code": "Nadir",
@@ -418,6 +422,7 @@
         "Name": "Steel",
         "Index": "Steel",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 13,
         "RequiredLevel": 13,
         "Code": "Steel",
@@ -491,6 +496,7 @@
         "Name": "Scout",
         "Index": "Scout",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 13,
         "RequiredLevel": 13,
         "Code": "Scout",
@@ -560,6 +566,7 @@
         "Name": "Old Ben's Walking Stick",
         "Index": "Old Ben's Walking Stick",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 13,
         "RequiredLevel": 13,
         "Code": "Old Ben's Walking Stick",
@@ -647,6 +654,7 @@
         "Name": "Chance",
         "Index": "Chance",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 15,
         "RequiredLevel": 15,
         "Code": "Chance",
@@ -734,6 +742,7 @@
         "Name": "Malice",
         "Index": "Malice",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 15,
         "RequiredLevel": 15,
         "Code": "Malice",
@@ -781,101 +790,6 @@
     {
         "Runes": [
             {
-                "Name": "Tir Rune",
-                "ItemLevel": 13,
-                "RequiredLevel": 13,
-                "Type": {
-                    "Name": "Rune",
-                    "Index": "Rune",
-                    "Class": ""
-                }
-            },
-            {
-                "Name": "Eth Rune",
-                "ItemLevel": 15,
-                "RequiredLevel": 15,
-                "Type": {
-                    "Name": "Rune",
-                    "Index": "Rune",
-                    "Class": ""
-                }
-            },
-            {
-                "Name": "El Rune",
-                "ItemLevel": 11,
-                "RequiredLevel": 11,
-                "Type": {
-                    "Name": "Rune",
-                    "Index": "Rune",
-                    "Class": ""
-                }
-            }
-        ],
-        "Types": [
-            {
-                "Name": "Melee Weapon",
-                "Index": "Melee Weapon",
-                "Class": ""
-            }
-        ],
-        "Name": "Peace Reimagined",
-        "Index": "Peace Reimagined",
-        "Enabled": true,
-        "ItemLevel": 15,
-        "RequiredLevel": 15,
-        "Code": "Peace Reimagined",
-        "Properties": [
-            {
-                "PropertyString": "+20% Increased Attack Speed",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+20% Faster Hit Recovery",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+20% Faster Block Rate",
-                "Index": 4
-            },
-            {
-                "PropertyString": "Adds 20-40 to Damage",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+15 Defense",
-                "Index": 1
-            },
-            {
-                "PropertyString": "Regenerate Mana 15%",
-                "Index": 0
-            },
-            {
-                "PropertyString": "All Resistances +15%",
-                "Index": 6
-            },
-            {
-                "PropertyString": "+2 to Mana after each Kill",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+1 to Light Radius",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+6 To Required Level",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+1 You feel incorporeal...",
-                "Index": 5
-            }
-        ],
-        "DamageArmorEnhanced": false,
-        "Equipment": null
-    },
-    {
-        "Runes": [
-            {
                 "Name": "Ith Rune",
                 "ItemLevel": 15,
                 "RequiredLevel": 15,
@@ -911,6 +825,7 @@
         "Name": "Penitence",
         "Index": "Penitence",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 15,
         "RequiredLevel": 15,
         "Code": "Penitence",
@@ -928,7 +843,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+50 Poison Length Reduced by",
+                "PropertyString": "Poison Length Reduced by 50%",
                 "Index": 4
             },
             {
@@ -988,6 +903,7 @@
         "Name": "Jealousy",
         "Index": "Jealousy",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 17,
         "RequiredLevel": 17,
         "Code": "Jealousy",
@@ -1065,6 +981,7 @@
         "Name": "Stealth",
         "Index": "Stealth",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 17,
         "RequiredLevel": 17,
         "Code": "Stealth",
@@ -1144,6 +1061,7 @@
         "Name": "Sting",
         "Index": "Sting",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 17,
         "RequiredLevel": 17,
         "Code": "Sting",
@@ -1217,10 +1135,15 @@
         "Name": "Leaf",
         "Index": "Leaf",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 19,
         "RequiredLevel": 19,
         "Code": "Leaf",
         "Properties": [
+            {
+                "PropertyString": "+3 to Fire Skills",
+                "Index": 0
+            },
             {
                 "PropertyString": "Adds 5-30 to Fire Damage",
                 "Index": 0
@@ -1247,10 +1170,6 @@
             },
             {
                 "PropertyString": "+2 to Mana after each Kill",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+3 to Fire Skills",
                 "Index": 0
             }
         ],
@@ -1310,6 +1229,7 @@
         "Name": "Patience",
         "Index": "Patience",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 19,
         "RequiredLevel": 19,
         "Code": "Patience",
@@ -1425,6 +1345,7 @@
         "Name": "Ancient's Pledge",
         "Index": "Ancient's Pledge",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 21,
         "RequiredLevel": 21,
         "Code": "Ancient's Pledge",
@@ -1514,6 +1435,7 @@
         "Name": "Holy Thunder",
         "Index": "Holy Thunder",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 21,
         "RequiredLevel": 21,
         "Code": "Holy Thunder",
@@ -1615,6 +1537,7 @@
         "Name": "Temptation",
         "Index": "Temptation",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 21,
         "RequiredLevel": 21,
         "Code": "Temptation",
@@ -1692,6 +1615,7 @@
         "Name": "Youth",
         "Index": "Youth",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 21,
         "RequiredLevel": 21,
         "Code": "Youth",
@@ -1765,6 +1689,7 @@
         "Name": "Zephyr",
         "Index": "Zephyr",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 21,
         "RequiredLevel": 21,
         "Code": "Zephyr",
@@ -1848,6 +1773,7 @@
         "Name": "Distortion",
         "Index": "Distortion",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 23,
         "RequiredLevel": 23,
         "Code": "Distortion",
@@ -1931,6 +1857,7 @@
         "Name": "Pattern",
         "Index": "Pattern",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 23,
         "RequiredLevel": 23,
         "Code": "Pattern",
@@ -2032,6 +1959,7 @@
         "Name": "Prayer",
         "Index": "Prayer",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 33,
         "RequiredLevel": 23,
         "Code": "Prayer",
@@ -2142,6 +2070,7 @@
         "Name": "Revenge",
         "Index": "Revenge",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 23,
         "RequiredLevel": 23,
         "Code": "Revenge",
@@ -2227,6 +2156,7 @@
         "Name": "Snowdrop",
         "Index": "Snowdrop",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 23,
         "RequiredLevel": 23,
         "Code": "Snowdrop",
@@ -2314,6 +2244,7 @@
         "Name": "Friendship",
         "Index": "Friendship",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 33,
         "RequiredLevel": 25,
         "Code": "Friendship",
@@ -2401,6 +2332,7 @@
         "Name": "Edge",
         "Index": "Edge",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 25,
         "RequiredLevel": 25,
         "Code": "Edge",
@@ -2482,6 +2414,7 @@
         "Name": "Hunger",
         "Index": "Hunger",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 33,
         "RequiredLevel": 25,
         "Code": "Hunger",
@@ -2574,6 +2507,7 @@
         "Name": "King's Grace",
         "Index": "King's Grace",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 25,
         "RequiredLevel": 25,
         "Code": "King's Grace",
@@ -2661,6 +2595,7 @@
         "Name": "Lightning",
         "Index": "Lightning",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 25,
         "RequiredLevel": 25,
         "Code": "Lightning",
@@ -2734,6 +2669,7 @@
         "Name": "Nature's Kingdom",
         "Index": "Nature's Kingdom",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 25,
         "RequiredLevel": 25,
         "Code": "Nature's Kingdom",
@@ -2807,6 +2743,7 @@
         "Name": "Serendipity",
         "Index": "Serendipity",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 25,
         "RequiredLevel": 25,
         "Code": "Serendipity",
@@ -2897,6 +2834,7 @@
         "Name": "Spirit",
         "Index": "Spirit",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 25,
         "RequiredLevel": 25,
         "Code": "Spirit",
@@ -2998,6 +2936,7 @@
         "Name": "Strength",
         "Index": "Strength",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 25,
         "RequiredLevel": 25,
         "Code": "Strength",
@@ -3073,6 +3012,7 @@
         "Name": "Myth",
         "Index": "Myth",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 33,
         "RequiredLevel": 25,
         "Code": "Myth",
@@ -3172,6 +3112,7 @@
         "Name": "Honor",
         "Index": "Honor",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 27,
         "RequiredLevel": 27,
         "Code": "Honor",
@@ -3296,6 +3237,7 @@
         "Name": "Insight",
         "Index": "Insight",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 27,
         "RequiredLevel": 27,
         "Code": "Insight",
@@ -3397,6 +3339,7 @@
         "Name": "Lore",
         "Index": "Lore",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 27,
         "RequiredLevel": 27,
         "Code": "Lore",
@@ -3472,6 +3415,7 @@
         "Name": "Radiance",
         "Index": "Radiance",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 27,
         "RequiredLevel": 27,
         "Code": "Radiance",
@@ -3559,6 +3503,7 @@
         "Name": "Thirst",
         "Index": "Thirst",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 27,
         "RequiredLevel": 27,
         "Code": "Thirst",
@@ -3636,6 +3581,7 @@
         "Name": "Truth",
         "Index": "Truth",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 27,
         "RequiredLevel": 27,
         "Code": "Truth",
@@ -3705,6 +3651,7 @@
         "Name": "Void",
         "Index": "Void",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 27,
         "RequiredLevel": 27,
         "Code": "Void",
@@ -3782,6 +3729,7 @@
         "Name": "Rhyme",
         "Index": "Rhyme",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 29,
         "RequiredLevel": 29,
         "Code": "Rhyme",
@@ -3861,6 +3809,7 @@
         "Name": "Sorrow",
         "Index": "Sorrow",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 33,
         "RequiredLevel": 29,
         "Code": "Sorrow",
@@ -3944,6 +3893,7 @@
         "Name": "Whisper",
         "Index": "Whisper",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 29,
         "RequiredLevel": 29,
         "Code": "Whisper",
@@ -4019,6 +3969,7 @@
         "Name": "Peace",
         "Index": "Peace",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 29,
         "RequiredLevel": 29,
         "Code": "Peace",
@@ -4058,6 +4009,82 @@
     {
         "Runes": [
             {
+                "Name": "Shael Rune",
+                "ItemLevel": 29,
+                "RequiredLevel": 29,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Tir Rune",
+                "ItemLevel": 13,
+                "RequiredLevel": 13,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            }
+        ],
+        "Types": [
+            {
+                "Name": "Sword",
+                "Index": "Sword",
+                "Class": ""
+            },
+            {
+                "Name": "Knife",
+                "Index": "Knife",
+                "Class": ""
+            },
+            {
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
+                "Class": "ass"
+            }
+        ],
+        "Name": "Duriel's Fang",
+        "Index": "Duriel's Fang",
+        "Enabled": true,
+        "Rarity": 0,
+        "ItemLevel": 29,
+        "RequiredLevel": 29,
+        "Code": "Duriel's Fang",
+        "Properties": [
+            {
+                "PropertyString": "+1-2 to Poison Skills",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20% Increased Attack Speed",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+50 to Attack Rating",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+10-15% to Poison Skill Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "-5-8% to Enemy Poison Resistance",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+2 to Mana after each Kill",
+                "Index": 0
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": null
+    },
+    {
+        "Runes": [
+            {
                 "Name": "Tir Rune",
                 "ItemLevel": 13,
                 "RequiredLevel": 13,
@@ -4088,6 +4115,7 @@
         "Name": "Beauty",
         "Index": "Beauty",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 31,
         "RequiredLevel": 31,
         "Code": "Beauty",
@@ -4175,6 +4203,7 @@
         "Name": "Dread",
         "Index": "Dread",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 31,
         "RequiredLevel": 31,
         "Code": "Dread",
@@ -4260,6 +4289,7 @@
         "Name": "Heaven's Will",
         "Index": "Heaven's Will",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 31,
         "RequiredLevel": 31,
         "Code": "Heaven's Will",
@@ -4343,6 +4373,7 @@
         "Name": "Punishment",
         "Index": "Punishment",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 31,
         "RequiredLevel": 31,
         "Code": "Punishment",
@@ -4424,6 +4455,7 @@
         "Name": "Vengeance",
         "Index": "Vengeance",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 31,
         "RequiredLevel": 31,
         "Code": "Vengeance",
@@ -4517,6 +4549,7 @@
         "Name": "Black",
         "Index": "Black",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 35,
         "RequiredLevel": 35,
         "Code": "Black",
@@ -4604,6 +4637,7 @@
         "Name": "Bulwark",
         "Index": "Bulwark",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 35,
         "RequiredLevel": 35,
         "Code": "Bulwark",
@@ -4687,6 +4721,7 @@
         "Name": "Cure",
         "Index": "Cure",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 35,
         "RequiredLevel": 35,
         "Code": "Cure",
@@ -4716,7 +4751,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+50 Poison Length Reduced by",
+                "PropertyString": "Poison Length Reduced by 50%",
                 "Index": 3
             }
         ],
@@ -4766,6 +4801,7 @@
         "Name": "Ground",
         "Index": "Ground",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 35,
         "RequiredLevel": 35,
         "Code": "Ground",
@@ -4831,6 +4867,7 @@
         "Name": "Hatred",
         "Index": "Hatred",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 35,
         "RequiredLevel": 35,
         "Code": "Hatred",
@@ -4914,6 +4951,7 @@
         "Name": "Hearth",
         "Index": "Hearth",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 35,
         "RequiredLevel": 35,
         "Code": "Hearth",
@@ -4993,6 +5031,7 @@
         "Name": "Holy Tears",
         "Index": "Holy Tears",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 35,
         "RequiredLevel": 35,
         "Code": "Holy Tears",
@@ -5085,6 +5124,7 @@
         "Name": "Madness",
         "Index": "Madness",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 35,
         "RequiredLevel": 35,
         "Code": "Madness",
@@ -5198,6 +5238,7 @@
         "Name": "Red",
         "Index": "Red",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 35,
         "RequiredLevel": 35,
         "Code": "Red",
@@ -5275,6 +5316,7 @@
         "Name": "Shadow of Doubt",
         "Index": "Shadow of Doubt",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 35,
         "RequiredLevel": 35,
         "Code": "Shadow of Doubt",
@@ -5354,6 +5396,7 @@
         "Name": "Temper",
         "Index": "Temper",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 35,
         "RequiredLevel": 35,
         "Code": "Temper",
@@ -5419,6 +5462,7 @@
         "Name": "White",
         "Index": "White",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 35,
         "RequiredLevel": 35,
         "Code": "White",
@@ -5506,12 +5550,13 @@
         "Name": "Deception",
         "Index": "Deception",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 37,
         "RequiredLevel": 37,
         "Code": "Deception",
         "Properties": [
             {
-                "PropertyString": "+1 to Teleport",
+                "PropertyString": "+1 to Warp",
                 "Index": 2
             },
             {
@@ -5607,6 +5652,7 @@
         "Name": "Memory",
         "Index": "Memory",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 37,
         "RequiredLevel": 37,
         "Code": "Memory",
@@ -5692,6 +5738,7 @@
         "Name": "Smoke",
         "Index": "Smoke",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 37,
         "RequiredLevel": 37,
         "Code": "Smoke",
@@ -5761,6 +5808,7 @@
         "Name": "Splendor",
         "Index": "Splendor",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 37,
         "RequiredLevel": 37,
         "Code": "Splendor",
@@ -5858,6 +5906,7 @@
         "Name": "Harmony",
         "Index": "Harmony",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 39,
         "RequiredLevel": 39,
         "Code": "Harmony",
@@ -5953,6 +6002,7 @@
         "Name": "Hustle",
         "Index": "Hustle (Torso)",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 39,
         "RequiredLevel": 39,
         "Code": "Hustle (Torso)",
@@ -6032,6 +6082,7 @@
         "Name": "Hustle",
         "Index": "Hustle (Weapon)",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 39,
         "RequiredLevel": 39,
         "Code": "Hustle (Weapon)",
@@ -6111,6 +6162,7 @@
         "Name": "Melody",
         "Index": "Melody",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 39,
         "RequiredLevel": 39,
         "Code": "Melody",
@@ -6190,24 +6242,29 @@
         ],
         "Types": [
             {
-                "Name": "Axe",
-                "Index": "Axe",
+                "Name": "Weapon",
+                "Index": "Weapon",
                 "Class": ""
             }
         ],
         "Name": "Pestilence",
         "Index": "Pestilence",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 39,
         "RequiredLevel": 39,
         "Code": "Pestilence",
         "Properties": [
             {
-                "PropertyString": "+3 to Poison Explosion",
+                "PropertyString": "+1 to Poison Skills",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 5
             },
             {
-                "PropertyString": "+188% Enhanced Damage",
+                "PropertyString": "+150-175% Enhanced Damage",
                 "Index": 3
             },
             {
@@ -6215,16 +6272,20 @@
                 "Index": 0
             },
             {
-                "PropertyString": "313 Poison Damage Over 4 Seconds",
-                "Index": 0
+                "PropertyString": "+1 Ignore Target's Defense",
+                "Index": 6
             },
             {
-                "PropertyString": "+20% to Poison Skill Damage",
+                "PropertyString": "+10% to Poison Skill Damage",
                 "Index": 4
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal",
+                "PropertyString": "+3 to Poison Dagger (Necromancer Only)",
                 "Index": 1
+            },
+            {
+                "PropertyString": "+3 to Poison Volley (Necromancer Only)",
+                "Index": 2
             },
             {
                 "PropertyString": "10 to Dexterity",
@@ -6233,14 +6294,6 @@
             {
                 "PropertyString": "10 to Vitality",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+50 Poison Length Reduced by",
-                "Index": 6
-            },
-            {
-                "PropertyString": "+20-35% better chance of getting magic item",
-                "Index": 2
             }
         ],
         "DamageArmorEnhanced": false,
@@ -6279,6 +6332,7 @@
         "Name": "Question",
         "Index": "Question",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 39,
         "RequiredLevel": 39,
         "Code": "Question",
@@ -6362,6 +6416,7 @@
         "Name": "Water",
         "Index": "Water",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 39,
         "RequiredLevel": 39,
         "Code": "Water",
@@ -6463,6 +6518,7 @@
         "Name": "Envy",
         "Index": "Envy",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 41,
         "RequiredLevel": 41,
         "Code": "Envy",
@@ -6558,6 +6614,7 @@
         "Name": "Fortune's Favor",
         "Index": "Fortune's Favor",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 41,
         "RequiredLevel": 41,
         "Code": "Fortune's Favor",
@@ -6657,6 +6714,7 @@
         "Name": "Lionheart",
         "Index": "Lionheart",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 41,
         "RequiredLevel": 41,
         "Code": "Lionheart",
@@ -6765,6 +6823,7 @@
         "Name": "Obedience",
         "Index": "Obedience",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 41,
         "RequiredLevel": 41,
         "Code": "Obedience",
@@ -6816,107 +6875,6 @@
             {
                 "PropertyString": "Requirements -20%",
                 "Index": 0
-            }
-        ],
-        "DamageArmorEnhanced": false,
-        "Equipment": null
-    },
-    {
-        "Runes": [
-            {
-                "Name": "Shael Rune",
-                "ItemLevel": 29,
-                "RequiredLevel": 29,
-                "Type": {
-                    "Name": "Rune",
-                    "Index": "Rune",
-                    "Class": ""
-                }
-            },
-            {
-                "Name": "Fal Rune",
-                "ItemLevel": 41,
-                "RequiredLevel": 41,
-                "Type": {
-                    "Name": "Rune",
-                    "Index": "Rune",
-                    "Class": ""
-                }
-            },
-            {
-                "Name": "Ko Rune",
-                "ItemLevel": 39,
-                "RequiredLevel": 39,
-                "Type": {
-                    "Name": "Rune",
-                    "Index": "Rune",
-                    "Class": ""
-                }
-            },
-            {
-                "Name": "Shael Rune",
-                "ItemLevel": 29,
-                "RequiredLevel": 29,
-                "Type": {
-                    "Name": "Rune",
-                    "Index": "Rune",
-                    "Class": ""
-                }
-            }
-        ],
-        "Types": [
-            {
-                "Name": "Amazon Spear",
-                "Index": "Amazon Spear",
-                "Class": "ama"
-            }
-        ],
-        "Name": "Principle Reimagined",
-        "Index": "Principle Reimagined",
-        "Enabled": true,
-        "ItemLevel": 41,
-        "RequiredLevel": 41,
-        "Code": "Principle Reimagined",
-        "Properties": [
-            {
-                "PropertyString": "+2 to Amazon Skill Levels",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+40% Increased Attack Speed",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+200-260% Enhanced Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Slain Monsters Rest in Peace",
-                "Index": 1
-            },
-            {
-                "PropertyString": "10 to Strength",
-                "Index": 0
-            },
-            {
-                "PropertyString": "10 to Dexterity",
-                "Index": 0
-            },
-            {
-                "PropertyString": "All Resistances +35%",
-                "Index": 4
-            },
-            {
-                "PropertyString": "2 to Experience Gained",
-                "Index": 2
-            },
-            {
-                "PropertyString": "Level 20 Thunder Storm (10 Charges)",
-                "Index": 5
-            },
-            {
-                "PropertyString": "Level 10 Cyclone Armor (22 Charges)",
-                "Index": 6
             }
         ],
         "DamageArmorEnhanced": false,
@@ -6995,6 +6953,7 @@
         "Name": "Unbending Will",
         "Index": "Unbending Will",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 41,
         "RequiredLevel": 41,
         "Code": "Unbending Will",
@@ -7126,6 +7085,7 @@
         "Name": "Lawbringer",
         "Index": "Lawbringer",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 43,
         "RequiredLevel": 43,
         "Code": "Lawbringer",
@@ -7227,6 +7187,7 @@
         "Name": "Passion",
         "Index": "Passion",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 43,
         "RequiredLevel": 43,
         "Code": "Passion",
@@ -7326,6 +7287,7 @@
         "Name": "Piety",
         "Index": "Piety",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 43,
         "RequiredLevel": 43,
         "Code": "Piety",
@@ -7407,6 +7369,7 @@
         "Name": "Tempest",
         "Index": "Tempest",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 43,
         "RequiredLevel": 43,
         "Code": "Tempest",
@@ -7494,6 +7457,7 @@
         "Name": "Treachery",
         "Index": "Treachery",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 43,
         "RequiredLevel": 43,
         "Code": "Treachery",
@@ -7598,6 +7562,7 @@
         "Name": "Voice of Reason",
         "Index": "Voice of Reason",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 43,
         "RequiredLevel": 43,
         "Code": "Voice of Reason",
@@ -7697,6 +7662,7 @@
         "Name": "Wealth",
         "Index": "Wealth",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 43,
         "RequiredLevel": 43,
         "Code": "Wealth",
@@ -7764,6 +7730,7 @@
         "Name": "Love",
         "Index": "Love",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 45,
         "RequiredLevel": 45,
         "Code": "Love",
@@ -7873,6 +7840,7 @@
         "Name": "Shadow",
         "Index": "Shadow",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 45,
         "RequiredLevel": 45,
         "Code": "Shadow",
@@ -7966,6 +7934,7 @@
         "Name": "Thunder",
         "Index": "Thunder",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 45,
         "RequiredLevel": 45,
         "Code": "Thunder",
@@ -8061,6 +8030,7 @@
         "Name": "War",
         "Index": "War",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 45,
         "RequiredLevel": 45,
         "Code": "War",
@@ -8148,6 +8118,7 @@
         "Name": "Wisdom",
         "Index": "Wisdom",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 45,
         "RequiredLevel": 45,
         "Code": "Wisdom",
@@ -8235,6 +8206,7 @@
         "Name": "Enlightenment",
         "Index": "Enlightenment",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 45,
         "RequiredLevel": 45,
         "Code": "Enlightenment",
@@ -8324,6 +8296,7 @@
         "Name": "Crescent Moon",
         "Index": "Crescent Moon",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 47,
         "RequiredLevel": 47,
         "Code": "Crescent Moon",
@@ -8415,6 +8388,7 @@
         "Name": "Duress",
         "Index": "Duress",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 47,
         "RequiredLevel": 47,
         "Code": "Duress",
@@ -8498,6 +8472,7 @@
         "Name": "Gloom",
         "Index": "Gloom",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 47,
         "RequiredLevel": 47,
         "Code": "Gloom",
@@ -8581,6 +8556,7 @@
         "Name": "Judgement",
         "Index": "Judgement",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 47,
         "RequiredLevel": 47,
         "Code": "Judgement",
@@ -8668,6 +8644,7 @@
         "Name": "Oblivion",
         "Index": "Oblivion",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 47,
         "RequiredLevel": 47,
         "Code": "Oblivion",
@@ -8769,6 +8746,7 @@
         "Name": "Pillar of Faith",
         "Index": "Pillar of Faith",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 47,
         "RequiredLevel": 47,
         "Code": "Pillar of Faith",
@@ -8870,6 +8848,7 @@
         "Name": "Stone",
         "Index": "Stone",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 47,
         "RequiredLevel": 47,
         "Code": "Stone",
@@ -8972,6 +8951,7 @@
         "Name": "Voice",
         "Index": "Voice",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 47,
         "RequiredLevel": 47,
         "Code": "Voice",
@@ -9079,6 +9059,7 @@
         "Name": "Bone",
         "Index": "Bone",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 47,
         "RequiredLevel": 47,
         "Code": "Bone",
@@ -9161,12 +9142,13 @@
                 "Class": ""
             }
         ],
-        "Name": "Blood Moon",
-        "Index": "Blood Moon",
+        "Name": "Searing Moon",
+        "Index": "Searing Moon",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 47,
         "RequiredLevel": 47,
-        "Code": "Blood Moon",
+        "Code": "Searing Moon",
         "Properties": [
             {
                 "PropertyString": "15% Chance to cast level 13 meteor on striking",
@@ -9265,6 +9247,7 @@
         "Name": "Winter Moon",
         "Index": "Winter Moon",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 47,
         "RequiredLevel": 47,
         "Code": "Winter Moon",
@@ -9366,6 +9349,7 @@
         "Name": "Harvest Moon",
         "Index": "Harvest Moon",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 47,
         "RequiredLevel": 47,
         "Code": "Harvest Moon",
@@ -9457,6 +9441,7 @@
         "Name": "Blood",
         "Index": "Blood",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 49,
         "RequiredLevel": 49,
         "Code": "Blood",
@@ -9546,6 +9531,7 @@
         "Name": "Lust",
         "Index": "Lust",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 49,
         "RequiredLevel": 49,
         "Code": "Lust",
@@ -9663,6 +9649,7 @@
         "Name": "Oath",
         "Index": "Oath",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 49,
         "RequiredLevel": 49,
         "Code": "Oath",
@@ -9748,6 +9735,7 @@
         "Name": "Prudence",
         "Index": "Prudence",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 49,
         "RequiredLevel": 49,
         "Code": "Prudence",
@@ -9831,6 +9819,7 @@
         "Name": "Rain",
         "Index": "Rain",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 49,
         "RequiredLevel": 49,
         "Code": "Rain",
@@ -9910,6 +9899,7 @@
         "Name": "Sanctuary",
         "Index": "Sanctuary",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 49,
         "RequiredLevel": 49,
         "Code": "Sanctuary",
@@ -9987,6 +9977,7 @@
         "Name": "Terror",
         "Index": "Terror",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 49,
         "RequiredLevel": 49,
         "Code": "Terror",
@@ -10008,7 +9999,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+7 to random Necromancer Skill",
+                "PropertyString": "+4 to random Necromancer Skill",
                 "Index": 2
             },
             {
@@ -10026,89 +10017,6 @@
             {
                 "PropertyString": "+1% better chance of getting magic item (Per Character Level)",
                 "Index": 5
-            }
-        ],
-        "DamageArmorEnhanced": false,
-        "Equipment": null
-    },
-    {
-        "Runes": [
-            {
-                "Name": "Tal Rune",
-                "ItemLevel": 17,
-                "RequiredLevel": 17,
-                "Type": {
-                    "Name": "Rune",
-                    "Index": "Rune",
-                    "Class": ""
-                }
-            },
-            {
-                "Name": "Dol Rune",
-                "ItemLevel": 31,
-                "RequiredLevel": 31,
-                "Type": {
-                    "Name": "Rune",
-                    "Index": "Rune",
-                    "Class": ""
-                }
-            },
-            {
-                "Name": "Mal Rune",
-                "ItemLevel": 49,
-                "RequiredLevel": 49,
-                "Type": {
-                    "Name": "Rune",
-                    "Index": "Rune",
-                    "Class": ""
-                }
-            }
-        ],
-        "Types": [
-            {
-                "Name": "Weapon",
-                "Index": "Weapon",
-                "Class": ""
-            }
-        ],
-        "Name": "Venom",
-        "Index": "Venom",
-        "Enabled": true,
-        "ItemLevel": 49,
-        "RequiredLevel": 49,
-        "Code": "Venom",
-        "Properties": [
-            {
-                "PropertyString": "+1 Ignore Target's Defense",
-                "Index": 1
-            },
-            {
-                "PropertyString": "214 Poison Damage Over 7 Seconds",
-                "Index": 0
-            },
-            {
-                "PropertyString": "76 Poison Damage Over 5 Seconds",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+7 Mana stolen per hit",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+1 Prevent Monster Heal",
-                "Index": 0
-            },
-            {
-                "PropertyString": "25% Hit Causes Monster To Flee",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Level 15 Poison Explosion (27 Charges)",
-                "Index": 2
-            },
-            {
-                "PropertyString": "Level 13 Poison Nova (11 Charges)",
-                "Index": 3
             }
         ],
         "DamageArmorEnhanced": false,
@@ -10167,6 +10075,7 @@
         "Name": "Full Moon",
         "Index": "Full Moon",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 49,
         "RequiredLevel": 49,
         "Code": "Full Moon",
@@ -10258,6 +10167,7 @@
         "Name": "Delirium",
         "Index": "Delirium",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 51,
         "RequiredLevel": 51,
         "Code": "Delirium",
@@ -10359,6 +10269,7 @@
         "Name": "Glory",
         "Index": "Glory",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 51,
         "RequiredLevel": 51,
         "Code": "Glory",
@@ -10442,6 +10353,7 @@
         "Name": "Thought",
         "Index": "Thought",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 51,
         "RequiredLevel": 51,
         "Code": "Thought",
@@ -10553,6 +10465,7 @@
         "Name": "Despair",
         "Index": "Despair",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 53,
         "RequiredLevel": 53,
         "Code": "Despair",
@@ -10663,6 +10576,7 @@
         "Name": "Kingslayer",
         "Index": "Kingslayer",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 53,
         "RequiredLevel": 53,
         "Code": "Kingslayer",
@@ -10754,6 +10668,7 @@
         "Name": "Mosaic",
         "Index": "Mosaic",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 53,
         "RequiredLevel": 53,
         "Code": "Mosaic",
@@ -10860,6 +10775,7 @@
         "Name": "Rift",
         "Index": "Rift",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 53,
         "RequiredLevel": 53,
         "Code": "Rift",
@@ -10965,6 +10881,7 @@
         "Name": "Still Water",
         "Index": "Still Water",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 53,
         "RequiredLevel": 53,
         "Code": "Still Water",
@@ -11060,6 +10977,7 @@
         "Name": "Principle",
         "Index": "Principle",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 53,
         "RequiredLevel": 53,
         "Code": "Principle",
@@ -11164,6 +11082,7 @@
         "Name": "Death",
         "Index": "Death",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 55,
         "RequiredLevel": 55,
         "Code": "Death",
@@ -11267,6 +11186,7 @@
         "Name": "Flame",
         "Index": "Flame",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 55,
         "RequiredLevel": 55,
         "Code": "Flame",
@@ -11358,6 +11278,7 @@
         "Name": "Flickering Flame",
         "Index": "Flickering Flame",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 55,
         "RequiredLevel": 55,
         "Code": "Flickering Flame",
@@ -11365,6 +11286,10 @@
             {
                 "PropertyString": "Level 4-8 Resist Fire Aura When Equipped",
                 "Index": 1
+            },
+            {
+                "PropertyString": "+3 to Fire Skills",
+                "Index": 0
             },
             {
                 "PropertyString": "-10-15% to Enemy Fire Resistance",
@@ -11391,12 +11316,8 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+50 Poison Length Reduced by",
+                "PropertyString": "Poison Length Reduced by 50%",
                 "Index": 5
-            },
-            {
-                "PropertyString": "+3 to Fire Skills",
-                "Index": 0
             }
         ],
         "DamageArmorEnhanced": false,
@@ -11470,6 +11391,7 @@
         "Name": "Heart of the Oak",
         "Index": "Heart of the Oak",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 55,
         "RequiredLevel": 55,
         "Code": "Heart of the Oak",
@@ -11579,6 +11501,7 @@
         "Name": "Innocence",
         "Index": "Innocence",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 55,
         "RequiredLevel": 55,
         "Code": "Innocence",
@@ -11660,6 +11583,7 @@
         "Name": "Loyalty",
         "Index": "Loyalty",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 55,
         "RequiredLevel": 55,
         "Code": "Loyalty",
@@ -11777,6 +11701,7 @@
         "Name": "Silence",
         "Index": "Silence",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 55,
         "RequiredLevel": 55,
         "Code": "Silence",
@@ -11850,6 +11775,89 @@
                 }
             },
             {
+                "Name": "Lum Rune",
+                "ItemLevel": 37,
+                "RequiredLevel": 37,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            }
+        ],
+        "Types": [
+            {
+                "Name": "Wand",
+                "Index": "Wand",
+                "Class": ""
+            },
+            {
+                "Name": "Orb",
+                "Index": "Orb",
+                "Class": "sor"
+            }
+        ],
+        "Name": "Arcane",
+        "Index": "Arcane2",
+        "Enabled": true,
+        "Rarity": 0,
+        "ItemLevel": 55,
+        "RequiredLevel": 55,
+        "Code": "Arcane2",
+        "Properties": [
+            {
+                "PropertyString": "+3 to All Skills",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+1 to Warmth",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+50% Faster Cast Rate",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+7 Mana stolen per hit",
+                "Index": 0
+            },
+            {
+                "PropertyString": "10 to Energy",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+100 to Mana",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+20% Increased Maximum Mana",
+                "Index": 2
+            },
+            {
+                "PropertyString": "Regenerate Mana 75%",
+                "Index": 3
+            },
+            {
+                "PropertyString": "5-10 to Experience Gained",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": null
+    },
+    {
+        "Runes": [
+            {
+                "Name": "Vex Rune",
+                "ItemLevel": 55,
+                "RequiredLevel": 55,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
                 "Name": "Amn Rune",
                 "ItemLevel": 25,
                 "RequiredLevel": 25,
@@ -11900,6 +11908,7 @@
         "Name": "Wonder",
         "Index": "Wonder",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 55,
         "RequiredLevel": 55,
         "Code": "Wonder",
@@ -11939,6 +11948,94 @@
             {
                 "PropertyString": "+60-80% better chance of getting magic item",
                 "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": null
+    },
+    {
+        "Runes": [
+            {
+                "Name": "Vex Rune",
+                "ItemLevel": 55,
+                "RequiredLevel": 55,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Um Rune",
+                "ItemLevel": 47,
+                "RequiredLevel": 47,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Dol Rune",
+                "ItemLevel": 31,
+                "RequiredLevel": 31,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            }
+        ],
+        "Types": [
+            {
+                "Name": "Armor",
+                "Index": "Armor",
+                "Class": ""
+            }
+        ],
+        "Name": "Natalya's Shroud",
+        "Index": "Natalya's Shroud",
+        "Enabled": true,
+        "Rarity": 0,
+        "ItemLevel": 55,
+        "RequiredLevel": 55,
+        "Code": "Natalya's Shroud",
+        "Properties": [
+            {
+                "PropertyString": "+2 to Assassin Skill Levels",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20% Increased Attack Speed",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+20% Faster Cast Rate",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+20% to Lightning Skill Damage",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+20% to Fire Skill Damage",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+200-250% Enhanced Defense",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+7 Replenish Life",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+5 to Maximum Fire Resist",
+                "Index": 0
+            },
+            {
+                "PropertyString": "All Resistances +30%",
+                "Index": 6
             }
         ],
         "DamageArmorEnhanced": false,
@@ -12007,6 +12104,7 @@
         "Name": "Call to Arms",
         "Index": "Call to Arms",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 57,
         "RequiredLevel": 57,
         "Code": "Call to Arms",
@@ -12102,6 +12200,7 @@
         "Name": "Chaos",
         "Index": "Chaos",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 57,
         "RequiredLevel": 57,
         "Code": "Chaos",
@@ -12199,6 +12298,7 @@
         "Name": "Exile",
         "Index": "Exile",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 57,
         "RequiredLevel": 57,
         "Code": "Exile",
@@ -12314,6 +12414,7 @@
         "Name": "Praise",
         "Index": "Praise",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 57,
         "RequiredLevel": 57,
         "Code": "Praise",
@@ -12405,6 +12506,7 @@
         "Name": "Trust",
         "Index": "Trust",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 57,
         "RequiredLevel": 57,
         "Code": "Trust",
@@ -12526,6 +12628,7 @@
         "Name": "Victory",
         "Index": "Victory",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 57,
         "RequiredLevel": 57,
         "Code": "Victory",
@@ -12624,8 +12727,8 @@
                 "Class": ""
             },
             {
-                "Name": "Any Armor",
-                "Index": "Any Armor",
+                "Name": "Armor",
+                "Index": "Armor",
                 "Class": ""
             },
             {
@@ -12637,6 +12740,7 @@
         "Name": "Fortitude",
         "Index": "Fortitude",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 59,
         "RequiredLevel": 59,
         "Code": "Fortitude",
@@ -12732,6 +12836,88 @@
     {
         "Runes": [
             {
+                "Name": "El Rune",
+                "ItemLevel": 11,
+                "RequiredLevel": 11,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Sol Rune",
+                "ItemLevel": 27,
+                "RequiredLevel": 27,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Dol Rune",
+                "ItemLevel": 31,
+                "RequiredLevel": 31,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Lo Rune",
+                "ItemLevel": 59,
+                "RequiredLevel": 59,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            }
+        ],
+        "Types": [
+            {
+                "Name": "Helm",
+                "Index": "Helm",
+                "Class": ""
+            }
+        ],
+        "Name": "Fortitude (Helm Removed)",
+        "Index": "Fortitude (Dummy)",
+        "Enabled": true,
+        "Rarity": 0,
+        "ItemLevel": 59,
+        "RequiredLevel": 59,
+        "Code": "Fortitude (Dummy)",
+        "Properties": [
+            {
+                "PropertyString": "+15 Defense",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+7 Replenish Life",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+5 to Maximum Lightning Resist",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Damage Reduced by 7",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+1 to Light Radius",
+                "Index": 0
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": null
+    },
+    {
+        "Runes": [
+            {
                 "Name": "Eth Rune",
                 "ItemLevel": 15,
                 "RequiredLevel": 15,
@@ -12797,6 +12983,7 @@
         "Name": "Grief",
         "Index": "Grief",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 59,
         "RequiredLevel": 59,
         "Code": "Grief",
@@ -12896,6 +13083,7 @@
         "Name": "Night",
         "Index": "Night",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 59,
         "RequiredLevel": 59,
         "Code": "Night",
@@ -12997,6 +13185,7 @@
         "Name": "Bramble",
         "Index": "Bramble",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 61,
         "RequiredLevel": 61,
         "Code": "Bramble",
@@ -13097,6 +13286,7 @@
         "Name": "Dragon",
         "Index": "Dragon",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 61,
         "RequiredLevel": 61,
         "Code": "Dragon",
@@ -13202,45 +13392,46 @@
         ],
         "Types": [
             {
-                "Name": "Druid Item",
-                "Index": "Druid Item",
-                "Class": "dru"
+                "Name": "Armor",
+                "Index": "Armor",
+                "Class": ""
             }
         ],
-        "Name": "Enlightenment Reimagined",
-        "Index": "Enlightenment Reimagined",
+        "Name": "Mantle of Lazarus",
+        "Index": "Mantle of Lazarus",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 61,
         "RequiredLevel": 61,
-        "Code": "Enlightenment Reimagined",
+        "Code": "Mantle of Lazarus",
         "Properties": [
             {
-                "PropertyString": "30% Chance to cast level 20 cyclone armor when struck",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+2 to Elemental Skills (Druid only)",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+2 to Druid Skill Levels",
+                "PropertyString": "+2 to Sorceress Skill Levels",
                 "Index": 0
             },
             {
-                "PropertyString": "+20% Faster Block Rate",
-                "Index": 6
+                "PropertyString": "+30% Faster Cast Rate",
+                "Index": 1
             },
             {
-                "PropertyString": "+3 to random Druid Skill",
-                "Index": 1
+                "PropertyString": "+20% to Fire Skill Damage",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+20% to Cold Skill Damage",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+20% to Lightning Skill Damage",
+                "Index": 6
             },
             {
                 "PropertyString": "10 to Energy",
                 "Index": 0
             },
             {
-                "PropertyString": "+5% Increased Maximum Mana",
-                "Index": 0
+                "PropertyString": "+10% Increased Maximum Mana",
+                "Index": 3
             },
             {
                 "PropertyString": "Regenerate Mana 75%",
@@ -13249,10 +13440,6 @@
             {
                 "PropertyString": "All Resistances +15%",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+10% Physical Damage Reduction",
-                "Index": 5
             },
             {
                 "PropertyString": "+2 to Mana after each Kill",
@@ -13327,20 +13514,25 @@
                 "Class": ""
             },
             {
-                "Name": "Sword",
-                "Index": "Sword",
+                "Name": "Axe",
+                "Index": "Axe",
                 "Class": ""
             }
         ],
-        "Name": "Plague Reimagined",
-        "Index": "Plague Reimagined",
+        "Name": "Eclipse",
+        "Index": "Eclipse",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 61,
         "RequiredLevel": 61,
-        "Code": "Plague Reimagined",
+        "Code": "Eclipse",
         "Properties": [
             {
-                "PropertyString": "15% Chance to cast level 27 poison nova on striking",
+                "PropertyString": "8% Chance to cast level 5 amplify damage on striking",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+1 to Critical Strike",
                 "Index": 1
             },
             {
@@ -13348,16 +13540,20 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+200-250% Enhanced Damage",
+                "PropertyString": "+300-350% Enhanced Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "500 Poison Damage Over 5 Seconds",
-                "Index": 3
+                "PropertyString": "+20% Faster Hit Recovery",
+                "Index": 5
             },
             {
-                "PropertyString": "+50% Deadly Strike",
+                "PropertyString": "+10% Chance of Crushing Blow",
                 "Index": 4
+            },
+            {
+                "PropertyString": "+10% Deadly Strike",
+                "Index": 3
             },
             {
                 "PropertyString": "+25% Chance of Open Wounds",
@@ -13372,16 +13568,8 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+10 to Maximum Poison Resist",
-                "Index": 5
-            },
-            {
-                "PropertyString": "Poison Resist +80%",
+                "PropertyString": "+5% Physical Damage Reduction",
                 "Index": 6
-            },
-            {
-                "PropertyString": "+10 To Required Level",
-                "Index": 0
             }
         ],
         "DamageArmorEnhanced": false,
@@ -13440,6 +13628,7 @@
         "Name": "Siren's Song",
         "Index": "Siren's Song",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 61,
         "RequiredLevel": 61,
         "Code": "Siren's Song",
@@ -13547,6 +13736,7 @@
         "Name": "Tradition",
         "Index": "Tradition",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 61,
         "RequiredLevel": 61,
         "Code": "Tradition",
@@ -13632,6 +13822,7 @@
         "Name": "Wind",
         "Index": "Wind",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 61,
         "RequiredLevel": 61,
         "Code": "Wind",
@@ -13763,6 +13954,7 @@
         "Name": "Beast",
         "Index": "Beast",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 63,
         "RequiredLevel": 63,
         "Code": "Beast",
@@ -13844,49 +14036,46 @@
         ],
         "Types": [
             {
-                "Name": "Necromancer Item",
-                "Index": "Necromancer Item",
-                "Class": "nec"
+                "Name": "Armor",
+                "Index": "Armor",
+                "Class": ""
             }
         ],
-        "Name": "Bone Reimagined",
-        "Index": "Bone Reimagined",
+        "Name": "Rathma's Husk",
+        "Index": "Rathma's Husk",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 63,
         "RequiredLevel": 63,
-        "Code": "Bone Reimagined",
+        "Code": "Rathma's Husk",
         "Properties": [
             {
-                "PropertyString": "+4 to Poison and Bone Skills (Necromancer only)",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+2 to Necromancer Skill Levels",
+                "PropertyString": "+2 to Poison Skills",
                 "Index": 0
             },
             {
-                "PropertyString": "+3 to Bone Armor (Necromancer Only)",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+3 to Bone Wall (Necromancer Only)",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+3 to Bone Spear (Necromancer Only)",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+3 to Bone Prison (Necromancer Only)",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 5
             },
             {
-                "PropertyString": "+3 to Bone Spirit (Necromancer Only)",
+                "PropertyString": "+20% to Poison Skill Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+2 to Poison Dagger (Necromancer Only)",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+2 to Poison Volley (Necromancer Only)",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+200-250% Enhanced Defense",
                 "Index": 6
             },
             {
-                "PropertyString": "All Resistances +15%",
-                "Index": 0
+                "PropertyString": "All Resistances +30%",
+                "Index": 2
             },
             {
                 "PropertyString": "+8% Physical Damage Reduction",
@@ -13949,6 +14138,7 @@
         "Name": "Chains of Honor",
         "Index": "Chains of Honor",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 63,
         "RequiredLevel": 63,
         "Code": "Chains of Honor",
@@ -14060,6 +14250,7 @@
         "Name": "Eternity",
         "Index": "Eternity",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 63,
         "RequiredLevel": 63,
         "Code": "Eternity",
@@ -14174,6 +14365,7 @@
         "Name": "Infinity",
         "Index": "Infinity",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 63,
         "RequiredLevel": 63,
         "Code": "Infinity",
@@ -14280,6 +14472,7 @@
         "Name": "Knight's Vigil",
         "Index": "Knight's Vigil",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 63,
         "RequiredLevel": 63,
         "Code": "Knight's Vigil",
@@ -14351,6 +14544,191 @@
     {
         "Runes": [
             {
+                "Name": "Ber Rune",
+                "ItemLevel": 63,
+                "RequiredLevel": 63,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Mal Rune",
+                "ItemLevel": 49,
+                "RequiredLevel": 49,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Lo Rune",
+                "ItemLevel": 59,
+                "RequiredLevel": 59,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            }
+        ],
+        "Types": [
+            {
+                "Name": "Armor",
+                "Index": "Armor",
+                "Class": ""
+            }
+        ],
+        "Name": "Mail of the Askari",
+        "Index": "Mail of the Askari",
+        "Enabled": true,
+        "Rarity": 0,
+        "ItemLevel": 63,
+        "RequiredLevel": 63,
+        "Code": "Mail of the Askari",
+        "Properties": [
+            {
+                "PropertyString": "Level 12 Vigor Aura When Equipped",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+2 to Amazon Skill Levels",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+150-200% Enhanced Damage",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+30% Faster Hit Recovery",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+200-250% Enhanced Defense",
+                "Index": 6
+            },
+            {
+                "PropertyString": "40 to Dexterity",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+5 to Maximum Lightning Resist",
+                "Index": 0
+            },
+            {
+                "PropertyString": "All Resistances +40%",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+8% Physical Damage Reduction",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Magic Damage Reduced by 7",
+                "Index": 0
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": null
+    },
+    {
+        "Runes": [
+            {
+                "Name": "Ber Rune",
+                "ItemLevel": 63,
+                "RequiredLevel": 63,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Dol Rune",
+                "ItemLevel": 31,
+                "RequiredLevel": 31,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Mal Rune",
+                "ItemLevel": 49,
+                "RequiredLevel": 49,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            }
+        ],
+        "Types": [
+            {
+                "Name": "Helm",
+                "Index": "Helm",
+                "Class": ""
+            },
+            {
+                "Name": "Circlet",
+                "Index": "Circlet",
+                "Class": ""
+            }
+        ],
+        "Name": "Venom",
+        "Index": "Venom",
+        "Enabled": true,
+        "Rarity": 0,
+        "ItemLevel": 63,
+        "RequiredLevel": 63,
+        "Code": "Venom",
+        "Properties": [
+            {
+                "PropertyString": "Level 8 Cleansing Aura When Equipped",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+2 to Poison Skills",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+1 to Venom",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+15% to Poison Skill Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "-15% to Enemy Poison Resistance",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+7 Replenish Life",
+                "Index": 0
+            },
+            {
+                "PropertyString": "All Resistances +15%",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+13% Physical Damage Reduction",
+                "Index": 5
+            },
+            {
+                "PropertyString": "Magic Damage Reduced by 7",
+                "Index": 0
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": null
+    },
+    {
+        "Runes": [
+            {
                 "Name": "Pul Rune",
                 "ItemLevel": 45,
                 "RequiredLevel": 45,
@@ -14401,6 +14779,7 @@
         "Name": "Wrath",
         "Index": "Wrath",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 63,
         "RequiredLevel": 63,
         "Code": "Wrath",
@@ -14506,6 +14885,7 @@
         "Name": "Brand",
         "Index": "Brand",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 65,
         "RequiredLevel": 65,
         "Code": "Brand",
@@ -14597,6 +14977,7 @@
         "Name": "Daylight",
         "Index": "Daylight",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 65,
         "RequiredLevel": 65,
         "Code": "Daylight",
@@ -14713,6 +15094,7 @@
         "Name": "Destruction",
         "Index": "Destruction",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 65,
         "RequiredLevel": 65,
         "Code": "Destruction",
@@ -14813,6 +15195,7 @@
         "Name": "Dream",
         "Index": "Dream",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 65,
         "RequiredLevel": 65,
         "Code": "Dream",
@@ -14916,6 +15299,7 @@
         "Name": "Enigma",
         "Index": "Enigma",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 65,
         "RequiredLevel": 65,
         "Code": "Enigma",
@@ -15017,6 +15401,7 @@
         "Name": "Faith",
         "Index": "Faith",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 65,
         "RequiredLevel": 65,
         "Code": "Faith",
@@ -15137,6 +15522,7 @@
         "Name": "Famine",
         "Index": "Famine",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 65,
         "RequiredLevel": 65,
         "Code": "Famine",
@@ -15228,6 +15614,7 @@
         "Name": "Fury",
         "Index": "Fury",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 65,
         "RequiredLevel": 65,
         "Code": "Fury",
@@ -15329,6 +15716,7 @@
         "Name": "Ice",
         "Index": "Ice",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 65,
         "RequiredLevel": 65,
         "Code": "Ice",
@@ -15439,6 +15827,7 @@
         "Name": "Phoenix",
         "Index": "Phoenix",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 65,
         "RequiredLevel": 65,
         "Code": "Phoenix",
@@ -15520,6 +15909,108 @@
                 }
             },
             {
+                "Name": "Fal Rune",
+                "ItemLevel": 41,
+                "RequiredLevel": 41,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Ko Rune",
+                "ItemLevel": 39,
+                "RequiredLevel": 39,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Shael Rune",
+                "ItemLevel": 29,
+                "RequiredLevel": 29,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            }
+        ],
+        "Types": [
+            {
+                "Name": "Armor",
+                "Index": "Armor",
+                "Class": ""
+            }
+        ],
+        "Name": "Akarat's Devotion",
+        "Index": "Akarat's Devotion",
+        "Enabled": true,
+        "Rarity": 0,
+        "ItemLevel": 65,
+        "RequiredLevel": 65,
+        "Code": "Akarat's Devotion",
+        "Properties": [
+            {
+                "PropertyString": "Level 8 Redemption Aura When Equipped",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+2 to Paladin Skill Levels",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+20% Faster Cast Rate",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+20% Faster Hit Recovery",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+3 to Blessed Hammer (Paladin Only)",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+200-250% Enhanced Defense",
+                "Index": 3
+            },
+            {
+                "PropertyString": "50 to Strength",
+                "Index": 6
+            },
+            {
+                "PropertyString": "10 to Dexterity",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+5% Increased Maximum Life",
+                "Index": 0
+            },
+            {
+                "PropertyString": "All Resistances +35%",
+                "Index": 4
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": null
+    },
+    {
+        "Runes": [
+            {
+                "Name": "Jah Rune",
+                "ItemLevel": 65,
+                "RequiredLevel": 65,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
                 "Name": "Ist Rune",
                 "ItemLevel": 51,
                 "RequiredLevel": 51,
@@ -15550,6 +16041,7 @@
         "Name": "Prowess in Battle",
         "Index": "Prowess in Battle",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 65,
         "RequiredLevel": 65,
         "Code": "Prowess in Battle",
@@ -15661,6 +16153,7 @@
         "Name": "Storm",
         "Index": "Storm",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 65,
         "RequiredLevel": 65,
         "Code": "Storm",
@@ -15751,6 +16244,7 @@
         "Name": "Time",
         "Index": "Time",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 65,
         "RequiredLevel": 65,
         "Code": "Time",
@@ -15798,83 +16292,6 @@
             {
                 "PropertyString": "Attacker Takes Damage of +14 (Shield)",
                 "Index": 0
-            }
-        ],
-        "DamageArmorEnhanced": false,
-        "Equipment": null
-    },
-    {
-        "Runes": [
-            {
-                "Name": "Jah Rune",
-                "ItemLevel": 65,
-                "RequiredLevel": 65,
-                "Type": {
-                    "Name": "Rune",
-                    "Index": "Rune",
-                    "Class": ""
-                }
-            },
-            {
-                "Name": "Lum Rune",
-                "ItemLevel": 37,
-                "RequiredLevel": 37,
-                "Type": {
-                    "Name": "Rune",
-                    "Index": "Rune",
-                    "Class": ""
-                }
-            }
-        ],
-        "Types": [
-            {
-                "Name": "Wand",
-                "Index": "Wand",
-                "Class": ""
-            }
-        ],
-        "Name": "Wisdom Reimagined",
-        "Index": "Wisdom Reimagined",
-        "Enabled": true,
-        "ItemLevel": 65,
-        "RequiredLevel": 65,
-        "Code": "Wisdom Reimagined",
-        "Properties": [
-            {
-                "PropertyString": "+2 to All Skills",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+1 Ignore Target's Defense",
-                "Index": 0
-            },
-            {
-                "PropertyString": "10 to Energy",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+5 Replenish Life",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+2 to Mana (Per Character Level)",
-                "Index": 2
-            },
-            {
-                "PropertyString": "Regenerate Mana 75%",
-                "Index": 3
-            },
-            {
-                "PropertyString": "Magic Resist +20%",
-                "Index": 4
-            },
-            {
-                "PropertyString": "3-5 to Experience Gained",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+10 Reduces all Vendor Prices",
-                "Index": 6
             }
         ],
         "DamageArmorEnhanced": false,
@@ -15953,6 +16370,7 @@
         "Name": "Armageddon",
         "Index": "Armageddon",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 67,
         "RequiredLevel": 67,
         "Code": "Armageddon",
@@ -16076,6 +16494,7 @@
         "Name": "Broken Promise",
         "Index": "Broken Promise",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 67,
         "RequiredLevel": 67,
         "Code": "Broken Promise",
@@ -16187,6 +16606,126 @@
         ],
         "Types": [
             {
+                "Name": "Staff",
+                "Index": "Staff",
+                "Class": ""
+            }
+        ],
+        "Name": "Doom",
+        "Index": "Doom",
+        "Enabled": true,
+        "Rarity": 0,
+        "ItemLevel": 67,
+        "RequiredLevel": 67,
+        "Code": "Doom",
+        "Properties": [
+            {
+                "PropertyString": "5% Chance to cast level 18 cyclone armor when struck",
+                "Index": 6
+            },
+            {
+                "PropertyString": "Level 12 Holy Freeze Aura When Equipped",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+2 to All Skills",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+50% Enhanced Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+40% Faster Cast Rate",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+15-25% to Cold Skill Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-40-60% to Enemy Cold Resistance",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+20% Deadly Strike",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+25% Chance of Open Wounds",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Freezes target +3",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+30% Increased Maximum Mana",
+                "Index": 3
+            },
+            {
+                "PropertyString": "Requirements -20%",
+                "Index": 0
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": null
+    },
+    {
+        "Runes": [
+            {
+                "Name": "Hel Rune",
+                "ItemLevel": 33,
+                "RequiredLevel": 0,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Ohm Rune",
+                "ItemLevel": 57,
+                "RequiredLevel": 57,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Um Rune",
+                "ItemLevel": 47,
+                "RequiredLevel": 47,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Lo Rune",
+                "ItemLevel": 59,
+                "RequiredLevel": 59,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Cham Rune",
+                "ItemLevel": 67,
+                "RequiredLevel": 67,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            }
+        ],
+        "Types": [
+            {
                 "Name": "Axe",
                 "Index": "Axe",
                 "Class": ""
@@ -16215,6 +16754,7 @@
         "Name": "Doom",
         "Index": "Doom",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 67,
         "RequiredLevel": 67,
         "Code": "Doom",
@@ -16330,6 +16870,7 @@
         "Name": "Elation",
         "Index": "Elation",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 67,
         "RequiredLevel": 67,
         "Code": "Elation",
@@ -16439,6 +16980,7 @@
         "Name": "Hand of Justice",
         "Index": "Hand of Justice",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 67,
         "RequiredLevel": 67,
         "Code": "Hand of Justice",
@@ -16584,6 +17126,7 @@
         "Name": "Last Wish",
         "Index": "Last Wish",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 67,
         "RequiredLevel": 67,
         "Code": "Last Wish",
@@ -16683,6 +17226,7 @@
         "Name": "Metamorphosis",
         "Index": "Metamorphosis",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 67,
         "RequiredLevel": 67,
         "Code": "Metamorphosis",
@@ -16790,6 +17334,7 @@
         "Name": "Mist",
         "Index": "Mist",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 67,
         "RequiredLevel": 67,
         "Code": "Mist",
@@ -16883,92 +17428,61 @@
                     "Index": "Rune",
                     "Class": ""
                 }
-            },
-            {
-                "Name": "Tir Rune",
-                "ItemLevel": 13,
-                "RequiredLevel": 13,
-                "Type": {
-                    "Name": "Rune",
-                    "Index": "Rune",
-                    "Class": ""
-                }
-            },
-            {
-                "Name": "Ral Rune",
-                "ItemLevel": 19,
-                "RequiredLevel": 19,
-                "Type": {
-                    "Name": "Rune",
-                    "Index": "Rune",
-                    "Class": ""
-                }
             }
         ],
         "Types": [
             {
-                "Name": "Spear",
-                "Index": "Spear",
+                "Name": "Armor",
+                "Index": "Armor",
                 "Class": ""
             }
         ],
-        "Name": "Myth Reimagined",
-        "Index": "Myth Reimagined",
+        "Name": "Qual-Kehk's Oath",
+        "Index": "Qual-Kehk's Oath",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 67,
         "RequiredLevel": 67,
-        "Code": "Myth Reimagined",
+        "Code": "Qual-Kehk's Oath",
         "Properties": [
             {
-                "PropertyString": "100% Chance to cast level 60 nova when you Die",
-                "Index": 6
+                "PropertyString": "9% Chance to cast level 8 decrepify on striking",
+                "Index": 5
             },
             {
-                "PropertyString": "+3 to All Skills",
-                "Index": 4
+                "PropertyString": "+2 to Barbarian Skill Levels",
+                "Index": 0
             },
             {
-                "PropertyString": "+80-120% Enhanced Damage",
+                "PropertyString": "+30% Increased Attack Speed",
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 200-400 to Damage",
+                "PropertyString": "+200-250% Enhanced Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 5-30 to Fire Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+20% Chance of Crushing Blow",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Freezes target +3",
-                "Index": 0
+                "PropertyString": "+200-250% Enhanced Defense",
+                "Index": 2
             },
             {
                 "PropertyString": "10 to Strength",
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +50%",
-                "Index": 5
+                "PropertyString": "All Resistances +30%",
+                "Index": 4
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+8% Physical Damage Reduction",
                 "Index": 0
             },
             {
-                "PropertyString": "Repairs 0.15 durability per second",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+8 To Required Level",
+                "PropertyString": "+1 Cannot Be Frozen",
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements -20%",
+                "PropertyString": "Requirements -15%",
                 "Index": 0
             }
         ],
@@ -17048,6 +17562,7 @@
         "Name": "Peril",
         "Index": "Peril",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 67,
         "RequiredLevel": 67,
         "Code": "Peril",
@@ -17149,6 +17664,7 @@
         "Name": "Plague",
         "Index": "Plague",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 67,
         "RequiredLevel": 67,
         "Code": "Plague",
@@ -17255,6 +17771,7 @@
         "Name": "Pride",
         "Index": "Pride",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 67,
         "RequiredLevel": 67,
         "Code": "Pride",
@@ -17342,40 +17859,45 @@
         ],
         "Types": [
             {
-                "Name": "Circlet",
-                "Index": "Circlet",
+                "Name": "Armor",
+                "Index": "Armor",
                 "Class": ""
             }
         ],
-        "Name": "Rain Reimagined",
-        "Index": "Rain Reimagined",
+        "Name": "Bark of the Great Oak",
+        "Index": "Bark of the Great Oak",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 67,
         "RequiredLevel": 67,
-        "Code": "Rain Reimagined",
+        "Code": "Bark of the Great Oak",
         "Properties": [
             {
-                "PropertyString": "+4 to All Skills",
+                "PropertyString": "Level 18 Defiance Aura When Equipped",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+2 to Druid Skill Levels",
                 "Index": 1
             },
             {
-                "PropertyString": "+100-150 to Life",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+20 Replenish Life",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 5
             },
             {
-                "PropertyString": "+60-100 to Mana",
-                "Index": 3
+                "PropertyString": "+30% Faster Hit Recovery",
+                "Index": 2
             },
             {
-                "PropertyString": "Regenerate Mana 100%",
+                "PropertyString": "+200-250% Enhanced Defense",
                 "Index": 6
             },
             {
                 "PropertyString": "+25 to All Attributes",
+                "Index": 3
+            },
+            {
+                "PropertyString": "All Resistances +20%",
                 "Index": 4
             },
             {
@@ -17384,10 +17906,6 @@
             },
             {
                 "PropertyString": "+1 Cannot Be Frozen",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+22 To Required Level",
                 "Index": 0
             }
         ],
@@ -17467,6 +17985,7 @@
         "Name": "Valor",
         "Index": "Valor",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 67,
         "RequiredLevel": 67,
         "Code": "Valor",
@@ -17560,6 +18079,7 @@
         "Name": "Wings of Hope",
         "Index": "Wings of Hope",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 67,
         "RequiredLevel": 67,
         "Code": "Wings of Hope",
@@ -17573,7 +18093,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+8 to Teleport",
+                "PropertyString": "+1 to Warp",
                 "Index": 2
             },
             {
@@ -17643,6 +18163,7 @@
         "Name": "Woe",
         "Index": "Woe",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 67,
         "RequiredLevel": 67,
         "Code": "Woe",
@@ -17676,7 +18197,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+80 Poison Length Reduced by",
+                "PropertyString": "Poison Length Reduced by 80%",
                 "Index": 6
             },
             {
@@ -17734,6 +18255,7 @@
         "Name": "Authority",
         "Index": "Authority",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 69,
         "RequiredLevel": 69,
         "Code": "Authority",
@@ -17855,14 +18377,11 @@
         "Name": "Breath of the Dying",
         "Index": "Breath of the Dying",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 69,
         "RequiredLevel": 69,
         "Code": "Breath of the Dying",
         "Properties": [
-            {
-                "PropertyString": "50% Chance to cast level 20 poison nova when you Kill an Enemy",
-                "Index": 4
-            },
             {
                 "PropertyString": "+1 Indestructible",
                 "Index": 0
@@ -17873,7 +18392,7 @@
             },
             {
                 "PropertyString": "+350-400% Enhanced Damage",
-                "Index": 5
+                "Index": 4
             },
             {
                 "PropertyString": "-25% Target Defense",
@@ -17905,7 +18424,7 @@
             },
             {
                 "PropertyString": "+30 to All Attributes",
-                "Index": 6
+                "Index": 5
             },
             {
                 "PropertyString": "+1 to Light Radius",
@@ -17962,6 +18481,7 @@
         "Name": "Darkness",
         "Index": "Darkness",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 69,
         "RequiredLevel": 69,
         "Code": "Darkness",
@@ -18059,6 +18579,7 @@
         "Name": "Humility",
         "Index": "Humility",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 69,
         "RequiredLevel": 69,
         "Code": "Humility",
@@ -18184,6 +18705,7 @@
         "Name": "Morning Dew",
         "Index": "Morning Dew",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 69,
         "RequiredLevel": 69,
         "Code": "Morning Dew",
@@ -18287,6 +18809,7 @@
         "Name": "Mystery",
         "Index": "Mystery",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 69,
         "RequiredLevel": 69,
         "Code": "Mystery",
@@ -18408,6 +18931,7 @@
         "Name": "Obsession",
         "Index": "Obsession",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 69,
         "RequiredLevel": 69,
         "Code": "Obsession",
@@ -18521,6 +19045,7 @@
         "Name": "Purity",
         "Index": "Purity",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 69,
         "RequiredLevel": 69,
         "Code": "Purity",
@@ -18626,6 +19151,7 @@
         "Name": "Reason",
         "Index": "Reason",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 69,
         "RequiredLevel": 69,
         "Code": "Reason",
@@ -18647,7 +19173,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+7 to random Sorceress Skill",
+                "PropertyString": "+4 to random Sorceress Skill",
                 "Index": 6
             },
             {
@@ -18737,6 +19263,7 @@
         "Name": "Starlight",
         "Index": "Starlight",
         "Enabled": true,
+        "Rarity": 0,
         "ItemLevel": 69,
         "RequiredLevel": 69,
         "Code": "Starlight",
