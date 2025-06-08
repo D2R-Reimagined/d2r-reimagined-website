@@ -7679,15 +7679,11 @@
             },
             {
                 "PropertyString": "+10 Defense",
-                "Index": 6
-            },
-            {
-                "PropertyString": "Attacker Takes Damage of +5",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Attacker Takes Damage of +5",
                 "Index": 5
+            },
+            {
+                "PropertyString": "Attacker Takes Damage of +10",
+                "Index": 0
             }
         ],
         "DamageArmorEnhanced": true,
