@@ -50,7 +50,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Slows target by 30",
+                "PropertyString": "Slows target by 30%",
                 "Index": 5
             },
             {
@@ -142,7 +142,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "10 to Experience Gained",
+                "PropertyString": "+10% to Experience Gained",
                 "Index": 2
             },
             {
@@ -346,7 +346,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "5 to Strength",
+                "PropertyString": "+5 to Strength",
                 "Index": 5
             },
             {
@@ -522,7 +522,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "5 to Dexterity",
+                "PropertyString": "+5 to Dexterity",
                 "Index": 2
             },
             {
@@ -572,7 +572,7 @@
         "Code": "Old Ben's Walking Stick",
         "Properties": [
             {
-                "PropertyString": "100% Chance to cast level 1 quickness when you Level-Up",
+                "PropertyString": "100% Chance to cast level 1 Burst of Speed when you Level-Up",
                 "Index": 3
             },
             {
@@ -676,7 +676,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Regenerate Mana 15%",
+                "PropertyString": "Regenerate Mana +15%",
                 "Index": 0
             },
             {
@@ -756,7 +756,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal",
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 2
             },
             {
@@ -772,7 +772,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Regenerate Mana 15%",
+                "PropertyString": "Regenerate Mana +15%",
                 "Index": 0
             },
             {
@@ -839,7 +839,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Half Freeze Duration",
+                "PropertyString": "Half Freeze Duration",
                 "Index": 3
             },
             {
@@ -933,15 +933,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "76 Poison Damage Over 5 Seconds",
+                "PropertyString": "+76 Poison Damage Over 5 Seconds",
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Mana stolen per hit",
+                "PropertyString": "+7% Mana stolen per hit",
                 "Index": 2
             },
             {
-                "PropertyString": "+7 Life stolen per hit",
+                "PropertyString": "+7% Life stolen per hit",
                 "Index": 1
             }
         ],
@@ -999,11 +999,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "6 to Dexterity",
+                "PropertyString": "+6 to Dexterity",
                 "Index": 1
             },
             {
-                "PropertyString": "Regenerate Mana 15%",
+                "PropertyString": "Regenerate Mana +15%",
                 "Index": 0
             },
             {
@@ -1083,7 +1083,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 5-8 Mana stolen per hit",
+                "PropertyString": "Adds 5-8% Mana stolen per hit",
                 "Index": 2
             },
             {
@@ -1091,7 +1091,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Regenerate Mana 15%",
+                "PropertyString": "Regenerate Mana +15%",
                 "Index": 0
             },
             {
@@ -1255,12 +1255,8 @@
                 "Index": 4
             },
             {
-                "PropertyString": "1-3 to Experience Gained",
+                "PropertyString": "+1-3% to Experience Gained",
                 "Index": 1
-            },
-            {
-                "PropertyString": "+1 Knockback (Weapon)",
-                "Index": 0
             },
             {
                 "PropertyString": "+50 to Attack Rating against Undead (Weapon)",
@@ -1272,6 +1268,10 @@
             },
             {
                 "PropertyString": "Adds 5-30 to Fire Damage (Weapon)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Knockback (Weapon)",
                 "Index": 0
             },
             {
@@ -1461,7 +1461,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "76 Poison Damage Over 5 Seconds",
+                "PropertyString": "+76 Poison Damage Over 5 Seconds",
                 "Index": 0
             },
             {
@@ -1563,7 +1563,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Knockback",
+                "PropertyString": "Knockback",
                 "Index": 0
             },
             {
@@ -1571,7 +1571,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "10 to Experience Gained",
+                "PropertyString": "+10% to Experience Gained",
                 "Index": 0
             },
             {
@@ -1621,7 +1621,7 @@
         "Code": "Youth",
         "Properties": [
             {
-                "PropertyString": "9% Chance to cast level 4 weaken on striking",
+                "PropertyString": "9% Chance to cast level 4 Weaken on striking",
                 "Index": 6
             },
             {
@@ -1633,7 +1633,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Regenerate Mana 100%",
+                "PropertyString": "Regenerate Mana +100%",
                 "Index": 5
             },
             {
@@ -1695,7 +1695,7 @@
         "Code": "Zephyr",
         "Properties": [
             {
-                "PropertyString": "7% Chance to cast level 1 twister when struck",
+                "PropertyString": "7% Chance to cast level 1 Twister when struck",
                 "Index": 4
             },
             {
@@ -1719,7 +1719,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Regenerate Mana 15%",
+                "PropertyString": "Regenerate Mana +15%",
                 "Index": 0
             },
             {
@@ -1871,7 +1871,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+10 % bonus to Attack Rating",
+                "PropertyString": "+10% bonus to Attack Rating",
                 "Index": 0
             },
             {
@@ -1887,15 +1887,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "76 Poison Damage Over 5 Seconds",
+                "PropertyString": "+76 Poison Damage Over 5 Seconds",
                 "Index": 0
             },
             {
-                "PropertyString": "6 to Strength",
+                "PropertyString": "+6 to Strength",
                 "Index": 4
             },
             {
-                "PropertyString": "6 to Dexterity",
+                "PropertyString": "+6 to Dexterity",
                 "Index": 5
             },
             {
@@ -2009,7 +2009,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Regenerate Mana 15% (Armor)",
+                "PropertyString": "Regenerate Mana +15% (Armor)",
                 "Index": 0
             },
             {
@@ -2021,7 +2021,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Regenerate Mana 15% (Shield)",
+                "PropertyString": "Regenerate Mana +15% (Shield)",
                 "Index": 0
             },
             {
@@ -2088,7 +2088,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Regenerate Mana 60%",
+                "PropertyString": "Regenerate Mana +60%",
                 "Index": 4
             },
             {
@@ -2096,7 +2096,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "1-3 to Experience Gained",
+                "PropertyString": "+1-3% to Experience Gained",
                 "Index": 3
             },
             {
@@ -2258,7 +2258,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+7 Life stolen per hit",
+                "PropertyString": "+7% Life stolen per hit",
                 "Index": 0
             },
             {
@@ -2274,7 +2274,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "-3 to Experience Gained",
+                "PropertyString": "-3% to Experience Gained",
                 "Index": 1
             },
             {
@@ -2354,7 +2354,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal",
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 4
             },
             {
@@ -2374,7 +2374,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+15 Reduces all Vendor Prices",
+                "PropertyString": "Reduces all Vendor Prices +15%",
                 "Index": 5
             }
         ],
@@ -2424,7 +2424,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+5 Life stolen per hit",
+                "PropertyString": "+5% Life stolen per hit",
                 "Index": 5
             },
             {
@@ -2545,7 +2545,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Life stolen per hit",
+                "PropertyString": "+7% Life stolen per hit",
                 "Index": 0
             }
         ],
@@ -2601,7 +2601,7 @@
         "Code": "Lightning",
         "Properties": [
             {
-                "PropertyString": "15% Chance to cast level 9 lightning on striking",
+                "PropertyString": "15% Chance to cast level 9 Lightning on striking",
                 "Index": 3
             },
             {
@@ -2621,7 +2621,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Life stolen per hit",
+                "PropertyString": "+7% Life stolen per hit",
                 "Index": 0
             },
             {
@@ -2749,7 +2749,7 @@
         "Code": "Serendipity",
         "Properties": [
             {
-                "PropertyString": "50% Chance to cast level 2 inner sight on striking",
+                "PropertyString": "50% Chance to cast level 2 Inner Sight on striking",
                 "Index": 1
             },
             {
@@ -2761,15 +2761,15 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+14 Life stolen per hit",
+                "PropertyString": "+14% Life stolen per hit",
                 "Index": 0
             },
             {
-                "PropertyString": "20 to Energy",
+                "PropertyString": "+20 to Energy",
                 "Index": 2
             },
             {
-                "PropertyString": "Regenerate Mana 50%",
+                "PropertyString": "Regenerate Mana +50%",
                 "Index": 3
             }
         ],
@@ -2856,7 +2856,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "22 to Vitality",
+                "PropertyString": "+22 to Vitality",
                 "Index": 3
             },
             {
@@ -2868,11 +2868,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+7 Life stolen per hit (Weapon)",
+                "PropertyString": "+7% Life stolen per hit (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "76 Poison Damage Over 5 Seconds (Weapon)",
+                "PropertyString": "+76 Poison Damage Over 5 Seconds (Weapon)",
                 "Index": 0
             },
             {
@@ -2950,11 +2950,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "20 to Strength",
+                "PropertyString": "+20 to Strength",
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Vitality",
+                "PropertyString": "+10 to Vitality",
                 "Index": 2
             },
             {
@@ -3018,11 +3018,11 @@
         "Code": "Myth",
         "Properties": [
             {
-                "PropertyString": "10% Chance to cast level 1 taunt on striking",
+                "PropertyString": "10% Chance to cast level 1 Taunt on striking",
                 "Index": 0
             },
             {
-                "PropertyString": "3% Chance to cast level 1 howl when struck",
+                "PropertyString": "3% Chance to cast level 1 Howl when struck",
                 "Index": 1
             },
             {
@@ -3138,7 +3138,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "10 to Strength",
+                "PropertyString": "+10 to Strength",
                 "Index": 5
             },
             {
@@ -3259,7 +3259,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+180-250 % bonus to Attack Rating",
+                "PropertyString": "+180-250% bonus to Attack Rating",
                 "Index": 1
             },
             {
@@ -3275,11 +3275,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+9 to Minimum Damage (Weapon)",
+                "PropertyString": "+76 Poison Damage Over 5 Seconds (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "76 Poison Damage Over 5 Seconds (Weapon)",
+                "PropertyString": "+9 to Minimum Damage (Weapon)",
                 "Index": 0
             },
             {
@@ -3349,7 +3349,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "10 to Energy",
+                "PropertyString": "+10 to Energy",
                 "Index": 0
             },
             {
@@ -3429,11 +3429,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Vitality",
+                "PropertyString": "+10 to Vitality",
                 "Index": 2
             },
             {
-                "PropertyString": "10 to Energy",
+                "PropertyString": "+10 to Energy",
                 "Index": 1
             },
             {
@@ -3541,7 +3541,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "1-3 to Experience Gained",
+                "PropertyString": "+1-3% to Experience Gained",
                 "Index": 2
             }
         ],
@@ -3611,7 +3611,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Regenerate Mana 75%",
+                "PropertyString": "Regenerate Mana +75%",
                 "Index": 3
             }
         ],
@@ -3673,11 +3673,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 3-6 Mana stolen per hit",
+                "PropertyString": "Adds 3-6% Mana stolen per hit",
                 "Index": 6
             },
             {
-                "PropertyString": "Adds 3-6 Life stolen per hit",
+                "PropertyString": "Adds 3-6% Life stolen per hit",
                 "Index": 5
             },
             {
@@ -3743,7 +3743,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Regenerate Mana 15%",
+                "PropertyString": "Regenerate Mana +15%",
                 "Index": 0
             },
             {
@@ -3751,7 +3751,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+1 Cannot Be Frozen",
+                "PropertyString": "Cannot Be Frozen",
                 "Index": 3
             },
             {
@@ -3823,7 +3823,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+6 Mana stolen per hit",
+                "PropertyString": "+6% Mana stolen per hit",
                 "Index": 2
             },
             {
@@ -3831,7 +3831,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Regenerate Mana 50%",
+                "PropertyString": "Regenerate Mana +50%",
                 "Index": 5
             },
             {
@@ -3975,11 +3975,11 @@
         "Code": "Peace",
         "Properties": [
             {
-                "PropertyString": "2% Chance to cast level 15 valkyrie on striking",
+                "PropertyString": "2% Chance to cast level 15 Valkyrie on striking",
                 "Index": 0
             },
             {
-                "PropertyString": "4% Chance to cast level 5 slow missiles when struck",
+                "PropertyString": "4% Chance to cast level 5 Slow Missiles when struck",
                 "Index": 1
             },
             {
@@ -4129,11 +4129,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+1 Ignore Target's Defense",
+                "PropertyString": "Ignore Target's Defense",
                 "Index": 5
             },
             {
-                "PropertyString": "+8 Life stolen per hit",
+                "PropertyString": "+8% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -4145,11 +4145,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Slows target by 15",
+                "PropertyString": "Slows target by 15%",
                 "Index": 3
             },
             {
-                "PropertyString": "+3 Knockback",
+                "PropertyString": "Knockback",
                 "Index": 2
             },
             {
@@ -4209,7 +4209,7 @@
         "Code": "Dread",
         "Properties": [
             {
-                "PropertyString": "13% Chance to cast level 13 charged bolt on striking",
+                "PropertyString": "13% Chance to cast level 13 Charged Bolt on striking",
                 "Index": 1
             },
             {
@@ -4379,7 +4379,7 @@
         "Code": "Punishment",
         "Properties": [
             {
-                "PropertyString": "100% Chance to cast level 35 thunder storm when you Level-Up",
+                "PropertyString": "100% Chance to cast level 35 Thunder Storm when you Level-Up",
                 "Index": 5
             },
             {
@@ -4395,7 +4395,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Life stolen per hit",
+                "PropertyString": "+7% Life stolen per hit",
                 "Index": 0
             },
             {
@@ -4415,7 +4415,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "-2 to Experience Gained",
+                "PropertyString": "-2% to Experience Gained",
                 "Index": 3
             }
         ],
@@ -4461,7 +4461,7 @@
         "Code": "Vengeance",
         "Properties": [
             {
-                "PropertyString": "100% Chance to cast level 55 poison nova when you Die",
+                "PropertyString": "100% Chance to cast level 55 Poison Nova when you Die",
                 "Index": 1
             },
             {
@@ -4473,7 +4473,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+6 Life stolen per hit",
+                "PropertyString": "+6% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -4481,7 +4481,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Knockback",
+                "PropertyString": "Knockback",
                 "Index": 0
             },
             {
@@ -4575,11 +4575,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Knockback",
+                "PropertyString": "Knockback",
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Vitality",
+                "PropertyString": "+10 to Vitality",
                 "Index": 0
             },
             {
@@ -4647,7 +4647,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 4-6 Life stolen per hit",
+                "PropertyString": "Adds 4-6% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -4655,7 +4655,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "10 to Vitality",
+                "PropertyString": "+10 to Vitality",
                 "Index": 0
             },
             {
@@ -4739,7 +4739,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "10 to Vitality",
+                "PropertyString": "+10 to Vitality",
                 "Index": 0
             },
             {
@@ -4815,7 +4815,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "10 to Vitality",
+                "PropertyString": "+10 to Vitality",
                 "Index": 0
             },
             {
@@ -4827,7 +4827,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+10-15 % Lightning Absorb",
+                "PropertyString": "+10-15% Lightning Absorb",
                 "Index": 3
             }
         ],
@@ -4893,11 +4893,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+1 Knockback",
+                "PropertyString": "Knockback",
                 "Index": 3
             },
             {
-                "PropertyString": "10 to Vitality",
+                "PropertyString": "+10 to Vitality",
                 "Index": 0
             },
             {
@@ -4965,7 +4965,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "10 to Vitality",
+                "PropertyString": "+10 to Vitality",
                 "Index": 0
             },
             {
@@ -4977,11 +4977,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+10-15 % Cold Absorb",
+                "PropertyString": "+10-15% Cold Absorb",
                 "Index": 3
             },
             {
-                "PropertyString": "+1 Cannot Be Frozen",
+                "PropertyString": "Cannot Be Frozen",
                 "Index": 4
             }
         ],
@@ -5037,7 +5037,7 @@
         "Code": "Holy Tears",
         "Properties": [
             {
-                "PropertyString": "16% Chance to cast level 9 fist of the heavens on striking",
+                "PropertyString": "16% Chance to cast level 9 Fist Of The Heavens on striking",
                 "Index": 1
             },
             {
@@ -5053,7 +5053,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+35 % bonus to Attack Rating",
+                "PropertyString": "+35% bonus to Attack Rating",
                 "Index": 3
             },
             {
@@ -5061,11 +5061,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Slows target by 35",
+                "PropertyString": "Slows target by 35%",
                 "Index": 4
             },
             {
-                "PropertyString": "10 to Vitality",
+                "PropertyString": "+10 to Vitality",
                 "Index": 0
             },
             {
@@ -5130,11 +5130,11 @@
         "Code": "Madness",
         "Properties": [
             {
-                "PropertyString": "9% Chance to cast level 5 confuse when struck",
+                "PropertyString": "9% Chance to cast level 5 Confuse when struck",
                 "Index": 0
             },
             {
-                "PropertyString": "12% Chance to cast level 16 terror on striking",
+                "PropertyString": "12% Chance to cast level 16 Terror on striking",
                 "Index": 1
             },
             {
@@ -5158,15 +5158,19 @@
                 "Index": 3
             },
             {
+                "PropertyString": "+10 to Vitality (Armor)",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+7 Replenish Life (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Vitality (Armor)",
+                "PropertyString": "Regenerate Mana +15% (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "Regenerate Mana 15% (Armor)",
+                "PropertyString": "+10 to Vitality (Shield)",
                 "Index": 0
             },
             {
@@ -5174,11 +5178,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Vitality (Shield)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Regenerate Mana 15% (Shield)",
+                "PropertyString": "Regenerate Mana +15% (Shield)",
                 "Index": 0
             }
         ],
@@ -5244,7 +5244,7 @@
         "Code": "Red",
         "Properties": [
             {
-                "PropertyString": "8% Chance to cast level 4 meteor on striking",
+                "PropertyString": "8% Chance to cast level 4 Meteor on striking",
                 "Index": 6
             },
             {
@@ -5256,7 +5256,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "10 to Vitality",
+                "PropertyString": "+10 to Vitality",
                 "Index": 0
             },
             {
@@ -5268,7 +5268,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+10 % Fire Absorb",
+                "PropertyString": "+10% Fire Absorb",
                 "Index": 3
             },
             {
@@ -5346,7 +5346,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Vitality",
+                "PropertyString": "+10 to Vitality",
                 "Index": 0
             }
         ],
@@ -5410,7 +5410,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "10 to Vitality",
+                "PropertyString": "+10 to Vitality",
                 "Index": 0
             },
             {
@@ -5422,7 +5422,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+10-15 % Fire Absorb",
+                "PropertyString": "+10-15% Fire Absorb",
                 "Index": 3
             }
         ],
@@ -5492,7 +5492,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Vitality",
+                "PropertyString": "+10 to Vitality",
                 "Index": 0
             },
             {
@@ -5572,7 +5572,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+8 Life stolen per hit",
+                "PropertyString": "+8% Life stolen per hit",
                 "Index": 1
             },
             {
@@ -5584,11 +5584,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Vitality",
+                "PropertyString": "+10 to Vitality",
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Energy",
+                "PropertyString": "+10 to Energy",
                 "Index": 0
             },
             {
@@ -5686,11 +5686,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "10 to Vitality",
+                "PropertyString": "+10 to Vitality",
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Energy",
+                "PropertyString": "+10 to Energy",
                 "Index": 0
             },
             {
@@ -5756,7 +5756,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Energy",
+                "PropertyString": "+10 to Energy",
                 "Index": 0
             },
             {
@@ -5830,11 +5830,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "10 to Energy",
+                "PropertyString": "+10 to Energy",
                 "Index": 0
             },
             {
-                "PropertyString": "Regenerate Mana 15%",
+                "PropertyString": "Regenerate Mana +15%",
                 "Index": 0
             },
             {
@@ -5932,11 +5932,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "10 to Dexterity",
+                "PropertyString": "+10 to Dexterity",
                 "Index": 0
             },
             {
-                "PropertyString": "Regenerate Mana 20%",
+                "PropertyString": "Regenerate Mana +20%",
                 "Index": 5
             },
             {
@@ -6024,7 +6024,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Dexterity",
+                "PropertyString": "+10 to Dexterity",
                 "Index": 0
             },
             {
@@ -6088,7 +6088,7 @@
         "Code": "Hustle (Weapon)",
         "Properties": [
             {
-                "PropertyString": "5% Chance to cast level 1 quickness on striking",
+                "PropertyString": "5% Chance to cast level 1 Burst of Speed on striking",
                 "Index": 0
             },
             {
@@ -6112,7 +6112,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Dexterity",
+                "PropertyString": "+10 to Dexterity",
                 "Index": 0
             }
         ],
@@ -6200,7 +6200,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Dexterity",
+                "PropertyString": "+10 to Dexterity",
                 "Index": 0
             }
         ],
@@ -6272,7 +6272,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Ignore Target's Defense",
+                "PropertyString": "Ignore Target's Defense",
                 "Index": 6
             },
             {
@@ -6288,11 +6288,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "10 to Dexterity",
+                "PropertyString": "+10 to Dexterity",
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Vitality",
+                "PropertyString": "+10 to Vitality",
                 "Index": 0
             }
         ],
@@ -6338,7 +6338,7 @@
         "Code": "Question",
         "Properties": [
             {
-                "PropertyString": "+1 Knockback",
+                "PropertyString": "Knockback",
                 "Index": 0
             },
             {
@@ -6422,7 +6422,7 @@
         "Code": "Water",
         "Properties": [
             {
-                "PropertyString": "100% Chance to cast level 25 battle orders when you Level-Up",
+                "PropertyString": "100% Chance to cast level 25 Battle Orders when you Level-Up",
                 "Index": 5
             },
             {
@@ -6442,7 +6442,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Dexterity",
+                "PropertyString": "+10 to Dexterity",
                 "Index": 0
             },
             {
@@ -6450,7 +6450,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Regenerate Mana 35%",
+                "PropertyString": "Regenerate Mana +35%",
                 "Index": 1
             },
             {
@@ -6532,27 +6532,27 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+6 Mana stolen per hit",
+                "PropertyString": "+6% Mana stolen per hit",
                 "Index": 2
             },
             {
-                "PropertyString": "+6 Life stolen per hit",
+                "PropertyString": "+6% Life stolen per hit",
                 "Index": 3
             },
             {
-                "PropertyString": "10 to Strength",
+                "PropertyString": "+10 to Strength",
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Dexterity",
+                "PropertyString": "+10 to Dexterity",
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Vitality",
+                "PropertyString": "+10 to Vitality",
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Energy",
+                "PropertyString": "+10 to Energy",
                 "Index": 0
             },
             {
@@ -6560,7 +6560,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "2 to Experience Gained",
+                "PropertyString": "+2% to Experience Gained",
                 "Index": 4
             },
             {
@@ -6644,27 +6644,27 @@
                 "Index": 4
             },
             {
-                "PropertyString": "10 to Strength (Weapon)",
+                "PropertyString": "+10 to Strength (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Vitality (Weapon)",
+                "PropertyString": "+10 to Vitality (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Strength (Armor)",
+                "PropertyString": "+10 to Strength (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Vitality (Armor)",
+                "PropertyString": "+10 to Vitality (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Strength (Shield)",
+                "PropertyString": "+10 to Strength (Shield)",
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Vitality (Shield)",
+                "PropertyString": "+10 to Vitality (Shield)",
                 "Index": 0
             }
         ],
@@ -6724,19 +6724,19 @@
                 "Index": 3
             },
             {
-                "PropertyString": "25 to Strength",
+                "PropertyString": "+25 to Strength",
                 "Index": 0
             },
             {
-                "PropertyString": "15 to Dexterity",
+                "PropertyString": "+15 to Dexterity",
                 "Index": 2
             },
             {
-                "PropertyString": "20 to Vitality",
+                "PropertyString": "+20 to Vitality",
                 "Index": 1
             },
             {
-                "PropertyString": "10 to Energy",
+                "PropertyString": "+10 to Energy",
                 "Index": 0
             },
             {
@@ -6829,7 +6829,7 @@
         "Code": "Obedience",
         "Properties": [
             {
-                "PropertyString": "30% Chance to cast level 21 enchant when you Kill an Enemy",
+                "PropertyString": "30% Chance to cast level 21 Enchant when you Kill an Enemy",
                 "Index": 2
             },
             {
@@ -6861,11 +6861,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "10 to Strength",
+                "PropertyString": "+10 to Strength",
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Dexterity",
+                "PropertyString": "+10 to Dexterity",
                 "Index": 0
             },
             {
@@ -6959,7 +6959,7 @@
         "Code": "Unbending Will",
         "Properties": [
             {
-                "PropertyString": "18% Chance to cast level 18 taunt on striking",
+                "PropertyString": "18% Chance to cast level 18 Taunt on striking",
                 "Index": 1
             },
             {
@@ -6991,19 +6991,19 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 8-10 Life stolen per hit",
+                "PropertyString": "Adds 8-10% Life stolen per hit",
                 "Index": 6
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal",
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 5
             },
             {
-                "PropertyString": "10 to Strength",
+                "PropertyString": "+10 to Strength",
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Vitality",
+                "PropertyString": "+10 to Vitality",
                 "Index": 0
             },
             {
@@ -7091,7 +7091,7 @@
         "Code": "Lawbringer",
         "Properties": [
             {
-                "PropertyString": "20% Chance to cast level 15 decrepify on striking",
+                "PropertyString": "20% Chance to cast level 15 Decrepify on striking",
                 "Index": 0
             },
             {
@@ -7111,7 +7111,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+7 Life stolen per hit",
+                "PropertyString": "+7% Life stolen per hit",
                 "Index": 0
             },
             {
@@ -7123,7 +7123,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "10 to Dexterity",
+                "PropertyString": "+10 to Dexterity",
                 "Index": 0
             },
             {
@@ -7209,7 +7209,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+50-80 % bonus to Attack Rating",
+                "PropertyString": "+50-80% bonus to Attack Rating",
                 "Index": 2
             },
             {
@@ -7313,7 +7313,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "20 to Energy",
+                "PropertyString": "+20 to Energy",
                 "Index": 1
             },
             {
@@ -7463,11 +7463,11 @@
         "Code": "Treachery",
         "Properties": [
             {
-                "PropertyString": "25% Chance to cast level 15 venom on striking",
+                "PropertyString": "25% Chance to cast level 15 Venom on striking",
                 "Index": 0
             },
             {
-                "PropertyString": "5% Chance to cast level 15 fade when struck",
+                "PropertyString": "5% Chance to cast level 15 Fade when struck",
                 "Index": 1
             },
             {
@@ -7568,11 +7568,11 @@
         "Code": "Voice of Reason",
         "Properties": [
             {
-                "PropertyString": "15% Chance to cast level 13 frozen orb on striking",
+                "PropertyString": "15% Chance to cast level 13 Frozen Orb on striking",
                 "Index": 0
             },
             {
-                "PropertyString": "18% Chance to cast level 20 ice blast on striking",
+                "PropertyString": "18% Chance to cast level 20 Ice Blast on striking",
                 "Index": 1
             },
             {
@@ -7600,11 +7600,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "10 to Dexterity",
+                "PropertyString": "+10 to Dexterity",
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Cannot Be Frozen",
+                "PropertyString": "Cannot Be Frozen",
                 "Index": 6
             },
             {
@@ -7668,7 +7668,7 @@
         "Code": "Wealth",
         "Properties": [
             {
-                "PropertyString": "10 to Dexterity",
+                "PropertyString": "+10 to Dexterity",
                 "Index": 0
             },
             {
@@ -7846,7 +7846,7 @@
         "Code": "Shadow",
         "Properties": [
             {
-                "PropertyString": "25% Chance to cast level 12 cloak of shadows when struck",
+                "PropertyString": "25% Chance to cast level 12 Cloak Of Shadows when struck",
                 "Index": 4
             },
             {
@@ -7940,7 +7940,7 @@
         "Code": "Thunder",
         "Properties": [
             {
-                "PropertyString": "10% Chance to cast level 22 thunder storm when struck",
+                "PropertyString": "10% Chance to cast level 22 Thunder Storm when struck",
                 "Index": 2
             },
             {
@@ -7960,11 +7960,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Strength",
+                "PropertyString": "+10 to Strength",
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Dexterity",
+                "PropertyString": "+10 to Dexterity",
                 "Index": 0
             },
             {
@@ -7976,7 +7976,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "2 to Experience Gained",
+                "PropertyString": "+2% to Experience Gained",
                 "Index": 6
             },
             {
@@ -8048,11 +8048,11 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+1 Ignore Target's Defense",
+                "PropertyString": "Ignore Target's Defense",
                 "Index": 4
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal",
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 5
             },
             {
@@ -8060,7 +8060,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Vitality",
+                "PropertyString": "+10 to Vitality",
                 "Index": 0
             },
             {
@@ -8124,15 +8124,15 @@
         "Code": "Wisdom",
         "Properties": [
             {
-                "PropertyString": "+33 Piercing Attack",
+                "PropertyString": "+33% Piercing Attack",
                 "Index": 0
             },
             {
-                "PropertyString": "+15-25 % bonus to Attack Rating",
+                "PropertyString": "+15-25% bonus to Attack Rating",
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 4-8 Mana stolen per hit",
+                "PropertyString": "Adds 4-8% Mana stolen per hit",
                 "Index": 1
             },
             {
@@ -8140,11 +8140,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Energy",
+                "PropertyString": "+10 to Energy",
                 "Index": 5
             },
             {
-                "PropertyString": "+1 Cannot Be Frozen",
+                "PropertyString": "Cannot Be Frozen",
                 "Index": 4
             },
             {
@@ -8212,11 +8212,11 @@
         "Code": "Enlightenment",
         "Properties": [
             {
-                "PropertyString": "5% Chance to cast level 15 fire ball on striking",
+                "PropertyString": "5% Chance to cast level 15 Fire Ball on striking",
                 "Index": 0
             },
             {
-                "PropertyString": "5% Chance to cast level 15 blaze when struck",
+                "PropertyString": "5% Chance to cast level 15 Blaze when struck",
                 "Index": 1
             },
             {
@@ -8302,11 +8302,11 @@
         "Code": "Crescent Moon",
         "Properties": [
             {
-                "PropertyString": "15% Chance to cast level 13 static field on striking",
+                "PropertyString": "15% Chance to cast level 13 Static Field on striking",
                 "Index": 5
             },
             {
-                "PropertyString": "20% Chance to cast level 17 chain lightning on striking",
+                "PropertyString": "20% Chance to cast level 17 Chain Lightning on striking",
                 "Index": 6
             },
             {
@@ -8318,7 +8318,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+1 Ignore Target's Defense",
+                "PropertyString": "Ignore Target's Defense",
                 "Index": 1
             },
             {
@@ -8478,7 +8478,7 @@
         "Code": "Gloom",
         "Properties": [
             {
-                "PropertyString": "15% Chance to cast level 3 dim vision when struck",
+                "PropertyString": "15% Chance to cast level 3 Dim Vision when struck",
                 "Index": 2
             },
             {
@@ -8490,7 +8490,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Strength",
+                "PropertyString": "+10 to Strength",
                 "Index": 0
             },
             {
@@ -8498,7 +8498,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+1 Half Freeze Duration",
+                "PropertyString": "Half Freeze Duration",
                 "Index": 6
             },
             {
@@ -8562,11 +8562,11 @@
         "Code": "Judgement",
         "Properties": [
             {
-                "PropertyString": "2% Chance to cast level 35 holy shield when struck",
+                "PropertyString": "2% Chance to cast level 35 Holy Shield when struck",
                 "Index": 4
             },
             {
-                "PropertyString": "50% Chance to cast level 5 decrepify when struck",
+                "PropertyString": "50% Chance to cast level 5 Decrepify when struck",
                 "Index": 5
             },
             {
@@ -8582,7 +8582,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1 Ignore Target's Defense",
+                "PropertyString": "Ignore Target's Defense",
                 "Index": 1
             },
             {
@@ -8650,7 +8650,7 @@
         "Code": "Oblivion",
         "Properties": [
             {
-                "PropertyString": "12% Chance to cast level 9 amplify damage on striking",
+                "PropertyString": "12% Chance to cast level 9 Amplify Damage on striking",
                 "Index": 3
             },
             {
@@ -8674,11 +8674,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "10 to Strength",
+                "PropertyString": "+10 to Strength",
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Dexterity",
+                "PropertyString": "+10 to Dexterity",
                 "Index": 0
             },
             {
@@ -8764,7 +8764,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Life stolen per hit",
+                "PropertyString": "+7% Life stolen per hit",
                 "Index": 0
             },
             {
@@ -8776,7 +8776,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "20 to Strength",
+                "PropertyString": "+20 to Strength",
                 "Index": 0
             },
             {
@@ -8784,7 +8784,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+15 % Fire Absorb",
+                "PropertyString": "+15% Fire Absorb",
                 "Index": 6
             },
             {
@@ -8866,15 +8866,15 @@
                 "Index": 2
             },
             {
-                "PropertyString": "16 to Strength",
+                "PropertyString": "+16 to Strength",
                 "Index": 4
             },
             {
-                "PropertyString": "16 to Vitality",
+                "PropertyString": "+16 to Vitality",
                 "Index": 5
             },
             {
-                "PropertyString": "10 to Energy",
+                "PropertyString": "+10 to Energy",
                 "Index": 0
             },
             {
@@ -9065,11 +9065,11 @@
         "Code": "Bone",
         "Properties": [
             {
-                "PropertyString": "15% Chance to cast level 10 bone spear on striking",
+                "PropertyString": "15% Chance to cast level 10 Bone Spear on striking",
                 "Index": 0
             },
             {
-                "PropertyString": "15% Chance to cast level 10 bone armor when struck",
+                "PropertyString": "15% Chance to cast level 10 Bone Armor when struck",
                 "Index": 1
             },
             {
@@ -9151,11 +9151,11 @@
         "Code": "Searing Moon",
         "Properties": [
             {
-                "PropertyString": "15% Chance to cast level 13 meteor on striking",
+                "PropertyString": "15% Chance to cast level 13 Meteor on striking",
                 "Index": 5
             },
             {
-                "PropertyString": "20% Chance to cast level 17 fire ball on striking",
+                "PropertyString": "20% Chance to cast level 17 Fire Ball on striking",
                 "Index": 6
             },
             {
@@ -9167,7 +9167,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+1 Ignore Target's Defense",
+                "PropertyString": "Ignore Target's Defense",
                 "Index": 1
             },
             {
@@ -9253,11 +9253,11 @@
         "Code": "Winter Moon",
         "Properties": [
             {
-                "PropertyString": "15% Chance to cast level 13 blizzard on striking",
+                "PropertyString": "15% Chance to cast level 13 Blizzard on striking",
                 "Index": 5
             },
             {
-                "PropertyString": "20% Chance to cast level 17 glacial spike on striking",
+                "PropertyString": "20% Chance to cast level 17 Glacial Spike on striking",
                 "Index": 6
             },
             {
@@ -9269,7 +9269,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+1 Ignore Target's Defense",
+                "PropertyString": "Ignore Target's Defense",
                 "Index": 1
             },
             {
@@ -9355,11 +9355,11 @@
         "Code": "Harvest Moon",
         "Properties": [
             {
-                "PropertyString": "15% Chance to cast level 13 corpse explosion on striking",
+                "PropertyString": "15% Chance to cast level 13 Corpse Explosion on striking",
                 "Index": 5
             },
             {
-                "PropertyString": "20% Chance to cast level 17 poison nova on striking",
+                "PropertyString": "20% Chance to cast level 17 Poison Nova on striking",
                 "Index": 6
             },
             {
@@ -9371,11 +9371,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+1 Ignore Target's Defense",
+                "PropertyString": "Ignore Target's Defense",
                 "Index": 1
             },
             {
-                "PropertyString": "76 Poison Damage Over 5 Seconds",
+                "PropertyString": "+76 Poison Damage Over 5 Seconds",
                 "Index": 0
             },
             {
@@ -9471,11 +9471,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal (Weapon)",
+                "PropertyString": "+20% Increased Attack Speed (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "+20% Increased Attack Speed (Weapon)",
+                "PropertyString": "Prevent Monster Heal (Weapon)",
                 "Index": 0
             },
             {
@@ -9549,7 +9549,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal",
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 0
             },
             {
@@ -9561,7 +9561,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "5 to Experience Gained",
+                "PropertyString": "+5% to Experience Gained",
                 "Index": 1
             },
             {
@@ -9655,11 +9655,11 @@
         "Code": "Oath",
         "Properties": [
             {
-                "PropertyString": "30% Chance to cast level 20 bone spirit on striking",
+                "PropertyString": "30% Chance to cast level 20 Bone Spirit on striking",
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Indestructible",
+                "PropertyString": "Indestructible",
                 "Index": 1
             },
             {
@@ -9679,11 +9679,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal",
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Energy",
+                "PropertyString": "+10 to Energy",
                 "Index": 0
             },
             {
@@ -9695,7 +9695,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Level 17 IronGolem (14 Charges)",
+                "PropertyString": "Level 17 Iron Golem (14 Charges)",
                 "Index": 6
             }
         ],
@@ -9825,11 +9825,11 @@
         "Code": "Rain",
         "Properties": [
             {
-                "PropertyString": "5% Chance to cast level 15 twister on striking",
+                "PropertyString": "5% Chance to cast level 15 Twister on striking",
                 "Index": 0
             },
             {
-                "PropertyString": "5% Chance to cast level 15 cyclone armor when struck",
+                "PropertyString": "5% Chance to cast level 15 Cyclone Armor when struck",
                 "Index": 1
             },
             {
@@ -9925,7 +9925,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "20 to Dexterity",
+                "PropertyString": "+20 to Dexterity",
                 "Index": 0
             },
             {
@@ -9983,7 +9983,7 @@
         "Code": "Terror",
         "Properties": [
             {
-                "PropertyString": "100% Chance to cast level 10 terror when struck",
+                "PropertyString": "100% Chance to cast level 10 Terror when struck",
                 "Index": 0
             },
             {
@@ -10007,7 +10007,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "10 to Energy",
+                "PropertyString": "+10 to Energy",
                 "Index": 0
             },
             {
@@ -10081,11 +10081,11 @@
         "Code": "Full Moon",
         "Properties": [
             {
-                "PropertyString": "20% Chance to cast level 20 blessed hammer on striking",
+                "PropertyString": "20% Chance to cast level 20 Blessed Hammer on striking",
                 "Index": 5
             },
             {
-                "PropertyString": "15% Chance to cast level 20 bone spear on striking",
+                "PropertyString": "15% Chance to cast level 20 Bone Spear on striking",
                 "Index": 6
             },
             {
@@ -10101,7 +10101,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+1 Ignore Target's Defense",
+                "PropertyString": "Ignore Target's Defense",
                 "Index": 1
             },
             {
@@ -10109,7 +10109,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal",
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 0
             },
             {
@@ -10173,19 +10173,19 @@
         "Code": "Delirium",
         "Properties": [
             {
-                "PropertyString": "11% Chance to cast level 18 confuse on striking",
+                "PropertyString": "11% Chance to cast level 18 Confuse on striking",
                 "Index": 0
             },
             {
-                "PropertyString": "14% Chance to cast level 13 terror when struck",
+                "PropertyString": "14% Chance to cast level 13 Terror when struck",
                 "Index": 2
             },
             {
-                "PropertyString": "6% Chance to cast level 14 mind blast when struck",
+                "PropertyString": "6% Chance to cast level 14 Mind Blast when struck",
                 "Index": 4
             },
             {
-                "PropertyString": "1% Chance to cast level 50 delerium change when struck",
+                "PropertyString": "1% Chance to cast level 50 Delerium Change when struck",
                 "Index": 5
             },
             {
@@ -10197,7 +10197,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "10 to Vitality",
+                "PropertyString": "+10 to Vitality",
                 "Index": 0
             },
             {
@@ -10379,7 +10379,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "10 to Energy",
+                "PropertyString": "+10 to Energy",
                 "Index": 0
             },
             {
@@ -10387,7 +10387,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Regenerate Mana 75%",
+                "PropertyString": "Regenerate Mana +75%",
                 "Index": 2
             },
             {
@@ -10471,7 +10471,7 @@
         "Code": "Despair",
         "Properties": [
             {
-                "PropertyString": "32% Chance to cast level 6 weaken on striking",
+                "PropertyString": "32% Chance to cast level 6 Weaken on striking",
                 "Index": 1
             },
             {
@@ -10487,7 +10487,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 % bonus to Attack Rating",
+                "PropertyString": "+20% bonus to Attack Rating",
                 "Index": 0
             },
             {
@@ -10495,15 +10495,15 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+9 Mana stolen per hit",
+                "PropertyString": "+9% Mana stolen per hit",
                 "Index": 5
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal",
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 0
             },
             {
-                "PropertyString": "Slows target by 20",
+                "PropertyString": "Slows target by 20%",
                 "Index": 2
             },
             {
@@ -10598,7 +10598,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+20 % bonus to Attack Rating",
+                "PropertyString": "+20% bonus to Attack Rating",
                 "Index": 0
             },
             {
@@ -10610,11 +10610,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal",
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Strength",
+                "PropertyString": "+10 to Strength",
                 "Index": 0
             },
             {
@@ -10690,7 +10690,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+20 % bonus to Attack Rating",
+                "PropertyString": "+20% bonus to Attack Rating",
                 "Index": 0
             },
             {
@@ -10706,11 +10706,11 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+7 Life stolen per hit",
+                "PropertyString": "+7% Life stolen per hit",
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal",
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 0
             }
         ],
@@ -10781,19 +10781,19 @@
         "Code": "Rift",
         "Properties": [
             {
-                "PropertyString": "20% Chance to cast level 16 tornado on striking",
+                "PropertyString": "20% Chance to cast level 16 Tornado on striking",
                 "Index": 0
             },
             {
-                "PropertyString": "16% Chance to cast level 21 frozen orb on attack",
+                "PropertyString": "16% Chance to cast level 21 Frozen Orb on attack",
                 "Index": 1
             },
             {
-                "PropertyString": "+20 % bonus to Attack Rating",
+                "PropertyString": "+20% bonus to Attack Rating",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 160-250 Adds 160-250 magic damage",
+                "PropertyString": "Adds 160-250 to Magic Damage",
                 "Index": 2
             },
             {
@@ -10801,7 +10801,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "10 to Dexterity",
+                "PropertyString": "+10 to Dexterity",
                 "Index": 0
             },
             {
@@ -10907,7 +10907,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+20 % bonus to Attack Rating",
+                "PropertyString": "+20% bonus to Attack Rating",
                 "Index": 0
             },
             {
@@ -10919,11 +10919,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal",
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Knockback",
+                "PropertyString": "Knockback",
                 "Index": 0
             },
             {
@@ -10983,7 +10983,7 @@
         "Code": "Principle",
         "Properties": [
             {
-                "PropertyString": "100% Chance to cast level 5 holy bolt on striking",
+                "PropertyString": "100% Chance to cast level 5 Holy Bolt on striking",
                 "Index": 0
             },
             {
@@ -11088,15 +11088,15 @@
         "Code": "Death",
         "Properties": [
             {
-                "PropertyString": "100% Chance to cast level 44 chain lightning when you Die",
+                "PropertyString": "100% Chance to cast level 44 Chain Lightning when you Die",
                 "Index": 0
             },
             {
-                "PropertyString": "25% Chance to cast level 18 glacial spike on attack",
+                "PropertyString": "25% Chance to cast level 18 Glacial Spike on attack",
                 "Index": 1
             },
             {
-                "PropertyString": "+1 Indestructible",
+                "PropertyString": "Indestructible",
                 "Index": 2
             },
             {
@@ -11104,7 +11104,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+20 % bonus to Attack Rating",
+                "PropertyString": "+20% bonus to Attack Rating",
                 "Index": 0
             },
             {
@@ -11116,7 +11116,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Mana stolen per hit",
+                "PropertyString": "+7% Mana stolen per hit",
                 "Index": 0
             },
             {
@@ -11132,7 +11132,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Level 22 BloodGolem (15 Charges)",
+                "PropertyString": "Level 22 Blood Golem (15 Charges)",
                 "Index": 6
             },
             {
@@ -11192,11 +11192,11 @@
         "Code": "Flame",
         "Properties": [
             {
-                "PropertyString": "20% Chance to cast level 19 fire ball when struck",
+                "PropertyString": "20% Chance to cast level 19 Fire Ball when struck",
                 "Index": 0
             },
             {
-                "PropertyString": "8% Chance to cast level 13 eruption on striking",
+                "PropertyString": "8% Chance to cast level 13 Eruption on striking",
                 "Index": 1
             },
             {
@@ -11212,7 +11212,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "10 to Dexterity",
+                "PropertyString": "+10 to Dexterity",
                 "Index": 0
             },
             {
@@ -11312,7 +11312,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Half Freeze Duration",
+                "PropertyString": "Half Freeze Duration",
                 "Index": 4
             },
             {
@@ -11417,11 +11417,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Mana stolen per hit",
+                "PropertyString": "+7% Mana stolen per hit",
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Dexterity",
+                "PropertyString": "+10 to Dexterity",
                 "Index": 0
             },
             {
@@ -11519,7 +11519,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+7 Mana stolen per hit",
+                "PropertyString": "+7% Mana stolen per hit",
                 "Index": 0
             },
             {
@@ -11531,7 +11531,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "-3 to Experience Gained",
+                "PropertyString": "-3% to Experience Gained",
                 "Index": 6
             },
             {
@@ -11621,7 +11621,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "6 to Experience Gained",
+                "PropertyString": "+6% to Experience Gained",
                 "Index": 5
             }
         ],
@@ -11731,7 +11731,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+11 Mana stolen per hit",
+                "PropertyString": "+11% Mana stolen per hit",
                 "Index": 0
             },
             {
@@ -11818,11 +11818,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+7 Mana stolen per hit",
+                "PropertyString": "+7% Mana stolen per hit",
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Energy",
+                "PropertyString": "+10 to Energy",
                 "Index": 0
             },
             {
@@ -11834,11 +11834,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Regenerate Mana 75%",
+                "PropertyString": "Regenerate Mana +75%",
                 "Index": 3
             },
             {
-                "PropertyString": "5-10 to Experience Gained",
+                "PropertyString": "+5-10% to Experience Gained",
                 "Index": 5
             }
         ],
@@ -11922,11 +11922,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "20 to Strength",
+                "PropertyString": "+20 to Strength",
                 "Index": 2
             },
             {
-                "PropertyString": "20 to Dexterity",
+                "PropertyString": "+20 to Dexterity",
                 "Index": 3
             },
             {
@@ -12138,11 +12138,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Life stolen per hit",
+                "PropertyString": "+7% Life stolen per hit",
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal",
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 0
             },
             {
@@ -12206,11 +12206,11 @@
         "Code": "Chaos",
         "Properties": [
             {
-                "PropertyString": "9% Chance to cast level 11 frozen orb on striking",
+                "PropertyString": "9% Chance to cast level 11 Frozen Orb on striking",
                 "Index": 5
             },
             {
-                "PropertyString": "11% Chance to cast level 9 charged bolt on striking",
+                "PropertyString": "11% Chance to cast level 9 Charged Bolt on striking",
                 "Index": 6
             },
             {
@@ -12226,7 +12226,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 216-471 Adds 216-471 magic damage",
+                "PropertyString": "Adds 216-471 to Magic Damage",
                 "Index": 2
             },
             {
@@ -12234,7 +12234,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Strength",
+                "PropertyString": "+10 to Strength",
                 "Index": 0
             },
             {
@@ -12304,7 +12304,7 @@
         "Code": "Exile",
         "Properties": [
             {
-                "PropertyString": "15% Chance to cast level 5 life tap on striking",
+                "PropertyString": "15% Chance to cast level 5 Life Tap on striking",
                 "Index": 5
             },
             {
@@ -12420,11 +12420,11 @@
         "Code": "Praise",
         "Properties": [
             {
-                "PropertyString": "100% Chance to cast level 47 frozen orb when you Die",
+                "PropertyString": "100% Chance to cast level 47 Frozen Orb when you Die",
                 "Index": 3
             },
             {
-                "PropertyString": "100% Chance to cast level 10 glacial spike when struck",
+                "PropertyString": "100% Chance to cast level 10 Glacial Spike when struck",
                 "Index": 4
             },
             {
@@ -12436,19 +12436,19 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+1 Ignore Target's Defense",
+                "PropertyString": "Ignore Target's Defense",
                 "Index": 2
             },
             {
-                "PropertyString": "+20 % bonus to Attack Rating",
+                "PropertyString": "+20% bonus to Attack Rating",
                 "Index": 0
             },
             {
-                "PropertyString": "+10 Life stolen per hit",
+                "PropertyString": "+10% Life stolen per hit",
                 "Index": 6
             },
             {
-                "PropertyString": "10 to Strength",
+                "PropertyString": "+10 to Strength",
                 "Index": 0
             },
             {
@@ -12512,7 +12512,7 @@
         "Code": "Trust",
         "Properties": [
             {
-                "PropertyString": "100% Chance to cast level 57 nova when you Die",
+                "PropertyString": "100% Chance to cast level 57 Nova when you Die",
                 "Index": 6
             },
             {
@@ -12532,7 +12532,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "10 to Strength",
+                "PropertyString": "+10 to Strength",
                 "Index": 0
             },
             {
@@ -12650,7 +12650,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal",
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 5
             },
             {
@@ -12746,7 +12746,7 @@
         "Code": "Fortitude",
         "Properties": [
             {
-                "PropertyString": "20% Chance to cast level 15 chilling armor when struck",
+                "PropertyString": "20% Chance to cast level 15 Chilling Armor when struck",
                 "Index": 0
             },
             {
@@ -12989,7 +12989,7 @@
         "Code": "Grief",
         "Properties": [
             {
-                "PropertyString": "20% Chance to cast level 15 venom on striking",
+                "PropertyString": "20% Chance to cast level 15 Venom on striking",
                 "Index": 0
             },
             {
@@ -13001,7 +13001,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+1 Ignore Target's Defense",
+                "PropertyString": "Ignore Target's Defense",
                 "Index": 3
             },
             {
@@ -13025,7 +13025,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal",
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 0
             },
             {
@@ -13101,11 +13101,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "10-20 to Vitality",
+                "PropertyString": "+10-20 to Vitality",
                 "Index": 2
             },
             {
-                "PropertyString": "15-20 to Energy",
+                "PropertyString": "+15-20 to Energy",
                 "Index": 6
             },
             {
@@ -13211,7 +13211,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Regenerate Mana 15%",
+                "PropertyString": "Regenerate Mana +15%",
                 "Index": 0
             },
             {
@@ -13292,11 +13292,11 @@
         "Code": "Dragon",
         "Properties": [
             {
-                "PropertyString": "20% Chance to cast level 18 venom when struck",
+                "PropertyString": "20% Chance to cast level 18 Venom when struck",
                 "Index": 0
             },
             {
-                "PropertyString": "12% Chance to cast level 15 hydra on striking",
+                "PropertyString": "12% Chance to cast level 15 Hydra on striking",
                 "Index": 1
             },
             {
@@ -13426,7 +13426,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "10 to Energy",
+                "PropertyString": "+10 to Energy",
                 "Index": 0
             },
             {
@@ -13434,7 +13434,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Regenerate Mana 75%",
+                "PropertyString": "Regenerate Mana +75%",
                 "Index": 2
             },
             {
@@ -13528,11 +13528,11 @@
         "Code": "Eclipse",
         "Properties": [
             {
-                "PropertyString": "8% Chance to cast level 5 amplify damage on striking",
+                "PropertyString": "8% Chance to cast level 5 Amplify Damage on striking",
                 "Index": 0
             },
             {
-                "PropertyString": "+1 to Critical Strike",
+                "PropertyString": "+1 to Melee Mastery",
                 "Index": 1
             },
             {
@@ -13560,7 +13560,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal",
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 0
             },
             {
@@ -13634,7 +13634,7 @@
         "Code": "Siren's Song",
         "Properties": [
             {
-                "PropertyString": "44% Chance to cast level 3 confuse when struck",
+                "PropertyString": "44% Chance to cast level 3 Confuse when struck",
                 "Index": 5
             },
             {
@@ -13754,15 +13754,15 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+20 % bonus to Attack Rating",
+                "PropertyString": "+20% bonus to Attack Rating",
                 "Index": 0
             },
             {
-                "PropertyString": "+10 Mana stolen per hit",
+                "PropertyString": "+10% Mana stolen per hit",
                 "Index": 3
             },
             {
-                "PropertyString": "+10 Life stolen per hit",
+                "PropertyString": "+10% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -13828,7 +13828,7 @@
         "Code": "Wind",
         "Properties": [
             {
-                "PropertyString": "10% Chance to cast level 9 tornado on striking",
+                "PropertyString": "10% Chance to cast level 9 Tornado on striking",
                 "Index": 4
             },
             {
@@ -13964,11 +13964,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+3 to Wearbear",
+                "PropertyString": "+3 to Werebear",
                 "Index": 5
             },
             {
-                "PropertyString": "+3 to Shape Shifting",
+                "PropertyString": "+3 to Lycanthropy",
                 "Index": 6
             },
             {
@@ -13988,15 +13988,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal",
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 0
             },
             {
-                "PropertyString": "25-40 to Strength",
+                "PropertyString": "+25-40 to Strength",
                 "Index": 3
             },
             {
-                "PropertyString": "10 to Energy",
+                "PropertyString": "+10 to Energy",
                 "Index": 0
             },
             {
@@ -14156,7 +14156,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+8 Life stolen per hit",
+                "PropertyString": "+8% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -14164,7 +14164,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "20 to Strength",
+                "PropertyString": "+20 to Strength",
                 "Index": 6
             },
             {
@@ -14256,7 +14256,7 @@
         "Code": "Eternity",
         "Properties": [
             {
-                "PropertyString": "+1 Indestructible",
+                "PropertyString": "Indestructible",
                 "Index": 1
             },
             {
@@ -14264,7 +14264,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Slows target by 33",
+                "PropertyString": "Slows target by 33%",
                 "Index": 2
             },
             {
@@ -14276,7 +14276,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Regenerate Mana 16%",
+                "PropertyString": "Regenerate Mana +16%",
                 "Index": 5
             },
             {
@@ -14288,7 +14288,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Cannot Be Frozen",
+                "PropertyString": "Cannot Be Frozen",
                 "Index": 6
             },
             {
@@ -14371,7 +14371,7 @@
         "Code": "Infinity",
         "Properties": [
             {
-                "PropertyString": "50% Chance to cast level 20 chain lightning when you Kill an Enemy",
+                "PropertyString": "50% Chance to cast level 20 Chain Lightning when you Kill an Enemy",
                 "Index": 4
             },
             {
@@ -14395,7 +14395,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal",
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 0
             },
             {
@@ -14610,7 +14610,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "40 to Dexterity",
+                "PropertyString": "+40 to Dexterity",
                 "Index": 2
             },
             {
@@ -14785,11 +14785,11 @@
         "Code": "Wrath",
         "Properties": [
             {
-                "PropertyString": "5% Chance to cast level 10 life tap on striking",
+                "PropertyString": "5% Chance to cast level 10 Life Tap on striking",
                 "Index": 4
             },
             {
-                "PropertyString": "30% Chance to cast level 1 decrepify on striking",
+                "PropertyString": "30% Chance to cast level 1 Decrepify on striking",
                 "Index": 5
             },
             {
@@ -14801,7 +14801,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 85-120 Adds 85-120 magic damage",
+                "PropertyString": "Adds 85-120 to Magic Damage",
                 "Index": 3
             },
             {
@@ -14813,7 +14813,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Energy",
+                "PropertyString": "+10 to Energy",
                 "Index": 0
             },
             {
@@ -14825,7 +14825,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Cannot Be Frozen",
+                "PropertyString": "Cannot Be Frozen",
                 "Index": 6
             }
         ],
@@ -14891,11 +14891,11 @@
         "Code": "Brand",
         "Properties": [
             {
-                "PropertyString": "35% Chance to cast level 14 amplify damage when struck",
+                "PropertyString": "35% Chance to cast level 14 Amplify Damage when struck",
                 "Index": 0
             },
             {
-                "PropertyString": "100% Chance to cast level 18 bone spear on striking",
+                "PropertyString": "100% Chance to cast level 18 Bone Spear on striking",
                 "Index": 1
             },
             {
@@ -14911,7 +14911,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+1 Knockback",
+                "PropertyString": "Knockback",
                 "Index": 5
             },
             {
@@ -14995,7 +14995,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+1 Ignore Target's Defense",
+                "PropertyString": "Ignore Target's Defense",
                 "Index": 0
             },
             {
@@ -15003,7 +15003,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Strength",
+                "PropertyString": "+10 to Strength",
                 "Index": 0
             },
             {
@@ -15015,7 +15015,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Regenerate Mana 50%",
+                "PropertyString": "Regenerate Mana +50%",
                 "Index": 1
             },
             {
@@ -15100,19 +15100,19 @@
         "Code": "Destruction",
         "Properties": [
             {
-                "PropertyString": "23% Chance to cast level 12 volcano on striking",
+                "PropertyString": "23% Chance to cast level 12 Volcano on striking",
                 "Index": 0
             },
             {
-                "PropertyString": "5% Chance to cast level 23 molten boulder on striking",
+                "PropertyString": "5% Chance to cast level 23 Molten Boulder on striking",
                 "Index": 1
             },
             {
-                "PropertyString": "100% Chance to cast level 45 meteor when you Die",
+                "PropertyString": "100% Chance to cast level 45 Meteor when you Die",
                 "Index": 2
             },
             {
-                "PropertyString": "15% Chance to cast level 22 nova on attack",
+                "PropertyString": "15% Chance to cast level 22 Nova on attack",
                 "Index": 3
             },
             {
@@ -15120,15 +15120,15 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+1 Ignore Target's Defense",
+                "PropertyString": "Ignore Target's Defense",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 100-180 Adds 100-180 magic damage",
+                "PropertyString": "Adds 100-180 to Magic Damage",
                 "Index": 5
             },
             {
-                "PropertyString": "+7 Mana stolen per hit",
+                "PropertyString": "+7% Mana stolen per hit",
                 "Index": 0
             },
             {
@@ -15140,7 +15140,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Dexterity",
+                "PropertyString": "+10 to Dexterity",
                 "Index": 0
             }
         ],
@@ -15201,7 +15201,7 @@
         "Code": "Dream",
         "Properties": [
             {
-                "PropertyString": "10% Chance to cast level 15 confuse when struck",
+                "PropertyString": "10% Chance to cast level 15 Confuse when struck",
                 "Index": 0
             },
             {
@@ -15229,6 +15229,10 @@
                 "Index": 6
             },
             {
+                "PropertyString": "+10 to Vitality (Armor)",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+30% Enhanced Defense (Armor)",
                 "Index": 0
             },
@@ -15237,7 +15241,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Vitality (Armor)",
+                "PropertyString": "+10 to Vitality (Shield)",
                 "Index": 0
             },
             {
@@ -15246,10 +15250,6 @@
             },
             {
                 "PropertyString": "+50 to Life (Shield)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "10 to Vitality (Shield)",
                 "Index": 0
             }
         ],
@@ -15419,7 +15419,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+300 % bonus to Attack Rating",
+                "PropertyString": "+300% bonus to Attack Rating",
                 "Index": 1
             },
             {
@@ -15536,11 +15536,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Ignore Target's Defense",
+                "PropertyString": "Ignore Target's Defense",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 180-200 Adds 180-200 magic damage",
+                "PropertyString": "Adds 180-200 to Magic Damage",
                 "Index": 4
             },
             {
@@ -15552,15 +15552,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+12 Life stolen per hit",
+                "PropertyString": "+12% Life stolen per hit",
                 "Index": 1
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal",
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 3
             },
             {
-                "PropertyString": "10 to Strength",
+                "PropertyString": "+10 to Strength",
                 "Index": 0
             },
             {
@@ -15628,7 +15628,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+6 Life stolen per hit",
+                "PropertyString": "+6% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -15640,7 +15640,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal",
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 2
             },
             {
@@ -15652,7 +15652,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Regenerate Mana 15%",
+                "PropertyString": "Regenerate Mana +15%",
                 "Index": 0
             },
             {
@@ -15722,11 +15722,11 @@
         "Code": "Ice",
         "Properties": [
             {
-                "PropertyString": "100% Chance to cast level 40 blizzard when you Level-Up",
+                "PropertyString": "100% Chance to cast level 40 Blizzard when you Level-Up",
                 "Index": 0
             },
             {
-                "PropertyString": "25% Chance to cast level 22 frost nova on striking",
+                "PropertyString": "25% Chance to cast level 22 Frost Nova on striking",
                 "Index": 1
             },
             {
@@ -15833,11 +15833,11 @@
         "Code": "Phoenix",
         "Properties": [
             {
-                "PropertyString": "100% Chance to cast level 40 blaze when you Level-Up",
+                "PropertyString": "100% Chance to cast level 40 Blaze when you Level-Up",
                 "Index": 0
             },
             {
-                "PropertyString": "40% Chance to cast level 22 firestorm on striking",
+                "PropertyString": "40% Chance to cast level 22 Firestorm on striking",
                 "Index": 1
             },
             {
@@ -15861,19 +15861,19 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+1 Ignore Target's Defense (Weapon)",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+20% Deadly Strike (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Mana stolen per hit (Weapon)",
+                "PropertyString": "+7% Mana stolen per hit (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Mana stolen per hit (Weapon)",
+                "PropertyString": "+7% Mana stolen per hit (Weapon)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Ignore Target's Defense (Weapon)",
                 "Index": 0
             },
             {
@@ -15979,11 +15979,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "50 to Strength",
+                "PropertyString": "+50 to Strength",
                 "Index": 6
             },
             {
-                "PropertyString": "10 to Dexterity",
+                "PropertyString": "+10 to Dexterity",
                 "Index": 0
             },
             {
@@ -16063,7 +16063,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+50 % bonus to Attack Rating",
+                "PropertyString": "+50% bonus to Attack Rating",
                 "Index": 2
             },
             {
@@ -16071,7 +16071,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "10 to Strength",
+                "PropertyString": "+10 to Strength",
                 "Index": 0
             },
             {
@@ -16159,7 +16159,7 @@
         "Code": "Storm",
         "Properties": [
             {
-                "PropertyString": "16% Chance to cast level 21 lightning on striking",
+                "PropertyString": "16% Chance to cast level 21 Lightning on striking",
                 "Index": 2
             },
             {
@@ -16175,7 +16175,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Ignore Target's Defense",
+                "PropertyString": "Ignore Target's Defense",
                 "Index": 0
             },
             {
@@ -16187,7 +16187,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Knockback",
+                "PropertyString": "Knockback",
                 "Index": 0
             },
             {
@@ -16195,11 +16195,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+25 % Lightning Absorb",
+                "PropertyString": "+25% Lightning Absorb",
                 "Index": 5
             },
             {
-                "PropertyString": "3 to Experience Gained",
+                "PropertyString": "+3% to Experience Gained",
                 "Index": 6
             }
         ],
@@ -16250,7 +16250,7 @@
         "Code": "Time",
         "Properties": [
             {
-                "PropertyString": "100% Chance to cast level 25 nova when struck",
+                "PropertyString": "100% Chance to cast level 25 Nova when struck",
                 "Index": 4
             },
             {
@@ -16258,7 +16258,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal",
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 5
             },
             {
@@ -16376,11 +16376,11 @@
         "Code": "Armageddon",
         "Properties": [
             {
-                "PropertyString": "40% Chance to cast level 20 blizzard on striking",
+                "PropertyString": "40% Chance to cast level 20 Blizzard on striking",
                 "Index": 3
             },
             {
-                "PropertyString": "40% Chance to cast level 20 chain lightning when struck",
+                "PropertyString": "40% Chance to cast level 20 Chain Lightning when struck",
                 "Index": 4
             },
             {
@@ -16500,7 +16500,7 @@
         "Code": "Broken Promise",
         "Properties": [
             {
-                "PropertyString": "18% Chance to cast level 18 bone spirit on striking",
+                "PropertyString": "18% Chance to cast level 18 Bone Spirit on striking",
                 "Index": 4
             },
             {
@@ -16520,11 +16520,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+7 Mana stolen per hit",
+                "PropertyString": "+7% Mana stolen per hit",
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Life stolen per hit",
+                "PropertyString": "+7% Life stolen per hit",
                 "Index": 0
             },
             {
@@ -16540,7 +16540,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "-5 to Experience Gained",
+                "PropertyString": "-5% to Experience Gained",
                 "Index": 3
             },
             {
@@ -16620,7 +16620,7 @@
         "Code": "Doom",
         "Properties": [
             {
-                "PropertyString": "5% Chance to cast level 18 cyclone armor when struck",
+                "PropertyString": "5% Chance to cast level 18 Cyclone Armor when struck",
                 "Index": 6
             },
             {
@@ -16760,7 +16760,7 @@
         "Code": "Doom",
         "Properties": [
             {
-                "PropertyString": "5% Chance to cast level 18 volcano on striking",
+                "PropertyString": "5% Chance to cast level 18 Volcano on striking",
                 "Index": 6
             },
             {
@@ -16792,7 +16792,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal",
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 3
             },
             {
@@ -16876,11 +16876,11 @@
         "Code": "Elation",
         "Properties": [
             {
-                "PropertyString": "100% Chance to cast level 8 nova on striking",
+                "PropertyString": "100% Chance to cast level 8 Nova on striking",
                 "Index": 2
             },
             {
-                "PropertyString": "100% Chance to cast level 60 nova when you Die",
+                "PropertyString": "100% Chance to cast level 60 Nova when you Die",
                 "Index": 4
             },
             {
@@ -16900,7 +16900,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Mana stolen per hit",
+                "PropertyString": "+7% Mana stolen per hit",
                 "Index": 0
             },
             {
@@ -16912,7 +16912,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal",
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 3
             },
             {
@@ -16920,7 +16920,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Knockback",
+                "PropertyString": "Knockback",
                 "Index": 0
             }
         ],
@@ -16986,11 +16986,11 @@
         "Code": "Hand of Justice",
         "Properties": [
             {
-                "PropertyString": "100% Chance to cast level 36 blaze when you Level-Up",
+                "PropertyString": "100% Chance to cast level 36 Blaze when you Level-Up",
                 "Index": 3
             },
             {
-                "PropertyString": "100% Chance to cast level 48 meteor when you Die",
+                "PropertyString": "100% Chance to cast level 48 Meteor when you Die",
                 "Index": 4
             },
             {
@@ -17006,7 +17006,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+1 Ignore Target's Defense",
+                "PropertyString": "Ignore Target's Defense",
                 "Index": 5
             },
             {
@@ -17014,7 +17014,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+7 Life stolen per hit",
+                "PropertyString": "+7% Life stolen per hit",
                 "Index": 0
             },
             {
@@ -17132,15 +17132,15 @@
         "Code": "Last Wish",
         "Properties": [
             {
-                "PropertyString": "6% Chance to cast level 11 fade when struck",
+                "PropertyString": "6% Chance to cast level 11 Fade when struck",
                 "Index": 0
             },
             {
-                "PropertyString": "10% Chance to cast level 18 life tap on striking",
+                "PropertyString": "10% Chance to cast level 18 Life Tap on striking",
                 "Index": 1
             },
             {
-                "PropertyString": "20% Chance to cast level 20 charged bolt on attack",
+                "PropertyString": "20% Chance to cast level 20 Charged Bolt on attack",
                 "Index": 2
             },
             {
@@ -17160,7 +17160,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+2 Ignore Target's Defense",
+                "PropertyString": "Ignore Target's Defense",
                 "Index": 0
             },
             {
@@ -17168,7 +17168,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal",
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 0
             },
             {
@@ -17232,11 +17232,11 @@
         "Code": "Metamorphosis",
         "Properties": [
             {
-                "PropertyString": "100% Chance to cast level 1 mark of the bear on striking",
+                "PropertyString": "100% Chance to cast level 1 Mark Of The Bear on striking",
                 "Index": 0
             },
             {
-                "PropertyString": "100% Chance to cast level 1 mark of the wolf on striking",
+                "PropertyString": "100% Chance to cast level 1 Mark Of The Wolf on striking",
                 "Index": 1
             },
             {
@@ -17252,11 +17252,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "10 to Strength",
+                "PropertyString": "+10 to Strength",
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Vitality",
+                "PropertyString": "+10 to Vitality",
                 "Index": 0
             },
             {
@@ -17264,7 +17264,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+1 Cannot Be Frozen",
+                "PropertyString": "Cannot Be Frozen",
                 "Index": 0
             }
         ],
@@ -17356,11 +17356,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+100 Piercing Attack",
+                "PropertyString": "+100% Piercing Attack",
                 "Index": 3
             },
             {
-                "PropertyString": "24 to Vitality",
+                "PropertyString": "+24 to Vitality",
                 "Index": 4
             },
             {
@@ -17376,7 +17376,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+1 Cannot Be Frozen",
+                "PropertyString": "Cannot Be Frozen",
                 "Index": 0
             },
             {
@@ -17446,7 +17446,7 @@
         "Code": "Qual-Kehk's Oath",
         "Properties": [
             {
-                "PropertyString": "9% Chance to cast level 8 decrepify on striking",
+                "PropertyString": "9% Chance to cast level 8 Decrepify on striking",
                 "Index": 5
             },
             {
@@ -17466,7 +17466,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "10 to Strength",
+                "PropertyString": "+10 to Strength",
                 "Index": 0
             },
             {
@@ -17478,7 +17478,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Cannot Be Frozen",
+                "PropertyString": "Cannot Be Frozen",
                 "Index": 0
             },
             {
@@ -17596,7 +17596,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 Cannot Be Frozen",
+                "PropertyString": "Cannot Be Frozen",
                 "Index": 0
             },
             {
@@ -17670,11 +17670,11 @@
         "Code": "Plague",
         "Properties": [
             {
-                "PropertyString": "20% Chance to cast level 12 lower resist when struck",
+                "PropertyString": "20% Chance to cast level 12 Lower Resist when struck",
                 "Index": 1
             },
             {
-                "PropertyString": "25% Chance to cast level 15 poison nova on striking",
+                "PropertyString": "25% Chance to cast level 15 Poison Nova on striking",
                 "Index": 2
             },
             {
@@ -17777,7 +17777,7 @@
         "Code": "Pride",
         "Properties": [
             {
-                "PropertyString": "25% Chance to cast level 17 fire wall when struck",
+                "PropertyString": "25% Chance to cast level 17 Fire Wall when struck",
                 "Index": 4
             },
             {
@@ -17785,7 +17785,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+260-300 % bonus to Attack Rating",
+                "PropertyString": "+260-300% bonus to Attack Rating",
                 "Index": 2
             },
             {
@@ -17809,7 +17809,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Vitality",
+                "PropertyString": "+10 to Vitality",
                 "Index": 0
             },
             {
@@ -17905,7 +17905,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Cannot Be Frozen",
+                "PropertyString": "Cannot Be Frozen",
                 "Index": 0
             }
         ],
@@ -17991,7 +17991,7 @@
         "Code": "Valor",
         "Properties": [
             {
-                "PropertyString": "+1 Indestructible",
+                "PropertyString": "Indestructible",
                 "Index": 4
             },
             {
@@ -18019,7 +18019,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Cannot Be Frozen",
+                "PropertyString": "Cannot Be Frozen",
                 "Index": 0
             },
             {
@@ -18027,7 +18027,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "5 to Experience Gained",
+                "PropertyString": "+5% to Experience Gained",
                 "Index": 5
             },
             {
@@ -18085,7 +18085,7 @@
         "Code": "Wings of Hope",
         "Properties": [
             {
-                "PropertyString": "25% Chance to cast level 35 bone spear on striking",
+                "PropertyString": "25% Chance to cast level 35 Bone Spear on striking",
                 "Index": 4
             },
             {
@@ -18169,15 +18169,15 @@
         "Code": "Woe",
         "Properties": [
             {
-                "PropertyString": "25% Chance to cast level 25 chain lightning when struck",
+                "PropertyString": "25% Chance to cast level 25 Chain Lightning when struck",
                 "Index": 1
             },
             {
-                "PropertyString": "25% Chance to cast level 25 fire ball when struck",
+                "PropertyString": "25% Chance to cast level 25 Fire Ball when struck",
                 "Index": 2
             },
             {
-                "PropertyString": "25% Chance to cast level 25 blizzard when struck",
+                "PropertyString": "25% Chance to cast level 25 Blizzard when struck",
                 "Index": 3
             },
             {
@@ -18193,7 +18193,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+1 Cannot Be Frozen",
+                "PropertyString": "Cannot Be Frozen",
                 "Index": 0
             },
             {
@@ -18261,11 +18261,11 @@
         "Code": "Authority",
         "Properties": [
             {
-                "PropertyString": "16% Chance to cast level 9 weaken on striking",
+                "PropertyString": "16% Chance to cast level 9 Weaken on striking",
                 "Index": 4
             },
             {
-                "PropertyString": "+1 Indestructible",
+                "PropertyString": "Indestructible",
                 "Index": 0
             },
             {
@@ -18277,7 +18277,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Slows target by 20",
+                "PropertyString": "Slows target by 20%",
                 "Index": 5
             },
             {
@@ -18289,7 +18289,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Cannot Be Frozen",
+                "PropertyString": "Cannot Be Frozen",
                 "Index": 0
             },
             {
@@ -18383,7 +18383,7 @@
         "Code": "Breath of the Dying",
         "Properties": [
             {
-                "PropertyString": "+1 Indestructible",
+                "PropertyString": "Indestructible",
                 "Index": 0
             },
             {
@@ -18411,15 +18411,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Mana stolen per hit",
+                "PropertyString": "+7% Mana stolen per hit",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 12-15 Life stolen per hit",
+                "PropertyString": "Adds 12-15% Life stolen per hit",
                 "Index": 2
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal",
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 3
             },
             {
@@ -18487,7 +18487,7 @@
         "Code": "Darkness",
         "Properties": [
             {
-                "PropertyString": "+1 Indestructible",
+                "PropertyString": "Indestructible",
                 "Index": 0
             },
             {
@@ -18499,11 +18499,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+7 Mana stolen per hit",
+                "PropertyString": "+7% Mana stolen per hit",
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Life stolen per hit",
+                "PropertyString": "+7% Life stolen per hit",
                 "Index": 0
             },
             {
@@ -18585,7 +18585,7 @@
         "Code": "Humility",
         "Properties": [
             {
-                "PropertyString": "+1 Indestructible",
+                "PropertyString": "Indestructible",
                 "Index": 0
             },
             {
@@ -18617,7 +18617,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Cannot Be Frozen",
+                "PropertyString": "Cannot Be Frozen",
                 "Index": 0
             },
             {
@@ -18711,11 +18711,11 @@
         "Code": "Morning Dew",
         "Properties": [
             {
-                "PropertyString": "100% Chance to cast level 20 static field when you Kill an Enemy",
+                "PropertyString": "100% Chance to cast level 20 Static Field when you Kill an Enemy",
                 "Index": 5
             },
             {
-                "PropertyString": "+1 Indestructible",
+                "PropertyString": "Indestructible",
                 "Index": 0
             },
             {
@@ -18743,7 +18743,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Prevent Monster Heal",
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 0
             },
             {
@@ -18815,7 +18815,7 @@
         "Code": "Mystery",
         "Properties": [
             {
-                "PropertyString": "+1 Indestructible",
+                "PropertyString": "Indestructible",
                 "Index": 0
             },
             {
@@ -18851,7 +18851,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "3 to Experience Gained",
+                "PropertyString": "+3% to Experience Gained",
                 "Index": 6
             }
         ],
@@ -18937,11 +18937,11 @@
         "Code": "Obsession",
         "Properties": [
             {
-                "PropertyString": "24% Chance to cast level 10 weaken when struck",
+                "PropertyString": "24% Chance to cast level 10 Weaken when struck",
                 "Index": 1
             },
             {
-                "PropertyString": "+1 Indestructible",
+                "PropertyString": "Indestructible",
                 "Index": 0
             },
             {
@@ -18957,15 +18957,15 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1 Knockback",
+                "PropertyString": "Knockback",
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Vitality",
+                "PropertyString": "+10 to Vitality",
                 "Index": 0
             },
             {
-                "PropertyString": "10 to Energy",
+                "PropertyString": "+10 to Energy",
                 "Index": 0
             },
             {
@@ -18973,7 +18973,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Regenerate Mana 15%",
+                "PropertyString": "Regenerate Mana +15%",
                 "Index": 6
             },
             {
@@ -19051,15 +19051,15 @@
         "Code": "Purity",
         "Properties": [
             {
-                "PropertyString": "10% Chance to cast level 19 bone armor when struck",
+                "PropertyString": "10% Chance to cast level 19 Bone Armor when struck",
                 "Index": 4
             },
             {
-                "PropertyString": "35% Chance to cast level 8 dim vision on striking",
+                "PropertyString": "35% Chance to cast level 8 Dim Vision on striking",
                 "Index": 5
             },
             {
-                "PropertyString": "+1 Indestructible",
+                "PropertyString": "Indestructible",
                 "Index": 0
             },
             {
@@ -19157,7 +19157,7 @@
         "Code": "Reason",
         "Properties": [
             {
-                "PropertyString": "+1 Indestructible",
+                "PropertyString": "Indestructible",
                 "Index": 0
             },
             {
@@ -19177,7 +19177,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "20 to Energy",
+                "PropertyString": "+20 to Energy",
                 "Index": 0
             },
             {
@@ -19189,7 +19189,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "3 to Experience Gained",
+                "PropertyString": "+3% to Experience Gained",
                 "Index": 3
             },
             {
@@ -19297,10 +19297,6 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+1 Indestructible (Weapon)",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+1 to Light Radius (Weapon)",
                 "Index": 0
             },
@@ -19313,11 +19309,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Requirements -20% (Weapon)",
+                "PropertyString": "Indestructible (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Indestructible (Armor)",
+                "PropertyString": "Requirements -20% (Weapon)",
                 "Index": 0
             },
             {
@@ -19333,11 +19329,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements -15% (Armor)",
+                "PropertyString": "Indestructible (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Indestructible (Shield)",
+                "PropertyString": "Requirements -15% (Armor)",
                 "Index": 0
             },
             {
@@ -19350,6 +19346,10 @@
             },
             {
                 "PropertyString": "+25% better chance of getting magic item (Shield)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Indestructible (Shield)",
                 "Index": 0
             },
             {
