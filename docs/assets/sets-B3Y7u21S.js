@@ -1,4 +1,4 @@
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-CgTtr8GI.js";
+import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-CoxH4GvI.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
 const name = "sets";
 const template = '<template>\n    <h3 class="text-center my-4">\n        ${sets.length} Sets Found\n    </h3>\n    <div class="container">\n        <div class="row align-content-center justify-content-center text-center mb-5">\n            <div class="col-12 col-sm-6">\n                <div class="au-select mb-2">\n                    <moo-select\n                            class="w-100"\n                            label="Select Class"\n                            options.bind="classes"\n                            class="standard-betsy-select"\n                            value.bind="class"\n                    ></moo-select>\n                </div>\n            </div>\n            <div class="col-12 col-sm-6">\n                <moo-text-field\n                        class="w-100"\n                        label="Search Sets"\n                        type="text"\n                        value.bind="search"\n                ></moo-text-field>\n            </div>\n        </div>\n    </div>\n\n    <div class="row gy-5 px-5 text-center">\n        <div class="col-12 col-md-6 col-xxl-4" repeat.for="set of sets">\n            <div class="card bg-dark p-2">\n                <div class="set-text fs-5 mb-1">\n                    ${set.Name}\n                </div>\n\n                <div class="partial-sets set-text" repeat.for="partial of set.PartialProperties">\n                    ${partial.PropertyString} (${$index + 2} Items)\n                </div>\n\n                <div class="partial-sets set-text" repeat.for="full of set.FullProperties">\n                    ${full.PropertyString} (Full Set)\n                </div>\n\n                <div class="my-3" repeat.for="setItem of set.SetItems">\n                    <div class="set-text mb-1">\n                        ${setItem.Name}\n                    </div>\n\n                    <div class="armor mb-1" if.bind="setItem.Equipment.Name">\n                        ${setItem.Equipment.Name}\n                    </div>\n\n                    <div class="armor mt-1" if.bind="setItem.Equipment.ArmorString">\n                        Armor: ${setItem.Equipment.ArmorString}\n                    </div>\n\n                    <div class="damage" if.bind="setItem.Equipment.DamageTypes"\n                         repeat.for="damage of setItem.Equipment.DamageTypes">\n                        ${getDamageTypeString(damage.Type)} ${damage.DamageString}\n                    </div>\n\n                    <div class="requirement" if.bind="setItem.RequiredLevel > 0">\n                        Level ${setItem.RequiredLevel} Required\n                    </div>\n\n                    <div class="requirement" if.bind="setItem.Equipment.RequiredStrength > 0">\n                        ${setItem.Equipment.RequiredStrength} Strength Required\n                    </div>\n\n                    <div class="requirement" if.bind="setItem.Equipment.RequiredDexterity > 0">\n                        ${setItem.Equipment.RequiredDexterity} Dexterity Required\n                    </div>\n\n                    <div class="durability mt-1" if.bind="setItem.Equipment.Durability > 0">\n                        ${setItem.Equipment.Durability} Durability\n                    </div>\n\n                    <div class="enhanced" repeat.for="property of setItem.Properties">\n                        ${property.PropertyString}\n                    </div>\n\n                    <div class="set-text" repeat.for="setProperty of setItem.SetPropertiesString">\n                        ${setProperty}\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</template>\n';
@@ -35,6 +35,7 @@ const json = [
         Name: "Civerb's Ward",
         Index: "Civerb's Ward",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 13,
         RequiredLevel: 9,
         Code: "lrg",
@@ -77,6 +78,7 @@ const json = [
         Name: "Civerb's Icon",
         Index: "Civerb's Icon",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 13,
         RequiredLevel: 9,
         Code: "amu",
@@ -86,7 +88,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "Regenerate Mana 40%",
+            PropertyString: "Regenerate Mana +40%",
             Index: 0
           }
         ],
@@ -113,6 +115,7 @@ const json = [
         Name: "Civerb's Cudgel",
         Index: "Civerb's Cudgel",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 13,
         RequiredLevel: 9,
         Code: "gsc",
@@ -161,7 +164,7 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "+25 % bonus to Attack Rating",
+        PropertyString: "+25% bonus to Attack Rating",
         Index: 3
       },
       {
@@ -173,7 +176,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "15 to Strength",
+        PropertyString: "+15 to Strength",
         Index: 0
       },
       {
@@ -196,6 +199,7 @@ const json = [
         Name: "Hsarus' Iron Heel",
         Index: "Hsarus' Iron Heel",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 4,
         RequiredLevel: 3,
         Code: "mbt",
@@ -237,12 +241,13 @@ const json = [
         Name: "Hsarus' Iron Fist",
         Index: "Hsarus' Iron Fist",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 4,
         RequiredLevel: 3,
         Code: "buc",
         Properties: [
           {
-            PropertyString: "10 to Strength",
+            PropertyString: "+10 to Strength",
             Index: 1
           },
           {
@@ -278,6 +283,7 @@ const json = [
         Name: "Hsarus' Iron Stay",
         Index: "Hsarus' Iron Stay",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 4,
         RequiredLevel: 3,
         Code: "mbl",
@@ -327,7 +333,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+1 Cannot Be Frozen",
+        PropertyString: "Cannot Be Frozen",
         Index: 1
       }
     ],
@@ -346,12 +352,13 @@ const json = [
         Name: "Cleglaw's Tooth",
         Index: "Cleglaw's Tooth",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 6,
         RequiredLevel: 4,
         Code: "lsd",
         Properties: [
           {
-            PropertyString: "+30 % bonus to Attack Rating",
+            PropertyString: "+30% bonus to Attack Rating",
             Index: 0
           },
           {
@@ -390,6 +397,7 @@ const json = [
         Name: "Cleglaw's Claw",
         Index: "Cleglaw's Claw",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 6,
         RequiredLevel: 4,
         Code: "sml",
@@ -399,7 +407,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+75 Poison Length Reduced by",
+            PropertyString: "Poison Length Reduced by 75%",
             Index: 1
           }
         ],
@@ -431,16 +439,17 @@ const json = [
         Name: "Cleglaw's Pincers",
         Index: "Cleglaw's Pincers",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 6,
         RequiredLevel: 4,
         Code: "mgl",
         Properties: [
           {
-            PropertyString: "Slows target by 25",
+            PropertyString: "Slows target by 25%",
             Index: 1
           },
           {
-            PropertyString: "+1 Knockback",
+            PropertyString: "Knockback",
             Index: 0
           }
         ],
@@ -476,7 +485,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "+6 Mana stolen per hit",
+        PropertyString: "+6% Mana stolen per hit",
         Index: 1
       },
       {
@@ -503,6 +512,7 @@ const json = [
         Name: "Iratha's Collar",
         Index: "Iratha's Collar",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 21,
         RequiredLevel: 15,
         Code: "amu",
@@ -512,7 +522,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+75 Poison Length Reduced by",
+            PropertyString: "Poison Length Reduced by 75%",
             Index: 1
           }
         ],
@@ -541,6 +551,7 @@ const json = [
         Name: "Iratha's Cuff",
         Index: "Iratha's Cuff",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 21,
         RequiredLevel: 15,
         Code: "tgl",
@@ -550,7 +561,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+1 Half Freeze Duration",
+            PropertyString: "Half Freeze Duration",
             Index: 1
           }
         ],
@@ -582,6 +593,7 @@ const json = [
         Name: "Iratha's Coil",
         Index: "Iratha's Coil",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 21,
         RequiredLevel: 15,
         Code: "crn",
@@ -618,11 +630,12 @@ const json = [
         Type: "Belt",
         "Set": "Iratha's Finery",
         SetPropertiesString: [
-          "10 to Dexterity (2 Items)"
+          "+10 to Dexterity (2 Items)"
         ],
         Name: "Iratha's Cord",
         Index: "Iratha's Cord",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 21,
         RequiredLevel: 15,
         Code: "tbl",
@@ -666,13 +679,13 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+24 Piercing Attack",
+        PropertyString: "+24% Piercing Attack",
         Index: 3
       }
     ],
     FullProperties: [
       {
-        PropertyString: "15 to Dexterity",
+        PropertyString: "+15 to Dexterity",
         Index: 5
       },
       {
@@ -711,6 +724,7 @@ const json = [
         Name: "Isenhart's Lightbrand",
         Index: "Isenhart's Lightbrand",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 11,
         RequiredLevel: 8,
         Code: "bsd",
@@ -755,6 +769,7 @@ const json = [
         Name: "Isenhart's Parry",
         Index: "Isenhart's Parry",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 11,
         RequiredLevel: 8,
         Code: "gts",
@@ -796,6 +811,7 @@ const json = [
         Name: "Isenhart's Case",
         Index: "Isenhart's Case",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 11,
         RequiredLevel: 8,
         Code: "brs",
@@ -837,12 +853,13 @@ const json = [
         Name: "Isenhart's Horns",
         Index: "Isenhart's Horns",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 11,
         RequiredLevel: 8,
         Code: "fhl",
         Properties: [
           {
-            PropertyString: "6 to Dexterity",
+            PropertyString: "+6 to Dexterity",
             Index: 0
           },
           {
@@ -872,11 +889,11 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "10 to Strength",
+        PropertyString: "+10 to Strength",
         Index: 0
       },
       {
-        PropertyString: "10 to Dexterity",
+        PropertyString: "+10 to Dexterity",
         Index: 2
       }
     ],
@@ -890,11 +907,11 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "+35 % bonus to Attack Rating",
+        PropertyString: "+35% bonus to Attack Rating",
         Index: 2
       },
       {
-        PropertyString: "+5 Life stolen per hit",
+        PropertyString: "+5% Life stolen per hit",
         Index: 0
       },
       {
@@ -917,6 +934,7 @@ const json = [
         Name: "Vidala's Barb",
         Index: "Vidala's Barb",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 19,
         RequiredLevel: 14,
         Code: "lbb",
@@ -957,6 +975,7 @@ const json = [
         Name: "Vidala's Fetlock",
         Index: "Vidala's Fetlock",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 19,
         RequiredLevel: 14,
         Code: "tbt",
@@ -995,6 +1014,7 @@ const json = [
         Name: "Vidala's Ambush",
         Index: "Vidala's Ambush",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 19,
         RequiredLevel: 14,
         Code: "lea",
@@ -1004,7 +1024,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "11 to Dexterity",
+            PropertyString: "+11 to Dexterity",
             Index: 1
           }
         ],
@@ -1036,6 +1056,7 @@ const json = [
         Name: "Vidala's Snare",
         Index: "Vidala's Snare",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 19,
         RequiredLevel: 14,
         Code: "amu",
@@ -1072,17 +1093,17 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+7 Mana stolen per hit",
+        PropertyString: "+7% Mana stolen per hit",
         Index: 1
       },
       {
-        PropertyString: "15 to Dexterity",
+        PropertyString: "+15 to Dexterity",
         Index: 2
       }
     ],
     FullProperties: [
       {
-        PropertyString: "+50 Piercing Attack",
+        PropertyString: "+50% Piercing Attack",
         Index: 2
       },
       {
@@ -1094,7 +1115,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "10 to Strength",
+        PropertyString: "+10 to Strength",
         Index: 3
       }
     ],
@@ -1114,6 +1135,7 @@ const json = [
         Name: "Milabrega's Orb",
         Index: "Milabrega's Orb",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 23,
         RequiredLevel: 17,
         Code: "kit",
@@ -1153,6 +1175,7 @@ const json = [
         Name: "Milabrega's Rod",
         Index: "Milabrega's Rod",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 23,
         RequiredLevel: 17,
         Code: "wsp",
@@ -1201,6 +1224,7 @@ const json = [
         Name: "Milabrega's Diadem",
         Index: "Milabrega's Diadem",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 23,
         RequiredLevel: 17,
         Code: "crn",
@@ -1242,6 +1266,7 @@ const json = [
         Name: "Milabrega's Robe",
         Index: "Milabrega's Robe",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 23,
         RequiredLevel: 17,
         Code: "aar",
@@ -1289,7 +1314,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+1 Cannot Be Frozen",
+        PropertyString: "Cannot Be Frozen",
         Index: 3
       }
     ],
@@ -1299,11 +1324,11 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "+10 Mana stolen per hit",
+        PropertyString: "+10% Mana stolen per hit",
         Index: 2
       },
       {
-        PropertyString: "+8 Life stolen per hit",
+        PropertyString: "+8% Life stolen per hit",
         Index: 0
       },
       {
@@ -1327,17 +1352,18 @@ const json = [
         Name: "Cathan's Rule",
         Index: "Cathan's Rule",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 15,
         RequiredLevel: 11,
         Code: "bst",
         Properties: [
           {
-            PropertyString: "+10 to Maximum Fire Damage",
-            Index: 1
-          },
-          {
             PropertyString: "+1 to Fire Skills",
             Index: 0
+          },
+          {
+            PropertyString: "+10 to Maximum Fire Damage",
+            Index: 1
           }
         ],
         DamageArmorEnhanced: false,
@@ -1372,6 +1398,7 @@ const json = [
         Name: "Cathan's Mesh",
         Index: "Cathan's Mesh",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 15,
         RequiredLevel: 11,
         Code: "chn",
@@ -1413,6 +1440,7 @@ const json = [
         Name: "Cathan's Visage",
         Index: "Cathan's Visage",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 15,
         RequiredLevel: 11,
         Code: "msk",
@@ -1455,6 +1483,7 @@ const json = [
         Name: "Cathan's Sigil",
         Index: "Cathan's Sigil",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 15,
         RequiredLevel: 11,
         Code: "amu",
@@ -1488,17 +1517,18 @@ const json = [
         Type: "Ring",
         "Set": "Cathan's Traps",
         SetPropertiesString: [
-          "10 to Strength (2 Items)"
+          "+10 to Strength (2 Items)"
         ],
         Name: "Cathan's Seal",
         Index: "Cathan's Seal",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 15,
         RequiredLevel: 11,
         Code: "rin",
         Properties: [
           {
-            PropertyString: "+6 Life stolen per hit",
+            PropertyString: "+6% Life stolen per hit",
             Index: 0
           },
           {
@@ -1529,7 +1559,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "Regenerate Mana 16%",
+        PropertyString: "Regenerate Mana +16%",
         Index: 1
       },
       {
@@ -1575,6 +1605,7 @@ const json = [
         Name: "Tancred's Crowbill",
         Index: "Tancred's Crowbill",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 27,
         RequiredLevel: 20,
         Code: "mpi",
@@ -1619,12 +1650,13 @@ const json = [
         Name: "Tancred's Spine",
         Index: "Tancred's Spine",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 27,
         RequiredLevel: 20,
         Code: "ful",
         Properties: [
           {
-            PropertyString: "15 to Strength",
+            PropertyString: "+15 to Strength",
             Index: 1
           },
           {
@@ -1656,17 +1688,18 @@ const json = [
         "Set": "Tancred's Battlegear",
         SetPropertiesString: [
           "+30% Faster Run/Walk (2 Items)",
-          "10 to Strength (3 Items)"
+          "+10 to Strength (3 Items)"
         ],
         Name: "Tancred's Hobnails",
         Index: "Tancred's Hobnails",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 27,
         RequiredLevel: 20,
         Code: "lbt",
         Properties: [
           {
-            PropertyString: "10 to Dexterity",
+            PropertyString: "+10 to Dexterity",
             Index: 1
           },
           {
@@ -1703,6 +1736,7 @@ const json = [
         Name: "Tancred's Weird",
         Index: "Tancred's Weird",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 27,
         RequiredLevel: 20,
         Code: "amu",
@@ -1741,6 +1775,7 @@ const json = [
         Name: "Tancred's Skull",
         Index: "Tancred's Skull",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 27,
         RequiredLevel: 20,
         Code: "bhm",
@@ -1780,17 +1815,17 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+5 Life stolen per hit",
+        PropertyString: "+5% Life stolen per hit",
         Index: 2
       }
     ],
     FullProperties: [
       {
-        PropertyString: "+5 Mana stolen per hit",
+        PropertyString: "+5% Mana stolen per hit",
         Index: 3
       },
       {
-        PropertyString: "Slows target by 35",
+        PropertyString: "Slows target by 35%",
         Index: 2
       },
       {
@@ -1817,6 +1852,7 @@ const json = [
         Name: "Sigon's Gage",
         Index: "Sigon's Gage",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 9,
         RequiredLevel: 6,
         Code: "hgl",
@@ -1826,7 +1862,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "10 to Strength",
+            PropertyString: "+10 to Strength",
             Index: 0
           }
         ],
@@ -1858,6 +1894,7 @@ const json = [
         Name: "Sigon's Visor",
         Index: "Sigon's Visor",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 9,
         RequiredLevel: 6,
         Code: "ghm",
@@ -1899,6 +1936,7 @@ const json = [
         Name: "Sigon's Shelter",
         Index: "Sigon's Shelter",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 9,
         RequiredLevel: 6,
         Code: "gth",
@@ -1941,6 +1979,7 @@ const json = [
         Name: "Sigon's Sabot",
         Index: "Sigon's Sabot",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 9,
         RequiredLevel: 6,
         Code: "hbt",
@@ -1982,6 +2021,7 @@ const json = [
         Name: "Sigon's Wrap",
         Index: "Sigon's Wrap",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 9,
         RequiredLevel: 6,
         Code: "hbl",
@@ -2021,6 +2061,7 @@ const json = [
         Name: "Sigon's Guard",
         Index: "Sigon's Guard",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 9,
         RequiredLevel: 6,
         Code: "tow",
@@ -2056,7 +2097,7 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "+10 Life stolen per hit",
+        PropertyString: "+10% Life stolen per hit",
         Index: 0
       },
       {
@@ -2101,6 +2142,7 @@ const json = [
         Name: "Infernal Cranium",
         Index: "Infernal Cranium",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 7,
         RequiredLevel: 5,
         Code: "cap",
@@ -2142,6 +2184,7 @@ const json = [
         Name: "Infernal Torch",
         Index: "Infernal Torch",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 7,
         RequiredLevel: 5,
         Code: "gwn",
@@ -2182,11 +2225,12 @@ const json = [
         "Set": "Infernal Tools",
         SetPropertiesString: [
           "Poison Resist +25% (2 Items)",
-          "+1 Half Freeze Duration (3 Items)"
+          "Half Freeze Duration (3 Items)"
         ],
         Name: "Infernal Sign",
         Index: "Infernal Sign",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 7,
         RequiredLevel: 5,
         Code: "tbl",
@@ -2222,7 +2266,7 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "8 Poison Damage Over 3 Seconds",
+        PropertyString: "+8 Poison Damage Over 3 Seconds",
         Index: 0
       },
       {
@@ -2236,11 +2280,11 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "+20 % bonus to Attack Rating",
+        PropertyString: "+20% bonus to Attack Rating",
         Index: 0
       },
       {
-        PropertyString: "+6 Mana stolen per hit",
+        PropertyString: "+6% Mana stolen per hit",
         Index: 3
       },
       {
@@ -2252,7 +2296,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "+1 Cannot Be Frozen",
+        PropertyString: "Cannot Be Frozen",
         Index: 5
       }
     ],
@@ -2271,6 +2315,7 @@ const json = [
         Name: "Berserker's Headgear",
         Index: "Berserker's Headgear",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 5,
         RequiredLevel: 3,
         Code: "hlm",
@@ -2312,6 +2357,7 @@ const json = [
         Name: "Berserker's Hauberk",
         Index: "Berserker's Hauberk",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 5,
         RequiredLevel: 3,
         Code: "spl",
@@ -2353,16 +2399,17 @@ const json = [
         Name: "Berserker's Hatchet",
         Index: "Berserker's Hatchet",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 5,
         RequiredLevel: 3,
         Code: "2ax",
         Properties: [
           {
-            PropertyString: "+30 % bonus to Attack Rating",
+            PropertyString: "+30% bonus to Attack Rating",
             Index: 0
           },
           {
-            PropertyString: "+5 Mana stolen per hit",
+            PropertyString: "+5% Mana stolen per hit",
             Index: 1
           }
         ],
@@ -2405,7 +2452,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "+75 Poison Length Reduced by",
+        PropertyString: "Poison Length Reduced by 75%",
         Index: 0
       }
     ],
@@ -2424,6 +2471,7 @@ const json = [
         Name: "Death's Hand",
         Index: "Death's Hand",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 8,
         RequiredLevel: 6,
         Code: "lgl",
@@ -2433,7 +2481,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+75 Poison Length Reduced by",
+            PropertyString: "Poison Length Reduced by 75%",
             Index: 1
           }
         ],
@@ -2465,6 +2513,7 @@ const json = [
         Name: "Death's Guard",
         Index: "Death's Guard",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 8,
         RequiredLevel: 6,
         Code: "lbl",
@@ -2474,7 +2523,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+1 Cannot Be Frozen",
+            PropertyString: "Cannot Be Frozen",
             Index: 1
           }
         ],
@@ -2482,7 +2531,7 @@ const json = [
         Equipment: {
           DamageString: null,
           DamageStringPrefix: null,
-          ArmorString: "22",
+          ArmorString: "2",
           EquipmentType: 0,
           Name: "Sash",
           RequiredStrength: 0,
@@ -2506,6 +2555,7 @@ const json = [
         Name: "Death's Touch",
         Index: "Death's Touch",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 8,
         RequiredLevel: 6,
         Code: "wsd",
@@ -2515,7 +2565,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+4 Life stolen per hit",
+            PropertyString: "+4% Life stolen per hit",
             Index: 1
           }
         ],
@@ -2544,7 +2594,7 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "+8 Life stolen per hit",
+        PropertyString: "+8% Life stolen per hit",
         Index: 0
       }
     ],
@@ -2554,7 +2604,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "+40 % bonus to Attack Rating",
+        PropertyString: "+40% bonus to Attack Rating",
         Index: 0
       },
       {
@@ -2578,6 +2628,7 @@ const json = [
         Name: "Angelic Sickle",
         Index: "Angelic Sickle",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 17,
         RequiredLevel: 12,
         Code: "sbr",
@@ -2623,6 +2674,7 @@ const json = [
         Name: "Angelic Mantle",
         Index: "Angelic Mantle",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 17,
         RequiredLevel: 12,
         Code: "rng",
@@ -2665,6 +2717,7 @@ const json = [
         Name: "Angelic Halo",
         Index: "Angelic Halo",
         Enabled: true,
+        Rarity: 3,
         ItemLevel: 17,
         RequiredLevel: 12,
         Code: "rin",
@@ -2704,6 +2757,7 @@ const json = [
         Name: "Angelic Wings",
         Index: "Angelic Wings",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 17,
         RequiredLevel: 12,
         Code: "amu",
@@ -2736,7 +2790,7 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "10 to Dexterity",
+        PropertyString: "+10 to Dexterity",
         Index: 0
       },
       {
@@ -2746,7 +2800,7 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "Regenerate Mana 8%",
+        PropertyString: "Regenerate Mana +8%",
         Index: 3
       },
       {
@@ -2754,7 +2808,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+1 Half Freeze Duration",
+        PropertyString: "Half Freeze Duration",
         Index: 1
       },
       {
@@ -2778,6 +2832,7 @@ const json = [
         Name: "Arctic Horn",
         Index: "Arctic Horn",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 3,
         RequiredLevel: 2,
         Code: "swb",
@@ -2787,7 +2842,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+20 % bonus to Attack Rating",
+            PropertyString: "+20% bonus to Attack Rating",
             Index: 0
           }
         ],
@@ -2823,6 +2878,7 @@ const json = [
         Name: "Arctic Furs",
         Index: "Arctic Furs",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 3,
         RequiredLevel: 2,
         Code: "qui",
@@ -2865,6 +2921,7 @@ const json = [
         Name: "Arctic Binding",
         Index: "Arctic Binding",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 3,
         RequiredLevel: 2,
         Code: "vbl",
@@ -2902,11 +2959,12 @@ const json = [
         "Set": "Arctic Gear",
         SetPropertiesString: [
           "+50 to Attack Rating (2 Items)",
-          "10 to Dexterity (3 Items)"
+          "+10 to Dexterity (3 Items)"
         ],
         Name: "Arctic Mitts",
         Index: "Arctic Mitts",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 3,
         RequiredLevel: 2,
         Code: "tgl",
@@ -2942,7 +3000,7 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "5 to Strength",
+        PropertyString: "+5 to Strength",
         Index: 0
       },
       {
@@ -2956,7 +3014,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+1 Cannot Be Frozen",
+        PropertyString: "Cannot Be Frozen",
         Index: 2
       }
     ],
@@ -2976,6 +3034,7 @@ const json = [
         Name: "Arcanna's Sign",
         Index: "Arcanna's Sign",
         Enabled: true,
+        Rarity: 1,
         ItemLevel: 20,
         RequiredLevel: 15,
         Code: "amu",
@@ -2985,7 +3044,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "Regenerate Mana 20%",
+            PropertyString: "Regenerate Mana +20%",
             Index: 1
           }
         ],
@@ -3010,11 +3069,12 @@ const json = [
         "Set": "Arcanna's Tricks",
         SetPropertiesString: [
           "+50 to Mana (2 Items)",
-          "Regenerate Mana 5% (3 Items)"
+          "Regenerate Mana +5% (3 Items)"
         ],
         Name: "Arcanna's Deathwand",
         Index: "Arcanna's Deathwand",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 20,
         RequiredLevel: 15,
         Code: "wst",
@@ -3060,6 +3120,7 @@ const json = [
         Name: "Arcanna's Head",
         Index: "Arcanna's Head",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 20,
         RequiredLevel: 15,
         Code: "skp",
@@ -3097,11 +3158,12 @@ const json = [
         "Set": "Arcanna's Tricks",
         SetPropertiesString: [
           "+100 Defense (2 Items)",
-          "10 to Energy (3 Items)"
+          "+10 to Energy (3 Items)"
         ],
         Name: "Arcanna's Flesh",
         Index: "Arcanna's Flesh",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 20,
         RequiredLevel: 15,
         Code: "ltp",
@@ -3145,7 +3207,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "Regenerate Mana 12%",
+        PropertyString: "Regenerate Mana +12%",
         Index: 3
       }
     ],
@@ -3159,7 +3221,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+5 Mana stolen per hit",
+        PropertyString: "+5% Mana stolen per hit",
         Index: 1
       },
       {
@@ -3180,6 +3242,7 @@ const json = [
         Name: "Natalya's Totem",
         Index: "Natalya's Totem",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 22,
         RequiredLevel: 59,
         Code: "xh9",
@@ -3189,11 +3252,11 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "10-20 to Strength",
+            PropertyString: "+10-20 to Strength",
             Index: 2
           },
           {
-            PropertyString: "20-30 to Dexterity",
+            PropertyString: "+20-30 to Dexterity",
             Index: 1
           },
           {
@@ -3231,6 +3294,7 @@ const json = [
         Name: "Natalya's Mark",
         Index: "Natalya's Mark",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 22,
         RequiredLevel: 79,
         Code: "7qr",
@@ -3244,7 +3308,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+1 Ignore Target's Defense",
+            PropertyString: "Ignore Target's Defense",
             Index: 2
           },
           {
@@ -3293,6 +3357,7 @@ const json = [
         Name: "Natalya's Shadow",
         Index: "Natalya's Shadow",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 22,
         RequiredLevel: 73,
         Code: "ucl",
@@ -3314,7 +3379,7 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "+75 Poison Length Reduced by",
+            PropertyString: "Poison Length Reduced by 75%",
             Index: 3
           },
           {
@@ -3348,6 +3413,7 @@ const json = [
         Name: "Natalya's Soul",
         Index: "Natalya's Soul",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 22,
         RequiredLevel: 25,
         Code: "xmb",
@@ -3413,11 +3479,11 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "+14 Mana stolen per hit",
+        PropertyString: "+14% Mana stolen per hit",
         Index: 4
       },
       {
-        PropertyString: "+14 Life stolen per hit",
+        PropertyString: "+14% Life stolen per hit",
         Index: 3
       },
       {
@@ -3433,7 +3499,7 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "+1 You feel incorporeal...",
+        PropertyString: "You feel incorporeal...",
         Index: 6
       }
     ],
@@ -3447,13 +3513,14 @@ const json = [
         Type: "Pelt",
         "Set": "Aldur's Watchtower",
         SetPropertiesString: [
-          "15 to Energy (2 Items)",
-          "15 to Energy (3 Items)",
-          "15 to Energy (4 Items)"
+          "+15 to Energy (2 Items)",
+          "+15 to Energy (3 Items)",
+          "+15 to Energy (4 Items)"
         ],
         Name: "Aldur's Stony Gaze",
         Index: "Aldur's Stony Gaze",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 29,
         RequiredLevel: 36,
         Code: "dr8",
@@ -3467,7 +3534,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "Regenerate Mana 17%",
+            PropertyString: "Regenerate Mana +17%",
             Index: 1
           },
           {
@@ -3506,13 +3573,14 @@ const json = [
         Type: "Armor",
         "Set": "Aldur's Watchtower",
         SetPropertiesString: [
-          "15 to Vitality (2 Items)",
-          "15 to Vitality (3 Items)",
-          "15 to Vitality (4 Items)"
+          "+15 to Vitality (2 Items)",
+          "+15 to Vitality (3 Items)",
+          "+15 to Vitality (4 Items)"
         ],
         Name: "Aldur's Deception",
         Index: "Aldur's Deception",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 29,
         RequiredLevel: 76,
         Code: "uul",
@@ -3530,11 +3598,11 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "20 to Strength",
+            PropertyString: "+20 to Strength",
             Index: 2
           },
           {
-            PropertyString: "15 to Dexterity",
+            PropertyString: "+15 to Dexterity",
             Index: 3
           },
           {
@@ -3569,13 +3637,14 @@ const json = [
         Type: "Mace",
         "Set": "Aldur's Watchtower",
         SetPropertiesString: [
-          "15 to Strength (2 Items)",
-          "15 to Strength (3 Items)",
-          "15 to Strength (4 Items)"
+          "+15 to Strength (2 Items)",
+          "+15 to Strength (3 Items)",
+          "+15 to Strength (4 Items)"
         ],
         Name: "Aldur's Rhythm",
         Index: "Aldur's Rhythm",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 29,
         RequiredLevel: 42,
         Code: "9mt",
@@ -3597,11 +3666,11 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+5 Mana stolen per hit",
+            PropertyString: "+5% Mana stolen per hit",
             Index: 5
           },
           {
-            PropertyString: "+10 Life stolen per hit",
+            PropertyString: "+10% Life stolen per hit",
             Index: 2
           },
           {
@@ -3635,19 +3704,20 @@ const json = [
         Type: "Boots",
         "Set": "Aldur's Watchtower",
         SetPropertiesString: [
-          "15 to Dexterity (2 Items)",
-          "15 to Dexterity (3 Items)",
-          "15 to Dexterity (4 Items)"
+          "+15 to Dexterity (2 Items)",
+          "+15 to Dexterity (3 Items)",
+          "+15 to Dexterity (4 Items)"
         ],
         Name: "Aldur's Advance",
         Index: "Aldur's Advance",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 29,
         RequiredLevel: 45,
         Code: "xtb",
         Properties: [
           {
-            PropertyString: "+1 Indestructible",
+            PropertyString: "Indestructible",
             Index: 0
           },
           {
@@ -3693,7 +3763,7 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "+150 % bonus to Attack Rating",
+        PropertyString: "+150% bonus to Attack Rating",
         Index: 0
       },
       {
@@ -3701,7 +3771,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+10 Life stolen per hit",
+        PropertyString: "+10% Life stolen per hit",
         Index: 4
       }
     ],
@@ -3715,7 +3785,7 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "+10 Mana stolen per hit",
+        PropertyString: "+10% Mana stolen per hit",
         Index: 3
       },
       {
@@ -3744,6 +3814,7 @@ const json = [
         Name: "Immortal King's Will",
         Index: "Immortal King's Will",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 37,
         RequiredLevel: 47,
         Code: "ba5",
@@ -3805,12 +3876,13 @@ const json = [
         Name: "Immortal King's Soul Cage",
         Index: "Immortal King's Soul Cage",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 37,
         RequiredLevel: 76,
         Code: "uar",
         Properties: [
           {
-            PropertyString: "5% Chance to cast level 5 enchant when struck",
+            PropertyString: "5% Chance to cast level 5 Enchant when struck",
             Index: 1
           },
           {
@@ -3858,6 +3930,7 @@ const json = [
         Name: "Immortal King's Detail",
         Index: "Immortal King's Detail",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 37,
         RequiredLevel: 29,
         Code: "zhb",
@@ -3867,7 +3940,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "25 to Strength",
+            PropertyString: "+25 to Strength",
             Index: 3
           },
           {
@@ -3903,20 +3976,21 @@ const json = [
         "Set": "Immortal King",
         SetPropertiesString: [
           "+25% Increased Attack Speed (2 Items)",
-          "+10 Mana stolen per hit (5 Items)",
-          "+10 Life stolen per hit (4 Items)",
+          "+10% Mana stolen per hit (5 Items)",
+          "+10% Life stolen per hit (4 Items)",
           "Freezes target +2 (6 Items)",
           "+120 Defense (3 Items)"
         ],
         Name: "Immortal King's Forge",
         Index: "Immortal King's Forge",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 37,
         RequiredLevel: 30,
         Code: "xhg",
         Properties: [
           {
-            PropertyString: "12% Chance to cast level 4 charged bolt when struck",
+            PropertyString: "12% Chance to cast level 4 Charged Bolt when struck",
             Index: 3
           },
           {
@@ -3924,11 +3998,11 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "20 to Strength",
+            PropertyString: "+20 to Strength",
             Index: 1
           },
           {
-            PropertyString: "20 to Dexterity",
+            PropertyString: "+20 to Dexterity",
             Index: 2
           }
         ],
@@ -3957,12 +4031,13 @@ const json = [
         SetPropertiesString: [
           "+2 to Masteries (Barbarian only) (3 Items)",
           "+160 Defense (4 Items)",
-          "+1 Half Freeze Duration (5 Items)",
+          "Half Freeze Duration (5 Items)",
           "+25% better chance of getting magic item (2 Items)"
         ],
         Name: "Immortal King's Pillar",
         Index: "Immortal King's Pillar",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 37,
         RequiredLevel: 31,
         Code: "xhb",
@@ -4007,21 +4082,22 @@ const json = [
         Type: "Hammer",
         "Set": "Immortal King",
         SetPropertiesString: [
-          "Adds 250-361 Adds 250-361 magic damage (6 Items)",
+          "Adds 250-361 to Magic Damage (6 Items)",
           "Adds 211-397 to Fire Damage (2 Items)",
           "Adds 7-477 to Lightning Damage (3 Items)",
           "Adds 127-364 to Cold Damage (4 Items)",
-          "205 Poison Damage Over 6 Seconds (5 Items)"
+          "+205 Poison Damage Over 6 Seconds (5 Items)"
         ],
         Name: "Immortal King's Stone Crusher",
         Index: "Immortal King's Stone Crusher",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 37,
         RequiredLevel: 76,
         Code: "7m7",
         Properties: [
           {
-            PropertyString: "+1 Indestructible",
+            PropertyString: "Indestructible",
             Index: 0
           },
           {
@@ -4124,12 +4200,13 @@ const json = [
         Name: "Tal Rasha's Fine-Spun Cloth",
         Index: "Tal Rasha's Fine-Spun Cloth",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 26,
         RequiredLevel: 53,
         Code: "zmb",
         Properties: [
           {
-            PropertyString: "20 to Dexterity",
+            PropertyString: "+20 to Dexterity",
             Index: 2
           },
           {
@@ -4177,6 +4254,7 @@ const json = [
         Name: "Tal Rasha's Adjudication",
         Index: "Tal Rasha's Adjudication",
         Enabled: true,
+        Rarity: 1,
         ItemLevel: 26,
         RequiredLevel: 67,
         Code: "amu",
@@ -4230,6 +4308,7 @@ const json = [
         Name: "Tal Rasha's Lidless Eye",
         Index: "Tal Rasha's Lidless Eye",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 26,
         RequiredLevel: 65,
         Code: "oba",
@@ -4251,7 +4330,7 @@ const json = [
             Index: 6
           },
           {
-            PropertyString: "10 to Energy",
+            PropertyString: "+10 to Energy",
             Index: 2
           },
           {
@@ -4294,6 +4373,7 @@ const json = [
         Name: "Tal Rasha's Guardianship",
         Index: "Tal Rasha's Guardianship",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 26,
         RequiredLevel: 71,
         Code: "uth",
@@ -4353,16 +4433,17 @@ const json = [
         Name: "Tal Rasha's Horadric Crest",
         Index: "Tal Rasha's Horadric Crest",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 26,
         RequiredLevel: 66,
         Code: "xsk",
         Properties: [
           {
-            PropertyString: "+10 Mana stolen per hit",
+            PropertyString: "+10% Mana stolen per hit",
             Index: 5
           },
           {
-            PropertyString: "+10 Life stolen per hit",
+            PropertyString: "+10% Life stolen per hit",
             Index: 4
           },
           {
@@ -4453,6 +4534,7 @@ const json = [
         Name: "Griswold's Valor",
         Index: "Griswold's Valor",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 44,
         RequiredLevel: 69,
         Code: "urn",
@@ -4508,6 +4590,7 @@ const json = [
         Name: "Griswold's Heart",
         Index: "Griswold's Heart",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 44,
         RequiredLevel: 45,
         Code: "xar",
@@ -4521,7 +4604,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "20 to Strength",
+            PropertyString: "+20 to Strength",
             Index: 3
           },
           {
@@ -4563,6 +4646,7 @@ const json = [
         Name: "Griswold's Redemption",
         Index: "Griswold's Redemption",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 44,
         RequiredLevel: 53,
         Code: "7ws",
@@ -4617,6 +4701,7 @@ const json = [
         Name: "Griswold's Honor",
         Index: "Griswold's Honor",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 44,
         RequiredLevel: 68,
         Code: "paf",
@@ -4664,11 +4749,11 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "20 to Strength",
+        PropertyString: "+20 to Strength",
         Index: 0
       },
       {
-        PropertyString: "30 to Dexterity",
+        PropertyString: "+30 to Dexterity",
         Index: 2
       }
     ],
@@ -4707,6 +4792,7 @@ const json = [
         Name: "Trang-Oul's Guise",
         Index: "Trang-Oul's Guise",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 32,
         RequiredLevel: 65,
         Code: "uh9",
@@ -4761,6 +4847,7 @@ const json = [
         Name: "Trang-Oul's Scales",
         Index: "Trang-Oul's Scales",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 32,
         RequiredLevel: 49,
         Code: "xul",
@@ -4819,6 +4906,7 @@ const json = [
         Name: "Trang-Oul's Wing",
         Index: "Trang-Oul's Wing",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 32,
         RequiredLevel: 54,
         Code: "ne9",
@@ -4836,11 +4924,11 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "25 to Strength",
+            PropertyString: "+25 to Strength",
             Index: 1
           },
           {
-            PropertyString: "15 to Dexterity",
+            PropertyString: "+15 to Dexterity",
             Index: 2
           },
           {
@@ -4878,6 +4966,7 @@ const json = [
         Name: "Trang-Oul's Claws",
         Index: "Trang-Oul's Claws",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 32,
         RequiredLevel: 45,
         Code: "xmg",
@@ -4931,6 +5020,7 @@ const json = [
         Name: "Trang-Oul's Girth",
         Index: "Trang-Oul's Girth",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 32,
         RequiredLevel: 47,
         Code: "utc",
@@ -4952,7 +5042,7 @@ const json = [
             Index: 6
           },
           {
-            PropertyString: "+1 Cannot Be Frozen",
+            PropertyString: "Cannot Be Frozen",
             Index: 4
           },
           {
@@ -4982,7 +5072,7 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "Regenerate Mana 15%",
+        PropertyString: "Regenerate Mana +15%",
         Index: 0
       },
       {
@@ -4990,7 +5080,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "Regenerate Mana 15%",
+        PropertyString: "Regenerate Mana +15%",
         Index: 2
       },
       {
@@ -4998,7 +5088,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "Regenerate Mana 15%",
+        PropertyString: "Regenerate Mana +15%",
         Index: 4
       },
       {
@@ -5016,7 +5106,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "+20 Life stolen per hit",
+        PropertyString: "+20% Life stolen per hit",
         Index: 7
       },
       {
@@ -5028,7 +5118,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "Regenerate Mana 15%",
+        PropertyString: "Regenerate Mana +15%",
         Index: 5
       },
       {
@@ -5047,12 +5137,13 @@ const json = [
         "Set": "M'avina's Battle Hymn",
         SetPropertiesString: [
           "+1 to All Skills (2 Items)",
-          "+50 % bonus to Attack Rating (3 Items)",
+          "+50% bonus to Attack Rating (3 Items)",
           "All Resistances +25% (4 Items)"
         ],
         Name: "M'avina's True Sight",
         Index: "M'avina's True Sight",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 21,
         RequiredLevel: 59,
         Code: "ci3",
@@ -5102,12 +5193,13 @@ const json = [
         Name: "M'avina's Embrace",
         Index: "M'avina's Embrace",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 21,
         RequiredLevel: 70,
         Code: "uld",
         Properties: [
           {
-            PropertyString: "10% Chance to cast level 3 glacial spike when struck",
+            PropertyString: "10% Chance to cast level 3 Glacial Spike when struck",
             Index: 0
           },
           {
@@ -5160,6 +5252,7 @@ const json = [
         Name: "M'avina's Icy Clutch",
         Index: "M'avina's Icy Clutch",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 21,
         RequiredLevel: 32,
         Code: "xtg",
@@ -5173,15 +5266,15 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "10 to Strength",
+            PropertyString: "+10 to Strength",
             Index: 4
           },
           {
-            PropertyString: "15 to Dexterity",
+            PropertyString: "+15 to Dexterity",
             Index: 5
           },
           {
-            PropertyString: "+1 Half Freeze Duration",
+            PropertyString: "Half Freeze Duration",
             Index: 2
           },
           {
@@ -5217,6 +5310,7 @@ const json = [
         Name: "M'avina's Tenet",
         Index: "M'avina's Tenet",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 21,
         RequiredLevel: 45,
         Code: "zvb",
@@ -5226,7 +5320,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+5 Mana stolen per hit",
+            PropertyString: "+5% Mana stolen per hit",
             Index: 2
           },
           {
@@ -5261,13 +5355,14 @@ const json = [
         Type: "Amazon Bow",
         "Set": "M'avina's Battle Hymn",
         SetPropertiesString: [
-          "10% Chance to cast level 15 nova on striking (3 Items)",
+          "10% Chance to cast level 15 Nova on striking (3 Items)",
           "+2 to Bow and Crossbow Skills (Amazon only) (4 Items)",
-          "Adds 114-377 Adds 114-377 magic damage (2 Items)"
+          "Adds 114-377 to Magic Damage (2 Items)"
         ],
         Name: "M'avina's Caster",
         Index: "M'avina's Caster",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 21,
         RequiredLevel: 70,
         Code: "amc",
@@ -5314,11 +5409,11 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "20 to Strength",
+        PropertyString: "+20 to Strength",
         Index: 0
       },
       {
-        PropertyString: "30 to Dexterity",
+        PropertyString: "+30 to Dexterity",
         Index: 2
       }
     ],
@@ -5357,6 +5452,7 @@ const json = [
         Name: "Telling of Beads",
         Index: "Telling of Beads",
         Enabled: true,
+        Rarity: 1,
         ItemLevel: 39,
         RequiredLevel: 30,
         Code: "amu",
@@ -5401,12 +5497,13 @@ const json = [
         Name: "Laying of Hands",
         Index: "Laying of Hands",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 39,
         RequiredLevel: 63,
         Code: "ulg",
         Properties: [
           {
-            PropertyString: "10% Chance to cast level 3 holy bolt on striking",
+            PropertyString: "10% Chance to cast level 3 Holy Bolt on striking",
             Index: 4
           },
           {
@@ -5430,7 +5527,7 @@ const json = [
         Equipment: {
           DamageString: null,
           DamageStringPrefix: null,
-          ArmorString: "204-254",
+          ArmorString: "54",
           EquipmentType: 0,
           Name: "Bramble Mitts",
           RequiredStrength: 50,
@@ -5452,6 +5549,7 @@ const json = [
         Name: "Rite of Passage",
         Index: "Rite of Passage",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 39,
         RequiredLevel: 29,
         Code: "xlb",
@@ -5465,7 +5563,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+1 Half Freeze Duration",
+            PropertyString: "Half Freeze Duration",
             Index: 2
           }
         ],
@@ -5495,16 +5593,17 @@ const json = [
         Name: "Dark Adherent",
         Index: "Dark Adherent",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 39,
         RequiredLevel: 43,
         Code: "uui",
         Properties: [
           {
-            PropertyString: "25% Chance to cast level 3 nova when struck",
+            PropertyString: "25% Chance to cast level 3 Nova when struck",
             Index: 2
           },
           {
-            PropertyString: "25-35 Poison Damage Over 2 Seconds",
+            PropertyString: "Adds 25-35 Poison Damage Over 2 Seconds",
             Index: 3
           },
           {
@@ -5520,7 +5619,7 @@ const json = [
         Equipment: {
           DamageString: null,
           DamageStringPrefix: null,
-          ArmorString: "941-1086",
+          ArmorString: "361",
           EquipmentType: 0,
           Name: "Dusk Shroud",
           RequiredStrength: 77,
@@ -5542,6 +5641,7 @@ const json = [
         Name: "Credendum",
         Index: "Credendum",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 39,
         RequiredLevel: 65,
         Code: "umc",
@@ -5551,11 +5651,11 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "10 to Strength",
+            PropertyString: "+10 to Strength",
             Index: 1
           },
           {
-            PropertyString: "10 to Dexterity",
+            PropertyString: "+10 to Dexterity",
             Index: 2
           },
           {
@@ -5589,15 +5689,15 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "22 Poison Damage Over 3 Seconds",
+        PropertyString: "+22 Poison Damage Over 3 Seconds",
         Index: 2
       },
       {
-        PropertyString: "10 to Strength",
+        PropertyString: "+10 to Strength",
         Index: 4
       },
       {
-        PropertyString: "10 to Dexterity",
+        PropertyString: "+10 to Dexterity",
         Index: 6
       }
     ],
@@ -5628,12 +5728,13 @@ const json = [
         Name: "Dangoon's Teaching",
         Index: "Dangoon's Teaching",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 55,
         RequiredLevel: 68,
         Code: "7ma",
         Properties: [
           {
-            PropertyString: "10% Chance to cast level 3 frost nova on striking",
+            PropertyString: "10% Chance to cast level 3 Frost Nova on striking",
             Index: 2
           },
           {
@@ -5678,12 +5779,13 @@ const json = [
         Name: "Taebaek's Glory",
         Index: "Taebaek's Glory",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 55,
         RequiredLevel: 81,
         Code: "uts",
         Properties: [
           {
-            PropertyString: "+1 Indestructible",
+            PropertyString: "Indestructible",
             Index: 4
           },
           {
@@ -5737,6 +5839,7 @@ const json = [
         Name: "Haemosu's Adamant",
         Index: "Haemosu's Adamant",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 55,
         RequiredLevel: 44,
         Code: "xrs",
@@ -5788,12 +5891,13 @@ const json = [
         Name: "Ondal's Almighty",
         Index: "Ondal's Almighty",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 55,
         RequiredLevel: 69,
         Code: "uhm",
         Properties: [
           {
-            PropertyString: "10% Chance to cast level 3 weaken on striking",
+            PropertyString: "10% Chance to cast level 3 Weaken on striking",
             Index: 2
           },
           {
@@ -5805,11 +5909,11 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "10 to Strength",
+            PropertyString: "+10 to Strength",
             Index: 3
           },
           {
-            PropertyString: "15 to Dexterity",
+            PropertyString: "+15 to Dexterity",
             Index: 4
           },
           {
@@ -5839,7 +5943,7 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "+10 Life stolen per hit",
+        PropertyString: "+10% Life stolen per hit",
         Index: 0
       },
       {
@@ -5865,7 +5969,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "+1 Cannot Be Frozen",
+        PropertyString: "Cannot Be Frozen",
         Index: 2
       },
       {
@@ -5886,6 +5990,7 @@ const json = [
         Name: "Guillaume's Face",
         Index: "Guillaume's Face",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 41,
         RequiredLevel: 34,
         Code: "xhm",
@@ -5907,7 +6012,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "15 to Strength",
+            PropertyString: "+15 to Strength",
             Index: 4
           }
         ],
@@ -5937,16 +6042,17 @@ const json = [
         Name: "Wilhelm's Pride",
         Index: "Wilhelm's Pride",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 41,
         RequiredLevel: 42,
         Code: "ztb",
         Properties: [
           {
-            PropertyString: "+5 Mana stolen per hit",
+            PropertyString: "+5% Mana stolen per hit",
             Index: 1
           },
           {
-            PropertyString: "+5 Life stolen per hit",
+            PropertyString: "+5% Life stolen per hit",
             Index: 3
           },
           {
@@ -5984,6 +6090,7 @@ const json = [
         Name: "Magnus' Skin",
         Index: "Magnus' Skin",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 41,
         RequiredLevel: 37,
         Code: "xvg",
@@ -6035,6 +6142,7 @@ const json = [
         Name: "Whitstan's Guard",
         Index: "Whitstan's Guard",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 41,
         RequiredLevel: 29,
         Code: "xml",
@@ -6052,7 +6160,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+1 Half Freeze Duration",
+            PropertyString: "Half Freeze Duration",
             Index: 3
           },
           {
@@ -6100,11 +6208,11 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "20 to Strength",
+        PropertyString: "+20 to Strength",
         Index: 2
       },
       {
-        PropertyString: "10 to Dexterity",
+        PropertyString: "+10 to Dexterity",
         Index: 1
       },
       {
@@ -6133,6 +6241,7 @@ const json = [
         Name: "Hwanin's Splendor",
         Index: "Hwanin's Splendor",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 28,
         RequiredLevel: 45,
         Code: "xrn",
@@ -6180,12 +6289,13 @@ const json = [
         Name: "Hwanin's Refuge",
         Index: "Hwanin's Refuge",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 28,
         RequiredLevel: 30,
         Code: "xcl",
         Properties: [
           {
-            PropertyString: "10% Chance to cast level 3 static field when struck",
+            PropertyString: "10% Chance to cast level 3 Static Field when struck",
             Index: 3
           },
           {
@@ -6227,6 +6337,7 @@ const json = [
         Name: "Hwanin's Blessing",
         Index: "Hwanin's Blessing",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 28,
         RequiredLevel: 35,
         Code: "mbl",
@@ -6236,7 +6347,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+1 Prevent Monster Heal",
+            PropertyString: "Prevent Monster Heal",
             Index: 1
           },
           {
@@ -6274,16 +6385,17 @@ const json = [
         Name: "Hwanin's Justice",
         Index: "Hwanin's Justice",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 28,
         RequiredLevel: 28,
         Code: "9vo",
         Properties: [
           {
-            PropertyString: "+1 Indestructible",
+            PropertyString: "Indestructible",
             Index: 1
           },
           {
-            PropertyString: "10% Chance to cast level 3 ice blast on striking",
+            PropertyString: "10% Chance to cast level 3 Ice Blast on striking",
             Index: 2
           },
           {
@@ -6346,7 +6458,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+20 Life stolen per hit",
+        PropertyString: "+20% Life stolen per hit",
         Index: 1
       },
       {
@@ -6367,12 +6479,13 @@ const json = [
         Name: "Sazabi's Cobalt Redeemer",
         Index: "Sazabi's Cobalt Redeemer",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 34,
         RequiredLevel: 73,
         Code: "7ls",
         Properties: [
           {
-            PropertyString: "+1 Indestructible",
+            PropertyString: "Indestructible",
             Index: 4
           },
           {
@@ -6392,11 +6505,11 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "5 to Strength",
+            PropertyString: "+5 to Strength",
             Index: 6
           },
           {
-            PropertyString: "15 to Dexterity",
+            PropertyString: "+15 to Dexterity",
             Index: 5
           }
         ],
@@ -6429,6 +6542,7 @@ const json = [
         Name: "Sazabi's Ghost Liberator",
         Index: "Sazabi's Ghost Liberator",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 34,
         RequiredLevel: 67,
         Code: "upl",
@@ -6446,7 +6560,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "25 to Strength",
+            PropertyString: "+25 to Strength",
             Index: 2
           },
           {
@@ -6480,6 +6594,7 @@ const json = [
         Name: "Sazabi's Mental Sheath",
         Index: "Sazabi's Mental Sheath",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 34,
         RequiredLevel: 43,
         Code: "xhl",
@@ -6527,7 +6642,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+75 Poison Length Reduced by",
+        PropertyString: "Poison Length Reduced by 75%",
         Index: 1
       }
     ],
@@ -6537,7 +6652,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "+15 Life stolen per hit",
+        PropertyString: "+15% Life stolen per hit",
         Index: 1
       },
       {
@@ -6566,6 +6681,7 @@ const json = [
         Name: "Bul-Kathos' Sacred Charge",
         Index: "Bul-Kathos' Sacred Charge",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 50,
         RequiredLevel: 61,
         Code: "7gd",
@@ -6620,6 +6736,7 @@ const json = [
         Name: "Bul-Kathos' Tribal Guardian",
         Index: "Bul-Kathos' Tribal Guardian",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 50,
         RequiredLevel: 54,
         Code: "7wd",
@@ -6633,11 +6750,11 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "50 Poison Damage Over 2 Seconds",
+            PropertyString: "+50 Poison Damage Over 2 Seconds",
             Index: 1
           },
           {
-            PropertyString: "20 to Strength",
+            PropertyString: "+20 to Strength",
             Index: 3
           },
           {
@@ -6691,7 +6808,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+10 Life stolen per hit",
+        PropertyString: "+10% Life stolen per hit",
         Index: 6
       },
       {
@@ -6716,6 +6833,7 @@ const json = [
         Name: "Cow King's Horns",
         Index: "Cow King's Horns",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 20,
         RequiredLevel: 25,
         Code: "xap",
@@ -6725,7 +6843,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+1 Half Freeze Duration",
+            PropertyString: "Half Freeze Duration",
             Index: 1
           },
           {
@@ -6763,12 +6881,13 @@ const json = [
         Name: "Cow King's Hide",
         Index: "Cow King's Hide",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 20,
         RequiredLevel: 18,
         Code: "stu",
         Properties: [
           {
-            PropertyString: "18% Chance to cast level 5 chain lightning when struck",
+            PropertyString: "18% Chance to cast level 5 Chain Lightning when struck",
             Index: 3
           },
           {
@@ -6810,6 +6929,7 @@ const json = [
         Name: "Cow King's Hooves",
         Index: "Cow King's Hooves",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 20,
         RequiredLevel: 13,
         Code: "vbt",
@@ -6827,7 +6947,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "20 to Dexterity",
+            PropertyString: "+20 to Dexterity",
             Index: 3
           },
           {
@@ -6857,7 +6977,7 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "Poison Resist +25%",
+        PropertyString: "+10 to Tectonic Slam",
         Index: 0
       },
       {
@@ -6867,11 +6987,11 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "25% Chance to cast level 5 static field when struck",
+        PropertyString: "25% Chance to cast level 5 Static Field when struck",
         Index: 4
       },
       {
-        PropertyString: "+1 to All Skills",
+        PropertyString: "+2-3 to All Skills",
         Index: 7
       },
       {
@@ -6879,16 +6999,12 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "20 to Strength",
+        PropertyString: "+20 to Strength",
         Index: 1
       },
       {
         PropertyString: "+100 to Life",
         Index: 6
-      },
-      {
-        PropertyString: "+100 Maximum Stamina",
-        Index: 0
       },
       {
         PropertyString: "+100% extra gold from monsters",
@@ -6912,6 +7028,7 @@ const json = [
         Name: "Naj's Puzzler",
         Index: "Naj's Puzzler",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 43,
         RequiredLevel: 78,
         Code: "6cs",
@@ -6933,7 +7050,7 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "35 to Energy",
+            PropertyString: "+35 to Energy",
             Index: 0
           },
           {
@@ -6974,6 +7091,7 @@ const json = [
         Name: "Naj's Light Plate",
         Index: "Naj's Light Plate",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 43,
         RequiredLevel: 71,
         Code: "ult",
@@ -7029,12 +7147,13 @@ const json = [
         Name: "Naj's Circlet",
         Index: "Naj's Circlet",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 43,
         RequiredLevel: 28,
         Code: "ci0",
         Properties: [
           {
-            PropertyString: "12% Chance to cast level 5 chain lightning when struck",
+            PropertyString: "12% Chance to cast level 5 Chain Lightning when struck",
             Index: 4
           },
           {
@@ -7046,7 +7165,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "15 to Strength",
+            PropertyString: "+15 to Strength",
             Index: 3
           },
           {
@@ -7090,11 +7209,15 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20 to Strength",
+        PropertyString: "+2 to Fire Skills",
+        Index: 6
+      },
+      {
+        PropertyString: "+20 to Strength",
         Index: 4
       },
       {
-        PropertyString: "15 to Dexterity",
+        PropertyString: "+15 to Dexterity",
         Index: 2
       },
       {
@@ -7112,10 +7235,6 @@ const json = [
       {
         PropertyString: "All Resistances +50%",
         Index: 3
-      },
-      {
-        PropertyString: "+2 to Fire Skills",
-        Index: 6
       }
     ],
     Level: 1
@@ -7131,6 +7250,7 @@ const json = [
         Name: "Sander's Paragon",
         Index: "Sander's Paragon",
         Enabled: true,
+        Rarity: 3,
         ItemLevel: 20,
         RequiredLevel: 25,
         Code: "cap",
@@ -7174,6 +7294,7 @@ const json = [
         Name: "Sander's Riprap",
         Index: "Sander's Riprap",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 20,
         RequiredLevel: 20,
         Code: "vbt",
@@ -7187,11 +7308,11 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "5 to Strength",
+            PropertyString: "+5 to Strength",
             Index: 2
           },
           {
-            PropertyString: "10 to Dexterity",
+            PropertyString: "+10 to Dexterity",
             Index: 3
           }
         ],
@@ -7221,6 +7342,7 @@ const json = [
         Name: "Sander's Taboo",
         Index: "Sander's Taboo",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 20,
         RequiredLevel: 28,
         Code: "vgl",
@@ -7230,7 +7352,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "9-11 Poison Damage Over 3 Seconds",
+            PropertyString: "Adds 9-11 Poison Damage Over 3 Seconds",
             Index: 3
           },
           {
@@ -7268,6 +7390,7 @@ const json = [
         Name: "Sander's Superstition",
         Index: "Sander's Superstition",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 20,
         RequiredLevel: 25,
         Code: "bwn",
@@ -7285,7 +7408,7 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "+8 Mana stolen per hit",
+            PropertyString: "+8% Mana stolen per hit",
             Index: 2
           },
           {
@@ -7332,7 +7455,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+4 Life stolen per hit",
+        PropertyString: "+4% Life stolen per hit",
         Index: 3
       },
       {
@@ -7359,6 +7482,7 @@ const json = [
         Name: "Jakira's Strike",
         Index: "Jakira's Strike",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 10,
         RequiredLevel: 12,
         Code: "axf",
@@ -7368,7 +7492,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+5 Life stolen per hit",
+            PropertyString: "+5% Life stolen per hit",
             Index: 1
           }
         ],
@@ -7403,6 +7527,7 @@ const json = [
         Name: "Jakira's Braces",
         Index: "Jakira's Braces",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 10,
         RequiredLevel: 10,
         Code: "mgl",
@@ -7448,6 +7573,7 @@ const json = [
         Name: "Jakira's Hood",
         Index: "Jakira's Hood",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 10,
         RequiredLevel: 5,
         Code: "cap",
@@ -7493,6 +7619,7 @@ const json = [
         Name: "Jakira's Leather Jerkin",
         Index: "Jakira's Leather Jerkin",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 10,
         RequiredLevel: 9,
         Code: "stu",
@@ -7502,11 +7629,11 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "15 to Strength",
+            PropertyString: "+15 to Strength",
             Index: 2
           },
           {
-            PropertyString: "15 to Dexterity",
+            PropertyString: "+15 to Dexterity",
             Index: 1
           }
         ],
@@ -7532,11 +7659,11 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "10 to Dexterity",
+        PropertyString: "+10 to Dexterity",
         Index: 0
       },
       {
-        PropertyString: "10 to Strength",
+        PropertyString: "+10 to Strength",
         Index: 2
       }
     ],
@@ -7571,6 +7698,7 @@ const json = [
         Name: "Peace Ring",
         Index: "Peace Ring",
         Enabled: true,
+        Rarity: 5,
         ItemLevel: 12,
         RequiredLevel: 12,
         Code: "rin",
@@ -7609,6 +7737,7 @@ const json = [
         Name: "Balance of Power",
         Index: "Balance of Power",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 12,
         RequiredLevel: 18,
         Code: "mau",
@@ -7649,11 +7778,12 @@ const json = [
         "Set": "Nature's Grove",
         SetPropertiesString: [
           "+3 Replenish Life (3 Items)",
-          "Regenerate Mana 75% (4 Items)"
+          "Regenerate Mana +75% (4 Items)"
         ],
         Name: "Calming Embrace",
         Index: "Calming Embrace",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 12,
         RequiredLevel: 7,
         Code: "hla",
@@ -7690,11 +7820,12 @@ const json = [
         Type: "Pelt",
         "Set": "Nature's Grove",
         SetPropertiesString: [
-          "+4 to Shape Shifting (Druid Only) (4 Items)"
+          "+4 to Lycanthropy (Druid Only) (4 Items)"
         ],
         Name: "Animal Kinship",
         Index: "Animal Kinship",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 12,
         RequiredLevel: 15,
         Code: "dr3",
@@ -7730,11 +7861,11 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "10 to Vitality",
+        PropertyString: "+10 to Vitality",
         Index: 0
       },
       {
-        PropertyString: "10 to Energy",
+        PropertyString: "+10 to Energy",
         Index: 2
       }
     ],
@@ -7771,6 +7902,7 @@ const json = [
         Name: "Grimlock's Skull",
         Index: "Grimlock's Skull",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 11,
         RequiredLevel: 16,
         Code: "ne2",
@@ -7812,6 +7944,7 @@ const json = [
         Name: "Grimlock's Wand",
         Index: "Grimlock's Wand",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 11,
         RequiredLevel: 15,
         Code: "bwn",
@@ -7852,17 +7985,18 @@ const json = [
         "Set": "Grimlock's Grave",
         SetPropertiesString: [
           "+77 Defense (2 Items)",
-          "Regenerate Mana 40% (3 Items)"
+          "Regenerate Mana +40% (3 Items)"
         ],
         Name: "Grimlock's Shroud",
         Index: "Grimlock's Shroud",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 11,
         RequiredLevel: 11,
         Code: "qui",
         Properties: [
           {
-            PropertyString: "15% Chance to cast level 2 frost nova when struck",
+            PropertyString: "15% Chance to cast level 2 Frost Nova when struck",
             Index: 1
           },
           {
@@ -7898,6 +8032,7 @@ const json = [
         Name: "Grimlock's Belt",
         Index: "Grimlock's Belt",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 11,
         RequiredLevel: 9,
         Code: "mbl",
@@ -7933,11 +8068,11 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "10 to Energy",
+        PropertyString: "+10 to Energy",
         Index: 0
       },
       {
-        PropertyString: "10 to Dexterity",
+        PropertyString: "+10 to Dexterity",
         Index: 2
       }
     ],
@@ -7976,6 +8111,7 @@ const json = [
         Name: "Corgina's Orb",
         Index: "Corgina's Orb",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 15,
         RequiredLevel: 15,
         Code: "ob2",
@@ -8021,6 +8157,7 @@ const json = [
         Name: "Corgina's Plate",
         Index: "Corgina's Plate",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 20,
         RequiredLevel: 21,
         Code: "ltp",
@@ -8064,6 +8201,7 @@ const json = [
         Name: "Corgina's Ward",
         Index: "Corgina's Ward",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 12,
         RequiredLevel: 14,
         Code: "lrg",
@@ -8106,6 +8244,7 @@ const json = [
         Name: "Corgina's Slippers",
         Index: "Corgina's Slippers",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 9,
         RequiredLevel: 9,
         Code: "lbt",
@@ -8186,6 +8325,7 @@ const json = [
         Name: "Sheena's Heartwood",
         Index: "Sheena's Heartwood",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 15,
         RequiredLevel: 15,
         Code: "am1",
@@ -8230,6 +8370,7 @@ const json = [
         Name: "Sheena's Choker",
         Index: "Sheena's Choker",
         Enabled: true,
+        Rarity: 5,
         ItemLevel: 12,
         RequiredLevel: 12,
         Code: "amu",
@@ -8259,13 +8400,14 @@ const json = [
         Type: "Armor",
         "Set": "Sheena's Grace",
         SetPropertiesString: [
-          "+5 Life stolen per hit (4 Items)",
+          "+5% Life stolen per hit (4 Items)",
           "Damage Reduced by 12 (2 Items)",
           "Magic Damage Reduced by 8 (3 Items)"
         ],
         Name: "Sheena's Elven Mail",
         Index: "Sheena's Elven Mail",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 16,
         RequiredLevel: 14,
         Code: "scl",
@@ -8275,7 +8417,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "15 to Dexterity",
+            PropertyString: "+15 to Dexterity",
             Index: 1
           }
         ],
@@ -8302,11 +8444,12 @@ const json = [
         Type: "Belt",
         "Set": "Sheena's Grace",
         SetPropertiesString: [
-          "10 to Vitality (2 Items)"
+          "+10 to Vitality (2 Items)"
         ],
         Name: "Sheena's Band",
         Index: "Sheena's Band",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 8,
         RequiredLevel: 10,
         Code: "vbl",
@@ -8383,6 +8526,7 @@ const json = [
         Name: "Berserker's Howl",
         Index: "Berserker's Howl",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 18,
         RequiredLevel: 18,
         Code: "ba4",
@@ -8425,6 +8569,7 @@ const json = [
         Name: "Chaos Heart",
         Index: "Chaos Heart",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 20,
         RequiredLevel: 22,
         Code: "fld",
@@ -8466,6 +8611,7 @@ const json = [
         Name: "Warlord's Pike",
         Index: "Warlord's Pike",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 20,
         RequiredLevel: 20,
         Code: "pik",
@@ -8505,11 +8651,12 @@ const json = [
         Type: "Gloves",
         "Set": "Talonrage's Fury",
         SetPropertiesString: [
-          "20 to Strength (3 Items)"
+          "+20 to Strength (3 Items)"
         ],
         Name: "Shattering Fist",
         Index: "Shattering Fist",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 20,
         RequiredLevel: 21,
         Code: "hgl",
@@ -8586,6 +8733,7 @@ const json = [
         Name: "Greyhawk's Wing",
         Index: "Greyhawk's Wing",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 17,
         RequiredLevel: 19,
         Code: "plt",
@@ -8622,11 +8770,12 @@ const json = [
         Type: "Scepter",
         "Set": "Greyhawk's Mantle",
         SetPropertiesString: [
-          "15% Chance to cast level 3 frozen armor when struck (3 Items)"
+          "15% Chance to cast level 3 Frozen Armor when struck (3 Items)"
         ],
         Name: "Greyhawk's Icebrand",
         Index: "Greyhawk's Icebrand",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 17,
         RequiredLevel: 14,
         Code: "scp",
@@ -8671,6 +8820,7 @@ const json = [
         Name: "Greyhawk's Deflector",
         Index: "Greyhawk's Deflector",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 17,
         RequiredLevel: 15,
         Code: "pa3",
@@ -8712,12 +8862,13 @@ const json = [
         Name: "Greyhawk's Viser",
         Index: "Greyhawk's Viser",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 17,
         RequiredLevel: 13,
         Code: "fhl",
         Properties: [
           {
-            PropertyString: "Adds 3-5 Mana stolen per hit",
+            PropertyString: "Adds 3-5% Mana stolen per hit",
             Index: 1
           },
           {
@@ -8765,7 +8916,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "+60 Poison Length Reduced by",
+        PropertyString: "Poison Length Reduced by 60%",
         Index: 2
       },
       {
@@ -8788,6 +8939,7 @@ const json = [
         Name: "Dragon's Flank",
         Index: "Dragon's Flank",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 14,
         RequiredLevel: 18,
         Code: "bsh",
@@ -8829,6 +8981,7 @@ const json = [
         Name: "Ferrit's Paw",
         Index: "Ferrit's Paw",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 12,
         RequiredLevel: 14,
         Code: "vgl",
@@ -8838,7 +8991,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "Adds 4-6 Life stolen per hit",
+            PropertyString: "Adds 4-6% Life stolen per hit",
             Index: 1
           }
         ],
@@ -8870,6 +9023,7 @@ const json = [
         Name: "Turtle's Shell",
         Index: "Turtle's Shell",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 22,
         RequiredLevel: 23,
         Code: "ful",
@@ -8911,6 +9065,7 @@ const json = [
         Name: "Wolf Pelt",
         Index: "Wolf Pelt",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 14,
         RequiredLevel: 14,
         Code: "tbl",
@@ -8950,6 +9105,7 @@ const json = [
         Name: "Beast Collar",
         Index: "Beast Collar",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 15,
         RequiredLevel: 15,
         Code: "bhm",
@@ -8959,7 +9115,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "Adds 20-30 Adds 20-30 magic damage",
+            PropertyString: "Adds 20-30 to Magic Damage",
             Index: 1
           }
         ],
@@ -9007,7 +9163,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "3 to Experience Gained",
+        PropertyString: "+3% to Experience Gained",
         Index: 3
       },
       {
@@ -9035,16 +9191,17 @@ const json = [
         Name: "Jeweled Circlet",
         Index: "Jeweled Circlet",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 22,
         RequiredLevel: 22,
         Code: "ci0",
         Properties: [
           {
-            PropertyString: "15 to Strength",
+            PropertyString: "+15 to Strength",
             Index: 0
           },
           {
-            PropertyString: "15 to Vitality",
+            PropertyString: "+15 to Vitality",
             Index: 1
           }
         ],
@@ -9076,6 +9233,7 @@ const json = [
         Name: "Jeweled Belt",
         Index: "Jeweled Belt",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 22,
         RequiredLevel: 22,
         Code: "hbl",
@@ -9118,6 +9276,7 @@ const json = [
         Name: "Ruby Ring",
         Index: "Ruby Ring",
         Enabled: true,
+        Rarity: 4,
         ItemLevel: 22,
         RequiredLevel: 22,
         Code: "rin",
@@ -9156,6 +9315,7 @@ const json = [
         Name: "Diamond Necklace",
         Index: "Diamond Necklace",
         Enabled: true,
+        Rarity: 4,
         ItemLevel: 22,
         RequiredLevel: 22,
         Code: "amu",
@@ -9206,11 +9366,11 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "+5 Mana stolen per hit",
+        PropertyString: "+5% Mana stolen per hit",
         Index: 1
       },
       {
-        PropertyString: "+5 Life stolen per hit",
+        PropertyString: "+5% Life stolen per hit",
         Index: 2
       }
     ],
@@ -9225,12 +9385,13 @@ const json = [
         "Set": "Four Seasons",
         SetPropertiesString: [
           "+10 to Maximum Cold Resist (3 Items)",
-          "+10 % Cold Absorb (2 Items)",
-          "+1 Cannot Be Frozen (4 Items)"
+          "+10% Cold Absorb (2 Items)",
+          "Cannot Be Frozen (4 Items)"
         ],
         Name: "Winter's Heart",
         Index: "Winter's Heart",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 20,
         RequiredLevel: 25,
         Code: "aar",
@@ -9268,11 +9429,12 @@ const json = [
         "Set": "Four Seasons",
         SetPropertiesString: [
           "+10 to Maximum Lightning Resist (3 Items)",
-          "+10 % Lightning Absorb (2 Items)"
+          "+10% Lightning Absorb (2 Items)"
         ],
         Name: "Spring Dawning",
         Index: "Spring Dawning",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 20,
         RequiredLevel: 22,
         Code: "ghm",
@@ -9310,11 +9472,12 @@ const json = [
         "Set": "Four Seasons",
         SetPropertiesString: [
           "+10 to Maximum Fire Resist (3 Items)",
-          "+10 % Fire Absorb (2 Items)"
+          "+10% Fire Absorb (2 Items)"
         ],
         Name: "Summer Flame",
         Index: "Summer Flame",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 20,
         RequiredLevel: 21,
         Code: "hbt",
@@ -9353,11 +9516,12 @@ const json = [
         SetPropertiesString: [
           "+10 to Maximum Poison Resist (3 Items)",
           "Magic Resist +10% (2 Items)",
-          "+75 Poison Length Reduced by (4 Items)"
+          "Poison Length Reduced by 75% (4 Items)"
         ],
         Name: "Autumn's Decay",
         Index: "Autumn's Decay",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 20,
         RequiredLevel: 19,
         Code: "tgl",
@@ -9403,15 +9567,15 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "15% Chance to cast level 6 charged bolt when struck",
+        PropertyString: "15% Chance to cast level 6 Charged Bolt when struck",
         Index: 2
       },
       {
-        PropertyString: "15% Chance to cast level 6 frost nova when struck",
+        PropertyString: "15% Chance to cast level 6 Frost Nova when struck",
         Index: 3
       },
       {
-        PropertyString: "10% Chance to cast level 1 meteor when struck",
+        PropertyString: "10% Chance to cast level 1 Meteor when struck",
         Index: 4
       },
       {
@@ -9439,6 +9603,7 @@ const json = [
         Name: "Fernandez' Plate",
         Index: "Fernandez' Plate",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 15,
         RequiredLevel: 15,
         Code: "brs",
@@ -9476,11 +9641,12 @@ const json = [
         "Set": "Forgotten Treasures",
         SetPropertiesString: [
           "+30 to Mana (2 Items)",
-          "Regenerate Mana 50% (5 Items)"
+          "Regenerate Mana +50% (5 Items)"
         ],
         Name: "Katriana's Mask",
         Index: "Katriana's Mask",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 15,
         RequiredLevel: 15,
         Code: "msk",
@@ -9517,12 +9683,13 @@ const json = [
         Type: "Belt",
         "Set": "Forgotten Treasures",
         SetPropertiesString: [
-          "+5 Mana stolen per hit (4 Items)",
+          "+5% Mana stolen per hit (4 Items)",
           "+50 to Life (3 Items)"
         ],
         Name: "Luther's Cord",
         Index: "Luther's Cord",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 10,
         RequiredLevel: 10,
         Code: "tbl",
@@ -9559,12 +9726,13 @@ const json = [
         Type: "Gloves",
         "Set": "Forgotten Treasures",
         SetPropertiesString: [
-          "+5 Life stolen per hit (4 Items)",
-          "10 to Strength (6 Items)"
+          "+5% Life stolen per hit (4 Items)",
+          "+10 to Strength (6 Items)"
         ],
         Name: "Janis' Gloves",
         Index: "Janis' Gloves",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 10,
         RequiredLevel: 10,
         Code: "vgl",
@@ -9602,11 +9770,12 @@ const json = [
         "Set": "Forgotten Treasures",
         SetPropertiesString: [
           "+20% Faster Hit Recovery (3 Items)",
-          "10 to Dexterity (5 Items)"
+          "+10 to Dexterity (5 Items)"
         ],
         Name: "Xavier's Greaves",
         Index: "Xavier's Greaves",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 15,
         RequiredLevel: 15,
         Code: "tbt",
@@ -9649,6 +9818,7 @@ const json = [
         Name: "Quincy's Shield",
         Index: "Quincy's Shield",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 10,
         RequiredLevel: 10,
         Code: "spk",
@@ -9684,19 +9854,19 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "15 to Strength",
+        PropertyString: "+15 to Strength",
         Index: 0
       },
       {
-        PropertyString: "15 to Dexterity",
+        PropertyString: "+15 to Dexterity",
         Index: 2
       },
       {
-        PropertyString: "15 to Energy",
+        PropertyString: "+15 to Energy",
         Index: 4
       },
       {
-        PropertyString: "15 to Vitality",
+        PropertyString: "+15 to Vitality",
         Index: 6
       }
     ],
@@ -9710,7 +9880,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "4 to Experience Gained",
+        PropertyString: "+4% to Experience Gained",
         Index: 3
       },
       {
@@ -9732,11 +9902,12 @@ const json = [
         Type: "Gloves",
         "Set": "Insight of Brother Laz",
         SetPropertiesString: [
-          "15 to Strength (3 Items)"
+          "+15 to Strength (3 Items)"
         ],
         Name: "Power of Brother Laz",
         Index: "Power of Brother Laz",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 33,
         Code: "xtg",
@@ -9746,7 +9917,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "Adds 4-6 Mana stolen per hit",
+            PropertyString: "Adds 4-6% Mana stolen per hit",
             Index: 1
           },
           {
@@ -9781,11 +9952,12 @@ const json = [
         Type: "Auric Shields",
         "Set": "Insight of Brother Laz",
         SetPropertiesString: [
-          "7% Chance to cast level 1 frozen orb when struck (5 Items)"
+          "7% Chance to cast level 1 Frozen Orb when struck (5 Items)"
         ],
         Name: "Prayer of Brother Laz",
         Index: "Prayer of Brother Laz",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 38,
         Code: "pa8",
@@ -9830,12 +10002,13 @@ const json = [
         Type: "Amulet",
         "Set": "Insight of Brother Laz",
         SetPropertiesString: [
-          "9% Chance to cast level 2 mind blast when struck (3 Items)",
+          "9% Chance to cast level 2 Mind Blast when struck (3 Items)",
           "+25 to Mana (2 Items)"
         ],
         Name: "Brother Laz' Holy Symbol",
         Index: "Brother Laz' Holy Symbol",
         Enabled: true,
+        Rarity: 5,
         ItemLevel: 30,
         RequiredLevel: 40,
         Code: "amu",
@@ -9853,7 +10026,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+60-80 Poison Length Reduced by",
+            PropertyString: "Poison Length Reduced by 60%",
             Index: 3
           }
         ],
@@ -9877,12 +10050,13 @@ const json = [
         Type: "Scepter",
         "Set": "Insight of Brother Laz",
         SetPropertiesString: [
-          "12% Chance to cast level 1 fire wall on striking (3 Items)",
+          "12% Chance to cast level 1 Fire Wall on striking (3 Items)",
           "+1 to Maximum Damage (Per Character Level) (4 Items)"
         ],
         Name: "Wrath of Brother Laz",
         Index: "Wrath of Brother Laz",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 29,
         Code: "9sc",
@@ -9900,7 +10074,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+1 Ignore Target's Defense",
+            PropertyString: "Ignore Target's Defense",
             Index: 3
           }
         ],
@@ -9930,12 +10104,13 @@ const json = [
         Type: "Armor",
         "Set": "Insight of Brother Laz",
         SetPropertiesString: [
-          "6% Chance to cast level 2 war cry when struck (4 Items)",
+          "6% Chance to cast level 2 War Cry when struck (4 Items)",
           "+3 Replenish Life (5 Items)"
         ],
         Name: "Brother Laz' Faith",
         Index: "Brother Laz' Faith",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 36,
         Code: "xld",
@@ -9945,7 +10120,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "Regenerate Mana 50%",
+            PropertyString: "Regenerate Mana +50%",
             Index: 3
           },
           {
@@ -9983,11 +10158,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "20 to Strength",
+        PropertyString: "+20 to Strength",
         Index: 2
       },
       {
-        PropertyString: "20 to Dexterity",
+        PropertyString: "+20 to Dexterity",
         Index: 4
       }
     ],
@@ -10009,7 +10184,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "+ Half Freeze Duration",
+        PropertyString: "Half Freeze Duration",
         Index: 5
       },
       {
@@ -10032,6 +10207,7 @@ const json = [
         Name: "Afterlife",
         Index: "Afterlife",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 34,
         Code: "xla",
@@ -10077,6 +10253,7 @@ const json = [
         Name: "Dracolich",
         Index: "Dracolich",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 36,
         Code: "ne8",
@@ -10120,6 +10297,7 @@ const json = [
         Name: "Vampire's Crusade",
         Index: "Vampire's Crusade",
         Enabled: true,
+        Rarity: 5,
         ItemLevel: 30,
         RequiredLevel: 39,
         Code: "rin",
@@ -10133,7 +10311,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "Regenerate Mana 50%",
+            PropertyString: "Regenerate Mana +50%",
             Index: 0
           },
           {
@@ -10161,11 +10339,12 @@ const json = [
         Type: "Boots",
         "Set": "Hades' Underworld",
         SetPropertiesString: [
-          "+1 Cannot Be Frozen (5 Items)"
+          "Cannot Be Frozen (5 Items)"
         ],
         Name: "The River Stix",
         Index: "The River Stix",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 32,
         Code: "xlb",
@@ -10212,6 +10391,7 @@ const json = [
         Name: "Lord Hades' Throne",
         Index: "Lord Hades' Throne",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 41,
         Code: "xrn",
@@ -10269,15 +10449,15 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+20 % Cold Absorb",
+        PropertyString: "+20% Cold Absorb",
         Index: 2
       },
       {
-        PropertyString: "+20 % Lightning Absorb",
+        PropertyString: "+20% Lightning Absorb",
         Index: 3
       },
       {
-        PropertyString: "+20 % Fire Absorb",
+        PropertyString: "+20% Fire Absorb",
         Index: 1
       },
       {
@@ -10301,12 +10481,13 @@ const json = [
         Name: "Secret Society",
         Index: "Secret Society",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 35,
         RequiredLevel: 40,
         Code: "ba9",
         Properties: [
           {
-            PropertyString: "12% Chance to cast level 6 static field when struck",
+            PropertyString: "12% Chance to cast level 6 Static Field when struck",
             Index: 1
           },
           {
@@ -10350,6 +10531,7 @@ const json = [
         Name: "Fallen Angels",
         Index: "Fallen Angels",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 35,
         RequiredLevel: 43,
         Code: "xth",
@@ -10392,17 +10574,18 @@ const json = [
         SetPropertiesString: [
           "+40% Increased Attack Speed (2 Items)",
           "Adds 50-125 to Damage (3 Items)",
-          "+1 Prevent Monster Heal (4 Items)"
+          "Prevent Monster Heal (4 Items)"
         ],
         Name: "Savant Fury",
         Index: "Savant Fury",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 35,
         RequiredLevel: 42,
         Code: "9gd",
         Properties: [
           {
-            PropertyString: "+1 Indestructible",
+            PropertyString: "Indestructible",
             Index: 1
           },
           {
@@ -10445,6 +10628,7 @@ const json = [
         Name: "Dawn's Blessing",
         Index: "Dawn's Blessing",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 35,
         RequiredLevel: 41,
         Code: "xts",
@@ -10506,7 +10690,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "3 to Experience Gained",
+        PropertyString: "+3% to Experience Gained",
         Index: 3
       },
       {
@@ -10529,6 +10713,7 @@ const json = [
         Name: "Cry of the Wolf",
         Index: "Cry of the Wolf",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 35,
         Code: "xcl",
@@ -10542,7 +10727,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "Level 35 Summon Fenris (8 Charges)",
+            PropertyString: "Level 35 Summon Dire Wolf (8 Charges)",
             Index: 0
           }
         ],
@@ -10574,6 +10759,7 @@ const json = [
         Name: "Full Moon Frenzy",
         Index: "Full Moon Frenzy",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 33,
         Code: "dr6",
@@ -10599,7 +10785,7 @@ const json = [
         Equipment: {
           DamageString: null,
           DamageStringPrefix: null,
-          ArmorString: "148",
+          ArmorString: "52",
           EquipmentType: 0,
           Name: "Alpha Helm",
           RequiredStrength: 44,
@@ -10623,6 +10809,7 @@ const json = [
         Name: "Torment of Innocence",
         Index: "Torment of Innocence",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 39,
         Code: "9m9",
@@ -10636,7 +10823,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+20 % bonus to Attack Rating",
+            PropertyString: "+20% bonus to Attack Rating",
             Index: 3
           },
           {
@@ -10675,6 +10862,7 @@ const json = [
         Name: "Drawing Out the Beast",
         Index: "Drawing Out the Beast",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 32,
         Code: "zlb",
@@ -10718,11 +10906,11 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "+8 to Wearwolf (Druid Only)",
+        PropertyString: "+8 to Werewolf (Druid Only)",
         Index: 0
       },
       {
-        PropertyString: "+6 to Shape Shifting (Druid Only)",
+        PropertyString: "+6 to Lycanthropy (Druid Only)",
         Index: 1
       },
       {
@@ -10736,7 +10924,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+30 % bonus to Attack Rating",
+        PropertyString: "+30% bonus to Attack Rating",
         Index: 2
       },
       {
@@ -10744,7 +10932,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "3 to Experience Gained",
+        PropertyString: "+3% to Experience Gained",
         Index: 3
       },
       {
@@ -10767,6 +10955,7 @@ const json = [
         Name: "Elven Grace",
         Index: "Elven Grace",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 35,
         RequiredLevel: 32,
         Code: "xvb",
@@ -10780,7 +10969,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "15 to Dexterity",
+            PropertyString: "+15 to Dexterity",
             Index: 1
           },
           {
@@ -10817,6 +11006,7 @@ const json = [
         Name: "Woodland Protector",
         Index: "Woodland Protector",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 35,
         RequiredLevel: 35,
         Code: "xhn",
@@ -10830,7 +11020,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+80 Poison Length Reduced by",
+            PropertyString: "Poison Length Reduced by 80%",
             Index: 3
           },
           {
@@ -10864,6 +11054,7 @@ const json = [
         Name: "Silent Whisper",
         Index: "Silent Whisper",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 35,
         RequiredLevel: 40,
         Code: "ci1",
@@ -10877,7 +11068,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+5 Mana stolen per hit",
+            PropertyString: "+5% Mana stolen per hit",
             Index: 3
           },
           {
@@ -10911,20 +11102,21 @@ const json = [
         Name: "Warder's Bond",
         Index: "Warder's Bond",
         Enabled: true,
+        Rarity: 5,
         ItemLevel: 35,
         RequiredLevel: 38,
         Code: "rin",
         Properties: [
           {
-            PropertyString: "+6 Life stolen per hit",
+            PropertyString: "+6% Life stolen per hit",
             Index: 1
           },
           {
-            PropertyString: "+2 Knockback",
+            PropertyString: "Knockback",
             Index: 3
           },
           {
-            PropertyString: "10 to Strength",
+            PropertyString: "+10 to Strength",
             Index: 0
           },
           {
@@ -10957,6 +11149,7 @@ const json = [
         Name: "Maiden's Kiss",
         Index: "Maiden's Kiss",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 35,
         RequiredLevel: 33,
         Code: "xmg",
@@ -11006,6 +11199,7 @@ const json = [
         Name: "Trent's Caster",
         Index: "Trent's Caster",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 35,
         RequiredLevel: 40,
         Code: "am7",
@@ -11056,11 +11250,11 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "10 to Dexterity",
+        PropertyString: "+10 to Dexterity",
         Index: 4
       },
       {
-        PropertyString: "10 to Dexterity",
+        PropertyString: "+10 to Dexterity",
         Index: 6
       }
     ],
@@ -11078,7 +11272,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "3 to Experience Gained",
+        PropertyString: "+3% to Experience Gained",
         Index: 2
       },
       {
@@ -11099,6 +11293,7 @@ const json = [
         Name: "Eye of the Trent",
         Index: "Eye of the Trent",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 32,
         RequiredLevel: 33,
         Code: "ob8",
@@ -11151,6 +11346,7 @@ const json = [
         Name: "Power of Fire",
         Index: "Power of Fire",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 32,
         RequiredLevel: 33,
         Code: "xui",
@@ -11172,7 +11368,7 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "+10-20 % Fire Absorb",
+            PropertyString: "+10-20% Fire Absorb",
             Index: 3
           }
         ],
@@ -11199,11 +11395,12 @@ const json = [
         Type: "Helm",
         "Set": "Joel's Sanctuary",
         SetPropertiesString: [
-          "+1 Half Freeze Duration (3 Items)"
+          "Half Freeze Duration (3 Items)"
         ],
         Name: "Power of Ice",
         Index: "Power of Ice",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 32,
         RequiredLevel: 33,
         Code: "xap",
@@ -11225,7 +11422,7 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "+10-20 % Cold Absorb",
+            PropertyString: "+10-20% Cold Absorb",
             Index: 3
           }
         ],
@@ -11257,6 +11454,7 @@ const json = [
         Name: "Power of Lightning",
         Index: "Power of Lightning",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 32,
         RequiredLevel: 33,
         Code: "xuc",
@@ -11278,7 +11476,7 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "+10-20 % Lightning Absorb",
+            PropertyString: "+10-20% Lightning Absorb",
             Index: 3
           }
         ],
@@ -11308,7 +11506,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "Regenerate Mana 50%",
+        PropertyString: "Regenerate Mana +50%",
         Index: 2
       }
     ],
@@ -11326,7 +11524,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "3 to Experience Gained",
+        PropertyString: "+3% to Experience Gained",
         Index: 2
       },
       {
@@ -11347,6 +11545,7 @@ const json = [
         Name: "Shadow Ninja",
         Index: "Shadow Ninja",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 35,
         RequiredLevel: 35,
         Code: "xtu",
@@ -11396,6 +11595,7 @@ const json = [
         Name: "Night's Caress",
         Index: "Night's Caress",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 35,
         RequiredLevel: 32,
         Code: "xlg",
@@ -11436,12 +11636,13 @@ const json = [
         Type: "Hand to Hand 2",
         "Set": "JBouley's Scion",
         SetPropertiesString: [
-          "+8 Mana stolen per hit (4 Items)",
-          "+8 Life stolen per hit (3 Items)"
+          "+8% Mana stolen per hit (4 Items)",
+          "+8% Life stolen per hit (3 Items)"
         ],
         Name: "Mystic Blades",
         Index: "Mystic Blades",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 35,
         RequiredLevel: 39,
         Code: "9qr",
@@ -11485,11 +11686,12 @@ const json = [
         Type: "Belt",
         "Set": "JBouley's Scion",
         SetPropertiesString: [
-          "Slows target by 15 (2 Items)"
+          "Slows target by 15% (2 Items)"
         ],
         Name: "Fade to Black",
         Index: "Fade to Black",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 35,
         RequiredLevel: 38,
         Code: "ztb",
@@ -11511,7 +11713,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+1 You feel incorporeal...",
+            PropertyString: "You feel incorporeal...",
             Index: 0
           }
         ],
@@ -11559,7 +11761,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "3 to Experience Gained",
+        PropertyString: "+3% to Experience Gained",
         Index: 2
       },
       {
@@ -11580,16 +11782,17 @@ const json = [
         Name: "Fall From Grace",
         Index: "Fall From Grace",
         Enabled: true,
+        Rarity: 3,
         ItemLevel: 45,
         RequiredLevel: 45,
         Code: "rin",
         Properties: [
           {
-            PropertyString: "Adds 4-7 Mana stolen per hit",
+            PropertyString: "Adds 4-7% Mana stolen per hit",
             Index: 1
           },
           {
-            PropertyString: "Adds 6-9 Life stolen per hit",
+            PropertyString: "Adds 6-9% Life stolen per hit",
             Index: 0
           },
           {
@@ -11624,6 +11827,7 @@ const json = [
         Name: "Tyrial's Grief",
         Index: "Tyrial's Grief",
         Enabled: true,
+        Rarity: 3,
         ItemLevel: 45,
         RequiredLevel: 45,
         Code: "rin",
@@ -11637,7 +11841,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "Regenerate Mana 45%",
+            PropertyString: "Regenerate Mana +45%",
             Index: 1
           },
           {
@@ -11668,6 +11872,7 @@ const json = [
         Name: "Redemption Denied",
         Index: "Redemption Denied",
         Enabled: true,
+        Rarity: 3,
         ItemLevel: 45,
         RequiredLevel: 45,
         Code: "amu",
@@ -11716,6 +11921,7 @@ const json = [
         Name: "Hell's Embrace",
         Index: "Hell's Embrace",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 45,
         RequiredLevel: 45,
         Code: "xtp",
@@ -11751,11 +11957,11 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "-3 to Experience Gained",
+        PropertyString: "-3% to Experience Gained",
         Index: 0
       },
       {
-        PropertyString: "-5 to Experience Gained",
+        PropertyString: "-5% to Experience Gained",
         Index: 2
       }
     ],
@@ -11777,7 +11983,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "-7 to Experience Gained",
+        PropertyString: "-7% to Experience Gained",
         Index: 2
       }
     ],
@@ -11796,6 +12002,7 @@ const json = [
         Name: "Spectral Knight's Unholy Shield",
         Index: "Spectral Knight's Unholy Shield",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 38,
         Code: "xsh",
@@ -11846,6 +12053,7 @@ const json = [
         Name: "Death Knight's Demon Blade",
         Index: "Death Knight's Demon Blade",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 37,
         Code: "9bs",
@@ -11859,7 +12067,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+15 Life stolen per hit",
+            PropertyString: "+15% Life stolen per hit",
             Index: 2
           }
         ],
@@ -11890,11 +12098,12 @@ const json = [
         "Set": "Volf's Undead Legion",
         SetPropertiesString: [
           "+1 to Sorceress Skill Levels (4 Items)",
-          "15 to Strength (3 Items)"
+          "+15 to Strength (3 Items)"
         ],
         Name: "Lich's Evil Grin",
         Index: "Lich's Cranium",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 39,
         Code: "xh9",
@@ -11935,11 +12144,12 @@ const json = [
         Type: "Armor",
         "Set": "Volf's Undead Legion",
         SetPropertiesString: [
-          "+ Cannot Be Frozen (4 Items)"
+          "Cannot Be Frozen (4 Items)"
         ],
         Name: "Skeleton Warrior's Corpse Plate",
         Index: "Skeleton Warrior's Corpse Plate",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 42,
         Code: "xlt",
@@ -12025,6 +12235,7 @@ const json = [
         Name: "Dagger of Vashna",
         Index: "Dagger of Vashna",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 30,
         Code: "9dg",
@@ -12074,6 +12285,7 @@ const json = [
         Name: "Mask of Vashna",
         Index: "Mask of Vashna",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 37,
         Code: "xsk",
@@ -12114,11 +12326,12 @@ const json = [
         Type: "Armor",
         "Set": "Legacy of Vashna",
         SetPropertiesString: [
-          "+1 Prevent Monster Heal (3 Items)"
+          "Prevent Monster Heal (3 Items)"
         ],
         Name: "Robes of Vashna",
         Index: "Robes of Vashna",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 33,
         Code: "xea",
@@ -12136,7 +12349,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+1 Half Freeze Duration",
+            PropertyString: "Half Freeze Duration",
             Index: 0
           }
         ],
@@ -12172,11 +12385,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+15 Mana stolen per hit",
+        PropertyString: "+15% Mana stolen per hit",
         Index: 4
       },
       {
-        PropertyString: "+15 Life stolen per hit",
+        PropertyString: "+15% Life stolen per hit",
         Index: 3
       },
       {
@@ -12184,7 +12397,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "-10 Reduces all Vendor Prices",
+        PropertyString: "Reduces all Vendor Prices -10%",
         Index: 2
       }
     ],
@@ -12203,6 +12416,7 @@ const json = [
         Name: "Lancer's Reach",
         Index: "Lancer's Reach",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 37,
         Code: "9pa",
@@ -12216,7 +12430,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+12 Knockback",
+            PropertyString: "Knockback",
             Index: 2
           }
         ],
@@ -12251,6 +12465,7 @@ const json = [
         Name: "Salander's Mail",
         Index: "Salander's Mail",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 35,
         Code: "xng",
@@ -12300,6 +12515,7 @@ const json = [
         Name: "Salander's Visor",
         Index: "Salander's Visor",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 34,
         Code: "xlm",
@@ -12380,6 +12596,7 @@ const json = [
         Name: "Red Dragon Scale Mail",
         Index: "Red Dragon Scale Mail",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 37,
         Code: "xcl",
@@ -12389,7 +12606,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+35 % Fire Absorb",
+            PropertyString: "+35% Fire Absorb",
             Index: 1
           }
         ],
@@ -12422,6 +12639,7 @@ const json = [
         Name: "Black Dragon Hide Shield",
         Index: "Black Dragon Hide Shield",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 37,
         Code: "xit",
@@ -12463,6 +12681,7 @@ const json = [
         Name: "Green Dragon Mask",
         Index: "Green Dragon Mask",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 40,
         Code: "xhm",
@@ -12480,7 +12699,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+60-90 Poison Length Reduced by",
+            PropertyString: "Poison Length Reduced by 60%",
             Index: 1
           }
         ],
@@ -12528,7 +12747,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "2 to Experience Gained",
+        PropertyString: "+2% to Experience Gained",
         Index: 2
       }
     ],
@@ -12542,13 +12761,14 @@ const json = [
         Type: "Boots",
         "Set": "Onyx's Primal Rage",
         SetPropertiesString: [
-          "30 to Strength (4 Items)",
+          "+30 to Strength (4 Items)",
           "Damage Reduced by 15 (2 Items)",
           "Magic Damage Reduced by 15 (3 Items)"
         ],
         Name: "Onyx's Fallen Star",
         Index: "Onyx's Fallen Star",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 77,
         Code: "uhb",
@@ -12594,12 +12814,13 @@ const json = [
         "Set": "Onyx's Primal Rage",
         SetPropertiesString: [
           "+40% Increased Attack Speed (4 Items)",
-          "+7 Mana stolen per hit (2 Items)",
-          "+12 Life stolen per hit (3 Items)"
+          "+7% Mana stolen per hit (2 Items)",
+          "+12% Life stolen per hit (3 Items)"
         ],
         Name: "Onyx's Solar Flair",
         Index: "Onyx's Solar Flair",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 69,
         Code: "7b7",
@@ -12651,12 +12872,13 @@ const json = [
         Type: "Sword",
         "Set": "Onyx's Primal Rage",
         SetPropertiesString: [
-          "12% Chance to cast level 19 nova on striking (2 Items)",
+          "12% Chance to cast level 19 Nova on striking (2 Items)",
           "+50 to Life (3 Items)"
         ],
         Name: "Onyx's Super Nova",
         Index: "Onyx's Super Nova",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 75,
         Code: "7gs",
@@ -12708,12 +12930,13 @@ const json = [
         Type: "Armor",
         "Set": "Onyx's Primal Rage",
         SetPropertiesString: [
-          "15% Chance to cast level 7 meteor when struck (3 Items)",
+          "15% Chance to cast level 7 Meteor when struck (3 Items)",
           "+1 to Barbarian Skill Levels (2 Items)"
         ],
         Name: "Onyx's Meteor Shower",
         Index: "Onyx's Meteor Shower",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 80,
         Code: "upl",
@@ -12760,11 +12983,12 @@ const json = [
         SetPropertiesString: [
           "+20% Increased Attack Speed (3 Items)",
           "+4 to Attack Rating (Per Character Level) (4 Items)",
-          "3 to Experience Gained (2 Items)"
+          "+3% to Experience Gained (2 Items)"
         ],
         Name: "Onyx's Celestial Rage",
         Index: "Onyx's Celestial Rage",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 79,
         Code: "baf",
@@ -12808,7 +13032,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "2 to Experience Gained",
+        PropertyString: "+2% to Experience Gained",
         Index: 2
       },
       {
@@ -12826,7 +13050,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "3 to Experience Gained",
+        PropertyString: "+3% to Experience Gained",
         Index: 2
       },
       {
@@ -12846,11 +13070,12 @@ const json = [
         SetPropertiesString: [
           "+1 to Paladin Skill Levels (2 Items)",
           "+20% Faster Hit Recovery (3 Items)",
-          "3 to Experience Gained (4 Items)"
+          "+3% to Experience Gained (4 Items)"
         ],
         Name: "Teachings of Brother Laz",
         Index: "Teachings of Brother Laz",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 81,
         Code: "urn",
@@ -12898,6 +13123,7 @@ const json = [
         Name: "Holy Aura",
         Index: "Holy Aura",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 83,
         Code: "uar",
@@ -12911,11 +13137,11 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+1 Cannot Be Frozen",
+            PropertyString: "Cannot Be Frozen",
             Index: 2
           },
           {
-            PropertyString: "+60-80 Poison Length Reduced by",
+            PropertyString: "Poison Length Reduced by 60%",
             Index: 3
           }
         ],
@@ -12949,6 +13175,7 @@ const json = [
         Name: "Retribution",
         Index: "Retribution",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 69,
         Code: "pae",
@@ -12966,7 +13193,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "10-20 to Strength",
+            PropertyString: "+10-20 to Strength",
             Index: 4
           },
           {
@@ -12997,13 +13224,14 @@ const json = [
         Type: "Gloves",
         "Set": "Brother Laz' Calling",
         SetPropertiesString: [
-          "10% Chance to cast level 3 amplify damage when struck (2 Items)",
+          "10% Chance to cast level 3 Amplify Damage when struck (2 Items)",
           "All Resistances +15% (3 Items)",
           "+50% better chance of getting magic item (4 Items)"
         ],
         Name: "Glory of Salvation",
         Index: "Glory of Salvation",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 74,
         Code: "utg",
@@ -13048,12 +13276,13 @@ const json = [
         Type: "Scepter",
         "Set": "Brother Laz' Calling",
         SetPropertiesString: [
-          "20% Chance to cast level 8 frost nova on striking (3 Items)",
-          "25 to Dexterity (2 Items)"
+          "20% Chance to cast level 8 Frost Nova on striking (3 Items)",
+          "+25 to Dexterity (2 Items)"
         ],
         Name: "Angel's Touch",
         Index: "Angel's Touch",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 71,
         Code: "7qs",
@@ -13122,7 +13351,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "4 to Experience Gained",
+        PropertyString: "+4% to Experience Gained",
         Index: 2
       },
       {
@@ -13151,6 +13380,7 @@ const json = [
         Name: "Spin's Enigma",
         Index: "Spin's Enigma",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 59,
         Code: "ci2",
@@ -13193,6 +13423,7 @@ const json = [
         Name: "Spin's Paradox",
         Index: "Spin's Paradox",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 68,
         Code: "ula",
@@ -13226,15 +13457,16 @@ const json = [
         "Set": "The Mysterious Spin",
         SetPropertiesString: [
           "All Resistances +10% (5 Items)",
-          "+10 % Cold Absorb (2 Items)",
-          "+10 % Lightning Absorb (3 Items)",
-          "+10 % Fire Absorb (4 Items)",
-          "+50 Poison Length Reduced by (5 Items)",
+          "+10% Cold Absorb (2 Items)",
+          "+10% Lightning Absorb (3 Items)",
+          "+10% Fire Absorb (4 Items)",
+          "Poison Length Reduced by 50% (5 Items)",
           "+25% better chance of getting magic item (4 Items)"
         ],
         Name: "Spin's Mystery",
         Index: "Spin's Mystery",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 63,
         Code: "ulc",
@@ -13271,12 +13503,13 @@ const json = [
           "+40% Increased Chance of Blocking (2 Items)",
           "+110% Enhanced Defense (5 Items)",
           "+15 Replenish Life (4 Items)",
-          "Regenerate Mana 75% (4 Items)",
+          "Regenerate Mana +75% (4 Items)",
           "+15% Physical Damage Reduction (5 Items)"
         ],
         Name: "Spin's Conundrum",
         Index: "Spin's Conundrum",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 84,
         Code: "uow",
@@ -13290,7 +13523,7 @@ const json = [
         Equipment: {
           DamageString: "18 to 28",
           DamageStringPrefix: "Unhandled Damage Prefix",
-          ArmorString: "475-529",
+          ArmorString: "145",
           EquipmentType: 0,
           Name: "Aegis",
           RequiredStrength: 219,
@@ -13319,6 +13552,7 @@ const json = [
         Name: "Spin's Perplexing Puzzle",
         Index: "Spin's Perplexing Puzzle",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 70,
         Code: "obc",
@@ -13379,7 +13613,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "5 to Experience Gained",
+        PropertyString: "+5% to Experience Gained",
         Index: 2
       }
     ],
@@ -13399,12 +13633,13 @@ const json = [
         Name: "Darkmage's Falling Star",
         Index: "Darkmage's Falling Star",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 73,
         Code: "uhn",
         Properties: [
           {
-            PropertyString: "+1 Indestructible",
+            PropertyString: "Indestructible",
             Index: 3
           },
           {
@@ -13443,19 +13678,20 @@ const json = [
         Type: "Gloves",
         "Set": "Darkmage's Astral Projection",
         SetPropertiesString: [
-          "4% Chance to cast level 20 shock wave when struck (4 Items)",
-          "25 to Strength (4 Items)",
-          "25 to Dexterity (3 Items)"
+          "4% Chance to cast level 20 Shock Wave when struck (4 Items)",
+          "+25 to Strength (4 Items)",
+          "+25 to Dexterity (3 Items)"
         ],
         Name: "Darkmage's Solar Flair",
         Index: "Darkmage's Solar Flair",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 70,
         Code: "umg",
         Properties: [
           {
-            PropertyString: "+1 Indestructible",
+            PropertyString: "Indestructible",
             Index: 3
           },
           {
@@ -13494,19 +13730,20 @@ const json = [
         Type: "Boots",
         "Set": "Darkmage's Astral Projection",
         SetPropertiesString: [
-          "20% Chance to cast level 14 nova when struck (5 Items)",
-          "+6 Mana stolen per hit (4 Items)",
-          "+6 Life stolen per hit (2 Items)"
+          "20% Chance to cast level 14 Nova when struck (5 Items)",
+          "+6% Mana stolen per hit (4 Items)",
+          "+6% Life stolen per hit (2 Items)"
         ],
         Name: "Darkmage's Super Nova",
         Index: "Darkmage's Super Nova",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 74,
         Code: "umb",
         Properties: [
           {
-            PropertyString: "+1 Indestructible",
+            PropertyString: "Indestructible",
             Index: 3
           },
           {
@@ -13545,19 +13782,20 @@ const json = [
         Type: "Mace",
         "Set": "Darkmage's Astral Projection",
         SetPropertiesString: [
-          "8% Chance to cast level 12 meteor on striking (4 Items)",
+          "8% Chance to cast level 12 Meteor on striking (4 Items)",
           "+1 to All Skills (3 Items)",
           "+25% Chance of Crushing Blow (5 Items)"
         ],
         Name: "Darkmage's Meteor Shower",
         Index: "Darkmage's Meteor Shower",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 69,
         Code: "7mt",
         Properties: [
           {
-            PropertyString: "+1 Indestructible",
+            PropertyString: "Indestructible",
             Index: 3
           },
           {
@@ -13606,12 +13844,13 @@ const json = [
         Name: "Darkmage's Celestial Fury",
         Index: "Darkmage's Celestial Fury",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 80,
         Code: "dre",
         Properties: [
           {
-            PropertyString: "+1 Indestructible",
+            PropertyString: "Indestructible",
             Index: 3
           },
           {
@@ -13671,7 +13910,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "4 to Experience Gained",
+        PropertyString: "+4% to Experience Gained",
         Index: 2
       },
       {
@@ -13691,11 +13930,12 @@ const json = [
         SetPropertiesString: [
           "+20% Chance of Crushing Blow (3 Items)",
           "+20% Deadly Strike (2 Items)",
-          "2 to Experience Gained (4 Items)"
+          "+2% to Experience Gained (4 Items)"
         ],
         Name: "Cryptic Claws",
         Index: "Cryptic Claws",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 77,
         Code: "7tw",
@@ -13705,7 +13945,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+11 Life stolen per hit",
+            PropertyString: "+11% Life stolen per hit",
             Index: 1
           },
           {
@@ -13740,12 +13980,13 @@ const json = [
         "Set": "Phrozen Heart's Mysticism",
         SetPropertiesString: [
           "+20% Physical Damage Reduction (2 Items)",
-          "+1 Cannot Be Frozen (4 Items)",
-          "+50 Poison Length Reduced by (3 Items)"
+          "Cannot Be Frozen (4 Items)",
+          "Poison Length Reduced by 50% (3 Items)"
         ],
         Name: "Way of the Shadow",
         Index: "Way of the Shadow",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 71,
         Code: "ung",
@@ -13788,12 +14029,13 @@ const json = [
         SetPropertiesString: [
           "+20% Increased Attack Speed (2 Items)",
           "+50% Enhanced Damage (3 Items)",
-          "15 to Strength (5 Items)",
-          "15 to Dexterity (4 Items)"
+          "+15 to Strength (5 Items)",
+          "+15 to Dexterity (4 Items)"
         ],
         Name: "Dawns Mist",
         Index: "Dawns Mist",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 74,
         Code: "uvg",
@@ -13842,6 +14084,7 @@ const json = [
         Name: "Featherfoot",
         Index: "Featherfoot",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 73,
         Code: "ulb",
@@ -13889,16 +14132,17 @@ const json = [
         Name: "Winter's Discord",
         Index: "Winter's Discord",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 75,
         Code: "uvc",
         Properties: [
           {
-            PropertyString: "10% Chance to cast level 6 frost nova when struck",
+            PropertyString: "10% Chance to cast level 6 Frost Nova when struck",
             Index: 1
           },
           {
-            PropertyString: "+20 % bonus to Attack Rating",
+            PropertyString: "+20% bonus to Attack Rating",
             Index: 2
           },
           {
@@ -13942,7 +14186,7 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "12% Chance to cast level 8 frozen orb when struck",
+        PropertyString: "12% Chance to cast level 8 Frozen Orb when struck",
         Index: 5
       },
       {
@@ -13954,7 +14198,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "5 to Experience Gained",
+        PropertyString: "+5% to Experience Gained",
         Index: 2
       },
       {
@@ -13978,6 +14222,7 @@ const json = [
         Name: "Soulstone of Power",
         Index: "Soulstone of Power",
         Enabled: true,
+        Rarity: 2,
         ItemLevel: 85,
         RequiredLevel: 81,
         Code: "amu",
@@ -13991,7 +14236,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "Regenerate Mana 25%",
+            PropertyString: "Regenerate Mana +25%",
             Index: 2
           },
           {
@@ -14025,6 +14270,7 @@ const json = [
         Name: "Guiding Focus",
         Index: "Guiding Focus",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 69,
         Code: "ukp",
@@ -14075,12 +14321,13 @@ const json = [
         Name: "Chaotic Shield",
         Index: "Chaotic Shield",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 83,
         Code: "nef",
         Properties: [
           {
-            PropertyString: "44% Chance to cast level 17 charged bolt when struck",
+            PropertyString: "44% Chance to cast level 17 Charged Bolt when struck",
             Index: 1
           },
           {
@@ -14126,16 +14373,17 @@ const json = [
         Name: "Treads of Energy",
         Index: "Treads of Energy",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 74,
         Code: "uvb",
         Properties: [
           {
-            PropertyString: "+122 +122 magic damage",
+            PropertyString: "+122 to Minimum Magic Damage",
             Index: 3
           },
           {
-            PropertyString: "Adds 3-6 Mana stolen per hit",
+            PropertyString: "Adds 3-6% Mana stolen per hit",
             Index: 2
           },
           {
@@ -14177,6 +14425,7 @@ const json = [
         Name: "Band of Mysticism",
         Index: "Band of Mysticism",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 77,
         Code: "urs",
@@ -14220,15 +14469,15 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "25 to Energy",
+        PropertyString: "+25 to Energy",
         Index: 0
       },
       {
-        PropertyString: "25 to Vitality",
+        PropertyString: "+25 to Vitality",
         Index: 2
       },
       {
-        PropertyString: "25 to Dexterity",
+        PropertyString: "+25 to Dexterity",
         Index: 4
       }
     ],
@@ -14238,7 +14487,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "25 to Strength",
+        PropertyString: "+25 to Strength",
         Index: 5
       },
       {
@@ -14246,7 +14495,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "5 to Experience Gained",
+        PropertyString: "+5% to Experience Gained",
         Index: 2
       },
       {
@@ -14270,6 +14519,7 @@ const json = [
         Name: "Chiad's Lances",
         Index: "Chiad's Lances",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 80,
         Code: "amf",
@@ -14283,12 +14533,16 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+33 Piercing Attack",
+            PropertyString: "+33% Piercing Attack",
             Index: 3
           },
           {
             PropertyString: "Adds 35-70 to Damage",
             Index: 1
+          },
+          {
+            PropertyString: "Replenishes quantity",
+            Index: 4
           }
         ],
         DamageArmorEnhanced: true,
@@ -14327,6 +14581,7 @@ const json = [
         Name: "Chiad's Wall",
         Index: "Chiad's Wall",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 73,
         Code: "uit",
@@ -14377,16 +14632,21 @@ const json = [
         Name: "Chiad's Heartbane",
         Index: "Chiad's Heartbane",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 75,
         Code: "ucl",
         Properties: [
           {
+            PropertyString: "Adds 20-50 to Damage",
+            Index: 3
+          },
+          {
             PropertyString: "+175-200% Enhanced Defense",
             Index: 0
           },
           {
-            PropertyString: "35 to Dexterity",
+            PropertyString: "+35 to Dexterity",
             Index: 2
           },
           {
@@ -14423,6 +14683,7 @@ const json = [
         Name: "Chiad's Halo",
         Index: "Chiad's Halo",
         Enabled: true,
+        Rarity: 2,
         ItemLevel: 60,
         RequiredLevel: 71,
         Code: "rin",
@@ -14436,11 +14697,11 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "Adds 6-8 Mana stolen per hit",
+            PropertyString: "Adds 6-8% Mana stolen per hit",
             Index: 2
           },
           {
-            PropertyString: "Adds 8-12 Life stolen per hit",
+            PropertyString: "Adds 8-12% Life stolen per hit",
             Index: 1
           }
         ],
@@ -14470,6 +14731,7 @@ const json = [
         Name: "Chiad's Valor",
         Index: "Chiad's Valor",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 74,
         Code: "ulc",
@@ -14487,7 +14749,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+1 You feel incorporeal...",
+            PropertyString: "You feel incorporeal...",
             Index: 1
           }
         ],
@@ -14521,7 +14783,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "2 to Experience Gained",
+        PropertyString: "+2% to Experience Gained",
         Index: 4
       }
     ],
@@ -14539,7 +14801,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "4 to Experience Gained",
+        PropertyString: "+4% to Experience Gained",
         Index: 2
       },
       {
@@ -14560,6 +14822,7 @@ const json = [
         Name: "Myhrginoc's Headhunter",
         Index: "Myhrginoc's Headhunter",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 80,
         Code: "7ga",
@@ -14577,11 +14840,11 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+1 Prevent Monster Heal",
+            PropertyString: "Prevent Monster Heal",
             Index: 4
           },
           {
-            PropertyString: "+1 Knockback",
+            PropertyString: "Knockback",
             Index: 3
           }
         ],
@@ -14614,6 +14877,7 @@ const json = [
         Name: "Myhrginoc's Black Rain",
         Index: "Myhrginoc's Black Rain",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 77,
         Code: "uul",
@@ -14665,12 +14929,13 @@ const json = [
         Name: "Myhrginoc's Crimson Crusader",
         Index: "Myhrginoc's Crimson Crusader",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 70,
         Code: "ulm",
         Properties: [
           {
-            PropertyString: "12% Chance to cast level 4 war cry when struck",
+            PropertyString: "12% Chance to cast level 4 War Cry when struck",
             Index: 3
           },
           {
@@ -14715,6 +14980,7 @@ const json = [
         Name: "Myhrginoc's Deathmonger",
         Index: "Myhrginoc's Deathmonger",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 79,
         Code: "uhg",
@@ -14772,11 +15038,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+10 Mana stolen per hit",
+        PropertyString: "+10% Mana stolen per hit",
         Index: 4
       },
       {
-        PropertyString: "+10 Life stolen per hit",
+        PropertyString: "+10% Life stolen per hit",
         Index: 3
       },
       {
@@ -14804,12 +15070,13 @@ const json = [
         Name: "Sin and Greed",
         Index: "Sin and Greed",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 80,
         Code: "7s8",
         Properties: [
           {
-            PropertyString: "15% Chance to cast level 15 dim vision on striking",
+            PropertyString: "15% Chance to cast level 15 Dim Vision on striking",
             Index: 3
           },
           {
@@ -14821,7 +15088,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+20% Requirements Increased By",
+            PropertyString: "Requirements Increased By +20%",
             Index: 1
           }
         ],
@@ -14854,6 +15121,7 @@ const json = [
         Name: "wicked Impulse",
         Index: "wicked Impulse",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 75,
         Code: "ult",
@@ -14903,6 +15171,7 @@ const json = [
         Name: "Evil Reputation",
         Index: "Evil Reputation",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 76,
         Code: "utb",
@@ -14912,7 +15181,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+7 Life stolen per hit",
+            PropertyString: "+7% Life stolen per hit",
             Index: 2
           },
           {
@@ -14920,7 +15189,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "15-25 to Dexterity",
+            PropertyString: "+15-25 to Dexterity",
             Index: 3
           }
         ],
@@ -14952,6 +15221,7 @@ const json = [
         Name: "Noxious Whispers",
         Index: "Noxious Whispers",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 70,
         Code: "usk",
@@ -14999,7 +15269,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "-10 to Experience Gained",
+        PropertyString: "-10% to Experience Gained",
         Index: 2
       }
     ],
@@ -15036,11 +15306,12 @@ const json = [
         "Set": "Kraj's Memorial",
         SetPropertiesString: [
           "All Resistances +18% (2 Items)",
-          "+1 Half Freeze Duration (3 Items)"
+          "Half Freeze Duration (3 Items)"
         ],
         Name: "Eternal Sleep",
         Index: "Eternal Sleep",
         Enabled: true,
+        Rarity: 2,
         ItemLevel: 60,
         RequiredLevel: 80,
         Code: "amu",
@@ -15089,6 +15360,7 @@ const json = [
         Name: "Calming Peace",
         Index: "Calming Peace",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 83,
         Code: "uow",
@@ -15114,7 +15386,7 @@ const json = [
         Equipment: {
           DamageString: "18 to 28",
           DamageStringPrefix: "Unhandled Damage Prefix",
-          ArmorString: "475-529",
+          ArmorString: "145",
           EquipmentType: 0,
           Name: "Aegis",
           RequiredStrength: 219,
@@ -15138,6 +15410,7 @@ const json = [
         Name: "Silk Shroud",
         Index: "Silk Shroud",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 79,
         Code: "uld",
@@ -15189,6 +15462,7 @@ const json = [
         Name: "Temple Guardian",
         Index: "Temple Guardian",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 77,
         Code: "7fl",
@@ -15206,7 +15480,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+75 % bonus to Attack Rating",
+            PropertyString: "+75% bonus to Attack Rating",
             Index: 2
           }
         ],
@@ -15235,7 +15509,7 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "2 to Experience Gained",
+        PropertyString: "+2% to Experience Gained",
         Index: 0
       },
       {
@@ -15257,7 +15531,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+1 Prevent Monster Heal",
+        PropertyString: "Prevent Monster Heal",
         Index: 3
       },
       {
@@ -15280,6 +15554,7 @@ const json = [
         Name: "Sundered Heart",
         Index: "Sundered Heart",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 76,
         Code: "uth",
@@ -15321,6 +15596,7 @@ const json = [
         Name: "Soulreaver",
         Index: "Soulreaver",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 77,
         Code: "7cr",
@@ -15365,6 +15641,7 @@ const json = [
         Name: "Throws of Hatred",
         Index: "Throws of Hatred",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 78,
         Code: "ush",
@@ -15389,7 +15666,7 @@ const json = [
           ArmorString: "429-492",
           EquipmentType: 0,
           Name: "Troll Nest",
-          RequiredStrength: 106,
+          RequiredStrength: 156,
           RequiredDexterity: 0,
           Durability: 74,
           ItemLevel: 76,
@@ -15422,7 +15699,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "Regenerate Mana 75%",
+        PropertyString: "Regenerate Mana +75%",
         Index: 3
       },
       {
@@ -15445,6 +15722,7 @@ const json = [
         Name: "Blood Raven's Pain",
         Index: "Blood Raven's Pain",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 73,
         Code: "uh9",
@@ -15489,11 +15767,12 @@ const json = [
         Type: "Armor",
         "Set": "Blood Raven's Despair",
         SetPropertiesString: [
-          "+6 Mana stolen per hit (2 Items)"
+          "+6% Mana stolen per hit (2 Items)"
         ],
         Name: "Blood Raven's Curse",
         Index: "Blood Raven's Curse",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 77,
         Code: "utu",
@@ -15503,7 +15782,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+9 Life stolen per hit",
+            PropertyString: "+9% Life stolen per hit",
             Index: 3
           },
           {
@@ -15511,7 +15790,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "20-30 to Strength",
+            PropertyString: "+20-30 to Strength",
             Index: 2
           }
         ],
@@ -15543,6 +15822,7 @@ const json = [
         Name: "Blood Raven's Redemption",
         Index: "Blood Raven's Redemption",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 74,
         Code: "6lb",
@@ -15593,7 +15873,7 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "+100 Piercing Attack",
+        PropertyString: "+100% Piercing Attack",
         Index: 0
       }
     ],
@@ -15603,11 +15883,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "Slows target by 25",
+        PropertyString: "Slows target by 25%",
         Index: 2
       },
       {
-        PropertyString: "+5 Knockback",
+        PropertyString: "Knockback",
         Index: 1
       },
       {
@@ -15625,12 +15905,13 @@ const json = [
         Type: "Helm",
         "Set": "Narrow Path Between Light and Darkness",
         SetPropertiesString: [
-          "25% Chance to cast level 1 frost nova when struck (3 Items)",
+          "25% Chance to cast level 1 Frost Nova when struck (3 Items)",
           "+15% Increased Attack Speed (2 Items)"
         ],
         Name: "Char's Grimace of Death",
         Index: "Char's Grimace of Death",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 35,
         RequiredLevel: 62,
         Code: "xh9",
@@ -15640,11 +15921,11 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "10 to Strength",
+            PropertyString: "+10 to Strength",
             Index: 1
           },
           {
-            PropertyString: "10 to Dexterity",
+            PropertyString: "+10 to Dexterity",
             Index: 2
           },
           {
@@ -15676,12 +15957,13 @@ const json = [
         "Set": "Narrow Path Between Light and Darkness",
         SetPropertiesString: [
           "+45 to Mana (2 Items)",
-          "Regenerate Mana 10% (4 Items)",
+          "Regenerate Mana +10% (4 Items)",
           "Magic Damage Reduced by 10 (3 Items)"
         ],
         Name: "Char's Annulus of Obscurity",
         Index: "Char's Annulus of Obscurity",
         Enabled: true,
+        Rarity: 3,
         ItemLevel: 40,
         RequiredLevel: 51,
         Code: "rin",
@@ -15725,6 +16007,7 @@ const json = [
         Name: "Char's Blessed Reflection",
         Index: "Char's Blessed Reflection",
         Enabled: true,
+        Rarity: 3,
         ItemLevel: 40,
         RequiredLevel: 51,
         Code: "rin",
@@ -15769,6 +16052,7 @@ const json = [
         Name: "Char's Hand of Blessed Light",
         Index: "Char's Hand of Blessed Light",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 67,
         Code: "7sc",
@@ -15825,6 +16109,7 @@ const json = [
         Name: "Char's Carapace",
         Index: "Char's Carapace",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 65,
         Code: "uui",
@@ -15850,7 +16135,7 @@ const json = [
         Equipment: {
           DamageString: null,
           DamageStringPrefix: null,
-          ArmorString: "941-1086",
+          ArmorString: "361",
           EquipmentType: 0,
           Name: "Dusk Shroud",
           RequiredStrength: 77,
@@ -15903,6 +16188,7 @@ const json = [
         Name: "Kingpin's Wrap",
         Index: "Kingpin's Wrap",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 35,
         RequiredLevel: 25,
         Code: "ztb",
@@ -15958,6 +16244,7 @@ const json = [
         Name: "Kingpin's Greaves",
         Index: "Kingpin's Greaves",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 35,
         RequiredLevel: 42,
         Code: "xtb",
@@ -15975,11 +16262,11 @@ const json = [
             Index: 5
           },
           {
-            PropertyString: "10 to Strength",
+            PropertyString: "+10 to Strength",
             Index: 1
           },
           {
-            PropertyString: "10 to Vitality",
+            PropertyString: "+10 to Vitality",
             Index: 0
           },
           {
@@ -16014,12 +16301,13 @@ const json = [
         Type: "Armor",
         "Set": "Treasure Hunter",
         SetPropertiesString: [
-          "10 to Vitality (2 Items)",
-          "10 to Energy (3 Items)"
+          "+10 to Vitality (2 Items)",
+          "+10 to Energy (3 Items)"
         ],
         Name: "Kingpin's Ire",
         Index: "Kingpin's Ire",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 35,
         RequiredLevel: 42,
         Code: "xpl",
@@ -16074,6 +16362,7 @@ const json = [
         Name: "Kingpin's Signet",
         Index: "Kingpin's Signet",
         Enabled: true,
+        Rarity: 4,
         ItemLevel: 7,
         RequiredLevel: 7,
         Code: "rin",
@@ -16118,6 +16407,7 @@ const json = [
         Name: "Kingpin's Crown",
         Index: "Kingpin's Crown",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 61,
         Code: "uap",
@@ -16175,6 +16465,7 @@ const json = [
         Name: "Kingpin's Blade",
         Index: "Kingpin's Blade",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 35,
         RequiredLevel: 35,
         Code: "9fc",
@@ -16184,7 +16475,7 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "5-15 to Dexterity",
+            PropertyString: "+5-15 to Dexterity",
             Index: 5
           },
           {
@@ -16272,6 +16563,7 @@ const json = [
         Name: "Wiseman's Cap",
         Index: "Wiseman's Cap",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 25,
         RequiredLevel: 28,
         Code: "crn",
@@ -16321,12 +16613,13 @@ const json = [
         Name: "Sage's Leather",
         Index: "Sage's Leather",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 32,
         RequiredLevel: 33,
         Code: "xla",
         Properties: [
           {
-            PropertyString: "15 to Strength",
+            PropertyString: "+15 to Strength",
             Index: 0
           },
           {
@@ -16370,6 +16663,7 @@ const json = [
         Name: "Gloves of Knowledge",
         Index: "Gloves of Knowledge",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 35,
         RequiredLevel: 38,
         Code: "xmg",
@@ -16415,11 +16709,12 @@ const json = [
         "Set": "Yohann's Savant",
         SetPropertiesString: [
           "+1 to Whirlwind (4 Items)",
-          "+5 Mana stolen per hit (3 Items)"
+          "+5% Mana stolen per hit (3 Items)"
         ],
         Name: "Arcane Battlestaff",
         Index: "Arcane Battlestaff",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 20,
         RequiredLevel: 23,
         Code: "8bs",
@@ -16437,7 +16732,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "Adds 6-8 Life stolen per hit",
+            PropertyString: "Adds 6-8% Life stolen per hit",
             Index: 3
           }
         ],
@@ -16470,7 +16765,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "3 to Experience Gained",
+        PropertyString: "+3% to Experience Gained",
         Index: 2
       }
     ],
@@ -16484,7 +16779,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "Regenerate Mana 75%",
+        PropertyString: "Regenerate Mana +75%",
         Index: 4
       },
       {
@@ -16513,6 +16808,7 @@ const json = [
         Name: "Unholy Desires",
         Index: "Unholy Desires",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 25,
         RequiredLevel: 31,
         Code: "xap",
@@ -16553,11 +16849,12 @@ const json = [
         Type: "Axe",
         "Set": "Zhoulomcrist's Dread",
         SetPropertiesString: [
-          "20% Chance to cast level 15 life tap when you Kill an Enemy (4 Items)"
+          "20% Chance to cast level 15 Life Tap when you Kill an Enemy (4 Items)"
         ],
         Name: "Darkest Wishes",
         Index: "Darkest Wishes",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 70,
         Code: "72a",
@@ -16575,7 +16872,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+1 Knockback",
+            PropertyString: "Knockback",
             Index: 2
           },
           {
@@ -16615,6 +16912,7 @@ const json = [
         Name: "Shadowed Plate",
         Index: "Shadowed Plate",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 74,
         Code: "utp",
@@ -16632,7 +16930,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "1-5 to Experience Gained",
+            PropertyString: "+1-5% to Experience Gained",
             Index: 1
           }
         ],
@@ -16664,6 +16962,7 @@ const json = [
         Name: "Draven Coil",
         Index: "Draven Coil",
         Enabled: true,
+        Rarity: 3,
         ItemLevel: 40,
         RequiredLevel: 50,
         Code: "rin",
@@ -16673,7 +16972,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+10-20 % bonus to Attack Rating",
+            PropertyString: "+10-20% bonus to Attack Rating",
             Index: 3
           },
           {
@@ -16708,7 +17007,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "Regenerate Mana 50%",
+        PropertyString: "Regenerate Mana +50%",
         Index: 2
       }
     ],
@@ -16744,7 +17043,7 @@ const json = [
         Type: "Gloves",
         "Set": "The Warlord of Blood",
         SetPropertiesString: [
-          "+20 % bonus to Attack Rating (4 Items)",
+          "+20% bonus to Attack Rating (4 Items)",
           "+15% Chance of Crushing Blow (3 Items)",
           "+15% Deadly Strike (2 Items)",
           "+250 Defense (6 Items)",
@@ -16753,6 +17052,7 @@ const json = [
         Name: "Tortured Soul Gauntlets",
         Index: "Tortured Soul Gauntlets",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 28,
         RequiredLevel: 29,
         Code: "hgl",
@@ -16798,12 +17098,13 @@ const json = [
         Name: "Hell's Torment Greaves",
         Index: "Hell's Torment Greaves",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 28,
         RequiredLevel: 31,
         Code: "hbt",
         Properties: [
           {
-            PropertyString: "18% Chance to cast level 1 life tap on striking",
+            PropertyString: "18% Chance to cast level 1 Life Tap on striking",
             Index: 1
           },
           {
@@ -16841,12 +17142,13 @@ const json = [
         Name: "Bloody Visage Helm",
         Index: "Bloody Visage Helm",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 45,
         RequiredLevel: 45,
         Code: "xhm",
         Properties: [
           {
-            PropertyString: "+2 Knockback",
+            PropertyString: "Knockback",
             Index: 3
           },
           {
@@ -16892,6 +17194,7 @@ const json = [
         Name: "Vengeance Unleashed",
         Index: "Vengeance Unleashed",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 45,
         RequiredLevel: 47,
         Code: "zhb",
@@ -16943,6 +17246,7 @@ const json = [
         Name: "Elysian Fields",
         Index: "Elysian Fields",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 68,
         Code: "upk",
@@ -17000,11 +17304,12 @@ const json = [
         "Set": "The Warlord of Blood",
         SetPropertiesString: [
           "+2 to All Skills (6 Items)",
-          "+1 Prevent Monster Heal (6 Items)"
+          "Prevent Monster Heal (6 Items)"
         ],
         Name: "Death and Decay",
         Index: "Death and Decay",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 77,
         Code: "utp",
@@ -17014,11 +17319,11 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "15-25 to Strength",
+            PropertyString: "+15-25 to Strength",
             Index: 4
           },
           {
-            PropertyString: "15-20 to Dexterity",
+            PropertyString: "+15-20 to Dexterity",
             Index: 3
           },
           {
@@ -17056,7 +17361,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "2 to Experience Gained",
+        PropertyString: "+2% to Experience Gained",
         Index: 2
       },
       {
@@ -17101,12 +17406,13 @@ const json = [
         Name: "Dying Curses",
         Index: "Dying Curses",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 30,
         Code: "zlb",
         Properties: [
           {
-            PropertyString: "100% Chance to cast level 40 weaken when you Level-Up",
+            PropertyString: "100% Chance to cast level 40 Weaken when you Level-Up",
             Index: 2
           },
           {
@@ -17146,12 +17452,13 @@ const json = [
         Name: "Lich's Rites",
         Index: "Lich's Rites",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 63,
         Code: "uuc",
         Properties: [
           {
-            PropertyString: "100% Chance to cast level 33 bone armor when you Level-Up",
+            PropertyString: "100% Chance to cast level 33 Bone Armor when you Level-Up",
             Index: 2
           },
           {
@@ -17193,6 +17500,7 @@ const json = [
         Name: "Twilight of Evil",
         Index: "Twilight of Evil",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 29,
         Code: "9yw",
@@ -17248,6 +17556,7 @@ const json = [
         Name: "Dark Rituals",
         Index: "Dark Rituals",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 40,
         RequiredLevel: 50,
         Code: "xtp",
@@ -17293,6 +17602,7 @@ const json = [
         Name: "Legacy in Blood",
         Index: "Legacy in Blood",
         Enabled: true,
+        Rarity: 4,
         ItemLevel: 33,
         RequiredLevel: 35,
         Code: "amu",
@@ -17343,7 +17653,7 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "5% Chance to cast level 10 iron maiden when struck",
+        PropertyString: "5% Chance to cast level 10 Iron Maiden when struck",
         Index: 1
       },
       {
@@ -17376,6 +17686,7 @@ const json = [
         Name: "Andariel's Claw",
         Index: "Andariel's Claw",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 69,
         Code: "uvg",
@@ -17401,7 +17712,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+60-90 Poison Length Reduced by",
+            PropertyString: "Poison Length Reduced by 60%",
             Index: 4
           }
         ],
@@ -17431,6 +17742,7 @@ const json = [
         Name: "Andariel's Hooves",
         Index: "Andariel's Hooves",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 72,
         Code: "umb",
@@ -17440,7 +17752,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "1200 Poison Damage Over 12 Seconds",
+            PropertyString: "+1200 Poison Damage Over 12 Seconds",
             Index: 4
           },
           {
@@ -17448,7 +17760,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "20-30 to Dexterity",
+            PropertyString: "+20-30 to Dexterity",
             Index: 2
           },
           {
@@ -17482,6 +17794,7 @@ const json = [
         Name: "Andariel's Mask",
         Index: "Andariel's Mask",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 36,
         Code: "xsk",
@@ -17491,11 +17804,11 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "20-30 to Vitality",
+            PropertyString: "+20-30 to Vitality",
             Index: 4
           },
           {
-            PropertyString: "20-30 to Energy",
+            PropertyString: "+20-30 to Energy",
             Index: 3
           },
           {
@@ -17530,11 +17843,12 @@ const json = [
         Type: "Armor",
         "Set": "Marhawkman's Disguise",
         SetPropertiesString: [
-          "4 to Experience Gained (4 Items)"
+          "+4% to Experience Gained (4 Items)"
         ],
         Name: "Andariel's Breastbone",
         Index: "Andariel's Breastbone",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 60,
         Code: "ula",
@@ -17548,7 +17862,7 @@ const json = [
             Index: 5
           },
           {
-            PropertyString: "+1 Prevent Monster Heal",
+            PropertyString: "Prevent Monster Heal",
             Index: 1
           },
           {
@@ -17596,19 +17910,19 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "100% Chance to cast level 2 poison nova when struck",
+        PropertyString: "100% Chance to cast level 2 Poison Nova when struck",
         Index: 1
       },
       {
-        PropertyString: "8% Chance to cast level 12 poison nova on striking",
+        PropertyString: "8% Chance to cast level 12 Poison Nova on striking",
         Index: 2
       },
       {
-        PropertyString: "+8 Mana stolen per hit",
+        PropertyString: "+8% Mana stolen per hit",
         Index: 5
       },
       {
-        PropertyString: "+8 Life stolen per hit",
+        PropertyString: "+8% Life stolen per hit",
         Index: 4
       },
       {
@@ -17629,6 +17943,7 @@ const json = [
         Name: "Aragorn's Contempt",
         Index: "Aragorn's Contempt",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 33,
         Code: "xui",
@@ -17679,6 +17994,7 @@ const json = [
         Name: "Aragorn's Derision",
         Index: "Aragorn's Derision",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 40,
         Code: "9wa",
@@ -17725,6 +18041,7 @@ const json = [
         Name: "Aragorn's Indignation",
         Index: "Aragorn's Indignation",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 62,
         Code: "uml",
@@ -17738,7 +18055,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+1 Prevent Monster Heal",
+            PropertyString: "Prevent Monster Heal",
             Index: 3
           },
           {
@@ -17773,11 +18090,12 @@ const json = [
         Type: "Boots",
         "Set": "Aragorn's Scorn",
         SetPropertiesString: [
-          "25 to Dexterity (3 Items)"
+          "+25 to Dexterity (3 Items)"
         ],
         Name: "Aragorn's Disdain",
         Index: "Aragorn's Disdain",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 43,
         Code: "xhb",
@@ -17791,7 +18109,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "Adds 3-6 Mana stolen per hit",
+            PropertyString: "Adds 3-6% Mana stolen per hit",
             Index: 3
           },
           {
@@ -17827,7 +18145,7 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "25% Chance to cast level 2 static field when struck",
+        PropertyString: "25% Chance to cast level 2 Static Field when struck",
         Index: 2
       },
       {
@@ -17839,7 +18157,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "Slows target by 15",
+        PropertyString: "Slows target by 15%",
         Index: 4
       },
       {
@@ -17860,6 +18178,7 @@ const json = [
         Name: "Winter's Embrace",
         Index: "Winter's Embrace",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 34,
         Code: "xea",
@@ -17877,7 +18196,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+1 Cannot Be Frozen",
+            PropertyString: "Cannot Be Frozen",
             Index: 1
           }
         ],
@@ -17904,11 +18223,12 @@ const json = [
         Type: "Mace",
         "Set": "Bogrot's Magic",
         SetPropertiesString: [
-          "Regenerate Mana 50% (3 Items)"
+          "Regenerate Mana +50% (3 Items)"
         ],
         Name: "Baptism by Fire",
         Index: "Baptism by Fire",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 31,
         Code: "9ma",
@@ -17959,6 +18279,7 @@ const json = [
         Name: "Between Fire and Ice",
         Index: "Between Fire and Ice",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 48,
         RequiredLevel: 48,
         Code: "urg",
@@ -17976,7 +18297,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "15-25 to Strength",
+            PropertyString: "+15-25 to Strength",
             Index: 4
           },
           {
@@ -17991,7 +18312,7 @@ const json = [
           ArmorString: "119",
           EquipmentType: 0,
           Name: "Hyperion",
-          RequiredStrength: 127,
+          RequiredStrength: 156,
           RequiredDexterity: 0,
           Durability: 82,
           ItemLevel: 64,
@@ -18006,7 +18327,7 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "20 to Dexterity",
+        PropertyString: "+20 to Dexterity",
         Index: 0
       }
     ],
@@ -18024,7 +18345,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "3 to Experience Gained",
+        PropertyString: "+3% to Experience Gained",
         Index: 2
       },
       {
@@ -18051,6 +18372,7 @@ const json = [
         Name: "Call of Gylandra",
         Index: "Call of Gylandra",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 36,
         Code: "xla",
@@ -18068,7 +18390,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "1-2 to Experience Gained",
+            PropertyString: "+1-2% to Experience Gained",
             Index: 3
           }
         ],
@@ -18095,12 +18417,13 @@ const json = [
         Type: "Hammer",
         "Set": "Cedric's Jinx",
         SetPropertiesString: [
-          "+6 Mana stolen per hit (2 Items)",
-          "+6 Life stolen per hit (3 Items)"
+          "+6% Mana stolen per hit (2 Items)",
+          "+6% Life stolen per hit (3 Items)"
         ],
         Name: "Return to Hydrakal",
         Index: "Return to Hydrakal",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 75,
         Code: "7wh",
@@ -18147,6 +18470,7 @@ const json = [
         Name: "Neprida's Kiss",
         Index: "Neprida's Kiss",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 43,
         Code: "xrg",
@@ -18160,7 +18484,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+1 Ignore Target's Defense",
+            PropertyString: "Ignore Target's Defense",
             Index: 2
           },
           {
@@ -18191,11 +18515,11 @@ const json = [
     PartialProperties: [],
     FullProperties: [
       {
-        PropertyString: "25% Chance to cast level 9 battle orders when struck",
+        PropertyString: "25% Chance to cast level 9 Battle Orders when struck",
         Index: 2
       },
       {
-        PropertyString: "25% Chance to cast level 12 bone armor when struck",
+        PropertyString: "25% Chance to cast level 12 Bone Armor when struck",
         Index: 3
       },
       {
@@ -18227,6 +18551,7 @@ const json = [
         Name: "Warder's Vest",
         Index: "Warder's Vest",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 41,
         Code: "xtu",
@@ -18270,12 +18595,13 @@ const json = [
         Name: "Heron-Branded Blade",
         Index: "Heron-Branded Blade",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 44,
         Code: "9cr",
         Properties: [
           {
-            PropertyString: "4% Chance to cast level 20 weaken on striking",
+            PropertyString: "4% Chance to cast level 20 Weaken on striking",
             Index: 2
           },
           {
@@ -18330,6 +18656,7 @@ const json = [
         Name: "Ter'Angreal Ring",
         Index: "Ter'Angreal Ring",
         Enabled: true,
+        Rarity: 3,
         ItemLevel: 60,
         RequiredLevel: 67,
         Code: "rin",
@@ -18371,12 +18698,13 @@ const json = [
         Type: "Amulet",
         "Set": "Dragon Reborn",
         SetPropertiesString: [
-          "35% Chance to cast level 1 decrepify when struck (5 Items)",
+          "35% Chance to cast level 1 Decrepify when struck (5 Items)",
           "+1 to All Skills (6 Items)"
         ],
         Name: "Ser'Angreal Necklace",
         Index: "Ser'Angreal Necklace",
         Enabled: true,
+        Rarity: 3,
         ItemLevel: 60,
         RequiredLevel: 67,
         Code: "amu",
@@ -18390,7 +18718,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "4-7 to Experience Gained",
+            PropertyString: "+4-7% to Experience Gained",
             Index: 2
           }
         ],
@@ -18417,6 +18745,7 @@ const json = [
         Name: "Taint of Saidin",
         Index: "Taint of Saidin",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 67,
         Code: "uuc",
@@ -18474,6 +18803,7 @@ const json = [
         Name: "Aviendha's Gift",
         Index: "Aviendha's Gift",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 10,
         RequiredLevel: 21,
         Code: "vbt",
@@ -18483,7 +18813,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "10 to Dexterity",
+            PropertyString: "+10 to Dexterity",
             Index: 1
           }
         ],
@@ -18560,6 +18890,7 @@ const json = [
         Name: "Heroes Stand",
         Index: "Heroes Stand",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 35,
         Code: "xng",
@@ -18602,11 +18933,12 @@ const json = [
         SetPropertiesString: [
           "+3 to Melee Mastery (2 Items)",
           "Adds 100-150 to Damage (3 Items)",
-          "+8 Life stolen per hit (2 Items)"
+          "+8% Life stolen per hit (2 Items)"
         ],
         Name: "Warrior's Heroism",
         Index: "Warrior's Heroism",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 55,
         Code: "9cm",
@@ -18659,6 +18991,7 @@ const json = [
         Name: "Martyr's Principle",
         Index: "Martyr's Principle",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 73,
         Code: "utg",
@@ -18676,7 +19009,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "1-2 to Experience Gained",
+            PropertyString: "+1-2% to Experience Gained",
             Index: 3
           }
         ],
@@ -18733,6 +19066,7 @@ const json = [
         Name: "Judicial Decree",
         Index: "Judicial Decree",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 40,
         Code: "xcl",
@@ -18780,6 +19114,7 @@ const json = [
         Name: "Regime of Regulation",
         Index: "Regime of Regulation",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 69,
         Code: "7sm",
@@ -18837,6 +19172,7 @@ const json = [
         Name: "King's Prescript",
         Index: "King's Prescript",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 46,
         Code: "xit",
@@ -18883,11 +19219,12 @@ const json = [
         SetPropertiesString: [
           "+10% Faster Cast Rate (2 Items)",
           "+30 to Mana (3 Items)",
-          "Regenerate Mana 50% (4 Items)"
+          "Regenerate Mana +50% (4 Items)"
         ],
         Name: "Born Supremacy",
         Index: "Born Supremacy",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 70,
         Code: "umc",
@@ -18927,6 +19264,7 @@ const json = [
         Name: "Dominion's Thesis",
         Index: "Dominion's Thesis",
         Enabled: true,
+        Rarity: 3,
         ItemLevel: 50,
         RequiredLevel: 50,
         Code: "amu",
@@ -18944,7 +19282,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "30-40 to Strength",
+            PropertyString: "+30-40 to Strength",
             Index: 1
           }
         ],
@@ -18981,7 +19319,7 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "10% Chance to cast level 10 nova on striking",
+        PropertyString: "10% Chance to cast level 10 Nova on striking",
         Index: 2
       },
       {
@@ -18989,11 +19327,11 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "469 Poison Damage Over 6 Seconds",
+        PropertyString: "+469 Poison Damage Over 6 Seconds",
         Index: 4
       },
       {
-        PropertyString: "+1 Prevent Monster Heal",
+        PropertyString: "Prevent Monster Heal",
         Index: 3
       },
       {
@@ -19021,6 +19359,7 @@ const json = [
         Name: "Astral Body",
         Index: "Astral Body",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 44,
         Code: "xhn",
@@ -19042,7 +19381,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+1 You feel incorporeal...",
+            PropertyString: "You feel incorporeal...",
             Index: 4
           }
         ],
@@ -19074,6 +19413,7 @@ const json = [
         Name: "Apparition of Malice",
         Index: "Apparition of Malice",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 42,
         Code: "9ls",
@@ -19126,6 +19466,7 @@ const json = [
         Name: "Phantasm of Horror",
         Index: "Phantasm of Horror",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 47,
         Code: "xsh",
@@ -19173,6 +19514,7 @@ const json = [
         Name: "Haunted Wisdom",
         Index: "Haunted Wisdom",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 65,
         Code: "uhl",
@@ -19194,7 +19536,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "Regenerate Mana 75%",
+            PropertyString: "Regenerate Mana +75%",
             Index: 4
           },
           {
@@ -19228,6 +19570,7 @@ const json = [
         Name: "Revenant's Claw",
         Index: "Revenant's Claw",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 72,
         Code: "utg",
@@ -19237,7 +19580,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+5 Life stolen per hit",
+            PropertyString: "+5% Life stolen per hit",
             Index: 3
           },
           {
@@ -19285,7 +19628,7 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "25 to Experience Gained",
+        PropertyString: "+25% to Experience Gained",
         Index: 0
       },
       {
@@ -19310,20 +19653,21 @@ const json = [
         Name: "Alyssa's Essence",
         Index: "Alyssa's Essence",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 47,
         Code: "xpl",
         Properties: [
           {
-            PropertyString: "Adds 4-8 Mana stolen per hit",
+            PropertyString: "Adds 4-8% Mana stolen per hit",
             Index: 2
           },
           {
-            PropertyString: "+8 Life stolen per hit",
+            PropertyString: "+8% Life stolen per hit",
             Index: 3
           },
           {
-            PropertyString: "+3 Knockback",
+            PropertyString: "Knockback",
             Index: 1
           },
           {
@@ -19360,6 +19704,7 @@ const json = [
         Name: "Alyssa's Leafblighter",
         Index: "Alyssa's Leafblighter",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 44,
         Code: "8l8",
@@ -19408,6 +19753,7 @@ const json = [
         Name: "Alyssa's Sandals",
         Index: "Alyssa's Sandals",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 60,
         Code: "ulb",
@@ -19425,7 +19771,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "15 to Strength",
+            PropertyString: "+15 to Strength",
             Index: 3
           }
         ],
@@ -19461,7 +19807,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+30 Piercing Attack",
+        PropertyString: "+30% Piercing Attack",
         Index: 3
       },
       {
@@ -19486,6 +19832,7 @@ const json = [
         Name: "Unholy Vows",
         Index: "Unholy Vows",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 46,
         Code: "xlt",
@@ -19503,7 +19850,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "Regenerate Mana 100%",
+            PropertyString: "Regenerate Mana +100%",
             Index: 3
           }
         ],
@@ -19533,6 +19880,7 @@ const json = [
         Name: "Vampirebone Dagger",
         Index: "Vampirebone Dagger",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 63,
         Code: "7dg",
@@ -19589,12 +19937,13 @@ const json = [
         "Set": "Forbidden Lore",
         SetPropertiesString: [
           "+22% Increased Chance of Blocking (2 Items)",
-          "15 to Dexterity (3 Items)",
+          "+15 to Dexterity (3 Items)",
           "+25% better chance of getting magic item (4 Items)"
         ],
         Name: "Wall of Modius",
         Index: "Wall of Modius",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 12,
         RequiredLevel: 16,
         Code: "bsh",
@@ -19634,6 +19983,7 @@ const json = [
         Name: "Death's Door",
         Index: "Death's Door",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 32,
         Code: "zvb",
@@ -19651,7 +20001,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "1-2 to Experience Gained",
+            PropertyString: "+1-2% to Experience Gained",
             Index: 3
           }
         ],
@@ -19677,17 +20027,17 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "15 to Energy",
+        PropertyString: "+15 to Energy",
         Index: 0
       },
       {
-        PropertyString: "15 to Vitality",
+        PropertyString: "+15 to Vitality",
         Index: 2
       }
     ],
     FullProperties: [
       {
-        PropertyString: "20% Chance to cast level 3 corpse explosion on striking",
+        PropertyString: "20% Chance to cast level 3 Corpse Explosion on striking",
         Index: 1
       },
       {
@@ -19699,7 +20049,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "+25 % bonus to Attack Rating",
+        PropertyString: "+25% bonus to Attack Rating",
         Index: 2
       }
     ],
@@ -19716,12 +20066,13 @@ const json = [
         Name: "Hannibal's Shattered Plate",
         Index: "Hannibal's Shattered Plate",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 48,
         Code: "xld",
         Properties: [
           {
-            PropertyString: "+50 Piercing Attack",
+            PropertyString: "+50% Piercing Attack",
             Index: 4
           },
           {
@@ -19764,11 +20115,13 @@ const json = [
         Type: "Throwing Knife",
         "Set": "Hannibal's Demise",
         SetPropertiesString: [
+          "Adds 25-75 to Damage (3 Items)",
           "+100 Increased Stack Size (2 Items)"
         ],
         Name: "Hanabal's Final Flight",
         Index: "Hannibal's Final Flight",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 62,
         Code: "7bk",
@@ -19786,12 +20139,16 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "Slows target by 75",
+            PropertyString: "Slows target by 75%",
             Index: 2
           },
           {
-            PropertyString: "+1 Cannot Be Frozen",
+            PropertyString: "Cannot Be Frozen",
             Index: 4
+          },
+          {
+            PropertyString: "Replenishes quantity",
+            Index: 5
           }
         ],
         DamageArmorEnhanced: true,
@@ -19829,6 +20186,7 @@ const json = [
         Name: "Hanabal's Blurred Vision",
         Index: "Hannibal's Blurred Vision",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 38,
         Code: "xhl",
@@ -19846,7 +20204,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "1-2 to Experience Gained",
+            PropertyString: "+1-2% to Experience Gained",
             Index: 2
           }
         ],
@@ -19879,6 +20237,7 @@ const json = [
         Name: "Hanabal's Bending Knee",
         Index: "Hannibal's Bending Knee",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 45,
         Code: "xtb",
@@ -19888,7 +20247,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "15 to Dexterity",
+            PropertyString: "+15 to Dexterity",
             Index: 1
           },
           {
@@ -19955,6 +20314,7 @@ const json = [
         Name: "Shroud of Anger",
         Index: "Shroud of Anger",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 50,
         Code: "xth",
@@ -19999,27 +20359,32 @@ const json = [
         Type: "Javelin",
         "Set": "Wrath of Vengeance",
         SetPropertiesString: [
-          "37% Chance to cast level 10 chain lightning on striking (2 Items)",
+          "37% Chance to cast level 10 Chain Lightning on striking (2 Items)",
           "+6 to Charged Strike (3 Items)"
         ],
         Name: "Holy Fury",
         Index: "Holy Fury",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 64,
         Code: "7s7",
         Properties: [
           {
             PropertyString: "+150-180% Enhanced Damage",
-            Index: 3
+            Index: 2
           },
           {
-            PropertyString: "Adds 25-100 to Damage",
+            PropertyString: "Adds 50-200 to Damage",
             Index: 0
           },
           {
             PropertyString: "+200 Increased Stack Size",
             Index: 1
+          },
+          {
+            PropertyString: "Replenishes quantity",
+            Index: 3
           }
         ],
         DamageArmorEnhanced: true,
@@ -20027,11 +20392,11 @@ const json = [
           DamageTypes: [
             {
               Type: 3,
-              DamageString: "(107-117) to (257-276)"
+              DamageString: "(132-142) to (357-376)"
             },
             {
               Type: 2,
-              DamageString: "(125-137) to (255-273)"
+              DamageString: "(150-162) to (355-373)"
             }
           ],
           EquipmentType: 1,
@@ -20055,12 +20420,13 @@ const json = [
         Name: "Harvest of Cruelty",
         Index: "Harvest of Cruelty",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 67,
         Code: "uvb",
         Properties: [
           {
-            PropertyString: "5% Chance to cast level 1 teleport when struck",
+            PropertyString: "5% Chance to cast level 1 Teleport when struck",
             Index: 4
           },
           {
@@ -20110,6 +20476,7 @@ const json = [
         Name: "Guiding Force",
         Index: "Guiding Force",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 71,
         Code: "umg",
@@ -20123,7 +20490,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "Regenerate Mana 25%",
+            PropertyString: "Regenerate Mana +25%",
             Index: 2
           }
         ],
@@ -20155,12 +20522,13 @@ const json = [
         Name: "Embracing Hatred",
         Index: "Embracing Hatred",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 39,
         Code: "ztb",
         Properties: [
           {
-            PropertyString: "Adds 6-8 Mana stolen per hit",
+            PropertyString: "Adds 6-8% Mana stolen per hit",
             Index: 3
           },
           {
@@ -20202,7 +20570,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "2 to Experience Gained",
+        PropertyString: "+2% to Experience Gained",
         Index: 2
       },
       {
@@ -20237,6 +20605,7 @@ const json = [
         Name: "Slave to Anarchy",
         Index: "Slave to Anarchy",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 51,
         Code: "xul",
@@ -20288,6 +20657,7 @@ const json = [
         Name: "Bound by Honor",
         Index: "Bound by Honor",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 70,
         Code: "7tr",
@@ -20309,7 +20679,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+8 Life stolen per hit",
+            PropertyString: "+8% Life stolen per hit",
             Index: 4
           }
         ],
@@ -20344,6 +20714,7 @@ const json = [
         Name: "Equilibrium",
         Index: "Equilibrium",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 43,
         Code: "zmb",
@@ -20353,11 +20724,11 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "15-20 to Vitality",
+            PropertyString: "+15-20 to Vitality",
             Index: 2
           },
           {
-            PropertyString: "15-20 to Energy",
+            PropertyString: "+15-20 to Energy",
             Index: 3
           },
           {
@@ -20400,7 +20771,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "Slows target by 15",
+        PropertyString: "Slows target by 15%",
         Index: 2
       }
     ],
@@ -20419,6 +20790,7 @@ const json = [
         Name: "Firecam Gilded Plate",
         Index: "Firecam Gilded Plate",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 63,
         Code: "xar",
@@ -20462,6 +20834,7 @@ const json = [
         Name: "Axe of Arvoreen",
         Index: "Axe of Arvoreen",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 70,
         Code: "7o7",
@@ -20512,6 +20885,7 @@ const json = [
         Name: "Windspar Mask",
         Index: "Windspar Mask",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 74,
         Code: "uhm",
@@ -20555,6 +20929,7 @@ const json = [
         Name: "Waterwyrd's Talon",
         Index: "Waterwyrd's Talon",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 55,
         Code: "xhg",
@@ -20594,6 +20969,7 @@ const json = [
         Name: "Daystar Wrap",
         Index: "Daystar Wrap",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 58,
         Code: "zhb",
@@ -20651,7 +21027,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "4 to Experience Gained",
+        PropertyString: "+4% to Experience Gained",
         Index: 2
       },
       {
@@ -20676,6 +21052,7 @@ const json = [
         Name: "Incarnadine Elven Plate",
         Index: "Incarnadine Elven Plate",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 59,
         Code: "xtp",
@@ -20717,11 +21094,12 @@ const json = [
         "Set": "Warlock's Exploration",
         SetPropertiesString: [
           "+20% Faster Cast Rate (3 Items)",
-          "2 to Experience Gained (4 Items)"
+          "+2% to Experience Gained (4 Items)"
         ],
         Name: "Staff of Elemental Mastery",
         Index: "Staff of Elemental Mastery",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 36,
         Code: "8ss",
@@ -20769,6 +21147,7 @@ const json = [
         Name: "Lilarcor Cap",
         Index: "Lilarcor Cap",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 38,
         Code: "xap",
@@ -20808,6 +21187,7 @@ const json = [
         Name: "Teleomortis' Gloves",
         Index: "Teleomortis' Gloves",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 71,
         Code: "ulg",
@@ -20825,7 +21205,7 @@ const json = [
         Equipment: {
           DamageString: null,
           DamageStringPrefix: null,
-          ArmorString: "204-254",
+          ArmorString: "54",
           EquipmentType: 0,
           Name: "Bramble Mitts",
           RequiredStrength: 50,
@@ -20847,6 +21227,7 @@ const json = [
         Name: "Citadel Belt",
         Index: "Citadel Belt",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 66,
         Code: "ulc",
@@ -20929,6 +21310,7 @@ const json = [
         Name: "Holy Shroud of Amaunator",
         Index: "Holy Shroud of Amaunator",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 70,
         Code: "uui",
@@ -20938,7 +21320,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+1 Prevent Monster Heal",
+            PropertyString: "Prevent Monster Heal",
             Index: 3
           },
           {
@@ -20954,7 +21336,7 @@ const json = [
         Equipment: {
           DamageString: null,
           DamageStringPrefix: null,
-          ArmorString: "941-1086",
+          ArmorString: "361",
           EquipmentType: 0,
           Name: "Dusk Shroud",
           RequiredStrength: 77,
@@ -20978,6 +21360,7 @@ const json = [
         Name: "Holy Cleaver of Amaunator",
         Index: "Holy Cleaver of Amaunator",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 47,
         Code: "9ax",
@@ -20995,7 +21378,7 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "+2 Knockback",
+            PropertyString: "Knockback",
             Index: 1
           },
           {
@@ -21032,6 +21415,7 @@ const json = [
         Name: "Holy Buckler of Amaunator",
         Index: "Holy Buckler of Amaunator",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 65,
         Code: "uml",
@@ -21045,7 +21429,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+10-15 % Magic Absorb",
+            PropertyString: "+10-15% Magic Absorb",
             Index: 4
           },
           {
@@ -21087,6 +21471,7 @@ const json = [
         Name: "Holy Ring of Amaunator",
         Index: "Holy Ring of Amaunator",
         Enabled: true,
+        Rarity: 5,
         ItemLevel: 30,
         RequiredLevel: 33,
         Code: "rin",
@@ -21096,11 +21481,11 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "15-20 to Strength",
+            PropertyString: "+15-20 to Strength",
             Index: 2
           },
           {
-            PropertyString: "25-30 to Dexterity",
+            PropertyString: "+25-30 to Dexterity",
             Index: 1
           },
           {
@@ -21134,13 +21519,14 @@ const json = [
         SetPropertiesString: [
           "+20 to Maximum Damage (6 Items)",
           "+8-15% to Lightning Skill Damage (5 Items)",
-          "10-15 to Dexterity (2 Items)",
+          "+10-15 to Dexterity (2 Items)",
           "Lightning Resist +30% (3 Items)",
           "+33% better chance of getting magic item (4 Items)"
         ],
         Name: "Holy Boots of Amaunator",
         Index: "Holy Boots of Amaunator",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 15,
         RequiredLevel: 22,
         Code: "hbt",
@@ -21177,12 +21563,13 @@ const json = [
         Type: "Belt",
         "Set": "Amaunator's Peace",
         SetPropertiesString: [
-          "Regenerate Mana 33% (5 Items)",
+          "Regenerate Mana +33% (5 Items)",
           "+33% better chance of getting magic item (4 Items)"
         ],
         Name: "Holy Sash of Amaunator",
         Index: "Holy Sash of Amaunator",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 30,
         Code: "zlb",
@@ -21192,7 +21579,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "15-20 to Vitality",
+            PropertyString: "+15-20 to Vitality",
             Index: 1
           },
           {
@@ -21269,6 +21656,7 @@ const json = [
         Name: "Frostwyrm Hide",
         Index: "Frostwyrm Hide",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 60,
         Code: "uea",
@@ -21322,6 +21710,7 @@ const json = [
         Name: "Hallowed Redeemer",
         Index: "Hallowed Redeemer",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 72,
         Code: "7ba",
@@ -21335,7 +21724,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "Adds 12-15 Life stolen per hit",
+            PropertyString: "Adds 12-15% Life stolen per hit",
             Index: 2
           },
           {
@@ -21378,6 +21767,7 @@ const json = [
         Name: "Draconian Mask",
         Index: "Draconian Mask",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 40,
         Code: "xlm",
@@ -21387,7 +21777,7 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "+5 Mana stolen per hit",
+            PropertyString: "+5% Mana stolen per hit",
             Index: 2
           },
           {
@@ -21399,7 +21789,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "1-2 to Experience Gained",
+            PropertyString: "+1-2% to Experience Gained",
             Index: 3
           }
         ],
@@ -21429,6 +21819,7 @@ const json = [
         Name: "Girdle of Kitthix",
         Index: "Girdle of Kitthix",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 75,
         Code: "uhc",
@@ -21442,7 +21833,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "35 to Strength",
+            PropertyString: "+35 to Strength",
             Index: 3
           },
           {
@@ -21482,12 +21873,13 @@ const json = [
         Name: "Gauntlets of Quietus",
         Index: "Gauntlets of Quietus",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 48,
         Code: "xtg",
         Properties: [
           {
-            PropertyString: "12% Chance to cast level 3 glacial spike on striking",
+            PropertyString: "12% Chance to cast level 3 Glacial Spike on striking",
             Index: 2
           },
           {
@@ -21503,7 +21895,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "10-15 to Dexterity",
+            PropertyString: "+10-15 to Dexterity",
             Index: 4
           }
         ],
@@ -21547,7 +21939,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+20 % Lightning Absorb",
+        PropertyString: "+20% Lightning Absorb",
         Index: 4
       },
       {
@@ -21576,6 +21968,7 @@ const json = [
         Name: "Sir Tylan's Sylvan Mail",
         Index: "Sir Tylan's Sylvan Mail",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 73,
         Code: "ung",
@@ -21589,7 +21982,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "15-30 to Strength",
+            PropertyString: "+15-30 to Strength",
             Index: 3
           },
           {
@@ -21627,6 +22020,7 @@ const json = [
         Name: "Prince Karnd's Abomination",
         Index: "Prince Karnd's Abomination",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 79,
         Code: "6rx",
@@ -21640,7 +22034,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+40 Piercing Attack",
+            PropertyString: "+40% Piercing Attack",
             Index: 3
           },
           {
@@ -21648,7 +22042,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+1 Knockback",
+            PropertyString: "Knockback",
             Index: 4
           }
         ],
@@ -21681,6 +22075,7 @@ const json = [
         Name: "Yavin's Infernal Visage",
         Index: "Yavin's Infernal Visage",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 81,
         Code: "uh9",
@@ -21694,7 +22089,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "15-30 to Dexterity",
+            PropertyString: "+15-30 to Dexterity",
             Index: 3
           },
           {
@@ -21730,6 +22125,7 @@ const json = [
         Name: "Prince Gwar's Bracers",
         Index: "Prince Gwar's Bracers",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 44,
         Code: "xmg",
@@ -21779,6 +22175,7 @@ const json = [
         Name: "Lady Daan's Celeritous Jambeau",
         Index: "Lady Daan's Celeritous Jambeau",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 56,
         Code: "xmb",
@@ -21865,12 +22262,13 @@ const json = [
         Name: "Mail of Courageousness",
         Index: "Mail of Courageousness",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 77,
         Code: "uhn",
         Properties: [
           {
-            PropertyString: "17% Chance to cast level 22 fire ball when struck",
+            PropertyString: "17% Chance to cast level 22 Fire Ball when struck",
             Index: 3
           },
           {
@@ -21916,6 +22314,7 @@ const json = [
         Name: "Baton of Intrepidity",
         Index: "Baton of Intrepidity",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 68,
         Code: "7cl",
@@ -21933,7 +22332,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+2 Knockback",
+            PropertyString: "Knockback",
             Index: 2
           },
           {
@@ -21970,6 +22369,7 @@ const json = [
         Name: "Wall of Bravery",
         Index: "Wall of Bravery",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 51,
         Code: "xow",
@@ -22021,12 +22421,13 @@ const json = [
         Name: "Helm of Chivalry",
         Index: "Helm of Chivalry",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 60,
         Code: "ukp",
         Properties: [
           {
-            PropertyString: "100% Chance to cast level 4 iron maiden when you Kill an Enemy",
+            PropertyString: "100% Chance to cast level 4 Iron Maiden when you Kill an Enemy",
             Index: 3
           },
           {
@@ -22034,11 +22435,11 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "10-15 to Strength",
+            PropertyString: "+10-15 to Strength",
             Index: 2
           },
           {
-            PropertyString: "10-15 to Dexterity",
+            PropertyString: "+10-15 to Dexterity",
             Index: 1
           },
           {
@@ -22076,6 +22477,7 @@ const json = [
         Name: "Belt of Temerity",
         Index: "Belt of Temerity",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 20,
         RequiredLevel: 30,
         Code: "hbl",
@@ -22150,6 +22552,7 @@ const json = [
         Name: "Ebony Plate of Evil",
         Index: "Ebony Plate of Evil",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 76,
         Code: "urs",
@@ -22201,12 +22604,13 @@ const json = [
         Name: "Deflector of Light",
         Index: "Deflector of Light",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 49,
         Code: "xts",
         Properties: [
           {
-            PropertyString: "Adds 4-6 Life stolen per hit",
+            PropertyString: "Adds 4-6% Life stolen per hit",
             Index: 3
           },
           {
@@ -22222,7 +22626,7 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+1 Half Freeze Duration",
+            PropertyString: "Half Freeze Duration",
             Index: 5
           },
           {
@@ -22256,6 +22660,7 @@ const json = [
         Name: "Dark Cataclysm",
         Index: "Dark Cataclysm",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 80,
         Code: "urn",
@@ -22309,6 +22714,7 @@ const json = [
         Name: "Malignant Rod",
         Index: "Malignant Rod",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 40,
         Code: "9bw",
@@ -22326,11 +22732,11 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "Regenerate Mana 45%",
+            PropertyString: "Regenerate Mana +45%",
             Index: 3
           },
           {
-            PropertyString: "1 to Experience Gained",
+            PropertyString: "+1% to Experience Gained",
             Index: 4
           }
         ],
@@ -22369,7 +22775,7 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "100% Chance to cast level 9 charged bolt when struck",
+        PropertyString: "100% Chance to cast level 9 Charged Bolt when struck",
         Index: 5
       },
       {
@@ -22406,6 +22812,7 @@ const json = [
         Name: "Helshazag",
         Index: "Helshazag",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 74,
         Code: "upl",
@@ -22454,11 +22861,12 @@ const json = [
         Type: "Sword",
         "Set": "Kai Lord's Valiance",
         SetPropertiesString: [
-          "Adds 256-500 Adds 256-500 magic damage (5 Items)"
+          "Adds 256-500 to Magic Damage (5 Items)"
         ],
         Name: "Summerswerd",
         Index: "Summerswerd",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 83,
         Code: "7cr",
@@ -22476,11 +22884,11 @@ const json = [
             Index: 3
           },
           {
-            PropertyString: "Adds 12-15 Mana stolen per hit",
+            PropertyString: "Adds 12-15% Mana stolen per hit",
             Index: 1
           },
           {
-            PropertyString: "Adds 15-18 Life stolen per hit",
+            PropertyString: "Adds 15-18% Life stolen per hit",
             Index: 2
           }
         ],
@@ -22513,6 +22921,7 @@ const json = [
         Name: "Helghast Waistband",
         Index: "Helghast Waistband",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 77,
         Code: "utc",
@@ -22566,6 +22975,7 @@ const json = [
         Name: "Hallowed Greaves",
         Index: "Hallowed Greaves",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 58,
         Code: "xtb",
@@ -22620,6 +23030,7 @@ const json = [
         Name: "Sunspear Deflector",
         Index: "Sunspear Deflector",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 63,
         Code: "xow",
@@ -22673,19 +23084,19 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "+25 % Cold Absorb",
+        PropertyString: "+25% Cold Absorb",
         Index: 2
       },
       {
-        PropertyString: "+25 % Lightning Absorb",
+        PropertyString: "+25% Lightning Absorb",
         Index: 3
       },
       {
-        PropertyString: "+25 % Fire Absorb",
+        PropertyString: "+25% Fire Absorb",
         Index: 1
       },
       {
-        PropertyString: "+70 Poison Length Reduced by",
+        PropertyString: "Poison Length Reduced by 70%",
         Index: 4
       }
     ],
@@ -22707,6 +23118,7 @@ const json = [
         Name: "Imperial Plate",
         Index: "Imperial Plate",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 73,
         Code: "ult",
@@ -22755,6 +23167,7 @@ const json = [
         Name: "Imperial Helm",
         Index: "Imperial Helm",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 40,
         Code: "xkp",
@@ -22803,6 +23216,7 @@ const json = [
         Name: "Imperial Girdle",
         Index: "Imperial Girdle",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 75,
         Code: "uhc",
@@ -22851,6 +23265,7 @@ const json = [
         Name: "Imperial Greaves",
         Index: "Imperial Greaves",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 77,
         Code: "uhb",
@@ -22896,6 +23311,7 @@ const json = [
         Name: "Imperial Gauntlets",
         Index: "Imperial Gauntlets",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 76,
         Code: "uhg",
@@ -22909,7 +23325,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "Regenerate Mana 60%",
+            PropertyString: "Regenerate Mana +60%",
             Index: 3
           },
           {
@@ -22949,6 +23365,7 @@ const json = [
         Name: "Imperial Scepter",
         Index: "Imperial Scepter",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 50,
         Code: "9ws",
@@ -22962,7 +23379,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "Adds 6-8 Life stolen per hit",
+            PropertyString: "Adds 6-8% Life stolen per hit",
             Index: 3
           },
           {
@@ -23025,7 +23442,7 @@ const json = [
         Index: 1
       },
       {
-        PropertyString: "2 to Experience Gained",
+        PropertyString: "+2% to Experience Gained",
         Index: 2
       }
     ],
@@ -23042,6 +23459,7 @@ const json = [
         Name: "Great White Terror",
         Index: "Great White Terror",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 74,
         Code: "uld",
@@ -23096,6 +23514,7 @@ const json = [
         Name: "Feeding Frenzy",
         Index: "Feeding Frenzy",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 77,
         Code: "7wc",
@@ -23109,11 +23528,11 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+6 Mana stolen per hit",
+            PropertyString: "+6% Mana stolen per hit",
             Index: 3
           },
           {
-            PropertyString: "+6 Life stolen per hit",
+            PropertyString: "+6% Life stolen per hit",
             Index: 2
           },
           {
@@ -23150,6 +23569,7 @@ const json = [
         Name: "Mako's Quickness",
         Index: "Mako's Quickness",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 39,
         Code: "zvb",
@@ -23171,7 +23591,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "25 to Dexterity",
+            PropertyString: "+25 to Dexterity",
             Index: 3
           }
         ],
@@ -23201,6 +23621,7 @@ const json = [
         Name: "Hammerhead's Persistence",
         Index: "Hammerhead's Persistence",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 44,
         Code: "xvb",
@@ -23244,7 +23665,7 @@ const json = [
     ],
     PartialProperties: [
       {
-        PropertyString: "+1 Half Freeze Duration",
+        PropertyString: "Half Freeze Duration",
         Index: 0
       },
       {
@@ -23254,7 +23675,7 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "15% Chance to cast level 18 shock wave on striking",
+        PropertyString: "15% Chance to cast level 18 Shock Wave on striking",
         Index: 4
       },
       {
@@ -23287,6 +23708,7 @@ const json = [
         Name: "Angels",
         Index: "Angels",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 81,
         Code: "uth",
@@ -23340,7 +23762,7 @@ const json = [
         "Set": "Celestial Hierarchy",
         SetPropertiesString: [
           "+250 to Maximum Damage (6 Items)",
-          "Adds 100-200 Adds 100-200 magic damage (2 Items)",
+          "Adds 100-200 to Magic Damage (2 Items)",
           "Adds 100-200 to Fire Damage (4 Items)",
           "Adds 64-200 to Lightning Damage (5 Items)",
           "Adds 100-200 to Cold Damage (3 Items)"
@@ -23348,6 +23770,7 @@ const json = [
         Name: "Principality",
         Index: "Principality",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 45,
         Code: "9b9",
@@ -23403,13 +23826,14 @@ const json = [
         Type: "Belt",
         "Set": "Celestial Hierarchy",
         SetPropertiesString: [
-          "Regenerate Mana 50% (3 Items)",
+          "Regenerate Mana +50% (3 Items)",
           "All Resistances +10% (4 Items)",
           "+35% better chance of getting magic item (5 Items)"
         ],
         Name: "Virtue",
         Index: "Virtue",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 36,
         Code: "zlb",
@@ -23454,11 +23878,12 @@ const json = [
         Type: "Boots",
         "Set": "Celestial Hierarchy",
         SetPropertiesString: [
-          "35 to Strength (5 Items)"
+          "+35 to Strength (5 Items)"
         ],
         Name: "Dominion",
         Index: "Dominion",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 70,
         Code: "utb",
@@ -23510,6 +23935,7 @@ const json = [
         Name: "Cherubim",
         Index: "Cherubim",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 61,
         Code: "ulm",
@@ -23561,6 +23987,7 @@ const json = [
         Name: "Seraphim",
         Index: "Seraphim",
         Enabled: true,
+        Rarity: 5,
         ItemLevel: 49,
         RequiredLevel: 49,
         Code: "rin",
@@ -23578,11 +24005,11 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "1-2 to Experience Gained",
+            PropertyString: "+1-2% to Experience Gained",
             Index: 3
           },
           {
-            PropertyString: "+5-10 Reduces all Vendor Prices",
+            PropertyString: "Reduces all Vendor Prices 5%",
             Index: 4
           }
         ],
@@ -23648,12 +24075,13 @@ const json = [
         Name: "Mephisto's Misty Aura",
         Index: "Mephisto's Misty Aura",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 80,
         Code: "uul",
         Properties: [
           {
-            PropertyString: "20% Chance to cast level 8 cloak of shadows when struck",
+            PropertyString: "20% Chance to cast level 8 Cloak Of Shadows when struck",
             Index: 0
           },
           {
@@ -23697,6 +24125,7 @@ const json = [
         Name: "Diablo's Soulstone Ring",
         Index: "Diablo's Soulstone Ring",
         Enabled: true,
+        Rarity: 3,
         ItemLevel: 77,
         RequiredLevel: 77,
         Code: "rin",
@@ -23745,6 +24174,7 @@ const json = [
         Name: "Baal's Cryptic Amulet",
         Index: "Baal's Cryptic Amulet",
         Enabled: true,
+        Rarity: 3,
         ItemLevel: 74,
         RequiredLevel: 74,
         Code: "amu",
@@ -23758,7 +24188,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "Regenerate Mana 50%",
+            PropertyString: "Regenerate Mana +50%",
             Index: 3
           },
           {
@@ -23792,6 +24222,7 @@ const json = [
         Name: "Heaven's Lances",
         Index: "Heaven's Lances",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 30,
         RequiredLevel: 51,
         Code: "9ts",
@@ -23801,7 +24232,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "+2 Knockback",
+            PropertyString: "Knockback",
             Index: 3
           },
           {
@@ -23809,8 +24240,12 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+ Replenishes quantity",
+            PropertyString: "Replenishes quantity",
             Index: 2
+          },
+          {
+            PropertyString: "Replenishes quantity",
+            Index: 4
           }
         ],
         DamageArmorEnhanced: true,
@@ -23848,11 +24283,11 @@ const json = [
     ],
     FullProperties: [
       {
-        PropertyString: "13% Chance to cast level 31 charged bolt when struck",
+        PropertyString: "13% Chance to cast level 31 Charged Bolt when struck",
         Index: 1
       },
       {
-        PropertyString: "+75 Piercing Attack",
+        PropertyString: "+75% Piercing Attack",
         Index: 0
       },
       {
@@ -23860,11 +24295,11 @@ const json = [
         Index: 5
       },
       {
-        PropertyString: "+1 Prevent Monster Heal",
+        PropertyString: "Prevent Monster Heal",
         Index: 4
       },
       {
-        PropertyString: "Slows target by 20",
+        PropertyString: "Slows target by 20%",
         Index: 2
       },
       {
@@ -23888,6 +24323,7 @@ const json = [
         Name: "Demonic Chuckle",
         Index: "Demonic Chuckle",
         Enabled: true,
+        Rarity: 1,
         ItemLevel: 45,
         RequiredLevel: 45,
         Code: "rin",
@@ -23927,6 +24363,7 @@ const json = [
         Name: "Evil Humor",
         Index: "Evil Humor",
         Enabled: true,
+        Rarity: 1,
         ItemLevel: 45,
         RequiredLevel: 45,
         Code: "rin",
@@ -23960,12 +24397,13 @@ const json = [
         Type: "Amulet",
         "Set": "Corruption Coils",
         SetPropertiesString: [
-          "10% Chance to cast level 20 taunt when struck (2 Items)",
+          "10% Chance to cast level 20 Taunt when struck (2 Items)",
           "+40% to Cold Skill Damage (3 Items)"
         ],
         Name: "Temptation's Death",
         Index: "Temptation's Death",
         Enabled: true,
+        Rarity: 1,
         ItemLevel: 45,
         RequiredLevel: 45,
         Code: "amu",
@@ -24016,7 +24454,7 @@ const json = [
         Index: 0
       },
       {
-        PropertyString: "-40 to Experience Gained",
+        PropertyString: "-40% to Experience Gained",
         Index: 1
       },
       {
@@ -24035,12 +24473,12 @@ const json = [
         "Set": "Maadi's Paradox",
         SetPropertiesString: [
           "+5 to Bone Spear (Necromancer Only) (3 Items)",
-          "+5 to Bone Spear (Necromancer Only) (4 Items)",
-          "30 to Energy (2 Items)"
+          "+30 to Energy (2 Items)"
         ],
         Name: "Maadi's Silence",
         Index: "Maadi's Silence",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 47,
         RequiredLevel: 47,
         Code: "uvg",
@@ -24091,6 +24529,7 @@ const json = [
         Name: "Maadi's Vision",
         Index: "Maadi's Vision",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 63,
         RequiredLevel: 63,
         Code: "uh9",
@@ -24104,7 +24543,7 @@ const json = [
             Index: 0
           },
           {
-            PropertyString: "25 to Vitality",
+            PropertyString: "+25 to Vitality",
             Index: 1
           },
           {
@@ -24139,14 +24578,15 @@ const json = [
         Type: "Armor",
         "Set": "Maadi's Paradox",
         SetPropertiesString: [
-          "50 to Vitality (2 Items)",
-          "50 to Energy (3 Items)",
-          "+10 % Magic Absorb (4 Items)",
+          "+50 to Vitality (2 Items)",
+          "+50 to Energy (3 Items)",
+          "+10% Magic Absorb (4 Items)",
           "Magic Damage Reduced by 10 (5 Items)"
         ],
         Name: "Maadi's Spirit",
         Index: "Maadi's Spirit",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 47,
         RequiredLevel: 47,
         Code: "uhn",
@@ -24160,15 +24600,15 @@ const json = [
             Index: 4
           },
           {
-            PropertyString: "50 to Vitality",
+            PropertyString: "+25 to Vitality",
             Index: 1
           },
           {
-            PropertyString: "50 to Energy",
+            PropertyString: "+25 to Energy",
             Index: 2
           },
           {
-            PropertyString: "+10-15% Increased Maximum Life",
+            PropertyString: "+10-15% Increased Maximum Mana",
             Index: 3
           }
         ],
@@ -24201,6 +24641,7 @@ const json = [
         Name: "Maadi's Torch",
         Index: "Maadi's Torch",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 64,
         RequiredLevel: 64,
         Code: "7gw",
@@ -24248,13 +24689,12 @@ const json = [
         Type: "Voodoo Heads",
         "Set": "Maadi's Paradox",
         SetPropertiesString: [
-          "+1 Additional Bone Spear Projectiles (5 Items)",
-          "+5 to BloodGolem (Necromancer Only) (3 Items)",
-          "+5 to Golem Mastery (Necromancer Only) (4 Items)"
+          "+1 Additional Bone Spear Projectiles (5 Items)"
         ],
         Name: "Maadi's Soul",
         Index: "Maadi's Soul",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 49,
         RequiredLevel: 49,
         Code: "ned",
@@ -24268,11 +24708,11 @@ const json = [
             Index: 1
           },
           {
-            PropertyString: "+20-50% Faster Block Rate",
+            PropertyString: "+20-35% Faster Block Rate",
             Index: 4
           },
           {
-            PropertyString: "+20-50% Increased Chance of Blocking",
+            PropertyString: "+20-35% Increased Chance of Blocking",
             Index: 3
           },
           {
@@ -24332,7 +24772,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "+1 Cannot Be Frozen",
+        PropertyString: "Cannot Be Frozen",
         Index: 1
       }
     ],
@@ -24347,12 +24787,12 @@ const json = [
         "Set": "The Raven's Nest",
         SetPropertiesString: [
           "+15% Faster Cast Rate (4 Items)",
-          "+5 to Raven (Druid Only) (3 Items)",
           "Cold Resist +30% (2 Items)"
         ],
         Name: "The Raven's Talons",
         Index: "The Raven's Talons",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 5,
         RequiredLevel: 10,
         Code: "lgl",
@@ -24399,6 +24839,7 @@ const json = [
         Name: "The Raven's Feet",
         Index: "The Raven's Feet",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 5,
         RequiredLevel: 10,
         Code: "mbt",
@@ -24450,6 +24891,7 @@ const json = [
         Name: "The Raven's Wing",
         Index: "The Raven's Wing",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 35,
         RequiredLevel: 45,
         Code: "xpk",
@@ -24503,12 +24945,12 @@ const json = [
         "Set": "The Raven's Nest",
         SetPropertiesString: [
           "+2 to Raven Hits (4 Items)",
-          "+10% Faster Cast Rate (2 Items)",
-          "+5 to Raven (Druid Only) (3 Items)"
+          "+10% Faster Cast Rate (2 Items)"
         ],
         Name: "The Raven's Beak",
         Index: "The Raven's Beak",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 35,
         RequiredLevel: 45,
         Code: "9bl",
@@ -24534,7 +24976,7 @@ const json = [
             Index: 2
           },
           {
-            PropertyString: "+1 Ignore Target's Defense",
+            PropertyString: "Ignore Target's Defense",
             Index: 4
           },
           {
@@ -24569,12 +25011,13 @@ const json = [
         "Set": "The Raven's Nest",
         SetPropertiesString: [
           "+3 to Maximum Cold Resist (4 Items)",
-          "+10 % Cold Absorb (2 Items)",
-          "+1 Cannot Be Frozen (3 Items)"
+          "+10% Cold Absorb (2 Items)",
+          "Cannot Be Frozen (3 Items)"
         ],
         Name: "The Raven's Feathers",
         Index: "The Raven's Feathers",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 60,
         RequiredLevel: 60,
         Code: "uea",
@@ -24660,7 +25103,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "+10 % Magic Absorb",
+        PropertyString: "+10% Magic Absorb",
         Index: 3
       },
       {
@@ -24683,6 +25126,7 @@ const json = [
         Name: "Hand of the Vindicator",
         Index: "Hand of the Vindicator",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 12,
         RequiredLevel: 20,
         Code: "whm",
@@ -24733,6 +25177,7 @@ const json = [
         Name: "Bulwark of the Vindicator",
         Index: "Bulwark of the Vindicator",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 59,
         RequiredLevel: 60,
         Code: "pa9",
@@ -24784,6 +25229,7 @@ const json = [
         Name: "Belt of the Vindicator",
         Index: "Belt of the Vindicator",
         Enabled: true,
+        Rarity: 7,
         ItemLevel: 40,
         RequiredLevel: 40,
         Code: "zmb",
@@ -24835,6 +25281,313 @@ const json = [
       {
         PropertyString: "All Resistances +30%",
         Index: 0
+      }
+    ],
+    Level: 1
+  },
+  {
+    Index: "Panda's Polar Adventure",
+    Name: "Panda's Polar Adventure",
+    SetItems: [
+      {
+        Type: "Pelt",
+        "Set": "Panda's Polar Adventure",
+        SetPropertiesString: [],
+        Name: "Panda's Pelt",
+        Index: "Panda's Pelt",
+        Enabled: true,
+        Rarity: 7,
+        ItemLevel: 30,
+        RequiredLevel: 55,
+        Code: "dr6",
+        Properties: [
+          {
+            PropertyString: "+2-3 to All Skills",
+            Index: 4
+          },
+          {
+            PropertyString: "+2-4 to Polar Bear",
+            Index: 1
+          },
+          {
+            PropertyString: "+30% Faster Run/Walk",
+            Index: 2
+          },
+          {
+            PropertyString: "+30% Faster Hit Recovery",
+            Index: 3
+          },
+          {
+            PropertyString: "Cannot Be Frozen",
+            Index: 0
+          }
+        ],
+        DamageArmorEnhanced: false,
+        Equipment: {
+          DamageString: null,
+          DamageStringPrefix: null,
+          ArmorString: "52",
+          EquipmentType: 0,
+          Name: "Alpha Helm",
+          RequiredStrength: 44,
+          RequiredDexterity: 0,
+          Durability: 20,
+          ItemLevel: 35,
+          Type: {
+            Name: "Pelt",
+            Index: "Pelt",
+            Class: "dru"
+          },
+          RequiredClass: "Druid"
+        }
+      },
+      {
+        Type: "Gloves",
+        "Set": "Panda's Polar Adventure",
+        SetPropertiesString: [],
+        Name: "Panda's Mitts",
+        Index: "Panda's Mitts",
+        Enabled: true,
+        Rarity: 7,
+        ItemLevel: 25,
+        RequiredLevel: 45,
+        Code: "ulg",
+        Properties: [
+          {
+            PropertyString: "+2-5 to Polar Claws",
+            Index: 0
+          },
+          {
+            PropertyString: "+30% Increased Attack Speed",
+            Index: 2
+          },
+          {
+            PropertyString: "+5% Life stolen per hit",
+            Index: 1
+          },
+          {
+            PropertyString: "Freezes target +1",
+            Index: 4
+          },
+          {
+            PropertyString: "Fire Resist +15%",
+            Index: 3
+          }
+        ],
+        DamageArmorEnhanced: false,
+        Equipment: {
+          DamageString: null,
+          DamageStringPrefix: null,
+          ArmorString: "54",
+          EquipmentType: 0,
+          Name: "Bramble Mitts",
+          RequiredStrength: 50,
+          RequiredDexterity: 0,
+          Durability: 12,
+          ItemLevel: 57,
+          Type: {
+            Name: "Gloves",
+            Index: "Gloves",
+            Class: ""
+          },
+          RequiredClass: ""
+        }
+      },
+      {
+        Type: "Armor",
+        "Set": "Panda's Polar Adventure",
+        SetPropertiesString: [],
+        Name: "Panda's Coat",
+        Index: "Panda's Coat",
+        Enabled: true,
+        Rarity: 7,
+        ItemLevel: 70,
+        RequiredLevel: 80,
+        Code: "uui",
+        Properties: [
+          {
+            PropertyString: "+2-3 to All Skills",
+            Index: 3
+          },
+          {
+            PropertyString: "+1 to Warmth",
+            Index: 0
+          },
+          {
+            PropertyString: "+15% Faster Cast Rate",
+            Index: 1
+          },
+          {
+            PropertyString: "+10 to Maximum Cold Resist",
+            Index: 2
+          },
+          {
+            PropertyString: "Cold Resist +50%",
+            Index: 4
+          }
+        ],
+        DamageArmorEnhanced: false,
+        Equipment: {
+          DamageString: null,
+          DamageStringPrefix: null,
+          ArmorString: "361",
+          EquipmentType: 0,
+          Name: "Dusk Shroud",
+          RequiredStrength: 77,
+          RequiredDexterity: 0,
+          Durability: 20,
+          ItemLevel: 65,
+          Type: {
+            Name: "Armor",
+            Index: "Armor",
+            Class: ""
+          },
+          RequiredClass: ""
+        }
+      },
+      {
+        Type: "Belt",
+        "Set": "Panda's Polar Adventure",
+        SetPropertiesString: [],
+        Name: "Panda's Sash",
+        Index: "Panda's Sash",
+        Enabled: true,
+        Rarity: 7,
+        ItemLevel: 6,
+        RequiredLevel: 12,
+        Code: "lbl",
+        Properties: [
+          {
+            PropertyString: "20% Chance to cast level 20 Tornado when struck",
+            Index: 3
+          },
+          {
+            PropertyString: "+10 to Vitality",
+            Index: 1
+          },
+          {
+            PropertyString: "+100 to Life",
+            Index: 2
+          },
+          {
+            PropertyString: "All Resistances +10%",
+            Index: 0
+          }
+        ],
+        DamageArmorEnhanced: false,
+        Equipment: {
+          DamageString: null,
+          DamageStringPrefix: null,
+          ArmorString: "2",
+          EquipmentType: 0,
+          Name: "Sash",
+          RequiredStrength: 0,
+          RequiredDexterity: 0,
+          Durability: 12,
+          ItemLevel: 3,
+          Type: {
+            Name: "Belt",
+            Index: "Belt",
+            Class: ""
+          },
+          RequiredClass: ""
+        }
+      },
+      {
+        Type: "Shield",
+        "Set": "Panda's Polar Adventure",
+        SetPropertiesString: [],
+        Name: "Panda's Sled",
+        Index: "Panda's Sled",
+        Enabled: true,
+        Rarity: 7,
+        ItemLevel: 50,
+        RequiredLevel: 60,
+        Code: "uow",
+        Properties: [
+          {
+            PropertyString: "+5-8 to Summon Spirit Wolf",
+            Index: 2
+          },
+          {
+            PropertyString: "+15% Increased Chance of Blocking",
+            Index: 3
+          },
+          {
+            PropertyString: "All Resistances +25%",
+            Index: 1
+          },
+          {
+            PropertyString: "Requirements -30%",
+            Index: 0
+          }
+        ],
+        DamageArmorEnhanced: false,
+        Equipment: {
+          DamageString: "18 to 28",
+          DamageStringPrefix: "Unhandled Damage Prefix",
+          ArmorString: "145",
+          EquipmentType: 0,
+          Name: "Aegis",
+          RequiredStrength: 219,
+          RequiredDexterity: 0,
+          Durability: 92,
+          ItemLevel: 79,
+          Type: {
+            Name: "Shield",
+            Index: "Shield",
+            Class: ""
+          },
+          RequiredClass: ""
+        }
+      }
+    ],
+    PartialProperties: [
+      {
+        PropertyString: "-10% to Enemy Cold Resistance",
+        Index: 0
+      },
+      {
+        PropertyString: "+10% to Cold Skill Damage",
+        Index: 1
+      },
+      {
+        PropertyString: "+10 to Polar Bear",
+        Index: 2
+      },
+      {
+        PropertyString: "+10 to Polar Claws",
+        Index: 3
+      },
+      {
+        PropertyString: "-10% to Enemy Cold Resistance",
+        Index: 4
+      },
+      {
+        PropertyString: "+10% to Cold Skill Damage",
+        Index: 5
+      }
+    ],
+    FullProperties: [
+      {
+        PropertyString: "+10 to Polar Bear",
+        Index: 1
+      },
+      {
+        PropertyString: "+10 to Polar Claws",
+        Index: 3
+      },
+      {
+        PropertyString: "+20% to Cold Skill Damage",
+        Index: 0
+      },
+      {
+        PropertyString: "-20% to Enemy Cold Resistance",
+        Index: 2
+      },
+      {
+        PropertyString: "All Resistances +25%",
+        Index: 4
       }
     ],
     Level: 1
