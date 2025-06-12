@@ -14,7 +14,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Activates Melee Splash",
+                "PropertyString": "Splash 50% of Melee Damage",
                 "Index": 0
             },
             {
@@ -4490,7 +4490,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Activates Melee Splash",
+                "PropertyString": "Splash 50% of Melee Damage",
                 "Index": 0
             },
             {
@@ -12615,7 +12615,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Activates Melee Splash",
+                "PropertyString": "Splash 50% of Melee Damage",
                 "Index": 0
             },
             {
@@ -25403,7 +25403,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Activates Melee Splash",
+                "PropertyString": "Splash 75% of Melee Damage",
                 "Index": 0
             },
             {
@@ -37454,7 +37454,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Activates Melee Splash",
+                "PropertyString": "Splash 75% of Melee Damage",
                 "Index": 0
             },
             {
@@ -51019,7 +51019,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Activates Melee Splash",
+                "PropertyString": "Splash 75% of Melee Damage",
                 "Index": 0
             },
             {
@@ -59442,7 +59442,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Activates Melee Splash",
+                "PropertyString": "Splash 100% of Melee Damage",
                 "Index": 0
             },
             {
@@ -70972,7 +70972,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Activates Melee Splash",
+                "PropertyString": "Splash 100% of Melee Damage",
                 "Index": 0
             },
             {
@@ -75915,11 +75915,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+20-30% to Fire Skill Damage",
+                "PropertyString": "+20-30% to All Elemental Skill Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "-20-30% to Enemy Fire Resistance",
+                "PropertyString": "-20-30% to All Enemy Elemental Resistances",
                 "Index": 2
             },
             {
@@ -77428,7 +77428,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+10-15% to Fire Skill Damage",
+                "PropertyString": "+10-15% to All Elemental Skill Damage",
                 "Index": 3
             },
             {
@@ -79909,7 +79909,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Actiavates Melee Splash",
+                "PropertyString": "Splash 100% of Melee Damage",
                 "Index": 0
             }
         ],
