@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-CoKEN_rJ.js","assets/debounce-ZwsFz6hU.js","assets/cube-recipes-BJXOl2Zy.css","assets/uniques-WvH5e-c_.js","assets/sets-Dw0vmEcs.js","assets/runewords-gW2rAhD1.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-D-7S1rN1.js","assets/debounce-ZwsFz6hU.js","assets/cube-recipes-BJXOl2Zy.css","assets/uniques-UBVThHqL.js","assets/sets-DpMWANu0.js","assets/runewords-B8U4vNbP.js"])))=>i.map(i=>d[i]);
 (function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) {
@@ -40387,27 +40387,27 @@ _App_decorators = [customElement(__au2ViewDef), route({
   routes: [
     {
       path: "",
-      component: __vitePreload(() => import("./home-Dx9Ag7DS.js"), true ? [] : void 0),
+      component: __vitePreload(() => import("./home-CZqbS7yq.js"), true ? [] : void 0),
       title: "Home"
     },
     {
       path: "cube-recipes",
-      component: __vitePreload(() => import("./cube-recipes-CoKEN_rJ.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
+      component: __vitePreload(() => import("./cube-recipes-D-7S1rN1.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
       title: "Cube Recipes"
     },
     {
       path: "uniques",
-      component: __vitePreload(() => import("./uniques-WvH5e-c_.js"), true ? __vite__mapDeps([3,1]) : void 0),
+      component: __vitePreload(() => import("./uniques-UBVThHqL.js"), true ? __vite__mapDeps([3,1]) : void 0),
       title: "Uniques"
     },
     {
       path: "sets",
-      component: __vitePreload(() => import("./sets-Dw0vmEcs.js"), true ? __vite__mapDeps([4,1]) : void 0),
+      component: __vitePreload(() => import("./sets-DpMWANu0.js"), true ? __vite__mapDeps([4,1]) : void 0),
       title: "Sets"
     },
     {
       path: "runewords",
-      component: __vitePreload(() => import("./runewords-gW2rAhD1.js"), true ? __vite__mapDeps([5,1]) : void 0),
+      component: __vitePreload(() => import("./runewords-B8U4vNbP.js"), true ? __vite__mapDeps([5,1]) : void 0),
       title: "Runewords"
     }
   ]

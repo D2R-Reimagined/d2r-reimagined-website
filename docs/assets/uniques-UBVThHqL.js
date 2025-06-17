@@ -1,4 +1,4 @@
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-BNHgsZfm.js";
+import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-OW9hm18O.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
 const name = "uniques";
 const template = '<template>\n    <h3 class="text-center my-4">\n        ${uniques.length} Uniques Found\n    </h3>\n    <div class="container">\n        <div class="row align-content-center justify-content-center text-center mb-5">\n            <div class="col-12 col-md-5 col-lg-4">\n                <div class="au-select mb-2">\n                    <moo-select\n                            class="w-100"\n                            label="Select Class"\n                            options.bind="classes"\n                            class="standard-betsy-select"\n                            value.bind="class"\n                    ></moo-select>\n                </div>\n            </div>\n            <div class="col-12 col-md-5 col-lg-4">\n                <div class="au-select mb-2">\n                    <moo-select\n                            class="w-100"\n                            label="Select Type"\n                            options.bind="types"\n                            class="standard-betsy-select"\n                            value.bind="selectedType"\n                    ></moo-select>\n                </div>\n            </div>\n            <div class="col-12 col-md-5 col-lg-4">\n                <moo-text-field\n                        class="w-100"\n                        label="Search Uniques"\n                        type="text"\n                        value.bind="search"\n                ></moo-text-field>\n            </div>\n        </div>\n    </div>\n\n    <div class="row gy-5 px-5 text-center">\n        <div class="col-12 col-md-6 col-xxl-4" repeat.for="unique of uniques">\n            <div class="card bg-dark p-2">\n                <div class="unique-text fs-5 mb-1">\n                    ${unique.Name}\n                </div>\n                <div class="rarity mb-1" if.bind="unique.Rarity">\n                    Rarity: ${unique.Rarity}\n                </div>\n                <div class="armor mb-1" if.bind="unique.Equipment.Name">\n                    ${unique.Equipment.Name}\n                </div>\n                <div class="armor mb-1" if.bind="unique.Equipment.ArmorString">\n                    Armor: ${unique.Equipment.ArmorString}\n                </div>\n                <div class="damage" if.bind="unique.Equipment.DamageTypes"\n                     repeat.for="damage of unique.Equipment.DamageTypes">\n                    ${getDamageTypeString(damage.Type)} ${damage.DamageString}\n                </div>\n                <div class="requirement" if.bind="unique.RequiredLevel > 0">\n                    Level ${unique.RequiredLevel} Required\n                </div>\n                <div class="requirement" if.bind="unique.Equipment.RequiredStrength > 0">\n                    ${unique.Equipment.RequiredStrength} Strength Required\n                </div>\n                <div class="requirement" if.bind="unique.Equipment.RequiredDexterity > 0">\n                    ${unique.Equipment.RequiredDexterity} Dexterity Required\n                </div>\n                <div class="durability mt-1" if.bind="unique.Equipment.Durability > 0">\n                    ${unique.Equipment.Durability} Durability\n                </div>\n                <div class="mt-2">\n                    <div class="enhanced" repeat.for="property of unique.Properties">\n                        ${property.PropertyString}\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</template>\n';
@@ -4077,7 +4077,7 @@ const json = [
     Code: "axe",
     Properties: [
       {
-        PropertyString: "+1-3 to Combat Skills (Barbarian only)",
+        PropertyString: "+1-3 to Masteries and Throwing Skills (Barbarian only)",
         Index: 3
       },
       {
@@ -10395,7 +10395,7 @@ const json = [
     Code: "ba2",
     Properties: [
       {
-        PropertyString: "+1-3 to Masteries (Barbarian only)",
+        PropertyString: "+1-3 to Combat Skills (Barbarian only)",
         Index: 5
       },
       {
@@ -11893,7 +11893,7 @@ const json = [
     Code: "clm",
     Properties: [
       {
-        PropertyString: "+1-3 to Combat Skills (Barbarian only)",
+        PropertyString: "+1-3 to Masteries and Throwing Skills (Barbarian only)",
         Index: 2
       },
       {
@@ -15454,7 +15454,7 @@ const json = [
     Code: "ba3",
     Properties: [
       {
-        PropertyString: "+1-3 to Masteries (Barbarian only)",
+        PropertyString: "+1-3 to Combat Skills (Barbarian only)",
         Index: 1
       },
       {
@@ -17029,7 +17029,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+1-2 to Combat Skills (Barbarian only)",
+        PropertyString: "+1-2 to Masteries and Throwing Skills (Barbarian only)",
         Index: 4
       },
       {
@@ -19954,7 +19954,7 @@ const json = [
     Code: "tgl",
     Properties: [
       {
-        PropertyString: "+1-3 to Combat Skills (Barbarian only)",
+        PropertyString: "+1-3 to Masteries and Throwing Skills (Barbarian only)",
         Index: 6
       },
       {
@@ -20188,7 +20188,7 @@ const json = [
     Code: "ba4",
     Properties: [
       {
-        PropertyString: "+1-3 to Combat Skills (Barbarian only)",
+        PropertyString: "+1-3 to Masteries and Throwing Skills (Barbarian only)",
         Index: 7
       },
       {
@@ -24667,7 +24667,7 @@ const json = [
     Code: "ghm",
     Properties: [
       {
-        PropertyString: "+1 to Masteries (Barbarian only)",
+        PropertyString: "+1 to Combat Skills (Barbarian only)",
         Index: 1
       },
       {
@@ -28846,7 +28846,7 @@ const json = [
     Code: "ba7",
     Properties: [
       {
-        PropertyString: "+1-3 to Masteries (Barbarian only)",
+        PropertyString: "+1-3 to Combat Skills (Barbarian only)",
         Index: 4
       },
       {
@@ -32506,7 +32506,7 @@ const json = [
     Code: "uvg",
     Properties: [
       {
-        PropertyString: "+1-3 to Combat Skills (Barbarian only)",
+        PropertyString: "+1-3 to Masteries and Throwing Skills (Barbarian only)",
         Index: 5
       },
       {
@@ -37747,7 +37747,7 @@ const json = [
     Code: "9b7",
     Properties: [
       {
-        PropertyString: "+3 to Combat Skills (Barbarian only)",
+        PropertyString: "+3 to Masteries and Throwing Skills (Barbarian only)",
         Index: 5
       },
       {
@@ -39489,7 +39489,7 @@ const json = [
     Code: "baa",
     Properties: [
       {
-        PropertyString: "+2 to Masteries (Barbarian only)",
+        PropertyString: "+2 to Combat Skills (Barbarian only)",
         Index: 1
       },
       {
@@ -45384,7 +45384,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+1 to Combat Skills (Barbarian only)",
+        PropertyString: "+1 to Masteries and Throwing Skills (Barbarian only)",
         Index: 3
       },
       {
@@ -46659,7 +46659,7 @@ const json = [
     Code: "9m9",
     Properties: [
       {
-        PropertyString: "+2 to Combat Skills (Barbarian only)",
+        PropertyString: "+2 to Masteries and Throwing Skills (Barbarian only)",
         Index: 4
       },
       {
@@ -47457,7 +47457,7 @@ const json = [
     Code: "xmb",
     Properties: [
       {
-        PropertyString: "+1 to Masteries (Barbarian only)",
+        PropertyString: "+1 to Combat Skills (Barbarian only)",
         Index: 2
       },
       {
@@ -50178,7 +50178,7 @@ const json = [
         Index: 4
       },
       {
-        PropertyString: "+2 to Combat Skills (Barbarian only)",
+        PropertyString: "+2 to Masteries and Throwing Skills (Barbarian only)",
         Index: 2
       },
       {
@@ -57830,7 +57830,7 @@ const json = [
         Index: 2
       },
       {
-        PropertyString: "+1 to Combat Skills (Barbarian only)",
+        PropertyString: "+1 to Masteries and Throwing Skills (Barbarian only)",
         Index: 3
       },
       {
@@ -59667,11 +59667,11 @@ const json = [
     Code: "bad",
     Properties: [
       {
-        PropertyString: "+1-3 to Masteries (Barbarian only)",
+        PropertyString: "+1-3 to Combat Skills (Barbarian only)",
         Index: 4
       },
       {
-        PropertyString: "+1-3 to Combat Skills (Barbarian only)",
+        PropertyString: "+1-3 to Masteries and Throwing Skills (Barbarian only)",
         Index: 5
       },
       {
@@ -63637,11 +63637,11 @@ const json = [
     Code: "bac",
     Properties: [
       {
-        PropertyString: "+2-4 to Masteries (Barbarian only)",
+        PropertyString: "+2-4 to Combat Skills (Barbarian only)",
         Index: 1
       },
       {
-        PropertyString: "+2-4 to Combat Skills (Barbarian only)",
+        PropertyString: "+2-4 to Masteries and Throwing Skills (Barbarian only)",
         Index: 2
       },
       {
@@ -71901,7 +71901,7 @@ const json = [
     Code: "bae",
     Properties: [
       {
-        PropertyString: "+1 to Combat Skills (Barbarian only)",
+        PropertyString: "+1 to Masteries and Throwing Skills (Barbarian only)",
         Index: 1
       },
       {
@@ -74336,7 +74336,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "+1-3 to Masteries (Barbarian only)",
+        PropertyString: "+1-3 to Combat Skills (Barbarian only)",
         Index: 4
       },
       {
