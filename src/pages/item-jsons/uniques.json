@@ -4055,7 +4055,7 @@
         "Code": "axe",
         "Properties": [
             {
-                "PropertyString": "+1-3 to Combat Skills (Barbarian only)",
+                "PropertyString": "+1-3 to Masteries and Throwing Skills (Barbarian only)",
                 "Index": 3
             },
             {
@@ -10373,7 +10373,7 @@
         "Code": "ba2",
         "Properties": [
             {
-                "PropertyString": "+1-3 to Masteries (Barbarian only)",
+                "PropertyString": "+1-3 to Combat Skills (Barbarian only)",
                 "Index": 5
             },
             {
@@ -11871,7 +11871,7 @@
         "Code": "clm",
         "Properties": [
             {
-                "PropertyString": "+1-3 to Combat Skills (Barbarian only)",
+                "PropertyString": "+1-3 to Masteries and Throwing Skills (Barbarian only)",
                 "Index": 2
             },
             {
@@ -15432,7 +15432,7 @@
         "Code": "ba3",
         "Properties": [
             {
-                "PropertyString": "+1-3 to Masteries (Barbarian only)",
+                "PropertyString": "+1-3 to Combat Skills (Barbarian only)",
                 "Index": 1
             },
             {
@@ -17007,7 +17007,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+1-2 to Combat Skills (Barbarian only)",
+                "PropertyString": "+1-2 to Masteries and Throwing Skills (Barbarian only)",
                 "Index": 4
             },
             {
@@ -19932,7 +19932,7 @@
         "Code": "tgl",
         "Properties": [
             {
-                "PropertyString": "+1-3 to Combat Skills (Barbarian only)",
+                "PropertyString": "+1-3 to Masteries and Throwing Skills (Barbarian only)",
                 "Index": 6
             },
             {
@@ -20166,7 +20166,7 @@
         "Code": "ba4",
         "Properties": [
             {
-                "PropertyString": "+1-3 to Combat Skills (Barbarian only)",
+                "PropertyString": "+1-3 to Masteries and Throwing Skills (Barbarian only)",
                 "Index": 7
             },
             {
@@ -24645,7 +24645,7 @@
         "Code": "ghm",
         "Properties": [
             {
-                "PropertyString": "+1 to Masteries (Barbarian only)",
+                "PropertyString": "+1 to Combat Skills (Barbarian only)",
                 "Index": 1
             },
             {
@@ -28824,7 +28824,7 @@
         "Code": "ba7",
         "Properties": [
             {
-                "PropertyString": "+1-3 to Masteries (Barbarian only)",
+                "PropertyString": "+1-3 to Combat Skills (Barbarian only)",
                 "Index": 4
             },
             {
@@ -32484,7 +32484,7 @@
         "Code": "uvg",
         "Properties": [
             {
-                "PropertyString": "+1-3 to Combat Skills (Barbarian only)",
+                "PropertyString": "+1-3 to Masteries and Throwing Skills (Barbarian only)",
                 "Index": 5
             },
             {
@@ -37725,7 +37725,7 @@
         "Code": "9b7",
         "Properties": [
             {
-                "PropertyString": "+3 to Combat Skills (Barbarian only)",
+                "PropertyString": "+3 to Masteries and Throwing Skills (Barbarian only)",
                 "Index": 5
             },
             {
@@ -39467,7 +39467,7 @@
         "Code": "baa",
         "Properties": [
             {
-                "PropertyString": "+2 to Masteries (Barbarian only)",
+                "PropertyString": "+2 to Combat Skills (Barbarian only)",
                 "Index": 1
             },
             {
@@ -45362,7 +45362,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+1 to Combat Skills (Barbarian only)",
+                "PropertyString": "+1 to Masteries and Throwing Skills (Barbarian only)",
                 "Index": 3
             },
             {
@@ -46637,7 +46637,7 @@
         "Code": "9m9",
         "Properties": [
             {
-                "PropertyString": "+2 to Combat Skills (Barbarian only)",
+                "PropertyString": "+2 to Masteries and Throwing Skills (Barbarian only)",
                 "Index": 4
             },
             {
@@ -47435,7 +47435,7 @@
         "Code": "xmb",
         "Properties": [
             {
-                "PropertyString": "+1 to Masteries (Barbarian only)",
+                "PropertyString": "+1 to Combat Skills (Barbarian only)",
                 "Index": 2
             },
             {
@@ -50156,7 +50156,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+2 to Combat Skills (Barbarian only)",
+                "PropertyString": "+2 to Masteries and Throwing Skills (Barbarian only)",
                 "Index": 2
             },
             {
@@ -57808,7 +57808,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+1 to Combat Skills (Barbarian only)",
+                "PropertyString": "+1 to Masteries and Throwing Skills (Barbarian only)",
                 "Index": 3
             },
             {
@@ -59645,11 +59645,11 @@
         "Code": "bad",
         "Properties": [
             {
-                "PropertyString": "+1-3 to Masteries (Barbarian only)",
+                "PropertyString": "+1-3 to Combat Skills (Barbarian only)",
                 "Index": 4
             },
             {
-                "PropertyString": "+1-3 to Combat Skills (Barbarian only)",
+                "PropertyString": "+1-3 to Masteries and Throwing Skills (Barbarian only)",
                 "Index": 5
             },
             {
@@ -63615,11 +63615,11 @@
         "Code": "bac",
         "Properties": [
             {
-                "PropertyString": "+2-4 to Masteries (Barbarian only)",
+                "PropertyString": "+2-4 to Combat Skills (Barbarian only)",
                 "Index": 1
             },
             {
-                "PropertyString": "+2-4 to Combat Skills (Barbarian only)",
+                "PropertyString": "+2-4 to Masteries and Throwing Skills (Barbarian only)",
                 "Index": 2
             },
             {
@@ -71879,7 +71879,7 @@
         "Code": "bae",
         "Properties": [
             {
-                "PropertyString": "+1 to Combat Skills (Barbarian only)",
+                "PropertyString": "+1 to Masteries and Throwing Skills (Barbarian only)",
                 "Index": 1
             },
             {
@@ -74314,7 +74314,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1-3 to Masteries (Barbarian only)",
+                "PropertyString": "+1-3 to Combat Skills (Barbarian only)",
                 "Index": 4
             },
             {

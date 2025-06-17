@@ -3864,7 +3864,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+2 to Masteries (Barbarian only)",
+                        "PropertyString": "+2 to Combat Skills (Barbarian only)",
                         "Index": 2
                     },
                     {
@@ -3899,7 +3899,7 @@
                 "Type": "Belt",
                 "Set": "Immortal King",
                 "SetPropertiesString": [
-                    "+2 to Combat Skills (Barbarian only) (6 Items)",
+                    "+2 to Masteries and Throwing Skills (Barbarian only) (6 Items)",
                     "+25% Faster Hit Recovery (3 Items)",
                     "+100% Enhanced Defense (4 Items)",
                     "+105 Defense (2 Items)",
@@ -4007,7 +4007,7 @@
                 "Type": "Boots",
                 "Set": "Immortal King",
                 "SetPropertiesString": [
-                    "+2 to Masteries (Barbarian only) (3 Items)",
+                    "+2 to Combat Skills (Barbarian only) (3 Items)",
                     "+160 Defense (4 Items)",
                     "Half Freeze Duration (5 Items)",
                     "+25% better chance of getting magic item (2 Items)"
@@ -8499,7 +8499,7 @@
                 "Type": "Primal Helm",
                 "Set": "Talonrage's Fury",
                 "SetPropertiesString": [
-                    "+1 to Masteries (Barbarian only) (3 Items)"
+                    "+1 to Combat Skills (Barbarian only) (3 Items)"
                 ],
                 "Name": "Berserker's Howl",
                 "Index": "Berserker's Howl",
@@ -19554,7 +19554,7 @@
                 "Code": "utg",
                 "Properties": [
                     {
-                        "PropertyString": "+1-3 to Masteries (Barbarian only)",
+                        "PropertyString": "+1-3 to Combat Skills (Barbarian only)",
                         "Index": 1
                     },
                     {
