@@ -2330,28 +2330,28 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Prevent Monster Heal",
+                "PropertyString": "+75 Poison Damage Over 5 Seconds",
                 "Index": 4
             },
             {
-                "PropertyString": "+8-9 to All Attributes",
+                "PropertyString": "+7% Life stolen per hit",
+                "Index": 5
+            },
+            {
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 6
             },
             {
-                "PropertyString": "Poison Resist +30%",
-                "Index": 0
+                "PropertyString": "+5-10 to All Attributes",
+                "Index": 7
             },
             {
                 "PropertyString": "+2 to Mana after each Kill",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Attacker Takes Damage of +14",
-                "Index": 0
+                "Index": 8
             },
             {
                 "PropertyString": "Reduces all Vendor Prices 15%",
-                "Index": 5
+                "Index": 9
             }
         ],
         "DamageArmorEnhanced": false,
