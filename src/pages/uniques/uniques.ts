@@ -22,14 +22,64 @@ export class Uniques {
 
     private _debouncedSearchItem!: DebouncedFunction;
 
+    binding() {
+        // Read search query parameters from URL when component is initialized
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const searchParam = urlParams.get('search');
+        if (searchParam) {
+            this.search = searchParam;
+        }
+
+        const classParam = urlParams.get('class');
+        if (classParam) {
+            this.class = classParam;
+        }
+
+        const typeParam = urlParams.get('type');
+        if (typeParam) {
+            this.selectedType = typeParam;
+        }
+    }
+
     attached() {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         this._debouncedSearchItem = debounce(this.updateList.bind(this), 350);
         this.updateList();
     }
+
+    // Helper method to update URL with current search parameters
+    private updateUrl() {
+        const url = new URL(window.location.href);
+
+        // Update search parameter
+        if (this.search && this.search.trim() !== '') {
+            url.searchParams.set('search', this.search);
+        } else {
+            url.searchParams.delete('search');
+        }
+
+        // Update class parameter
+        if (this.class) {
+            url.searchParams.set('class', this.class);
+        } else {
+            url.searchParams.delete('class');
+        }
+
+        // Update type parameter
+        if (this.selectedType) {
+            url.searchParams.set('type', this.selectedType);
+        } else {
+            url.searchParams.delete('type');
+        }
+
+        // Update the URL without reloading the page
+        window.history.pushState({}, '', url.toString());
+    }
     @watch('class')
     handleClassChanged() {
         this.updateList();
+        this.updateUrl();
     }
 
     @watch('search')
@@ -37,6 +87,7 @@ export class Uniques {
         if (this._debouncedSearchItem) {
             this._debouncedSearchItem();
         }
+        this.updateUrl();
     }
 
     @watch('selectedType')
@@ -44,6 +95,7 @@ export class Uniques {
         if (this._debouncedSearchItem) {
             this._debouncedSearchItem();
         }
+        this.updateUrl();
     }
 
     classes = [

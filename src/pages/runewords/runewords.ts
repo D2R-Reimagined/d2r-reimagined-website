@@ -62,10 +62,83 @@ export class Runewords {
 
     selectedAmount: number;
 
+    binding() {
+        // Read search query parameters from URL when component is initialized
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const searchParam = urlParams.get('search');
+        if (searchParam) {
+            this.search = searchParam;
+        }
+
+        const runesParam = urlParams.get('runes');
+        if (runesParam) {
+            this.searchRunes = runesParam;
+        }
+
+        const typeParam = urlParams.get('type');
+        if (typeParam) {
+            this.selectedType = typeParam.split(',');
+        }
+
+        const socketsParam = urlParams.get('sockets');
+        if (socketsParam) {
+            this.selectedAmount = parseInt(socketsParam, 10);
+        }
+
+        const exactParam = urlParams.get('exact');
+        if (exactParam) {
+            this.exclusiveType = exactParam === 'true';
+        }
+    }
+
     attached() {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         this._debouncedSearchItem = debounce(this.updateList.bind(this), 350);
         this.updateList();
+    }
+
+    // Helper method to update URL with current search parameters
+    private updateUrl() {
+        const url = new URL(window.location.href);
+
+        // Update search parameter
+        if (this.search && this.search.trim() !== '') {
+            url.searchParams.set('search', this.search);
+        } else {
+            url.searchParams.delete('search');
+        }
+
+        // Update runes parameter
+        if (this.searchRunes && this.searchRunes.trim() !== '') {
+            url.searchParams.set('runes', this.searchRunes);
+        } else {
+            url.searchParams.delete('runes');
+        }
+
+        // Update type parameter
+        if (this.selectedType && this.selectedType.length > 0) {
+            url.searchParams.set('type', this.selectedType.join(','));
+        } else {
+            url.searchParams.delete('type');
+        }
+
+        // Update sockets parameter
+        if (this.selectedAmount) {
+            url.searchParams.set('sockets', this.selectedAmount.toString());
+        } else {
+            url.searchParams.delete('sockets');
+        }
+
+        // Update exact parameter
+        if (this.exclusiveType) {
+            url.searchParams.set('exact', 'true');
+        } else {
+            url.searchParams.delete('exact');
+        }
+
+        // Update the URL without reloading the page
+        window.history.pushState({}, '', url.toString());
     }
 
     @watch('searchRunes')
@@ -73,6 +146,7 @@ export class Runewords {
         if (this._debouncedSearchItem) {
             this._debouncedSearchItem();
         }
+        this.updateUrl();
     }
 
     @watch('search')
@@ -80,6 +154,7 @@ export class Runewords {
         if (this._debouncedSearchItem) {
             this._debouncedSearchItem();
         }
+        this.updateUrl();
     }
 
     @watch('selectedType')
@@ -87,6 +162,7 @@ export class Runewords {
         if (this._debouncedSearchItem) {
             this._debouncedSearchItem();
         }
+        this.updateUrl();
     }
 
     @watch('selectedAmount')
@@ -94,6 +170,7 @@ export class Runewords {
         if (this._debouncedSearchItem) {
             this._debouncedSearchItem();
         }
+        this.updateUrl();
     }
 
     @watch('exclusiveType')
@@ -101,6 +178,7 @@ export class Runewords {
         if (this._debouncedSearchItem) {
             this._debouncedSearchItem();
         }
+        this.updateUrl();
     }
 
     normalizeRuneName(name: string): string {
