@@ -18183,6 +18183,70 @@
     {
         "Runes": [
             {
+                "Name": "Ber Rune",
+                "ItemLevel": 63,
+                "RequiredLevel": 63,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Cham Rune",
+                "ItemLevel": 67,
+                "RequiredLevel": 67,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Ber Rune",
+                "ItemLevel": 63,
+                "RequiredLevel": 63,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            }
+        ],
+        "Types": [
+            {
+                "Name": "Circlet",
+                "Index": "Circlet",
+                "Class": ""
+            }
+        ],
+        "Name": "Rain Reimagined",
+        "Index": "Rain Reimagined",
+        "Enabled": true,
+        "Rarity": 0,
+        "ItemLevel": 67,
+        "RequiredLevel": 67,
+        "Code": "Rain Reimagined",
+        "Properties": [
+            {
+                "PropertyString": "+16% Physical Damage Reduction",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Cannot Be Frozen",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-1 to Light Radius",
+                "Index": 0
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": null
+    },
+    {
+        "Runes": [
+            {
                 "Name": "Cham Rune",
                 "ItemLevel": 67,
                 "RequiredLevel": 67,
