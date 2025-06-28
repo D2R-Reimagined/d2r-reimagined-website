@@ -1,4 +1,4 @@
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-DgyWaUCD.js";
+import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-BePQ-y0p.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
 const name = "uniques";
 const template = '<template>\n    <h3 class="text-center my-4">\n        ${uniques.length} Uniques Found\n    </h3>\n    <div class="container">\n        <div class="row align-content-center justify-content-center text-center mb-5">\n            <div class="col-12 col-md-5 col-lg-4">\n                <div class="au-select mb-2">\n                    <moo-select\n                            class="w-100"\n                            label="Select Class"\n                            options.bind="classes"\n                            class="standard-betsy-select"\n                            value.bind="class"\n                    ></moo-select>\n                </div>\n            </div>\n            <div class="col-12 col-md-5 col-lg-4">\n                <div class="au-select mb-2">\n                    <moo-select\n                            class="w-100"\n                            label="Select Type"\n                            options.bind="types"\n                            class="standard-betsy-select"\n                            value.bind="selectedType"\n                    ></moo-select>\n                </div>\n            </div>\n            <div class="col-12 col-md-5 col-lg-4">\n                <moo-text-field\n                        class="w-100"\n                        label="Search Uniques"\n                        type="text"\n                        value.bind="search"\n                ></moo-text-field>\n            </div>\n        </div>\n    </div>\n\n    <div class="row gy-5 px-5 text-center">\n        <div class="col-12 col-md-6 col-xxl-4" repeat.for="unique of uniques">\n            <div class="card bg-dark p-2">\n                <div class="unique-text fs-5 mb-1">\n                    ${unique.Name}\n                </div>\n                <div class="rarity mb-1" if.bind="unique.Rarity">\n                    Rarity: ${unique.Rarity}\n                </div>\n                <div class="armor mb-1" if.bind="unique.Equipment.Name">\n                    ${unique.Equipment.Name}\n                </div>\n                <div class="armor mb-1" if.bind="unique.Equipment.ArmorString">\n                    Armor: ${unique.Equipment.ArmorString}\n                </div>\n                <div class="damage" if.bind="unique.Equipment.DamageTypes"\n                     repeat.for="damage of unique.Equipment.DamageTypes">\n                    ${getDamageTypeString(damage.Type)} ${damage.DamageString}\n                </div>\n                <div class="requirement" if.bind="unique.RequiredLevel > 0">\n                    Level ${unique.RequiredLevel} Required\n                </div>\n                <div class="requirement" if.bind="unique.Equipment.RequiredStrength > 0">\n                    ${unique.Equipment.RequiredStrength} Strength Required\n                </div>\n                <div class="requirement" if.bind="unique.Equipment.RequiredDexterity > 0">\n                    ${unique.Equipment.RequiredDexterity} Dexterity Required\n                </div>\n                <div class="durability mt-1" if.bind="unique.Equipment.Durability > 0">\n                    ${unique.Equipment.Durability} Durability\n                </div>\n                <div class="mt-2">\n                    <div class="enhanced" repeat.for="property of unique.Properties">\n                        ${property.PropertyString}\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</template>\n';
@@ -4077,7 +4077,7 @@ const json = [
     Code: "axe",
     Properties: [
       {
-        PropertyString: "+1-3 to Masteries and Throwing Skills (Barbarian only)",
+        PropertyString: "+1-3 to Combat Skills (Barbarian only)",
         Index: 3
       },
       {
@@ -11893,7 +11893,7 @@ const json = [
     Code: "clm",
     Properties: [
       {
-        PropertyString: "+1-3 to Masteries and Throwing Skills (Barbarian only)",
+        PropertyString: "+1-3 to Combat Skills (Barbarian only)",
         Index: 2
       },
       {
@@ -19954,7 +19954,7 @@ const json = [
     Code: "tgl",
     Properties: [
       {
-        PropertyString: "+1-3 to Masteries and Throwing Skills (Barbarian only)",
+        PropertyString: "+1-3 to Combat Skills (Barbarian only)",
         Index: 6
       },
       {
@@ -25753,7 +25753,7 @@ const json = [
   },
   {
     Type: "Armor",
-    Name: "Skin of the Flayed One1",
+    Name: "Skin of the Flayed One",
     Index: "Skin of the Flayed One1",
     Enabled: true,
     Rarity: 1,
@@ -25803,7 +25803,7 @@ const json = [
   },
   {
     Type: "Shield",
-    Name: "Moser's Blessed Circle1",
+    Name: "Moser's Blessed Circle",
     Index: "Moser's Blessed Circle1",
     Enabled: true,
     Rarity: 1,
@@ -37723,7 +37723,7 @@ const json = [
         }
       ],
       EquipmentType: 1,
-      Name: "Stilleto",
+      Name: "Stiletto",
       RequiredStrength: 47,
       RequiredDexterity: 97,
       Durability: 250,
@@ -37747,7 +37747,7 @@ const json = [
     Code: "9b7",
     Properties: [
       {
-        PropertyString: "+3 to Masteries and Throwing Skills (Barbarian only)",
+        PropertyString: "+3 to Combat Skills (Barbarian only)",
         Index: 5
       },
       {
@@ -42184,7 +42184,7 @@ const json = [
       DamageStringPrefix: null,
       ArmorString: "215-258",
       EquipmentType: 0,
-      Name: "Winged helm",
+      Name: "Winged Helm",
       RequiredStrength: 115,
       RequiredDexterity: 0,
       Durability: 40,
@@ -45587,7 +45587,7 @@ const json = [
       DamageStringPrefix: null,
       ArmorString: "110-132",
       EquipmentType: 0,
-      Name: "War Gaunlets",
+      Name: "War Gauntlets",
       RequiredStrength: 110,
       RequiredDexterity: 0,
       Durability: 39,
@@ -46659,7 +46659,7 @@ const json = [
     Code: "9m9",
     Properties: [
       {
-        PropertyString: "+2 to Masteries and Throwing Skills (Barbarian only)",
+        PropertyString: "+2 to Combat Skills (Barbarian only)",
         Index: 4
       },
       {
@@ -47075,7 +47075,7 @@ const json = [
         }
       ],
       EquipmentType: 1,
-      Name: "Stilleto",
+      Name: "Stiletto",
       RequiredStrength: 47,
       RequiredDexterity: 97,
       Durability: 250,
@@ -50331,7 +50331,7 @@ const json = [
       DamageStringPrefix: null,
       ArmorString: "163-197",
       EquipmentType: 0,
-      Name: "Winged helm",
+      Name: "Winged Helm",
       RequiredStrength: 115,
       RequiredDexterity: 0,
       Durability: 40,
@@ -51028,7 +51028,7 @@ const json = [
   },
   {
     Type: "Small Charm",
-    Name: "Collin's Greater Fury",
+    Name: "Collin's Empowered Fury",
     Index: "t6 Splash Charm",
     Enabled: false,
     Rarity: 1,
@@ -53095,7 +53095,7 @@ const json = [
       DamageStringPrefix: null,
       ArmorString: "154-189",
       EquipmentType: 0,
-      Name: "Winged helm",
+      Name: "Winged Helm",
       RequiredStrength: 115,
       RequiredDexterity: 0,
       Durability: 40,
@@ -55106,7 +55106,7 @@ const json = [
       DamageStringPrefix: null,
       ArmorString: "66-77",
       EquipmentType: 0,
-      Name: "War Gaunlets",
+      Name: "War Gauntlets",
       RequiredStrength: 110,
       RequiredDexterity: 0,
       Durability: 24,
@@ -55587,7 +55587,7 @@ const json = [
         }
       ],
       EquipmentType: 1,
-      Name: "Stilleto",
+      Name: "Stiletto",
       RequiredStrength: 47,
       RequiredDexterity: 97,
       Durability: 250,
@@ -59082,7 +59082,7 @@ const json = [
       DamageStringPrefix: null,
       ArmorString: "143-193",
       EquipmentType: 0,
-      Name: "War Gaunlets",
+      Name: "War Gauntlets",
       RequiredStrength: 110,
       RequiredDexterity: 0,
       Durability: 24,
@@ -59451,7 +59451,7 @@ const json = [
   },
   {
     Type: "Small Charm",
-    Name: "Collin's Devestation",
+    Name: "Collin's Devastation",
     Index: "t7 Splash Charm",
     Enabled: false,
     Rarity: 1,
@@ -70981,7 +70981,7 @@ const json = [
   },
   {
     Type: "Small Charm",
-    Name: "Collin's Furious Devestation",
+    Name: "Collin's Furious Devastation",
     Index: "t8 Splash Charm",
     Enabled: false,
     Rarity: 1,
@@ -72500,8 +72500,8 @@ const json = [
   },
   {
     Type: "Helm",
-    Name: "Lolith's Crest",
-    Index: "Lolith's Crest",
+    Name: "Lilith's Crest",
+    Index: "Lilith's Crest",
     Enabled: true,
     Rarity: 1,
     ItemLevel: 70,
@@ -73183,8 +73183,8 @@ const json = [
   },
   {
     Type: "Axe",
-    Name: "Hero's Welcome",
-    Index: "Hero's Welcome",
+    Name: "Heroes Welcome",
+    Index: "Heroes Welcome",
     Enabled: true,
     Rarity: 1,
     ItemLevel: 75,
@@ -74336,7 +74336,7 @@ const json = [
         Index: 3
       },
       {
-        PropertyString: "+1-3 to Combat Skills (Barbarian only)",
+        PropertyString: "+1-3 to Masteries and Throwing Skills (Barbarian only)",
         Index: 4
       },
       {
@@ -75761,7 +75761,7 @@ const json = [
         Index: 6
       },
       {
-        PropertyString: "+30-60 Damage",
+        PropertyString: "Adds 30-60 to Damage",
         Index: 1
       },
       {
