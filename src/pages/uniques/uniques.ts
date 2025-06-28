@@ -22,7 +22,7 @@ export class Uniques {
 
     private _debouncedSearchItem!: DebouncedFunction;
 
-    binding() {
+    attached() {
         // Read search query parameters from URL when component is initialized
         const urlParams = new URLSearchParams(window.location.search);
 
@@ -40,9 +40,6 @@ export class Uniques {
         if (typeParam) {
             this.selectedType = typeParam;
         }
-    }
-
-    attached() {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         this._debouncedSearchItem = debounce(this.updateList.bind(this), 350);
         this.updateList();

@@ -62,7 +62,7 @@ export class Runewords {
 
     selectedAmount: number;
 
-    binding() {
+    attached() {
         // Read search query parameters from URL when component is initialized
         const urlParams = new URLSearchParams(window.location.search);
 
@@ -90,9 +90,6 @@ export class Runewords {
         if (exactParam) {
             this.exclusiveType = exactParam === 'true';
         }
-    }
-
-    attached() {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         this._debouncedSearchItem = debounce(this.updateList.bind(this), 350);
         this.updateList();

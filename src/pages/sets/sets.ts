@@ -9,7 +9,7 @@ export class Sets {
 
     private _debouncedSearchItem!: DebouncedFunction;
 
-    binding() {
+    attached() {
         // Read search query parameters from URL when component is initialized
         const urlParams = new URLSearchParams(window.location.search);
 
@@ -22,9 +22,6 @@ export class Sets {
         if (classParam) {
             this.class = classParam;
         }
-    }
-
-    attached() {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         this._debouncedSearchItem = debounce(this.updateList.bind(this), 350);
         this.updateList();
