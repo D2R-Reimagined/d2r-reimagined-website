@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-D-7S1rN1.js","assets/debounce-ZwsFz6hU.js","assets/cube-recipes-BJXOl2Zy.css","assets/uniques-UBVThHqL.js","assets/sets-DpMWANu0.js","assets/runewords-B8U4vNbP.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-BB9JLBf1.js","assets/debounce-ZwsFz6hU.js","assets/cube-recipes-BJXOl2Zy.css","assets/uniques-DnNNC98H.js","assets/sets-Cc2B9u_7.js","assets/runewords-C7QKrRhk.js"])))=>i.map(i=>d[i]);
 (function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) {
@@ -96,7 +96,12 @@ const isString = (v2) => typeof v2 === "string";
 const isNumber = (v2) => typeof v2 === "number";
 const createLookup$1 = () => /* @__PURE__ */ Object.create(null);
 const areEqual = Object.is;
-const createMappedError$6 = (code, ...details) => new Error(`AUR${safeString$2(code).padStart(4, "0")}: ${getMessageByCode$4(code, ...details)}`);
+const createMappedError$6 = (code, ...details) => {
+  const paddedCode = safeString$2(code).padStart(4, "0");
+  const message = getMessageByCode$4(code, ...details);
+  const link = `https://docs.aurelia.io/developer-guides/error-messages/0001-to-0023/aur${paddedCode}`;
+  return new Error(`AUR${paddedCode}: ${message}\\n\\nFor more information, see: ${link}`);
+};
 const errorsMap$4 = {
   [
     1
@@ -4138,7 +4143,14 @@ const BindingMode = /* @__PURE__ */ tcObjectFreeze({
 });
 const ITemplateCompiler = /* @__PURE__ */ tcCreateInterface("ITemplateCompiler");
 const IAttrMapper = /* @__PURE__ */ tcCreateInterface("IAttrMapper");
-const createMappedError$4 = (code, ...details) => new Error(`AUR${String(code).padStart(4, "0")}: ${getMessageByCode$2(code, ...details)}`);
+const createMappedError$4 = (code, ...details) => {
+  const paddedCode = String(code).padStart(4, "0");
+  const message = getMessageByCode$2(code, ...details);
+  const link = `https://docs.aurelia.io/developer-guides/error-messages/0088-to-0723/aur${paddedCode}`;
+  return new Error(`AUR${paddedCode}: ${message}
+
+For more information, see: ${link}`);
+};
 const errorsMap$2 = {
   [
     88
@@ -4240,6 +4252,10 @@ const errorsMap$2 = {
     722
     /* ErrorNames.compiler_no_dom_api */
   ]: "Invalid platform object provided to the compilation, no DOM API found.",
+  [
+    723
+    /* ErrorNames.compiler_invalid_class_binding_syntax */
+  ]: `Template compilation error: Invalid comma-separated class binding syntax in {{0}}. It resulted in no valid class names after parsing.`,
   [
     9998
     /* ErrorNames.no_spread_template_controller */
@@ -5295,7 +5311,18 @@ class ClassBindingCommand {
     return true;
   }
   build(info2, exprParser) {
-    return new AttributeBindingInstruction("class", exprParser.parse(info2.attr.rawValue, etIsProperty$1), info2.attr.target);
+    let target = info2.attr.target;
+    if (target.includes(",")) {
+      const classes = target.split(",").filter((c2) => c2.length > 0);
+      if (classes.length === 0) {
+        throw createMappedError$4(
+          723
+          /* ErrorNames.compiler_invalid_class_binding_syntax */
+        );
+      }
+      target = classes.join(" ");
+    }
+    return new AttributeBindingInstruction("class", exprParser.parse(info2.attr.rawValue, etIsProperty$1), target);
   }
 }
 ClassBindingCommand.$au = {
@@ -7162,14 +7189,14 @@ const { astAssign, astEvaluate, astBind, astUnbind } = /* @__PURE__ */ (() => {
                 113
                 /* ErrorNames.ast_increment_infinite_loop */
               );
-            return astAssign2(ast.expression, s2, e2, value - 1) + ast.pos;
+            return astAssign2(ast.expression, s2, e2, c2, value - 1) + ast.pos;
           case "++":
             if (c2 != null)
               throw createMappedError$3(
                 113
                 /* ErrorNames.ast_increment_infinite_loop */
               );
-            return astAssign2(ast.expression, s2, e2, value + 1) - ast.pos;
+            return astAssign2(ast.expression, s2, e2, c2, value + 1) - ast.pos;
           default:
             throw createMappedError$3(109, ast.operation);
         }
@@ -7378,7 +7405,7 @@ const { astAssign, astEvaluate, astBind, astUnbind } = /* @__PURE__ */ (() => {
               throw createMappedError$3(108, ast.op);
           }
         }
-        return astAssign2(ast.target, s2, e2, value);
+        return astAssign2(ast.target, s2, e2, c2, value);
       }
       case ekValueConverter2: {
         return e2?.useConverter?.(ast.name, "toView", astEvaluate2(ast.expression, s2, e2, c2), ast.args.map((a2) => astEvaluate2(a2, s2, e2, c2)));
@@ -7415,7 +7442,7 @@ const { astAssign, astEvaluate, astBind, astUnbind } = /* @__PURE__ */ (() => {
         return ast.evaluate(s2, e2, c2);
     }
   }
-  function astAssign2(ast, s2, e2, val) {
+  function astAssign2(ast, s2, e2, c2, val) {
     switch (ast.$kind) {
       case ekAccessScope2: {
         if (ast.name === "$host") {
@@ -7428,12 +7455,12 @@ const { astAssign, astEvaluate, astBind, astUnbind } = /* @__PURE__ */ (() => {
         return obj[ast.name] = val;
       }
       case ekAccessMember2: {
-        const obj = astEvaluate2(ast.object, s2, e2, null);
+        const obj = astEvaluate2(ast.object, s2, e2, c2);
         if (obj == null) {
           if (e2?.strict) {
             throw createMappedError$3(116, ast.name);
           }
-          astAssign2(ast.object, s2, e2, { [ast.name]: val });
+          astAssign2(ast.object, s2, e2, c2, { [ast.name]: val });
         } else if (isObjectOrFunction(obj)) {
           if (ast.name === "length" && isArray(obj) && !isNaN(val)) {
             obj.splice(val);
@@ -7444,13 +7471,13 @@ const { astAssign, astEvaluate, astBind, astUnbind } = /* @__PURE__ */ (() => {
         return val;
       }
       case ekAccessKeyed2: {
-        const instance = astEvaluate2(ast.object, s2, e2, null);
-        const key = astEvaluate2(ast.key, s2, e2, null);
+        const instance = astEvaluate2(ast.object, s2, e2, c2);
+        const key = astEvaluate2(ast.key, s2, e2, c2);
         if (instance == null) {
           if (e2?.strict) {
             throw createMappedError$3(116, key);
           }
-          astAssign2(ast.object, s2, e2, { [key]: val });
+          astAssign2(ast.object, s2, e2, c2, { [key]: val });
           return val;
         }
         if (isArray(instance)) {
@@ -7466,14 +7493,14 @@ const { astAssign, astEvaluate, astBind, astUnbind } = /* @__PURE__ */ (() => {
         return instance[key] = val;
       }
       case ekAssign2:
-        astAssign2(ast.value, s2, e2, val);
-        return astAssign2(ast.target, s2, e2, val);
+        astAssign2(ast.value, s2, e2, c2, val);
+        return astAssign2(ast.target, s2, e2, c2, val);
       case ekValueConverter2: {
-        val = e2?.useConverter?.(ast.name, "fromView", val, ast.args.map((a2) => astEvaluate2(a2, s2, e2, null)));
-        return astAssign2(ast.expression, s2, e2, val);
+        val = e2?.useConverter?.(ast.name, "fromView", val, ast.args.map((a2) => astEvaluate2(a2, s2, e2, c2)));
+        return astAssign2(ast.expression, s2, e2, c2, val);
       }
       case ekBindingBehavior2:
-        return astAssign2(ast.expression, s2, e2, val);
+        return astAssign2(ast.expression, s2, e2, c2, val);
       case ekArrayDestructuring2:
       case ekObjectDestructuring2: {
         const list = ast.list;
@@ -7484,7 +7511,7 @@ const { astAssign, astEvaluate, astBind, astUnbind } = /* @__PURE__ */ (() => {
           item = list[i3];
           switch (item.$kind) {
             case ekDestructuringAssignmentLeaf2:
-              astAssign2(item, s2, e2, val);
+              astAssign2(item, s2, e2, c2, val);
               break;
             case ekArrayDestructuring2:
             case ekObjectDestructuring2: {
@@ -7498,7 +7525,7 @@ const { astAssign, astEvaluate, astBind, astUnbind } = /* @__PURE__ */ (() => {
               if (source === void 0 && item.initializer) {
                 source = astEvaluate2(item.initializer, s2, e2, null);
               }
-              astAssign2(item, s2, e2, source);
+              astAssign2(item, s2, e2, c2, source);
               break;
             }
           }
@@ -7516,11 +7543,11 @@ const { astAssign, astEvaluate, astBind, astUnbind } = /* @__PURE__ */ (() => {
               /* ErrorNames.ast_destruct_null */
             );
           }
-          let source = astEvaluate2(ast.source, Scope.create(val), e2, null);
+          let source = astEvaluate2(ast.source, Scope.create(val), e2, c2);
           if (source === void 0 && ast.initializer) {
-            source = astEvaluate2(ast.initializer, s2, e2, null);
+            source = astEvaluate2(ast.initializer, s2, e2, c2);
           }
-          astAssign2(ast.target, s2, e2, source);
+          astAssign2(ast.target, s2, e2, c2, source);
         } else {
           if (val == null) {
             return;
@@ -7549,7 +7576,7 @@ const { astAssign, astEvaluate, astBind, astUnbind } = /* @__PURE__ */ (() => {
               return acc;
             }, {});
           }
-          astAssign2(ast.target, s2, e2, restValue);
+          astAssign2(ast.target, s2, e2, c2, restValue);
         }
         break;
       }
@@ -8700,6 +8727,12 @@ const objectHandler = {
     }
     connectable2.observe(target, key);
     return wrap$1(R$get(target, key, receiver));
+  },
+  deleteProperty(target, p2) {
+    {
+      console.warn(`[DEV:aurelia] deletion of a property will not always be working with Aurelia observation system, as it depends on getter/setter installation.`);
+    }
+    return delete target[p2];
   }
 };
 const arrayHandler = {
@@ -9192,7 +9225,7 @@ class DirtyChecker {
         return;
       }
       this._elapsedFrames = 0;
-      const tracked = this.tracked;
+      const tracked = this.tracked.slice(0);
       const len = tracked.length;
       let current;
       let i3 = 0;
@@ -9305,20 +9338,20 @@ class SetterObserver {
     if (this._coercer !== void 0) {
       newValue = this._coercer.call(void 0, newValue, this._coercionConfig);
     }
+    const oldValue = this._value;
     if (this._observing) {
       if (areEqual(newValue, this._value)) {
         return;
       }
-      oV$1 = this._value;
       this._value = newValue;
       this.subs.notifyDirty();
-      this.subs.notify(newValue, oV$1);
+      this.subs.notify(newValue, oldValue);
       if (areEqual(newValue, this._value)) {
-        this._callback?.(newValue, oV$1);
+        this._callback?.(newValue, oldValue);
       }
     } else {
       this._value = this._obj[this._key] = newValue;
-      this._callback?.(newValue, oV$1);
+      this._callback?.(newValue, oldValue);
     }
   }
   useCallback(callback) {
@@ -9369,7 +9402,6 @@ class SetterObserver {
 (() => {
   subscriberCollection(SetterObserver, null);
 })();
-let oV$1 = void 0;
 const propertyAccessor = new PropertyAccessor();
 const IObserverLocator = /* @__PURE__ */ rtCreateInterface("IObserverLocator", (x2) => x2.singleton(ObserverLocator));
 const INodeObserverLocator = /* @__PURE__ */ rtCreateInterface("INodeObserverLocator", (x2) => x2.cachedCallback((handler) => {
@@ -11280,6 +11312,34 @@ function createAppTaskSlotHook(slotName) {
   return appTaskFactory;
 }
 const IPlatform = IPlatform$1;
+class Refs {
+}
+const refs = /* @__PURE__ */ (() => {
+  const refsMap = /* @__PURE__ */ new WeakMap();
+  let hideProp = false;
+  return new class {
+    get hideProp() {
+      return hideProp;
+    }
+    set hideProp(value) {
+      hideProp = value;
+    }
+    get(node, name2) {
+      return refsMap.get(node)?.[name2] ?? null;
+    }
+    set(node, name2, controller) {
+      const ref = refsMap.get(node) ?? (refsMap.set(node, new Refs()), refsMap.get(node));
+      if (name2 in ref) {
+        throw new Error(`Node already associated with a controller, remove the ref "${name2}" first before associating with another controller`);
+      }
+      if (!hideProp) {
+        node.$au ??= ref;
+      }
+      return ref[name2] = controller;
+    }
+  }();
+})();
+const INode = /* @__PURE__ */ createInterface("INode");
 function watch(expressionOrPropertyAccessFn, changeHandlerOrCallback) {
   if (expressionOrPropertyAccessFn == null) {
     throw createMappedError$2(
@@ -11410,7 +11470,7 @@ const isAttributeType = (value) => {
   return isFunction(value) && (hasMetadata(attributeBaseName, value) || value.$au?.type === attrTypeName);
 };
 const findAttributeControllerFor = (node, name2) => {
-  return getRef(node, getAttributeKeyFrom(name2)) ?? void 0;
+  return refs.get(node, getAttributeKeyFrom(name2)) ?? void 0;
 };
 const defineAttribute = (nameOrDef, Type) => {
   const definition = CustomAttributeDefinition.create(nameOrDef, Type);
@@ -11438,7 +11498,7 @@ const findClosestControllerByName = (node, attrNameOrType) => {
   }
   let cur = node;
   while (cur !== null) {
-    const controller = getRef(cur, key);
+    const controller = refs.get(cur, key);
     if (controller?.is(attrName)) {
       return controller;
     }
@@ -11907,12 +11967,16 @@ class AttributeBinding {
     this._task = null;
     this._value = void 0;
     this.boundFn = false;
+    this._isMulti = false;
     this.l = locator;
     this.ast = ast;
     this._controller = controller;
     this.target = target;
     this.oL = observerLocator;
     this._taskQueue = taskQueue;
+    if ((this._isMulti = targetProperty.indexOf(" ") > -1) && !AttributeBinding._splitString.has(targetProperty)) {
+      AttributeBinding._splitString.set(targetProperty, targetProperty.split(" "));
+    }
   }
   updateTarget(value) {
     const target = this.target;
@@ -11920,7 +11984,14 @@ class AttributeBinding {
     const targetProperty = this.targetProperty;
     switch (targetAttribute) {
       case "class":
-        target.classList.toggle(targetProperty, !!value);
+        if (this._isMulti) {
+          const force = !!value;
+          for (const cls of AttributeBinding._splitString.get(targetProperty)) {
+            target.classList.toggle(cls, force);
+          }
+        } else {
+          target.classList.toggle(targetProperty, !!value);
+        }
         break;
       case "style": {
         let priority = "";
@@ -12013,6 +12084,7 @@ AttributeBinding.mix = createPrototypeMixer(() => {
   connectable(AttributeBinding, null);
   mixinAstEvaluator(AttributeBinding);
 });
+AttributeBinding._splitString = /* @__PURE__ */ new Map();
 const queueTaskOptions$1 = {
   preempt: true
 };
@@ -12387,7 +12459,7 @@ class PropertyBinding {
     this._targetObserver.setValue(value, this.target, this.targetProperty);
   }
   updateSource(value) {
-    astAssign(this.ast, this._scope, this, value);
+    astAssign(this.ast, this._scope, this, null, value);
   }
   handleChange() {
     if (!this.isBound) {
@@ -12500,13 +12572,33 @@ const updateTaskOpts = {
   preempt: true
 };
 class RefBinding {
-  constructor(locator, ast, target, strict) {
+  constructor(locator, oL, ast, target, strict) {
+    this.oL = oL;
     this.ast = ast;
     this.target = target;
     this.strict = strict;
     this.isBound = false;
     this._scope = void 0;
     this.l = locator;
+  }
+  updateSource() {
+    if (this.isBound) {
+      this.obs.version++;
+      astAssign(this.ast, this._scope, this, this, this.target);
+      this.obs.clear();
+    } else {
+      astAssign(this.ast, this._scope, this, null, null);
+    }
+  }
+  handleChange() {
+    if (this.isBound) {
+      this.updateSource();
+    }
+  }
+  handleCollectionChange() {
+    if (this.isBound) {
+      this.updateSource();
+    }
   }
   bind(_scope) {
     if (this.isBound) {
@@ -12517,22 +12609,26 @@ class RefBinding {
     }
     this._scope = _scope;
     astBind(this.ast, _scope, this);
-    astAssign(this.ast, this._scope, this, this.target);
     this.isBound = true;
+    this.updateSource();
   }
   unbind() {
     if (!this.isBound) {
       return;
     }
     this.isBound = false;
+    this.obs.clearAll();
     if (astEvaluate(this.ast, this._scope, this, null) === this.target) {
-      astAssign(this.ast, this._scope, this, null);
+      this.updateSource();
     }
     astUnbind(this.ast, this._scope, this);
     this._scope = void 0;
   }
 }
 RefBinding.mix = createPrototypeMixer(() => {
+  connectable(RefBinding, null);
+  mixingBindingLimited(RefBinding, () => "updateSource");
+  mixinUseScope(RefBinding);
   mixinAstEvaluator(RefBinding);
 });
 class ListenerBindingOptions {
@@ -13310,7 +13406,6 @@ const CustomElementRenderer = /* @__PURE__ */ renderer(class CustomElementRender
       /* location            */
       location
     );
-    setRef(target, def2.key, childCtrl);
     const renderers = this._rendering.renderers;
     const props2 = instruction.props;
     const ii = props2.length;
@@ -13368,7 +13463,7 @@ const CustomAttributeRenderer = /* @__PURE__ */ renderer(class CustomAttributeRe
       /* definition */
       def2
     );
-    setRef(target, def2.key, childController);
+    refs.set(target, def2.key, childController);
     const renderers = this._rendering.renderers;
     const props2 = instruction.props;
     const ii = props2.length;
@@ -13428,7 +13523,7 @@ const TemplateControllerRenderer = /* @__PURE__ */ renderer(class TemplateContro
       /* definition   */
       def2
     );
-    setRef(renderLocation, def2.key, childController);
+    refs.set(renderLocation, def2.key, childController);
     results.vm.link?.(renderingCtrl, childController, target, instruction);
     const renderers = this._rendering.renderers;
     const props2 = instruction.props;
@@ -13468,9 +13563,10 @@ const LetElementRenderer = /* @__PURE__ */ renderer(class LetElementRenderer2 {
 const RefBindingRenderer = /* @__PURE__ */ renderer(class RefBindingRenderer2 {
   constructor() {
     this.target = InstructionType.refBinding;
+    RefBinding.mix();
   }
-  render(renderingCtrl, target, instruction, platform, exprParser) {
-    renderingCtrl.addBinding(new RefBinding(renderingCtrl.container, ensureExpression(exprParser, instruction.from, etIsProperty), getRefTarget(target, instruction.to), renderingCtrl.strict ?? false));
+  render(renderingCtrl, target, instruction, platform, exprParser, observerLocator) {
+    renderingCtrl.addBinding(new RefBinding(renderingCtrl.container, observerLocator, ensureExpression(exprParser, instruction.from, etIsProperty), getRefTarget(target, instruction.to), renderingCtrl.strict ?? false));
   }
 });
 const InterpolationBindingRenderer = /* @__PURE__ */ renderer(class InterpolationBindingRenderer2 {
@@ -14033,7 +14129,6 @@ class Controller {
     this.scope = null;
     this.isBound = false;
     this._isBindingDone = false;
-    this.hostController = null;
     this.mountTarget = targetNone;
     this.shadowRoot = null;
     this.nodes = null;
@@ -14056,7 +14151,6 @@ class Controller {
     }
     this.location = location;
     this._rendering = container.root.get(IRendering);
-    this.coercion = vmKind === vmkSynth ? void 0 : container.get(optionalCoercionConfigResolver);
   }
   static getCached(viewModel) {
     return controllerLookup.get(viewModel);
@@ -14210,12 +14304,12 @@ class Controller {
       registerResolver(container, definition.injectable, new InstanceProvider("definition.injectable", instance));
     }
     if (hydrationInst == null || hydrationInst.hydrate !== false) {
-      this._hydrate(hydrationInst?.hostController);
+      this._hydrate();
       this._hydrateChildren();
     }
   }
   /** @internal */
-  _hydrate(hostController) {
+  _hydrate() {
     if (this._lifecycleHooks.hydrating != null) {
       this._lifecycleHooks.hydrating.forEach(callHydratingHook, this);
     }
@@ -14230,17 +14324,9 @@ class Controller {
     const shadowOptions = compiledDef.shadowOptions;
     const hasSlots = compiledDef.hasSlots;
     const containerless = compiledDef.containerless;
-    let host = this.host;
+    const host = this.host;
     let location = this.location;
-    let createLocation2 = false;
-    if (hostController != null) {
-      this.hostController = hostController;
-      createLocation2 = true;
-    } else if ((this.hostController = findElementControllerFor(host, optionalCeFind)) !== null) {
-      host = this.host = this.container.root.get(IPlatform).document.createElement(definition.name);
-      createLocation2 = true;
-    }
-    if (createLocation2 && containerless && location == null) {
+    if (containerless && location == null) {
       location = this.location = convertToRenderLocation(host);
     }
     setRef(host, elementBaseName, this);
@@ -14256,8 +14342,10 @@ class Controller {
       setRef(this.shadowRoot, definition.key, this);
       this.mountTarget = targetShadowRoot;
     } else if (location != null) {
-      setRef(location, elementBaseName, this);
-      setRef(location, definition.key, this);
+      if (host !== location) {
+        setRef(location, elementBaseName, this);
+        setRef(location, definition.key, this);
+      }
       this.mountTarget = targetLocation;
     } else {
       this.mountTarget = targetHost;
@@ -14467,17 +14555,6 @@ class Controller {
     if (this.debug) {
       this.logger.trace(`attach()`);
     }
-    if (this.hostController !== null) {
-      switch (this.mountTarget) {
-        case targetHost:
-        case targetShadowRoot:
-          this.hostController._append(this.host);
-          break;
-        case targetLocation:
-          this.hostController._append(this.location.$start, this.location);
-          break;
-      }
-    }
     switch (this.mountTarget) {
       case targetHost:
         this.nodes.appendTo(this.host, this.definition != null && this.definition.enhance);
@@ -14602,18 +14679,6 @@ class Controller {
       case vmkSynth:
         this.nodes.remove();
         this.nodes.unlink();
-    }
-    if (this.hostController !== null) {
-      switch (this.mountTarget) {
-        case targetHost:
-        case targetShadowRoot:
-          this.host.remove();
-          break;
-        case targetLocation:
-          this.location.$start.remove();
-          this.location.remove();
-          break;
-      }
     }
   }
   unbind() {
@@ -14877,7 +14942,6 @@ class Controller {
       this.children.forEach(callDispose);
       this.children = null;
     }
-    this.hostController = null;
     this.scope = null;
     this.nodes = null;
     this.location = null;
@@ -14919,16 +14983,16 @@ const MountTarget = objectFreeze({
   shadowRoot: targetShadowRoot,
   location: targetLocation
 });
-const optionalCeFind = { optional: true };
 const optionalCoercionConfigResolver = optionalResource(ICoercionConfiguration);
 function createObservers(controller, definition, instance) {
   const bindables2 = definition.bindables;
   const observableNames = getOwnPropertyNames(bindables2);
   const length = observableNames.length;
-  const locator = controller.container.get(IObserverLocator);
-  const hasAggregatedCallbacks = "propertiesChanged" in instance;
   if (length === 0)
     return;
+  const locator = controller.container.get(IObserverLocator);
+  const hasAggregatedCallbacks = "propertiesChanged" in instance;
+  const coercion = controller.vmKind === vmkSynth ? void 0 : controller.container.get(optionalCoercionConfigResolver);
   const queueCallback = hasAggregatedCallbacks ? (() => {
     let changes = {};
     let promise = void 0;
@@ -14962,7 +15026,7 @@ function createObservers(controller, definition, instance) {
     const handler = bindable2.callback;
     const obs = locator.getObserver(instance, name2);
     if (bindable2.set !== noop$1) {
-      if (obs.useCoercer?.(bindable2.set, controller.coercion) !== true) {
+      if (obs.useCoercer?.(bindable2.set, coercion) !== true) {
         throw createMappedError$2(507, name2);
       }
     }
@@ -15113,15 +15177,7 @@ function callUnbindingHook(l2) {
 let _resolve;
 let _reject;
 let _retPromise;
-class Refs {
-}
-function getRef(node, name2) {
-  return node.$au?.[name2] ?? null;
-}
-function setRef(node, name2, controller) {
-  (node.$au ??= new Refs())[name2] = controller;
-}
-const INode = /* @__PURE__ */ createInterface("INode");
+const setRef = refs.set;
 const IEventTarget = /* @__PURE__ */ createInterface("IEventTarget", (x2) => x2.cachedCallback((handler) => {
   if (handler.has(IAppRoot, true)) {
     return handler.get(IAppRoot).host;
@@ -15476,7 +15532,7 @@ const isElementType = (value) => {
 };
 const findElementControllerFor = (node, opts = defaultForOpts) => {
   if (opts.name === void 0 && opts.searchParents !== true) {
-    const controller = getRef(node, elementBaseName);
+    const controller = refs.get(node, elementBaseName);
     if (controller === null) {
       if (opts.optional === true) {
         return null;
@@ -15487,7 +15543,7 @@ const findElementControllerFor = (node, opts = defaultForOpts) => {
   }
   if (opts.name !== void 0) {
     if (opts.searchParents !== true) {
-      const controller = getRef(node, elementBaseName);
+      const controller = refs.get(node, elementBaseName);
       if (controller === null) {
         throw createMappedError$2(763, node);
       }
@@ -15499,7 +15555,7 @@ const findElementControllerFor = (node, opts = defaultForOpts) => {
     let cur2 = node;
     let foundAController = false;
     while (cur2 !== null) {
-      const controller = getRef(cur2, elementBaseName);
+      const controller = refs.get(cur2, elementBaseName);
       if (controller !== null) {
         foundAController = true;
         if (controller.is(opts.name)) {
@@ -15515,7 +15571,7 @@ const findElementControllerFor = (node, opts = defaultForOpts) => {
   }
   let cur = node;
   while (cur !== null) {
-    const controller = getRef(cur, elementBaseName);
+    const controller = refs.get(cur, elementBaseName);
     if (controller !== null) {
       return controller;
     }
@@ -15759,7 +15815,9 @@ let Aurelia$1 = class Aurelia {
       return this._startPromise;
     }
     return this._startPromise = onResolve(this.stop(), () => {
-      Reflect.set(root.host, "$aurelia", this);
+      if (!refs.hideProp) {
+        Reflect.set(root.host, "$aurelia", this);
+      }
       this._rootProvider.prepare(this._root = root);
       this._isStarting = true;
       return onResolve(root.activate(), () => {
@@ -17594,7 +17652,7 @@ const _unknownHandler = {
 };
 const setItem = (hasDestructuredLocal, dec, scope, binding, local, item) => {
   if (hasDestructuredLocal) {
-    astAssign(dec, scope, binding, item);
+    astAssign(dec, scope, binding, null, item);
   } else {
     scope.bindingContext[local] = item;
   }
@@ -17637,7 +17695,7 @@ const getScope = (oldScopeMap, newScopeMap, key, item, forOf, parentScope, bindi
 const createScope = (item, forOf, parentScope, binding, local, hasDestructuredLocal) => {
   if (hasDestructuredLocal) {
     const scope = Scope.fromParent(parentScope, new BindingContext(), new RepeatOverrideContext());
-    astAssign(forOf.declaration, scope, binding, item);
+    astAssign(forOf.declaration, scope, binding, null, item);
   }
   return Scope.fromParent(parentScope, new BindingContext(local, item), new RepeatOverrideContext());
 };
@@ -20300,6 +20358,10 @@ const eventMessageMap = {
     3353
     /* Events.vpaUnexpectedGuardsResult */
   ]: "Unexpected guardsResult %s at %s",
+  [
+    3354
+    /* Events.vpaCanLoadGuardsResult */
+  ]: "canLoad returned redirect result %s by the component agent %s",
   // #endregion
   // #region instruction
   [
@@ -20371,7 +20433,11 @@ const eventMessageMap = {
   [
     3557
     /* Events.rtUnknownRedirectConfigProperty */
-  ]: `Unknown redirect route config property: "%s.%s". Only 'path' and 'redirectTo' should be specified for redirects.`
+  ]: `Unknown redirect route config property: "%s.%s". Only 'path' and 'redirectTo' should be specified for redirects.`,
+  [
+    3558
+    /* Events.rtInvalidOperationNavigationStrategyComponent */
+  ]: "Invalid operation, the component is not yet resolved for the navigation strategy (id: %s)."
   // #endregion
 };
 function trace(logger, event, ...optionalParameters) {
@@ -20638,7 +20704,7 @@ function validateComponent(component, parentPath, property) {
     case "function":
       break;
     case "object":
-      if (component instanceof Promise) {
+      if (component instanceof Promise || component instanceof NavigationStrategy) {
         break;
       }
       if (isPartialRedirectRouteConfig(component)) {
@@ -20901,8 +20967,11 @@ class RouteConfig {
     const path = this._path;
     if (path.length > 0)
       return path;
-    const ceDfn = CustomElement.getDefinition(this.component);
+    const ceDfn = CustomElement.getDefinition(this._component);
     return this._path = [ceDfn.name, ...ceDfn.aliases];
+  }
+  get component() {
+    return this._getComponent();
   }
   constructor(id2, _path, title, redirectTo, caseSensitive, transitionPlan, viewport2, data, routes, fallback, component, nav) {
     this.id = id2;
@@ -20915,9 +20984,11 @@ class RouteConfig {
     this.data = data;
     this.routes = routes;
     this.fallback = fallback;
-    this.component = component;
     this.nav = nav;
     this._configurationFromHookApplied = false;
+    this._currentComponent = null;
+    this._component = component;
+    this._isNavigationStrategy = component instanceof NavigationStrategy;
   }
   /** @internal */
   static _create(configOrPath, Type) {
@@ -20976,7 +21047,7 @@ class RouteConfig {
       config.data ?? this.data,
       config.routes ?? this.routes,
       config.fallback ?? this.fallback ?? parentConfig?.fallback ?? null,
-      this.component,
+      this._component,
       // The RouteConfig is created using a definitive Type as component; do not overwrite it.
       config.nav ?? this.nav
     );
@@ -21031,12 +21102,50 @@ class RouteConfig {
   }
   /** @internal */
   _clone() {
-    return new RouteConfig(this.id, this.path, this.title, this.redirectTo, this.caseSensitive, this.transitionPlan, this.viewport, this.data, this.routes, this.fallback, this.component, this.nav);
+    return new RouteConfig(this.id, this.path, this.title, this.redirectTo, this.caseSensitive, this.transitionPlan, this.viewport, this.data, this.routes, this.fallback, this._component, this.nav);
   }
   /** @internal */
   _getFallback(viewportInstruction, routeNode, context) {
     const fallback = this.fallback;
     return typeof fallback === "function" && !CustomElement.isType(fallback) ? fallback(viewportInstruction, routeNode, context) : fallback;
+  }
+  /** @internal */
+  _getComponentName() {
+    try {
+      return this._getComponent().name;
+    } catch {
+      return "UNRESOLVED-NAVIGATION-STRATEGY";
+    }
+  }
+  _getComponent(vi, ctx, node, route2) {
+    if (vi == null) {
+      if (this._currentComponent != null)
+        return this._currentComponent;
+      if (this._isNavigationStrategy)
+        throw new Error(getMessage(3558, this.id));
+      return this._currentComponent = this._component;
+    }
+    return this._currentComponent ??= this._isNavigationStrategy ? this._component.getComponent(vi, ctx, node, route2) : this._component;
+  }
+  /** @internal */
+  _handleNavigationStart() {
+    if (!this._isNavigationStrategy)
+      return;
+    this._currentComponent = null;
+  }
+  toString() {
+    let value = `RConf(id: ${this.id}, isNavigationStrategy: ${this._isNavigationStrategy}`;
+    value += `, path: [${this.path.join(",")}]`;
+    if (this.redirectTo)
+      value += `, redirectTo: ${this.redirectTo}`;
+    if (this.caseSensitive)
+      value += `, caseSensitive: ${this.caseSensitive}`;
+    if (this.transitionPlan != null)
+      value += `, transitionPlan: ${this.transitionPlan}`;
+    value += `, viewport: ${this.viewport}`;
+    if (this._currentComponent != null)
+      value += `, component: ${this._currentComponent.name}`;
+    return `${value})`;
   }
 }
 const Route = {
@@ -21077,6 +21186,8 @@ function resolveRouteConfiguration(routeable, isChild, parent, routeNode, contex
   if (isPartialRedirectRouteConfig(routeable))
     return RouteConfig._create(routeable, null);
   const [instruction, ceDef] = resolveCustomElementDefinition(routeable, context);
+  if (instruction.type === 5)
+    return RouteConfig._create({ ...routeable, nav: false }, null);
   return onResolve(ceDef, ($ceDef) => {
     const type = $ceDef.Type;
     const routeConfig = Route.getConfig(type);
@@ -21094,15 +21205,22 @@ function resolveCustomElementDefinition(routeable, context) {
   const instruction = createNavigationInstruction(routeable);
   let ceDef;
   switch (instruction.type) {
+    case 5:
+      return [instruction, null];
     case 0: {
       if (context == null)
         throw new Error(getMessage(
           3551
           /* Events.rtNoCtxStrComponent */
         ));
-      const component = CustomElement.find(context.container, instruction.value);
+      const dependencies2 = context.component.dependencies;
+      let component = dependencies2.find((d2) => isPartialCustomElementDefinition(d2) && d2.name === instruction.value) ?? CustomElement.find(context.container, instruction.value);
       if (component === null)
         throw new Error(getMessage(3552, instruction.value, context));
+      if (!(component instanceof CustomElementDefinition)) {
+        component = CustomElementDefinition.create(component);
+        CustomElement.define(component);
+      }
       ceDef = component;
       break;
     }
@@ -21774,6 +21892,10 @@ class ViewportAgent {
           this._unexpectedState("canLoad");
       }
     })._continueWith((b1) => {
+      if (tr.guardsResult !== true) {
+        trace(logger, 3354, tr.guardsResult, this._nextCA);
+        return;
+      }
       const next = this._nextNode;
       switch (this._$plan) {
         case "none":
@@ -22089,6 +22211,8 @@ class ViewportAgent {
           });
         }
       })._continueWith((b1) => {
+        if (tr.guardsResult !== true)
+          return;
         for (const node of newChildren) {
           tr._run(() => {
             b1._push();
@@ -22098,6 +22222,8 @@ class ViewportAgent {
           });
         }
       })._continueWith((b1) => {
+        if (tr.guardsResult !== true)
+          return;
         for (const node of newChildren) {
           tr._run(() => {
             b1._push();
@@ -22499,7 +22625,7 @@ class RouteNode {
   // Should not be adjust for DEV as it is also used of logging in production build.
   toString() {
     const props2 = [];
-    const component = this.context?.config.component?.name ?? "";
+    const component = this.context?.config._getComponentName() ?? "";
     if (component.length > 0) {
       props2.push(`c:'${component}'`);
     }
@@ -22684,7 +22810,7 @@ function createConfiguredNode(log, node, vi, rr, originalVi, route2 = rr.route.e
     if ($handler.redirectTo === null) {
       const viWithVp = (vi.viewport?.length ?? 0) > 0;
       const vpName = viWithVp ? vi.viewport : $handler.viewport;
-      return onResolve(resolveCustomElementDefinition($handler.component, ctx)[1], (ced) => {
+      return onResolve(resolveCustomElementDefinition($handler._getComponent(vi, ctx, node, rr.route), ctx)[1], (ced) => {
         const vpa = ctx._resolveViewportAgent(new ViewportRequest(vpName, ced.name));
         if (!viWithVp) {
           vi.viewport = vpa.viewport.name;
@@ -23008,21 +23134,34 @@ class Router {
    */
   getRouteContext(viewportAgent, componentDefinition, componentInstance, container, parentRouteConfig, parentContext, $rdConfig) {
     const logger = /* @__PURE__ */ container.get(ILogger).scopeTo("RouteContext");
-    return onResolve($rdConfig instanceof RouteConfig ? $rdConfig : resolveRouteConfiguration(typeof componentInstance?.getRouteConfig === "function" ? componentInstance : componentDefinition.Type, false, parentRouteConfig, null, parentContext), (rdConfig) => {
-      let routeConfigLookup = this._vpaLookup.get(viewportAgent);
-      if (routeConfigLookup === void 0) {
-        this._vpaLookup.set(viewportAgent, routeConfigLookup = /* @__PURE__ */ new WeakMap());
-      }
-      let routeContext = routeConfigLookup.get(rdConfig);
-      if (routeContext !== void 0) {
-        trace(logger, 3252, rdConfig);
+    return onResolve(
+      // In case of navigation strategy, get the route config for the resolved component directly.
+      // Conceptually, navigation strategy is another form of lazy-loading the route config for the given component.
+      // Hence, when we see a navigation strategy, we resolve the route config for the component first.
+      $rdConfig instanceof RouteConfig && !$rdConfig._isNavigationStrategy ? $rdConfig : resolveRouteConfiguration(
+        // getRouteConfig is prioritized over the statically configured routes via @route decorator.
+        typeof componentInstance?.getRouteConfig === "function" ? componentInstance : componentDefinition.Type,
+        false,
+        parentRouteConfig,
+        null,
+        parentContext
+      ),
+      (rdConfig) => {
+        let routeConfigLookup = this._vpaLookup.get(viewportAgent);
+        if (routeConfigLookup === void 0) {
+          this._vpaLookup.set(viewportAgent, routeConfigLookup = /* @__PURE__ */ new WeakMap());
+        }
+        let routeContext = routeConfigLookup.get(rdConfig);
+        if (routeContext !== void 0) {
+          trace(logger, 3252, rdConfig);
+          return routeContext;
+        }
+        trace(logger, 3253, rdConfig);
+        const parent = container.has(IRouteContext, true) ? container.get(IRouteContext) : null;
+        routeConfigLookup.set(rdConfig, routeContext = new RouteContext(viewportAgent, parent, componentDefinition, rdConfig, container, this));
         return routeContext;
       }
-      trace(logger, 3253, rdConfig);
-      const parent = container.has(IRouteContext, true) ? container.get(IRouteContext) : null;
-      routeConfigLookup.set(rdConfig, routeContext = new RouteContext(viewportAgent, parent, componentDefinition, rdConfig, container, this));
-      return routeContext;
-    });
+    );
   }
   createViewportInstructions(instructionOrInstructions, options) {
     if (instructionOrInstructions instanceof ViewportInstructionTree)
@@ -23201,6 +23340,11 @@ class Router {
         trace(logger, 3265, all2.length);
         for (const node of all2) {
           node.context.vpa._swap(tr, b3);
+        }
+      })._continueWith((b3) => {
+        if (tr.guardsResult !== true) {
+          b3._push();
+          this._cancelNavigation(tr);
         }
       })._continueWith(() => {
         trace(
@@ -23637,6 +23781,11 @@ class ViewportInstructionTree {
     return `[${this.children.map(String).join(",")}]`;
   }
 }
+class NavigationStrategy {
+  constructor(getComponent) {
+    this.getComponent = getComponent;
+  }
+}
 class TypedNavigationInstruction {
   constructor(type, value) {
     this.type = type;
@@ -23650,6 +23799,8 @@ class TypedNavigationInstruction {
       return new TypedNavigationInstruction(0, instruction);
     if (!isObjectOrFunction(instruction))
       expectType("function/class or object", "", instruction);
+    if (instruction instanceof NavigationStrategy)
+      return new TypedNavigationInstruction(5, instruction);
     if (typeof instruction === "function") {
       if (CustomElement.isType(instruction)) {
         const definition = CustomElement.getDefinition(instruction);
@@ -23668,10 +23819,16 @@ class TypedNavigationInstruction {
       return new TypedNavigationInstruction(4, instruction);
     if (instruction instanceof CustomElementDefinition)
       return new TypedNavigationInstruction(2, instruction);
+    if (isPartialCustomElementDefinition(instruction)) {
+      const definition = CustomElementDefinition.create(instruction);
+      CustomElement.define(definition);
+      return new TypedNavigationInstruction(2, definition);
+    }
     throw new Error(getMessage(3400, tryStringify(instruction)));
   }
   equals(other) {
     switch (this.type) {
+      case 5:
       case 2:
       case 4:
       case 3:
@@ -23691,6 +23848,7 @@ class TypedNavigationInstruction {
         return this.value.name;
       case 4:
       case 3:
+      case 5:
         throw new Error(getMessage(3403, this.type));
       case 1:
         return this.value.toUrlComponent();
@@ -23703,6 +23861,8 @@ class TypedNavigationInstruction {
     switch (this.type) {
       case 2:
         return `CEDef(name:'${this.value.name}')`;
+      case 5:
+        return `NS`;
       case 3:
         return `Promise`;
       case 4:
@@ -23739,6 +23899,19 @@ class ComponentAgent {
   }
   /** @internal */
   _activate(initiator, parent) {
+    const controller = this._controller;
+    const viewportController = this._ctx.vpa.hostController;
+    switch (controller.mountTarget) {
+      case MountTarget.host:
+      case MountTarget.shadowRoot:
+        viewportController.host.appendChild(controller.host);
+        break;
+      case MountTarget.location:
+        viewportController.host.append(controller.location.$start, controller.location);
+        break;
+      case MountTarget.none:
+        throw new Error("Invalid mount target for routed component");
+    }
     if (initiator === null) {
       trace(
         this._logger,
@@ -23756,20 +23929,24 @@ class ComponentAgent {
   }
   /** @internal */
   _deactivate(initiator, parent) {
+    const controller = this._controller;
+    controller.host?.remove();
+    controller.location?.remove();
+    controller.location?.$start?.remove();
     if (initiator === null) {
       trace(
         this._logger,
         3053
         /* Events.caDeactivateSelf */
       );
-      return this._controller.deactivate(this._controller, parent);
+      return controller.deactivate(controller, parent);
     }
     trace(
       this._logger,
       3054
       /* Events.caDeactivateInitiator */
     );
-    void this._controller.deactivate(initiator, parent);
+    void controller.deactivate(initiator, parent);
   }
   /** @internal */
   _dispose() {
@@ -23985,6 +24162,21 @@ class RouteContext {
       3150
       /* Events.rcCreated */
     );
+    const observer = parentContainer.get(IObserverLocator).getObserver(this._router, "isNavigating");
+    const subscriber = {
+      handleChange: (newValue, _previousValue) => {
+        if (newValue !== true)
+          return;
+        this.config._handleNavigationStart();
+        for (const childRoute of this.childRoutes) {
+          if (childRoute instanceof Promise)
+            continue;
+          childRoute._handleNavigationStart();
+        }
+      }
+    };
+    observer.subscribe(subscriber);
+    this._unsubscribeIsNavigatingChange = () => observer.unsubscribe(subscriber);
     this._moduleLoader = parentContainer.get(IModuleLoader);
     const container = this.container = parentContainer.createChild();
     this._platform = container.get(IPlatform);
@@ -24125,6 +24317,7 @@ class RouteContext {
   }
   dispose() {
     this.container.dispose();
+    this._unsubscribeIsNavigatingChange();
   }
   /** @internal */
   _resolveViewportAgent(req) {
@@ -24161,7 +24354,7 @@ class RouteContext {
     const componentInstance = container.invoke(elDefn.Type);
     const task2 = this._childRoutesConfigured ? void 0 : onResolve(resolveRouteConfiguration(componentInstance, false, this.config, routeNode, null), (config) => this._processConfig(config));
     return onResolve(task2, () => {
-      const controller = Controller.$el(container, componentInstance, host, { hostController, projections: null }, elDefn);
+      const controller = Controller.$el(container, componentInstance, host, { projections: null }, elDefn);
       const componentAgent = new ComponentAgent(componentInstance, controller, routeNode, this, this._router.options);
       this._hostControllerProvider.dispose();
       return componentAgent;
@@ -24244,8 +24437,13 @@ class RouteContext {
           }
         }
       }
-      if (defaultExport === void 0 && firstNonDefaultExport === void 0)
-        throw new Error(getMessage(3175, promise));
+      if (defaultExport === void 0 && firstNonDefaultExport === void 0) {
+        if (!isPartialCustomElementDefinition(raw))
+          throw new Error(getMessage(3175, promise));
+        const definition = CustomElementDefinition.create(raw);
+        CustomElement.define(definition);
+        return definition;
+      }
       return firstNonDefaultExport ?? defaultExport;
     });
   }
@@ -24671,7 +24869,7 @@ class HrefCustomAttribute {
   binding() {
     if (!this._isInitialized) {
       this._isInitialized = true;
-      this._isEnabled = this._isEnabled && getRef(this._el, CustomAttribute.getDefinition(LoadCustomAttribute).key) === null;
+      this._isEnabled = this._isEnabled && refs.get(this._el, CustomAttribute.getDefinition(LoadCustomAttribute).key) === null;
     }
     this.valueChanged(this.value);
     this._el.addEventListener("click", this);
@@ -36614,7 +36812,7 @@ const Popper = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   write
 }, Symbol.toStringTag, { value: "Module" }));
 /*!
-  * Bootstrap v5.3.4 (https://getbootstrap.com/)
+  * Bootstrap v5.3.7 (https://getbootstrap.com/)
   * Copyright 2011-2025 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -37123,7 +37321,7 @@ class Config {
     }
   }
 }
-const VERSION = "5.3.4";
+const VERSION = "5.3.7";
 class BaseComponent extends Config {
   constructor(element, config) {
     super();
@@ -37143,6 +37341,7 @@ class BaseComponent extends Config {
       this[propertyName] = null;
     }
   }
+  // Private
   _queueCallback(callback, element, isAnimated = true) {
     executeAfterTransition(callback, element, isAnimated);
   }
@@ -37895,10 +38094,10 @@ class Collapse extends BaseComponent {
     this._element.style[dimension] = "";
     this._queueCallback(complete, this._element, true);
   }
+  // Private
   _isShown(element = this._element) {
     return element.classList.contains(CLASS_NAME_SHOW$7);
   }
-  // Private
   _configAfterMerge(config) {
     config.toggle = Boolean(config.toggle);
     config.parent = getElement(config.parent);
@@ -38097,6 +38296,7 @@ class Dropdown extends BaseComponent {
     this._element.setAttribute("aria-expanded", "false");
     Manipulator.removeDataAttribute(this._menu, "popper");
     EventHandler.trigger(this._element, EVENT_HIDDEN$5, relatedTarget);
+    this._element.focus();
   }
   _getConfig(config) {
     config = super._getConfig(config);
@@ -39500,6 +39700,7 @@ class Tooltip extends BaseComponent {
       if (trigger === "click") {
         EventHandler.on(this._element, this.constructor.eventName(EVENT_CLICK$1), this._config.selector, (event) => {
           const context = this._initializeOnDelegatedTarget(event);
+          context._activeTrigger[TRIGGER_CLICK] = !(context._isShown() && context._activeTrigger[TRIGGER_CLICK]);
           context.toggle();
         });
       } else if (trigger !== TRIGGER_MANUAL) {
@@ -40387,27 +40588,27 @@ _App_decorators = [customElement(__au2ViewDef), route({
   routes: [
     {
       path: "",
-      component: __vitePreload(() => import("./home-CZqbS7yq.js"), true ? [] : void 0),
+      component: __vitePreload(() => import("./home-Dok2z3QS.js"), true ? [] : void 0),
       title: "Home"
     },
     {
       path: "cube-recipes",
-      component: __vitePreload(() => import("./cube-recipes-D-7S1rN1.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
+      component: __vitePreload(() => import("./cube-recipes-BB9JLBf1.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
       title: "Cube Recipes"
     },
     {
       path: "uniques",
-      component: __vitePreload(() => import("./uniques-UBVThHqL.js"), true ? __vite__mapDeps([3,1]) : void 0),
+      component: __vitePreload(() => import("./uniques-DnNNC98H.js"), true ? __vite__mapDeps([3,1]) : void 0),
       title: "Uniques"
     },
     {
       path: "sets",
-      component: __vitePreload(() => import("./sets-DpMWANu0.js"), true ? __vite__mapDeps([4,1]) : void 0),
+      component: __vitePreload(() => import("./sets-Cc2B9u_7.js"), true ? __vite__mapDeps([4,1]) : void 0),
       title: "Sets"
     },
     {
       path: "runewords",
-      component: __vitePreload(() => import("./runewords-B8U4vNbP.js"), true ? __vite__mapDeps([5,1]) : void 0),
+      component: __vitePreload(() => import("./runewords-C7QKrRhk.js"), true ? __vite__mapDeps([5,1]) : void 0),
       title: "Runewords"
     }
   ]
@@ -41666,14 +41867,19 @@ const B = /* @__PURE__ */ DI.createInterface("IValidator");
 class StandardValidator {
   async validate(e2) {
     const t2 = e2.object;
-    const s2 = e2.propertyName;
+    let s2 = e2.propertyName;
     const i3 = e2.propertyTag;
     const r2 = e2.rules ?? V.get(t2, e2.objectTag) ?? [];
     const n3 = Scope.create({
       [A$1]: t2
     });
     if (s2 !== void 0) {
-      return await r2.find((e3) => e3.property.name === s2)?.validate(t2, i3, n3) ?? [];
+      let e3 = r2.find((e4) => e4.property.name === s2);
+      if (e3 == null && typeof s2 === "string" && s2.startsWith("[") && s2.endsWith("]")) {
+        s2 = s2.replaceAll("][", ".").slice(1, -1);
+        e3 = r2.find((e4) => e4.property.name === s2);
+      }
+      return await e3?.validate(t2, i3, n3) ?? [];
     }
     return (await Promise.all(r2.map(async (e3) => e3.validate(t2, i3, n3)))).flat();
   }
@@ -41767,11 +41973,12 @@ class ValidationEvent {
   }
 }
 class BindingInfo {
-  constructor(t2, i3, e2, s2 = void 0) {
-    this.target = t2;
-    this.scope = i3;
-    this.rules = e2;
-    this.propertyInfo = s2;
+  constructor(t2, i3, e2, s2, n3 = void 0) {
+    this.sourceObserver = t2;
+    this.target = i3;
+    this.scope = e2;
+    this.rules = s2;
+    this.propertyInfo = n3;
   }
 }
 class PropertyInfo {
@@ -41790,28 +41997,28 @@ function getPropertyInfo(t2, i3) {
   let r2 = true;
   let o2 = "";
   while (n3 !== void 0 && n3?.$kind !== "AccessScope") {
-    let i4;
+    let e3;
     switch (n3.$kind) {
       case "BindingBehavior":
       case "ValueConverter":
         n3 = n3.expression;
         continue;
       case "AccessMember":
-        i4 = n3.name;
+        e3 = n3.name;
         break;
       case "AccessKeyed": {
-        const e4 = n3.key;
+        const o3 = n3.key;
         if (r2) {
-          r2 = e4.$kind === "PrimitiveLiteral";
+          r2 = o3.$kind === "PrimitiveLiteral";
         }
-        i4 = `[${astEvaluate(e4, s2, t2, null).toString()}]`;
+        e3 = `[${astEvaluate(o3, s2, t2, i3.sourceObserver).toString()}]`;
         break;
       }
       default:
         throw createMappedError(4205, n3.constructor.name);
     }
-    const e3 = o2.startsWith("[") ? "" : ".";
-    o2 = o2.length === 0 ? i4 : `${i4}${e3}${o2}`;
+    const a3 = o2.startsWith("[") ? "" : ".";
+    o2 = o2.length === 0 ? e3 : `${e3}${a3}${o2}`;
     n3 = n3.object;
   }
   if (n3 === void 0) {
@@ -41822,7 +42029,7 @@ function getPropertyInfo(t2, i3) {
     o2 = n3.name;
     a2 = s2.bindingContext;
   } else {
-    a2 = astEvaluate(n3, s2, t2, null);
+    a2 = astEvaluate(n3, s2, t2, i3.sourceObserver);
   }
   if (a2 === null || a2 === void 0) {
     return void 0;
@@ -42237,14 +42444,15 @@ class ValidationConnector {
     this.p = t2;
     this.oL = i3;
     this.l = n3;
-    this.t = new BindingMediator("handleTriggerChange", this, i3, n3);
-    this.i = new BindingMediator("handleControllerChange", this, i3, n3);
-    this.h = new BindingMediator("handleRulesChange", this, i3, n3);
+    this.t = new BindingMediator("handleSourceChange", this, i3, n3);
+    this.i = new BindingMediator("handleTriggerChange", this, i3, n3);
+    this.h = new BindingMediator("handleControllerChange", this, i3, n3);
+    this.u = new BindingMediator("handleRulesChange", this, i3, n3);
     if (n3.has(I2, true)) {
       this.scopedController = n3.get(I2);
     }
   }
-  u() {
+  V() {
     this.isDirty = true;
     const t2 = this.triggerEvent;
     if (this.isChangeTrigger && (t2 === null || t2 !== null && this.validatedOnce)) {
@@ -42258,15 +42466,16 @@ class ValidationConnector {
   }
   start(t2) {
     this.scope = t2;
-    this.target = this.V();
-    const i3 = this.C();
-    if (!this.B(i3) && this.bindingInfo != null) {
+    this.target = this.C();
+    const i3 = this.B();
+    if (!this._(i3) && this.bindingInfo != null) {
       this.controller?.registerBinding(this.propertyBinding, this.bindingInfo);
       this.controller?.addSubscriber(this);
     }
   }
   stop() {
     this.task?.cancel();
+    this.source = void 0;
     this.scope = void 0;
     this.task = null;
     const t2 = this.triggerEvent;
@@ -42278,13 +42487,19 @@ class ValidationConnector {
     this.controller?.removeSubscriber(this);
   }
   handleTriggerChange(t2, i3) {
-    this.B(new ValidateArgumentsDelta(void 0, this._(t2), void 0));
+    this._(new ValidateArgumentsDelta(void 0, this.R(t2), void 0));
   }
   handleControllerChange(t2, i3) {
-    this.B(new ValidateArgumentsDelta(this.R(t2), void 0, void 0));
+    this._(new ValidateArgumentsDelta(this.T(t2), void 0, void 0));
   }
   handleRulesChange(t2, i3) {
-    this.B(new ValidateArgumentsDelta(void 0, void 0, this.T(t2)));
+    this._(new ValidateArgumentsDelta(void 0, void 0, this.I(t2)));
+  }
+  handleSourceChange(t2, i3) {
+    if (this.source !== t2) {
+      this.source = t2;
+      this.bindingInfo.propertyInfo = void 0;
+    }
   }
   handleValidationEvent(t2) {
     if (this.validatedOnce || !this.isChangeTrigger) return;
@@ -42294,7 +42509,7 @@ class ValidationConnector {
     if (e2 === void 0) return;
     this.validatedOnce = t2.addedResults.find((t3) => t3.result.propertyName === e2) !== void 0;
   }
-  C() {
+  B() {
     const t2 = this.scope;
     let i3;
     let e2;
@@ -42308,19 +42523,19 @@ class ValidationConnector {
       const o3 = r2[n4];
       switch (n4) {
         case 0:
-          e2 = this._(astEvaluate(o3, t2, this, this.t));
+          e2 = this.R(astEvaluate(o3, t2, this, this.i));
           break;
         case 1:
-          s2 = this.R(astEvaluate(o3, t2, this, this.i));
+          s2 = this.T(astEvaluate(o3, t2, this, this.h));
           break;
         case 2:
-          i3 = this.T(astEvaluate(o3, t2, this, this.h));
+          i3 = this.I(astEvaluate(o3, t2, this, this.u));
           break;
         default:
           throw createMappedError(4201, n4 + 1, astEvaluate(o3, t2, this, null));
       }
     }
-    return new ValidateArgumentsDelta(this.R(s2), this._(e2), i3);
+    return new ValidateArgumentsDelta(this.T(s2), this.R(e2), i3);
   }
   validateBinding() {
     const t2 = this.task;
@@ -42329,7 +42544,7 @@ class ValidationConnector {
       t2?.cancel();
     }
   }
-  B(t2) {
+  _(t2) {
     const i3 = t2.trigger ?? this.trigger;
     const e2 = t2.controller ?? this.controller;
     const s2 = t2.rules;
@@ -42342,7 +42557,7 @@ class ValidationConnector {
       this.isDirty = false;
       this.trigger = i3;
       this.isChangeTrigger = i3 === D.change || i3 === D.changeOrBlur || i3 === D.changeOrFocusout;
-      t3 = this.triggerEvent = this.I(this.trigger);
+      t3 = this.triggerEvent = this.P(this.trigger);
       if (t3 !== null) {
         this.target.addEventListener(t3, this);
       }
@@ -42351,13 +42566,13 @@ class ValidationConnector {
       this.controller?.removeSubscriber(this);
       this.controller?.unregisterBinding(this.propertyBinding);
       this.controller = e2;
-      e2.registerBinding(this.propertyBinding, this.P(s2));
+      e2.registerBinding(this.propertyBinding, this.A(s2));
       e2.addSubscriber(this);
       return true;
     }
     return false;
   }
-  _(t2) {
+  R(t2) {
     if (t2 === void 0 || t2 === null) {
       t2 = this.defaultTrigger;
     } else if (!Object.values(D).includes(t2)) {
@@ -42365,7 +42580,7 @@ class ValidationConnector {
     }
     return t2;
   }
-  R(t2) {
+  T(t2) {
     if (t2 == null) {
       t2 = this.scopedController;
     } else if (!(t2 instanceof ValidationController)) {
@@ -42373,12 +42588,12 @@ class ValidationConnector {
     }
     return t2;
   }
-  T(t2) {
+  I(t2) {
     if (Array.isArray(t2) && t2.every((t3) => t3 instanceof PropertyRule)) {
       return t2;
     }
   }
-  V() {
+  C() {
     const t2 = this.propertyBinding.target;
     if (t2 instanceof this.p.Node) {
       return t2;
@@ -42390,7 +42605,7 @@ class ValidationConnector {
       return i3.host;
     }
   }
-  I(t2) {
+  P(t2) {
     let i3 = null;
     switch (t2) {
       case D.blur:
@@ -42404,8 +42619,8 @@ class ValidationConnector {
     }
     return i3;
   }
-  P(t2) {
-    return this.bindingInfo = new BindingInfo(this.target, this.scope, t2);
+  A(t2) {
+    return this.bindingInfo = new BindingInfo(this.t, this.target, this.scope, t2);
   }
 }
 connectable(ValidationConnector, null);
@@ -42417,7 +42632,7 @@ class WithValidationTargetSubscriber extends BindingTargetSubscriber {
   }
   handleChange(t2, i3) {
     super.handleChange(t2, i3);
-    this.vs.u();
+    this.vs.V();
   }
 }
 class ValidateArgumentsDelta {

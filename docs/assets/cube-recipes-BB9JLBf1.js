@@ -1,4 +1,4 @@
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-OW9hm18O.js";
+import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-DgyWaUCD.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
 const name = "cube-recipes";
 const template = '<template>\n    <h3 class="text-center my-4">\n        ${recipes.length} Recipes Found\n    </h3>\n    <div class="search my-2 text-center">\n        <form>\n            <label>Search Recipes</label><br>\n            <input type="text" value.bind="search" />\n        </form>\n    </div>\n    <div class="row gy-5 px-5 text-center">\n        <div class="col-12 col-md-6 col-xxl-4" repeat.for="recipe of recipes">\n            <div class="card bg-dark p-2">\n                <div class="unique-text">\n                    ${recipe.Description}\n                </div>\n                <div class="description" innerhtml.bind="recipe.Input | cubeInputs"></div>\n\n                <div class="unique-text">\n                    = <br>\n                    ${recipe.Output}\n                </div>\n            </div>\n        </div>\n    </div>\n</template>';
@@ -4825,11 +4825,25 @@ class CubeRecipes {
     __publicField(this, "search", __runInitializers(_init, 8, this)), __runInitializers(_init, 11, this);
     __publicField(this, "_debouncedSearchItem");
   }
+  binding() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get("search");
+    if (searchParam) {
+      this.search = searchParam;
+    }
+  }
   attached() {
     this._debouncedSearchItem = debounce(this.handleSearch.bind(this), 350);
   }
   handleSearchChanged() {
     this._debouncedSearchItem();
+    const url = new URL(window.location.href);
+    if (this.search && this.search.trim() !== "") {
+      url.searchParams.set("search", this.search);
+    } else {
+      url.searchParams.delete("search");
+    }
+    window.history.pushState({}, "", url.toString());
   }
   handleSearch() {
     if (!this.search) {

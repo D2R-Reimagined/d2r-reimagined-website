@@ -1,4 +1,4 @@
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-OW9hm18O.js";
+import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-DgyWaUCD.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
 const name = "uniques";
 const template = '<template>\n    <h3 class="text-center my-4">\n        ${uniques.length} Uniques Found\n    </h3>\n    <div class="container">\n        <div class="row align-content-center justify-content-center text-center mb-5">\n            <div class="col-12 col-md-5 col-lg-4">\n                <div class="au-select mb-2">\n                    <moo-select\n                            class="w-100"\n                            label="Select Class"\n                            options.bind="classes"\n                            class="standard-betsy-select"\n                            value.bind="class"\n                    ></moo-select>\n                </div>\n            </div>\n            <div class="col-12 col-md-5 col-lg-4">\n                <div class="au-select mb-2">\n                    <moo-select\n                            class="w-100"\n                            label="Select Type"\n                            options.bind="types"\n                            class="standard-betsy-select"\n                            value.bind="selectedType"\n                    ></moo-select>\n                </div>\n            </div>\n            <div class="col-12 col-md-5 col-lg-4">\n                <moo-text-field\n                        class="w-100"\n                        label="Search Uniques"\n                        type="text"\n                        value.bind="search"\n                ></moo-text-field>\n            </div>\n        </div>\n    </div>\n\n    <div class="row gy-5 px-5 text-center">\n        <div class="col-12 col-md-6 col-xxl-4" repeat.for="unique of uniques">\n            <div class="card bg-dark p-2">\n                <div class="unique-text fs-5 mb-1">\n                    ${unique.Name}\n                </div>\n                <div class="rarity mb-1" if.bind="unique.Rarity">\n                    Rarity: ${unique.Rarity}\n                </div>\n                <div class="armor mb-1" if.bind="unique.Equipment.Name">\n                    ${unique.Equipment.Name}\n                </div>\n                <div class="armor mb-1" if.bind="unique.Equipment.ArmorString">\n                    Armor: ${unique.Equipment.ArmorString}\n                </div>\n                <div class="damage" if.bind="unique.Equipment.DamageTypes"\n                     repeat.for="damage of unique.Equipment.DamageTypes">\n                    ${getDamageTypeString(damage.Type)} ${damage.DamageString}\n                </div>\n                <div class="requirement" if.bind="unique.RequiredLevel > 0">\n                    Level ${unique.RequiredLevel} Required\n                </div>\n                <div class="requirement" if.bind="unique.Equipment.RequiredStrength > 0">\n                    ${unique.Equipment.RequiredStrength} Strength Required\n                </div>\n                <div class="requirement" if.bind="unique.Equipment.RequiredDexterity > 0">\n                    ${unique.Equipment.RequiredDexterity} Dexterity Required\n                </div>\n                <div class="durability mt-1" if.bind="unique.Equipment.Durability > 0">\n                    ${unique.Equipment.Durability} Durability\n                </div>\n                <div class="mt-2">\n                    <div class="enhanced" repeat.for="property of unique.Properties">\n                        ${property.PropertyString}\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</template>\n';
@@ -80073,21 +80073,57 @@ class Uniques {
     ]);
   }
   attached() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get("search");
+    if (searchParam) {
+      this.search = searchParam;
+    }
+    const classParam = urlParams.get("class");
+    if (classParam) {
+      this.class = classParam;
+    }
+    const typeParam = urlParams.get("type");
+    if (typeParam) {
+      this.selectedType = typeParam;
+    }
     this._debouncedSearchItem = debounce(this.updateList.bind(this), 350);
     this.updateList();
   }
+  // Helper method to update URL with current search parameters
+  updateUrl() {
+    const url = new URL(window.location.href);
+    if (this.search && this.search.trim() !== "") {
+      url.searchParams.set("search", this.search);
+    } else {
+      url.searchParams.delete("search");
+    }
+    if (this.class) {
+      url.searchParams.set("class", this.class);
+    } else {
+      url.searchParams.delete("class");
+    }
+    if (this.selectedType) {
+      url.searchParams.set("type", this.selectedType);
+    } else {
+      url.searchParams.delete("type");
+    }
+    window.history.pushState({}, "", url.toString());
+  }
   handleClassChanged() {
     this.updateList();
+    this.updateUrl();
   }
   handleSearchChanged() {
     if (this._debouncedSearchItem) {
       this._debouncedSearchItem();
     }
+    this.updateUrl();
   }
   handleTypeChanged() {
     if (this._debouncedSearchItem) {
       this._debouncedSearchItem();
     }
+    this.updateUrl();
   }
   updateList() {
     const isMatchingClass = (unique) => {

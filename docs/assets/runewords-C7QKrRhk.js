@@ -1,4 +1,4 @@
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-OW9hm18O.js";
+import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-DgyWaUCD.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
 const name = "runewords";
 const template = '<template>\n    <h3 class="text-center my-4">\n        ${filteredRunewords.length} Runewords Found\n    </h3>\n    <div class="container">\n        <div class="row align-content-center justify-content-center text-center mb-5">\n            <div class="col-12 col-md-4 col-lg-3">\n                <div class="au-select mb-2">\n                    <moo-select\n                            class="w-100"\n                            label="Select Socket Count"\n                            options.bind="amounts"\n                            class="standard-betsy-select"\n                            value.bind="selectedAmount"\n                    ></moo-select>\n                </div>\n            </div>\n            <div class="col-12 col-md-4 col-lg-3">\n                <div class="au-select mb-2">\n                    <moo-select\n                            class="w-100"\n                            label="Select Type"\n                            options.bind="types"\n                            class="standard-betsy-select"\n                            value.bind="selectedType"\n                    ></moo-select>\n                    <moo-checkbox checked.bind="exclusiveType" id="exclusiveType">Exact type only</moo-checkbox>\n                </div>\n            </div>\n            <div class="col-12 col-md-4 col-lg-3">\n                <div class="mb-2">\n                    <moo-text-field\n                            class="w-100"\n                            label="Search Runewords"\n                            type="text"\n                            value.bind="search"\n                    ></moo-text-field>\n                </div>\n            </div>\n            <div class="col-12 col-md-4 col-lg-3">\n                <div class="mb-2">\n                    <moo-text-field\n                            class="w-100"\n                            label="Runes"\n                            type="text"\n                            value.bind="searchRunes"\n                    ></moo-text-field>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class="row gy-5 px-5 text-center">\n        <div class="col-12 col-md-6 col-xxl-4" repeat.for="runeword of filteredRunewords">\n            <div class="card bg-dark p-2">\n                <div class="unique-text fs-4 mb-1">\n                    ${runeword.Name}\n                </div>\n                <div class="combo">\n                    <span repeat.for="rune of runeword.Runes">\n                        ${rune.Name | runeName} ${$index + 1 !== runeword.Runes.length ? \' + \' : \'\'}\n                    </span>\n                </div>\n                <div class="types py-2">\n                    <span repeat.for="type of runeword.Types">\n                        ${transformTypeName(type.Name)} ${$index + 1 !== runeword.Types.length ? \' or \' : \'\'}\n                    </span>\n                </div>\n                <div class="requirement" if.bind="actualLevelRequirement(runeword) > 0">\n                    Level ${actualLevelRequirement(runeword)} Required\n                </div>\n                <div class="mt-2">\n                    <div class="enhanced" repeat.for="property of runeword.Properties">\n                        ${property.PropertyString}\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</template>\n';
@@ -19454,33 +19454,89 @@ class Runewords {
     __publicField(this, "selectedAmount");
   }
   attached() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get("search");
+    if (searchParam) {
+      this.search = searchParam;
+    }
+    const runesParam = urlParams.get("runes");
+    if (runesParam) {
+      this.searchRunes = runesParam;
+    }
+    const typeParam = urlParams.get("type");
+    if (typeParam) {
+      this.selectedType = typeParam.split(",");
+    }
+    const socketsParam = urlParams.get("sockets");
+    if (socketsParam) {
+      this.selectedAmount = parseInt(socketsParam, 10);
+    }
+    const exactParam = urlParams.get("exact");
+    if (exactParam) {
+      this.exclusiveType = exactParam === "true";
+    }
     this._debouncedSearchItem = debounce(this.updateList.bind(this), 350);
     this.updateList();
+  }
+  // Helper method to update URL with current search parameters
+  updateUrl() {
+    const url = new URL(window.location.href);
+    if (this.search && this.search.trim() !== "") {
+      url.searchParams.set("search", this.search);
+    } else {
+      url.searchParams.delete("search");
+    }
+    if (this.searchRunes && this.searchRunes.trim() !== "") {
+      url.searchParams.set("runes", this.searchRunes);
+    } else {
+      url.searchParams.delete("runes");
+    }
+    if (this.selectedType && this.selectedType.length > 0) {
+      url.searchParams.set("type", this.selectedType.join(","));
+    } else {
+      url.searchParams.delete("type");
+    }
+    if (this.selectedAmount) {
+      url.searchParams.set("sockets", this.selectedAmount.toString());
+    } else {
+      url.searchParams.delete("sockets");
+    }
+    if (this.exclusiveType) {
+      url.searchParams.set("exact", "true");
+    } else {
+      url.searchParams.delete("exact");
+    }
+    window.history.pushState({}, "", url.toString());
   }
   handleSearchRunesChanged() {
     if (this._debouncedSearchItem) {
       this._debouncedSearchItem();
     }
+    this.updateUrl();
   }
   handleSearchChanged() {
     if (this._debouncedSearchItem) {
       this._debouncedSearchItem();
     }
+    this.updateUrl();
   }
   selectedTypeChanged() {
     if (this._debouncedSearchItem) {
       this._debouncedSearchItem();
     }
+    this.updateUrl();
   }
   selectedAmountChanged() {
     if (this._debouncedSearchItem) {
       this._debouncedSearchItem();
     }
+    this.updateUrl();
   }
   handleExclusiveTypeChanged() {
     if (this._debouncedSearchItem) {
       this._debouncedSearchItem();
     }
+    this.updateUrl();
   }
   normalizeRuneName(name2) {
     return name2.replace(/ rune$/i, "").trim().toLowerCase();
