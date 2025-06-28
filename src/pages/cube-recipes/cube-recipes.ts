@@ -1,15 +1,24 @@
 import { bindable, watch } from 'aurelia';
 
+import { debounce, DebouncedFunction } from '../../utilities/debounce';
 import json from '../item-jsons/cube_recipes.json';
 
 import './cube-recipes.scss';
-import { debounce, DebouncedFunction } from '../../utilities/debounce';
 
 export class CubeRecipes {
     recipes = [...json];
     @bindable search: string;
 
     private _debouncedSearchItem!: DebouncedFunction;
+
+    binding() {
+        // Read search query parameter from URL when component is initialized
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchParam = urlParams.get('search');
+        if (searchParam) {
+            this.search = searchParam;
+        }
+    }
 
     attached() {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
@@ -19,6 +28,17 @@ export class CubeRecipes {
     @watch('search')
     handleSearchChanged() {
         this._debouncedSearchItem();
+
+        // Update URL with search query parameter
+        const url = new URL(window.location.href);
+        if (this.search && this.search.trim() !== '') {
+            url.searchParams.set('search', this.search);
+        } else {
+            url.searchParams.delete('search');
+        }
+
+        // Update the URL without reloading the page
+        window.history.pushState({}, '', url.toString());
     }
 
     handleSearch() {
