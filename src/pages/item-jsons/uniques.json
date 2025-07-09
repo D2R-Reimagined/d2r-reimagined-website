@@ -1198,7 +1198,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Poison Length Reduced by 25%",
+                "PropertyString": "Poison Length Reduced by 25-50%",
                 "Index": 3
             },
             {
@@ -27456,7 +27456,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Poison Length Reduced by 65%",
+                "PropertyString": "Poison Length Reduced by 65-90%",
                 "Index": 4
             },
             {
@@ -46546,7 +46546,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Poison Length Reduced by 50%",
+                "PropertyString": "Poison Length Reduced by 50-95%",
                 "Index": 8
             }
         ],
@@ -47579,7 +47579,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Poison Length Reduced by 50%",
+                "PropertyString": "Poison Length Reduced by 50-90%",
                 "Index": 7
             }
         ],
@@ -55970,7 +55970,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Poison Length Reduced by 25%",
+                "PropertyString": "Poison Length Reduced by 25-80%",
                 "Index": 4
             }
         ],
@@ -70176,7 +70176,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Poison Length Reduced by 60%",
+                "PropertyString": "Poison Length Reduced by 60-70%",
                 "Index": 6
             },
             {
@@ -77005,7 +77005,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Poison Length Reduced by 50%",
+                "PropertyString": "Poison Length Reduced by 50-75%",
                 "Index": 5
             }
         ],
