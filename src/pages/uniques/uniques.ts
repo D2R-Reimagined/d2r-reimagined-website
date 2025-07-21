@@ -7,10 +7,24 @@ export class Uniques {
     uniques = json;
 
     @bindable search: string;
-    @bindable class: string;
+    @bindable selectedClass: string;
     @bindable selectedType: string;
+    @bindable selectedEquipmentName: string;
+
+    equipmentNames = [];
 
     private _debouncedSearchItem!: DebouncedFunction;
+
+    classes = [
+        { value: undefined, label: '-' },
+        { value: 'Amazon', label: 'Amazon' },
+        { value: 'Assassin', label: 'Assassin' },
+        { value: 'Barbarian', label: 'Barbarian' },
+        { value: 'Druid', label: 'Druid' },
+        { value: 'Necromancer', label: 'Necromancer' },
+        { value: 'Paladin', label: 'Paladin' },
+        { value: 'Sorceress', label: 'Sorceress' }
+    ];
 
     attached() {
         // Read search query parameters from URL when component is initialized
@@ -23,7 +37,7 @@ export class Uniques {
 
         const classParam = urlParams.get('class');
         if (classParam) {
-            this.class = classParam;
+            this.selectedClass = classParam;
         }
 
         const typeParam = urlParams.get('type');
@@ -35,38 +49,21 @@ export class Uniques {
         this.updateList();
     }
 
-    @watch('selectedClass')
-    handleSelectedClassChanged() {
-        this.updateList();
-    }
 
-    // Helper method to update URL with current search parameters
-    private updateUrl() {
-        const url = new URL(window.location.href);
+    get types() {
+        const uniqueTypes = new Set();
+        json.forEach(unique => {
+            if (unique.Type) {
+                uniqueTypes.add(unique.Type);
+            }
+        });
 
-        // Update search parameter
-        if (this.search && this.search.trim() !== '') {
-            url.searchParams.set('search', this.search);
-        } else {
-            url.searchParams.delete('search');
-        }
+        const typeOptions = [{ value: undefined, label: '-' }];
+        Array.from(uniqueTypes).sort().forEach(type => {
+            typeOptions.push({ value: type, label: type });
+        });
 
-        // Update class parameter
-        if (this.class) {
-            url.searchParams.set('class', this.class);
-        } else {
-            url.searchParams.delete('class');
-        }
-
-        // Update type parameter
-        if (this.selectedType) {
-            url.searchParams.set('type', this.selectedType);
-        } else {
-            url.searchParams.delete('type');
-        }
-
-        // Update the URL without reloading the page
-        window.history.pushState({}, '', url.toString());
+        return typeOptions;
     }
 
     @watch('class')
@@ -93,6 +90,7 @@ export class Uniques {
         if (this._debouncedSearchItem) {
             this._debouncedSearchItem();
         }
+        this.updateUrl();
     }
 
     @watch('selectedEquipmentName')
@@ -100,67 +98,40 @@ export class Uniques {
         if (this._debouncedSearchItem) {
             this._debouncedSearchItem();
         }
-        this.updateUrl();
     }
 
-    classes = [
-        { value: undefined, label: '-' },
-        { value: 'Amazon', label: 'Amazon' },
-        { value: 'Assassin', label: 'Assassin' },
-        { value: 'Barbarian', label: 'Barbarian' },
-        { value: 'Druid', label: 'Druid' },
-        { value: 'Necromancer', label: 'Necromancer' },
-        { value: 'Paladin', label: 'Paladin' },
-        { value: 'Sorceress', label: 'Sorceress' }
-    ];
+    // Helper method to update URL with current search parameters
+    private updateUrl() {
+        const url = new URL(window.location.href);
 
-    types = this.getUniqueTypes();
-    equipmentNames = [];
+        // Update search parameter
+        if (this.search && this.search.trim() !== '') {
+            url.searchParams.set('search', this.search);
+        } else {
+            url.searchParams.delete('search');
+        }
 
-    getUniqueTypes() {
-        const uniqueTypes = new Set();
-        json.forEach(unique => {
-            if (unique.Type) {
-                uniqueTypes.add(unique.Type);
-            }
-        });
+        // Update class parameter
+        if (this.selectedClass) {
+            url.searchParams.set('class', this.selectedClass);
+        } else {
+            url.searchParams.delete('class');
+        }
 
-        const typeOptions = [{ value: undefined, label: '-' }];
-        Array.from(uniqueTypes).sort().forEach(type => {
-            typeOptions.push({ value: type, label: type });
-        });
+        // Update type parameter
+        if (this.selectedType) {
+            url.searchParams.set('type', this.selectedType);
+        } else {
+            url.searchParams.delete('type');
+        }
 
-        return typeOptions;
+        // Update the URL without reloading the page
+        window.history.pushState({}, '', url.toString());
     }
-
-    getUniqueEquipmentNames() {
-        // Filter uniques based on the selected type
-        const filteredUniques = json.filter(unique =>
-            !this.selectedType || unique.Type === this.selectedType
-        );
-
-        // Extract unique Equipment.Name values
-        const uniqueEquipmentNames = new Set();
-        filteredUniques.forEach(unique => {
-            if (unique.Equipment && unique.Equipment.Name) {
-                uniqueEquipmentNames.add(unique.Equipment.Name);
-            }
-        });
-
-        // Create options array
-        const equipmentNameOptions = [{ value: undefined, label: '-' }];
-        Array.from(uniqueEquipmentNames).sort().forEach(name => {
-            equipmentNameOptions.push({ value: name, label: name });
-        });
-
-        return equipmentNameOptions;
-    }
-
-
 
     updateList() {
         const isMatchingClass = (unique) => {
-            return !this.class || unique.Equipment.RequiredClass?.toLowerCase().includes(this.selectedClass?.toLowerCase());
+            return !this.selectedClass || unique.Equipment.RequiredClass?.toLowerCase().includes(this.selectedClass?.toLowerCase());
         }
         const isMatchingSearch = (unique) => {
             if (!this.search) return true;
@@ -174,7 +145,7 @@ export class Uniques {
             return !this.selectedType || unique.Type === this.selectedType;
         }
         const isMatchingEquipmentName = (unique) => {
-            return !this.equipmentNames || unique.Equipment.Name === this.selectedEquipmentName;
+            return !this.selectedEquipmentName || unique.Equipment.Name === this.selectedEquipmentName;
         }
 
         // Update the equipment names list if type is selected
@@ -201,5 +172,28 @@ export class Uniques {
             default:
                 return 'Damage: ';
         }
+    }
+
+    getUniqueEquipmentNames() {
+        // Filter uniques based on the selected type
+        const filteredUniques = json.filter(unique =>
+            !this.selectedType || unique.Type === this.selectedType
+        );
+
+        // Extract unique Equipment.Name values
+        const uniqueEquipmentNames = new Set();
+        filteredUniques.forEach(unique => {
+            if (unique.Equipment && unique.Equipment.Name) {
+                uniqueEquipmentNames.add(unique.Equipment.Name);
+            }
+        });
+
+        // Create options array
+        const equipmentNameOptions = [{ value: undefined, label: '-' }];
+        Array.from(uniqueEquipmentNames).sort().forEach(name => {
+            equipmentNameOptions.push({ value: name, label: name });
+        });
+
+        return equipmentNameOptions;
     }
 }
