@@ -1,5 +1,5 @@
 import Aurelia from 'aurelia';
-import { RouterConfiguration } from '@aurelia/router-lite';
+import { RouterConfiguration } from '@aurelia/router';
 
 import '@material/web/all';
 import 'bootstrap';

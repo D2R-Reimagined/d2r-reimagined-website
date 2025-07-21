@@ -1,4 +1,4 @@
-import { route } from '@aurelia/router-lite';
+import { route } from '@aurelia/router';
 
 @route({
     title: 'D2R Reimagined',
