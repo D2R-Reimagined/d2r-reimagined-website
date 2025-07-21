@@ -1,4 +1,4 @@
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-OW9hm18O.js";
+import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-BePQ-y0p.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
 const name = "sets";
 const template = '<template>\n    <h3 class="text-center my-4">\n        ${sets.length} Sets Found\n    </h3>\n    <div class="container">\n        <div class="row align-content-center justify-content-center text-center mb-5">\n            <div class="col-12 col-sm-6">\n                <div class="au-select mb-2">\n                    <moo-select\n                            class="w-100"\n                            label="Select Class"\n                            options.bind="classes"\n                            class="standard-betsy-select"\n                            value.bind="class"\n                    ></moo-select>\n                </div>\n            </div>\n            <div class="col-12 col-sm-6">\n                <moo-text-field\n                        class="w-100"\n                        label="Search Sets"\n                        type="text"\n                        value.bind="search"\n                ></moo-text-field>\n            </div>\n        </div>\n    </div>\n\n    <div class="row gy-5 px-5 text-center">\n        <div class="col-12 col-md-6 col-xxl-4" repeat.for="set of sets">\n            <div class="card bg-dark p-2">\n                <div class="set-text fs-5 mb-1">\n                    ${set.Name}\n                </div>\n\n                <div class="partial-sets set-text" repeat.for="partial of set.PartialProperties">\n                    ${partial.PropertyString} (${$index + 2} Items)\n                </div>\n\n                <div class="partial-sets set-text" repeat.for="full of set.FullProperties">\n                    ${full.PropertyString} (Full Set)\n                </div>\n\n                <div class="my-3" repeat.for="setItem of set.SetItems">\n                    <div class="set-text mb-1">\n                        ${setItem.Name}\n                    </div>\n\n                    <div class="armor mb-1" if.bind="setItem.Equipment.Name">\n                        ${setItem.Equipment.Name}\n                    </div>\n\n                    <div class="armor mt-1" if.bind="setItem.Equipment.ArmorString">\n                        Armor: ${setItem.Equipment.ArmorString}\n                    </div>\n\n                    <div class="damage" if.bind="setItem.Equipment.DamageTypes"\n                         repeat.for="damage of setItem.Equipment.DamageTypes">\n                        ${getDamageTypeString(damage.Type)} ${damage.DamageString}\n                    </div>\n\n                    <div class="requirement" if.bind="setItem.RequiredLevel > 0">\n                        Level ${setItem.RequiredLevel} Required\n                    </div>\n\n                    <div class="requirement" if.bind="setItem.Equipment.RequiredStrength > 0">\n                        ${setItem.Equipment.RequiredStrength} Strength Required\n                    </div>\n\n                    <div class="requirement" if.bind="setItem.Equipment.RequiredDexterity > 0">\n                        ${setItem.Equipment.RequiredDexterity} Dexterity Required\n                    </div>\n\n                    <div class="durability mt-1" if.bind="setItem.Equipment.Durability > 0">\n                        ${setItem.Equipment.Durability} Durability\n                    </div>\n\n                    <div class="enhanced" repeat.for="property of setItem.Properties">\n                        ${property.PropertyString}\n                    </div>\n\n                    <div class="set-text" repeat.for="setProperty of setItem.SetPropertiesString">\n                        ${setProperty}\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</template>\n';
@@ -4012,7 +4012,7 @@ const json = [
           DamageStringPrefix: null,
           ArmorString: "121-132",
           EquipmentType: 0,
-          Name: "War Gaunlets",
+          Name: "War Gauntlets",
           RequiredStrength: 110,
           RequiredDexterity: 0,
           Durability: 24,
@@ -6022,7 +6022,7 @@ const json = [
           DamageStringPrefix: null,
           ArmorString: "189-232",
           EquipmentType: 0,
-          Name: "Winged helm",
+          Name: "Winged Helm",
           RequiredStrength: 115,
           RequiredDexterity: 0,
           Durability: 40,
@@ -12709,7 +12709,7 @@ const json = [
           DamageStringPrefix: null,
           ArmorString: "189-232",
           EquipmentType: 0,
-          Name: "Winged helm",
+          Name: "Winged Helm",
           RequiredStrength: 115,
           RequiredDexterity: 0,
           Durability: 40,
@@ -15118,7 +15118,7 @@ const json = [
         Type: "Armor",
         "Set": "Nefarious Ways",
         SetPropertiesString: [],
-        Name: "wicked Impulse",
+        Name: "Wicked Impulse",
         Index: "wicked Impulse",
         Enabled: true,
         Rarity: 7,
@@ -17170,7 +17170,7 @@ const json = [
           DamageStringPrefix: null,
           ArmorString: "189-232",
           EquipmentType: 0,
-          Name: "Winged helm",
+          Name: "Winged Helm",
           RequiredStrength: 115,
           RequiredDexterity: 0,
           Durability: 40,
@@ -20949,7 +20949,7 @@ const json = [
           DamageStringPrefix: null,
           ArmorString: "121-132",
           EquipmentType: 0,
-          Name: "War Gaunlets",
+          Name: "War Gauntlets",
           RequiredStrength: 110,
           RequiredDexterity: 0,
           Durability: 24,
@@ -24993,7 +24993,7 @@ const json = [
             }
           ],
           EquipmentType: 1,
-          Name: "Stilleto",
+          Name: "Stiletto",
           RequiredStrength: 47,
           RequiredDexterity: 97,
           Durability: 250,
@@ -25662,21 +25662,48 @@ class Sets {
     ]);
   }
   attached() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get("search");
+    if (searchParam) {
+      this.search = searchParam;
+    }
+    const classParam = urlParams.get("class");
+    if (classParam) {
+      this.class = classParam;
+    }
     this._debouncedSearchItem = debounce(this.updateList.bind(this), 350);
     this.updateList();
+  }
+  // Helper method to update URL with current search parameters
+  updateUrl() {
+    const url = new URL(window.location.href);
+    if (this.search && this.search.trim() !== "") {
+      url.searchParams.set("search", this.search);
+    } else {
+      url.searchParams.delete("search");
+    }
+    if (this.class) {
+      url.searchParams.set("class", this.class);
+    } else {
+      url.searchParams.delete("class");
+    }
+    window.history.pushState({}, "", url.toString());
   }
   handleSearchChanged() {
     if (!this.search) {
       this.sets = json;
+      this.updateUrl();
       return;
     }
     if (this._debouncedSearchItem) {
       this._debouncedSearchItem();
     }
+    this.updateUrl();
   }
   classChanged() {
     this.sets = json;
     this.updateList();
+    this.updateUrl();
   }
   updateList() {
     if (!this.search && !this.class) {

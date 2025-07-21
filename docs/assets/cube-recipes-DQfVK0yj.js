@@ -1,4 +1,4 @@
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-OW9hm18O.js";
+import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-BePQ-y0p.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
 const name = "cube-recipes";
 const template = '<template>\n    <h3 class="text-center my-4">\n        ${recipes.length} Recipes Found\n    </h3>\n    <div class="search my-2 text-center">\n        <form>\n            <label>Search Recipes</label><br>\n            <input type="text" value.bind="search" />\n        </form>\n    </div>\n    <div class="row gy-5 px-5 text-center">\n        <div class="col-12 col-md-6 col-xxl-4" repeat.for="recipe of recipes">\n            <div class="card bg-dark p-2">\n                <div class="unique-text">\n                    ${recipe.Description}\n                </div>\n                <div class="description" innerhtml.bind="recipe.Input | cubeInputs"></div>\n\n                <div class="unique-text">\n                    = <br>\n                    ${recipe.Output}\n                </div>\n            </div>\n        </div>\n    </div>\n</template>';
@@ -239,11 +239,11 @@ const json = [
     CubeRecipeDescription: "Magic Ring + Ith Rune + El Rune = Magic Magic Ring"
   },
   {
-    Description: "CRAFT ITEM - Any Magic Ring & Tal Rune & Ral Rune & Ort Rune = Barilzar's Mazed Band Unique Ring",
+    Description: "CRAFT ITEM - Any Magic Ring & Rare Jewel & Tal Rune & Ral Rune & Ort Rune = Barilzar's Mazed Band Unique Ring",
     Item: null,
     Output: "Barilzar's Mazed Band",
-    Input: "Magic Ring + Tal Rune + Ral Rune + Ort Rune ",
-    CubeRecipeDescription: "Magic Ring + Tal Rune + Ral Rune + Ort Rune = Barilzar's Mazed Band"
+    Input: "Magic Ring + Rare Jewel + Tal Rune + Ral Rune + Ort Rune ",
+    CubeRecipeDescription: "Magic Ring + Rare Jewel + Tal Rune + Ral Rune + Ort Rune = Barilzar's Mazed Band"
   },
   {
     Description: "CRAFT ITEM - Any Magic Ring + Orb of Infusion + AMN Rune + Gem(Any) = +20% Magic Find Rare Ring",
@@ -1845,22 +1845,22 @@ const json = [
     Description: "UPGRADE CHARM TIER - T6 Splash Charm & Pul-Rune & Eth-Rune & Gem Bag (4 Gems) & 3 Magic Jewels = T7 Splash Charm",
     Item: null,
     Output: "Gem Bag",
-    Input: "Gem Bag + Collin's Greater Fury + Pul Rune + Eth Rune + 3 Magic Jewel ",
-    CubeRecipeDescription: "Gem Bag + Collin's Greater Fury + Pul Rune + Eth Rune + 3 Magic Jewel = Gem Bag"
+    Input: "Gem Bag + Collin's Empowered Fury + Pul Rune + Eth Rune + 3 Magic Jewel ",
+    CubeRecipeDescription: "Gem Bag + Collin's Empowered Fury + Pul Rune + Eth Rune + 3 Magic Jewel = Gem Bag"
   },
   {
     Description: "UPGRADE CHARM TIER - T7 Splash Charm & Mal-Rune & Tal-Rune & Gem Bag (5 Gems) & 4 Magic Jewels = T8 Splash Charm",
     Item: null,
     Output: "Gem Bag",
-    Input: "Gem Bag + Collin's Devestation + Mal Rune + Tal Rune + 4 Magic Jewel ",
-    CubeRecipeDescription: "Gem Bag + Collin's Devestation + Mal Rune + Tal Rune + 4 Magic Jewel = Gem Bag"
+    Input: "Gem Bag + Collin's Devastation + Mal Rune + Tal Rune + 4 Magic Jewel ",
+    CubeRecipeDescription: "Gem Bag + Collin's Devastation + Mal Rune + Tal Rune + 4 Magic Jewel = Gem Bag"
   },
   {
     Description: "UPGRADE CHARM TIER - T8 Splash Charm & Ohm-Rune & Ral-Rune & Gem Bag (10 Gems) & Rare Jewel & Magic Small Charm = T9 Splash Charm",
     Item: null,
     Output: "Gem Bag",
-    Input: "Gem Bag + Collin's Furious Devestation + Ohm Rune + Ral Rune + Rare Jewel + Magic Small Charm ",
-    CubeRecipeDescription: "Gem Bag + Collin's Furious Devestation + Ohm Rune + Ral Rune + Rare Jewel + Magic Small Charm = Gem Bag"
+    Input: "Gem Bag + Collin's Furious Devastation + Ohm Rune + Ral Rune + Rare Jewel + Magic Small Charm ",
+    CubeRecipeDescription: "Gem Bag + Collin's Furious Devastation + Ohm Rune + Ral Rune + Rare Jewel + Magic Small Charm = Gem Bag"
   },
   {
     Description: "UPGRADE CHARM TIER - Hellfire Torch (0/10) & Corruption Orb & Standard of Heroes = 1/10 Upgrades",
@@ -4825,11 +4825,25 @@ class CubeRecipes {
     __publicField(this, "search", __runInitializers(_init, 8, this)), __runInitializers(_init, 11, this);
     __publicField(this, "_debouncedSearchItem");
   }
+  binding() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get("search");
+    if (searchParam) {
+      this.search = searchParam;
+    }
+  }
   attached() {
     this._debouncedSearchItem = debounce(this.handleSearch.bind(this), 350);
   }
   handleSearchChanged() {
     this._debouncedSearchItem();
+    const url = new URL(window.location.href);
+    if (this.search && this.search.trim() !== "") {
+      url.searchParams.set("search", this.search);
+    } else {
+      url.searchParams.delete("search");
+    }
+    window.history.pushState({}, "", url.toString());
   }
   handleSearch() {
     if (!this.search) {
