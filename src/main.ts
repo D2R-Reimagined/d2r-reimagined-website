@@ -11,6 +11,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '@betsybot/betsy-web-components/dist/style.css';
 
 import * as BetsyWebComponentsPlugin from '@betsybot/betsy-web-components';
+import * as Elements from './resources/elements';
 
 void Aurelia
     .register(
@@ -21,5 +22,6 @@ void Aurelia
     )
     .register(BetsyWebComponentsPlugin)
     .register(Resources)
+    .register(Elements)
     .app(App)
     .start();
