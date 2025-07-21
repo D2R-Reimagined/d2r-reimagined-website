@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-DD7s_72N.js","assets/debounce-ZwsFz6hU.js","assets/cube-recipes-BJXOl2Zy.css","assets/uniques-WXHakO1N.js","assets/sets-CHb2vmUC.js","assets/runewords-BAfxxWBL.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-8oZqMdq9.js","assets/debounce-ZwsFz6hU.js","assets/cube-recipes-BJXOl2Zy.css","assets/uniques-UD55pIV9.js","assets/sets-BJhHeR4V.js","assets/runewords-Cb376P9c.js"])))=>i.map(i=>d[i]);
 (function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) return;
@@ -1615,7 +1615,7 @@ function __esDecorate$2(ctor, descriptorIn, decorators, contextIn, initializers,
   if (target) Object.defineProperty(target, contextIn.name, descriptor);
   done = true;
 }
-function __runInitializers$5(thisArg, initializers, value) {
+function __runInitializers$6(thisArg, initializers, value) {
   var useValue = arguments.length > 2;
   for (var i3 = 0; i3 < initializers.length; i3++) {
     value = useValue ? initializers[i3].call(thisArg, value) : initializers[i3].call(thisArg);
@@ -1823,7 +1823,7 @@ let DefaultLogger = (() => {
   return _a2 = class DefaultLogger {
     /* eslint-disable default-param-last */
     constructor(config = resolve(ILogConfig), factory = resolve(ILogEventFactory), sinks = resolve(all(ISink)), scope = resolve(optional(ILogScopes)) ?? [], parent = null) {
-      this.scope = (__runInitializers$5(this, _instanceExtraInitializers), scope);
+      this.scope = (__runInitializers$6(this, _instanceExtraInitializers), scope);
       this._scopedLoggers = createLookup$1();
       let traceSinks;
       let debugSinks;
@@ -4329,7 +4329,7 @@ The ".call" binding command has been removed in v2. If you want to pass a callba
       return "";
   }
 }
-var _a$5, _b$2, _c$1, _d, _e$1;
+var _a$5, _b$2, _c$1, _d, _e$2;
 class CharSpec {
   constructor(chars, repeat, isSymbol2, isInverted) {
     this.chars = chars;
@@ -4811,8 +4811,8 @@ class AtPrefixedTriggerAttributePattern {
     return new AttrSyntax(rawName, rawValue, parts[0], "trigger", [parts[0], "trigger", ...parts.slice(1)]);
   }
 }
-_e$1 = Symbol.metadata;
-AtPrefixedTriggerAttributePattern[_e$1] = {
+_e$2 = Symbol.metadata;
+AtPrefixedTriggerAttributePattern[_e$2] = {
   [registrableMetadataKey]: /* @__PURE__ */ AttributePattern.create([
     { pattern: "@PART", symbols: "@" },
     { pattern: "@PART:PART", symbols: "@:" }
@@ -18347,7 +18347,7 @@ Switch$1.$au = {
   bindables: ["value"]
 };
 let caseId = 0;
-const bindables$1 = [
+const bindables$2 = [
   "value",
   {
     name: "fallThrough",
@@ -18453,7 +18453,7 @@ class Case {
   }
 }
 (() => {
-  defineAttribute({ name: "case", bindables: bindables$1, isTemplateController: true }, Case);
+  defineAttribute({ name: "case", bindables: bindables$2, isTemplateController: true }, Case);
 })();
 class DefaultCase extends Case {
   linkToSwitch($switch) {
@@ -18467,7 +18467,7 @@ class DefaultCase extends Case {
   }
 }
 (() => {
-  defineAttribute({ name: "default-case", bindables: bindables$1, isTemplateController: true }, DefaultCase);
+  defineAttribute({ name: "default-case", bindables: bindables$2, isTemplateController: true }, DefaultCase);
 })();
 var _a$4, _b$1, _c;
 class PromiseTemplateController {
@@ -41155,26 +41155,113 @@ const __vitePreload = function preload(baseModule, deps, importerUrl) {
     return baseModule().catch(handlePreloadError);
   });
 };
-const name = "app";
-const template$s = '<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">\n    <div class="container-fluid">\n        <a class="navbar-brand" href="/">\n            D2R Reimagined\n        </a>\n        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">\n            <span class="navbar-toggler-icon"></span>\n        </button>\n        <div class="collapse navbar-collapse" id="navbarSupportedContent">\n            <ul class="navbar-nav me-auto mb-2 mb-lg-0">\n                <li class="nav-item mx-3">\n                    <a class="nav-link active" aria-current="page" href="/">Home</a>\n                </li>\n                <li class="nav-item mx-3">\n                    <a class="nav-link active cursor-pointer" aria-current="page" href="/cube-recipes">\n                        Cube Recipes\n                    </a>\n                </li>\n                <li class="nav-item mx-3">\n                    <a class="nav-link active cursor-pointer" aria-current="page" href="/uniques">\n                        Uniques\n                    </a>\n                </li>\n                <li class="nav-item mx-3">\n                    <a class="nav-link active cursor-pointer" aria-current="page" href="/sets">\n                        Sets\n                    </a>\n                </li>\n                <li class="nav-item mx-3">\n                    <a class="nav-link active cursor-pointer" aria-current="page" href="/runewords">\n                        Runewords\n                    </a>\n                </li>\n                <li class="nav-item mx-3">\n                    <a class="nav-link active cursor-pointer d-flex align-items-center" aria-current="page" href="https://d2r-reimagined.com/talonrage" external target="_blank">\n                        Original Talonrage Docs <span class="material-symbols-outlined ms-1">open_in_new</span>\n                    </a>\n                </li>\n                <li class="nav-item mx-3">\n                    <a class="nav-link active cursor-pointer d-flex align-items-center" aria-current="page" href="https://wiki.d2r-reimagined.com/" external target="_blank">\n                        Wiki <span class="material-symbols-outlined ms-1">open_in_new</span>\n                    </a>\n                </li>\n            </ul>\n            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">\n                <li class="nav-item mx-3 dropdown">\n                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">\n                        Font\n                    </a>\n                    <ul class="dropdown-menu dropdown-menu-end">\n                        <li repeat.for="font of fonts"><a class="dropdown-item ${font.class} cursor-pointer" click.trigger="handleFontSelected(font)">${font.name}</a></li>\n                    </ul>\n                </li>\n                <li class="nav-item mx-3 d-flex align-items-center">\n                    <a href="https://discord.gg/9zZkYrSA8C" target="_blank">\n                        <svg width=32" height="32" viewBox="0 -28.5 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">\n                            <g>\n                                <path d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z" fill="#5865F2" fill-rule="nonzero">\n\n                                </path>\n                            </g>\n                        </svg>\n                    </a>\n                </li>\n            </ul>\n        </div>\n    </div>\n</nav>\n\n<div class="container-fluid">\n    <au-viewport default="Home"></au-viewport>\n</div>\n';
-const dependencies = [];
-const bindables = {};
-let _e;
-function register(container) {
-  if (!_e) {
-    _e = CustomElement.define({ name, template: template$s, dependencies, bindables });
+const name$1 = "app";
+const template$t = '<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">\n    <div class="container-fluid">\n        <a class="navbar-brand" href="/">\n            D2R Reimagined\n        </a>\n        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">\n            <span class="navbar-toggler-icon"></span>\n        </button>\n        <div class="collapse navbar-collapse" id="navbarSupportedContent">\n            <ul class="navbar-nav me-auto mb-2 mb-lg-0">\n                <li class="nav-item mx-3">\n                    <a class="nav-link active" aria-current="page" href="/">Home</a>\n                </li>\n                <li class="nav-item mx-3">\n                    <a class="nav-link active cursor-pointer" aria-current="page" href="/cube-recipes">\n                        Cube Recipes\n                    </a>\n                </li>\n                <li class="nav-item mx-3">\n                    <a class="nav-link active cursor-pointer" aria-current="page" href="/uniques">\n                        Uniques\n                    </a>\n                </li>\n                <li class="nav-item mx-3">\n                    <a class="nav-link active cursor-pointer" aria-current="page" href="/sets">\n                        Sets\n                    </a>\n                </li>\n                <li class="nav-item mx-3">\n                    <a class="nav-link active cursor-pointer" aria-current="page" href="/runewords">\n                        Runewords\n                    </a>\n                </li>\n                <li class="nav-item mx-3">\n                    <a class="nav-link active cursor-pointer d-flex align-items-center" aria-current="page" href="https://d2r-reimagined.com/talonrage" external target="_blank">\n                        Original Talonrage Docs <span class="material-symbols-outlined ms-1">open_in_new</span>\n                    </a>\n                </li>\n                <li class="nav-item mx-3">\n                    <a class="nav-link active cursor-pointer d-flex align-items-center" aria-current="page" href="https://wiki.d2r-reimagined.com/" external target="_blank">\n                        Wiki <span class="material-symbols-outlined ms-1">open_in_new</span>\n                    </a>\n                </li>\n            </ul>\n            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">\n                <li class="nav-item mx-3 dropdown">\n                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">\n                        Font\n                    </a>\n                    <ul class="dropdown-menu dropdown-menu-end">\n                        <li repeat.for="font of fonts"><a class="dropdown-item ${font.class} cursor-pointer" click.trigger="handleFontSelected(font)">${font.name}</a></li>\n                    </ul>\n                </li>\n                <li class="nav-item mx-3 d-flex align-items-center">\n                    <a href="https://discord.gg/9zZkYrSA8C" target="_blank">\n                        <svg width=32" height="32" viewBox="0 -28.5 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">\n                            <g>\n                                <path d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z" fill="#5865F2" fill-rule="nonzero">\n\n                                </path>\n                            </g>\n                        </svg>\n                    </a>\n                </li>\n            </ul>\n        </div>\n    </div>\n</nav>\n\n<div class="container-fluid">\n    <au-viewport default="Home"></au-viewport>\n</div>\n';
+const dependencies$1 = [];
+const bindables$1 = {};
+let _e$1;
+function register$1(container) {
+  if (!_e$1) {
+    _e$1 = CustomElement.define({ name: name$1, template: template$t, dependencies: dependencies$1, bindables: bindables$1 });
   }
-  container.register(_e);
+  container.register(_e$1);
 }
-const __au2ViewDef = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __au2ViewDef$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  bindables,
-  default: template$s,
-  dependencies,
-  name,
-  register,
-  template: template$s
+  bindables: bindables$1,
+  default: template$t,
+  dependencies: dependencies$1,
+  name: name$1,
+  register: register$1,
+  template: template$t
 }, Symbol.toStringTag, { value: "Module" }));
+var __create$3 = Object.create;
+var __defProp$3 = Object.defineProperty;
+var __getOwnPropDesc$3 = Object.getOwnPropertyDescriptor;
+var __knownSymbol$3 = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : Symbol.for("Symbol." + name2);
+var __typeError$3 = (msg) => {
+  throw TypeError(msg);
+};
+var __defNormalProp$3 = (obj, key, value) => key in obj ? __defProp$3(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __name$3 = (target, value) => __defProp$3(target, "name", { value, configurable: true });
+var __decoratorStart$3 = (base) => [, , , __create$3(null)];
+var __decoratorStrings$3 = ["class", "method", "getter", "setter", "accessor", "field", "value", "get", "set"];
+var __expectFn$3 = (fn2) => fn2 !== void 0 && typeof fn2 !== "function" ? __typeError$3("Function expected") : fn2;
+var __decoratorContext$3 = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings$3[kind], name: name2, metadata, addInitializer: (fn2) => done._ ? __typeError$3("Already initialized") : fns.push(__expectFn$3(fn2 || null)) });
+var __decoratorMetadata$3 = (array, target) => __defNormalProp$3(target, __knownSymbol$3("metadata"), array[3]);
+var __runInitializers$5 = (array, flags, self, value) => {
+  for (var i3 = 0, fns = array[flags >> 1], n3 = fns && fns.length; i3 < n3; i3++) fns[i3].call(self);
+  return value;
+};
+var __decorateElement$3 = (array, flags, name2, decorators, target, extra) => {
+  var it, done, ctx, k3 = flags & 7, p2 = false;
+  var j2 = 0;
+  var extraInitializers = array[j2] || (array[j2] = []);
+  var desc = k3 && (target = target.prototype, k3 < 5 && (k3 > 3 || !p2) && __getOwnPropDesc$3(target, name2));
+  __name$3(target, name2);
+  for (var i3 = decorators.length - 1; i3 >= 0; i3--) {
+    ctx = __decoratorContext$3(k3, name2, done = {}, array[3], extraInitializers);
+    it = (0, decorators[i3])(target, ctx), done._ = 1;
+    __expectFn$3(it) && (target = it);
+  }
+  return __decoratorMetadata$3(array, target), desc && __defProp$3(target, name2, desc), p2 ? k3 ^ 4 ? extra : desc : target;
+};
+var _App_decorators, _init$3;
+_App_decorators = [customElement(__au2ViewDef$1), route({
+  title: "D2R Reimagined",
+  routes: [
+    {
+      path: "",
+      component: __vitePreload(() => import("./home-CboNlst8.js"), true ? [] : void 0),
+      title: "Home"
+    },
+    {
+      path: "cube-recipes",
+      component: __vitePreload(() => import("./cube-recipes-8oZqMdq9.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
+      title: "Cube Recipes"
+    },
+    {
+      path: "uniques",
+      component: __vitePreload(() => import("./uniques-UD55pIV9.js"), true ? __vite__mapDeps([3,1]) : void 0),
+      title: "Uniques"
+    },
+    {
+      path: "sets",
+      component: __vitePreload(() => import("./sets-BJhHeR4V.js"), true ? __vite__mapDeps([4,1]) : void 0),
+      title: "Sets"
+    },
+    {
+      path: "runewords",
+      component: __vitePreload(() => import("./runewords-Cb376P9c.js"), true ? __vite__mapDeps([5,1]) : void 0),
+      title: "Runewords"
+    }
+  ]
+})];
+class App {
+  fonts = [
+    { class: "font-classic", name: "Classic" },
+    { class: "font-resurrected", name: "Resurrected" },
+    { class: "font-neutral", name: "Neutral" }
+  ];
+  attached() {
+    this.loadFont();
+  }
+  handleFontSelected(font) {
+    window.localStorage.setItem("font", font.class);
+    this.loadFont();
+  }
+  loadFont() {
+    const selectedFont = window.localStorage.getItem("font") || "font-resurrected";
+    {
+      const allClasses = this.fonts.map((font) => font.class);
+      document.body.classList.remove(...allClasses);
+      document.body.classList.add(selectedFont);
+    }
+  }
+}
+_init$3 = __decoratorStart$3();
+App = __decorateElement$3(_init$3, 0, "App", _App_decorators, App);
+__runInitializers$5(_init$3, 1, App);
 var __create$2 = Object.create;
 var __defProp$2 = Object.defineProperty;
 var __getOwnPropDesc$2 = Object.getOwnPropertyDescriptor;
@@ -41206,62 +41293,24 @@ var __decorateElement$2 = (array, flags, name2, decorators, target, extra) => {
   }
   return __decoratorMetadata$2(array, target), desc && __defProp$2(target, name2, desc), p2 ? k3 ^ 4 ? extra : desc : target;
 };
-var _App_decorators, _init$2;
-_App_decorators = [customElement(__au2ViewDef), route({
-  title: "D2R Reimagined",
-  routes: [
-    {
-      path: "",
-      component: __vitePreload(() => import("./home--qtHGvtf.js"), true ? [] : void 0),
-      title: "Home"
-    },
-    {
-      path: "cube-recipes",
-      component: __vitePreload(() => import("./cube-recipes-DD7s_72N.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
-      title: "Cube Recipes"
-    },
-    {
-      path: "uniques",
-      component: __vitePreload(() => import("./uniques-WXHakO1N.js"), true ? __vite__mapDeps([3,1]) : void 0),
-      title: "Uniques"
-    },
-    {
-      path: "sets",
-      component: __vitePreload(() => import("./sets-CHb2vmUC.js"), true ? __vite__mapDeps([4,1]) : void 0),
-      title: "Sets"
-    },
-    {
-      path: "runewords",
-      component: __vitePreload(() => import("./runewords-BAfxxWBL.js"), true ? __vite__mapDeps([5,1]) : void 0),
-      title: "Runewords"
+var _CubeInputsValueConverter_decorators, _init$2;
+_CubeInputsValueConverter_decorators = [valueConverter("cubeInputs")];
+class CubeInputsValueConverter {
+  toView(value) {
+    if (!value) {
+      return;
     }
-  ]
-})];
-class App {
-  fonts = [
-    { class: "font-classic", name: "Classic" },
-    { class: "font-resurrected", name: "Resurrected" },
-    { class: "font-neutral", name: "Neutral" }
-  ];
-  attached() {
-    this.loadFont();
-  }
-  handleFontSelected(font) {
-    window.localStorage.setItem("font", font.class);
-    this.loadFont();
-  }
-  loadFont() {
-    const selectedFont = window.localStorage.getItem("font") || "font-resurrected";
-    {
-      const allClasses = this.fonts.map((font) => font.class);
-      document.body.classList.remove(...allClasses);
-      document.body.classList.add(selectedFont);
+    let returnString = "";
+    const splitStrings = value.split(" + ");
+    for (const string of splitStrings) {
+      returnString += string + "<br>";
     }
+    return returnString;
   }
 }
 _init$2 = __decoratorStart$2();
-App = __decorateElement$2(_init$2, 0, "App", _App_decorators, App);
-__runInitializers$4(_init$2, 1, App);
+CubeInputsValueConverter = __decorateElement$2(_init$2, 0, "CubeInputsValueConverter", _CubeInputsValueConverter_decorators, CubeInputsValueConverter);
+__runInitializers$4(_init$2, 1, CubeInputsValueConverter);
 var __create$1 = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc$1 = Object.getOwnPropertyDescriptor;
@@ -41293,56 +41342,7 @@ var __decorateElement$1 = (array, flags, name2, decorators, target, extra) => {
   }
   return __decoratorMetadata$1(array, target), desc && __defProp$1(target, name2, desc), p2 ? k3 ^ 4 ? extra : desc : target;
 };
-var _CubeInputsValueConverter_decorators, _init$1;
-_CubeInputsValueConverter_decorators = [valueConverter("cubeInputs")];
-class CubeInputsValueConverter {
-  toView(value) {
-    if (!value) {
-      return;
-    }
-    let returnString = "";
-    const splitStrings = value.split(" + ");
-    for (const string of splitStrings) {
-      returnString += string + "<br>";
-    }
-    return returnString;
-  }
-}
-_init$1 = __decoratorStart$1();
-CubeInputsValueConverter = __decorateElement$1(_init$1, 0, "CubeInputsValueConverter", _CubeInputsValueConverter_decorators, CubeInputsValueConverter);
-__runInitializers$3(_init$1, 1, CubeInputsValueConverter);
-var __create = Object.create;
-var __defProp = Object.defineProperty;
-var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __knownSymbol = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : Symbol.for("Symbol." + name2);
-var __typeError = (msg) => {
-  throw TypeError(msg);
-};
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
-var __decoratorStart = (base) => [, , , __create(null)];
-var __decoratorStrings = ["class", "method", "getter", "setter", "accessor", "field", "value", "get", "set"];
-var __expectFn = (fn2) => fn2 !== void 0 && typeof fn2 !== "function" ? __typeError("Function expected") : fn2;
-var __decoratorContext = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings[kind], name: name2, metadata, addInitializer: (fn2) => done._ ? __typeError("Already initialized") : fns.push(__expectFn(fn2 || null)) });
-var __decoratorMetadata = (array, target) => __defNormalProp(target, __knownSymbol("metadata"), array[3]);
-var __runInitializers$2 = (array, flags, self, value) => {
-  for (var i3 = 0, fns = array[flags >> 1], n3 = fns && fns.length; i3 < n3; i3++) fns[i3].call(self);
-  return value;
-};
-var __decorateElement = (array, flags, name2, decorators, target, extra) => {
-  var it, done, ctx, k3 = flags & 7, p2 = false;
-  var j2 = 0;
-  var extraInitializers = array[j2] || (array[j2] = []);
-  var desc = k3 && (target = target.prototype, k3 < 5 && (k3 > 3 || !p2) && __getOwnPropDesc(target, name2));
-  __name(target, name2);
-  for (var i3 = decorators.length - 1; i3 >= 0; i3--) {
-    ctx = __decoratorContext(k3, name2, done = {}, array[3], extraInitializers);
-    it = (0, decorators[i3])(target, ctx), done._ = 1;
-    __expectFn(it) && (target = it);
-  }
-  return __decoratorMetadata(array, target), desc && __defProp(target, name2, desc), p2 ? k3 ^ 4 ? extra : desc : target;
-};
-var _RuneNameValueConverter_decorators, _init;
+var _RuneNameValueConverter_decorators, _init$1;
 _RuneNameValueConverter_decorators = [valueConverter("runeName")];
 class RuneNameValueConverter {
   toView(value) {
@@ -41420,9 +41420,9 @@ class RuneNameValueConverter {
     return value;
   }
 }
-_init = __decoratorStart();
-RuneNameValueConverter = __decorateElement(_init, 0, "RuneNameValueConverter", _RuneNameValueConverter_decorators, RuneNameValueConverter);
-__runInitializers$2(_init, 1, RuneNameValueConverter);
+_init$1 = __decoratorStart$1();
+RuneNameValueConverter = __decorateElement$1(_init$1, 0, "RuneNameValueConverter", _RuneNameValueConverter_decorators, RuneNameValueConverter);
+__runInitializers$3(_init$1, 1, RuneNameValueConverter);
 const Resources = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   get CubeInputsValueConverter() {
@@ -42564,7 +42564,7 @@ function __esDecorate$1(t2, i3, e2, s2, n3, r2) {
   }
   u2 = true;
 }
-function __runInitializers$1(t2, i3, e2) {
+function __runInitializers$2(t2, i3, e2) {
   var s2 = arguments.length > 2;
   for (var n3 = 0; n3 < i3.length; n3++) {
     e2 = s2 ? i3[n3].call(t2, e2) : i3[n3].call(t2);
@@ -42894,9 +42894,9 @@ let D = (() => {
   let l2 = [];
   return t2 = class ValidationContainerCustomElement {
     constructor() {
-      this.controller = __runInitializers$1(this, n3, void 0);
-      this.errors = (__runInitializers$1(this, r2), __runInitializers$1(this, a2, []));
-      this.host = (__runInitializers$1(this, l2), resolve(INode));
+      this.controller = __runInitializers$2(this, n3, void 0);
+      this.errors = (__runInitializers$2(this, r2), __runInitializers$2(this, a2, []));
+      this.host = (__runInitializers$2(this, l2), resolve(INode));
       this.scopedController = resolve(optional(P));
     }
     handleValidationEvent(t3) {
@@ -48407,7 +48407,7 @@ function __esDecorate(ctor, descriptorIn, decorators, contextIn, initializers, e
   if (target) Object.defineProperty(target, contextIn.name, descriptor);
   done = true;
 }
-function __runInitializers(thisArg, initializers, value) {
+function __runInitializers$1(thisArg, initializers, value) {
   var useValue = arguments.length > 2;
   for (var i3 = 0; i3 < initializers.length; i3++) {
     value = useValue ? initializers[i3].call(thisArg, value) : initializers[i3].call(thisArg);
@@ -48467,12 +48467,12 @@ let Align = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
-    value = __runInitializers(this, _value_initializers, void 0);
+    value = __runInitializers$1(this, _value_initializers, void 0);
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
-    element = (__runInitializers(this, _value_extraInitializers), resolve(INode));
+    element = (__runInitializers$1(this, _value_extraInitializers), resolve(INode));
     afterBind() {
       this.element.style.textAlign = this.value ?? "";
     }
@@ -48512,7 +48512,7 @@ let FullHeight = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
@@ -48552,7 +48552,7 @@ let FullWidth = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
@@ -48613,12 +48613,12 @@ let Link = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
-    value = __runInitializers(this, _value_initializers, "");
+    value = __runInitializers$1(this, _value_initializers, "");
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
-    element = (__runInitializers(this, _value_extraInitializers), resolve(INode));
+    element = (__runInitializers$1(this, _value_extraInitializers), resolve(INode));
     platform = resolve(IPlatform$1);
     constructor() {
       this.element.addEventListener("mousedown", this.clickEvent);
@@ -48661,7 +48661,7 @@ let Underline = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
@@ -48721,12 +48721,12 @@ let Elevation2 = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
-    value = __runInitializers(this, _value_initializers, void 0);
+    value = __runInitializers$1(this, _value_initializers, void 0);
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
-    element = (__runInitializers(this, _value_extraInitializers), resolve(INode));
+    element = (__runInitializers$1(this, _value_extraInitializers), resolve(INode));
     constructor() {
       this.element.style.boxShadow = "0 8px 12px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.08)";
       this.element.style.borderRadius = "5px";
@@ -48797,10 +48797,10 @@ let MooAccordion = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
-    header = __runInitializers(this, _header_initializers, void 0);
-    accordionItemEl = __runInitializers(this, _header_extraInitializers);
+    header = __runInitializers$1(this, _header_initializers, void 0);
+    accordionItemEl = __runInitializers$1(this, _header_extraInitializers);
     accordionHeaderEl;
     closeAllOtherAccordions(element) {
       const accordionHeaders = document.querySelectorAll(".accordion-header");
@@ -48978,14 +48978,14 @@ let MooBanner = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
-    primaryAction = (__runInitializers(this, _instanceExtraInitializers), __runInitializers(this, _primaryAction_initializers, void 0));
-    secondaryAction = (__runInitializers(this, _primaryAction_extraInitializers), __runInitializers(this, _secondaryAction_initializers, void 0));
-    secondaryClicked = (__runInitializers(this, _secondaryAction_extraInitializers), __runInitializers(this, _secondaryClicked_initializers, void 0));
-    primaryClicked = (__runInitializers(this, _secondaryClicked_extraInitializers), __runInitializers(this, _primaryClicked_initializers, void 0));
-    open = (__runInitializers(this, _primaryClicked_extraInitializers), __runInitializers(this, _open_initializers, void 0));
-    bannerEl = __runInitializers(this, _open_extraInitializers);
+    primaryAction = (__runInitializers$1(this, _instanceExtraInitializers), __runInitializers$1(this, _primaryAction_initializers, void 0));
+    secondaryAction = (__runInitializers$1(this, _primaryAction_extraInitializers), __runInitializers$1(this, _secondaryAction_initializers, void 0));
+    secondaryClicked = (__runInitializers$1(this, _secondaryAction_extraInitializers), __runInitializers$1(this, _secondaryClicked_initializers, void 0));
+    primaryClicked = (__runInitializers$1(this, _secondaryClicked_extraInitializers), __runInitializers$1(this, _primaryClicked_initializers, void 0));
+    open = (__runInitializers$1(this, _primaryClicked_extraInitializers), __runInitializers$1(this, _open_initializers, void 0));
+    bannerEl = __runInitializers$1(this, _open_extraInitializers);
     banner;
     attached() {
       this.banner = new MDCBanner(this.bannerEl);
@@ -49210,17 +49210,17 @@ let MooButton = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
     button;
-    label = __runInitializers(this, _label_initializers, void 0);
-    variant = (__runInitializers(this, _label_extraInitializers), __runInitializers(this, _variant_initializers, "filled"));
-    icon = (__runInitializers(this, _variant_extraInitializers), __runInitializers(this, _icon_initializers, void 0));
-    click = (__runInitializers(this, _icon_extraInitializers), __runInitializers(this, _click_initializers, void 0));
-    dataMdcDialogAction = (__runInitializers(this, _click_extraInitializers), __runInitializers(this, _dataMdcDialogAction_initializers, void 0));
-    disabled = (__runInitializers(this, _dataMdcDialogAction_extraInitializers), __runInitializers(this, _disabled_initializers, false));
+    label = __runInitializers$1(this, _label_initializers, void 0);
+    variant = (__runInitializers$1(this, _label_extraInitializers), __runInitializers$1(this, _variant_initializers, "filled"));
+    icon = (__runInitializers$1(this, _variant_extraInitializers), __runInitializers$1(this, _icon_initializers, void 0));
+    click = (__runInitializers$1(this, _icon_extraInitializers), __runInitializers$1(this, _click_initializers, void 0));
+    dataMdcDialogAction = (__runInitializers$1(this, _click_extraInitializers), __runInitializers$1(this, _dataMdcDialogAction_initializers, void 0));
+    disabled = (__runInitializers$1(this, _dataMdcDialogAction_extraInitializers), __runInitializers$1(this, _disabled_initializers, false));
     constructor() {
-      __runInitializers(this, _disabled_extraInitializers);
+      __runInitializers$1(this, _disabled_extraInitializers);
     }
   });
   return _classThis;
@@ -49258,7 +49258,7 @@ let MooButtonIcon = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
   });
   return _classThis;
@@ -49315,11 +49315,11 @@ let MooCard = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
-    outlined = __runInitializers(this, _outlined_initializers, void 0);
+    outlined = __runInitializers$1(this, _outlined_initializers, void 0);
     constructor() {
-      __runInitializers(this, _outlined_extraInitializers);
+      __runInitializers$1(this, _outlined_extraInitializers);
     }
   });
   return _classThis;
@@ -49376,11 +49376,11 @@ let MooCardContent = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
-    outlined = __runInitializers(this, _outlined_initializers, void 0);
+    outlined = __runInitializers$1(this, _outlined_initializers, void 0);
     constructor() {
-      __runInitializers(this, _outlined_extraInitializers);
+      __runInitializers$1(this, _outlined_extraInitializers);
     }
   });
   return _classThis;
@@ -49437,11 +49437,11 @@ let MooCardFooter = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
-    outlined = __runInitializers(this, _outlined_initializers, void 0);
+    outlined = __runInitializers$1(this, _outlined_initializers, void 0);
     constructor() {
-      __runInitializers(this, _outlined_extraInitializers);
+      __runInitializers$1(this, _outlined_extraInitializers);
     }
   });
   return _classThis;
@@ -49498,11 +49498,11 @@ let MooCardHeader = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
-    outlined = __runInitializers(this, _outlined_initializers, void 0);
+    outlined = __runInitializers$1(this, _outlined_initializers, void 0);
     constructor() {
-      __runInitializers(this, _outlined_extraInitializers);
+      __runInitializers$1(this, _outlined_extraInitializers);
     }
   });
   return _classThis;
@@ -49604,11 +49604,11 @@ let MooCheckbox = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
-    checked = __runInitializers(this, _checked_initializers, void 0);
-    changed = (__runInitializers(this, _checked_extraInitializers), __runInitializers(this, _changed_initializers, void 0));
-    value = (__runInitializers(this, _changed_extraInitializers), __runInitializers(this, _value_initializers, void 0));
+    checked = __runInitializers$1(this, _checked_initializers, void 0);
+    changed = (__runInitializers$1(this, _checked_extraInitializers), __runInitializers$1(this, _changed_initializers, void 0));
+    value = (__runInitializers$1(this, _changed_extraInitializers), __runInitializers$1(this, _value_initializers, void 0));
     handleChange() {
       this.checked = !this.checked;
       if (this.changed) {
@@ -49616,7 +49616,7 @@ let MooCheckbox = (() => {
       }
     }
     constructor() {
-      __runInitializers(this, _value_extraInitializers);
+      __runInitializers$1(this, _value_extraInitializers);
     }
   });
   return _classThis;
@@ -49709,11 +49709,11 @@ let MooChip = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
-    variant = __runInitializers(this, _variant_initializers, "input");
-    remove = (__runInitializers(this, _variant_extraInitializers), __runInitializers(this, _remove_initializers, void 0));
-    chipEl = __runInitializers(this, _remove_extraInitializers);
+    variant = __runInitializers$1(this, _variant_initializers, "input");
+    remove = (__runInitializers$1(this, _variant_extraInitializers), __runInitializers$1(this, _remove_initializers, void 0));
+    chipEl = __runInitializers$1(this, _remove_extraInitializers);
     attached() {
       this.chipEl.addEventListener("remove", () => this.handleRemove());
     }
@@ -49758,7 +49758,7 @@ let MooChipSet = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
   });
   return _classThis;
@@ -49877,12 +49877,12 @@ let MooDialog = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
-    dialogEl = __runInitializers(this, _dialogEl_initializers, void 0);
-    dialog = (__runInitializers(this, _dialogEl_extraInitializers), __runInitializers(this, _dialog_initializers, void 0));
-    handler = (__runInitializers(this, _dialog_extraInitializers), __runInitializers(this, _handler_initializers, void 0));
-    title = (__runInitializers(this, _handler_extraInitializers), __runInitializers(this, _title_initializers, void 0));
+    dialogEl = __runInitializers$1(this, _dialogEl_initializers, void 0);
+    dialog = (__runInitializers$1(this, _dialogEl_extraInitializers), __runInitializers$1(this, _dialog_initializers, void 0));
+    handler = (__runInitializers$1(this, _dialog_extraInitializers), __runInitializers$1(this, _handler_initializers, void 0));
+    title = (__runInitializers$1(this, _handler_extraInitializers), __runInitializers$1(this, _title_initializers, void 0));
     attached() {
       this.dialog = new MDCDialog(this.dialogEl);
       this.dialog.listen("MDCDialog:closed", (e2) => {
@@ -49892,7 +49892,7 @@ let MooDialog = (() => {
       });
     }
     constructor() {
-      __runInitializers(this, _title_extraInitializers);
+      __runInitializers$1(this, _title_extraInitializers);
     }
   });
   return _classThis;
@@ -49949,10 +49949,10 @@ let MooDrawer = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
-    open = __runInitializers(this, _open_initializers, void 0);
-    drawerEl = __runInitializers(this, _open_extraInitializers);
+    open = __runInitializers$1(this, _open_initializers, void 0);
+    drawerEl = __runInitializers$1(this, _open_extraInitializers);
     drawer;
     didAttach = false;
     attached() {
@@ -50061,13 +50061,13 @@ let MooFab = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
-    url = __runInitializers(this, _url_initializers, void 0);
-    variant = (__runInitializers(this, _url_extraInitializers), __runInitializers(this, _variant_initializers, void 0));
-    label = (__runInitializers(this, _variant_extraInitializers), __runInitializers(this, _label_initializers, void 0));
+    url = __runInitializers$1(this, _url_initializers, void 0);
+    variant = (__runInitializers$1(this, _url_extraInitializers), __runInitializers$1(this, _variant_initializers, void 0));
+    label = (__runInitializers$1(this, _variant_extraInitializers), __runInitializers$1(this, _label_initializers, void 0));
     constructor() {
-      __runInitializers(this, _label_extraInitializers);
+      __runInitializers$1(this, _label_extraInitializers);
     }
   });
   return _classThis;
@@ -50184,13 +50184,13 @@ let MooFormField = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
-    label = __runInitializers(this, _label_initializers, void 0);
-    options = (__runInitializers(this, _label_extraInitializers), __runInitializers(this, _options_initializers, void 0));
-    class = (__runInitializers(this, _options_extraInitializers), __runInitializers(this, _class_initializers, void 0));
-    disabled = (__runInitializers(this, _class_extraInitializers), __runInitializers(this, _disabled_initializers, void 0));
-    formFieldEl = __runInitializers(this, _disabled_extraInitializers);
+    label = __runInitializers$1(this, _label_initializers, void 0);
+    options = (__runInitializers$1(this, _label_extraInitializers), __runInitializers$1(this, _options_initializers, void 0));
+    class = (__runInitializers$1(this, _options_extraInitializers), __runInitializers$1(this, _class_initializers, void 0));
+    disabled = (__runInitializers$1(this, _class_extraInitializers), __runInitializers$1(this, _disabled_initializers, void 0));
+    formFieldEl = __runInitializers$1(this, _disabled_extraInitializers);
     formField;
     attached() {
       this.formField = new MDCFormField(this.formFieldEl);
@@ -50231,7 +50231,7 @@ let MooIcon = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
   });
   return _classThis;
@@ -50269,7 +50269,7 @@ let MooList = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
   });
   return _classThis;
@@ -50327,11 +50327,11 @@ let MooListItem = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
-    route = __runInitializers(this, _route_initializers, void 0);
+    route = __runInitializers$1(this, _route_initializers, void 0);
     constructor() {
-      __runInitializers(this, _route_extraInitializers);
+      __runInitializers$1(this, _route_extraInitializers);
     }
   });
   return _classThis;
@@ -50369,7 +50369,7 @@ let MooMenu = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
   });
   return _classThis;
@@ -50407,7 +50407,7 @@ let MooMenuItem = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
   });
   return _classThis;
@@ -50467,11 +50467,11 @@ let MooProgress = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
-    variant = __runInitializers(this, _variant_initializers, "circular");
+    variant = __runInitializers$1(this, _variant_initializers, "circular");
     constructor() {
-      __runInitializers(this, _variant_extraInitializers);
+      __runInitializers$1(this, _variant_extraInitializers);
     }
   });
   return _classThis;
@@ -50678,15 +50678,15 @@ let MooRadio = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
-    label = (__runInitializers(this, _instanceExtraInitializers), __runInitializers(this, _label_initializers, void 0));
-    options = (__runInitializers(this, _label_extraInitializers), __runInitializers(this, _options_initializers, void 0));
-    model = (__runInitializers(this, _options_extraInitializers), __runInitializers(this, _model_initializers, void 0));
-    value = (__runInitializers(this, _model_extraInitializers), __runInitializers(this, _value_initializers, void 0));
-    class = (__runInitializers(this, _value_extraInitializers), __runInitializers(this, _class_initializers, void 0));
-    disabled = (__runInitializers(this, _class_extraInitializers), __runInitializers(this, _disabled_initializers, void 0));
-    checked = (__runInitializers(this, _disabled_extraInitializers), false);
+    label = (__runInitializers$1(this, _instanceExtraInitializers), __runInitializers$1(this, _label_initializers, void 0));
+    options = (__runInitializers$1(this, _label_extraInitializers), __runInitializers$1(this, _options_initializers, void 0));
+    model = (__runInitializers$1(this, _options_extraInitializers), __runInitializers$1(this, _model_initializers, void 0));
+    value = (__runInitializers$1(this, _model_extraInitializers), __runInitializers$1(this, _value_initializers, void 0));
+    class = (__runInitializers$1(this, _value_extraInitializers), __runInitializers$1(this, _class_initializers, void 0));
+    disabled = (__runInitializers$1(this, _class_extraInitializers), __runInitializers$1(this, _disabled_initializers, void 0));
+    checked = (__runInitializers$1(this, _disabled_extraInitializers), false);
     radioEl;
     radio;
     attached() {
@@ -50828,12 +50828,12 @@ let MooSelect = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
-    options = __runInitializers(this, _options_initializers, void 0);
-    value = (__runInitializers(this, _options_extraInitializers), __runInitializers(this, _value_initializers, void 0));
-    variant = (__runInitializers(this, _value_extraInitializers), __runInitializers(this, _variant_initializers, "outlined"));
-    includeNull = (__runInitializers(this, _variant_extraInitializers), __runInitializers(this, _includeNull_initializers, false));
+    options = __runInitializers$1(this, _options_initializers, void 0);
+    value = (__runInitializers$1(this, _options_extraInitializers), __runInitializers$1(this, _value_initializers, void 0));
+    variant = (__runInitializers$1(this, _value_extraInitializers), __runInitializers$1(this, _variant_initializers, "outlined"));
+    includeNull = (__runInitializers$1(this, _variant_extraInitializers), __runInitializers$1(this, _includeNull_initializers, false));
     handleChange(e2) {
       this.value = e2.target.value;
     }
@@ -50847,7 +50847,7 @@ let MooSelect = (() => {
       return option.value == this.value;
     }
     constructor() {
-      __runInitializers(this, _includeNull_extraInitializers);
+      __runInitializers$1(this, _includeNull_extraInitializers);
     }
   });
   return _classThis;
@@ -50967,13 +50967,13 @@ let MooSwitch = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
-    value = __runInitializers(this, _value_initializers, void 0);
-    class = (__runInitializers(this, _value_extraInitializers), __runInitializers(this, _class_initializers, void 0));
-    change = (__runInitializers(this, _class_extraInitializers), __runInitializers(this, _change_initializers, void 0));
-    label = (__runInitializers(this, _change_extraInitializers), __runInitializers(this, _label_initializers, void 0));
-    switch = __runInitializers(this, _label_extraInitializers);
+    value = __runInitializers$1(this, _value_initializers, void 0);
+    class = (__runInitializers$1(this, _value_extraInitializers), __runInitializers$1(this, _class_initializers, void 0));
+    change = (__runInitializers$1(this, _class_extraInitializers), __runInitializers$1(this, _change_initializers, void 0));
+    label = (__runInitializers$1(this, _change_extraInitializers), __runInitializers$1(this, _label_initializers, void 0));
+    switch = __runInitializers$1(this, _label_extraInitializers);
     attached() {
       this.switch.selected = this.value;
       this.switch.addEventListener("change", () => this.handleChange());
@@ -51047,11 +51047,11 @@ let MooTab = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
-    variant = __runInitializers(this, _variant_initializers, "primary");
+    variant = __runInitializers$1(this, _variant_initializers, "primary");
     constructor() {
-      __runInitializers(this, _variant_extraInitializers);
+      __runInitializers$1(this, _variant_extraInitializers);
     }
   });
   return _classThis;
@@ -51089,7 +51089,7 @@ let MooTabs = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
   });
   return _classThis;
@@ -51186,11 +51186,11 @@ let MooTextField = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
-    value = __runInitializers(this, _value_initializers, "");
-    variant = (__runInitializers(this, _value_extraInitializers), __runInitializers(this, _variant_initializers, "outlined"));
-    mdElement = __runInitializers(this, _variant_extraInitializers);
+    value = __runInitializers$1(this, _value_initializers, "");
+    variant = (__runInitializers$1(this, _value_extraInitializers), __runInitializers$1(this, _variant_initializers, "outlined"));
+    mdElement = __runInitializers$1(this, _variant_extraInitializers);
     bound() {
       if (!this.value) {
         this.value = "";
@@ -51202,12 +51202,12 @@ let MooTextField = (() => {
   });
   return _classThis;
 })();
-const template = '<header class="mdc-top-app-bar mdc-top-app-bar--fixed" ref="header">\r\n    <div class="mdc-top-app-bar__row">\r\n        <au-slot></au-slot>\r\n    </div>\r\n</header>\r\n<div class="mdc-top-app-bar--fixed-adjust"></div>\r\n';
+const template$s = '<header class="mdc-top-app-bar mdc-top-app-bar--fixed" ref="header">\r\n    <div class="mdc-top-app-bar__row">\r\n        <au-slot></au-slot>\r\n    </div>\r\n</header>\r\n<div class="mdc-top-app-bar--fixed-adjust"></div>\r\n';
 let MooTopbar = (() => {
   let _classDecorators = [
     customElement({
       name: "moo-topbar",
-      template,
+      template: template$s,
       containerless: true
     })
   ];
@@ -51234,7 +51234,7 @@ let MooTopbar = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
     header;
     attached() {
@@ -51301,7 +51301,7 @@ let TakeValueConverter = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
     toView(value, amount) {
       return value.slice(0, amount);
@@ -51336,7 +51336,7 @@ let SkipValueConverter = (() => {
         writable: true,
         value: _metadata
       });
-      __runInitializers(_classThis, _classExtraInitializers);
+      __runInitializers$1(_classThis, _classExtraInitializers);
     }
     toView(value, amount) {
       return value.slice(amount);
@@ -51410,12 +51410,76 @@ const BetsyWebComponentsPlugin$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */
   elements,
   valueConverters
 }, Symbol.toStringTag, { value: "Module" }));
+const name = "search-area";
+const template = '<div class="search-area">\n    <au-slot></au-slot>\n</div>';
+const dependencies = [];
+const bindables = {};
+let _e;
+function register(container) {
+  if (!_e) {
+    _e = CustomElement.define({ name, template, dependencies, bindables });
+  }
+  container.register(_e);
+}
+const __au2ViewDef = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  bindables,
+  default: template,
+  dependencies,
+  name,
+  register,
+  template
+}, Symbol.toStringTag, { value: "Module" }));
+var __create = Object.create;
+var __defProp = Object.defineProperty;
+var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __knownSymbol = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : Symbol.for("Symbol." + name2);
+var __typeError = (msg) => {
+  throw TypeError(msg);
+};
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __name = (target, value) => __defProp(target, "name", { value, configurable: true });
+var __decoratorStart = (base) => [, , , __create(null)];
+var __decoratorStrings = ["class", "method", "getter", "setter", "accessor", "field", "value", "get", "set"];
+var __expectFn = (fn2) => fn2 !== void 0 && typeof fn2 !== "function" ? __typeError("Function expected") : fn2;
+var __decoratorContext = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings[kind], name: name2, metadata, addInitializer: (fn2) => done._ ? __typeError("Already initialized") : fns.push(__expectFn(fn2 || null)) });
+var __decoratorMetadata = (array, target) => __defNormalProp(target, __knownSymbol("metadata"), array[3]);
+var __runInitializers = (array, flags, self, value) => {
+  for (var i3 = 0, fns = array[flags >> 1], n3 = fns && fns.length; i3 < n3; i3++) fns[i3].call(self);
+  return value;
+};
+var __decorateElement = (array, flags, name2, decorators, target, extra) => {
+  var it, done, ctx, k3 = flags & 7, p2 = false;
+  var j2 = 0;
+  var extraInitializers = array[j2] || (array[j2] = []);
+  var desc = k3 && (target = target.prototype, k3 < 5 && (k3 > 3 || !p2) && __getOwnPropDesc(target, name2));
+  __name(target, name2);
+  for (var i3 = decorators.length - 1; i3 >= 0; i3--) {
+    ctx = __decoratorContext(k3, name2, done = {}, array[3], extraInitializers);
+    it = (0, decorators[i3])(target, ctx), done._ = 1;
+    __expectFn(it) && (target = it);
+  }
+  return __decoratorMetadata(array, target), desc && __defProp(target, name2, desc), p2 ? k3 ^ 4 ? extra : desc : target;
+};
+var _SearchArea_decorators, _init;
+_SearchArea_decorators = [customElement(__au2ViewDef)];
+class SearchArea {
+}
+_init = __decoratorStart();
+SearchArea = __decorateElement(_init, 0, "SearchArea", _SearchArea_decorators, SearchArea);
+__runInitializers(_init, 1, SearchArea);
+const Elements = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  get SearchArea() {
+    return SearchArea;
+  }
+}, Symbol.toStringTag, { value: "Module" }));
 void Aurelia2.register(
   RouterConfiguration.customize({
     //title: "Betsy Bot Admin Panel",
     useUrlFragmentHash: false
   })
-).register(BetsyWebComponentsPlugin$1).register(Resources).app(App).start();
+).register(BetsyWebComponentsPlugin$1).register(Resources).register(Elements).app(App).start();
 export {
   CustomElement as C,
   bindable as b,
