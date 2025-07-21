@@ -1,36 +1,28 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-DQfVK0yj.js","assets/debounce-ZwsFz6hU.js","assets/cube-recipes-BJXOl2Zy.css","assets/uniques-DSj1s5R5.js","assets/sets-cr4fw4tX.js","assets/runewords-CF91spmh.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-Csoio6Mp.js","assets/debounce-ZwsFz6hU.js","assets/cube-recipes-BJXOl2Zy.css","assets/uniques-CSwpAIJ8.js","assets/sets-C_SXvQJ8.js","assets/runewords-C-gkHn-d.js"])))=>i.map(i=>d[i]);
 (function polyfill() {
   const relList = document.createElement("link").relList;
-  if (relList && relList.supports && relList.supports("modulepreload")) {
-    return;
-  }
-  for (const link of document.querySelectorAll('link[rel="modulepreload"]')) {
-    processPreload(link);
-  }
+  if (relList && relList.supports && relList.supports("modulepreload")) return;
+  for (const link of document.querySelectorAll('link[rel="modulepreload"]')) processPreload(link);
   new MutationObserver((mutations) => {
     for (const mutation of mutations) {
-      if (mutation.type !== "childList") {
-        continue;
-      }
-      for (const node of mutation.addedNodes) {
-        if (node.tagName === "LINK" && node.rel === "modulepreload")
-          processPreload(node);
-      }
+      if (mutation.type !== "childList") continue;
+      for (const node of mutation.addedNodes) if (node.tagName === "LINK" && node.rel === "modulepreload") processPreload(node);
     }
-  }).observe(document, { childList: true, subtree: true });
+  }).observe(document, {
+    childList: true,
+    subtree: true
+  });
   function getFetchOpts(link) {
     const fetchOpts = {};
     if (link.integrity) fetchOpts.integrity = link.integrity;
     if (link.referrerPolicy) fetchOpts.referrerPolicy = link.referrerPolicy;
-    if (link.crossOrigin === "use-credentials")
-      fetchOpts.credentials = "include";
+    if (link.crossOrigin === "use-credentials") fetchOpts.credentials = "include";
     else if (link.crossOrigin === "anonymous") fetchOpts.credentials = "omit";
     else fetchOpts.credentials = "same-origin";
     return fetchOpts;
   }
   function processPreload(link) {
-    if (link.ep)
-      return;
+    if (link.ep) return;
     link.ep = true;
     const fetchOpts = getFetchOpts(link);
     fetch(link.href, fetchOpts);
@@ -93,6 +85,7 @@ function isObjectOrFunction(value) {
 }
 const isFunction = (v2) => typeof v2 === "function";
 const isString = (v2) => typeof v2 === "string";
+const isSymbol = (v2) => typeof v2 === "symbol";
 const isNumber = (v2) => typeof v2 === "number";
 const createLookup$1 = () => /* @__PURE__ */ Object.create(null);
 const areEqual = Object.is;
@@ -1326,6 +1319,10 @@ const inject = (...dependencies2) => {
         }
         break;
       }
+      // TODO(sayan): support getter injection - new feature
+      // TODO:
+      //    support method parameter injection when the class-method-parameter-decorators proposal (https://github.com/tc39/proposal-class-method-parameter-decorators)
+      //    reaches stage 4 and/or implemented by TS.
       default:
         throw createMappedError$6(22, String(context.name), context.kind);
     }
@@ -2814,6 +2811,7 @@ function parse(minPrecedence, expressionType) {
               throw invalidMemberExpression();
           }
         } while ($currentToken === 12296);
+      // falls through
       case 4096: {
         const id2 = $tokenValue;
         if (expressionType === etIsIterator$1) {
@@ -3329,11 +3327,14 @@ function parseCoverParenthesizedExpressionAndArrowParameterList(expressionType) 
       case 7340048:
         nextToken();
         break loop;
+      /* eslint-disable */
       case 524298:
+      // ({     - may be a valid parenthesized expression
       case 2688020:
         nextToken();
         paramsState = 4;
         break;
+      /* eslint-enable */
       case 6291475:
         paramsState = 2;
         isParamList = true;
@@ -4330,10 +4331,10 @@ The ".call" binding command has been removed in v2. If you want to pass a callba
 }
 var _a$5, _b$2, _c$1, _d, _e$1;
 class CharSpec {
-  constructor(chars, repeat, isSymbol, isInverted) {
+  constructor(chars, repeat, isSymbol2, isInverted) {
     this.chars = chars;
     this.repeat = repeat;
-    this.isSymbol = isSymbol;
+    this.isSymbol = isSymbol2;
     this.isInverted = isInverted;
     if (isInverted) {
       switch (chars.length) {
@@ -5403,6 +5404,7 @@ class TemplateElementFactory {
       const prevSibling = node.previousSibling;
       if (prevSibling != null) {
         switch (prevSibling.nodeType) {
+          // The previous sibling cannot be an element, because the node is the first element in the template.
           case 3:
             return prevSibling.textContent.trim().length > 0;
         }
@@ -5410,6 +5412,7 @@ class TemplateElementFactory {
       const nextSibling = node.nextSibling;
       if (nextSibling != null) {
         switch (nextSibling.nodeType) {
+          // element is already checked above
           case 3:
             return nextSibling.textContent.trim().length > 0;
         }
@@ -5739,6 +5742,16 @@ class TemplateCompiler {
         switch (node.nodeName) {
           case "LET":
             return this._compileLet(node, context);
+          // ------------------------------------
+          // todo: possible optimization:
+          // when two conditions below are met:
+          // 1. there's no attribute on au slot,
+          // 2. there's no projection
+          //
+          // -> flatten the au-slot into children as this is just a static template
+          // ------------------------------------
+          // case 'AU-SLOT':
+          //   return this.auSlot(node as Element, container, context);
           default:
             return this._compileElement(node, context);
         }
@@ -5865,6 +5878,7 @@ class TemplateCompiler {
       attrName = attr.name;
       attrValue = attr.value;
       switch (attrName) {
+        // ignore these 2 attributes
         case "as-element":
         case "containerless":
           removeAttr();
@@ -6698,7 +6712,6 @@ const hasOwnProp = Object.prototype.hasOwnProperty;
 const rtDef = Reflect.defineProperty;
 function rtDefineHiddenProp(obj, key, value) {
   rtDef(obj, key, {
-    enumerable: false,
     configurable: true,
     writable: true,
     value
@@ -7174,7 +7187,7 @@ const { astAssign, astEvaluate, astBind, astUnbind } = /* @__PURE__ */ (() => {
         const value = astEvaluate2(ast.expression, s2, e2, c2);
         switch (ast.operation) {
           case "void":
-            return void 0;
+            return void value;
           case "typeof":
             return typeof value;
           case "!":
@@ -7433,7 +7446,23 @@ const { astAssign, astEvaluate, astBind, astUnbind } = /* @__PURE__ */ (() => {
       case ekArrayDestructuring2: {
         return ast.list.map((x2) => astEvaluate2(x2, s2, e2, c2));
       }
+      // TODO: this should come after batch
+      // as a destructuring expression like [x, y] = value
+      //
+      // should only trigger change only once:
+      // batch(() => {
+      //   object.x = value[0]
+      //   object.y = value[1]
+      // })
+      //
+      // instead of twice:
+      // object.x = value[0]
+      // object.y = value[1]
       case ekArrayBindingPattern2:
+      // TODO
+      // similar to array binding ast, this should only come after batch
+      // for a single notification per destructing,
+      // regardless number of property assignments on the scope binding context
       case ekObjectBindingPattern2:
       case ekObjectDestructuring2:
       default:
@@ -7644,6 +7673,359 @@ const mixinNoopAstEvaluator = /* @__PURE__ */ (() => (target) => {
     });
   });
 })();
+const tsPending$2 = "pending";
+const tsRunning$2 = "running";
+const tsCompleted$1 = "completed";
+const tsCanceled$1 = "canceled";
+const resolvedPromise = Promise.resolve();
+let runScheduled = false;
+let isAutoRun = false;
+const queue = [];
+let pendingAsyncCount = 0;
+let settlePromise = null;
+let taskErrors = [];
+let settlePromiseResolve = null;
+let settlePromiseReject = null;
+const requestRun = () => {
+  if (!runScheduled) {
+    runScheduled = true;
+    void resolvedPromise.then(() => {
+      runScheduled = false;
+      isAutoRun = true;
+      runTasks();
+    });
+  }
+};
+const signalSettled = (hasPerformedWork) => {
+  if (settlePromise && queue.length === 0 && pendingAsyncCount === 0) {
+    settlePromise = null;
+    if (taskErrors.length > 0) {
+      const errors = taskErrors;
+      taskErrors = [];
+      if (errors.length === 1) {
+        settlePromiseReject(errors[0]);
+      } else {
+        settlePromiseReject(new AggregateError(errors, "One or more tasks failed."));
+      }
+    } else {
+      settlePromiseResolve(hasPerformedWork);
+    }
+  }
+};
+const runTasks = () => {
+  const isManualRun = !isAutoRun;
+  isAutoRun = false;
+  settlePromise ??= new Promise((resolve2, reject) => {
+    settlePromiseResolve = resolve2;
+    settlePromiseReject = reject;
+  });
+  let extraTaskCount = -queue.length;
+  const isEmpty = queue.length === 0;
+  while (queue.length > 0) {
+    if (++extraTaskCount > 1e4) {
+      const error2 = new Error(`Potential deadlock detected. More than 10000 extra tasks were queued from within tasks.`);
+      queue.length = 0;
+      settlePromiseReject?.(error2);
+      settlePromise = null;
+      throw error2;
+    }
+    const task = queue.shift();
+    if (typeof task === "function") {
+      try {
+        task();
+      } catch (err) {
+        taskErrors.push(err);
+      }
+    } else {
+      task.run();
+    }
+  }
+  const errors = taskErrors.slice();
+  signalSettled(!isEmpty);
+  if (isManualRun && errors.length > 0) {
+    if (errors.length === 1) {
+      throw errors[0];
+    } else {
+      throw new AggregateError(errors, "One or more tasks failed.");
+    }
+  }
+};
+const tasksSettled = () => {
+  if (settlePromise) {
+    return settlePromise;
+  }
+  if (queue.length > 0 || pendingAsyncCount > 0) {
+    return settlePromise ??= new Promise((resolve2, reject) => {
+      settlePromiseResolve = resolve2;
+      settlePromiseReject = reject;
+    });
+  }
+  return resolvedPromise.then(() => {
+    if (queue.length > 0 || pendingAsyncCount > 0) {
+      return settlePromise ??= new Promise((resolve2, reject) => {
+        settlePromiseResolve = resolve2;
+        settlePromiseReject = reject;
+      });
+    }
+    return false;
+  });
+};
+const queueTask = (callback) => {
+  requestRun();
+  queue.push(callback);
+};
+const queueAsyncTask = (callback, options) => {
+  const task = new Task$1(callback, options?.delay);
+  if (task.delay != null && task.delay > 0) {
+    ++pendingAsyncCount;
+    task._timerId = setTimeout(() => {
+      --pendingAsyncCount;
+      task._timerId = void 0;
+      if (task.status === tsCanceled$1) {
+        signalSettled(true);
+        return;
+      }
+      queue.push(task);
+      requestRun();
+    }, task.delay);
+  } else {
+    queue.push(task);
+    requestRun();
+  }
+  return task;
+};
+let TaskAbortError$1 = class TaskAbortError extends Error {
+  constructor(task) {
+    super(`Task ${task.id} was canceled.`);
+    this.task = task;
+  }
+};
+let Task$1 = class Task {
+  /**
+   * A promise that:
+   * * **fulfils** with the callback's return value, or
+   * * **rejects** with:
+   *   * whatever error the callback throws,
+   *   * whatever rejection the callback's promise yields, or
+   *   * a {@link TaskAbortError} if the task is canceled before it starts.
+   *
+   * Consumers typically `await` this to know when *their* task is done without
+   * caring about unrelated work still queued.
+   *
+   * @example
+   * ```ts
+   * const toastTask = queueAsyncTask(showToast, { delay: 5000 });
+   * await toastTask.result; // waits 5 s then resolves
+   * ```
+   */
+  get result() {
+    return this._result;
+  }
+  /**
+   * Current immutable status of the task.
+   *
+   * @example
+   * ```ts
+   * const task = queueAsyncTask(() => 123);
+   * console.log(task.status); // "pending"
+   * await task.result;
+   * console.log(task.status); // "completed"
+   * ```
+   */
+  get status() {
+    return this._status;
+  }
+  constructor(callback, delay) {
+    this.callback = callback;
+    this.delay = delay;
+    this.id = ++Task._taskId;
+    this._status = tsPending$2;
+    this._result = new Promise((resolve2, reject) => {
+      this._resolve = resolve2;
+      this._reject = reject;
+    });
+  }
+  /** @internal */
+  run() {
+    if (this._status !== tsPending$2) {
+      throw new Error(`Cannot run task in ${this._status} state`);
+    }
+    this._status = tsRunning$2;
+    let ret;
+    try {
+      ret = this.callback();
+    } catch (err) {
+      this._status = tsCanceled$1;
+      this._reject(err);
+      taskErrors.push(err);
+      return;
+    }
+    if (ret instanceof Promise) {
+      ++pendingAsyncCount;
+      ret.then((result) => {
+        this._status = tsCompleted$1;
+        this._resolve(result);
+      }).catch((err) => {
+        this._status = tsCanceled$1;
+        this._reject(err);
+        taskErrors.push(err);
+      }).finally(() => {
+        --pendingAsyncCount;
+        signalSettled(true);
+      });
+    } else {
+      this._status = tsCompleted$1;
+      this._resolve(ret);
+    }
+  }
+  /**
+   * Attempt to cancel the task **before it runs**.
+   *
+   * * If the task is still `"pending"` **and**:
+   *   * waiting in a `setTimeout` → the timer is cleared.
+   *   * sitting in the queue     → it is removed.
+   *   The task transitions to `"canceled"` and `result` rejects with
+   *   {@link TaskAbortError}.
+   * * If the task is already `"running"` or `"completed"` nothing happens.
+   *
+   * @returns `true` when the task was successfully canceled,
+   *          otherwise `false`.
+   *
+   * @example
+   * ```ts
+   * const t = queueAsyncTask(fetchData, { delay: 300 });
+   * // user typed again before the debounce expired
+   * if (t.cancel()) console.log('Previous fetch aborted');
+   * ```
+   */
+  cancel() {
+    if (this._timerId !== void 0) {
+      clearTimeout(this._timerId);
+      --pendingAsyncCount;
+      this._timerId = void 0;
+      this._status = tsCanceled$1;
+      const abortErr = new TaskAbortError$1(this);
+      this._reject(abortErr);
+      void this._result.catch(noop$1);
+      signalSettled(true);
+      return true;
+    }
+    if (this._status === tsPending$2) {
+      const idx = queue.indexOf(this);
+      if (idx > -1) {
+        queue.splice(idx, 1);
+        this._status = tsCanceled$1;
+        const abortErr = new TaskAbortError$1(this);
+        this._reject(abortErr);
+        void this._result.catch(noop$1);
+        signalSettled(true);
+        return true;
+      }
+    }
+    return false;
+  }
+};
+Task$1._taskId = 0;
+const queueRecurringTask = (callback, opts) => {
+  const task = new RecurringTask(callback, Math.max(opts?.interval, 0));
+  task._start();
+  return task;
+};
+class RecurringTask {
+  constructor(_callback, _interval) {
+    this._callback = _callback;
+    this._interval = _interval;
+    this.id = ++RecurringTask._nextId;
+    this._canceled = false;
+    this._nextResolvers = [];
+  }
+  /** @internal */
+  run() {
+    try {
+      this._callback();
+    } catch (err) {
+      taskErrors.push(err);
+      return;
+    }
+  }
+  /** @internal */
+  _start() {
+    if (this._canceled) {
+      return;
+    }
+    this._timerId = setTimeout(() => {
+      this._tick();
+      if (!this._canceled) {
+        this._start();
+      }
+    }, this._interval);
+  }
+  /** @internal */
+  _tick() {
+    queue.push(this);
+    requestRun();
+    const resolvers = this._nextResolvers.splice(0);
+    for (const resolver of resolvers) {
+      resolver();
+    }
+  }
+  /**
+   * Returns a promise that resolves after the next time the task's callback
+   * is queued for execution.
+   *
+   * This is useful for synchronizing other work with the task's interval,
+   * especially in tests. If the task has already been canceled, it returns an
+   * immediately-resolved promise.
+   *
+   * @returns A promise that resolves when the next interval occurs.
+   *
+   * @example
+   * Synchronizing with a polling task in a test
+   * ```ts
+   * it('updates data on a polling interval', async () => {
+   *   let count = 0;
+   *   const poller = queueRecurringTask(() => count++, { interval: 100 });
+   *
+   *   await poller.next();
+   *   await tasksSettled();
+   *   expect(count).toBe(1);
+   *
+   *   await poller.next();
+   *   await tasksSettled();
+   *   expect(count).toBe(2);
+   *
+   *   poller.cancel();
+   * });
+   * ```
+   */
+  next() {
+    if (this._canceled) {
+      return Promise.resolve();
+    }
+    return new Promise((resolve2) => this._nextResolvers.push(resolve2));
+  }
+  /**
+   * Permanently stops the recurring task.
+   *
+   * This action clears any pending timer, prevents future executions, removes
+   * the task from the scheduler's list of recurring tasks, and immediately
+   * resolves any pending promises created by `next()`.
+   *
+   * Once canceled, a recurring task cannot be restarted.
+   */
+  cancel() {
+    this._canceled = true;
+    if (this._timerId !== void 0) {
+      clearTimeout(this._timerId);
+      this._timerId = void 0;
+    }
+    const resolvers = this._nextResolvers.splice(0);
+    for (const resolve2 of resolvers) {
+      resolve2();
+    }
+  }
+}
+RecurringTask._nextId = 0;
 const ICoercionConfiguration = /* @__PURE__ */ DI.createInterface("ICoercionConfiguration");
 const atNone = 0;
 const atObserver$1 = 1;
@@ -8177,7 +8559,7 @@ const getArrayObserver = /* @__PURE__ */ (() => {
       }
     };
     for (const method of methods) {
-      rtDef(observe[method], "observing", { value: true, writable: false, configurable: false, enumerable: false });
+      rtDef(observe[method], "observing", { value: true });
     }
   }
   let enableArrayObservationCalled = false;
@@ -8707,7 +9089,11 @@ function unwrap$1(v2) {
   return canWrap(v2) && v2[rawKey] || v2;
 }
 function doNotCollect(object, key) {
-  return key === "constructor" || key === "__proto__" || key === "$observers" || key === Symbol.toPrimitive || key === Symbol.toStringTag || object.constructor[`${nowrapPropKey}_${rtSafeString(key)}__`] === true;
+  if (key === "constructor" || key === "__proto__" || key === "$observers" || key === Symbol.toPrimitive || key === Symbol.toStringTag || object.constructor[`${nowrapPropKey}_${rtSafeString(key)}__`] === true) {
+    return true;
+  }
+  const descriptor = Reflect.getOwnPropertyDescriptor(object, key);
+  return descriptor?.configurable === false && descriptor.writable === false;
 }
 function createProxy(obj) {
   const handler = isArray(obj) ? arrayHandler : isMap(obj) || isSet(obj) ? collectionHandler : objectHandler;
@@ -8893,10 +9279,7 @@ function wrappedArraySplice(...args) {
   return wrap$1(getRaw(this).splice(...args));
 }
 function wrappedArrayReverse(..._args) {
-  const raw = getRaw(this);
-  const res = raw.reverse();
-  observeCollection(_connectable, raw);
-  return wrap$1(res);
+  return wrap$1(getRaw(this).reverse());
 }
 function wrappedArraySome(cb, thisArg) {
   const raw = getRaw(this);
@@ -9067,21 +9450,22 @@ const ProxyObservable = /* @__PURE__ */ rtObjectFreeze({
   rawKey
 });
 class ComputedObserver {
-  constructor(obj, get, set, observerLocator, useProxy) {
+  constructor(obj, get, set, observerLocator, flush = "async") {
     this.type = atObserver$1;
     this._oldValue = void 0;
     this._value = void 0;
     this._notified = false;
-    this._isRunning = false;
+    this._isQueued = false;
     this._isDirty = false;
     this._callback = void 0;
     this._coercer = void 0;
     this._coercionConfig = void 0;
     this._obj = obj;
-    this._wrapped = useProxy ? wrap$1(obj) : obj;
+    this._wrapped = wrap$1(obj);
     this.$get = get;
     this.$set = set;
     this.oL = observerLocator;
+    this._flush = flush;
   }
   init(value) {
     this._value = value;
@@ -9105,9 +9489,7 @@ class ComputedObserver {
         v2 = this._coercer.call(null, v2, this._coercionConfig);
       }
       if (!areEqual(v2, this._value)) {
-        this._isRunning = true;
         this.$set.call(this._obj, v2);
-        this._isRunning = false;
         this.run();
       }
     } else {
@@ -9160,9 +9542,21 @@ class ComputedObserver {
     }
   }
   run() {
-    if (this._isRunning) {
+    if (this._flush === "sync") {
+      this._run();
       return;
     }
+    if (this._isQueued) {
+      return;
+    }
+    this._isQueued = true;
+    queueTask(() => {
+      this._isQueued = false;
+      this._run();
+    });
+  }
+  /** @internal */
+  _run() {
     const currValue = this._value;
     const oldValue = this._oldValue;
     const newValue = this.compute();
@@ -9175,14 +9569,12 @@ class ComputedObserver {
     }
   }
   compute() {
-    this._isRunning = true;
     this.obs.version++;
     try {
       enterConnectable(this);
       return this._value = unwrap$1(this.$get.call(this._wrapped, this._wrapped, this));
     } finally {
       this.obs.clear();
-      this._isRunning = false;
       exitConnectable(this);
     }
   }
@@ -9190,6 +9582,28 @@ class ComputedObserver {
 (() => {
   connectable(ComputedObserver, null);
   subscriberCollection(ComputedObserver, null);
+})();
+typeof SuppressedError === "function" ? SuppressedError : function(error2, suppressed, message) {
+  var e2 = new Error(message);
+  return e2.name = "SuppressedError", e2.error = error2, e2.suppressed = suppressed, e2;
+};
+const computedPropInfo = /* @__PURE__ */ (() => {
+  const map = /* @__PURE__ */ new WeakMap();
+  const normalizeKey2 = (key) => {
+    return isSymbol(key) ? key : String(key);
+  };
+  return {
+    get: (obj, key) => map.get(obj)?.get(normalizeKey2(key)),
+    _getFlush: (obj, key) => {
+      return map.get(obj)?.get(normalizeKey2(key))?.flush;
+    },
+    set: (obj, key, value) => {
+      if (!map.has(obj)) {
+        map.set(obj, /* @__PURE__ */ new Map());
+      }
+      map.get(obj).set(normalizeKey2(key), value);
+    }
+  };
 })();
 const IDirtyChecker = /* @__PURE__ */ rtCreateInterface(
   "IDirtyChecker",
@@ -9244,7 +9658,7 @@ class DirtyChecker {
   addProperty(property) {
     this.tracked.push(property);
     if (this.tracked.length === 1) {
-      this._task = this.p.taskQueue.queueTask(this.check, { persistent: true });
+      this._task = queueRecurringTask(this.check, { interval: 0 });
     }
   }
   removeProperty(property) {
@@ -9425,7 +9839,7 @@ class DefaultNodeObserverLocator {
 }
 const IComputedObserverLocator = /* @__PURE__ */ rtCreateInterface("IComputedObserverLocator", (x2) => x2.singleton(class DefaultLocator {
   getObserver(obj, key, pd, requestor) {
-    const observer = new ComputedObserver(obj, pd.get, pd.set, requestor, true);
+    const observer = new ComputedObserver(obj, pd.get, pd.set, requestor, computedPropInfo._getFlush(obj, key));
     rtDef(obj, key, {
       enumerable: pd.enumerable,
       configurable: true,
@@ -9455,7 +9869,7 @@ class ObserverLocator {
       return new PrimitiveObserver(obj, isFunction(key) ? "" : key);
     }
     if (isFunction(key)) {
-      return new ComputedObserver(obj, key, void 0, this, true);
+      return new ComputedObserver(obj, key, void 0, this);
     }
     const lookup2 = getObserverLookup(obj);
     let observer = lookup2[key];
@@ -9572,10 +9986,7 @@ const getOwnPropDesc = Object.getOwnPropertyDescriptor;
 const getObserverLookup = (instance) => {
   let lookup2 = instance.$observers;
   if (lookup2 === void 0) {
-    rtDef(instance, "$observers", {
-      enumerable: false,
-      value: lookup2 = createLookup$1()
-    });
+    rtDef(instance, "$observers", { value: lookup2 = createLookup$1() });
   }
   return lookup2;
 };
@@ -9678,10 +10089,6 @@ class ExpressionObserver {
   connectable(ExpressionObserver, null);
   mixinNoopAstEvaluator(ExpressionObserver);
 })();
-typeof SuppressedError === "function" ? SuppressedError : function(error2, suppressed, message) {
-  var e2 = new Error(message);
-  return e2.name = "SuppressedError", e2.error = error2, e2.suppressed = suppressed, e2;
-};
 const tsPending$1 = "pending";
 const tsRunning$1 = "running";
 const tsCompleted = "completed";
@@ -9913,27 +10320,27 @@ class TaskQueue {
       this._requestFlush();
     }
     const time = this._now();
-    const task2 = new Task(this._tracer, this, time, time + delay, preempt, persistent, suspend, callback);
+    const task = new Task2(this._tracer, this, time, time + delay, preempt, persistent, suspend, callback);
     if (preempt) {
-      this._processing[this._processing.length] = task2;
+      this._processing[this._processing.length] = task;
     } else if (delay === 0) {
-      this._pending[this._pending.length] = task2;
+      this._pending[this._pending.length] = task;
     } else {
-      this._delayed[this._delayed.length] = task2;
+      this._delayed[this._delayed.length] = task;
     }
     if (this._tracer.enabled) {
       this._tracer.leave(this, "queueTask");
     }
-    return task2;
+    return task;
   }
   /**
    * Remove the task from this queue.
    */
-  remove(task2) {
+  remove(task) {
     if (this._tracer.enabled) {
       this._tracer.enter(this, "remove");
     }
-    let idx = this._processing.indexOf(task2);
+    let idx = this._processing.indexOf(task);
     if (idx > -1) {
       this._processing.splice(idx, 1);
       if (this._tracer.enabled) {
@@ -9941,7 +10348,7 @@ class TaskQueue {
       }
       return;
     }
-    idx = this._pending.indexOf(task2);
+    idx = this._pending.indexOf(task);
     if (idx > -1) {
       this._pending.splice(idx, 1);
       if (this._tracer.enabled) {
@@ -9949,7 +10356,7 @@ class TaskQueue {
       }
       return;
     }
-    idx = this._delayed.indexOf(task2);
+    idx = this._delayed.indexOf(task);
     if (idx > -1) {
       this._delayed.splice(idx, 1);
       if (this._tracer.enabled) {
@@ -9960,22 +10367,22 @@ class TaskQueue {
     if (this._tracer.enabled) {
       this._tracer.leave(this, "remove error");
     }
-    throw createError$2(`Task #${task2.id} could not be found`);
+    throw createError$2(`Task #${task.id} could not be found`);
   }
   /**
    * Reset the persistent task back to its pending state, preparing it for being invoked again on the next flush.
    *
    * @internal
    */
-  _resetPersistentTask(task2) {
+  _resetPersistentTask(task) {
     if (this._tracer.enabled) {
       this._tracer.enter(this, "resetPersistentTask");
     }
-    task2.reset(this._now());
-    if (task2.createdTime === task2.queueTime) {
-      this._pending[this._pending.length] = task2;
+    task.reset(this._now());
+    if (task.createdTime === task.queueTime) {
+      this._pending[this._pending.length] = task;
     } else {
-      this._delayed[this._delayed.length] = task2;
+      this._delayed[this._delayed.length] = task;
     }
     if (this._tracer.enabled) {
       this._tracer.leave(this, "resetPersistentTask");
@@ -9986,16 +10393,16 @@ class TaskQueue {
    *
    * @internal
    */
-  _completeAsyncTask(task2) {
+  _completeAsyncTask(task) {
     if (this._tracer.enabled) {
       this._tracer.enter(this, "completeAsyncTask");
     }
-    if (task2.suspend === true) {
-      if (this._suspenderTask !== task2) {
+    if (task.suspend === true) {
+      if (this._suspenderTask !== task) {
         if (this._tracer.enabled) {
           this._tracer.leave(this, "completeAsyncTask error");
         }
-        throw createError$2(`Async task completion mismatch: suspenderTask=${this._suspenderTask?.id}, task=${task2.id}`);
+        throw createError$2(`Async task completion mismatch: suspenderTask=${this._suspenderTask?.id}, task=${task.id}`);
       }
       this._suspenderTask = void 0;
     } else {
@@ -10014,14 +10421,14 @@ class TaskQueue {
     }
   }
 }
-class TaskAbortError extends Error {
-  constructor(task2) {
+class TaskAbortError2 extends Error {
+  constructor(task) {
     super("Task was canceled.");
-    this.task = task2;
+    this.task = task;
   }
 }
 let id = 0;
-class Task {
+class Task2 {
   get result() {
     const result = this._result;
     if (result === void 0) {
@@ -10032,12 +10439,13 @@ class Task {
           this._reject = promise.reject;
           return promise;
         }
+        /* istanbul ignore next */
         case tsRunning$1:
           throw createError$2("Trying to await task from within task will cause a deadlock.");
         case tsCompleted:
           return this._result = Promise.resolve();
         case tsCanceled:
-          return this._result = Promise.reject(new TaskAbortError(this));
+          return this._result = Promise.reject(new TaskAbortError2(this));
       }
     }
     return result;
@@ -10154,7 +10562,7 @@ class Task {
       this._status = tsCanceled;
       this.dispose();
       if (reject !== void 0) {
-        reject(new TaskAbortError(this));
+        reject(new TaskAbortError2(this));
       }
       if (this._tracer.enabled) {
         this._tracer.leave(this, "cancel true =pending");
@@ -10224,12 +10632,12 @@ class Tracer {
     } else {
       const id2 = obj["id"];
       const created = Math.round(obj["createdTime"] * 10) / 10;
-      const queue = Math.round(obj["queueTime"] * 10) / 10;
+      const queue2 = Math.round(obj["queueTime"] * 10) / 10;
       const preempt = obj["preempt"];
       const persistent = obj["persistent"];
       const suspend = obj["suspend"];
       const status = obj["_status"];
-      const info2 = `id=${id2} created=${created} queue=${queue} preempt=${preempt} persistent=${persistent} status=${status} suspend=${suspend}`;
+      const info2 = `id=${id2} created=${created} queue=${queue2} preempt=${preempt} persistent=${persistent} status=${status} suspend=${suspend}`;
       this.console.log(`${prefix}[T.${method}] ${info2}`);
     }
   }
@@ -10252,7 +10660,7 @@ const createExposedPromise = () => {
   p2.reject = $reject;
   return p2;
 };
-const isPersistent = (task2) => task2.persistent;
+const isPersistent = (task) => task.persistent;
 const preemptDelayComboError = () => createError$2(`AUR1006: Invalid arguments: preempt cannot be combined with a greater-than-zero delay`);
 const preemptyPersistentComboError = () => createError$2(`AUR1007: Invalid arguments: preempt cannot be combined with persistent`);
 const createError$2 = (msg) => new Error(msg);
@@ -10377,7 +10785,14 @@ const tsRunning = "running";
 const atObserver = AccessorType.Observer;
 const atNode = AccessorType.Node;
 const atLayout = AccessorType.Layout;
-const createMappedError$2 = (code, ...details) => new Error(`AUR${safeString(code).padStart(4, "0")}: ${getMessageByCode(code, ...details)}`);
+const createMappedError$2 = (code, ...details) => {
+  const paddedCode = safeString(code).padStart(4, "0");
+  const message = getMessageByCode(code, ...details);
+  const link = `https://docs.aurelia.io/developer-guides/error-messages/runtime-html/aur${paddedCode}`;
+  return new Error(`AUR${paddedCode}: ${message}
+
+For more information, see: ${link}`);
+};
 const errorsMap = {
   [
     99
@@ -11340,7 +11755,7 @@ const refs = /* @__PURE__ */ (() => {
   }();
 })();
 const INode = /* @__PURE__ */ createInterface("INode");
-function watch(expressionOrPropertyAccessFn, changeHandlerOrCallback) {
+function watch(expressionOrPropertyAccessFn, changeHandlerOrCallbackOrOptions, optionsOrUndefined) {
   if (expressionOrPropertyAccessFn == null) {
     throw createMappedError$2(
       772
@@ -11349,14 +11764,22 @@ function watch(expressionOrPropertyAccessFn, changeHandlerOrCallback) {
   }
   return function decorator(target, context) {
     const isClassDecorator = context.kind === "class";
+    let options;
+    let changeHandler;
     if (isClassDecorator) {
-      if (!isFunction(changeHandlerOrCallback) && changeHandlerOrCallback == null) {
-        throw createMappedError$2(773, `${safeString(changeHandlerOrCallback)}@${target.name}}`);
+      if (!isFunction(changeHandlerOrCallbackOrOptions) && changeHandlerOrCallbackOrOptions == null) {
+        throw createMappedError$2(773, `${safeString(changeHandlerOrCallbackOrOptions)}@${target.name}}`);
       }
-    } else if (!isFunction(target) || context.static) {
-      throw createMappedError$2(774, context.name);
+      changeHandler = changeHandlerOrCallbackOrOptions;
+      options = {};
+    } else {
+      if (!isFunction(target) || context.static) {
+        throw createMappedError$2(774, context.name);
+      }
+      changeHandler = target;
+      options = {};
     }
-    const watchDef = new WatchDefinition(expressionOrPropertyAccessFn, isClassDecorator ? changeHandlerOrCallback : target);
+    const watchDef = new WatchDefinition(expressionOrPropertyAccessFn, changeHandler, options.flush);
     if (isClassDecorator) {
       addDefinition(target);
     } else {
@@ -11380,9 +11803,10 @@ function watch(expressionOrPropertyAccessFn, changeHandlerOrCallback) {
   };
 }
 class WatchDefinition {
-  constructor(expression, callback) {
+  constructor(expression, callback, flush = "async") {
     this.expression = expression;
     this.callback = callback;
+    this.flush = flush;
   }
 }
 const Watch = /* @__PURE__ */ (() => {
@@ -11692,7 +12116,9 @@ class BindingTargetSubscriber {
     this._flushQueue = flushQueue;
   }
   flush() {
-    this.b.updateSource(this._value);
+    if (this.b.isBound) {
+      this.b.updateSource(this._value);
+    }
   }
   // deepscan-disable-next-line
   handleChange(value, _2) {
@@ -11787,11 +12213,30 @@ const mixinAstEvaluator = /* @__PURE__ */ (() => {
     if (vc == null) {
       throw createMappedError$2(103, name2);
     }
+    const withContext = vc.withContext === true;
+    let callerContext = null;
+    if (withContext) {
+      const hydrationContext = this.l.get(IHydrationContext);
+      const controller = hydrationContext.controller;
+      const viewModel = controller.viewModel;
+      callerContext = {
+        source: viewModel,
+        binding: this
+      };
+    }
     switch (mode) {
-      case "toView":
-        return "toView" in vc ? vc.toView(value, ...args) : value;
-      case "fromView":
-        return "fromView" in vc ? vc.fromView?.(value, ...args) : value;
+      case "toView": {
+        if ("toView" in vc) {
+          return withContext ? vc.toView(value, callerContext, ...args) : vc.toView(value, ...args);
+        }
+        return value;
+      }
+      case "fromView": {
+        if ("fromView" in vc) {
+          return withContext ? vc.fromView?.(value, callerContext, ...args) : vc.fromView?.(value, ...args);
+        }
+        return value;
+      }
     }
   }
   return (target) => {
@@ -11838,25 +12283,24 @@ const mixingBindingLimited = /* @__PURE__ */ (() => {
   const withLimitationBindings = /* @__PURE__ */ new WeakSet();
   const debounced = (opts, callOriginal, binding) => {
     let limiterTask;
-    let task2;
+    let task;
     let latestValue;
     let isPending = false;
-    const taskQueue = opts.queue;
     const callOriginalCallback = () => callOriginal(latestValue);
     const fn2 = (v2) => {
       latestValue = v2;
       if (binding.isBound) {
-        task2 = limiterTask;
-        limiterTask = taskQueue.queueTask(callOriginalCallback, { delay: opts.delay });
-        task2?.cancel();
+        task = limiterTask;
+        limiterTask = queueAsyncTask(callOriginalCallback, { delay: opts.delay });
+        task?.cancel();
       } else {
         callOriginalCallback();
       }
     };
     const dispose2 = fn2.dispose = () => {
-      task2?.cancel();
+      task?.cancel();
       limiterTask?.cancel();
-      task2 = limiterTask = void 0;
+      task = limiterTask = void 0;
     };
     fn2.flush = () => {
       isPending = limiterTask?.status === tsPending;
@@ -11869,37 +12313,36 @@ const mixingBindingLimited = /* @__PURE__ */ (() => {
   };
   const throttled = (opts, callOriginal, binding) => {
     let limiterTask;
-    let task2;
+    let task;
     let last = 0;
     let elapsed = 0;
     let latestValue;
     let isPending = false;
-    const taskQueue = opts.queue;
     const now = () => opts.now();
     const callOriginalCallback = () => callOriginal(latestValue);
     const fn2 = (v2) => {
       latestValue = v2;
       if (binding.isBound) {
         elapsed = now() - last;
-        task2 = limiterTask;
+        task = limiterTask;
         if (elapsed > opts.delay) {
           last = now();
           callOriginalCallback();
         } else {
-          limiterTask = taskQueue.queueTask(() => {
+          limiterTask = queueAsyncTask(() => {
             last = now();
             callOriginalCallback();
           }, { delay: opts.delay - elapsed });
         }
-        task2?.cancel();
+        task?.cancel();
       } else {
         callOriginalCallback();
       }
     };
     const dispose2 = fn2.dispose = () => {
-      task2?.cancel();
+      task?.cancel();
       limiterTask?.cancel();
-      task2 = limiterTask = void 0;
+      task = limiterTask = void 0;
     };
     fn2.flush = () => {
       isPending = limiterTask?.status === tsPending;
@@ -11953,18 +12396,15 @@ const createPrototypeMixer = /* @__PURE__ */ ((mixed = /* @__PURE__ */ new WeakS
     };
   };
 })();
-const taskOptions = {
-  preempt: true
-};
 class AttributeBinding {
-  constructor(controller, locator, observerLocator, taskQueue, ast, target, targetAttribute, targetProperty, mode, strict) {
+  constructor(controller, locator, observerLocator, ast, target, targetAttribute, targetProperty, mode, strict) {
     this.targetAttribute = targetAttribute;
     this.targetProperty = targetProperty;
     this.mode = mode;
     this.strict = strict;
     this.isBound = false;
     this._scope = void 0;
-    this._task = null;
+    this._isQueued = false;
     this._value = void 0;
     this.boundFn = false;
     this._isMulti = false;
@@ -11973,7 +12413,6 @@ class AttributeBinding {
     this._controller = controller;
     this.target = target;
     this.oL = observerLocator;
-    this._taskQueue = taskQueue;
     if ((this._isMulti = targetProperty.indexOf(" ") > -1) && !AttributeBinding._splitString.has(targetProperty)) {
       AttributeBinding._splitString.set(targetProperty, targetProperty.split(" "));
     }
@@ -12013,68 +12452,48 @@ class AttributeBinding {
     }
   }
   handleChange() {
-    if (!this.isBound) {
+    if (!this.isBound)
       return;
-    }
-    let task2;
-    this.obs.version++;
-    const newValue = astEvaluate(
-      this.ast,
-      this._scope,
-      this,
-      // should observe?
-      (this.mode & toView) > 0 ? this : null
-    );
-    this.obs.clear();
-    if (newValue !== this._value) {
-      this._value = newValue;
-      const shouldQueueFlush = this._controller.state !== activating;
-      if (shouldQueueFlush) {
-        task2 = this._task;
-        this._task = this._taskQueue.queueTask(() => {
-          this._task = null;
-          this.updateTarget(newValue);
-        }, taskOptions);
-        task2?.cancel();
-      } else {
+    if (this._isQueued)
+      return;
+    this._isQueued = true;
+    queueTask(() => {
+      this._isQueued = false;
+      if (!this.isBound)
+        return;
+      this.obs.version++;
+      const newValue = astEvaluate(this.ast, this._scope, this, (this.mode & toView) > 0 ? this : null);
+      this.obs.clear();
+      if (newValue !== this._value) {
+        this._value = newValue;
         this.updateTarget(newValue);
       }
-    }
+    });
   }
   // todo: based off collection and handle update accordingly instead off always start
   handleCollectionChange() {
     this.handleChange();
   }
-  bind(_scope) {
+  bind(scope) {
     if (this.isBound) {
-      if (this._scope === _scope) {
+      if (this._scope === scope)
         return;
-      }
       this.unbind();
     }
-    this._scope = _scope;
-    astBind(this.ast, _scope, this);
+    this._scope = scope;
+    astBind(this.ast, scope, this);
     if (this.mode & (toView | oneTime)) {
-      this.updateTarget(this._value = astEvaluate(
-        this.ast,
-        _scope,
-        this,
-        /* should connect? */
-        (this.mode & toView) > 0 ? this : null
-      ));
+      this.updateTarget(this._value = astEvaluate(this.ast, scope, this, (this.mode & toView) > 0 ? this : null));
     }
     this.isBound = true;
   }
   unbind() {
-    if (!this.isBound) {
+    if (!this.isBound)
       return;
-    }
     this.isBound = false;
     astUnbind(this.ast, this._scope, this);
     this._scope = void 0;
     this._value = void 0;
-    this._task?.cancel();
-    this._task = null;
     this.obs.clearAll();
   }
 }
@@ -12085,11 +12504,8 @@ AttributeBinding.mix = createPrototypeMixer(() => {
   mixinAstEvaluator(AttributeBinding);
 });
 AttributeBinding._splitString = /* @__PURE__ */ new Map();
-const queueTaskOptions$1 = {
-  preempt: true
-};
 class InterpolationBinding {
-  constructor(controller, locator, observerLocator, taskQueue, ast, target, targetProperty, mode, strict) {
+  constructor(controller, locator, observerLocator, ast, target, targetProperty, mode, strict) {
     this.ast = ast;
     this.target = target;
     this.targetProperty = targetProperty;
@@ -12097,10 +12513,9 @@ class InterpolationBinding {
     this.strict = strict;
     this.isBound = false;
     this._scope = void 0;
-    this._task = null;
+    this._isQueued = false;
     this._controller = controller;
     this.oL = observerLocator;
-    this._taskQueue = taskQueue;
     this._targetObserver = observerLocator.getAccessor(target, targetProperty);
     const expressions = ast.expressions;
     const partBindings = this.partBindings = Array(expressions.length);
@@ -12112,58 +12527,61 @@ class InterpolationBinding {
   }
   /** @internal */
   _handlePartChange() {
-    this.updateTarget();
+    if (!this.isBound)
+      return;
+    const shouldQueue = this._controller.state !== activating && (this._targetObserver.type & atLayout) > 0;
+    if (shouldQueue) {
+      if (this._isQueued)
+        return;
+      this._isQueued = true;
+      queueTask(() => {
+        this._isQueued = false;
+        if (!this.isBound)
+          return;
+        this.updateTarget();
+      });
+    } else {
+      this.updateTarget();
+    }
   }
   updateTarget() {
     const partBindings = this.partBindings;
-    const staticParts = this.ast.parts;
+    const ast = this.ast;
+    const target = this.target;
+    const targetProperty = this.targetProperty;
+    const staticParts = ast.parts;
     const ii = partBindings.length;
     let result = "";
     let i3 = 0;
     if (ii === 1) {
-      result = staticParts[0] + partBindings[0]._value + staticParts[1];
+      result = staticParts[0] + partBindings[0]._evaluate() + staticParts[1];
     } else {
       result = staticParts[0];
       for (; ii > i3; ++i3) {
-        result += partBindings[i3]._value + staticParts[i3 + 1];
+        result += partBindings[i3]._evaluate() + staticParts[i3 + 1];
       }
     }
-    const targetObserver = this._targetObserver;
-    const shouldQueueFlush = this._controller.state !== activating && (targetObserver.type & atLayout) > 0;
-    let task2;
-    if (shouldQueueFlush) {
-      task2 = this._task;
-      this._task = this._taskQueue.queueTask(() => {
-        this._task = null;
-        targetObserver.setValue(result, this.target, this.targetProperty);
-      }, queueTaskOptions$1);
-      task2?.cancel();
-      task2 = null;
-    } else {
-      targetObserver.setValue(result, this.target, this.targetProperty);
-    }
+    this._targetObserver.setValue(result, target, targetProperty);
   }
-  bind(_scope) {
+  bind(scope) {
     if (this.isBound) {
-      if (this._scope === _scope) {
+      if (this._scope === scope)
         return;
-      }
       this.unbind();
     }
-    this._scope = _scope;
+    this._scope = scope;
     const partBindings = this.partBindings;
     const ii = partBindings.length;
     let i3 = 0;
     for (; ii > i3; ++i3) {
-      partBindings[i3].bind(_scope);
+      partBindings[i3].bind(scope);
     }
     this.updateTarget();
     this.isBound = true;
   }
   unbind() {
-    if (!this.isBound) {
+    if (!this.isBound)
       return;
-    }
     this.isBound = false;
     this._scope = void 0;
     const partBindings = this.partBindings;
@@ -12172,8 +12590,6 @@ class InterpolationBinding {
     for (; ii > i3; ++i3) {
       partBindings[i3].unbind();
     }
-    this._task?.cancel();
-    this._task = null;
   }
   /**
    * Start using a given observer to update the target
@@ -12190,10 +12606,10 @@ class InterpolationPartBinding {
     this.strict = strict;
     this.owner = owner;
     this.mode = toView;
-    this.task = null;
     this.isBound = false;
     this._value = "";
     this.boundFn = false;
+    this._isDirty = false;
     this.l = locator;
     this.oL = observerLocator;
   }
@@ -12201,34 +12617,35 @@ class InterpolationPartBinding {
     this.owner._handlePartChange();
   }
   handleChange() {
-    if (!this.isBound) {
+    if (!this.isBound)
       return;
-    }
-    this.obs.version++;
-    const newValue = astEvaluate(
-      this.ast,
-      this._scope,
-      this,
-      // should observe?
-      (this.mode & toView) > 0 ? this : null
-    );
-    this.obs.clear();
-    if (newValue != this._value) {
-      this._value = newValue;
-      if (isArray(newValue)) {
-        this.observeCollection(newValue);
-      }
-      this.updateTarget();
-    }
+    this._isDirty = true;
+    this.updateTarget();
   }
   handleCollectionChange() {
+    if (!this.isBound)
+      return;
+    this._isDirty = true;
     this.updateTarget();
+  }
+  /** @internal */
+  _evaluate() {
+    if (!this._isDirty)
+      return this._value;
+    this.obs.version++;
+    const newValue = astEvaluate(this.ast, this._scope, this, (this.mode & toView) > 0 ? this : null);
+    this.obs.clear();
+    this._value = newValue;
+    if (isArray(newValue)) {
+      this.observeCollection(newValue);
+    }
+    this._isDirty = false;
+    return this._value;
   }
   bind(scope) {
     if (this.isBound) {
-      if (this._scope === scope) {
+      if (this._scope === scope)
         return;
-      }
       this.unbind();
     }
     this._scope = scope;
@@ -12237,13 +12654,15 @@ class InterpolationPartBinding {
     if (isArray(this._value)) {
       this.observeCollection(this._value);
     }
+    this._isDirty = false;
     this.isBound = true;
   }
   unbind() {
-    if (!this.isBound) {
+    if (!this.isBound)
       return;
-    }
     this.isBound = false;
+    this._value = void 0;
+    this._isDirty = false;
     astUnbind(this.ast, this._scope, this);
     this._scope = void 0;
     this.obs.clearAll();
@@ -12255,25 +12674,21 @@ InterpolationPartBinding.mix = createPrototypeMixer(() => {
   connectable(InterpolationPartBinding, null);
   mixinAstEvaluator(InterpolationPartBinding);
 });
-const queueTaskOptions = {
-  preempt: true
-};
 class ContentBinding {
-  constructor(controller, locator, observerLocator, taskQueue, p2, ast, target, strict) {
+  constructor(controller, locator, observerLocator, p2, ast, target, strict) {
     this.p = p2;
     this.ast = ast;
     this.target = target;
     this.strict = strict;
     this.isBound = false;
     this.mode = toView;
-    this._task = null;
+    this._isQueued = false;
     this._value = "";
     this._needsRemoveNode = false;
     this.boundFn = false;
     this.l = locator;
     this._controller = controller;
     this.oL = observerLocator;
-    this._taskQueue = taskQueue;
   }
   updateTarget(value) {
     const target = this.target;
@@ -12291,56 +12706,50 @@ class ContentBinding {
     target.textContent = safeString(value ?? "");
   }
   handleChange() {
-    if (!this.isBound) {
+    if (!this.isBound)
       return;
-    }
-    this.obs.version++;
-    const newValue = astEvaluate(
-      this.ast,
-      this._scope,
-      this,
-      // should observe?
-      (this.mode & toView) > 0 ? this : null
-    );
-    this.obs.clear();
-    if (newValue === this._value) {
-      this._task?.cancel();
-      this._task = null;
+    if (this._isQueued)
       return;
-    }
-    const shouldQueueFlush = this._controller.state !== activating;
-    if (shouldQueueFlush) {
-      this._queueUpdate(newValue);
-    } else {
-      this.updateTarget(newValue);
-    }
+    this._isQueued = true;
+    queueTask(() => {
+      this._isQueued = false;
+      if (!this.isBound)
+        return;
+      this.obs.version++;
+      const newValue = astEvaluate(this.ast, this._scope, this, (this.mode & toView) > 0 ? this : null);
+      this.obs.clear();
+      if (newValue !== this._value) {
+        this.updateTarget(newValue);
+      }
+    });
   }
   handleCollectionChange() {
-    if (!this.isBound) {
+    if (!this.isBound)
       return;
-    }
-    this.obs.version++;
-    const v2 = this._value = astEvaluate(this.ast, this._scope, this, (this.mode & toView) > 0 ? this : null);
-    this.obs.clear();
-    if (isArray(v2)) {
-      this.observeCollection(v2);
-    }
-    const shouldQueueFlush = this._controller.state !== activating;
-    if (shouldQueueFlush) {
-      this._queueUpdate(v2);
-    } else {
-      this.updateTarget(v2);
-    }
-  }
-  bind(_scope) {
-    if (this.isBound) {
-      if (this._scope === _scope) {
+    if (this._isQueued)
+      return;
+    this._isQueued = true;
+    queueTask(() => {
+      this._isQueued = false;
+      if (!this.isBound)
         return;
+      this.obs.version++;
+      const v2 = this._value = astEvaluate(this.ast, this._scope, this, (this.mode & toView) > 0 ? this : null);
+      this.obs.clear();
+      if (isArray(v2)) {
+        this.observeCollection(v2);
       }
+      this.updateTarget(v2);
+    });
+  }
+  bind(scope) {
+    if (this.isBound) {
+      if (this._scope === scope)
+        return;
       this.unbind();
     }
-    this._scope = _scope;
-    astBind(this.ast, _scope, this);
+    this._scope = scope;
+    astBind(this.ast, scope, this);
     const v2 = this._value = astEvaluate(this.ast, this._scope, this, (this.mode & toView) > 0 ? this : null);
     if (isArray(v2)) {
       this.observeCollection(v2);
@@ -12349,9 +12758,8 @@ class ContentBinding {
     this.isBound = true;
   }
   unbind() {
-    if (!this.isBound) {
+    if (!this.isBound)
       return;
-    }
     this.isBound = false;
     astUnbind(this.ast, this._scope, this);
     if (this._needsRemoveNode) {
@@ -12359,18 +12767,6 @@ class ContentBinding {
     }
     this._scope = void 0;
     this.obs.clearAll();
-    this._task?.cancel();
-    this._task = null;
-  }
-  // queue a force update
-  /** @internal */
-  _queueUpdate(newValue) {
-    const task2 = this._task;
-    this._task = this._taskQueue.queueTask(() => {
-      this._task = null;
-      this.updateTarget(newValue);
-    }, queueTaskOptions);
-    task2?.cancel();
   }
 }
 ContentBinding.mix = createPrototypeMixer(() => {
@@ -12396,9 +12792,8 @@ class LetBinding {
     this.target[this.targetProperty] = this._value;
   }
   handleChange() {
-    if (!this.isBound) {
+    if (!this.isBound)
       return;
-    }
     this.obs.version++;
     this._value = astEvaluate(this.ast, this._scope, this, this);
     this.obs.clear();
@@ -12409,9 +12804,8 @@ class LetBinding {
   }
   bind(_scope) {
     if (this.isBound) {
-      if (this._scope === _scope) {
+      if (this._scope === _scope)
         return;
-      }
       this.unbind();
     }
     this._scope = _scope;
@@ -12422,9 +12816,8 @@ class LetBinding {
     this.isBound = true;
   }
   unbind() {
-    if (!this.isBound) {
+    if (!this.isBound)
       return;
-    }
     this.isBound = false;
     astUnbind(this.ast, this._scope, this);
     this._scope = void 0;
@@ -12438,7 +12831,7 @@ LetBinding.mix = createPrototypeMixer(() => {
   mixinAstEvaluator(LetBinding);
 });
 class PropertyBinding {
-  constructor(controller, locator, observerLocator, taskQueue, ast, target, targetProperty, mode, strict) {
+  constructor(controller, locator, observerLocator, ast, target, targetProperty, mode, strict) {
     this.ast = ast;
     this.target = target;
     this.targetProperty = targetProperty;
@@ -12447,12 +12840,11 @@ class PropertyBinding {
     this.isBound = false;
     this._scope = void 0;
     this._targetObserver = void 0;
-    this._task = null;
+    this._isQueued = false;
     this._targetSubscriber = null;
     this.boundFn = false;
     this.l = locator;
     this._controller = controller;
-    this._taskQueue = taskQueue;
     this.oL = observerLocator;
   }
   updateTarget(value) {
@@ -12462,30 +12854,29 @@ class PropertyBinding {
     astAssign(this.ast, this._scope, this, null, value);
   }
   handleChange() {
-    if (!this.isBound) {
+    if (!this.isBound)
       return;
-    }
-    this.obs.version++;
-    const newValue = astEvaluate(
-      this.ast,
-      this._scope,
-      this,
-      // should observe?
-      (this.mode & toView) > 0 ? this : null
-    );
-    this.obs.clear();
-    const shouldQueueFlush = this._controller.state !== activating && (this._targetObserver.type & atLayout) > 0;
-    if (shouldQueueFlush) {
-      task = this._task;
-      this._task = this._taskQueue.queueTask(() => {
-        this.updateTarget(newValue);
-        this._task = null;
-      }, updateTaskOpts);
-      task?.cancel();
-      task = null;
+    const shouldQueue = this._controller.state !== activating && (this._targetObserver.type & atLayout) > 0;
+    if (shouldQueue) {
+      if (this._isQueued)
+        return;
+      this._isQueued = true;
+      queueTask(() => {
+        this._isQueued = false;
+        if (!this.isBound)
+          return;
+        this._handleChange();
+      });
     } else {
-      this.updateTarget(newValue);
+      this._handleChange();
     }
+  }
+  /** @internal */
+  _handleChange() {
+    this.obs.version++;
+    const newValue = astEvaluate(this.ast, this._scope, this, (this.mode & toView) > 0 ? this : null);
+    this.obs.clear();
+    this.updateTarget(newValue);
   }
   // todo: based off collection and handle update accordingly instead off always start
   handleCollectionChange() {
@@ -12493,9 +12884,8 @@ class PropertyBinding {
   }
   bind(scope) {
     if (this.isBound) {
-      if (this._scope === scope) {
+      if (this._scope === scope)
         return;
-      }
       this.unbind();
     }
     this._scope = scope;
@@ -12524,18 +12914,15 @@ class PropertyBinding {
     this.isBound = true;
   }
   unbind() {
-    if (!this.isBound) {
+    if (!this.isBound)
       return;
-    }
     this.isBound = false;
-    astUnbind(this.ast, this._scope, this);
-    this._scope = void 0;
     if (this._targetSubscriber) {
       this._targetObserver.unsubscribe(this._targetSubscriber);
       this._targetSubscriber = null;
     }
-    this._task?.cancel();
-    this._task = null;
+    astUnbind(this.ast, this._scope, this);
+    this._scope = void 0;
     this.obs.clearAll();
   }
   /**
@@ -12567,10 +12954,6 @@ PropertyBinding.mix = createPrototypeMixer(() => {
   connectable(PropertyBinding, null);
   mixinAstEvaluator(PropertyBinding);
 });
-let task = null;
-const updateTaskOpts = {
-  preempt: true
-};
 class RefBinding {
   constructor(locator, oL, ast, target, strict) {
     this.oL = oL;
@@ -12600,22 +12983,20 @@ class RefBinding {
       this.updateSource();
     }
   }
-  bind(_scope) {
+  bind(scope) {
     if (this.isBound) {
-      if (this._scope === _scope) {
+      if (this._scope === scope)
         return;
-      }
       this.unbind();
     }
-    this._scope = _scope;
-    astBind(this.ast, _scope, this);
+    this._scope = scope;
+    astBind(this.ast, scope, this);
     this.isBound = true;
     this.updateSource();
   }
   unbind() {
-    if (!this.isBound) {
+    if (!this.isBound)
       return;
-    }
     this.isBound = false;
     this.obs.clearAll();
     if (astEvaluate(this.ast, this._scope, this, null) === this.target) {
@@ -12680,9 +13061,8 @@ class ListenerBinding {
   }
   bind(scope) {
     if (this.isBound) {
-      if (this._scope === scope) {
+      if (this._scope === scope)
         return;
-      }
       this.unbind();
     }
     this._scope = scope;
@@ -12691,9 +13071,8 @@ class ListenerBinding {
     this.isBound = true;
   }
   unbind() {
-    if (!this.isBound) {
+    if (!this.isBound)
       return;
-    }
     this.isBound = false;
     astUnbind(this.ast, this._scope, this);
     this._scope = void 0;
@@ -13018,9 +13397,8 @@ class SpreadBinding {
     return this.locator.get(key);
   }
   bind(_scope) {
-    if (this.isBound) {
+    if (this.isBound)
       return;
-    }
     this.isBound = true;
     const innerScope = this.scope = this._hydrationContext.controller.scope.parent ?? void 0;
     if (innerScope == null) {
@@ -13049,7 +13427,7 @@ class SpreadBinding {
   }
 }
 class SpreadValueBinding {
-  constructor(controller, target, targetKeys, ast, ol, l2, taskQueue, strict) {
+  constructor(controller, target, targetKeys, ast, ol, l2, strict) {
     this.target = target;
     this.targetKeys = targetKeys;
     this.ast = ast;
@@ -13062,7 +13440,6 @@ class SpreadValueBinding {
     this._controller = controller;
     this.oL = ol;
     this.l = l2;
-    this._taskQueue = taskQueue;
   }
   updateTarget() {
     this.obs.version++;
@@ -13071,22 +13448,19 @@ class SpreadValueBinding {
     this._createBindings(newValue, true);
   }
   handleChange() {
-    if (!this.isBound) {
+    if (!this.isBound)
       return;
-    }
     this.updateTarget();
   }
   handleCollectionChange() {
-    if (!this.isBound) {
+    if (!this.isBound)
       return;
-    }
     this.updateTarget();
   }
   bind(scope) {
     if (this.isBound) {
-      if (scope === this._scope) {
+      if (this._scope === scope)
         return;
-      }
       this.unbind();
     }
     this.isBound = true;
@@ -13096,9 +13470,8 @@ class SpreadValueBinding {
     this._createBindings(value, false);
   }
   unbind() {
-    if (!this.isBound) {
+    if (!this.isBound)
       return;
-    }
     this.isBound = false;
     astUnbind(this.ast, this._scope, this);
     this._scope = void 0;
@@ -13130,7 +13503,7 @@ class SpreadValueBinding {
       binding = this._bindingCache[key];
       if (key in value) {
         if (binding == null) {
-          binding = this._bindingCache[key] = new PropertyBinding(this._controller, this.l, this.oL, this._taskQueue, SpreadValueBinding._astCache[key] ??= new AccessScopeExpression(key, 0), this.target, key, BindingMode.toView, this.strict);
+          binding = this._bindingCache[key] = new PropertyBinding(this._controller, this.l, this.oL, SpreadValueBinding._astCache[key] ??= new AccessScopeExpression(key, 0), this.target, key, BindingMode.toView, this.strict);
         }
         binding.bind(scope);
       } else if (unbind) {
@@ -13372,6 +13745,13 @@ const CustomElementRenderer = /* @__PURE__ */ renderer(class CustomElementRender
           throw createMappedError$2(752, instruction, renderingCtrl);
         }
         break;
+      // constructor based instruction
+      // will be enabled later if needed.
+      // As both AOT + runtime based can use definition for perf
+      // -----------------
+      // case 'function':
+      //   def = CustomElement.getDefinition(res);
+      //   break;
       default:
         def2 = res;
     }
@@ -13434,6 +13814,13 @@ const CustomAttributeRenderer = /* @__PURE__ */ renderer(class CustomAttributeRe
           throw createMappedError$2(753, instruction, renderingCtrl);
         }
         break;
+      // constructor based instruction
+      // will be enabled later if needed.
+      // As both AOT + runtime based can use definition for perf
+      // -----------------
+      // case 'function':
+      //   def = CustomAttribute.getDefinition(instruction.res);
+      //   break;
       default:
         def2 = instruction.res;
     }
@@ -13492,6 +13879,13 @@ const TemplateControllerRenderer = /* @__PURE__ */ renderer(class TemplateContro
           throw createMappedError$2(754, instruction, renderingCtrl);
         }
         break;
+      // constructor based instruction
+      // will be enabled later if needed.
+      // As both AOT + runtime based can use definition for perf
+      // -----------------
+      // case 'function':
+      //   def = CustomAttribute.getDefinition(instruction.res);
+      //   break;
       default:
         def2 = instruction.res;
     }
@@ -13576,7 +13970,7 @@ const InterpolationBindingRenderer = /* @__PURE__ */ renderer(class Interpolatio
   }
   render(renderingCtrl, target, instruction, platform, exprParser, observerLocator) {
     const container = renderingCtrl.container;
-    const binding = new InterpolationBinding(renderingCtrl, container, observerLocator, platform.domQueue, ensureExpression(exprParser, instruction.from, etInterpolation), getTarget(target), instruction.to, toView, renderingCtrl.strict ?? false);
+    const binding = new InterpolationBinding(renderingCtrl, container, observerLocator, ensureExpression(exprParser, instruction.from, etInterpolation), getTarget(target), instruction.to, toView, renderingCtrl.strict ?? false);
     if (instruction.to === "class" && binding.target.nodeType > 0) {
       const cssMapping = container.get(fromHydrationContext(ICssClassMapping));
       binding.useAccessor(new ClassAttributeAccessor(binding.target, cssMapping));
@@ -13591,7 +13985,7 @@ const PropertyBindingRenderer = /* @__PURE__ */ renderer(class PropertyBindingRe
   }
   render(renderingCtrl, target, instruction, platform, exprParser, observerLocator) {
     const container = renderingCtrl.container;
-    const binding = new PropertyBinding(renderingCtrl, container, observerLocator, platform.domQueue, ensureExpression(exprParser, instruction.from, etIsProperty), getTarget(target), instruction.to, instruction.mode, renderingCtrl.strict ?? false);
+    const binding = new PropertyBinding(renderingCtrl, container, observerLocator, ensureExpression(exprParser, instruction.from, etIsProperty), getTarget(target), instruction.to, instruction.mode, renderingCtrl.strict ?? false);
     if (instruction.to === "class" && binding.target.nodeType > 0) {
       const cssMapping = container.get(fromHydrationContext(ICssClassMapping));
       binding.useTargetObserver(new ClassAttributeAccessor(binding.target, cssMapping));
@@ -13605,7 +13999,7 @@ const IteratorBindingRenderer = /* @__PURE__ */ renderer(class IteratorBindingRe
     PropertyBinding.mix();
   }
   render(renderingCtrl, target, instruction, platform, exprParser, observerLocator) {
-    renderingCtrl.addBinding(new PropertyBinding(renderingCtrl, renderingCtrl.container, observerLocator, platform.domQueue, ensureExpression(exprParser, instruction.forOf, etIsIterator), getTarget(target), instruction.to, toView, renderingCtrl.strict ?? false));
+    renderingCtrl.addBinding(new PropertyBinding(renderingCtrl, renderingCtrl.container, observerLocator, ensureExpression(exprParser, instruction.forOf, etIsIterator), getTarget(target), instruction.to, toView, renderingCtrl.strict ?? false));
   }
 });
 const TextBindingRenderer = /* @__PURE__ */ renderer(class TextBindingRenderer2 {
@@ -13614,7 +14008,7 @@ const TextBindingRenderer = /* @__PURE__ */ renderer(class TextBindingRenderer2 
     ContentBinding.mix();
   }
   render(renderingCtrl, target, instruction, platform, exprParser, observerLocator) {
-    renderingCtrl.addBinding(new ContentBinding(renderingCtrl, renderingCtrl.container, observerLocator, platform.domQueue, platform, ensureExpression(exprParser, instruction.from, etIsProperty), target, renderingCtrl.strict ?? false));
+    renderingCtrl.addBinding(new ContentBinding(renderingCtrl, renderingCtrl.container, observerLocator, platform, ensureExpression(exprParser, instruction.from, etIsProperty), target, renderingCtrl.strict ?? false));
   }
 });
 const IListenerBindingOptions = createInterface("IListenerBindingOptions", (x2) => x2.singleton(class {
@@ -13697,11 +14091,11 @@ const StylePropertyBindingRenderer = /* @__PURE__ */ renderer(class StylePropert
   render(renderingCtrl, target, instruction, platform, exprParser, observerLocator) {
     {
       if (ambiguousStyles.includes(instruction.to)) {
-        renderingCtrl.addBinding(new DevStylePropertyBinding(renderingCtrl, renderingCtrl.container, observerLocator, platform.domQueue, ensureExpression(exprParser, instruction.from, etIsProperty), target.style, instruction.to, toView, renderingCtrl.strict ?? false));
+        renderingCtrl.addBinding(new DevStylePropertyBinding(renderingCtrl, renderingCtrl.container, observerLocator, ensureExpression(exprParser, instruction.from, etIsProperty), target.style, instruction.to, toView, renderingCtrl.strict ?? false));
         return;
       }
     }
-    renderingCtrl.addBinding(new PropertyBinding(renderingCtrl, renderingCtrl.container, observerLocator, platform.domQueue, ensureExpression(exprParser, instruction.from, etIsProperty), target.style, instruction.to, toView, renderingCtrl.strict ?? false));
+    renderingCtrl.addBinding(new PropertyBinding(renderingCtrl, renderingCtrl.container, observerLocator, ensureExpression(exprParser, instruction.from, etIsProperty), target.style, instruction.to, toView, renderingCtrl.strict ?? false));
   }
 });
 class DevStylePropertyBinding extends PropertyBinding {
@@ -13720,7 +14114,7 @@ const AttributeBindingRenderer = /* @__PURE__ */ renderer(class AttributeBinding
   render(renderingCtrl, target, instruction, platform, exprParser, observerLocator) {
     const container = renderingCtrl.container;
     const classMapping = container.has(ICssClassMapping, false) ? container.get(ICssClassMapping) : null;
-    renderingCtrl.addBinding(new AttributeBinding(renderingCtrl, container, observerLocator, platform.domQueue, ensureExpression(exprParser, instruction.from, etIsProperty), target, instruction.attr, classMapping == null ? instruction.to : instruction.to.split(/\s/g).map((c2) => classMapping[c2] ?? c2).join(" "), toView, renderingCtrl.strict ?? false));
+    renderingCtrl.addBinding(new AttributeBinding(renderingCtrl, container, observerLocator, ensureExpression(exprParser, instruction.from, etIsProperty), target, instruction.attr, classMapping == null ? instruction.to : instruction.to.split(/\s/g).map((c2) => classMapping[c2] ?? c2).join(" "), toView, renderingCtrl.strict ?? false));
   }
 });
 const SpreadRenderer = /* @__PURE__ */ renderer(class SpreadRenderer2 {
@@ -13741,7 +14135,7 @@ const SpreadValueRenderer = /* @__PURE__ */ renderer(class SpreadValueRenderer2 
   render(renderingCtrl, target, instruction, platform, exprParser, observerLocator) {
     const instructionTarget = instruction.target;
     if (instructionTarget === "$bindables") {
-      renderingCtrl.addBinding(new SpreadValueBinding(renderingCtrl, target.viewModel, objectKeys(target.definition.bindables), exprParser.parse(instruction.from, etIsProperty), observerLocator, renderingCtrl.container, platform.domQueue, renderingCtrl.strict ?? false));
+      renderingCtrl.addBinding(new SpreadValueBinding(renderingCtrl, target.viewModel, objectKeys(target.definition.bindables), exprParser.parse(instruction.from, etIsProperty), observerLocator, renderingCtrl.container, renderingCtrl.strict ?? false));
     } else {
       throw createMappedError$2(820, instructionTarget);
     }
@@ -13968,15 +14362,16 @@ class ComputedWatcher {
   get value() {
     return this._value;
   }
-  constructor(obj, observerLocator, $get, cb, useProxy) {
+  constructor(obj, observerLocator, $get, cb, flush = "async") {
     this.obj = obj;
     this.$get = $get;
-    this.useProxy = useProxy;
     this.isBound = false;
-    this.running = false;
+    this._isQueued = false;
+    this._computeDepth = 0;
     this._value = void 0;
     this._callback = cb;
     this.oL = observerLocator;
+    this._flush = flush;
   }
   handleChange() {
     this.run();
@@ -13985,39 +14380,56 @@ class ComputedWatcher {
     this.run();
   }
   bind() {
-    if (this.isBound) {
+    if (this.isBound)
       return;
-    }
     this.compute();
     this.isBound = true;
   }
   unbind() {
-    if (!this.isBound) {
+    if (!this.isBound)
       return;
-    }
     this.isBound = false;
     this.obs.clearAll();
   }
   run() {
-    if (!this.isBound || this.running) {
+    if (!this.isBound)
+      return;
+    if (this._flush === "sync") {
+      this._run();
       return;
     }
+    if (this._isQueued)
+      return;
+    this._isQueued = true;
+    queueTask(() => {
+      this._isQueued = false;
+      this._run();
+    });
+  }
+  /** @internal */
+  _run() {
+    if (!this.isBound)
+      return;
     const obj = this.obj;
     const oldValue = this._value;
+    if (++this._computeDepth > 100) {
+      throw new Error(`AURXXXX: Possible infinitely recursive side-effect detected in a watcher.`);
+    }
     const newValue = this.compute();
     if (!areEqual(newValue, oldValue)) {
       this._callback.call(obj, newValue, oldValue, obj);
     }
+    if (!this._isQueued) {
+      this._computeDepth = 0;
+    }
   }
   compute() {
-    this.running = true;
     this.obs.version++;
     try {
       enter(this);
-      return this._value = unwrap(this.$get.call(void 0, this.useProxy ? wrap(this.obj) : this.obj, this));
+      return this._value = unwrap(this.$get.call(void 0, wrap(this.obj), this));
     } finally {
       this.obs.clear();
-      this.running = false;
       exit(this);
     }
   }
@@ -14029,44 +14441,65 @@ class ExpressionWatcher {
   get value() {
     return this._value;
   }
-  constructor(scope, l2, oL, expression, callback) {
+  constructor(scope, l2, oL, expression, callback, flush = "async") {
     this.scope = scope;
     this.l = l2;
     this.oL = oL;
     this.isBound = false;
+    this._isQueued = false;
     this.boundFn = false;
     this.obj = scope.bindingContext;
     this._expression = expression;
     this._callback = callback;
+    this._flush = flush;
   }
-  handleChange(value) {
+  handleChange() {
+    this.run();
+  }
+  handleCollectionChange() {
+    this.run();
+  }
+  run() {
+    if (!this.isBound)
+      return;
+    if (this._flush === "sync") {
+      this._run();
+      return;
+    }
+    if (this._isQueued)
+      return;
+    this._isQueued = true;
+    queueTask(() => {
+      this._isQueued = false;
+      this._run();
+    });
+  }
+  /** @internal */
+  _run() {
+    if (!this.isBound)
+      return;
     const expr = this._expression;
     const obj = this.obj;
     const oldValue = this._value;
-    const canOptimize = expr.$kind === "AccessScope" && this.obs.count === 1;
-    if (!canOptimize) {
-      this.obs.version++;
-      value = astEvaluate(expr, this.scope, this, this);
-      this.obs.clear();
-    }
+    this.obs.version++;
+    const value = astEvaluate(expr, this.scope, this, this);
+    this.obs.clear();
     if (!areEqual(value, oldValue)) {
       this._value = value;
       this._callback.call(obj, value, oldValue, obj);
     }
   }
   bind() {
-    if (this.isBound) {
+    if (this.isBound)
       return;
-    }
     this.obs.version++;
     this._value = astEvaluate(this._expression, this.scope, this, this);
     this.obs.clear();
     this.isBound = true;
   }
   unbind() {
-    if (!this.isBound) {
+    if (!this.isBound)
       return;
-    }
     this.isBound = false;
     this.obs.clearAll();
     this._value = void 0;
@@ -14602,7 +15035,7 @@ class Controller {
   }
   deactivate(initiator, _parent) {
     let prevActivation = void 0;
-    switch (this.state & -17) {
+    switch (this.state & ~released) {
       case activated:
         this.state = deactivating;
         break;
@@ -14993,18 +15426,18 @@ function createObservers(controller, definition, instance) {
   const locator = controller.container.get(IObserverLocator);
   const hasAggregatedCallbacks = "propertiesChanged" in instance;
   const coercion = controller.vmKind === vmkSynth ? void 0 : controller.container.get(optionalCoercionConfigResolver);
-  const queueCallback = hasAggregatedCallbacks ? (() => {
+  const queueCallback = hasAggregatedCallbacks ? /* @__PURE__ */ (() => {
     let changes = {};
-    let promise = void 0;
+    let isQueued = false;
     let changeCount = 0;
-    const resolvedPromise = Promise.resolve();
     const callPropertiesChanged = () => {
-      if (promise == null) {
-        promise = resolvedPromise.then(() => {
+      if (!isQueued) {
+        isQueued = true;
+        queueTask(() => {
+          isQueued = false;
           const $changes = changes;
           changes = {};
           changeCount = 0;
-          promise = void 0;
           if (controller.isBound) {
             instance.propertiesChanged?.($changes);
             if (changeCount > 0) {
@@ -15062,18 +15495,19 @@ function createWatchers(controller, context, definition, instance) {
   let expression;
   let callback;
   let ast;
+  let flush;
   let i3 = 0;
   for (; ii > i3; ++i3) {
-    ({ expression, callback } = watches[i3]);
+    ({ expression, callback, flush } = watches[i3]);
     callback = isFunction(callback) ? callback : Reflect.get(instance, callback);
     if (!isFunction(callback)) {
       throw createMappedError$2(506, callback);
     }
     if (isFunction(expression)) {
-      controller.addBinding(new ComputedWatcher(instance, observerLocator, expression, callback, true));
+      controller.addBinding(new ComputedWatcher(instance, observerLocator, expression, callback, flush));
     } else {
       ast = isString(expression) ? expressionParser.parse(expression, etIsProperty) : getAccessScopeAst(expression);
-      controller.addBinding(new ExpressionWatcher(scope, context, observerLocator, ast, callback));
+      controller.addBinding(new ExpressionWatcher(scope, context, observerLocator, ast, callback, flush));
     }
   }
 }
@@ -15712,9 +16146,9 @@ class AppRoot {
   _runAppTasks(slot) {
     const container = this.container;
     const appTasks = this._useOwnAppTasks && !container.has(IAppTask, false) ? [] : container.getAll(IAppTask);
-    return onResolveAll(...appTasks.reduce((results, task2) => {
-      if (task2.slot === slot) {
-        results.push(task2.run());
+    return onResolveAll(...appTasks.reduce((results, task) => {
+      if (task.slot === slot) {
+        results.push(task.run());
       }
       return results;
     }, []));
@@ -15837,14 +16271,17 @@ let Aurelia$1 = class Aurelia {
       this._isRunning = false;
       this._isStopping = true;
       return this._stopPromise = onResolve(root.deactivate(), () => {
-        Reflect.deleteProperty(root.host, "$aurelia");
-        if (dispose2) {
-          root.dispose();
-        }
-        this._root = void 0;
-        this._rootProvider.dispose();
-        this._isStopping = false;
-        this._dispatchEvent(root, "au-stopped", root.host);
+        return onResolve(tasksSettled(), () => {
+          Reflect.deleteProperty(root.host, "$aurelia");
+          if (dispose2) {
+            root.dispose();
+          }
+          this._root = void 0;
+          this._rootProvider.dispose();
+          this._isStopping = false;
+          this._stopPromise = void 0;
+          this._dispatchEvent(root, "au-stopped", root.host);
+        });
       });
     }
   }
@@ -15964,6 +16401,12 @@ function shouldDefaultToTwoWay(element, attr) {
         case "checkbox":
         case "radio":
           return attr === "checked";
+        // note:
+        // ideally, it should check for corresponding input type first
+        // as 'files' shouldn't be two way on a number input, for example
+        // but doing it this way is acceptable-ish, as the common user expectations,
+        // and the behavior of the control for these properties are the same,
+        // regardless the type of the <input>
         default:
           return attr === "value" || attr === "files" || attr === "value-as-number" || attr === "value-as-date";
       }
@@ -16611,6 +17054,9 @@ class NodeObserverLocator {
       return this.getObserver(obj, key, requestor);
     }
     switch (key) {
+      // class / style / css attribute will be observed using .getObserver() per overrides
+      //
+      // TODO: there are (many) more situation where we want to default to DataAttributeAccessor
       case "src":
       case "href":
       case "role":
@@ -17434,15 +17880,16 @@ class Repeat {
     for (; i3 >= 0; --i3) {
       view = views[i3];
       next = views[i3 + 1];
-      view.nodes.link(next?.nodes ?? _location);
       if (indexMap[i3] === -2) {
+        view.nodes.link(next?.nodes ?? _location);
         view.setLocation(_location);
         setContextualProperties(_scopes[i3].overrideContext, i3, newLen);
         ret = view.activate(view, $controller, _scopes[i3]);
         if (isPromise(ret)) {
           (promises ?? (promises = [])).push(ret);
         }
-      } else if (j2 < 0 || seqLen === 1 || i3 !== seq[j2]) {
+      } else if (j2 < 0 || i3 !== seq[j2]) {
+        view.nodes.link(next?.nodes ?? _location);
         setContextualProperties(view.scope.overrideContext, i3, newLen);
         view.nodes.insertBefore(view.location);
       } else {
@@ -17911,6 +18358,7 @@ const bindables$1 = [
           return true;
         case "false":
           return false;
+        // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
         default:
           return !!v2;
       }
@@ -17925,7 +18373,7 @@ class Case {
     this._factory = resolve(IViewFactory);
     this._locator = resolve(IObserverLocator);
     this._location = resolve(IRenderLocation);
-    this._logger = resolve(ILogger).scopeTo(`${this.constructor.name}-#${this.id}`);
+    this._logger = resolve(ILogger).scopeTo(`Case-#${this.id}`);
   }
   link(controller, _childController, _target, _instruction) {
     const switchController = controller.parent;
@@ -18053,7 +18501,6 @@ class PromiseTemplateController {
       }
       return;
     }
-    const q2 = this._platform.domQueue;
     const fulfilled = this.fulfilled;
     const rejected = this.rejected;
     const pending = this.pending;
@@ -18063,18 +18510,17 @@ class PromiseTemplateController {
       void onResolveAll(
         // At first deactivate the fulfilled and rejected views, as well as activate the pending view.
         // The order of these 3 should not necessarily be sequential (i.e. order-irrelevant).
-        preSettlePromise = (this.preSettledTask = q2.queueTask(() => {
+        preSettlePromise = (this.preSettledTask = queueAsyncTask(() => {
           return onResolveAll(fulfilled?.deactivate(initiator), rejected?.deactivate(initiator), pending?.activate(initiator, s2));
         })).result.catch((err) => {
-          if (!(err instanceof TaskAbortError))
-            throw err;
+          throw err;
         }),
         value.then((data) => {
           if (this.value !== value) {
             return;
           }
           const fulfill = () => {
-            this.postSettlePromise = (this.postSettledTask = q2.queueTask(() => onResolveAll(pending?.deactivate(initiator), rejected?.deactivate(initiator), fulfilled?.activate(initiator, s2, data)))).result;
+            this.postSettlePromise = (this.postSettledTask = queueAsyncTask(() => onResolveAll(pending?.deactivate(initiator), rejected?.deactivate(initiator), fulfilled?.activate(initiator, s2, data)))).result;
           };
           if (this.preSettledTask.status === tsRunning) {
             void preSettlePromise.then(fulfill);
@@ -18087,7 +18533,7 @@ class PromiseTemplateController {
             return;
           }
           const reject = () => {
-            this.postSettlePromise = (this.postSettledTask = q2.queueTask(() => onResolveAll(pending?.deactivate(initiator), fulfilled?.deactivate(initiator), rejected?.activate(initiator, s2, err)))).result;
+            this.postSettlePromise = (this.postSettledTask = queueAsyncTask(() => onResolveAll(pending?.deactivate(initiator), fulfilled?.deactivate(initiator), rejected?.activate(initiator, s2, err)))).result;
           };
           if (this.preSettledTask.status === tsRunning) {
             void preSettlePromise.then(reject);
@@ -18530,6 +18976,7 @@ class Portal {
       case "afterend":
         insertManyBefore(parent, target.nextSibling, nodes);
         break;
+      /* istanbul ignore next */
       default:
         throw createMappedError$2(779, position);
     }
@@ -18769,6 +19216,7 @@ class AuCompose {
     this._hydrationContext = resolve(IHydrationContext);
     this._exprParser = resolve(IExpressionParser);
     this._observerLocator = resolve(IObserverLocator);
+    this._attached = false;
   }
   get composing() {
     return this._composing;
@@ -18777,6 +19225,7 @@ class AuCompose {
     return this._composition;
   }
   attaching(initiator, _parent) {
+    this._attached = true;
     return this._composing = onResolve(this.queue(new ChangeInfo(this.template, this.component, this.model, void 0), initiator), (context) => {
       if (this._contextFactory._isCurrent(context)) {
         this._composing = void 0;
@@ -18784,6 +19233,7 @@ class AuCompose {
     });
   }
   detaching(initiator) {
+    this._attached = false;
     const cmpstn = this._composition;
     const pending = this._composing;
     this._contextFactory.invalidate();
@@ -18792,6 +19242,8 @@ class AuCompose {
   }
   /** @internal */
   propertyChanged(name2) {
+    if (!this._attached)
+      return;
     if (name2 === "composing" || name2 === "composition")
       return;
     if (name2 === "model" && this._composition != null) {
@@ -19090,11 +19542,11 @@ class Show {
     this.el = resolve(INode);
     this.p = resolve(IPlatform);
     this._isActive = false;
-    this._task = null;
+    this._isQueued = false;
     this.$val = "";
     this.$prio = "";
     this.update = () => {
-      this._task = null;
+      this._isQueued = false;
       if (Boolean(this.value) !== this._isToggled) {
         if (this._isToggled === this._base) {
           this._isToggled = !this._base;
@@ -19119,12 +19571,12 @@ class Show {
   }
   detaching() {
     this._isActive = false;
-    this._task?.cancel();
-    this._task = null;
+    this._isQueued = false;
   }
   valueChanged() {
-    if (this._isActive && this._task === null) {
-      this._task = this.p.domQueue.queueTask(this.update);
+    if (this._isActive && !this._isQueued) {
+      this._isQueued = true;
+      queueTask(this.update);
     }
   }
 }
@@ -19646,7 +20098,6 @@ class RouteRecognizer {
     return result;
   }
   $recognize(path) {
-    path = decodeURI(path);
     if (!path.startsWith("/")) {
       path = `/${path}`;
     }
@@ -20380,6 +20831,10 @@ const eventMessageMap = {
     3403
     /* Events.instrInvalidUrlComponentOperation */
   ]: 'Invalid instruction type %s for "toUrlComponent" operation. If you are seeing this error, then it is probably because of an internal bug. Please report it.',
+  [
+    3404
+    /* Events.instrIncompatiblePathGenerationInstr */
+  ]: "The given instruction is not compatible for eagerly generating path: %s",
   // #endregion
   // #region navigation model
   [
@@ -20561,9 +21016,30 @@ function mergeURLSearchParams(source, other, clone) {
   for (const [key, value] of Object.entries(other)) {
     if (value == null)
       continue;
+    if (isArray(value)) {
+      for (const v2 of value) {
+        query.append(key, v2);
+      }
+      continue;
+    }
     query.append(key, value);
   }
   return query;
+}
+function mergeQueryParams(source, other) {
+  if (other == null)
+    return source;
+  for (const [key, value] of Object.entries(other)) {
+    if (value == null)
+      continue;
+    if (source[key] == null) {
+      source[key] = value;
+    } else {
+      const values = source[key];
+      source[key] = [...isArray(values) ? values : [values], ...isArray(value) ? value : [value]];
+    }
+  }
+  return source;
 }
 const bmToView = BindingMode.toView;
 const bmFromView = BindingMode.fromView;
@@ -21682,7 +22158,7 @@ class ViewportAgent {
     this._nextNode = null;
     this._currTransition = null;
     this._cancellationPromise = null;
-    this._logger = ctx.container.get(ILogger).scopeTo(`ViewportAgent<${ctx._friendlyPath}>`);
+    this._logger = ctx.container.get(ILogger).scopeTo(`ViewportAgent<${ctx.routeConfigContext._friendlyPath}>`);
     trace(
       this._logger,
       3300
@@ -21903,7 +22379,7 @@ class ViewportAgent {
           trace(logger, 3320, next, this._$plan);
           b1._push();
           const ctx = next.context;
-          void onResolve(ctx.allResolved, () => onResolve(onResolve(onResolveAll(...next.residue.splice(0).map((vi) => createAndAppendNodes(this._logger, next, vi))), () => onResolveAll(...ctx.getAvailableViewportAgents().reduce((acc, vpa) => {
+          void onResolve(ctx.routeConfigContext.allResolved, () => onResolve(onResolve(onResolveAll(...next.residue.splice(0).map((vi) => createAndAppendNodes(this._logger, next, vi))), () => onResolveAll(...ctx.getAvailableViewportAgents().reduce((acc, vpa) => {
             const vp = vpa.viewport;
             const component = vp.default;
             if (component === null)
@@ -22189,7 +22665,7 @@ class ViewportAgent {
     tr._run(() => {
       b3._push();
       const ctx = next.context;
-      return onResolve(ctx.allResolved, () => {
+      return onResolve(ctx.routeConfigContext.allResolved, () => {
         const existingChildren = next.children.slice();
         return onResolve(onResolveAll(...next.residue.splice(0).map((vi) => createAndAppendNodes(this._logger, next, vi))), () => onResolve(onResolveAll(...ctx.getAvailableViewportAgents().reduce((acc, vpa) => {
           const vp = vpa.viewport;
@@ -22259,7 +22735,7 @@ class ViewportAgent {
     if (cur === null || cur.component !== next.component) {
       this._$plan = "replace";
     } else {
-      this._$plan = next.context.config._getTransitionPlan(cur, next, options.transitionPlan);
+      this._$plan = next.context.routeConfigContext.config._getTransitionPlan(cur, next, options.transitionPlan);
     }
     trace(this._logger, 3344, this);
   }
@@ -22524,7 +23000,7 @@ class RouteNode {
     );
   }
   contains(instructions, matchEndpoint = false) {
-    if (this.context === instructions.options.context) {
+    if (this.context.routeConfigContext === instructions.options.context.routeConfigContext) {
       const nodeChildren = this.children;
       const instructionChildren = instructions.children;
       for (let i3 = 0, ii = nodeChildren.length; i3 < ii; ++i3) {
@@ -22569,7 +23045,7 @@ class RouteNode {
     return titleParts.length === 0 ? null : titleParts.join(separator);
   }
   computeAbsolutePath() {
-    if (this.context.isRoot) {
+    if (this.context.routeConfigContext.isRoot) {
       return "";
     }
     const parentPath = this.context.parent.node.computeAbsolutePath();
@@ -22625,11 +23101,11 @@ class RouteNode {
   // Should not be adjust for DEV as it is also used of logging in production build.
   toString() {
     const props2 = [];
-    const component = this.context?.config._getComponentName() ?? "";
+    const component = this.context?.routeConfigContext.config._getComponentName() ?? "";
     if (component.length > 0) {
       props2.push(`c:'${component}'`);
     }
-    const path = this.context?.config.path ?? "";
+    const path = this.context?.routeConfigContext.config.path ?? "";
     if (path.length > 0) {
       props2.push(`path:'${path}'`);
     }
@@ -22644,7 +23120,7 @@ class RouteNode {
         return String(r2);
       }).join(",")}`);
     }
-    return `RN(ctx:'${this.context?._friendlyPath}',${props2.join(",")})`;
+    return `RN(ctx:'${this.context?.routeConfigContext._friendlyPath}',${props2.join(",")})`;
   }
 }
 class RouteTree {
@@ -22689,6 +23165,7 @@ function createAndAppendNodes(log, node, vi) {
         case "..":
           node = node.context.parent?.node ?? node;
           node._clearChildren();
+        // falls through
         case ".":
           return onResolveAll(...vi.children.map((childVI) => {
             return createAndAppendNodes(log, node, childVI);
@@ -22701,7 +23178,7 @@ function createAndAppendNodes(log, node, vi) {
           if (rr !== null)
             return appendNode(log, node, createConfiguredNode(log, node, vi, rr, originalInstruction));
           if (vi.children.length === 0) {
-            const result = ctx._generateViewportInstruction(vi);
+            const result = ctx.routeConfigContext._generateViewportInstruction(vi);
             if (result !== null) {
               node._tree._mergeQuery(result.query);
               const newVi = result.vi;
@@ -22721,13 +23198,13 @@ function createAndAppendNodes(log, node, vi) {
               break;
             }
           }
-          rr = ctx.recognize(path);
+          rr = ctx.routeConfigContext.recognize(path);
           log.trace("createNode recognized route: %s", rr);
           const residue = rr?.residue ?? null;
           log.trace("createNode residue:", residue);
           const noResidue = residue === null;
           if (rr === null || residue === path) {
-            const eagerResult = ctx._generateViewportInstruction({
+            const eagerResult = ctx.routeConfigContext._generateViewportInstruction({
               component: vi.component.value,
               params: vi.params ?? emptyObject,
               open: vi.open,
@@ -22746,21 +23223,21 @@ function createAndAppendNodes(log, node, vi) {
             if (vp === null || vp.length === 0)
               vp = defaultViewportName;
             const vpa = ctx.getFallbackViewportAgent(vp);
-            const fallback = vpa !== null ? vpa.viewport._getFallback(vi, node, ctx) : ctx.config._getFallback(vi, node, ctx);
+            const fallback = vpa !== null ? vpa.viewport._getFallback(vi, node, ctx) : ctx.routeConfigContext.config._getFallback(vi, node, ctx);
             if (fallback === null)
-              throw new UnknownRouteError(getMessage(3401, name2, ctx._friendlyPath, vp, name2, ctx.component.name));
+              throw new UnknownRouteError(getMessage(3401, name2, ctx.routeConfigContext._friendlyPath, vp, name2, ctx.routeConfigContext.component.name));
             if (typeof fallback === "string") {
               log.trace(`Fallback is set to '${fallback}'. Looking for a recognized route.`);
-              const rd = ctx.childRoutes.find((x2) => x2.id === fallback);
+              const rd = ctx.routeConfigContext.childRoutes.find((x2) => x2.id === fallback);
               if (rd !== void 0)
                 return appendNode(log, node, createFallbackNode(log, rd, node, vi));
               log.trace(`No route configuration for the fallback '${fallback}' is found; trying to recognize the route.`);
-              const rr2 = ctx.recognize(fallback, true);
+              const rr2 = ctx.routeConfigContext.recognize(fallback, true);
               if (rr2 !== null && rr2.residue !== fallback)
                 return appendNode(log, node, createConfiguredNode(log, node, vi, rr2, null));
             }
             log.trace(`The fallback '${fallback}' is not recognized as a route; treating as custom element name.`);
-            return onResolve(resolveRouteConfiguration(fallback, false, ctx.config, null, ctx), (rc) => appendNode(log, node, createFallbackNode(log, rc, node, vi)));
+            return onResolve(resolveRouteConfiguration(fallback, false, ctx.routeConfigContext.config, null, ctx.routeConfigContext), (rc) => appendNode(log, node, createFallbackNode(log, rc, node, vi)));
           }
           rr.residue = null;
           vi.component.value = noResidue ? path : path.slice(0, -(residue.length + 1));
@@ -22786,8 +23263,8 @@ function createAndAppendNodes(log, node, vi) {
     case 4:
     case 2: {
       const rc = node.context;
-      return onResolve(resolveCustomElementDefinition(vi.component.value, rc)[1], (ced) => {
-        const { vi: newVi, query } = rc._generateViewportInstruction({
+      return onResolve(resolveCustomElementDefinition(vi.component.value, rc.routeConfigContext)[1], (ced) => {
+        const { vi: newVi, query } = rc.routeConfigContext._generateViewportInstruction({
           component: ced,
           params: vi.params ?? emptyObject,
           open: vi.open,
@@ -22810,13 +23287,13 @@ function createConfiguredNode(log, node, vi, rr, originalVi, route2 = rr.route.e
     if ($handler.redirectTo === null) {
       const viWithVp = (vi.viewport?.length ?? 0) > 0;
       const vpName = viWithVp ? vi.viewport : $handler.viewport;
-      return onResolve(resolveCustomElementDefinition($handler._getComponent(vi, ctx, node, rr.route), ctx)[1], (ced) => {
+      return onResolve(resolveCustomElementDefinition($handler._getComponent(vi, ctx, node, rr.route), ctx.routeConfigContext)[1], (ced) => {
         const vpa = ctx._resolveViewportAgent(new ViewportRequest(vpName, ced.name));
         if (!viWithVp) {
           vi.viewport = vpa.viewport.name;
         }
         const router = ctx.container.get(IRouter);
-        return onResolve(router.getRouteContext(vpa, ced, null, vpa.hostController.container, ctx.config, ctx, $handler), (childCtx) => {
+        return onResolve(router.getRouteContext(vpa, ced, null, vpa.hostController.container, ctx.routeConfigContext.config, ctx, $handler), (childCtx) => {
           log.trace("createConfiguredNode setting the context node");
           const $node = childCtx.node = RouteNode.create({
             path: rr.route.endpoint.route.path,
@@ -22911,9 +23388,9 @@ function createConfiguredNode(log, node, vi, rr, originalVi, route2 = rr.route.e
       }
     }
     const newPath = newSegs.filter(Boolean).join("/");
-    const redirRR = ctx.recognize(newPath);
+    const redirRR = ctx.routeConfigContext.recognize(newPath);
     if (redirRR === null)
-      throw new UnknownRouteError(getMessage(3402, newPath, ctx._friendlyPath, newPath, ctx.component.name));
+      throw new UnknownRouteError(getMessage(3402, newPath, ctx.routeConfigContext._friendlyPath, newPath, ctx.routeConfigContext.component.name));
     return createConfiguredNode(log, node, ViewportInstruction.create({
       recognizedRoute: redirRR,
       component: newPath,
@@ -23022,8 +23499,8 @@ class Router {
         finalPath: "",
         context: ctx,
         instruction: null,
-        component: CustomElement.getDefinition(ctx.config.component),
-        title: ctx.config.title
+        component: CustomElement.getDefinition(ctx.routeConfigContext.config.component),
+        title: ctx.routeConfigContext.config.title
       }));
     }
     return routeTree;
@@ -23063,6 +23540,7 @@ class Router {
     this._nextTr = null;
     this._locationChangeSubscription = null;
     this._hasTitleBuilder = false;
+    this._activeContexts = [];
     this._isNavigating = false;
     this._container = resolve(IContainer);
     this._p = resolve(IPlatform);
@@ -23070,8 +23548,9 @@ class Router {
     this._events = resolve(IRouterEvents);
     this._locationMgr = resolve(ILocationManager);
     this.options = resolve(IRouterOptions);
+    this._routeConfigLookup = /* @__PURE__ */ new WeakMap();
     this._vpaLookup = /* @__PURE__ */ new Map();
-    this._instructions = ViewportInstructionTree.create("", this.options);
+    this._instructions = ViewportInstructionTree.create("", this.options, null, null);
     this._container.registerResolver(Router, Registration.instance(Router, this));
   }
   /**
@@ -23112,9 +23591,10 @@ class Router {
     this._locationChangeSubscription?.dispose();
   }
   load(instructionOrInstructions, options) {
-    const instructions = this.createViewportInstructions(instructionOrInstructions, options);
-    trace(this._logger, 3250, instructions);
-    return this._enqueue(instructions, "api", null, null);
+    return onResolve(this.createViewportInstructions(instructionOrInstructions, options ?? null), (instructions) => {
+      trace(this._logger, 3250, instructions);
+      return this._enqueue(instructions, "api", null, null);
+    });
   }
   isActive(instructionOrInstructions, context) {
     const ctx = this._resolveContext(context);
@@ -23134,9 +23614,26 @@ class Router {
    */
   getRouteContext(viewportAgent, componentDefinition, componentInstance, container, parentRouteConfig, parentContext, $rdConfig) {
     const logger = /* @__PURE__ */ container.get(ILogger).scopeTo("RouteContext");
+    return onResolve(this.getRouteConfigContext($rdConfig, componentDefinition, componentInstance, container, parentRouteConfig, parentContext?.routeConfigContext ?? null), (rdConfigContext) => {
+      let routeConfigLookup = this._vpaLookup.get(viewportAgent);
+      if (routeConfigLookup === void 0) {
+        this._vpaLookup.set(viewportAgent, routeConfigLookup = /* @__PURE__ */ new WeakMap());
+      }
+      let routeContext = routeConfigLookup.get(rdConfigContext);
+      if (routeContext !== void 0) {
+        trace(logger, 3252, rdConfigContext);
+        return routeContext;
+      }
+      trace(logger, 3253, rdConfigContext);
+      const parent = container.has(IRouteContext, true) ? container.get(IRouteContext) : null;
+      routeConfigLookup.set(rdConfigContext, routeContext = new RouteContext(viewportAgent, parent, container, this, rdConfigContext, this._locationMgr));
+      return routeContext;
+    });
+  }
+  getRouteConfigContext($rdConfig, componentDefinition, componentInstance, container, parentRouteConfig, parentRouteConfigContext) {
     return onResolve(
       // In case of navigation strategy, get the route config for the resolved component directly.
-      // Conceptually, navigation strategy is another form of lazy-loading the route config for the given component.
+      // Conceptually, navigation strategy is another form of lazily deciding on the route config for the given component.
       // Hence, when we see a navigation strategy, we resolve the route config for the component first.
       $rdConfig instanceof RouteConfig && !$rdConfig._isNavigationStrategy ? $rdConfig : resolveRouteConfiguration(
         // getRouteConfig is prioritized over the statically configured routes via @route decorator.
@@ -23144,48 +23641,34 @@ class Router {
         false,
         parentRouteConfig,
         null,
-        parentContext
+        parentRouteConfigContext
       ),
       (rdConfig) => {
-        let routeConfigLookup = this._vpaLookup.get(viewportAgent);
-        if (routeConfigLookup === void 0) {
-          this._vpaLookup.set(viewportAgent, routeConfigLookup = /* @__PURE__ */ new WeakMap());
-        }
-        let routeContext = routeConfigLookup.get(rdConfig);
-        if (routeContext !== void 0) {
-          trace(logger, 3252, rdConfig);
-          return routeContext;
-        }
-        trace(logger, 3253, rdConfig);
-        const parent = container.has(IRouteContext, true) ? container.get(IRouteContext) : null;
-        routeConfigLookup.set(rdConfig, routeContext = new RouteContext(viewportAgent, parent, componentDefinition, rdConfig, container, this));
-        return routeContext;
+        let routeConfigContext = this._routeConfigLookup.get(rdConfig);
+        if (routeConfigContext != null)
+          return routeConfigContext;
+        routeConfigContext = new RouteConfigContext(parentRouteConfigContext, componentDefinition, rdConfig, container, this);
+        this._routeConfigLookup.set(rdConfig, routeConfigContext);
+        return routeConfigContext;
       }
     );
   }
-  createViewportInstructions(instructionOrInstructions, options) {
+  /**
+   * Generate a path from the provided instructions.
+   *
+   * @param instructionOrInstructions - The navigation instruction(s) to generate the path for.
+   * @param context - The context to use for relative navigation. If not provided, the root context is used.
+   */
+  generatePath(instructionOrInstructions, context) {
+    return onResolve(this.createViewportInstructions(createEagerInstructions(instructionOrInstructions), { context: context ?? this._ctx }, true), (vit) => vit.toUrl(true, this.options._urlParser));
+  }
+  createViewportInstructions(instructionOrInstructions, options, traverseChildren) {
     if (instructionOrInstructions instanceof ViewportInstructionTree)
       return instructionOrInstructions;
     let context = options?.context ?? null;
-    if (typeof instructionOrInstructions === "string") {
-      instructionOrInstructions = this._locationMgr.removeBaseHref(instructionOrInstructions);
-    }
-    const isVpInstr = isPartialViewportInstruction(instructionOrInstructions);
-    let $instruction = isVpInstr ? instructionOrInstructions.component : instructionOrInstructions;
-    if (typeof $instruction === "string" && $instruction.startsWith("../") && context !== null) {
-      context = this._resolveContext(context);
-      while ($instruction.startsWith("../") && (context?.parent ?? null) !== null) {
-        $instruction = $instruction.slice(3);
-        context = context.parent;
-      }
-    }
-    if (isVpInstr) {
-      instructionOrInstructions.component = $instruction;
-    } else {
-      instructionOrInstructions = $instruction;
-    }
-    const routerOptions = this.options;
-    return ViewportInstructionTree.create(instructionOrInstructions, routerOptions, NavigationOptions.create(routerOptions, { ...options, context }), this._ctx);
+    if (context !== null)
+      context = options.context = this._resolveContext(context);
+    return (context ?? this._$ctx).createViewportInstructions(instructionOrInstructions, options, traverseChildren);
   }
   /**
    * Enqueue an instruction tree to be processed as soon as possible.
@@ -23275,6 +23758,9 @@ class Router {
     this.currentTr = tr;
     this._nextTr = null;
     this._isNavigating = true;
+    for (const ctx of this._activeContexts) {
+      ctx.routeConfigContext._handleNavigationStart();
+    }
     let navigationContext = this._resolveContext(tr.options.context);
     const logger = /* @__PURE__ */ this._logger.scopeTo("run()");
     trace(logger, 3258, tr);
@@ -23299,9 +23785,9 @@ class Router {
         rt.root._setTree(rt);
         rootCtx.node = rt.root;
       }
-      const suffix = navigationContext.allResolved instanceof Promise ? " - awaiting promise" : "";
+      const suffix = navigationContext.routeConfigContext.allResolved instanceof Promise ? " - awaiting promise" : "";
       log.trace(`updateRouteTree(rootCtx:%s,rt:%s,vit:%s)${suffix}`, rootCtx, rt, vit);
-      return onResolve(navigationContext.allResolved, () => updateNode(log, vit, navigationContext, rootCtx.node));
+      return onResolve(navigationContext.routeConfigContext.allResolved, () => updateNode(log, vit, navigationContext, rootCtx.node));
     }, () => {
       const prev = tr.previousRouteTree.root.children;
       const next = tr.routeTree.root.children;
@@ -23403,6 +23889,17 @@ class Router {
     return title;
   }
   /** @internal */
+  _subscribeNavigationStart(ctx) {
+    this._activeContexts.push(ctx);
+  }
+  /** @internal */
+  _unsubscribeNavigationStart(ctx) {
+    const idx = this._activeContexts.indexOf(ctx);
+    if (idx > -1) {
+      this._activeContexts.splice(idx, 1);
+    }
+  }
+  /** @internal */
   _cancelNavigation(tr) {
     const logger = /* @__PURE__ */ this._logger.scopeTo("cancelNavigation()");
     trace(logger, 3267, tr);
@@ -23454,7 +23951,7 @@ function updateNode(log, vit, ctx, node) {
   log.trace(`updateNode(ctx:%s,node:%s)`, ctx, node);
   node.queryParams = vit.queryParams;
   node.fragment = vit.fragment;
-  if (!node.context.isRoot) {
+  if (!node.context.routeConfigContext.isRoot) {
     node.context.vpa._scheduleUpdate(node._tree.options, node);
   }
   if (node.context === ctx) {
@@ -23706,7 +24203,7 @@ class ViewportInstructionTree {
     this.fragment = fragment;
     Object.freeze(queryParams);
   }
-  static create(instructionOrInstructions, routerOptions, options, rootCtx) {
+  static create(instructionOrInstructions, routerOptions, options, rootCtx, traverseChildren) {
     options = options instanceof NavigationOptions ? options : NavigationOptions.create(routerOptions, options ?? emptyObject);
     let context = options.context;
     if (!(context instanceof RouteContext) && rootCtx != null) {
@@ -23716,26 +24213,29 @@ class ViewportInstructionTree {
     if (instructionOrInstructions instanceof Array) {
       const len = instructionOrInstructions.length;
       const children = new Array(len);
-      const query2 = new URLSearchParams(options.queryParams ?? emptyObject);
+      const query = new URLSearchParams(options.queryParams ?? emptyObject);
+      const promises = new Array(len);
       for (let i3 = 0; i3 < len; i3++) {
         const instruction = instructionOrInstructions[i3];
-        const eagerVi2 = hasContext ? context._generateViewportInstruction(instruction) : null;
-        if (eagerVi2 !== null) {
-          children[i3] = eagerVi2.vi;
-          mergeURLSearchParams(query2, eagerVi2.query, false);
-        } else {
-          children[i3] = ViewportInstruction.create(instruction);
-        }
+        promises[i3] = onResolve(hasContext ? context.routeConfigContext._generateViewportInstruction(instruction, traverseChildren) : null, (eagerVi) => {
+          if (eagerVi !== null) {
+            children[i3] = eagerVi.vi;
+            mergeURLSearchParams(query, eagerVi.query, false);
+          } else {
+            children[i3] = ViewportInstruction.create(instruction);
+          }
+        });
       }
-      return new ViewportInstructionTree(options, false, children, query2, options.fragment);
+      return onResolve(onResolveAll(...promises), () => new ViewportInstructionTree(options, false, children, query, options.fragment));
     }
     if (typeof instructionOrInstructions === "string") {
       const expr = RouteExpression.parse(routerOptions._urlParser.parse(instructionOrInstructions));
       return expr.toInstructionTree(options);
     }
-    const eagerVi = hasContext ? context._generateViewportInstruction(isPartialViewportInstruction(instructionOrInstructions) ? { ...instructionOrInstructions, params: instructionOrInstructions.params ?? emptyObject } : { component: instructionOrInstructions, params: emptyObject }) : null;
-    const query = new URLSearchParams(options.queryParams ?? emptyObject);
-    return eagerVi !== null ? new ViewportInstructionTree(options, false, [eagerVi.vi], mergeURLSearchParams(query, eagerVi.query, false), options.fragment) : new ViewportInstructionTree(options, false, [ViewportInstruction.create(instructionOrInstructions)], query, options.fragment);
+    return onResolve(hasContext ? context.routeConfigContext._generateViewportInstruction(isPartialViewportInstruction(instructionOrInstructions) ? { ...instructionOrInstructions, params: instructionOrInstructions.params ?? emptyObject } : { component: instructionOrInstructions, params: emptyObject }, traverseChildren) : null, (eagerVi) => {
+      const query = new URLSearchParams(options.queryParams ?? emptyObject);
+      return eagerVi !== null ? new ViewportInstructionTree(options, false, [eagerVi.vi], mergeURLSearchParams(query, eagerVi.query, false), options.fragment) : new ViewportInstructionTree(options, false, [ViewportInstruction.create(instructionOrInstructions)], query, options.fragment);
+    });
   }
   equals(other) {
     const thisChildren = this.children;
@@ -23757,7 +24257,7 @@ class ViewportInstructionTree {
       let ctx = this.options.context;
       if (ctx != null && !(ctx instanceof RouteContext))
         throw new Error("Invalid operation; incompatible navigation context.");
-      while (ctx != null && !ctx.isRoot) {
+      while (ctx != null && !ctx.routeConfigContext.isRoot) {
         const vpa = ctx.vpa;
         const node = vpa._currState === 4096 ? vpa._currNode : vpa._nextNode;
         if (node == null)
@@ -23881,7 +24381,7 @@ class ComponentAgent {
     this._routeNode = _routeNode;
     this._ctx = _ctx;
     this._routerOptions = _routerOptions;
-    this._logger = _controller.container.get(ILogger).scopeTo(`ComponentAgent<${_ctx._friendlyPath}>`);
+    this._logger = _controller.container.get(ILogger).scopeTo(`ComponentAgent<${_ctx.routeConfigContext._friendlyPath}>`);
     trace(
       this._logger,
       3050
@@ -24018,7 +24518,7 @@ class ComponentAgent {
           return hook.canLoad(this._instance, next.params, next, this._routeNode);
         }, (ret) => {
           if (tr.guardsResult === true && ret != null && ret !== true) {
-            tr.guardsResult = ret === false ? false : ViewportInstructionTree.create(ret, this._routerOptions, void 0, rootCtx);
+            tr.guardsResult = ret === false ? false : ViewportInstructionTree.create(ret, this._routerOptions, null, rootCtx);
           }
           b3._pop();
           res();
@@ -24036,7 +24536,7 @@ class ComponentAgent {
           return this._instance.canLoad(next.params, next, this._routeNode);
         }, (ret) => {
           if (tr.guardsResult === true && ret != null && ret !== true) {
-            tr.guardsResult = ret === false ? false : ViewportInstructionTree.create(ret, this._routerOptions, void 0, rootCtx);
+            tr.guardsResult = ret === false ? false : ViewportInstructionTree.create(ret, this._routerOptions, null, rootCtx);
           }
           b3._pop();
         });
@@ -24096,17 +24596,35 @@ function isEagerInstruction(val) {
     return false;
   const params = val.params;
   const component = val.component;
-  return typeof params === "object" && params !== null && component != null && allowedEagerComponentTypes.includes(typeof component) && !(component instanceof Promise);
+  return typeof params === "object" && params !== null && component != null && allowedEagerComponentTypes.includes(typeof component) && !(component instanceof Promise) && !(component instanceof NavigationStrategy);
+}
+function createEagerInstructions(instructionOrInstructions) {
+  if (!isArray(instructionOrInstructions))
+    instructionOrInstructions = [instructionOrInstructions];
+  const numInstr = instructionOrInstructions.length;
+  for (let i3 = 0; i3 < numInstr; ++i3) {
+    const instr = core(instructionOrInstructions[i3]);
+    if (instr == null)
+      throw new Error(getMessage(3404, instructionOrInstructions));
+    instructionOrInstructions[i3] = instr;
+  }
+  return instructionOrInstructions;
+  function core(val) {
+    let component;
+    if (typeof val === "string" || typeof val === "function") {
+      component = val;
+      val = null;
+    } else {
+      component = val.component;
+    }
+    if (component == null || !allowedEagerComponentTypes.includes(typeof component) || component instanceof Promise || component instanceof NavigationStrategy)
+      return null;
+    return { ...val, component, params: val?.params ?? emptyObject };
+  }
 }
 class RouteContext {
   get isRoot() {
     return this.parent === null;
-  }
-  get depth() {
-    return this.path.length - 1;
-  }
-  get allResolved() {
-    return this._allResolved;
   }
   get node() {
     const node = this._node;
@@ -24132,119 +24650,36 @@ class RouteContext {
       throw new Error(getMessage(3172, this));
     return vpa;
   }
-  get navigationModel() {
-    return this._navigationModel;
-  }
-  constructor(viewportAgent, parent, component, config, parentContainer, _router) {
+  constructor(viewportAgent, parent, parentContainer, _router, routeConfigContext, _locationMgr) {
     this.parent = parent;
-    this.component = component;
-    this.config = config;
     this._router = _router;
+    this.routeConfigContext = routeConfigContext;
+    this._locationMgr = _locationMgr;
     this._childViewportAgents = [];
-    this.childRoutes = [];
-    this._allResolved = null;
     this._prevNode = null;
     this._node = null;
-    this._childRoutesConfigured = false;
     this._vpa = viewportAgent;
     if (parent === null) {
       this.root = this;
-      this.path = [this];
-      this._friendlyPath = component.name;
     } else {
       this.root = parent.root;
-      this.path = [...parent.path, this];
-      this._friendlyPath = `${parent._friendlyPath}/${component.name}`;
     }
-    this._logger = parentContainer.get(ILogger).scopeTo(`RouteContext<${this._friendlyPath}>`);
+    this._logger = parentContainer.get(ILogger).scopeTo(`RouteContext<${this.routeConfigContext._friendlyPath}>`);
     trace(
       this._logger,
       3150
       /* Events.rcCreated */
     );
-    const observer = parentContainer.get(IObserverLocator).getObserver(this._router, "isNavigating");
-    const subscriber = {
-      handleChange: (newValue, _previousValue) => {
-        if (newValue !== true)
-          return;
-        this.config._handleNavigationStart();
-        for (const childRoute of this.childRoutes) {
-          if (childRoute instanceof Promise)
-            continue;
-          childRoute._handleNavigationStart();
-        }
-      }
-    };
-    observer.subscribe(subscriber);
-    this._unsubscribeIsNavigatingChange = () => observer.unsubscribe(subscriber);
-    this._moduleLoader = parentContainer.get(IModuleLoader);
+    this._router._subscribeNavigationStart(this);
     const container = this.container = parentContainer.createChild();
     this._platform = container.get(IPlatform);
     container.registerResolver(IController, this._hostControllerProvider = new InstanceProvider(), true);
     const ctxProvider = new InstanceProvider("IRouteContext", this);
     container.registerResolver(IRouteContext, ctxProvider);
     container.registerResolver(RouteContext, ctxProvider);
-    this._recognizer = new RouteRecognizer();
     if (_router.options.useNavigationModel) {
-      const navModel = this._navigationModel = new NavigationModel([]);
-      container.get(IRouterEvents).subscribe("au:router:navigation-end", () => navModel._setIsActive(_router, this));
-    } else {
-      this._navigationModel = null;
-    }
-    this._processConfig(config);
-  }
-  /** @internal */
-  _processConfig(config) {
-    const allPromises = [];
-    const childrenRoutes = config.routes ?? noRoutes;
-    const len = childrenRoutes.length;
-    if (len === 0) {
-      const getRouteConfig = config.component.prototype?.getRouteConfig;
-      this._childRoutesConfigured = getRouteConfig == null ? true : typeof getRouteConfig !== "function";
-      return;
-    }
-    const navModel = this._navigationModel;
-    const hasNavModel = navModel !== null;
-    let i3 = 0;
-    for (; i3 < len; i3++) {
-      const childRoute = childrenRoutes[i3];
-      if (childRoute instanceof Promise) {
-        allPromises.push(this._addRoute(childRoute));
-        continue;
-      }
-      const rdResolution = resolveRouteConfiguration(childRoute, true, config, null, this);
-      if (rdResolution instanceof Promise) {
-        if (!isPartialChildRouteConfig(childRoute) || childRoute.path == null)
-          throw new Error(getMessage(
-            3173
-            /* Events.rcNoPathLazyImport */
-          ));
-        for (const path of ensureArrayOfStrings(childRoute.path)) {
-          this._$addRoute(path, childRoute.caseSensitive ?? false, rdResolution);
-        }
-        const idx = this.childRoutes.length;
-        const p2 = rdResolution.then((rdConfig) => {
-          return this.childRoutes[idx] = rdConfig;
-        });
-        this.childRoutes.push(p2);
-        if (hasNavModel) {
-          navModel._addRoute(p2);
-        }
-        allPromises.push(p2.then(noop$1));
-        continue;
-      }
-      for (const path of rdResolution.path ?? emptyArray) {
-        this._$addRoute(path, rdResolution.caseSensitive, rdResolution);
-      }
-      this.childRoutes.push(rdResolution);
-      if (hasNavModel) {
-        navModel._addRoute(rdResolution);
-      }
-    }
-    this._childRoutesConfigured = true;
-    if (allPromises.length > 0) {
-      this._allResolved = Promise.all(allPromises).then(() => {
-        this._allResolved = null;
+      container.get(IRouterEvents).subscribe("au:router:navigation-end", () => {
+        routeConfigContext.navigationModel._setIsActive(_router, this);
       });
     }
   }
@@ -24317,7 +24752,7 @@ class RouteContext {
   }
   dispose() {
     this.container.dispose();
-    this._unsubscribeIsNavigatingChange();
+    this._router._unsubscribeNavigationStart(this);
   }
   /** @internal */
   _resolveViewportAgent(req) {
@@ -24352,13 +24787,74 @@ class RouteContext {
     const host = platform.document.createElement(elDefn.name);
     registerHostNode(container, host, platform);
     const componentInstance = container.invoke(elDefn.Type);
-    const task2 = this._childRoutesConfigured ? void 0 : onResolve(resolveRouteConfiguration(componentInstance, false, this.config, routeNode, null), (config) => this._processConfig(config));
-    return onResolve(task2, () => {
+    const task = this.routeConfigContext._childRoutesConfigured ? void 0 : onResolve(resolveRouteConfiguration(componentInstance, false, this.routeConfigContext.config, routeNode, null), (config) => this.routeConfigContext._processConfig(config));
+    return onResolve(task, () => {
       const controller = Controller.$el(container, componentInstance, host, { projections: null }, elDefn);
       const componentAgent = new ComponentAgent(componentInstance, controller, routeNode, this, this._router.options);
       this._hostControllerProvider.dispose();
       return componentAgent;
     });
+  }
+  /**
+   * Generates a path that is rooted to the application.
+   */
+  generateRootedPath(instructionOrInstructions) {
+    return onResolve(this.createViewportInstructions(createEagerInstructions(instructionOrInstructions), null, true), (vit) => {
+      const relativePath = vit.toUrl(true, this._router.options._urlParser);
+      let parentPath = "";
+      const parentSegments = [];
+      let ctx = vit.options.context;
+      while (!ctx.isRoot) {
+        const seg = ctx.vpa?._currNode?.instruction?.toUrlComponent(false);
+        if ((seg?.length ?? 0) !== 0)
+          parentSegments.unshift(seg);
+        ctx = ctx.parent;
+      }
+      parentPath = parentSegments.join("/");
+      return parentPath.length === 0 ? relativePath : `${parentPath}/${relativePath}`;
+    });
+  }
+  /**
+   * Generates a path that is relative to the this context.
+   */
+  generateRelativePath(instructionOrInstructions) {
+    return onResolve(this.createViewportInstructions(createEagerInstructions(instructionOrInstructions), null, true), (vit) => vit.toUrl(true, this._router.options._urlParser));
+  }
+  createViewportInstructions(instructionOrInstructions, options, traverseChildren) {
+    if (instructionOrInstructions instanceof ViewportInstructionTree)
+      return instructionOrInstructions;
+    let context = options?.context ?? this;
+    let contextChanged = false;
+    if (!isArray(instructionOrInstructions)) {
+      instructionOrInstructions = processStringInstruction.call(this, instructionOrInstructions);
+    } else {
+      const len = instructionOrInstructions.length;
+      for (let i3 = 0; i3 < len; ++i3) {
+        instructionOrInstructions[i3] = processStringInstruction.call(this, instructionOrInstructions[i3]);
+      }
+    }
+    const routerOptions = this._router.options;
+    return ViewportInstructionTree.create(instructionOrInstructions, routerOptions, NavigationOptions.create(routerOptions, { ...options, context }), this.root, traverseChildren);
+    function processStringInstruction(instr) {
+      if (typeof instr === "string")
+        instr = this._locationMgr.removeBaseHref(instr);
+      const isVpInstr = isPartialViewportInstruction(instr);
+      let $instruction = isVpInstr ? instr.component : instr;
+      if (typeof $instruction === "string" && $instruction.startsWith("../") && context !== null) {
+        while ($instruction.startsWith("../") && ((context?.parent ?? null) !== null || contextChanged)) {
+          $instruction = $instruction.slice(3);
+          if (!contextChanged)
+            context = context.parent;
+        }
+        contextChanged = true;
+      }
+      if (isVpInstr) {
+        instr.component = $instruction;
+      } else {
+        instr = $instruction;
+      }
+      return instr;
+    }
   }
   /** @internal */
   _registerViewport(viewport2) {
@@ -24381,22 +24877,131 @@ class RouteContext {
     trace(this._logger, 3162, agent);
     this._childViewportAgents.splice(this._childViewportAgents.indexOf(agent), 1);
   }
-  recognize(path, searchAncestor = false) {
-    trace(this._logger, 3164, path);
-    let _current = this;
-    let _continue = true;
-    let result = null;
-    while (_continue) {
-      result = _current._recognizer.recognize(path);
-      if (result === null) {
-        if (!searchAncestor || _current.isRoot)
-          return null;
-        _current = _current.parent;
-      } else {
-        _continue = false;
+  // Should not be adjust for DEV as it is also used of logging in production build.
+  toString() {
+    const vpAgents = this._childViewportAgents;
+    const viewports = vpAgents.map(String).join(",");
+    return `RC(path:'${this.routeConfigContext._friendlyPath}',viewports:[${viewports}])`;
+  }
+  /** @internal */
+  _printTree() {
+    const tree = [];
+    const path = this.routeConfigContext.path;
+    for (let i3 = 0; i3 < path.length; ++i3) {
+      tree.push(`${" ".repeat(i3)}${path[i3]}`);
+    }
+    return tree.join("\n");
+  }
+}
+class RouteConfigContext {
+  get isRoot() {
+    return this.parent === null;
+  }
+  get depth() {
+    return this.path.length - 1;
+  }
+  get navigationModel() {
+    return this._navigationModel;
+  }
+  get allResolved() {
+    return this._allResolved;
+  }
+  constructor(parent, component, config, parentContainer, _router) {
+    this.parent = parent;
+    this.component = component;
+    this.config = config;
+    this._router = _router;
+    this._childRoutesConfigured = false;
+    this.childRoutes = [];
+    this._allResolved = null;
+    if (parent === null) {
+      this.root = this;
+      this.path = [this];
+      this._friendlyPath = component.name;
+    } else {
+      this.root = parent.root;
+      this.path = [...parent.path, this];
+      this._friendlyPath = `${parent._friendlyPath}/${component.name}`;
+    }
+    this._logger = parentContainer.get(ILogger).scopeTo(`RouteConfigContext<${this._friendlyPath}>`);
+    trace(
+      this._logger,
+      3150
+      /* Events.rcCreated */
+    );
+    this._moduleLoader = parentContainer.get(IModuleLoader);
+    this.container = parentContainer.createChild();
+    this._recognizer = new RouteRecognizer();
+    if (_router.options.useNavigationModel) {
+      this._navigationModel = new NavigationModel([]);
+    } else {
+      this._navigationModel = null;
+    }
+    this._processConfig(config);
+  }
+  /** @internal */
+  _handleNavigationStart() {
+    this.config._handleNavigationStart();
+    for (const childRoute of this.childRoutes) {
+      if (childRoute instanceof Promise)
+        continue;
+      childRoute._handleNavigationStart();
+    }
+  }
+  /** @internal */
+  _processConfig(config) {
+    const allPromises = [];
+    const childrenRoutes = config.routes ?? noRoutes;
+    const len = childrenRoutes.length;
+    if (len === 0) {
+      const getRouteConfig = config.component.prototype?.getRouteConfig;
+      this._childRoutesConfigured = getRouteConfig == null ? true : typeof getRouteConfig !== "function";
+      return;
+    }
+    const navModel = this._navigationModel;
+    const hasNavModel = navModel !== null;
+    let i3 = 0;
+    for (; i3 < len; i3++) {
+      const childRoute = childrenRoutes[i3];
+      if (childRoute instanceof Promise) {
+        allPromises.push(this._addRoute(childRoute));
+        continue;
+      }
+      const rdResolution = resolveRouteConfiguration(childRoute, true, config, null, this);
+      if (rdResolution instanceof Promise) {
+        if (!isPartialChildRouteConfig(childRoute) || childRoute.path == null)
+          throw new Error(getMessage(
+            3173
+            /* Events.rcNoPathLazyImport */
+          ));
+        for (const path of ensureArrayOfStrings(childRoute.path)) {
+          this._$addRoute(path, childRoute.caseSensitive ?? false, rdResolution);
+        }
+        const idx = this.childRoutes.length;
+        const p2 = rdResolution.then((rdConfig) => {
+          return this.childRoutes[idx] = rdConfig;
+        });
+        this.childRoutes.push(p2);
+        if (hasNavModel) {
+          navModel._addRoute(p2);
+        }
+        allPromises.push(p2.then(noop$1));
+        continue;
+      }
+      for (const path of rdResolution.path ?? emptyArray) {
+        this._$addRoute(path, rdResolution.caseSensitive, rdResolution);
+      }
+      this.childRoutes.push(rdResolution);
+      if (hasNavModel) {
+        navModel._addRoute(rdResolution);
       }
     }
-    return new $RecognizedRoute(result, Reflect.has(result.params, RESIDUE) ? result.params[RESIDUE] ?? null : null);
+    this._childRoutesConfigured = true;
+    if (allPromises.length > 0) {
+      this._allResolved = Promise.all(allPromises).then(() => {
+        this._allResolved = null;
+      });
+    }
   }
   _addRoute(routeable) {
     trace(this._logger, 3165, routeable);
@@ -24447,9 +25052,10 @@ class RouteContext {
       return firstNonDefaultExport ?? defaultExport;
     });
   }
-  _generateViewportInstruction(instruction) {
+  _generateViewportInstruction(instruction, traverseChildren) {
     if (!isEagerInstruction(instruction))
       return null;
+    traverseChildren ??= false;
     const component = instruction.component;
     let paths;
     let throwError = false;
@@ -24491,17 +25097,7 @@ class RouteContext {
         debug(this._logger, 3166, instruction, errors);
         return null;
       }
-      return {
-        vi: ViewportInstruction.create({
-          recognizedRoute: new $RecognizedRoute(new RecognizedRoute(result2.endpoint, result2.consumed), null),
-          component: result2.path,
-          children: instruction.children,
-          viewport: instruction.viewport,
-          open: instruction.open,
-          close: instruction.close
-        }),
-        query: result2.query
-      };
+      return createPathGenerationResult.call(this, result2);
     }
     let maxScore = 0;
     for (let i3 = 0; i3 < numPaths; i3++) {
@@ -24521,17 +25117,7 @@ class RouteContext {
       debug(this._logger, 3166, instruction, errors);
       return null;
     }
-    return {
-      vi: ViewportInstruction.create({
-        recognizedRoute: new $RecognizedRoute(new RecognizedRoute(result.endpoint, result.consumed), null),
-        component: result.path,
-        children: instruction.children,
-        viewport: instruction.viewport,
-        open: instruction.open,
-        close: instruction.close
-      }),
-      query: result.query
-    };
+    return createPathGenerationResult.call(this, result);
     function core(path) {
       const endpoint = recognizer.getEndpoint(path);
       if (endpoint === null) {
@@ -24562,20 +25148,64 @@ class RouteContext {
       const query = Object.fromEntries(Object.entries(params).filter(([key]) => !consumedKeys.includes(key)));
       return { path: path.replace(/\/\//g, "/"), endpoint, consumed, query };
     }
-  }
-  // Should not be adjust for DEV as it is also used of logging in production build.
-  toString() {
-    const vpAgents = this._childViewportAgents;
-    const viewports = vpAgents.map(String).join(",");
-    return `RC(path:'${this._friendlyPath}',viewports:[${viewports}])`;
-  }
-  /** @internal */
-  _printTree() {
-    const tree = [];
-    for (let i3 = 0; i3 < this.path.length; ++i3) {
-      tree.push(`${" ".repeat(i3)}${this.path[i3]}`);
+    async function generateChildrenInstructions(parentConfig) {
+      const children = instruction.children;
+      const numChildren = children?.length ?? 0;
+      if (numChildren === 0)
+        return { instructions: emptyArray, query: emptyObject };
+      const parentComponent = parentConfig.component;
+      const parentDefn = CustomElement.isType(parentComponent) ? CustomElement.getDefinition(parentComponent) : resolveCustomElementDefinition(parentComponent, this)[1];
+      return onResolve(onResolve(this._router.getRouteConfigContext(parentConfig, parentDefn, null, this.container, this.config, this), (x2) => onResolve(x2.allResolved, () => x2)), ($routeConfigContext) => {
+        const promises = new Array(numChildren);
+        const instructions = new Array(numChildren);
+        let query = /* @__PURE__ */ Object.create(null);
+        for (let i3 = 0; i3 < numChildren; ++i3) {
+          const child = children[i3];
+          promises[i3] = onResolve($routeConfigContext._generateViewportInstruction(isPartialViewportInstruction(child) ? { ...child, params: child.params ?? emptyObject } : { component: child, params: emptyObject }, traverseChildren), (eagerVi) => {
+            if (eagerVi == null)
+              throw new Error(getMessage(3166, child));
+            instructions[i3] = eagerVi.vi;
+            query = mergeQueryParams(query, eagerVi.query);
+          });
+        }
+        return onResolve(Promise.all(promises), () => ({ instructions, query }));
+      });
     }
-    return tree.join("\n");
+    function createPathGenerationResult(result2) {
+      return onResolve(traverseChildren ? generateChildrenInstructions.call(this, result2.endpoint.route.handler) : { instructions: instruction.children, query: emptyObject }, ({ instructions: children, query: $query }) => {
+        return {
+          vi: ViewportInstruction.create({
+            recognizedRoute: new $RecognizedRoute(new RecognizedRoute(result2.endpoint, result2.consumed), null),
+            component: result2.path,
+            children,
+            viewport: instruction.viewport,
+            open: instruction.open,
+            close: instruction.close
+          }),
+          query: mergeQueryParams(result2.query, $query)
+        };
+      });
+    }
+  }
+  recognize(path, searchAncestor = false) {
+    trace(this._logger, 3164, path);
+    let _current = this;
+    let _continue = true;
+    let result = null;
+    while (_continue) {
+      result = _current._recognizer.recognize(path);
+      if (result === null) {
+        if (!searchAncestor || _current.isRoot)
+          return null;
+        _current = _current.parent;
+      } else {
+        _continue = false;
+      }
+    }
+    return new $RecognizedRoute(result, Reflect.has(result.params, RESIDUE) ? result.params[RESIDUE] ?? null : null);
+  }
+  dispose() {
+    this.container.dispose();
   }
 }
 class $RecognizedRoute {
@@ -24650,7 +25280,7 @@ class NavigationRoute {
     if (trees === null) {
       const routerOptions = router.options;
       trees = this._trees = this.path.map((p2) => {
-        const ep = context._recognizer.getEndpoint(p2);
+        const ep = context.routeConfigContext._recognizer.getEndpoint(p2);
         if (ep === null)
           throw new Error(getMessage(3450, p2));
         return new ViewportInstructionTree(NavigationOptions.create(routerOptions, { context }), false, [
@@ -24673,7 +25303,7 @@ class ViewportCustomElement {
     this._agent = void 0;
     this._controller = void 0;
     this._ctx = resolve(IRouteContext);
-    this._logger = resolve(ILogger).scopeTo(`au-viewport<${this._ctx._friendlyPath}>`);
+    this._logger = resolve(ILogger).scopeTo(`au-viewport<${this._ctx.routeConfigContext._friendlyPath}>`);
   }
   /** @internal */
   _getFallback(viewportInstruction, routeNode, context) {
@@ -24731,7 +25361,7 @@ class ViewportCustomElement {
         }
       }
     }
-    return `VP(ctx:'${this._ctx._friendlyPath}',${propStrings.join(",")})`;
+    return `VP(ctx:'${this._ctx.routeConfigContext._friendlyPath}',${propStrings.join(",")})`;
   }
 }
 CustomElement.define({
@@ -24785,7 +25415,7 @@ class LoadCustomAttribute {
   }
   attaching() {
     const ctx = this.context;
-    const promise = ctx.allResolved;
+    const promise = ctx.routeConfigContext.allResolved;
     if (promise !== null) {
       return promise.then(() => {
         this.valueChanged();
@@ -24808,7 +25438,7 @@ class LoadCustomAttribute {
     } else if (ctx === null) {
       ctx = this.context = this._ctx.root;
     }
-    if (component != null && ctx.allResolved === null) {
+    if (component != null && ctx.routeConfigContext.allResolved === null) {
       const params = this.params;
       const instructions = this._instructions = router.createViewportInstructions(typeof params === "object" && params !== null ? { component, params } : component, { context: ctx });
       this._href = instructions.toUrl(false, options._urlParser);
@@ -24881,7 +25511,7 @@ class HrefCustomAttribute {
     if (newValue == null) {
       this._el.removeAttribute("href");
     } else {
-      if (this._router.options.useUrlFragmentHash && this._ctx.isRoot && !/^[.#]/.test(newValue) && !this._isExternal) {
+      if (this._router.options.useUrlFragmentHash && this._ctx.routeConfigContext.isRoot && !/^[.#]/.test(newValue) && !this._isExternal) {
         newValue = `#${newValue}`;
       }
       this._el.setAttribute("href", newValue);
@@ -25436,7 +26066,7 @@ let N$1 = class N {
       if (1 === r2.nodeType) {
         if (r2.hasAttributes()) for (const t3 of r2.getAttributeNames()) if (t3.endsWith(e$2)) {
           const i3 = v2[a2++], s3 = r2.getAttribute(t3).split(h), e2 = /([.?@])?(.*)/.exec(i3);
-          d2.push({ type: 1, index: c2, name: e2[2], strings: s3, ctor: "." === e2[1] ? H : "?" === e2[1] ? I$1 : "@" === e2[1] ? L$1 : k$1 }), r2.removeAttribute(t3);
+          d2.push({ type: 1, index: c2, name: e2[2], strings: s3, ctor: "." === e2[1] ? H : "?" === e2[1] ? I : "@" === e2[1] ? L$1 : k$1 }), r2.removeAttribute(t3);
         } else t3.startsWith(h) && (d2.push({ type: 6, index: c2 }), r2.removeAttribute(t3));
         if ($$1.test(r2.tagName)) {
           const t3 = r2.textContent.split(h), s3 = t3.length - 1;
@@ -25585,14 +26215,14 @@ class H extends k$1 {
     this.element[this.name] = t2 === E$1 ? void 0 : t2;
   }
 }
-let I$1 = class I extends k$1 {
+class I extends k$1 {
   constructor() {
     super(...arguments), this.type = 4;
   }
   j(t2) {
     this.element.toggleAttribute(this.name, !!t2 && t2 !== E$1);
   }
-};
+}
 let L$1 = class L extends k$1 {
   constructor(t2, i3, s2, e2, h2) {
     super(t2, i3, s2, e2, h2), this.type = 5;
@@ -29573,17 +30203,21 @@ class ListController {
       const inlineNext = isRtl3 ? NavigableKeys.ArrowLeft : NavigableKeys.ArrowRight;
       let nextActiveItem = null;
       switch (key) {
+        // Activate the next item
         case NavigableKeys.ArrowDown:
         case inlineNext:
           nextActiveItem = activateNextItem(items, activeItemRecord, this.isActivatable, this.wrapNavigation());
           break;
+        // Activate the previous item
         case NavigableKeys.ArrowUp:
         case inlinePrevious:
           nextActiveItem = activatePreviousItem(items, activeItemRecord, this.isActivatable, this.wrapNavigation());
           break;
+        // Activate the first item
         case NavigableKeys.Home:
           nextActiveItem = activateFirstItem(items, this.isActivatable);
           break;
+        // Activate the last item
         case NavigableKeys.End:
           nextActiveItem = activateLastItem(items, this.isActivatable);
           break;
@@ -40475,53 +41109,43 @@ const seen = {};
 const __vitePreload = function preload(baseModule, deps, importerUrl) {
   let promise = Promise.resolve();
   if (deps && deps.length > 0) {
+    let allSettled = function(promises$2) {
+      return Promise.all(promises$2.map((p$12) => Promise.resolve(p$12).then((value$1) => ({
+        status: "fulfilled",
+        value: value$1
+      }), (reason) => ({
+        status: "rejected",
+        reason
+      }))));
+    };
     document.getElementsByTagName("link");
-    const cspNonceMeta = document.querySelector(
-      "meta[property=csp-nonce]"
-    );
+    const cspNonceMeta = document.querySelector("meta[property=csp-nonce]");
     const cspNonce = cspNonceMeta?.nonce || cspNonceMeta?.getAttribute("nonce");
-    promise = Promise.allSettled(
-      deps.map((dep) => {
-        dep = assetsURL(dep);
-        if (dep in seen) return;
-        seen[dep] = true;
-        const isCss = dep.endsWith(".css");
-        const cssSelector = isCss ? '[rel="stylesheet"]' : "";
-        if (document.querySelector(`link[href="${dep}"]${cssSelector}`)) {
-          return;
-        }
-        const link = document.createElement("link");
-        link.rel = isCss ? "stylesheet" : scriptRel;
-        if (!isCss) {
-          link.as = "script";
-        }
-        link.crossOrigin = "";
-        link.href = dep;
-        if (cspNonce) {
-          link.setAttribute("nonce", cspNonce);
-        }
-        document.head.appendChild(link);
-        if (isCss) {
-          return new Promise((res, rej) => {
-            link.addEventListener("load", res);
-            link.addEventListener(
-              "error",
-              () => rej(new Error(`Unable to preload CSS for ${dep}`))
-            );
-          });
-        }
-      })
-    );
+    promise = allSettled(deps.map((dep) => {
+      dep = assetsURL(dep);
+      if (dep in seen) return;
+      seen[dep] = true;
+      const isCss = dep.endsWith(".css");
+      const cssSelector = isCss ? '[rel="stylesheet"]' : "";
+      if (document.querySelector(`link[href="${dep}"]${cssSelector}`)) return;
+      const link = document.createElement("link");
+      link.rel = isCss ? "stylesheet" : scriptRel;
+      if (!isCss) link.as = "script";
+      link.crossOrigin = "";
+      link.href = dep;
+      if (cspNonce) link.setAttribute("nonce", cspNonce);
+      document.head.appendChild(link);
+      if (isCss) return new Promise((res, rej) => {
+        link.addEventListener("load", res);
+        link.addEventListener("error", () => rej(/* @__PURE__ */ new Error(`Unable to preload CSS for ${dep}`)));
+      });
+    }));
   }
-  function handlePreloadError(err) {
-    const e2 = new Event("vite:preloadError", {
-      cancelable: true
-    });
-    e2.payload = err;
-    window.dispatchEvent(e2);
-    if (!e2.defaultPrevented) {
-      throw err;
-    }
+  function handlePreloadError(err$2) {
+    const e$12 = new Event("vite:preloadError", { cancelable: true });
+    e$12.payload = err$2;
+    window.dispatchEvent(e$12);
+    if (!e$12.defaultPrevented) throw err$2;
   }
   return promise.then((res) => {
     for (const item of res || []) {
@@ -40588,27 +41212,27 @@ _App_decorators = [customElement(__au2ViewDef), route({
   routes: [
     {
       path: "",
-      component: __vitePreload(() => import("./home-Bs-rA-Uy.js"), true ? [] : void 0),
+      component: __vitePreload(() => import("./home-irm9HvSR.js"), true ? [] : void 0),
       title: "Home"
     },
     {
       path: "cube-recipes",
-      component: __vitePreload(() => import("./cube-recipes-DQfVK0yj.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
+      component: __vitePreload(() => import("./cube-recipes-Csoio6Mp.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
       title: "Cube Recipes"
     },
     {
       path: "uniques",
-      component: __vitePreload(() => import("./uniques-DSj1s5R5.js"), true ? __vite__mapDeps([3,1]) : void 0),
+      component: __vitePreload(() => import("./uniques-CSwpAIJ8.js"), true ? __vite__mapDeps([3,1]) : void 0),
       title: "Uniques"
     },
     {
       path: "sets",
-      component: __vitePreload(() => import("./sets-cr4fw4tX.js"), true ? __vite__mapDeps([4,1]) : void 0),
+      component: __vitePreload(() => import("./sets-C_SXvQJ8.js"), true ? __vite__mapDeps([4,1]) : void 0),
       title: "Sets"
     },
     {
       path: "runewords",
-      component: __vitePreload(() => import("./runewords-CF91spmh.js"), true ? __vite__mapDeps([5,1]) : void 0),
+      component: __vitePreload(() => import("./runewords-C-gkHn-d.js"), true ? __vite__mapDeps([5,1]) : void 0),
       title: "Runewords"
     }
   ]
@@ -41913,32 +42537,32 @@ function __esDecorate$1(t2, i3, e2, s2, n3, r2) {
     return t3;
   }
   var o2 = s2.kind, a2 = o2 === "getter" ? "get" : o2 === "setter" ? "set" : "value";
-  var l2 = {};
-  var h2, c2 = false;
-  for (var u2 = e2.length - 1; u2 >= 0; u2--) {
-    var d2 = {};
-    for (var f2 in s2) d2[f2] = f2 === "access" ? {} : s2[f2];
-    for (var f2 in s2.access) d2.access[f2] = s2.access[f2];
-    d2.addInitializer = function(t3) {
-      if (c2) throw new TypeError("Cannot add initializers after decoration has completed");
+  var h2 = {};
+  var c2, u2 = false;
+  for (var d2 = e2.length - 1; d2 >= 0; d2--) {
+    var f2 = {};
+    for (var v2 in s2) f2[v2] = v2 === "access" ? {} : s2[v2];
+    for (var v2 in s2.access) f2.access[v2] = s2.access[v2];
+    f2.addInitializer = function(t3) {
+      if (u2) throw new TypeError("Cannot add initializers after decoration has completed");
       r2.push(accept(t3 || null));
     };
-    var v2 = (0, e2[u2])(o2 === "accessor" ? {
-      get: l2.get,
-      set: l2.set
-    } : l2[a2], d2);
+    var g2 = (0, e2[d2])(o2 === "accessor" ? {
+      get: h2.get,
+      set: h2.set
+    } : h2[a2], f2);
     if (o2 === "accessor") {
-      if (v2 === void 0) continue;
-      if (v2 === null || typeof v2 !== "object") throw new TypeError("Object expected");
-      if (h2 = accept(v2.get)) l2.get = h2;
-      if (h2 = accept(v2.set)) l2.set = h2;
-      if (h2 = accept(v2.init)) n3.unshift(h2);
-    } else if (h2 = accept(v2)) {
-      if (o2 === "field") n3.unshift(h2);
-      else l2[a2] = h2;
+      if (g2 === void 0) continue;
+      if (g2 === null || typeof g2 !== "object") throw new TypeError("Object expected");
+      if (c2 = accept(g2.get)) h2.get = c2;
+      if (c2 = accept(g2.set)) h2.set = c2;
+      if (c2 = accept(g2.init)) n3.unshift(c2);
+    } else if (c2 = accept(g2)) {
+      if (o2 === "field") n3.unshift(c2);
+      else h2[a2] = c2;
     }
   }
-  c2 = true;
+  u2 = true;
 }
 function __runInitializers$1(t2, i3, e2) {
   var s2 = arguments.length > 2;
@@ -42040,7 +42664,7 @@ function getPropertyInfo(t2, i3) {
   }
   return e2;
 }
-const I2 = /* @__PURE__ */ DI.createInterface("IValidationController");
+const P = /* @__PURE__ */ DI.createInterface("IValidationController");
 class ValidationController {
   constructor() {
     this.bindings = /* @__PURE__ */ new Map();
@@ -42104,7 +42728,7 @@ class ValidationController {
       }, [])];
     }
     this.validating = true;
-    const n3 = this.platform.domQueue.queueTask(async () => {
+    const n3 = queueAsyncTask(async () => {
       try {
         const i4 = await Promise.all(s2.map(async (t3) => this.validator.validate(t3)));
         const e3 = i4.reduce((t3, i5) => {
@@ -42245,7 +42869,7 @@ function compareDocumentPositionFlat(t2, i3) {
       return -1;
   }
 }
-const P = `
+const A = `
 <slot></slot>
 <slot name='secondary'>
   <span repeat.for="error of errors">
@@ -42253,14 +42877,14 @@ const P = `
   </span>
 </slot>
 `;
-const A = {
+const M2 = {
   name: "validation-container",
   shadowOptions: {
     mode: "open"
   },
   hasSlots: true
 };
-let M2 = (() => {
+let D = (() => {
   var t2;
   let e2;
   let n3 = [];
@@ -42273,7 +42897,7 @@ let M2 = (() => {
       this.controller = __runInitializers$1(this, n3, void 0);
       this.errors = (__runInitializers$1(this, r2), __runInitializers$1(this, a2, []));
       this.host = (__runInitializers$1(this, l2), resolve(INode));
-      this.scopedController = resolve(optional(I2));
+      this.scopedController = resolve(optional(P));
     }
     handleValidationEvent(t3) {
       for (const { result: i3 } of t3.removedResults) {
@@ -42350,7 +42974,7 @@ class ValidationErrorsCustomAttribute {
     this.errors = [];
     this.errorsInternal = [];
     this.host = resolve(INode);
-    this.scopedController = resolve(optional(I2));
+    this.scopedController = resolve(optional(P));
   }
   handleValidationEvent(t2) {
     for (const { result: i3 } of t2.removedResults) {
@@ -42394,7 +43018,7 @@ CustomAttribute.define({
     }
   }
 }, ValidationErrorsCustomAttribute);
-var D;
+var j;
 (function(t2) {
   t2["manual"] = "manual";
   t2["blur"] = "blur";
@@ -42402,10 +43026,10 @@ var D;
   t2["change"] = "change";
   t2["changeOrBlur"] = "changeOrBlur";
   t2["changeOrFocusout"] = "changeOrFocusout";
-})(D || (D = {}));
-const j = /* @__PURE__ */ DI.createInterface("IDefaultTrigger");
-const k2 = /* @__PURE__ */ new WeakMap();
+})(j || (j = {}));
+const k2 = /* @__PURE__ */ DI.createInterface("IDefaultTrigger");
 const O = /* @__PURE__ */ new WeakMap();
+const $ = /* @__PURE__ */ new WeakMap();
 class ValidateBindingBehavior {
   constructor() {
     this.p = resolve(IPlatform);
@@ -42415,19 +43039,19 @@ class ValidateBindingBehavior {
     if (!(i3 instanceof PropertyBinding)) {
       throw createMappedError(4200);
     }
-    let e2 = k2.get(i3);
+    let e2 = O.get(i3);
     if (e2 == null) {
-      k2.set(i3, e2 = new ValidationConnector(this.p, this.oL, i3.get(j), i3, i3.get(IContainer)));
+      O.set(i3, e2 = new ValidationConnector(this.p, this.oL, i3.get(k2), i3, i3.get(IContainer)));
     }
-    let s2 = O.get(i3);
+    let s2 = $.get(i3);
     if (s2 == null) {
-      O.set(i3, s2 = new WithValidationTargetSubscriber(e2, i3, i3.get(IFlushQueue)));
+      $.set(i3, s2 = new WithValidationTargetSubscriber(e2, i3, i3.get(IFlushQueue)));
     }
     e2.start(t2);
     i3.useTargetSubscriber(s2);
   }
   unbind(t2, i3) {
-    k2.get(i3)?.stop();
+    O.get(i3)?.stop();
   }
 }
 BindingBehavior.define("validate", ValidateBindingBehavior);
@@ -42437,22 +43061,22 @@ class ValidationConnector {
     this.isDirty = false;
     this.validatedOnce = false;
     this.triggerEvent = null;
-    this.task = null;
+    this.t = false;
     this.propertyBinding = s2;
     this.target = s2.target;
     this.defaultTrigger = e2;
     this.p = t2;
     this.oL = i3;
     this.l = n3;
-    this.t = new BindingMediator("handleSourceChange", this, i3, n3);
-    this.i = new BindingMediator("handleTriggerChange", this, i3, n3);
-    this.h = new BindingMediator("handleControllerChange", this, i3, n3);
-    this.u = new BindingMediator("handleRulesChange", this, i3, n3);
-    if (n3.has(I2, true)) {
-      this.scopedController = n3.get(I2);
+    this.i = new BindingMediator("handleSourceChange", this, i3, n3);
+    this.h = new BindingMediator("handleTriggerChange", this, i3, n3);
+    this.u = new BindingMediator("handleControllerChange", this, i3, n3);
+    this.V = new BindingMediator("handleRulesChange", this, i3, n3);
+    if (n3.has(P, true)) {
+      this.scopedController = n3.get(P);
     }
   }
-  V() {
+  C() {
     this.isDirty = true;
     const t2 = this.triggerEvent;
     if (this.isChangeTrigger && (t2 === null || t2 !== null && this.validatedOnce)) {
@@ -42466,18 +43090,16 @@ class ValidationConnector {
   }
   start(t2) {
     this.scope = t2;
-    this.target = this.C();
-    const i3 = this.B();
-    if (!this._(i3) && this.bindingInfo != null) {
+    this.target = this.B();
+    const i3 = this._();
+    if (!this.R(i3) && this.bindingInfo != null) {
       this.controller?.registerBinding(this.propertyBinding, this.bindingInfo);
       this.controller?.addSubscriber(this);
     }
   }
   stop() {
-    this.task?.cancel();
-    this.source = void 0;
+    this.t = false;
     this.scope = void 0;
-    this.task = null;
     const t2 = this.triggerEvent;
     if (t2 !== null) {
       this.target?.removeEventListener(t2, this);
@@ -42487,13 +43109,13 @@ class ValidationConnector {
     this.controller?.removeSubscriber(this);
   }
   handleTriggerChange(t2, i3) {
-    this._(new ValidateArgumentsDelta(void 0, this.R(t2), void 0));
+    this.R(new ValidateArgumentsDelta(void 0, this.T(t2), void 0));
   }
   handleControllerChange(t2, i3) {
-    this._(new ValidateArgumentsDelta(this.T(t2), void 0, void 0));
+    this.R(new ValidateArgumentsDelta(this.I(t2), void 0, void 0));
   }
   handleRulesChange(t2, i3) {
-    this._(new ValidateArgumentsDelta(void 0, void 0, this.I(t2)));
+    this.R(new ValidateArgumentsDelta(void 0, void 0, this.P(t2)));
   }
   handleSourceChange(t2, i3) {
     if (this.source !== t2) {
@@ -42509,7 +43131,7 @@ class ValidationConnector {
     if (e2 === void 0) return;
     this.validatedOnce = t2.addedResults.find((t3) => t3.result.propertyName === e2) !== void 0;
   }
-  B() {
+  _() {
     const t2 = this.scope;
     let i3;
     let e2;
@@ -42523,28 +43145,31 @@ class ValidationConnector {
       const o3 = r2[n4];
       switch (n4) {
         case 0:
-          e2 = this.R(astEvaluate(o3, t2, this, this.i));
+          e2 = this.T(astEvaluate(o3, t2, this, this.h));
           break;
         case 1:
-          s2 = this.T(astEvaluate(o3, t2, this, this.h));
+          s2 = this.I(astEvaluate(o3, t2, this, this.u));
           break;
         case 2:
-          i3 = this.I(astEvaluate(o3, t2, this, this.u));
+          i3 = this.P(astEvaluate(o3, t2, this, this.V));
           break;
         default:
           throw createMappedError(4201, n4 + 1, astEvaluate(o3, t2, this, null));
       }
     }
-    return new ValidateArgumentsDelta(this.T(s2), this.R(e2), i3);
+    return new ValidateArgumentsDelta(this.I(s2), this.T(e2), i3);
   }
   validateBinding() {
-    const t2 = this.task;
-    this.task = this.p.domQueue.queueTask(() => this.controller.validateBinding(this.propertyBinding));
-    if (t2 !== this.task) {
-      t2?.cancel();
+    if (this.t) {
+      return;
     }
+    this.t = true;
+    queueAsyncTask(() => {
+      this.t = false;
+      return this.controller.validateBinding(this.propertyBinding);
+    });
   }
-  _(t2) {
+  R(t2) {
     const i3 = t2.trigger ?? this.trigger;
     const e2 = t2.controller ?? this.controller;
     const s2 = t2.rules;
@@ -42556,8 +43181,8 @@ class ValidationConnector {
       this.validatedOnce = false;
       this.isDirty = false;
       this.trigger = i3;
-      this.isChangeTrigger = i3 === D.change || i3 === D.changeOrBlur || i3 === D.changeOrFocusout;
-      t3 = this.triggerEvent = this.P(this.trigger);
+      this.isChangeTrigger = i3 === j.change || i3 === j.changeOrBlur || i3 === j.changeOrFocusout;
+      t3 = this.triggerEvent = this.A(this.trigger);
       if (t3 !== null) {
         this.target.addEventListener(t3, this);
       }
@@ -42566,21 +43191,21 @@ class ValidationConnector {
       this.controller?.removeSubscriber(this);
       this.controller?.unregisterBinding(this.propertyBinding);
       this.controller = e2;
-      e2.registerBinding(this.propertyBinding, this.A(s2));
+      e2.registerBinding(this.propertyBinding, this.M(s2));
       e2.addSubscriber(this);
       return true;
     }
     return false;
   }
-  R(t2) {
+  T(t2) {
     if (t2 === void 0 || t2 === null) {
       t2 = this.defaultTrigger;
-    } else if (!Object.values(D).includes(t2)) {
+    } else if (!Object.values(j).includes(t2)) {
       throw createMappedError(4202, t2);
     }
     return t2;
   }
-  T(t2) {
+  I(t2) {
     if (t2 == null) {
       t2 = this.scopedController;
     } else if (!(t2 instanceof ValidationController)) {
@@ -42588,12 +43213,12 @@ class ValidationConnector {
     }
     return t2;
   }
-  I(t2) {
+  P(t2) {
     if (Array.isArray(t2) && t2.every((t3) => t3 instanceof PropertyRule)) {
       return t2;
     }
   }
-  C() {
+  B() {
     const t2 = this.propertyBinding.target;
     if (t2 instanceof this.p.Node) {
       return t2;
@@ -42605,22 +43230,22 @@ class ValidationConnector {
       return i3.host;
     }
   }
-  P(t2) {
+  A(t2) {
     let i3 = null;
     switch (t2) {
-      case D.blur:
-      case D.changeOrBlur:
+      case j.blur:
+      case j.changeOrBlur:
         i3 = "blur";
         break;
-      case D.focusout:
-      case D.changeOrFocusout:
+      case j.focusout:
+      case j.changeOrFocusout:
         i3 = "focusout";
         break;
     }
     return i3;
   }
-  A(t2) {
-    return this.bindingInfo = new BindingInfo(this.t, this.target, this.scope, t2);
+  M(t2) {
+    return this.bindingInfo = new BindingInfo(this.i, this.target, this.scope, t2);
   }
 }
 connectable(ValidationConnector, null);
@@ -42632,7 +43257,7 @@ class WithValidationTargetSubscriber extends BindingTargetSubscriber {
   }
   handleChange(t2, i3) {
     super.handleChange(t2, i3);
-    this.vs.V();
+    this.vs.C();
   }
 }
 class ValidateArgumentsDelta {
@@ -42659,9 +43284,9 @@ function getDefaultValidationHtmlConfiguration() {
   return {
     ...getDefaultValidationConfiguration(),
     ValidationControllerFactoryType: ValidationControllerFactory,
-    DefaultTrigger: D.focusout,
+    DefaultTrigger: j.focusout,
     UseSubscriberCustomAttribute: true,
-    SubscriberCustomElementTemplate: P
+    SubscriberCustomElementTemplate: A
   };
 }
 function createConfiguration(t2) {
@@ -42670,23 +43295,23 @@ function createConfiguration(t2) {
     register(i3) {
       const e2 = getDefaultValidationHtmlConfiguration();
       t2(e2);
-      i3.registerFactory(I2, new e2.ValidationControllerFactoryType());
+      i3.registerFactory(P, new e2.ValidationControllerFactoryType());
       i3.register(L2.customize((t3) => {
         for (const i4 of Object.keys(t3)) {
           if (i4 in e2) {
             t3[i4] = e2[i4];
           }
         }
-      }), Registration.instance(j, e2.DefaultTrigger), ValidateBindingBehavior);
+      }), Registration.instance(k2, e2.DefaultTrigger), ValidateBindingBehavior);
       if (e2.UseSubscriberCustomAttribute) {
         i3.register(ValidationErrorsCustomAttribute);
       }
       const s2 = e2.SubscriberCustomElementTemplate;
       if (s2) {
         i3.register(CustomElement.define({
-          ...A,
+          ...M2,
           template: s2
-        }, M2));
+        }, D));
       }
       return i3;
     },
@@ -42695,7 +43320,7 @@ function createConfiguration(t2) {
     }
   };
 }
-const $ = /* @__PURE__ */ createConfiguration(noop$1);
+const F = /* @__PURE__ */ createConfiguration(noop$1);
 /**
  * @license
  * Copyright 2016 Google Inc.
@@ -44212,11 +44837,11 @@ var AnimationFrame = (
       });
     };
     AnimationFrame2.prototype.getQueue = function() {
-      var queue = [];
+      var queue2 = [];
       this.rafIDs.forEach(function(_2, key) {
-        queue.push(key);
+        queue2.push(key);
       });
-      return queue;
+      return queue2;
     };
     return AnimationFrame2;
   }()
@@ -50771,8 +51396,8 @@ class BetsyWebComponentsPlugin {
     container.register(elements);
     container.register(valueConverters);
     container.register(Registration.instance(IBetsyWebComponentsConfiguration, this.#configuration));
-    container.register($.customize((options) => {
-      options.DefaultTrigger = D.changeOrFocusout;
+    container.register(F.customize((options) => {
+      options.DefaultTrigger = j.changeOrFocusout;
     }));
     return container;
   }
