@@ -5,20 +5,11 @@ import json from '../item-jsons/uniques.json';
 
 export class Uniques {
     uniques = json;
-    private types = [
-        // The first element allows resetting the filter
-        { label: '-', value: undefined },
-        // Now follows a unique list of all possible types
-        ...[ ...new Set<string>(json.map(unique => unique.Type)).values() ]
-            // which is sorted alphabetically
-            .sort((a, b) => a.localeCompare(b))
-            // and converted into a selection list
-            .map(type => { return { label: type, value: type } })
-    ];
 
     @bindable search: string;
-    @bindable class: string;
+    @bindable selectedClass: string;
     @bindable selectedType: string;
+    @bindable selectedEquipmentName: string;
 
     private _debouncedSearchItem!: DebouncedFunction;
 
@@ -27,8 +18,8 @@ export class Uniques {
         this._debouncedSearchItem = debounce(this.updateList.bind(this), 350);
         this.updateList();
     }
-    @watch('class')
-    handleClassChanged() {
+    @watch('selectedClass')
+    handleSelectedClassChanged() {
         this.updateList();
     }
 
@@ -41,6 +32,18 @@ export class Uniques {
 
     @watch('selectedType')
     handleTypeChanged() {
+        // Update equipment names when type changes
+        this.equipmentNames = this.getUniqueEquipmentNames();
+        // Reset selected equipment name when type changes
+        this.selectedEquipmentName = undefined;
+        
+        if (this._debouncedSearchItem) {
+            this._debouncedSearchItem();
+        }
+    }
+    
+    @watch('selectedEquipmentName')
+    handleEquipmentNameChanged() {
         if (this._debouncedSearchItem) {
             this._debouncedSearchItem();
         }
@@ -57,11 +60,53 @@ export class Uniques {
         { value: 'Sorceress', label: 'Sorceress' }
     ];
 
+    types = this.getUniqueTypes();
+    equipmentNames = [];
+
+    getUniqueTypes() {
+        const uniqueTypes = new Set();
+        json.forEach(unique => {
+            if (unique.Type) {
+                uniqueTypes.add(unique.Type);
+            }
+        });
+        
+        const typeOptions = [{ value: undefined, label: '-' }];
+        Array.from(uniqueTypes).sort().forEach(type => {
+            typeOptions.push({ value: type, label: type });
+        });
+        
+        return typeOptions;
+    }
+
+    getUniqueEquipmentNames() {
+        // Filter uniques based on the selected type
+        const filteredUniques = json.filter(unique => 
+            !this.selectedType || unique.Type === this.selectedType
+        );
+        
+        // Extract unique Equipment.Name values
+        const uniqueEquipmentNames = new Set();
+        filteredUniques.forEach(unique => {
+            if (unique.Equipment && unique.Equipment.Name) {
+                uniqueEquipmentNames.add(unique.Equipment.Name);
+            }
+        });
+        
+        // Create options array
+        const equipmentNameOptions = [{ value: undefined, label: '-' }];
+        Array.from(uniqueEquipmentNames).sort().forEach(name => {
+            equipmentNameOptions.push({ value: name, label: name });
+        });
+        
+        return equipmentNameOptions;
+    }
+
 
 
     updateList() {
         const isMatchingClass = (unique) => {
-            return !this.class || unique.Equipment.RequiredClass?.toLowerCase().includes(this.class?.toLowerCase());
+            return !this.selectedClass || unique.Equipment.RequiredClass?.toLowerCase().includes(this.selectedClass?.toLowerCase());
         }
         const isMatchingSearch = (unique) => {
             if (!this.search) return true;
@@ -74,11 +119,21 @@ export class Uniques {
         const isMatchingType = (unique) => {
             return !this.selectedType || unique.Type === this.selectedType;
         }
+        const isMatchingEquipmentName = (unique) => {
+            return !this.selectedEquipmentName || unique.Equipment.Name === this.selectedEquipmentName;
+        }
+        
+        // Update the equipment names list if type is selected
+        if (this.selectedType && (!this.equipmentNames || this.equipmentNames.length <= 1)) {
+            this.equipmentNames = this.getUniqueEquipmentNames();
+        }
+        
         this.uniques = json.filter(unique =>
             !unique.Name.toLowerCase().includes('grabber') &&
             isMatchingSearch(unique) &&
             isMatchingClass(unique) &&
-            isMatchingType(unique));
+            isMatchingType(unique) &&
+            isMatchingEquipmentName(unique));
     }
 
     getDamageTypeString(type: number) {
