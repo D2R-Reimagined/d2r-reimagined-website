@@ -10004,7 +10004,7 @@
                         "Index": 2
                     },
                     {
-                        "PropertyString": "Poison Length Reduced by 60%",
+                        "PropertyString": "Poison Length Reduced by 60-80%",
                         "Index": 3
                     }
                 ],
@@ -12677,7 +12677,7 @@
                         "Index": 3
                     },
                     {
-                        "PropertyString": "Poison Length Reduced by 60%",
+                        "PropertyString": "Poison Length Reduced by 60-90%",
                         "Index": 1
                     }
                 ],
@@ -13119,7 +13119,7 @@
                         "Index": 2
                     },
                     {
-                        "PropertyString": "Poison Length Reduced by 60%",
+                        "PropertyString": "Poison Length Reduced by 60-80%",
                         "Index": 3
                     }
                 ],
@@ -17690,7 +17690,7 @@
                         "Index": 3
                     },
                     {
-                        "PropertyString": "Poison Length Reduced by 60%",
+                        "PropertyString": "Poison Length Reduced by 60-90%",
                         "Index": 4
                     }
                 ],
@@ -20096,7 +20096,7 @@
                     "Adds 25-75 to Damage (3 Items)",
                     "+100 Increased Stack Size (2 Items)"
                 ],
-                "Name": "Hanabal's Final Flight",
+                "Name": "Hannibal's Final Flight",
                 "Index": "Hannibal's Final Flight",
                 "Enabled": true,
                 "Rarity": 7,
@@ -20161,7 +20161,7 @@
                 "SetPropertiesString": [
                     "Lightning Resist +30% (3 Items)"
                 ],
-                "Name": "Hanabal's Blurred Vision",
+                "Name": "Hannibal's Blurred Vision",
                 "Index": "Hannibal's Blurred Vision",
                 "Enabled": true,
                 "Rarity": 7,
@@ -20212,7 +20212,7 @@
                     "+20% Faster Run/Walk (2 Items)",
                     "+100 to Attack Rating (3 Items)"
                 ],
-                "Name": "Hanabal's Bending Knee",
+                "Name": "Hannibal's Bending Knee",
                 "Index": "Hannibal's Bending Knee",
                 "Enabled": true,
                 "Rarity": 7,
@@ -23987,7 +23987,7 @@
                         "Index": 3
                     },
                     {
-                        "PropertyString": "Reduces all Vendor Prices 5%",
+                        "PropertyString": "Reduces all Vendor Prices 5-10%",
                         "Index": 4
                     }
                 ],

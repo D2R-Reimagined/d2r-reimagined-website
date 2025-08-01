@@ -1198,7 +1198,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Poison Length Reduced by 25%",
+                "PropertyString": "Poison Length Reduced by 25-50%",
                 "Index": 3
             },
             {
@@ -1835,7 +1835,7 @@
         }
     },
     {
-        "Type": "Large Charm",
+        "Type": "Grand Charm",
         "Name": "Nightshade",
         "Index": "Nightshade",
         "Enabled": true,
@@ -1874,8 +1874,8 @@
             "Durability": 0,
             "ItemLevel": 0,
             "Type": {
-                "Name": "Large Charm",
-                "Index": "Large Charm",
+                "Name": "Grand Charm",
+                "Index": "Grand Charm",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -4116,7 +4116,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+5 to Minimum Damage",
+                "PropertyString": "Adds 5 to Damage",
                 "Index": 3
             },
             {
@@ -4444,7 +4444,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Slows target by 15%",
+                "PropertyString": "Slows target by 15-25%",
                 "Index": 4
             },
             {
@@ -11009,7 +11009,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Reduces all Vendor Prices 5%",
+                "PropertyString": "Reduces all Vendor Prices 5-10%",
                 "Index": 2
             }
         ],
@@ -15514,7 +15514,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Reduces all Vendor Prices 8%",
+                "PropertyString": "Reduces all Vendor Prices 8-10%",
                 "Index": 6
             }
         ],
@@ -16507,7 +16507,7 @@
         }
     },
     {
-        "Type": "Medium Charm",
+        "Type": "Large Charm",
         "Name": "Valknut",
         "Index": "Valknut",
         "Enabled": true,
@@ -16546,8 +16546,8 @@
             "Durability": 0,
             "ItemLevel": 0,
             "Type": {
-                "Name": "Medium Charm",
-                "Index": "Medium Charm",
+                "Name": "Large Charm",
+                "Index": "Large Charm",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -17860,7 +17860,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Reduces all Vendor Prices 10%",
+                "PropertyString": "Reduces all Vendor Prices 10-15%",
                 "Index": 7
             }
         ],
@@ -20002,7 +20002,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+15 to Minimum Damage",
+                "PropertyString": "Adds 15 to Damage",
                 "Index": 1
             },
             {
@@ -27456,7 +27456,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Poison Length Reduced by 65%",
+                "PropertyString": "Poison Length Reduced by 65-90%",
                 "Index": 4
             },
             {
@@ -27840,7 +27840,7 @@
         }
     },
     {
-        "Type": "Large Charm",
+        "Type": "Grand Charm",
         "Name": "Triskelion",
         "Index": "Triskelion",
         "Enabled": true,
@@ -27875,8 +27875,8 @@
             "Durability": 0,
             "ItemLevel": 0,
             "Type": {
-                "Name": "Large Charm",
-                "Index": "Large Charm",
+                "Name": "Grand Charm",
+                "Index": "Grand Charm",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -28451,7 +28451,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Slows target by 10%",
+                "PropertyString": "Slows target by 10-15%",
                 "Index": 4
             },
             {
@@ -30876,7 +30876,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+35-70 to Minimum Damage",
+                "PropertyString": "Adds 35-70 to Damage",
                 "Index": 0
             },
             {
@@ -35816,7 +35816,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Reduces all Vendor Prices 10%",
+                "PropertyString": "Reduces all Vendor Prices 10-15%",
                 "Index": 6
             },
             {
@@ -36240,7 +36240,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Reduces all Vendor Prices 5%",
+                "PropertyString": "Reduces all Vendor Prices 5-15%",
                 "Index": 2
             },
             {
@@ -36969,7 +36969,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Slows target by 10%",
+                "PropertyString": "Slows target by 10-15%",
                 "Index": 3
             },
             {
@@ -45776,7 +45776,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Slows target by 10%",
+                "PropertyString": "Slows target by 10-20%",
                 "Index": 5
             },
             {
@@ -45959,7 +45959,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+25-50 to Minimum Damage",
+                "PropertyString": "Adds 25-50 to Damage",
                 "Index": 0
             },
             {
@@ -46546,7 +46546,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Poison Length Reduced by 50%",
+                "PropertyString": "Poison Length Reduced by 50-95%",
                 "Index": 8
             }
         ],
@@ -47579,7 +47579,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Poison Length Reduced by 50%",
+                "PropertyString": "Poison Length Reduced by 50-90%",
                 "Index": 7
             }
         ],
@@ -48524,7 +48524,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Reduces all Vendor Prices 10%",
+                "PropertyString": "Reduces all Vendor Prices 10-15%",
                 "Index": 6
             }
         ],
@@ -48565,7 +48565,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+25-50 to Minimum Damage",
+                "PropertyString": "Adds 25-50 to Damage",
                 "Index": 0
             },
             {
@@ -49786,7 +49786,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+50-100 to Minimum Damage",
+                "PropertyString": "Adds 50-100 to Damage",
                 "Index": 1
             },
             {
@@ -51929,7 +51929,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Slows target by 15%",
+                "PropertyString": "Slows target by 15-25%",
                 "Index": 4
             },
             {
@@ -52600,7 +52600,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+25-50 to Minimum Damage",
+                "PropertyString": "Adds 25-50 to Damage",
                 "Index": 0
             },
             {
@@ -53799,7 +53799,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+35-70 to Minimum Damage",
+                "PropertyString": "Adds 35-70 to Damage",
                 "Index": 1
             },
             {
@@ -54285,7 +54285,7 @@
         }
     },
     {
-        "Type": "Large Charm",
+        "Type": "Grand Charm",
         "Name": "Gheed's Fortune",
         "Index": "Gheed's Fortune",
         "Enabled": true,
@@ -54320,8 +54320,8 @@
             "Durability": 0,
             "ItemLevel": 0,
             "Type": {
-                "Name": "Large Charm",
-                "Index": "Large Charm",
+                "Name": "Grand Charm",
+                "Index": "Grand Charm",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -55349,7 +55349,7 @@
         }
     },
     {
-        "Type": "Medium Charm",
+        "Type": "Large Charm",
         "Name": "Life & Death",
         "Index": "Life & Death",
         "Enabled": true,
@@ -55388,8 +55388,8 @@
             "Durability": 0,
             "ItemLevel": 0,
             "Type": {
-                "Name": "Medium Charm",
-                "Index": "Medium Charm",
+                "Name": "Large Charm",
+                "Index": "Large Charm",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -55970,7 +55970,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Poison Length Reduced by 25%",
+                "PropertyString": "Poison Length Reduced by 25-80%",
                 "Index": 4
             }
         ],
@@ -56063,7 +56063,7 @@
         }
     },
     {
-        "Type": "Large Charm",
+        "Type": "Grand Charm",
         "Name": "Web of Wyrd",
         "Index": "Web of Wyrd",
         "Enabled": true,
@@ -56102,8 +56102,8 @@
             "Durability": 0,
             "ItemLevel": 0,
             "Type": {
-                "Name": "Large Charm",
-                "Index": "Large Charm",
+                "Name": "Grand Charm",
+                "Index": "Grand Charm",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -57088,7 +57088,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+35-70 to Minimum Damage",
+                "PropertyString": "Adds 35-70 to Damage",
                 "Index": 1
             },
             {
@@ -58926,7 +58926,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Reduces all Vendor Prices 5%",
+                "PropertyString": "Reduces all Vendor Prices 5-10%",
                 "Index": 4
             },
             {
@@ -59381,7 +59381,7 @@
         }
     },
     {
-        "Type": "Medium Charm",
+        "Type": "Large Charm",
         "Name": "Ogre King's Bowl",
         "Index": "Ogre King's Bowl",
         "Enabled": true,
@@ -59420,8 +59420,8 @@
             "Durability": 0,
             "ItemLevel": 0,
             "Type": {
-                "Name": "Medium Charm",
-                "Index": "Medium Charm",
+                "Name": "Large Charm",
+                "Index": "Large Charm",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -59959,7 +59959,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+40-80 to Minimum Damage",
+                "PropertyString": "Adds 40-80 to Damage",
                 "Index": 1
             },
             {
@@ -60886,7 +60886,7 @@
                 "Index": 8
             },
             {
-                "PropertyString": "Reduces all Vendor Prices 5%",
+                "PropertyString": "Reduces all Vendor Prices 5-10%",
                 "Index": 7
             }
         ],
@@ -62647,7 +62647,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+45-90 to Minimum Damage",
+                "PropertyString": "Adds 45-90 to Damage",
                 "Index": 1
             },
             {
@@ -62898,7 +62898,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+30-60 to Minimum Damage",
+                "PropertyString": "Adds 30-60 to Damage",
                 "Index": 1
             },
             {
@@ -66157,7 +66157,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+40-80 to Minimum Damage",
+                "PropertyString": "Adds 40-80 to Damage",
                 "Index": 1
             },
             {
@@ -69405,7 +69405,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+25-50 to Minimum Damage",
+                "PropertyString": "Adds 25-50 to Damage",
                 "Index": 1
             },
             {
@@ -69862,7 +69862,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+50-100 to Minimum Damage",
+                "PropertyString": "Adds 50-100 to Damage",
                 "Index": 0
             },
             {
@@ -70176,7 +70176,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Poison Length Reduced by 60%",
+                "PropertyString": "Poison Length Reduced by 60-70%",
                 "Index": 6
             },
             {
@@ -70670,7 +70670,7 @@
         }
     },
     {
-        "Type": "Medium Charm",
+        "Type": "Large Charm",
         "Name": "Hellfire Torch",
         "Index": "Hellfire Torch",
         "Enabled": false,
@@ -70709,8 +70709,8 @@
             "Durability": 0,
             "ItemLevel": 0,
             "Type": {
-                "Name": "Medium Charm",
-                "Index": "Medium Charm",
+                "Name": "Large Charm",
+                "Index": "Large Charm",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -70997,7 +70997,7 @@
         }
     },
     {
-        "Type": "Large Charm",
+        "Type": "Grand Charm",
         "Name": "Cold Rupture",
         "Index": "Cold Rupture",
         "Enabled": false,
@@ -71011,7 +71011,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+300 Nearby Enemies are Cold Sunders",
+                "PropertyString": "+300 Nearby Enemies are Cold Sundered",
                 "Index": 0
             },
             {
@@ -71028,15 +71028,15 @@
             "Durability": 0,
             "ItemLevel": 0,
             "Type": {
-                "Name": "Large Charm",
-                "Index": "Large Charm",
+                "Name": "Grand Charm",
+                "Index": "Grand Charm",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Large Charm",
+        "Type": "Grand Charm",
         "Name": "Flame Rift",
         "Index": "Flame Rift",
         "Enabled": false,
@@ -71067,15 +71067,15 @@
             "Durability": 0,
             "ItemLevel": 0,
             "Type": {
-                "Name": "Large Charm",
-                "Index": "Large Charm",
+                "Name": "Grand Charm",
+                "Index": "Grand Charm",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Large Charm",
+        "Type": "Grand Charm",
         "Name": "Crack of the Heavens",
         "Index": "Crack of the Heavens",
         "Enabled": false,
@@ -71106,15 +71106,15 @@
             "Durability": 0,
             "ItemLevel": 0,
             "Type": {
-                "Name": "Large Charm",
-                "Index": "Large Charm",
+                "Name": "Grand Charm",
+                "Index": "Grand Charm",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Large Charm",
+        "Type": "Grand Charm",
         "Name": "Rotting Fissure",
         "Index": "Rotting Fissure",
         "Enabled": false,
@@ -71145,15 +71145,15 @@
             "Durability": 0,
             "ItemLevel": 0,
             "Type": {
-                "Name": "Large Charm",
-                "Index": "Large Charm",
+                "Name": "Grand Charm",
+                "Index": "Grand Charm",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Large Charm",
+        "Type": "Grand Charm",
         "Name": "Bone Break",
         "Index": "Bone Break",
         "Enabled": false,
@@ -71184,15 +71184,15 @@
             "Durability": 0,
             "ItemLevel": 0,
             "Type": {
-                "Name": "Large Charm",
-                "Index": "Large Charm",
+                "Name": "Grand Charm",
+                "Index": "Grand Charm",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Large Charm",
+        "Type": "Grand Charm",
         "Name": "Black Cleft",
         "Index": "Black Cleft",
         "Enabled": false,
@@ -71206,7 +71206,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+300 Nearby Enemies are Physical Sundered",
+                "PropertyString": "+300 Nearby Enemies are Magical Sundered",
                 "Index": 0
             },
             {
@@ -71223,8 +71223,8 @@
             "Durability": 0,
             "ItemLevel": 0,
             "Type": {
-                "Name": "Large Charm",
-                "Index": "Large Charm",
+                "Name": "Grand Charm",
+                "Index": "Grand Charm",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -73198,7 +73198,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Reduces all Vendor Prices 10%",
+                "PropertyString": "Reduces all Vendor Prices 10-15%",
                 "Index": 2
             }
         ],
@@ -73259,7 +73259,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Requirements -10%",
+                "PropertyString": "Requirements -10-100%",
                 "Index": 6
             }
         ],
@@ -74816,7 +74816,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+40-100 to Minimum Damage",
+                "PropertyString": "Adds 40-100 to Damage",
                 "Index": 2
             },
             {
@@ -74955,7 +74955,7 @@
         }
     },
     {
-        "Type": "Large Charm",
+        "Type": "Grand Charm",
         "Name": "Conclave of Elements",
         "Index": "Conclave of Elements",
         "Enabled": true,
@@ -74982,8 +74982,8 @@
             "Durability": 0,
             "ItemLevel": 0,
             "Type": {
-                "Name": "Large Charm",
-                "Index": "Large Charm",
+                "Name": "Grand Charm",
+                "Index": "Grand Charm",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -75834,7 +75834,7 @@
         }
     },
     {
-        "Type": "Medium Charm",
+        "Type": "Large Charm",
         "Name": "Throne of Power",
         "Index": "Throne of Power",
         "Enabled": true,
@@ -75877,8 +75877,8 @@
             "Durability": 0,
             "ItemLevel": 0,
             "Type": {
-                "Name": "Medium Charm",
-                "Index": "Medium Charm",
+                "Name": "Large Charm",
+                "Index": "Large Charm",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -77005,7 +77005,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Poison Length Reduced by 50%",
+                "PropertyString": "Poison Length Reduced by 50-75%",
                 "Index": 5
             }
         ],
@@ -78077,7 +78077,7 @@
         }
     },
     {
-        "Type": "Large Charm",
+        "Type": "Grand Charm",
         "Name": "Queen's Call",
         "Index": "Queen's Call",
         "Enabled": true,
@@ -78124,8 +78124,8 @@
             "Durability": 0,
             "ItemLevel": 0,
             "Type": {
-                "Name": "Large Charm",
-                "Index": "Large Charm",
+                "Name": "Grand Charm",
+                "Index": "Grand Charm",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -78430,7 +78430,7 @@
         }
     },
     {
-        "Type": "Large Charm",
+        "Type": "Grand Charm",
         "Name": "Obsidian Beacon",
         "Index": "Obsidian Beacon",
         "Enabled": false,
@@ -78473,8 +78473,8 @@
             "Durability": 0,
             "ItemLevel": 0,
             "Type": {
-                "Name": "Large Charm",
-                "Index": "Large Charm",
+                "Name": "Grand Charm",
+                "Index": "Grand Charm",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -79291,7 +79291,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+20 to Minimum Damage",
+                "PropertyString": "Adds 20 to Damage",
                 "Index": 5
             },
             {
@@ -79716,7 +79716,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Slows target by 20%",
+                "PropertyString": "Slows target by 20-30%",
                 "Index": 8
             },
             {
