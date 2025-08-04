@@ -3,16 +3,16 @@
         ${recipes.length} Recipes Found
     </h3>
     <search-area>
-        <div class="search my-2 text-center">
+        <div class="my-2 text-center">
             <form>
                 <label>Search Recipes</label><br>
-                <input type="text" value.bind="search" />
+                <input type="text" value.bind="search" class="border rounded px-2 py-1" />
             </form>
         </div>
     </search-area>
-    <div class="row gy-5 px-5 text-center">
-        <div class="col-12 col-md-6 col-xxl-4" repeat.for="recipe of recipes">
-            <div class="card bg-dark p-2">
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center">
+        <div repeat.for="recipe of recipes">
+            <div class="bg-gray-800 rounded shadow p-2">
                 <div class="unique-text">
                     ${recipe.Description}
                 </div>

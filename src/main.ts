@@ -2,16 +2,15 @@ import Aurelia from 'aurelia';
 import { RouterConfiguration } from '@aurelia/router';
 
 import '@material/web/all';
-import 'bootstrap';
+import 'tailwindcss/index.css';
 
-import { App } from './app';
-import * as Resources from './resources';
+import * as Elements from './resources/elements/index.js';
+import * as Resources from './resources/index.js';
+import { App } from './app.js';
 
-import 'bootstrap/dist/css/bootstrap.css';
 import '@betsybot/betsy-web-components/dist/style.css';
 
 import * as BetsyWebComponentsPlugin from '@betsybot/betsy-web-components';
-import * as Elements from './resources/elements';
 
 void Aurelia
     .register(
