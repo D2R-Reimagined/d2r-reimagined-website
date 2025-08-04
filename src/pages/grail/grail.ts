@@ -1,3 +1,5 @@
+import { bindable } from 'aurelia';
+
 import json from '../item-jsons/uniques.json';
 
 interface ISelectOption {
@@ -36,8 +38,18 @@ interface IUniqueItem {
 export class Grail {
     uniques: IUniqueItem[] = json as IUniqueItem[];
     filteredUniques: IUniqueItem[] = [];
-    classes: ISelectOption[] = [{ id: '', name: 'All Classes' }];
-    types: ISelectOption[] = [{ id: '', name: 'All Types' }];
+
+    classes = [
+        { value: undefined, label: '-' },
+        { value: 'Amazon', label: 'Amazon' },
+        { value: 'Assassin', label: 'Assassin' },
+        { value: 'Barbarian', label: 'Barbarian' },
+        { value: 'Druid', label: 'Druid' },
+        { value: 'Necromancer', label: 'Necromancer' },
+        { value: 'Paladin', label: 'Paladin' },
+        { value: 'Sorceress', label: 'Sorceress' }
+    ];
+
     equipmentNames: ISelectOption[] = [{ id: '', name: 'All Equipment' }];
     
     selectedClass: string = '';
@@ -46,7 +58,7 @@ export class Grail {
     search: string = '';
     showFoundItems: boolean = false;
     
-    foundItems: Record<string, boolean> = {};
+    @bindable foundItems: Record<string, boolean> = {};
     foundCount: number = 0;
     
     binding(): void {
@@ -56,37 +68,22 @@ export class Grail {
         
         // Update the count after loading data
         this.updateFoundCount();
-        
-        // Setup filter options
-        this.setupFilterOptions();
     }
-    
-    setupFilterOptions(): void {
-        // Extract unique classes
-        const classSet = new Set<string>();
-        this.uniques.forEach(unique => {
-            if (unique.Class) {
-                classSet.add(unique.Class);
+
+    get types() {
+        const uniqueTypes = new Set();
+        json.forEach(unique => {
+            if (unique.Type) {
+                uniqueTypes.add(unique.Type);
             }
         });
-        
-        // Add classes to dropdown
-        classSet.forEach(className => {
-            this.classes.push({ id: className, name: className });
+
+        const typeOptions = [{ value: undefined, label: '-' }];
+        Array.from(uniqueTypes).sort().forEach(type => {
+            typeOptions.push({ value: type, label: type });
         });
-        
-        // Extract unique types
-        const typeSet = new Set<string>();
-        this.uniques.forEach(unique => {
-            if (unique.Equipment && unique.Equipment.Type) {
-                typeSet.add(unique.Equipment.Type);
-            }
-        });
-        
-        // Add types to dropdown
-        typeSet.forEach(typeName => {
-            this.types.push({ id: typeName, name: typeName });
-        });
+
+        return typeOptions;
     }
     
     selectedClassChanged(): void {
@@ -188,6 +185,7 @@ export class Grail {
     
     updateFoundStatus(itemName: string): void {
         // Toggle found status
+        console.log('Updating found status for', itemName);
         this.foundItems[itemName] = !this.foundItems[itemName];
         
         // Save to local storage
