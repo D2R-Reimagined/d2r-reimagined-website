@@ -27,6 +27,11 @@ import { route } from '@aurelia/router';
             path: 'runewords',
             component: import('./pages/runewords/runewords'),
             title: 'Runewords',
+        },
+        {
+            path: 'grail',
+            component: import('./pages/grail/grail'),
+            title: 'Holy Grail',
         }
     ]
 })

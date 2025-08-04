@@ -1,0 +1,101 @@
+<template>
+    <h3 class="text-center my-4">
+        Holy Grail Tracker - ${foundCount}/${uniques.length} Uniques Found (${filteredUniques.length} Displayed)
+    </h3>
+    <search-area>
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-wrap justify-center items-center text-center">
+                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
+                    <div class="mb-2">
+                        <moo-select
+                                class="w-full standard-betsy-select"
+                                label="Select Class"
+                                options.bind="classes"
+                                value.bind="selectedClass"
+                        ></moo-select>
+                    </div>
+                </div>
+                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
+                    <div class="mb-2">
+                        <moo-select
+                                class="w-full standard-betsy-select"
+                                label="Select Type"
+                                options.bind="types"
+                                value.bind="selectedType"
+                        ></moo-select>
+                    </div>
+                </div>
+                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
+                    <div class="mb-2">
+                        <moo-select
+                                class="w-full standard-betsy-select"
+                                label="Select Equipment"
+                                options.bind="equipmentNames"
+                                value.bind="selectedEquipmentName"
+                                disabled.bind="!selectedType"
+                        ></moo-select>
+                    </div>
+                </div>
+                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
+                    <moo-text-field
+                            class="w-full"
+                            label="Search Uniques"
+                            type="text"
+                            value.bind="search"
+                    ></moo-text-field>
+                </div>
+            </div>
+            <div class="flex justify-center mt-4">
+                <button click.trigger="resetGrail()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                    Reset Grail Progress
+                </button>
+            </div>
+        </div>
+    </search-area>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">
+        <div class="bg-gray-800 rounded shadow p-2" repeat.for="unique of filteredUniques">
+            <div class="bg-gray-800 rounded shadow relative">
+                <div class="absolute top-2 right-2">
+                    <label class="inline-flex items-center cursor-pointer">
+                        <input type="checkbox" checked.bind="foundItems[unique.Name]" change.trigger="updateFoundStatus(unique.Name)" class="sr-only peer">
+                        <div class="relative w-11 h-6 bg-gray-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600"></div>
+                    </label>
+                </div>
+                <div class="unique-text text-lg mb-1 ${foundItems[unique.Name] ? 'text-green-400' : ''}">
+                    ${unique.Name}
+                </div>
+                <div class="rarity mb-1" if.bind="unique.Rarity">
+                    Rarity: ${unique.Rarity}
+                </div>
+                <div class="armor mb-1" if.bind="unique.Equipment.Name">
+                    ${unique.Equipment.Name}
+                </div>
+                <div class="armor mb-1" if.bind="unique.Equipment.ArmorString">
+                    Armor: ${unique.Equipment.ArmorString}
+                </div>
+                <div class="damage" if.bind="unique.Equipment.DamageTypes"
+                     repeat.for="damage of unique.Equipment.DamageTypes">
+                    ${getDamageTypeString(damage.Type)} ${damage.DamageString}
+                </div>
+                <div class="requirement" if.bind="unique.RequiredLevel > 0">
+                    Level ${unique.RequiredLevel} Required
+                </div>
+                <div class="requirement" if.bind="unique.Equipment.RequiredStrength > 0">
+                    ${unique.Equipment.RequiredStrength} Strength Required
+                </div>
+                <div class="requirement" if.bind="unique.Equipment.RequiredDexterity > 0">
+                    ${unique.Equipment.RequiredDexterity} Dexterity Required
+                </div>
+                <div class="durability mt-1" if.bind="unique.Equipment.Durability > 0">
+                    ${unique.Equipment.Durability} Durability
+                </div>
+                <div class="mt-2">
+                    <div class="enhanced" repeat.for="property of unique.Properties">
+                        ${property.PropertyString}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
