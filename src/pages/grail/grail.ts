@@ -175,20 +175,20 @@ export class Grail {
         });
     }
     
-    loadFoundItems() {
+    loadFoundItems(): void {
         const savedItems = localStorage.getItem('d2r-grail-items');
         if (savedItems) {
-            this.foundItems = JSON.parse(savedItems);
+            this.foundItems = JSON.parse(savedItems) as Record<string, boolean>;
         }
     }
     
-    saveFoundItems() {
+    saveFoundItems(): void {
         localStorage.setItem('d2r-grail-items', JSON.stringify(this.foundItems));
     }
     
-    updateFoundStatus(itemName) {
+    updateFoundStatus(itemName: string): void {
         // Toggle found status
-        this.foundItems[itemName] = !!this.foundItems[itemName];
+        this.foundItems[itemName] = !this.foundItems[itemName];
         
         // Save to local storage
         this.saveFoundItems();
@@ -197,11 +197,11 @@ export class Grail {
         this.updateFoundCount();
     }
     
-    updateFoundCount() {
+    updateFoundCount(): void {
         this.foundCount = Object.values(this.foundItems).filter(value => value).length;
     }
     
-    resetGrail() {
+    resetGrail(): void {
         if (confirm('Are you sure you want to reset your Grail progress? This cannot be undone.')) {
             this.foundItems = {};
             this.saveFoundItems();
@@ -209,7 +209,7 @@ export class Grail {
         }
     }
     
-    getDamageTypeString(type) {
+    getDamageTypeString(type: number): string {
         switch (type) {
             case 0:
                 return 'Damage:';
