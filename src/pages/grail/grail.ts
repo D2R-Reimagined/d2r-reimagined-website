@@ -89,7 +89,7 @@ export class Grail {
     }
     
     selectedClassChanged(): void {
-        this.filterUniques();
+        this.updateList();
     }
     
     selectedTypeChanged(): void {
@@ -98,7 +98,7 @@ export class Grail {
         this.equipmentNames = [{ id: '', name: 'All Equipment' }];
         
         if (!this.selectedType) {
-            this.filterUniques();
+            this.updateList();
             return;
         }
         
@@ -176,9 +176,8 @@ export class Grail {
     }
     
     updateFoundStatus(itemName: string): void {
-        // Toggle found status
-        console.log('Updating found status for', itemName);
-        this.foundItems[itemName] = !this.foundItems[itemName];
+        // Toggle found status\
+        this.foundItems[itemName] = !!this.foundItems[itemName];
         
         // Save to local storage
         this.saveFoundItems();
