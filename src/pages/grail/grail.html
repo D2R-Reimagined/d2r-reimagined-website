@@ -45,13 +45,14 @@
                     ></moo-text-field>
                 </div>
             </div>
-            <div class="flex justify-center mt-4">
-                <button click.trigger="resetGrail()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                    Reset Grail Progress
-                </button>
-            </div>
         </div>
     </search-area>
+
+    <div class="flex justify-center mt-4">
+        <button type="button" click.trigger="resetGrail()" class="cursor-pointer bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+            Reset Grail Progress
+        </button>
+    </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">
         <div class="bg-gray-800 rounded shadow p-2" repeat.for="unique of filteredUniques">
