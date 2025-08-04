@@ -1,21 +1,55 @@
 import json from '../item-jsons/uniques.json';
 
+interface ISelectOption {
+    id: string;
+    name: string;
+}
+
+interface IDamageType {
+    Type: number;
+    DamageString: string;
+}
+
+interface IProperty {
+    PropertyString: string;
+}
+
+interface IEquipment {
+    Name?: string;
+    Type?: string;
+    ArmorString?: string;
+    DamageTypes?: IDamageType[];
+    RequiredStrength?: number;
+    RequiredDexterity?: number;
+    Durability?: number;
+}
+
+interface IUniqueItem {
+    Name: string;
+    Class?: string;
+    Rarity?: string;
+    RequiredLevel?: number;
+    Equipment: IEquipment;
+    Properties?: IProperty[];
+}
+
 export class Grail {
-    uniques = json;
-    filteredUniques;
-    classes = [{ id: '', name: 'All Classes' }];
-    types = [{ id: '', name: 'All Types' }];
-    equipmentNames = [{ id: '', name: 'All Equipment' }];
+    uniques: IUniqueItem[] = json as IUniqueItem[];
+    filteredUniques: IUniqueItem[] = [];
+    classes: ISelectOption[] = [{ id: '', name: 'All Classes' }];
+    types: ISelectOption[] = [{ id: '', name: 'All Types' }];
+    equipmentNames: ISelectOption[] = [{ id: '', name: 'All Equipment' }];
     
-    selectedClass = '';
-    selectedType = '';
-    selectedEquipmentName = '';
-    search = '';
+    selectedClass: string = '';
+    selectedType: string = '';
+    selectedEquipmentName: string = '';
+    search: string = '';
+    showFoundItems: boolean = false;
     
-    foundItems = {};
-    foundCount = 0;
+    foundItems: Record<string, boolean> = {};
+    foundCount: number = 0;
     
-    async binding() {
+    binding(): void {
         // Load found items from local storage
         this.loadFoundItems();
         this.filteredUniques = [...this.uniques];
@@ -27,9 +61,9 @@ export class Grail {
         this.setupFilterOptions();
     }
     
-    setupFilterOptions() {
+    setupFilterOptions(): void {
         // Extract unique classes
-        const classSet = new Set();
+        const classSet = new Set<string>();
         this.uniques.forEach(unique => {
             if (unique.Class) {
                 classSet.add(unique.Class);
@@ -42,7 +76,7 @@ export class Grail {
         });
         
         // Extract unique types
-        const typeSet = new Set();
+        const typeSet = new Set<string>();
         this.uniques.forEach(unique => {
             if (unique.Equipment && unique.Equipment.Type) {
                 typeSet.add(unique.Equipment.Type);
@@ -55,11 +89,11 @@ export class Grail {
         });
     }
     
-    selectedClassChanged() {
+    selectedClassChanged(): void {
         this.filterUniques();
     }
     
-    selectedTypeChanged() {
+    selectedTypeChanged(): void {
         // Reset equipment selection
         this.selectedEquipmentName = '';
         this.equipmentNames = [{ id: '', name: 'All Equipment' }];
@@ -70,7 +104,7 @@ export class Grail {
         }
         
         // Extract equipment names for the selected type
-        const equipmentSet = new Set();
+        const equipmentSet = new Set<string>();
         this.uniques.forEach(unique => {
             if (unique.Equipment && 
                 unique.Equipment.Type === this.selectedType && 
@@ -87,15 +121,19 @@ export class Grail {
         this.filterUniques();
     }
     
-    selectedEquipmentNameChanged() {
+    selectedEquipmentNameChanged(): void {
         this.filterUniques();
     }
     
-    searchChanged() {
+    searchChanged(): void {
         this.filterUniques();
     }
     
-    filterUniques() {
+    showFoundItemsChanged(): void {
+        this.filterUniques();
+    }
+    
+    filterUniques(): void {
         this.filteredUniques = this.uniques.filter(unique => {
             // Filter by class
             if (this.selectedClass && unique.Class !== this.selectedClass) {
@@ -114,14 +152,19 @@ export class Grail {
                 return false;
             }
             
+            // Filter by found status (hide found items by default unless showFoundItems is true)
+            if (!this.showFoundItems && this.foundItems[unique.Name]) {
+                return false;
+            }
+            
             // Filter by search text
             if (this.search) {
                 const searchLower = this.search.toLowerCase();
                 const nameMatch = unique.Name.toLowerCase().includes(searchLower);
                 const equipmentMatch = unique.Equipment && unique.Equipment.Name && 
-                                      unique.Equipment.Name.toLowerCase().includes(searchLower);
+                    unique.Equipment.Name.toLowerCase().includes(searchLower);
                 const propertyMatch = unique.Properties && unique.Properties.some(prop => 
-                                     prop.PropertyString.toLowerCase().includes(searchLower));
+                    prop.PropertyString.toLowerCase().includes(searchLower));
                 
                 if (!nameMatch && !equipmentMatch && !propertyMatch) {
                     return false;
