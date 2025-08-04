@@ -51,11 +51,13 @@ export class Grail {
     ];
 
     equipmentNames: ISelectOption[] = [{ id: '', name: 'All Equipment' }];
-    
-    selectedClass: string = '';
-    selectedType: string = '';
-    selectedEquipmentName: string = '';
-    search: string = '';
+
+
+    @bindable search: string;
+    @bindable selectedClass: string;
+    @bindable selectedType: string;
+    @bindable selectedEquipmentName: string;
+
     showFoundItems: boolean = false;
     
     @bindable foundItems: Record<string, boolean> = {};
@@ -115,61 +117,51 @@ export class Grail {
             this.equipmentNames.push({ id: name, name });
         });
         
-        this.filterUniques();
+        this.updateList();
     }
     
     selectedEquipmentNameChanged(): void {
-        this.filterUniques();
+        this.updateList();
     }
     
     searchChanged(): void {
-        this.filterUniques();
+        this.updateList();
     }
     
     showFoundItemsChanged(): void {
-        this.filterUniques();
+        this.updateList();
     }
-    
-    filterUniques(): void {
-        this.filteredUniques = this.uniques.filter(unique => {
-            // Filter by class
-            if (this.selectedClass && unique.Class !== this.selectedClass) {
-                return false;
-            }
-            
-            // Filter by type
-            if (this.selectedType && 
-                (!unique.Equipment || unique.Equipment.Type !== this.selectedType)) {
-                return false;
-            }
-            
-            // Filter by equipment name
-            if (this.selectedEquipmentName && 
-                (!unique.Equipment || unique.Equipment.Name !== this.selectedEquipmentName)) {
-                return false;
-            }
-            
-            // Filter by found status (hide found items by default unless showFoundItems is true)
-            if (!this.showFoundItems && this.foundItems[unique.Name]) {
-                return false;
-            }
-            
-            // Filter by search text
-            if (this.search) {
-                const searchLower = this.search.toLowerCase();
-                const nameMatch = unique.Name.toLowerCase().includes(searchLower);
-                const equipmentMatch = unique.Equipment && unique.Equipment.Name && 
-                    unique.Equipment.Name.toLowerCase().includes(searchLower);
-                const propertyMatch = unique.Properties && unique.Properties.some(prop => 
-                    prop.PropertyString.toLowerCase().includes(searchLower));
-                
-                if (!nameMatch && !equipmentMatch && !propertyMatch) {
-                    return false;
-                }
-            }
-            
-            return true;
-        });
+
+    updateList() {
+        const isMatchingClass = (unique) => {
+            return !this.selectedClass || unique.Equipment.RequiredClass?.toLowerCase().includes(this.selectedClass?.toLowerCase());
+        }
+        const isMatchingSearch = (unique) => {
+            if (!this.search) return true;
+            const search = this.search.toLowerCase();
+            const uniqueName = unique.Name.toLowerCase();
+            const properties = unique.Properties.map((property) => property.PropertyString.toLowerCase());
+            const baseName = unique.Equipment.Name.toLowerCase();
+            return uniqueName.includes(search) || properties.find(p => p.includes(search)) || baseName.includes(search);
+        }
+        const isMatchingType = (unique) => {
+            return !this.selectedType || unique.Type === this.selectedType;
+        }
+        const isMatchingEquipmentName = (unique) => {
+            return !this.selectedEquipmentName || unique.Equipment.Name === this.selectedEquipmentName;
+        }
+
+        // Update the equipment names list if type is selected
+        if (this.selectedType && (!this.equipmentNames || this.equipmentNames.length <= 1)) {
+            this.equipmentNames = this.getUniqueEquipmentNames();
+        }
+
+        this.uniques = json.filter(unique =>
+            !unique.Name.toLowerCase().includes('grabber') &&
+            isMatchingSearch(unique) &&
+            isMatchingClass(unique) &&
+            isMatchingType(unique) &&
+            isMatchingEquipmentName(unique));
     }
     
     loadFoundItems(): void {
