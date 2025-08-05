@@ -58,7 +58,7 @@ export class Grail {
     @bindable selectedType: string;
     @bindable selectedEquipmentName: string;
 
-    showFoundItems: boolean = false;
+    @bindable showFoundItems: boolean = true;
     
     @bindable foundItems: Record<string, boolean> = {};
     foundCount: number = 0;
@@ -161,7 +161,8 @@ export class Grail {
             isMatchingSearch(unique) &&
             isMatchingClass(unique) &&
             isMatchingType(unique) &&
-            isMatchingEquipmentName(unique));
+            isMatchingEquipmentName(unique) &&
+            (!this.showFoundItems || !this.foundItems[unique.Name]));
     }
     
     loadFoundItems(): void {

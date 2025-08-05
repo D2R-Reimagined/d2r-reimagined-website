@@ -50,6 +50,13 @@
         </div>
     </search-area>
 
+    <div class="mt-2 text-center">
+        <label class="inline-flex items-center cursor-pointer">
+            <input type="checkbox" checked.bind="showFoundItems" class="form-checkbox h-4 w-4 text-blue-600 bg-gray-700 border-gray-300 rounded focus:ring-blue-500">
+            <span class="ms-3 font-medium text-white">Hide Found Uniques</span>
+        </label>
+    </div>
+
     <div class="flex justify-center mt-4">
         <button type="button" click.trigger="resetGrail()" class="cursor-pointer bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
             Reset Grail Progress
@@ -62,7 +69,7 @@
                 <div class="absolute top-2 right-2">
                     <label class="inline-flex items-center cursor-pointer">
                         <input type="checkbox" checked.bind="foundItems[unique.Name]" change.trigger="updateFoundStatus(unique.Name)" class="sr-only peer">
-                        <div class="relative w-11 h-6 bg-gray-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600"></div>
+                        <div class="relative w-4 h-2 bg-gray-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:start-[3px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-2 after:w-2 after:transition-all peer-checked:bg-green-600"></div>
                     </label>
                 </div>
                 <div class="unique-text text-lg mb-1 ${foundItems[unique.Name] ? 'text-green-400' : ''}">
