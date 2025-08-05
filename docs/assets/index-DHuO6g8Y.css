@@ -210,6 +210,8 @@ body {
     --color-green-400: oklch(79.2% .209 151.711);
     --color-green-600: oklch(62.7% .194 149.214);
     --color-blue-300: oklch(80.9% .105 251.813);
+    --color-blue-500: oklch(62.3% .214 259.815);
+    --color-blue-600: oklch(54.6% .245 262.881);
     --color-gray-100: oklch(96.7% .003 264.542);
     --color-gray-300: oklch(87.2% .01 258.338);
     --color-gray-700: oklch(37.3% .034 259.733);
@@ -225,6 +227,7 @@ body {
     --text-lg--line-height: calc(1.75 / 1.125);
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
+    --font-weight-medium: 500;
     --font-weight-bold: 700;
     --radius-sm: .25rem;
     --radius-lg: .5rem;
@@ -789,6 +792,10 @@ body {
     margin-block: auto;
   }
 
+  .ms-3 {
+    margin-inline-start: calc(var(--spacing) * 3);
+  }
+
   .mt-1 {
     margin-top: calc(var(--spacing) * 1);
   }
@@ -869,6 +876,14 @@ body {
     display: table-row;
   }
 
+  .h-2 {
+    height: calc(var(--spacing) * 2);
+  }
+
+  .h-4 {
+    height: calc(var(--spacing) * 4);
+  }
+
   .h-6 {
     height: calc(var(--spacing) * 6);
   }
@@ -893,12 +908,12 @@ body {
     height: auto;
   }
 
-  .w-6 {
-    width: calc(var(--spacing) * 6);
+  .w-4 {
+    width: calc(var(--spacing) * 4);
   }
 
-  .w-11 {
-    width: calc(var(--spacing) * 11);
+  .w-6 {
+    width: calc(var(--spacing) * 6);
   }
 
   .w-25 {
@@ -1055,6 +1070,10 @@ body {
     border-width: 0;
   }
 
+  .border-gray-300 {
+    border-color: var(--color-gray-300);
+  }
+
   .border-white {
     border-color: var(--color-white);
   }
@@ -1206,12 +1225,21 @@ body {
     font-weight: var(--font-weight-bold);
   }
 
+  .font-medium {
+    --tw-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
+  }
+
   .text-nowrap {
     text-wrap: nowrap;
   }
 
   .text-wrap {
     text-wrap: wrap;
+  }
+
+  .text-blue-600 {
+    color: var(--color-blue-600);
   }
 
   .text-gray-800 {
@@ -1335,24 +1363,19 @@ body {
     position: absolute;
   }
 
-  .after\:start-\[2px\]:after {
+  .after\:start-\[3px\]:after {
     content: var(--tw-content);
-    inset-inline-start: 2px;
+    inset-inline-start: 3px;
   }
 
-  .after\:top-\[2px\]:after {
+  .after\:h-2:after {
     content: var(--tw-content);
-    top: 2px;
+    height: calc(var(--spacing) * 2);
   }
 
-  .after\:h-5:after {
+  .after\:w-2:after {
     content: var(--tw-content);
-    height: calc(var(--spacing) * 5);
-  }
-
-  .after\:w-5:after {
-    content: var(--tw-content);
-    width: calc(var(--spacing) * 5);
+    width: calc(var(--spacing) * 2);
   }
 
   .after\:rounded-full:after {
@@ -1412,6 +1435,10 @@ body {
     .hover\:text-gray-300:hover {
       color: var(--color-gray-300);
     }
+  }
+
+  .focus\:ring-blue-500:focus {
+    --tw-ring-color: var(--color-blue-500);
   }
 
   @media (min-width: 40rem) {
