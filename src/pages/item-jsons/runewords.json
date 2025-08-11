@@ -728,6 +728,18 @@
                 "Index": 3
             },
             {
+                "PropertyString": "+9 to Maximum Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-25% Target Defense",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+50 to Attack Rating",
+                "Index": 1
+            },
+            {
                 "PropertyString": "+100% Chance of Open Wounds",
                 "Index": 0
             },
@@ -740,20 +752,8 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+15 Defense",
-                "Index": 1
-            },
-            {
                 "PropertyString": "-5 Drain Life",
                 "Index": 5
-            },
-            {
-                "PropertyString": "Regenerate Mana +15%",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+15% Damage Taken Goes To Mana",
-                "Index": 0
             },
             {
                 "PropertyString": "+0 to Light Radius",
@@ -1059,19 +1059,19 @@
                 "Index": 0
             },
             {
+                "PropertyString": "-25% Target Defense",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+76 Poison Damage Over 5 Seconds",
+                "Index": 0
+            },
+            {
                 "PropertyString": "Adds 5-8% Mana stolen per hit",
                 "Index": 2
             },
             {
-                "PropertyString": "+30 Defense vs. Missile",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Regenerate Mana +15%",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Poison Resist +30%",
+                "PropertyString": "Knockback",
                 "Index": 0
             }
         ],
@@ -1687,20 +1687,20 @@
                 "Index": 2
             },
             {
+                "PropertyString": "-25% Target Defense",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+66 to Attack Rating",
                 "Index": 3
             },
             {
+                "PropertyString": "Adds 1-50 to Lightning Damage",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+25 Defense",
                 "Index": 5
-            },
-            {
-                "PropertyString": "Regenerate Mana +15%",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Lightning Resist +30%",
-                "Index": 0
             }
         ],
         "DamageArmorEnhanced": false,
@@ -2330,6 +2330,14 @@
                 "Index": 3
             },
             {
+                "PropertyString": "+76 Poison Damage Over 5 Seconds",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+7% Life stolen per hit",
+                "Index": 0
+            },
+            {
                 "PropertyString": "Prevent Monster Heal",
                 "Index": 4
             },
@@ -2338,15 +2346,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Poison Resist +30%",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+2 to Mana after each Kill",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Attacker Takes Damage of +14",
                 "Index": 0
             },
             {
@@ -2922,6 +2922,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+7% Life stolen per hit",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+25% Chance of Crushing Blow",
                 "Index": 3
             },
@@ -2935,10 +2939,6 @@
             },
             {
                 "PropertyString": "+2 to Mana after each Kill",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Attacker Takes Damage of +14",
                 "Index": 0
             }
         ],
@@ -3102,16 +3102,24 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+200 to Attack Rating",
+                "PropertyString": "+9 to Minimum Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+9 to Maximum Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+250 to Attack Rating",
                 "Index": 3
+            },
+            {
+                "PropertyString": "+7% Life stolen per hit",
+                "Index": 0
             },
             {
                 "PropertyString": "+25% Deadly Strike",
                 "Index": 4
-            },
-            {
-                "PropertyString": "+15 Defense",
-                "Index": 1
             },
             {
                 "PropertyString": "+10 to Strength",
@@ -3122,19 +3130,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Damage Reduced by 7",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+2 to Mana after each Kill",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Attacker Takes Damage of +14",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+15% Damage Taken Goes To Mana",
                 "Index": 0
             },
             {
@@ -3260,22 +3256,6 @@
             },
             {
                 "PropertyString": "Adds 9 to Damage (Weapon)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+2 to Mana after each Kill (Armor)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Damage Reduced by 7 (Armor)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Fire Resist +30% (Armor)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Poison Resist +30% (Armor)",
                 "Index": 0
             }
         ],
@@ -5228,6 +5208,10 @@
                 "Index": 0
             },
             {
+                "PropertyString": "+10-60 to Minimum Fire Damage",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+15-25% to Fire Skill Damage",
                 "Index": 5
             },
@@ -5240,7 +5224,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Fire Resist +95-110%",
+                "PropertyString": "Fire Resist +35-50%",
                 "Index": 2
             },
             {
@@ -5252,7 +5236,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Requirements -15%",
+                "PropertyString": "Requirements -20%",
                 "Index": 0
             }
         ],
@@ -5900,6 +5884,14 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+9 to Minimum Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+9 to Maximum Damage",
+                "Index": 0
+            },
+            {
                 "PropertyString": "Adds 55-160 to Fire Damage",
                 "Index": 2
             },
@@ -5916,15 +5908,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Damage Reduced by 7",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+2 to Mana after each Kill",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+15% Damage Taken Goes To Mana",
                 "Index": 0
             },
             {
@@ -6148,11 +6132,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+50% Enhanced Damage",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 0
             },
             {
-                "PropertyString": "+20% Faster Hit Recovery",
+                "PropertyString": "+50% Enhanced Damage",
                 "Index": 0
             },
             {
@@ -6172,7 +6156,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+30 Defense vs. Missile",
+                "PropertyString": "Knockback",
                 "Index": 0
             },
             {
@@ -7830,24 +7814,28 @@
                 "Index": 3
             },
             {
+                "PropertyString": "+20% Increased Attack Speed",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+166% Enhanced Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+20% Faster Hit Recovery",
+                "PropertyString": "+18 to Minimum Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+75% Damage to Demons",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+100 to Attack Rating against Demons",
                 "Index": 0
             },
             {
                 "PropertyString": "Adds 80-140 to Cold Damage",
                 "Index": 1
-            },
-            {
-                "PropertyString": "+30% Enhanced Defense",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Damage Reduced by 14",
-                "Index": 0
             },
             {
                 "PropertyString": "Level 10 Bone Wall (50 Charges)",
@@ -7928,12 +7916,16 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 1-444 to Lightning Damage",
+                "PropertyString": "+75% Damage to Demons",
                 "Index": 1
             },
             {
-                "PropertyString": "+30% Enhanced Defense",
+                "PropertyString": "+100 to Attack Rating against Demons",
                 "Index": 0
+            },
+            {
+                "PropertyString": "Adds 1-444 to Lightning Damage",
+                "Index": 1
             },
             {
                 "PropertyString": "+10 to Strength",
@@ -7956,7 +7948,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+50% extra gold from monsters",
+                "PropertyString": "+75% extra gold from monsters",
                 "Index": 0
             }
         ],
@@ -11890,12 +11882,24 @@
         "Code": "Wonder",
         "Properties": [
             {
+                "PropertyString": "+20% Increased Attack Speed",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+275% Enhanced Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+50% Faster Hit Recovery",
+                "PropertyString": "+30% Faster Hit Recovery",
                 "Index": 1
+            },
+            {
+                "PropertyString": "+14% Mana stolen per hit",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+14% Life stolen per hit",
+                "Index": 0
             },
             {
                 "PropertyString": "+20 to Strength",
@@ -11908,14 +11912,6 @@
             {
                 "PropertyString": "+1.5 to Life (Per Character Level)",
                 "Index": 6
-            },
-            {
-                "PropertyString": "+10 to Maximum Fire Resist",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Attacker Takes Damage of +28",
-                "Index": 0
             },
             {
                 "PropertyString": "+100-140% extra gold from monsters",
@@ -13828,11 +13824,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+15 Defense",
+                "PropertyString": "+50 to Attack Rating",
                 "Index": 1
             },
             {
-                "PropertyString": "+5% Increased Maximum Mana",
+                "PropertyString": "Hit blinds target +1",
                 "Index": 0
             },
             {
@@ -14240,6 +14236,22 @@
                 "Index": 0
             },
             {
+                "PropertyString": "+9 to Minimum Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+7% Life stolen per hit",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20% Chance of Crushing Blow",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Hit blinds target +1",
+                "Index": 0
+            },
+            {
                 "PropertyString": "Slows target by 33%",
                 "Index": 2
             },
@@ -14248,31 +14260,15 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+5% Increased Maximum Mana",
-                "Index": 0
-            },
-            {
                 "PropertyString": "Regenerate Mana +16%",
                 "Index": 5
-            },
-            {
-                "PropertyString": "+8% Physical Damage Reduction",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Damage Reduced by 7",
-                "Index": 0
             },
             {
                 "PropertyString": "Cannot Be Frozen",
                 "Index": 6
             },
             {
-                "PropertyString": "Attacker Takes Damage of +14",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+25% better chance of getting magic item",
+                "PropertyString": "+30% better chance of getting magic item",
                 "Index": 0
             },
             {
@@ -14769,7 +14765,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+300% Damage to Demons",
+                "PropertyString": "+375% Damage to Demons",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+100 to Attack Rating against Demons",
                 "Index": 0
             },
             {
@@ -14785,19 +14785,15 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+30% Enhanced Defense",
+                "PropertyString": "+20% Chance of Crushing Blow",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Prevent Monster Heal",
                 "Index": 0
             },
             {
                 "PropertyString": "+10 to Energy",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+8% Physical Damage Reduction",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Magic Damage Reduced by 7",
                 "Index": 0
             },
             {
@@ -14883,28 +14879,28 @@
                 "Index": 2
             },
             {
+                "PropertyString": "Ignore Target's Defense",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20% bonus to Attack Rating",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+280-330% Damage to Demons",
                 "Index": 4
             },
             {
+                "PropertyString": "+20% Deadly Strike",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Prevent Monster Heal",
+                "Index": 0
+            },
+            {
                 "PropertyString": "Knockback",
                 "Index": 5
-            },
-            {
-                "PropertyString": "+5% Increased Maximum Life",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+5 to Maximum Poison Resist",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+5 to Maximum Lightning Resist",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Magic Damage Reduced by 7",
-                "Index": 0
             }
         ],
         "DamageArmorEnhanced": false,
@@ -15391,7 +15387,11 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+280% Enhanced Damage",
+                "PropertyString": "+330% Enhanced Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Ignore Target's Defense",
                 "Index": 0
             },
             {
@@ -15399,16 +15399,16 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+75% Damage to Undead",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+50 to Attack Rating against Undead",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+120 to Minimum Fire Damage",
                 "Index": 2
-            },
-            {
-                "PropertyString": "+5% Increased Maximum Life",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+5 to Maximum Cold Resist",
-                "Index": 0
             },
             {
                 "PropertyString": "All Resistances +15%",
@@ -15419,11 +15419,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+5 Life after each Kill",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+50% extra gold from monsters",
+                "PropertyString": "+75% extra gold from monsters",
                 "Index": 0
             }
         ],
@@ -15604,6 +15600,18 @@
                 "Index": 0
             },
             {
+                "PropertyString": "Ignore Target's Defense",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-25% Target Defense",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20% bonus to Attack Rating",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+6% Life stolen per hit",
                 "Index": 4
             },
@@ -15622,18 +15630,6 @@
             {
                 "PropertyString": "+5 to Frenzy (Barbarian Only)",
                 "Index": 6
-            },
-            {
-                "PropertyString": "+5% Increased Maximum Life",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Regenerate Mana +15%",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+5 to Maximum Poison Resist",
-                "Index": 0
             }
         ],
         "DamageArmorEnhanced": false,
@@ -15710,11 +15706,15 @@
                 "Index": 2
             },
             {
+                "PropertyString": "+20% Increased Attack Speed",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+140-210% Enhanced Damage",
                 "Index": 3
             },
             {
-                "PropertyString": "+20% Faster Hit Recovery",
+                "PropertyString": "Ignore Target's Defense",
                 "Index": 0
             },
             {
@@ -15726,15 +15726,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+5% Increased Maximum Life",
+                "PropertyString": "+7% Life stolen per hit",
                 "Index": 0
             },
             {
-                "PropertyString": "+5 to Maximum Lightning Resist",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Attacker Takes Damage of +14",
+                "PropertyString": "+20% Deadly Strike",
                 "Index": 0
             },
             {
@@ -17316,40 +17312,40 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+325-375% Enhanced Damage",
-                "Index": 1
+                "PropertyString": "+20% Increased Attack Speed",
+                "Index": 0
             },
             {
-                "PropertyString": "+20% Faster Hit Recovery",
-                "Index": 0
+                "PropertyString": "+325-375% Enhanced Damage",
+                "Index": 1
             },
             {
                 "PropertyString": "+100% Piercing Attack",
                 "Index": 3
             },
             {
+                "PropertyString": "+9 to Maximum Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20% bonus to Attack Rating",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Adds 3-14 to Cold Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Freezes target +3",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+24 to Vitality",
                 "Index": 4
             },
             {
-                "PropertyString": "+5 to Maximum Poison Resist",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Cold Resist +30%",
-                "Index": 0
-            },
-            {
                 "PropertyString": "All Resistances +40%",
                 "Index": 5
-            },
-            {
-                "PropertyString": "Cannot Be Frozen",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+15% Damage Taken Goes To Mana",
-                "Index": 0
             }
         ],
         "DamageArmorEnhanced": false,
@@ -17552,20 +17548,20 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+10 to Maximum Lightning Resist",
+                "PropertyString": "+40% Chance of Crushing Blow",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+40% Deadly Strike",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Freezes target +6",
                 "Index": 0
             },
             {
                 "PropertyString": "+20-30 to All Attributes",
                 "Index": 6
-            },
-            {
-                "PropertyString": "+16% Physical Damage Reduction",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Cannot Be Frozen",
-                "Index": 0
             },
             {
                 "PropertyString": "+1% better chance of getting magic item (Per Character Level)",
@@ -17963,7 +17959,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+20% Faster Hit Recovery",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 0
             },
             {
@@ -17975,19 +17971,19 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+7 Replenish Life",
+                "PropertyString": "+25% Chance of Open Wounds",
                 "Index": 0
             },
             {
-                "PropertyString": "+5% Increased Maximum Mana",
+                "PropertyString": "Hit blinds target +1",
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +15%",
+                "PropertyString": "25% Hit Causes Monster To Flee",
                 "Index": 0
             },
             {
-                "PropertyString": "Cannot Be Frozen",
+                "PropertyString": "Freezes target +3",
                 "Index": 0
             },
             {
