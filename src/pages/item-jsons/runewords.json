@@ -560,7 +560,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "-3.75 Drain Life (Per Character Level)",
+                "PropertyString": "-7.5 Drain Life (Per Character Level)",
                 "Index": 0
             },
             {
@@ -1433,7 +1433,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+21-110 to Minimum Lightning Damage",
+                "PropertyString": "Adds 21-110 to Lightning Damage",
                 "Index": 1
             },
             {
@@ -2064,7 +2064,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Regenerate Mana +60%",
+                "PropertyString": "Regenerate Mana +60-70%",
                 "Index": 4
             },
             {
@@ -2593,7 +2593,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+2-100 to Minimum Lightning Damage",
+                "PropertyString": "Adds 2-100 to Lightning Damage",
                 "Index": 0
             },
             {
@@ -5208,7 +5208,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+10-60 to Minimum Fire Damage",
+                "PropertyString": "Adds 10-60 to Fire Damage",
                 "Index": 0
             },
             {
@@ -7822,7 +7822,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+18 to Minimum Damage",
+                "PropertyString": "Adds 18 to Damage",
                 "Index": 0
             },
             {
@@ -12618,7 +12618,15 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+1-300 to Minimum Fire Damage",
+                "PropertyString": "Adds 1-300 to Fire Damage",
+                "Index": 6
+            },
+            {
+                "PropertyString": "Adds 1-300 to Lightning Damage",
+                "Index": 6
+            },
+            {
+                "PropertyString": "Adds 1-300 to Cold Damage",
                 "Index": 6
             },
             {
@@ -15520,8 +15528,16 @@
                 "Index": 5
             },
             {
+                "PropertyString": "Adds 50-200 to Lightning Damage",
+                "Index": 5
+            },
+            {
                 "PropertyString": "Adds 1-50 to Lightning Damage",
                 "Index": 0
+            },
+            {
+                "PropertyString": "Adds 50-200 to Cold Damage",
+                "Index": 5
             },
             {
                 "PropertyString": "+12% Life stolen per hit",
@@ -16364,8 +16380,16 @@
                 "Index": 0
             },
             {
+                "PropertyString": "Adds 50-300 to Lightning Damage",
+                "Index": 2
+            },
+            {
                 "PropertyString": "Adds 1-50 to Lightning Damage",
                 "Index": 0
+            },
+            {
+                "PropertyString": "Adds 50-300 to Cold Damage",
+                "Index": 2
             },
             {
                 "PropertyString": "Adds 3-14 to Cold Damage",
@@ -19001,7 +19025,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Regenerate Mana +15%",
+                "PropertyString": "Regenerate Mana +15-30%",
                 "Index": 6
             },
             {

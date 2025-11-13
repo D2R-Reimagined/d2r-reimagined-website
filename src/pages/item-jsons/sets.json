@@ -172,7 +172,7 @@
                 "Type": "Boots",
                 "Set": "Hsarus' Defense",
                 "SetPropertiesString": [
-                    "+2.5 to Attack Rating (Per Character Level) (2 Items)"
+                    "+10 to Attack Rating (Per Character Level) (2 Items)"
                 ],
                 "Name": "Hsarus' Iron Heel",
                 "Index": "Hsarus' Iron Heel",
@@ -412,7 +412,7 @@
                 "Type": "Gloves",
                 "Set": "Cleglaw's Brace",
                 "SetPropertiesString": [
-                    "+2.5 to Attack Rating (Per Character Level) (2 Items)"
+                    "+10 to Attack Rating (Per Character Level) (2 Items)"
                 ],
                 "Name": "Cleglaw's Pincers",
                 "Index": "Cleglaw's Pincers",
@@ -697,7 +697,7 @@
                 "Type": "Sword",
                 "Set": "Isenhart's Armory",
                 "SetPropertiesString": [
-                    "+1.25 to Attack Rating (Per Character Level) (2 Items)"
+                    "+5 to Attack Rating (Per Character Level) (2 Items)"
                 ],
                 "Name": "Isenhart's Lightbrand",
                 "Index": "Isenhart's Lightbrand",
@@ -907,7 +907,7 @@
                 "Type": "Bow",
                 "Set": "Vidala's Rig",
                 "SetPropertiesString": [
-                    "+2 to Attack Rating (Per Character Level) (2 Items)"
+                    "+8 to Attack Rating (Per Character Level) (2 Items)"
                 ],
                 "Name": "Vidala's Barb",
                 "Index": "Vidala's Barb",
@@ -1867,7 +1867,7 @@
                 "Type": "Helm",
                 "Set": "Sigon's Complete Steel",
                 "SetPropertiesString": [
-                    "+2 to Attack Rating (Per Character Level) (2 Items)"
+                    "+8 to Attack Rating (Per Character Level) (2 Items)"
                 ],
                 "Name": "Sigon's Visor",
                 "Index": "Sigon's Visor",
@@ -2157,7 +2157,7 @@
                 "Type": "Wand",
                 "Set": "Infernal Tools",
                 "SetPropertiesString": [
-                    "+2.5 to Attack Rating (Per Character Level) (2 Items)"
+                    "+10 to Attack Rating (Per Character Level) (2 Items)"
                 ],
                 "Name": "Infernal Torch",
                 "Index": "Infernal Torch",
@@ -2288,7 +2288,7 @@
                 "Type": "Helm",
                 "Set": "Berserker's Arsenal",
                 "SetPropertiesString": [
-                    "+2 to Attack Rating (Per Character Level) (2 Items)"
+                    "+8 to Attack Rating (Per Character Level) (2 Items)"
                 ],
                 "Name": "Berserker's Headgear",
                 "Index": "Berserker's Headgear",
@@ -2689,7 +2689,7 @@
                 "Type": "Ring",
                 "Set": "Angelic Raiment",
                 "SetPropertiesString": [
-                    "+3 to Attack Rating (Per Character Level) (2 Items)",
+                    "+12 to Attack Rating (Per Character Level) (2 Items)",
                     "+50% better chance of getting magic item (3 Items)"
                 ],
                 "Name": "Angelic Halo",
@@ -2804,7 +2804,7 @@
                 "Type": "Bow",
                 "Set": "Arctic Gear",
                 "SetPropertiesString": [
-                    "+2 to Attack Rating (Per Character Level) (2 Items)",
+                    "+8 to Attack Rating (Per Character Level) (2 Items)",
                     "Adds 20-30 to Cold Damage (3 Items)"
                 ],
                 "Name": "Arctic Horn",
@@ -5724,7 +5724,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+20-30 to Minimum Fire Damage",
+                        "PropertyString": "Adds 20-30 to Fire Damage",
                         "Index": 3
                     }
                 ],
@@ -10289,7 +10289,7 @@
                         "Index": 2
                     },
                     {
-                        "PropertyString": "Regenerate Mana +50%",
+                        "PropertyString": "Regenerate Mana +50-75%",
                         "Index": 0
                     },
                     {
@@ -11172,7 +11172,9 @@
                 "Type": "Amazon Bow",
                 "Set": "Mishy's Avatar",
                 "SetPropertiesString": [
-                    "Adds 25-100 to Fire Damage (6 Items)"
+                    "Adds 25-100 to Fire Damage (6 Items)",
+                    "Adds 25-100 to Lightning Damage (6 Items)",
+                    "Adds 25-100 to Cold Damage (6 Items)"
                 ],
                 "Name": "Trent's Caster",
                 "Index": "Trent's Caster",
@@ -11819,7 +11821,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "Regenerate Mana +45%",
+                        "PropertyString": "Regenerate Mana +45-70%",
                         "Index": 1
                     },
                     {
@@ -12960,7 +12962,7 @@
                 "Set": "Onyx's Primal Rage",
                 "SetPropertiesString": [
                     "+20% Increased Attack Speed (3 Items)",
-                    "+4 to Attack Rating (Per Character Level) (4 Items)",
+                    "+16 to Attack Rating (Per Character Level) (4 Items)",
                     "+3% to Experience Gained (2 Items)"
                 ],
                 "Name": "Onyx's Celestial Rage",
@@ -19828,7 +19830,7 @@
                         "Index": 2
                     },
                     {
-                        "PropertyString": "Regenerate Mana +100%",
+                        "PropertyString": "Regenerate Mana +100-150%",
                         "Index": 3
                     }
                 ],
@@ -24166,7 +24168,7 @@
                         "Index": 2
                     },
                     {
-                        "PropertyString": "Regenerate Mana +50%",
+                        "PropertyString": "Regenerate Mana +50-75%",
                         "Index": 3
                     },
                     {
