@@ -48,6 +48,10 @@
                     <div class="set-text mb-1">
                         ${setItem.Name}
                     </div>
+                    
+                    <div class="rarity mb-1" if.bind="setItem.Rarity">
+                        Rarity: ${setItem.Rarity}
+                    </div>
 
                     <div class="armor mb-1" if.bind="setItem.Equipment.Name">
                         ${setItem.Equipment.Name}
