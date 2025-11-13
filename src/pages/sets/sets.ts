@@ -177,4 +177,12 @@ export class Sets {
                 return 'Damage: ';
         }
     }
+
+    // Partial set bonus count display by index 0-1 = 2, 2-3 = 3, 4-5 = 4, 6+ = 5
+    getItemCount(indexPassed: number): number {
+        if (indexPassed < 2) return 2;
+        if (indexPassed < 4) return 3;
+        if (indexPassed < 6) return 4;
+        return 5;
+    }
 }

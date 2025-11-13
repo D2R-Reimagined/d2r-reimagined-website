@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="partial-sets set-text" repeat.for="partial of set.PartialProperties">
-                    ${partial.PropertyString} (${$index + 2} Items)
+                    ${partial.PropertyString} (${getItemCount(partial.Index)} Items)
                 </div>
 
                 <div class="partial-sets set-text" repeat.for="full of set.FullProperties">
