@@ -483,7 +483,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "3-6% Mana stolen per hit",
+                "PropertyString": "+3-6% Mana stolen per hit",
                 "Index": 3
             },
             {
@@ -590,7 +590,7 @@
         "Code": "dr1",
         "Properties": [
             {
-                "PropertyString": "5-8% Life stolen per hit",
+                "PropertyString": "+5-8% Life stolen per hit",
                 "Index": 1
             },
             {
@@ -697,11 +697,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 5-9 to Weapon Fire Damage",
+                "PropertyString": "Adds 5-9 Weapon Fire Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "6% Life stolen per hit",
+                "PropertyString": "+6% Life stolen per hit",
                 "Index": 1
             },
             {
@@ -917,11 +917,11 @@
         "Code": "lgl",
         "Properties": [
             {
-                "PropertyString": "3% Mana stolen per hit",
+                "PropertyString": "+3% Mana stolen per hit",
                 "Index": 0
             },
             {
-                "PropertyString": "3% Life stolen per hit",
+                "PropertyString": "+3% Life stolen per hit",
                 "Index": 1
             },
             {
@@ -971,7 +971,7 @@
         "Code": "lbt",
         "Properties": [
             {
-                "PropertyString": "Adds 3-6 to Weapon Fire Damage",
+                "PropertyString": "Adds 3-6 Weapon Fire Damage",
                 "Index": 2
             },
             {
@@ -1144,7 +1144,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "3-4% Life stolen per hit",
+                "PropertyString": "+3-4% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -1588,7 +1588,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 3-9 to Weapon Fire Damage",
+                "PropertyString": "Adds 3-9 Weapon Fire Damage",
                 "Index": 3
             },
             {
@@ -1853,7 +1853,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 5-15 to Weapon Cold Damage",
+                "PropertyString": "Adds 5-15 Weapon Cold Damage",
                 "Index": 1
             },
             {
@@ -1900,7 +1900,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "15% Life stolen per hit",
+                "PropertyString": "+15% Life stolen per hit",
                 "Index": 6
             },
             {
@@ -1961,7 +1961,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "3% Mana stolen per hit",
+                "PropertyString": "+3% Mana stolen per hit",
                 "Index": 4
             },
             {
@@ -2010,7 +2010,7 @@
         "Code": "qui",
         "Properties": [
             {
-                "PropertyString": "5% Life stolen per hit",
+                "PropertyString": "+5% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -2492,7 +2492,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 3-6 to Weapon Fire Damage",
+                "PropertyString": "Adds 3-6 Weapon Fire Damage",
                 "Index": 4
             },
             {
@@ -2590,7 +2590,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "6% Mana stolen per hit",
+                "PropertyString": "+6% Mana stolen per hit",
                 "Index": 4
             },
             {
@@ -2688,7 +2688,7 @@
         "Code": "scp",
         "Properties": [
             {
-                "PropertyString": "+1 to Shout",
+                "PropertyString": "+1 to Shout (oskill)",
                 "Index": 3
             },
             {
@@ -2849,7 +2849,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 10-20 to Weapon Lightning Damage",
+                "PropertyString": "Adds 10-20 Weapon Lightning Damage",
                 "Index": 2
             },
             {
@@ -3011,7 +3011,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 5-18 to Weapon Fire Damage",
+                "PropertyString": "Adds 5-18 Weapon Fire Damage",
                 "Index": 1
             },
             {
@@ -3393,7 +3393,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "100% Mana stolen per hit",
+                "PropertyString": "+100% Mana stolen per hit",
                 "Index": 5
             },
             {
@@ -3615,7 +3615,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "2% Mana stolen per hit",
+                "PropertyString": "+2% Mana stolen per hit",
                 "Index": 2
             },
             {
@@ -3791,7 +3791,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "100% Mana stolen per hit",
+                "PropertyString": "+100% Mana stolen per hit",
                 "Index": 5
             },
             {
@@ -3963,7 +3963,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "7% Mana stolen per hit",
+                "PropertyString": "+7% Mana stolen per hit",
                 "Index": 3
             },
             {
@@ -4012,7 +4012,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 3-6 to Weapon Fire Damage",
+                "PropertyString": "Adds 3-6 Weapon Fire Damage",
                 "Index": 0
             },
             {
@@ -4063,7 +4063,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "3-5% Life stolen per hit",
+                "PropertyString": "+3-5% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -4279,11 +4279,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "5-7% Mana stolen per hit",
+                "PropertyString": "+5-7% Mana stolen per hit",
                 "Index": 5
             },
             {
-                "PropertyString": "5-7% Life stolen per hit",
+                "PropertyString": "+5-7% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -4590,7 +4590,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+1 to Critical Strike",
+                "PropertyString": "+1 to Critical Strike (oskill)",
                 "Index": 3
             },
             {
@@ -4651,7 +4651,7 @@
         "Code": "qui",
         "Properties": [
             {
-                "PropertyString": "4-6% Life stolen per hit",
+                "PropertyString": "+4-6% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -4767,7 +4767,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 12-18 to Weapon Fire Damage",
+                "PropertyString": "Adds 12-18 Weapon Fire Damage",
                 "Index": 2
             },
             {
@@ -4825,7 +4825,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 1-30 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-30 Weapon Lightning Damage",
                 "Index": 3
             },
             {
@@ -4924,7 +4924,7 @@
         "Code": "axf",
         "Properties": [
             {
-                "PropertyString": "+2 to Shout",
+                "PropertyString": "+2 to Shout (oskill)",
                 "Index": 5
             },
             {
@@ -5024,15 +5024,15 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 10-30 to Weapon Cold Damage",
+                "PropertyString": "Adds 10-30 Weapon Cold Damage",
                 "Index": 3
             },
             {
-                "PropertyString": "9% Mana stolen per hit",
+                "PropertyString": "+9% Mana stolen per hit",
                 "Index": 0
             },
             {
-                "PropertyString": "9% Life stolen per hit",
+                "PropertyString": "+9% Life stolen per hit",
                 "Index": 5
             },
             {
@@ -5303,11 +5303,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+5-7 to Clay Golem",
+                "PropertyString": "+5-7 to Clay Golem (oskill)",
                 "Index": 6
             },
             {
-                "PropertyString": "+3 to Summon Spirit Wolf",
+                "PropertyString": "+3 to Summon Spirit Wolf (oskill)",
                 "Index": 7
             },
             {
@@ -5471,11 +5471,11 @@
         "Code": "ci1",
         "Properties": [
             {
-                "PropertyString": "+10 to War Cry",
+                "PropertyString": "+10 to War Cry (oskill)",
                 "Index": 4
             },
             {
-                "PropertyString": "+1-6 to Conversion",
+                "PropertyString": "+1-6 to Conversion (oskill)",
                 "Index": 5
             },
             {
@@ -5767,7 +5767,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 to Warmth",
+                "PropertyString": "+1 to Warmth (oskill)",
                 "Index": 7
             },
             {
@@ -6035,7 +6035,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 3-5 to Weapon Cold Damage",
+                "PropertyString": "Adds 3-5 Weapon Cold Damage",
                 "Index": 5
             },
             {
@@ -6092,7 +6092,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 3-6 to Weapon Cold Damage",
+                "PropertyString": "Adds 3-6 Weapon Cold Damage",
                 "Index": 2
             },
             {
@@ -6198,7 +6198,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 1-6 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-6 Weapon Lightning Damage",
                 "Index": 3
             },
             {
@@ -6317,7 +6317,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 3-6 to Weapon Cold Damage",
+                "PropertyString": "Adds 3-6 Weapon Cold Damage",
                 "Index": 2
             },
             {
@@ -6465,7 +6465,7 @@
         "Code": "skp",
         "Properties": [
             {
-                "PropertyString": "+1 to Warmth",
+                "PropertyString": "+1 to Warmth (oskill)",
                 "Index": 2
             },
             {
@@ -6585,7 +6585,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 10-15 to Weapon Lightning Damage",
+                "PropertyString": "Adds 10-15 Weapon Lightning Damage",
                 "Index": 1
             },
             {
@@ -6963,7 +6963,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "5-7% Life stolen per hit",
+                "PropertyString": "+5-7% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -7069,7 +7069,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "4-7% Life stolen per hit",
+                "PropertyString": "+4-7% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -7183,7 +7183,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+3-5 to Sacrifice",
+                "PropertyString": "+3-5 to Sacrifice (oskill)",
                 "Index": 4
             },
             {
@@ -7295,7 +7295,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "4-6% Mana stolen per hit",
+                "PropertyString": "+4-6% Mana stolen per hit",
                 "Index": 3
             },
             {
@@ -7353,7 +7353,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 10-15 to Weapon Cold Damage",
+                "PropertyString": "Adds 10-15 Weapon Cold Damage",
                 "Index": 5
             },
             {
@@ -7472,7 +7472,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "5% Life stolen per hit",
+                "PropertyString": "+5% Life stolen per hit",
                 "Index": 6
             },
             {
@@ -7828,7 +7828,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "3-7% Life stolen per hit",
+                "PropertyString": "+3-7% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -7867,7 +7867,7 @@
         "Code": "rin",
         "Properties": [
             {
-                "PropertyString": "4-7% Mana stolen per hit",
+                "PropertyString": "+4-7% Mana stolen per hit",
                 "Index": 0
             },
             {
@@ -7922,7 +7922,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "5% Life stolen per hit",
+                "PropertyString": "+5% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -7979,7 +7979,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 8-12 to Weapon Fire Damage",
+                "PropertyString": "Adds 8-12 Weapon Fire Damage",
                 "Index": 3
             },
             {
@@ -8148,7 +8148,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+2 to Bone Armor",
+                "PropertyString": "+2 to Bone Armor (oskill)",
                 "Index": 4
             },
             {
@@ -8593,7 +8593,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 10-20 to Weapon Fire Damage",
+                "PropertyString": "Adds 10-20 Weapon Fire Damage",
                 "Index": 4
             },
             {
@@ -8739,7 +8739,7 @@
         "Code": "lrg",
         "Properties": [
             {
-                "PropertyString": "+1 to Poison Dagger",
+                "PropertyString": "+1 to Poison Dagger (oskill)",
                 "Index": 6
             },
             {
@@ -8870,7 +8870,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "5% Life stolen per hit",
+                "PropertyString": "+5% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -8962,7 +8962,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 10-15 to Weapon Cold Damage",
+                "PropertyString": "Adds 10-15 Weapon Cold Damage",
                 "Index": 1
             },
             {
@@ -9027,7 +9027,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "8% Life stolen per hit",
+                "PropertyString": "+8% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -9137,7 +9137,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "8-12% Life stolen per hit",
+                "PropertyString": "+8-12% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -9240,7 +9240,7 @@
         "Code": "chn",
         "Properties": [
             {
-                "PropertyString": "Adds 1-20 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-20 Weapon Lightning Damage",
                 "Index": 1
             },
             {
@@ -9356,7 +9356,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "5% Mana stolen per hit",
+                "PropertyString": "+5% Mana stolen per hit",
                 "Index": 3
             },
             {
@@ -9692,7 +9692,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 10-20 to Weapon Fire Damage",
+                "PropertyString": "Adds 10-20 Weapon Fire Damage",
                 "Index": 4
             },
             {
@@ -9742,7 +9742,7 @@
                 "Index": 8
             },
             {
-                "PropertyString": "Adds 1-28 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-28 Weapon Lightning Damage",
                 "Index": 7
             },
             {
@@ -9872,11 +9872,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 35-50 to Weapon Fire Damage",
+                "PropertyString": "Adds 35-50 Weapon Fire Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 25-50 to Weapon Lightning Damage",
+                "PropertyString": "Adds 25-50 Weapon Lightning Damage",
                 "Index": 3
             },
             {
@@ -10035,7 +10035,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "3% Life stolen per hit",
+                "PropertyString": "+3% Life stolen per hit",
                 "Index": 5
             },
             {
@@ -10143,7 +10143,7 @@
         "Code": "spk",
         "Properties": [
             {
-                "PropertyString": "+1-5 to Zeal",
+                "PropertyString": "+1-5 to Zeal (oskill)",
                 "Index": 3
             },
             {
@@ -10205,7 +10205,7 @@
         "Code": "vgl",
         "Properties": [
             {
-                "PropertyString": "6-8% Life stolen per hit",
+                "PropertyString": "+6-8% Life stolen per hit",
                 "Index": 1
             },
             {
@@ -10267,7 +10267,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "5-8% Life stolen per hit",
+                "PropertyString": "+5-8% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -10324,7 +10324,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Weaken",
+                "PropertyString": "+2 to Weaken (oskill)",
                 "Index": 2
             },
             {
@@ -10332,7 +10332,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "35% Mana stolen per hit",
+                "PropertyString": "+35% Mana stolen per hit",
                 "Index": 5
             },
             {
@@ -10377,7 +10377,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "5-8% Life stolen per hit",
+                "PropertyString": "+5-8% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -10427,7 +10427,7 @@
         "Code": "rin",
         "Properties": [
             {
-                "PropertyString": "4-6% Life stolen per hit",
+                "PropertyString": "+4-6% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -10482,7 +10482,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 1-40 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-40 Weapon Lightning Damage",
                 "Index": 4
             },
             {
@@ -10535,11 +10535,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "4-10% Mana stolen per hit",
+                "PropertyString": "+4-10% Mana stolen per hit",
                 "Index": 0
             },
             {
-                "PropertyString": "4% Life stolen per hit",
+                "PropertyString": "+4% Life stolen per hit",
                 "Index": 1
             },
             {
@@ -10645,7 +10645,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "10% Mana stolen per hit",
+                "PropertyString": "+10% Mana stolen per hit",
                 "Index": 4
             },
             {
@@ -10862,7 +10862,7 @@
         "Code": "bkf",
         "Properties": [
             {
-                "PropertyString": "+3-5 to Raise Skeleton",
+                "PropertyString": "+3-5 to Raise Skeleton (oskill)",
                 "Index": 4
             },
             {
@@ -11051,7 +11051,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "4% Mana stolen per hit",
+                "PropertyString": "+4% Mana stolen per hit",
                 "Index": 5
             },
             {
@@ -11101,11 +11101,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+5 to Skeleton Mastery",
+                "PropertyString": "+5 to Skeleton Mastery (oskill)",
                 "Index": 2
             },
             {
-                "PropertyString": "+1 to Raise Skeleton",
+                "PropertyString": "+1 to Raise Skeleton (oskill)",
                 "Index": 3
             },
             {
@@ -11213,11 +11213,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 10-15 to Weapon Cold Damage",
+                "PropertyString": "Adds 10-15 Weapon Cold Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "6% Mana stolen per hit",
+                "PropertyString": "+6% Mana stolen per hit",
                 "Index": 6
             },
             {
@@ -11427,7 +11427,7 @@
         "Code": "clw",
         "Properties": [
             {
-                "PropertyString": "+5 to Frost Nova",
+                "PropertyString": "+5 to Frost Nova (oskill)",
                 "Index": 5
             },
             {
@@ -11443,7 +11443,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Adds 15-25 to Weapon Cold Damage",
+                "PropertyString": "Adds 15-25 Weapon Cold Damage",
                 "Index": 1
             },
             {
@@ -11496,7 +11496,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "5% Mana stolen per hit",
+                "PropertyString": "+5% Mana stolen per hit",
                 "Index": 5
             },
             {
@@ -11706,7 +11706,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "3% Mana stolen per hit",
+                "PropertyString": "+3% Mana stolen per hit",
                 "Index": 1
             },
             {
@@ -11810,7 +11810,7 @@
         "Code": "2hs",
         "Properties": [
             {
-                "PropertyString": "+2-4 to Cloak of Shadows",
+                "PropertyString": "+2-4 to Cloak of Shadows (oskill)",
                 "Index": 2
             },
             {
@@ -11985,7 +11985,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "6% Life stolen per hit",
+                "PropertyString": "+6% Life stolen per hit",
                 "Index": 1
             },
             {
@@ -12050,11 +12050,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 25-50 to Weapon Cold Damage",
+                "PropertyString": "Adds 25-50 Weapon Cold Damage",
                 "Index": 5
             },
             {
-                "PropertyString": "4-6% Mana stolen per hit",
+                "PropertyString": "+4-6% Mana stolen per hit",
                 "Index": 4
             }
         ],
@@ -12210,7 +12210,7 @@
         "Code": "fhl",
         "Properties": [
             {
-                "PropertyString": "+3 to Summon Spirit Wolf",
+                "PropertyString": "+3 to Summon Spirit Wolf (oskill)",
                 "Index": 4
             },
             {
@@ -12523,7 +12523,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "6% Life stolen per hit",
+                "PropertyString": "+6% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -12568,7 +12568,7 @@
         "Code": "rin",
         "Properties": [
             {
-                "PropertyString": "5-7% Life stolen per hit",
+                "PropertyString": "+5-7% Life stolen per hit",
                 "Index": 0
             },
             {
@@ -12723,7 +12723,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "5% Mana stolen per hit",
+                "PropertyString": "+5% Mana stolen per hit",
                 "Index": 4
             },
             {
@@ -12772,7 +12772,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 15-32 to Weapon Fire Damage",
+                "PropertyString": "Adds 15-32 Weapon Fire Damage",
                 "Index": 0
             },
             {
@@ -12833,7 +12833,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "5% Life stolen per hit",
+                "PropertyString": "+5% Life stolen per hit",
                 "Index": 1
             },
             {
@@ -12891,7 +12891,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 1-75 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-75 Weapon Lightning Damage",
                 "Index": 3
             },
             {
@@ -13054,7 +13054,7 @@
         "Code": "ssp",
         "Properties": [
             {
-                "PropertyString": "+5 to Teeth",
+                "PropertyString": "+5 to Teeth (oskill)",
                 "Index": 3
             },
             {
@@ -13066,7 +13066,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "7% Life stolen per hit",
+                "PropertyString": "+7% Life stolen per hit",
                 "Index": 6
             },
             {
@@ -13235,7 +13235,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "3-5% Life stolen per hit",
+                "PropertyString": "+3-5% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -13289,7 +13289,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "2-5% Mana stolen per hit",
+                "PropertyString": "+2-5% Mana stolen per hit",
                 "Index": 2
             },
             {
@@ -13409,7 +13409,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 25-75 to Weapon Fire Damage",
+                "PropertyString": "Adds 25-75 Weapon Fire Damage",
                 "Index": 6
             },
             {
@@ -13417,11 +13417,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "5% Mana stolen per hit",
+                "PropertyString": "+5% Mana stolen per hit",
                 "Index": 0
             },
             {
-                "PropertyString": "5% Life stolen per hit",
+                "PropertyString": "+5% Life stolen per hit",
                 "Index": 1
             }
         ],
@@ -13623,7 +13623,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "6% Life stolen per hit",
+                "PropertyString": "+6% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -13664,7 +13664,7 @@
         "Code": "bsd",
         "Properties": [
             {
-                "PropertyString": "+1-3 to Sacrifice",
+                "PropertyString": "+1-3 to Sacrifice (oskill)",
                 "Index": 5
             },
             {
@@ -13676,7 +13676,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "5-7% Life stolen per hit",
+                "PropertyString": "+5-7% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -13782,7 +13782,7 @@
         "Code": "kri",
         "Properties": [
             {
-                "PropertyString": "+1-3 to Sacrifice",
+                "PropertyString": "+1-3 to Sacrifice (oskill)",
                 "Index": 2
             },
             {
@@ -13851,7 +13851,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "6% Life stolen per hit",
+                "PropertyString": "+6% Life stolen per hit",
                 "Index": 5
             },
             {
@@ -14507,11 +14507,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 1-6 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-6 Weapon Lightning Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 3-5 to Weapon Cold Damage",
+                "PropertyString": "Adds 3-5 Weapon Cold Damage",
                 "Index": 1
             },
             {
@@ -14629,7 +14629,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 1-6 to Weapon Fire Damage",
+                "PropertyString": "Adds 1-6 Weapon Fire Damage",
                 "Index": 3
             },
             {
@@ -14683,7 +14683,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+3-6 to Melee Mastery",
+                "PropertyString": "+3-6 to Melee Mastery (oskill)",
                 "Index": 4
             },
             {
@@ -14752,7 +14752,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "7% Life stolen per hit",
+                "PropertyString": "+7% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -14805,7 +14805,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 8-14 to Weapon Fire Damage",
+                "PropertyString": "Adds 8-14 Weapon Fire Damage",
                 "Index": 2
             },
             {
@@ -14854,7 +14854,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "15% Life stolen per hit",
+                "PropertyString": "+15% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -14911,7 +14911,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+2 to Melee Mastery",
+                "PropertyString": "+2 to Melee Mastery (oskill)",
                 "Index": 5
             },
             {
@@ -14923,7 +14923,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "4-6% Life stolen per hit",
+                "PropertyString": "+4-6% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -14964,19 +14964,19 @@
         "Code": "bst",
         "Properties": [
             {
-                "PropertyString": "+1-3 to Warmth",
+                "PropertyString": "+1-3 to Warmth (oskill)",
                 "Index": 0
             },
             {
-                "PropertyString": "+1-3 to Frozen Armor",
+                "PropertyString": "+1-3 to Frozen Armor (oskill)",
                 "Index": 1
             },
             {
-                "PropertyString": "+1-3 to Bone Armor",
+                "PropertyString": "+1-3 to Bone Armor (oskill)",
                 "Index": 2
             },
             {
-                "PropertyString": "+1-3 to Cyclone Armor",
+                "PropertyString": "+1-3 to Cyclone Armor (oskill)",
                 "Index": 3
             },
             {
@@ -15037,7 +15037,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "5-8% Life stolen per hit",
+                "PropertyString": "+5-8% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -15098,7 +15098,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 256-500 to Weapon Fire Damage",
+                "PropertyString": "Adds 256-500 Weapon Fire Damage",
                 "Index": 2
             },
             {
@@ -15263,7 +15263,7 @@
         "Code": "msk",
         "Properties": [
             {
-                "PropertyString": "3-5% Mana stolen per hit",
+                "PropertyString": "+3-5% Mana stolen per hit",
                 "Index": 2
             },
             {
@@ -15317,7 +15317,7 @@
         "Code": "mbt",
         "Properties": [
             {
-                "PropertyString": "+1 to Dodge",
+                "PropertyString": "+1 to Dodge (oskill)",
                 "Index": 3
             },
             {
@@ -15448,7 +15448,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "3% Mana stolen per hit",
+                "PropertyString": "+3% Mana stolen per hit",
                 "Index": 5
             },
             {
@@ -15667,7 +15667,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 10-25 to Weapon Fire Damage",
+                "PropertyString": "Adds 10-25 Weapon Fire Damage",
                 "Index": 2
             },
             {
@@ -15997,7 +15997,7 @@
         "Code": "glv",
         "Properties": [
             {
-                "PropertyString": "+1-2 to Poison Javelin",
+                "PropertyString": "+1-2 to Poison Javelin (oskill)",
                 "Index": 4
             },
             {
@@ -16070,7 +16070,7 @@
                 "Index": 7
             },
             {
-                "PropertyString": "+2 to Meditation",
+                "PropertyString": "+2 to Meditation (oskill)",
                 "Index": 4
             },
             {
@@ -16359,7 +16359,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 1-75 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-75 Weapon Lightning Damage",
                 "Index": 2
             },
             {
@@ -16572,11 +16572,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 15-35 to Weapon Fire Damage",
+                "PropertyString": "Adds 15-35 Weapon Fire Damage",
                 "Index": 5
             },
             {
-                "PropertyString": "10-13% Mana stolen per hit",
+                "PropertyString": "+10-13% Mana stolen per hit",
                 "Index": 3
             },
             {
@@ -16682,7 +16682,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "7% Life stolen per hit",
+                "PropertyString": "+7% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -16735,7 +16735,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 1-30 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-30 Weapon Lightning Damage",
                 "Index": 0
             },
             {
@@ -16958,7 +16958,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 10-20 to Weapon Cold Damage",
+                "PropertyString": "Adds 10-20 Weapon Cold Damage",
                 "Index": 1
             },
             {
@@ -17060,7 +17060,7 @@
         "Code": "mau",
         "Properties": [
             {
-                "PropertyString": "+2-4 to Melee Mastery",
+                "PropertyString": "+2-4 to Melee Mastery (oskill)",
                 "Index": 4
             },
             {
@@ -17402,7 +17402,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 1-40 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-40 Weapon Lightning Damage",
                 "Index": 3
             },
             {
@@ -17447,7 +17447,7 @@
         "Code": "brs",
         "Properties": [
             {
-                "PropertyString": "Adds 1-75 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-75 Weapon Lightning Damage",
                 "Index": 5
             },
             {
@@ -17671,7 +17671,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 1-35 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-35 Weapon Lightning Damage",
                 "Index": 3
             },
             {
@@ -17787,7 +17787,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "6-8% Life stolen per hit",
+                "PropertyString": "+6-8% Life stolen per hit",
                 "Index": 5
             },
             {
@@ -17844,7 +17844,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "5% Life stolen per hit",
+                "PropertyString": "+5% Life stolen per hit",
                 "Index": 6
             },
             {
@@ -17964,7 +17964,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "3-5% Life stolen per hit",
+                "PropertyString": "+3-5% Life stolen per hit",
                 "Index": 2
             }
         ],
@@ -18005,7 +18005,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+3-5 to Oak Sage",
+                "PropertyString": "+3-5 to Oak Sage (oskill)",
                 "Index": 3
             },
             {
@@ -18058,7 +18058,7 @@
         "Code": "rin",
         "Properties": [
             {
-                "PropertyString": "+1 to Warp",
+                "PropertyString": "+1 to Warp (oskill)",
                 "Index": 0
             },
             {
@@ -18166,7 +18166,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "6% Mana stolen per hit",
+                "PropertyString": "+6% Mana stolen per hit",
                 "Index": 2
             },
             {
@@ -18280,7 +18280,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "5% Life stolen per hit",
+                "PropertyString": "+5% Life stolen per hit",
                 "Index": 0
             },
             {
@@ -18388,7 +18388,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 25-40 to Weapon Fire Damage",
+                "PropertyString": "Adds 25-40 Weapon Fire Damage",
                 "Index": 3
             },
             {
@@ -18437,7 +18437,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+2 to Melee Mastery",
+                "PropertyString": "+2 to Melee Mastery (oskill)",
                 "Index": 3
             },
             {
@@ -18612,7 +18612,7 @@
         "Code": "hbw",
         "Properties": [
             {
-                "PropertyString": "+1-3 to Magic Arrow",
+                "PropertyString": "+1-3 to Magic Arrow (oskill)",
                 "Index": 5
             },
             {
@@ -18624,11 +18624,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 1-100 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-100 Weapon Lightning Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "4-6% Life stolen per hit",
+                "PropertyString": "+4-6% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -18673,7 +18673,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+6 to Multiple Shot",
+                "PropertyString": "+6 to Multiple Shot (oskill)",
                 "Index": 2
             },
             {
@@ -18822,11 +18822,11 @@
         "Code": "gth",
         "Properties": [
             {
-                "PropertyString": "+8 to Golem Mastery",
+                "PropertyString": "+8 to Golem Mastery (oskill)",
                 "Index": 2
             },
             {
-                "PropertyString": "+2-5 to Blood Golem",
+                "PropertyString": "+2-5 to Blood Golem (oskill)",
                 "Index": 3
             },
             {
@@ -19004,15 +19004,15 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 10-25 to Weapon Fire Damage",
+                "PropertyString": "Adds 10-25 Weapon Fire Damage",
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 10-25 to Weapon Lightning Damage",
+                "PropertyString": "Adds 10-25 Weapon Lightning Damage",
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 10-25 to Weapon Cold Damage",
+                "PropertyString": "Adds 10-25 Weapon Cold Damage",
                 "Index": 4
             },
             {
@@ -19176,7 +19176,7 @@
         "Code": "ba5",
         "Properties": [
             {
-                "PropertyString": "+6-10 to Inferno",
+                "PropertyString": "+6-10 to Inferno (oskill)",
                 "Index": 4
             },
             {
@@ -19474,7 +19474,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 15-35 to Weapon Fire Damage",
+                "PropertyString": "Adds 15-35 Weapon Fire Damage",
                 "Index": 6
             },
             {
@@ -19707,7 +19707,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "4-6% Mana stolen per hit",
+                "PropertyString": "+4-6% Mana stolen per hit",
                 "Index": 3
             },
             {
@@ -19813,7 +19813,7 @@
         "Code": "bal",
         "Properties": [
             {
-                "PropertyString": "+1 to Critical Strike",
+                "PropertyString": "+1 to Critical Strike (oskill)",
                 "Index": 4
             },
             {
@@ -20128,7 +20128,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 16-24 to Weapon Fire Damage",
+                "PropertyString": "Adds 16-24 Weapon Fire Damage",
                 "Index": 3
             },
             {
@@ -20178,7 +20178,7 @@
                 "Index": 7
             },
             {
-                "PropertyString": "3-5% Life stolen per hit",
+                "PropertyString": "+3-5% Life stolen per hit",
                 "Index": 1
             },
             {
@@ -20244,11 +20244,11 @@
                 "Index": 6
             },
             {
-                "PropertyString": "6-8% Mana stolen per hit",
+                "PropertyString": "+6-8% Mana stolen per hit",
                 "Index": 3
             },
             {
-                "PropertyString": "6-8% Life stolen per hit",
+                "PropertyString": "+6-8% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -20297,11 +20297,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+5-10 to Skeleton Mastery",
+                "PropertyString": "+5-10 to Skeleton Mastery (oskill)",
                 "Index": 0
             },
             {
-                "PropertyString": "+3-5 to Raise Skeletal Mage",
+                "PropertyString": "+3-5 to Raise Skeletal Mage (oskill)",
                 "Index": 1
             },
             {
@@ -20539,7 +20539,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "3% Mana stolen per hit",
+                "PropertyString": "+3% Mana stolen per hit",
                 "Index": 3
             },
             {
@@ -20741,7 +20741,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "5% Mana stolen per hit",
+                "PropertyString": "+5% Mana stolen per hit",
                 "Index": 0
             },
             {
@@ -20864,7 +20864,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 1-250 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-250 Weapon Lightning Damage",
                 "Index": 0
             },
             {
@@ -21067,7 +21067,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 1-30 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-30 Weapon Lightning Damage",
                 "Index": 4
             },
             {
@@ -21128,7 +21128,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "4-6% Life stolen per hit",
+                "PropertyString": "+4-6% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -21177,11 +21177,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "7% Mana stolen per hit",
+                "PropertyString": "+7% Mana stolen per hit",
                 "Index": 2
             },
             {
-                "PropertyString": "7% Life stolen per hit",
+                "PropertyString": "+7% Life stolen per hit",
                 "Index": 1
             },
             {
@@ -21307,7 +21307,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "5% Life stolen per hit",
+                "PropertyString": "+5% Life stolen per hit",
                 "Index": 5
             },
             {
@@ -21421,7 +21421,7 @@
         "Code": "plt",
         "Properties": [
             {
-                "PropertyString": "+3-5 to Warmth",
+                "PropertyString": "+3-5 to Warmth (oskill)",
                 "Index": 1
             },
             {
@@ -21879,11 +21879,11 @@
         "Code": "rin",
         "Properties": [
             {
-                "PropertyString": "3-5% Mana stolen per hit",
+                "PropertyString": "+3-5% Mana stolen per hit",
                 "Index": 4
             },
             {
-                "PropertyString": "5-7% Life stolen per hit",
+                "PropertyString": "+5-7% Life stolen per hit",
                 "Index": 5
             },
             {
@@ -22162,7 +22162,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "5% Mana stolen per hit",
+                "PropertyString": "+5% Mana stolen per hit",
                 "Index": 2
             },
             {
@@ -22219,7 +22219,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "5% Life stolen per hit",
+                "PropertyString": "+5% Life stolen per hit",
                 "Index": 0
             },
             {
@@ -22377,7 +22377,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 1-6 to Weapon Cold Damage",
+                "PropertyString": "Adds 1-6 Weapon Cold Damage",
                 "Index": 3
             },
             {
@@ -22636,7 +22636,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "5% Life stolen per hit",
+                "PropertyString": "+5% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -22698,7 +22698,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 12-33 to Weapon Fire Damage",
+                "PropertyString": "Adds 12-33 Weapon Fire Damage",
                 "Index": 0
             },
             {
@@ -22756,7 +22756,7 @@
         "Code": "zlb",
         "Properties": [
             {
-                "PropertyString": "6-8% Life stolen per hit",
+                "PropertyString": "+6-8% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -22875,11 +22875,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "5% Mana stolen per hit",
+                "PropertyString": "+5% Mana stolen per hit",
                 "Index": 4
             },
             {
-                "PropertyString": "5-7% Life stolen per hit",
+                "PropertyString": "+5-7% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -23058,7 +23058,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "5-8% Life stolen per hit",
+                "PropertyString": "+5-8% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -23107,7 +23107,7 @@
         "Code": "kri",
         "Properties": [
             {
-                "PropertyString": "+1-5 to Poison Dagger",
+                "PropertyString": "+1-5 to Poison Dagger (oskill)",
                 "Index": 5
             },
             {
@@ -23123,7 +23123,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "5% Mana stolen per hit",
+                "PropertyString": "+5% Mana stolen per hit",
                 "Index": 2
             },
             {
@@ -23420,15 +23420,15 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 80-100 to Weapon Fire Damage",
+                "PropertyString": "Adds 80-100 Weapon Fire Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 10-200 to Weapon Lightning Damage",
+                "PropertyString": "Adds 10-200 Weapon Lightning Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 40-50 to Weapon Cold Damage",
+                "PropertyString": "Adds 40-50 Weapon Cold Damage",
                 "Index": 2
             },
             {
@@ -23473,7 +23473,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+6 to Strafe",
+                "PropertyString": "+6 to Strafe (oskill)",
                 "Index": 4
             },
             {
@@ -23489,7 +23489,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "6% Mana stolen per hit",
+                "PropertyString": "+6% Mana stolen per hit",
                 "Index": 6
             },
             {
@@ -23538,7 +23538,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "6-8% Life stolen per hit",
+                "PropertyString": "+6-8% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -23653,15 +23653,15 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1 to Holy Shield",
+                "PropertyString": "+1 to Holy Shield (oskill)",
                 "Index": 4
             },
             {
-                "PropertyString": "+1-3 to Vengeance",
+                "PropertyString": "+1-3 to Vengeance (oskill)",
                 "Index": 5
             },
             {
-                "PropertyString": "+1-2 to Concentration",
+                "PropertyString": "+1-2 to Concentration (oskill)",
                 "Index": 6
             },
             {
@@ -24035,7 +24035,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "8% Life stolen per hit",
+                "PropertyString": "+8% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -24438,7 +24438,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+3-5 to Guided Arrow",
+                "PropertyString": "+3-5 to Guided Arrow (oskill)",
                 "Index": 1
             },
             {
@@ -24458,11 +24458,11 @@
                 "Index": 8
             },
             {
-                "PropertyString": "3% Mana stolen per hit",
+                "PropertyString": "+3% Mana stolen per hit",
                 "Index": 4
             },
             {
-                "PropertyString": "5% Life stolen per hit",
+                "PropertyString": "+5% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -24545,7 +24545,7 @@
         "Code": "aar",
         "Properties": [
             {
-                "PropertyString": "+2-4 to Attract",
+                "PropertyString": "+2-4 to Attract (oskill)",
                 "Index": 5
             },
             {
@@ -24661,7 +24661,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "4-6% Life stolen per hit",
+                "PropertyString": "+4-6% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -24723,7 +24723,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "3-5% Mana stolen per hit",
+                "PropertyString": "+3-5% Mana stolen per hit",
                 "Index": 3
             },
             {
@@ -24769,7 +24769,7 @@
         "Code": "ci2",
         "Properties": [
             {
-                "PropertyString": "+1 to Warp",
+                "PropertyString": "+1 to Warp (oskill)",
                 "Index": 4
             },
             {
@@ -24831,15 +24831,15 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 15-30 to Weapon Fire Damage",
+                "PropertyString": "Adds 15-30 Weapon Fire Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 15-30 to Weapon Lightning Damage",
+                "PropertyString": "Adds 15-30 Weapon Lightning Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 15-30 to Weapon Cold Damage",
+                "PropertyString": "Adds 15-30 Weapon Cold Damage",
                 "Index": 2
             },
             {
@@ -25187,7 +25187,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "8% Mana stolen per hit",
+                "PropertyString": "+8% Mana stolen per hit",
                 "Index": 3
             },
             {
@@ -25315,7 +25315,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 25-35 to Weapon Cold Damage",
+                "PropertyString": "Adds 25-35 Weapon Cold Damage",
                 "Index": 3
             },
             {
@@ -25372,15 +25372,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 30-50 to Weapon Fire Damage",
+                "PropertyString": "Adds 30-50 Weapon Fire Damage",
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 1-70 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-70 Weapon Lightning Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 15-25 to Weapon Cold Damage",
+                "PropertyString": "Adds 15-25 Weapon Cold Damage",
                 "Index": 1
             },
             {
@@ -25462,7 +25462,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "6% Mana stolen per hit",
+                "PropertyString": "+6% Mana stolen per hit",
                 "Index": 6
             },
             {
@@ -25649,7 +25649,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "7-10% Life stolen per hit",
+                "PropertyString": "+7-10% Life stolen per hit",
                 "Index": 5
             },
             {
@@ -25756,7 +25756,7 @@
         "Code": "xla",
         "Properties": [
             {
-                "PropertyString": "5-7% Life stolen per hit",
+                "PropertyString": "+5-7% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -25864,7 +25864,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "6% Mana stolen per hit",
+                "PropertyString": "+6% Mana stolen per hit",
                 "Index": 1
             },
             {
@@ -25982,7 +25982,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 25-50 to Weapon Cold Damage",
+                "PropertyString": "Adds 25-50 Weapon Cold Damage",
                 "Index": 4
             },
             {
@@ -26219,7 +26219,7 @@
                 "Index": 7
             },
             {
-                "PropertyString": "Adds 20-35 to Weapon Fire Damage",
+                "PropertyString": "Adds 20-35 Weapon Fire Damage",
                 "Index": 1
             },
             {
@@ -26281,7 +26281,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+2 to Revive",
+                "PropertyString": "+2 to Revive (oskill)",
                 "Index": 2
             },
             {
@@ -26359,7 +26359,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "8% Life stolen per hit",
+                "PropertyString": "+8% Life stolen per hit",
                 "Index": 1
             },
             {
@@ -26412,7 +26412,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 1-212 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-212 Weapon Lightning Damage",
                 "Index": 6
             },
             {
@@ -26635,7 +26635,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+1-3 to Melee Mastery",
+                "PropertyString": "+1-3 to Melee Mastery (oskill)",
                 "Index": 5
             },
             {
@@ -26647,7 +26647,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "5-7% Mana stolen per hit",
+                "PropertyString": "+5-7% Mana stolen per hit",
                 "Index": 3
             }
         ],
@@ -26749,7 +26749,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 6-10 to Weapon Cold Damage",
+                "PropertyString": "Adds 6-10 Weapon Cold Damage",
                 "Index": 1
             },
             {
@@ -26802,7 +26802,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+1-4 to Melee Mastery",
+                "PropertyString": "+1-4 to Melee Mastery (oskill)",
                 "Index": 5
             },
             {
@@ -26920,7 +26920,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+1-4 to Corpse Explosion",
+                "PropertyString": "+1-4 to Corpse Explosion (oskill)",
                 "Index": 6
             },
             {
@@ -27099,7 +27099,7 @@
         "Code": "lbb",
         "Properties": [
             {
-                "PropertyString": "+3 to Strafe",
+                "PropertyString": "+3 to Strafe (oskill)",
                 "Index": 1
             },
             {
@@ -27221,11 +27221,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+1 to Frozen Orb",
+                "PropertyString": "+1 to Frozen Orb (oskill)",
                 "Index": 5
             },
             {
-                "PropertyString": "+1 to Cold Mastery",
+                "PropertyString": "+1 to Cold Mastery (oskill)",
                 "Index": 6
             },
             {
@@ -27760,7 +27760,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "4-7% Life stolen per hit",
+                "PropertyString": "+4-7% Life stolen per hit",
                 "Index": 6
             },
             {
@@ -27825,7 +27825,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 40-90 to Weapon Fire Damage",
+                "PropertyString": "Adds 40-90 Weapon Fire Damage",
                 "Index": 4
             },
             {
@@ -28264,7 +28264,7 @@
         "Code": "gma",
         "Properties": [
             {
-                "PropertyString": "+1 to Find Item",
+                "PropertyString": "+1 to Find Item (oskill)",
                 "Index": 1
             },
             {
@@ -28341,7 +28341,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "10-15% Life stolen per hit",
+                "PropertyString": "+10-15% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -28390,7 +28390,7 @@
         "Code": "glv",
         "Properties": [
             {
-                "PropertyString": "+1 to Melee Mastery",
+                "PropertyString": "+1 to Melee Mastery (oskill)",
                 "Index": 5
             },
             {
@@ -28459,7 +28459,7 @@
         "Code": "xap",
         "Properties": [
             {
-                "PropertyString": "+1 to Resist Lightning",
+                "PropertyString": "+1 to Resist Lightning (oskill)",
                 "Index": 6
             },
             {
@@ -28668,7 +28668,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Adds 1-200 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-200 Weapon Lightning Damage",
                 "Index": 3
             },
             {
@@ -28733,7 +28733,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "100% Mana stolen per hit",
+                "PropertyString": "+100% Mana stolen per hit",
                 "Index": 3
             },
             {
@@ -29277,7 +29277,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 50-60 to Weapon Fire Damage",
+                "PropertyString": "Adds 50-60 Weapon Fire Damage",
                 "Index": 2
             },
             {
@@ -29450,7 +29450,7 @@
                 "Index": 7
             },
             {
-                "PropertyString": "3-5% Life stolen per hit",
+                "PropertyString": "+3-5% Life stolen per hit",
                 "Index": 5
             },
             {
@@ -29562,7 +29562,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+1-5 to Lower Resist",
+                "PropertyString": "+1-5 to Lower Resist (oskill)",
                 "Index": 2
             },
             {
@@ -29616,7 +29616,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "3-4% Life stolen per hit",
+                "PropertyString": "+3-4% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -30015,11 +30015,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "7% Mana stolen per hit",
+                "PropertyString": "+7% Mana stolen per hit",
                 "Index": 2
             },
             {
-                "PropertyString": "7% Life stolen per hit",
+                "PropertyString": "+7% Life stolen per hit",
                 "Index": 1
             },
             {
@@ -30133,11 +30133,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "5% Mana stolen per hit",
+                "PropertyString": "+5% Mana stolen per hit",
                 "Index": 0
             },
             {
-                "PropertyString": "5% Life stolen per hit",
+                "PropertyString": "+5% Life stolen per hit",
                 "Index": 1
             },
             {
@@ -30179,7 +30179,7 @@
         "Code": "xng",
         "Properties": [
             {
-                "PropertyString": "Adds 20-65 to Weapon Fire Damage",
+                "PropertyString": "Adds 20-65 Weapon Fire Damage",
                 "Index": 2
             },
             {
@@ -30257,7 +30257,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 1-60 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-60 Weapon Lightning Damage",
                 "Index": 0
             },
             {
@@ -30365,7 +30365,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "5% Life stolen per hit",
+                "PropertyString": "+5% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -30487,7 +30487,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "6% Life stolen per hit",
+                "PropertyString": "+6% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -30540,7 +30540,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 25-50 to Weapon Cold Damage",
+                "PropertyString": "Adds 25-50 Weapon Cold Damage",
                 "Index": 1
             },
             {
@@ -30609,7 +30609,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "6-8% Life stolen per hit",
+                "PropertyString": "+6-8% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -30666,7 +30666,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 100-150 to Weapon Fire Damage",
+                "PropertyString": "Adds 100-150 Weapon Fire Damage",
                 "Index": 2
             },
             {
@@ -30723,7 +30723,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+2 to Ice Arrow",
+                "PropertyString": "+2 to Ice Arrow (oskill)",
                 "Index": 4
             },
             {
@@ -30780,7 +30780,7 @@
         "Code": "8sb",
         "Properties": [
             {
-                "PropertyString": "+4 to Guided Arrow",
+                "PropertyString": "+4 to Guided Arrow (oskill)",
                 "Index": 3
             },
             {
@@ -30796,7 +30796,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "6% Life stolen per hit",
+                "PropertyString": "+6% Life stolen per hit",
                 "Index": 6
             },
             {
@@ -31069,7 +31069,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "6% Life stolen per hit",
+                "PropertyString": "+6% Life stolen per hit",
                 "Index": 8
             },
             {
@@ -31130,11 +31130,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+5 to Skeleton Mastery",
+                "PropertyString": "+5 to Skeleton Mastery (oskill)",
                 "Index": 5
             },
             {
-                "PropertyString": "+1 to Revive",
+                "PropertyString": "+1 to Revive (oskill)",
                 "Index": 6
             },
             {
@@ -31431,15 +31431,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 200-250 to Weapon Cold Damage",
+                "PropertyString": "Adds 200-250 Weapon Cold Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "6-8% Mana stolen per hit",
+                "PropertyString": "+6-8% Mana stolen per hit",
                 "Index": 6
             },
             {
-                "PropertyString": "6-8% Life stolen per hit",
+                "PropertyString": "+6-8% Life stolen per hit",
                 "Index": 5
             },
             {
@@ -31683,7 +31683,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 15-30 to Weapon Cold Damage",
+                "PropertyString": "Adds 15-30 Weapon Cold Damage",
                 "Index": 5
             },
             {
@@ -31809,7 +31809,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "4-5% Mana stolen per hit",
+                "PropertyString": "+4-5% Mana stolen per hit",
                 "Index": 2
             },
             {
@@ -31901,7 +31901,7 @@
         "Code": "zmb",
         "Properties": [
             {
-                "PropertyString": "5% Mana stolen per hit",
+                "PropertyString": "+5% Mana stolen per hit",
                 "Index": 2
             },
             {
@@ -31955,15 +31955,15 @@
         "Code": "wsd",
         "Properties": [
             {
-                "PropertyString": "+1 to Shout",
+                "PropertyString": "+1 to Shout (oskill)",
                 "Index": 1
             },
             {
-                "PropertyString": "+1 to Battle Orders",
+                "PropertyString": "+1 to Battle Orders (oskill)",
                 "Index": 2
             },
             {
-                "PropertyString": "+1 to Battle Command",
+                "PropertyString": "+1 to Battle Command (oskill)",
                 "Index": 3
             },
             {
@@ -32024,7 +32024,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 55-75 to Weapon Cold Damage",
+                "PropertyString": "Adds 55-75 Weapon Cold Damage",
                 "Index": 5
             },
             {
@@ -32093,7 +32093,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "6-8% Mana stolen per hit",
+                "PropertyString": "+6-8% Mana stolen per hit",
                 "Index": 5
             },
             {
@@ -32326,11 +32326,11 @@
         "Code": "xla",
         "Properties": [
             {
-                "PropertyString": "+3 to Corpse Explosion",
+                "PropertyString": "+3 to Corpse Explosion (oskill)",
                 "Index": 6
             },
             {
-                "PropertyString": "+3 to Bone Armor",
+                "PropertyString": "+3 to Bone Armor (oskill)",
                 "Index": 7
             },
             {
@@ -32392,7 +32392,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "5% Mana stolen per hit",
+                "PropertyString": "+5% Mana stolen per hit",
                 "Index": 6
             },
             {
@@ -32446,7 +32446,7 @@
         "Code": "xkp",
         "Properties": [
             {
-                "PropertyString": "+14 to Lightning Fury",
+                "PropertyString": "+14 to Lightning Fury (oskill)",
                 "Index": 1
             },
             {
@@ -32508,7 +32508,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "6% Life stolen per hit",
+                "PropertyString": "+6% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -32866,7 +32866,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "8% Mana stolen per hit",
+                "PropertyString": "+8% Mana stolen per hit",
                 "Index": 0
             },
             {
@@ -33095,7 +33095,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "6% Mana stolen per hit",
+                "PropertyString": "+6% Mana stolen per hit",
                 "Index": 3
             },
             {
@@ -33160,7 +33160,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "4-7% Life stolen per hit",
+                "PropertyString": "+4-7% Life stolen per hit",
                 "Index": 6
             },
             {
@@ -33217,7 +33217,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "5-7% Life stolen per hit",
+                "PropertyString": "+5-7% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -33274,7 +33274,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+5 to Ice Arrow",
+                "PropertyString": "+5 to Ice Arrow (oskill)",
                 "Index": 1
             },
             {
@@ -33286,7 +33286,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Adds 40-80 to Weapon Cold Damage",
+                "PropertyString": "Adds 40-80 Weapon Cold Damage",
                 "Index": 4
             },
             {
@@ -33527,7 +33527,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "5% Mana stolen per hit",
+                "PropertyString": "+5% Mana stolen per hit",
                 "Index": 6
             },
             {
@@ -33817,7 +33817,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+2-4 to Vengeance",
+                "PropertyString": "+2-4 to Vengeance (oskill)",
                 "Index": 4
             },
             {
@@ -34000,7 +34000,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "5% Mana stolen per hit",
+                "PropertyString": "+5% Mana stolen per hit",
                 "Index": 3
             },
             {
@@ -34112,15 +34112,15 @@
                 "Index": 7
             },
             {
-                "PropertyString": "Adds 35-95 to Weapon Fire Damage",
+                "PropertyString": "Adds 35-95 Weapon Fire Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 1-120 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-120 Weapon Lightning Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 27-53 to Weapon Cold Damage",
+                "PropertyString": "Adds 27-53 Weapon Cold Damage",
                 "Index": 0
             },
             {
@@ -34166,7 +34166,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+1-3 to Decrepify",
+                "PropertyString": "+1-3 to Decrepify (oskill)",
                 "Index": 5
             },
             {
@@ -34219,7 +34219,7 @@
         "Code": "9sb",
         "Properties": [
             {
-                "PropertyString": "+6 to Blade Shield",
+                "PropertyString": "+6 to Blade Shield (oskill)",
                 "Index": 4
             },
             {
@@ -34231,7 +34231,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "6-9% Life stolen per hit",
+                "PropertyString": "+6-9% Life stolen per hit",
                 "Index": 5
             },
             {
@@ -34426,11 +34426,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "5-7% Mana stolen per hit",
+                "PropertyString": "+5-7% Mana stolen per hit",
                 "Index": 4
             },
             {
-                "PropertyString": "7% Life stolen per hit",
+                "PropertyString": "+7% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -34495,7 +34495,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 1-200 to Weapon Fire Damage",
+                "PropertyString": "Adds 1-200 Weapon Fire Damage",
                 "Index": 2
             },
             {
@@ -34544,7 +34544,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+6 to Exploding Arrow",
+                "PropertyString": "+6 to Exploding Arrow (oskill)",
                 "Index": 3
             },
             {
@@ -34597,7 +34597,7 @@
         "Code": "9s9",
         "Properties": [
             {
-                "PropertyString": "+5 to Attract",
+                "PropertyString": "+5 to Attract (oskill)",
                 "Index": 6
             },
             {
@@ -34609,11 +34609,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "7% Mana stolen per hit",
+                "PropertyString": "+7% Mana stolen per hit",
                 "Index": 3
             },
             {
-                "PropertyString": "7% Life stolen per hit",
+                "PropertyString": "+7% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -35279,7 +35279,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 63-112 to Weapon Cold Damage",
+                "PropertyString": "Adds 63-112 Weapon Cold Damage",
                 "Index": 0
             },
             {
@@ -35755,7 +35755,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 200-250 to Weapon Cold Damage",
+                "PropertyString": "Adds 200-250 Weapon Cold Damage",
                 "Index": 2
             },
             {
@@ -36240,7 +36240,7 @@
         "Code": "zlb",
         "Properties": [
             {
-                "PropertyString": "5% Mana stolen per hit",
+                "PropertyString": "+5% Mana stolen per hit",
                 "Index": 4
             },
             {
@@ -36314,7 +36314,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "5% Mana stolen per hit",
+                "PropertyString": "+5% Mana stolen per hit",
                 "Index": 7
             },
             {
@@ -36502,7 +36502,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Adds 10-100 to Weapon Lightning Damage",
+                "PropertyString": "Adds 10-100 Weapon Lightning Damage",
                 "Index": 3
             },
             {
@@ -36618,15 +36618,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 40-100 to Weapon Fire Damage",
+                "PropertyString": "Adds 40-100 Weapon Fire Damage",
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 1-150 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-150 Weapon Lightning Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 25-40 to Weapon Cold Damage",
+                "PropertyString": "Adds 25-40 Weapon Cold Damage",
                 "Index": 1
             },
             {
@@ -36675,7 +36675,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "6-8% Life stolen per hit",
+                "PropertyString": "+6-8% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -36744,7 +36744,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 1-225 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-225 Weapon Lightning Damage",
                 "Index": 4
             },
             {
@@ -36801,7 +36801,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 75-100 to Weapon Fire Damage",
+                "PropertyString": "Adds 75-100 Weapon Fire Damage",
                 "Index": 3
             },
             {
@@ -36862,7 +36862,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "5-7% Mana stolen per hit",
+                "PropertyString": "+5-7% Mana stolen per hit",
                 "Index": 4
             },
             {
@@ -37281,11 +37281,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+3 to Bone Armor",
+                "PropertyString": "+3 to Bone Armor (oskill)",
                 "Index": 2
             },
             {
-                "PropertyString": "+1 to Life Tap",
+                "PropertyString": "+1 to Life Tap (oskill)",
                 "Index": 3
             },
             {
@@ -37343,7 +37343,7 @@
                 "Index": 7
             },
             {
-                "PropertyString": "+2-4 to Inner Sight",
+                "PropertyString": "+2-4 to Inner Sight (oskill)",
                 "Index": 5
             },
             {
@@ -37351,11 +37351,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 25-60 to Weapon Fire Damage",
+                "PropertyString": "Adds 25-60 Weapon Fire Damage",
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 15-250 to Weapon Lightning Damage",
+                "PropertyString": "Adds 15-250 Weapon Lightning Damage",
                 "Index": 3
             },
             {
@@ -37405,15 +37405,15 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+5-8 to Lycanthropy",
+                "PropertyString": "+5-8 to Lycanthropy (oskill)",
                 "Index": 3
             },
             {
-                "PropertyString": "+5-8 to Werewolf",
+                "PropertyString": "+5-8 to Werewolf (oskill)",
                 "Index": 4
             },
             {
-                "PropertyString": "+1-3 to Fury",
+                "PropertyString": "+1-3 to Fury (oskill)",
                 "Index": 5
             },
             {
@@ -37525,7 +37525,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 1-200 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-200 Weapon Lightning Damage",
                 "Index": 2
             },
             {
@@ -37696,7 +37696,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 1-120 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-120 Weapon Lightning Damage",
                 "Index": 0
             },
             {
@@ -37753,7 +37753,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "10% Life stolen per hit",
+                "PropertyString": "+10% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -37924,7 +37924,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 32-196 to Weapon Cold Damage",
+                "PropertyString": "Adds 32-196 Weapon Cold Damage",
                 "Index": 7
             },
             {
@@ -38027,15 +38027,15 @@
         "Code": "xh9",
         "Properties": [
             {
-                "PropertyString": "Adds 6-22 to Weapon Cold Damage",
+                "PropertyString": "Adds 6-22 Weapon Cold Damage",
                 "Index": 5
             },
             {
-                "PropertyString": "6-8% Mana stolen per hit",
+                "PropertyString": "+6-8% Mana stolen per hit",
                 "Index": 0
             },
             {
-                "PropertyString": "6-8% Life stolen per hit",
+                "PropertyString": "+6-8% Life stolen per hit",
                 "Index": 1
             },
             {
@@ -38262,15 +38262,15 @@
         "Code": "9sr",
         "Properties": [
             {
-                "PropertyString": "+5 to Werewolf",
+                "PropertyString": "+5 to Werewolf (oskill)",
                 "Index": 4
             },
             {
-                "PropertyString": "+3-5 to Lycanthropy",
+                "PropertyString": "+3-5 to Lycanthropy (oskill)",
                 "Index": 5
             },
             {
-                "PropertyString": "+3-5 to Fury",
+                "PropertyString": "+3-5 to Fury (oskill)",
                 "Index": 8
             },
             {
@@ -38286,7 +38286,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "5% Life stolen per hit",
+                "PropertyString": "+5% Life stolen per hit",
                 "Index": 7
             },
             {
@@ -38327,7 +38327,7 @@
         "Code": "9gl",
         "Properties": [
             {
-                "PropertyString": "+6 to Charged Strike",
+                "PropertyString": "+6 to Charged Strike (oskill)",
                 "Index": 4
             },
             {
@@ -38335,7 +38335,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 1-250 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-250 Weapon Lightning Damage",
                 "Index": 7
             },
             {
@@ -38578,7 +38578,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "4-7% Life stolen per hit",
+                "PropertyString": "+4-7% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -38636,7 +38636,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+1 to Lower Resist",
+                "PropertyString": "+1 to Lower Resist (oskill)",
                 "Index": 5
             },
             {
@@ -38974,7 +38974,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Adds 55-115 to Weapon Fire Damage",
+                "PropertyString": "Adds 55-115 Weapon Fire Damage",
                 "Index": 1
             },
             {
@@ -39157,7 +39157,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "8% Life stolen per hit",
+                "PropertyString": "+8% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -39317,7 +39317,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 13-46 to Weapon Fire Damage",
+                "PropertyString": "Adds 13-46 Weapon Fire Damage",
                 "Index": 5
             },
             {
@@ -39425,7 +39425,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 13-21 to Weapon Cold Damage",
+                "PropertyString": "Adds 13-21 Weapon Cold Damage",
                 "Index": 3
             },
             {
@@ -39499,7 +39499,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "3-6% Life stolen per hit",
+                "PropertyString": "+3-6% Life stolen per hit",
                 "Index": 7
             },
             {
@@ -39635,7 +39635,7 @@
                 "Index": 8
             },
             {
-                "PropertyString": "5-9% Life stolen per hit",
+                "PropertyString": "+5-9% Life stolen per hit",
                 "Index": 7
             },
             {
@@ -39712,7 +39712,7 @@
                 "Index": 8
             },
             {
-                "PropertyString": "5-8% Mana stolen per hit",
+                "PropertyString": "+5-8% Mana stolen per hit",
                 "Index": 7
             },
             {
@@ -39781,7 +39781,7 @@
                 "Index": 8
             },
             {
-                "PropertyString": "5-9% Life stolen per hit",
+                "PropertyString": "+5-9% Life stolen per hit",
                 "Index": 7
             },
             {
@@ -39989,7 +39989,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "5-9% Life stolen per hit",
+                "PropertyString": "+5-9% Life stolen per hit",
                 "Index": 7
             },
             {
@@ -40287,7 +40287,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+6-8 to Fire Ball",
+                "PropertyString": "+6-8 to Fire Ball (oskill)",
                 "Index": 7
             },
             {
@@ -40348,7 +40348,7 @@
         "Code": "9yw",
         "Properties": [
             {
-                "PropertyString": "+8 to Zeal",
+                "PropertyString": "+8 to Zeal (oskill)",
                 "Index": 5
             },
             {
@@ -40364,7 +40364,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "8% Life stolen per hit",
+                "PropertyString": "+8% Life stolen per hit",
                 "Index": 6
             },
             {
@@ -40478,7 +40478,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "8% Life stolen per hit",
+                "PropertyString": "+8% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -40601,7 +40601,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+1 to Holy Shield",
+                "PropertyString": "+1 to Holy Shield (oskill)",
                 "Index": 2
             },
             {
@@ -40793,7 +40793,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 50-140 to Weapon Cold Damage",
+                "PropertyString": "Adds 50-140 Weapon Cold Damage",
                 "Index": 1
             },
             {
@@ -40866,7 +40866,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "6% Mana stolen per hit",
+                "PropertyString": "+6% Mana stolen per hit",
                 "Index": 3
             },
             {
@@ -40923,7 +40923,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "15% Mana stolen per hit",
+                "PropertyString": "+15% Mana stolen per hit",
                 "Index": 0
             },
             {
@@ -41041,7 +41041,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+3-5 to Fire Golem",
+                "PropertyString": "+3-5 to Fire Golem (oskill)",
                 "Index": 6
             },
             {
@@ -41102,7 +41102,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+5 to Raven",
+                "PropertyString": "+5 to Raven (oskill)",
                 "Index": 3
             },
             {
@@ -41942,7 +41942,7 @@
                 "Index": 7
             },
             {
-                "PropertyString": "Adds 75-150 to Weapon Fire Damage",
+                "PropertyString": "Adds 75-150 Weapon Fire Damage",
                 "Index": 1
             },
             {
@@ -42264,11 +42264,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "4-6% Mana stolen per hit",
+                "PropertyString": "+4-6% Mana stolen per hit",
                 "Index": 4
             },
             {
-                "PropertyString": "7-9% Life stolen per hit",
+                "PropertyString": "+7-9% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -42439,7 +42439,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+3 to Melee Mastery",
+                "PropertyString": "+3 to Melee Mastery (oskill)",
                 "Index": 5
             },
             {
@@ -42459,7 +42459,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "7% Mana stolen per hit",
+                "PropertyString": "+7% Mana stolen per hit",
                 "Index": 7
             },
             {
@@ -42524,7 +42524,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "5-8% Mana stolen per hit",
+                "PropertyString": "+5-8% Mana stolen per hit",
                 "Index": 5
             }
         ],
@@ -42622,7 +42622,7 @@
         "Code": "8sb",
         "Properties": [
             {
-                "PropertyString": "+8-10 to Poison Volley",
+                "PropertyString": "+8-10 to Poison Volley (oskill)",
                 "Index": 6
             },
             {
@@ -42919,7 +42919,7 @@
         "Code": "xmg",
         "Properties": [
             {
-                "PropertyString": "+1 to Salvation",
+                "PropertyString": "+1 to Salvation (oskill)",
                 "Index": 1
             },
             {
@@ -42985,7 +42985,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 35-150 to Weapon Fire Damage",
+                "PropertyString": "Adds 35-150 Weapon Fire Damage",
                 "Index": 2
             },
             {
@@ -43103,7 +43103,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 1-150 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-150 Weapon Lightning Damage",
                 "Index": 1
             },
             {
@@ -43229,7 +43229,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 1-240 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-240 Weapon Lightning Damage",
                 "Index": 1
             },
             {
@@ -43302,7 +43302,7 @@
                 "Index": 8
             },
             {
-                "PropertyString": "Adds 131-232 to Weapon Fire Damage",
+                "PropertyString": "Adds 131-232 Weapon Fire Damage",
                 "Index": 0
             },
             {
@@ -43468,7 +43468,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 15-45 to Weapon Cold Damage",
+                "PropertyString": "Adds 15-45 Weapon Cold Damage",
                 "Index": 1
             },
             {
@@ -43580,7 +43580,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 100-300 to Weapon Fire Damage",
+                "PropertyString": "Adds 100-300 Weapon Fire Damage",
                 "Index": 1
             },
             {
@@ -43637,15 +43637,15 @@
         "Code": "9fc",
         "Properties": [
             {
-                "PropertyString": "+1 to Battle Orders",
+                "PropertyString": "+1 to Battle Orders (oskill)",
                 "Index": 2
             },
             {
-                "PropertyString": "+1 to Revive",
+                "PropertyString": "+1 to Revive (oskill)",
                 "Index": 3
             },
             {
-                "PropertyString": "+5-8 to Skeleton Mastery",
+                "PropertyString": "+5-8 to Skeleton Mastery (oskill)",
                 "Index": 4
             },
             {
@@ -43783,7 +43783,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 50-80 to Weapon Cold Damage",
+                "PropertyString": "Adds 50-80 Weapon Cold Damage",
                 "Index": 6
             },
             {
@@ -44473,7 +44473,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 50-200 to Weapon Fire Damage",
+                "PropertyString": "Adds 50-200 Weapon Fire Damage",
                 "Index": 0
             },
             {
@@ -44607,11 +44607,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "6-8% Mana stolen per hit",
+                "PropertyString": "+6-8% Mana stolen per hit",
                 "Index": 4
             },
             {
-                "PropertyString": "6-8% Life stolen per hit",
+                "PropertyString": "+6-8% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -44656,7 +44656,7 @@
         "Code": "9sp",
         "Properties": [
             {
-                "PropertyString": "+3-5 to Melee Mastery",
+                "PropertyString": "+3-5 to Melee Mastery (oskill)",
                 "Index": 3
             },
             {
@@ -44676,7 +44676,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "5-9% Life stolen per hit",
+                "PropertyString": "+5-9% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -44770,7 +44770,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+3 to Valkyrie",
+                "PropertyString": "+3 to Valkyrie (oskill)",
                 "Index": 4
             },
             {
@@ -44892,7 +44892,7 @@
         "Code": "9tr",
         "Properties": [
             {
-                "PropertyString": "+5 to Inferno",
+                "PropertyString": "+5 to Inferno (oskill)",
                 "Index": 2
             },
             {
@@ -44904,7 +44904,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 200-300 to Weapon Fire Damage",
+                "PropertyString": "Adds 200-300 Weapon Fire Damage",
                 "Index": 5
             },
             {
@@ -44961,7 +44961,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 25-100 to Weapon Lightning Damage",
+                "PropertyString": "Adds 25-100 Weapon Lightning Damage",
                 "Index": 2
             },
             {
@@ -45258,7 +45258,7 @@
         "Code": "ztb",
         "Properties": [
             {
-                "PropertyString": "+1 to Find Item",
+                "PropertyString": "+1 to Find Item (oskill)",
                 "Index": 6
             },
             {
@@ -45436,7 +45436,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 35-100 to Weapon Fire Damage",
+                "PropertyString": "Adds 35-100 Weapon Fire Damage",
                 "Index": 1
             },
             {
@@ -45563,7 +45563,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 15-72 to Weapon Fire Damage",
+                "PropertyString": "Adds 15-72 Weapon Fire Damage",
                 "Index": 0
             },
             {
@@ -45663,7 +45663,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 1-50 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-50 Weapon Lightning Damage",
                 "Index": 1
             },
             {
@@ -46032,7 +46032,7 @@
         "Code": "9st",
         "Properties": [
             {
-                "PropertyString": "+1-3 to Valkyrie",
+                "PropertyString": "+1-3 to Valkyrie (oskill)",
                 "Index": 5
             },
             {
@@ -46109,7 +46109,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "6-8% Life stolen per hit",
+                "PropertyString": "+6-8% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -46430,7 +46430,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "6-8% Mana stolen per hit",
+                "PropertyString": "+6-8% Mana stolen per hit",
                 "Index": 4
             },
             {
@@ -46488,7 +46488,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "4% Life stolen per hit",
+                "PropertyString": "+4% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -46906,7 +46906,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+10 to Melee Mastery",
+                "PropertyString": "+10 to Melee Mastery (oskill)",
                 "Index": 2
             },
             {
@@ -46975,7 +46975,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 100-200 to Weapon Fire Damage",
+                "PropertyString": "Adds 100-200 Weapon Fire Damage",
                 "Index": 1
             },
             {
@@ -47028,7 +47028,7 @@
         "Code": "9bl",
         "Properties": [
             {
-                "PropertyString": "+6 to Raven",
+                "PropertyString": "+6 to Raven (oskill)",
                 "Index": 4
             },
             {
@@ -47154,7 +47154,7 @@
         "Code": "8lx",
         "Properties": [
             {
-                "PropertyString": "+1 to Freezing Arrow",
+                "PropertyString": "+1 to Freezing Arrow (oskill)",
                 "Index": 2
             },
             {
@@ -47227,7 +47227,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 25-50 to Weapon Cold Damage",
+                "PropertyString": "Adds 25-50 Weapon Cold Damage",
                 "Index": 6
             },
             {
@@ -47285,7 +47285,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 10-77 to Weapon Fire Damage",
+                "PropertyString": "Adds 10-77 Weapon Fire Damage",
                 "Index": 6
             },
             {
@@ -47343,7 +47343,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "6% Life stolen per hit",
+                "PropertyString": "+6% Life stolen per hit",
                 "Index": 5
             },
             {
@@ -47409,7 +47409,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "5% Life stolen per hit",
+                "PropertyString": "+5% Life stolen per hit",
                 "Index": 5
             },
             {
@@ -47455,7 +47455,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+7-12 to Whirlwind",
+                "PropertyString": "+7-12 to Whirlwind (oskill)",
                 "Index": 1
             },
             {
@@ -47805,7 +47805,7 @@
         "Code": "xrn",
         "Properties": [
             {
-                "PropertyString": "9-12% Life stolen per hit",
+                "PropertyString": "+9-12% Life stolen per hit",
                 "Index": 1
             },
             {
@@ -47867,7 +47867,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 1-74 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-74 Weapon Lightning Damage",
                 "Index": 0
             },
             {
@@ -47910,7 +47910,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 24-38 to Weapon Cold Damage",
+                "PropertyString": "Adds 24-38 Weapon Cold Damage",
                 "Index": 0
             },
             {
@@ -47953,7 +47953,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 17-45 to Weapon Fire Damage",
+                "PropertyString": "Adds 17-45 Weapon Fire Damage",
                 "Index": 0
             },
             {
@@ -48039,7 +48039,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 1-74 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-74 Weapon Lightning Damage",
                 "Index": 0
             },
             {
@@ -48082,7 +48082,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 24-38 to Weapon Cold Damage",
+                "PropertyString": "Adds 24-38 Weapon Cold Damage",
                 "Index": 0
             },
             {
@@ -48125,7 +48125,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 17-45 to Weapon Fire Damage",
+                "PropertyString": "Adds 17-45 Weapon Fire Damage",
                 "Index": 0
             },
             {
@@ -48329,7 +48329,7 @@
         "Code": "9wd",
         "Properties": [
             {
-                "PropertyString": "+3-5 to Slow Missiles",
+                "PropertyString": "+3-5 to Slow Missiles (oskill)",
                 "Index": 5
             },
             {
@@ -48703,7 +48703,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+5-8 to Fire Wall",
+                "PropertyString": "+5-8 to Fire Wall (oskill)",
                 "Index": 4
             },
             {
@@ -48711,7 +48711,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 75-150 to Weapon Fire Damage",
+                "PropertyString": "Adds 75-150 Weapon Fire Damage",
                 "Index": 1
             },
             {
@@ -48951,7 +48951,7 @@
         "Code": "8lb",
         "Properties": [
             {
-                "PropertyString": "+1 to Pierce",
+                "PropertyString": "+1 to Pierce (oskill)",
                 "Index": 3
             },
             {
@@ -48975,7 +48975,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "7-9% Life stolen per hit",
+                "PropertyString": "+7-9% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -49136,7 +49136,7 @@
         "Code": "xow",
         "Properties": [
             {
-                "PropertyString": "+1 to Melee Mastery",
+                "PropertyString": "+1 to Melee Mastery (oskill)",
                 "Index": 5
             },
             {
@@ -49152,7 +49152,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "5% Mana stolen per hit",
+                "PropertyString": "+5% Mana stolen per hit",
                 "Index": 7
             },
             {
@@ -49214,7 +49214,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 75-100 to Weapon Fire Damage",
+                "PropertyString": "Adds 75-100 Weapon Fire Damage",
                 "Index": 2
             },
             {
@@ -49398,7 +49398,7 @@
         "Code": "jew",
         "Properties": [
             {
-                "PropertyString": "Adds 1-140 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-140 Weapon Lightning Damage",
                 "Index": 0
             },
             {
@@ -49550,7 +49550,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+4-7 to Bone Spirit",
+                "PropertyString": "+4-7 to Bone Spirit (oskill)",
                 "Index": 2
             },
             {
@@ -49566,7 +49566,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "5-8% Life stolen per hit",
+                "PropertyString": "+5-8% Life stolen per hit",
                 "Index": 5
             },
             {
@@ -49737,7 +49737,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+3 to Melee Mastery",
+                "PropertyString": "+3 to Melee Mastery (oskill)",
                 "Index": 4
             },
             {
@@ -49753,7 +49753,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "12% Life stolen per hit",
+                "PropertyString": "+12% Life stolen per hit",
                 "Index": 3
             }
         ],
@@ -49973,7 +49973,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+5 to Dim Vision",
+                "PropertyString": "+5 to Dim Vision (oskill)",
                 "Index": 1
             },
             {
@@ -50038,7 +50038,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+3 to Immolation Arrow",
+                "PropertyString": "+3 to Immolation Arrow (oskill)",
                 "Index": 5
             },
             {
@@ -50241,7 +50241,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 25-100 to Weapon Fire Damage",
+                "PropertyString": "Adds 25-100 Weapon Fire Damage",
                 "Index": 3
             },
             {
@@ -50407,7 +50407,7 @@
         "Code": "zhb",
         "Properties": [
             {
-                "PropertyString": "+1 to Melee Mastery",
+                "PropertyString": "+1 to Melee Mastery (oskill)",
                 "Index": 6
             },
             {
@@ -50469,7 +50469,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+1 to Warp",
+                "PropertyString": "+1 to Warp (oskill)",
                 "Index": 3
             },
             {
@@ -50489,7 +50489,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 1-200 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-200 Weapon Lightning Damage",
                 "Index": 2
             }
         ],
@@ -50599,7 +50599,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+3-5 to Melee Mastery",
+                "PropertyString": "+3-5 to Melee Mastery (oskill)",
                 "Index": 5
             },
             {
@@ -50664,15 +50664,15 @@
         "Code": "ob9",
         "Properties": [
             {
-                "PropertyString": "+5-12 to Skeleton Mastery",
+                "PropertyString": "+5-12 to Skeleton Mastery (oskill)",
                 "Index": 0
             },
             {
-                "PropertyString": "+1-3 to Revive",
+                "PropertyString": "+1-3 to Revive (oskill)",
                 "Index": 1
             },
             {
-                "PropertyString": "+6-10 to Raise Skeletal Mage",
+                "PropertyString": "+6-10 to Raise Skeletal Mage (oskill)",
                 "Index": 2
             },
             {
@@ -50680,7 +50680,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+1 to Decrepify",
+                "PropertyString": "+1 to Decrepify (oskill)",
                 "Index": 7
             },
             {
@@ -50939,7 +50939,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "6% Mana stolen per hit",
+                "PropertyString": "+6% Mana stolen per hit",
                 "Index": 7
             },
             {
@@ -51190,7 +51190,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "5-7% Life stolen per hit",
+                "PropertyString": "+5-7% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -51301,7 +51301,7 @@
         "Code": "9b9",
         "Properties": [
             {
-                "PropertyString": "+3 to Tectonic Slam",
+                "PropertyString": "+3 to Tectonic Slam (oskill)",
                 "Index": 3
             },
             {
@@ -51500,7 +51500,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "5% Mana stolen per hit",
+                "PropertyString": "+5% Mana stolen per hit",
                 "Index": 2
             },
             {
@@ -51884,11 +51884,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "6-8% Mana stolen per hit",
+                "PropertyString": "+6-8% Mana stolen per hit",
                 "Index": 5
             },
             {
-                "PropertyString": "6-8% Life stolen per hit",
+                "PropertyString": "+6-8% Life stolen per hit",
                 "Index": 4
             }
         ],
@@ -51937,7 +51937,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "7% Life stolen per hit",
+                "PropertyString": "+7% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -52059,7 +52059,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "8% Mana stolen per hit",
+                "PropertyString": "+8% Mana stolen per hit",
                 "Index": 4
             },
             {
@@ -52120,7 +52120,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+1 to Zeal",
+                "PropertyString": "+1 to Zeal (oskill)",
                 "Index": 4
             },
             {
@@ -52178,7 +52178,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+5 to Bone Wall",
+                "PropertyString": "+5 to Bone Wall (oskill)",
                 "Index": 4
             },
             {
@@ -52429,7 +52429,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "10% Mana stolen per hit",
+                "PropertyString": "+10% Mana stolen per hit",
                 "Index": 2
             },
             {
@@ -52624,7 +52624,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "6-9% Mana stolen per hit",
+                "PropertyString": "+6-9% Mana stolen per hit",
                 "Index": 5
             },
             {
@@ -52681,7 +52681,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+8 to Melee Mastery",
+                "PropertyString": "+8 to Melee Mastery (oskill)",
                 "Index": 4
             },
             {
@@ -52697,7 +52697,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "5-8% Life stolen per hit",
+                "PropertyString": "+5-8% Life stolen per hit",
                 "Index": 6
             },
             {
@@ -52742,11 +52742,11 @@
         "Code": "9wc",
         "Properties": [
             {
-                "PropertyString": "+5-8 to Skeleton Mastery",
+                "PropertyString": "+5-8 to Skeleton Mastery (oskill)",
                 "Index": 2
             },
             {
-                "PropertyString": "+5-8 to Revive",
+                "PropertyString": "+5-8 to Revive (oskill)",
                 "Index": 3
             },
             {
@@ -52762,7 +52762,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 35-70 to Weapon Cold Damage",
+                "PropertyString": "Adds 35-70 Weapon Cold Damage",
                 "Index": 5
             },
             {
@@ -52811,7 +52811,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "6-8% Life stolen per hit",
+                "PropertyString": "+6-8% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -52941,7 +52941,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "8% Mana stolen per hit",
+                "PropertyString": "+8% Mana stolen per hit",
                 "Index": 6
             },
             {
@@ -53006,7 +53006,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "6% Life stolen per hit",
+                "PropertyString": "+6% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -53063,7 +53063,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "6% Life stolen per hit",
+                "PropertyString": "+6% Life stolen per hit",
                 "Index": 5
             },
             {
@@ -53233,7 +53233,7 @@
                 "Index": 7
             },
             {
-                "PropertyString": "Adds 75-200 to Weapon Fire Damage",
+                "PropertyString": "Adds 75-200 Weapon Fire Damage",
                 "Index": 3
             },
             {
@@ -53303,7 +53303,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "8% Mana stolen per hit",
+                "PropertyString": "+8% Mana stolen per hit",
                 "Index": 7
             },
             {
@@ -53636,7 +53636,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "15% Life stolen per hit",
+                "PropertyString": "+15% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -53693,7 +53693,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "6-8% Life stolen per hit",
+                "PropertyString": "+6-8% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -53868,7 +53868,7 @@
         "Code": "9ts",
         "Properties": [
             {
-                "PropertyString": "+3-5 to Lightning Fury",
+                "PropertyString": "+3-5 to Lightning Fury (oskill)",
                 "Index": 3
             },
             {
@@ -53957,7 +53957,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "6% Mana stolen per hit",
+                "PropertyString": "+6% Mana stolen per hit",
                 "Index": 4
             },
             {
@@ -54257,7 +54257,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 12-36 to Weapon Fire Damage",
+                "PropertyString": "Adds 12-36 Weapon Fire Damage",
                 "Index": 5
             },
             {
@@ -54374,7 +54374,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 55-120 to Weapon Fire Damage",
+                "PropertyString": "Adds 55-120 Weapon Fire Damage",
                 "Index": 3
             },
             {
@@ -54423,7 +54423,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 100-200 to Weapon Fire Damage",
+                "PropertyString": "Adds 100-200 Weapon Fire Damage",
                 "Index": 5
             },
             {
@@ -54549,7 +54549,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+2-5 to Shiver Armor",
+                "PropertyString": "+2-5 to Shiver Armor (oskill)",
                 "Index": 2
             },
             {
@@ -54561,7 +54561,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 75-200 to Weapon Fire Damage",
+                "PropertyString": "Adds 75-200 Weapon Fire Damage",
                 "Index": 7
             },
             {
@@ -54720,7 +54720,7 @@
         "Code": "6lx",
         "Properties": [
             {
-                "PropertyString": "+1-3 to Multiple Shot",
+                "PropertyString": "+1-3 to Multiple Shot (oskill)",
                 "Index": 0
             },
             {
@@ -54781,15 +54781,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 75-200 to Weapon Fire Damage",
+                "PropertyString": "Adds 75-200 Weapon Fire Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 10-300 to Weapon Lightning Damage",
+                "PropertyString": "Adds 10-300 Weapon Lightning Damage",
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 100-140 to Weapon Cold Damage",
+                "PropertyString": "Adds 100-140 Weapon Cold Damage",
                 "Index": 4
             },
             {
@@ -55190,7 +55190,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+15-20 to Inferno",
+                "PropertyString": "+15-20 to Inferno (oskill)",
                 "Index": 1
             },
             {
@@ -55434,7 +55434,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 10-20 to Weapon Cold Damage",
+                "PropertyString": "Adds 10-20 Weapon Cold Damage",
                 "Index": 2
             },
             {
@@ -55487,7 +55487,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1-3 to Melee Mastery",
+                "PropertyString": "+1-3 to Melee Mastery (oskill)",
                 "Index": 4
             },
             {
@@ -55670,7 +55670,7 @@
         "Code": "8sw",
         "Properties": [
             {
-                "PropertyString": "+1 to Weaken",
+                "PropertyString": "+1 to Weaken (oskill)",
                 "Index": 5
             },
             {
@@ -55735,7 +55735,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 100-200 to Weapon Cold Damage",
+                "PropertyString": "Adds 100-200 Weapon Cold Damage",
                 "Index": 1
             },
             {
@@ -55792,7 +55792,7 @@
         "Code": "xth",
         "Properties": [
             {
-                "PropertyString": "+2-4 to Fade",
+                "PropertyString": "+2-4 to Fade (oskill)",
                 "Index": 1
             },
             {
@@ -56148,7 +56148,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "4-6% Life stolen per hit",
+                "PropertyString": "+4-6% Life stolen per hit",
                 "Index": 5
             },
             {
@@ -56270,7 +56270,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 75-100 to Weapon Cold Damage",
+                "PropertyString": "Adds 75-100 Weapon Cold Damage",
                 "Index": 2
             },
             {
@@ -56396,11 +56396,11 @@
                 "Index": 7
             },
             {
-                "PropertyString": "6-9% Mana stolen per hit",
+                "PropertyString": "+6-9% Mana stolen per hit",
                 "Index": 5
             },
             {
-                "PropertyString": "8-11% Life stolen per hit",
+                "PropertyString": "+8-11% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -56453,7 +56453,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "6% Life stolen per hit",
+                "PropertyString": "+6% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -56511,7 +56511,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 75-150 to Weapon Fire Damage",
+                "PropertyString": "Adds 75-150 Weapon Fire Damage",
                 "Index": 1
             },
             {
@@ -56669,11 +56669,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+5-8 to Poison Javelin",
+                "PropertyString": "+5-8 to Poison Javelin (oskill)",
                 "Index": 4
             },
             {
-                "PropertyString": "+5-8 to Plague Javelin",
+                "PropertyString": "+5-8 to Plague Javelin (oskill)",
                 "Index": 5
             },
             {
@@ -56739,7 +56739,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "6-8% Mana stolen per hit",
+                "PropertyString": "+6-8% Mana stolen per hit",
                 "Index": 6
             },
             {
@@ -56817,11 +56817,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 1-200 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-200 Weapon Lightning Damage",
                 "Index": 6
             },
             {
-                "PropertyString": "5-7% Mana stolen per hit",
+                "PropertyString": "+5-7% Mana stolen per hit",
                 "Index": 7
             },
             {
@@ -56870,7 +56870,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "3-5% Life stolen per hit",
+                "PropertyString": "+3-5% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -56978,7 +56978,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "8% Mana stolen per hit",
+                "PropertyString": "+8% Mana stolen per hit",
                 "Index": 4
             },
             {
@@ -57035,7 +57035,7 @@
         "Code": "7tr",
         "Properties": [
             {
-                "PropertyString": "+40 to Inferno",
+                "PropertyString": "+40 to Inferno (oskill)",
                 "Index": 2
             },
             {
@@ -57096,7 +57096,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+2 to Melee Mastery",
+                "PropertyString": "+2 to Melee Mastery (oskill)",
                 "Index": 4
             },
             {
@@ -57273,7 +57273,7 @@
         "Code": "uuc",
         "Properties": [
             {
-                "PropertyString": "Adds 100-200 to Weapon Cold Damage",
+                "PropertyString": "Adds 100-200 Weapon Cold Damage",
                 "Index": 1
             },
             {
@@ -57409,7 +57409,7 @@
         "Code": "jew",
         "Properties": [
             {
-                "PropertyString": "Adds 60-80 to Weapon Cold Damage",
+                "PropertyString": "Adds 60-80 Weapon Cold Damage",
                 "Index": 0
             },
             {
@@ -57556,7 +57556,7 @@
         "Code": "9b9",
         "Properties": [
             {
-                "PropertyString": "+3-5 to Melee Mastery",
+                "PropertyString": "+3-5 to Melee Mastery (oskill)",
                 "Index": 5
             },
             {
@@ -57832,7 +57832,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "6-8% Life stolen per hit",
+                "PropertyString": "+6-8% Life stolen per hit",
                 "Index": 5
             },
             {
@@ -58127,7 +58127,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "6-9% Life stolen per hit",
+                "PropertyString": "+6-9% Life stolen per hit",
                 "Index": 1
             },
             {
@@ -58324,15 +58324,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 50-200 to Weapon Fire Damage",
+                "PropertyString": "Adds 50-200 Weapon Fire Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 50-200 to Weapon Lightning Damage",
+                "PropertyString": "Adds 50-200 Weapon Lightning Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 50-200 to Weapon Cold Damage",
+                "PropertyString": "Adds 50-200 Weapon Cold Damage",
                 "Index": 1
             },
             {
@@ -58381,7 +58381,7 @@
         "Code": "7cm",
         "Properties": [
             {
-                "PropertyString": "+1-20 to Whirlwind",
+                "PropertyString": "+1-20 to Whirlwind (oskill)",
                 "Index": 5
             },
             {
@@ -58458,7 +58458,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "6-8% Life stolen per hit",
+                "PropertyString": "+6-8% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -58511,15 +58511,15 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 1-200 to Weapon Fire Damage",
+                "PropertyString": "Adds 1-200 Weapon Fire Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 1-200 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-200 Weapon Lightning Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 1-200 to Weapon Cold Damage",
+                "PropertyString": "Adds 1-200 Weapon Cold Damage",
                 "Index": 1
             },
             {
@@ -58572,7 +58572,7 @@
         "Code": "7sr",
         "Properties": [
             {
-                "PropertyString": "+1 to Whirlwind",
+                "PropertyString": "+1 to Whirlwind (oskill)",
                 "Index": 4
             },
             {
@@ -58580,7 +58580,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 256-400 to Weapon Cold Damage",
+                "PropertyString": "Adds 256-400 Weapon Cold Damage",
                 "Index": 2
             },
             {
@@ -58682,7 +58682,7 @@
         "Code": "7vo",
         "Properties": [
             {
-                "PropertyString": "+12 to Melee Mastery",
+                "PropertyString": "+12 to Melee Mastery (oskill)",
                 "Index": 2
             },
             {
@@ -58751,7 +58751,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+3 to Whirlwind",
+                "PropertyString": "+3 to Whirlwind (oskill)",
                 "Index": 8
             },
             {
@@ -58771,11 +58771,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "4-7% Mana stolen per hit",
+                "PropertyString": "+4-7% Mana stolen per hit",
                 "Index": 6
             },
             {
-                "PropertyString": "7% Life stolen per hit",
+                "PropertyString": "+7% Life stolen per hit",
                 "Index": 7
             },
             {
@@ -58816,11 +58816,11 @@
         "Code": "6lb",
         "Properties": [
             {
-                "PropertyString": "+5 to Revive",
+                "PropertyString": "+5 to Revive (oskill)",
                 "Index": 2
             },
             {
-                "PropertyString": "+5-12 to Skeleton Mastery",
+                "PropertyString": "+5-12 to Skeleton Mastery (oskill)",
                 "Index": 3
             },
             {
@@ -59062,7 +59062,7 @@
         "Code": "xhg",
         "Properties": [
             {
-                "PropertyString": "Adds 77-122 to Weapon Fire Damage",
+                "PropertyString": "Adds 77-122 Weapon Fire Damage",
                 "Index": 1
             },
             {
@@ -59116,15 +59116,15 @@
         "Code": "xhb",
         "Properties": [
             {
-                "PropertyString": "+1 to Avoid",
+                "PropertyString": "+1 to Avoid (oskill)",
                 "Index": 2
             },
             {
-                "PropertyString": "+1 to Dodge",
+                "PropertyString": "+1 to Dodge (oskill)",
                 "Index": 3
             },
             {
-                "PropertyString": "+1 to Evade",
+                "PropertyString": "+1 to Evade (oskill)",
                 "Index": 4
             },
             {
@@ -59427,11 +59427,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "5-7% Mana stolen per hit",
+                "PropertyString": "+5-7% Mana stolen per hit",
                 "Index": 1
             },
             {
-                "PropertyString": "5-7% Life stolen per hit",
+                "PropertyString": "+5-7% Life stolen per hit",
                 "Index": 0
             },
             {
@@ -59628,7 +59628,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "10-15% Life stolen per hit",
+                "PropertyString": "+10-15% Life stolen per hit",
                 "Index": 1
             },
             {
@@ -59693,7 +59693,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "3-6% Life stolen per hit",
+                "PropertyString": "+3-6% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -59816,7 +59816,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "12% Life stolen per hit",
+                "PropertyString": "+12% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -59938,11 +59938,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "5-7% Mana stolen per hit",
+                "PropertyString": "+5-7% Mana stolen per hit",
                 "Index": 3
             },
             {
-                "PropertyString": "6-8% Life stolen per hit",
+                "PropertyString": "+6-8% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -60056,7 +60056,7 @@
         "Code": "7pi",
         "Properties": [
             {
-                "PropertyString": "+5 to Plague Javelin",
+                "PropertyString": "+5 to Plague Javelin (oskill)",
                 "Index": 6
             },
             {
@@ -60249,7 +60249,7 @@
         "Code": "ulm",
         "Properties": [
             {
-                "PropertyString": "4-8% Mana stolen per hit",
+                "PropertyString": "+4-8% Mana stolen per hit",
                 "Index": 2
             },
             {
@@ -60311,7 +60311,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "10-15% Mana stolen per hit",
+                "PropertyString": "+10-15% Mana stolen per hit",
                 "Index": 3
             },
             {
@@ -60552,11 +60552,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 222-333 to Weapon Fire Damage",
+                "PropertyString": "Adds 222-333 Weapon Fire Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "7-13% Life stolen per hit",
+                "PropertyString": "+7-13% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -60613,7 +60613,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "7-10% Life stolen per hit",
+                "PropertyString": "+7-10% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -60721,7 +60721,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 1-305 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-305 Weapon Lightning Damage",
                 "Index": 1
             },
             {
@@ -60824,7 +60824,7 @@
         "Code": "neg",
         "Properties": [
             {
-                "PropertyString": "+1 to Warmth",
+                "PropertyString": "+1 to Warmth (oskill)",
                 "Index": 5
             },
             {
@@ -61238,7 +61238,7 @@
         "Code": "7ax",
         "Properties": [
             {
-                "PropertyString": "+3-5 to Life Tap",
+                "PropertyString": "+3-5 to Life Tap (oskill)",
                 "Index": 4
             },
             {
@@ -61315,7 +61315,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "5-8% Life stolen per hit",
+                "PropertyString": "+5-8% Life stolen per hit",
                 "Index": 6
             },
             {
@@ -61433,7 +61433,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "5-8% Mana stolen per hit",
+                "PropertyString": "+5-8% Mana stolen per hit",
                 "Index": 2
             },
             {
@@ -61486,19 +61486,19 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 50-100 to Weapon Fire Damage",
+                "PropertyString": "Adds 50-100 Weapon Fire Damage",
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 50-100 to Weapon Lightning Damage",
+                "PropertyString": "Adds 50-100 Weapon Lightning Damage",
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 50-100 to Weapon Cold Damage",
+                "PropertyString": "Adds 50-100 Weapon Cold Damage",
                 "Index": 4
             },
             {
-                "PropertyString": "5-10% Life stolen per hit",
+                "PropertyString": "+5-10% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -61555,7 +61555,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 70-100 to Weapon Cold Damage",
+                "PropertyString": "Adds 70-100 Weapon Cold Damage",
                 "Index": 2
             },
             {
@@ -61716,15 +61716,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+6 to Terror",
+                "PropertyString": "+6 to Terror (oskill)",
                 "Index": 4
             },
             {
-                "PropertyString": "7-8% Mana stolen per hit",
+                "PropertyString": "+7-8% Mana stolen per hit",
                 "Index": 2
             },
             {
-                "PropertyString": "8-11% Life stolen per hit",
+                "PropertyString": "+8-11% Life stolen per hit",
                 "Index": 1
             },
             {
@@ -61775,15 +61775,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 1-200 to Weapon Fire Damage",
+                "PropertyString": "Adds 1-200 Weapon Fire Damage",
                 "Index": 7
             },
             {
-                "PropertyString": "Adds 1-200 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-200 Weapon Lightning Damage",
                 "Index": 6
             },
             {
-                "PropertyString": "Adds 1-200 to Weapon Cold Damage",
+                "PropertyString": "Adds 1-200 Weapon Cold Damage",
                 "Index": 8
             },
             {
@@ -61887,7 +61887,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 1-30 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-30 Weapon Lightning Damage",
                 "Index": 1
             },
             {
@@ -61942,11 +61942,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 250-500 to Weapon Fire Damage",
+                "PropertyString": "Adds 250-500 Weapon Fire Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "3-6% Mana stolen per hit",
+                "PropertyString": "+3-6% Mana stolen per hit",
                 "Index": 5
             },
             {
@@ -62096,7 +62096,7 @@
         "Code": "6sw",
         "Properties": [
             {
-                "PropertyString": "+3-5 to Guided Arrow",
+                "PropertyString": "+3-5 to Guided Arrow (oskill)",
                 "Index": 4
             },
             {
@@ -62149,7 +62149,7 @@
         "Code": "uh9",
         "Properties": [
             {
-                "PropertyString": "+5 to Tectonic Slam",
+                "PropertyString": "+5 to Tectonic Slam (oskill)",
                 "Index": 2
             },
             {
@@ -62260,11 +62260,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+8-20 to Werewolf",
+                "PropertyString": "+8-20 to Werewolf (oskill)",
                 "Index": 7
             },
             {
-                "PropertyString": "+8-20 to Lycanthropy",
+                "PropertyString": "+8-20 to Lycanthropy (oskill)",
                 "Index": 8
             },
             {
@@ -62288,7 +62288,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "5-8% Life stolen per hit",
+                "PropertyString": "+5-8% Life stolen per hit",
                 "Index": 5
             },
             {
@@ -63130,11 +63130,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "10% Mana stolen per hit",
+                "PropertyString": "+10% Mana stolen per hit",
                 "Index": 6
             },
             {
-                "PropertyString": "10% Life stolen per hit",
+                "PropertyString": "+10% Life stolen per hit",
                 "Index": 5
             },
             {
@@ -63313,7 +63313,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "10-15% Mana stolen per hit",
+                "PropertyString": "+10-15% Mana stolen per hit",
                 "Index": 1
             },
             {
@@ -63667,11 +63667,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "8% Mana stolen per hit",
+                "PropertyString": "+8% Mana stolen per hit",
                 "Index": 5
             },
             {
-                "PropertyString": "10% Life stolen per hit",
+                "PropertyString": "+10% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -63949,7 +63949,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 236-480 to Weapon Fire Damage",
+                "PropertyString": "Adds 236-480 Weapon Fire Damage",
                 "Index": 3
             },
             {
@@ -64018,7 +64018,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "8% Life stolen per hit",
+                "PropertyString": "+8% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -64120,23 +64120,23 @@
                 "Index": 8
             },
             {
-                "PropertyString": "Adds 250-400 to Weapon Fire Damage",
+                "PropertyString": "Adds 250-400 Weapon Fire Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 1-500 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-500 Weapon Lightning Damage",
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 75-100 to Weapon Cold Damage",
+                "PropertyString": "Adds 75-100 Weapon Cold Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "8-10% Mana stolen per hit",
+                "PropertyString": "+8-10% Mana stolen per hit",
                 "Index": 4
             },
             {
-                "PropertyString": "6-12% Life stolen per hit",
+                "PropertyString": "+6-12% Life stolen per hit",
                 "Index": 5
             },
             {
@@ -64358,7 +64358,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "8% Life stolen per hit",
+                "PropertyString": "+8% Life stolen per hit",
                 "Index": 1
             },
             {
@@ -64804,15 +64804,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 232-323 to Weapon Fire Damage",
+                "PropertyString": "Adds 232-323 Weapon Fire Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 23-333 to Weapon Lightning Damage",
+                "PropertyString": "Adds 23-333 Weapon Lightning Damage",
                 "Index": 5
             },
             {
-                "PropertyString": "6-12% Life stolen per hit",
+                "PropertyString": "+6-12% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -64923,7 +64923,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 205-455 to Weapon Cold Damage",
+                "PropertyString": "Adds 205-455 Weapon Cold Damage",
                 "Index": 6
             },
             {
@@ -64988,11 +64988,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "6% Mana stolen per hit",
+                "PropertyString": "+6% Mana stolen per hit",
                 "Index": 5
             },
             {
-                "PropertyString": "6% Life stolen per hit",
+                "PropertyString": "+6% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -65049,11 +65049,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 200-300 to Weapon Fire Damage",
+                "PropertyString": "Adds 200-300 Weapon Fire Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 200-300 to Weapon Cold Damage",
+                "PropertyString": "Adds 200-300 Weapon Cold Damage",
                 "Index": 2
             },
             {
@@ -65220,7 +65220,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 200-400 to Weapon Fire Damage",
+                "PropertyString": "Adds 200-400 Weapon Fire Damage",
                 "Index": 1
             },
             {
@@ -65339,7 +65339,7 @@
         "Code": "ci2",
         "Properties": [
             {
-                "PropertyString": "+1 to Valkyrie",
+                "PropertyString": "+1 to Valkyrie (oskill)",
                 "Index": 1
             },
             {
@@ -65601,7 +65601,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "5-7% Life stolen per hit",
+                "PropertyString": "+5-7% Life stolen per hit",
                 "Index": 6
             },
             {
@@ -65711,7 +65711,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Oak Sage",
+                "PropertyString": "+2 to Oak Sage (oskill)",
                 "Index": 4
             },
             {
@@ -65770,7 +65770,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 1-511 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-511 Weapon Lightning Damage",
                 "Index": 1
             },
             {
@@ -66006,7 +66006,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+10 to Melee Mastery",
+                "PropertyString": "+10 to Melee Mastery (oskill)",
                 "Index": 5
             },
             {
@@ -66018,7 +66018,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "50% Life stolen per hit",
+                "PropertyString": "+50% Life stolen per hit",
                 "Index": 1
             },
             {
@@ -66209,7 +66209,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Adds 15-150 to Weapon Lightning Damage",
+                "PropertyString": "Adds 15-150 Weapon Lightning Damage",
                 "Index": 8
             },
             {
@@ -66278,7 +66278,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 60-120 to Weapon Fire Damage",
+                "PropertyString": "Adds 60-120 Weapon Fire Damage",
                 "Index": 6
             },
             {
@@ -66409,7 +66409,7 @@
                 "Index": 8
             },
             {
-                "PropertyString": "Adds 20-240 to Weapon Fire Damage",
+                "PropertyString": "Adds 20-240 Weapon Fire Damage",
                 "Index": 6
             },
             {
@@ -66482,7 +66482,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 1-237 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-237 Weapon Lightning Damage",
                 "Index": 7
             },
             {
@@ -66592,7 +66592,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "9-15% Life stolen per hit",
+                "PropertyString": "+9-15% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -66649,15 +66649,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 218-483 to Weapon Fire Damage",
+                "PropertyString": "Adds 218-483 Weapon Fire Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 29-501 to Weapon Lightning Damage",
+                "PropertyString": "Adds 29-501 Weapon Lightning Damage",
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 176-397 to Weapon Cold Damage",
+                "PropertyString": "Adds 176-397 Weapon Cold Damage",
                 "Index": 2
             },
             {
@@ -66756,7 +66756,7 @@
         "Code": "7ls",
         "Properties": [
             {
-                "PropertyString": "+7-14 to Arctic Blast",
+                "PropertyString": "+7-14 to Arctic Blast (oskill)",
                 "Index": 6
             },
             {
@@ -66768,7 +66768,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 237-486 to Weapon Cold Damage",
+                "PropertyString": "Adds 237-486 Weapon Cold Damage",
                 "Index": 3
             },
             {
@@ -66867,7 +66867,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "8% Life stolen per hit",
+                "PropertyString": "+8% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -66928,7 +66928,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1 to Bash",
+                "PropertyString": "+1 to Bash (oskill)",
                 "Index": 2
             },
             {
@@ -67070,7 +67070,7 @@
                 "Index": 10
             },
             {
-                "PropertyString": "12% Life stolen per hit",
+                "PropertyString": "+12% Life stolen per hit",
                 "Index": 1
             },
             {
@@ -67139,7 +67139,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Adds 75-125 to Weapon Cold Damage",
+                "PropertyString": "Adds 75-125 Weapon Cold Damage",
                 "Index": 4
             },
             {
@@ -67196,7 +67196,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 1-555 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-555 Weapon Lightning Damage",
                 "Index": 2
             },
             {
@@ -67253,7 +67253,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "7% Life stolen per hit",
+                "PropertyString": "+7% Life stolen per hit",
                 "Index": 6
             },
             {
@@ -67614,7 +67614,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "12-18% Life stolen per hit",
+                "PropertyString": "+12-18% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -67831,7 +67831,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+12-18 to Inferno",
+                "PropertyString": "+12-18 to Inferno (oskill)",
                 "Index": 7
             },
             {
@@ -67839,7 +67839,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 233-482 to Weapon Fire Damage",
+                "PropertyString": "Adds 233-482 Weapon Fire Damage",
                 "Index": 1
             },
             {
@@ -67941,7 +67941,7 @@
         "Code": "ned",
         "Properties": [
             {
-                "PropertyString": "+1 to Warp",
+                "PropertyString": "+1 to Warp (oskill)",
                 "Index": 4
             },
             {
@@ -68405,7 +68405,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "12-15% Life stolen per hit",
+                "PropertyString": "+12-15% Life stolen per hit",
                 "Index": 6
             },
             {
@@ -68836,7 +68836,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "6-8% Mana stolen per hit",
+                "PropertyString": "+6-8% Mana stolen per hit",
                 "Index": 3
             },
             {
@@ -68954,7 +68954,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "12% Life stolen per hit",
+                "PropertyString": "+12% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -69141,7 +69141,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+1 to Revive",
+                "PropertyString": "+1 to Revive (oskill)",
                 "Index": 6
             },
             {
@@ -69679,11 +69679,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "4-7% Mana stolen per hit",
+                "PropertyString": "+4-7% Mana stolen per hit",
                 "Index": 1
             },
             {
-                "PropertyString": "4-7% Life stolen per hit",
+                "PropertyString": "+4-7% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -70138,11 +70138,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+1 to Warp",
+                "PropertyString": "+1 to Warp (oskill)",
                 "Index": 3
             },
             {
-                "PropertyString": "+1 to Evade",
+                "PropertyString": "+1 to Evade (oskill)",
                 "Index": 7
             },
             {
@@ -70508,11 +70508,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 4-44 to Weapon Cold Damage",
+                "PropertyString": "Adds 4-44 Weapon Cold Damage",
                 "Index": 6
             },
             {
-                "PropertyString": "11-15% Life stolen per hit",
+                "PropertyString": "+11-15% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -70893,7 +70893,7 @@
         "Code": "7s8",
         "Properties": [
             {
-                "PropertyString": "+5 to Whirlwind",
+                "PropertyString": "+5 to Whirlwind (oskill)",
                 "Index": 5
             },
             {
@@ -70909,7 +70909,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 255-400 to Weapon Cold Damage",
+                "PropertyString": "Adds 255-400 Weapon Cold Damage",
                 "Index": 3
             },
             {
@@ -71447,7 +71447,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "5-9% Life stolen per hit",
+                "PropertyString": "+5-9% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -71497,7 +71497,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "7-10% Life stolen per hit",
+                "PropertyString": "+7-10% Life stolen per hit",
                 "Index": 1
             },
             {
@@ -71551,7 +71551,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "9-13% Life stolen per hit",
+                "PropertyString": "+9-13% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -71669,7 +71669,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "5-9% Life stolen per hit",
+                "PropertyString": "+5-9% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -72054,11 +72054,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "9% Mana stolen per hit",
+                "PropertyString": "+9% Mana stolen per hit",
                 "Index": 4
             },
             {
-                "PropertyString": "12% Life stolen per hit",
+                "PropertyString": "+12% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -72111,11 +72111,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+5 to Revive",
+                "PropertyString": "+5 to Revive (oskill)",
                 "Index": 1
             },
             {
-                "PropertyString": "+10 to Skeleton Mastery",
+                "PropertyString": "+10 to Skeleton Mastery (oskill)",
                 "Index": 2
             },
             {
@@ -72135,7 +72135,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "8% Mana stolen per hit",
+                "PropertyString": "+8% Mana stolen per hit",
                 "Index": 7
             },
             {
@@ -72176,7 +72176,7 @@
         "Code": "7qs",
         "Properties": [
             {
-                "PropertyString": "+8-12 to Fire Wall",
+                "PropertyString": "+8-12 to Fire Wall (oskill)",
                 "Index": 3
             },
             {
@@ -72298,7 +72298,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "9% Life stolen per hit",
+                "PropertyString": "+9% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -73034,7 +73034,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 50-200 to Weapon Lightning Damage",
+                "PropertyString": "Adds 50-200 Weapon Lightning Damage",
                 "Index": 9
             },
             {
@@ -73148,15 +73148,15 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+3-6 to Werewolf",
+                "PropertyString": "+3-6 to Werewolf (oskill)",
                 "Index": 5
             },
             {
-                "PropertyString": "+3-6 to Lycanthropy",
+                "PropertyString": "+3-6 to Lycanthropy (oskill)",
                 "Index": 7
             },
             {
-                "PropertyString": "+3-6 to Feral Rage",
+                "PropertyString": "+3-6 to Feral Rage (oskill)",
                 "Index": 8
             },
             {
@@ -73283,7 +73283,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "8% Mana stolen per hit",
+                "PropertyString": "+8% Mana stolen per hit",
                 "Index": 4
             },
             {
@@ -73405,7 +73405,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "12-15% Life stolen per hit",
+                "PropertyString": "+12-15% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -73458,11 +73458,11 @@
         "Code": "6bs",
         "Properties": [
             {
-                "PropertyString": "+6-8 to Blood Golem",
+                "PropertyString": "+6-8 to Blood Golem (oskill)",
                 "Index": 0
             },
             {
-                "PropertyString": "+20 to Golem Mastery",
+                "PropertyString": "+20 to Golem Mastery (oskill)",
                 "Index": 1
             },
             {
@@ -73657,7 +73657,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 75-150 to Weapon Cold Damage",
+                "PropertyString": "Adds 75-150 Weapon Cold Damage",
                 "Index": 5
             },
             {
@@ -73718,7 +73718,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 200-300 to Weapon Fire Damage",
+                "PropertyString": "Adds 200-300 Weapon Fire Damage",
                 "Index": 2
             },
             {
@@ -74013,7 +74013,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+3 to Valkyrie",
+                "PropertyString": "+3 to Valkyrie (oskill)",
                 "Index": 8
             },
             {
@@ -74086,11 +74086,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "6-8% Mana stolen per hit",
+                "PropertyString": "+6-8% Mana stolen per hit",
                 "Index": 3
             },
             {
-                "PropertyString": "8% Life stolen per hit",
+                "PropertyString": "+8% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -74151,7 +74151,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+5 to Carnage",
+                "PropertyString": "+5 to Carnage (oskill)",
                 "Index": 2
             },
             {
@@ -74212,7 +74212,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+1 to Throwing Mastery",
+                "PropertyString": "+1 to Throwing Mastery (oskill)",
                 "Index": 3
             },
             {
@@ -74358,7 +74358,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+2 to Meteor",
+                "PropertyString": "+2 to Meteor (oskill)",
                 "Index": 6
             },
             {
@@ -74427,7 +74427,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 250-300 to Weapon Cold Damage",
+                "PropertyString": "Adds 250-300 Weapon Cold Damage",
                 "Index": 3
             },
             {
@@ -74624,7 +74624,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "5% Mana stolen per hit",
+                "PropertyString": "+5% Mana stolen per hit",
                 "Index": 6
             },
             {
@@ -74778,7 +74778,7 @@
         "Code": "uhc",
         "Properties": [
             {
-                "PropertyString": "+1 to Iron Skin",
+                "PropertyString": "+1 to Iron Skin (oskill)",
                 "Index": 7
             },
             {
@@ -75009,15 +75009,15 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 63-511 to Weapon Fire Damage",
+                "PropertyString": "Adds 63-511 Weapon Fire Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 63-511 to Weapon Lightning Damage",
+                "PropertyString": "Adds 63-511 Weapon Lightning Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 63-511 to Weapon Cold Damage",
+                "PropertyString": "Adds 63-511 Weapon Cold Damage",
                 "Index": 0
             }
         ],
@@ -75225,7 +75225,7 @@
         "Code": "72h",
         "Properties": [
             {
-                "PropertyString": "+3-5 to Thunder Storm",
+                "PropertyString": "+3-5 to Thunder Storm (oskill)",
                 "Index": 4
             },
             {
@@ -75237,7 +75237,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 64-150 to Weapon Lightning Damage",
+                "PropertyString": "Adds 64-150 Weapon Lightning Damage",
                 "Index": 2
             },
             {
@@ -75310,15 +75310,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 256-400 to Weapon Fire Damage",
+                "PropertyString": "Adds 256-400 Weapon Fire Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 10-500 to Weapon Lightning Damage",
+                "PropertyString": "Adds 10-500 Weapon Lightning Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 100-200 to Weapon Cold Damage",
+                "PropertyString": "Adds 100-200 Weapon Cold Damage",
                 "Index": 3
             },
             {
@@ -75363,7 +75363,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+3 to Burst of Speed",
+                "PropertyString": "+3 to Burst of Speed (oskill)",
                 "Index": 5
             },
             {
@@ -75482,11 +75482,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "8-10% Mana stolen per hit",
+                "PropertyString": "+8-10% Mana stolen per hit",
                 "Index": 6
             },
             {
-                "PropertyString": "8-10% Life stolen per hit",
+                "PropertyString": "+8-10% Life stolen per hit",
                 "Index": 7
             },
             {
@@ -75791,7 +75791,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "6% Life stolen per hit",
+                "PropertyString": "+6% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -75857,11 +75857,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "8% Mana stolen per hit",
+                "PropertyString": "+8% Mana stolen per hit",
                 "Index": 3
             },
             {
-                "PropertyString": "8% Life stolen per hit",
+                "PropertyString": "+8% Life stolen per hit",
                 "Index": 2
             }
         ],
@@ -76086,7 +76086,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 1-473 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-473 Weapon Lightning Damage",
                 "Index": 4
             },
             {
@@ -76139,11 +76139,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+15-20 to Magic Arrow",
+                "PropertyString": "+15-20 to Magic Arrow (oskill)",
                 "Index": 4
             },
             {
-                "PropertyString": "+6 to Fanaticism",
+                "PropertyString": "+6 to Fanaticism (oskill)",
                 "Index": 7
             },
             {
@@ -76448,7 +76448,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "8-10% Life stolen per hit",
+                "PropertyString": "+8-10% Life stolen per hit",
                 "Index": 8
             },
             {
@@ -76571,7 +76571,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 1-500 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-500 Weapon Lightning Damage",
                 "Index": 5
             },
             {
@@ -76886,7 +76886,7 @@
                 "Index": 9
             },
             {
-                "PropertyString": "+1 to Teleport",
+                "PropertyString": "+1 to Teleport (oskill)",
                 "Index": 11
             },
             {
@@ -76968,7 +76968,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 86-213 to Weapon Cold Damage",
+                "PropertyString": "Adds 86-213 Weapon Cold Damage",
                 "Index": 7
             },
             {
@@ -77025,11 +77025,11 @@
                 "Index": 8
             },
             {
-                "PropertyString": "+8 to Blood Golem",
+                "PropertyString": "+8 to Blood Golem (oskill)",
                 "Index": 1
             },
             {
-                "PropertyString": "+5 to Golem Mastery",
+                "PropertyString": "+5 to Golem Mastery (oskill)",
                 "Index": 10
             },
             {
@@ -77167,23 +77167,23 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+3-4 to Fade",
+                "PropertyString": "+3-4 to Fade (oskill)",
                 "Index": 1
             },
             {
-                "PropertyString": "+3-4 to Burst of Speed",
+                "PropertyString": "+3-4 to Burst of Speed (oskill)",
                 "Index": 2
             },
             {
-                "PropertyString": "+1 to Warp",
+                "PropertyString": "+1 to Warp (oskill)",
                 "Index": 3
             },
             {
-                "PropertyString": "+3-4 to Shout",
+                "PropertyString": "+3-4 to Shout (oskill)",
                 "Index": 4
             },
             {
-                "PropertyString": "+3-4 to Battle Orders",
+                "PropertyString": "+3-4 to Battle Orders (oskill)",
                 "Index": 5
             },
             {
@@ -77337,7 +77337,7 @@
                 "Index": 8
             },
             {
-                "PropertyString": "+2-4 to Zeal",
+                "PropertyString": "+2-4 to Zeal (oskill)",
                 "Index": 9
             },
             {
@@ -77369,7 +77369,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "9% Life stolen per hit",
+                "PropertyString": "+9% Life stolen per hit",
                 "Index": 3
             }
         ],
@@ -77538,7 +77538,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 250-500 to Weapon Cold Damage",
+                "PropertyString": "Adds 250-500 Weapon Cold Damage",
                 "Index": 3
             },
             {
@@ -77583,7 +77583,7 @@
         "Code": "7bl",
         "Properties": [
             {
-                "PropertyString": "+10 to Find Item",
+                "PropertyString": "+10 to Find Item (oskill)",
                 "Index": 0
             },
             {
@@ -77656,7 +77656,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "9% Life stolen per hit",
+                "PropertyString": "+9% Life stolen per hit",
                 "Index": 5
             },
             {
@@ -77705,7 +77705,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+3 to Redemption",
+                "PropertyString": "+3 to Redemption (oskill)",
                 "Index": 7
             },
             {
@@ -77910,11 +77910,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "8% Mana stolen per hit",
+                "PropertyString": "+8% Mana stolen per hit",
                 "Index": 3
             },
             {
-                "PropertyString": "8% Life stolen per hit",
+                "PropertyString": "+8% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -77968,7 +77968,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1 to Teleport",
+                "PropertyString": "+1 to Teleport (oskill)",
                 "Index": 6
             },
             {
@@ -78041,7 +78041,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 10-100 to Weapon Lightning Damage",
+                "PropertyString": "Adds 10-100 Weapon Lightning Damage",
                 "Index": 3
             },
             {
@@ -78441,7 +78441,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 to Teleport",
+                "PropertyString": "+1 to Teleport (oskill)",
                 "Index": 3
             },
             {
@@ -78657,7 +78657,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "8% Life stolen per hit",
+                "PropertyString": "+8% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -78710,7 +78710,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+5 to Vigor",
+                "PropertyString": "+5 to Vigor (oskill)",
                 "Index": 6
             },
             {
@@ -78783,7 +78783,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 100-200 to Weapon Cold Damage",
+                "PropertyString": "Adds 100-200 Weapon Cold Damage",
                 "Index": 4
             },
             {
@@ -79083,7 +79083,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+1 to Teleport",
+                "PropertyString": "+1 to Teleport (oskill)",
                 "Index": 1
             },
             {
@@ -79461,7 +79461,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+15-20 to Melee Mastery",
+                "PropertyString": "+15-20 to Melee Mastery (oskill)",
                 "Index": 2
             },
             {
@@ -79699,11 +79699,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 1-444 to Weapon Lightning Damage",
+                "PropertyString": "Adds 1-444 Weapon Lightning Damage",
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 25-50 to Weapon Cold Damage",
+                "PropertyString": "Adds 25-50 Weapon Cold Damage",
                 "Index": 2
             },
             {
@@ -79892,11 +79892,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+3 to Cold Mastery",
+                "PropertyString": "+3 to Cold Mastery (oskill)",
                 "Index": 2
             },
             {
-                "PropertyString": "+3 to Frozen Armor",
+                "PropertyString": "+3 to Frozen Armor (oskill)",
                 "Index": 4
             },
             {
