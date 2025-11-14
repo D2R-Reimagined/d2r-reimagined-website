@@ -5282,15 +5282,15 @@
         "Code": "Shadow of Doubt",
         "Properties": [
             {
-                "PropertyString": "+%d to Summoning Skills (Necromancer Only)",
+                "PropertyString": "+1-3 to Curses (Necromancer Only)",
                 "Index": 0
             },
             {
-                "PropertyString": "+1-3 to Curses (Necromancer Only)",
+                "PropertyString": "+1-3 to Poison and Bone Skills (Necromancer Only)",
                 "Index": 1
             },
             {
-                "PropertyString": "+1-3 to Poison and Bone Skills (Necromancer Only)",
+                "PropertyString": "+1-3 to Summoning Skills (Necromancer Only)",
                 "Index": 2
             },
             {
@@ -5428,7 +5428,7 @@
         "Code": "White",
         "Properties": [
             {
-                "PropertyString": "+3 to Curses (Necromancer Only)",
+                "PropertyString": "+3 to Poison and Bone Skills (Necromancer Only)",
                 "Index": 0
             },
             {

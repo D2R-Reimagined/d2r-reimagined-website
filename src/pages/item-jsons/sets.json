@@ -4831,7 +4831,7 @@
                 "Code": "xul",
                 "Properties": [
                     {
-                        "PropertyString": "+2 to Poison and Bone Skills (Necromancer Only)",
+                        "PropertyString": "+2 to Summoning Skills (Necromancer Only)",
                         "Index": 3
                     },
                     {
@@ -4890,7 +4890,7 @@
                 "Code": "ne9",
                 "Properties": [
                     {
-                        "PropertyString": "+2 to Curses (Necromancer Only)",
+                        "PropertyString": "+2 to Poison and Bone Skills (Necromancer Only)",
                         "Index": 6
                     },
                     {
@@ -4950,7 +4950,7 @@
                 "Code": "xmg",
                 "Properties": [
                     {
-                        "PropertyString": "+%d to Summoning Skills (Necromancer Only)",
+                        "PropertyString": "+2 to Curses (Necromancer Only)",
                         "Index": 3
                     },
                     {
@@ -10191,7 +10191,7 @@
                 "Code": "xla",
                 "Properties": [
                     {
-                        "PropertyString": "+1-3 to Poison and Bone Skills (Necromancer Only)",
+                        "PropertyString": "+1-3 to Summoning Skills (Necromancer Only)",
                         "Index": 1
                     },
                     {
@@ -17396,7 +17396,7 @@
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+%d to Summoning Skills (Necromancer Only)",
+                        "PropertyString": "+1 to Curses (Necromancer Only)",
                         "Index": 1
                     },
                     {
@@ -22538,7 +22538,7 @@
                 "Code": "urs",
                 "Properties": [
                     {
-                        "PropertyString": "+1-3 to Curses (Necromancer Only)",
+                        "PropertyString": "+1-3 to Poison and Bone Skills (Necromancer Only)",
                         "Index": 2
                     },
                     {

@@ -5701,7 +5701,7 @@
         "Code": "ne2",
         "Properties": [
             {
-                "PropertyString": "+%d to Summoning Skills (Necromancer Only)",
+                "PropertyString": "+1-3 to Curses (Necromancer Only)",
                 "Index": 1
             },
             {
@@ -8197,7 +8197,7 @@
         "Code": "ne3",
         "Properties": [
             {
-                "PropertyString": "+%d to Summoning Skills (Necromancer Only)",
+                "PropertyString": "+1-3 to Curses (Necromancer Only)",
                 "Index": 3
             },
             {
@@ -10985,7 +10985,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+%d to Summoning Skills (Necromancer Only)",
+                "PropertyString": "+1-3 to Curses (Necromancer Only)",
                 "Index": 7
             },
             {
@@ -11097,7 +11097,7 @@
         "Code": "mbt",
         "Properties": [
             {
-                "PropertyString": "+1-2 to Poison and Bone Skills (Necromancer Only)",
+                "PropertyString": "+1-2 to Summoning Skills (Necromancer Only)",
                 "Index": 1
             },
             {
@@ -11262,7 +11262,7 @@
         "Code": "ne3",
         "Properties": [
             {
-                "PropertyString": "+1-3 to Curses (Necromancer Only)",
+                "PropertyString": "+1-3 to Poison and Bone Skills (Necromancer Only)",
                 "Index": 1
             },
             {
@@ -15217,7 +15217,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+%d to Summoning Skills (Necromancer Only)",
+                "PropertyString": "+1 to Curses (Necromancer Only)",
                 "Index": 1
             },
             {
@@ -16297,7 +16297,7 @@
         "Code": "ne4",
         "Properties": [
             {
-                "PropertyString": "+1-3 to Poison and Bone Skills (Necromancer Only)",
+                "PropertyString": "+1-3 to Summoning Skills (Necromancer Only)",
                 "Index": 1
             },
             {
@@ -19114,7 +19114,7 @@
         "Code": "ne5",
         "Properties": [
             {
-                "PropertyString": "+1-3 to Curses (Necromancer Only)",
+                "PropertyString": "+1-3 to Poison and Bone Skills (Necromancer Only)",
                 "Index": 3
             },
             {
@@ -23838,7 +23838,7 @@
         "Code": "ne6",
         "Properties": [
             {
-                "PropertyString": "+1-3 to Poison and Bone Skills (Necromancer Only)",
+                "PropertyString": "+1-3 to Summoning Skills (Necromancer Only)",
                 "Index": 3
             },
             {
@@ -29608,7 +29608,7 @@
         "Code": "hbt",
         "Properties": [
             {
-                "PropertyString": "+%d to Summoning Skills (Necromancer Only)",
+                "PropertyString": "+1 to Curses (Necromancer Only)",
                 "Index": 2
             },
             {
@@ -29889,7 +29889,7 @@
         "Code": "9yw",
         "Properties": [
             {
-                "PropertyString": "+2 to Poison and Bone Skills (Necromancer Only)",
+                "PropertyString": "+2 to Summoning Skills (Necromancer Only)",
                 "Index": 6
             },
             {
@@ -31553,11 +31553,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+2 to Poison and Bone Skills (Necromancer Only)",
+                "PropertyString": "+2 to Summoning Skills (Necromancer Only)",
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Curses (Necromancer Only)",
+                "PropertyString": "+2 to Poison and Bone Skills (Necromancer Only)",
                 "Index": 5
             },
             {
@@ -32558,7 +32558,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+%d to Summoning Skills (Necromancer Only)",
+                "PropertyString": "+1 to Curses (Necromancer Only)",
                 "Index": 3
             },
             {
@@ -32673,7 +32673,7 @@
         "Code": "ne8",
         "Properties": [
             {
-                "PropertyString": "+%d to Summoning Skills (Necromancer Only)",
+                "PropertyString": "+1-3 to Curses (Necromancer Only)",
                 "Index": 3
             },
             {
@@ -37566,7 +37566,7 @@
         "Code": "9gw",
         "Properties": [
             {
-                "PropertyString": "+%d to Summoning Skills (Necromancer Only)",
+                "PropertyString": "+1 to Curses (Necromancer Only)",
                 "Index": 0
             },
             {
@@ -39549,7 +39549,7 @@
         "Code": "nea",
         "Properties": [
             {
-                "PropertyString": "+%d to Summoning Skills (Necromancer Only)",
+                "PropertyString": "+2 to Curses (Necromancer Only)",
                 "Index": 1
             },
             {
@@ -46534,7 +46534,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+1-2 to Curses (Necromancer Only)",
+                "PropertyString": "+1-2 to Poison and Bone Skills (Necromancer Only)",
                 "Index": 1
             },
             {
@@ -52240,7 +52240,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+1-2 to Poison and Bone Skills (Necromancer Only)",
+                "PropertyString": "+1-2 to Summoning Skills (Necromancer Only)",
                 "Index": 1
             },
             {
@@ -56665,7 +56665,7 @@
         "Code": "neg",
         "Properties": [
             {
-                "PropertyString": "+1-3 to Curses (Necromancer Only)",
+                "PropertyString": "+1-3 to Poison and Bone Skills (Necromancer Only)",
                 "Index": 3
             },
             {
@@ -59869,7 +59869,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2-5 to Poison and Bone Skills (Necromancer Only)",
+                "PropertyString": "+2-5 to Summoning Skills (Necromancer Only)",
                 "Index": 6
             },
             {
@@ -60421,7 +60421,7 @@
         "Code": "gwn",
         "Properties": [
             {
-                "PropertyString": "+%d to Summoning Skills (Necromancer Only)",
+                "PropertyString": "+3 to Curses (Necromancer Only)",
                 "Index": 2
             },
             {
@@ -61061,15 +61061,15 @@
         "Code": "nef",
         "Properties": [
             {
-                "PropertyString": "+%d to Summoning Skills (Necromancer Only)",
+                "PropertyString": "+1-3 to Curses (Necromancer Only)",
                 "Index": 3
             },
             {
-                "PropertyString": "+1-3 to Curses (Necromancer Only)",
+                "PropertyString": "+1-3 to Poison and Bone Skills (Necromancer Only)",
                 "Index": 4
             },
             {
-                "PropertyString": "+1-3 to Poison and Bone Skills (Necromancer Only)",
+                "PropertyString": "+1-3 to Summoning Skills (Necromancer Only)",
                 "Index": 5
             },
             {
@@ -63248,7 +63248,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1-2 to Curses (Necromancer Only)",
+                "PropertyString": "+1-2 to Poison and Bone Skills (Necromancer Only)",
                 "Index": 4
             },
             {
@@ -65155,7 +65155,7 @@
         "Code": "7wn",
         "Properties": [
             {
-                "PropertyString": "+%d to Summoning Skills (Necromancer Only)",
+                "PropertyString": "+2-3 to Curses (Necromancer Only)",
                 "Index": 6
             },
             {
@@ -69137,7 +69137,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+%d to Summoning Skills (Necromancer Only)",
+                "PropertyString": "+2 to Curses (Necromancer Only)",
                 "Index": 1
             },
             {
@@ -74143,7 +74143,7 @@
         "Code": "7kr",
         "Properties": [
             {
-                "PropertyString": "+%d to Summoning Skills (Necromancer Only)",
+                "PropertyString": "+1 to Curses (Necromancer Only)",
                 "Index": 5
             },
             {
@@ -74204,7 +74204,7 @@
         "Code": "7bk",
         "Properties": [
             {
-                "PropertyString": "+1-2 to Curses (Necromancer Only)",
+                "PropertyString": "+1-2 to Poison and Bone Skills (Necromancer Only)",
                 "Index": 1
             },
             {
@@ -79133,7 +79133,7 @@
         "Code": "nef",
         "Properties": [
             {
-                "PropertyString": "+2-4 to Curses (Necromancer Only)",
+                "PropertyString": "+2-4 to Poison and Bone Skills (Necromancer Only)",
                 "Index": 0
             },
             {
