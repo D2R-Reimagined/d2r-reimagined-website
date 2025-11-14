@@ -70633,10 +70633,6 @@
             {
                 "PropertyString": "+5% to Experience Gained",
                 "Index": 3
-            },
-            {
-                "PropertyString": "The weight of evil...",
-                "Index": 5
             }
         ],
         "DamageArmorEnhanced": false,
@@ -70734,10 +70730,6 @@
             {
                 "PropertyString": "+10% to All Resistances",
                 "Index": 2
-            },
-            {
-                "PropertyString": "The weight of evil...",
-                "Index": 4
             }
         ],
         "DamageArmorEnhanced": false,
@@ -78455,10 +78447,6 @@
             {
                 "PropertyString": "+10% to Experience Gained",
                 "Index": 4
-            },
-            {
-                "PropertyString": "The weight of evil...",
-                "Index": 6
             }
         ],
         "DamageArmorEnhanced": false,
@@ -78506,10 +78494,6 @@
             {
                 "PropertyString": "+25% to All Resistances",
                 "Index": 2
-            },
-            {
-                "PropertyString": "The weight of evil...",
-                "Index": 5
             }
         ],
         "DamageArmorEnhanced": false,
