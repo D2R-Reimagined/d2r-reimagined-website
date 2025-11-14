@@ -1756,7 +1756,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "51% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+51% Hits Cause Monsters to Flee",
                 "Index": 5
             },
             {
@@ -4440,7 +4440,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "58% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+58% Hits Cause Monsters to Flee",
                 "Index": 5
             },
             {
@@ -4940,7 +4940,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "51% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+51% Hits Cause Monsters to Flee",
                 "Index": 3
             }
         ],
@@ -4989,7 +4989,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "35% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+35% Hits Cause Monsters to Flee",
                 "Index": 2
             }
         ],
@@ -6756,7 +6756,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "75% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+75% Hits Cause Monsters to Flee",
                 "Index": 0
             },
             {
@@ -8536,7 +8536,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "100% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+100% Hits Cause Monsters to Flee",
                 "Index": 3
             },
             {
@@ -9360,7 +9360,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "68% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+68% Hits Cause Monsters to Flee",
                 "Index": 5
             },
             {
@@ -11606,7 +11606,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "50% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+50% Hits Cause Monsters to Flee",
                 "Index": 0
             },
             {
@@ -16140,7 +16140,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "27% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+27% Hits Cause Monsters to Flee",
                 "Index": 4
             },
             {
@@ -16780,7 +16780,7 @@
         "Code": "ghm",
         "Properties": [
             {
-                "PropertyString": "25% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+25% Hits Cause Monsters to Flee",
                 "Index": 5
             },
             {
@@ -19890,7 +19890,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "60% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+60% Hits Cause Monsters to Flee",
                 "Index": 5
             },
             {
@@ -20360,7 +20360,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "50% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+50% Hits Cause Monsters to Flee",
                 "Index": 3
             },
             {
@@ -21368,7 +21368,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "100% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+100% Hits Cause Monsters to Flee",
                 "Index": 5
             },
             {
@@ -22281,7 +22281,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "40% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+40% Hits Cause Monsters to Flee",
                 "Index": 0
             },
             {
@@ -24214,7 +24214,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "25% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+25% Hits Cause Monsters to Flee",
                 "Index": 2
             },
             {
@@ -25195,7 +25195,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "77% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+77% Hits Cause Monsters to Flee",
                 "Index": 2
             },
             {
@@ -28914,7 +28914,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "58% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+58% Hits Cause Monsters to Flee",
                 "Index": 4
             },
             {
@@ -42463,7 +42463,7 @@
                 "Index": 7
             },
             {
-                "PropertyString": "100% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+100% Hits Cause Monsters to Flee",
                 "Index": 4
             }
         ],
@@ -46113,7 +46113,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "100% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+100% Hits Cause Monsters to Flee",
                 "Index": 3
             },
             {
@@ -50184,7 +50184,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "95% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+95% Hits Cause Monsters to Flee",
                 "Index": 3
             },
             {
@@ -52567,7 +52567,7 @@
                 "Index": 7
             },
             {
-                "PropertyString": "70% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+70% Hits Cause Monsters to Flee",
                 "Index": 1
             },
             {
@@ -56213,7 +56213,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "0-51% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+0-51% Hits Cause Monsters to Flee",
                 "Index": 1
             },
             {
@@ -61617,7 +61617,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "25% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+25% Hits Cause Monsters to Flee",
                 "Index": 3
             },
             {
@@ -63675,7 +63675,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "39% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+39% Hits Cause Monsters to Flee",
                 "Index": 6
             },
             {
@@ -64702,7 +64702,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "50% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+50% Hits Cause Monsters to Flee",
                 "Index": 5
             },
             {
@@ -69383,7 +69383,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "68% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+68% Hits Cause Monsters to Flee",
                 "Index": 3
             },
             {
@@ -72241,7 +72241,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "78% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+78% Hits Cause Monsters to Flee",
                 "Index": 2
             },
             {
@@ -72359,7 +72359,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "32% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+32% Hits Cause Monsters to Flee",
                 "Index": 4
             },
             {
@@ -74167,7 +74167,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "100% %+d% Hits Cause Monsters to Flee",
+                "PropertyString": "+100% Hits Cause Monsters to Flee",
                 "Index": 3
             }
         ],
