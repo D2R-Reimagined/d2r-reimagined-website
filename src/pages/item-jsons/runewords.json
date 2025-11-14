@@ -42,7 +42,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+120-170% Enhanced Damage",
+                "PropertyString": "+120-170% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
@@ -50,7 +50,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Slows target by 30%",
+                "PropertyString": "Slows Target by 30%",
                 "Index": 5
             },
             {
@@ -62,11 +62,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+26 To Required Level",
+                "PropertyString": "+26 to Required Level",
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements -40%",
+                "PropertyString": "Requirements Reduced By -40%",
                 "Index": 0
             }
         ],
@@ -130,11 +130,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+100% Enhanced Damage",
+                "PropertyString": "+100% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+1.5 to Maximum Damage (Per Character Level)",
+                "PropertyString": "+1.5 to Maximum Weapon Damage (Per Character Level)",
                 "Index": 1
             },
             {
@@ -150,7 +150,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+11 To Required Level",
+                "PropertyString": "+11 to Required Level",
                 "Index": 5
             }
         ],
@@ -216,7 +216,7 @@
         "Code": "Desire",
         "Properties": [
             {
-                "PropertyString": "+30-50% Enhanced Damage",
+                "PropertyString": "+30-50% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -224,11 +224,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+5 to All Attributes",
+                "PropertyString": "+5 to all Attributes",
                 "Index": 2
             },
             {
-                "PropertyString": "+20-25% better chance of getting magic item",
+                "PropertyString": "+20-25% Chance Items Roll Magic or Better",
                 "Index": 3
             },
             {
@@ -330,7 +330,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "-33% extra gold from monsters",
+                "PropertyString": "-33% Extra Gold from Monsters",
                 "Index": 4
             },
             {
@@ -408,15 +408,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20% Enhanced Damage",
+                "PropertyString": "+20% Enhanced Weapon Damage",
                 "Index": 4
             },
             {
-                "PropertyString": "+3 to Minimum Damage",
+                "PropertyString": "+3 to Minimum Weapon Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "+3 to Maximum Damage",
+                "PropertyString": "+3 to Maximum Weapon Damage",
                 "Index": 2
             },
             {
@@ -482,7 +482,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+10% Faster Run/Walk",
+                "PropertyString": "+10% Faster Run/Walk Speed",
                 "Index": 0
             },
             {
@@ -552,7 +552,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+100% Faster Run/Walk",
+                "PropertyString": "+100% Faster Run/Walk Speed",
                 "Index": 1
             },
             {
@@ -560,7 +560,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "-7.5 Drain Life (Per Character Level)",
+                "PropertyString": "Drain Life -7.5 (Per Character Level)",
                 "Index": 0
             },
             {
@@ -568,11 +568,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "-100% extra gold from monsters",
+                "PropertyString": "-100% Extra Gold from Monsters",
                 "Index": 5
             },
             {
-                "PropertyString": "-100% better chance of getting magic item",
+                "PropertyString": "-100% Chance Items Roll Magic or Better",
                 "Index": 4
             },
             {
@@ -644,7 +644,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+15% Increased Chance of Blocking",
+                "PropertyString": "15% Increased Chance of Blocking",
                 "Index": 0
             },
             {
@@ -652,7 +652,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Regenerate Mana +15%",
+                "PropertyString": "+15% Mana Regeneration",
                 "Index": 0
             },
             {
@@ -664,11 +664,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+75% extra gold from monsters",
+                "PropertyString": "+75% Extra Gold from Monsters",
                 "Index": 5
             },
             {
-                "PropertyString": "+20-30% better chance of getting magic item",
+                "PropertyString": "+20-30% Chance Items Roll Magic or Better",
                 "Index": 4
             }
         ],
@@ -724,11 +724,11 @@
         "Code": "Malice",
         "Properties": [
             {
-                "PropertyString": "+33% Enhanced Damage",
+                "PropertyString": "+33% Enhanced Weapon Damage",
                 "Index": 3
             },
             {
-                "PropertyString": "+9 to Maximum Damage",
+                "PropertyString": "+9 to Maximum Weapon Damage",
                 "Index": 0
             },
             {
@@ -752,7 +752,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "-5 Drain Life",
+                "PropertyString": "Drain Life -5",
                 "Index": 5
             },
             {
@@ -897,7 +897,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+122% Enhanced Damage",
+                "PropertyString": "+122% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -909,15 +909,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+76 Poison Damage Over 5 Seconds",
+                "PropertyString": "Adds 76 Poison Damage over 5 Seconds",
                 "Index": 0
             },
             {
-                "PropertyString": "+7% Mana stolen per hit",
+                "PropertyString": "7% Mana stolen per hit",
                 "Index": 2
             },
             {
-                "PropertyString": "+7% Life stolen per hit",
+                "PropertyString": "7% Life stolen per hit",
                 "Index": 1
             }
         ],
@@ -963,7 +963,7 @@
         "Code": "Stealth",
         "Properties": [
             {
-                "PropertyString": "+25% Faster Run/Walk",
+                "PropertyString": "+25% Faster Run/Walk Speed",
                 "Index": 2
             },
             {
@@ -979,15 +979,15 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Regenerate Mana +15%",
+                "PropertyString": "+15% Mana Regeneration",
                 "Index": 0
             },
             {
-                "PropertyString": "Poison Resist +30%",
+                "PropertyString": "+30% Poison Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "Magic Damage Reduced by 3",
+                "PropertyString": "Magic Damage Reduced By 3",
                 "Index": 0
             }
         ],
@@ -1055,7 +1055,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+25-40 to Maximum Damage",
+                "PropertyString": "+25-40 to Maximum Weapon Damage",
                 "Index": 0
             },
             {
@@ -1063,11 +1063,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+76 Poison Damage Over 5 Seconds",
+                "PropertyString": "Adds 76 Poison Damage over 5 Seconds",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 5-8% Mana stolen per hit",
+                "PropertyString": "5-8% Mana stolen per hit",
                 "Index": 2
             },
             {
@@ -1121,7 +1121,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 5-30 to Fire Damage",
+                "PropertyString": "Adds 5-30 to Weapon Fire Damage",
                 "Index": 0
             },
             {
@@ -1141,7 +1141,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Cold Resist +33%",
+                "PropertyString": "+33% Cold Resistance",
                 "Index": 2
             },
             {
@@ -1211,7 +1211,7 @@
         "Code": "Patience",
         "Properties": [
             {
-                "PropertyString": "+15% Faster Run/Walk",
+                "PropertyString": "+15% Faster Run/Walk Speed",
                 "Index": 5
             },
             {
@@ -1243,7 +1243,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 5-30 to Fire Damage (Weapon)",
+                "PropertyString": "Adds 5-30 to Weapon Fire Damage (Weapon)",
                 "Index": 0
             },
             {
@@ -1255,11 +1255,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+5 Life after each Kill (Armor)",
+                "PropertyString": "+30% Fire Resistance (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "Fire Resist +30% (Armor)",
+                "PropertyString": "+5 Life after each Kill (Armor)",
                 "Index": 0
             },
             {
@@ -1267,11 +1267,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+7% Increased Chance of Blocking (Shield)",
+                "PropertyString": "+35% Fire Resistance (Shield)",
                 "Index": 0
             },
             {
-                "PropertyString": "Fire Resist +35% (Shield)",
+                "PropertyString": "7% Increased Chance of Blocking (Shield)",
                 "Index": 0
             }
         ],
@@ -1331,23 +1331,23 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Cold Resist +30%",
+                "PropertyString": "+30% Cold Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "Lightning Resist +35%",
+                "PropertyString": "+35% Lightning Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "Fire Resist +35%",
+                "PropertyString": "+35% Fire Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +13%",
+                "PropertyString": "+13% to All Resistances",
                 "Index": 1
             },
             {
-                "PropertyString": "Poison Resist +35%",
+                "PropertyString": "+35% Poison Resistance",
                 "Index": 0
             },
             {
@@ -1417,11 +1417,11 @@
         "Code": "Holy Thunder",
         "Properties": [
             {
-                "PropertyString": "+60% Enhanced Damage",
+                "PropertyString": "+60% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+10 to Maximum Damage",
+                "PropertyString": "+10 to Maximum Weapon Damage",
                 "Index": 2
             },
             {
@@ -1429,15 +1429,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 5-30 to Fire Damage",
+                "PropertyString": "Adds 5-30 to Weapon Fire Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 21-110 to Lightning Damage",
+                "PropertyString": "Adds 21-110 to Weapon Lightning Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "+76 Poison Damage Over 5 Seconds",
+                "PropertyString": "Adds 76 Poison Damage over 5 Seconds",
                 "Index": 0
             },
             {
@@ -1445,11 +1445,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+5 to Maximum Lightning Resist",
+                "PropertyString": "+5% to Maximum Lightning Resistance",
                 "Index": 4
             },
             {
-                "PropertyString": "Lightning Resist +60%",
+                "PropertyString": "+60% Lightning Resistance",
                 "Index": 3
             },
             {
@@ -1527,7 +1527,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+176% Enhanced Damage",
+                "PropertyString": "+176% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
@@ -1535,7 +1535,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 1-50 to Lightning Damage",
+                "PropertyString": "Adds 1-50 to Weapon Lightning Damage",
                 "Index": 0
             },
             {
@@ -1543,7 +1543,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "-10 to All Attributes",
+                "PropertyString": "-10 to all Attributes",
                 "Index": 3
             },
             {
@@ -1605,27 +1605,27 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+8-10 Replenish Life",
+                "PropertyString": "Replenish Life +8-10",
                 "Index": 4
             },
             {
-                "PropertyString": "Regenerate Mana +100%",
+                "PropertyString": "+100% Mana Regeneration",
                 "Index": 5
             },
             {
-                "PropertyString": "Cold Resist +30-35%",
+                "PropertyString": "+30-35% Cold Resistance",
                 "Index": 1
             },
             {
-                "PropertyString": "Lightning Resist +30%",
+                "PropertyString": "+30% Lightning Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "Fire Resist +30-35%",
+                "PropertyString": "+30-35% Fire Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "Poison Resist +30-35%",
+                "PropertyString": "+30-35% Poison Resistance",
                 "Index": 2
             }
         ],
@@ -1675,7 +1675,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+25% Faster Run/Walk",
+                "PropertyString": "+25% Faster Run/Walk Speed",
                 "Index": 0
             },
             {
@@ -1683,7 +1683,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+33% Enhanced Damage",
+                "PropertyString": "+33% Enhanced Weapon Damage",
                 "Index": 2
             },
             {
@@ -1695,7 +1695,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 1-50 to Lightning Damage",
+                "PropertyString": "Adds 1-50 to Weapon Lightning Damage",
                 "Index": 0
             },
             {
@@ -1759,7 +1759,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+3-5% Faster Run/Walk",
+                "PropertyString": "+3-5% Faster Run/Walk Speed",
                 "Index": 2
             },
             {
@@ -1767,19 +1767,19 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Cold Resist +30%",
+                "PropertyString": "+30% Cold Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "Lightning Resist +30%",
+                "PropertyString": "+30% Lightning Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +5-10%",
+                "PropertyString": "+5-10% to All Resistances",
                 "Index": 0
             },
             {
-                "PropertyString": "+10-15 to All Attributes",
+                "PropertyString": "+10-15 to all Attributes",
                 "Index": 3
             },
             {
@@ -1839,7 +1839,7 @@
         "Code": "Pattern",
         "Properties": [
             {
-                "PropertyString": "+40-80% Enhanced Damage",
+                "PropertyString": "+40-80% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
@@ -1847,23 +1847,23 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+10% bonus to Attack Rating",
+                "PropertyString": "+10% Bonus to Attack Rating",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 12-32 to Fire Damage",
+                "PropertyString": "Adds 12-32 to Weapon Fire Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 1-50 to Lightning Damage",
+                "PropertyString": "Adds 1-50 to Weapon Lightning Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 3-14 to Cold Damage",
+                "PropertyString": "Adds 3-14 to Weapon Cold Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+76 Poison Damage Over 5 Seconds",
+                "PropertyString": "Adds 76 Poison Damage over 5 Seconds",
                 "Index": 0
             },
             {
@@ -1875,7 +1875,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "All Resistances +15%",
+                "PropertyString": "+15% to All Resistances",
                 "Index": 3
             }
         ],
@@ -1949,11 +1949,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+20-30% Increased Chance of Blocking",
+                "PropertyString": "20-30% Increased Chance of Blocking",
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 10-30 to Damage",
+                "PropertyString": "Adds 10-30 Weapon Damage",
                 "Index": 0
             },
             {
@@ -1961,11 +1961,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "All Resistances +15-25%",
+                "PropertyString": "+15-25% to All Resistances",
                 "Index": 6
             },
             {
-                "PropertyString": "+7 To Required Level",
+                "PropertyString": "+7 to Required Level",
                 "Index": 3
             },
             {
@@ -1973,35 +1973,35 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 3-14 to Cold Damage (Weapon)",
+                "PropertyString": "Adds 3-14 to Weapon Cold Damage (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements -20% (Weapon)",
+                "PropertyString": "Requirements Reduced By -20% (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "Cold Resist +30% (Armor)",
+                "PropertyString": "+15% Mana Regeneration (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "Regenerate Mana +15% (Armor)",
+                "PropertyString": "+30% Cold Resistance (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements -15% (Armor)",
+                "PropertyString": "Requirements Reduced By -15% (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "Cold Resist +35% (Shield)",
+                "PropertyString": "+15% Mana Regeneration (Shield)",
                 "Index": 0
             },
             {
-                "PropertyString": "Regenerate Mana +15% (Shield)",
+                "PropertyString": "+35% Cold Resistance (Shield)",
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements -15% (Shield)",
+                "PropertyString": "Requirements Reduced By -15% (Shield)",
                 "Index": 0
             }
         ],
@@ -2064,11 +2064,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Regenerate Mana +60-70%",
+                "PropertyString": "+60-70% Mana Regeneration",
                 "Index": 4
             },
             {
-                "PropertyString": "Magic Resist +5-10%",
+                "PropertyString": "+5-10% Magic Resistance",
                 "Index": 5
             },
             {
@@ -2076,23 +2076,23 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+3 To Required Level",
+                "PropertyString": "+3 to Required Level",
                 "Index": 6
+            },
+            {
+                "PropertyString": "+30% Cold Resistance (Armor)",
+                "Index": 0
             },
             {
                 "PropertyString": "+5 Life after each Kill (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "Cold Resist +30% (Armor)",
+                "PropertyString": "+35% Cold Resistance (Shield)",
                 "Index": 0
             },
             {
-                "PropertyString": "+7% Increased Chance of Blocking (Shield)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Cold Resist +35% (Shield)",
+                "PropertyString": "7% Increased Chance of Blocking (Shield)",
                 "Index": 0
             }
         ],
@@ -2138,11 +2138,11 @@
         "Code": "Snowdrop",
         "Properties": [
             {
-                "PropertyString": "+3 to Cold Skills (Sorceress only)",
+                "PropertyString": "+3 to Cold Skills (Sorceress Only)",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 3-14 to Cold Damage",
+                "PropertyString": "Adds 3-14 to Weapon Cold Damage",
                 "Index": 0
             },
             {
@@ -2166,7 +2166,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Fire Resist +33%",
+                "PropertyString": "+33% Fire Resistance",
                 "Index": 2
             },
             {
@@ -2226,15 +2226,15 @@
         "Code": "Friendship",
         "Properties": [
             {
-                "PropertyString": "+133% Enhanced Damage",
+                "PropertyString": "+133% Enhanced Weapon Damage",
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 25-50 to Damage",
+                "PropertyString": "Adds 25-50 Weapon Damage",
                 "Index": 4
             },
             {
-                "PropertyString": "+7% Life stolen per hit",
+                "PropertyString": "7% Life stolen per hit",
                 "Index": 0
             },
             {
@@ -2254,11 +2254,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+5 To Required Level",
+                "PropertyString": "+5 to Required Level",
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements -20%",
+                "PropertyString": "Requirements Reduced By -20%",
                 "Index": 0
             }
         ],
@@ -2330,11 +2330,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+76 Poison Damage Over 5 Seconds",
+                "PropertyString": "Adds 76 Poison Damage over 5 Seconds",
                 "Index": 0
             },
             {
-                "PropertyString": "+7% Life stolen per hit",
+                "PropertyString": "7% Life stolen per hit",
                 "Index": 0
             },
             {
@@ -2342,7 +2342,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+8-9 to All Attributes",
+                "PropertyString": "+8-9 to all Attributes",
                 "Index": 6
             },
             {
@@ -2350,7 +2350,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Reduces all Vendor Prices 15%",
+                "PropertyString": "Vendor Prices Reduced By 15%",
                 "Index": 5
             }
         ],
@@ -2396,23 +2396,23 @@
         "Code": "Hunger",
         "Properties": [
             {
-                "PropertyString": "+15-30% Increased Chance of Blocking",
+                "PropertyString": "15-30% Increased Chance of Blocking",
                 "Index": 1
             },
             {
-                "PropertyString": "+5% Life stolen per hit",
+                "PropertyString": "5% Life stolen per hit",
                 "Index": 5
             },
             {
-                "PropertyString": "-1 Drain Life",
+                "PropertyString": "Drain Life -1",
                 "Index": 6
             },
             {
-                "PropertyString": "Magic Resist +20%",
+                "PropertyString": "+20% Magic Resistance",
                 "Index": 4
             },
             {
-                "PropertyString": "All Resistances +20%",
+                "PropertyString": "+20% to All Resistances",
                 "Index": 3
             },
             {
@@ -2420,15 +2420,15 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Attacker Takes Damage of +14",
+                "PropertyString": "Attacker Takes Damage of 14",
                 "Index": 0
             },
             {
-                "PropertyString": "+8 To Required Level",
+                "PropertyString": "+8 to Required Level",
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements -15%",
+                "PropertyString": "Requirements Reduced By -15%",
                 "Index": 0
             }
         ],
@@ -2489,7 +2489,7 @@
         "Code": "King's Grace",
         "Properties": [
             {
-                "PropertyString": "+100% Enhanced Damage",
+                "PropertyString": "+100% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -2513,15 +2513,15 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 5-30 to Fire Damage",
+                "PropertyString": "Adds 5-30 to Weapon Fire Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 3-14 to Cold Damage",
+                "PropertyString": "Adds 3-14 to Weapon Cold Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+7% Life stolen per hit",
+                "PropertyString": "7% Life stolen per hit",
                 "Index": 0
             }
         ],
@@ -2589,23 +2589,23 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+100-175% Enhanced Damage",
+                "PropertyString": "+100-175% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 2-100 to Lightning Damage",
+                "PropertyString": "Adds 2-100 to Weapon Lightning Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+7% Life stolen per hit",
+                "PropertyString": "7% Life stolen per hit",
                 "Index": 0
             },
             {
-                "PropertyString": "Lightning Resist +35-50%",
+                "PropertyString": "+35-50% Lightning Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "+8-10 Lightning Absorb",
+                "PropertyString": "+8-10 Lightning Damage Absorbed",
                 "Index": 5
             }
         ],
@@ -2667,15 +2667,15 @@
                 "Index": 2
             },
             {
-                "PropertyString": "All Resistances +20%",
+                "PropertyString": "+20% to All Resistances",
                 "Index": 4
             },
             {
-                "PropertyString": "+10 to All Attributes",
+                "PropertyString": "+10 to all Attributes",
                 "Index": 5
             },
             {
-                "PropertyString": "Attacker Takes Damage of +14",
+                "PropertyString": "Attacker Takes Damage of 14",
                 "Index": 0
             },
             {
@@ -2729,7 +2729,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+120% Enhanced Damage",
+                "PropertyString": "+120% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -2737,7 +2737,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+14% Life stolen per hit",
+                "PropertyString": "14% Life stolen per hit",
                 "Index": 0
             },
             {
@@ -2745,7 +2745,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Regenerate Mana +50%",
+                "PropertyString": "+50% Mana Regeneration",
                 "Index": 3
             }
         ],
@@ -2840,39 +2840,39 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+3-8 Magic Absorb",
+                "PropertyString": "+3-8 Magic Damage Absorbed",
                 "Index": 5
             },
             {
-                "PropertyString": "+7% Life stolen per hit (Weapon)",
+                "PropertyString": "7% Life stolen per hit (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "+76 Poison Damage Over 5 Seconds (Weapon)",
+                "PropertyString": "Adds 1-50 to Weapon Lightning Damage (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 1-50 to Lightning Damage (Weapon)",
+                "PropertyString": "Adds 3-14 to Weapon Cold Damage (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 3-14 to Cold Damage (Weapon)",
+                "PropertyString": "Adds 76 Poison Damage over 5 Seconds (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "Attacker Takes Damage of +14 (Shield)",
+                "PropertyString": "+35% Cold Resistance (Shield)",
                 "Index": 0
             },
             {
-                "PropertyString": "Cold Resist +35% (Shield)",
+                "PropertyString": "+35% Lightning Resistance (Shield)",
                 "Index": 0
             },
             {
-                "PropertyString": "Lightning Resist +35% (Shield)",
+                "PropertyString": "+35% Poison Resistance (Shield)",
                 "Index": 0
             },
             {
-                "PropertyString": "Poison Resist +35% (Shield)",
+                "PropertyString": "Attacker Takes Damage of 14 (Shield)",
                 "Index": 0
             }
         ],
@@ -2918,11 +2918,11 @@
         "Code": "Strength",
         "Properties": [
             {
-                "PropertyString": "+35% Enhanced Damage",
+                "PropertyString": "+35% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "+7% Life stolen per hit",
+                "PropertyString": "7% Life stolen per hit",
                 "Index": 0
             },
             {
@@ -3010,15 +3010,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+10 Replenish Life",
+                "PropertyString": "Replenish Life +10",
                 "Index": 3
             },
             {
-                "PropertyString": "Attacker Takes Damage of +14",
+                "PropertyString": "Attacker Takes Damage of 14",
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements -15%",
+                "PropertyString": "Requirements Reduced By -15%",
                 "Index": 0
             }
         ],
@@ -3098,15 +3098,15 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+160% Enhanced Damage",
+                "PropertyString": "+160% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+9 to Minimum Damage",
+                "PropertyString": "+9 to Minimum Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+9 to Maximum Damage",
+                "PropertyString": "+9 to Maximum Weapon Damage",
                 "Index": 0
             },
             {
@@ -3114,7 +3114,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+7% Life stolen per hit",
+                "PropertyString": "7% Life stolen per hit",
                 "Index": 0
             },
             {
@@ -3126,7 +3126,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+10 Replenish Life",
+                "PropertyString": "Replenish Life +10",
                 "Index": 1
             },
             {
@@ -3223,7 +3223,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+200-260% Enhanced Damage",
+                "PropertyString": "+200-260% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -3231,15 +3231,15 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+180-250% bonus to Attack Rating",
+                "PropertyString": "+180-250% Bonus to Attack Rating",
                 "Index": 1
             },
             {
-                "PropertyString": "+5 to All Attributes",
+                "PropertyString": "+5 to all Attributes",
                 "Index": 6
             },
             {
-                "PropertyString": "+23% better chance of getting magic item",
+                "PropertyString": "+23% Chance Items Roll Magic or Better",
                 "Index": 2
             },
             {
@@ -3247,15 +3247,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+76 Poison Damage Over 5 Seconds (Weapon)",
+                "PropertyString": "Adds 5-30 to Weapon Fire Damage (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 5-30 to Fire Damage (Weapon)",
+                "PropertyString": "Adds 76 Poison Damage over 5 Seconds (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 9 to Damage (Weapon)",
+                "PropertyString": "Adds 9 to Weapon Damage (Weapon)",
                 "Index": 0
             }
         ],
@@ -3309,11 +3309,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Lightning Resist +30%",
+                "PropertyString": "+30% Lightning Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "Damage Reduced by 7",
+                "PropertyString": "Physical Damage Reduced By 7",
                 "Index": 0
             },
             {
@@ -3397,11 +3397,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Damage Reduced by 7",
+                "PropertyString": "Physical Damage Reduced By 7",
                 "Index": 0
             },
             {
-                "PropertyString": "Magic Damage Reduced by 3",
+                "PropertyString": "Magic Damage Reduced By 3",
                 "Index": 3
             },
             {
@@ -3469,23 +3469,23 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+125-150% Enhanced Damage",
+                "PropertyString": "+125-150% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "+9 to Minimum Damage",
+                "PropertyString": "+9 to Minimum Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+1.5 to Maximum Damage (Per Character Level)",
+                "PropertyString": "+1.5 to Maximum Weapon Damage (Per Character Level)",
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 5-30 to Fire Damage",
+                "PropertyString": "Adds 5-30 to Weapon Fire Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 3-14 to Cold Damage",
+                "PropertyString": "Adds 3-14 to Weapon Cold Damage",
                 "Index": 0
             },
             {
@@ -3547,7 +3547,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+100% Enhanced Damage",
+                "PropertyString": "+100% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -3555,11 +3555,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+9 to Minimum Damage",
+                "PropertyString": "+9 to Minimum Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+9 to Maximum Damage",
+                "PropertyString": "+9 to Maximum Weapon Damage",
                 "Index": 0
             },
             {
@@ -3567,7 +3567,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Regenerate Mana +75%",
+                "PropertyString": "+75% Mana Regeneration",
                 "Index": 3
             }
         ],
@@ -3617,7 +3617,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+25% Faster Run/Walk",
+                "PropertyString": "+25% Faster Run/Walk Speed",
                 "Index": 4
             },
             {
@@ -3625,15 +3625,15 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+10-15 to Maximum Damage",
+                "PropertyString": "+10-15 to Maximum Weapon Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 3-6% Mana stolen per hit",
+                "PropertyString": "3-6% Mana stolen per hit",
                 "Index": 6
             },
             {
-                "PropertyString": "Adds 3-6% Life stolen per hit",
+                "PropertyString": "3-6% Life stolen per hit",
                 "Index": 5
             },
             {
@@ -3641,11 +3641,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Damage Reduced by 7",
+                "PropertyString": "Physical Damage Reduced By 7",
                 "Index": 0
             },
             {
-                "PropertyString": "Attacker Takes Damage of +14",
+                "PropertyString": "Attacker Takes Damage of 14",
                 "Index": 0
             }
         ],
@@ -3695,15 +3695,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20% Increased Chance of Blocking",
+                "PropertyString": "20% Increased Chance of Blocking",
                 "Index": 1
             },
             {
-                "PropertyString": "Regenerate Mana +15%",
+                "PropertyString": "+15% Mana Regeneration",
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +25%",
+                "PropertyString": "+25% to All Resistances",
                 "Index": 2
             },
             {
@@ -3711,11 +3711,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+50% extra gold from monsters",
+                "PropertyString": "+50% Extra Gold from Monsters",
                 "Index": 4
             },
             {
-                "PropertyString": "+25% better chance of getting magic item",
+                "PropertyString": "+25% Chance Items Roll Magic or Better",
                 "Index": 5
             }
         ],
@@ -3775,19 +3775,19 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+160-200% Enhanced Damage",
+                "PropertyString": "+160-200% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+6% Mana stolen per hit",
+                "PropertyString": "6% Mana stolen per hit",
                 "Index": 2
             },
             {
-                "PropertyString": "-2 Drain Life",
+                "PropertyString": "Drain Life -2",
                 "Index": 6
             },
             {
-                "PropertyString": "Regenerate Mana +50%",
+                "PropertyString": "+50% Mana Regeneration",
                 "Index": 5
             },
             {
@@ -3799,7 +3799,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Requirements -20%",
+                "PropertyString": "Requirements Reduced By -20%",
                 "Index": 0
             }
         ],
@@ -3859,11 +3859,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+100% Enhanced Damage",
+                "PropertyString": "+100% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 25-75 to Damage",
+                "PropertyString": "Adds 25-75 Weapon Damage",
                 "Index": 0
             },
             {
@@ -3871,11 +3871,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+6 Replenish Life",
+                "PropertyString": "Replenish Life +6",
                 "Index": 2
             },
             {
-                "PropertyString": "Requirements -25%",
+                "PropertyString": "Requirements Reduced By -25%",
                 "Index": 4
             }
         ],
@@ -3951,11 +3951,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Cold Resist +30%",
+                "PropertyString": "+30% Cold Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "Attacker Takes Damage of +14",
+                "PropertyString": "Attacker Takes Damage of 14",
                 "Index": 0
             }
         ],
@@ -4077,11 +4077,11 @@
         "Code": "Beauty",
         "Properties": [
             {
-                "PropertyString": "+3 to Bow and Crossbow Skills (Amazon only)",
+                "PropertyString": "+3 to Bow and Crossbow Skills (Amazon Only)",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 30-60 to Damage",
+                "PropertyString": "Adds 30-60 Weapon Damage",
                 "Index": 1
             },
             {
@@ -4089,7 +4089,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+8% Life stolen per hit",
+                "PropertyString": "8% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -4097,11 +4097,11 @@
                 "Index": 6
             },
             {
-                "PropertyString": "25% Hit Causes Monster To Flee",
+                "PropertyString": "25% %+d% Hits Cause Monsters to Flee",
                 "Index": 0
             },
             {
-                "PropertyString": "Slows target by 15%",
+                "PropertyString": "Slows Target by 15%",
                 "Index": 3
             },
             {
@@ -4169,7 +4169,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+20% Faster Run/Walk",
+                "PropertyString": "+20% Faster Run/Walk Speed",
                 "Index": 2
             },
             {
@@ -4189,7 +4189,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+7 Replenish Life",
+                "PropertyString": "Replenish Life +7",
                 "Index": 0
             },
             {
@@ -4205,7 +4205,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 To Required Level",
+                "PropertyString": "+1 to Required Level",
                 "Index": 4
             }
         ],
@@ -4255,7 +4255,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+30-50% Enhanced Damage",
+                "PropertyString": "+30-50% Enhanced Weapon Damage",
                 "Index": 3
             },
             {
@@ -4263,7 +4263,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+50% Increased Chance of Blocking",
+                "PropertyString": "50% Increased Chance of Blocking",
                 "Index": 1
             },
             {
@@ -4275,7 +4275,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+7 Replenish Life",
+                "PropertyString": "Replenish Life +7",
                 "Index": 0
             },
             {
@@ -4339,35 +4339,35 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+135% Enhanced Damage",
+                "PropertyString": "+135% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 20-40 to Damage",
+                "PropertyString": "Adds 20-40 Weapon Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 1-50 to Lightning Damage",
+                "PropertyString": "Adds 1-50 to Weapon Lightning Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+7% Life stolen per hit",
+                "PropertyString": "7% Life stolen per hit",
                 "Index": 0
             },
             {
-                "PropertyString": "25% Hit Causes Monster To Flee",
+                "PropertyString": "25% %+d% Hits Cause Monsters to Flee",
                 "Index": 0
             },
             {
-                "PropertyString": "-3 Drain Life",
+                "PropertyString": "Drain Life -3",
                 "Index": 2
             },
             {
-                "PropertyString": "+20 to All Attributes",
+                "PropertyString": "+20 to all Attributes",
                 "Index": 4
             },
             {
-                "PropertyString": "Damage Reduced by 15",
+                "PropertyString": "Physical Damage Reduced By 15-20",
                 "Index": 6
             },
             {
@@ -4425,15 +4425,15 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 35-70 to Damage",
+                "PropertyString": "Adds 35-70 Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+6% Life stolen per hit",
+                "PropertyString": "6% Life stolen per hit",
                 "Index": 2
             },
             {
-                "PropertyString": "25% Hit Causes Monster To Flee",
+                "PropertyString": "25% %+d% Hits Cause Monsters to Flee",
                 "Index": 0
             },
             {
@@ -4445,7 +4445,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+10 to All Attributes",
+                "PropertyString": "+10 to all Attributes",
                 "Index": 4
             }
         ],
@@ -4515,7 +4515,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+120% Enhanced Damage",
+                "PropertyString": "+120% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
@@ -4523,7 +4523,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 3-14 to Cold Damage",
+                "PropertyString": "Adds 3-14 to Weapon Cold Damage",
                 "Index": 0
             },
             {
@@ -4539,7 +4539,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Magic Damage Reduced by 2",
+                "PropertyString": "Magic Damage Reduced By 2",
                 "Index": 3
             },
             {
@@ -4603,7 +4603,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 4-6% Life stolen per hit",
+                "PropertyString": "4-6% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -4619,7 +4619,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+30 Replenish Life",
+                "PropertyString": "Replenish Life +30",
                 "Index": 3
             },
             {
@@ -4627,7 +4627,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Damage Reduced by 7",
+                "PropertyString": "Physical Damage Reduced By 7",
                 "Index": 0
             }
         ],
@@ -4703,7 +4703,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Poison Resist +40-60%",
+                "PropertyString": "+40-60% Poison Resistance",
                 "Index": 2
             },
             {
@@ -4779,11 +4779,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Lightning Resist +40-60%",
+                "PropertyString": "+40-60% Lightning Resistance",
                 "Index": 2
             },
             {
-                "PropertyString": "+10-15% Lightning Absorb",
+                "PropertyString": "+10-15% Lightning Damage Absorbed",
                 "Index": 3
             }
         ],
@@ -4833,7 +4833,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+140-190% Enhanced Damage",
+                "PropertyString": "+140-190% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -4841,7 +4841,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 3-14 to Cold Damage",
+                "PropertyString": "Adds 3-14 to Weapon Cold Damage",
                 "Index": 0
             },
             {
@@ -4857,7 +4857,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+50% better chance of getting magic item",
+                "PropertyString": "+50% Chance Items Roll Magic or Better",
                 "Index": 2
             }
         ],
@@ -4929,11 +4929,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Cold Resist +40-60%",
+                "PropertyString": "+40-60% Cold Resistance",
                 "Index": 2
             },
             {
-                "PropertyString": "+10-15% Cold Absorb",
+                "PropertyString": "+10-15% Cold Damage Absorbed",
                 "Index": 3
             },
             {
@@ -5005,11 +5005,11 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+160-200% Enhanced Damage",
+                "PropertyString": "+160-200% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+35% bonus to Attack Rating",
+                "PropertyString": "+35% Bonus to Attack Rating",
                 "Index": 3
             },
             {
@@ -5017,7 +5017,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Slows target by 35%",
+                "PropertyString": "Slows Target by 35%",
                 "Index": 4
             },
             {
@@ -5110,7 +5110,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+1 To Required Level",
+                "PropertyString": "+1 to Required Level",
                 "Index": 3
             },
             {
@@ -5118,11 +5118,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Replenish Life (Armor)",
+                "PropertyString": "+15% Mana Regeneration (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "Regenerate Mana +15% (Armor)",
+                "PropertyString": "Replenish Life +7 (Armor)",
                 "Index": 0
             },
             {
@@ -5130,11 +5130,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Replenish Life (Shield)",
+                "PropertyString": "+15% Mana Regeneration (Shield)",
                 "Index": 0
             },
             {
-                "PropertyString": "Regenerate Mana +15% (Shield)",
+                "PropertyString": "Replenish Life +7 (Shield)",
                 "Index": 0
             }
         ],
@@ -5204,11 +5204,11 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+155% Enhanced Damage",
+                "PropertyString": "+155% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 10-60 to Fire Damage",
+                "PropertyString": "Adds 10-60 to Weapon Fire Damage",
                 "Index": 0
             },
             {
@@ -5220,15 +5220,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Cold Resist -20%",
+                "PropertyString": "-20% Cold Resistance",
                 "Index": 4
             },
             {
-                "PropertyString": "Fire Resist +35-50%",
+                "PropertyString": "+35-50% Fire Resistance",
                 "Index": 2
             },
             {
-                "PropertyString": "+10% Fire Absorb",
+                "PropertyString": "+10% Fire Damage Absorbed",
                 "Index": 3
             },
             {
@@ -5236,7 +5236,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Requirements -20%",
+                "PropertyString": "Requirements Reduced By -20%",
                 "Index": 0
             }
         ],
@@ -5282,15 +5282,15 @@
         "Code": "Shadow of Doubt",
         "Properties": [
             {
-                "PropertyString": "+1-3 to Curses (Necromancer only)",
+                "PropertyString": "+%d to Summoning Skills (Necromancer Only)",
                 "Index": 0
             },
             {
-                "PropertyString": "+1-3 to Poison and Bone Skills (Necromancer only)",
+                "PropertyString": "+1-3 to Curses (Necromancer Only)",
                 "Index": 1
             },
             {
-                "PropertyString": "+1-3 to Summoning Skills (Necromancer only)",
+                "PropertyString": "+1-3 to Poison and Bone Skills (Necromancer Only)",
                 "Index": 2
             },
             {
@@ -5302,7 +5302,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "25% Hit Causes Monster To Flee",
+                "PropertyString": "25% %+d% Hits Cause Monsters to Flee",
                 "Index": 0
             },
             {
@@ -5378,11 +5378,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Fire Resist +40-60%",
+                "PropertyString": "+40-60% Fire Resistance",
                 "Index": 2
             },
             {
-                "PropertyString": "+10-15% Fire Absorb",
+                "PropertyString": "+10-15% Fire Damage Absorbed",
                 "Index": 3
             }
         ],
@@ -5428,7 +5428,7 @@
         "Code": "White",
         "Properties": [
             {
-                "PropertyString": "+3 to Poison and Bone Skills (Necromancer only)",
+                "PropertyString": "+3 to Curses (Necromancer Only)",
                 "Index": 0
             },
             {
@@ -5448,7 +5448,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "25% Hit Causes Monster To Flee",
+                "PropertyString": "25% %+d% Hits Cause Monsters to Flee",
                 "Index": 0
             },
             {
@@ -5460,7 +5460,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Magic Damage Reduced by 4",
+                "PropertyString": "Magic Damage Reduced By 4",
                 "Index": 1
             }
         ],
@@ -5520,7 +5520,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+165-205% Enhanced Damage",
+                "PropertyString": "+165-205% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -5528,11 +5528,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1 to Maximum Damage (Per Character Level)",
+                "PropertyString": "+1 to Maximum Weapon Damage (Per Character Level)",
                 "Index": 4
             },
             {
-                "PropertyString": "+8% Life stolen per hit",
+                "PropertyString": "8% Life stolen per hit",
                 "Index": 1
             },
             {
@@ -5540,7 +5540,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "25% Hit Causes Monster To Flee",
+                "PropertyString": "25% %+d% Hits Cause Monsters to Flee",
                 "Index": 0
             },
             {
@@ -5626,7 +5626,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+9 to Minimum Damage",
+                "PropertyString": "+9 to Minimum Weapon Damage",
                 "Index": 0
             },
             {
@@ -5658,7 +5658,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Magic Damage Reduced by 7",
+                "PropertyString": "Magic Damage Reduced By 7",
                 "Index": 1
             }
         ],
@@ -5720,7 +5720,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +50%",
+                "PropertyString": "+50% to All Resistances",
                 "Index": 2
             },
             {
@@ -5794,15 +5794,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Regenerate Mana +15%",
+                "PropertyString": "+15% Mana Regeneration",
                 "Index": 0
             },
             {
-                "PropertyString": "+50% extra gold from monsters",
+                "PropertyString": "+50% Extra Gold from Monsters",
                 "Index": 4
             },
             {
-                "PropertyString": "+20% better chance of getting magic item",
+                "PropertyString": "+20% Chance Items Roll Magic or Better",
                 "Index": 5
             },
             {
@@ -5880,23 +5880,23 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+200-275% Enhanced Damage",
+                "PropertyString": "+200-275% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "+9 to Minimum Damage",
+                "PropertyString": "+9 to Minimum Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+9 to Maximum Damage",
+                "PropertyString": "+9 to Maximum Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 55-160 to Fire Damage",
+                "PropertyString": "Adds 55-160 to Weapon Fire Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 55-160 to Cold Damage",
+                "PropertyString": "Adds 55-160 to Weapon Cold Damage",
                 "Index": 3
             },
             {
@@ -5904,7 +5904,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Regenerate Mana +20%",
+                "PropertyString": "+20% Mana Regeneration",
                 "Index": 5
             },
             {
@@ -5972,7 +5972,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+65% Faster Run/Walk",
+                "PropertyString": "+65% Faster Run/Walk Speed",
                 "Index": 0
             },
             {
@@ -5988,7 +5988,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +10%",
+                "PropertyString": "+10% to All Resistances",
                 "Index": 2
             },
             {
@@ -6060,7 +6060,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+180-200% Enhanced Damage",
+                "PropertyString": "+180-200% Enhanced Weapon Damage",
                 "Index": 2
             },
             {
@@ -6128,7 +6128,7 @@
         "Code": "Melody",
         "Properties": [
             {
-                "PropertyString": "+3 to Bow and Crossbow Skills (Amazon only)",
+                "PropertyString": "+3 to Bow and Crossbow Skills (Amazon Only)",
                 "Index": 1
             },
             {
@@ -6136,7 +6136,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+50% Enhanced Damage",
+                "PropertyString": "+50% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -6224,11 +6224,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+150-175% Enhanced Damage",
+                "PropertyString": "+150-175% Enhanced Weapon Damage",
                 "Index": 3
             },
             {
-                "PropertyString": "+9 to Minimum Damage",
+                "PropertyString": "+9 to Minimum Weapon Damage",
                 "Index": 0
             },
             {
@@ -6306,7 +6306,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "0 to Dexterity",
+                "PropertyString": "+0 to Dexterity",
                 "Index": 6
             },
             {
@@ -6322,11 +6322,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+2% extra gold from monsters (Per Character Level)",
+                "PropertyString": "+2% Extra Gold from Monsters (Per Character Level)",
                 "Index": 1
             },
             {
-                "PropertyString": "+1.5% better chance of getting magic item (Per Character Level)",
+                "PropertyString": "+1.5% Chance Items Roll Magic or Better (Per Character Level)",
                 "Index": 0
             }
         ],
@@ -6390,7 +6390,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+175% Enhanced Damage",
+                "PropertyString": "+175% Enhanced Weapon Damage",
                 "Index": 3
             },
             {
@@ -6398,7 +6398,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 33-122 to Cold Damage",
+                "PropertyString": "Adds 33-122 to Weapon Cold Damage",
                 "Index": 0
             },
             {
@@ -6406,19 +6406,19 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+3-5 Replenish Life",
+                "PropertyString": "Replenish Life +3-5",
                 "Index": 2
             },
             {
-                "PropertyString": "Regenerate Mana +35%",
+                "PropertyString": "+35% Mana Regeneration",
                 "Index": 1
             },
             {
-                "PropertyString": "Fire Resist +50%",
+                "PropertyString": "+50% Fire Resistance",
                 "Index": 6
             },
             {
-                "PropertyString": "Requirements -20%",
+                "PropertyString": "Requirements Reduced By -20%",
                 "Index": 0
             }
         ],
@@ -6488,15 +6488,15 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+222% Enhanced Damage",
+                "PropertyString": "+222% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+6% Mana stolen per hit",
+                "PropertyString": "6% Mana stolen per hit",
                 "Index": 2
             },
             {
-                "PropertyString": "+6% Life stolen per hit",
+                "PropertyString": "6% Life stolen per hit",
                 "Index": 3
             },
             {
@@ -6516,7 +6516,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +25%",
+                "PropertyString": "+25% to All Resistances",
                 "Index": 6
             },
             {
@@ -6524,7 +6524,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+35% better chance of getting magic item",
+                "PropertyString": "+35% Chance Items Roll Magic or Better",
                 "Index": 5
             }
         ],
@@ -6588,19 +6588,19 @@
                 "Index": 2
             },
             {
-                "PropertyString": "All Resistances +10%",
+                "PropertyString": "+10% to All Resistances",
                 "Index": 3
             },
             {
-                "PropertyString": "+200% extra gold from monsters",
+                "PropertyString": "+200% Extra Gold from Monsters",
                 "Index": 5
             },
             {
-                "PropertyString": "+2% better chance of getting magic item (Per Character Level)",
+                "PropertyString": "+2% Chance Items Roll Magic or Better (Per Character Level)",
                 "Index": 0
             },
             {
-                "PropertyString": "+5 To Required Level",
+                "PropertyString": "+5 to Required Level",
                 "Index": 4
             },
             {
@@ -6680,7 +6680,7 @@
         "Code": "Lionheart",
         "Properties": [
             {
-                "PropertyString": "+20% Enhanced Damage",
+                "PropertyString": "+20% Enhanced Weapon Damage",
                 "Index": 3
             },
             {
@@ -6704,11 +6704,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "All Resistances +30%",
+                "PropertyString": "+30% to All Resistances",
                 "Index": 5
             },
             {
-                "PropertyString": "Requirements -15%",
+                "PropertyString": "Requirements Reduced By -15%",
                 "Index": 0
             }
         ],
@@ -6793,7 +6793,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+370% Enhanced Damage",
+                "PropertyString": "+370% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -6805,7 +6805,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 3-14 to Cold Damage",
+                "PropertyString": "Adds 3-14 to Weapon Cold Damage",
                 "Index": 0
             },
             {
@@ -6829,11 +6829,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +20-30%",
+                "PropertyString": "+20-30% to All Resistances",
                 "Index": 6
             },
             {
-                "PropertyString": "Requirements -20%",
+                "PropertyString": "Requirements Reduced By -20%",
                 "Index": 0
             }
         ],
@@ -6923,7 +6923,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+3 to Combat Skills (Barbarian only)",
+                "PropertyString": "+3 to Combat Skills (Barbarian Only)",
                 "Index": 0
             },
             {
@@ -6931,11 +6931,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+300-350% Enhanced Damage",
+                "PropertyString": "+300-350% Enhanced Weapon Damage",
                 "Index": 3
             },
             {
-                "PropertyString": "+9 to Maximum Damage",
+                "PropertyString": "+9 to Maximum Weapon Damage",
                 "Index": 0
             },
             {
@@ -6951,7 +6951,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 8-10% Life stolen per hit",
+                "PropertyString": "8-10% Life stolen per hit",
                 "Index": 6
             },
             {
@@ -6967,7 +6967,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Damage Reduced by 8",
+                "PropertyString": "Physical Damage Reduced By 8",
                 "Index": 4
             },
             {
@@ -6975,7 +6975,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements -20%",
+                "PropertyString": "Requirements Reduced By -20%",
                 "Index": 0
             }
         ],
@@ -7063,15 +7063,15 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 150-220 to Fire Damage",
+                "PropertyString": "Adds 150-220 to Weapon Fire Damage",
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 130-180 to Cold Damage",
+                "PropertyString": "Adds 130-180 to Weapon Cold Damage",
                 "Index": 4
             },
             {
-                "PropertyString": "+7% Life stolen per hit",
+                "PropertyString": "7% Life stolen per hit",
                 "Index": 0
             },
             {
@@ -7087,7 +7087,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+75% extra gold from monsters",
+                "PropertyString": "+75% Extra Gold from Monsters",
                 "Index": 0
             }
         ],
@@ -7165,11 +7165,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+160-210% Enhanced Damage",
+                "PropertyString": "+160-210% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+50-80% bonus to Attack Rating",
+                "PropertyString": "+50-80% Bonus to Attack Rating",
                 "Index": 2
             },
             {
@@ -7181,19 +7181,19 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 1-50 to Lightning Damage",
+                "PropertyString": "Adds 1-50 to Weapon Lightning Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "Hit blinds target +10",
+                "PropertyString": "Hit Blinds Target +10",
                 "Index": 6
             },
             {
-                "PropertyString": "25% Hit Causes Monster To Flee",
+                "PropertyString": "25% %+d% Hits Cause Monsters to Flee",
                 "Index": 0
             },
             {
-                "PropertyString": "+75% extra gold from monsters",
+                "PropertyString": "+75% Extra Gold from Monsters",
                 "Index": 0
             },
             {
@@ -7281,15 +7281,15 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Magic Resist +15-25%",
+                "PropertyString": "+15-25% Magic Resistance",
                 "Index": 6
             },
             {
-                "PropertyString": "All Resistances +15-25%",
+                "PropertyString": "+15-25% to All Resistances",
                 "Index": 5
             },
             {
-                "PropertyString": "+50% extra gold from monsters",
+                "PropertyString": "+50% Extra Gold from Monsters",
                 "Index": 0
             }
         ],
@@ -7335,7 +7335,7 @@
         "Code": "Tempest",
         "Properties": [
             {
-                "PropertyString": "+3 to Traps (Assassin only)",
+                "PropertyString": "+3 to Traps (Assassin Only)",
                 "Index": 5
             },
             {
@@ -7343,23 +7343,23 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+140-190% Enhanced Damage",
+                "PropertyString": "+140-190% Enhanced Weapon Damage",
                 "Index": 6
             },
             {
-                "PropertyString": "Adds 100-200 to Fire Damage",
+                "PropertyString": "Adds 100-200 to Weapon Fire Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 1-300 to Lightning Damage",
+                "PropertyString": "Adds 1-300 to Weapon Lightning Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 30-70 to Cold Damage",
+                "PropertyString": "Adds 30-70 to Weapon Cold Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 3-14 to Cold Damage",
+                "PropertyString": "Adds 3-14 to Weapon Cold Damage",
                 "Index": 0
             },
             {
@@ -7367,7 +7367,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+75% extra gold from monsters",
+                "PropertyString": "+75% Extra Gold from Monsters",
                 "Index": 0
             }
         ],
@@ -7443,11 +7443,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Cold Resist +30%",
+                "PropertyString": "+30% Cold Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "+50% extra gold from monsters",
+                "PropertyString": "+50% Extra Gold from Monsters",
                 "Index": 0
             }
         ],
@@ -7552,7 +7552,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 100-220 to Cold Damage",
+                "PropertyString": "Adds 100-220 to Weapon Cold Damage",
                 "Index": 4
             },
             {
@@ -7568,7 +7568,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+75% extra gold from monsters",
+                "PropertyString": "+75% Extra Gold from Monsters",
                 "Index": 0
             },
             {
@@ -7636,11 +7636,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+300% extra gold from monsters",
+                "PropertyString": "+300% Extra Gold from Monsters",
                 "Index": 0
             },
             {
-                "PropertyString": "+100% better chance of getting magic item",
+                "PropertyString": "+100% Chance Items Roll Magic or Better",
                 "Index": 1
             }
         ],
@@ -7704,11 +7704,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+200% Enhanced Damage",
+                "PropertyString": "+200% Enhanced Weapon Damage",
                 "Index": 3
             },
             {
-                "PropertyString": "+1 Fires Explosive Arrows or Bolts",
+                "PropertyString": "Fires Explosive Arrows or Bolts",
                 "Index": 6
             },
             {
@@ -7740,7 +7740,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements -20%",
+                "PropertyString": "Requirements Reduced By -20%",
                 "Index": 0
             }
         ],
@@ -7810,7 +7810,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+50% Faster Run/Walk",
+                "PropertyString": "+50% Faster Run/Walk Speed",
                 "Index": 3
             },
             {
@@ -7818,11 +7818,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+166% Enhanced Damage",
+                "PropertyString": "+166% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 18 to Damage",
+                "PropertyString": "Adds 18 to Weapon Damage",
                 "Index": 0
             },
             {
@@ -7834,7 +7834,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 80-140 to Cold Damage",
+                "PropertyString": "Adds 80-140 to Weapon Cold Damage",
                 "Index": 1
             },
             {
@@ -7912,7 +7912,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+235% Enhanced Damage",
+                "PropertyString": "+235% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -7924,7 +7924,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 1-444 to Lightning Damage",
+                "PropertyString": "Adds 1-444 to Weapon Lightning Damage",
                 "Index": 1
             },
             {
@@ -7936,11 +7936,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Cold Resist -25%",
+                "PropertyString": "-25% Cold Resistance",
                 "Index": 4
             },
             {
-                "PropertyString": "Lightning Resist +75%",
+                "PropertyString": "+75% Lightning Resistance",
                 "Index": 3
             },
             {
@@ -7948,7 +7948,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+75% extra gold from monsters",
+                "PropertyString": "+75% Extra Gold from Monsters",
                 "Index": 0
             }
         ],
@@ -8008,7 +8008,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+35-50% Enhanced Damage",
+                "PropertyString": "+35-50% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
@@ -8036,7 +8036,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Requirements -15%",
+                "PropertyString": "Requirements Reduced By -15%",
                 "Index": 0
             }
         ],
@@ -8096,11 +8096,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+15-25% bonus to Attack Rating",
+                "PropertyString": "+15-25% Bonus to Attack Rating",
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 4-8% Mana stolen per hit",
+                "PropertyString": "4-8% Mana stolen per hit",
                 "Index": 1
             },
             {
@@ -8200,11 +8200,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Fire Resist +30%",
+                "PropertyString": "+30% Fire Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "Damage Reduced by 7",
+                "PropertyString": "Physical Damage Reduced By 7",
                 "Index": 0
             }
         ],
@@ -8282,7 +8282,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+180-220% Enhanced Damage",
+                "PropertyString": "+180-220% Enhanced Weapon Damage",
                 "Index": 2
             },
             {
@@ -8298,7 +8298,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+9-11 Magic Absorb",
+                "PropertyString": "+9-11 Magic Damage Absorbed",
                 "Index": 3
             },
             {
@@ -8362,7 +8362,7 @@
         "Code": "Duress",
         "Properties": [
             {
-                "PropertyString": "+10-20% Enhanced Damage",
+                "PropertyString": "+10-20% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
@@ -8370,7 +8370,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 37-133 to Cold Damage",
+                "PropertyString": "Adds 37-133 to Weapon Cold Damage",
                 "Index": 2
             },
             {
@@ -8386,11 +8386,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Cold Resist +30%",
+                "PropertyString": "+30% Cold Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +15%",
+                "PropertyString": "+15% to All Resistances",
                 "Index": 0
             }
         ],
@@ -8462,7 +8462,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +45%",
+                "PropertyString": "+45% to All Resistances",
                 "Index": 1
             },
             {
@@ -8542,11 +8542,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+25-35% Increased Chance of Blocking",
+                "PropertyString": "25-35% Increased Chance of Blocking",
                 "Index": 2
             },
             {
-                "PropertyString": "+20-30 to Maximum Damage",
+                "PropertyString": "+20-30 to Maximum Weapon Damage",
                 "Index": 3
             },
             {
@@ -8554,15 +8554,15 @@
                 "Index": 1
             },
             {
-                "PropertyString": "All Resistances +30%",
+                "PropertyString": "+30% to All Resistances",
                 "Index": 0
             },
             {
-                "PropertyString": "Magic Damage Reduced by 35",
+                "PropertyString": "Magic Damage Reduced By 35-50",
                 "Index": 6
             },
             {
-                "PropertyString": "Requirements -15%",
+                "PropertyString": "Requirements Reduced By -15%",
                 "Index": 0
             }
         ],
@@ -8634,7 +8634,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+3 to random Barbarian Skill",
+                "PropertyString": "+3 Random Barbarian Skill",
                 "Index": 2
             },
             {
@@ -8654,7 +8654,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "All Resistances +15%",
+                "PropertyString": "+15% to All Resistances",
                 "Index": 0
             }
         ],
@@ -8728,11 +8728,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+230% Enhanced Damage",
+                "PropertyString": "+230% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+7% Life stolen per hit",
+                "PropertyString": "7% Life stolen per hit",
                 "Index": 0
             },
             {
@@ -8752,7 +8752,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+15% Fire Absorb",
+                "PropertyString": "+15% Fire Damage Absorbed",
                 "Index": 6
             },
             {
@@ -8846,7 +8846,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +15%",
+                "PropertyString": "+15% to All Resistances",
                 "Index": 0
             },
             {
@@ -8941,11 +8941,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "All Resistances +7-10%",
+                "PropertyString": "+7-10% to All Resistances",
                 "Index": 4
             },
             {
-                "PropertyString": "+1 To Required Level",
+                "PropertyString": "+1 to Required Level",
                 "Index": 0
             },
             {
@@ -8953,15 +8953,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +15% (Armor)",
+                "PropertyString": "+15% to All Resistances (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "Attacker Takes Damage of +14 (Armor)",
+                "PropertyString": "Attacker Takes Damage of 14 (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements -15% (Armor)",
+                "PropertyString": "Requirements Reduced By -15% (Armor)",
                 "Index": 0
             },
             {
@@ -8969,15 +8969,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +22% (Shield)",
+                "PropertyString": "+22% to All Resistances (Shield)",
                 "Index": 0
             },
             {
-                "PropertyString": "Attacker Takes Damage of +14 (Shield)",
+                "PropertyString": "Attacker Takes Damage of 14 (Shield)",
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements -15% (Shield)",
+                "PropertyString": "Requirements Reduced By -15% (Shield)",
                 "Index": 0
             }
         ],
@@ -9049,11 +9049,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "All Resistances +30%",
+                "PropertyString": "+30% to All Resistances",
                 "Index": 0
             },
             {
-                "PropertyString": "Damage Reduced by 7",
+                "PropertyString": "Physical Damage Reduced By 7",
                 "Index": 0
             }
         ],
@@ -9131,7 +9131,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+180-220% Enhanced Damage",
+                "PropertyString": "+180-220% Enhanced Weapon Damage",
                 "Index": 2
             },
             {
@@ -9139,7 +9139,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 5-30 to Fire Damage",
+                "PropertyString": "Adds 5-30 to Weapon Fire Damage",
                 "Index": 0
             },
             {
@@ -9151,7 +9151,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+9-11 Magic Absorb",
+                "PropertyString": "+9-11 Magic Damage Absorbed",
                 "Index": 3
             },
             {
@@ -9233,7 +9233,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+180-220% Enhanced Damage",
+                "PropertyString": "+180-220% Enhanced Weapon Damage",
                 "Index": 2
             },
             {
@@ -9241,7 +9241,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 3-14 to Cold Damage",
+                "PropertyString": "Adds 3-14 to Weapon Cold Damage",
                 "Index": 0
             },
             {
@@ -9253,7 +9253,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+9-11 Magic Absorb",
+                "PropertyString": "+9-11 Magic Damage Absorbed",
                 "Index": 3
             },
             {
@@ -9335,7 +9335,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+180-220% Enhanced Damage",
+                "PropertyString": "+180-220% Enhanced Weapon Damage",
                 "Index": 2
             },
             {
@@ -9343,7 +9343,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+76 Poison Damage Over 5 Seconds",
+                "PropertyString": "Adds 76 Poison Damage over 5 Seconds",
                 "Index": 0
             },
             {
@@ -9355,7 +9355,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+9-11 Magic Absorb",
+                "PropertyString": "+9-11 Magic Damage Absorbed",
                 "Index": 3
             },
             {
@@ -9419,7 +9419,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+200-250% Enhanced Damage",
+                "PropertyString": "+200-250% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
@@ -9435,7 +9435,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+18 To Required Level",
+                "PropertyString": "+18 to Required Level",
                 "Index": 0
             },
             {
@@ -9451,7 +9451,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Magic Damage Reduced by 7 (Armor)",
+                "PropertyString": "Magic Damage Reduced By 7 (Armor)",
                 "Index": 0
             },
             {
@@ -9459,7 +9459,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Magic Damage Reduced by 7 (Shield)",
+                "PropertyString": "Magic Damage Reduced By 7 (Shield)",
                 "Index": 0
             }
         ],
@@ -9525,7 +9525,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "All Resistances +35-50%",
+                "PropertyString": "+35-50% to All Resistances",
                 "Index": 3
             },
             {
@@ -9533,11 +9533,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+80-120% extra gold from monsters",
+                "PropertyString": "+80-120% Extra Gold from Monsters",
                 "Index": 6
             },
             {
-                "PropertyString": "+40% better chance of getting magic item",
+                "PropertyString": "+40% Chance Items Roll Magic or Better",
                 "Index": 5
             }
         ],
@@ -9635,7 +9635,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+210-340% Enhanced Damage",
+                "PropertyString": "+210-340% Enhanced Weapon Damage",
                 "Index": 3
             },
             {
@@ -9655,7 +9655,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+10-15 Magic Absorb",
+                "PropertyString": "+10-15 Magic Damage Absorbed",
                 "Index": 4
             },
             {
@@ -9717,15 +9717,15 @@
                 "Index": 1
             },
             {
-                "PropertyString": "All Resistances +25-35%",
+                "PropertyString": "+25-35% to All Resistances",
                 "Index": 2
             },
             {
-                "PropertyString": "Damage Reduced by 3",
+                "PropertyString": "Physical Damage Reduced By 3",
                 "Index": 3
             },
             {
-                "PropertyString": "Magic Damage Reduced by 17",
+                "PropertyString": "Magic Damage Reduced By 17",
                 "Index": 4
             },
             {
@@ -9809,11 +9809,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Lightning Resist +30%",
+                "PropertyString": "+30% Lightning Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "Magic Damage Reduced by 7",
+                "PropertyString": "Magic Damage Reduced By 7",
                 "Index": 0
             },
             {
@@ -9881,7 +9881,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+20% Increased Chance of Blocking",
+                "PropertyString": "20% Increased Chance of Blocking",
                 "Index": 0
             },
             {
@@ -9897,11 +9897,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +50-70%",
+                "PropertyString": "+50-70% to All Resistances",
                 "Index": 4
             },
             {
-                "PropertyString": "Magic Damage Reduced by 7",
+                "PropertyString": "Magic Damage Reduced By 7",
                 "Index": 0
             },
             {
@@ -9967,7 +9967,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+4 to random Necromancer Skill",
+                "PropertyString": "+4 Random Necromancer Skill",
                 "Index": 2
             },
             {
@@ -9979,11 +9979,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Magic Damage Reduced by 7",
+                "PropertyString": "Magic Damage Reduced By 7",
                 "Index": 0
             },
             {
-                "PropertyString": "+1% better chance of getting magic item (Per Character Level)",
+                "PropertyString": "+1% Chance Items Roll Magic or Better (Per Character Level)",
                 "Index": 5
             }
         ],
@@ -10065,7 +10065,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+180-220% Enhanced Damage",
+                "PropertyString": "+180-220% Enhanced Weapon Damage",
                 "Index": 2
             },
             {
@@ -10081,7 +10081,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+9-11 Magic Absorb",
+                "PropertyString": "+9-11 Magic Damage Absorbed",
                 "Index": 3
             },
             {
@@ -10169,11 +10169,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+50% extra gold from monsters",
+                "PropertyString": "+50% Extra Gold from Monsters",
                 "Index": 0
             },
             {
-                "PropertyString": "+25% better chance of getting magic item",
+                "PropertyString": "+25% Chance Items Roll Magic or Better",
                 "Index": 0
             },
             {
@@ -10267,11 +10267,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+100% better chance of getting magic item",
+                "PropertyString": "+100% Chance Items Roll Magic or Better",
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements -30%",
+                "PropertyString": "Requirements Reduced By -30%",
                 "Index": 6
             }
         ],
@@ -10335,7 +10335,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+15% Increased Chance of Blocking",
+                "PropertyString": "15% Increased Chance of Blocking",
                 "Index": 5
             },
             {
@@ -10351,11 +10351,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+6 Replenish Life",
+                "PropertyString": "Replenish Life +6",
                 "Index": 1
             },
             {
-                "PropertyString": "Regenerate Mana +75%",
+                "PropertyString": "+75% Mana Regeneration",
                 "Index": 2
             },
             {
@@ -10363,7 +10363,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+30% better chance of getting magic item",
+                "PropertyString": "+30% Chance Items Roll Magic or Better",
                 "Index": 0
             }
         ],
@@ -10451,11 +10451,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+260-300% Enhanced Damage",
+                "PropertyString": "+260-300% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+20% bonus to Attack Rating",
+                "PropertyString": "+20% Bonus to Attack Rating",
                 "Index": 0
             },
             {
@@ -10463,7 +10463,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+9% Mana stolen per hit",
+                "PropertyString": "9% Mana stolen per hit",
                 "Index": 5
             },
             {
@@ -10471,11 +10471,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Slows target by 20%",
+                "PropertyString": "Slows Target by 20%",
                 "Index": 2
             },
             {
-                "PropertyString": "+35% better chance of getting magic item",
+                "PropertyString": "+35% Chance Items Roll Magic or Better",
                 "Index": 4
             },
             {
@@ -10558,7 +10558,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+230-270% Enhanced Damage",
+                "PropertyString": "+230-270% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
@@ -10566,7 +10566,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+20% bonus to Attack Rating",
+                "PropertyString": "+20% Bonus to Attack Rating",
                 "Index": 0
             },
             {
@@ -10586,7 +10586,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+40% extra gold from monsters",
+                "PropertyString": "+40% Extra Gold from Monsters",
                 "Index": 6
             }
         ],
@@ -10646,7 +10646,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+2 to Martial Arts (Assassin only)",
+                "PropertyString": "+2 to Martial Arts (Assassin Only)",
                 "Index": 0
             },
             {
@@ -10654,11 +10654,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+200-250% Enhanced Damage",
+                "PropertyString": "+200-250% Enhanced Weapon Damage",
                 "Index": 3
             },
             {
-                "PropertyString": "+20% bonus to Attack Rating",
+                "PropertyString": "+20% Bonus to Attack Rating",
                 "Index": 0
             },
             {
@@ -10674,7 +10674,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+7% Life stolen per hit",
+                "PropertyString": "7% Life stolen per hit",
                 "Index": 0
             },
             {
@@ -10757,15 +10757,15 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+20% bonus to Attack Rating",
+                "PropertyString": "+20% Bonus to Attack Rating",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 160-250 to Magic Damage",
+                "PropertyString": "Adds 160-250 Weapon Magic Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 60-180 to Fire Damage",
+                "PropertyString": "Adds 60-180 to Weapon Fire Damage",
                 "Index": 3
             },
             {
@@ -10773,7 +10773,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+5-10 to All Attributes",
+                "PropertyString": "+5-10 to all Attributes",
                 "Index": 4
             },
             {
@@ -10781,7 +10781,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+75% extra gold from monsters",
+                "PropertyString": "+75% Extra Gold from Monsters",
                 "Index": 0
             },
             {
@@ -10789,7 +10789,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Requirements -20%",
+                "PropertyString": "Requirements Reduced By -20%",
                 "Index": 0
             }
         ],
@@ -10855,7 +10855,7 @@
         "Code": "Still Water",
         "Properties": [
             {
-                "PropertyString": "+2 to Bow and Crossbow Skills (Amazon only)",
+                "PropertyString": "+2 to Bow and Crossbow Skills (Amazon Only)",
                 "Index": 4
             },
             {
@@ -10867,19 +10867,19 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+80-120% Enhanced Damage",
+                "PropertyString": "+80-120% Enhanced Weapon Damage",
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 30-150 to Damage",
+                "PropertyString": "Adds 30-150 Weapon Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "+20% bonus to Attack Rating",
+                "PropertyString": "+20% Bonus to Attack Rating",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 100-150 to Cold Damage",
+                "PropertyString": "Adds 100-150 to Weapon Cold Damage",
                 "Index": 6
             },
             {
@@ -10967,11 +10967,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+5 to Maximum Poison Resist",
+                "PropertyString": "+5% to Maximum Poison Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "Fire Resist +30%",
+                "PropertyString": "+30% Fire Resistance",
                 "Index": 0
             },
             {
@@ -11068,11 +11068,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+300-385% Enhanced Damage",
+                "PropertyString": "+300-385% Enhanced Weapon Damage",
                 "Index": 3
             },
             {
-                "PropertyString": "+20% bonus to Attack Rating",
+                "PropertyString": "+20% Bonus to Attack Rating",
                 "Index": 0
             },
             {
@@ -11080,11 +11080,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 1-50 to Lightning Damage",
+                "PropertyString": "Adds 1-50 to Weapon Lightning Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+7% Mana stolen per hit",
+                "PropertyString": "7% Mana stolen per hit",
                 "Index": 0
             },
             {
@@ -11104,7 +11104,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Requirements -20%",
+                "PropertyString": "Requirements Reduced By -20%",
                 "Index": 0
             }
         ],
@@ -11184,15 +11184,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+5 to Maximum Fire Resist",
+                "PropertyString": "+5% to Maximum Fire Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "Fire Resist +30%",
+                "PropertyString": "+30% Fire Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "+15-20 Fire Absorb",
+                "PropertyString": "+15-20 Fire Damage Absorbed",
                 "Index": 5
             },
             {
@@ -11276,7 +11276,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+5 to Maximum Fire Resist",
+                "PropertyString": "+5% to Maximum Fire Resistance",
                 "Index": 0
             },
             {
@@ -11381,11 +11381,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 3-14 to Cold Damage",
+                "PropertyString": "Adds 3-14 to Weapon Cold Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+7% Mana stolen per hit",
+                "PropertyString": "7% Mana stolen per hit",
                 "Index": 0
             },
             {
@@ -11393,7 +11393,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 Replenish Life",
+                "PropertyString": "Replenish Life +20",
                 "Index": 4
             },
             {
@@ -11401,7 +11401,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "All Resistances +30-40%",
+                "PropertyString": "+30-40% to All Resistances",
                 "Index": 5
             },
             {
@@ -11479,15 +11479,15 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+190-240% Enhanced Damage",
+                "PropertyString": "+190-240% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Maximum Damage (Per Character Level)",
+                "PropertyString": "+2 to Maximum Weapon Damage (Per Character Level)",
                 "Index": 1
             },
             {
-                "PropertyString": "+7% Mana stolen per hit",
+                "PropertyString": "7% Mana stolen per hit",
                 "Index": 0
             },
             {
@@ -11495,7 +11495,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+15-25 to All Attributes",
+                "PropertyString": "+15-25 to all Attributes",
                 "Index": 5
             },
             {
@@ -11503,11 +11503,11 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+75% extra gold from monsters",
+                "PropertyString": "+75% Extra Gold from Monsters",
                 "Index": 0
             },
             {
-                "PropertyString": "+30% better chance of getting magic item",
+                "PropertyString": "+30% Chance Items Roll Magic or Better",
                 "Index": 0
             },
             {
@@ -11561,31 +11561,31 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+35-50% Increased Chance of Blocking",
+                "PropertyString": "35-50% Increased Chance of Blocking",
                 "Index": 6
             },
             {
-                "PropertyString": "+7 Replenish Life",
+                "PropertyString": "Replenish Life +7",
                 "Index": 0
             },
             {
-                "PropertyString": "+5 to Maximum Poison Resist",
+                "PropertyString": "+5% to Maximum Poison Resistance",
                 "Index": 3
             },
             {
-                "PropertyString": "+5 to Maximum Cold Resist",
+                "PropertyString": "+5% to Maximum Cold Resistance",
                 "Index": 2
             },
             {
-                "PropertyString": "+5 to Maximum Lightning Resist",
+                "PropertyString": "+5% to Maximum Lightning Resistance",
                 "Index": 1
             },
             {
-                "PropertyString": "+5 to Maximum Fire Resist",
+                "PropertyString": "+5% to Maximum Fire Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +40-50%",
+                "PropertyString": "+40-50% to All Resistances",
                 "Index": 4
             },
             {
@@ -11683,7 +11683,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+200% Enhanced Damage",
+                "PropertyString": "+200% Enhanced Weapon Damage",
                 "Index": 2
             },
             {
@@ -11699,19 +11699,19 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+11% Mana stolen per hit",
+                "PropertyString": "11% Mana stolen per hit",
                 "Index": 0
             },
             {
-                "PropertyString": "Hit blinds target +33",
+                "PropertyString": "Hit Blinds Target +33",
                 "Index": 1
             },
             {
-                "PropertyString": "25% Hit Causes Monster To Flee",
+                "PropertyString": "25% %+d% Hits Cause Monsters to Flee",
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +75%",
+                "PropertyString": "+75% to All Resistances",
                 "Index": 4
             },
             {
@@ -11719,11 +11719,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+30% better chance of getting magic item",
+                "PropertyString": "+30% Chance Items Roll Magic or Better",
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements -20%",
+                "PropertyString": "Requirements Reduced By -20%",
                 "Index": 0
             }
         ],
@@ -11786,7 +11786,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+7% Mana stolen per hit",
+                "PropertyString": "7% Mana stolen per hit",
                 "Index": 0
             },
             {
@@ -11802,7 +11802,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Regenerate Mana +75%",
+                "PropertyString": "+75% Mana Regeneration",
                 "Index": 3
             },
             {
@@ -11886,7 +11886,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+275% Enhanced Damage",
+                "PropertyString": "+275% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -11894,11 +11894,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+14% Mana stolen per hit",
+                "PropertyString": "14% Mana stolen per hit",
                 "Index": 0
             },
             {
-                "PropertyString": "+14% Life stolen per hit",
+                "PropertyString": "14% Life stolen per hit",
                 "Index": 0
             },
             {
@@ -11914,11 +11914,11 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+100-140% extra gold from monsters",
+                "PropertyString": "+100-140% Extra Gold from Monsters",
                 "Index": 4
             },
             {
-                "PropertyString": "+60-80% better chance of getting magic item",
+                "PropertyString": "+60-80% Chance Items Roll Magic or Better",
                 "Index": 5
             }
         ],
@@ -11998,15 +11998,15 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+7 Replenish Life",
+                "PropertyString": "Replenish Life +7",
                 "Index": 0
             },
             {
-                "PropertyString": "+5 to Maximum Fire Resist",
+                "PropertyString": "+5% to Maximum Fire Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +30%",
+                "PropertyString": "+30% to All Resistances",
                 "Index": 6
             }
         ],
@@ -12102,15 +12102,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+250-290% Enhanced Damage",
+                "PropertyString": "+250-290% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 5-30 to Fire Damage",
+                "PropertyString": "Adds 5-30 to Weapon Fire Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+7% Life stolen per hit",
+                "PropertyString": "7% Life stolen per hit",
                 "Index": 0
             },
             {
@@ -12118,11 +12118,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+12 Replenish Life",
+                "PropertyString": "Replenish Life +12",
                 "Index": 6
             },
             {
-                "PropertyString": "+30% better chance of getting magic item",
+                "PropertyString": "+30% Chance Items Roll Magic or Better",
                 "Index": 0
             }
         ],
@@ -12194,11 +12194,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+290-340% Enhanced Damage",
+                "PropertyString": "+290-340% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 216-471 to Magic Damage",
+                "PropertyString": "Adds 216-471 Weapon Magic Damage",
                 "Index": 2
             },
             {
@@ -12284,7 +12284,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+2 to Offensive Auras (Paladin only)",
+                "PropertyString": "+2 to Offensive Auras (Paladin Only)",
                 "Index": 4
             },
             {
@@ -12300,19 +12300,19 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+7 Replenish Life",
+                "PropertyString": "Replenish Life +7",
                 "Index": 0
             },
             {
-                "PropertyString": "+5 to Maximum Cold Resist",
+                "PropertyString": "+5% to Maximum Cold Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "+5 to Maximum Fire Resist",
+                "PropertyString": "+5% to Maximum Fire Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "+25% better chance of getting magic item",
+                "PropertyString": "+25% Chance Items Roll Magic or Better",
                 "Index": 0
             },
             {
@@ -12404,7 +12404,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+330-400% Enhanced Damage",
+                "PropertyString": "+330-400% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
@@ -12412,11 +12412,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+20% bonus to Attack Rating",
+                "PropertyString": "+20% Bonus to Attack Rating",
                 "Index": 0
             },
             {
-                "PropertyString": "+10% Life stolen per hit",
+                "PropertyString": "10% Life stolen per hit",
                 "Index": 6
             },
             {
@@ -12424,11 +12424,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+40-60% better chance of getting magic item",
+                "PropertyString": "+40-60% Chance Items Roll Magic or Better",
                 "Index": 5
             },
             {
-                "PropertyString": "+15 To Required Level",
+                "PropertyString": "+15 to Required Level",
                 "Index": 0
             }
         ],
@@ -12496,7 +12496,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 15-30 to Damage",
+                "PropertyString": "Adds 15-30 Weapon Damage",
                 "Index": 5
             },
             {
@@ -12512,15 +12512,15 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+5 to Maximum Cold Resist",
+                "PropertyString": "+5% to Maximum Cold Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "Attacker Takes Damage of +14",
+                "PropertyString": "Attacker Takes Damage of 14",
                 "Index": 0
             },
             {
-                "PropertyString": "+5 To Required Level",
+                "PropertyString": "+5 to Required Level",
                 "Index": 0
             }
         ],
@@ -12610,23 +12610,23 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+200% Enhanced Damage",
+                "PropertyString": "+200% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+2.5 to Maximum Damage (Per Character Level)",
+                "PropertyString": "+2.5 to Maximum Weapon Damage (Per Character Level)",
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 1-300 to Fire Damage",
+                "PropertyString": "Adds 1-300 to Weapon Fire Damage",
                 "Index": 6
             },
             {
-                "PropertyString": "Adds 1-300 to Lightning Damage",
+                "PropertyString": "Adds 1-300 to Weapon Lightning Damage",
                 "Index": 6
             },
             {
-                "PropertyString": "Adds 1-300 to Cold Damage",
+                "PropertyString": "Adds 1-300 to Weapon Cold Damage",
                 "Index": 6
             },
             {
@@ -12634,11 +12634,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+75% extra gold from monsters",
+                "PropertyString": "+75% Extra Gold from Monsters",
                 "Index": 0
             },
             {
-                "PropertyString": "+30% better chance of getting magic item",
+                "PropertyString": "+30% Chance Items Roll Magic or Better",
                 "Index": 0
             },
             {
@@ -12646,11 +12646,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+24 To Required Level",
+                "PropertyString": "+24 to Required Level",
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements -50%",
+                "PropertyString": "Requirements Reduced By -50%",
                 "Index": 4
             }
         ],
@@ -12730,7 +12730,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+300% Enhanced Damage",
+                "PropertyString": "+300% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
@@ -12742,11 +12742,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+1-1.5 to Life (Per Character Level)",
+                "PropertyString": "+1 - 1.5 to Life (Per Character Level)",
                 "Index": 3
             },
             {
-                "PropertyString": "All Resistances +25-30%",
+                "PropertyString": "+25-30% to All Resistances",
                 "Index": 4
             },
             {
@@ -12762,11 +12762,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "25% Hit Causes Monster To Flee (Weapon)",
+                "PropertyString": "25% %+d% Hits Cause Monsters to Flee (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 9 to Damage (Weapon)",
+                "PropertyString": "Adds 9 to Weapon Damage (Weapon)",
                 "Index": 0
             },
             {
@@ -12778,15 +12778,15 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+5 to Maximum Lightning Resist (Armor)",
+                "PropertyString": "+5% to Maximum Lightning Resistance (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Replenish Life (Armor)",
+                "PropertyString": "Physical Damage Reduced By 7 (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "Damage Reduced by 7 (Armor)",
+                "PropertyString": "Replenish Life +7 (Armor)",
                 "Index": 0
             },
             {
@@ -12798,15 +12798,15 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+5 to Maximum Lightning Resist (Shield)",
+                "PropertyString": "+5% to Maximum Lightning Resistance (Shield)",
                 "Index": 0
             },
             {
-                "PropertyString": "+7 Replenish Life (Shield)",
+                "PropertyString": "Physical Damage Reduced By 7 (Shield)",
                 "Index": 0
             },
             {
-                "PropertyString": "Damage Reduced by 7 (Shield)",
+                "PropertyString": "Replenish Life +7 (Shield)",
                 "Index": 0
             }
         ],
@@ -12863,7 +12863,7 @@
                 "Class": ""
             }
         ],
-        "Name": "Fortitude (Helm Removed)",
+        "Name": "Fortitude (Removed)",
         "Index": "Fortitude (Dummy)",
         "Enabled": true,
         "Rarity": 0,
@@ -12876,15 +12876,15 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+7 Replenish Life",
+                "PropertyString": "Replenish Life +7",
                 "Index": 0
             },
             {
-                "PropertyString": "+5 to Maximum Lightning Resist",
+                "PropertyString": "+5% to Maximum Lightning Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "Damage Reduced by 7",
+                "PropertyString": "Physical Damage Reduced By 7",
                 "Index": 0
             },
             {
@@ -12993,7 +12993,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 5-30 to Fire Damage",
+                "PropertyString": "Adds 5-30 to Weapon Fire Damage",
                 "Index": 0
             },
             {
@@ -13069,7 +13069,7 @@
         "Code": "Night",
         "Properties": [
             {
-                "PropertyString": "+10-20 to Maximum Damage",
+                "PropertyString": "+10-20 to Maximum Weapon Damage",
                 "Index": 4
             },
             {
@@ -13089,23 +13089,23 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+5 to Maximum Cold Resist",
+                "PropertyString": "+5% to Maximum Cold Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "+5 to Maximum Lightning Resist",
+                "PropertyString": "+5% to Maximum Lightning Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "+70-100% extra gold from monsters",
+                "PropertyString": "+70-100% Extra Gold from Monsters",
                 "Index": 5
             },
             {
-                "PropertyString": "+40-70% better chance of getting magic item",
+                "PropertyString": "+40-70% Chance Items Roll Magic or Better",
                 "Index": 1
             },
             {
-                "PropertyString": "Requirements -15%",
+                "PropertyString": "Requirements Reduced By -15%",
                 "Index": 0
             }
         ],
@@ -13191,19 +13191,19 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Regenerate Mana +15%",
+                "PropertyString": "+15% Mana Regeneration",
                 "Index": 0
             },
             {
-                "PropertyString": "+5 to Maximum Cold Resist",
+                "PropertyString": "+5% to Maximum Cold Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "Fire Resist +30%",
+                "PropertyString": "+30% Fire Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "Poison Resist +100%",
+                "PropertyString": "+100% Poison Resistance",
                 "Index": 5
             },
             {
@@ -13296,23 +13296,23 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+3-5 to All Attributes",
+                "PropertyString": "+3-5 to all Attributes",
                 "Index": 5
-            },
-            {
-                "PropertyString": "+5 to Maximum Lightning Resist (Armor)",
-                "Index": 0
             },
             {
                 "PropertyString": "+5% Increased Maximum Mana (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "Damage Reduced by 7 (Armor)",
+                "PropertyString": "+5% to Maximum Lightning Resistance (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "+5 to Maximum Lightning Resist (Shield)",
+                "PropertyString": "Physical Damage Reduced By 7 (Armor)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+5% to Maximum Lightning Resistance (Shield)",
                 "Index": 0
             },
             {
@@ -13320,7 +13320,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Damage Reduced by 7 (Shield)",
+                "PropertyString": "Physical Damage Reduced By 7 (Shield)",
                 "Index": 0
             }
         ],
@@ -13414,11 +13414,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Regenerate Mana +75%",
+                "PropertyString": "+75% Mana Regeneration",
                 "Index": 2
             },
             {
-                "PropertyString": "All Resistances +15%",
+                "PropertyString": "+15% to All Resistances",
                 "Index": 0
             },
             {
@@ -13520,7 +13520,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+300-350% Enhanced Damage",
+                "PropertyString": "+300-350% Enhanced Weapon Damage",
                 "Index": 2
             },
             {
@@ -13544,7 +13544,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Hit blinds target +1",
+                "PropertyString": "Hit Blinds Target +1",
                 "Index": 0
             },
             {
@@ -13638,15 +13638,15 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+10-20 to All Attributes",
+                "PropertyString": "+10-20 to all Attributes",
                 "Index": 3
             },
             {
-                "PropertyString": "+50% extra gold from monsters",
+                "PropertyString": "+50% Extra Gold from Monsters",
                 "Index": 0
             },
             {
-                "PropertyString": "+30-50% better chance of getting magic item",
+                "PropertyString": "+30-50% Chance Items Roll Magic or Better",
                 "Index": 4
             }
         ],
@@ -13730,19 +13730,19 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+375-450% Enhanced Damage",
+                "PropertyString": "+375-450% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "+20% bonus to Attack Rating",
+                "PropertyString": "+20% Bonus to Attack Rating",
                 "Index": 0
             },
             {
-                "PropertyString": "+10% Mana stolen per hit",
+                "PropertyString": "10% Mana stolen per hit",
                 "Index": 3
             },
             {
-                "PropertyString": "+10% Life stolen per hit",
+                "PropertyString": "10% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -13758,11 +13758,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Hit blinds target +1",
+                "PropertyString": "Hit Blinds Target +1",
                 "Index": 0
             },
             {
-                "PropertyString": "+30% better chance of getting magic item",
+                "PropertyString": "+30% Chance Items Roll Magic or Better",
                 "Index": 0
             }
         ],
@@ -13812,7 +13812,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+20% Faster Run/Walk",
+                "PropertyString": "+20% Faster Run/Walk Speed",
                 "Index": 2
             },
             {
@@ -13820,7 +13820,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+120-160% Enhanced Damage",
+                "PropertyString": "+120-160% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -13836,7 +13836,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Hit blinds target +1",
+                "PropertyString": "Hit Blinds Target +1",
                 "Index": 0
             },
             {
@@ -13956,7 +13956,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+240-270% Enhanced Damage",
+                "PropertyString": "+240-270% Enhanced Weapon Damage",
                 "Index": 2
             },
             {
@@ -14054,7 +14054,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "All Resistances +30%",
+                "PropertyString": "+30% to All Resistances",
                 "Index": 2
             },
             {
@@ -14136,7 +14136,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+8% Life stolen per hit",
+                "PropertyString": "8% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -14148,11 +14148,11 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+7 Replenish Life",
+                "PropertyString": "Replenish Life +7",
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +65%",
+                "PropertyString": "+65% to All Resistances",
                 "Index": 0
             },
             {
@@ -14160,7 +14160,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+25% better chance of getting magic item",
+                "PropertyString": "+25% Chance Items Roll Magic or Better",
                 "Index": 0
             }
         ],
@@ -14240,15 +14240,15 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+260-310% Enhanced Damage",
+                "PropertyString": "+260-310% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+9 to Minimum Damage",
+                "PropertyString": "+9 to Minimum Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+7% Life stolen per hit",
+                "PropertyString": "7% Life stolen per hit",
                 "Index": 0
             },
             {
@@ -14256,19 +14256,19 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Hit blinds target +1",
+                "PropertyString": "Hit Blinds Target +1",
                 "Index": 0
             },
             {
-                "PropertyString": "Slows target by 33%",
+                "PropertyString": "Slows Target by 33%",
                 "Index": 2
             },
             {
-                "PropertyString": "+16 Replenish Life",
+                "PropertyString": "Replenish Life +16",
                 "Index": 4
             },
             {
-                "PropertyString": "Regenerate Mana +16%",
+                "PropertyString": "+16% Mana Regeneration",
                 "Index": 5
             },
             {
@@ -14276,7 +14276,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+30% better chance of getting magic item",
+                "PropertyString": "+30% Chance Items Roll Magic or Better",
                 "Index": 0
             },
             {
@@ -14359,11 +14359,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+35% Faster Run/Walk",
+                "PropertyString": "+35% Faster Run/Walk Speed",
                 "Index": 1
             },
             {
-                "PropertyString": "+255-325% Enhanced Damage",
+                "PropertyString": "+255-325% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -14383,7 +14383,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+30% better chance of getting magic item",
+                "PropertyString": "+30% Chance Items Roll Magic or Better",
                 "Index": 0
             },
             {
@@ -14474,23 +14474,27 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+20-30% Increased Chance of Blocking",
+                "PropertyString": "20-30% Increased Chance of Blocking",
                 "Index": 3
             },
             {
-                "PropertyString": "+10-15 Replenish Life",
+                "PropertyString": "Replenish Life +10-15",
                 "Index": 6
             },
             {
-                "PropertyString": "+12 To Required Level",
+                "PropertyString": "+12 to Required Level",
                 "Index": 5
             },
             {
-                "PropertyString": "+25% better chance of getting magic item (Armor)",
+                "PropertyString": "+15% to All Resistances (Armor)",
                 "Index": 0
             },
             {
-                "PropertyString": "+50% extra gold from monsters (Armor)",
+                "PropertyString": "+25% Chance Items Roll Magic or Better (Armor)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+50% Extra Gold from Monsters (Armor)",
                 "Index": 0
             },
             {
@@ -14498,23 +14502,19 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +15% (Armor)",
+                "PropertyString": "+22% to All Resistances (Shield)",
                 "Index": 0
             },
             {
-                "PropertyString": "+25% better chance of getting magic item (Shield)",
+                "PropertyString": "+25% Chance Items Roll Magic or Better (Shield)",
                 "Index": 0
             },
             {
-                "PropertyString": "+50% extra gold from monsters (Shield)",
+                "PropertyString": "+50% Extra Gold from Monsters (Shield)",
                 "Index": 0
             },
             {
                 "PropertyString": "+8% Physical Damage Reduction (Shield)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "All Resistances +22% (Shield)",
                 "Index": 0
             }
         ],
@@ -14578,7 +14578,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+150-200% Enhanced Damage",
+                "PropertyString": "+150-200% Enhanced Weapon Damage",
                 "Index": 3
             },
             {
@@ -14594,11 +14594,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+5 to Maximum Lightning Resist",
+                "PropertyString": "+5% to Maximum Lightning Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +40%",
+                "PropertyString": "+40% to All Resistances",
                 "Index": 4
             },
             {
@@ -14606,7 +14606,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Magic Damage Reduced by 7",
+                "PropertyString": "Magic Damage Reduced By 7",
                 "Index": 0
             }
         ],
@@ -14687,11 +14687,11 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+7 Replenish Life",
+                "PropertyString": "Replenish Life +7",
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +15%",
+                "PropertyString": "+15% to All Resistances",
                 "Index": 4
             },
             {
@@ -14699,7 +14699,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Magic Damage Reduced by 7",
+                "PropertyString": "Magic Damage Reduced By 7",
                 "Index": 0
             }
         ],
@@ -14785,11 +14785,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 85-120 to Magic Damage",
+                "PropertyString": "Adds 85-120 Weapon Magic Damage",
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 41-240 to Lightning Damage",
+                "PropertyString": "Adds 41-240 to Weapon Lightning Damage",
                 "Index": 2
             },
             {
@@ -14879,11 +14879,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+260-340% Enhanced Damage",
+                "PropertyString": "+260-340% Enhanced Weapon Damage",
                 "Index": 3
             },
             {
-                "PropertyString": "+1 Fires Explosive Arrows or Bolts",
+                "PropertyString": "Fires Explosive Arrows or Bolts",
                 "Index": 2
             },
             {
@@ -14891,7 +14891,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20% bonus to Attack Rating",
+                "PropertyString": "+20% Bonus to Attack Rating",
                 "Index": 0
             },
             {
@@ -14995,7 +14995,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Regenerate Mana +50%",
+                "PropertyString": "+50% Mana Regeneration",
                 "Index": 1
             },
             {
@@ -15096,7 +15096,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+350% Enhanced Damage",
+                "PropertyString": "+350% Enhanced Weapon Damage",
                 "Index": 4
             },
             {
@@ -15104,11 +15104,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 100-180 to Magic Damage",
+                "PropertyString": "Adds 100-180 Weapon Magic Damage",
                 "Index": 5
             },
             {
-                "PropertyString": "+7% Mana stolen per hit",
+                "PropertyString": "7% Mana stolen per hit",
                 "Index": 0
             },
             {
@@ -15201,11 +15201,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "All Resistances +5-20%",
+                "PropertyString": "+5-20% to All Resistances",
                 "Index": 5
             },
             {
-                "PropertyString": "+15-25% better chance of getting magic item",
+                "PropertyString": "+15-25% Chance Items Roll Magic or Better",
                 "Index": 6
             },
             {
@@ -15293,7 +15293,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+45% Faster Run/Walk",
+                "PropertyString": "+45% Faster Run/Walk Speed",
                 "Index": 2
             },
             {
@@ -15321,7 +15321,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1% better chance of getting magic item (Per Character Level)",
+                "PropertyString": "+1% Chance Items Roll Magic or Better (Per Character Level)",
                 "Index": 5
             }
         ],
@@ -15395,7 +15395,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+330% Enhanced Damage",
+                "PropertyString": "+330% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -15403,7 +15403,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+300% bonus to Attack Rating",
+                "PropertyString": "+300% Bonus to Attack Rating",
                 "Index": 1
             },
             {
@@ -15415,11 +15415,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+120 to Minimum Fire Damage",
+                "PropertyString": "+120 to Weapon Minimum Fire Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "All Resistances +15%",
+                "PropertyString": "+15% to All Resistances",
                 "Index": 3
             },
             {
@@ -15427,7 +15427,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+75% extra gold from monsters",
+                "PropertyString": "+75% Extra Gold from Monsters",
                 "Index": 0
             }
         ],
@@ -15512,7 +15512,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+320-370% Enhanced Damage",
+                "PropertyString": "+320-370% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -15520,27 +15520,27 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 180-200 to Magic Damage",
+                "PropertyString": "Adds 180-200 Weapon Magic Damage",
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 50-200 to Fire Damage",
+                "PropertyString": "Adds 50-200 to Weapon Fire Damage",
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 50-200 to Lightning Damage",
+                "PropertyString": "Adds 50-200 to Weapon Lightning Damage",
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 1-50 to Lightning Damage",
+                "PropertyString": "Adds 1-50 to Weapon Lightning Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 50-200 to Cold Damage",
+                "PropertyString": "Adds 50-200 to Weapon Cold Damage",
                 "Index": 5
             },
             {
-                "PropertyString": "+12% Life stolen per hit",
+                "PropertyString": "12% Life stolen per hit",
                 "Index": 1
             },
             {
@@ -15552,7 +15552,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Ethereal (Cannot Be Repaired)",
+                "PropertyString": "Ethereal (Cannot be Repaired)",
                 "Index": 6
             }
         ],
@@ -15612,7 +15612,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+209% Enhanced Damage",
+                "PropertyString": "+209% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -15624,11 +15624,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20% bonus to Attack Rating",
+                "PropertyString": "+20% Bonus to Attack Rating",
                 "Index": 0
             },
             {
-                "PropertyString": "+6% Life stolen per hit",
+                "PropertyString": "6% Life stolen per hit",
                 "Index": 4
             },
             {
@@ -15726,7 +15726,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+140-210% Enhanced Damage",
+                "PropertyString": "+140-210% Enhanced Weapon Damage",
                 "Index": 3
             },
             {
@@ -15742,7 +15742,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+7% Life stolen per hit",
+                "PropertyString": "7% Life stolen per hit",
                 "Index": 0
             },
             {
@@ -15750,7 +15750,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+3.12% extra gold from monsters (Per Character Level)",
+                "PropertyString": "+3.12% Extra Gold from Monsters (Per Character Level)",
                 "Index": 6
             }
         ],
@@ -15833,7 +15833,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+350-400% Enhanced Damage",
+                "PropertyString": "+350-400% Enhanced Weapon Damage",
                 "Index": 3
             },
             {
@@ -15845,15 +15845,15 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+15-21 Fire Absorb",
+                "PropertyString": "+15-21 Fire Damage Absorbed",
                 "Index": 6
             },
             {
-                "PropertyString": "+14% Mana stolen per hit (Weapon)",
+                "PropertyString": "+20% Deadly Strike (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "+20% Deadly Strike (Weapon)",
+                "PropertyString": "14% Mana stolen per hit (Weapon)",
                 "Index": 0
             },
             {
@@ -15861,11 +15861,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+10 to Maximum Fire Resist (Shield)",
+                "PropertyString": "+10% to Maximum Fire Resistance (Shield)",
                 "Index": 0
             },
             {
-                "PropertyString": "+5 to Maximum Lightning Resist (Shield)",
+                "PropertyString": "+5% to Maximum Lightning Resistance (Shield)",
                 "Index": 0
             },
             {
@@ -15971,7 +15971,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +35%",
+                "PropertyString": "+35% to All Resistances",
                 "Index": 4
             }
         ],
@@ -16035,7 +16035,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+100% Enhanced Damage",
+                "PropertyString": "+100% Enhanced Weapon Damage",
                 "Index": 4
             },
             {
@@ -16043,7 +16043,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+50% bonus to Attack Rating",
+                "PropertyString": "+50% Bonus to Attack Rating",
                 "Index": 2
             },
             {
@@ -16059,11 +16059,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+25% better chance of getting magic item",
+                "PropertyString": "+25% Chance Items Roll Magic or Better",
                 "Index": 0
             },
             {
-                "PropertyString": "+10 To Required Level",
+                "PropertyString": "+10 to Required Level",
                 "Index": 0
             }
         ],
@@ -16151,7 +16151,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+383% Enhanced Damage",
+                "PropertyString": "+383% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -16159,7 +16159,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 1-50 to Lightning Damage",
+                "PropertyString": "Adds 1-50 to Weapon Lightning Damage",
                 "Index": 0
             },
             {
@@ -16171,11 +16171,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Lightning Resist +100%",
+                "PropertyString": "+100% Lightning Resistance",
                 "Index": 4
             },
             {
-                "PropertyString": "+25% Lightning Absorb",
+                "PropertyString": "+25% Lightning Damage Absorbed",
                 "Index": 5
             },
             {
@@ -16254,7 +16254,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+20 To Required Level",
+                "PropertyString": "+20 to Required Level",
                 "Index": 1
             },
             {
@@ -16262,7 +16262,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Attacker Takes Damage of +14 (Armor)",
+                "PropertyString": "Attacker Takes Damage of 14 (Armor)",
                 "Index": 0
             },
             {
@@ -16270,7 +16270,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Attacker Takes Damage of +14 (Shield)",
+                "PropertyString": "Attacker Takes Damage of 14 (Shield)",
                 "Index": 0
             }
         ],
@@ -16368,31 +16368,31 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+275-350% Enhanced Damage",
+                "PropertyString": "+275-350% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 50-300 to Fire Damage",
+                "PropertyString": "Adds 50-300 to Weapon Fire Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 5-30 to Fire Damage",
+                "PropertyString": "Adds 5-30 to Weapon Fire Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 50-300 to Lightning Damage",
+                "PropertyString": "Adds 50-300 to Weapon Lightning Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 1-50 to Lightning Damage",
+                "PropertyString": "Adds 1-50 to Weapon Lightning Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 50-300 to Cold Damage",
+                "PropertyString": "Adds 50-300 to Weapon Cold Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 3-14 to Cold Damage",
+                "PropertyString": "Adds 3-14 to Weapon Cold Damage",
                 "Index": 0
             },
             {
@@ -16404,15 +16404,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +35%",
+                "PropertyString": "+35% to All Resistances",
                 "Index": 6
             },
             {
-                "PropertyString": "+13 To Required Level",
+                "PropertyString": "+13 to Required Level",
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements -20%",
+                "PropertyString": "Requirements Reduced By -20%",
                 "Index": 0
             }
         ],
@@ -16500,19 +16500,19 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+350-400% Enhanced Damage",
+                "PropertyString": "+350-400% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+3 to Maximum Damage (Per Character Level)",
+                "PropertyString": "+3 to Maximum Weapon Damage (Per Character Level)",
                 "Index": 2
             },
             {
-                "PropertyString": "+7% Mana stolen per hit",
+                "PropertyString": "7% Mana stolen per hit",
                 "Index": 0
             },
             {
-                "PropertyString": "+7% Life stolen per hit",
+                "PropertyString": "7% Life stolen per hit",
                 "Index": 0
             },
             {
@@ -16532,7 +16532,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+15 To Required Level",
+                "PropertyString": "+15 to Required Level",
                 "Index": 5
             }
         ],
@@ -16620,7 +16620,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+50% Enhanced Damage",
+                "PropertyString": "+50% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -16652,7 +16652,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Requirements -20%",
+                "PropertyString": "Requirements Reduced By -20%",
                 "Index": 0
             }
         ],
@@ -16764,7 +16764,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+330-370% Enhanced Damage",
+                "PropertyString": "+330-370% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -16788,7 +16788,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements -20%",
+                "PropertyString": "Requirements Reduced By -20%",
                 "Index": 0
             }
         ],
@@ -16876,19 +16876,19 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+40-75 to Minimum Damage",
+                "PropertyString": "+40-75 to Minimum Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+2.25 to Maximum Damage (Per Character Level)",
+                "PropertyString": "+2.25 to Maximum Weapon Damage (Per Character Level)",
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 3-14 to Cold Damage",
+                "PropertyString": "Adds 3-14 to Weapon Cold Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+7% Mana stolen per hit",
+                "PropertyString": "7% Mana stolen per hit",
                 "Index": 0
             },
             {
@@ -16990,7 +16990,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+280-330% Enhanced Damage",
+                "PropertyString": "+280-330% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
@@ -17002,7 +17002,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+7% Life stolen per hit",
+                "PropertyString": "7% Life stolen per hit",
                 "Index": 0
             },
             {
@@ -17010,7 +17010,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Hit blinds target +1",
+                "PropertyString": "Hit Blinds Target +1",
                 "Index": 0
             },
             {
@@ -17136,15 +17136,15 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+350-400% Enhanced Damage",
+                "PropertyString": "+350-400% Enhanced Weapon Damage",
                 "Index": 4
             },
             {
-                "PropertyString": "+40-50 to Minimum Damage",
+                "PropertyString": "+40-50 to Minimum Weapon Damage",
                 "Index": 5
             },
             {
-                "PropertyString": "+80-100 to Maximum Damage",
+                "PropertyString": "+80-100 to Maximum Weapon Damage",
                 "Index": 6
             },
             {
@@ -17160,7 +17160,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Hit blinds target +1",
+                "PropertyString": "Hit Blinds Target +1",
                 "Index": 0
             },
             {
@@ -17228,7 +17228,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+5 to Shape Shifting Skills (Druid only)",
+                "PropertyString": "+5 to Shape Shifting Skills (Druid Only)",
                 "Index": 2
             },
             {
@@ -17248,7 +17248,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +10%",
+                "PropertyString": "+10% to All Resistances",
                 "Index": 4
             },
             {
@@ -17340,7 +17340,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+325-375% Enhanced Damage",
+                "PropertyString": "+325-375% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
@@ -17348,15 +17348,15 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+9 to Maximum Damage",
+                "PropertyString": "+9 to Maximum Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+20% bonus to Attack Rating",
+                "PropertyString": "+20% Bonus to Attack Rating",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 3-14 to Cold Damage",
+                "PropertyString": "Adds 3-14 to Weapon Cold Damage",
                 "Index": 0
             },
             {
@@ -17368,7 +17368,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "All Resistances +40%",
+                "PropertyString": "+40% to All Resistances",
                 "Index": 5
             }
         ],
@@ -17446,7 +17446,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+200-250% Enhanced Damage",
+                "PropertyString": "+200-250% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
@@ -17458,7 +17458,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +30%",
+                "PropertyString": "+30% to All Resistances",
                 "Index": 4
             },
             {
@@ -17470,7 +17470,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements -15%",
+                "PropertyString": "Requirements Reduced By -15%",
                 "Index": 0
             }
         ],
@@ -17564,11 +17564,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+250% Enhanced Damage",
+                "PropertyString": "+250% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "+3.12 to Maximum Damage (Per Character Level)",
+                "PropertyString": "+3.12 to Maximum Weapon Damage (Per Character Level)",
                 "Index": 2
             },
             {
@@ -17584,15 +17584,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20-30 to All Attributes",
+                "PropertyString": "+20-30 to all Attributes",
                 "Index": 6
             },
             {
-                "PropertyString": "+1% better chance of getting magic item (Per Character Level)",
+                "PropertyString": "+1% Chance Items Roll Magic or Better (Per Character Level)",
                 "Index": 5
             },
             {
-                "PropertyString": "+11 To Required Level",
+                "PropertyString": "+11 to Required Level",
                 "Index": 0
             }
         ],
@@ -17678,7 +17678,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+220-320% Enhanced Damage",
+                "PropertyString": "+220-320% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -17773,7 +17773,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+260-300% bonus to Attack Rating",
+                "PropertyString": "+260-300% Bonus to Attack Rating",
                 "Index": 2
             },
             {
@@ -17781,7 +17781,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 50-280 to Lightning Damage",
+                "PropertyString": "Adds 50-280 to Weapon Lightning Damage",
                 "Index": 1
             },
             {
@@ -17789,7 +17789,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Hit blinds target +1",
+                "PropertyString": "Hit Blinds Target +1",
                 "Index": 0
             },
             {
@@ -17801,11 +17801,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+8 Replenish Life",
+                "PropertyString": "Replenish Life +8",
                 "Index": 5
             },
             {
-                "PropertyString": "+1.88% extra gold from monsters (Per Character Level)",
+                "PropertyString": "+1.88% Extra Gold from Monsters (Per Character Level)",
                 "Index": 6
             }
         ],
@@ -17881,11 +17881,11 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+25 to All Attributes",
+                "PropertyString": "+25 to all Attributes",
                 "Index": 3
             },
             {
-                "PropertyString": "All Resistances +20%",
+                "PropertyString": "+20% to All Resistances",
                 "Index": 4
             },
             {
@@ -17987,11 +17987,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+100 to Minimum Damage",
+                "PropertyString": "+100 to Minimum Weapon Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "+2.5 to Maximum Damage (Per Character Level)",
+                "PropertyString": "+2.5 to Maximum Weapon Damage (Per Character Level)",
                 "Index": 2
             },
             {
@@ -17999,11 +17999,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Hit blinds target +1",
+                "PropertyString": "Hit Blinds Target +1",
                 "Index": 0
             },
             {
-                "PropertyString": "25% Hit Causes Monster To Flee",
+                "PropertyString": "25% %+d% Hits Cause Monsters to Flee",
                 "Index": 0
             },
             {
@@ -18023,11 +18023,11 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+10 To Required Level",
+                "PropertyString": "+10 to Required Level",
                 "Index": 0
             },
             {
-                "PropertyString": "Ethereal (Cannot Be Repaired)",
+                "PropertyString": "Ethereal (Cannot be Repaired)",
                 "Index": 3
             }
         ],
@@ -18085,11 +18085,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+60-100 to Minimum Damage",
+                "PropertyString": "+60-100 to Minimum Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+150-200 to Maximum Damage",
+                "PropertyString": "+150-200 to Maximum Weapon Damage",
                 "Index": 1
             },
             {
@@ -18101,7 +18101,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 to All Attributes",
+                "PropertyString": "+20 to all Attributes",
                 "Index": 6
             }
         ],
@@ -18177,7 +18177,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+25 to All Attributes",
+                "PropertyString": "+25 to all Attributes",
                 "Index": 5
             },
             {
@@ -18193,7 +18193,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+7 To Required Level",
+                "PropertyString": "+7 to Required Level",
                 "Index": 0
             }
         ],
@@ -18240,7 +18240,7 @@
                 "Class": ""
             }
         ],
-        "Name": "Rain Reimagined",
+        "Name": "Rain Reimagined (Removed)",
         "Index": "Rain Reimagined",
         "Enabled": true,
         "Rarity": 0,
@@ -18329,7 +18329,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Slows target by 20%",
+                "PropertyString": "Slows Target by 20%",
                 "Index": 5
             },
             {
@@ -18345,11 +18345,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1.5% better chance of getting magic item (Per Character Level)",
+                "PropertyString": "+1.5% Chance Items Roll Magic or Better (Per Character Level)",
                 "Index": 2
             },
             {
-                "PropertyString": "+12 To Required Level",
+                "PropertyString": "+12 to Required Level",
                 "Index": 1
             }
         ],
@@ -18443,7 +18443,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+350-400% Enhanced Damage",
+                "PropertyString": "+350-400% Enhanced Weapon Damage",
                 "Index": 4
             },
             {
@@ -18463,11 +18463,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+7% Mana stolen per hit",
+                "PropertyString": "7% Mana stolen per hit",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 12-15% Life stolen per hit",
+                "PropertyString": "12-15% Life stolen per hit",
                 "Index": 2
             },
             {
@@ -18475,7 +18475,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+30 to All Attributes",
+                "PropertyString": "+30 to all Attributes",
                 "Index": 5
             },
             {
@@ -18483,7 +18483,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements -20%",
+                "PropertyString": "Requirements Reduced By -20%",
                 "Index": 0
             }
         ],
@@ -18547,23 +18547,23 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 75-150 to Damage",
+                "PropertyString": "Adds 75-150 Weapon Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "+7% Mana stolen per hit",
+                "PropertyString": "7% Mana stolen per hit",
                 "Index": 0
             },
             {
-                "PropertyString": "+7% Life stolen per hit",
+                "PropertyString": "7% Life stolen per hit",
                 "Index": 0
             },
             {
-                "PropertyString": "+20-30 to All Attributes",
+                "PropertyString": "+20-30 to all Attributes",
                 "Index": 1
             },
             {
-                "PropertyString": "All Resistances +20-40%",
+                "PropertyString": "+20-40% to All Resistances",
                 "Index": 3
             },
             {
@@ -18571,7 +18571,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+1% better chance of getting magic item (Per Character Level)",
+                "PropertyString": "+1% Chance Items Roll Magic or Better (Per Character Level)",
                 "Index": 5
             }
         ],
@@ -18665,7 +18665,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "All Resistances +15%",
+                "PropertyString": "+15% to All Resistances",
                 "Index": 0
             },
             {
@@ -18677,7 +18677,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+17 To Required Level",
+                "PropertyString": "+17 to Required Level",
                 "Index": 0
             }
         ],
@@ -18783,11 +18783,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+300-360% Enhanced Damage",
+                "PropertyString": "+300-360% Enhanced Weapon Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "+9 to Maximum Damage",
+                "PropertyString": "+9 to Maximum Weapon Damage",
                 "Index": 0
             },
             {
@@ -18803,15 +18803,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +25%",
+                "PropertyString": "+25% to All Resistances",
                 "Index": 6
             },
             {
-                "PropertyString": "+30% better chance of getting magic item",
+                "PropertyString": "+30% Chance Items Roll Magic or Better",
                 "Index": 0
             },
             {
-                "PropertyString": "+10 To Required Level",
+                "PropertyString": "+10 to Required Level",
                 "Index": 0
             }
         ],
@@ -18895,11 +18895,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+5 to Maximum Poison Resist",
+                "PropertyString": "+5% to Maximum Poison Resistance",
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +30-50%",
+                "PropertyString": "+30-50% to All Resistances",
                 "Index": 3
             },
             {
@@ -19025,19 +19025,19 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Regenerate Mana +15-30%",
+                "PropertyString": "+15-30% Mana Regeneration",
                 "Index": 6
             },
             {
-                "PropertyString": "All Resistances +60-70%",
+                "PropertyString": "+60-70% to All Resistances",
                 "Index": 4
             },
             {
-                "PropertyString": "+75% extra gold from monsters",
+                "PropertyString": "+75% Extra Gold from Monsters",
                 "Index": 0
             },
             {
-                "PropertyString": "+30% better chance of getting magic item",
+                "PropertyString": "+30% Chance Items Roll Magic or Better",
                 "Index": 0
             }
         ],
@@ -19123,7 +19123,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+55% Increased Chance of Blocking",
+                "PropertyString": "55% Increased Chance of Blocking",
                 "Index": 0
             },
             {
@@ -19135,7 +19135,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "All Resistances +30-50%",
+                "PropertyString": "+30-50% to All Resistances",
                 "Index": 3
             },
             {
@@ -19143,7 +19143,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+25% better chance of getting magic item",
+                "PropertyString": "+25% Chance Items Roll Magic or Better",
                 "Index": 0
             }
         ],
@@ -19225,7 +19225,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+4 to random Sorceress Skill",
+                "PropertyString": "+4 Random Sorceress Skill",
                 "Index": 6
             },
             {
@@ -19329,7 +19329,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Adds 35-140 to Damage",
+                "PropertyString": "Adds 35-140 Weapon Damage",
                 "Index": 1
             },
             {
@@ -19337,15 +19337,15 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+150-300% better chance of getting magic item",
+                "PropertyString": "+150-300% Chance Items Roll Magic or Better",
                 "Index": 4
             },
             {
-                "PropertyString": "Requirements -80%",
+                "PropertyString": "Requirements Reduced By -80%",
                 "Index": 3
             },
             {
-                "PropertyString": "+20 To Required Level",
+                "PropertyString": "+20 to Required Level",
                 "Index": 5
             },
             {
@@ -19353,7 +19353,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+30% better chance of getting magic item (Weapon)",
+                "PropertyString": "+30% Chance Items Roll Magic or Better (Weapon)",
                 "Index": 0
             },
             {
@@ -19365,7 +19365,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements -20% (Weapon)",
+                "PropertyString": "Requirements Reduced By -20% (Weapon)",
                 "Index": 0
             },
             {
@@ -19377,7 +19377,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+25% better chance of getting magic item (Armor)",
+                "PropertyString": "+25% Chance Items Roll Magic or Better (Armor)",
                 "Index": 0
             },
             {
@@ -19385,7 +19385,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements -15% (Armor)",
+                "PropertyString": "Requirements Reduced By -15% (Armor)",
                 "Index": 0
             },
             {
@@ -19397,7 +19397,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+25% better chance of getting magic item (Shield)",
+                "PropertyString": "+25% Chance Items Roll Magic or Better (Shield)",
                 "Index": 0
             },
             {
@@ -19405,7 +19405,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements -15% (Shield)",
+                "PropertyString": "Requirements Reduced By -15% (Shield)",
                 "Index": 0
             }
         ],
