@@ -10,7 +10,7 @@
         "Code": "cm4",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +1",
+                "PropertyString": "Charm Weight: 1",
                 "Index": 2
             },
             {
@@ -137,8 +137,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "1 to 3",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "36-37",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "39",
             "EquipmentType": 0,
             "Name": "Buckler [N]",
             "RequiredStrength": 12,
@@ -241,7 +241,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "17",
+            "ArmorString": "19",
             "EquipmentType": 0,
             "Name": "Cap [N]",
             "RequiredStrength": 0,
@@ -564,7 +564,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "4",
+            "ArmorString": "8-9",
             "EquipmentType": 0,
             "Name": "Preserved Head [N]",
             "RequiredStrength": 12,
@@ -618,7 +618,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "13-15",
+            "ArmorString": "18-21",
             "EquipmentType": 0,
             "Name": "Wolf Head [N]",
             "RequiredStrength": 16,
@@ -945,7 +945,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "13",
+            "ArmorString": "14",
             "EquipmentType": 0,
             "Name": "Leather Gloves [N]",
             "RequiredStrength": 0,
@@ -998,8 +998,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "3 to 8",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "9",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "10",
             "EquipmentType": 0,
             "Name": "Boots [N]",
             "RequiredStrength": 0,
@@ -1102,7 +1102,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "18-28",
+            "ArmorString": "20-30",
             "EquipmentType": 0,
             "Name": "Cap [N]",
             "RequiredStrength": 0,
@@ -1155,8 +1155,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "1 to 3",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "19-34",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "21-36",
             "EquipmentType": 0,
             "Name": "Buckler [N]",
             "RequiredStrength": 12,
@@ -1255,8 +1255,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "2 to 6",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "18-23",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "22-27",
             "EquipmentType": 0,
             "Name": "Targe [N]",
             "RequiredStrength": 16,
@@ -1669,7 +1669,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "28-38",
+            "ArmorString": "31-41",
             "EquipmentType": 0,
             "Name": "Quilted Armor [N]",
             "RequiredStrength": 12,
@@ -1776,7 +1776,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "20-25",
+            "ArmorString": "25-30",
             "EquipmentType": 0,
             "Name": "Jawbone Cap [N]",
             "RequiredStrength": 25,
@@ -1845,7 +1845,7 @@
         "Code": "cm3",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +3",
+                "PropertyString": "Charm Weight: 3",
                 "Index": 4
             },
             {
@@ -1868,7 +1868,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Grand Charm*",
+            "Name": "Grand Charm",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -2038,7 +2038,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "28",
+            "ArmorString": "31",
             "EquipmentType": 0,
             "Name": "Quilted Armor [N]",
             "RequiredStrength": 12,
@@ -2355,8 +2355,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "3 to 8",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "17-27",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "18-28",
             "EquipmentType": 0,
             "Name": "Boots [N]",
             "RequiredStrength": 0,
@@ -2761,7 +2761,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "44-54",
+            "ArmorString": "47-57",
             "EquipmentType": 0,
             "Name": "Leather Armor [N]",
             "RequiredStrength": 15,
@@ -2811,7 +2811,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "23-33",
+            "ArmorString": "25-35",
             "EquipmentType": 0,
             "Name": "Cap [N]",
             "RequiredStrength": 0,
@@ -2864,8 +2864,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "1 to 3",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "24-39",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "26-41",
             "EquipmentType": 0,
             "Name": "Buckler [N]",
             "RequiredStrength": 12,
@@ -2919,7 +2919,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "12-22",
+            "ArmorString": "13-23",
             "EquipmentType": 0,
             "Name": "Leather Gloves [N]",
             "RequiredStrength": 0,
@@ -3084,7 +3084,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "2",
+            "ArmorString": "5",
             "EquipmentType": 0,
             "Name": "Preserved Head [N]",
             "RequiredStrength": 12,
@@ -3137,8 +3137,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "2 to 6",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "28-33",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "32-37",
             "EquipmentType": 0,
             "Name": "Targe [N]",
             "RequiredStrength": 16,
@@ -3192,7 +3192,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "17-23",
+            "ArmorString": "34-43",
             "EquipmentType": 0,
             "Name": "Hawk Helm [N]",
             "RequiredStrength": 20,
@@ -3530,8 +3530,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "2 to 3",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "42-43",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "45-46",
             "EquipmentType": 0,
             "Name": "Small Shield [N]",
             "RequiredStrength": 22,
@@ -3585,7 +3585,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "16-17",
+            "ArmorString": "17-18",
             "EquipmentType": 0,
             "Name": "Heavy Gloves [N]",
             "RequiredStrength": 0,
@@ -3638,8 +3638,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "4 to 10",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "19",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "20-21",
             "EquipmentType": 0,
             "Name": "Heavy Boots [N]",
             "RequiredStrength": 18,
@@ -3925,7 +3925,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "22-33",
+            "ArmorString": "28-39",
             "EquipmentType": 0,
             "Name": "Zombie Head [N]",
             "RequiredStrength": 14,
@@ -4356,7 +4356,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "71-86",
+            "ArmorString": "74-89",
             "EquipmentType": 0,
             "Name": "Hard Leather Armor [N]",
             "RequiredStrength": 20,
@@ -4405,8 +4405,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "3 to 8",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "22-32",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "23-33",
             "EquipmentType": 0,
             "Name": "Boots [N]",
             "RequiredStrength": 0,
@@ -4459,8 +4459,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "2 to 8",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "16-19",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "28-34",
             "EquipmentType": 0,
             "Name": "Rondache [N]",
             "RequiredStrength": 26,
@@ -4486,7 +4486,7 @@
         "Code": "cm4",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +1",
+                "PropertyString": "Charm Weight: 1",
                 "Index": 2
             },
             {
@@ -4675,7 +4675,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "38-58",
+            "ArmorString": "41-61",
             "EquipmentType": 0,
             "Name": "Quilted Armor [N]",
             "RequiredStrength": 12,
@@ -4732,8 +4732,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "2 to 3",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "33-43",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "35-45",
             "EquipmentType": 0,
             "Name": "Small Shield [N]",
             "RequiredStrength": 22,
@@ -4787,7 +4787,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "32-42",
+            "ArmorString": "33-43",
             "EquipmentType": 0,
             "Name": "Leather Gloves [N]",
             "RequiredStrength": 0,
@@ -4898,7 +4898,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "35-55",
+            "ArmorString": "40-60",
             "EquipmentType": 0,
             "Name": "Fanged Helm [N]",
             "RequiredStrength": 35,
@@ -5162,7 +5162,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "39",
+            "ArmorString": "42",
             "EquipmentType": 0,
             "Name": "Leather Armor [N]",
             "RequiredStrength": 15,
@@ -5445,7 +5445,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "84-106",
+            "ArmorString": "89-112",
             "EquipmentType": 0,
             "Name": "Studded Leather [N]",
             "RequiredStrength": 27,
@@ -5503,7 +5503,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "80-105",
+            "ArmorString": "90-115",
             "EquipmentType": 0,
             "Name": "Coronet [N]",
             "RequiredStrength": 0,
@@ -5729,7 +5729,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "29-44",
+            "ArmorString": "33-48",
             "EquipmentType": 0,
             "Name": "Zombie Head [N]",
             "RequiredStrength": 14,
@@ -5790,8 +5790,8 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "DamageString": "5 to 87",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "182",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "225",
             "EquipmentType": 0,
             "Name": "Vortex Shield [E]",
             "RequiredStrength": 148,
@@ -5853,7 +5853,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "19-22",
+            "ArmorString": "28-32",
             "EquipmentType": 0,
             "Name": "Jawbone Cap [N]",
             "RequiredStrength": 25,
@@ -5907,7 +5907,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "18-19",
+            "ArmorString": "24-26",
             "EquipmentType": 0,
             "Name": "Wolf Head [N]",
             "RequiredStrength": 16,
@@ -5980,7 +5980,7 @@
         "Code": "cm1",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +1",
+                "PropertyString": "Charm Weight: 1",
                 "Index": 4
             },
             {
@@ -6003,7 +6003,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Small Charm*",
+            "Name": "Small Charm",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -6225,8 +6225,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "2 to 4",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "49-50",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "52-54",
             "EquipmentType": 0,
             "Name": "Large Shield [N]",
             "RequiredStrength": 34,
@@ -6439,7 +6439,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "59-79",
+            "ArmorString": "62-82",
             "EquipmentType": 0,
             "Name": "Leather Armor [N]",
             "RequiredStrength": 15,
@@ -6489,7 +6489,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "23-33",
+            "ArmorString": "26-36",
             "EquipmentType": 0,
             "Name": "Skull Cap [N]",
             "RequiredStrength": 15,
@@ -6546,8 +6546,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "4 to 10",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "30-40",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "31-41",
             "EquipmentType": 0,
             "Name": "Heavy Boots [N]",
             "RequiredStrength": 18,
@@ -6821,7 +6821,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "25",
+            "ArmorString": "28",
             "EquipmentType": 0,
             "Name": "Helm [N]",
             "RequiredStrength": 26,
@@ -6875,7 +6875,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "51",
+            "ArmorString": "54",
             "EquipmentType": 0,
             "Name": "Hard Leather Armor [N]",
             "RequiredStrength": 20,
@@ -6929,7 +6929,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "78-92",
+            "ArmorString": "83-98",
             "EquipmentType": 0,
             "Name": "Ring Mail [N]",
             "RequiredStrength": 36,
@@ -7203,7 +7203,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "103-138",
+            "ArmorString": "110-147",
             "EquipmentType": 0,
             "Name": "Ring Mail [N]",
             "RequiredStrength": 36,
@@ -7260,8 +7260,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "2 to 3",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "18-19",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "22-24",
             "EquipmentType": 0,
             "Name": "Small Shield [N]",
             "RequiredStrength": 22,
@@ -7319,7 +7319,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "25-30",
+            "ArmorString": "26-31",
             "EquipmentType": 0,
             "Name": "Heavy Gloves [N]",
             "RequiredStrength": 0,
@@ -7377,7 +7377,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "53-63",
+            "ArmorString": "59-69",
             "EquipmentType": 0,
             "Name": "Antlers [N]",
             "RequiredStrength": 24,
@@ -7590,7 +7590,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "8",
+            "ArmorString": "11",
             "EquipmentType": 0,
             "Name": "Skull Cap [N]",
             "RequiredStrength": 15,
@@ -7640,7 +7640,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "104-116",
+            "ArmorString": "109-122",
             "EquipmentType": 0,
             "Name": "Scale Mail [N]",
             "RequiredStrength": 44,
@@ -7689,8 +7689,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "5 to 9",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "30-35",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "43-51",
             "EquipmentType": 0,
             "Name": "Spiked Shield [N]",
             "RequiredStrength": 30,
@@ -7744,7 +7744,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "25-26",
+            "ArmorString": "27-28",
             "EquipmentType": 0,
             "Name": "Chain Gloves [N]",
             "RequiredStrength": 25,
@@ -7793,8 +7793,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "6 to 12",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "23-24",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "25-26",
             "EquipmentType": 0,
             "Name": "Chain Boots [N]",
             "RequiredStrength": 30,
@@ -8060,7 +8060,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "91-106",
+            "ArmorString": "94-109",
             "EquipmentType": 0,
             "Name": "Hard Leather Armor [N]",
             "RequiredStrength": 20,
@@ -8229,7 +8229,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "10-11",
+            "ArmorString": "16-18",
             "EquipmentType": 0,
             "Name": "Unraveller Head [N]",
             "RequiredStrength": 18,
@@ -8286,8 +8286,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "3 to 9",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "49-74",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "67-94",
             "EquipmentType": 0,
             "Name": "Heraldic Shield [N]",
             "RequiredStrength": 40,
@@ -8423,7 +8423,7 @@
         "Code": "cm1",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +1",
+                "PropertyString": "Charm Weight: 1",
                 "Index": 4
             },
             {
@@ -8446,7 +8446,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Small Charm*",
+            "Name": "Small Charm",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -8498,7 +8498,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "57",
+            "ArmorString": "60",
             "EquipmentType": 0,
             "Name": "Studded Leather [N]",
             "RequiredStrength": 27,
@@ -8605,7 +8605,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "130-156",
+            "ArmorString": "137-164",
             "EquipmentType": 0,
             "Name": "Scale Mail [N]",
             "RequiredStrength": 44,
@@ -8659,7 +8659,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "38-48",
+            "ArmorString": "41-51",
             "EquipmentType": 0,
             "Name": "Skull Cap [N]",
             "RequiredStrength": 15,
@@ -8713,7 +8713,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "33-45",
+            "ArmorString": "36-48",
             "EquipmentType": 0,
             "Name": "Helm [N]",
             "RequiredStrength": 26,
@@ -8770,8 +8770,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "2 to 4",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "26-29",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "30-33",
             "EquipmentType": 0,
             "Name": "Large Shield [N]",
             "RequiredStrength": 34,
@@ -8882,7 +8882,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "10-11",
+            "ArmorString": "32-36",
             "EquipmentType": 0,
             "Name": "Hawk Helm [N]",
             "RequiredStrength": 20,
@@ -8924,12 +8924,12 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "343-403",
+            "ArmorString": "395-455",
             "EquipmentType": 0,
             "Name": "Sky Spirit [E]",
             "RequiredStrength": 113,
             "RequiredDexterity": 0,
-            "Durability": 0,
+            "Durability": 20,
             "ItemLevel": 83,
             "Type": {
                 "Name": "Pelt",
@@ -9214,7 +9214,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "41-56",
+            "ArmorString": "45-60",
             "EquipmentType": 0,
             "Name": "Full Helm [N]",
             "RequiredStrength": 41,
@@ -9260,7 +9260,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "127-135",
+            "ArmorString": "133-140",
             "EquipmentType": 0,
             "Name": "Chain Mail [N]",
             "RequiredStrength": 48,
@@ -9321,8 +9321,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "2 to 5",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "47-54",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "50-58",
             "EquipmentType": 0,
             "Name": "Kite Shield [N]",
             "RequiredStrength": 47,
@@ -9600,7 +9600,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "132-147",
+            "ArmorString": "135-150",
             "EquipmentType": 0,
             "Name": "Studded Leather [N]",
             "RequiredStrength": 27,
@@ -9657,8 +9657,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "2 to 8",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "19-22",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "33-38",
             "EquipmentType": 0,
             "Name": "Rondache [N]",
             "RequiredStrength": 26,
@@ -9712,7 +9712,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "39-45",
+            "ArmorString": "46-54",
             "EquipmentType": 0,
             "Name": "Horned Helm [N]",
             "RequiredStrength": 45,
@@ -10055,7 +10055,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "146-219",
+            "ArmorString": "152-228",
             "EquipmentType": 0,
             "Name": "Chain Mail [N]",
             "RequiredStrength": 48,
@@ -10117,7 +10117,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "40-50",
+            "ArmorString": "50-60",
             "EquipmentType": 0,
             "Name": "Circlet [N]",
             "RequiredStrength": 0,
@@ -10178,8 +10178,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "5 to 9",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "63-77",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "84-101",
             "EquipmentType": 0,
             "Name": "Spiked Shield [N]",
             "RequiredStrength": 30,
@@ -10233,7 +10233,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "40-50",
+            "ArmorString": "41-51",
             "EquipmentType": 0,
             "Name": "Heavy Gloves [N]",
             "RequiredStrength": 0,
@@ -10401,7 +10401,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "25-35",
+            "ArmorString": "30-40",
             "EquipmentType": 0,
             "Name": "Fanged Helm [N]",
             "RequiredStrength": 35,
@@ -10721,8 +10721,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "1 to 5",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "71-80",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "76-87",
             "EquipmentType": 0,
             "Name": "Tower Shield [N]",
             "RequiredStrength": 75,
@@ -10955,7 +10955,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "160-175",
+            "ArmorString": "163-178",
             "EquipmentType": 0,
             "Name": "Ring Mail [N]",
             "RequiredStrength": 36,
@@ -11017,7 +11017,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "74-85",
+            "ArmorString": "98-112",
             "EquipmentType": 0,
             "Name": "Coronet [N]",
             "RequiredStrength": 0,
@@ -11070,8 +11070,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "2 to 4",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "23-28",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "27-33",
             "EquipmentType": 0,
             "Name": "Large Shield [N]",
             "RequiredStrength": 34,
@@ -11124,8 +11124,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "6 to 12",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "18-20",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "20-22",
             "EquipmentType": 0,
             "Name": "Chain Boots [N]",
             "RequiredStrength": 30,
@@ -11174,8 +11174,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "60 to 110",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "131-176",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "140-185",
             "EquipmentType": 0,
             "Name": "Scarabshell Boots [E]",
             "RequiredStrength": 91,
@@ -11294,7 +11294,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "12-14",
+            "ArmorString": "19-22",
             "EquipmentType": 0,
             "Name": "Unraveller Head [N]",
             "RequiredStrength": 18,
@@ -11344,7 +11344,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "21-26",
+            "ArmorString": "47-58",
             "EquipmentType": 0,
             "Name": "Falcon Mask [N]",
             "RequiredStrength": 28,
@@ -11626,7 +11626,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "34",
+            "ArmorString": "52",
             "EquipmentType": 0,
             "Name": "Mask [N]",
             "RequiredStrength": 23,
@@ -11676,7 +11676,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "105-132",
+            "ArmorString": "110-138",
             "EquipmentType": 0,
             "Name": "Breast Plate [N]",
             "RequiredStrength": 30,
@@ -11729,8 +11729,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "3 to 6",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "24-25",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "50-53",
             "EquipmentType": 0,
             "Name": "Bone Shield [N]",
             "RequiredStrength": 25,
@@ -12184,7 +12184,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "40-55",
+            "ArmorString": "43-58",
             "EquipmentType": 0,
             "Name": "Helm [N]",
             "RequiredStrength": 26,
@@ -12238,7 +12238,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "43-56",
+            "ArmorString": "46-59",
             "EquipmentType": 0,
             "Name": "Full Helm [N]",
             "RequiredStrength": 41,
@@ -12292,7 +12292,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "48-58",
+            "ArmorString": "49-59",
             "EquipmentType": 0,
             "Name": "Chain Gloves [N]",
             "RequiredStrength": 25,
@@ -12419,7 +12419,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "17-19",
+            "ArmorString": "26-29",
             "EquipmentType": 0,
             "Name": "Gargoyle Head [N]",
             "RequiredStrength": 20,
@@ -12480,8 +12480,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "4 to 10",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "51-62",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "70-85",
             "EquipmentType": 0,
             "Name": "Aerin Shield [N]",
             "RequiredStrength": 50,
@@ -12611,7 +12611,7 @@
         "Code": "cm4",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +1",
+                "PropertyString": "Charm Weight: 1",
                 "Index": 2
             },
             {
@@ -12849,7 +12849,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "33",
+            "ArmorString": "36",
             "EquipmentType": 0,
             "Name": "Bone Helm [N]",
             "RequiredStrength": 25,
@@ -13147,7 +13147,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "187-207",
+            "ArmorString": "190-210",
             "EquipmentType": 0,
             "Name": "Scale Mail [N]",
             "RequiredStrength": 44,
@@ -13197,7 +13197,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "145-165",
+            "ArmorString": "151-172",
             "EquipmentType": 0,
             "Name": "Breast Plate [N]",
             "RequiredStrength": 30,
@@ -13258,8 +13258,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "2 to 5",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "36-40",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "40-45",
             "EquipmentType": 0,
             "Name": "Kite Shield [N]",
             "RequiredStrength": 47,
@@ -13375,7 +13375,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "39-43",
+            "ArmorString": "52-57",
             "EquipmentType": 0,
             "Name": "Antlers [N]",
             "RequiredStrength": 24,
@@ -13531,7 +13531,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "154-163",
+            "ArmorString": "163-172",
             "EquipmentType": 0,
             "Name": "Splint Mail [N]",
             "RequiredStrength": 51,
@@ -13584,8 +13584,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "8 to 16",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "30-31",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "33-34",
             "EquipmentType": 0,
             "Name": "Light Plated Boots [N]",
             "RequiredStrength": 50,
@@ -14131,7 +14131,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "190-240",
+            "ArmorString": "195-245",
             "EquipmentType": 0,
             "Name": "Splint Mail [N]",
             "RequiredStrength": 51,
@@ -14188,8 +14188,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "5 to 9",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "32-36",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "52-58",
             "EquipmentType": 0,
             "Name": "Spiked Shield [N]",
             "RequiredStrength": 30,
@@ -14300,7 +14300,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "252-303",
+            "ArmorString": "367-441",
             "EquipmentType": 0,
             "Name": "Succubus Skull [E]",
             "RequiredStrength": 95,
@@ -14357,8 +14357,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "3 to 9",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "29-34",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "47-54",
             "EquipmentType": 0,
             "Name": "Heraldic Shield [N]",
             "RequiredStrength": 40,
@@ -14416,7 +14416,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "55-80",
+            "ArmorString": "60-85",
             "EquipmentType": 0,
             "Name": "Assault Helmet [N]",
             "RequiredStrength": 55,
@@ -14649,7 +14649,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "22-23",
+            "ArmorString": "24-25",
             "EquipmentType": 0,
             "Name": "Light Gauntlets [N]",
             "RequiredStrength": 45,
@@ -15183,7 +15183,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "227-247",
+            "ArmorString": "230-250",
             "EquipmentType": 0,
             "Name": "Chain Mail [N]",
             "RequiredStrength": 48,
@@ -15237,7 +15237,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "53-63",
+            "ArmorString": "56-66",
             "EquipmentType": 0,
             "Name": "Full Helm [N]",
             "RequiredStrength": 41,
@@ -15291,7 +15291,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "18-22",
+            "ArmorString": "50-61",
             "EquipmentType": 0,
             "Name": "Mask [N]",
             "RequiredStrength": 23,
@@ -15344,8 +15344,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "6 to 12",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "38-48",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "39-49",
             "EquipmentType": 0,
             "Name": "Chain Boots [N]",
             "RequiredStrength": 30,
@@ -15464,7 +15464,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "49-57",
+            "ArmorString": "58-68",
             "EquipmentType": 0,
             "Name": "Horned Helm [N]",
             "RequiredStrength": 45,
@@ -16102,7 +16102,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "58-68",
+            "ArmorString": "61-71",
             "EquipmentType": 0,
             "Name": "Bone Helm [N]",
             "RequiredStrength": 25,
@@ -16159,8 +16159,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "3 to 6",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "22-24",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "62-69",
             "EquipmentType": 0,
             "Name": "Bone Shield [N]",
             "RequiredStrength": 25,
@@ -16205,8 +16205,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "2 to 5",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "37-40",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "41-45",
             "EquipmentType": 0,
             "Name": "Kite Shield [N]",
             "RequiredStrength": 47,
@@ -16329,7 +16329,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "19-23",
+            "ArmorString": "30-35",
             "EquipmentType": 0,
             "Name": "Gargoyle Head [N]",
             "RequiredStrength": 20,
@@ -16383,7 +16383,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "27-30",
+            "ArmorString": "62-68",
             "EquipmentType": 0,
             "Name": "Falcon Mask [N]",
             "RequiredStrength": 28,
@@ -16517,7 +16517,7 @@
         "Code": "cm2",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +2",
+                "PropertyString": "Charm Weight: 2",
                 "Index": 4
             },
             {
@@ -16540,7 +16540,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Large Charm*",
+            "Name": "Large Charm",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -16808,7 +16808,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "55",
+            "ArmorString": "64",
             "EquipmentType": 0,
             "Name": "Great Helm [N]",
             "RequiredStrength": 63,
@@ -17475,7 +17475,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "245-265",
+            "ArmorString": "248-268",
             "EquipmentType": 0,
             "Name": "Breast Plate [N]",
             "RequiredStrength": 30,
@@ -17529,7 +17529,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "245-272",
+            "ArmorString": "263-292",
             "EquipmentType": 0,
             "Name": "Plate Mail [N]",
             "RequiredStrength": 65,
@@ -17587,7 +17587,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "42-46",
+            "ArmorString": "62-68",
             "EquipmentType": 0,
             "Name": "Circlet [N]",
             "RequiredStrength": 0,
@@ -17636,8 +17636,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "1 to 5",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "62-92",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "65-95",
             "EquipmentType": 0,
             "Name": "Tower Shield [N]",
             "RequiredStrength": 75,
@@ -17691,7 +17691,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "18-19",
+            "ArmorString": "20-21",
             "EquipmentType": 0,
             "Name": "Chain Gloves [N]",
             "RequiredStrength": 25,
@@ -17867,8 +17867,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "4 to 12",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "105-150",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "115-160",
             "EquipmentType": 0,
             "Name": "Crown Shield [N]",
             "RequiredStrength": 65,
@@ -17926,7 +17926,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "41-48",
+            "ArmorString": "64-75",
             "EquipmentType": 0,
             "Name": "Spirit Mask [N]",
             "RequiredStrength": 30,
@@ -18296,7 +18296,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "218-239",
+            "ArmorString": "234-257",
             "EquipmentType": 0,
             "Name": "Plate Mail [N]",
             "RequiredStrength": 65,
@@ -18349,8 +18349,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "2 to 6",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "102",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "112",
             "EquipmentType": 0,
             "Name": "Gothic Shield [N]",
             "RequiredStrength": 60,
@@ -18750,7 +18750,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "295-310",
+            "ArmorString": "300-315",
             "EquipmentType": 0,
             "Name": "Splint Mail [N]",
             "RequiredStrength": 51,
@@ -18796,7 +18796,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "357-408",
+            "ArmorString": "371-424",
             "EquipmentType": 0,
             "Name": "Field Plate [N]",
             "RequiredStrength": 55,
@@ -18850,7 +18850,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "283-387",
+            "ArmorString": "299-408",
             "EquipmentType": 0,
             "Name": "Gothic Plate [N]",
             "RequiredStrength": 70,
@@ -18900,7 +18900,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "308-358",
+            "ArmorString": "322-372",
             "EquipmentType": 0,
             "Name": "Linked Mail [X]",
             "RequiredStrength": 74,
@@ -18957,8 +18957,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "8 to 16",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "21-24",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "25-28",
             "EquipmentType": 0,
             "Name": "Light Plated Boots [N]",
             "RequiredStrength": 50,
@@ -19150,7 +19150,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "25-28",
+            "ArmorString": "33-37",
             "EquipmentType": 0,
             "Name": "Demon Head [N]",
             "RequiredStrength": 25,
@@ -19204,7 +19204,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "72-86",
+            "ArmorString": "102-122",
             "EquipmentType": 0,
             "Name": "Avenger Guard [N]",
             "RequiredStrength": 65,
@@ -19914,7 +19914,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "73-83",
+            "ArmorString": "76-86",
             "EquipmentType": 0,
             "Name": "Bone Helm [N]",
             "RequiredStrength": 25,
@@ -19972,7 +19972,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "22-24",
+            "ArmorString": "26-28",
             "EquipmentType": 0,
             "Name": "Light Gauntlets [N]",
             "RequiredStrength": 45,
@@ -20147,8 +20147,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "4 to 10",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "66-76",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "76-86",
             "EquipmentType": 0,
             "Name": "Aerin Shield [N]",
             "RequiredStrength": 50,
@@ -20206,7 +20206,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "62-69",
+            "ArmorString": "72-81",
             "EquipmentType": 0,
             "Name": "Assault Helmet [N]",
             "RequiredStrength": 55,
@@ -20661,7 +20661,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "204-234",
+            "ArmorString": "212-243",
             "EquipmentType": 0,
             "Name": "Field Plate [N]",
             "RequiredStrength": 55,
@@ -20711,7 +20711,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "332-377",
+            "ArmorString": "356-405",
             "EquipmentType": 0,
             "Name": "Full Plate Mail [N]",
             "RequiredStrength": 80,
@@ -20757,7 +20757,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "438-481",
+            "ArmorString": "468-514",
             "EquipmentType": 0,
             "Name": "Ancient Armor [N]",
             "RequiredStrength": 100,
@@ -20933,7 +20933,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "92",
+            "ArmorString": "108",
             "EquipmentType": 0,
             "Name": "War Hat [X]",
             "RequiredStrength": 20,
@@ -20983,7 +20983,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "257",
+            "ArmorString": "295",
             "EquipmentType": 0,
             "Name": "Ghost Armor [X]",
             "RequiredStrength": 38,
@@ -21032,8 +21032,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "8 to 12",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "84-105",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "100-125",
             "EquipmentType": 0,
             "Name": "Defender [X]",
             "RequiredStrength": 38,
@@ -21445,7 +21445,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "333-358",
+            "ArmorString": "341-366",
             "EquipmentType": 0,
             "Name": "Plate Mail [N]",
             "RequiredStrength": 65,
@@ -21503,7 +21503,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "302-453",
+            "ArmorString": "324-486",
             "EquipmentType": 0,
             "Name": "Full Plate Mail [N]",
             "RequiredStrength": 80,
@@ -21565,7 +21565,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "62-70",
+            "ArmorString": "67-75",
             "EquipmentType": 0,
             "Name": "Great Helm [N]",
             "RequiredStrength": 63,
@@ -21623,7 +21623,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "59-74",
+            "ArmorString": "77-92",
             "EquipmentType": 0,
             "Name": "Mask [N]",
             "RequiredStrength": 23,
@@ -21680,8 +21680,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "3 to 6",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "35-60",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "55-80",
             "EquipmentType": 0,
             "Name": "Bone Shield [N]",
             "RequiredStrength": 25,
@@ -22247,7 +22247,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "73-81",
+            "ArmorString": "99-113",
             "EquipmentType": 0,
             "Name": "Crown [N]",
             "RequiredStrength": 55,
@@ -22293,7 +22293,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "328",
+            "ArmorString": "335",
             "EquipmentType": 0,
             "Name": "Gothic Plate [N]",
             "RequiredStrength": 70,
@@ -22347,7 +22347,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "182",
+            "ArmorString": "216",
             "EquipmentType": 0,
             "Name": "Light Plate [N]",
             "RequiredStrength": 41,
@@ -22397,7 +22397,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "44-45",
+            "ArmorString": "47-49",
             "EquipmentType": 0,
             "Name": "Gauntlets [N]",
             "RequiredStrength": 60,
@@ -22454,8 +22454,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "10 to 20",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "55-58",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "60-63",
             "EquipmentType": 0,
             "Name": "Greaves [N]",
             "RequiredStrength": 70,
@@ -22513,7 +22513,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "46-48",
+            "ArmorString": "51-54",
             "EquipmentType": 0,
             "Name": "Plated Belt [N]",
             "RequiredStrength": 60,
@@ -22606,7 +22606,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "246",
+            "ArmorString": "279",
             "EquipmentType": 0,
             "Name": "Serpentskin Armor [X]",
             "RequiredStrength": 43,
@@ -22664,7 +22664,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "81-100",
+            "ArmorString": "97-118",
             "EquipmentType": 0,
             "Name": "Demonhide Gloves [X]",
             "RequiredStrength": 20,
@@ -22729,8 +22729,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "26 to 46",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "78-87",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "94-105",
             "EquipmentType": 0,
             "Name": "Demonhide Boots [X]",
             "RequiredStrength": 20,
@@ -22780,7 +22780,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "90-99",
+            "ArmorString": "102-113",
             "EquipmentType": 0,
             "Name": "Demonhide Sash [X]",
             "RequiredStrength": 20,
@@ -23623,7 +23623,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "361-401",
+            "ArmorString": "365-405",
             "EquipmentType": 0,
             "Name": "Field Plate [N]",
             "RequiredStrength": 55,
@@ -23684,8 +23684,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "1 to 5",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "50-57",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "57-65",
             "EquipmentType": 0,
             "Name": "Tower Shield [N]",
             "RequiredStrength": 75,
@@ -23750,8 +23750,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "2 to 6",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "69-77",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "81-90",
             "EquipmentType": 0,
             "Name": "Gothic Shield [N]",
             "RequiredStrength": 60,
@@ -23874,7 +23874,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "74-81",
+            "ArmorString": "93-102",
             "EquipmentType": 0,
             "Name": "Mummified Trophy [X]",
             "RequiredStrength": 38,
@@ -23932,7 +23932,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "132-148",
+            "ArmorString": "157-176",
             "EquipmentType": 0,
             "Name": "Alpha Helm [X]",
             "RequiredStrength": 44,
@@ -24519,7 +24519,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "428-478",
+            "ArmorString": "435-485",
             "EquipmentType": 0,
             "Name": "Gothic Plate [N]",
             "RequiredStrength": 70,
@@ -24573,7 +24573,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "547-657",
+            "ArmorString": "585-702",
             "EquipmentType": 0,
             "Name": "Ancient Armor [N]",
             "RequiredStrength": 100,
@@ -24627,7 +24627,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "290-340",
+            "ArmorString": "307-357",
             "EquipmentType": 0,
             "Name": "Light Plate [N]",
             "RequiredStrength": 41,
@@ -24685,7 +24685,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "70-80",
+            "ArmorString": "75-85",
             "EquipmentType": 0,
             "Name": "Great Helm [N]",
             "RequiredStrength": 63,
@@ -24743,7 +24743,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "70-80",
+            "ArmorString": "90-100",
             "EquipmentType": 0,
             "Name": "Crown [N]",
             "RequiredStrength": 55,
@@ -24797,7 +24797,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "115-190",
+            "ArmorString": "125-200",
             "EquipmentType": 0,
             "Name": "Tiara [X]",
             "RequiredStrength": 0,
@@ -24859,7 +24859,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "54-64",
+            "ArmorString": "56-66",
             "EquipmentType": 0,
             "Name": "Light Gauntlets [N]",
             "RequiredStrength": 45,
@@ -24916,8 +24916,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "8 to 16",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "44-54",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "46-56",
             "EquipmentType": 0,
             "Name": "Light Plated Boots [N]",
             "RequiredStrength": 50,
@@ -25037,7 +25037,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "20-22",
+            "ArmorString": "27-30",
             "EquipmentType": 0,
             "Name": "Plated Belt [N]",
             "RequiredStrength": 60,
@@ -25099,7 +25099,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "60-75",
+            "ArmorString": "65-80",
             "EquipmentType": 0,
             "Name": "Demon Head [N]",
             "RequiredStrength": 25,
@@ -25156,8 +25156,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "12 to 16",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "204-244",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "252-302",
             "EquipmentType": 0,
             "Name": "Akaran Targe [X]",
             "RequiredStrength": 44,
@@ -25215,7 +25215,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "112-140",
+            "ArmorString": "138-172",
             "EquipmentType": 0,
             "Name": "Jawbone Visor [X]",
             "RequiredStrength": 58,
@@ -25273,7 +25273,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "50-55",
+            "ArmorString": "79-86",
             "EquipmentType": 0,
             "Name": "Spirit Mask [N]",
             "RequiredStrength": 30,
@@ -25415,7 +25415,7 @@
         "Code": "cm4",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +1",
+                "PropertyString": "Charm Weight: 1",
                 "Index": 2
             },
             {
@@ -25730,7 +25730,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "137-169",
+            "ArmorString": "163-201",
             "EquipmentType": 0,
             "Name": "Sallet [X]",
             "RequiredStrength": 43,
@@ -25780,7 +25780,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "307-356",
+            "ArmorString": "342-397",
             "EquipmentType": 0,
             "Name": "Demonhide Armor [X]",
             "RequiredStrength": 50,
@@ -25829,8 +25829,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "7 to 14",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "134-153",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "156-179",
             "EquipmentType": 0,
             "Name": "Round Shield [X]",
             "RequiredStrength": 53,
@@ -26188,8 +26188,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "2 to 6",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "62-69",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "72-81",
             "EquipmentType": 0,
             "Name": "Gothic Shield [N]",
             "RequiredStrength": 60,
@@ -26251,7 +26251,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "29-32",
+            "ArmorString": "36-40",
             "EquipmentType": 0,
             "Name": "Gauntlets [N]",
             "RequiredStrength": 60,
@@ -26313,7 +26313,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "72-81",
+            "ArmorString": "102-114",
             "EquipmentType": 0,
             "Name": "Avenger Guard [N]",
             "RequiredStrength": 65,
@@ -26489,7 +26489,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "81-95",
+            "ArmorString": "96-112",
             "EquipmentType": 0,
             "Name": "Sharkskin Gloves [X]",
             "RequiredStrength": 20,
@@ -26546,8 +26546,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "28 to 50",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "95-105",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "112-124",
             "EquipmentType": 0,
             "Name": "Sharkskin Boots [X]",
             "RequiredStrength": 47,
@@ -26601,7 +26601,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "85-95",
+            "ArmorString": "96-107",
             "EquipmentType": 0,
             "Name": "Sharkskin Belt [X]",
             "RequiredStrength": 20,
@@ -27310,7 +27310,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "505-550",
+            "ArmorString": "516-561",
             "EquipmentType": 0,
             "Name": "Full Plate Mail [N]",
             "RequiredStrength": 80,
@@ -27356,7 +27356,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "206-257",
+            "ArmorString": "236-295",
             "EquipmentType": 0,
             "Name": "Ghost Armor [X]",
             "RequiredStrength": 38,
@@ -27422,7 +27422,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "62-75",
+            "ArmorString": "82-95",
             "EquipmentType": 0,
             "Name": "Crown [N]",
             "RequiredStrength": 55,
@@ -27484,7 +27484,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "50-57",
+            "ArmorString": "74-85",
             "EquipmentType": 0,
             "Name": "Circlet [N]",
             "RequiredStrength": 0,
@@ -27538,7 +27538,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "8",
+            "ArmorString": "11",
             "EquipmentType": 0,
             "Name": "Plated Belt [N]",
             "RequiredStrength": 60,
@@ -27709,8 +27709,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "4 to 12",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "54-62",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "71-82",
             "EquipmentType": 0,
             "Name": "Crown Shield [N]",
             "RequiredStrength": 65,
@@ -27866,7 +27866,7 @@
         "Code": "cm3",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +3",
+                "PropertyString": "Charm Weight: 3",
                 "Index": 3
             },
             {
@@ -27885,7 +27885,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Grand Charm*",
+            "Name": "Grand Charm",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -28173,7 +28173,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "208-278",
+            "ArmorString": "231-308",
             "EquipmentType": 0,
             "Name": "Trellised Armor [X]",
             "RequiredStrength": 61,
@@ -28491,7 +28491,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "82-101",
+            "ArmorString": "97-118",
             "EquipmentType": 0,
             "Name": "War Hat [X]",
             "RequiredStrength": 20,
@@ -28549,7 +28549,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "62-72",
+            "ArmorString": "65-75",
             "EquipmentType": 0,
             "Name": "Gauntlets [N]",
             "RequiredStrength": 60,
@@ -28814,7 +28814,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "84-100",
+            "ArmorString": "106-127",
             "EquipmentType": 0,
             "Name": "Fetish Trophy [X]",
             "RequiredStrength": 41,
@@ -28872,7 +28872,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "113-163",
+            "ArmorString": "125-175",
             "EquipmentType": 0,
             "Name": "Lion Helm [X]",
             "RequiredStrength": 73,
@@ -28930,7 +28930,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "94-110",
+            "ArmorString": "138-162",
             "EquipmentType": 0,
             "Name": "Griffon Headdress [X]",
             "RequiredStrength": 50,
@@ -29354,7 +29354,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "618-718",
+            "ArmorString": "633-733",
             "EquipmentType": 0,
             "Name": "Ancient Armor [N]",
             "RequiredStrength": 100,
@@ -29412,7 +29412,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "218-257",
+            "ArmorString": "247-292",
             "EquipmentType": 0,
             "Name": "Serpentskin Armor [X]",
             "RequiredStrength": 43,
@@ -29473,8 +29473,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "8 to 12",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "75-96",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "90-115",
             "EquipmentType": 0,
             "Name": "Defender [X]",
             "RequiredStrength": 38,
@@ -29532,7 +29532,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "58-65",
+            "ArmorString": "72-81",
             "EquipmentType": 0,
             "Name": "Demonhide Gloves [X]",
             "RequiredStrength": 20,
@@ -29582,7 +29582,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "134-184",
+            "ArmorString": "143-193",
             "EquipmentType": 0,
             "Name": "Crusader Gauntlets [E]",
             "RequiredStrength": 151,
@@ -29635,8 +29635,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "10 to 20",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "52-62",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "55-65",
             "EquipmentType": 0,
             "Name": "Greaves [N]",
             "RequiredStrength": 70,
@@ -29693,8 +29693,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "83 to 149",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "141-189",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "162-216",
             "EquipmentType": 0,
             "Name": "Myrmidon Greaves [E]",
             "RequiredStrength": 208,
@@ -29751,8 +29751,8 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "DamageString": "15 to 20",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "113",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "137",
             "EquipmentType": 0,
             "Name": "Akaran Rondache [X]",
             "RequiredStrength": 59,
@@ -29806,7 +29806,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "106-119",
+            "ArmorString": "126-141",
             "EquipmentType": 0,
             "Name": "Alpha Helm [X]",
             "RequiredStrength": 44,
@@ -30153,7 +30153,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "192-217",
+            "ArmorString": "219-248",
             "EquipmentType": 0,
             "Name": "Casque [X]",
             "RequiredStrength": 59,
@@ -30211,7 +30211,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "349-413",
+            "ArmorString": "380-449",
             "EquipmentType": 0,
             "Name": "Linked Mail [X]",
             "RequiredStrength": 74,
@@ -30276,8 +30276,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "11 to 15",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "140-172",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "161-198",
             "EquipmentType": 0,
             "Name": "Scutum [X]",
             "RequiredStrength": 71,
@@ -30330,8 +30330,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "18 to 35",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "100-129",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "134-173",
             "EquipmentType": 0,
             "Name": "Barbed Shield [X]",
             "RequiredStrength": 65,
@@ -31161,8 +31161,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "7 to 14",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "86-110",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "100-128",
             "EquipmentType": 0,
             "Name": "Round Shield [X]",
             "RequiredStrength": 53,
@@ -31215,8 +31215,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "26 to 46",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "78-108",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "85-115",
             "EquipmentType": 0,
             "Name": "Demonhide Boots [X]",
             "RequiredStrength": 20,
@@ -31339,7 +31339,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "81-93",
+            "ArmorString": "102-117",
             "EquipmentType": 0,
             "Name": "Mummified Trophy [X]",
             "RequiredStrength": 38,
@@ -31397,7 +31397,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "155-175",
+            "ArmorString": "168-188",
             "EquipmentType": 0,
             "Name": "Jawbone Visor [X]",
             "RequiredStrength": 58,
@@ -31825,7 +31825,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "95-110",
+            "ArmorString": "112-130",
             "EquipmentType": 0,
             "Name": "Heavy Bracers [X]",
             "RequiredStrength": 58,
@@ -31874,13 +31874,13 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "23 to 52",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "95-110",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "112-130",
             "EquipmentType": 0,
             "Name": "Mesh Boots [X]",
             "RequiredStrength": 65,
             "RequiredDexterity": 0,
-            "Durability": 66,
+            "Durability": 16,
             "ItemLevel": 43,
             "Type": {
                 "Name": "Boots",
@@ -31929,7 +31929,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "79-90",
+            "ArmorString": "90-102",
             "EquipmentType": 0,
             "Name": "Mesh Belt [X]",
             "RequiredStrength": 58,
@@ -32300,7 +32300,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "390-490",
+            "ArmorString": "407-507",
             "EquipmentType": 0,
             "Name": "Light Plate [N]",
             "RequiredStrength": 41,
@@ -32362,7 +32362,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "246-307",
+            "ArmorString": "274-342",
             "EquipmentType": 0,
             "Name": "Demonhide Armor [X]",
             "RequiredStrength": 50,
@@ -32420,7 +32420,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "92-103",
+            "ArmorString": "108-121",
             "EquipmentType": 0,
             "Name": "War Hat [X]",
             "RequiredStrength": 20,
@@ -32474,7 +32474,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "106-119",
+            "ArmorString": "126-141",
             "EquipmentType": 0,
             "Name": "Sallet [X]",
             "RequiredStrength": 43,
@@ -32528,7 +32528,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "125-142",
+            "ArmorString": "145-165",
             "EquipmentType": 0,
             "Name": "Vampirebone Gloves [E]",
             "RequiredStrength": 50,
@@ -32586,7 +32586,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "60-75",
+            "ArmorString": "70-87",
             "EquipmentType": 0,
             "Name": "Demonhide Sash [X]",
             "RequiredStrength": 20,
@@ -32701,7 +32701,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "90-112",
+            "ArmorString": "112-140",
             "EquipmentType": 0,
             "Name": "Sexton Trophy [X]",
             "RequiredStrength": 47,
@@ -32759,7 +32759,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "177-197",
+            "ArmorString": "204-227",
             "EquipmentType": 0,
             "Name": "Rage Mask [X]",
             "RequiredStrength": 88,
@@ -33053,7 +33053,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "442-495",
+            "ArmorString": "477-534",
             "EquipmentType": 0,
             "Name": "Tigulated Mail [X]",
             "RequiredStrength": 86,
@@ -33496,8 +33496,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "8 to 12",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "111-141",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "119-149",
             "EquipmentType": 0,
             "Name": "Defender [X]",
             "RequiredStrength": 38,
@@ -33555,7 +33555,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "58-65",
+            "ArmorString": "72-81",
             "EquipmentType": 0,
             "Name": "Demonhide Gloves [X]",
             "RequiredStrength": 20,
@@ -33612,13 +33612,13 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "69 to 118",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "150-180",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "170-204",
             "EquipmentType": 0,
             "Name": "Boneweave Boots [E]",
             "RequiredStrength": 118,
             "RequiredDexterity": 0,
-            "Durability": 0,
+            "Durability": 16,
             "ItemLevel": 72,
             "Type": {
                 "Name": "Boots",
@@ -33663,7 +33663,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "67-83",
+            "ArmorString": "77-96",
             "EquipmentType": 0,
             "Name": "Sharkskin Belt [X]",
             "RequiredStrength": 20,
@@ -33724,8 +33724,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "12 to 16",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "224-255",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "277-315",
             "EquipmentType": 0,
             "Name": "Akaran Targe [X]",
             "RequiredStrength": 44,
@@ -33783,7 +33783,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "173-193",
+            "ArmorString": "209-233",
             "EquipmentType": 0,
             "Name": "Hunter's Guise [X]",
             "RequiredStrength": 56,
@@ -34028,7 +34028,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "75",
+            "ArmorString": "84",
             "EquipmentType": 0,
             "Name": "Basinet [X]",
             "RequiredStrength": 82,
@@ -34074,7 +34074,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "557-636",
+            "ArmorString": "599-684",
             "EquipmentType": 0,
             "Name": "Mesh Armor [X]",
             "RequiredStrength": 92,
@@ -34135,8 +34135,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "15 to 24",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "144-180",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "163-204",
             "EquipmentType": 0,
             "Name": "Dragon Shield [X]",
             "RequiredStrength": 91,
@@ -34702,7 +34702,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "491-597",
+            "ArmorString": "523-635",
             "EquipmentType": 0,
             "Name": "Trellised Armor [X]",
             "RequiredStrength": 61,
@@ -34759,8 +34759,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "28 to 50",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "74-88",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "88-104",
             "EquipmentType": 0,
             "Name": "Sharkskin Boots [X]",
             "RequiredStrength": 47,
@@ -34822,7 +34822,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "121-146",
+            "ArmorString": "143-168",
             "EquipmentType": 0,
             "Name": "Griffon Headdress [X]",
             "RequiredStrength": 50,
@@ -35117,7 +35117,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Jewel*",
+            "Name": "Jewel",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -35974,7 +35974,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "134-150",
+            "ArmorString": "153-171",
             "EquipmentType": 0,
             "Name": "Casque [X]",
             "RequiredStrength": 59,
@@ -36032,7 +36032,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "62-72",
+            "ArmorString": "82-96",
             "EquipmentType": 0,
             "Name": "Coronet [N]",
             "RequiredStrength": 0,
@@ -36093,8 +36093,8 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "DamageString": "7 to 14",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "47",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "55",
             "EquipmentType": 0,
             "Name": "Round Shield [X]",
             "RequiredStrength": 53,
@@ -36155,8 +36155,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "11 to 15",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "97-124",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "111-142",
             "EquipmentType": 0,
             "Name": "Scutum [X]",
             "RequiredStrength": 71,
@@ -36214,7 +36214,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "96-128",
+            "ArmorString": "110-144",
             "EquipmentType": 0,
             "Name": "Sharkskin Gloves [X]",
             "RequiredStrength": 20,
@@ -36268,7 +36268,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "60-66",
+            "ArmorString": "70-77",
             "EquipmentType": 0,
             "Name": "Demonhide Sash [X]",
             "RequiredStrength": 20,
@@ -36468,7 +36468,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "116-166",
+            "ArmorString": "127-177",
             "EquipmentType": 0,
             "Name": "Fetish Trophy [X]",
             "RequiredStrength": 41,
@@ -36525,8 +36525,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "18 to 24",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "260-325",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "308-385",
             "EquipmentType": 0,
             "Name": "Protector Shield [X]",
             "RequiredStrength": 69,
@@ -36580,7 +36580,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "85",
+            "ArmorString": "98",
             "EquipmentType": 0,
             "Name": "Savage Helmet [X]",
             "RequiredStrength": 103,
@@ -36947,7 +36947,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "95-116",
+            "ArmorString": "113-138",
             "EquipmentType": 0,
             "Name": "Sallet [X]",
             "RequiredStrength": 43,
@@ -37008,8 +37008,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "26 to 46",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "55-69",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "68-86",
             "EquipmentType": 0,
             "Name": "Demonhide Boots [X]",
             "RequiredStrength": 20,
@@ -37063,7 +37063,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "81-95",
+            "ArmorString": "92-108",
             "EquipmentType": 0,
             "Name": "Mesh Belt [X]",
             "RequiredStrength": 58,
@@ -37251,7 +37251,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "112-137",
+            "ArmorString": "143-175",
             "EquipmentType": 0,
             "Name": "Cantor Trophy [X]",
             "RequiredStrength": 50,
@@ -37313,7 +37313,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "134-150",
+            "ArmorString": "159-178",
             "EquipmentType": 0,
             "Name": "Lion Helm [X]",
             "RequiredStrength": 73,
@@ -37375,7 +37375,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "132-147",
+            "ArmorString": "198-220",
             "EquipmentType": 0,
             "Name": "Sacred Feathers [X]",
             "RequiredStrength": 62,
@@ -37466,7 +37466,7 @@
         "Code": "cm4",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +1",
+                "PropertyString": "Charm Weight: 1",
                 "Index": 2
             },
             {
@@ -38001,7 +38001,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "154-176",
+            "ArmorString": "243-278",
             "EquipmentType": 0,
             "Name": "Death Mask [X]",
             "RequiredStrength": 55,
@@ -38055,7 +38055,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "122",
+            "ArmorString": "252",
             "EquipmentType": 0,
             "Name": "Grim Helm [X]",
             "RequiredStrength": 58,
@@ -38121,7 +38121,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "491-567",
+            "ArmorString": "527-609",
             "EquipmentType": 0,
             "Name": "Cuirass [X]",
             "RequiredStrength": 65,
@@ -38178,8 +38178,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "14 to 20",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "91-117",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "271-347",
             "EquipmentType": 0,
             "Name": "Grim Shield [X]",
             "RequiredStrength": 58,
@@ -38428,7 +38428,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "195-231",
+            "ArmorString": "224-265",
             "EquipmentType": 0,
             "Name": "Ghost Armor [X]",
             "RequiredStrength": 38,
@@ -38490,7 +38490,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "373-453",
+            "ArmorString": "406-493",
             "EquipmentType": 0,
             "Name": "Linked Mail [X]",
             "RequiredStrength": 74,
@@ -38547,8 +38547,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "18 to 35",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "106-135",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "142-181",
             "EquipmentType": 0,
             "Name": "Barbed Shield [X]",
             "RequiredStrength": 65,
@@ -38606,7 +38606,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "31",
+            "ArmorString": "36",
             "EquipmentType": 0,
             "Name": "Sharkskin Belt [X]",
             "RequiredStrength": 20,
@@ -38732,8 +38732,8 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "DamageString": "15 to 20",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "113",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "137",
             "EquipmentType": 0,
             "Name": "Akaran Rondache [X]",
             "RequiredStrength": 59,
@@ -39181,7 +39181,7 @@
             "Name": "Bill [X]",
             "RequiredStrength": 95,
             "RequiredDexterity": 0,
-            "Durability": 0,
+            "Durability": 250,
             "ItemLevel": 37,
             "Type": {
                 "Name": "Polearm",
@@ -39283,12 +39283,12 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "587-678",
+            "ArmorString": "634-732",
             "EquipmentType": 0,
             "Name": "Russet Armor [X]",
             "RequiredStrength": 97,
             "RequiredDexterity": 0,
-            "Durability": 150,
+            "Durability": 90,
             "ItemLevel": 49,
             "Type": {
                 "Name": "Armor",
@@ -39337,7 +39337,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "100-120",
+            "ArmorString": "120-144",
             "EquipmentType": 0,
             "Name": "Battle Gauntlets [X]",
             "RequiredStrength": 88,
@@ -39394,13 +39394,13 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "37 to 64",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "100-116",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "120-139",
             "EquipmentType": 0,
             "Name": "Battle Boots [X]",
             "RequiredStrength": 95,
             "RequiredDexterity": 0,
-            "Durability": 60,
+            "Durability": 48,
             "ItemLevel": 49,
             "Type": {
                 "Name": "Boots",
@@ -39457,7 +39457,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "87-102",
+            "ArmorString": "98-116",
             "EquipmentType": 0,
             "Name": "Battle Belt [X]",
             "RequiredStrength": 88,
@@ -39523,7 +39523,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "235-282",
+            "ArmorString": "302-363",
             "EquipmentType": 0,
             "Name": "Slayer Guard [X]",
             "RequiredStrength": 118,
@@ -39589,7 +39589,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "147-177",
+            "ArmorString": "177-213",
             "EquipmentType": 0,
             "Name": "Hierophant Trophy [X]",
             "RequiredStrength": 58,
@@ -39938,8 +39938,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "20 to 28",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "362-435",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "422-507",
             "EquipmentType": 0,
             "Name": "Gilded Shield [X]",
             "RequiredStrength": 89,
@@ -40074,7 +40074,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "185-222",
+            "ArmorString": "247-297",
             "EquipmentType": 0,
             "Name": "Totemic Mask [X]",
             "RequiredStrength": 65,
@@ -40262,7 +40262,7 @@
             "Name": "Bill [X]",
             "RequiredStrength": 95,
             "RequiredDexterity": 0,
-            "Durability": 0,
+            "Durability": 250,
             "ItemLevel": 37,
             "Type": {
                 "Name": "Polearm",
@@ -40571,7 +40571,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "235-291",
+            "ArmorString": "266-330",
             "EquipmentType": 0,
             "Name": "Serpentskin Armor [X]",
             "RequiredStrength": 43,
@@ -40628,8 +40628,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "11 to 15",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "118-135",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "136-155",
             "EquipmentType": 0,
             "Name": "Scutum [X]",
             "RequiredStrength": 71,
@@ -41325,7 +41325,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "270-332",
+            "ArmorString": "301-369",
             "EquipmentType": 0,
             "Name": "Demonhide Armor [X]",
             "RequiredStrength": 50,
@@ -41387,7 +41387,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "115-140",
+            "ArmorString": "131-160",
             "EquipmentType": 0,
             "Name": "Casque [X]",
             "RequiredStrength": 59,
@@ -41445,7 +41445,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "167-182",
+            "ArmorString": "187-204",
             "EquipmentType": 0,
             "Name": "Basinet [X]",
             "RequiredStrength": 82,
@@ -41499,7 +41499,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "74-81",
+            "ArmorString": "88-96",
             "EquipmentType": 0,
             "Name": "Sharkskin Gloves [X]",
             "RequiredStrength": 20,
@@ -41552,8 +41552,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "4 to 10",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "30-40",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "31-41",
             "EquipmentType": 0,
             "Name": "Heavy Boots [N]",
             "RequiredStrength": 18,
@@ -41610,13 +41610,13 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "23 to 52",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "85-100",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "101-119",
             "EquipmentType": 0,
             "Name": "Mesh Boots [X]",
             "RequiredStrength": 65,
             "RequiredDexterity": 0,
-            "Durability": 66,
+            "Durability": 16,
             "ItemLevel": 43,
             "Type": {
                 "Name": "Boots",
@@ -41734,7 +41734,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "44",
+            "ArmorString": "55",
             "EquipmentType": 0,
             "Name": "Sexton Trophy [X]",
             "RequiredStrength": 47,
@@ -41796,7 +41796,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "197-213",
+            "ArmorString": "227-245",
             "EquipmentType": 0,
             "Name": "Rage Mask [X]",
             "RequiredStrength": 88,
@@ -41854,7 +41854,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "149-170",
+            "ArmorString": "180-205",
             "EquipmentType": 0,
             "Name": "Hunter's Guise [X]",
             "RequiredStrength": 56,
@@ -41904,7 +41904,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "330-440",
+            "ArmorString": "480-640",
             "EquipmentType": 0,
             "Name": "Dream Spirit [E]",
             "RequiredStrength": 118,
@@ -42010,7 +42010,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Jewel*",
+            "Name": "Jewel",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -42176,7 +42176,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "215-258",
+            "ArmorString": "247-297",
             "EquipmentType": 0,
             "Name": "Winged Helm [X]",
             "RequiredStrength": 115,
@@ -42229,8 +42229,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "10 to 17",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "193-234",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "221-268",
             "EquipmentType": 0,
             "Name": "Pavise [X]",
             "RequiredStrength": 133,
@@ -42715,7 +42715,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "319-389",
+            "ArmorString": "354-431",
             "EquipmentType": 0,
             "Name": "Trellised Armor [X]",
             "RequiredStrength": 61,
@@ -42773,7 +42773,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "497-597",
+            "ArmorString": "535-642",
             "EquipmentType": 0,
             "Name": "Mesh Armor [X]",
             "RequiredStrength": 92,
@@ -42831,7 +42831,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "129-140",
+            "ArmorString": "204-221",
             "EquipmentType": 0,
             "Name": "Death Mask [X]",
             "RequiredStrength": 55,
@@ -42892,8 +42892,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "15 to 24",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "108-138",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "122-156",
             "EquipmentType": 0,
             "Name": "Dragon Shield [X]",
             "RequiredStrength": 91,
@@ -42951,7 +42951,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "112-162",
+            "ArmorString": "119-169",
             "EquipmentType": 0,
             "Name": "Heavy Bracers [X]",
             "RequiredStrength": 58,
@@ -43387,7 +43387,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "708-759",
+            "ArmorString": "770-825",
             "EquipmentType": 0,
             "Name": "Templar Coat [X]",
             "RequiredStrength": 118,
@@ -44168,8 +44168,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "14 to 20",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "91-117",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "271-347",
             "EquipmentType": 0,
             "Name": "Grim Shield [X]",
             "RequiredStrength": 58,
@@ -44226,8 +44226,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "28 to 50",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "96-125",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "109-140",
             "EquipmentType": 0,
             "Name": "Sharkskin Boots [X]",
             "RequiredStrength": 47,
@@ -44285,7 +44285,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "82-93",
+            "ArmorString": "94-106",
             "EquipmentType": 0,
             "Name": "Mesh Belt [X]",
             "RequiredStrength": 58,
@@ -44342,8 +44342,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "18 to 24",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "321-388",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "373-450",
             "EquipmentType": 0,
             "Name": "Protector Shield [X]",
             "RequiredStrength": 69,
@@ -45050,7 +45050,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "136-167",
+            "ArmorString": "153-187",
             "EquipmentType": 0,
             "Name": "Basinet [X]",
             "RequiredStrength": 82,
@@ -45112,7 +45112,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "146-161",
+            "ArmorString": "302-333",
             "EquipmentType": 0,
             "Name": "Grim Helm [X]",
             "RequiredStrength": 58,
@@ -45169,8 +45169,8 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "DamageString": "18 to 35",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "58",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "78",
             "EquipmentType": 0,
             "Name": "Barbed Shield [X]",
             "RequiredStrength": 65,
@@ -45231,8 +45231,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "10 to 20",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "29-32",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "36-40",
             "EquipmentType": 0,
             "Name": "Greaves [N]",
             "RequiredStrength": 70,
@@ -45290,7 +45290,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "116-151",
+            "ArmorString": "125-161",
             "EquipmentType": 0,
             "Name": "Battle Belt [X]",
             "RequiredStrength": 88,
@@ -45347,8 +45347,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "24 to 32",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "256-306",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "281-331",
             "EquipmentType": 0,
             "Name": "Royal Shield [X]",
             "RequiredStrength": 114,
@@ -45406,7 +45406,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "215-258",
+            "ArmorString": "247-297",
             "EquipmentType": 0,
             "Name": "Savage Helmet [X]",
             "RequiredStrength": 103,
@@ -45464,7 +45464,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "153-171",
+            "ArmorString": "228-255",
             "EquipmentType": 0,
             "Name": "Sacred Feathers [X]",
             "RequiredStrength": 62,
@@ -45579,7 +45579,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "110-132",
+            "ArmorString": "135-162",
             "EquipmentType": 0,
             "Name": "War Gauntlets [X]",
             "RequiredStrength": 110,
@@ -45632,8 +45632,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "39 to 80",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "114-132",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "140-162",
             "EquipmentType": 0,
             "Name": "War Boots [X]",
             "RequiredStrength": 125,
@@ -45699,7 +45699,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "109-126",
+            "ArmorString": "137-159",
             "EquipmentType": 0,
             "Name": "War Belt [X]",
             "RequiredStrength": 110,
@@ -46137,7 +46137,7 @@
             "Name": "Bill [X]",
             "RequiredStrength": 95,
             "RequiredDexterity": 0,
-            "Durability": 0,
+            "Durability": 250,
             "ItemLevel": 37,
             "Type": {
                 "Name": "Polearm",
@@ -46450,7 +46450,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "424-513",
+            "ArmorString": "458-553",
             "EquipmentType": 0,
             "Name": "Tigulated Mail [X]",
             "RequiredStrength": 86,
@@ -46504,7 +46504,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "491-585",
+            "ArmorString": "527-629",
             "EquipmentType": 0,
             "Name": "Cuirass [X]",
             "RequiredStrength": 65,
@@ -46570,7 +46570,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "112-137",
+            "ArmorString": "143-175",
             "EquipmentType": 0,
             "Name": "Cantor Trophy [X]",
             "RequiredStrength": 50,
@@ -46762,7 +46762,7 @@
             "Name": "Executioner Sword [X]",
             "RequiredStrength": 170,
             "RequiredDexterity": 110,
-            "Durability": 0,
+            "Durability": 250,
             "ItemLevel": 54,
             "Type": {
                 "Name": "Sword",
@@ -46811,7 +46811,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "671-837",
+            "ArmorString": "713-888",
             "EquipmentType": 0,
             "Name": "Sharktooth Armor [X]",
             "RequiredStrength": 103,
@@ -47251,7 +47251,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "99-121",
+            "ArmorString": "156-191",
             "EquipmentType": 0,
             "Name": "Death Mask [X]",
             "RequiredStrength": 55,
@@ -47308,8 +47308,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "15 to 24",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "134-159",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "142-167",
             "EquipmentType": 0,
             "Name": "Dragon Shield [X]",
             "RequiredStrength": 91,
@@ -47370,8 +47370,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "14 to 20",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "102-114",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "302-339",
             "EquipmentType": 0,
             "Name": "Grim Shield [X]",
             "RequiredStrength": 58,
@@ -47425,7 +47425,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "91-98",
+            "ArmorString": "108-117",
             "EquipmentType": 0,
             "Name": "Heavy Bracers [X]",
             "RequiredStrength": 58,
@@ -47482,13 +47482,13 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "23 to 52",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "87-102",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "103-121",
             "EquipmentType": 0,
             "Name": "Mesh Boots [X]",
             "RequiredStrength": 65,
             "RequiredDexterity": 0,
-            "Durability": 66,
+            "Durability": 16,
             "ItemLevel": 43,
             "Type": {
                 "Name": "Boots",
@@ -47541,7 +47541,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "37",
+            "ArmorString": "42",
             "EquipmentType": 0,
             "Name": "Battle Belt [X]",
             "RequiredStrength": 88,
@@ -47697,7 +47697,7 @@
         "Code": "cm1",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +1",
+                "PropertyString": "Charm Weight: 1",
                 "Index": 4
             },
             {
@@ -47720,7 +47720,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Small Charm*",
+            "Name": "Small Charm",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -47837,7 +47837,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "205-237",
+            "ArmorString": "296-342",
             "EquipmentType": 0,
             "Name": "Grand Crown [X]",
             "RequiredStrength": 103,
@@ -47882,7 +47882,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Jewel*",
+            "Name": "Jewel",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -47925,7 +47925,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Jewel*",
+            "Name": "Jewel",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -47968,7 +47968,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Jewel*",
+            "Name": "Jewel",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -48011,7 +48011,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Jewel*",
+            "Name": "Jewel",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -48054,7 +48054,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Jewel*",
+            "Name": "Jewel",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -48097,7 +48097,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Jewel*",
+            "Name": "Jewel",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -48140,7 +48140,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Jewel*",
+            "Name": "Jewel",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -48183,7 +48183,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Jewel*",
+            "Name": "Jewel",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -49048,7 +49048,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "447-497",
+            "ArmorString": "481-535",
             "EquipmentType": 0,
             "Name": "Mesh Armor [X]",
             "RequiredStrength": 92,
@@ -49110,7 +49110,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "109-134",
+            "ArmorString": "226-277",
             "EquipmentType": 0,
             "Name": "Grim Helm [X]",
             "RequiredStrength": 58,
@@ -49175,8 +49175,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "10 to 17",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "124-158",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "142-181",
             "EquipmentType": 0,
             "Name": "Pavise [X]",
             "RequiredStrength": 133,
@@ -49307,7 +49307,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "220-268",
+            "ArmorString": "322-392",
             "EquipmentType": 0,
             "Name": "Minion Skull [E]",
             "RequiredStrength": 77,
@@ -49417,7 +49417,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Jewel*",
+            "Name": "Jewel",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -49472,8 +49472,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "12 to 16",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "210-243",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "244-282",
             "EquipmentType": 0,
             "Name": "Ancient Shield [X]",
             "RequiredStrength": 110,
@@ -50265,12 +50265,12 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "610-723",
+            "ArmorString": "658-780",
             "EquipmentType": 0,
             "Name": "Russet Armor [X]",
             "RequiredStrength": 97,
             "RequiredDexterity": 0,
-            "Durability": 120,
+            "Durability": 60,
             "ItemLevel": 49,
             "Type": {
                 "Name": "Armor",
@@ -50323,7 +50323,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "163-197",
+            "ArmorString": "188-227",
             "EquipmentType": 0,
             "Name": "Winged Helm [X]",
             "RequiredStrength": 115,
@@ -50381,7 +50381,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "92-104",
+            "ArmorString": "110-124",
             "EquipmentType": 0,
             "Name": "Battle Gauntlets [X]",
             "RequiredStrength": 88,
@@ -50439,7 +50439,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "98-115",
+            "ArmorString": "124-145",
             "EquipmentType": 0,
             "Name": "War Belt [X]",
             "RequiredStrength": 110,
@@ -50764,8 +50764,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "20 to 28",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "326-398",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "380-464",
             "EquipmentType": 0,
             "Name": "Gilded Shield [X]",
             "RequiredStrength": 89,
@@ -50827,7 +50827,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "177-202",
+            "ArmorString": "222-247",
             "EquipmentType": 0,
             "Name": "Carnage Helm [E]",
             "RequiredStrength": 106,
@@ -50893,7 +50893,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "199-222",
+            "ArmorString": "267-297",
             "EquipmentType": 0,
             "Name": "Totemic Mask [X]",
             "RequiredStrength": 65,
@@ -51031,7 +51031,7 @@
         "Code": "cm4",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +1",
+                "PropertyString": "Charm Weight: 1",
                 "Index": 2
             },
             {
@@ -51102,7 +51102,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "622-735",
+            "ArmorString": "668-790",
             "EquipmentType": 0,
             "Name": "Embossed Plate [X]",
             "RequiredStrength": 125,
@@ -51160,7 +51160,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "542-587",
+            "ArmorString": "628-681",
             "EquipmentType": 0,
             "Name": "Mage Plate [X]",
             "RequiredStrength": 55,
@@ -51214,7 +51214,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "56",
+            "ArmorString": "63",
             "EquipmentType": 0,
             "Name": "Vampirefang Belt [E]",
             "RequiredStrength": 50,
@@ -51642,7 +51642,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "425-472",
+            "ArmorString": "456-507",
             "EquipmentType": 0,
             "Name": "Cuirass [X]",
             "RequiredStrength": 65,
@@ -51773,7 +51773,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "243-283",
+            "ArmorString": "270-310",
             "EquipmentType": 0,
             "Name": "Slayer Guard [X]",
             "RequiredStrength": 118,
@@ -52148,7 +52148,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "607-670",
+            "ArmorString": "660-728",
             "EquipmentType": 0,
             "Name": "Templar Coat [X]",
             "RequiredStrength": 118,
@@ -52209,8 +52209,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "26 to 40",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "347-447",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "363-463",
             "EquipmentType": 0,
             "Name": "Blade Barrier [E]",
             "RequiredStrength": 118,
@@ -52276,7 +52276,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "193-228",
+            "ArmorString": "205-240",
             "EquipmentType": 0,
             "Name": "Hierophant Trophy [X]",
             "RequiredStrength": 58,
@@ -52395,7 +52395,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "758-948",
+            "ArmorString": "823-1029",
             "EquipmentType": 0,
             "Name": "Chaos Armor [X]",
             "RequiredStrength": 140,
@@ -53087,7 +53087,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "154-189",
+            "ArmorString": "178-217",
             "EquipmentType": 0,
             "Name": "Winged Helm [X]",
             "RequiredStrength": 115,
@@ -53137,7 +53137,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "181-197",
+            "ArmorString": "262-285",
             "EquipmentType": 0,
             "Name": "Grand Crown [X]",
             "RequiredStrength": 103,
@@ -53198,8 +53198,8 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "DamageString": "10 to 17",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "68",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "78",
             "EquipmentType": 0,
             "Name": "Pavise [X]",
             "RequiredStrength": 133,
@@ -53264,8 +53264,8 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "DamageString": "16 to 30",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "95",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "110",
             "EquipmentType": 0,
             "Name": "Heater [E]",
             "RequiredStrength": 77,
@@ -54038,7 +54038,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "90-100",
+            "ArmorString": "108-120",
             "EquipmentType": 0,
             "Name": "Battle Gauntlets [X]",
             "RequiredStrength": 88,
@@ -54096,7 +54096,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "105-117",
+            "ArmorString": "132-148",
             "EquipmentType": 0,
             "Name": "War Belt [X]",
             "RequiredStrength": 110,
@@ -54157,8 +54157,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "24 to 32",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "353-471",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "409-546",
             "EquipmentType": 0,
             "Name": "Royal Shield [X]",
             "RequiredStrength": 114,
@@ -54285,7 +54285,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "1045-1170",
+            "ArmorString": "1127-1262",
             "EquipmentType": 0,
             "Name": "Ornate Plate [X]",
             "RequiredStrength": 170,
@@ -54311,7 +54311,7 @@
         "Code": "cm3",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +3",
+                "PropertyString": "Charm Weight: 3",
                 "Index": 3
             },
             {
@@ -54330,7 +54330,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Grand Charm*",
+            "Name": "Grand Charm",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -54882,12 +54882,12 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "508-565",
+            "ArmorString": "549-610",
             "EquipmentType": 0,
             "Name": "Russet Armor [X]",
             "RequiredStrength": 97,
             "RequiredDexterity": 0,
-            "Durability": 90,
+            "Durability": 30,
             "ItemLevel": 49,
             "Type": {
                 "Name": "Armor",
@@ -54940,7 +54940,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "607-668",
+            "ArmorString": "647-712",
             "EquipmentType": 0,
             "Name": "Sharktooth Armor [X]",
             "RequiredStrength": 103,
@@ -54982,7 +54982,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "198-223",
+            "ArmorString": "241-266",
             "EquipmentType": 0,
             "Name": "Shako [E]",
             "RequiredStrength": 50,
@@ -55039,8 +55039,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "12 to 16",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "194-218",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "225-253",
             "EquipmentType": 0,
             "Name": "Ancient Shield [X]",
             "RequiredStrength": 110,
@@ -55098,7 +55098,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "66-77",
+            "ArmorString": "81-94",
             "EquipmentType": 0,
             "Name": "War Gauntlets [X]",
             "RequiredStrength": 110,
@@ -55159,8 +55159,8 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "DamageString": "39 to 80",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "43",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "53",
             "EquipmentType": 0,
             "Name": "War Boots [X]",
             "RequiredStrength": 125,
@@ -55222,7 +55222,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "240-288",
+            "ArmorString": "350-420",
             "EquipmentType": 0,
             "Name": "Minion Skull [E]",
             "RequiredStrength": 77,
@@ -55283,8 +55283,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "22 to 70",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "251-351",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "283-383",
             "EquipmentType": 0,
             "Name": "Sacred Targe [E]",
             "RequiredStrength": 86,
@@ -55375,7 +55375,7 @@
         "Code": "cm2",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +2",
+                "PropertyString": "Charm Weight: 2",
                 "Index": 4
             },
             {
@@ -55398,7 +55398,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Large Charm*",
+            "Name": "Large Charm",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -55519,7 +55519,7 @@
             "Name": "Executioner Sword [X]",
             "RequiredStrength": 170,
             "RequiredDexterity": 110,
-            "Durability": 0,
+            "Durability": 250,
             "ItemLevel": 54,
             "Type": {
                 "Name": "Sword",
@@ -55816,7 +55816,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "582-782",
+            "ArmorString": "603-803",
             "EquipmentType": 0,
             "Name": "Embossed Plate [X]",
             "RequiredStrength": 125,
@@ -55878,7 +55878,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "142-173",
+            "ArmorString": "205-250",
             "EquipmentType": 0,
             "Name": "Grand Crown [X]",
             "RequiredStrength": 103,
@@ -55935,13 +55935,13 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "37 to 64",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "90-104",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "108-124",
             "EquipmentType": 0,
             "Name": "Battle Boots [X]",
             "RequiredStrength": 95,
             "RequiredDexterity": 0,
-            "Durability": 30,
+            "Durability": 18,
             "ItemLevel": 49,
             "Type": {
                 "Name": "Boots",
@@ -55993,8 +55993,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "65 to 100",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "110-137",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "126-157",
             "EquipmentType": 0,
             "Name": "Wyrmhide Boots [E]",
             "RequiredStrength": 50,
@@ -56089,7 +56089,7 @@
         "Code": "cm3",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +3",
+                "PropertyString": "Charm Weight: 3",
                 "Index": 4
             },
             {
@@ -56112,7 +56112,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Grand Charm*",
+            "Name": "Grand Charm",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -56477,7 +56477,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "708-834",
+            "ArmorString": "770-907",
             "EquipmentType": 0,
             "Name": "Templar Coat [X]",
             "RequiredStrength": 118,
@@ -56535,7 +56535,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "486-548",
+            "ArmorString": "525-592",
             "EquipmentType": 0,
             "Name": "Tigulated Mail [X]",
             "RequiredStrength": 86,
@@ -56589,7 +56589,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "638-730",
+            "ArmorString": "824-942",
             "EquipmentType": 0,
             "Name": "Wyrmhide [E]",
             "RequiredStrength": 84,
@@ -56639,7 +56639,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "96-110",
+            "ArmorString": "110-126",
             "EquipmentType": 0,
             "Name": "Bramble Mitts [E]",
             "RequiredStrength": 50,
@@ -56705,7 +56705,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "252-291",
+            "ArmorString": "369-426",
             "EquipmentType": 0,
             "Name": "Hellspawn Skull [E]",
             "RequiredStrength": 82,
@@ -56767,7 +56767,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "257-309",
+            "ArmorString": "370-444",
             "EquipmentType": 0,
             "Name": "Carnage Helm [E]",
             "RequiredStrength": 106,
@@ -57197,7 +57197,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "1170-1316",
+            "ArmorString": "1262-1420",
             "EquipmentType": 0,
             "Name": "Ornate Plate [X]",
             "RequiredStrength": 170,
@@ -57247,7 +57247,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "181-221",
+            "ArmorString": "225-265",
             "EquipmentType": 0,
             "Name": "Hydraskull [E]",
             "RequiredStrength": 84,
@@ -57304,8 +57304,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "16 to 30",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "240-288",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "277-333",
             "EquipmentType": 0,
             "Name": "Heater [E]",
             "RequiredStrength": 77,
@@ -57346,7 +57346,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Jewel*",
+            "Name": "Jewel",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -57385,7 +57385,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Jewel*",
+            "Name": "Jewel",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -57432,7 +57432,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Jewel*",
+            "Name": "Jewel",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -57471,7 +57471,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Jewel*",
+            "Name": "Jewel",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -57852,7 +57852,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "427-477",
+            "ArmorString": "443-493",
             "EquipmentType": 0,
             "Name": "Sharktooth Armor [X]",
             "RequiredStrength": 103,
@@ -57914,7 +57914,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "644-734",
+            "ArmorString": "746-851",
             "EquipmentType": 0,
             "Name": "Mage Plate [X]",
             "RequiredStrength": 55,
@@ -57975,8 +57975,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "12 to 16",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "145-186",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "169-216",
             "EquipmentType": 0,
             "Name": "Ancient Shield [X]",
             "RequiredStrength": 110,
@@ -58034,7 +58034,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "247-297",
+            "ArmorString": "370-444",
             "EquipmentType": 0,
             "Name": "Sun Spirit [E]",
             "RequiredStrength": 95,
@@ -58974,7 +58974,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "820-962",
+            "ArmorString": "881-1033",
             "EquipmentType": 0,
             "Name": "Embossed Plate [X]",
             "RequiredStrength": 125,
@@ -59036,7 +59036,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "669-869",
+            "ArmorString": "774-974",
             "EquipmentType": 0,
             "Name": "Scarab Husk [E]",
             "RequiredStrength": 95,
@@ -59090,7 +59090,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "143-193",
+            "ArmorString": "153-203",
             "EquipmentType": 0,
             "Name": "War Gauntlets [X]",
             "RequiredStrength": 110,
@@ -59151,8 +59151,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "39 to 80",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "143-183",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "153-193",
             "EquipmentType": 0,
             "Name": "War Boots [X]",
             "RequiredStrength": 125,
@@ -59206,7 +59206,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "155-205",
+            "ArmorString": "162-212",
             "EquipmentType": 0,
             "Name": "Spiderweb Sash [E]",
             "RequiredStrength": 50,
@@ -59423,7 +59423,7 @@
         "Code": "cm2",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +2",
+                "PropertyString": "Charm Weight: 2",
                 "Index": 4
             },
             {
@@ -59446,7 +59446,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Large Charm*",
+            "Name": "Large Charm",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -59470,7 +59470,7 @@
         "Code": "cm4",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +1",
+                "PropertyString": "Charm Weight: 1",
                 "Index": 2
             },
             {
@@ -59540,8 +59540,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "17 to 29",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "283-327",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "322-372",
             "EquipmentType": 0,
             "Name": "Luna [E]",
             "RequiredStrength": 100,
@@ -59709,7 +59709,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "246-291",
+            "ArmorString": "345-408",
             "EquipmentType": 0,
             "Name": "Destroyer Helm [E]",
             "RequiredStrength": 151,
@@ -60157,7 +60157,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "474-553",
+            "ArmorString": "514-600",
             "EquipmentType": 0,
             "Name": "Chaos Armor [X]",
             "RequiredStrength": 140,
@@ -60223,7 +60223,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "98",
+            "ArmorString": "141",
             "EquipmentType": 0,
             "Name": "Shako [E]",
             "RequiredStrength": 50,
@@ -60269,7 +60269,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "212-243",
+            "ArmorString": "300-345",
             "EquipmentType": 0,
             "Name": "Armet [E]",
             "RequiredStrength": 109,
@@ -60518,7 +60518,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "1358-1567",
+            "ArmorString": "1465-1691",
             "EquipmentType": 0,
             "Name": "Ornate Plate [X]",
             "RequiredStrength": 170,
@@ -60633,7 +60633,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "234-244",
+            "ArmorString": "335-350",
             "EquipmentType": 0,
             "Name": "Blood Spirit [E]",
             "RequiredStrength": 86,
@@ -60683,7 +60683,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "112-141",
+            "ArmorString": "125-158",
             "EquipmentType": 0,
             "Name": "Mithril Coil [E]",
             "RequiredStrength": 106,
@@ -60798,7 +60798,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "739-995",
+            "ArmorString": "793-1058",
             "EquipmentType": 0,
             "Name": "Mage Plate [X]",
             "RequiredStrength": 55,
@@ -60860,7 +60860,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "246-296",
+            "ArmorString": "291-341",
             "EquipmentType": 0,
             "Name": "Hellspawn Skull [E]",
             "RequiredStrength": 82,
@@ -61089,7 +61089,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "249-291",
+            "ArmorString": "357-417",
             "EquipmentType": 0,
             "Name": "Bloodlord Skull [E]",
             "RequiredStrength": 106,
@@ -61150,8 +61150,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "60 to 110",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "136-153",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "158-178",
             "EquipmentType": 0,
             "Name": "Scarabshell Boots [E]",
             "RequiredStrength": 91,
@@ -61575,7 +61575,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "123-137",
+            "ArmorString": "141-157",
             "EquipmentType": 0,
             "Name": "Bramble Mitts [E]",
             "RequiredStrength": 50,
@@ -61629,7 +61629,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "125-142",
+            "ArmorString": "140-160",
             "EquipmentType": 0,
             "Name": "Vampirefang Belt [E]",
             "RequiredStrength": 50,
@@ -61807,7 +61807,7 @@
             "Name": "Devil Star [E]",
             "RequiredStrength": 153,
             "RequiredDexterity": 44,
-            "Durability": 100,
+            "Durability": 350,
             "ItemLevel": 70,
             "Type": {
                 "Name": "Mace",
@@ -62070,7 +62070,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "1228-1404",
+            "ArmorString": "1514-1722",
             "EquipmentType": 0,
             "Name": "Kraken Shell [E]",
             "RequiredStrength": 174,
@@ -62173,7 +62173,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "350-420",
+            "ArmorString": "407-477",
             "EquipmentType": 0,
             "Name": "Bone Visage [E]",
             "RequiredStrength": 106,
@@ -62381,7 +62381,7 @@
             "Name": "Executioner Sword [X]",
             "RequiredStrength": 170,
             "RequiredDexterity": 110,
-            "Durability": 0,
+            "Durability": 250,
             "ItemLevel": 54,
             "Type": {
                 "Name": "Sword",
@@ -62784,7 +62784,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "1086-1357",
+            "ArmorString": "1404-1755",
             "EquipmentType": 0,
             "Name": "Dusk Shroud [E]",
             "RequiredStrength": 77,
@@ -62842,7 +62842,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "768-1152",
+            "ArmorString": "980-1470",
             "EquipmentType": 0,
             "Name": "Diamond Mail [E]",
             "RequiredStrength": 131,
@@ -62895,8 +62895,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "14 to 32",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "240-360",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "272-408",
             "EquipmentType": 0,
             "Name": "Hyperion [E]",
             "RequiredStrength": 156,
@@ -63084,7 +63084,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "258-308",
+            "ArmorString": "307-357",
             "EquipmentType": 0,
             "Name": "Sun Spirit [E]",
             "RequiredStrength": 95,
@@ -63386,7 +63386,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "1296-1430",
+            "ArmorString": "1618-1785",
             "EquipmentType": 0,
             "Name": "Shadow Plate [E]",
             "RequiredStrength": 230,
@@ -63455,13 +63455,13 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "69 to 118",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "162-180",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "183-204",
             "EquipmentType": 0,
             "Name": "Boneweave Boots [E]",
             "RequiredStrength": 118,
             "RequiredDexterity": 0,
-            "Durability": 0,
+            "Durability": 16,
             "ItemLevel": 72,
             "Type": {
                 "Name": "Boots",
@@ -63571,7 +63571,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "310-410",
+            "ArmorString": "354-454",
             "EquipmentType": 0,
             "Name": "Giant Conch [E]",
             "RequiredStrength": 142,
@@ -63629,7 +63629,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "297-396",
+            "ArmorString": "429-572",
             "EquipmentType": 0,
             "Name": "Overseer Skull [E]",
             "RequiredStrength": 91,
@@ -63691,7 +63691,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "305-345",
+            "ArmorString": "350-390",
             "EquipmentType": 0,
             "Name": "Fury Visor [E]",
             "RequiredStrength": 129,
@@ -63853,7 +63853,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "291-313",
+            "ArmorString": "413-443",
             "EquipmentType": 0,
             "Name": "Earth Spirit [E]",
             "RequiredStrength": 104,
@@ -63911,7 +63911,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "218-253",
+            "ArmorString": "304-352",
             "EquipmentType": 0,
             "Name": "Spired Helm [E]",
             "RequiredStrength": 192,
@@ -64270,7 +64270,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "912-1186",
+            "ArmorString": "1177-1530",
             "EquipmentType": 0,
             "Name": "Wyrmhide [E]",
             "RequiredStrength": 84,
@@ -64324,7 +64324,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "782-977",
+            "ArmorString": "994-1242",
             "EquipmentType": 0,
             "Name": "Loricated Mail [E]",
             "RequiredStrength": 149,
@@ -64385,8 +64385,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "17 to 29",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "218-272",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "248-310",
             "EquipmentType": 0,
             "Name": "Luna [E]",
             "RequiredStrength": 100,
@@ -64447,8 +64447,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "65 to 100",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "110-123",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "126-141",
             "EquipmentType": 0,
             "Name": "Wyrmhide Boots [E]",
             "RequiredStrength": 50,
@@ -64493,7 +64493,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Jewel*",
+            "Name": "Jewel",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -64775,7 +64775,7 @@
             "Name": "Ogre Maul [E]",
             "RequiredStrength": 225,
             "RequiredDexterity": 0,
-            "Durability": 0,
+            "Durability": 250,
             "ItemLevel": 69,
             "Type": {
                 "Name": "Hammer",
@@ -64884,13 +64884,13 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "11 to 35",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "354-431",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "393-478",
             "EquipmentType": 0,
             "Name": "Ward [E]",
             "RequiredStrength": 185,
             "RequiredDexterity": 0,
-            "Durability": 0,
+            "Durability": 100,
             "ItemLevel": 84,
             "Type": {
                 "Name": "Shield",
@@ -65313,12 +65313,12 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "800-1200",
+            "ArmorString": "1012-1518",
             "EquipmentType": 0,
             "Name": "Boneweave [E]",
             "RequiredStrength": 158,
             "RequiredDexterity": 0,
-            "Durability": 0,
+            "Durability": 45,
             "ItemLevel": 62,
             "Type": {
                 "Name": "Armor",
@@ -65367,7 +65367,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "82-98",
+            "ArmorString": "102-122",
             "EquipmentType": 0,
             "Name": "Tiara [X]",
             "RequiredStrength": 0,
@@ -65497,8 +65497,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "35 to 58",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "347-417",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "412-495",
             "EquipmentType": 0,
             "Name": "Sacred Rondache [E]",
             "RequiredStrength": 109,
@@ -66371,7 +66371,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "962-1110",
+            "ArmorString": "1235-1425",
             "EquipmentType": 0,
             "Name": "Scarab Husk [E]",
             "RequiredStrength": 95,
@@ -66729,8 +66729,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "26 to 40",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "325-370",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "360-410",
             "EquipmentType": 0,
             "Name": "Blade Barrier [E]",
             "RequiredStrength": 118,
@@ -66796,7 +66796,7 @@
             "Name": "Cryptic Sword [E]",
             "RequiredStrength": 99,
             "RequiredDexterity": 109,
-            "Durability": 0,
+            "Durability": 250,
             "ItemLevel": 82,
             "Type": {
                 "Name": "Sword",
@@ -66837,7 +66837,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "232-272",
+            "ArmorString": "241-281",
             "EquipmentType": 0,
             "Name": "Ogre Gauntlets [E]",
             "RequiredStrength": 185,
@@ -67334,7 +67334,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "792-871",
+            "ArmorString": "1004-1104",
             "EquipmentType": 0,
             "Name": "Great Hauberk [E]",
             "RequiredStrength": 118,
@@ -67387,8 +67387,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "14 to 32",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "300-360",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "340-408",
             "EquipmentType": 0,
             "Name": "Hyperion [E]",
             "RequiredStrength": 156,
@@ -67510,8 +67510,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "10 to 82",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "304-354",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "322-372",
             "EquipmentType": 0,
             "Name": "Kurast Shield [E]",
             "RequiredStrength": 124,
@@ -67686,8 +67686,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "83 to 149",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "107-126",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "122-144",
             "EquipmentType": 0,
             "Name": "Myrmidon Greaves [E]",
             "RequiredStrength": 208,
@@ -67977,7 +67977,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "98",
+            "ArmorString": "142",
             "EquipmentType": 0,
             "Name": "Overseer Skull [E]",
             "RequiredStrength": 91,
@@ -68083,7 +68083,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Jewel*",
+            "Name": "Jewel",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -68180,7 +68180,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "222-252",
+            "ArmorString": "323-367",
             "EquipmentType": 0,
             "Name": "Succubus Skull [E]",
             "RequiredStrength": 95,
@@ -68615,8 +68615,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "22 to 70",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "276-326",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "308-358",
             "EquipmentType": 0,
             "Name": "Sacred Targe [E]",
             "RequiredStrength": 86,
@@ -68678,7 +68678,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "282-347",
+            "ArmorString": "327-392",
             "EquipmentType": 0,
             "Name": "Earth Spirit [E]",
             "RequiredStrength": 104,
@@ -68732,7 +68732,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "324",
+            "ArmorString": "396",
             "EquipmentType": 0,
             "Name": "Spired Helm [E]",
             "RequiredStrength": 192,
@@ -68797,8 +68797,8 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "DamageString": "12 to 34",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "133",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "148",
             "EquipmentType": 0,
             "Name": "Monarch [E]",
             "RequiredStrength": 156,
@@ -69287,7 +69287,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "977-1378",
+            "ArmorString": "1210-1696",
             "EquipmentType": 0,
             "Name": "Wire Fleece [E]",
             "RequiredStrength": 111,
@@ -69345,7 +69345,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "960-1152",
+            "ArmorString": "1225-1470",
             "EquipmentType": 0,
             "Name": "Diamond Mail [E]",
             "RequiredStrength": 131,
@@ -69399,7 +69399,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "970-1118",
+            "ArmorString": "1221-1407",
             "EquipmentType": 0,
             "Name": "Hellforge Plate [E]",
             "RequiredStrength": 196,
@@ -69699,12 +69699,12 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "114-132",
+            "ArmorString": "129-149",
             "EquipmentType": 0,
             "Name": "Vambraces [E]",
             "RequiredStrength": 106,
             "RequiredDexterity": 0,
-            "Durability": 0,
+            "Durability": 16,
             "ItemLevel": 69,
             "Type": {
                 "Name": "Gloves",
@@ -69818,12 +69818,12 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "228-260",
+            "ArmorString": "343-390",
             "EquipmentType": 0,
             "Name": "Sky Spirit [E]",
             "RequiredStrength": 113,
             "RequiredDexterity": 0,
-            "Durability": 0,
+            "Durability": 20,
             "ItemLevel": 83,
             "Type": {
                 "Name": "Pelt",
@@ -69872,7 +69872,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "1317-1561",
+            "ArmorString": "1622-1923",
             "EquipmentType": 0,
             "Name": "Sacred Armor [E]",
             "RequiredStrength": 232,
@@ -70170,7 +70170,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "782-1173",
+            "ArmorString": "994-1491",
             "EquipmentType": 0,
             "Name": "Loricated Mail [E]",
             "RequiredStrength": 149,
@@ -70228,7 +70228,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "110",
+            "ArmorString": "154",
             "EquipmentType": 0,
             "Name": "Giant Conch [E]",
             "RequiredStrength": 142,
@@ -70289,8 +70289,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "50 to 145",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "135-156",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "155-179",
             "EquipmentType": 0,
             "Name": "Mirrored Boots [E]",
             "RequiredStrength": 163,
@@ -70356,7 +70356,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "280-336",
+            "ArmorString": "392-471",
             "EquipmentType": 0,
             "Name": "Destroyer Helm [E]",
             "RequiredStrength": 151,
@@ -70589,7 +70589,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "371-381",
+            "ArmorString": "477-487",
             "EquipmentType": 0,
             "Name": "Dusk Shroud [E]",
             "RequiredStrength": 77,
@@ -70615,7 +70615,7 @@
         "Code": "cm1",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +1",
+                "PropertyString": "Charm Weight: 1",
                 "Index": 4
             },
             {
@@ -70638,7 +70638,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Small Charm*",
+            "Name": "Small Charm",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -70689,8 +70689,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "24 to 38",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "478-578",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "493-593",
             "EquipmentType": 0,
             "Name": "Troll Nest [E]",
             "RequiredStrength": 156,
@@ -70716,7 +70716,7 @@
         "Code": "cm2",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +2",
+                "PropertyString": "Charm Weight: 2",
                 "Index": 3
             },
             {
@@ -70735,7 +70735,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Large Charm*",
+            "Name": "Large Charm",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -70974,7 +70974,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "1154-1385",
+            "ArmorString": "1392-1655",
             "EquipmentType": 0,
             "Name": "Lacquered Plate [E]",
             "RequiredStrength": 208,
@@ -71000,7 +71000,7 @@
         "Code": "cm4",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +1",
+                "PropertyString": "Charm Weight: 1",
                 "Index": 2
             },
             {
@@ -71039,7 +71039,7 @@
         "Code": "cm3",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +3",
+                "PropertyString": "Charm Weight: 3",
                 "Index": 2
             },
             {
@@ -71054,7 +71054,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Grand Charm*",
+            "Name": "Grand Charm",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -71078,7 +71078,7 @@
         "Code": "cm3",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +3",
+                "PropertyString": "Charm Weight: 3",
                 "Index": 2
             },
             {
@@ -71093,7 +71093,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Grand Charm*",
+            "Name": "Grand Charm",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -71117,7 +71117,7 @@
         "Code": "cm3",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +3",
+                "PropertyString": "Charm Weight: 3",
                 "Index": 2
             },
             {
@@ -71132,7 +71132,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Grand Charm*",
+            "Name": "Grand Charm",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -71156,7 +71156,7 @@
         "Code": "cm3",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +3",
+                "PropertyString": "Charm Weight: 3",
                 "Index": 2
             },
             {
@@ -71171,7 +71171,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Grand Charm*",
+            "Name": "Grand Charm",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -71195,7 +71195,7 @@
         "Code": "cm3",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +3",
+                "PropertyString": "Charm Weight: 3",
                 "Index": 2
             },
             {
@@ -71210,7 +71210,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Grand Charm*",
+            "Name": "Grand Charm",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -71234,7 +71234,7 @@
         "Code": "cm3",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +3",
+                "PropertyString": "Charm Weight: 3",
                 "Index": 2
             },
             {
@@ -71249,7 +71249,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Grand Charm*",
+            "Name": "Grand Charm",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -71405,7 +71405,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "150-250",
+            "ArmorString": "160-260",
             "EquipmentType": 0,
             "Name": "Diadem [E]",
             "RequiredStrength": 0,
@@ -71458,8 +71458,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "18 to 28",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "365-408",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "405-453",
             "EquipmentType": 0,
             "Name": "Aegis [E]",
             "RequiredStrength": 219,
@@ -71513,7 +71513,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "108-125",
+            "ArmorString": "125-145",
             "EquipmentType": 0,
             "Name": "Vampirebone Gloves [E]",
             "RequiredStrength": 50,
@@ -71680,8 +71680,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "18 to 28",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "365-408",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "405-453",
             "EquipmentType": 0,
             "Name": "Aegis [E]",
             "RequiredStrength": 219,
@@ -71783,7 +71783,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Jewel*",
+            "Name": "Jewel",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -71838,8 +71838,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "35 to 58",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "389-430",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "462-511",
             "EquipmentType": 0,
             "Name": "Sacred Rondache [E]",
             "RequiredStrength": 109,
@@ -71885,7 +71885,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "90-160",
+            "ArmorString": "100-170",
             "EquipmentType": 0,
             "Name": "Tiara [X]",
             "RequiredStrength": 0,
@@ -71943,7 +71943,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "276-310",
+            "ArmorString": "384-432",
             "EquipmentType": 0,
             "Name": "Conqueror Crown [E]",
             "RequiredStrength": 174,
@@ -72147,7 +72147,7 @@
             "Name": "Devil Star [E]",
             "RequiredStrength": 153,
             "RequiredDexterity": 44,
-            "Durability": 0,
+            "Durability": 250,
             "ItemLevel": 70,
             "Type": {
                 "Name": "Mace",
@@ -72493,7 +72493,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "891-990",
+            "ArmorString": "1129-1255",
             "EquipmentType": 0,
             "Name": "Great Hauberk [E]",
             "RequiredStrength": 118,
@@ -72551,7 +72551,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "255-306",
+            "ArmorString": "387-465",
             "EquipmentType": 0,
             "Name": "Demonhead [E]",
             "RequiredStrength": 102,
@@ -72608,8 +72608,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "10 to 82",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "372-465",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "415-519",
             "EquipmentType": 0,
             "Name": "Kurast Shield [E]",
             "RequiredStrength": 124,
@@ -72736,7 +72736,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "1130-1438",
+            "ArmorString": "1424-1813",
             "EquipmentType": 0,
             "Name": "Balrog Skin [E]",
             "RequiredStrength": 165,
@@ -72797,8 +72797,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "12 to 34",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "402-435",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "447-484",
             "EquipmentType": 0,
             "Name": "Monarch [E]",
             "RequiredStrength": 156,
@@ -72856,7 +72856,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "150-180",
+            "ArmorString": "167-201",
             "EquipmentType": 0,
             "Name": "Troll Belt [E]",
             "RequiredStrength": 151,
@@ -73176,7 +73176,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "233-265",
+            "ArmorString": "332-377",
             "EquipmentType": 0,
             "Name": "Fury Visor [E]",
             "RequiredStrength": 129,
@@ -73859,8 +73859,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "46",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "459-510",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "523-582",
             "EquipmentType": 0,
             "Name": "Zakarum Shield [E]",
             "RequiredStrength": 142,
@@ -73914,7 +73914,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "106-123",
+            "ArmorString": "119-138",
             "EquipmentType": 0,
             "Name": "Spiderweb Sash [E]",
             "RequiredStrength": 50,
@@ -74508,7 +74508,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "948-1106",
+            "ArmorString": "1029-1200",
             "EquipmentType": 0,
             "Name": "Chaos Armor [X]",
             "RequiredStrength": 140,
@@ -74566,7 +74566,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "844-1266",
+            "ArmorString": "1062-1593",
             "EquipmentType": 0,
             "Name": "Hellforge Plate [E]",
             "RequiredStrength": 196,
@@ -74631,8 +74631,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "24 to 38",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "477-540",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "522-591",
             "EquipmentType": 0,
             "Name": "Troll Nest [E]",
             "RequiredStrength": 156,
@@ -74690,12 +74690,12 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "156-180",
+            "ArmorString": "176-204",
             "EquipmentType": 0,
             "Name": "Vambraces [E]",
             "RequiredStrength": 106,
             "RequiredDexterity": 0,
-            "Durability": 0,
+            "Durability": 16,
             "ItemLevel": 69,
             "Type": {
                 "Name": "Gloves",
@@ -74744,7 +74744,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "120-180",
+            "ArmorString": "134-201",
             "EquipmentType": 0,
             "Name": "Troll Belt [E]",
             "RequiredStrength": 151,
@@ -74806,7 +74806,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "245-311",
+            "ArmorString": "273-341",
             "EquipmentType": 0,
             "Name": "Colossus Girdle [E]",
             "RequiredStrength": 185,
@@ -74950,7 +74950,7 @@
         "Code": "cm1",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +1",
+                "PropertyString": "Charm Weight: 1",
                 "Index": 4
             },
             {
@@ -74973,7 +74973,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Small Charm*",
+            "Name": "Small Charm",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -74997,7 +74997,7 @@
         "Code": "cm3",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +3",
+                "PropertyString": "Charm Weight: 3",
                 "Index": 1
             },
             {
@@ -75016,7 +75016,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Grand Charm*",
+            "Name": "Grand Charm",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -75444,7 +75444,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "202-222",
+            "ArmorString": "316-347",
             "EquipmentType": 0,
             "Name": "Bone Visage [E]",
             "RequiredStrength": 106,
@@ -75514,7 +75514,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "301-401",
+            "ArmorString": "345-445",
             "EquipmentType": 0,
             "Name": "Hydraskull [E]",
             "RequiredStrength": 84,
@@ -75571,8 +75571,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "50 to 145",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "138-162",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "158-186",
             "EquipmentType": 0,
             "Name": "Mirrored Boots [E]",
             "RequiredStrength": 163,
@@ -75686,8 +75686,8 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "DamageString": "46",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "169",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "193",
             "EquipmentType": 0,
             "Name": "Zakarum Shield [E]",
             "RequiredStrength": 142,
@@ -75745,7 +75745,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "330-365",
+            "ArmorString": "473-523",
             "EquipmentType": 0,
             "Name": "Guardian Crown [E]",
             "RequiredStrength": 196,
@@ -75807,7 +75807,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "101",
+            "ArmorString": "145",
             "EquipmentType": 0,
             "Name": "Blood Spirit [E]",
             "RequiredStrength": 86,
@@ -75884,7 +75884,7 @@
         "Code": "cm2",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +2",
+                "PropertyString": "Charm Weight: 2",
                 "Index": 5
             },
             {
@@ -75911,7 +75911,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Large Charm*",
+            "Name": "Large Charm",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -76036,7 +76036,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "268-318",
+            "ArmorString": "349-399",
             "EquipmentType": 0,
             "Name": "Corona [E]",
             "RequiredStrength": 174,
@@ -76224,7 +76224,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "836-1254",
+            "ArmorString": "1048-1572",
             "EquipmentType": 0,
             "Name": "Kraken Shell [E]",
             "RequiredStrength": 174,
@@ -76281,8 +76281,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "18 to 28",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "292-321",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "324-356",
             "EquipmentType": 0,
             "Name": "Aegis [E]",
             "RequiredStrength": 219,
@@ -76472,7 +76472,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "204-255",
+            "ArmorString": "310-387",
             "EquipmentType": 0,
             "Name": "Demonhead [E]",
             "RequiredStrength": 102,
@@ -76534,7 +76534,7 @@
             "Name": "Cryptic Sword [E]",
             "RequiredStrength": 99,
             "RequiredDexterity": 109,
-            "Durability": 0,
+            "Durability": 250,
             "ItemLevel": 82,
             "Type": {
                 "Name": "Sword",
@@ -76644,7 +76644,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "1519-1736",
+            "ArmorString": "1897-2168",
             "EquipmentType": 0,
             "Name": "Lacquered Plate [E]",
             "RequiredStrength": 208,
@@ -76698,7 +76698,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "117-140",
+            "ArmorString": "140-167",
             "EquipmentType": 0,
             "Name": "Diadem [E]",
             "RequiredStrength": 0,
@@ -76918,7 +76918,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "1073-1220",
+            "ArmorString": "1322-1502",
             "EquipmentType": 0,
             "Name": "Sacred Armor [E]",
             "RequiredStrength": 232,
@@ -77187,7 +77187,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "1028-1341",
+            "ArmorString": "1283-1674",
             "EquipmentType": 0,
             "Name": "Shadow Plate [E]",
             "RequiredStrength": 230,
@@ -77249,7 +77249,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "280-336",
+            "ArmorString": "415-498",
             "EquipmentType": 0,
             "Name": "Corona [E]",
             "RequiredStrength": 174,
@@ -77299,7 +77299,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "59",
+            "ArmorString": "68",
             "EquipmentType": 0,
             "Name": "Crusader Gauntlets [E]",
             "RequiredStrength": 151,
@@ -77434,7 +77434,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "990-1178",
+            "ArmorString": "1255-1496",
             "EquipmentType": 0,
             "Name": "Wire Fleece [E]",
             "RequiredStrength": 111,
@@ -77484,7 +77484,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "1335-1541",
+            "ArmorString": "1683-1942",
             "EquipmentType": 0,
             "Name": "Balrog Skin [E]",
             "RequiredStrength": 165,
@@ -77806,7 +77806,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "719-822",
+            "ArmorString": "918-1050",
             "EquipmentType": 0,
             "Name": "Archon Plate [E]",
             "RequiredStrength": 103,
@@ -77864,7 +77864,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "118-147",
+            "ArmorString": "132-165",
             "EquipmentType": 0,
             "Name": "Mithril Coil [E]",
             "RequiredStrength": 106,
@@ -77926,7 +77926,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "261-361",
+            "ArmorString": "271-371",
             "EquipmentType": 0,
             "Name": "Colossus Girdle [E]",
             "RequiredStrength": 185,
@@ -78127,7 +78127,7 @@
         "Code": "cm3",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +3",
+                "PropertyString": "Charm Weight: 3",
                 "Index": 6
             },
             {
@@ -78158,7 +78158,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Grand Charm*",
+            "Name": "Grand Charm",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -78197,7 +78197,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Jewel*",
+            "Name": "Jewel",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -78425,7 +78425,7 @@
         "Code": "cm1",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +1",
+                "PropertyString": "Charm Weight: 1",
                 "Index": 5
             },
             {
@@ -78452,7 +78452,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Small Charm*",
+            "Name": "Small Charm",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -78476,7 +78476,7 @@
         "Code": "cm3",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +3",
+                "PropertyString": "Charm Weight: 3",
                 "Index": 4
             },
             {
@@ -78499,7 +78499,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Grand Charm*",
+            "Name": "Grand Charm",
             "RequiredStrength": 0,
             "RequiredDexterity": 0,
             "Durability": 0,
@@ -78909,12 +78909,12 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "1650-1850",
+            "ArmorString": "2021-2274",
             "EquipmentType": 0,
             "Name": "Boneweave [E]",
             "RequiredStrength": 158,
             "RequiredDexterity": 0,
-            "Durability": 0,
+            "Durability": 45,
             "ItemLevel": 62,
             "Type": {
                 "Name": "Armor",
@@ -78975,7 +78975,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "50",
+            "ArmorString": "60",
             "EquipmentType": 0,
             "Name": "Diadem [E]",
             "RequiredStrength": 0,
@@ -79036,13 +79036,13 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "11 to 35",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "308-385",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "342-427",
             "EquipmentType": 0,
             "Name": "Ward [E]",
             "RequiredStrength": 185,
             "RequiredDexterity": 0,
-            "Durability": 0,
+            "Durability": 100,
             "ItemLevel": 84,
             "Type": {
                 "Name": "Shield",
@@ -79090,8 +79090,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "50 to 145",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "159-209",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "168-218",
             "EquipmentType": 0,
             "Name": "Mirrored Boots [E]",
             "RequiredStrength": 163,
@@ -79153,7 +79153,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "253-328",
+            "ArmorString": "298-373",
             "EquipmentType": 0,
             "Name": "Bloodlord Skull [E]",
             "RequiredStrength": 106,
@@ -79219,7 +79219,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "345-402",
+            "ArmorString": "480-560",
             "EquipmentType": 0,
             "Name": "Conqueror Crown [E]",
             "RequiredStrength": 174,
@@ -79281,7 +79281,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "309-349",
+            "ArmorString": "359-399",
             "EquipmentType": 0,
             "Name": "Dream Spirit [E]",
             "RequiredStrength": 118,
@@ -79595,7 +79595,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "822-1233",
+            "ArmorString": "1050-1575",
             "EquipmentType": 0,
             "Name": "Archon Plate [E]",
             "RequiredStrength": 103,
@@ -79649,7 +79649,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "62",
+            "ArmorString": "71",
             "EquipmentType": 0,
             "Name": "Ogre Gauntlets [E]",
             "RequiredStrength": 185,
@@ -79780,7 +79780,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "317-417",
+            "ArmorString": "368-468",
             "EquipmentType": 0,
             "Name": "Guardian Crown [E]",
             "RequiredStrength": 196,
@@ -79837,8 +79837,8 @@
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": "5 to 87",
-            "DamageStringPrefix": "Unhandled Damage Prefix",
-            "ArmorString": "503",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "621",
             "EquipmentType": 0,
             "Name": "Vortex Shield [E]",
             "RequiredStrength": 148,
@@ -79937,7 +79937,7 @@
         "Code": "cm5",
         "Properties": [
             {
-                "PropertyString": "Charm Weight: +1",
+                "PropertyString": "Charm Weight: 1",
                 "Index": 1
             },
             {
