@@ -3712,63 +3712,6 @@
         }
     },
     {
-        "Type": "Spear",
-        "Name": "Zealot's Branch",
-        "Index": "Zealot's Branch",
-        "Enabled": true,
-        "Rarity": 3,
-        "ItemLevel": 1,
-        "RequiredLevel": 9,
-        "Code": "spr",
-        "Properties": [
-            {
-                "PropertyString": "+20% Increased Attack Speed",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+100-150% Enhanced Weapon Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+3 to Zeal (Paladin Only)",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+10 to Strength",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+10 to Vitality",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+15% Poison Resistance",
-                "Index": 3
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageTypes": [
-                {
-                    "Type": 1,
-                    "DamageString": "(6-7) to (30-37)"
-                }
-            ],
-            "EquipmentType": 1,
-            "Name": "Spear [N]",
-            "RequiredStrength": 0,
-            "RequiredDexterity": 20,
-            "Durability": 250,
-            "ItemLevel": 5,
-            "Type": {
-                "Name": "Spear",
-                "Index": "Spear",
-                "Class": ""
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
         "Type": "Staff",
         "Name": "Serpent Lord",
         "Index": "Serpent Lord1",
@@ -5289,6 +5232,63 @@
         }
     },
     {
+        "Type": "Spear",
+        "Name": "Zealot's Branch",
+        "Index": "Zealot's Branch",
+        "Enabled": true,
+        "Rarity": 3,
+        "ItemLevel": 1,
+        "RequiredLevel": 12,
+        "Code": "spr",
+        "Properties": [
+            {
+                "PropertyString": "+20% Increased Attack Speed",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+100-150% Enhanced Weapon Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+3 to Zeal (Paladin Only)",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+10 to Strength",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+10 to Vitality",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+15% Poison Resistance",
+                "Index": 3
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageTypes": [
+                {
+                    "Type": 1,
+                    "DamageString": "(6-7) to (30-37)"
+                }
+            ],
+            "EquipmentType": 1,
+            "Name": "Spear [N]",
+            "RequiredStrength": 0,
+            "RequiredDexterity": 20,
+            "Durability": 250,
+            "ItemLevel": 5,
+            "Type": {
+                "Name": "Spear",
+                "Index": "Spear",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
         "Type": "Staff",
         "Name": "Puppeteer's Staff",
         "Index": "Puppeteer's Staff",
@@ -5455,64 +5455,6 @@
             "Type": {
                 "Name": "Armor",
                 "Index": "Armor",
-                "Class": ""
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Circlet",
-        "Name": "Threatspeaker",
-        "Index": "Threatspeaker",
-        "Enabled": true,
-        "Rarity": 3,
-        "ItemLevel": 1,
-        "RequiredLevel": 12,
-        "Code": "ci1",
-        "Properties": [
-            {
-                "PropertyString": "+10 to War Cry (oskill)",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+1-6 to Conversion (oskill)",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+10% Increased Attack Speed",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+5-10 to Minimum Weapon Damage",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+20-25 to Maximum Weapon Damage",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+50-75 Defense",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+15-20% to All Resistances",
-                "Index": 6
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageString": null,
-            "DamageStringPrefix": null,
-            "ArmorString": "90-115",
-            "EquipmentType": 0,
-            "Name": "Coronet [N]",
-            "RequiredStrength": 0,
-            "RequiredDexterity": 0,
-            "Durability": 30,
-            "ItemLevel": 52,
-            "Type": {
-                "Name": "Circlet",
-                "Index": "Circlet",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -9001,71 +8943,6 @@
         }
     },
     {
-        "Type": "Scepter",
-        "Name": "Rusthandle",
-        "Index": "Rusthandle",
-        "Enabled": true,
-        "Rarity": 1,
-        "ItemLevel": 23,
-        "RequiredLevel": 17,
-        "Code": "gsc",
-        "Properties": [
-            {
-                "PropertyString": "+1 to Paladin Skill Levels",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+50-60% Enhanced Weapon Damage",
-                "Index": 4
-            },
-            {
-                "PropertyString": "Adds 3-7 Weapon Damage",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+50-60% Damage to Undead",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+8% Life stolen per hit",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+1-3 to Vengeance (Paladin Only)",
-                "Index": 6
-            },
-            {
-                "PropertyString": "+3 to Thorns (Paladin Only)",
-                "Index": 7
-            },
-            {
-                "PropertyString": "Magic Damage Reduced By 1",
-                "Index": 2
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageTypes": [
-                {
-                    "Type": 3,
-                    "DamageString": "15 to 34"
-                }
-            ],
-            "EquipmentType": 1,
-            "Name": "Grand Scepter [N]",
-            "RequiredStrength": 37,
-            "RequiredDexterity": 0,
-            "Durability": 250,
-            "ItemLevel": 15,
-            "Type": {
-                "Name": "Scepter",
-                "Index": "Scepter",
-                "Class": ""
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
         "Type": "Sword",
         "Name": "Griswold's Edge",
         "Index": "Griswold's Edge",
@@ -9725,6 +9602,71 @@
                 "Class": "bar"
             },
             "RequiredClass": "Barbarian"
+        }
+    },
+    {
+        "Type": "Scepter",
+        "Name": "Rusthandle",
+        "Index": "Rusthandle",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 23,
+        "RequiredLevel": 18,
+        "Code": "gsc",
+        "Properties": [
+            {
+                "PropertyString": "+1 to Paladin Skill Levels",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+50-60% Enhanced Weapon Damage",
+                "Index": 4
+            },
+            {
+                "PropertyString": "Adds 3-7 Weapon Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+50-60% Damage to Undead",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+8% Life stolen per hit",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+1-3 to Vengeance (Paladin Only)",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+3 to Thorns (Paladin Only)",
+                "Index": 7
+            },
+            {
+                "PropertyString": "Magic Damage Reduced By 1",
+                "Index": 2
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageTypes": [
+                {
+                    "Type": 3,
+                    "DamageString": "15 to 34"
+                }
+            ],
+            "EquipmentType": 1,
+            "Name": "Grand Scepter [N]",
+            "RequiredStrength": 37,
+            "RequiredDexterity": 0,
+            "Durability": 250,
+            "ItemLevel": 15,
+            "Type": {
+                "Name": "Scepter",
+                "Index": "Scepter",
+                "Class": ""
+            },
+            "RequiredClass": ""
         }
     },
     {
@@ -14490,67 +14432,6 @@
                 "Class": "ass"
             },
             "RequiredClass": "Assassin"
-        }
-    },
-    {
-        "Type": "Scepter",
-        "Name": "Stormeye",
-        "Index": "Stormeye",
-        "Enabled": true,
-        "Rarity": 1,
-        "ItemLevel": 31,
-        "RequiredLevel": 23,
-        "Code": "wsp",
-        "Properties": [
-            {
-                "PropertyString": "+80-120% Enhanced Weapon Damage",
-                "Index": 3
-            },
-            {
-                "PropertyString": "Adds 1-6 Weapon Lightning Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Adds 3-5 Weapon Cold Damage",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+3-5 to Resist Lightning (Paladin Only)",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+3 to Holy Shock (Paladin Only)",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+1 to Fist of the Heavens (Paladin Only)",
-                "Index": 6
-            },
-            {
-                "PropertyString": "Replenish Life +10",
-                "Index": 2
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageTypes": [
-                {
-                    "Type": 3,
-                    "DamageString": "(18-22) to (30-37)"
-                }
-            ],
-            "EquipmentType": 1,
-            "Name": "War Scepter [N]",
-            "RequiredStrength": 55,
-            "RequiredDexterity": 0,
-            "Durability": 250,
-            "ItemLevel": 21,
-            "Type": {
-                "Name": "Scepter",
-                "Index": "Scepter",
-                "Class": ""
-            },
-            "RequiredClass": ""
         }
     },
     {
@@ -24009,6 +23890,67 @@
         }
     },
     {
+        "Type": "Scepter",
+        "Name": "Stormeye",
+        "Index": "Stormeye",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 31,
+        "RequiredLevel": 30,
+        "Code": "wsp",
+        "Properties": [
+            {
+                "PropertyString": "+80-120% Enhanced Weapon Damage",
+                "Index": 3
+            },
+            {
+                "PropertyString": "Adds 1-6 Weapon Lightning Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Adds 3-5 Weapon Cold Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+3-5 to Resist Lightning (Paladin Only)",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+3 to Holy Shock (Paladin Only)",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+1 to Fist of the Heavens (Paladin Only)",
+                "Index": 6
+            },
+            {
+                "PropertyString": "Replenish Life +10",
+                "Index": 2
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageTypes": [
+                {
+                    "Type": 3,
+                    "DamageString": "(18-22) to (30-37)"
+                }
+            ],
+            "EquipmentType": 1,
+            "Name": "War Scepter [N]",
+            "RequiredStrength": 55,
+            "RequiredDexterity": 0,
+            "Durability": 250,
+            "ItemLevel": 21,
+            "Type": {
+                "Name": "Scepter",
+                "Index": "Scepter",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
         "Type": "Sword",
         "Name": "Bloodletter",
         "Index": "Bloodletter",
@@ -24753,6 +24695,64 @@
             "Type": {
                 "Name": "Helm",
                 "Index": "Helm",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Circlet",
+        "Name": "Threatspeaker",
+        "Index": "Threatspeaker",
+        "Enabled": true,
+        "Rarity": 3,
+        "ItemLevel": 1,
+        "RequiredLevel": 30,
+        "Code": "ci1",
+        "Properties": [
+            {
+                "PropertyString": "+10 to War Cry (oskill)",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+1-6 to Conversion (oskill)",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+10% Increased Attack Speed",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+5-10 to Minimum Weapon Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+20-25 to Maximum Weapon Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+50-75 Defense",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+15-20% to All Resistances",
+                "Index": 6
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "90-115",
+            "EquipmentType": 0,
+            "Name": "Coronet [N]",
+            "RequiredStrength": 0,
+            "RequiredDexterity": 0,
+            "Durability": 30,
+            "ItemLevel": 52,
+            "Type": {
+                "Name": "Circlet",
+                "Index": "Circlet",
                 "Class": ""
             },
             "RequiredClass": ""
