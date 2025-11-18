@@ -66,7 +66,7 @@
                     </span>
                 </div>
                 <div class="requirement" if.bind="actualLevelRequirement(runeword) > 0">
-                    Level ${actualLevelRequirement(runeword)} Required
+                    Level ${runeword.RequiredLevel} Required
                 </div>
                 <div class="mt-2">
                     <div class="enhanced" repeat.for="property of runeword.Properties">
