@@ -751,7 +751,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 76 Poison Damage over 5 Seconds",
+                "PropertyString": "Adds 76 Weapon Poison Damage over 5 seconds",
                 "Index": 0
             },
             {
@@ -791,8 +791,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -905,7 +905,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 76 Poison Damage over 5 Seconds",
+                "PropertyString": "Adds 76 Weapon Poison Damage over 5 seconds",
                 "Index": 0
             },
             {
@@ -1085,7 +1085,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 5-30 to Weapon Fire Damage (Weapon)",
+                "PropertyString": "Adds 5-30 Weapon Fire Damage (Weapon)",
                 "Index": 0
             },
             {
@@ -1323,8 +1323,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -1687,7 +1687,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 76 Poison Damage over 5 Seconds",
+                "PropertyString": "Adds 76 Weapon Poison Damage over 5 seconds",
                 "Index": 0
             },
             {
@@ -1859,11 +1859,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 21-110 to Weapon Lightning Damage",
+                "PropertyString": "Adds 21-110 Weapon Lightning Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 76 Poison Damage over 5 Seconds",
+                "PropertyString": "Adds 76 Weapon Poison Damage over 5 seconds",
                 "Index": 0
             },
             {
@@ -1951,7 +1951,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 76 Poison Damage over 5 Seconds",
+                "PropertyString": "Adds 76 Weapon Poison Damage over 5 seconds",
                 "Index": 0
             },
             {
@@ -2136,7 +2136,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 2-100 to Weapon Lightning Damage",
+                "PropertyString": "Adds 2-100 Weapon Lightning Damage",
                 "Index": 0
             },
             {
@@ -2391,15 +2391,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 1-50 to Weapon Lightning Damage (Weapon)",
+                "PropertyString": "Adds 1-50 Weapon Lightning Damage (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 3-14 to Weapon Cold Damage (Weapon)",
+                "PropertyString": "Adds 3-14 Weapon Cold Damage (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 76 Poison Damage over 5 Seconds (Weapon)",
+                "PropertyString": "Adds 76 Weapon Poison Damage over 5 seconds (Weapon)",
                 "Index": 0
             },
             {
@@ -2523,8 +2523,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -2955,11 +2955,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 5-30 to Weapon Fire Damage (Weapon)",
+                "PropertyString": "Adds 5-30 Weapon Fire Damage (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 76 Poison Damage over 5 Seconds (Weapon)",
+                "PropertyString": "Adds 76 Weapon Poison Damage over 5 seconds (Weapon)",
                 "Index": 0
             },
             {
@@ -3625,8 +3625,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -3925,7 +3925,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 3-14 to Weapon Cold Damage (Weapon)",
+                "PropertyString": "Adds 3-14 Weapon Cold Damage (Weapon)",
                 "Index": 0
             },
             {
@@ -4313,8 +4313,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -5099,7 +5099,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 10-60 to Weapon Fire Damage",
+                "PropertyString": "Adds 10-60 Weapon Fire Damage",
                 "Index": 0
             },
             {
@@ -5690,8 +5690,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -5954,8 +5954,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -6566,8 +6566,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -7514,8 +7514,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -8066,8 +8066,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -8348,8 +8348,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -8432,8 +8432,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -8808,8 +8808,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -8896,8 +8896,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -9220,7 +9220,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 76 Poison Damage over 5 Seconds",
+                "PropertyString": "Adds 76 Weapon Poison Damage over 5 seconds",
                 "Index": 0
             },
             {
@@ -9595,8 +9595,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -9679,8 +9679,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -10129,8 +10129,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -10837,8 +10837,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -11046,8 +11046,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -11860,8 +11860,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -12273,8 +12273,8 @@
                 "Class": ""
             },
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             {
@@ -12621,8 +12621,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -12723,8 +12723,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -12938,8 +12938,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -13452,8 +13452,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -13674,8 +13674,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -13768,8 +13768,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -14087,8 +14087,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -14802,8 +14802,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -14946,7 +14946,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+120 to Weapon Minimum Fire Damage",
+                "PropertyString": "Adds 120 Weapon Fire Damage",
                 "Index": 2
             },
             {
@@ -15452,8 +15452,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -16606,8 +16606,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -16911,8 +16911,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -17905,8 +17905,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -19191,8 +19191,8 @@
         ],
         "Types": [
             {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],

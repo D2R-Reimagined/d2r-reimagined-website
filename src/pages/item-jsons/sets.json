@@ -781,7 +781,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Isenhart's Armory",
                 "SetPropertiesString": [
                     "+2 Defense (Per Character Level) (2 Items)"
@@ -815,8 +815,8 @@
                     "Durability": 50,
                     "ItemLevel": 18,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -918,8 +918,12 @@
                 "Code": "lbb",
                 "Properties": [
                     {
-                        "PropertyString": "Adds +1-20 Weapon Lightning Damage",
+                        "PropertyString": "+1 to Weapon Minimum Lightning Damage",
                         "Index": 0
+                    },
+                    {
+                        "PropertyString": "+20 to Weapon Maximum Lightning Damage",
+                        "Index": 1
                     }
                 ],
                 "DamageArmorEnhanced": false,
@@ -983,7 +987,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Vidala's Rig",
                 "SetPropertiesString": [
                     "+2.5 Defense (Per Character Level) (3 Items)",
@@ -1018,8 +1022,8 @@
                     "Durability": 24,
                     "ItemLevel": 3,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -1236,7 +1240,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Milabrega's Regalia",
                 "SetPropertiesString": [
                     "+100% Enhanced Defense (2 Items)"
@@ -1270,8 +1274,8 @@
                     "Durability": 60,
                     "ItemLevel": 40,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -1367,7 +1371,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Cathan's Traps",
                 "SetPropertiesString": [
                     "+30% Fire Resistance (3 Items)",
@@ -1402,8 +1406,8 @@
                     "Durability": 45,
                     "ItemLevel": 15,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -1620,7 +1624,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Tancred's Battlegear",
                 "SetPropertiesString": [
                     "+2 Defense (Per Character Level) (2 Items)"
@@ -1654,8 +1658,8 @@
                     "Durability": 70,
                     "ItemLevel": 37,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -1789,7 +1793,7 @@
         ],
         "PartialProperties": [
             {
-                "PropertyString": "+15 to Weapon Minimum Lightning Damage",
+                "PropertyString": "Adds 15 Weapon Lightning Damage",
                 "Index": 0
             },
             {
@@ -1906,7 +1910,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Sigon's Complete Steel",
                 "SetPropertiesString": [
                     "Attacker Takes Damage of 20 (2 Items)"
@@ -1940,8 +1944,8 @@
                     "Durability": 55,
                     "ItemLevel": 32,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -2244,7 +2248,7 @@
         ],
         "PartialProperties": [
             {
-                "PropertyString": "Adds 8 Poison Damage over 3 Seconds",
+                "PropertyString": "Adds 8 Weapon Poison Damage over 3.2 seconds",
                 "Index": 0
             },
             {
@@ -2327,7 +2331,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Berserker's Arsenal",
                 "SetPropertiesString": [
                     "+3 Defense (Per Character Level) (2 Items)"
@@ -2361,8 +2365,8 @@
                     "Durability": 30,
                     "ItemLevel": 20,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -2422,7 +2426,7 @@
         ],
         "FullProperties": [
             {
-                "PropertyString": "Adds +16-32 Weapon Poison Damage",
+                "PropertyString": "Adds 5-10 Weapon Poison Damage over 3 seconds",
                 "Index": 1
             },
             {
@@ -2643,7 +2647,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Angelic Raiment",
                 "SetPropertiesString": [
                     "+150 Defense (2 Items)",
@@ -2678,8 +2682,8 @@
                     "Durability": 26,
                     "ItemLevel": 11,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -2847,7 +2851,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Arctic Gear",
                 "SetPropertiesString": [
                     "+3 Defense (Per Character Level) (2 Items)",
@@ -2882,8 +2886,8 @@
                     "Durability": 20,
                     "ItemLevel": 1,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -3132,7 +3136,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Arcanna's Tricks",
                 "SetPropertiesString": [
                     "+100 Defense (2 Items)",
@@ -3167,8 +3171,8 @@
                     "Durability": 60,
                     "ItemLevel": 35,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -3302,7 +3306,7 @@
                         "Index": 4
                     },
                     {
-                        "PropertyString": "+50 to Weapon Minimum Cold Damage",
+                        "PropertyString": "Adds 50 Weapon Cold Damage",
                         "Index": 3
                     }
                 ],
@@ -3329,7 +3333,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Natalya's Odium",
                 "SetPropertiesString": [],
                 "Name": "Natalya's Shadow",
@@ -3377,8 +3381,8 @@
                     "Durability": 36,
                     "ItemLevel": 73,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -3405,7 +3409,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "Heal Stamina Plus 0.25 (Per Character Level)",
+                        "PropertyString": "Heal Stamina Plus 0.25% (Per Character Level)",
                         "Index": 2
                     },
                     {
@@ -3548,7 +3552,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Aldur's Watchtower",
                 "SetPropertiesString": [
                     "+15 to Vitality (2 Items)",
@@ -3604,8 +3608,8 @@
                     "Durability": 70,
                     "ItemLevel": 83,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -3842,7 +3846,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Immortal King",
                 "SetPropertiesString": [
                     "+25% Faster Hit Recovery (2 Items)",
@@ -3888,8 +3892,8 @@
                     "Durability": 60,
                     "ItemLevel": 85,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -4064,7 +4068,7 @@
                     "Adds 211-397 Weapon Fire Damage (2 Items)",
                     "Adds 7-477 Weapon Lightning Damage (3 Items)",
                     "Adds 127-364 Weapon Cold Damage (4 Items)",
-                    "Adds 205 Poison Damage over 6 Seconds (5 Items)"
+                    "Adds 205 Weapon Poison Damage over 6 seconds (5 Items)"
                 ],
                 "Name": "Immortal King's Stone Crusher",
                 "Index": "Immortal King's Stone Crusher",
@@ -4343,7 +4347,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Tal Rasha's Wrappings",
                 "SetPropertiesString": [
                     "+10% Faster Cast Rate (2 Items)"
@@ -4397,8 +4401,8 @@
                     "Durability": 55,
                     "ItemLevel": 82,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -4562,7 +4566,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Griswold's Legacy",
                 "SetPropertiesString": [],
                 "Name": "Griswold's Heart",
@@ -4606,8 +4610,8 @@
                     "Durability": 60,
                     "ItemLevel": 64,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -4626,7 +4630,7 @@
                 "Enabled": true,
                 "Rarity": 7,
                 "ItemLevel": 44,
-                "RequiredLevel": 53,
+                "RequiredLevel": 66,
                 "Code": "7ws",
                 "Properties": [
                     {
@@ -4816,7 +4820,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Trang-Oul's Avatar",
                 "SetPropertiesString": [
                     "+50% Lightning Resistance (3 Items)",
@@ -4867,8 +4871,8 @@
                     "Durability": 70,
                     "ItemLevel": 61,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -5000,7 +5004,7 @@
                 "Enabled": true,
                 "Rarity": 7,
                 "ItemLevel": 32,
-                "RequiredLevel": 47,
+                "RequiredLevel": 62,
                 "Code": "utc",
                 "Properties": [
                     {
@@ -5123,7 +5127,7 @@
                 "Enabled": true,
                 "Rarity": 7,
                 "ItemLevel": 21,
-                "RequiredLevel": 59,
+                "RequiredLevel": 64,
                 "Code": "ci3",
                 "Properties": [
                     {
@@ -5163,7 +5167,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "M'avina's Battle Hymn",
                 "SetPropertiesString": [
                     "+30% Faster Hit Recovery (3 Items)"
@@ -5213,8 +5217,8 @@
                     "Durability": 48,
                     "ItemLevel": 81,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -5565,7 +5569,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "The Disciple",
                 "SetPropertiesString": [],
                 "Name": "Dark Adherent",
@@ -5573,7 +5577,7 @@
                 "Enabled": true,
                 "Rarity": 7,
                 "ItemLevel": 39,
-                "RequiredLevel": 43,
+                "RequiredLevel": 49,
                 "Code": "uui",
                 "Properties": [
                     {
@@ -5581,7 +5585,7 @@
                         "Index": 2
                     },
                     {
-                        "PropertyString": "Adds 25-35 Poison Damage over 2 Seconds",
+                        "PropertyString": "Adds 25-35 Weapon Poison Damage over 2 seconds",
                         "Index": 3
                     },
                     {
@@ -5605,8 +5609,8 @@
                     "Durability": 20,
                     "ItemLevel": 65,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -5667,7 +5671,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 22 Poison Damage over 3 Seconds",
+                "PropertyString": "Adds 22 Weapon Poison Damage over 3 seconds",
                 "Index": 2
             },
             {
@@ -5811,7 +5815,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Heaven's Brethren",
                 "SetPropertiesString": [],
                 "Name": "Haemosu's Adamant",
@@ -5855,8 +5859,8 @@
                     "Durability": 50,
                     "ItemLevel": 47,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -6261,7 +6265,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Hwanin's Majesty",
                 "SetPropertiesString": [],
                 "Name": "Hwanin's Refuge",
@@ -6301,8 +6305,8 @@
                     "Durability": 36,
                     "ItemLevel": 43,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -6514,7 +6518,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Sazabi's Grand Tribute",
                 "SetPropertiesString": [],
                 "Name": "Sazabi's Ghost Liberator",
@@ -6558,8 +6562,8 @@
                     "Durability": 30,
                     "ItemLevel": 76,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -6661,7 +6665,7 @@
                 "Enabled": true,
                 "Rarity": 7,
                 "ItemLevel": 50,
-                "RequiredLevel": 61,
+                "RequiredLevel": 63,
                 "Code": "7gd",
                 "Properties": [
                     {
@@ -6716,7 +6720,7 @@
                 "Enabled": true,
                 "Rarity": 7,
                 "ItemLevel": 50,
-                "RequiredLevel": 54,
+                "RequiredLevel": 66,
                 "Code": "7wd",
                 "Properties": [
                     {
@@ -6728,7 +6732,7 @@
                         "Index": 4
                     },
                     {
-                        "PropertyString": "Adds 50 Poison Damage over 2 Seconds",
+                        "PropertyString": "Adds 50 Weapon Poison Damage over 2 seconds",
                         "Index": 1
                     },
                     {
@@ -6782,7 +6786,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+200 to Weapon Minimum Fire Damage",
+                "PropertyString": "Adds 200 Weapon Fire Damage",
                 "Index": 0
             },
             {
@@ -6853,7 +6857,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Cow King's Leathers",
                 "SetPropertiesString": [],
                 "Name": "Cow King's Hide",
@@ -6893,8 +6897,8 @@
                     "Durability": 32,
                     "ItemLevel": 8,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -7063,7 +7067,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Naj's Ancient Vestige",
                 "SetPropertiesString": [],
                 "Name": "Naj's Light Plate",
@@ -7111,8 +7115,8 @@
                     "Durability": 60,
                     "ItemLevel": 78,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -7330,7 +7334,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "Adds 9-11 Poison Damage over 3 Seconds",
+                        "PropertyString": "Adds 9-11 Weapon Poison Damage over 3 seconds",
                         "Index": 3
                     },
                     {
@@ -7589,7 +7593,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Midnight Calling",
                 "SetPropertiesString": [
                     "Physical Damage Reduced By 8 (3 Items)"
@@ -7627,8 +7631,8 @@
                     "Durability": 32,
                     "ItemLevel": 8,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -7752,7 +7756,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Nature's Grove",
                 "SetPropertiesString": [
                     "Replenish Life +3 (3 Items)",
@@ -7787,8 +7791,8 @@
                     "Durability": 28,
                     "ItemLevel": 5,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -7959,7 +7963,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Grimlock's Grave",
                 "SetPropertiesString": [
                     "+77 Defense (2 Items)",
@@ -7994,8 +7998,8 @@
                     "Durability": 20,
                     "ItemLevel": 1,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -8126,7 +8130,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Corgina's Element",
                 "SetPropertiesString": [
                     "+1 to Mana (Per Character Level) (3 Items)",
@@ -8161,8 +8165,8 @@
                     "Durability": 60,
                     "ItemLevel": 35,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -8375,7 +8379,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Sheena's Grace",
                 "SetPropertiesString": [
                     "+5% Life stolen per hit (4 Items)",
@@ -8411,8 +8415,8 @@
                     "Durability": 36,
                     "ItemLevel": 13,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -8538,7 +8542,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Talonrage's Fury",
                 "SetPropertiesString": [
                     "+40 to Life (2 Items)",
@@ -8573,8 +8577,8 @@
                     "Durability": 48,
                     "ItemLevel": 28,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -8703,7 +8707,7 @@
         "Name": "Greyhawk's Mantle",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Greyhawk's Mantle",
                 "SetPropertiesString": [
                     "Replenish Life +3 (4 Items)"
@@ -8737,8 +8741,8 @@
                     "Durability": 60,
                     "ItemLevel": 24,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -8993,7 +8997,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Silent Runnings",
                 "SetPropertiesString": [
                     "+8% Physical Damage Reduction (3 Items)"
@@ -9027,8 +9031,8 @@
                     "Durability": 70,
                     "ItemLevel": 37,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -9359,7 +9363,7 @@
         "Name": "Four Seasons",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Four Seasons",
                 "SetPropertiesString": [
                     "+10% to Maximum Cold Resistance (3 Items)",
@@ -9395,8 +9399,8 @@
                     "Durability": 60,
                     "ItemLevel": 40,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -9572,7 +9576,7 @@
         "Name": "Forgotten Treasures",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Forgotten Treasures",
                 "SetPropertiesString": [
                     "+10% Magic Resistance (4 Items)",
@@ -9607,8 +9611,8 @@
                     "Durability": 50,
                     "ItemLevel": 18,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -10079,7 +10083,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Insight of Brother Laz",
                 "SetPropertiesString": [
                     "6% Chance to cast level 2 War Cry when struck (4 Items)",
@@ -10122,8 +10126,8 @@
                     "Durability": 48,
                     "ItemLevel": 55,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -10177,7 +10181,7 @@
         "Name": "Hades' Underworld",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Hades' Underworld",
                 "SetPropertiesString": [
                     "+50 to Mana (4 Items)"
@@ -10215,8 +10219,8 @@
                     "Durability": 28,
                     "ItemLevel": 37,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -10501,7 +10505,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Darque's Cabal",
                 "SetPropertiesString": [
                     "+100% Damage to Demons (2 Items)"
@@ -10539,8 +10543,8 @@
                     "Durability": 55,
                     "ItemLevel": 58,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -10683,7 +10687,7 @@
         "Name": "Red Havoc's Challenge",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Red Havoc's Challenge",
                 "SetPropertiesString": [
                     "+1 to Maximum Weapon Damage (Per Character Level) (3 Items)"
@@ -10721,8 +10725,8 @@
                     "Durability": 36,
                     "ItemLevel": 43,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -10975,7 +10979,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Mishy's Avatar",
                 "SetPropertiesString": [
                     "+15% Increased Attack Speed (3 Items)",
@@ -11018,8 +11022,8 @@
                     "Durability": 45,
                     "ItemLevel": 45,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -11318,7 +11322,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Joel's Sanctuary",
                 "SetPropertiesString": [
                     "Replenish Life +5 (4 Items)"
@@ -11364,8 +11368,8 @@
                     "Durability": 20,
                     "ItemLevel": 34,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -11519,7 +11523,7 @@
         "Name": "JBouley's Scion",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "JBouley's Scion",
                 "SetPropertiesString": [],
                 "Name": "Shadow Ninja",
@@ -11559,8 +11563,8 @@
                     "Durability": 32,
                     "ItemLevel": 40,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -11624,7 +11628,7 @@
                 "Enabled": true,
                 "Rarity": 7,
                 "ItemLevel": 35,
-                "RequiredLevel": 39,
+                "RequiredLevel": 40,
                 "Code": "9qr",
                 "Properties": [
                     {
@@ -11891,7 +11895,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Forsaken Divinity",
                 "SetPropertiesString": [
                     "+1 to All Skills (4 Items)",
@@ -11927,8 +11931,8 @@
                     "Durability": 60,
                     "ItemLevel": 60,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -12121,7 +12125,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Volf's Undead Legion",
                 "SetPropertiesString": [
                     "Cannot Be Frozen (4 Items)"
@@ -12159,8 +12163,8 @@
                     "Durability": 60,
                     "ItemLevel": 52,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -12303,7 +12307,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Legacy of Vashna",
                 "SetPropertiesString": [
                     "Prevent Monster Heal (3 Items)"
@@ -12345,8 +12349,8 @@
                     "Durability": 24,
                     "ItemLevel": 36,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -12437,7 +12441,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Salander's Tirade",
                 "SetPropertiesString": [
                     "+35 to Life (2 Items)"
@@ -12479,8 +12483,8 @@
                     "Durability": 26,
                     "ItemLevel": 42,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -12568,7 +12572,7 @@
         "Name": "Jerik's Dragon Armor",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Jerik's Dragon Armor",
                 "SetPropertiesString": [
                     "+40% to Fire Skill Damage (2 Items)"
@@ -12602,8 +12606,8 @@
                     "Durability": 36,
                     "ItemLevel": 43,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -12907,7 +12911,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Onyx's Primal Rage",
                 "SetPropertiesString": [
                     "15% Chance to cast level 7 Meteor when struck (3 Items)",
@@ -12950,8 +12954,8 @@
                     "Durability": 30,
                     "ItemLevel": 76,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -13093,7 +13097,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Brother Laz' Calling",
                 "SetPropertiesString": [
                     "+1 to All Skills (2 Items)",
@@ -13137,8 +13141,8 @@
                     "Durability": 60,
                     "ItemLevel": 85,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -13390,7 +13394,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "The Mysterious Spin",
                 "SetPropertiesString": [
                     "+20% Faster Cast Rate (5 Items)",
@@ -13425,8 +13429,8 @@
                     "Durability": 28,
                     "ItemLevel": 68,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -13604,7 +13608,7 @@
         "Name": "Darkmage's Astral Projection",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Darkmage's Astral Projection",
                 "SetPropertiesString": [
                     "+15% to All Resistances (4 Items)",
@@ -13647,8 +13651,8 @@
                     "Durability": 0,
                     "ItemLevel": 62,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -13956,7 +13960,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Phrozen Heart's Mysticism",
                 "SetPropertiesString": [
                     "+20% Physical Damage Reduction (2 Items)",
@@ -13996,8 +14000,8 @@
                     "Durability": 26,
                     "ItemLevel": 72,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -14359,7 +14363,7 @@
                 "Code": "uvb",
                 "Properties": [
                     {
-                        "PropertyString": "+122 Weapon Magic Damage",
+                        "PropertyString": "Adds 122 Weapon Magic Damage",
                         "Index": 3
                     },
                     {
@@ -14395,7 +14399,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Chaos Energy",
                 "SetPropertiesString": [
                     "+85 to Life (2 Items)",
@@ -14439,8 +14443,8 @@
                     "Durability": 50,
                     "ItemLevel": 75,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -14603,7 +14607,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Aiel Shieldmaiden",
                 "SetPropertiesString": [
                     "+75 to Life (4 Items)",
@@ -14646,8 +14650,8 @@
                     "Durability": 36,
                     "ItemLevel": 73,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -14851,7 +14855,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Myhrginoc's Warbreeder",
                 "SetPropertiesString": [],
                 "Name": "Myhrginoc's Black Rain",
@@ -14895,8 +14899,8 @@
                     "Durability": 70,
                     "ItemLevel": 83,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -15095,7 +15099,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Nefarious Ways",
                 "SetPropertiesString": [],
                 "Name": "Wicked Impulse",
@@ -15135,8 +15139,8 @@
                     "Durability": 60,
                     "ItemLevel": 78,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -15382,7 +15386,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Kraj's Memorial",
                 "SetPropertiesString": [
                     "+70 to Life (3 Items)"
@@ -15424,8 +15428,8 @@
                     "Durability": 48,
                     "ItemLevel": 81,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -15526,7 +15530,7 @@
         "Name": "The Darkest Weaves",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "The Darkest Weaves",
                 "SetPropertiesString": [
                     "+50% Faster Hit Recovery (2 Items)"
@@ -15560,8 +15564,8 @@
                     "Durability": 55,
                     "ItemLevel": 82,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -15744,7 +15748,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Blood Raven's Despair",
                 "SetPropertiesString": [
                     "+6% Mana stolen per hit (2 Items)"
@@ -15786,8 +15790,8 @@
                     "Durability": 32,
                     "ItemLevel": 70,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -16081,7 +16085,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Narrow Path Between Light and Darkness",
                 "SetPropertiesString": [
                     "+1 to All Skills (3 Items)"
@@ -16123,8 +16127,8 @@
                     "Durability": 20,
                     "ItemLevel": 65,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -16278,7 +16282,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Treasure Hunter",
                 "SetPropertiesString": [
                     "+10 to Vitality (2 Items)",
@@ -16325,8 +16329,8 @@
                     "Durability": 90,
                     "ItemLevel": 49,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -16585,7 +16589,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Yohann's Savant",
                 "SetPropertiesString": [
                     "Replenish Life +5 (4 Items)"
@@ -16627,8 +16631,8 @@
                     "Durability": 28,
                     "ItemLevel": 37,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -16696,7 +16700,7 @@
                 "Enabled": true,
                 "Rarity": 7,
                 "ItemLevel": 20,
-                "RequiredLevel": 23,
+                "RequiredLevel": 25,
                 "Code": "8bs",
                 "Properties": [
                     {
@@ -16883,7 +16887,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Zhoulomcrist's Dread",
                 "SetPropertiesString": [
                     "Physical Damage Reduced By 20 (3 Items)",
@@ -16926,8 +16930,8 @@
                     "Durability": 60,
                     "ItemLevel": 84,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -17280,7 +17284,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "The Warlord of Blood",
                 "SetPropertiesString": [
                     "+2 to All Skills (6 Items)",
@@ -17327,8 +17331,8 @@
                     "Durability": 60,
                     "ItemLevel": 84,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -17525,7 +17529,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Darque Necromancy",
                 "SetPropertiesString": [
                     "+20% Cold Resistance (3 Items)",
@@ -17566,8 +17570,8 @@
                     "Durability": 60,
                     "ItemLevel": 60,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -17732,7 +17736,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "Adds 1200 Poison Damage over 12 Seconds",
+                        "PropertyString": "Adds 1200 Weapon Poison Damage over 12 seconds",
                         "Index": 4
                     },
                     {
@@ -17820,7 +17824,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Marhawkman's Disguise",
                 "SetPropertiesString": [
                     "+4% to Experience Gained (4 Items)"
@@ -17870,8 +17874,8 @@
                     "Durability": 28,
                     "ItemLevel": 68,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -17917,7 +17921,7 @@
         "Name": "Aragorn's Scorn",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Aragorn's Scorn",
                 "SetPropertiesString": [],
                 "Name": "Aragorn's Contempt",
@@ -17957,8 +17961,8 @@
                     "Durability": 20,
                     "ItemLevel": 34,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -18152,7 +18156,7 @@
         "Name": "Bogrot's Magic",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Bogrot's Magic",
                 "SetPropertiesString": [],
                 "Name": "Winter's Embrace",
@@ -18192,8 +18196,8 @@
                     "Durability": 24,
                     "ItemLevel": 36,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -18261,7 +18265,7 @@
                 "Enabled": true,
                 "Rarity": 7,
                 "ItemLevel": 48,
-                "RequiredLevel": 48,
+                "RequiredLevel": 54,
                 "Code": "urg",
                 "Properties": [
                     {
@@ -18344,7 +18348,7 @@
         "Name": "Cedric's Jinx",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Cedric's Jinx",
                 "SetPropertiesString": [
                     "+5 Defense (Per Character Level) (3 Items)"
@@ -18386,8 +18390,8 @@
                     "Durability": 28,
                     "ItemLevel": 37,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -18522,7 +18526,7 @@
         "Name": "Dragon Reborn",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Dragon Reborn",
                 "SetPropertiesString": [
                     "+10 Life after each Kill (2 Items)",
@@ -18561,8 +18565,8 @@
                     "Durability": 32,
                     "ItemLevel": 40,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -18864,7 +18868,7 @@
         "Name": "Soldier's Cairn",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Soldier's Cairn",
                 "SetPropertiesString": [],
                 "Name": "Heroes Stand",
@@ -18900,8 +18904,8 @@
                     "Durability": 26,
                     "ItemLevel": 42,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -19040,7 +19044,7 @@
         "Name": "Gweibret's Rule",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Gweibret's Rule",
                 "SetPropertiesString": [],
                 "Name": "Judicial Decree",
@@ -19080,8 +19084,8 @@
                     "Durability": 36,
                     "ItemLevel": 43,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -19307,7 +19311,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 469 Poison Damage over 6 Seconds",
+                "PropertyString": "Adds 469 Weapon Poison Damage over 6 seconds",
                 "Index": 4
             },
             {
@@ -19330,7 +19334,7 @@
         "Name": "Haunted Asylum",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Haunted Asylum",
                 "SetPropertiesString": [
                     "+200 Defense (4 Items)",
@@ -19377,8 +19381,8 @@
                     "Durability": 45,
                     "ItemLevel": 45,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -19627,7 +19631,7 @@
         "Name": "Alyssa's Archery",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Alyssa's Archery",
                 "SetPropertiesString": [],
                 "Name": "Alyssa's Essence",
@@ -19667,8 +19671,8 @@
                     "Durability": 30,
                     "ItemLevel": 49,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -19806,7 +19810,7 @@
         "Name": "Forbidden Lore",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Forbidden Lore",
                 "SetPropertiesString": [],
                 "Name": "Unholy Vows",
@@ -19846,8 +19850,8 @@
                     "Durability": 60,
                     "ItemLevel": 52,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -20040,7 +20044,7 @@
         "Name": "Hannibal's Demise",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Hannibal's Demise",
                 "SetPropertiesString": [],
                 "Name": "Hannibal's Shattered Plate",
@@ -20084,8 +20088,8 @@
                     "Durability": 48,
                     "ItemLevel": 55,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -20286,7 +20290,7 @@
         "Name": "Wrath of Vengeance",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Wrath of Vengeance",
                 "SetPropertiesString": [
                     "Replenish Life +8 (5 Items)"
@@ -20328,8 +20332,8 @@
                     "Durability": 55,
                     "ItemLevel": 58,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -20579,7 +20583,7 @@
         "Name": "Servitude or Rebellion",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Servitude or Rebellion",
                 "SetPropertiesString": [],
                 "Name": "Slave to Anarchy",
@@ -20623,8 +20627,8 @@
                     "Durability": 70,
                     "ItemLevel": 61,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -20762,7 +20766,7 @@
         "Name": "Kaldorn's Majesty",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Kaldorn's Majesty",
                 "SetPropertiesString": [
                     "+50% to All Resistances (4 Items)"
@@ -20800,8 +20804,8 @@
                     "Durability": 60,
                     "ItemLevel": 64,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -21026,7 +21030,7 @@
         "Name": "Warlock's Exploration",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Warlock's Exploration",
                 "SetPropertiesString": [],
                 "Name": "Incarnadine Elven Plate",
@@ -21062,8 +21066,8 @@
                     "Durability": 60,
                     "ItemLevel": 60,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -21284,7 +21288,7 @@
         "Name": "Amaunator's Peace",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Amaunator's Peace",
                 "SetPropertiesString": [],
                 "Name": "Holy Shroud of Amaunator",
@@ -21324,8 +21328,8 @@
                     "Durability": 20,
                     "ItemLevel": 65,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -21630,7 +21634,7 @@
         "Name": "Tika's Request",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Tika's Request",
                 "SetPropertiesString": [],
                 "Name": "Frostwyrm Hide",
@@ -21674,8 +21678,8 @@
                     "Durability": 24,
                     "ItemLevel": 67,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -21942,7 +21946,7 @@
         "Name": "Corthala Family Heirlooms",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Corthala Family Heirlooms",
                 "SetPropertiesString": [],
                 "Name": "Sir Tylan's Sylvan Mail",
@@ -21982,8 +21986,8 @@
                     "Durability": 26,
                     "ItemLevel": 72,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -22236,7 +22240,7 @@
         "Name": "Knight's Gallantry",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Knight's Gallantry",
                 "SetPropertiesString": [],
                 "Name": "Mail of Courageousness",
@@ -22280,8 +22284,8 @@
                     "Durability": 45,
                     "ItemLevel": 62,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -22526,7 +22530,7 @@
         "Name": "Lord Sith's Province",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Lord Sith's Province",
                 "SetPropertiesString": [],
                 "Name": "Ebony Plate of Evil",
@@ -22570,8 +22574,8 @@
                     "Durability": 50,
                     "ItemLevel": 75,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -22786,7 +22790,7 @@
         "Name": "Kai Lord's Valiance",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Kai Lord's Valiance",
                 "SetPropertiesString": [],
                 "Name": "Helshazag",
@@ -22830,8 +22834,8 @@
                     "Durability": 30,
                     "ItemLevel": 76,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -23087,7 +23091,7 @@
         "Name": "Path of Bravery",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Path of Bravery",
                 "SetPropertiesString": [
                     "-20% to Enemy Fire Resistance (2 Items)",
@@ -23128,8 +23132,8 @@
                     "Durability": 60,
                     "ItemLevel": 78,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -23433,7 +23437,7 @@
         "Name": "Terror of the Deep",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Terror of the Deep",
                 "SetPropertiesString": [],
                 "Name": "Great White Terror",
@@ -23477,8 +23481,8 @@
                     "Durability": 48,
                     "ItemLevel": 81,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -23682,7 +23686,7 @@
         "Name": "Celestial Hierarchy",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Celestial Hierarchy",
                 "SetPropertiesString": [],
                 "Name": "Angels",
@@ -23730,8 +23734,8 @@
                     "Durability": 55,
                     "ItemLevel": 82,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -24049,7 +24053,7 @@
         "Name": "Lords of Hell",
         "SetItems": [
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Lords of Hell",
                 "SetPropertiesString": [],
                 "Name": "Mephisto's Misty Aura",
@@ -24089,8 +24093,8 @@
                     "Durability": 70,
                     "ItemLevel": 83,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -24555,7 +24559,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Maadi's Paradox",
                 "SetPropertiesString": [
                     "+50 to Vitality (2 Items)",
@@ -24604,8 +24608,8 @@
                     "Durability": 45,
                     "ItemLevel": 62,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -24987,7 +24991,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "The Raven's Nest",
                 "SetPropertiesString": [
                     "+3% to Maximum Cold Resistance (4 Items)",
@@ -25043,8 +25047,8 @@
                     "Durability": 24,
                     "ItemLevel": 67,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""
@@ -25374,7 +25378,7 @@
                 }
             },
             {
-                "Type": "Armor",
+                "Type": "Body Armor",
                 "Set": "Panda's Polar Adventure",
                 "SetPropertiesString": [],
                 "Name": "Panda's Jacket",
@@ -25418,8 +25422,8 @@
                     "Durability": 20,
                     "ItemLevel": 65,
                     "Type": {
-                        "Name": "Armor",
-                        "Index": "Armor",
+                        "Name": "Body Armor",
+                        "Index": "Body Armor",
                         "Class": ""
                     },
                     "RequiredClass": ""

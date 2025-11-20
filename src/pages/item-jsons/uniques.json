@@ -168,8 +168,12 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds +6-8 Weapon Fire Damage",
+                "PropertyString": "+6 to Weapon Minimum Fire Damage",
                 "Index": 3
+            },
+            {
+                "PropertyString": "+8 to Weapon Maximum Fire Damage",
+                "Index": 4
             },
             {
                 "PropertyString": "Knockback",
@@ -864,8 +868,12 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds +4-6 Weapon Fire Damage",
+                "PropertyString": "+4 to Weapon Minimum Fire Damage",
                 "Index": 0
+            },
+            {
+                "PropertyString": "+6 to Weapon Maximum Fire Damage",
+                "Index": 1
             },
             {
                 "PropertyString": "+5 to Fire Bolt (Sorceress Only)",
@@ -1182,7 +1190,7 @@
         "Code": "lbl",
         "Properties": [
             {
-                "PropertyString": "Adds 23 Poison Damage over 3 Seconds",
+                "PropertyString": "Adds 23 Weapon Poison Damage over 3 seconds",
                 "Index": 1
             },
             {
@@ -1286,7 +1294,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 22 Poison Damage over 4 Seconds",
+                "PropertyString": "Adds 22 Weapon Poison Damage over 4 seconds",
                 "Index": 1
             },
             {
@@ -1635,7 +1643,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Ashenwrath",
         "Index": "Ashenwrath",
         "Enabled": true,
@@ -1677,8 +1685,8 @@
             "Durability": 20,
             "ItemLevel": 1,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -2000,7 +2008,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Greyform",
         "Index": "Greyform",
         "Enabled": true,
@@ -2046,8 +2054,8 @@
             "Durability": 20,
             "ItemLevel": 1,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -2271,7 +2279,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 27 Poison Damage over 5 Seconds",
+                "PropertyString": "Adds 27 Weapon Poison Damage over 5 seconds",
                 "Index": 5
             },
             {
@@ -2639,7 +2647,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 98 Poison Damage over 10 Seconds",
+                "PropertyString": "Adds 98 Weapon Poison Damage over 10 seconds",
                 "Index": 1
             },
             {
@@ -2696,8 +2704,12 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds +6-20 Weapon Fire Damage",
+                "PropertyString": "+6-9 to Weapon Minimum Fire Damage",
                 "Index": 1
+            },
+            {
+                "PropertyString": "+15-20 to Weapon Maximum Fire Damage",
+                "Index": 2
             },
             {
                 "PropertyString": "+10 to Dexterity",
@@ -2731,7 +2743,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "JuJu Flame",
         "Index": "JuJu Flame",
         "Enabled": true,
@@ -2769,8 +2781,8 @@
             "Durability": 24,
             "ItemLevel": 3,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -2989,63 +3001,6 @@
         }
     },
     {
-        "Type": "Amazon Spear",
-        "Name": "Hawkfire",
-        "Index": "Hawkfire",
-        "Enabled": true,
-        "Rarity": 5,
-        "ItemLevel": 1,
-        "RequiredLevel": 8,
-        "Code": "am3",
-        "Properties": [
-            {
-                "PropertyString": "+1 to Amazon Skill Levels",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+25% Increased Attack Speed",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+80-120% Enhanced Weapon Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Adds 5-18 Weapon Fire Damage",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+35 to Life",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+35% Fire Resistance",
-                "Index": 2
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageTypes": [
-                {
-                    "Type": 1,
-                    "DamageString": "(32-39) to (43-52)"
-                }
-            ],
-            "EquipmentType": 1,
-            "Name": "Maiden Spear [N]",
-            "RequiredStrength": 54,
-            "RequiredDexterity": 40,
-            "Durability": 250,
-            "ItemLevel": 18,
-            "Type": {
-                "Name": "Amazon Spear",
-                "Index": "Amazon Spear",
-                "Class": "ama"
-            },
-            "RequiredClass": "Amazon"
-        }
-    },
-    {
         "Type": "Voodoo Heads",
         "Name": "Blanched Death",
         "Index": "Blanched Death",
@@ -3168,7 +3123,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 40 Poison Damage over 4 Seconds",
+                "PropertyString": "Adds 40 Weapon Poison Damage over 4 seconds",
                 "Index": 4
             },
             {
@@ -3389,7 +3344,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Adds 12 Poison Damage over 3 Seconds",
+                "PropertyString": "Adds 12 Weapon Poison Damage over 3 seconds",
                 "Index": 0
             },
             {
@@ -3730,7 +3685,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Adds 12 Poison Damage over 3 Seconds",
+                "PropertyString": "Adds 12 Weapon Poison Damage over 3 seconds",
                 "Index": 0
             },
             {
@@ -4265,7 +4220,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Stinkshroud",
         "Index": "Stinkshroud",
         "Enabled": true,
@@ -4307,8 +4262,8 @@
             "Durability": 28,
             "ItemLevel": 5,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -4584,7 +4539,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Hungerpang",
         "Index": "Hungerpang",
         "Enabled": true,
@@ -4626,8 +4581,8 @@
             "Durability": 20,
             "ItemLevel": 1,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -5071,7 +5026,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Blinkbat's Form",
         "Index": "Blinkbat's Form",
         "Enabled": true,
@@ -5089,8 +5044,12 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds +3-6 Weapon Fire Damage",
+                "PropertyString": "+3 to Weapon Minimum Fire Damage",
                 "Index": 3
+            },
+            {
+                "PropertyString": "+6 to Weapon Maximum Fire Damage",
+                "Index": 4
             },
             {
                 "PropertyString": "+25 Defense",
@@ -5113,8 +5072,8 @@
             "Durability": 24,
             "ItemLevel": 3,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -5131,7 +5090,7 @@
         "Code": "vbl",
         "Properties": [
             {
-                "PropertyString": "Adds 12 Poison Damage over 3 Seconds",
+                "PropertyString": "Adds 12 Weapon Poison Damage over 3 seconds",
                 "Index": 0
             },
             {
@@ -5407,7 +5366,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Gemini Coat",
         "Index": "Gemini Coat",
         "Enabled": true,
@@ -5453,8 +5412,8 @@
             "Durability": 32,
             "ItemLevel": 8,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -5512,67 +5471,6 @@
                 "Class": ""
             },
             "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Amazon Bow",
-        "Name": "Angelsong",
-        "Index": "Angelsong",
-        "Enabled": true,
-        "Rarity": 5,
-        "ItemLevel": 1,
-        "RequiredLevel": 12,
-        "Code": "am1",
-        "Properties": [
-            {
-                "PropertyString": "Level 1-3 Defiance Aura When Equipped",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+10% Increased Attack Speed",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+75-110% Enhanced Weapon Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Adds 5-10 Weapon Damage",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+200% Damage to Demons",
-                "Index": 6
-            },
-            {
-                "PropertyString": "-20% to Enemy Fire Resistance",
-                "Index": 4
-            },
-            {
-                "PropertyString": "-20% to Enemy Cold Resistance",
-                "Index": 5
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageTypes": [
-                {
-                    "Type": 1,
-                    "DamageString": "(17-19) to (31-35)"
-                }
-            ],
-            "EquipmentType": 1,
-            "Name": "Stag Bow [N]",
-            "RequiredStrength": 30,
-            "RequiredDexterity": 45,
-            "Durability": 0,
-            "ItemLevel": 18,
-            "Type": {
-                "Name": "Amazon Bow",
-                "Index": "Amazon Bow",
-                "Class": "ama"
-            },
-            "RequiredClass": "Amazon"
         }
     },
     {
@@ -5684,68 +5582,6 @@
                 "Class": "nec"
             },
             "RequiredClass": "Necromancer"
-        }
-    },
-    {
-        "Type": "Auric Shields",
-        "Name": "Valorsong",
-        "Index": "Valorsong",
-        "Enabled": true,
-        "Rarity": 2,
-        "ItemLevel": 1,
-        "RequiredLevel": 12,
-        "Code": "paf",
-        "Properties": [
-            {
-                "PropertyString": "5% Chance to cast level 4 Battle Orders when struck",
-                "Index": 3
-            },
-            {
-                "PropertyString": "5% Chance to cast level 4 Shout when struck",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+2 to All Skills",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+1 to Warmth (oskill)",
-                "Index": 7
-            },
-            {
-                "PropertyString": "+88% Chance of Open Wounds",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+2.38 Defense (Per Character Level)",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+60-100% to All Resistances",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+15-20% Damage Taken Goes To Mana",
-                "Index": 6
-            }
-        ],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "DamageString": "5 to 87",
-            "DamageStringPrefix": "Smite Damage",
-            "ArmorString": "225",
-            "EquipmentType": 0,
-            "Name": "Vortex Shield [E]",
-            "RequiredStrength": 148,
-            "RequiredDexterity": 0,
-            "Durability": 90,
-            "ItemLevel": 85,
-            "Type": {
-                "Name": "Auric Shields",
-                "Index": "Auric Shields",
-                "Class": "pal"
-            },
-            "RequiredClass": "Paladin"
         }
     },
     {
@@ -6347,7 +6183,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Ogden's Shroud",
         "Index": "Ogden's Shroud",
         "Enabled": true,
@@ -6389,8 +6225,8 @@
             "Durability": 24,
             "ItemLevel": 3,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -6625,8 +6461,12 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds +1-9 Weapon Lightning Damage",
+                "PropertyString": "+1 to Weapon Minimum Lightning Damage",
                 "Index": 0
+            },
+            {
+                "PropertyString": "+9 to Weapon Maximum Lightning Damage",
+                "Index": 1
             },
             {
                 "PropertyString": "+1-3 to Corpse Explosion (Necromancer Only)",
@@ -6779,7 +6619,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "The Centurion",
         "Index": "The Centurion",
         "Enabled": true,
@@ -6825,15 +6665,15 @@
             "Durability": 28,
             "ItemLevel": 5,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Darkglow",
         "Index": "Darkglow",
         "Enabled": true,
@@ -6879,8 +6719,8 @@
             "Durability": 26,
             "ItemLevel": 11,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -7111,7 +6951,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Steelflesh",
         "Index": "Steelflesh",
         "Enabled": true,
@@ -7153,8 +6993,8 @@
             "Durability": 26,
             "ItemLevel": 11,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -7277,6 +7117,124 @@
         }
     },
     {
+        "Type": "Amazon Bow",
+        "Name": "Angelsong",
+        "Index": "Angelsong",
+        "Enabled": true,
+        "Rarity": 5,
+        "ItemLevel": 1,
+        "RequiredLevel": 14,
+        "Code": "am1",
+        "Properties": [
+            {
+                "PropertyString": "Level 1-3 Defiance Aura When Equipped",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+10% Increased Attack Speed",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+75-110% Enhanced Weapon Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Adds 5-10 Weapon Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+200% Damage to Demons",
+                "Index": 6
+            },
+            {
+                "PropertyString": "-20% to Enemy Fire Resistance",
+                "Index": 4
+            },
+            {
+                "PropertyString": "-20% to Enemy Cold Resistance",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageTypes": [
+                {
+                    "Type": 1,
+                    "DamageString": "(17-19) to (31-35)"
+                }
+            ],
+            "EquipmentType": 1,
+            "Name": "Stag Bow [N]",
+            "RequiredStrength": 30,
+            "RequiredDexterity": 45,
+            "Durability": 0,
+            "ItemLevel": 18,
+            "Type": {
+                "Name": "Amazon Bow",
+                "Index": "Amazon Bow",
+                "Class": "ama"
+            },
+            "RequiredClass": "Amazon"
+        }
+    },
+    {
+        "Type": "Amazon Spear",
+        "Name": "Hawkfire",
+        "Index": "Hawkfire",
+        "Enabled": true,
+        "Rarity": 5,
+        "ItemLevel": 1,
+        "RequiredLevel": 14,
+        "Code": "am3",
+        "Properties": [
+            {
+                "PropertyString": "+1 to Amazon Skill Levels",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+25% Increased Attack Speed",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+80-120% Enhanced Weapon Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Adds 5-18 Weapon Fire Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+35 to Life",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+35% Fire Resistance",
+                "Index": 2
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageTypes": [
+                {
+                    "Type": 1,
+                    "DamageString": "(32-39) to (43-52)"
+                }
+            ],
+            "EquipmentType": 1,
+            "Name": "Maiden Spear [N]",
+            "RequiredStrength": 54,
+            "RequiredDexterity": 40,
+            "Durability": 250,
+            "ItemLevel": 18,
+            "Type": {
+                "Name": "Amazon Spear",
+                "Index": "Amazon Spear",
+                "Class": "ama"
+            },
+            "RequiredClass": "Amazon"
+        }
+    },
+    {
         "Type": "Pelt",
         "Name": "Silverskin",
         "Index": "Silverskin",
@@ -7361,8 +7319,12 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds +8-12 Weapon Fire Damage",
+                "PropertyString": "+8 to Weapon Minimum Fire Damage",
                 "Index": 4
+            },
+            {
+                "PropertyString": "+12 to Weapon Maximum Fire Damage",
+                "Index": 5
             },
             {
                 "PropertyString": "+20 Defense",
@@ -7548,7 +7510,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Hawkmail",
         "Index": "Hawkmail",
         "Enabled": true,
@@ -7590,8 +7552,8 @@
             "Durability": 36,
             "ItemLevel": 13,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -7766,7 +7728,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Adds +1-5 Weapon Cold Damage",
+                "PropertyString": "Adds 1-5 Weapon Cold Damage",
                 "Index": 4
             },
             {
@@ -7964,7 +7926,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Gloomform",
         "Index": "Gloomform",
         "Enabled": true,
@@ -8010,8 +7972,8 @@
             "Durability": 28,
             "ItemLevel": 5,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -8402,7 +8364,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Twitchthroe",
         "Index": "Twitchthroe",
         "Enabled": true,
@@ -8448,8 +8410,8 @@
             "Durability": 32,
             "ItemLevel": 8,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -8513,7 +8475,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Mandrake's Bloom",
         "Index": "Mandrake's Bloom",
         "Enabled": true,
@@ -8555,8 +8517,8 @@
             "Durability": 36,
             "ItemLevel": 13,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -8693,7 +8655,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 40 Poison Damage over 4 Seconds",
+                "PropertyString": "Adds 40 Weapon Poison Damage over 4 seconds",
                 "Index": 5
             },
             {
@@ -8840,48 +8802,6 @@
         }
     },
     {
-        "Type": "Pelt",
-        "Name": "Hecuba's Tresses",
-        "Index": "Hecuba's Tresses",
-        "Enabled": true,
-        "Rarity": 1,
-        "ItemLevel": 1,
-        "RequiredLevel": 16,
-        "Code": "dre",
-        "Properties": [
-            {
-                "PropertyString": "+4 to Druid Skill Levels",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+240-300 Defense",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Socketed (3)",
-                "Index": 2
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageString": null,
-            "DamageStringPrefix": null,
-            "ArmorString": "395-455",
-            "EquipmentType": 0,
-            "Name": "Sky Spirit [E]",
-            "RequiredStrength": 113,
-            "RequiredDexterity": 0,
-            "Durability": 20,
-            "ItemLevel": 83,
-            "Type": {
-                "Name": "Pelt",
-                "Index": "Pelt",
-                "Class": "dru"
-            },
-            "RequiredClass": "Druid"
-        }
-    },
-    {
         "Type": "Hand to Hand",
         "Name": "Cold of Winter",
         "Index": "Cold of Winter",
@@ -8965,8 +8885,12 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Adds +10-25 Weapon Fire Damage",
+                "PropertyString": "+10-12 to Weapon Minimum Fire Damage",
                 "Index": 0
+            },
+            {
+                "PropertyString": "+15-25 to Weapon Maximum Fire Damage",
+                "Index": 1
             },
             {
                 "PropertyString": "Knockback",
@@ -9107,7 +9031,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Sparking Mail",
         "Index": "Sparking Mail",
         "Enabled": true,
@@ -9145,8 +9069,8 @@
             "Durability": 45,
             "ItemLevel": 15,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -9439,7 +9363,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Scarab of Protection",
         "Index": "Scarab of Protection",
         "Enabled": true,
@@ -9485,8 +9409,8 @@
             "Durability": 32,
             "ItemLevel": 8,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -9765,7 +9689,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 30 Poison Damage over 3 Seconds",
+                "PropertyString": "Adds 30 Weapon Poison Damage over 3 seconds",
                 "Index": 0
             },
             {
@@ -9959,7 +9883,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Xanadu Dreams",
         "Index": "Xanadu Dreams",
         "Enabled": true,
@@ -10005,8 +9929,8 @@
             "Durability": 45,
             "ItemLevel": 15,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -10530,7 +10454,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 180 Poison Damage over 4 Seconds",
+                "PropertyString": "Adds 180 Weapon Poison Damage over 4 seconds",
                 "Index": 2
             },
             {
@@ -10859,7 +10783,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "The Shadowed One",
         "Index": "The Shadowed One",
         "Enabled": true,
@@ -10905,70 +10829,8 @@
             "Durability": 26,
             "ItemLevel": 11,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
-                "Class": ""
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Circlet",
-        "Name": "Gainsayer",
-        "Index": "Gainsayer",
-        "Enabled": true,
-        "Rarity": 1,
-        "ItemLevel": 19,
-        "RequiredLevel": 19,
-        "Code": "ci1",
-        "Properties": [
-            {
-                "PropertyString": "+1-3 to Warcries (Barbarian Only)",
-                "Index": 6
-            },
-            {
-                "PropertyString": "+1-3 to Curses (Necromancer Only)",
-                "Index": 7
-            },
-            {
-                "PropertyString": "+25% Faster Hit Recovery",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+140-175% Enhanced Defense",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+15-20 to all Attributes",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+20-30% to All Resistances",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+4-7% to Experience Gained",
-                "Index": 1
-            },
-            {
-                "PropertyString": "Vendor Prices Reduced By 5-10%",
-                "Index": 2
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageString": null,
-            "DamageStringPrefix": null,
-            "ArmorString": "98-112",
-            "EquipmentType": 0,
-            "Name": "Coronet [N]",
-            "RequiredStrength": 0,
-            "RequiredDexterity": 0,
-            "Durability": 30,
-            "ItemLevel": 52,
-            "Type": {
-                "Name": "Circlet",
-                "Index": "Circlet",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -11080,117 +10942,6 @@
                 "Class": ""
             },
             "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Boots",
-        "Name": "Thoqqua's Slipper",
-        "Index": "Thoqqua's Slipper",
-        "Enabled": true,
-        "Rarity": 2,
-        "ItemLevel": 4,
-        "RequiredLevel": 19,
-        "Code": "uvb",
-        "Properties": [
-            {
-                "PropertyString": "+50% Faster Run/Walk Speed",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+75-120 Defense",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+35-50 to Life",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+10-15% to All Resistances",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+40-80% Chance Items Roll Magic or Better",
-                "Index": 1
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageString": "60 to 110",
-            "DamageStringPrefix": "Kick Damage",
-            "ArmorString": "140-185",
-            "EquipmentType": 0,
-            "Name": "Scarabshell Boots [E]",
-            "RequiredStrength": 91,
-            "RequiredDexterity": 0,
-            "Durability": 14,
-            "ItemLevel": 66,
-            "Type": {
-                "Name": "Boots",
-                "Index": "Boots",
-                "Class": ""
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Amazon Spear",
-        "Name": "Sepia Shard",
-        "Index": "Sepia Shard",
-        "Enabled": true,
-        "Rarity": 5,
-        "ItemLevel": 1,
-        "RequiredLevel": 19,
-        "Code": "am4",
-        "Properties": [
-            {
-                "PropertyString": "+2 to Javelin and Spear Skills (Amazon Only)",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+100-125% Enhanced Weapon Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+100-200 to Attack Rating",
-                "Index": 5
-            },
-            {
-                "PropertyString": "Adds 10-15 Weapon Cold Damage",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+6% Mana stolen per hit",
-                "Index": 6
-            },
-            {
-                "PropertyString": "+35-50 to Mana",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+20-40% Cold Resistance",
-                "Index": 2
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageTypes": [
-                {
-                    "Type": 1,
-                    "DamageString": "(46-51) to (110-123)"
-                }
-            ],
-            "EquipmentType": 1,
-            "Name": "Maiden Pike [N]",
-            "RequiredStrength": 63,
-            "RequiredDexterity": 52,
-            "Durability": 250,
-            "ItemLevel": 27,
-            "Type": {
-                "Name": "Amazon Spear",
-                "Index": "Amazon Spear",
-                "Class": "ama"
-            },
-            "RequiredClass": "Amazon"
         }
     },
     {
@@ -11434,7 +11185,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Adds +4-8 Weapon Cold Damage",
+                "PropertyString": "Adds 4-8 Weapon Cold Damage",
                 "Index": 2
             },
             {
@@ -11584,7 +11335,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Venom Ward",
         "Index": "Venom Ward",
         "Enabled": true,
@@ -11626,8 +11377,8 @@
             "Durability": 50,
             "ItemLevel": 18,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -12319,6 +12070,67 @@
         }
     },
     {
+        "Type": "Amazon Spear",
+        "Name": "Sepia Shard",
+        "Index": "Sepia Shard",
+        "Enabled": true,
+        "Rarity": 5,
+        "ItemLevel": 1,
+        "RequiredLevel": 20,
+        "Code": "am4",
+        "Properties": [
+            {
+                "PropertyString": "+2 to Javelin and Spear Skills (Amazon Only)",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+100-125% Enhanced Weapon Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+100-200 to Attack Rating",
+                "Index": 5
+            },
+            {
+                "PropertyString": "Adds 10-15 Weapon Cold Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+6% Mana stolen per hit",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+35-50 to Mana",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+20-40% Cold Resistance",
+                "Index": 2
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageTypes": [
+                {
+                    "Type": 1,
+                    "DamageString": "(46-51) to (110-123)"
+                }
+            ],
+            "EquipmentType": 1,
+            "Name": "Maiden Pike [N]",
+            "RequiredStrength": 63,
+            "RequiredDexterity": 52,
+            "Durability": 250,
+            "ItemLevel": 27,
+            "Type": {
+                "Name": "Amazon Spear",
+                "Index": "Amazon Spear",
+                "Class": "ama"
+            },
+            "RequiredClass": "Amazon"
+        }
+    },
+    {
         "Type": "Voodoo Heads",
         "Name": "Sinister Smile",
         "Index": "Sinister Smile",
@@ -12600,8 +12412,12 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds +1-15 Weapon Lightning Damage",
+                "PropertyString": "+1 to Weapon Minimum Lightning Damage",
                 "Index": 2
+            },
+            {
+                "PropertyString": "+12-15 to Weapon Maximum Lightning Damage",
+                "Index": 3
             },
             {
                 "PropertyString": "+15% Chance of Open Wounds",
@@ -12771,7 +12587,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 80 Poison Damage over 8 Seconds",
+                "PropertyString": "Adds 80 Weapon Poison Damage over 8 seconds",
                 "Index": 4
             },
             {
@@ -13051,7 +12867,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Red Dragon Scales",
         "Index": "Red Dragon Scales",
         "Enabled": true,
@@ -13097,15 +12913,15 @@
             "Durability": 36,
             "ItemLevel": 13,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Shattering Blow",
         "Index": "Shattering Blow",
         "Enabled": true,
@@ -13147,8 +12963,8 @@
             "Durability": 50,
             "ItemLevel": 18,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -13355,7 +13171,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Adds +48-96 Weapon Poison Damage",
+                "PropertyString": "Adds 29-57 Weapon Poison Damage over 6 seconds",
                 "Index": 2
             },
             {
@@ -13404,8 +13220,12 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds +1-60 Weapon Lightning Damage",
+                "PropertyString": "+1 to Weapon Minimum Lightning Damage",
                 "Index": 1
+            },
+            {
+                "PropertyString": "+60 to Weapon Maximum Lightning Damage",
+                "Index": 2
             },
             {
                 "PropertyString": "+15% to All Resistances",
@@ -13439,7 +13259,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Iceblink",
         "Index": "Iceblink",
         "Enabled": true,
@@ -13481,8 +13301,8 @@
             "Durability": 30,
             "ItemLevel": 20,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -14035,7 +13855,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Russetfire",
         "Index": "Russetfire",
         "Enabled": true,
@@ -14081,8 +13901,8 @@
             "Durability": 30,
             "ItemLevel": 20,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -14201,60 +14021,6 @@
                 "Class": "sor"
             },
             "RequiredClass": "Sorceress"
-        }
-    },
-    {
-        "Type": "Voodoo Heads",
-        "Name": "Prayer for the Dying",
-        "Index": "Prayer for the Dying",
-        "Enabled": true,
-        "Rarity": 1,
-        "ItemLevel": 22,
-        "RequiredLevel": 22,
-        "Code": "nee",
-        "Properties": [
-            {
-                "PropertyString": "+3 to Necromancer Skill Levels",
-                "Index": 3
-            },
-            {
-                "PropertyString": "50% Increased Chance of Blocking",
-                "Index": 4
-            },
-            {
-                "PropertyString": "Slain Monsters Rest in Peace",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+150-200% Enhanced Defense",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+10% to Experience Gained",
-                "Index": 2
-            },
-            {
-                "PropertyString": "Socketed (2)",
-                "Index": 5
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageString": null,
-            "DamageStringPrefix": null,
-            "ArmorString": "367-441",
-            "EquipmentType": 0,
-            "Name": "Succubus Skull [E]",
-            "RequiredStrength": 95,
-            "RequiredDexterity": 0,
-            "Durability": 20,
-            "ItemLevel": 81,
-            "Type": {
-                "Name": "Voodoo Heads",
-                "Index": "Voodoo Heads",
-                "Class": "nec"
-            },
-            "RequiredClass": "Necromancer"
         }
     },
     {
@@ -14453,8 +14219,12 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds +6-40 Weapon Fire Damage",
+                "PropertyString": "+6 to Weapon Minimum Fire Damage",
                 "Index": 2
+            },
+            {
+                "PropertyString": "+20-40 to Weapon Maximum Fire Damage",
+                "Index": 3
             },
             {
                 "PropertyString": "+6 to Holy Fire (Paladin Only)",
@@ -14629,7 +14399,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 39 Poison Damage over 3 Seconds",
+                "PropertyString": "Adds 39 Weapon Poison Damage over 3 seconds",
                 "Index": 2
             },
             {
@@ -14965,68 +14735,7 @@
         }
     },
     {
-        "Type": "Javelin",
-        "Name": "Summerstrike",
-        "Index": "Summerstrike",
-        "Enabled": true,
-        "Rarity": 1,
-        "ItemLevel": 23,
-        "RequiredLevel": 23,
-        "Code": "7pi",
-        "Properties": [
-            {
-                "PropertyString": "+200-250% Enhanced Weapon Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Adds 256-500 Weapon Fire Damage",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+15-25% Fire Damage Absorbed",
-                "Index": 3
-            },
-            {
-                "PropertyString": "Increased Stack Size",
-                "Index": 5
-            },
-            {
-                "PropertyString": "Replenishes quantity",
-                "Index": 1
-            },
-            {
-                "PropertyString": "Ethereal (Cannot be Repaired)",
-                "Index": 4
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageTypes": [
-                {
-                    "Type": 3,
-                    "DamageString": "(42-49) to (192-224)"
-                },
-                {
-                    "Type": 2,
-                    "DamageString": "(63-73) to (225-262)"
-                }
-            ],
-            "EquipmentType": 1,
-            "Name": "Stygian Pilum [E]",
-            "RequiredStrength": 118,
-            "RequiredDexterity": 112,
-            "Durability": 250,
-            "ItemLevel": 62,
-            "Type": {
-                "Name": "Javelin",
-                "Index": "Javelin",
-                "Class": ""
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Ghostly Chainmail",
         "Index": "Ghostly Chainmail",
         "Enabled": true,
@@ -15072,8 +14781,8 @@
             "Durability": 45,
             "ItemLevel": 15,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -16778,7 +16487,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 79 Poison Damage over 4 Seconds",
+                "PropertyString": "Adds 79 Weapon Poison Damage over 4 seconds",
                 "Index": 2
             },
             {
@@ -17318,7 +17027,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Breastplate of Gond",
         "Index": "Breastplate of Gond",
         "Enabled": true,
@@ -17364,15 +17073,15 @@
             "Durability": 50,
             "ItemLevel": 18,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Celestial Revelation",
         "Index": "Celestial Revelation",
         "Enabled": true,
@@ -17418,8 +17127,8 @@
             "Durability": 60,
             "ItemLevel": 24,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -17986,7 +17695,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 113 Poison Damage over 6 Seconds",
+                "PropertyString": "Adds 113 Weapon Poison Damage over 6 seconds",
                 "Index": 0
             },
             {
@@ -18147,7 +17856,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Boneflesh",
         "Index": "Boneflesh",
         "Enabled": true,
@@ -18185,8 +17894,8 @@
             "Durability": 60,
             "ItemLevel": 24,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -18593,7 +18302,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Starsong",
         "Index": "Starsong",
         "Enabled": true,
@@ -18639,15 +18348,15 @@
             "Durability": 30,
             "ItemLevel": 20,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Obsidian Husk",
         "Index": "Obsidian Husk",
         "Enabled": true,
@@ -18685,15 +18394,15 @@
             "Durability": 48,
             "ItemLevel": 28,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Golem's Gain",
         "Index": "Golem's Gain",
         "Enabled": true,
@@ -18739,15 +18448,15 @@
             "Durability": 55,
             "ItemLevel": 32,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Adamantine Mail",
         "Index": "Adamantine Mail",
         "Enabled": true,
@@ -18789,8 +18498,8 @@
             "Durability": 26,
             "ItemLevel": 42,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -19015,7 +18724,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 69 Poison Damage over 7 Seconds",
+                "PropertyString": "Adds 69 Weapon Poison Damage over 7 seconds",
                 "Index": 6
             },
             {
@@ -19123,7 +18832,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds +128 Weapon Poison Damage",
+                "PropertyString": "Adds 38 Weapon Poison Damage over 3 seconds",
                 "Index": 0
             },
             {
@@ -19172,8 +18881,12 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds +1-10 Weapon Lightning Damage",
+                "PropertyString": "+1 to Weapon Minimum Lightning Damage",
                 "Index": 2
+            },
+            {
+                "PropertyString": "+10 to Weapon Maximum Lightning Damage",
+                "Index": 3
             },
             {
                 "PropertyString": "+10 to Strength",
@@ -19225,8 +18938,12 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds +23-54 Weapon Fire Damage",
+                "PropertyString": "+23 to Weapon Minimum Fire Damage",
                 "Index": 0
+            },
+            {
+                "PropertyString": "+54 to Weapon Maximum Fire Damage",
+                "Index": 1
             },
             {
                 "PropertyString": "+30 to Life",
@@ -19294,8 +19011,12 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds +15-50 Weapon Fire Damage",
+                "PropertyString": "+15 to Weapon Minimum Fire Damage",
                 "Index": 1
+            },
+            {
+                "PropertyString": "+30-50 to Weapon Maximum Fire Damage",
+                "Index": 2
             },
             {
                 "PropertyString": "+12 to Dexterity",
@@ -20508,7 +20229,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Rockfleece",
         "Index": "Rockfleece",
         "Enabled": true,
@@ -20550,15 +20271,15 @@
             "Durability": 48,
             "ItemLevel": 28,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Goldskin",
         "Index": "Goldskin",
         "Enabled": true,
@@ -20600,15 +20321,15 @@
             "Durability": 70,
             "ItemLevel": 37,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Silks of the Victor",
         "Index": "Silks of the Victor",
         "Enabled": true,
@@ -20646,8 +20367,8 @@
             "Durability": 60,
             "ItemLevel": 40,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -20830,7 +20551,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "The Spirit Shroud",
         "Index": "The Spirit Shroud",
         "Enabled": true,
@@ -20872,8 +20593,8 @@
             "Durability": 20,
             "ItemLevel": 34,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -21292,7 +21013,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Armor of Warmth",
         "Index": "Armor of Warmth",
         "Enabled": true,
@@ -21334,15 +21055,15 @@
             "Durability": 60,
             "ItemLevel": 24,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Halcyon Shroud",
         "Index": "Halcyon Shroud",
         "Enabled": true,
@@ -21392,8 +21113,8 @@
             "Durability": 70,
             "ItemLevel": 37,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -22144,7 +21865,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Rattlecage",
         "Index": "Rattlecage",
         "Enabled": true,
@@ -22182,15 +21903,15 @@
             "Durability": 55,
             "ItemLevel": 32,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Heavenly Garb",
         "Index": "Heavenly Garb",
         "Enabled": true,
@@ -22236,8 +21957,8 @@
             "Durability": 60,
             "ItemLevel": 35,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -22424,8 +22145,12 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds +25-50 Weapon Lightning Damage",
+                "PropertyString": "+25 to Weapon Minimum Lightning Damage",
                 "Index": 2
+            },
+            {
+                "PropertyString": "+50 to Weapon Maximum Lightning Damage",
+                "Index": 4
             },
             {
                 "PropertyString": "+20 to Mana",
@@ -22453,7 +22178,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Skin of the Vipermagi",
         "Index": "Skin of the Vipermagi",
         "Enabled": true,
@@ -22495,8 +22220,8 @@
             "Durability": 24,
             "ItemLevel": 36,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -22513,7 +22238,7 @@
         "Code": "xlg",
         "Properties": [
             {
-                "PropertyString": "Adds 60 Poison Damage over 4 Seconds",
+                "PropertyString": "Adds 60 Weapon Poison Damage over 4 seconds",
                 "Index": 2
             },
             {
@@ -23065,7 +22790,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 57 Poison Damage over 4 Seconds",
+                "PropertyString": "Adds 57 Weapon Poison Damage over 4 seconds",
                 "Index": 1
             },
             {
@@ -23466,7 +23191,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Dreamscape",
         "Index": "Dreamscape",
         "Enabled": true,
@@ -23512,8 +23237,8 @@
             "Durability": 48,
             "ItemLevel": 28,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -24205,7 +23930,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 202 Poison Damage over 6 Seconds",
+                "PropertyString": "Adds 202 Weapon Poison Damage over 6 seconds",
                 "Index": 4
             },
             {
@@ -24435,7 +24160,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "A Knight's Tale",
         "Index": "A Knight's Tale",
         "Enabled": true,
@@ -24469,15 +24194,15 @@
             "Durability": 55,
             "ItemLevel": 32,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Killing Blow",
         "Index": "Killing Blow",
         "Enabled": true,
@@ -24523,15 +24248,15 @@
             "Durability": 60,
             "ItemLevel": 40,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Madness of Chthulu",
         "Index": "Madness of Chthulu",
         "Enabled": true,
@@ -24577,8 +24302,8 @@
             "Durability": 60,
             "ItemLevel": 35,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -24695,118 +24420,6 @@
             "Type": {
                 "Name": "Helm",
                 "Index": "Helm",
-                "Class": ""
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Circlet",
-        "Name": "Threatspeaker",
-        "Index": "Threatspeaker",
-        "Enabled": true,
-        "Rarity": 3,
-        "ItemLevel": 1,
-        "RequiredLevel": 30,
-        "Code": "ci1",
-        "Properties": [
-            {
-                "PropertyString": "+10 to War Cry (oskill)",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+1-6 to Conversion (oskill)",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+10% Increased Attack Speed",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+5-10 to Minimum Weapon Damage",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+20-25 to Maximum Weapon Damage",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+50-75 Defense",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+15-20% to All Resistances",
-                "Index": 6
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageString": null,
-            "DamageStringPrefix": null,
-            "ArmorString": "90-115",
-            "EquipmentType": 0,
-            "Name": "Coronet [N]",
-            "RequiredStrength": 0,
-            "RequiredDexterity": 0,
-            "Durability": 30,
-            "ItemLevel": 52,
-            "Type": {
-                "Name": "Circlet",
-                "Index": "Circlet",
-                "Class": ""
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Circlet",
-        "Name": "Gillian's Tiara",
-        "Index": "Gillian's Tiara",
-        "Enabled": true,
-        "Rarity": 1,
-        "ItemLevel": 30,
-        "RequiredLevel": 30,
-        "Code": "ci2",
-        "Properties": [
-            {
-                "PropertyString": "+1 to Warp (oskill)",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+20% Faster Block Rate",
-                "Index": 2
-            },
-            {
-                "PropertyString": "15-25% Increased Chance of Blocking",
-                "Index": 1
-            },
-            {
-                "PropertyString": "Slows Target by 25%",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+75-150 Defense",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Replenish Life +8",
-                "Index": 5
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageString": null,
-            "DamageStringPrefix": null,
-            "ArmorString": "125-200",
-            "EquipmentType": 0,
-            "Name": "Tiara [X]",
-            "RequiredStrength": 0,
-            "RequiredDexterity": 0,
-            "Durability": 25,
-            "ItemLevel": 70,
-            "Type": {
-                "Name": "Circlet",
-                "Index": "Circlet",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -25746,7 +25359,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Skin of the Flayed One",
         "Index": "Skin of the Flayed One1",
         "Enabled": true,
@@ -25788,8 +25401,8 @@
             "Durability": 58,
             "ItemLevel": 37,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -27272,7 +26885,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Kaz's Battle Armor",
         "Index": "Kaz's Battle Armor",
         "Enabled": true,
@@ -27318,15 +26931,15 @@
             "Durability": 70,
             "ItemLevel": 37,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Rainbow Cloak",
         "Index": "Rainbow Cloak",
         "Enabled": true,
@@ -27364,8 +26977,8 @@
             "Durability": 20,
             "ItemLevel": 34,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -28139,7 +27752,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Iron Pelt",
         "Index": "Iron Pelt",
         "Enabled": true,
@@ -28181,8 +27794,8 @@
             "Durability": 157,
             "ItemLevel": 40,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -29316,7 +28929,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Greyhawk Dragon",
         "Index": "Greyhawk Dragon",
         "Enabled": true,
@@ -29362,15 +28975,15 @@
             "Durability": 60,
             "ItemLevel": 40,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Scavanger's Carapace",
         "Index": "Scavanger's Carapace",
         "Enabled": true,
@@ -29420,8 +29033,8 @@
             "Durability": 24,
             "ItemLevel": 36,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -29548,56 +29161,6 @@
         }
     },
     {
-        "Type": "Gloves",
-        "Name": "Hellhunger",
-        "Index": "Hellhunger",
-        "Enabled": true,
-        "Rarity": 2,
-        "ItemLevel": 20,
-        "RequiredLevel": 34,
-        "Code": "utg",
-        "Properties": [
-            {
-                "PropertyString": "+1 to All Skills",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+1-5 to Lower Resist (oskill)",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+10% Faster Cast Rate",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+75-125 Defense",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+20-25% Chance Items Roll Magic or Better",
-                "Index": 4
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageString": null,
-            "DamageStringPrefix": null,
-            "ArmorString": "143-193",
-            "EquipmentType": 0,
-            "Name": "Crusader Gauntlets [E]",
-            "RequiredStrength": 151,
-            "RequiredDexterity": 0,
-            "Durability": 18,
-            "ItemLevel": 76,
-            "Type": {
-                "Name": "Gloves",
-                "Index": "Gloves",
-                "Class": ""
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
         "Type": "Boots",
         "Name": "Dark Familiar",
         "Index": "Dark Familiar",
@@ -29643,64 +29206,6 @@
             "RequiredDexterity": 0,
             "Durability": 24,
             "ItemLevel": 27,
-            "Type": {
-                "Name": "Boots",
-                "Index": "Boots",
-                "Class": ""
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Boots",
-        "Name": "Wild Horses",
-        "Index": "Wild Horses",
-        "Enabled": true,
-        "Rarity": 1,
-        "ItemLevel": 34,
-        "RequiredLevel": 34,
-        "Code": "uhb",
-        "Properties": [
-            {
-                "PropertyString": "+40% Faster Run/Walk Speed",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+40% Faster Hit Recovery",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+10-15 Kick Damage",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+10-20% Deadly Strike",
-                "Index": 6
-            },
-            {
-                "PropertyString": "+125-200% Enhanced Defense",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+25 to Strength",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+25 to Dexterity",
-                "Index": 5
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageString": "83 to 149",
-            "DamageStringPrefix": "Kick Damage",
-            "ArmorString": "162-216",
-            "EquipmentType": 0,
-            "Name": "Myrmidon Greaves [E]",
-            "RequiredStrength": 208,
-            "RequiredDexterity": 0,
-            "Durability": 24,
-            "ItemLevel": 85,
             "Type": {
                 "Name": "Boots",
                 "Index": "Boots",
@@ -30169,7 +29674,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Spirit Forge",
         "Index": "Spirit Forge",
         "Enabled": true,
@@ -30219,8 +29724,8 @@
             "Durability": 26,
             "ItemLevel": 42,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -31413,67 +30918,6 @@
         }
     },
     {
-        "Type": "Hand to Hand 2",
-        "Name": "Avalanche Strike",
-        "Index": "Avalanche Strike",
-        "Enabled": true,
-        "Rarity": 1,
-        "ItemLevel": 15,
-        "RequiredLevel": 35,
-        "Code": "7qr",
-        "Properties": [
-            {
-                "PropertyString": "50% Chance to cast level 4 Glacial Spike on striking",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+300-400% Enhanced Weapon Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Adds 200-250 Weapon Cold Damage",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+6-8% Mana stolen per hit",
-                "Index": 6
-            },
-            {
-                "PropertyString": "+6-8% Life stolen per hit",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+45% Cold Resistance",
-                "Index": 3
-            },
-            {
-                "PropertyString": "Repairs 0.15 durability per second",
-                "Index": 4
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageTypes": [
-                {
-                    "Type": 3,
-                    "DamageString": "(160-200) to (204-255)"
-                }
-            ],
-            "EquipmentType": 1,
-            "Name": "Scissors Suwayyah [E]",
-            "RequiredStrength": 118,
-            "RequiredDexterity": 118,
-            "Durability": 250,
-            "ItemLevel": 85,
-            "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
-                "Class": "ass"
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
         "Type": "Axe",
         "Name": "Coldkill",
         "Index": "Coldkill",
@@ -31500,7 +30944,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+40 to Weapon Minimum Cold Damage",
+                "PropertyString": "Adds 40 Weapon Cold Damage",
                 "Index": 0
             },
             {
@@ -31760,7 +31204,7 @@
                 "Index": 7
             },
             {
-                "PropertyString": "Adds 176 Poison Damage over 3 Seconds",
+                "PropertyString": "Adds 176 Weapon Poison Damage over 3 seconds",
                 "Index": 0
             },
             {
@@ -32258,7 +31702,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Weightless Grace",
         "Index": "Weightless Grace",
         "Enabled": true,
@@ -32308,15 +31752,15 @@
             "Durability": 60,
             "ItemLevel": 35,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "The Defiler's Flesh",
         "Index": "The Defiler's Flesh",
         "Enabled": true,
@@ -32370,8 +31814,8 @@
             "Durability": 28,
             "ItemLevel": 37,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -32484,60 +31928,6 @@
             "Type": {
                 "Name": "Helm",
                 "Index": "Helm",
-                "Class": ""
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Gloves",
-        "Name": "Bloodyearn",
-        "Index": "Bloodyearn",
-        "Enabled": true,
-        "Rarity": 1,
-        "ItemLevel": 20,
-        "RequiredLevel": 36,
-        "Code": "uvg",
-        "Properties": [
-            {
-                "PropertyString": "+1-3 to Masteries & Throwing Skills (Barbarian Only)",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+20% Increased Attack Speed",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+6% Life stolen per hit",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+120-150% Enhanced Defense",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+25% Increased Maximum Life",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+0.75 to Life (Per Character Level)",
-                "Index": 2
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageString": null,
-            "DamageStringPrefix": null,
-            "ArmorString": "145-165",
-            "EquipmentType": 0,
-            "Name": "Vampirebone Gloves [E]",
-            "RequiredStrength": 50,
-            "RequiredDexterity": 0,
-            "Durability": 14,
-            "ItemLevel": 63,
-            "Type": {
-                "Name": "Gloves",
-                "Index": "Gloves",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -33015,7 +32405,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Crow Caw",
         "Index": "Crow Caw",
         "Enabled": true,
@@ -33061,8 +32451,8 @@
             "Durability": 36,
             "ItemLevel": 43,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -33571,64 +32961,6 @@
         }
     },
     {
-        "Type": "Boots",
-        "Name": "Hollowed Ground",
-        "Index": "Hollowed Ground",
-        "Enabled": true,
-        "Rarity": 1,
-        "ItemLevel": 18,
-        "RequiredLevel": 37,
-        "Code": "umb",
-        "Properties": [
-            {
-                "PropertyString": "Level 2-5 Sanctuary Aura When Equipped",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+1 to Paladin Skill Levels",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+25% Faster Hit Recovery",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+125% Damage to Undead",
-                "Index": 3
-            },
-            {
-                "PropertyString": "Slain Monsters Rest in Peace",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+150-200% Enhanced Defense",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+15-25 to Dexterity",
-                "Index": 6
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageString": "69 to 118",
-            "DamageStringPrefix": "Kick Damage",
-            "ArmorString": "170-204",
-            "EquipmentType": 0,
-            "Name": "Boneweave Boots [E]",
-            "RequiredStrength": 118,
-            "RequiredDexterity": 0,
-            "Durability": 16,
-            "ItemLevel": 72,
-            "Type": {
-                "Name": "Boots",
-                "Index": "Boots",
-                "Class": ""
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
         "Type": "Belt",
         "Name": "Wave Whipper",
         "Index": "Wave Whipper",
@@ -33894,7 +33226,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 160 Poison Damage over 4 Seconds",
+                "PropertyString": "Adds 160 Weapon Poison Damage over 4 seconds",
                 "Index": 3
             }
         ],
@@ -34044,7 +33376,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Shaftstop",
         "Index": "Shaftstop",
         "Enabled": true,
@@ -34082,8 +33414,8 @@
             "Durability": 45,
             "ItemLevel": 45,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -34178,7 +33510,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 183 Poison Damage over 4 Seconds",
+                "PropertyString": "Adds 183 Weapon Poison Damage over 4 seconds",
                 "Index": 4
             },
             {
@@ -34656,7 +33988,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Cold Comfort",
         "Index": "Cold Comfort",
         "Enabled": true,
@@ -34710,8 +34042,8 @@
             "Durability": 32,
             "ItemLevel": 40,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -34925,7 +34257,7 @@
                 "Index": 8
             },
             {
-                "PropertyString": "Adds 489 Poison Damage over 5 Seconds",
+                "PropertyString": "Adds 489 Weapon Poison Damage over 5 seconds",
                 "Index": 4
             },
             {
@@ -34963,71 +34295,6 @@
             "RequiredDexterity": 73,
             "Durability": 250,
             "ItemLevel": 41,
-            "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
-                "Class": "ass"
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Hand to Hand 2",
-        "Name": "Silent Shank",
-        "Index": "Silent Shank",
-        "Enabled": true,
-        "Rarity": 3,
-        "ItemLevel": 38,
-        "RequiredLevel": 38,
-        "Code": "7xf",
-        "Properties": [
-            {
-                "PropertyString": "+35% Increased Attack Speed",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+200-260% Enhanced Weapon Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+25% Faster Cast Rate",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+0.88 to Maximum Weapon Damage (Per Character Level)",
-                "Index": 7
-            },
-            {
-                "PropertyString": "Replenish Life +10-15",
-                "Index": 3
-            },
-            {
-                "PropertyString": "Cannot Be Frozen",
-                "Index": 4
-            },
-            {
-                "PropertyString": "Vendor Prices Reduced By 15%",
-                "Index": 5
-            },
-            {
-                "PropertyString": "You feel incorporeal...",
-                "Index": 6
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageTypes": [
-                {
-                    "Type": 3,
-                    "DamageString": "(132-158) to (159-190)"
-                }
-            ],
-            "EquipmentType": 1,
-            "Name": "War Fist [E]",
-            "RequiredStrength": 108,
-            "RequiredDexterity": 108,
-            "Durability": 250,
-            "ItemLevel": 68,
             "Type": {
                 "Name": "Hand to Hand 2",
                 "Index": "Hand to Hand 2",
@@ -35984,6 +35251,126 @@
             "Type": {
                 "Name": "Helm",
                 "Index": "Helm",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Circlet",
+        "Name": "Gainsayer",
+        "Index": "Gainsayer",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 19,
+        "RequiredLevel": 39,
+        "Code": "ci1",
+        "Properties": [
+            {
+                "PropertyString": "+1-3 to Warcries (Barbarian Only)",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+1-3 to Curses (Necromancer Only)",
+                "Index": 7
+            },
+            {
+                "PropertyString": "+25% Faster Hit Recovery",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+140-175% Enhanced Defense",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+15-20 to all Attributes",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+20-30% to All Resistances",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+4-7% to Experience Gained",
+                "Index": 1
+            },
+            {
+                "PropertyString": "Vendor Prices Reduced By 5-10%",
+                "Index": 2
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "98-112",
+            "EquipmentType": 0,
+            "Name": "Coronet [N]",
+            "RequiredStrength": 0,
+            "RequiredDexterity": 0,
+            "Durability": 30,
+            "ItemLevel": 52,
+            "Type": {
+                "Name": "Circlet",
+                "Index": "Circlet",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Circlet",
+        "Name": "Threatspeaker",
+        "Index": "Threatspeaker",
+        "Enabled": true,
+        "Rarity": 3,
+        "ItemLevel": 1,
+        "RequiredLevel": 39,
+        "Code": "ci1",
+        "Properties": [
+            {
+                "PropertyString": "+10 to War Cry (oskill)",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+1-6 to Conversion (oskill)",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+10% Increased Attack Speed",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+5-10 to Minimum Weapon Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+20-25 to Maximum Weapon Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+50-75 Defense",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+15-20% to All Resistances",
+                "Index": 6
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "90-115",
+            "EquipmentType": 0,
+            "Name": "Coronet [N]",
+            "RequiredStrength": 0,
+            "RequiredDexterity": 0,
+            "Durability": 30,
+            "ItemLevel": 52,
+            "Type": {
+                "Name": "Circlet",
+                "Index": "Circlet",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -37643,7 +37030,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 300 Poison Damage over 8 Seconds",
+                "PropertyString": "Adds 300 Weapon Poison Damage over 8 seconds",
                 "Index": 1
             },
             {
@@ -38071,7 +37458,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Duriel's Shell",
         "Index": "Duriel's Shell",
         "Enabled": true,
@@ -38129,8 +37516,8 @@
             "Durability": 150,
             "ItemLevel": 47,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -38386,7 +37773,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Gillian's Brazier",
         "Index": "Gillian's Brazier",
         "Enabled": true,
@@ -38436,15 +37823,15 @@
             "Durability": 20,
             "ItemLevel": 34,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Heartbane",
         "Index": "Heartbane",
         "Enabled": true,
@@ -38498,8 +37885,8 @@
             "Durability": 26,
             "ItemLevel": 42,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -39249,7 +38636,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Skullder's Ire",
         "Index": "Skullder's Ire",
         "Enabled": true,
@@ -39291,8 +38678,8 @@
             "Durability": 90,
             "ItemLevel": 49,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -40104,7 +39491,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 800 Poison Damage over 8 Seconds",
+                "PropertyString": "Adds 800 Weapon Poison Damage over 8 seconds",
                 "Index": 5
             },
             {
@@ -40529,7 +39916,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Anaconda Skin",
         "Index": "Anaconda Skin",
         "Enabled": true,
@@ -40579,8 +39966,8 @@
             "Durability": 24,
             "ItemLevel": 36,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -41283,7 +40670,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Torn Flesh of Souls",
         "Index": "Torn Flesh of Souls",
         "Enabled": true,
@@ -41333,8 +40720,8 @@
             "Durability": 28,
             "ItemLevel": 37,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -41870,56 +41257,6 @@
         }
     },
     {
-        "Type": "Pelt",
-        "Name": "Stone Feather",
-        "Index": "Stone Feather",
-        "Enabled": true,
-        "Rarity": 3,
-        "ItemLevel": 26,
-        "RequiredLevel": 43,
-        "Code": "drf",
-        "Properties": [
-            {
-                "PropertyString": "+2 to All Skills",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+200-300% Enhanced Defense",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+25-50% Physical Damage Reduction",
-                "Index": 1
-            },
-            {
-                "PropertyString": "Requirements Reduced By -65%",
-                "Index": 2
-            },
-            {
-                "PropertyString": "Socketed (3)",
-                "Index": 3
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageString": null,
-            "DamageStringPrefix": null,
-            "ArmorString": "480-640",
-            "EquipmentType": 0,
-            "Name": "Dream Spirit [E]",
-            "RequiredStrength": 118,
-            "RequiredDexterity": 0,
-            "Durability": 20,
-            "ItemLevel": 85,
-            "Type": {
-                "Name": "Pelt",
-                "Index": "Pelt",
-                "Class": "dru"
-            },
-            "RequiredClass": "Druid"
-        }
-    },
-    {
         "Type": "Hand to Hand",
         "Name": "Heat of Summer",
         "Index": "Heat of Summer",
@@ -42050,7 +41387,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 250 Poison Damage over 6 Seconds",
+                "PropertyString": "Adds 250 Weapon Poison Damage over 6 seconds",
                 "Index": 3
             },
             {
@@ -42634,7 +41971,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 98 Poison Damage over 3 Seconds",
+                "PropertyString": "Adds 98 Weapon Poison Damage over 3 seconds",
                 "Index": 3
             },
             {
@@ -42673,7 +42010,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Lilt of the Dryad",
         "Index": "Lilt of the Dryad",
         "Enabled": true,
@@ -42723,15 +42060,15 @@
             "Durability": 32,
             "ItemLevel": 40,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Drow Mesh",
         "Index": "Drow Mesh",
         "Enabled": true,
@@ -42781,8 +42118,8 @@
             "Durability": 45,
             "ItemLevel": 45,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -43345,7 +42682,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Guardian Angel",
         "Index": "Guardian Angel",
         "Enabled": true,
@@ -43395,8 +42732,8 @@
             "Durability": 60,
             "ItemLevel": 52,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -43950,7 +43287,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+1 to Weapon Minimum Cold Damage",
+                "PropertyString": "Adds 1 Weapon Cold Damage",
                 "Index": 2
             },
             {
@@ -44356,55 +43693,6 @@
                 "Class": "pal"
             },
             "RequiredClass": "Paladin"
-        }
-    },
-    {
-        "Type": "Hand to Hand 2",
-        "Name": "Sin Sister",
-        "Index": "Sin Sister",
-        "Enabled": true,
-        "Rarity": 3,
-        "ItemLevel": 28,
-        "RequiredLevel": 45,
-        "Code": "7tw",
-        "Properties": [
-            {
-                "PropertyString": "+30% Increased Attack Speed",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+200-300% Enhanced Weapon Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+0.88 to Maximum Weapon Damage (Per Character Level)",
-                "Index": 3
-            },
-            {
-                "PropertyString": "Socketed (3)",
-                "Index": 2
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageTypes": [
-                {
-                    "Type": 3,
-                    "DamageString": "(72-96) to (132-176)"
-                }
-            ],
-            "EquipmentType": 1,
-            "Name": "Runic Talons [E]",
-            "RequiredStrength": 115,
-            "RequiredDexterity": 115,
-            "Durability": 250,
-            "ItemLevel": 81,
-            "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
-                "Class": "ass"
-            },
-            "RequiredClass": ""
         }
     },
     {
@@ -44847,7 +44135,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 193 Poison Damage over 3 Seconds",
+                "PropertyString": "Adds 193 Weapon Poison Damage over 3 seconds",
                 "Index": 3
             },
             {
@@ -44998,6 +44286,67 @@
             "Type": {
                 "Name": "Bow",
                 "Index": "Bow",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Javelin",
+        "Name": "Summerstrike",
+        "Index": "Summerstrike",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 23,
+        "RequiredLevel": 46,
+        "Code": "7pi",
+        "Properties": [
+            {
+                "PropertyString": "+200-250% Enhanced Weapon Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Adds 256-500 Weapon Fire Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+15-25% Fire Damage Absorbed",
+                "Index": 3
+            },
+            {
+                "PropertyString": "Increased Stack Size",
+                "Index": 5
+            },
+            {
+                "PropertyString": "Replenishes quantity",
+                "Index": 1
+            },
+            {
+                "PropertyString": "Ethereal (Cannot be Repaired)",
+                "Index": 4
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageTypes": [
+                {
+                    "Type": 3,
+                    "DamageString": "(42-49) to (192-224)"
+                },
+                {
+                    "Type": 2,
+                    "DamageString": "(63-73) to (225-262)"
+                }
+            ],
+            "EquipmentType": 1,
+            "Name": "Stygian Pilum [E]",
+            "RequiredStrength": 118,
+            "RequiredDexterity": 112,
+            "Durability": 250,
+            "ItemLevel": 62,
+            "Type": {
+                "Name": "Javelin",
+                "Index": "Javelin",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -46408,7 +45757,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "The Strongest Link",
         "Index": "The Strongest Link",
         "Enabled": true,
@@ -46458,15 +45807,15 @@
             "Durability": 36,
             "ItemLevel": 43,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Tesla's Cuirass",
         "Index": "Tesla's Cuirass",
         "Enabled": true,
@@ -46512,8 +45861,62 @@
             "Durability": 50,
             "ItemLevel": 47,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Gloves",
+        "Name": "Bloodyearn",
+        "Index": "Bloodyearn",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 20,
+        "RequiredLevel": 47,
+        "Code": "uvg",
+        "Properties": [
+            {
+                "PropertyString": "+1-3 to Masteries & Throwing Skills (Barbarian Only)",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+20% Increased Attack Speed",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+6% Life stolen per hit",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+120-150% Enhanced Defense",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+25% Increased Maximum Life",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+0.75 to Life (Per Character Level)",
+                "Index": 2
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "145-165",
+            "EquipmentType": 0,
+            "Name": "Vampirebone Gloves [E]",
+            "RequiredStrength": 50,
+            "RequiredDexterity": 0,
+            "Durability": 14,
+            "ItemLevel": 63,
+            "Type": {
+                "Name": "Gloves",
+                "Index": "Gloves",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -46608,7 +46011,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 250 Poison Damage over 10 Seconds",
+                "PropertyString": "Adds 250 Weapon Poison Damage over 10 seconds",
                 "Index": 4
             },
             {
@@ -46773,7 +46176,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Toothrow",
         "Index": "Toothrow",
         "Enabled": true,
@@ -46819,8 +46222,8 @@
             "Durability": 63,
             "ItemLevel": 55,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -47996,7 +47399,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 37 Poison Damage over 2 Seconds",
+                "PropertyString": "Adds 37 Weapon Poison Damage over 2 seconds",
                 "Index": 0
             },
             {
@@ -48168,7 +47571,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 37 Poison Damage over 2 Seconds",
+                "PropertyString": "Adds 37 Weapon Poison Damage over 2 seconds",
                 "Index": 0
             },
             {
@@ -48589,7 +47992,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 183 Poison Damage over 4 Seconds",
+                "PropertyString": "Adds 183 Weapon Poison Damage over 4 seconds",
                 "Index": 4
             },
             {
@@ -49006,7 +48409,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Disparate Paths",
         "Index": "Disparate Paths",
         "Enabled": true,
@@ -49056,8 +48459,8 @@
             "Durability": 45,
             "ItemLevel": 45,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -49186,6 +48589,56 @@
             "Type": {
                 "Name": "Shield",
                 "Index": "Shield",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Boots",
+        "Name": "Thoqqua's Slipper",
+        "Index": "Thoqqua's Slipper",
+        "Enabled": true,
+        "Rarity": 2,
+        "ItemLevel": 4,
+        "RequiredLevel": 49,
+        "Code": "uvb",
+        "Properties": [
+            {
+                "PropertyString": "+50% Faster Run/Walk Speed",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+75-120 Defense",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+35-50 to Life",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+10-15% to All Resistances",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+40-80% Chance Items Roll Magic or Better",
+                "Index": 1
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": "60 to 110",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "140-185",
+            "EquipmentType": 0,
+            "Name": "Scarabshell Boots [E]",
+            "RequiredStrength": 91,
+            "RequiredDexterity": 0,
+            "Durability": 14,
+            "ItemLevel": 66,
+            "Type": {
+                "Name": "Boots",
+                "Index": "Boots",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -50227,7 +49680,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Brimstone Hearth",
         "Index": "Brimstone Hearth",
         "Enabled": true,
@@ -50273,8 +49726,8 @@
             "Durability": 60,
             "ItemLevel": 49,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -51060,7 +50513,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Atma's Wail",
         "Index": "Atma's Wail",
         "Enabled": true,
@@ -51110,15 +50563,15 @@
             "Durability": 105,
             "ItemLevel": 58,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Que-Hegan's Wisdom",
         "Index": "Que-Hegan's Wisdom1",
         "Enabled": true,
@@ -51168,8 +50621,8 @@
             "Durability": 60,
             "ItemLevel": 60,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -51561,7 +51014,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 528 Poison Damage over 6 Seconds",
+                "PropertyString": "Adds 528 Weapon Poison Damage over 6 seconds",
                 "Index": 2
             },
             {
@@ -51600,7 +51053,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Mother's Milk",
         "Index": "Mother's Milk",
         "Enabled": true,
@@ -51650,8 +51103,8 @@
             "Durability": 50,
             "ItemLevel": 47,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -51786,6 +51239,71 @@
                 "Class": "bar"
             },
             "RequiredClass": "Barbarian"
+        }
+    },
+    {
+        "Type": "Hand to Hand 2",
+        "Name": "Silent Shank",
+        "Index": "Silent Shank",
+        "Enabled": true,
+        "Rarity": 3,
+        "ItemLevel": 38,
+        "RequiredLevel": 51,
+        "Code": "7xf",
+        "Properties": [
+            {
+                "PropertyString": "+35% Increased Attack Speed",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+200-260% Enhanced Weapon Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+25% Faster Cast Rate",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+0.88 to Maximum Weapon Damage (Per Character Level)",
+                "Index": 7
+            },
+            {
+                "PropertyString": "Replenish Life +10-15",
+                "Index": 3
+            },
+            {
+                "PropertyString": "Cannot Be Frozen",
+                "Index": 4
+            },
+            {
+                "PropertyString": "Vendor Prices Reduced By 15%",
+                "Index": 5
+            },
+            {
+                "PropertyString": "You feel incorporeal...",
+                "Index": 6
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageTypes": [
+                {
+                    "Type": 3,
+                    "DamageString": "(132-158) to (159-190)"
+                }
+            ],
+            "EquipmentType": 1,
+            "Name": "War Fist [E]",
+            "RequiredStrength": 108,
+            "RequiredDexterity": 108,
+            "Durability": 250,
+            "ItemLevel": 68,
+            "Type": {
+                "Name": "Hand to Hand 2",
+                "Index": "Hand to Hand 2",
+                "Class": "ass"
+            },
+            "RequiredClass": ""
         }
     },
     {
@@ -52106,7 +51624,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Succulent Sin",
         "Index": "Succulent Sin",
         "Enabled": true,
@@ -52156,8 +51674,62 @@
             "Durability": 60,
             "ItemLevel": 52,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Circlet",
+        "Name": "Gillian's Tiara",
+        "Index": "Gillian's Tiara",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 30,
+        "RequiredLevel": 52,
+        "Code": "ci2",
+        "Properties": [
+            {
+                "PropertyString": "+1 to Warp (oskill)",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+20% Faster Block Rate",
+                "Index": 2
+            },
+            {
+                "PropertyString": "15-25% Increased Chance of Blocking",
+                "Index": 1
+            },
+            {
+                "PropertyString": "Slows Target by 25%",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+75-150 Defense",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Replenish Life +8",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "125-200",
+            "EquipmentType": 0,
+            "Name": "Tiara [X]",
+            "RequiredStrength": 0,
+            "RequiredDexterity": 0,
+            "Durability": 25,
+            "ItemLevel": 70,
+            "Type": {
+                "Name": "Circlet",
+                "Index": "Circlet",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -52357,7 +51929,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Black Hades",
         "Index": "Black Hades",
         "Enabled": true,
@@ -52403,8 +51975,8 @@
             "Durability": 70,
             "ItemLevel": 61,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -53372,7 +52944,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 759 Poison Damage over 10 Seconds",
+                "PropertyString": "Adds 759 Weapon Poison Damage over 10 seconds",
                 "Index": 2
             },
             {
@@ -54054,6 +53626,64 @@
         }
     },
     {
+        "Type": "Boots",
+        "Name": "Hollowed Ground",
+        "Index": "Hollowed Ground",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 18,
+        "RequiredLevel": 54,
+        "Code": "umb",
+        "Properties": [
+            {
+                "PropertyString": "Level 2-5 Sanctuary Aura When Equipped",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+1 to Paladin Skill Levels",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+25% Faster Hit Recovery",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+125% Damage to Undead",
+                "Index": 3
+            },
+            {
+                "PropertyString": "Slain Monsters Rest in Peace",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+150-200% Enhanced Defense",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+15-25 to Dexterity",
+                "Index": 6
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": "69 to 118",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "170-204",
+            "EquipmentType": 0,
+            "Name": "Boneweave Boots [E]",
+            "RequiredStrength": 118,
+            "RequiredDexterity": 0,
+            "Durability": 16,
+            "ItemLevel": 72,
+            "Type": {
+                "Name": "Boots",
+                "Index": "Boots",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
         "Type": "Belt",
         "Name": "The Art of War",
         "Index": "The Art of War",
@@ -54243,7 +53873,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Corpsemourn",
         "Index": "Corpsemourn",
         "Enabled": true,
@@ -54293,8 +53923,8 @@
             "Durability": 60,
             "ItemLevel": 64,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -54836,7 +54466,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Scars of the Forefathers",
         "Index": "Scars of the Forefathers",
         "Enabled": true,
@@ -54890,15 +54520,15 @@
             "Durability": 30,
             "ItemLevel": 49,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Seaflame",
         "Index": "Seaflame",
         "Enabled": true,
@@ -54948,8 +54578,8 @@
             "Durability": 248,
             "ItemLevel": 55,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -55782,7 +55412,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Nightcrawler",
         "Index": "Nightcrawler",
         "Enabled": true,
@@ -55824,8 +55454,8 @@
             "Durability": 55,
             "ItemLevel": 58,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -55966,7 +55596,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 304 Poison Damage over 4 Seconds",
+                "PropertyString": "Adds 304 Weapon Poison Damage over 4 seconds",
                 "Index": 5
             },
             {
@@ -56439,7 +56069,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Demonspike Coat",
         "Index": "Demonspike Coat",
         "Enabled": true,
@@ -56485,15 +56115,15 @@
             "Durability": 60,
             "ItemLevel": 52,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Evening Sky",
         "Index": "Evening Sky",
         "Enabled": true,
@@ -56543,15 +56173,15 @@
             "Durability": 36,
             "ItemLevel": 43,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Crescent of Secrets",
         "Index": "Crescent of Secrets",
         "Enabled": true,
@@ -56597,8 +56227,8 @@
             "Durability": 24,
             "ItemLevel": 67,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -56646,6 +56276,56 @@
             "RequiredDexterity": 0,
             "Durability": 12,
             "ItemLevel": 57,
+            "Type": {
+                "Name": "Gloves",
+                "Index": "Gloves",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Gloves",
+        "Name": "Hellhunger",
+        "Index": "Hellhunger",
+        "Enabled": true,
+        "Rarity": 2,
+        "ItemLevel": 20,
+        "RequiredLevel": 57,
+        "Code": "utg",
+        "Properties": [
+            {
+                "PropertyString": "+1 to All Skills",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+1-5 to Lower Resist (oskill)",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+10% Faster Cast Rate",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+75-125 Defense",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20-25% Chance Items Roll Magic or Better",
+                "Index": 4
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "143-193",
+            "EquipmentType": 0,
+            "Name": "Crusader Gauntlets [E]",
+            "RequiredStrength": 151,
+            "RequiredDexterity": 0,
+            "Durability": 18,
+            "ItemLevel": 76,
             "Type": {
                 "Name": "Gloves",
                 "Index": "Gloves",
@@ -56735,7 +56415,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 800 Poison Damage over 8 Seconds",
+                "PropertyString": "Adds 800 Weapon Poison Damage over 8 seconds",
                 "Index": 2
             },
             {
@@ -57155,7 +56835,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Iceskin",
         "Index": "Iceskin",
         "Enabled": true,
@@ -57205,8 +56885,8 @@
             "Durability": 60,
             "ItemLevel": 64,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -57810,7 +57490,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Bloodlust Frenzy",
         "Index": "Bloodlust Frenzy",
         "Enabled": true,
@@ -57860,15 +57540,15 @@
             "Durability": 48,
             "ItemLevel": 55,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Serendipity",
         "Index": "Serendipity",
         "Enabled": true,
@@ -57922,8 +57602,8 @@
             "Durability": 60,
             "ItemLevel": 60,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -58068,7 +57748,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 40 Poison Damage over 4 Seconds",
+                "PropertyString": "Adds 40 Weapon Poison Damage over 4 seconds",
                 "Index": 0
             },
             {
@@ -58162,75 +57842,6 @@
             "Type": {
                 "Name": "Ring",
                 "Index": "Ring",
-                "Class": ""
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Scepter",
-        "Name": "Astreon's Iron Ward",
-        "Index": "Astreon's Iron Ward",
-        "Enabled": true,
-        "Rarity": 1,
-        "ItemLevel": 68,
-        "RequiredLevel": 60,
-        "Code": "7ws",
-        "Properties": [
-            {
-                "PropertyString": "+2-4 to Combat Skills (Paladin Only)",
-                "Index": 7
-            },
-            {
-                "PropertyString": "+10% Increased Attack Speed",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+240-290% Enhanced Weapon Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+40-85 Damage",
-                "Index": 6
-            },
-            {
-                "PropertyString": "+150-200% Bonus to Attack Rating",
-                "Index": 2
-            },
-            {
-                "PropertyString": "Adds 80-240 Weapon Magic Damage",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+33% Chance of Crushing Blow",
-                "Index": 8
-            },
-            {
-                "PropertyString": "Slows Target by 25%",
-                "Index": 1
-            },
-            {
-                "PropertyString": "Physical Damage Reduced By 4-7",
-                "Index": 5
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageTypes": [
-                {
-                    "Type": 3,
-                    "DamageString": "(125-144) to (146-167)"
-                }
-            ],
-            "EquipmentType": 1,
-            "Name": "Caduceus [E]",
-            "RequiredStrength": 97,
-            "RequiredDexterity": 70,
-            "Durability": 250,
-            "ItemLevel": 85,
-            "Type": {
-                "Name": "Scepter",
-                "Index": "Scepter",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -58932,7 +58543,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Royal Plate",
         "Index": "Royal Plate",
         "Enabled": true,
@@ -58982,15 +58593,15 @@
             "Durability": 55,
             "ItemLevel": 58,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Aphrodite's Girdle",
         "Index": "Aphrodite's Girdle",
         "Enabled": true,
@@ -59044,8 +58655,8 @@
             "Durability": 28,
             "ItemLevel": 68,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -59352,6 +58963,60 @@
         }
     },
     {
+        "Type": "Voodoo Heads",
+        "Name": "Prayer for the Dying",
+        "Index": "Prayer for the Dying",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 22,
+        "RequiredLevel": 60,
+        "Code": "nee",
+        "Properties": [
+            {
+                "PropertyString": "+3 to Necromancer Skill Levels",
+                "Index": 3
+            },
+            {
+                "PropertyString": "50% Increased Chance of Blocking",
+                "Index": 4
+            },
+            {
+                "PropertyString": "Slain Monsters Rest in Peace",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+150-200% Enhanced Defense",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+10% to Experience Gained",
+                "Index": 2
+            },
+            {
+                "PropertyString": "Socketed (2)",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "367-441",
+            "EquipmentType": 0,
+            "Name": "Succubus Skull [E]",
+            "RequiredStrength": 95,
+            "RequiredDexterity": 0,
+            "Durability": 20,
+            "ItemLevel": 81,
+            "Type": {
+                "Name": "Voodoo Heads",
+                "Index": "Voodoo Heads",
+                "Class": "nec"
+            },
+            "RequiredClass": "Necromancer"
+        }
+    },
+    {
         "Type": "Hand to Hand",
         "Name": "Razor Knuckle",
         "Index": "Razor Knuckle",
@@ -59410,6 +59075,55 @@
                 "Class": "ass"
             },
             "RequiredClass": "Assassin"
+        }
+    },
+    {
+        "Type": "Hand to Hand 2",
+        "Name": "Sin Sister",
+        "Index": "Sin Sister",
+        "Enabled": true,
+        "Rarity": 3,
+        "ItemLevel": 28,
+        "RequiredLevel": 60,
+        "Code": "7tw",
+        "Properties": [
+            {
+                "PropertyString": "+30% Increased Attack Speed",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+200-300% Enhanced Weapon Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+0.88 to Maximum Weapon Damage (Per Character Level)",
+                "Index": 3
+            },
+            {
+                "PropertyString": "Socketed (3)",
+                "Index": 2
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageTypes": [
+                {
+                    "Type": 3,
+                    "DamageString": "(72-96) to (132-176)"
+                }
+            ],
+            "EquipmentType": 1,
+            "Name": "Runic Talons [E]",
+            "RequiredStrength": 115,
+            "RequiredDexterity": 115,
+            "Durability": 250,
+            "ItemLevel": 81,
+            "Type": {
+                "Name": "Hand to Hand 2",
+                "Index": "Hand to Hand 2",
+                "Class": "ass"
+            },
+            "RequiredClass": ""
         }
     },
     {
@@ -60115,7 +59829,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Shambling Mound",
         "Index": "Shambling Mound",
         "Enabled": true,
@@ -60129,7 +59843,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 313 Poison Damage over 8 Seconds",
+                "PropertyString": "Adds 313 Weapon Poison Damage over 8 seconds",
                 "Index": 3
             },
             {
@@ -60165,8 +59879,8 @@
             "Durability": 70,
             "ItemLevel": 61,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -60279,67 +59993,6 @@
             "Type": {
                 "Name": "Helm",
                 "Index": "Helm",
-                "Class": ""
-            },
-            "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Knife",
-        "Name": "Ghostflame",
-        "Index": "Ghostflame",
-        "Enabled": true,
-        "Rarity": 1,
-        "ItemLevel": 70,
-        "RequiredLevel": 62,
-        "Code": "7bl",
-        "Properties": [
-            {
-                "PropertyString": "Indestructible",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+190-240% Enhanced Weapon Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Ignore Target's Defense",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+108 Weapon Magic Damage",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+10-15% Mana stolen per hit",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+2 to Light Radius",
-                "Index": 6
-            },
-            {
-                "PropertyString": "Ethereal (Cannot be Repaired)",
-                "Index": 4
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageTypes": [
-                {
-                    "Type": 3,
-                    "DamageString": "(89-105) to (136-159)"
-                }
-            ],
-            "EquipmentType": 1,
-            "Name": "Legend Spike [E]",
-            "RequiredStrength": 65,
-            "RequiredDexterity": 67,
-            "Durability": 0,
-            "ItemLevel": 85,
-            "Type": {
-                "Name": "Knife",
-                "Index": "Knife",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -60476,7 +60129,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Will of the Zakarum",
         "Index": "Will of the Zakarum",
         "Enabled": true,
@@ -60526,11 +60179,53 @@
             "Durability": 60,
             "ItemLevel": 64,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Pelt",
+        "Name": "Hecuba's Tresses",
+        "Index": "Hecuba's Tresses",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 1,
+        "RequiredLevel": 62,
+        "Code": "dre",
+        "Properties": [
+            {
+                "PropertyString": "+4 to Druid Skill Levels",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+240-300 Defense",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Socketed (3)",
+                "Index": 2
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "395-455",
+            "EquipmentType": 0,
+            "Name": "Sky Spirit [E]",
+            "RequiredStrength": 113,
+            "RequiredDexterity": 0,
+            "Durability": 20,
+            "ItemLevel": 83,
+            "Type": {
+                "Name": "Pelt",
+                "Index": "Pelt",
+                "Class": "dru"
+            },
+            "RequiredClass": "Druid"
         }
     },
     {
@@ -60756,7 +60451,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Plate of Fistandantilus",
         "Index": "Plate of Fistandantilus",
         "Enabled": true,
@@ -60806,8 +60501,8 @@
             "Durability": 60,
             "ItemLevel": 60,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -61051,60 +60746,6 @@
         }
     },
     {
-        "Type": "Voodoo Heads",
-        "Name": "Darkforce Spawn",
-        "Index": "Darkforce Spawn",
-        "Enabled": true,
-        "Rarity": 1,
-        "ItemLevel": 72,
-        "RequiredLevel": 64,
-        "Code": "nef",
-        "Properties": [
-            {
-                "PropertyString": "+1-3 to Curses (Necromancer Only)",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+1-3 to Poison and Bone Skills (Necromancer Only)",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+1-3 to Summoning Skills (Necromancer Only)",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+30% Faster Cast Rate",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+140-180% Enhanced Defense",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+10% Increased Maximum Mana",
-                "Index": 2
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageString": null,
-            "DamageStringPrefix": null,
-            "ArmorString": "357-417",
-            "EquipmentType": 0,
-            "Name": "Bloodlord Skull [E]",
-            "RequiredStrength": 106,
-            "RequiredDexterity": 0,
-            "Durability": 20,
-            "ItemLevel": 85,
-            "Type": {
-                "Name": "Voodoo Heads",
-                "Index": "Voodoo Heads",
-                "Class": "nec"
-            },
-            "RequiredClass": "Necromancer"
-        }
-    },
-    {
         "Type": "Boots",
         "Name": "Sandstorm Trek",
         "Index": "Sandstorm Trek",
@@ -61311,7 +60952,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 79 Poison Damage over 1 Seconds",
+                "PropertyString": "Adds 79 Weapon Poison Damage over 1 seconds",
                 "Index": 3
             },
             {
@@ -61702,6 +61343,67 @@
         }
     },
     {
+        "Type": "Hand to Hand 2",
+        "Name": "Avalanche Strike",
+        "Index": "Avalanche Strike",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 15,
+        "RequiredLevel": 64,
+        "Code": "7qr",
+        "Properties": [
+            {
+                "PropertyString": "50% Chance to cast level 4 Glacial Spike on striking",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+300-400% Enhanced Weapon Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Adds 200-250 Weapon Cold Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+6-8% Mana stolen per hit",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+6-8% Life stolen per hit",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+45% Cold Resistance",
+                "Index": 3
+            },
+            {
+                "PropertyString": "Repairs 0.15 durability per second",
+                "Index": 4
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageTypes": [
+                {
+                    "Type": 3,
+                    "DamageString": "(160-200) to (204-255)"
+                }
+            ],
+            "EquipmentType": 1,
+            "Name": "Scissors Suwayyah [E]",
+            "RequiredStrength": 118,
+            "RequiredDexterity": 118,
+            "Durability": 250,
+            "ItemLevel": 85,
+            "Type": {
+                "Name": "Hand to Hand 2",
+                "Index": "Hand to Hand 2",
+                "Class": "ass"
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
         "Type": "Ring",
         "Name": "Jackal's Laughter",
         "Index": "Jackal's Laughter",
@@ -62036,7 +61738,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Leviathan",
         "Index": "Leviathan",
         "Enabled": true,
@@ -62078,11 +61780,65 @@
             "Durability": 0,
             "ItemLevel": 81,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Voodoo Heads",
+        "Name": "Darkforce Spawn",
+        "Index": "Darkforce Spawn",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 72,
+        "RequiredLevel": 65,
+        "Code": "nef",
+        "Properties": [
+            {
+                "PropertyString": "+1-3 to Curses (Necromancer Only)",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+1-3 to Poison and Bone Skills (Necromancer Only)",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+1-3 to Summoning Skills (Necromancer Only)",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+30% Faster Cast Rate",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+140-180% Enhanced Defense",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+10% Increased Maximum Mana",
+                "Index": 2
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "357-417",
+            "EquipmentType": 0,
+            "Name": "Bloodlord Skull [E]",
+            "RequiredStrength": 106,
+            "RequiredDexterity": 0,
+            "Durability": 20,
+            "ItemLevel": 85,
+            "Type": {
+                "Name": "Voodoo Heads",
+                "Index": "Voodoo Heads",
+                "Class": "nec"
+            },
+            "RequiredClass": "Necromancer"
         }
     },
     {
@@ -62536,7 +62292,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Adds 586 Poison Damage over 8 Seconds",
+                "PropertyString": "Adds 586 Weapon Poison Damage over 8 seconds",
                 "Index": 2
             },
             {
@@ -62742,7 +62498,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Blanket of Stars",
         "Index": "Blanket of Stars",
         "Enabled": true,
@@ -62792,15 +62548,15 @@
             "Durability": 20,
             "ItemLevel": 65,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Feathering Mithril",
         "Index": "Feathering Mithril",
         "Enabled": true,
@@ -62850,8 +62606,8 @@
             "Durability": 26,
             "ItemLevel": 72,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -62906,6 +62662,64 @@
             "Type": {
                 "Name": "Shield",
                 "Index": "Shield",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Boots",
+        "Name": "Wild Horses",
+        "Index": "Wild Horses",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 34,
+        "RequiredLevel": 65,
+        "Code": "uhb",
+        "Properties": [
+            {
+                "PropertyString": "+40% Faster Run/Walk Speed",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+40% Faster Hit Recovery",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+10-15 Kick Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+10-20% Deadly Strike",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+125-200% Enhanced Defense",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+25 to Strength",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+25 to Dexterity",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": "83 to 149",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "162-216",
+            "EquipmentType": 0,
+            "Name": "Myrmidon Greaves [E]",
+            "RequiredStrength": 208,
+            "RequiredDexterity": 0,
+            "Durability": 24,
+            "ItemLevel": 85,
+            "Type": {
+                "Name": "Boots",
+                "Index": "Boots",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -63344,7 +63158,68 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Knife",
+        "Name": "Ghostflame",
+        "Index": "Ghostflame",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 70,
+        "RequiredLevel": 66,
+        "Code": "7bl",
+        "Properties": [
+            {
+                "PropertyString": "Indestructible",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+190-240% Enhanced Weapon Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Ignore Target's Defense",
+                "Index": 1
+            },
+            {
+                "PropertyString": "Adds 108 Weapon Magic Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+10-15% Mana stolen per hit",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+2 to Light Radius",
+                "Index": 6
+            },
+            {
+                "PropertyString": "Ethereal (Cannot be Repaired)",
+                "Index": 4
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageTypes": [
+                {
+                    "Type": 3,
+                    "DamageString": "(89-105) to (136-159)"
+                }
+            ],
+            "EquipmentType": 1,
+            "Name": "Legend Spike [E]",
+            "RequiredStrength": 65,
+            "RequiredDexterity": 67,
+            "Durability": 0,
+            "ItemLevel": 85,
+            "Type": {
+                "Name": "Knife",
+                "Index": "Knife",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Body Armor",
         "Name": "Steel Carapace",
         "Index": "Steel Carapace",
         "Enabled": true,
@@ -63394,8 +63269,8 @@
             "Durability": 70,
             "ItemLevel": 83,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -63466,6 +63341,75 @@
             "Type": {
                 "Name": "Boots",
                 "Index": "Boots",
+                "Class": ""
+            },
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Scepter",
+        "Name": "Astreon's Iron Ward",
+        "Index": "Astreon's Iron Ward",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 68,
+        "RequiredLevel": 66,
+        "Code": "7ws",
+        "Properties": [
+            {
+                "PropertyString": "+2-4 to Combat Skills (Paladin Only)",
+                "Index": 7
+            },
+            {
+                "PropertyString": "+10% Increased Attack Speed",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+240-290% Enhanced Weapon Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+40-85 Damage",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+150-200% Bonus to Attack Rating",
+                "Index": 2
+            },
+            {
+                "PropertyString": "Adds 80-240 Weapon Magic Damage",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+33% Chance of Crushing Blow",
+                "Index": 8
+            },
+            {
+                "PropertyString": "Slows Target by 25%",
+                "Index": 1
+            },
+            {
+                "PropertyString": "Physical Damage Reduced By 4-7",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageTypes": [
+                {
+                    "Type": 3,
+                    "DamageString": "(125-144) to (146-167)"
+                }
+            ],
+            "EquipmentType": 1,
+            "Name": "Caduceus [E]",
+            "RequiredStrength": 97,
+            "RequiredDexterity": 70,
+            "Durability": 250,
+            "ItemLevel": 85,
+            "Type": {
+                "Name": "Scepter",
+                "Index": "Scepter",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -63645,6 +63589,68 @@
         }
     },
     {
+        "Type": "Auric Shields",
+        "Name": "Valorsong",
+        "Index": "Valorsong",
+        "Enabled": true,
+        "Rarity": 2,
+        "ItemLevel": 1,
+        "RequiredLevel": 66,
+        "Code": "paf",
+        "Properties": [
+            {
+                "PropertyString": "5% Chance to cast level 4 Battle Orders when struck",
+                "Index": 3
+            },
+            {
+                "PropertyString": "5% Chance to cast level 4 Shout when struck",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+2 to All Skills",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+1 to Warmth (oskill)",
+                "Index": 7
+            },
+            {
+                "PropertyString": "+88% Chance of Open Wounds",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+2.38 Defense (Per Character Level)",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+60-100% to All Resistances",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+15-20% Damage Taken Goes To Mana",
+                "Index": 6
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "DamageString": "5 to 87",
+            "DamageStringPrefix": "Smite Damage",
+            "ArmorString": "225",
+            "EquipmentType": 0,
+            "Name": "Vortex Shield [E]",
+            "RequiredStrength": 148,
+            "RequiredDexterity": 0,
+            "Durability": 90,
+            "ItemLevel": 85,
+            "Type": {
+                "Name": "Auric Shields",
+                "Index": "Auric Shields",
+                "Class": "pal"
+            },
+            "RequiredClass": "Paladin"
+        }
+    },
+    {
         "Type": "Primal Helm",
         "Name": "Death Knight's Mask",
         "Index": "Death Knight's Mask",
@@ -63704,6 +63710,56 @@
                 "Class": "bar"
             },
             "RequiredClass": "Barbarian"
+        }
+    },
+    {
+        "Type": "Pelt",
+        "Name": "Stone Feather",
+        "Index": "Stone Feather",
+        "Enabled": true,
+        "Rarity": 3,
+        "ItemLevel": 26,
+        "RequiredLevel": 66,
+        "Code": "drf",
+        "Properties": [
+            {
+                "PropertyString": "+2 to All Skills",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+200-300% Enhanced Defense",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+25-50% Physical Damage Reduction",
+                "Index": 1
+            },
+            {
+                "PropertyString": "Requirements Reduced By -65%",
+                "Index": 2
+            },
+            {
+                "PropertyString": "Socketed (3)",
+                "Index": 3
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "480-640",
+            "EquipmentType": 0,
+            "Name": "Dream Spirit [E]",
+            "RequiredStrength": 118,
+            "RequiredDexterity": 0,
+            "Durability": 20,
+            "ItemLevel": 85,
+            "Type": {
+                "Name": "Pelt",
+                "Index": "Pelt",
+                "Class": "dru"
+            },
+            "RequiredClass": "Druid"
         }
     },
     {
@@ -64224,7 +64280,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Ancient Dragon",
         "Index": "Ancient Dragon",
         "Enabled": true,
@@ -64278,15 +64334,15 @@
             "Durability": 24,
             "ItemLevel": 67,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Golden Lotus",
         "Index": "Golden Lotus",
         "Enabled": true,
@@ -64332,8 +64388,8 @@
             "Durability": 36,
             "ItemLevel": 73,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -65267,7 +65323,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Chains of the Abyss",
         "Index": "Chains of the Abyss",
         "Enabled": true,
@@ -65321,8 +65377,8 @@
             "Durability": 45,
             "ItemLevel": 62,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -66329,7 +66385,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Zaratan Hide",
         "Index": "Zaratan Hide",
         "Enabled": true,
@@ -66379,8 +66435,8 @@
             "Durability": 28,
             "ItemLevel": 68,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -66588,7 +66644,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 293 Poison Damage over 10 Seconds",
+                "PropertyString": "Adds 293 Weapon Poison Damage over 10 seconds",
                 "Index": 2
             },
             {
@@ -67296,7 +67352,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Celestial Unicorn",
         "Index": "Celestial Unicorn",
         "Enabled": true,
@@ -67342,8 +67398,8 @@
             "Durability": 50,
             "ItemLevel": 75,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -67430,7 +67486,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 391 Poison Damage over 4 Seconds",
+                "PropertyString": "Adds 391 Weapon Poison Damage over 4 seconds",
                 "Index": 3
             },
             {
@@ -67729,7 +67785,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 326 Poison Damage over 10 Seconds",
+                "PropertyString": "Adds 326 Weapon Poison Damage over 10 seconds",
                 "Index": 1
             },
             {
@@ -69245,7 +69301,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Wyrmbane",
         "Index": "Wyrmbane",
         "Enabled": true,
@@ -69295,15 +69351,15 @@
             "Durability": 32,
             "ItemLevel": 70,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Adamantine Links",
         "Index": "Adamantine Links",
         "Enabled": true,
@@ -69353,15 +69409,15 @@
             "Durability": 26,
             "ItemLevel": 72,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Lunatic Fringe",
         "Index": "Lunatic Fringe",
         "Enabled": true,
@@ -69407,8 +69463,8 @@
             "Durability": 60,
             "ItemLevel": 78,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -69834,7 +69890,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Templar's Might",
         "Index": "Templar's Might",
         "Enabled": true,
@@ -69880,8 +69936,8 @@
             "Durability": 60,
             "ItemLevel": 85,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -70124,7 +70180,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Will-O'-Wisp",
         "Index": "Will-O'-Wisp",
         "Enabled": true,
@@ -70178,8 +70234,8 @@
             "Durability": 36,
             "ItemLevel": 73,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -70547,7 +70603,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Ormus' Robes",
         "Index": "Ormus' Robes",
         "Enabled": true,
@@ -70597,8 +70653,8 @@
             "Durability": 20,
             "ItemLevel": 65,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -70936,7 +70992,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Pride of the Barony",
         "Index": "Pride of the Barony",
         "Enabled": true,
@@ -70982,8 +71038,8 @@
             "Durability": 55,
             "ItemLevel": 82,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -72416,7 +72472,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 800 Poison Damage over 8 Seconds",
+                "PropertyString": "Adds 800 Weapon Poison Damage over 8 seconds",
                 "Index": 4
             },
             {
@@ -72467,7 +72523,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Gray God's Mantle",
         "Index": "Gray God's Mantle",
         "Enabled": true,
@@ -72501,8 +72557,8 @@
             "Durability": 50,
             "ItemLevel": 75,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -72686,7 +72742,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Diablo's Scale",
         "Index": "Diablo's Scale",
         "Enabled": true,
@@ -72744,8 +72800,8 @@
             "Durability": 30,
             "ItemLevel": 76,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -74470,7 +74526,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Panic of Thousands",
         "Index": "Panic of Thousands",
         "Enabled": true,
@@ -74516,15 +74572,15 @@
             "Durability": 170,
             "ItemLevel": 61,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Hellshifter",
         "Index": "Hellshifter",
         "Enabled": true,
@@ -74574,8 +74630,8 @@
             "Durability": 60,
             "ItemLevel": 78,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -75176,7 +75232,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Adds 394 Poison Damage over 10 Seconds",
+                "PropertyString": "Adds 394 Weapon Poison Damage over 10 seconds",
                 "Index": 1
             },
             {
@@ -76182,7 +76238,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Ocean's Embrace",
         "Index": "Ocean's Embrace",
         "Enabled": true,
@@ -76232,8 +76288,8 @@
             "Durability": 48,
             "ItemLevel": 81,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -76602,7 +76658,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Lachdanan's Heart",
         "Index": "Lachdanan's Heart",
         "Enabled": true,
@@ -76652,8 +76708,8 @@
             "Durability": 55,
             "ItemLevel": 82,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -76856,7 +76912,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Tyrael's Might",
         "Index": "Tyrael's Might",
         "Enabled": true,
@@ -76926,8 +76982,8 @@
             "Durability": 0,
             "ItemLevel": 85,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -76960,7 +77016,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 86-213 Weapon Cold Damage",
+                "PropertyString": "+86-213 to Weapon Minimum Cold Damage",
                 "Index": 7
             },
             {
@@ -77033,7 +77089,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 1200 Poison Damage over 12 Seconds",
+                "PropertyString": "Adds 1200 Weapon Poison Damage over 12 seconds",
                 "Index": 7
             },
             {
@@ -77141,7 +77197,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Shadowtrick",
         "Index": "Shadowtrick",
         "Enabled": true,
@@ -77195,8 +77251,8 @@
             "Durability": 70,
             "ItemLevel": 83,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -77388,7 +77444,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "The Gladiator's Bane",
         "Index": "The Gladiator's Bane",
         "Enabled": true,
@@ -77442,15 +77498,15 @@
             "Durability": 135,
             "ItemLevel": 70,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Arkaine's Valor",
         "Index": "Arkaine's Valor",
         "Enabled": true,
@@ -77492,8 +77548,8 @@
             "Durability": 30,
             "ItemLevel": 76,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -77756,7 +77812,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Legacy of the Eternals",
         "Index": "Legacy of the Eternals",
         "Enabled": true,
@@ -77814,8 +77870,8 @@
             "Durability": 60,
             "ItemLevel": 84,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -78867,7 +78923,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Tarrasque Hide",
         "Index": "Tarrasque Hide",
         "Enabled": true,
@@ -78917,8 +78973,8 @@
             "Durability": 45,
             "ItemLevel": 62,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
@@ -79565,7 +79621,7 @@
         }
     },
     {
-        "Type": "Armor",
+        "Type": "Body Armor",
         "Name": "Heaven's Treasure",
         "Index": "Heaven's Treasure",
         "Enabled": true,
@@ -79603,8 +79659,8 @@
             "Durability": 60,
             "ItemLevel": 84,
             "Type": {
-                "Name": "Armor",
-                "Index": "Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             },
             "RequiredClass": ""
