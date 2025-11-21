@@ -3270,7 +3270,7 @@
                 }
             },
             {
-                "Type": "Hand to Hand 2",
+                "Type": "Hand to Hand",
                 "Set": "Natalya's Odium",
                 "SetPropertiesString": [],
                 "Name": "Natalya's Mark",
@@ -3325,8 +3325,8 @@
                     "Durability": 250,
                     "ItemLevel": 85,
                     "Type": {
-                        "Name": "Hand to Hand 2",
-                        "Index": "Hand to Hand 2",
+                        "Name": "Hand to Hand",
+                        "Index": "Hand to Hand",
                         "Class": "ass"
                     },
                     "RequiredClass": ""
@@ -11617,7 +11617,7 @@
                 }
             },
             {
-                "Type": "Hand to Hand 2",
+                "Type": "Hand to Hand",
                 "Set": "JBouley's Scion",
                 "SetPropertiesString": [
                     "+8% Mana stolen per hit (4 Items)",
@@ -11659,8 +11659,8 @@
                     "Durability": 250,
                     "ItemLevel": 54,
                     "Type": {
-                        "Name": "Hand to Hand 2",
-                        "Index": "Hand to Hand 2",
+                        "Name": "Hand to Hand",
+                        "Index": "Hand to Hand",
                         "Class": "ass"
                     },
                     "RequiredClass": ""
@@ -13909,7 +13909,7 @@
         "Name": "Phrozen Heart's Mysticism",
         "SetItems": [
             {
-                "Type": "Hand to Hand 2",
+                "Type": "Hand to Hand",
                 "Set": "Phrozen Heart's Mysticism",
                 "SetPropertiesString": [
                     "+20% Chance of Crushing Blow (3 Items)",
@@ -13952,8 +13952,8 @@
                     "Durability": 250,
                     "ItemLevel": 81,
                     "Type": {
-                        "Name": "Hand to Hand 2",
-                        "Index": "Hand to Hand 2",
+                        "Name": "Hand to Hand",
+                        "Index": "Hand to Hand",
                         "Class": "ass"
                     },
                     "RequiredClass": ""

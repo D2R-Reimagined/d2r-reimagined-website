@@ -34235,7 +34235,7 @@
         }
     },
     {
-        "Type": "Hand to Hand 2",
+        "Type": "Hand to Hand",
         "Name": "Slithertongue",
         "Index": "Slithertongue",
         "Enabled": true,
@@ -34296,8 +34296,8 @@
             "Durability": 250,
             "ItemLevel": 41,
             "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
                 "Class": "ass"
             },
             "RequiredClass": ""
@@ -36778,7 +36778,7 @@
         }
     },
     {
-        "Type": "Hand to Hand 2",
+        "Type": "Hand to Hand",
         "Name": "Werewolf Talons",
         "Index": "Werewolf Talons",
         "Enabled": true,
@@ -36835,8 +36835,8 @@
             "Durability": 250,
             "ItemLevel": 45,
             "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
                 "Class": "ass"
             },
             "RequiredClass": ""
@@ -39342,7 +39342,7 @@
         }
     },
     {
-        "Type": "Hand to Hand 2",
+        "Type": "Hand to Hand",
         "Name": "Bartuc's Cut-Throat",
         "Index": "Bartuc's Cut-Throat",
         "Enabled": true,
@@ -39403,8 +39403,8 @@
             "Durability": 250,
             "ItemLevel": 50,
             "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
                 "Class": "ass"
             },
             "RequiredClass": ""
@@ -44829,7 +44829,7 @@
         }
     },
     {
-        "Type": "Hand to Hand 2",
+        "Type": "Hand to Hand",
         "Name": "Chi Strike",
         "Index": "Chi Strike",
         "Enabled": true,
@@ -44886,8 +44886,8 @@
             "Durability": 250,
             "ItemLevel": 41,
             "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
                 "Class": "ass"
             },
             "RequiredClass": ""
@@ -47025,7 +47025,7 @@
         }
     },
     {
-        "Type": "Hand to Hand 2",
+        "Type": "Hand to Hand",
         "Name": "Shadowy Places",
         "Index": "Shadowy Places",
         "Enabled": true,
@@ -47082,8 +47082,8 @@
             "Durability": 250,
             "ItemLevel": 45,
             "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
                 "Class": "ass"
             },
             "RequiredClass": ""
@@ -48776,7 +48776,7 @@
         }
     },
     {
-        "Type": "Hand to Hand 2",
+        "Type": "Hand to Hand",
         "Name": "Glitterkill",
         "Index": "Glitterkill",
         "Enabled": true,
@@ -48833,8 +48833,8 @@
             "Durability": 250,
             "ItemLevel": 54,
             "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
                 "Class": "ass"
             },
             "RequiredClass": ""
@@ -50362,7 +50362,7 @@
         }
     },
     {
-        "Type": "Hand to Hand 2",
+        "Type": "Hand to Hand",
         "Name": "Adamantine Razors",
         "Index": "Adamantine Razors",
         "Enabled": true,
@@ -50419,8 +50419,8 @@
             "Durability": 0,
             "ItemLevel": 50,
             "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
                 "Class": "ass"
             },
             "RequiredClass": ""
@@ -51242,7 +51242,7 @@
         }
     },
     {
-        "Type": "Hand to Hand 2",
+        "Type": "Hand to Hand",
         "Name": "Silent Shank",
         "Index": "Silent Shank",
         "Enabled": true,
@@ -51299,8 +51299,8 @@
             "Durability": 250,
             "ItemLevel": 68,
             "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
                 "Class": "ass"
             },
             "RequiredClass": ""
@@ -53804,7 +53804,7 @@
         }
     },
     {
-        "Type": "Hand to Hand 2",
+        "Type": "Hand to Hand",
         "Name": "Fearsome Rumors",
         "Index": "Fearsome Rumors",
         "Enabled": true,
@@ -53865,8 +53865,8 @@
             "Durability": 250,
             "ItemLevel": 54,
             "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
                 "Class": "ass"
             },
             "RequiredClass": ""
@@ -54930,7 +54930,7 @@
         }
     },
     {
-        "Type": "Hand to Hand 2",
+        "Type": "Hand to Hand",
         "Name": "Iniquity Razor",
         "Index": "Iniquity Razor",
         "Enabled": true,
@@ -54987,8 +54987,8 @@
             "Durability": 250,
             "ItemLevel": 59,
             "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
                 "Class": "ass"
             },
             "RequiredClass": ""
@@ -59078,7 +59078,7 @@
         }
     },
     {
-        "Type": "Hand to Hand 2",
+        "Type": "Hand to Hand",
         "Name": "Sin Sister",
         "Index": "Sin Sister",
         "Enabled": true,
@@ -59119,8 +59119,8 @@
             "Durability": 250,
             "ItemLevel": 81,
             "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
                 "Class": "ass"
             },
             "RequiredClass": ""
@@ -60571,7 +60571,7 @@
         }
     },
     {
-        "Type": "Hand to Hand 2",
+        "Type": "Hand to Hand",
         "Name": "Full Suffering",
         "Index": "Full Suffering",
         "Enabled": true,
@@ -60632,8 +60632,8 @@
             "Durability": 250,
             "ItemLevel": 41,
             "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
                 "Class": "ass"
             },
             "RequiredClass": ""
@@ -61286,7 +61286,7 @@
         }
     },
     {
-        "Type": "Hand to Hand 2",
+        "Type": "Hand to Hand",
         "Name": "Wakazashi",
         "Index": "Wakazashi",
         "Enabled": true,
@@ -61335,15 +61335,15 @@
             "Durability": 250,
             "ItemLevel": 59,
             "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
                 "Class": "ass"
             },
             "RequiredClass": ""
         }
     },
     {
-        "Type": "Hand to Hand 2",
+        "Type": "Hand to Hand",
         "Name": "Avalanche Strike",
         "Index": "Avalanche Strike",
         "Enabled": true,
@@ -61396,8 +61396,8 @@
             "Durability": 250,
             "ItemLevel": 85,
             "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
                 "Class": "ass"
             },
             "RequiredClass": ""
@@ -62914,7 +62914,7 @@
         }
     },
     {
-        "Type": "Hand to Hand 2",
+        "Type": "Hand to Hand",
         "Name": "Wight Claw",
         "Index": "Wight Claw",
         "Enabled": true,
@@ -62975,8 +62975,8 @@
             "Durability": 250,
             "ItemLevel": 45,
             "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
                 "Class": "ass"
             },
             "RequiredClass": ""
@@ -63101,7 +63101,7 @@
         }
     },
     {
-        "Type": "Hand to Hand 2",
+        "Type": "Hand to Hand",
         "Name": "Jade Talon",
         "Index": "Jade Talon",
         "Enabled": true,
@@ -63150,8 +63150,8 @@
             "Durability": 250,
             "ItemLevel": 62,
             "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
                 "Class": "ass"
             },
             "RequiredClass": ""
@@ -63983,7 +63983,7 @@
         }
     },
     {
-        "Type": "Hand to Hand 2",
+        "Type": "Hand to Hand",
         "Name": "Firelizard's Talons",
         "Index": "Firelizard's Talons",
         "Enabled": true,
@@ -64036,8 +64036,8 @@
             "Durability": 250,
             "ItemLevel": 78,
             "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
                 "Class": "ass"
             },
             "RequiredClass": ""
@@ -65570,7 +65570,7 @@
         }
     },
     {
-        "Type": "Hand to Hand 2",
+        "Type": "Hand to Hand",
         "Name": "Dark Nemesis",
         "Index": "Dark Nemesis",
         "Enabled": true,
@@ -65619,8 +65619,8 @@
             "Durability": 250,
             "ItemLevel": 50,
             "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
                 "Class": "ass"
             },
             "RequiredClass": ""
@@ -67583,7 +67583,7 @@
         }
     },
     {
-        "Type": "Hand to Hand 2",
+        "Type": "Hand to Hand",
         "Name": "Path of the Nightwalker",
         "Index": "Path of the Nightwalker",
         "Enabled": true,
@@ -67644,8 +67644,8 @@
             "Durability": 250,
             "ItemLevel": 54,
             "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
                 "Class": "ass"
             },
             "RequiredClass": ""
@@ -68049,7 +68049,7 @@
         }
     },
     {
-        "Type": "Hand to Hand 2",
+        "Type": "Hand to Hand",
         "Name": "Biteblade",
         "Index": "Biteblade",
         "Enabled": true,
@@ -68102,8 +68102,8 @@
             "Durability": 250,
             "ItemLevel": 62,
             "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
                 "Class": "ass"
             },
             "RequiredClass": ""
@@ -71753,7 +71753,7 @@
         }
     },
     {
-        "Type": "Hand to Hand 2",
+        "Type": "Hand to Hand",
         "Name": "Nightwrath",
         "Index": "Nightwrath",
         "Enabled": true,
@@ -71806,8 +71806,8 @@
             "Durability": 250,
             "ItemLevel": 68,
             "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
                 "Class": "ass"
             },
             "RequiredClass": ""
@@ -72681,7 +72681,7 @@
         }
     },
     {
-        "Type": "Hand to Hand 2",
+        "Type": "Hand to Hand",
         "Name": "Shadow Killer",
         "Index": "Shadow Killer",
         "Enabled": true,
@@ -72734,8 +72734,8 @@
             "Durability": 0,
             "ItemLevel": 73,
             "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
                 "Class": "ass"
             },
             "RequiredClass": ""
@@ -73748,7 +73748,7 @@
         }
     },
     {
-        "Type": "Hand to Hand 2",
+        "Type": "Hand to Hand",
         "Name": "Flaming Fist",
         "Index": "Flaming Fist",
         "Enabled": true,
@@ -73805,8 +73805,8 @@
             "Durability": 250,
             "ItemLevel": 73,
             "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
                 "Class": "ass"
             },
             "RequiredClass": ""
@@ -76354,7 +76354,7 @@
         }
     },
     {
-        "Type": "Hand to Hand 2",
+        "Type": "Hand to Hand",
         "Name": "Death Slaad",
         "Index": "Death Slaad",
         "Enabled": true,
@@ -76407,8 +76407,8 @@
             "Durability": 250,
             "ItemLevel": 78,
             "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
                 "Class": "ass"
             },
             "RequiredClass": ""
@@ -76770,7 +76770,7 @@
         }
     },
     {
-        "Type": "Hand to Hand 2",
+        "Type": "Hand to Hand",
         "Name": "Torturer's Trust",
         "Index": "Torturer's Trust",
         "Enabled": true,
@@ -76831,8 +76831,8 @@
             "Durability": 250,
             "ItemLevel": 85,
             "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
                 "Class": "ass"
             },
             "RequiredClass": ""
@@ -79910,7 +79910,7 @@
         }
     },
     {
-        "Type": "Hand to Hand 2",
+        "Type": "Hand to Hand",
         "Name": "Skaadi's Claws",
         "Index": "Skaadi's Claws",
         "Enabled": true,
@@ -79975,8 +79975,8 @@
             "Durability": 250,
             "ItemLevel": 81,
             "Type": {
-                "Name": "Hand to Hand 2",
-                "Index": "Hand to Hand 2",
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
                 "Class": "ass"
             },
             "RequiredClass": ""
