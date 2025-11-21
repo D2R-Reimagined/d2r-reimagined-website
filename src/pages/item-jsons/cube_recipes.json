@@ -625,128 +625,128 @@
     {
         "Description": "CRAFT ITEM - Any Magic Body Armor + ITH Rune + EL Rune = +100% CTC level Level 5 Oak Sage on level up Magic Body Armor",
         "Item": null,
-        "Output": "Magic Armor",
-        "Input": "Magic Armor + Ith Rune + El Rune ",
-        "CubeRecipeDescription": "Magic Armor + Ith Rune + El Rune = Magic Armor"
+        "Output": "Magic Body Armor",
+        "Input": "Magic Body Armor + Ith Rune + El Rune ",
+        "CubeRecipeDescription": "Magic Body Armor + Ith Rune + El Rune = Magic Body Armor"
     },
     {
         "Description": "CRAFT ITEM - Any Magic Body Armor + Orb of Infusion + RAL Rune + Gem (Any) = +20% Faster Run/Walk & +100 Defense Rare Body Armor",
         "Item": null,
-        "Output": "Rare Armor",
-        "Input": "Magic Armor + Orb of Infusion + Ral Rune + Gem ",
-        "CubeRecipeDescription": "Magic Armor + Orb Of Infusion + Ral Rune + Gem = Rare Armor"
+        "Output": "Rare Body Armor",
+        "Input": "Magic Body Armor + Orb of Infusion + Ral Rune + Gem ",
+        "CubeRecipeDescription": "Magic Body Armor + Orb Of Infusion + Ral Rune + Gem = Rare Body Armor"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Body Armor + Rare Jewel + UM Rune + IST Rune + Gem (Any) = +20-25 All Res & +20-40% Magic Find Rare Body Armor",
         "Item": null,
-        "Output": "Rare Armor",
-        "Input": "Rare Armor + Rare Jewel + Um Rune + Ist Rune + Gem ",
-        "CubeRecipeDescription": "Rare Armor + Rare Jewel + Um Rune + Ist Rune + Gem = Rare Armor"
+        "Output": "Rare Body Armor",
+        "Input": "Rare Body Armor + Rare Jewel + Um Rune + Ist Rune + Gem ",
+        "CubeRecipeDescription": "Rare Body Armor + Rare Jewel + Um Rune + Ist Rune + Gem = Rare Body Armor"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Body Armor + Rare Jewel + PUL Rune + SHAEL Rune + Gem (Any) = +1 Current Class Skills & +30-50 HP & +10-15% Increased Attack Speed Rare Body Armor",
         "Item": null,
-        "Output": "Rare Armor",
-        "Input": "Rare Armor + Rare Jewel + Pul Rune + Shael Rune + Gem ",
-        "CubeRecipeDescription": "Rare Armor + Rare Jewel + Pul Rune + Shael Rune + Gem = Rare Armor"
+        "Output": "Rare Body Armor",
+        "Input": "Rare Body Armor + Rare Jewel + Pul Rune + Shael Rune + Gem ",
+        "CubeRecipeDescription": "Rare Body Armor + Rare Jewel + Pul Rune + Shael Rune + Gem = Rare Body Armor"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Body Armor + Rare Jewel + PUL Rune + SHAEL Rune + Gem (Any) = +1 Current Class Skills & +30-50 HP & +10-15% Increased Attack Speed Rare Body Armor",
         "Item": null,
-        "Output": "Rare Armor",
-        "Input": "Rare Armor + Rare Jewel + Pul Rune + Shael Rune + Gem ",
-        "CubeRecipeDescription": "Rare Armor + Rare Jewel + Pul Rune + Shael Rune + Gem = Rare Armor"
+        "Output": "Rare Body Armor",
+        "Input": "Rare Body Armor + Rare Jewel + Pul Rune + Shael Rune + Gem ",
+        "CubeRecipeDescription": "Rare Body Armor + Rare Jewel + Pul Rune + Shael Rune + Gem = Rare Body Armor"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Body Armor + Rare Jewel + PUL Rune + SHAEL Rune + Gem (Any) = +1 Current Class Skills & +30-50 HP & +10-15% Increased Attack Speed Rare Body Armor",
         "Item": null,
-        "Output": "Rare Armor",
-        "Input": "Rare Armor + Rare Jewel + Pul Rune + Shael Rune + Gem ",
-        "CubeRecipeDescription": "Rare Armor + Rare Jewel + Pul Rune + Shael Rune + Gem = Rare Armor"
+        "Output": "Rare Body Armor",
+        "Input": "Rare Body Armor + Rare Jewel + Pul Rune + Shael Rune + Gem ",
+        "CubeRecipeDescription": "Rare Body Armor + Rare Jewel + Pul Rune + Shael Rune + Gem = Rare Body Armor"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Body Armor + Rare Jewel + PUL Rune + SHAEL Rune + Gem (Any) = +1 Current Class Skills & +30-50 HP & +10-15% Increased Attack Speed Rare Body Armor",
         "Item": null,
-        "Output": "Rare Armor",
-        "Input": "Rare Armor + Rare Jewel + Pul Rune + Shael Rune + Gem ",
-        "CubeRecipeDescription": "Rare Armor + Rare Jewel + Pul Rune + Shael Rune + Gem = Rare Armor"
+        "Output": "Rare Body Armor",
+        "Input": "Rare Body Armor + Rare Jewel + Pul Rune + Shael Rune + Gem ",
+        "CubeRecipeDescription": "Rare Body Armor + Rare Jewel + Pul Rune + Shael Rune + Gem = Rare Body Armor"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Body Armor + Rare Jewel + PUL Rune + SHAEL Rune + Gem (Any) = +1 Current Class Skills & +30-50 HP & +10-15% Increased Attack Speed Rare Body Armor",
         "Item": null,
-        "Output": "Rare Armor",
-        "Input": "Rare Armor + Rare Jewel + Pul Rune + Shael Rune + Gem ",
-        "CubeRecipeDescription": "Rare Armor + Rare Jewel + Pul Rune + Shael Rune + Gem = Rare Armor"
+        "Output": "Rare Body Armor",
+        "Input": "Rare Body Armor + Rare Jewel + Pul Rune + Shael Rune + Gem ",
+        "CubeRecipeDescription": "Rare Body Armor + Rare Jewel + Pul Rune + Shael Rune + Gem = Rare Body Armor"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Body Armor + Rare Jewel + PUL Rune + SHAEL Rune + Gem (Any) = +1 Current Class Skills & +30-50 HP & +10-15% Increased Attack Speed Rare Body Armor",
         "Item": null,
-        "Output": "Rare Armor",
-        "Input": "Rare Armor + Rare Jewel + Pul Rune + Shael Rune + Gem ",
-        "CubeRecipeDescription": "Rare Armor + Rare Jewel + Pul Rune + Shael Rune + Gem = Rare Armor"
+        "Output": "Rare Body Armor",
+        "Input": "Rare Body Armor + Rare Jewel + Pul Rune + Shael Rune + Gem ",
+        "CubeRecipeDescription": "Rare Body Armor + Rare Jewel + Pul Rune + Shael Rune + Gem = Rare Body Armor"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Body Armor + Rare Jewel + PUL Rune + SHAEL Rune + Gem (Any) = +1 Current Class Skills & +30-50 HP & +10-15% Increased Attack Speed Rare Body Armor",
         "Item": null,
-        "Output": "Rare Armor",
-        "Input": "Rare Armor + Rare Jewel + Pul Rune + Shael Rune + Gem ",
-        "CubeRecipeDescription": "Rare Armor + Rare Jewel + Pul Rune + Shael Rune + Gem = Rare Armor"
+        "Output": "Rare Body Armor",
+        "Input": "Rare Body Armor + Rare Jewel + Pul Rune + Shael Rune + Gem ",
+        "CubeRecipeDescription": "Rare Body Armor + Rare Jewel + Pul Rune + Shael Rune + Gem = Rare Body Armor"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Body Armor + Rare Jewel + PUL Rune + DOL Rune + Gem (Any) = +1 Current Class Skills & +30-50 Mana & +10-15% Faster Cast Rate Rare Body Armor",
         "Item": null,
-        "Output": "Rare Armor",
-        "Input": "Rare Armor + Rare Jewel + Pul Rune + Dol Rune + Gem ",
-        "CubeRecipeDescription": "Rare Armor + Rare Jewel + Pul Rune + Dol Rune + Gem = Rare Armor"
+        "Output": "Rare Body Armor",
+        "Input": "Rare Body Armor + Rare Jewel + Pul Rune + Dol Rune + Gem ",
+        "CubeRecipeDescription": "Rare Body Armor + Rare Jewel + Pul Rune + Dol Rune + Gem = Rare Body Armor"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Body Armor + Rare Jewel + PUL Rune + DOL Rune + Gem (Any) = +1 Current Class Skills & +30-50 Mana & +10-15% Faster Cast Rate Rare Body Armor",
         "Item": null,
-        "Output": "Rare Armor",
-        "Input": "Rare Armor + Rare Jewel + Pul Rune + Dol Rune + Gem ",
-        "CubeRecipeDescription": "Rare Armor + Rare Jewel + Pul Rune + Dol Rune + Gem = Rare Armor"
+        "Output": "Rare Body Armor",
+        "Input": "Rare Body Armor + Rare Jewel + Pul Rune + Dol Rune + Gem ",
+        "CubeRecipeDescription": "Rare Body Armor + Rare Jewel + Pul Rune + Dol Rune + Gem = Rare Body Armor"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Body Armor + Rare Jewel + PUL Rune + DOL Rune + Gem (Any) = +1 Current Class Skills & +30-50 Mana & +10-15% Faster Cast Rate Rare Body Armor",
         "Item": null,
-        "Output": "Rare Armor",
-        "Input": "Rare Armor + Rare Jewel + Pul Rune + Dol Rune + Gem ",
-        "CubeRecipeDescription": "Rare Armor + Rare Jewel + Pul Rune + Dol Rune + Gem = Rare Armor"
+        "Output": "Rare Body Armor",
+        "Input": "Rare Body Armor + Rare Jewel + Pul Rune + Dol Rune + Gem ",
+        "CubeRecipeDescription": "Rare Body Armor + Rare Jewel + Pul Rune + Dol Rune + Gem = Rare Body Armor"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Body Armor + Rare Jewel + PUL Rune + DOL Rune + Gem (Any) = +1 Current Class Skills & +30-50 Mana & +10-15% Faster Cast Rate Rare Body Armor",
         "Item": null,
-        "Output": "Rare Armor",
-        "Input": "Rare Armor + Rare Jewel + Pul Rune + Dol Rune + Gem ",
-        "CubeRecipeDescription": "Rare Armor + Rare Jewel + Pul Rune + Dol Rune + Gem = Rare Armor"
+        "Output": "Rare Body Armor",
+        "Input": "Rare Body Armor + Rare Jewel + Pul Rune + Dol Rune + Gem ",
+        "CubeRecipeDescription": "Rare Body Armor + Rare Jewel + Pul Rune + Dol Rune + Gem = Rare Body Armor"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Body Armor + Rare Jewel + PUL Rune + DOL Rune + Gem (Any) = +1 Current Class Skills & +30-50 Mana & +10-15% Faster Cast Rate Rare Body Armor",
         "Item": null,
-        "Output": "Rare Armor",
-        "Input": "Rare Armor + Rare Jewel + Pul Rune + Dol Rune + Gem ",
-        "CubeRecipeDescription": "Rare Armor + Rare Jewel + Pul Rune + Dol Rune + Gem = Rare Armor"
+        "Output": "Rare Body Armor",
+        "Input": "Rare Body Armor + Rare Jewel + Pul Rune + Dol Rune + Gem ",
+        "CubeRecipeDescription": "Rare Body Armor + Rare Jewel + Pul Rune + Dol Rune + Gem = Rare Body Armor"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Body Armor + Rare Jewel + PUL Rune + DOL Rune + Gem (Any) = +1 Current Class Skills & +30-50 Mana & +10-15% Faster Cast Rate Rare Body Armor",
         "Item": null,
-        "Output": "Rare Armor",
-        "Input": "Rare Armor + Rare Jewel + Pul Rune + Dol Rune + Gem ",
-        "CubeRecipeDescription": "Rare Armor + Rare Jewel + Pul Rune + Dol Rune + Gem = Rare Armor"
+        "Output": "Rare Body Armor",
+        "Input": "Rare Body Armor + Rare Jewel + Pul Rune + Dol Rune + Gem ",
+        "CubeRecipeDescription": "Rare Body Armor + Rare Jewel + Pul Rune + Dol Rune + Gem = Rare Body Armor"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Body Armor + Rare Jewel + PUL Rune + DOL Rune + Gem (Any) = +1 Current Class Skills & +30-50 Mana & +10-15% Faster Cast Rate Rare Body Armor",
         "Item": null,
-        "Output": "Rare Armor",
-        "Input": "Rare Armor + Rare Jewel + Pul Rune + Dol Rune + Gem ",
-        "CubeRecipeDescription": "Rare Armor + Rare Jewel + Pul Rune + Dol Rune + Gem = Rare Armor"
+        "Output": "Rare Body Armor",
+        "Input": "Rare Body Armor + Rare Jewel + Pul Rune + Dol Rune + Gem ",
+        "CubeRecipeDescription": "Rare Body Armor + Rare Jewel + Pul Rune + Dol Rune + Gem = Rare Body Armor"
     },
     {
         "Description": "CRAFT ITEM - Any Rare Body Armor + Unique Jewel + ZOD Rune + BER Rune + UM RUNE = +2 All Skills & +150-175% Enhanced Defense & +20-30% All Resists +5-10% Physical Damage Reduction Crafted Body Armor",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Rare Armor + Unique Jewel + Zod Rune + Ber Rune + Um Rune ",
-        "CubeRecipeDescription": "Rare Armor + Unique Jewel + Zod Rune + Ber Rune + Um Rune = Armor"
+        "Output": "Body Armor",
+        "Input": "Rare Body Armor + Unique Jewel + Zod Rune + Ber Rune + Um Rune ",
+        "CubeRecipeDescription": "Rare Body Armor + Unique Jewel + Zod Rune + Ber Rune + Um Rune = Body Armor"
     },
     {
         "Description": "CRAFT ITEM - Any Magic Shield + ITH Rune + EL Rune = +100% CTC level Level 4 Holy Shield on Level Up & +5 All Attributes Magic Shield",
@@ -1031,86 +1031,86 @@
     {
         "Description": "CRAFT ITEM - Arrows & Gem (Any) & Tir-Rune = Replenishing Quiver",
         "Item": null,
-        "Output": "Barbed Arrows",
+        "Output": "Replenishing Quiver",
         "Input": "Arrows + Tir Rune + Gem ",
-        "CubeRecipeDescription": "Arrows + Tir Rune + Gem = Barbed Arrows"
+        "CubeRecipeDescription": "Arrows + Tir Rune + Gem = Replenishing Quiver"
     },
     {
         "Description": "CRAFT ITEM - Arrows & Gem (Any) & Thul-Rune = Quiver of Piercing",
         "Item": null,
-        "Output": "Arrows of Piercing",
+        "Output": "Quiver of Piercing",
         "Input": "Arrows + Thul Rune + Gem ",
-        "CubeRecipeDescription": "Arrows + Thul Rune + Gem = Arrows Of Piercing"
+        "CubeRecipeDescription": "Arrows + Thul Rune + Gem = Quiver Of Piercing"
     },
     {
         "Description": "CRAFT ITEM - Arrows & Gem (Any) & Fal-Rune = Quiver of Slaying",
         "Item": null,
-        "Output": "Arrows of Slaying",
+        "Output": "Quiver of Slaying",
         "Input": "Arrows + Fal Rune + Gem ",
-        "CubeRecipeDescription": "Arrows + Fal Rune + Gem = Arrows Of Slaying"
+        "CubeRecipeDescription": "Arrows + Fal Rune + Gem = Quiver Of Slaying"
     },
     {
         "Description": "CRAFT ITEM - Quiver of Slaying & Gul Rune & 1 Jewel Rare = Quiver of Pestilence",
         "Item": null,
         "Output": "Quiver of Pestilence",
-        "Input": "Arrows of Slaying + Rare Jewel + Gul Rune ",
-        "CubeRecipeDescription": "Arrows Of Slaying + Rare Jewel + Gul Rune = Quiver Of Pestilence"
+        "Input": "Quiver of Slaying + Rare Jewel + Gul Rune ",
+        "CubeRecipeDescription": "Quiver Of Slaying + Rare Jewel + Gul Rune = Quiver Of Pestilence"
     },
     {
         "Description": "CRAFT ITEM - Quiver of Slaying & Vex Rune & 1 Jewel Rare = Quiver of Amplified Slaying",
         "Item": null,
         "Output": "Quiver of Amplified Slaying",
-        "Input": "Arrows of Slaying + Rare Jewel + Vex Rune ",
-        "CubeRecipeDescription": "Arrows Of Slaying + Rare Jewel + Vex Rune = Quiver Of Amplified Slaying"
+        "Input": "Quiver of Slaying + Rare Jewel + Vex Rune ",
+        "CubeRecipeDescription": "Quiver Of Slaying + Rare Jewel + Vex Rune = Quiver Of Amplified Slaying"
     },
     {
         "Description": "CRAFT ITEM - Quiver of Slaying & Ohm Rune & 1 Jewel Rare = Quiver of Resistance Slaying",
         "Item": null,
         "Output": "Quiver of Resistance Slaying",
-        "Input": "Arrows of Slaying + Rare Jewel + Ohm Rune ",
-        "CubeRecipeDescription": "Arrows Of Slaying + Rare Jewel + Ohm Rune = Quiver Of Resistance Slaying"
+        "Input": "Quiver of Slaying + Rare Jewel + Ohm Rune ",
+        "CubeRecipeDescription": "Quiver Of Slaying + Rare Jewel + Ohm Rune = Quiver Of Resistance Slaying"
     },
     {
         "Description": "CRAFT ITEM - Bolts & Gem (Any) & Tir-Rune = Replenishing Bolt Case",
         "Item": null,
-        "Output": "Barbed Bolts",
+        "Output": "Replenishing Bolt Case",
         "Input": "Bolts + Tir Rune + Gem ",
-        "CubeRecipeDescription": "Bolts + Tir Rune + Gem = Barbed Bolts"
+        "CubeRecipeDescription": "Bolts + Tir Rune + Gem = Replenishing Bolt Case"
     },
     {
         "Description": "CRAFT ITEM - Bolts & Gem (Any) & Thul-Rune = Bolt Case of Piercing",
         "Item": null,
-        "Output": "Bolts of Piercing",
+        "Output": "Bolt Case of Piercing",
         "Input": "Bolts + Thul Rune + Gem ",
-        "CubeRecipeDescription": "Bolts + Thul Rune + Gem = Bolts Of Piercing"
+        "CubeRecipeDescription": "Bolts + Thul Rune + Gem = Bolt Case Of Piercing"
     },
     {
         "Description": "CRAFT ITEM - Bolts & Gem (Any) & Fal-Rune = Bolt Case of Slaying",
         "Item": null,
-        "Output": "Bolts of Slaying",
+        "Output": "Bolt Case of Slaying",
         "Input": "Bolts + Fal Rune + Gem ",
-        "CubeRecipeDescription": "Bolts + Fal Rune + Gem = Bolts Of Slaying"
+        "CubeRecipeDescription": "Bolts + Fal Rune + Gem = Bolt Case Of Slaying"
     },
     {
         "Description": "CRAFT ITEM - Bolt Case of Slaying & Gul Rune & 1 Jewel Rare = Bolt Case of Pestilence",
         "Item": null,
         "Output": "Bolt Case of Pestilence",
-        "Input": "Bolts of Slaying + Rare Jewel + Gul Rune ",
-        "CubeRecipeDescription": "Bolts Of Slaying + Rare Jewel + Gul Rune = Bolt Case Of Pestilence"
+        "Input": "Bolt Case of Slaying + Rare Jewel + Gul Rune ",
+        "CubeRecipeDescription": "Bolt Case Of Slaying + Rare Jewel + Gul Rune = Bolt Case Of Pestilence"
     },
     {
         "Description": "CRAFT ITEM - Bolt Case of Slaying & Vex Rune & 1 Jewel Rare = Bolt Case of Amplified Slaying",
         "Item": null,
         "Output": "Bolt Case of Amplified Slaying",
-        "Input": "Bolts of Slaying + Rare Jewel + Vex Rune ",
-        "CubeRecipeDescription": "Bolts Of Slaying + Rare Jewel + Vex Rune = Bolt Case Of Amplified Slaying"
+        "Input": "Bolt Case of Slaying + Rare Jewel + Vex Rune ",
+        "CubeRecipeDescription": "Bolt Case Of Slaying + Rare Jewel + Vex Rune = Bolt Case Of Amplified Slaying"
     },
     {
         "Description": "CRAFT ITEM - Bolt Case of Slaying & Ohm Rune & 1 Jewel Rare = Bolt Case of Resistance Slaying",
         "Item": null,
         "Output": "Bolt Case of Resistance Slaying",
-        "Input": "Bolts of Slaying + Rare Jewel + Ohm Rune ",
-        "CubeRecipeDescription": "Bolts Of Slaying + Rare Jewel + Ohm Rune = Bolt Case Of Resistance Slaying"
+        "Input": "Bolt Case of Slaying + Rare Jewel + Ohm Rune ",
+        "CubeRecipeDescription": "Bolt Case Of Slaying + Rare Jewel + Ohm Rune = Bolt Case Of Resistance Slaying"
     },
     {
         "Description": "CRAFT ITEM - Charm Grand & Jewel Magic & Amn Rune & EL Rune = Crafted Grand Charm +40-60Hp & +20-30 replenish",
@@ -1368,8 +1368,8 @@
         "Description": "CRAFT ITEM - Any Torso & Infusion Orb & Mephisto's Animus & Baal's Calamity & Diablo's Ire = Return Torso Base as White, Elite, Maximum Sockets, Superior Rolls and +15% Enhanced Defense",
         "Item": null,
         "Output": "elite 4 Sockets",
-        "Input": "Armor + Orb of Infusion + Mephisto's Animus + Baal's Calamity + Diablo's Ire ",
-        "CubeRecipeDescription": "Armor + Orb Of Infusion + Mephisto's Animus + Baal's Calamity + Diablo's Ire = Elite 4 Sockets"
+        "Input": "Body Armor + Orb of Infusion + Mephisto's Animus + Baal's Calamity + Diablo's Ire ",
+        "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Mephisto's Animus + Baal's Calamity + Diablo's Ire = Elite 4 Sockets"
     },
     {
         "Description": "CRAFT ITEM - Any Shield & Infusion Orb & Mephisto's Animus & Baal's Calamity & Diablo's Ire = Return Shield Base as White, Elite, Maximum Sockets, Superior Rolls and +15% Enhanced Defense",
@@ -1599,15 +1599,15 @@
         "Description": "RECYCLE ITEM - 5 Set Torsos + ID Tome = Gem Cluster",
         "Item": null,
         "Output": "Gem Cluster",
-        "Input": "5 Set Armor + Tome of Identify ",
-        "CubeRecipeDescription": "5 Set Armor + Tome Of Identify = Gem Cluster"
+        "Input": "5 Set Body Armor + Tome of Identify ",
+        "CubeRecipeDescription": "5 Set Body Armor + Tome Of Identify = Gem Cluster"
     },
     {
         "Description": "RECYCLE ITEM - 5 Unique Torsos + ID Tome = Gem Cluster",
         "Item": null,
         "Output": "Gem Cluster",
-        "Input": "5 Unique Armor + Tome of Identify ",
-        "CubeRecipeDescription": "5 Unique Armor + Tome Of Identify = Gem Cluster"
+        "Input": "5 Unique Body Armor + Tome of Identify ",
+        "CubeRecipeDescription": "5 Unique Body Armor + Tome Of Identify = Gem Cluster"
     },
     {
         "Description": "RECYCLE ITEM - 5 Set Weapons + ID Tome = Gem Cluster",
@@ -3523,212 +3523,212 @@
     {
         "Description": "ITEM UPGRADE - Chest & Topaz & Magic Jewel = +15% Magic Find  & +30% Gold Find",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Topaz + Magic Jewel ",
-        "CubeRecipeDescription": "Armor + Topaz + Magic Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Topaz + Magic Jewel ",
+        "CubeRecipeDescription": "Body Armor + Topaz + Magic Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Ruby & Magic Jewel = +15 HP & +4 Life / Kill",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Ruby + Magic Jewel ",
-        "CubeRecipeDescription": "Armor + Ruby + Magic Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Ruby + Magic Jewel ",
+        "CubeRecipeDescription": "Body Armor + Ruby + Magic Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Sapphire & Magic Jewel = +15 Mana & +2 Mana / Kill",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Sapphire + Magic Jewel ",
-        "CubeRecipeDescription": "Armor + Sapphire + Magic Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Sapphire + Magic Jewel ",
+        "CubeRecipeDescription": "Body Armor + Sapphire + Magic Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Emerald & Magic Jewel = +7 Dexterity & +7 Vitality",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Emerald + Magic Jewel ",
-        "CubeRecipeDescription": "Armor + Emerald + Magic Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Emerald + Magic Jewel ",
+        "CubeRecipeDescription": "Body Armor + Emerald + Magic Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Amethyst & Magic Jewel = +7 Strength & +7 Vitality",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Amethyst + Magic Jewel ",
-        "CubeRecipeDescription": "Armor + Amethyst + Magic Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Amethyst + Magic Jewel ",
+        "CubeRecipeDescription": "Body Armor + Amethyst + Magic Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Skull & Magic Jewel = +7 Energy & +7 Vitality",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Skull + Magic Jewel ",
-        "CubeRecipeDescription": "Armor + Skull + Magic Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Skull + Magic Jewel ",
+        "CubeRecipeDescription": "Body Armor + Skull + Magic Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Diamond & Magic Jewel = +3 All Resistances",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Diamond + Magic Jewel ",
-        "CubeRecipeDescription": "Armor + Diamond + Magic Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Diamond + Magic Jewel ",
+        "CubeRecipeDescription": "Body Armor + Diamond + Magic Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Eth-Rune & Magic Jewel = +5% Mana Regen",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Eth Rune + Magic Jewel ",
-        "CubeRecipeDescription": "Armor + Eth Rune + Magic Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Eth Rune + Magic Jewel ",
+        "CubeRecipeDescription": "Body Armor + Eth Rune + Magic Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Ith-Rune & Magic Jewel = +10% Damage Goes To Mana",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Ith Rune + Magic Jewel ",
-        "CubeRecipeDescription": "Armor + Ith Rune + Magic Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Ith Rune + Magic Jewel ",
+        "CubeRecipeDescription": "Body Armor + Ith Rune + Magic Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Sol-Rune & Magic Jewel = Physical Damage Reduced By 5",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Sol Rune + Magic Jewel ",
-        "CubeRecipeDescription": "Armor + Sol Rune + Magic Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Sol Rune + Magic Jewel ",
+        "CubeRecipeDescription": "Body Armor + Sol Rune + Magic Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Infusion Orb & Sapphire & Ith-Rune & Magic Jewel = +50 Mana & +4 Mana / Kill",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Orb of Infusion + Sapphire + Ith Rune + Magic Jewel ",
-        "CubeRecipeDescription": "Armor + Orb Of Infusion + Sapphire + Ith Rune + Magic Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Orb of Infusion + Sapphire + Ith Rune + Magic Jewel ",
+        "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Sapphire + Ith Rune + Magic Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Infusion Orb & Skull & Amn-Rune & Magic Jewel = +150 Thorns",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Orb of Infusion + Skull + Amn Rune + Magic Jewel ",
-        "CubeRecipeDescription": "Armor + Orb Of Infusion + Skull + Amn Rune + Magic Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Orb of Infusion + Skull + Amn Rune + Magic Jewel ",
+        "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Skull + Amn Rune + Magic Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Infusion Orb & Emerald & Shael-Rune & Magic Jewel = +10% Faster Run/Walk",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Orb of Infusion + Emerald + Shael Rune + Magic Jewel ",
-        "CubeRecipeDescription": "Armor + Orb Of Infusion + Emerald + Shael Rune + Magic Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Orb of Infusion + Emerald + Shael Rune + Magic Jewel ",
+        "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Emerald + Shael Rune + Magic Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Infusion Orb & Ruby & Dol-Rune & Magic Jewel = +75 HP & +6 Life / Kill",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Orb of Infusion + Ruby + Dol Rune + Magic Jewel ",
-        "CubeRecipeDescription": "Armor + Orb Of Infusion + Ruby + Dol Rune + Magic Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Orb of Infusion + Ruby + Dol Rune + Magic Jewel ",
+        "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Ruby + Dol Rune + Magic Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Infusion Orb & Skull & Lum-Rune & Magic Jewel = +10% Mana Regen",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Orb of Infusion + Skull + Lum Rune + Magic Jewel ",
-        "CubeRecipeDescription": "Armor + Orb Of Infusion + Skull + Lum Rune + Magic Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Orb of Infusion + Skull + Lum Rune + Magic Jewel ",
+        "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Skull + Lum Rune + Magic Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Infusion Orb & Emerald & Fal-Rune & Magic Jewel = +15 Dexterity & +10 Vitality",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Orb of Infusion + Emerald + Fal Rune + Magic Jewel ",
-        "CubeRecipeDescription": "Armor + Orb Of Infusion + Emerald + Fal Rune + Magic Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Orb of Infusion + Emerald + Fal Rune + Magic Jewel ",
+        "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Emerald + Fal Rune + Magic Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Infusion Orb & Amethyst & Fal-Rune & Magic Jewel = +15 Strength & +10 Vitality",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Orb of Infusion + Amethyst + Fal Rune + Magic Jewel ",
-        "CubeRecipeDescription": "Armor + Orb Of Infusion + Amethyst + Fal Rune + Magic Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Orb of Infusion + Amethyst + Fal Rune + Magic Jewel ",
+        "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Amethyst + Fal Rune + Magic Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Infusion Orb & Sapphire & Fal-Rune & Magic Jewel = +15 Energy & +10 Vitality",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Orb of Infusion + Sapphire + Fal Rune + Magic Jewel ",
-        "CubeRecipeDescription": "Armor + Orb Of Infusion + Sapphire + Fal Rune + Magic Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Orb of Infusion + Sapphire + Fal Rune + Magic Jewel ",
+        "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Sapphire + Fal Rune + Magic Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Infusion Orb & Diamond & Pul-Rune & Rare Jewel =+6 All Attributes",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Orb of Infusion + Diamond + Pul Rune + Rare Jewel ",
-        "CubeRecipeDescription": "Armor + Orb Of Infusion + Diamond + Pul Rune + Rare Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Orb of Infusion + Diamond + Pul Rune + Rare Jewel ",
+        "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Diamond + Pul Rune + Rare Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Infusion Orb & Diamond & Um-Rune & Rare Jewel = +6 All Resistances",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Orb of Infusion + Diamond + Um Rune + Rare Jewel ",
-        "CubeRecipeDescription": "Armor + Orb Of Infusion + Diamond + Um Rune + Rare Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Orb of Infusion + Diamond + Um Rune + Rare Jewel ",
+        "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Diamond + Um Rune + Rare Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Infusion Orb & Sapphire & Mal-Rune & Rare Jewel = Magic Damage Reduced By 5",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Orb of Infusion + Sapphire + Mal Rune + Rare Jewel ",
-        "CubeRecipeDescription": "Armor + Orb Of Infusion + Sapphire + Mal Rune + Rare Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Orb of Infusion + Sapphire + Mal Rune + Rare Jewel ",
+        "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Sapphire + Mal Rune + Rare Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Infusion Orb & Topaz & Ist-Rune & Rare Jewel = +30% Magic Find  & +50% Gold Find",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Orb of Infusion + Topaz + Ist Rune + Rare Jewel ",
-        "CubeRecipeDescription": "Armor + Orb Of Infusion + Topaz + Ist Rune + Rare Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Orb of Infusion + Topaz + Ist Rune + Rare Jewel ",
+        "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Topaz + Ist Rune + Rare Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Infusion Orb & Sapphire & Sur-Rune & Rare Jewel = +8% Max Mana",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Orb of Infusion + Sapphire + Sur Rune + Rare Jewel ",
-        "CubeRecipeDescription": "Armor + Orb Of Infusion + Sapphire + Sur Rune + Rare Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Orb of Infusion + Sapphire + Sur Rune + Rare Jewel ",
+        "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Sapphire + Sur Rune + Rare Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Infusion Orb & Diamond & Ber-Rune & Rare Jewel = +8% Damage Reduction",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Orb of Infusion + Diamond + Ber Rune + Rare Jewel ",
-        "CubeRecipeDescription": "Armor + Orb Of Infusion + Diamond + Ber Rune + Rare Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Orb of Infusion + Diamond + Ber Rune + Rare Jewel ",
+        "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Diamond + Ber Rune + Rare Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Infusion Orb & Ruby & Jah-Rune & Rare Jewel = +8% Max HP",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Orb of Infusion + Ruby + Jah Rune + Rare Jewel ",
-        "CubeRecipeDescription": "Armor + Orb Of Infusion + Ruby + Jah Rune + Rare Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Orb of Infusion + Ruby + Jah Rune + Rare Jewel ",
+        "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Ruby + Jah Rune + Rare Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Infusion Orb & Amethyst & Cham-Rune & Unique Jewel = Absorb 4% Fire Damage",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Orb of Infusion + Amethyst + Cham Rune + Unique Jewel ",
-        "CubeRecipeDescription": "Armor + Orb Of Infusion + Amethyst + Cham Rune + Unique Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Orb of Infusion + Amethyst + Cham Rune + Unique Jewel ",
+        "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Amethyst + Cham Rune + Unique Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Infusion Orb & Sapphire & Cham-Rune & Unique Jewel = Absorb 4% Cold Damage",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Orb of Infusion + Sapphire + Cham Rune + Unique Jewel ",
-        "CubeRecipeDescription": "Armor + Orb Of Infusion + Sapphire + Cham Rune + Unique Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Orb of Infusion + Sapphire + Cham Rune + Unique Jewel ",
+        "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Sapphire + Cham Rune + Unique Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Infusion Orb & Topaz & Cham-Rune & Unique Jewel = Absorb 4% Lightning Damage",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Orb of Infusion + Topaz + Cham Rune + Unique Jewel ",
-        "CubeRecipeDescription": "Armor + Orb Of Infusion + Topaz + Cham Rune + Unique Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Orb of Infusion + Topaz + Cham Rune + Unique Jewel ",
+        "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Topaz + Cham Rune + Unique Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Infusion Orb & Skull & Cham-Rune & Unique Jewel = Absorb 4% Magic Damage",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Orb of Infusion + Skull + Cham Rune + Unique Jewel ",
-        "CubeRecipeDescription": "Armor + Orb Of Infusion + Skull + Cham Rune + Unique Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Orb of Infusion + Skull + Cham Rune + Unique Jewel ",
+        "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Skull + Cham Rune + Unique Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - Chest & Infusion Orb & Amethyst & Zod-Rune & Unique Jewel = +2 Max All Resistances & +5 All Resistances",
         "Item": null,
-        "Output": "Armor",
-        "Input": "Armor + Orb of Infusion + Amethyst + Zod Rune + Unique Jewel ",
-        "CubeRecipeDescription": "Armor + Orb Of Infusion + Amethyst + Zod Rune + Unique Jewel = Armor"
+        "Output": "Body Armor",
+        "Input": "Body Armor + Orb of Infusion + Amethyst + Zod Rune + Unique Jewel ",
+        "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Amethyst + Zod Rune + Unique Jewel = Body Armor"
     },
     {
         "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Topaz & Magic Jewel = +15% Magic Find  & +30% Gold Find",
@@ -4650,99 +4650,15 @@
     {
         "Description": "KEYCHAIN CHANGE GRABBER - Hate Key Grabber = Destruction Key Grabber",
         "Item": null,
-        "Output": "Desctruction Key Grabber",
+        "Output": "Destruction Key Grabber",
         "Input": "Hate Key Grabber ",
-        "CubeRecipeDescription": "Hate Key Grabber = Desctruction Key Grabber"
+        "CubeRecipeDescription": "Hate Key Grabber = Destruction Key Grabber"
     },
     {
         "Description": "KEYCHAIN CHANGE GRABBER - Destruction Key Grabber = Terror Key Grabber",
         "Item": null,
         "Output": "Terror Key Grabber",
-        "Input": "Desctruction Key Grabber ",
-        "CubeRecipeDescription": "Desctruction Key Grabber = Terror Key Grabber"
-    },
-    {
-        "Description": "KEYCHAIN TRANSFER IN KEY - Keychain & Terror Key = Terror Key qty +1",
-        "Item": null,
-        "Output": "Storage for Keys",
-        "Input": "Storage for Keys + Key of Terror ",
-        "CubeRecipeDescription": "Storage For Keys + Key Of Terror = Storage For Keys"
-    },
-    {
-        "Description": "KEYCHAIN TRANSFER IN KEY - Keychain & Hate Key = Hate Key qty + 1",
-        "Item": null,
-        "Output": "Storage for Keys",
-        "Input": "Storage for Keys + Key of Hate ",
-        "CubeRecipeDescription": "Storage For Keys + Key Of Hate = Storage For Keys"
-    },
-    {
-        "Description": "KEYCHAIN TRANSFER IN KEY - Keychain & Destruction Key = Destruction Key qty + 1",
-        "Item": null,
-        "Output": "Storage for Keys",
-        "Input": "Storage for Keys + Key of Destruction ",
-        "CubeRecipeDescription": "Storage For Keys + Key Of Destruction = Storage For Keys"
-    },
-    {
-        "Description": "KEYCHAIN TRANSFER IN KEY - Keychain & 2 Terror Key = Terror Key qty + 2",
-        "Item": null,
-        "Output": "Storage for Keys",
-        "Input": "Storage for Keys + 2 Key of Terror ",
-        "CubeRecipeDescription": "Storage For Keys + 2 Key Of Terror = Storage For Keys"
-    },
-    {
-        "Description": "KEYCHAIN TRANSFER IN KEY - Keychain & 2 Hate Key = Hate Key qty + 2",
-        "Item": null,
-        "Output": "Storage for Keys",
-        "Input": "Storage for Keys + 2 Key of Hate ",
-        "CubeRecipeDescription": "Storage For Keys + 2 Key Of Hate = Storage For Keys"
-    },
-    {
-        "Description": "KEYCHAIN TRANSFER IN KEY - Keychain & 2 Destruction Key = Destruction Key qty + 2",
-        "Item": null,
-        "Output": "Storage for Keys",
-        "Input": "Storage for Keys + 2 Key of Destruction ",
-        "CubeRecipeDescription": "Storage For Keys + 2 Key Of Destruction = Storage For Keys"
-    },
-    {
-        "Description": "KEYCHAIN TRANSFER IN KEY - Keychain & 3 Terror Key = Terror Key qty + 3",
-        "Item": null,
-        "Output": "Storage for Keys",
-        "Input": "Storage for Keys + 3 Key of Terror ",
-        "CubeRecipeDescription": "Storage For Keys + 3 Key Of Terror = Storage For Keys"
-    },
-    {
-        "Description": "KEYCHAIN TRANSFER IN KEY - Keychain & 3 Hate Key = Hate Key qty + 3",
-        "Item": null,
-        "Output": "Storage for Keys",
-        "Input": "Storage for Keys + 3 Key of Hate ",
-        "CubeRecipeDescription": "Storage For Keys + 3 Key Of Hate = Storage For Keys"
-    },
-    {
-        "Description": "KEYCHAIN TRANSFER IN KEY - Keychain & 3 Destruction Key = Destruction Key qty + 3",
-        "Item": null,
-        "Output": "Storage for Keys",
-        "Input": "Storage for Keys + 3 Key of Destruction ",
-        "CubeRecipeDescription": "Storage For Keys + 3 Key Of Destruction = Storage For Keys"
-    },
-    {
-        "Description": "KEYCHAIN TRANSFER OUT KEY - Keychain & Terror Key Grabber = Terror Key qty - 1 & 1 Terror Key",
-        "Item": null,
-        "Output": "Storage for Keys",
-        "Input": "Storage for Keys + Terror Key Grabber ",
-        "CubeRecipeDescription": "Storage For Keys + Terror Key Grabber = Storage For Keys"
-    },
-    {
-        "Description": "KEYCHAIN TRANSFER OUT KEY - Keychain & Hate Key Grabber = Hate Key qty - 1 & 1 Hate Key",
-        "Item": null,
-        "Output": "Storage for Keys",
-        "Input": "Storage for Keys + Hate Key Grabber ",
-        "CubeRecipeDescription": "Storage For Keys + Hate Key Grabber = Storage For Keys"
-    },
-    {
-        "Description": "KEYCHAIN TRANSFER OUT KEY - Keychain & Destruction Key Grabber = Destruction Key qty - 1 & 1 Destruction Key",
-        "Item": null,
-        "Output": "Storage for Keys",
-        "Input": "Storage for Keys + Desctruction Key Grabber ",
-        "CubeRecipeDescription": "Storage For Keys + Desctruction Key Grabber = Storage For Keys"
+        "Input": "Destruction Key Grabber ",
+        "CubeRecipeDescription": "Destruction Key Grabber = Terror Key Grabber"
     }
 ]
