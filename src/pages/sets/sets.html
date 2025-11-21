@@ -49,7 +49,7 @@
                         ${setItem.Name}
                     </div>
                     
-                    <div class="rarity mb-1" if.bind="setItem.Rarity">
+                    <div class="rarity-text mb-1" if.bind="setItem.Rarity">
                         Rarity: ${setItem.Rarity}
                     </div>
 
@@ -66,8 +66,8 @@
                         ${getDamageTypeString(damage.Type)} ${damage.DamageString}
                     </div>
 
-                    <div class="requirement" if.bind="setItem.RequiredLevel > 0">
-                        Level ${setItem.RequiredLevel} Required
+                    <div class="requirement">
+                        Level ${setItem.RequiredLevel > 0 ? setItem.RequiredLevel : 1} Required
                     </div>
 
                     <div class="requirement" if.bind="setItem.Equipment.RequiredStrength > 0">

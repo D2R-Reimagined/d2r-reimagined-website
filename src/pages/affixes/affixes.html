@@ -1,0 +1,37 @@
+<template>
+    <h3 class="text-center my-2">
+        ${filteredAffixes.length} Magic Affixes Found
+    </h3>
+
+    <search-area>
+        <div class="max-w-7xl mx-auto px-2">
+            <div class="flex flex-wrap justify-center items-center text-center">
+                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
+                    <moo-text-field
+                            class="w-full"
+                            label="Search Name, Property, or Type"
+                            type="text"
+                            value.bind="search"
+                    ></moo-text-field>
+                </div>
+            </div>
+        </div>
+    </search-area>
+
+    <div if.bind="filteredAffixes.length === 0" class="text-center base-text my-6">No affixes match your search.</div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 text-center">
+        <div class="bg-gray-800 rounded shadow" repeat.for="affix of filteredAffixes">
+            <div class="flex justify-between items-center">
+                <div class="rarity-text ml-1 mt-1">${affix.Name}</div>
+                <div class="base-text bg-gray-700 rounded px-1 mr-1 mt-1">${affix.PType}</div>
+            </div>
+            <div class="requirement mb-1">Level ${affix.RequiredLevel && affix.RequiredLevel > 0 ? affix.RequiredLevel : 1} Required</div>
+            <div class="base-text mb-1" if.bind="affix.Level">Affix Level ${affix.Level}${affix.MaxLevel ? ' - ' + affix.MaxLevel : ''}</div>
+            <div>
+                <span class="base-text bg-gray-700 rounded mx-[4px] mb-1 px-1" repeat.for="t of affix.AllTypes">${t}</span>
+            </div>
+            <div class="enhanced my-1" repeat.for="prop of affix.Properties">${prop.PropertyString}</div>
+        </div>
+    </div>
+</template>

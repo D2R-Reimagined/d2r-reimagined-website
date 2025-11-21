@@ -69,6 +69,10 @@ body {
     color: #478e47;
 }
 
+.set-text-light {
+  color: #65ac65;
+}
+
 .enhanced {
     color: #6f5df7;
 }
@@ -89,10 +93,10 @@ body {
     padding: 0 5px 0 5px;
 }
 
-.combo, .types, .damage, .durability, .armor {
+.combo, .types, .damage, .durability, .armor, .base-text {
     color: whitesmoke;
 }
 
-.rarity {
+.rarity-text {
     color: lightskyblue;
-}
+  }
