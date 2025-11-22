@@ -33,6 +33,22 @@ import { route } from '@aurelia/router';
             component: import('./pages/grail/grail'),
             title: 'Holy Grail',
         }
+        ,
+        {
+            path: 'armors',
+            component: import('./pages/bases/armors'),
+            title: 'Armor Bases',
+        },
+        {
+            path: 'weapons',
+            component: import('./pages/bases/weapons'),
+            title: 'Weapon Bases',
+        },
+        {
+            path: 'affixes',
+            component: import('./pages/affixes/affixes'),
+            title: 'Affixes',
+        }
     ]
 })
 

@@ -203,7 +203,7 @@
         "CubeRecipeDescription": "Rare Amulet + Unique Jewel + Vex Rune + Lo Rune + Skull = Rare Amulet"
     },
     {
-        "Description": "CRAFT ITEM - Any Rare Amulet + Unique Jewel + VEX Rune + LO Rune + Sapphire = +2 All Skills & +10-15% All Elemental Damage Crafted Amulet",
+        "Description": "CRAFT ITEM - Any Rare Amulet + Unique Jewel + VEX Rune + LO Rune + Sapphire = +2 All Skills & +10% All Elemental Damage Crafted Amulet",
         "Item": null,
         "Output": "Rare Amulet",
         "Input": "Rare Amulet + Unique Jewel + Vex Rune + Lo Rune + Sapphire ",
@@ -259,7 +259,7 @@
         "CubeRecipeDescription": "Rare Ring + Unique Jewel + Zod Rune + Vex Rune + Ruby = Rare Ring"
     },
     {
-        "Description": "CRAFT ITEM - Any Rare Ring + Unique Jewel + ZOD r+ VEX Rune + Sapphire = +1 All Skills & +8-10% All Elemental Damage Crafted Ring",
+        "Description": "CRAFT ITEM - Any Rare Ring + Unique Jewel + ZOD r+ VEX Rune + Sapphire = +1 All Skills & +5% All Elemental Damage Crafted Ring",
         "Item": null,
         "Output": "Rare Ring",
         "Input": "Rare Ring + Unique Jewel + Zod Rune + Vex Rune + Sapphire ",
@@ -308,7 +308,7 @@
         "CubeRecipeDescription": "Rare Belt + Unique Jewel + Zod Rune + Vex Rune + Ruby = Belt"
     },
     {
-        "Description": "CRAFT ITEM - Any Rare Belt + Unique Jewel + ZOD r+ VEX Rune + Sapphire = +1 All Skills & +8-10% All Elemental Damage Crafted Belt",
+        "Description": "CRAFT ITEM - Any Rare Belt + Unique Jewel + ZOD r+ VEX Rune + Sapphire = +1 All Skills & +5-10% All Elemental Damage Crafted Belt",
         "Item": null,
         "Output": "Belt",
         "Input": "Rare Belt + Unique Jewel + Zod Rune + Vex Rune + Sapphire ",
@@ -469,7 +469,7 @@
         "CubeRecipeDescription": "Rare Gloves + Rare Jewel + Um Rune + Ist Rune + Gem = Rare Gloves"
     },
     {
-        "Description": "CRAFT ITEM - Any Rare Gloves + Unique Jewel + ZOD r+ VEX Rune + Ruby = +1 All Skills & +20-40 Weapon Damage & +0.375 Crushing blow/lvl Crafted Gloves",
+        "Description": "CRAFT ITEM - Any Rare Gloves + Unique Jewel + ZOD r+ VEX Rune + Ruby = +1 All Skills & +20-40 Weapon Damage & +0.125 Crushing blow/lvl Crafted Gloves",
         "Item": null,
         "Output": "Gloves",
         "Input": "Rare Gloves + Unique Jewel + Zod Rune + Vex Rune + Ruby ",
@@ -1113,67 +1113,53 @@
         "CubeRecipeDescription": "Bolt Case Of Slaying + Rare Jewel + Ohm Rune = Bolt Case Of Resistance Slaying"
     },
     {
-        "Description": "CRAFT ITEM - Charm Grand & Jewel Magic & Amn Rune & EL Rune = Crafted Grand Charm +40-60Hp & +20-30 replenish",
+        "Description": "CRAFT ITEM - Charm Grand & Jewel Magic & Shael Rune & EL Rune = Crafted Magic Grand Charm +5-10% Faster Attack Speed",
         "Item": null,
-        "Output": "Magic Grand Charm",
-        "Input": "Magic Grand Charm + Magic Jewel + El Rune + Amn Rune ",
-        "CubeRecipeDescription": "Magic Grand Charm + Magic Jewel + El Rune + Amn Rune = Magic Grand Charm"
-    },
-    {
-        "Description": "CRAFT ITEM - Charm Grand & Jewel Magic & Sol Rune & EL Rune = Crafted Grand Charm +40-60Mana & +8-12 mana regen",
-        "Item": null,
-        "Output": "Magic Grand Charm",
-        "Input": "Magic Grand Charm + Magic Jewel + El Rune + Sol Rune ",
-        "CubeRecipeDescription": "Magic Grand Charm + Magic Jewel + El Rune + Sol Rune = Magic Grand Charm"
-    },
-    {
-        "Description": "CRAFT ITEM - Charm Grand & Jewel Magic & Shael Rune & EL Rune = Crafted Grand Charm +5-10% Faster Attack Speed",
-        "Item": null,
-        "Output": "Magic Grand Charm",
+        "Output": "Magic Magic Grand Charm",
         "Input": "Magic Grand Charm + Magic Jewel + El Rune + Shael Rune ",
-        "CubeRecipeDescription": "Magic Grand Charm + Magic Jewel + El Rune + Shael Rune = Magic Grand Charm"
+        "CubeRecipeDescription": "Magic Grand Charm + Magic Jewel + El Rune + Shael Rune = Magic Magic Grand Charm"
     },
     {
-        "Description": "CRAFT ITEM - Charm Grand & Jewel Magic & Dol Rune & EL Rune = Crafted Grand Charm +5-10% Faster Cast Rate",
+        "Description": "CRAFT ITEM - Charm Grand & Jewel Magic & Dol Rune & EL Rune = Crafted Magic Grand Charm +5-10% Faster Cast Rate",
         "Item": null,
-        "Output": "Magic Grand Charm",
+        "Output": "Magic Magic Grand Charm",
         "Input": "Magic Grand Charm + Magic Jewel + El Rune + Dol Rune ",
-        "CubeRecipeDescription": "Magic Grand Charm + Magic Jewel + El Rune + Dol Rune = Magic Grand Charm"
+        "CubeRecipeDescription": "Magic Grand Charm + Magic Jewel + El Rune + Dol Rune = Magic Magic Grand Charm"
     },
     {
-        "Description": "CRAFT ITEM - Charm Grand & Jewel Magic & Hel Rune & EL Rune = Crafted Grand Charm +5-10% Exp",
+        "Description": "CRAFT ITEM - Charm Grand & Jewel Magic & Hel Rune & EL Rune = Crafted Magic Grand Charm +5-10% Exp",
         "Item": null,
-        "Output": "Magic Grand Charm",
+        "Output": "Magic Magic Grand Charm",
         "Input": "Magic Grand Charm + Magic Jewel + El Rune + Hel Rune ",
-        "CubeRecipeDescription": "Magic Grand Charm + Magic Jewel + El Rune + Hel Rune = Magic Grand Charm"
+        "CubeRecipeDescription": "Magic Grand Charm + Magic Jewel + El Rune + Hel Rune = Magic Magic Grand Charm"
     },
     {
-        "Description": "CRAFT ITEM - Charm Grand & Jewel Rare & Ko-Rune & Fal-Rune = Crafted Grand Charm +15-20Dexterity & +15-20Strength & +10-20% Enhanced Dmg",
+        "Description": "CRAFT ITEM - Charm Grand & Jewel Magic & Ko-Rune & Fal-Rune = Crafted Magic Grand Charm +5-8Dexterity & +5-8Strength & +5-8% Enhanced Dmg",
         "Item": null,
-        "Output": "Magic Grand Charm",
-        "Input": "Magic Grand Charm + Rare Jewel + Ko Rune + Fal Rune ",
-        "CubeRecipeDescription": "Magic Grand Charm + Rare Jewel + Ko Rune + Fal Rune = Magic Grand Charm"
+        "Output": "Magic Magic Grand Charm",
+        "Input": "Magic Grand Charm + Magic Jewel + Ko Rune + Fal Rune ",
+        "CubeRecipeDescription": "Magic Grand Charm + Magic Jewel + Ko Rune + Fal Rune = Magic Magic Grand Charm"
     },
     {
-        "Description": "CRAFT ITEM - Charm Grand & Jewel Rare & Pul-Rune & EL Rune = Crafted Grand Charm +70-100Def & 15-25 Weapon Dmg",
+        "Description": "CRAFT ITEM - Charm Grand & Jewel Magic & Pul-Rune & EL Rune = Crafted Magic Grand Charm +50-70Def & 10-15 Weapon Dmg",
         "Item": null,
-        "Output": "Magic Grand Charm",
-        "Input": "Magic Grand Charm + Rare Jewel + El Rune + Pul Rune ",
-        "CubeRecipeDescription": "Magic Grand Charm + Rare Jewel + El Rune + Pul Rune = Magic Grand Charm"
+        "Output": "Magic Magic Grand Charm",
+        "Input": "Magic Grand Charm + Magic Jewel + El Rune + Pul Rune ",
+        "CubeRecipeDescription": "Magic Grand Charm + Magic Jewel + El Rune + Pul Rune = Magic Magic Grand Charm"
     },
     {
-        "Description": "CRAFT ITEM - Charm Grand & Jewel Rare & Um-Rune & EL Rune = Crafted Grand Charm +8-12 All-res",
+        "Description": "CRAFT ITEM - Charm Grand & Jewel Magic & Um-Rune & EL Rune = Crafted Magic Grand Charm +8-10 All-res",
         "Item": null,
-        "Output": "Magic Grand Charm",
-        "Input": "Magic Grand Charm + Rare Jewel + El Rune + Um Rune ",
-        "CubeRecipeDescription": "Magic Grand Charm + Rare Jewel + El Rune + Um Rune = Magic Grand Charm"
+        "Output": "Magic Magic Grand Charm",
+        "Input": "Magic Grand Charm + Magic Jewel + El Rune + Um Rune ",
+        "CubeRecipeDescription": "Magic Grand Charm + Magic Jewel + El Rune + Um Rune = Magic Magic Grand Charm"
     },
     {
-        "Description": "CRAFT ITEM - Charm Grand & Jewel Rare & Ist-Rune & EL Rune  = Crafted Grand Charm +25-40% Magic Find & 50-80% Gold Find",
+        "Description": "CRAFT ITEM - Charm Grand & Jewel Magic & Ist-Rune & EL Rune  = Crafted Magic Grand Charm +25-40% Magic Find & 50-80% Gold Find",
         "Item": null,
-        "Output": "Magic Grand Charm",
-        "Input": "Magic Grand Charm + Rare Jewel + El Rune + Ist Rune ",
-        "CubeRecipeDescription": "Magic Grand Charm + Rare Jewel + El Rune + Ist Rune = Magic Grand Charm"
+        "Output": "Magic Magic Grand Charm",
+        "Input": "Magic Grand Charm + Magic Jewel + El Rune + Ist Rune ",
+        "CubeRecipeDescription": "Magic Grand Charm + Magic Jewel + El Rune + Ist Rune = Magic Magic Grand Charm"
     },
     {
         "Description": "CRAFT ITEM - Charm Grand & Jewel Rare & Vex Rune & Thul Rune & Topaz = Crafted Grand Charm & +1 Random Assassin Skill Tab",
@@ -1190,7 +1176,7 @@
         "CubeRecipeDescription": "Magic Grand Charm + Rare Jewel + Thul Rune + Vex Rune + Ruby = Magic Grand Charm"
     },
     {
-        "Description": "CRAFT ITEM - Charm Grand & Jewel Rare & Vex Rune & Thul Rune & Sapphire = Crafted Grand Charm & +1 Random Sorceress Skill Tab",
+        "Description": "CRAFT ITEM - Charm Grand & Jewel Rare & Vex Rune & Thul Rune & Sapphire = CraftedGrand Charm & +1 Random Sorceress Skill Tab",
         "Item": null,
         "Output": "Magic Grand Charm",
         "Input": "Magic Grand Charm + Rare Jewel + Thul Rune + Vex Rune + Sapphire ",
@@ -1225,7 +1211,7 @@
         "CubeRecipeDescription": "Magic Grand Charm + Rare Jewel + Thul Rune + Vex Rune + Diamond = Magic Grand Charm"
     },
     {
-        "Description": "CRAFT ITEM - Charm Grand & Jewel Unique & EL-Rune & Zod-Rune = Crafted Grand Charm +All-skills",
+        "Description": "CRAFT ITEM - Charm Grand & Jewel Unique & EL-Rune & Zod-Rune = Crafted Grand Charm +1 All-skills",
         "Item": null,
         "Output": "Magic Grand Charm",
         "Input": "Magic Grand Charm + Unique Jewel + El Rune + Zod Rune ",
@@ -1349,6 +1335,34 @@
         "Output": "Unique Ring",
         "Input": "Unique Ring + Orb of Corruption + Mephisto's Animus + Baal's Calamity + Diablo's Ire ",
         "CubeRecipeDescription": "Unique Ring + Orb Of Corruption + Mephisto's Animus + Baal's Calamity + Diablo's Ire = Unique Ring"
+    },
+    {
+        "Description": "CRAFT ITEM - Set Armor & Corruption Orb & Mephisto's Animus & Baal's Calamity & Diablo's Ire = Rerolled Set Item",
+        "Item": null,
+        "Output": "Any Armor",
+        "Input": "Set Any Armor + Orb of Corruption + Mephisto's Animus + Baal's Calamity + Diablo's Ire ",
+        "CubeRecipeDescription": "Set Any Armor + Orb Of Corruption + Mephisto's Animus + Baal's Calamity + Diablo's Ire = Any Armor"
+    },
+    {
+        "Description": "CRAFT ITEM - Set Weapon & Corruption Orb & Mephisto's Animus & Baal's Calamity & Diablo's Ire = Rerolled Set Item",
+        "Item": null,
+        "Output": "Weapon",
+        "Input": "Set Weapon + Orb of Corruption + Mephisto's Animus + Baal's Calamity + Diablo's Ire ",
+        "CubeRecipeDescription": "Set Weapon + Orb Of Corruption + Mephisto's Animus + Baal's Calamity + Diablo's Ire = Weapon"
+    },
+    {
+        "Description": "CRAFT ITEM - Set Amulet & Corruption Orb & Mephisto's Animus & Baal's Calamity & Diablo's Ire = Rerolled Set Item",
+        "Item": null,
+        "Output": "Set Amulet",
+        "Input": "Set Amulet + Orb of Corruption + Mephisto's Animus + Baal's Calamity + Diablo's Ire ",
+        "CubeRecipeDescription": "Set Amulet + Orb Of Corruption + Mephisto's Animus + Baal's Calamity + Diablo's Ire = Set Amulet"
+    },
+    {
+        "Description": "CRAFT ITEM - Set Ring & Corruption Orb & Mephisto's Animus & Baal's Calamity & Diablo's Ire = Rerolled Set Item",
+        "Item": null,
+        "Output": "Set Ring",
+        "Input": "Set Ring + Orb of Corruption + Mephisto's Animus + Baal's Calamity + Diablo's Ire ",
+        "CubeRecipeDescription": "Set Ring + Orb Of Corruption + Mephisto's Animus + Baal's Calamity + Diablo's Ire = Set Ring"
     },
     {
         "Description": "CRAFT ITEM - Any Non-Throwing Weapon & Infusion Orb & Mephisto's Animus & Baal's Calamity & Diablo's Ire = Return Weapon Base as White, Elite, Maximum Sockets, Superior Rolls and +15% Enhanced Damage",
@@ -2086,6 +2100,13 @@
         "CubeRecipeDescription": "Wirt's Leg = Cow Portal"
     },
     {
+        "Description": "PORTAL - Wirt's Leg & Tome of Town Portal = Portal to The Secret Cow Level",
+        "Item": null,
+        "Output": "Cow Portal",
+        "Input": "Wirt's Leg + Tome of Town Portal ",
+        "CubeRecipeDescription": "Wirt's Leg + Tome Of Town Portal = Cow Portal"
+    },
+    {
         "Description": "PORTAL - Key of Terror & Key of Hate & Key of Destruction = Portal to Matron's Den/Forgotten Sands/Furnace of Pain (Random)",
         "Item": null,
         "Output": "Pandemonium Portal",
@@ -2114,2429 +2135,2345 @@
         "CubeRecipeDescription": "Khalim's Flail + Khalim's Heart + Khalim's Eye + Khalim's Brain = Khalim's Will"
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Topaz = +12% Magic Find & +25% Gold Find",
+        "Description": "ENCHANT ITEM - Amulet & Topaz = +12% Magic Find & +25% Gold Find",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Topaz ",
         "CubeRecipeDescription": "Amulet + Topaz = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Ruby = +25 Life & +4 Life / Kill",
+        "Description": "ENCHANT ITEM - Amulet & Ruby = +25 Life & +4 Life / Kill",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Ruby ",
         "CubeRecipeDescription": "Amulet + Ruby = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Sapphire = +25 Mana & +4 Mana / Kill",
+        "Description": "ENCHANT ITEM - Amulet & Sapphire = +25 Mana & +4 Mana / Kill",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Sapphire ",
         "CubeRecipeDescription": "Amulet + Sapphire = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Emerald = +5 Dexterity & +5 Vitality",
+        "Description": "ENCHANT ITEM - Amulet & Emerald = +5 Dexterity & +5 Vitality",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Emerald ",
         "CubeRecipeDescription": "Amulet + Emerald = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Skull = +5 Energy & +5 Vitality",
+        "Description": "ENCHANT ITEM - Amulet & Skull = +5 Energy & +5 Vitality",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Skull ",
         "CubeRecipeDescription": "Amulet + Skull = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Amethyst = +5 Strength & +5 Vitalty",
+        "Description": "ENCHANT ITEM - Amulet & Amethyst = +5 Strength & +5 Vitalty",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Amethyst ",
         "CubeRecipeDescription": "Amulet + Amethyst = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Ruby & Tir-Rune = +10 Fire Resistance",
+        "Description": "ENCHANT ITEM - Amulet & Ruby & Tir-Rune = +10 Fire Resistance",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Ruby + Tir Rune ",
         "CubeRecipeDescription": "Amulet + Ruby + Tir Rune = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Sapphire & Tir-Rune = +10 Cold Resistance",
+        "Description": "ENCHANT ITEM - Amulet & Sapphire & Tir-Rune = +10 Cold Resistance",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Sapphire + Tir Rune ",
         "CubeRecipeDescription": "Amulet + Sapphire + Tir Rune = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Topaz & Tir-Rune = +10 Lightning Resistance",
+        "Description": "ENCHANT ITEM - Amulet & Topaz & Tir-Rune = +10 Lightning Resistance",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Topaz + Tir Rune ",
         "CubeRecipeDescription": "Amulet + Topaz + Tir Rune = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Emerald & Tir-Rune = +10 Poison Resistance",
+        "Description": "ENCHANT ITEM - Amulet & Emerald & Tir-Rune = +10 Poison Resistance",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Emerald + Tir Rune ",
         "CubeRecipeDescription": "Amulet + Emerald + Tir Rune = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Diamond & Magic Jewel & Tir-Rune = +5 All Resistances",
+        "Description": "ENCHANT ITEM - Amulet & Diamond & Magic Jewel & Tir-Rune = +5 All Resistances",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Diamond + Magic Jewel + Tir Rune ",
         "CubeRecipeDescription": "Amulet + Diamond + Magic Jewel + Tir Rune = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Topaz & Magic Jewel = +2 Random Assassin Skills",
+        "Description": "ENCHANT ITEM - Amulet & Topaz & Magic Jewel = +2 Random Assassin Skills",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Topaz + Magic Jewel ",
         "CubeRecipeDescription": "Amulet + Topaz + Magic Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Ruby & Magic Jewel = +2 Random Barbarian Skills",
+        "Description": "ENCHANT ITEM - Amulet & Ruby & Magic Jewel = +2 Random Barbarian Skills",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Ruby + Magic Jewel ",
         "CubeRecipeDescription": "Amulet + Ruby + Magic Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Sapphire & Magic Jewel = +2 Random Sorceress Skills",
+        "Description": "ENCHANT ITEM - Amulet & Sapphire & Magic Jewel = +2 Random Sorceress Skills",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Sapphire + Magic Jewel ",
         "CubeRecipeDescription": "Amulet + Sapphire + Magic Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Emerald & Magic Jewel = +2 Random Druid Skills",
+        "Description": "ENCHANT ITEM - Amulet & Emerald & Magic Jewel = +2 Random Druid Skills",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Emerald + Magic Jewel ",
         "CubeRecipeDescription": "Amulet + Emerald + Magic Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Skull & Magic Jewel = +2 Random Necromancer Skills",
+        "Description": "ENCHANT ITEM - Amulet & Skull & Magic Jewel = +2 Random Necromancer Skills",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Skull + Magic Jewel ",
         "CubeRecipeDescription": "Amulet + Skull + Magic Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Amethyst & Magic Jewel = +2 Random Amazon Skills",
+        "Description": "ENCHANT ITEM - Amulet & Amethyst & Magic Jewel = +2 Random Amazon Skills",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Amethyst + Magic Jewel ",
         "CubeRecipeDescription": "Amulet + Amethyst + Magic Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Diamond & Magic Jewel = +2 Random Paladin Skills",
+        "Description": "ENCHANT ITEM - Amulet & Diamond & Magic Jewel = +2 Random Paladin Skills",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Diamond + Magic Jewel ",
         "CubeRecipeDescription": "Amulet + Diamond + Magic Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Infusion Orb & Topaz & Rare Jewel = +25% Magic Find & +50% Gold Find",
+        "Description": "ENCHANT ITEM - Amulet & Infusion Orb & Topaz & Rare Jewel = +25% Magic Find & +50% Gold Find",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Topaz + Rare Jewel + Orb of Infusion ",
         "CubeRecipeDescription": "Amulet + Topaz + Rare Jewel + Orb Of Infusion = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Infusion Orb & Ruby & Rare Jewel = +75 Life & +8 Life / Kill",
+        "Description": "ENCHANT ITEM - Amulet & Infusion Orb & Ruby & Rare Jewel = +50 Life & +6 Life / Kill",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Ruby + Rare Jewel + Orb of Infusion ",
         "CubeRecipeDescription": "Amulet + Ruby + Rare Jewel + Orb Of Infusion = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Infusion Orb & Sapphire & Rare Jewel = +75 Mana & +8 Mana / Kill",
+        "Description": "ENCHANT ITEM - Amulet & Infusion Orb & Sapphire & Rare Jewel = +50 Mana & +6 Mana / Kill",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Sapphire + Rare Jewel + Orb of Infusion ",
         "CubeRecipeDescription": "Amulet + Sapphire + Rare Jewel + Orb Of Infusion = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Infusion Orb & Emerald & Rare Jewel = +12 Dexterity & +12 Vitality",
+        "Description": "ENCHANT ITEM - Amulet & Infusion Orb & Emerald & Rare Jewel = +12 Dexterity & +12 Vitality",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Emerald + Rare Jewel + Orb of Infusion ",
         "CubeRecipeDescription": "Amulet + Emerald + Rare Jewel + Orb Of Infusion = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Infusion Orb & Skull & Rare Jewel = +12 Energy & +12 Vitality",
+        "Description": "ENCHANT ITEM - Amulet & Infusion Orb & Skull & Rare Jewel = +12 Energy & +12 Vitality",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Skull + Rare Jewel + Orb of Infusion ",
         "CubeRecipeDescription": "Amulet + Skull + Rare Jewel + Orb Of Infusion = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Infusion Orb & Amethyst & Rare Jewel = +12 Strength & +12 Vitalty",
+        "Description": "ENCHANT ITEM - Amulet & Infusion Orb & Amethyst & Rare Jewel = +12 Strength & +12 Vitalty",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Amethyst + Rare Jewel + Orb of Infusion ",
         "CubeRecipeDescription": "Amulet + Amethyst + Rare Jewel + Orb Of Infusion = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Infusion Orb & Diamond & Rare Jewel = +12 All Resistances",
+        "Description": "ENCHANT ITEM - Amulet & Infusion Orb & Diamond & Rare Jewel = +12 All Resistances",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Diamond + Rare Jewel + Orb of Infusion ",
         "CubeRecipeDescription": "Amulet + Diamond + Rare Jewel + Orb Of Infusion = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Infusion Orb & Unique Jewel = +1 Assassin Skills",
+        "Description": "ENCHANT ITEM - Amulet & Infusion Orb & Unique Jewel = +1 Assassin Skills",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Orb of Infusion + Unique Jewel ",
         "CubeRecipeDescription": "Amulet + Orb Of Infusion + Unique Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Infusion Orb & Unique Jewel = +1 Barbarian Skills",
+        "Description": "ENCHANT ITEM - Amulet & Infusion Orb & Unique Jewel = +1 Barbarian Skills",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Orb of Infusion + Unique Jewel ",
         "CubeRecipeDescription": "Amulet + Orb Of Infusion + Unique Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Infusion Orb & Unique Jewel = +1 Sorceress Skills",
+        "Description": "ENCHANT ITEM - Amulet & Infusion Orb & Unique Jewel = +1 Sorceress Skills",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Orb of Infusion + Unique Jewel ",
         "CubeRecipeDescription": "Amulet + Orb Of Infusion + Unique Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Infusion Orb & Unique Jewel = +1 Druid Skills",
+        "Description": "ENCHANT ITEM - Amulet & Infusion Orb & Unique Jewel = +1 Druid Skills",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Orb of Infusion + Unique Jewel ",
         "CubeRecipeDescription": "Amulet + Orb Of Infusion + Unique Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Infusion Orb & Unique Jewel = +1 Necromancer Skills",
+        "Description": "ENCHANT ITEM - Amulet & Infusion Orb & Unique Jewel = +1 Necromancer Skills",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Orb of Infusion + Unique Jewel ",
         "CubeRecipeDescription": "Amulet + Orb Of Infusion + Unique Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Infusion Orb & Unique Jewel = +1 Amazon Skills",
+        "Description": "ENCHANT ITEM - Amulet & Infusion Orb & Unique Jewel = +1 Amazon Skills",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Orb of Infusion + Unique Jewel ",
         "CubeRecipeDescription": "Amulet + Orb Of Infusion + Unique Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Amulet & Infusion Orb & Unique Jewel = +1 Paladin Skills",
+        "Description": "ENCHANT ITEM - Amulet & Infusion Orb & Unique Jewel = +1 Paladin Skills",
         "Item": null,
         "Output": "",
         "Input": "Amulet + Orb of Infusion + Unique Jewel ",
         "CubeRecipeDescription": "Amulet + Orb Of Infusion + Unique Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Ring & Topaz & Magic Jewel = +10% Magic Find  & +20% Gold Find",
+        "Description": "ENCHANT ITEM - Ring & Topaz & Magic Jewel = +10% Magic Find  & +20% Gold Find",
         "Item": null,
         "Output": "",
         "Input": "Ring + Topaz + Magic Jewel ",
         "CubeRecipeDescription": "Ring + Topaz + Magic Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Ring & Ruby & Magic Jewel = +20 HP & +2 Life / Kill",
+        "Description": "ENCHANT ITEM - Ring & Ruby & Magic Jewel = +20 HP & +2 Life / Kill",
         "Item": null,
         "Output": "",
         "Input": "Ring + Ruby + Magic Jewel ",
         "CubeRecipeDescription": "Ring + Ruby + Magic Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Ring & Sapphire & Magic Jewel = +20 Mana & +2 Mana / Kill",
+        "Description": "ENCHANT ITEM - Ring & Sapphire & Magic Jewel = +20 Mana & +2 Mana / Kill",
         "Item": null,
         "Output": "",
         "Input": "Ring + Sapphire + Magic Jewel ",
         "CubeRecipeDescription": "Ring + Sapphire + Magic Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Ring & Ruby & Tir-Rune = +10 Fire Resistance",
+        "Description": "ENCHANT ITEM - Ring & Ruby & Tir-Rune = +10 Fire Resistance",
         "Item": null,
         "Output": "",
         "Input": "Ring + Ruby + Tir Rune ",
         "CubeRecipeDescription": "Ring + Ruby + Tir Rune = "
     },
     {
-        "Description": "ITEM UPGRADE - Ring & Sapphire & Tir-Rune = +10 Cold Resistance",
+        "Description": "ENCHANT ITEM - Ring & Sapphire & Tir-Rune = +10 Cold Resistance",
         "Item": null,
         "Output": "",
         "Input": "Ring + Sapphire + Tir Rune ",
         "CubeRecipeDescription": "Ring + Sapphire + Tir Rune = "
     },
     {
-        "Description": "ITEM UPGRADE - Ring & Topaz & Tir-Rune = +10 Lightning Resistance",
+        "Description": "ENCHANT ITEM - Ring & Topaz & Tir-Rune = +10 Lightning Resistance",
         "Item": null,
         "Output": "",
         "Input": "Ring + Topaz + Tir Rune ",
         "CubeRecipeDescription": "Ring + Topaz + Tir Rune = "
     },
     {
-        "Description": "ITEM UPGRADE - Ring & Emerald & Tir-Rune = +10 Poison Resistance",
+        "Description": "ENCHANT ITEM - Ring & Emerald & Tir-Rune = +10 Poison Resistance",
         "Item": null,
         "Output": "",
         "Input": "Ring + Emerald + Tir Rune ",
         "CubeRecipeDescription": "Ring + Emerald + Tir Rune = "
     },
     {
-        "Description": "ITEM UPGRADE - Ring & Infusion Orb & Sapphire & Ith-Rune & Magic Jewel = +50 Mana & +4 Mana / Kill",
+        "Description": "ENCHANT ITEM - Ring & Infusion Orb & Sapphire & Ith-Rune & Magic Jewel = +30 Mana & +3 Mana / Kill",
         "Item": null,
         "Output": "",
         "Input": "Ring + Orb of Infusion + Sapphire + Ith Rune + Magic Jewel ",
         "CubeRecipeDescription": "Ring + Orb Of Infusion + Sapphire + Ith Rune + Magic Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Ring & Infusion Orb & Ruby & Dol-Rune & Magic Jewel = +50 HP & +5 Life / Kill",
+        "Description": "ENCHANT ITEM - Ring & Infusion Orb & Ruby & Dol-Rune & Magic Jewel = +30 HP & +3 Life / Kill",
         "Item": null,
         "Output": "",
         "Input": "Ring + Orb of Infusion + Ruby + Dol Rune + Magic Jewel ",
         "CubeRecipeDescription": "Ring + Orb Of Infusion + Ruby + Dol Rune + Magic Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Ring & Infusion Orb & Skull & Io-Rune & Magic Jewel = +5% Life Steal",
+        "Description": "ENCHANT ITEM - Ring & Infusion Orb & Skull & Io-Rune & Magic Jewel = +5% Life Steal",
         "Item": null,
         "Output": "",
         "Input": "Ring + Orb of Infusion + Skull + Io Rune + Magic Jewel ",
         "CubeRecipeDescription": "Ring + Orb Of Infusion + Skull + Io Rune + Magic Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Ring & Infusion Orb & Skull & Lum-Rune & Magic Jewel = +5% Mana Steal",
+        "Description": "ENCHANT ITEM - Ring & Infusion Orb & Skull & Lum-Rune & Magic Jewel = +5% Mana Steal",
         "Item": null,
         "Output": "",
         "Input": "Ring + Orb of Infusion + Skull + Lum Rune + Magic Jewel ",
         "CubeRecipeDescription": "Ring + Orb Of Infusion + Skull + Lum Rune + Magic Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Ring & Infusion Orb & Diamond & Um-Rune & Rare Jewel = +5 All Resistances",
+        "Description": "ENCHANT ITEM - Ring & Infusion Orb & Diamond & Um-Rune & Rare Jewel = +5 All Resistances",
         "Item": null,
         "Output": "",
         "Input": "Ring + Orb of Infusion + Diamond + Um Rune + Rare Jewel ",
         "CubeRecipeDescription": "Ring + Orb Of Infusion + Diamond + Um Rune + Rare Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Ring & Infusion Orb & Topaz & Ist-Rune & Rare Jewel = +20% Magic Find  & +30% Gold Find",
+        "Description": "ENCHANT ITEM - Ring & Infusion Orb & Topaz & Ist-Rune & Rare Jewel = +20% Magic Find  & +30% Gold Find",
         "Item": null,
         "Output": "",
         "Input": "Ring + Orb of Infusion + Topaz + Ist Rune + Rare Jewel ",
         "CubeRecipeDescription": "Ring + Orb Of Infusion + Topaz + Ist Rune + Rare Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Ring & Infusion Orb & Emerald & Vex-Rune & Rare Jewel = +6 All Attributes",
+        "Description": "ENCHANT ITEM - Ring & Infusion Orb & Emerald & Vex-Rune & Rare Jewel = +6 All Attributes",
         "Item": null,
         "Output": "",
         "Input": "Ring + Orb of Infusion + Emerald + Vex Rune + Rare Jewel ",
         "CubeRecipeDescription": "Ring + Orb Of Infusion + Emerald + Vex Rune + Rare Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Ring & Infusion Orb & Topaz & Ohm-Rune & Rare Jewel = +4% Experience Gained",
+        "Description": "ENCHANT ITEM - Ring & Infusion Orb & Topaz & Ohm-Rune & Rare Jewel = +4% Experience Gained",
         "Item": null,
         "Output": "",
         "Input": "Ring + Orb of Infusion + Topaz + Ohm Rune + Rare Jewel ",
         "CubeRecipeDescription": "Ring + Orb Of Infusion + Topaz + Ohm Rune + Rare Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Ring & Infusion Orb & Emerald & Gul-Rune & Rare Jewel = +8% Faster Attack Speed",
+        "Description": "ENCHANT ITEM - Ring & Infusion Orb & Emerald & Gul-Rune & Rare Jewel = +8% Faster Attack Speed",
         "Item": null,
         "Output": "",
         "Input": "Ring + Orb of Infusion + Emerald + Gul Rune + Rare Jewel ",
         "CubeRecipeDescription": "Ring + Orb Of Infusion + Emerald + Gul Rune + Rare Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Ring & Infusion Orb & Emerald & Lo-Rune & Rare Jewel = +8% Faster Cast Rate",
+        "Description": "ENCHANT ITEM - Ring & Infusion Orb & Emerald & Lo-Rune & Rare Jewel = +8% Faster Cast Rate",
         "Item": null,
         "Output": "",
         "Input": "Ring + Orb of Infusion + Emerald + Lo Rune + Rare Jewel ",
         "CubeRecipeDescription": "Ring + Orb Of Infusion + Emerald + Lo Rune + Rare Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Ring & Infusion Orb & Sapphire & Sur-Rune & Rare Jewel = +6% Max Mana",
+        "Description": "ENCHANT ITEM - Ring & Infusion Orb & Sapphire & Sur-Rune & Rare Jewel = +6% Max Mana",
         "Item": null,
         "Output": "",
         "Input": "Ring + Orb of Infusion + Sapphire + Sur Rune + Rare Jewel ",
         "CubeRecipeDescription": "Ring + Orb Of Infusion + Sapphire + Sur Rune + Rare Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Ring & Infusion Orb & Amethyst & Ber-Rune & Rare Jewel = +4% Damage Reduction",
+        "Description": "ENCHANT ITEM - Ring & Infusion Orb & Amethyst & Ber-Rune & Rare Jewel = +4% Damage Reduction",
         "Item": null,
         "Output": "",
         "Input": "Ring + Orb of Infusion + Amethyst + Ber Rune + Rare Jewel ",
         "CubeRecipeDescription": "Ring + Orb Of Infusion + Amethyst + Ber Rune + Rare Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Ring & Infusion Orb & Ruby & Jah-Rune & Rare Jewel = +6% Max HP",
+        "Description": "ENCHANT ITEM - Ring & Infusion Orb & Ruby & Jah-Rune & Rare Jewel = +6% Max HP",
         "Item": null,
         "Output": "",
         "Input": "Ring + Orb of Infusion + Ruby + Jah Rune + Rare Jewel ",
         "CubeRecipeDescription": "Ring + Orb Of Infusion + Ruby + Jah Rune + Rare Jewel = "
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Topaz & Magic Jewel = +7% Magic Find  & +10% Gold Find",
+        "Description": "ENCHANT ITEM - Belt & Topaz & Magic Jewel = +7% Magic Find  & +10% Gold Find",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Topaz + Magic Jewel ",
         "CubeRecipeDescription": "Belt + Topaz + Magic Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Ruby & Magic Jewel = +15 HP & +2 Life / Kill",
+        "Description": "ENCHANT ITEM - Belt & Ruby & Magic Jewel = +15 HP & +2 Life / Kill",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Ruby + Magic Jewel ",
         "CubeRecipeDescription": "Belt + Ruby + Magic Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Sapphire & Magic Jewel = +15 Mana & +2 Mana / Kill",
+        "Description": "ENCHANT ITEM - Belt & Sapphire & Magic Jewel = +15 Mana & +2 Mana / Kill",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Sapphire + Magic Jewel ",
         "CubeRecipeDescription": "Belt + Sapphire + Magic Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Emerald & Magic Jewel = +5 Dexterity & +5 Vitality",
+        "Description": "ENCHANT ITEM - Belt & Emerald & Magic Jewel = +5 Dexterity & +5 Vitality",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Emerald + Magic Jewel ",
         "CubeRecipeDescription": "Belt + Emerald + Magic Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Amethyst & Magic Jewel = +5 Strength & +5 Vitality",
+        "Description": "ENCHANT ITEM - Belt & Amethyst & Magic Jewel = +5 Strength & +5 Vitality",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Amethyst + Magic Jewel ",
         "CubeRecipeDescription": "Belt + Amethyst + Magic Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Skull & Magic Jewel = +5 Energy & +5 Vitality",
+        "Description": "ENCHANT ITEM - Belt & Skull & Magic Jewel = +5 Energy & +5 Vitality",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Skull + Magic Jewel ",
         "CubeRecipeDescription": "Belt + Skull + Magic Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Diamond & Magic Jewel = +2 All Resistances",
+        "Description": "ENCHANT ITEM - Belt & Diamond & Magic Jewel = +2 All Resistances",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Diamond + Magic Jewel ",
         "CubeRecipeDescription": "Belt + Diamond + Magic Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Eth-Rune & Magic Jewel = +4% Mana Regen",
+        "Description": "ENCHANT ITEM - Belt & Eth-Rune & Magic Jewel = +4% Mana Regen",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Eth Rune + Magic Jewel ",
         "CubeRecipeDescription": "Belt + Eth Rune + Magic Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Ith-Rune & Magic Jewel = +6% Damage Goes To Mana",
+        "Description": "ENCHANT ITEM - Belt & Ith-Rune & Magic Jewel = +6% Damage Goes To Mana",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Ith Rune + Magic Jewel ",
         "CubeRecipeDescription": "Belt + Ith Rune + Magic Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Sol-Rune & Magic Jewel = Physical Damage Reduced By 3",
+        "Description": "ENCHANT ITEM - Belt & Sol-Rune & Magic Jewel = Physical Damage Reduced By 3",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Sol Rune + Magic Jewel ",
         "CubeRecipeDescription": "Belt + Sol Rune + Magic Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Infusion Orb & Sapphire & Ith-Rune & Magic Jewel = +50 Mana & +4 Mana / Kill",
+        "Description": "ENCHANT ITEM - Belt & Infusion Orb & Sapphire & Ith-Rune & Magic Jewel = +30 Mana & +3 Mana / Kill",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Orb of Infusion + Sapphire + Ith Rune + Magic Jewel ",
         "CubeRecipeDescription": "Belt + Orb Of Infusion + Sapphire + Ith Rune + Magic Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Infusion Orb & Emerald & Shael-Rune & Magic Jewel = +7% Faster Hit Recovery",
+        "Description": "ENCHANT ITEM - Belt & Infusion Orb & Emerald & Shael-Rune & Magic Jewel = +7% Faster Hit Recovery",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Orb of Infusion + Emerald + Shael Rune + Magic Jewel ",
         "CubeRecipeDescription": "Belt + Orb Of Infusion + Emerald + Shael Rune + Magic Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Infusion Orb & Ruby & Dol-Rune & Magic Jewel = +50 HP & +4 Life / Kill",
+        "Description": "ENCHANT ITEM - Belt & Infusion Orb & Ruby & Dol-Rune & Magic Jewel = +30 HP & +3 Life / Kill",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Orb of Infusion + Ruby + Dol Rune + Magic Jewel ",
         "CubeRecipeDescription": "Belt + Orb Of Infusion + Ruby + Dol Rune + Magic Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Infusion Orb & Skull & Lum-Rune & Magic Jewel = +8% Mana Regen",
+        "Description": "ENCHANT ITEM - Belt & Infusion Orb & Skull & Lum-Rune & Magic Jewel = +8% Mana Regen",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Orb of Infusion + Skull + Lum Rune + Magic Jewel ",
         "CubeRecipeDescription": "Belt + Orb Of Infusion + Skull + Lum Rune + Magic Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Infusion Orb & Emerald & Fal-Rune & Magic Jewel = +10 Dexterity & +10 Vitality",
+        "Description": "ENCHANT ITEM - Belt & Infusion Orb & Emerald & Fal-Rune & Magic Jewel = +10 Dexterity & +10 Vitality",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Orb of Infusion + Emerald + Fal Rune + Magic Jewel ",
         "CubeRecipeDescription": "Belt + Orb Of Infusion + Emerald + Fal Rune + Magic Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Infusion Orb & Amethyst & Fal-Rune & Magic Jewel = +10 Strength & +10 Vitality",
+        "Description": "ENCHANT ITEM - Belt & Infusion Orb & Amethyst & Fal-Rune & Magic Jewel = +10 Strength & +10 Vitality",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Orb of Infusion + Amethyst + Fal Rune + Magic Jewel ",
         "CubeRecipeDescription": "Belt + Orb Of Infusion + Amethyst + Fal Rune + Magic Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Infusion Orb & Sapphire & Fal-Rune & Magic Jewel = +10 Energy & +10 Vitality",
+        "Description": "ENCHANT ITEM - Belt & Infusion Orb & Sapphire & Fal-Rune & Magic Jewel = +10 Energy & +10 Vitality",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Orb of Infusion + Sapphire + Fal Rune + Magic Jewel ",
         "CubeRecipeDescription": "Belt + Orb Of Infusion + Sapphire + Fal Rune + Magic Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Infusion Orb & Skull & Lem-Rune & Magic Jewel =+50% Enhanced Defense",
+        "Description": "ENCHANT ITEM - Belt & Infusion Orb & Skull & Lem-Rune & Magic Jewel =+50% Enhanced Defense",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Orb of Infusion + Skull + Lem Rune + Magic Jewel ",
         "CubeRecipeDescription": "Belt + Orb Of Infusion + Skull + Lem Rune + Magic Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Infusion Orb & Diamond & Pul-Rune & Rare Jewel =+4 All Attributes",
+        "Description": "ENCHANT ITEM - Belt & Infusion Orb & Diamond & Pul-Rune & Rare Jewel =+4 All Attributes",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Orb of Infusion + Diamond + Pul Rune + Rare Jewel ",
         "CubeRecipeDescription": "Belt + Orb Of Infusion + Diamond + Pul Rune + Rare Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Infusion Orb & Diamond & Um-Rune & Rare Jewel = +4 All Resistances",
+        "Description": "ENCHANT ITEM - Belt & Infusion Orb & Diamond & Um-Rune & Rare Jewel = +4 All Resistances",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Orb of Infusion + Diamond + Um Rune + Rare Jewel ",
         "CubeRecipeDescription": "Belt + Orb Of Infusion + Diamond + Um Rune + Rare Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Infusion Orb & Sapphire & Mal-Rune & Rare Jewel = Magic Damage Reduced By 3",
+        "Description": "ENCHANT ITEM - Belt & Infusion Orb & Sapphire & Mal-Rune & Rare Jewel = Magic Damage Reduced By 3",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Orb of Infusion + Sapphire + Mal Rune + Rare Jewel ",
         "CubeRecipeDescription": "Belt + Orb Of Infusion + Sapphire + Mal Rune + Rare Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Infusion Orb & Topaz & Ist-Rune & Rare Jewel = +20% Magic Find  & +30% Gold Find",
+        "Description": "ENCHANT ITEM - Belt & Infusion Orb & Topaz & Ist-Rune & Rare Jewel = +20% Magic Find  & +30% Gold Find",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Orb of Infusion + Topaz + Ist Rune + Rare Jewel ",
         "CubeRecipeDescription": "Belt + Orb Of Infusion + Topaz + Ist Rune + Rare Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Infusion Orb & Sapphire & Sur-Rune & Rare Jewel = +5% Max Mana",
+        "Description": "ENCHANT ITEM - Belt & Infusion Orb & Sapphire & Sur-Rune & Rare Jewel = +5% Max Mana",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Orb of Infusion + Sapphire + Sur Rune + Rare Jewel ",
         "CubeRecipeDescription": "Belt + Orb Of Infusion + Sapphire + Sur Rune + Rare Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Infusion Orb & Amethyst & Ber-Rune & Rare Jewel = +4% Damage Reduction",
+        "Description": "ENCHANT ITEM - Belt & Infusion Orb & Amethyst & Ber-Rune & Rare Jewel = +4% Damage Reduction",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Orb of Infusion + Amethyst + Ber Rune + Rare Jewel ",
         "CubeRecipeDescription": "Belt + Orb Of Infusion + Amethyst + Ber Rune + Rare Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Infusion Orb & Ruby & Jah-Rune & Rare Jewel = +5% Max HP",
+        "Description": "ENCHANT ITEM - Belt & Infusion Orb & Ruby & Jah-Rune & Rare Jewel = +5% Max HP",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Orb of Infusion + Ruby + Jah Rune + Rare Jewel ",
         "CubeRecipeDescription": "Belt + Orb Of Infusion + Ruby + Jah Rune + Rare Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Infusion Orb & Sapphire & Cham-Rune & Unique Jewel = +6 All Attributes & +6 All Resistances",
+        "Description": "ENCHANT ITEM - Belt & Infusion Orb & Sapphire & Cham-Rune & Unique Jewel = +6 All Attributes & +6 All Resistances",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Orb of Infusion + Sapphire + Cham Rune + Unique Jewel ",
         "CubeRecipeDescription": "Belt + Orb Of Infusion + Sapphire + Cham Rune + Unique Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Infusion Orb & Topaz & Cham-Rune & Unique Jewel = +20% Magic Find & +40% Gold Find & +5% Reduced Vendor Prices",
+        "Description": "ENCHANT ITEM - Belt & Infusion Orb & Topaz & Cham-Rune & Unique Jewel = +20% Magic Find & +40% Gold Find & +5% Reduced Vendor Prices",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Orb of Infusion + Topaz + Cham Rune + Unique Jewel ",
         "CubeRecipeDescription": "Belt + Orb Of Infusion + Topaz + Cham Rune + Unique Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Belt & Infusion Orb & Amethyst & Cham-Rune & Unique Jewel = +150 HP & +150 Mana & +100% Enhanced Defense",
+        "Description": "ENCHANT ITEM - Belt & Infusion Orb & Amethyst & Cham-Rune & Unique Jewel = +150 HP & +150 Mana & +100% Enhanced Defense",
         "Item": null,
         "Output": "Belt",
         "Input": "Belt + Orb of Infusion + Amethyst + Cham Rune + Unique Jewel ",
         "CubeRecipeDescription": "Belt + Orb Of Infusion + Amethyst + Cham Rune + Unique Jewel = Belt"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Topaz & Magic Jewel = +7% Magic Find  & +10% Gold Find",
+        "Description": "ENCHANT ITEM - Boots & Topaz & Magic Jewel = +7% Magic Find  & +10% Gold Find",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Topaz + Magic Jewel ",
         "CubeRecipeDescription": "Boots + Topaz + Magic Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Ruby & Magic Jewel = +15 HP & +2 Life / Kill",
+        "Description": "ENCHANT ITEM - Boots & Ruby & Magic Jewel = +15 HP & +2 Life / Kill",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Ruby + Magic Jewel ",
         "CubeRecipeDescription": "Boots + Ruby + Magic Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Sapphire & Magic Jewel = +15 Mana & +2 Mana / Kill",
+        "Description": "ENCHANT ITEM - Boots & Sapphire & Magic Jewel = +15 Mana & +2 Mana / Kill",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Sapphire + Magic Jewel ",
         "CubeRecipeDescription": "Boots + Sapphire + Magic Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Emerald & Magic Jewel = +5 Dexterity & +5 Vitality",
+        "Description": "ENCHANT ITEM - Boots & Emerald & Magic Jewel = +5 Dexterity & +5 Vitality",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Emerald + Magic Jewel ",
         "CubeRecipeDescription": "Boots + Emerald + Magic Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Amethyst & Magic Jewel = +5 Strength & +5 Vitality",
+        "Description": "ENCHANT ITEM - Boots & Amethyst & Magic Jewel = +5 Strength & +5 Vitality",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Amethyst + Magic Jewel ",
         "CubeRecipeDescription": "Boots + Amethyst + Magic Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Skull & Magic Jewel = +5 Energy & +5 Vitality",
+        "Description": "ENCHANT ITEM - Boots & Skull & Magic Jewel = +5 Energy & +5 Vitality",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Skull + Magic Jewel ",
         "CubeRecipeDescription": "Boots + Skull + Magic Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Diamond & Magic Jewel = +2 All Resistances",
+        "Description": "ENCHANT ITEM - Boots & Diamond & Magic Jewel = +2 All Resistances",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Diamond + Magic Jewel ",
         "CubeRecipeDescription": "Boots + Diamond + Magic Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Nef-Rune & Magic Jewel = +5% Faster Run/Walk",
+        "Description": "ENCHANT ITEM - Boots & Nef-Rune & Magic Jewel = +5% Faster Run/Walk",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Nef Rune + Magic Jewel ",
         "CubeRecipeDescription": "Boots + Nef Rune + Magic Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Eth-Rune & Magic Jewel = +4% Mana Regen",
+        "Description": "ENCHANT ITEM - Boots & Eth-Rune & Magic Jewel = +4% Mana Regen",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Eth Rune + Magic Jewel ",
         "CubeRecipeDescription": "Boots + Eth Rune + Magic Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Ith-Rune & Magic Jewel = +6% Damage Goes To Mana",
+        "Description": "ENCHANT ITEM - Boots & Ith-Rune & Magic Jewel = +6% Damage Goes To Mana",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Ith Rune + Magic Jewel ",
         "CubeRecipeDescription": "Boots + Ith Rune + Magic Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Sol-Rune & Magic Jewel = Physical Damage Reduced By 3",
+        "Description": "ENCHANT ITEM - Boots & Sol-Rune & Magic Jewel = Physical Damage Reduced By 3",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Sol Rune + Magic Jewel ",
         "CubeRecipeDescription": "Boots + Sol Rune + Magic Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Infusion Orb & Sapphire & Ith-Rune & Magic Jewel = +50 Mana & +3 Mana / Kill",
+        "Description": "ENCHANT ITEM - Boots & Infusion Orb & Sapphire & Ith-Rune & Magic Jewel = +30 Mana & +3 Mana / Kill",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Orb of Infusion + Sapphire + Ith Rune + Magic Jewel ",
         "CubeRecipeDescription": "Boots + Orb Of Infusion + Sapphire + Ith Rune + Magic Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Infusion Orb & Emerald & Sol-Rune & Magic Jewel = +10% Faster Run/Walk",
+        "Description": "ENCHANT ITEM - Boots & Infusion Orb & Emerald & Sol-Rune & Magic Jewel = +10% Faster Run/Walk",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Orb of Infusion + Emerald + Sol Rune + Magic Jewel ",
         "CubeRecipeDescription": "Boots + Orb Of Infusion + Emerald + Sol Rune + Magic Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Infusion Orb & Amethyst & Shael-Rune & Magic Jewel = +7% Faster Hit Recovery",
+        "Description": "ENCHANT ITEM - Boots & Infusion Orb & Amethyst & Shael-Rune & Magic Jewel = +7% Faster Hit Recovery",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Orb of Infusion + Amethyst + Shael Rune + Magic Jewel ",
         "CubeRecipeDescription": "Boots + Orb Of Infusion + Amethyst + Shael Rune + Magic Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Infusion Orb & Ruby & Dol-Rune & Magic Jewel = +50 HP & +4 Life / Kill",
+        "Description": "ENCHANT ITEM - Boots & Infusion Orb & Ruby & Dol-Rune & Magic Jewel = +30 HP & +3 Life / Kill",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Orb of Infusion + Ruby + Dol Rune + Magic Jewel ",
         "CubeRecipeDescription": "Boots + Orb Of Infusion + Ruby + Dol Rune + Magic Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Infusion Orb & Skull & Lum-Rune & Magic Jewel = +8% Mana Regen",
+        "Description": "ENCHANT ITEM - Boots & Infusion Orb & Skull & Lum-Rune & Magic Jewel = +8% Mana Regen",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Orb of Infusion + Skull + Lum Rune + Magic Jewel ",
         "CubeRecipeDescription": "Boots + Orb Of Infusion + Skull + Lum Rune + Magic Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Infusion Orb & Emerald & Fal-Rune & Magic Jewel = +10 Dexterity & +10 Vitality",
+        "Description": "ENCHANT ITEM - Boots & Infusion Orb & Emerald & Fal-Rune & Magic Jewel = +10 Dexterity & +10 Vitality",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Orb of Infusion + Emerald + Fal Rune + Magic Jewel ",
         "CubeRecipeDescription": "Boots + Orb Of Infusion + Emerald + Fal Rune + Magic Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Infusion Orb & Amethyst & Fal-Rune & Magic Jewel = +10 Strength & +10 Vitality",
+        "Description": "ENCHANT ITEM - Boots & Infusion Orb & Amethyst & Fal-Rune & Magic Jewel = +10 Strength & +10 Vitality",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Orb of Infusion + Amethyst + Fal Rune + Magic Jewel ",
         "CubeRecipeDescription": "Boots + Orb Of Infusion + Amethyst + Fal Rune + Magic Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Infusion Orb & Sapphire & Fal-Rune & Magic Jewel = +10 Energy & +10 Vitality",
+        "Description": "ENCHANT ITEM - Boots & Infusion Orb & Sapphire & Fal-Rune & Magic Jewel = +10 Energy & +10 Vitality",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Orb of Infusion + Sapphire + Fal Rune + Magic Jewel ",
         "CubeRecipeDescription": "Boots + Orb Of Infusion + Sapphire + Fal Rune + Magic Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Infusion Orb & Skull & Lem-Rune & Magic Jewel =+50% Enhanced Defense",
+        "Description": "ENCHANT ITEM - Boots & Infusion Orb & Skull & Lem-Rune & Magic Jewel =+50% Enhanced Defense",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Orb of Infusion + Skull + Lem Rune + Magic Jewel ",
         "CubeRecipeDescription": "Boots + Orb Of Infusion + Skull + Lem Rune + Magic Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Infusion Orb & Diamond & Pul-Rune & Rare Jewel =+4 All Attributes",
+        "Description": "ENCHANT ITEM - Boots & Infusion Orb & Diamond & Pul-Rune & Rare Jewel =+4 All Attributes",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Orb of Infusion + Diamond + Pul Rune + Rare Jewel ",
         "CubeRecipeDescription": "Boots + Orb Of Infusion + Diamond + Pul Rune + Rare Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Infusion Orb & Diamond & Um-Rune & Rare Jewel = +4 All Resistances",
+        "Description": "ENCHANT ITEM - Boots & Infusion Orb & Diamond & Um-Rune & Rare Jewel = +4 All Resistances",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Orb of Infusion + Diamond + Um Rune + Rare Jewel ",
         "CubeRecipeDescription": "Boots + Orb Of Infusion + Diamond + Um Rune + Rare Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Infusion Orb & Sapphire & Mal-Rune & Rare Jewel = Magic Damage Reduced By 3",
+        "Description": "ENCHANT ITEM - Boots & Infusion Orb & Sapphire & Mal-Rune & Rare Jewel = Magic Damage Reduced By 3",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Orb of Infusion + Sapphire + Mal Rune + Rare Jewel ",
         "CubeRecipeDescription": "Boots + Orb Of Infusion + Sapphire + Mal Rune + Rare Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Infusion Orb & Topaz & Ist-Rune & Rare Jewel = +20% Magic Find  & +30% Gold Find",
+        "Description": "ENCHANT ITEM - Boots & Infusion Orb & Topaz & Ist-Rune & Rare Jewel = +20% Magic Find  & +30% Gold Find",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Orb of Infusion + Topaz + Ist Rune + Rare Jewel ",
         "CubeRecipeDescription": "Boots + Orb Of Infusion + Topaz + Ist Rune + Rare Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Infusion Orb & Sapphire & Sur-Rune & Rare Jewel = +6% Max Mana",
+        "Description": "ENCHANT ITEM - Boots & Infusion Orb & Sapphire & Sur-Rune & Rare Jewel = +6% Max Mana",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Orb of Infusion + Sapphire + Sur Rune + Rare Jewel ",
         "CubeRecipeDescription": "Boots + Orb Of Infusion + Sapphire + Sur Rune + Rare Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Infusion Orb & Ruby & Ber-Rune & Rare Jewel = +4% Experience Gained",
+        "Description": "ENCHANT ITEM - Boots & Infusion Orb & Ruby & Ber-Rune & Rare Jewel = +4% Experience Gained",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Orb of Infusion + Ruby + Ber Rune + Rare Jewel ",
         "CubeRecipeDescription": "Boots + Orb Of Infusion + Ruby + Ber Rune + Rare Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Infusion Orb & Ruby & Jah-Rune & Rare Jewel = +6% Max HP",
+        "Description": "ENCHANT ITEM - Boots & Infusion Orb & Ruby & Jah-Rune & Rare Jewel = +6% Max HP",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Orb of Infusion + Ruby + Jah Rune + Rare Jewel ",
         "CubeRecipeDescription": "Boots + Orb Of Infusion + Ruby + Jah Rune + Rare Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Infusion Orb & Topaz & Cham-Rune & Unique Jewel = +15% Faster Run/Walk & +12% Magic Find & +30% Gold Find",
+        "Description": "ENCHANT ITEM - Boots & Infusion Orb & Topaz & Cham-Rune & Unique Jewel = +15% Faster Run/Walk & +12% Magic Find & +30% Gold Find",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Orb of Infusion + Topaz + Cham Rune + Unique Jewel ",
         "CubeRecipeDescription": "Boots + Orb Of Infusion + Topaz + Cham Rune + Unique Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Infusion Orb & Diamond & Cham-Rune & Unique Jewel = +100% Enhanced Defense & +100 Thorns",
+        "Description": "ENCHANT ITEM - Boots & Infusion Orb & Diamond & Cham-Rune & Unique Jewel = +100% Enhanced Defense & +100 Thorns",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Orb of Infusion + Diamond + Cham Rune + Unique Jewel ",
         "CubeRecipeDescription": "Boots + Orb Of Infusion + Diamond + Cham Rune + Unique Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Boots & Infusion Orb & Amethyst & Zod-Rune & Unique Jewel = +8% Max Mana & +8% Max HP",
+        "Description": "ENCHANT ITEM - Boots & Infusion Orb & Amethyst & Zod-Rune & Unique Jewel = +8% Max Mana & +8% Max HP",
         "Item": null,
         "Output": "Boots",
         "Input": "Boots + Orb of Infusion + Amethyst + Zod Rune + Unique Jewel ",
         "CubeRecipeDescription": "Boots + Orb Of Infusion + Amethyst + Zod Rune + Unique Jewel = Boots"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Topaz & Magic Jewel = +7% Magic Find  & +10% Gold Find",
+        "Description": "ENCHANT ITEM - Gloves & Topaz & Magic Jewel = +7% Magic Find  & +10% Gold Find",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Topaz + Magic Jewel ",
         "CubeRecipeDescription": "Gloves + Topaz + Magic Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Ruby & Magic Jewel = +15 HP & +2 Life / Kill",
+        "Description": "ENCHANT ITEM - Gloves & Ruby & Magic Jewel = +15 HP & +2 Life / Kill",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Ruby + Magic Jewel ",
         "CubeRecipeDescription": "Gloves + Ruby + Magic Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Sapphire & Magic Jewel = +15 Mana & +2 Mana / Kill",
+        "Description": "ENCHANT ITEM - Gloves & Sapphire & Magic Jewel = +15 Mana & +2 Mana / Kill",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Sapphire + Magic Jewel ",
         "CubeRecipeDescription": "Gloves + Sapphire + Magic Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Emerald & Magic Jewel = +5 Dexterity & +5 Vitality",
+        "Description": "ENCHANT ITEM - Gloves & Emerald & Magic Jewel = +5 Dexterity & +5 Vitality",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Emerald + Magic Jewel ",
         "CubeRecipeDescription": "Gloves + Emerald + Magic Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Amethyst & Magic Jewel = +5 Strength & +5 Vitality",
+        "Description": "ENCHANT ITEM - Gloves & Amethyst & Magic Jewel = +5 Strength & +5 Vitality",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Amethyst + Magic Jewel ",
         "CubeRecipeDescription": "Gloves + Amethyst + Magic Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Skull & Magic Jewel = +5 Energy & +5 Vitality",
+        "Description": "ENCHANT ITEM - Gloves & Skull & Magic Jewel = +5 Energy & +5 Vitality",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Skull + Magic Jewel ",
         "CubeRecipeDescription": "Gloves + Skull + Magic Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Diamond & Magic Jewel = +2 All Resistances",
+        "Description": "ENCHANT ITEM - Gloves & Diamond & Magic Jewel = +2 All Resistances",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Diamond + Magic Jewel ",
         "CubeRecipeDescription": "Gloves + Diamond + Magic Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Eth-Rune & Magic Jewel = +4% Mana Regen",
+        "Description": "ENCHANT ITEM - Gloves & Eth-Rune & Magic Jewel = +4% Mana Regen",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Eth Rune + Magic Jewel ",
         "CubeRecipeDescription": "Gloves + Eth Rune + Magic Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Ith-Rune & Magic Jewel = +6% Damage Goes To Mana",
+        "Description": "ENCHANT ITEM - Gloves & Ith-Rune & Magic Jewel = +6% Damage Goes To Mana",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Ith Rune + Magic Jewel ",
         "CubeRecipeDescription": "Gloves + Ith Rune + Magic Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Sol-Rune & Magic Jewel = Physical Damage Reduced By 3",
+        "Description": "ENCHANT ITEM - Gloves & Sol-Rune & Magic Jewel = Physical Damage Reduced By 3",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Sol Rune + Magic Jewel ",
         "CubeRecipeDescription": "Gloves + Sol Rune + Magic Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Infusion Orb & Sapphire & Ith-Rune & Magic Jewel = +50 Mana & +4 Mana / Kill",
+        "Description": "ENCHANT ITEM - Gloves & Infusion Orb & Sapphire & Ith-Rune & Magic Jewel = +30 Mana & +3 Mana / Kill",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Orb of Infusion + Sapphire + Ith Rune + Magic Jewel ",
         "CubeRecipeDescription": "Gloves + Orb Of Infusion + Sapphire + Ith Rune + Magic Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Infusion Orb & Skull & Amn-Rune & Magic Jewel = +75 Thorns",
+        "Description": "ENCHANT ITEM - Gloves & Infusion Orb & Skull & Amn-Rune & Magic Jewel = +75 Thorns",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Orb of Infusion + Skull + Amn Rune + Magic Jewel ",
         "CubeRecipeDescription": "Gloves + Orb Of Infusion + Skull + Amn Rune + Magic Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Infusion Orb & Amethyst & Sol-Rune & Magic Jewel = +7% Faster Attack Speed",
+        "Description": "ENCHANT ITEM - Gloves & Infusion Orb & Amethyst & Sol-Rune & Magic Jewel = +7% Faster Attack Speed",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Orb of Infusion + Amethyst + Sol Rune + Magic Jewel ",
         "CubeRecipeDescription": "Gloves + Orb Of Infusion + Amethyst + Sol Rune + Magic Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Infusion Orb & Sapphire & Shael-Rune & Magic Jewel = +7% Faster Cast Rate",
+        "Description": "ENCHANT ITEM - Gloves & Infusion Orb & Sapphire & Shael-Rune & Magic Jewel = +7% Faster Cast Rate",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Orb of Infusion + Sapphire + Shael Rune + Magic Jewel ",
         "CubeRecipeDescription": "Gloves + Orb Of Infusion + Sapphire + Shael Rune + Magic Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Infusion Orb & Ruby & Dol-Rune & Magic Jewel = +50 HP & +8 Life / Kill",
+        "Description": "ENCHANT ITEM - Gloves & Infusion Orb & Ruby & Dol-Rune & Magic Jewel = +30 HP & +3 Life / Kill",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Orb of Infusion + Ruby + Dol Rune + Magic Jewel ",
         "CubeRecipeDescription": "Gloves + Orb Of Infusion + Ruby + Dol Rune + Magic Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Infusion Orb & Skull & Lum-Rune & Magic Jewel = +8% Mana Regen",
+        "Description": "ENCHANT ITEM - Gloves & Infusion Orb & Skull & Lum-Rune & Magic Jewel = +8% Mana Regen",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Orb of Infusion + Skull + Lum Rune + Magic Jewel ",
         "CubeRecipeDescription": "Gloves + Orb Of Infusion + Skull + Lum Rune + Magic Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Infusion Orb & Emerald & Fal-Rune & Magic Jewel = +10 Dexterity & +10 Vitality",
+        "Description": "ENCHANT ITEM - Gloves & Infusion Orb & Emerald & Fal-Rune & Magic Jewel = +10 Dexterity & +10 Vitality",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Orb of Infusion + Emerald + Fal Rune + Magic Jewel ",
         "CubeRecipeDescription": "Gloves + Orb Of Infusion + Emerald + Fal Rune + Magic Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Infusion Orb & Amethyst & Fal-Rune & Magic Jewel = +10 Strength & +10 Vitality",
+        "Description": "ENCHANT ITEM - Gloves & Infusion Orb & Amethyst & Fal-Rune & Magic Jewel = +10 Strength & +10 Vitality",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Orb of Infusion + Amethyst + Fal Rune + Magic Jewel ",
         "CubeRecipeDescription": "Gloves + Orb Of Infusion + Amethyst + Fal Rune + Magic Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Infusion Orb & Sapphire & Fal-Rune & Magic Jewel = +10 Energy & +10 Vitality",
+        "Description": "ENCHANT ITEM - Gloves & Infusion Orb & Sapphire & Fal-Rune & Magic Jewel = +10 Energy & +10 Vitality",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Orb of Infusion + Sapphire + Fal Rune + Magic Jewel ",
         "CubeRecipeDescription": "Gloves + Orb Of Infusion + Sapphire + Fal Rune + Magic Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Infusion Orb & Topaz & Pul-Rune & Rare Jewel =+4 All Attributes",
+        "Description": "ENCHANT ITEM - Gloves & Infusion Orb & Topaz & Pul-Rune & Rare Jewel =+4 All Attributes",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Orb of Infusion + Topaz + Pul Rune + Rare Jewel ",
         "CubeRecipeDescription": "Gloves + Orb Of Infusion + Topaz + Pul Rune + Rare Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Infusion Orb & Diamond & Um-Rune & Rare Jewel = +4 All Resistances",
+        "Description": "ENCHANT ITEM - Gloves & Infusion Orb & Diamond & Um-Rune & Rare Jewel = +4 All Resistances",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Orb of Infusion + Diamond + Um Rune + Rare Jewel ",
         "CubeRecipeDescription": "Gloves + Orb Of Infusion + Diamond + Um Rune + Rare Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Infusion Orb & Skull & Mal-Rune & Rare Jewel = Magic Damage Reduced By 3",
+        "Description": "ENCHANT ITEM - Gloves & Infusion Orb & Skull & Mal-Rune & Rare Jewel = Magic Damage Reduced By 3",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Orb of Infusion + Skull + Mal Rune + Rare Jewel ",
         "CubeRecipeDescription": "Gloves + Orb Of Infusion + Skull + Mal Rune + Rare Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Infusion Orb & Topaz & Ist-Rune & Rare Jewel = +20% Magic Find  & +30% Gold Find",
+        "Description": "ENCHANT ITEM - Gloves & Infusion Orb & Topaz & Ist-Rune & Rare Jewel = +20% Magic Find  & +30% Gold Find",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Orb of Infusion + Topaz + Ist Rune + Rare Jewel ",
         "CubeRecipeDescription": "Gloves + Orb Of Infusion + Topaz + Ist Rune + Rare Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Infusion Orb & Sapphire & Sur-Rune & Rare Jewel = +6% Max Mana",
+        "Description": "ENCHANT ITEM - Gloves & Infusion Orb & Sapphire & Sur-Rune & Rare Jewel = +6% Max Mana",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Orb of Infusion + Sapphire + Sur Rune + Rare Jewel ",
         "CubeRecipeDescription": "Gloves + Orb Of Infusion + Sapphire + Sur Rune + Rare Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Infusion Orb & Ruby & Jah-Rune & Rare Jewel = +6% Max HP",
+        "Description": "ENCHANT ITEM - Gloves & Infusion Orb & Ruby & Jah-Rune & Rare Jewel = +6% Max HP",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Orb of Infusion + Ruby + Jah Rune + Rare Jewel ",
         "CubeRecipeDescription": "Gloves + Orb Of Infusion + Ruby + Jah Rune + Rare Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Infusion Orb & Ruby & Cham-Rune & Unique Jewel = +6% Crushing Blow",
+        "Description": "ENCHANT ITEM - Gloves & Infusion Orb & Ruby & Cham-Rune & Unique Jewel = +3% Crushing Blow",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Orb of Infusion + Ruby + Cham Rune + Unique Jewel ",
         "CubeRecipeDescription": "Gloves + Orb Of Infusion + Ruby + Cham Rune + Unique Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Infusion Orb & Sapphire & Cham-Rune & Unique Jewel = +6% Deadly Strike",
+        "Description": "ENCHANT ITEM - Gloves & Infusion Orb & Sapphire & Cham-Rune & Unique Jewel = +3% Deadly Strike",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Orb of Infusion + Sapphire + Cham Rune + Unique Jewel ",
         "CubeRecipeDescription": "Gloves + Orb Of Infusion + Sapphire + Cham Rune + Unique Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Infusion Orb & Emerald & Cham-Rune & Unique Jewel = +6% Open Wounds",
+        "Description": "ENCHANT ITEM - Gloves & Infusion Orb & Emerald & Cham-Rune & Unique Jewel = +3% Open Wounds",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Orb of Infusion + Emerald + Cham Rune + Unique Jewel ",
         "CubeRecipeDescription": "Gloves + Orb Of Infusion + Emerald + Cham Rune + Unique Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Infusion Orb & Diamond & Cham-Rune & Unique Jewel = +6% Pierce",
+        "Description": "ENCHANT ITEM - Gloves & Infusion Orb & Diamond & Cham-Rune & Unique Jewel = +6% Pierce",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Orb of Infusion + Diamond + Cham Rune + Unique Jewel ",
         "CubeRecipeDescription": "Gloves + Orb Of Infusion + Diamond + Cham Rune + Unique Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Infusion Orb & Topaz & Cham-Rune & Unique Jewel = +10% Slows Target",
+        "Description": "ENCHANT ITEM - Gloves & Infusion Orb & Topaz & Cham-Rune & Unique Jewel = +10% Slows Target",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Orb of Infusion + Topaz + Cham Rune + Unique Jewel ",
         "CubeRecipeDescription": "Gloves + Orb Of Infusion + Topaz + Cham Rune + Unique Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Gloves & Infusion Orb & Skull & Cham-Rune & Unique Jewel = +10% Hit Blinds Target",
+        "Description": "ENCHANT ITEM - Gloves & Infusion Orb & Skull & Cham-Rune & Unique Jewel = +10% Hit Blinds Target",
         "Item": null,
         "Output": "Gloves",
         "Input": "Gloves + Orb of Infusion + Skull + Cham Rune + Unique Jewel ",
         "CubeRecipeDescription": "Gloves + Orb Of Infusion + Skull + Cham Rune + Unique Jewel = Gloves"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Topaz & Magic Jewel = +7% Magic Find  & +10% Gold Find",
+        "Description": "ENCHANT ITEM - Helm & Topaz & Magic Jewel = +7% Magic Find  & +10% Gold Find",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Topaz + Magic Jewel ",
         "CubeRecipeDescription": "Helm + Topaz + Magic Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Ruby & Magic Jewel = +15 HP & +2 Life / Kill",
+        "Description": "ENCHANT ITEM - Helm & Ruby & Magic Jewel = +15 HP & +2 Life / Kill",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Ruby + Magic Jewel ",
         "CubeRecipeDescription": "Helm + Ruby + Magic Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Sapphire & Magic Jewel = +15 Mana & +2 Mana / Kill",
+        "Description": "ENCHANT ITEM - Helm & Sapphire & Magic Jewel = +15 Mana & +2 Mana / Kill",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Sapphire + Magic Jewel ",
         "CubeRecipeDescription": "Helm + Sapphire + Magic Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Emerald & Magic Jewel = +5 Dexterity & +5 Vitality",
+        "Description": "ENCHANT ITEM - Helm & Emerald & Magic Jewel = +5 Dexterity & +5 Vitality",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Emerald + Magic Jewel ",
         "CubeRecipeDescription": "Helm + Emerald + Magic Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Amethyst & Magic Jewel = +5 Strength & +5 Vitality",
+        "Description": "ENCHANT ITEM - Helm & Amethyst & Magic Jewel = +5 Strength & +5 Vitality",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Amethyst + Magic Jewel ",
         "CubeRecipeDescription": "Helm + Amethyst + Magic Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Skull & Magic Jewel = +5 Energy & +5 Vitality",
+        "Description": "ENCHANT ITEM - Helm & Skull & Magic Jewel = +5 Energy & +5 Vitality",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Skull + Magic Jewel ",
         "CubeRecipeDescription": "Helm + Skull + Magic Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Diamond & Magic Jewel = +2 All Resistances",
+        "Description": "ENCHANT ITEM - Helm & Diamond & Magic Jewel = +2 All Resistances",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Diamond + Magic Jewel ",
         "CubeRecipeDescription": "Helm + Diamond + Magic Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Eth-Rune & Magic Jewel = +4% Mana Regen",
+        "Description": "ENCHANT ITEM - Helm & Eth-Rune & Magic Jewel = +4% Mana Regen",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Eth Rune + Magic Jewel ",
         "CubeRecipeDescription": "Helm + Eth Rune + Magic Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Ith-Rune & Magic Jewel = +6% Damage Goes To Mana",
+        "Description": "ENCHANT ITEM - Helm & Ith-Rune & Magic Jewel = +6% Damage Goes To Mana",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Ith Rune + Magic Jewel ",
         "CubeRecipeDescription": "Helm + Ith Rune + Magic Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Sol-Rune & Magic Jewel = Physical Damage Reduced By 3",
+        "Description": "ENCHANT ITEM - Helm & Sol-Rune & Magic Jewel = Physical Damage Reduced By 3",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Sol Rune + Magic Jewel ",
         "CubeRecipeDescription": "Helm + Sol Rune + Magic Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Infusion Orb & Sapphire & Ith-Rune & Magic Jewel = +50 Mana & +4 Mana / Kill",
+        "Description": "ENCHANT ITEM - Helm & Infusion Orb & Sapphire & Ith-Rune & Magic Jewel = +30 Mana & +3 Mana / Kill",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Orb of Infusion + Sapphire + Ith Rune + Magic Jewel ",
         "CubeRecipeDescription": "Helm + Orb Of Infusion + Sapphire + Ith Rune + Magic Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Infusion Orb & Emerald & Thul-Rune & Magic Jewel = Ignore Target's Defense",
+        "Description": "ENCHANT ITEM - Helm & Infusion Orb & Emerald & Thul-Rune & Magic Jewel = Ignore Target's Defense",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Orb of Infusion + Emerald + Thul Rune + Magic Jewel ",
         "CubeRecipeDescription": "Helm + Orb Of Infusion + Emerald + Thul Rune + Magic Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Infusion Orb & Skull & Amn-Rune & Magic Jewel = +75 Thorns",
+        "Description": "ENCHANT ITEM - Helm & Infusion Orb & Skull & Amn-Rune & Magic Jewel = +75 Thorns",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Orb of Infusion + Skull + Amn Rune + Magic Jewel ",
         "CubeRecipeDescription": "Helm + Orb Of Infusion + Skull + Amn Rune + Magic Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Infusion Orb & Ruby & Dol-Rune & Magic Jewel = +50 HP & +8 Life / Kill",
+        "Description": "ENCHANT ITEM - Helm & Infusion Orb & Ruby & Dol-Rune & Magic Jewel = +30 HP & +3 Life / Kill",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Orb of Infusion + Ruby + Dol Rune + Magic Jewel ",
         "CubeRecipeDescription": "Helm + Orb Of Infusion + Ruby + Dol Rune + Magic Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Infusion Orb & Skull & Lum-Rune & Magic Jewel = +8% Mana Regen",
+        "Description": "ENCHANT ITEM - Helm & Infusion Orb & Skull & Lum-Rune & Magic Jewel = +8% Mana Regen",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Orb of Infusion + Skull + Lum Rune + Magic Jewel ",
         "CubeRecipeDescription": "Helm + Orb Of Infusion + Skull + Lum Rune + Magic Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Infusion Orb & Emerald & Fal-Rune & Magic Jewel = +10 Dexterity & +10 Vitality",
+        "Description": "ENCHANT ITEM - Helm & Infusion Orb & Emerald & Fal-Rune & Magic Jewel = +10 Dexterity & +10 Vitality",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Orb of Infusion + Emerald + Fal Rune + Magic Jewel ",
         "CubeRecipeDescription": "Helm + Orb Of Infusion + Emerald + Fal Rune + Magic Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Infusion Orb & Amethyst & Fal-Rune & Magic Jewel = +10 Strength & +10 Vitality",
+        "Description": "ENCHANT ITEM - Helm & Infusion Orb & Amethyst & Fal-Rune & Magic Jewel = +10 Strength & +10 Vitality",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Orb of Infusion + Amethyst + Fal Rune + Magic Jewel ",
         "CubeRecipeDescription": "Helm + Orb Of Infusion + Amethyst + Fal Rune + Magic Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Infusion Orb & Sapphire & Fal-Rune & Magic Jewel = +10 Energy & +10 Vitality",
+        "Description": "ENCHANT ITEM - Helm & Infusion Orb & Sapphire & Fal-Rune & Magic Jewel = +10 Energy & +10 Vitality",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Orb of Infusion + Sapphire + Fal Rune + Magic Jewel ",
         "CubeRecipeDescription": "Helm + Orb Of Infusion + Sapphire + Fal Rune + Magic Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Infusion Orb & Diamond & Pul-Rune & Rare Jewel =+4 All Attributes",
+        "Description": "ENCHANT ITEM - Helm & Infusion Orb & Diamond & Pul-Rune & Rare Jewel =+4 All Attributes",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Orb of Infusion + Diamond + Pul Rune + Rare Jewel ",
         "CubeRecipeDescription": "Helm + Orb Of Infusion + Diamond + Pul Rune + Rare Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Infusion Orb & Diamond & Um-Rune & Rare Jewel = +4 All Resistances",
+        "Description": "ENCHANT ITEM - Helm & Infusion Orb & Diamond & Um-Rune & Rare Jewel = +4 All Resistances",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Orb of Infusion + Diamond + Um Rune + Rare Jewel ",
         "CubeRecipeDescription": "Helm + Orb Of Infusion + Diamond + Um Rune + Rare Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Infusion Orb & Sapphire & Mal-Rune & Rare Jewel = Magic Damage Reduced By 3",
+        "Description": "ENCHANT ITEM - Helm & Infusion Orb & Sapphire & Mal-Rune & Rare Jewel = Magic Damage Reduced By 3",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Orb of Infusion + Sapphire + Mal Rune + Rare Jewel ",
         "CubeRecipeDescription": "Helm + Orb Of Infusion + Sapphire + Mal Rune + Rare Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Infusion Orb & Topaz & Ist-Rune & Rare Jewel = +20% Magic Find  & +30% Gold Find",
+        "Description": "ENCHANT ITEM - Helm & Infusion Orb & Topaz & Ist-Rune & Rare Jewel = +20% Magic Find  & +30% Gold Find",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Orb of Infusion + Topaz + Ist Rune + Rare Jewel ",
         "CubeRecipeDescription": "Helm + Orb Of Infusion + Topaz + Ist Rune + Rare Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Infusion Orb & Sapphire & Sur-Rune & Rare Jewel = +6% Max Mana",
+        "Description": "ENCHANT ITEM - Helm & Infusion Orb & Sapphire & Sur-Rune & Rare Jewel = +6% Max Mana",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Orb of Infusion + Sapphire + Sur Rune + Rare Jewel ",
         "CubeRecipeDescription": "Helm + Orb Of Infusion + Sapphire + Sur Rune + Rare Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Infusion Orb & Amethyst & Ber-Rune & Rare Jewel = +4% Damage Reduction",
+        "Description": "ENCHANT ITEM - Helm & Infusion Orb & Amethyst & Ber-Rune & Rare Jewel = +4% Damage Reduction",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Orb of Infusion + Amethyst + Ber Rune + Rare Jewel ",
         "CubeRecipeDescription": "Helm + Orb Of Infusion + Amethyst + Ber Rune + Rare Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Infusion Orb & Ruby & Jah-Rune & Rare Jewel = +6% Max HP",
+        "Description": "ENCHANT ITEM - Helm & Infusion Orb & Ruby & Jah-Rune & Rare Jewel = +6% Max HP",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Orb of Infusion + Ruby + Jah Rune + Rare Jewel ",
         "CubeRecipeDescription": "Helm + Orb Of Infusion + Ruby + Jah Rune + Rare Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Infusion Orb & Ruby & Cham-Rune & Unique Jewel = +2 Fire Skills",
+        "Description": "ENCHANT ITEM - Helm & Infusion Orb & Ruby & Cham-Rune & Unique Jewel = +2 Fire Skills",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Orb of Infusion + Ruby + Cham Rune + Unique Jewel ",
         "CubeRecipeDescription": "Helm + Orb Of Infusion + Ruby + Cham Rune + Unique Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Infusion Orb & Sapphire & Cham-Rune & Unique Jewel = +2 Cold Skills",
+        "Description": "ENCHANT ITEM - Helm & Infusion Orb & Sapphire & Cham-Rune & Unique Jewel = +2 Cold Skills",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Orb of Infusion + Sapphire + Cham Rune + Unique Jewel ",
         "CubeRecipeDescription": "Helm + Orb Of Infusion + Sapphire + Cham Rune + Unique Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Infusion Orb & Topaz & Cham-Rune & Unique Jewel = +2 Lightning Skills",
+        "Description": "ENCHANT ITEM - Helm & Infusion Orb & Topaz & Cham-Rune & Unique Jewel = +2 Lightning Skills",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Orb of Infusion + Topaz + Cham Rune + Unique Jewel ",
         "CubeRecipeDescription": "Helm + Orb Of Infusion + Topaz + Cham Rune + Unique Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Infusion Orb & Emerald & Cham-Rune & Unique Jewel = +2 Poison Skills",
+        "Description": "ENCHANT ITEM - Helm & Infusion Orb & Emerald & Cham-Rune & Unique Jewel = +2 Poison Skills",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Orb of Infusion + Emerald + Cham Rune + Unique Jewel ",
         "CubeRecipeDescription": "Helm + Orb Of Infusion + Emerald + Cham Rune + Unique Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Infusion Orb & Diamond & Cham-Rune & Unique Jewel = +2 Magic Skills",
+        "Description": "ENCHANT ITEM - Helm & Infusion Orb & Diamond & Cham-Rune & Unique Jewel = +2 Magic Skills",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Orb of Infusion + Diamond + Cham Rune + Unique Jewel ",
         "CubeRecipeDescription": "Helm + Orb Of Infusion + Diamond + Cham Rune + Unique Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Helm & Infusion Orb & Skull & Zod-Rune & Unique Jewel = +1 All Skills",
+        "Description": "ENCHANT ITEM - Helm & Infusion Orb & Skull & Zod-Rune & Unique Jewel = +1 All Skills",
         "Item": null,
         "Output": "Helm",
         "Input": "Helm + Orb of Infusion + Skull + Zod Rune + Unique Jewel ",
         "CubeRecipeDescription": "Helm + Orb Of Infusion + Skull + Zod Rune + Unique Jewel = Helm"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Topaz & Magic Jewel = +7% Magic Find  & +10% Gold Find",
+        "Description": "ENCHANT ITEM - Shield & Topaz & Magic Jewel = +7% Magic Find  & +10% Gold Find",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Topaz + Magic Jewel ",
         "CubeRecipeDescription": "Any Shield + Topaz + Magic Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Ruby & Magic Jewel = +15 HP & +4 Life / Kill",
+        "Description": "ENCHANT ITEM - Shield & Ruby & Magic Jewel = +15 HP & +4 Life / Kill",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Ruby + Magic Jewel ",
         "CubeRecipeDescription": "Any Shield + Ruby + Magic Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Sapphire & Magic Jewel = +15 Mana & +2 Mana / Kill",
+        "Description": "ENCHANT ITEM - Shield & Sapphire & Magic Jewel = +15 Mana & +2 Mana / Kill",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Sapphire + Magic Jewel ",
         "CubeRecipeDescription": "Any Shield + Sapphire + Magic Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Emerald & Magic Jewel = +7 Dexterity & +7 Vitality",
+        "Description": "ENCHANT ITEM - Shield & Emerald & Magic Jewel = +7 Dexterity & +7 Vitality",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Emerald + Magic Jewel ",
         "CubeRecipeDescription": "Any Shield + Emerald + Magic Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Amethyst & Magic Jewel = +7 Strength & +7 Vitality",
+        "Description": "ENCHANT ITEM - Shield & Amethyst & Magic Jewel = +7 Strength & +7 Vitality",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Amethyst + Magic Jewel ",
         "CubeRecipeDescription": "Any Shield + Amethyst + Magic Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Skull & Magic Jewel = +7 Energy & +7 Vitality",
+        "Description": "ENCHANT ITEM - Shield & Skull & Magic Jewel = +7 Energy & +7 Vitality",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Skull + Magic Jewel ",
         "CubeRecipeDescription": "Any Shield + Skull + Magic Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Diamond & Magic Jewel = +2 All Resistances",
+        "Description": "ENCHANT ITEM - Shield & Diamond & Magic Jewel = +2 All Resistances",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Diamond + Magic Jewel ",
         "CubeRecipeDescription": "Any Shield + Diamond + Magic Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Eth-Rune & Magic Jewel = +4% Mana Regen",
+        "Description": "ENCHANT ITEM - Shield & Eth-Rune & Magic Jewel = +4% Mana Regen",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Eth Rune + Magic Jewel ",
         "CubeRecipeDescription": "Any Shield + Eth Rune + Magic Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Ith-Rune & Magic Jewel = +6% Damage Goes To Mana",
+        "Description": "ENCHANT ITEM - Shield & Ith-Rune & Magic Jewel = +6% Damage Goes To Mana",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Ith Rune + Magic Jewel ",
         "CubeRecipeDescription": "Any Shield + Ith Rune + Magic Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Sol-Rune & Magic Jewel = Physical Damage Reduced By 3",
+        "Description": "ENCHANT ITEM - Shield & Sol-Rune & Magic Jewel = Physical Damage Reduced By 3",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Sol Rune + Magic Jewel ",
         "CubeRecipeDescription": "Any Shield + Sol Rune + Magic Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Infusion Orb & Sapphire & Ith-Rune & Magic Jewel = +50 Mana & +4 Mana / Kill",
+        "Description": "ENCHANT ITEM - Shield & Infusion Orb & Sapphire & Ith-Rune & Magic Jewel = +30 Mana & +3 Mana / Kill",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Orb of Infusion + Sapphire + Ith Rune + Magic Jewel ",
         "CubeRecipeDescription": "Any Shield + Orb Of Infusion + Sapphire + Ith Rune + Magic Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Infusion Orb & Skull & Amn-Rune & Magic Jewel = +100 Thorns",
+        "Description": "ENCHANT ITEM - Shield & Infusion Orb & Skull & Amn-Rune & Magic Jewel = +100 Thorns",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Orb of Infusion + Skull + Amn Rune + Magic Jewel ",
         "CubeRecipeDescription": "Any Shield + Orb Of Infusion + Skull + Amn Rune + Magic Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Infusion Orb & Diamond & Sol-Rune & Magic Jewel = +50% Enhanced Defense",
+        "Description": "ENCHANT ITEM - Shield & Infusion Orb & Diamond & Sol-Rune & Magic Jewel = +50% Enhanced Defense",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Orb of Infusion + Diamond + Sol Rune + Magic Jewel ",
         "CubeRecipeDescription": "Any Shield + Orb Of Infusion + Diamond + Sol Rune + Magic Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Infusion Orb & Ruby & Shael-Rune & Magic Jewel = +5% Faster Block Rate",
+        "Description": "ENCHANT ITEM - Shield & Infusion Orb & Ruby & Shael-Rune & Magic Jewel = +5% Faster Block Rate",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Orb of Infusion + Ruby + Shael Rune + Magic Jewel ",
         "CubeRecipeDescription": "Any Shield + Orb Of Infusion + Ruby + Shael Rune + Magic Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Infusion Orb & Sapphire & Shael-Rune & Magic Jewel = +5% Increased Block Chance",
+        "Description": "ENCHANT ITEM - Shield & Infusion Orb & Sapphire & Shael-Rune & Magic Jewel = +5% Increased Block Chance",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Orb of Infusion + Sapphire + Shael Rune + Magic Jewel ",
         "CubeRecipeDescription": "Any Shield + Orb Of Infusion + Sapphire + Shael Rune + Magic Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Infusion Orb & Emerald & Shael-Rune & Magic Jewel = +7% Faster Hit Recovery",
+        "Description": "ENCHANT ITEM - Shield & Infusion Orb & Emerald & Shael-Rune & Magic Jewel = +7% Faster Hit Recovery",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Orb of Infusion + Emerald + Shael Rune + Magic Jewel ",
         "CubeRecipeDescription": "Any Shield + Orb Of Infusion + Emerald + Shael Rune + Magic Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Infusion Orb & Ruby & Dol-Rune & Magic Jewel = +75 HP & +8 Life / Kill",
+        "Description": "ENCHANT ITEM - Shield & Infusion Orb & Ruby & Dol-Rune & Magic Jewel = +30 HP & +3 Life / Kill",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Orb of Infusion + Ruby + Dol Rune + Magic Jewel ",
         "CubeRecipeDescription": "Any Shield + Orb Of Infusion + Ruby + Dol Rune + Magic Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Infusion Orb & Skull & Lum-Rune & Magic Jewel = +10% Mana Regen",
+        "Description": "ENCHANT ITEM - Shield & Infusion Orb & Skull & Lum-Rune & Magic Jewel = +10% Mana Regen",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Orb of Infusion + Skull + Lum Rune + Magic Jewel ",
         "CubeRecipeDescription": "Any Shield + Orb Of Infusion + Skull + Lum Rune + Magic Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Infusion Orb & Emerald & Fal-Rune & Magic Jewel = +12 Dexterity & +10 Vitality",
+        "Description": "ENCHANT ITEM - Shield & Infusion Orb & Emerald & Fal-Rune & Magic Jewel = +12 Dexterity & +10 Vitality",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Orb of Infusion + Emerald + Fal Rune + Magic Jewel ",
         "CubeRecipeDescription": "Any Shield + Orb Of Infusion + Emerald + Fal Rune + Magic Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Infusion Orb & Amethyst & Fal-Rune & Magic Jewel = +12 Strength +10 Vitality",
+        "Description": "ENCHANT ITEM - Shield & Infusion Orb & Amethyst & Fal-Rune & Magic Jewel = +12 Strength +10 Vitality",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Orb of Infusion + Amethyst + Fal Rune + Magic Jewel ",
         "CubeRecipeDescription": "Any Shield + Orb Of Infusion + Amethyst + Fal Rune + Magic Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Infusion Orb & Sapphire & Fal-Rune & Magic Jewel = +12 Energy +10 Vitality",
+        "Description": "ENCHANT ITEM - Shield & Infusion Orb & Sapphire & Fal-Rune & Magic Jewel = +12 Energy +10 Vitality",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Orb of Infusion + Sapphire + Fal Rune + Magic Jewel ",
         "CubeRecipeDescription": "Any Shield + Orb Of Infusion + Sapphire + Fal Rune + Magic Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Infusion Orb & Diamond & Pul-Rune & Rare Jewel =+6 All Attributes",
+        "Description": "ENCHANT ITEM - Shield & Infusion Orb & Diamond & Pul-Rune & Rare Jewel =+6 All Attributes",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Orb of Infusion + Diamond + Pul Rune + Rare Jewel ",
         "CubeRecipeDescription": "Any Shield + Orb Of Infusion + Diamond + Pul Rune + Rare Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Infusion Orb & Diamond & Um-Rune & Rare Jewel = +6 All Resistances",
+        "Description": "ENCHANT ITEM - Shield & Infusion Orb & Diamond & Um-Rune & Rare Jewel = +6 All Resistances",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Orb of Infusion + Diamond + Um Rune + Rare Jewel ",
         "CubeRecipeDescription": "Any Shield + Orb Of Infusion + Diamond + Um Rune + Rare Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Infusion Orb & Sapphire & Mal-Rune & Rare Jewel = Magic Damage Reduced By 4",
+        "Description": "ENCHANT ITEM - Shield & Infusion Orb & Sapphire & Mal-Rune & Rare Jewel = Magic Damage Reduced By 4",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Orb of Infusion + Sapphire + Mal Rune + Rare Jewel ",
         "CubeRecipeDescription": "Any Shield + Orb Of Infusion + Sapphire + Mal Rune + Rare Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Infusion Orb & Topaz & Ist-Rune & Rare Jewel = +30% Magic Find  & +50% Gold Find",
+        "Description": "ENCHANT ITEM - Shield & Infusion Orb & Topaz & Ist-Rune & Rare Jewel = +30% Magic Find  & +50% Gold Find",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Orb of Infusion + Topaz + Ist Rune + Rare Jewel ",
         "CubeRecipeDescription": "Any Shield + Orb Of Infusion + Topaz + Ist Rune + Rare Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Infusion Orb & Sapphire & Sur-Rune & Rare Jewel = +6% Max Mana",
+        "Description": "ENCHANT ITEM - Shield & Infusion Orb & Sapphire & Sur-Rune & Rare Jewel = +6% Max Mana",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Orb of Infusion + Sapphire + Sur Rune + Rare Jewel ",
         "CubeRecipeDescription": "Any Shield + Orb Of Infusion + Sapphire + Sur Rune + Rare Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Infusion Orb & Ruby & Ber-Rune & Rare Jewel = +6% Damage Reduction",
+        "Description": "ENCHANT ITEM - Shield & Infusion Orb & Ruby & Ber-Rune & Rare Jewel = +6% Damage Reduction",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Orb of Infusion + Ruby + Ber Rune + Rare Jewel ",
         "CubeRecipeDescription": "Any Shield + Orb Of Infusion + Ruby + Ber Rune + Rare Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Infusion Orb & Ruby & Jah-Rune & Rare Jewel = +6% Max HP",
+        "Description": "ENCHANT ITEM - Shield & Infusion Orb & Ruby & Jah-Rune & Rare Jewel = +6% Max HP",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Orb of Infusion + Ruby + Jah Rune + Rare Jewel ",
         "CubeRecipeDescription": "Any Shield + Orb Of Infusion + Ruby + Jah Rune + Rare Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Shield & Infusion Orb & Diamond & Zod-Rune & Unique Jewel = +2 Max All Resistances & +3 All Resistances",
+        "Description": "ENCHANT ITEM - Shield & Infusion Orb & Diamond & Zod-Rune & Unique Jewel = +1 Max All Resistances & +3 All Resistances",
         "Item": null,
         "Output": "Any Shield",
         "Input": "Any Shield + Orb of Infusion + Diamond + Zod Rune + Unique Jewel ",
         "CubeRecipeDescription": "Any Shield + Orb Of Infusion + Diamond + Zod Rune + Unique Jewel = Any Shield"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Topaz & Magic Jewel = +15% Magic Find  & +30% Gold Find",
+        "Description": "ENCHANT ITEM - Chest & Topaz & Magic Jewel = +15% Magic Find  & +30% Gold Find",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Topaz + Magic Jewel ",
         "CubeRecipeDescription": "Body Armor + Topaz + Magic Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Ruby & Magic Jewel = +15 HP & +4 Life / Kill",
+        "Description": "ENCHANT ITEM - Chest & Ruby & Magic Jewel = +15 HP & +4 Life / Kill",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Ruby + Magic Jewel ",
         "CubeRecipeDescription": "Body Armor + Ruby + Magic Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Sapphire & Magic Jewel = +15 Mana & +2 Mana / Kill",
+        "Description": "ENCHANT ITEM - Chest & Sapphire & Magic Jewel = +15 Mana & +2 Mana / Kill",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Sapphire + Magic Jewel ",
         "CubeRecipeDescription": "Body Armor + Sapphire + Magic Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Emerald & Magic Jewel = +7 Dexterity & +7 Vitality",
+        "Description": "ENCHANT ITEM - Chest & Emerald & Magic Jewel = +7 Dexterity & +7 Vitality",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Emerald + Magic Jewel ",
         "CubeRecipeDescription": "Body Armor + Emerald + Magic Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Amethyst & Magic Jewel = +7 Strength & +7 Vitality",
+        "Description": "ENCHANT ITEM - Chest & Amethyst & Magic Jewel = +7 Strength & +7 Vitality",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Amethyst + Magic Jewel ",
         "CubeRecipeDescription": "Body Armor + Amethyst + Magic Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Skull & Magic Jewel = +7 Energy & +7 Vitality",
+        "Description": "ENCHANT ITEM - Chest & Skull & Magic Jewel = +7 Energy & +7 Vitality",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Skull + Magic Jewel ",
         "CubeRecipeDescription": "Body Armor + Skull + Magic Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Diamond & Magic Jewel = +3 All Resistances",
+        "Description": "ENCHANT ITEM - Chest & Diamond & Magic Jewel = +3 All Resistances",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Diamond + Magic Jewel ",
         "CubeRecipeDescription": "Body Armor + Diamond + Magic Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Eth-Rune & Magic Jewel = +5% Mana Regen",
+        "Description": "ENCHANT ITEM - Chest & Eth-Rune & Magic Jewel = +5% Mana Regen",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Eth Rune + Magic Jewel ",
         "CubeRecipeDescription": "Body Armor + Eth Rune + Magic Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Ith-Rune & Magic Jewel = +10% Damage Goes To Mana",
+        "Description": "ENCHANT ITEM - Chest & Ith-Rune & Magic Jewel = +10% Damage Goes To Mana",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Ith Rune + Magic Jewel ",
         "CubeRecipeDescription": "Body Armor + Ith Rune + Magic Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Sol-Rune & Magic Jewel = Physical Damage Reduced By 5",
+        "Description": "ENCHANT ITEM - Chest & Sol-Rune & Magic Jewel = Physical Damage Reduced By 5",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Sol Rune + Magic Jewel ",
         "CubeRecipeDescription": "Body Armor + Sol Rune + Magic Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Infusion Orb & Sapphire & Ith-Rune & Magic Jewel = +50 Mana & +4 Mana / Kill",
+        "Description": "ENCHANT ITEM - Chest & Infusion Orb & Sapphire & Ith-Rune & Magic Jewel = +30 Mana & +3 Mana / Kill",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Orb of Infusion + Sapphire + Ith Rune + Magic Jewel ",
         "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Sapphire + Ith Rune + Magic Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Infusion Orb & Skull & Amn-Rune & Magic Jewel = +150 Thorns",
+        "Description": "ENCHANT ITEM - Chest & Infusion Orb & Skull & Amn-Rune & Magic Jewel = +150 Thorns",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Orb of Infusion + Skull + Amn Rune + Magic Jewel ",
         "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Skull + Amn Rune + Magic Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Infusion Orb & Emerald & Shael-Rune & Magic Jewel = +10% Faster Run/Walk",
+        "Description": "ENCHANT ITEM - Chest & Infusion Orb & Emerald & Shael-Rune & Magic Jewel = +10% Faster Run/Walk",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Orb of Infusion + Emerald + Shael Rune + Magic Jewel ",
         "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Emerald + Shael Rune + Magic Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Infusion Orb & Ruby & Dol-Rune & Magic Jewel = +75 HP & +6 Life / Kill",
+        "Description": "ENCHANT ITEM - Chest & Infusion Orb & Ruby & Dol-Rune & Magic Jewel = +30 HP & +3 Life / Kill",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Orb of Infusion + Ruby + Dol Rune + Magic Jewel ",
         "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Ruby + Dol Rune + Magic Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Infusion Orb & Skull & Lum-Rune & Magic Jewel = +10% Mana Regen",
+        "Description": "ENCHANT ITEM - Chest & Infusion Orb & Skull & Lum-Rune & Magic Jewel = +10% Mana Regen",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Orb of Infusion + Skull + Lum Rune + Magic Jewel ",
         "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Skull + Lum Rune + Magic Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Infusion Orb & Emerald & Fal-Rune & Magic Jewel = +15 Dexterity & +10 Vitality",
+        "Description": "ENCHANT ITEM - Chest & Infusion Orb & Emerald & Fal-Rune & Magic Jewel = +15 Dexterity & +10 Vitality",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Orb of Infusion + Emerald + Fal Rune + Magic Jewel ",
         "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Emerald + Fal Rune + Magic Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Infusion Orb & Amethyst & Fal-Rune & Magic Jewel = +15 Strength & +10 Vitality",
+        "Description": "ENCHANT ITEM - Chest & Infusion Orb & Amethyst & Fal-Rune & Magic Jewel = +15 Strength & +10 Vitality",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Orb of Infusion + Amethyst + Fal Rune + Magic Jewel ",
         "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Amethyst + Fal Rune + Magic Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Infusion Orb & Sapphire & Fal-Rune & Magic Jewel = +15 Energy & +10 Vitality",
+        "Description": "ENCHANT ITEM - Chest & Infusion Orb & Sapphire & Fal-Rune & Magic Jewel = +15 Energy & +10 Vitality",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Orb of Infusion + Sapphire + Fal Rune + Magic Jewel ",
         "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Sapphire + Fal Rune + Magic Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Infusion Orb & Diamond & Pul-Rune & Rare Jewel =+6 All Attributes",
+        "Description": "ENCHANT ITEM - Chest & Infusion Orb & Diamond & Pul-Rune & Rare Jewel =+6 All Attributes",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Orb of Infusion + Diamond + Pul Rune + Rare Jewel ",
         "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Diamond + Pul Rune + Rare Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Infusion Orb & Diamond & Um-Rune & Rare Jewel = +6 All Resistances",
+        "Description": "ENCHANT ITEM - Chest & Infusion Orb & Diamond & Um-Rune & Rare Jewel = +6 All Resistances",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Orb of Infusion + Diamond + Um Rune + Rare Jewel ",
         "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Diamond + Um Rune + Rare Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Infusion Orb & Sapphire & Mal-Rune & Rare Jewel = Magic Damage Reduced By 5",
+        "Description": "ENCHANT ITEM - Chest & Infusion Orb & Sapphire & Mal-Rune & Rare Jewel = Magic Damage Reduced By 5",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Orb of Infusion + Sapphire + Mal Rune + Rare Jewel ",
         "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Sapphire + Mal Rune + Rare Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Infusion Orb & Topaz & Ist-Rune & Rare Jewel = +30% Magic Find  & +50% Gold Find",
+        "Description": "ENCHANT ITEM - Chest & Infusion Orb & Topaz & Ist-Rune & Rare Jewel = +30% Magic Find  & +50% Gold Find",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Orb of Infusion + Topaz + Ist Rune + Rare Jewel ",
         "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Topaz + Ist Rune + Rare Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Infusion Orb & Sapphire & Sur-Rune & Rare Jewel = +8% Max Mana",
+        "Description": "ENCHANT ITEM - Chest & Infusion Orb & Sapphire & Sur-Rune & Rare Jewel = +8% Max Mana",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Orb of Infusion + Sapphire + Sur Rune + Rare Jewel ",
         "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Sapphire + Sur Rune + Rare Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Infusion Orb & Diamond & Ber-Rune & Rare Jewel = +8% Damage Reduction",
+        "Description": "ENCHANT ITEM - Chest & Infusion Orb & Diamond & Ber-Rune & Rare Jewel = +8% Damage Reduction",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Orb of Infusion + Diamond + Ber Rune + Rare Jewel ",
         "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Diamond + Ber Rune + Rare Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Infusion Orb & Ruby & Jah-Rune & Rare Jewel = +8% Max HP",
+        "Description": "ENCHANT ITEM - Chest & Infusion Orb & Ruby & Jah-Rune & Rare Jewel = +8% Max HP",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Orb of Infusion + Ruby + Jah Rune + Rare Jewel ",
         "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Ruby + Jah Rune + Rare Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Infusion Orb & Amethyst & Cham-Rune & Unique Jewel = Absorb 4% Fire Damage",
+        "Description": "ENCHANT ITEM - Chest & Infusion Orb & Amethyst & Cham-Rune & Unique Jewel = Absorb 2% Fire Damage",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Orb of Infusion + Amethyst + Cham Rune + Unique Jewel ",
         "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Amethyst + Cham Rune + Unique Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Infusion Orb & Sapphire & Cham-Rune & Unique Jewel = Absorb 4% Cold Damage",
+        "Description": "ENCHANT ITEM - Chest & Infusion Orb & Sapphire & Cham-Rune & Unique Jewel = Absorb 2% Cold Damage",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Orb of Infusion + Sapphire + Cham Rune + Unique Jewel ",
         "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Sapphire + Cham Rune + Unique Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Infusion Orb & Topaz & Cham-Rune & Unique Jewel = Absorb 4% Lightning Damage",
+        "Description": "ENCHANT ITEM - Chest & Infusion Orb & Topaz & Cham-Rune & Unique Jewel = Absorb 2% Lightning Damage",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Orb of Infusion + Topaz + Cham Rune + Unique Jewel ",
         "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Topaz + Cham Rune + Unique Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Infusion Orb & Skull & Cham-Rune & Unique Jewel = Absorb 4% Magic Damage",
+        "Description": "ENCHANT ITEM - Chest & Infusion Orb & Skull & Cham-Rune & Unique Jewel = Absorb 2% Magic Damage",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Orb of Infusion + Skull + Cham Rune + Unique Jewel ",
         "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Skull + Cham Rune + Unique Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - Chest & Infusion Orb & Amethyst & Zod-Rune & Unique Jewel = +2 Max All Resistances & +5 All Resistances",
+        "Description": "ENCHANT ITEM - Chest & Infusion Orb & Amethyst & Zod-Rune & Unique Jewel = +1 Max All Resistances & +5 All Resistances",
         "Item": null,
         "Output": "Body Armor",
         "Input": "Body Armor + Orb of Infusion + Amethyst + Zod Rune + Unique Jewel ",
         "CubeRecipeDescription": "Body Armor + Orb Of Infusion + Amethyst + Zod Rune + Unique Jewel = Body Armor"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Topaz & Magic Jewel = +15% Magic Find  & +30% Gold Find",
+        "Description": "ENCHANT ITEM - 2H Weapon (Slam) & Topaz & Magic Jewel = +15% Magic Find  & +30% Gold Find",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Topaz + Magic Jewel ",
         "CubeRecipeDescription": "Slam Weapons + Topaz + Magic Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Ruby & Magic Jewel = +75 Attack Rating",
+        "Description": "ENCHANT ITEM - 2H Weapon (Slam) & Ruby & Magic Jewel = +75 Attack Rating",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Ruby + Magic Jewel ",
         "CubeRecipeDescription": "Slam Weapons + Ruby + Magic Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Sapphire & Magic Jewel = +7% Increased Cast Rate",
+        "Description": "ENCHANT ITEM - 2H Weapon (Slam) & Sapphire & Magic Jewel = +7% Increased Cast Rate",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Sapphire + Magic Jewel ",
         "CubeRecipeDescription": "Slam Weapons + Sapphire + Magic Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Emerald & Magic Jewel = +7% Increased Attack Speed",
+        "Description": "ENCHANT ITEM - 2H Weapon (Slam) & Emerald & Magic Jewel = +7% Increased Attack Speed",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Emerald + Magic Jewel ",
         "CubeRecipeDescription": "Slam Weapons + Emerald + Magic Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Skull & Magic Jewel = +2% Mana Steal & +2% Life Steal",
+        "Description": "ENCHANT ITEM - 2H Weapon (Slam) & Skull & Magic Jewel = +2% Mana Steal & +2% Life Steal",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Skull + Magic Jewel ",
         "CubeRecipeDescription": "Slam Weapons + Skull + Magic Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Amethyst & Magic Jewel = +3 Life / Kill",
+        "Description": "ENCHANT ITEM - 2H Weapon (Slam) & Amethyst & Magic Jewel = +3 Life / Kill",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Amethyst + Magic Jewel ",
         "CubeRecipeDescription": "Slam Weapons + Amethyst + Magic Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Diamond & Magic Jewel = +2 Mana / Kill",
+        "Description": "ENCHANT ITEM - 2H Weapon (Slam) & Diamond & Magic Jewel = +2 Mana / Kill",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Diamond + Magic Jewel ",
         "CubeRecipeDescription": "Slam Weapons + Diamond + Magic Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Eth-Rune & Magic Jewel = +6% Mana Regen",
+        "Description": "ENCHANT ITEM - 2H Weapon (Slam) & Eth-Rune & Magic Jewel = +6% Mana Regen",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Eth Rune + Magic Jewel ",
         "CubeRecipeDescription": "Slam Weapons + Eth Rune + Magic Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Sol-Rune & Magic Jewel = +6 Min Damage & +10 Max Damage",
+        "Description": "ENCHANT ITEM - 2H Weapon (Slam) & Sol-Rune & Magic Jewel = +6 Min Damage & +10 Max Damage",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Sol Rune + Magic Jewel ",
         "CubeRecipeDescription": "Slam Weapons + Sol Rune + Magic Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Infusion Orb & Topaz & Io-Rune & Magic Jewel = +100 Thorns",
+        "Description": "ENCHANT ITEM - 2H Weapon (Slam) & Infusion Orb & Topaz & Io-Rune & Magic Jewel = +100 Thorns",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Orb of Infusion + Topaz + Io Rune + Magic Jewel ",
         "CubeRecipeDescription": "Slam Weapons + Orb Of Infusion + Topaz + Io Rune + Magic Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Infusion Orb & Ruby & Lum-Rune & Magic Jewel = +50% Damage to Demons",
+        "Description": "ENCHANT ITEM - 2H Weapon (Slam) & Infusion Orb & Ruby & Lum-Rune & Magic Jewel = +50% Damage to Demons",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Orb of Infusion + Ruby + Lum Rune + Magic Jewel ",
         "CubeRecipeDescription": "Slam Weapons + Orb Of Infusion + Ruby + Lum Rune + Magic Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Infusion Orb & Skull & Lum-Rune & Magic Jewel = +50% Damage to Undead",
+        "Description": "ENCHANT ITEM - 2H Weapon (Slam) & Infusion Orb & Skull & Lum-Rune & Magic Jewel = +50% Damage to Undead",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Orb of Infusion + Skull + Lum Rune + Magic Jewel ",
         "CubeRecipeDescription": "Slam Weapons + Orb Of Infusion + Skull + Lum Rune + Magic Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Infusion Orb & Emerald & Lem-Rune & Magic Jewel = +150 Attack Rating",
+        "Description": "ENCHANT ITEM - 2H Weapon (Slam) & Infusion Orb & Emerald & Lem-Rune & Magic Jewel = +150 Attack Rating",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Orb of Infusion + Emerald + Lem Rune + Magic Jewel ",
         "CubeRecipeDescription": "Slam Weapons + Orb Of Infusion + Emerald + Lem Rune + Magic Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Infusion Orb & Amethyst & Fal-Rune & Magic Jewel = +25% Enhanced Damage & +25 Attack Rating",
+        "Description": "ENCHANT ITEM - 2H Weapon (Slam) & Infusion Orb & Amethyst & Fal-Rune & Magic Jewel = +15% Enhanced Damage & +15 Attack Rating",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Orb of Infusion + Amethyst + Fal Rune + Magic Jewel ",
         "CubeRecipeDescription": "Slam Weapons + Orb Of Infusion + Amethyst + Fal Rune + Magic Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Infusion Orb & Sapphire & Mal-Rune & Rare Jewel = +15% Increased Cast Rate",
+        "Description": "ENCHANT ITEM - 2H Weapon (Slam) & Infusion Orb & Sapphire & Mal-Rune & Rare Jewel = +15% Increased Cast Rate",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Orb of Infusion + Sapphire + Mal Rune + Rare Jewel ",
         "CubeRecipeDescription": "Slam Weapons + Orb Of Infusion + Sapphire + Mal Rune + Rare Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Infusion Orb & Ameythst & Mal-Rune & Rare Jewel = +15% Increased Attack Speed",
+        "Description": "ENCHANT ITEM - 2H Weapon (Slam) & Infusion Orb & Ameythst & Mal-Rune & Rare Jewel = +15% Increased Attack Speed",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Orb of Infusion + Amethyst + Mal Rune + Rare Jewel ",
         "CubeRecipeDescription": "Slam Weapons + Orb Of Infusion + Amethyst + Mal Rune + Rare Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Infusion Orb & Topaz & Ist-Rune & Rare Jewel = +30% Magic Find  & +50% Gold Find",
+        "Description": "ENCHANT ITEM - 2H Weapon (Slam) & Infusion Orb & Topaz & Ist-Rune & Rare Jewel = +30% Magic Find  & +50% Gold Find",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Orb of Infusion + Topaz + Ist Rune + Rare Jewel ",
         "CubeRecipeDescription": "Slam Weapons + Orb Of Infusion + Topaz + Ist Rune + Rare Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Infusion Orb & Skull & Vex-Rune & Rare Jewel =+5% Mana Steal & +5% Life Steal",
+        "Description": "ENCHANT ITEM - 2H Weapon (Slam) & Infusion Orb & Skull & Vex-Rune & Rare Jewel =+5% Mana Steal & +5% Life Steal",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Orb of Infusion + Skull + Vex Rune + Rare Jewel ",
         "CubeRecipeDescription": "Slam Weapons + Orb Of Infusion + Skull + Vex Rune + Rare Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Infusion Orb & Emerald & Ohm-Rune & Rare Jewel = +15 Min Damage & +30 Max Damage",
+        "Description": "ENCHANT ITEM - 2H Weapon (Slam) & Infusion Orb & Emerald & Ohm-Rune & Rare Jewel = +15 Min Damage & +30 Max Damage",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Orb of Infusion + Emerald + Ohm Rune + Rare Jewel ",
         "CubeRecipeDescription": "Slam Weapons + Orb Of Infusion + Emerald + Ohm Rune + Rare Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Infusion Orb & Diamond & Lo-Rune & Rare Jewel = +63-511 Elemental Damage",
+        "Description": "ENCHANT ITEM - 2H Weapon (Slam) & Infusion Orb & Diamond & Lo-Rune & Rare Jewel = +63-511 Elemental Damage",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Orb of Infusion + Diamond + Lo Rune + Rare Jewel ",
         "CubeRecipeDescription": "Slam Weapons + Orb Of Infusion + Diamond + Lo Rune + Rare Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Infusion Orb & Sapphire & Sur-Rune & Rare Jewel = +10% Open Wounds & +50 Attack Rating",
-        "Item": null,
-        "Output": "Slam Weapons",
-        "Input": "Slam Weapons + Orb of Infusion + Sapphire + Sur Rune + Rare Jewel ",
-        "CubeRecipeDescription": "Slam Weapons + Orb Of Infusion + Sapphire + Sur Rune + Rare Jewel = Slam Weapons"
-    },
-    {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Infusion Orb & Ruby & Ber-Rune & Rare Jewel = +10% Deadly Strike & +50 Attack Rating",
-        "Item": null,
-        "Output": "Slam Weapons",
-        "Input": "Slam Weapons + Orb of Infusion + Ruby + Ber Rune + Rare Jewel ",
-        "CubeRecipeDescription": "Slam Weapons + Orb Of Infusion + Ruby + Ber Rune + Rare Jewel = Slam Weapons"
-    },
-    {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Infusion Orb & Topaz & Jah-Rune & Rare Jewel = +10% Crushing Blow & +50 Attack Rating",
-        "Item": null,
-        "Output": "Slam Weapons",
-        "Input": "Slam Weapons + Orb of Infusion + Topaz + Jah Rune + Rare Jewel ",
-        "CubeRecipeDescription": "Slam Weapons + Orb Of Infusion + Topaz + Jah Rune + Rare Jewel = Slam Weapons"
-    },
-    {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Infusion Orb & Amethyst & Cham-Rune & Rare Jewel = +50% Enhanced Damage & +50 Attack Rating",
+        "Description": "ENCHANT ITEM - 2H Weapon (Slam) & Infusion Orb & Amethyst & Cham-Rune & Rare Jewel = +30% Enhanced Damage & +30 Attack Rating",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Orb of Infusion + Amethyst + Cham Rune + Rare Jewel ",
         "CubeRecipeDescription": "Slam Weapons + Orb Of Infusion + Amethyst + Cham Rune + Rare Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Infusion Orb & Amethyst & Cham-Rune & Nef-Rune & Rare Jewel = +50% Enhanced Damage & +50 Attack Rating & +Knockback",
+        "Description": "ENCHANT ITEM - 2H Weapon (Slam) & Infusion Orb & Amethyst & Cham-Rune & Nef-Rune & Rare Jewel = +30% Enhanced Damage & +30 Attack Rating & +Knockback",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Orb of Infusion + Amethyst + Cham Rune + Rare Jewel + Nef Rune ",
         "CubeRecipeDescription": "Slam Weapons + Orb Of Infusion + Amethyst + Cham Rune + Rare Jewel + Nef Rune = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Infusion Orb & Conversion Orb & Ruby & Zod-Rune & Unique Jewel = +4% Fire Skill Damage & -4% Enemy Fire Res",
+        "Description": "ENCHANT ITEM - 2H Weapon (Slam) & Infusion Orb & Conversion Orb & Ruby & Zod-Rune & Unique Jewel = +2% Fire Skill Damage & -2% Enemy Fire Res",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Orb of Infusion + Orb of Conversion + Ruby + Zod Rune + Unique Jewel ",
         "CubeRecipeDescription": "Slam Weapons + Orb Of Infusion + Orb Of Conversion + Ruby + Zod Rune + Unique Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Infusion Orb & Conversion Orb & Sapphire & Zod-Rune & Unique Jewel = +4% Cold Skill Damage & -4% Enemy Cold Res",
+        "Description": "ENCHANT ITEM - 2H Weapon (Slam) & Infusion Orb & Conversion Orb & Sapphire & Zod-Rune & Unique Jewel = +2% Cold Skill Damage & -2% Enemy Cold Res",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Orb of Infusion + Orb of Conversion + Sapphire + Zod Rune + Unique Jewel ",
         "CubeRecipeDescription": "Slam Weapons + Orb Of Infusion + Orb Of Conversion + Sapphire + Zod Rune + Unique Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Infusion Orb & Conversion Orb & Topaz & Zod-Rune & Unique Jewel = +4% Light Skill Damage & -4% Enemy Light Res",
+        "Description": "ENCHANT ITEM - 2H Weapon (Slam) & Infusion Orb & Conversion Orb & Topaz & Zod-Rune & Unique Jewel = +2% Light Skill Damage & -2% Enemy Light Res",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Orb of Infusion + Orb of Conversion + Topaz + Zod Rune + Unique Jewel ",
         "CubeRecipeDescription": "Slam Weapons + Orb Of Infusion + Orb Of Conversion + Topaz + Zod Rune + Unique Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Slam) & Infusion Orb & Conversion Orb & Emerald & Zod-Rune & Unique Jewel = +4% Poison Skill Damage & -4% Enemy Poison Res",
+        "Description": "ENCHANT ITEM - 2H Weapon (Slam) & Infusion Orb & Conversion Orb & Emerald & Zod-Rune & Unique Jewel = +2% Poison Skill Damage & -2% Enemy Poison Res",
         "Item": null,
         "Output": "Slam Weapons",
         "Input": "Slam Weapons + Orb of Infusion + Orb of Conversion + Emerald + Zod Rune + Unique Jewel ",
         "CubeRecipeDescription": "Slam Weapons + Orb Of Infusion + Orb Of Conversion + Emerald + Zod Rune + Unique Jewel = Slam Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Topaz & Magic Jewel = +15% Magic Find  & +30% Gold Find",
+        "Description": "ENCHANT ITEM - 2H Weapon (Spear/Polearm) & Topaz & Magic Jewel = +15% Magic Find  & +30% Gold Find",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Topaz + Magic Jewel ",
         "CubeRecipeDescription": "Spears And Polearms + Topaz + Magic Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Ruby & Magic Jewel = +75 Attack Rating",
+        "Description": "ENCHANT ITEM - 2H Weapon (Spear/Polearm) & Ruby & Magic Jewel = +75 Attack Rating",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Ruby + Magic Jewel ",
         "CubeRecipeDescription": "Spears And Polearms + Ruby + Magic Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Sapphire & Magic Jewel = +7% Increased Cast Rate",
+        "Description": "ENCHANT ITEM - 2H Weapon (Spear/Polearm) & Sapphire & Magic Jewel = +7% Increased Cast Rate",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Sapphire + Magic Jewel ",
         "CubeRecipeDescription": "Spears And Polearms + Sapphire + Magic Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Emerald & Magic Jewel = +7% Increased Attack Speed",
+        "Description": "ENCHANT ITEM - 2H Weapon (Spear/Polearm) & Emerald & Magic Jewel = +7% Increased Attack Speed",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Emerald + Magic Jewel ",
         "CubeRecipeDescription": "Spears And Polearms + Emerald + Magic Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Skull & Magic Jewel = +2% Mana Steal & +2% Life Steal",
+        "Description": "ENCHANT ITEM - 2H Weapon (Spear/Polearm) & Skull & Magic Jewel = +2% Mana Steal & +2% Life Steal",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Skull + Magic Jewel ",
         "CubeRecipeDescription": "Spears And Polearms + Skull + Magic Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Amethyst & Magic Jewel = +3 Life / Kill",
+        "Description": "ENCHANT ITEM - 2H Weapon (Spear/Polearm) & Amethyst & Magic Jewel = +3 Life / Kill",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Amethyst + Magic Jewel ",
         "CubeRecipeDescription": "Spears And Polearms + Amethyst + Magic Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Diamond & Magic Jewel = +2 Mana / Kill",
+        "Description": "ENCHANT ITEM - 2H Weapon (Spear/Polearm) & Diamond & Magic Jewel = +2 Mana / Kill",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Diamond + Magic Jewel ",
         "CubeRecipeDescription": "Spears And Polearms + Diamond + Magic Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Eth-Rune & Magic Jewel = +6% Mana Regen",
+        "Description": "ENCHANT ITEM - 2H Weapon (Spear/Polearm) & Eth-Rune & Magic Jewel = +6% Mana Regen",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Eth Rune + Magic Jewel ",
         "CubeRecipeDescription": "Spears And Polearms + Eth Rune + Magic Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Sol-Rune & Magic Jewel = +6 Min Damage & +10 Max Damage",
+        "Description": "ENCHANT ITEM - 2H Weapon (Spear/Polearm) & Sol-Rune & Magic Jewel = +6 Min Damage & +10 Max Damage",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Sol Rune + Magic Jewel ",
         "CubeRecipeDescription": "Spears And Polearms + Sol Rune + Magic Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Infusion Orb & Topaz & Io-Rune & Magic Jewel = +100 Thorns",
+        "Description": "ENCHANT ITEM - 2H Weapon (Spear/Polearm) & Infusion Orb & Topaz & Io-Rune & Magic Jewel = +100 Thorns",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Orb of Infusion + Topaz + Io Rune + Magic Jewel ",
         "CubeRecipeDescription": "Spears And Polearms + Orb Of Infusion + Topaz + Io Rune + Magic Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Infusion Orb & Ruby & Lum-Rune & Magic Jewel = +50% Damage to Demons",
+        "Description": "ENCHANT ITEM - 2H Weapon (Spear/Polearm) & Infusion Orb & Ruby & Lum-Rune & Magic Jewel = +50% Damage to Demons",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Orb of Infusion + Ruby + Lum Rune + Magic Jewel ",
         "CubeRecipeDescription": "Spears And Polearms + Orb Of Infusion + Ruby + Lum Rune + Magic Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Infusion Orb & Skull & Lum-Rune & Magic Jewel = +50% Damage to Undead",
+        "Description": "ENCHANT ITEM - 2H Weapon (Spear/Polearm) & Infusion Orb & Skull & Lum-Rune & Magic Jewel = +50% Damage to Undead",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Orb of Infusion + Skull + Lum Rune + Magic Jewel ",
         "CubeRecipeDescription": "Spears And Polearms + Orb Of Infusion + Skull + Lum Rune + Magic Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Infusion Orb & Emerald & Lem-Rune & Magic Jewel = +150 Attack Rating",
+        "Description": "ENCHANT ITEM - 2H Weapon (Spear/Polearm) & Infusion Orb & Emerald & Lem-Rune & Magic Jewel = +150 Attack Rating",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Orb of Infusion + Emerald + Lem Rune + Magic Jewel ",
         "CubeRecipeDescription": "Spears And Polearms + Orb Of Infusion + Emerald + Lem Rune + Magic Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Infusion Orb & Amethyst & Fal-Rune & Magic Jewel = +25% Enhanced Damage & +25 Attack Rating",
+        "Description": "ENCHANT ITEM - 2H Weapon (Spear/Polearm) & Infusion Orb & Amethyst & Fal-Rune & Magic Jewel = +15% Enhanced Damage & +25 Attack Rating",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Orb of Infusion + Amethyst + Fal Rune + Magic Jewel ",
         "CubeRecipeDescription": "Spears And Polearms + Orb Of Infusion + Amethyst + Fal Rune + Magic Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Infusion Orb & Sapphire & Mal-Rune & Rare Jewel = +15% Increased Cast Rate",
+        "Description": "ENCHANT ITEM - 2H Weapon (Spear/Polearm) & Infusion Orb & Sapphire & Mal-Rune & Rare Jewel = +15% Increased Cast Rate",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Orb of Infusion + Sapphire + Mal Rune + Rare Jewel ",
         "CubeRecipeDescription": "Spears And Polearms + Orb Of Infusion + Sapphire + Mal Rune + Rare Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Infusion Orb & Ameythst & Mal-Rune & Rare Jewel = +15% Increased Attack Speed",
+        "Description": "ENCHANT ITEM - 2H Weapon (Spear/Polearm) & Infusion Orb & Ameythst & Mal-Rune & Rare Jewel = +15% Increased Attack Speed",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Orb of Infusion + Amethyst + Mal Rune + Rare Jewel ",
         "CubeRecipeDescription": "Spears And Polearms + Orb Of Infusion + Amethyst + Mal Rune + Rare Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Infusion Orb & Topaz & Ist-Rune & Rare Jewel = +30% Magic Find  & +50% Gold Find",
+        "Description": "ENCHANT ITEM - 2H Weapon (Spear/Polearm) & Infusion Orb & Topaz & Ist-Rune & Rare Jewel = +30% Magic Find  & +50% Gold Find",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Orb of Infusion + Topaz + Ist Rune + Rare Jewel ",
         "CubeRecipeDescription": "Spears And Polearms + Orb Of Infusion + Topaz + Ist Rune + Rare Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Infusion Orb & Skull & Vex-Rune & Rare Jewel =+5% Mana Steal & +5% Life Steal",
+        "Description": "ENCHANT ITEM - 2H Weapon (Spear/Polearm) & Infusion Orb & Skull & Vex-Rune & Rare Jewel =+5% Mana Steal & +5% Life Steal",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Orb of Infusion + Skull + Vex Rune + Rare Jewel ",
         "CubeRecipeDescription": "Spears And Polearms + Orb Of Infusion + Skull + Vex Rune + Rare Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Infusion Orb & Emerald & Ohm-Rune & Rare Jewel = +15 Min Damage & +30 Max Damage",
+        "Description": "ENCHANT ITEM - 2H Weapon (Spear/Polearm) & Infusion Orb & Emerald & Ohm-Rune & Rare Jewel = +15 Min Damage & +30 Max Damage",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Orb of Infusion + Emerald + Ohm Rune + Rare Jewel ",
         "CubeRecipeDescription": "Spears And Polearms + Orb Of Infusion + Emerald + Ohm Rune + Rare Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Infusion Orb & Diamond & Lo-Rune & Rare Jewel = +63-511 Elemental Damage",
+        "Description": "ENCHANT ITEM - 2H Weapon (Spear/Polearm) & Infusion Orb & Diamond & Lo-Rune & Rare Jewel = +63-511 Elemental Damage",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Orb of Infusion + Diamond + Lo Rune + Rare Jewel ",
         "CubeRecipeDescription": "Spears And Polearms + Orb Of Infusion + Diamond + Lo Rune + Rare Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Infusion Orb & Sapphire & Sur-Rune & Rare Jewel = +10% Open Wounds & +50 Attack Rating",
-        "Item": null,
-        "Output": "Spears and Polearms",
-        "Input": "Spears and Polearms + Orb of Infusion + Sapphire + Sur Rune + Rare Jewel ",
-        "CubeRecipeDescription": "Spears And Polearms + Orb Of Infusion + Sapphire + Sur Rune + Rare Jewel = Spears And Polearms"
-    },
-    {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Infusion Orb & Ruby & Ber-Rune & Rare Jewel = +10% Deadly Strike & +50 Attack Rating",
-        "Item": null,
-        "Output": "Spears and Polearms",
-        "Input": "Spears and Polearms + Orb of Infusion + Ruby + Ber Rune + Rare Jewel ",
-        "CubeRecipeDescription": "Spears And Polearms + Orb Of Infusion + Ruby + Ber Rune + Rare Jewel = Spears And Polearms"
-    },
-    {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Infusion Orb & Topaz & Jah-Rune & Rare Jewel = +10% Crushing Blow & +50 Attack Rating",
-        "Item": null,
-        "Output": "Spears and Polearms",
-        "Input": "Spears and Polearms + Orb of Infusion + Topaz + Jah Rune + Rare Jewel ",
-        "CubeRecipeDescription": "Spears And Polearms + Orb Of Infusion + Topaz + Jah Rune + Rare Jewel = Spears And Polearms"
-    },
-    {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Infusion Orb & Amethyst & Cham-Rune & Rare Jewel = +50% Enhanced Damage & +50 Attack Rating",
+        "Description": "ENCHANT ITEM - 2H Weapon (Spear/Polearm) & Infusion Orb & Amethyst & Cham-Rune & Rare Jewel = +30% Enhanced Damage & +50 Attack Rating",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Orb of Infusion + Amethyst + Cham Rune + Rare Jewel ",
         "CubeRecipeDescription": "Spears And Polearms + Orb Of Infusion + Amethyst + Cham Rune + Rare Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Infusion Orb & Amethyst & Cham-Rune & Nef-Rune & Rare Jewel = +50% Enhanced Damage & +50 Attack Rating & +Knockback",
+        "Description": "ENCHANT ITEM - 2H Weapon (Spear/Polearm) & Infusion Orb & Amethyst & Cham-Rune & Nef-Rune & Rare Jewel = +30% Enhanced Damage & +50 Attack Rating & +Knockback",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Orb of Infusion + Amethyst + Cham Rune + Rare Jewel + Nef Rune ",
         "CubeRecipeDescription": "Spears And Polearms + Orb Of Infusion + Amethyst + Cham Rune + Rare Jewel + Nef Rune = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Infusion Orb & Conversion Orb & Ruby & Zod-Rune & Unique Jewel = +4% Fire Skill Damage & -4% Enemy Fire Res",
+        "Description": "ENCHANT ITEM - 2H Weapon (Spear/Polearm) & Infusion Orb & Conversion Orb & Ruby & Zod-Rune & Unique Jewel = +2% Fire Skill Damage & -2% Enemy Fire Res",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Orb of Infusion + Orb of Conversion + Ruby + Zod Rune + Unique Jewel ",
         "CubeRecipeDescription": "Spears And Polearms + Orb Of Infusion + Orb Of Conversion + Ruby + Zod Rune + Unique Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Infusion Orb & Conversion Orb & Sapphire & Zod-Rune & Unique Jewel = +4% Cold Skill Damage & -4% Enemy Cold Res",
+        "Description": "ENCHANT ITEM - 2H Weapon (Spear/Polearm) & Infusion Orb & Conversion Orb & Sapphire & Zod-Rune & Unique Jewel = +2% Cold Skill Damage & -2% Enemy Cold Res",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Orb of Infusion + Orb of Conversion + Sapphire + Zod Rune + Unique Jewel ",
         "CubeRecipeDescription": "Spears And Polearms + Orb Of Infusion + Orb Of Conversion + Sapphire + Zod Rune + Unique Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Infusion Orb & Conversion Orb & Topaz & Zod-Rune & Unique Jewel = +4% Light Skill Damage & -4% Enemy Light Res",
+        "Description": "ENCHANT ITEM - 2H Weapon (Spear/Polearm) & Infusion Orb & Conversion Orb & Topaz & Zod-Rune & Unique Jewel = +2% Light Skill Damage & -2% Enemy Light Res",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Orb of Infusion + Orb of Conversion + Topaz + Zod Rune + Unique Jewel ",
         "CubeRecipeDescription": "Spears And Polearms + Orb Of Infusion + Orb Of Conversion + Topaz + Zod Rune + Unique Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Spear/Polearm) & Infusion Orb & Conversion Orb & Emerald & Zod-Rune & Unique Jewel = +4% Poison Skill Damage & -4% Enemy Poison Res",
+        "Description": "ENCHANT ITEM - 2H Weapon (Spear/Polearm) & Infusion Orb & Conversion Orb & Emerald & Zod-Rune & Unique Jewel = +2% Poison Skill Damage & -2% Enemy Poison Res",
         "Item": null,
         "Output": "Spears and Polearms",
         "Input": "Spears and Polearms + Orb of Infusion + Orb of Conversion + Emerald + Zod Rune + Unique Jewel ",
         "CubeRecipeDescription": "Spears And Polearms + Orb Of Infusion + Orb Of Conversion + Emerald + Zod Rune + Unique Jewel = Spears And Polearms"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Topaz & Magic Jewel = +15% Magic Find  & +30% Gold Find",
+        "Description": "ENCHANT ITEM - 2H Weapon (Bow/Crossbow) & Topaz & Magic Jewel = +15% Magic Find  & +30% Gold Find",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Topaz + Magic Jewel ",
         "CubeRecipeDescription": "Missile Weapon + Topaz + Magic Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Ruby & Magic Jewel = +75 Attack Rating",
+        "Description": "ENCHANT ITEM - 2H Weapon (Bow/Crossbow) & Ruby & Magic Jewel = +75 Attack Rating",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Ruby + Magic Jewel ",
         "CubeRecipeDescription": "Missile Weapon + Ruby + Magic Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Sapphire & Magic Jewel = +7% Increased Cast Rate",
+        "Description": "ENCHANT ITEM - 2H Weapon (Bow/Crossbow) & Sapphire & Magic Jewel = +7% Increased Cast Rate",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Sapphire + Magic Jewel ",
         "CubeRecipeDescription": "Missile Weapon + Sapphire + Magic Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Emerald & Magic Jewel = +7% Increased Attack Speed",
+        "Description": "ENCHANT ITEM - 2H Weapon (Bow/Crossbow) & Emerald & Magic Jewel = +7% Increased Attack Speed",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Emerald + Magic Jewel ",
         "CubeRecipeDescription": "Missile Weapon + Emerald + Magic Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Skull & Magic Jewel = +2% Mana Steal & +2% Life Steal",
+        "Description": "ENCHANT ITEM - 2H Weapon (Bow/Crossbow) & Skull & Magic Jewel = +2% Mana Steal & +2% Life Steal",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Skull + Magic Jewel ",
         "CubeRecipeDescription": "Missile Weapon + Skull + Magic Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Amethyst & Magic Jewel = +3 Life / Kill",
+        "Description": "ENCHANT ITEM - 2H Weapon (Bow/Crossbow) & Amethyst & Magic Jewel = +3 Life / Kill",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Amethyst + Magic Jewel ",
         "CubeRecipeDescription": "Missile Weapon + Amethyst + Magic Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Diamond & Magic Jewel = +2 Mana / Kill",
+        "Description": "ENCHANT ITEM - 2H Weapon (Bow/Crossbow) & Diamond & Magic Jewel = +2 Mana / Kill",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Diamond + Magic Jewel ",
         "CubeRecipeDescription": "Missile Weapon + Diamond + Magic Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Eth-Rune & Magic Jewel = +6% Mana Regen",
+        "Description": "ENCHANT ITEM - 2H Weapon (Bow/Crossbow) & Eth-Rune & Magic Jewel = +6% Mana Regen",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Eth Rune + Magic Jewel ",
         "CubeRecipeDescription": "Missile Weapon + Eth Rune + Magic Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Sol-Rune & Magic Jewel = +6 Min Damage & +10 Max Damage",
+        "Description": "ENCHANT ITEM - 2H Weapon (Bow/Crossbow) & Sol-Rune & Magic Jewel = +6 Min Damage & +10 Max Damage",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Sol Rune + Magic Jewel ",
         "CubeRecipeDescription": "Missile Weapon + Sol Rune + Magic Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Infusion Orb & Topaz & Io-Rune & Magic Jewel = +100 Thorns",
+        "Description": "ENCHANT ITEM - 2H Weapon (Bow/Crossbow) & Infusion Orb & Topaz & Io-Rune & Magic Jewel = +100 Thorns",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Orb of Infusion + Topaz + Io Rune + Magic Jewel ",
         "CubeRecipeDescription": "Missile Weapon + Orb Of Infusion + Topaz + Io Rune + Magic Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Infusion Orb & Ruby & Lum-Rune & Magic Jewel = +50% Damage to Demons",
+        "Description": "ENCHANT ITEM - 2H Weapon (Bow/Crossbow) & Infusion Orb & Ruby & Lum-Rune & Magic Jewel = +50% Damage to Demons",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Orb of Infusion + Ruby + Lum Rune + Magic Jewel ",
         "CubeRecipeDescription": "Missile Weapon + Orb Of Infusion + Ruby + Lum Rune + Magic Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Infusion Orb & Skull & Lum-Rune & Magic Jewel = +50% Damage to Undead",
+        "Description": "ENCHANT ITEM - 2H Weapon (Bow/Crossbow) & Infusion Orb & Skull & Lum-Rune & Magic Jewel = +50% Damage to Undead",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Orb of Infusion + Skull + Lum Rune + Magic Jewel ",
         "CubeRecipeDescription": "Missile Weapon + Orb Of Infusion + Skull + Lum Rune + Magic Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Infusion Orb & Emerald & Lem-Rune & Magic Jewel = +150 Attack Rating",
+        "Description": "ENCHANT ITEM - 2H Weapon (Bow/Crossbow) & Infusion Orb & Emerald & Lem-Rune & Magic Jewel = +150 Attack Rating",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Orb of Infusion + Emerald + Lem Rune + Magic Jewel ",
         "CubeRecipeDescription": "Missile Weapon + Orb Of Infusion + Emerald + Lem Rune + Magic Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Infusion Orb & Amethyst & Fal-Rune & Magic Jewel = +25% Enhanced Damage & +25 Attack Rating",
+        "Description": "ENCHANT ITEM - 2H Weapon (Bow/Crossbow) & Infusion Orb & Amethyst & Fal-Rune & Magic Jewel = +15% Enhanced Damage & +15 Attack Rating",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Orb of Infusion + Amethyst + Fal Rune + Magic Jewel ",
         "CubeRecipeDescription": "Missile Weapon + Orb Of Infusion + Amethyst + Fal Rune + Magic Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Infusion Orb & Sapphire & Mal-Rune & Rare Jewel = +15% Increased Cast Rate",
+        "Description": "ENCHANT ITEM - 2H Weapon (Bow/Crossbow) & Infusion Orb & Sapphire & Mal-Rune & Rare Jewel = +15% Increased Cast Rate",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Orb of Infusion + Sapphire + Mal Rune + Rare Jewel ",
         "CubeRecipeDescription": "Missile Weapon + Orb Of Infusion + Sapphire + Mal Rune + Rare Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Infusion Orb & Ameythst & Mal-Rune & Rare Jewel = +15% Increased Attack Speed",
+        "Description": "ENCHANT ITEM - 2H Weapon (Bow/Crossbow) & Infusion Orb & Ameythst & Mal-Rune & Rare Jewel = +15% Increased Attack Speed",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Orb of Infusion + Amethyst + Mal Rune + Rare Jewel ",
         "CubeRecipeDescription": "Missile Weapon + Orb Of Infusion + Amethyst + Mal Rune + Rare Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Infusion Orb & Topaz & Ist-Rune & Rare Jewel = +30% Magic Find  & +50% Gold Find",
+        "Description": "ENCHANT ITEM - 2H Weapon (Bow/Crossbow) & Infusion Orb & Topaz & Ist-Rune & Rare Jewel = +30% Magic Find  & +50% Gold Find",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Orb of Infusion + Topaz + Ist Rune + Rare Jewel ",
         "CubeRecipeDescription": "Missile Weapon + Orb Of Infusion + Topaz + Ist Rune + Rare Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Infusion Orb & Skull & Vex-Rune & Rare Jewel =+5% Mana Steal & +5% Life Steal",
+        "Description": "ENCHANT ITEM - 2H Weapon (Bow/Crossbow) & Infusion Orb & Skull & Vex-Rune & Rare Jewel =+5% Mana Steal & +5% Life Steal",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Orb of Infusion + Skull + Vex Rune + Rare Jewel ",
         "CubeRecipeDescription": "Missile Weapon + Orb Of Infusion + Skull + Vex Rune + Rare Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Infusion Orb & Emerald & Ohm-Rune & Rare Jewel = +15 Min Damage & +30 Max Damage",
+        "Description": "ENCHANT ITEM - 2H Weapon (Bow/Crossbow) & Infusion Orb & Emerald & Ohm-Rune & Rare Jewel = +15 Min Damage & +30 Max Damage",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Orb of Infusion + Emerald + Ohm Rune + Rare Jewel ",
         "CubeRecipeDescription": "Missile Weapon + Orb Of Infusion + Emerald + Ohm Rune + Rare Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Infusion Orb & Diamond & Lo-Rune & Rare Jewel = +63-511 Elemental Damage",
+        "Description": "ENCHANT ITEM - 2H Weapon (Bow/Crossbow) & Infusion Orb & Diamond & Lo-Rune & Rare Jewel = +63-511 Elemental Damage",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Orb of Infusion + Diamond + Lo Rune + Rare Jewel ",
         "CubeRecipeDescription": "Missile Weapon + Orb Of Infusion + Diamond + Lo Rune + Rare Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Infusion Orb & Sapphire & Sur-Rune & Rare Jewel = +10% Open Wounds & +50 Attack Rating",
-        "Item": null,
-        "Output": "Missile Weapon",
-        "Input": "Missile Weapon + Orb of Infusion + Sapphire + Sur Rune + Rare Jewel ",
-        "CubeRecipeDescription": "Missile Weapon + Orb Of Infusion + Sapphire + Sur Rune + Rare Jewel = Missile Weapon"
-    },
-    {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Infusion Orb & Ruby & Ber-Rune & Rare Jewel = +10% Deadly Strike & +50 Attack Rating",
-        "Item": null,
-        "Output": "Missile Weapon",
-        "Input": "Missile Weapon + Orb of Infusion + Ruby + Ber Rune + Rare Jewel ",
-        "CubeRecipeDescription": "Missile Weapon + Orb Of Infusion + Ruby + Ber Rune + Rare Jewel = Missile Weapon"
-    },
-    {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Infusion Orb & Topaz & Jah-Rune & Rare Jewel = +10% Crushing Blow & +50 Attack Rating",
-        "Item": null,
-        "Output": "Missile Weapon",
-        "Input": "Missile Weapon + Orb of Infusion + Topaz + Jah Rune + Rare Jewel ",
-        "CubeRecipeDescription": "Missile Weapon + Orb Of Infusion + Topaz + Jah Rune + Rare Jewel = Missile Weapon"
-    },
-    {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Infusion Orb & Amethyst & Cham-Rune & Rare Jewel = +50% Enhanced Damage & +50 Attack Rating",
+        "Description": "ENCHANT ITEM - 2H Weapon (Bow/Crossbow) & Infusion Orb & Amethyst & Cham-Rune & Rare Jewel = +30% Enhanced Damage & +30 Attack Rating",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Orb of Infusion + Amethyst + Cham Rune + Rare Jewel ",
         "CubeRecipeDescription": "Missile Weapon + Orb Of Infusion + Amethyst + Cham Rune + Rare Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Infusion Orb & Amethyst & Cham-Rune & Nef-Rune & Rare Jewel = +50% Enhanced Damage & +50 Attack Rating & +Knockback",
+        "Description": "ENCHANT ITEM - 2H Weapon (Bow/Crossbow) & Infusion Orb & Amethyst & Cham-Rune & Nef-Rune & Rare Jewel = +30% Enhanced Damage & +30 Attack Rating & +Knockback",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Orb of Infusion + Amethyst + Cham Rune + Rare Jewel + Nef Rune ",
         "CubeRecipeDescription": "Missile Weapon + Orb Of Infusion + Amethyst + Cham Rune + Rare Jewel + Nef Rune = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Infusion Orb & Conversion Orb & Ruby & Zod-Rune & Unique Jewel = +4% Fire Skill Damage & -4% Enemy Fire Res",
+        "Description": "ENCHANT ITEM - 2H Weapon (Bow/Crossbow) & Infusion Orb & Conversion Orb & Ruby & Zod-Rune & Unique Jewel = +2% Fire Skill Damage & -2% Enemy Fire Res",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Orb of Infusion + Orb of Conversion + Ruby + Zod Rune + Unique Jewel ",
         "CubeRecipeDescription": "Missile Weapon + Orb Of Infusion + Orb Of Conversion + Ruby + Zod Rune + Unique Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Infusion Orb & Conversion Orb & Sapphire & Zod-Rune & Unique Jewel = +4% Cold Skill Damage & -4% Enemy Cold Res",
+        "Description": "ENCHANT ITEM - 2H Weapon (Bow/Crossbow) & Infusion Orb & Conversion Orb & Sapphire & Zod-Rune & Unique Jewel = +2% Cold Skill Damage & -2% Enemy Cold Res",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Orb of Infusion + Orb of Conversion + Sapphire + Zod Rune + Unique Jewel ",
         "CubeRecipeDescription": "Missile Weapon + Orb Of Infusion + Orb Of Conversion + Sapphire + Zod Rune + Unique Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Infusion Orb & Conversion Orb & Topaz & Zod-Rune & Unique Jewel = +4% Light Skill Damage & -4% Enemy Light Res",
+        "Description": "ENCHANT ITEM - 2H Weapon (Bow/Crossbow) & Infusion Orb & Conversion Orb & Topaz & Zod-Rune & Unique Jewel = +2% Light Skill Damage & -2% Enemy Light Res",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Orb of Infusion + Orb of Conversion + Topaz + Zod Rune + Unique Jewel ",
         "CubeRecipeDescription": "Missile Weapon + Orb Of Infusion + Orb Of Conversion + Topaz + Zod Rune + Unique Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - 2H Weapon (Bow/Crossbow) & Infusion Orb & Conversion Orb & Emerald & Zod-Rune & Unique Jewel = +4% Poison Skill Damage & -4% Enemy Poison Res",
+        "Description": "ENCHANT ITEM - 2H Weapon (Bow/Crossbow) & Infusion Orb & Conversion Orb & Emerald & Zod-Rune & Unique Jewel = +2% Poison Skill Damage & -2% Enemy Poison Res",
         "Item": null,
         "Output": "Missile Weapon",
         "Input": "Missile Weapon + Orb of Infusion + Orb of Conversion + Emerald + Zod Rune + Unique Jewel ",
         "CubeRecipeDescription": "Missile Weapon + Orb Of Infusion + Orb Of Conversion + Emerald + Zod Rune + Unique Jewel = Missile Weapon"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Topaz & Magic Jewel = +15% Magic Find  & +30% Gold Find",
+        "Description": "ENCHANT ITEM - Weapon & Topaz & Magic Jewel = +15% Magic Find  & +30% Gold Find",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Topaz + Magic Jewel ",
         "CubeRecipeDescription": "1H Weapons + Topaz + Magic Jewel = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Ruby & Magic Jewel = +75 Attack Rating",
+        "Description": "ENCHANT ITEM - Weapon & Ruby & Magic Jewel = +75 Attack Rating",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Ruby + Magic Jewel ",
         "CubeRecipeDescription": "1H Weapons + Ruby + Magic Jewel = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Sapphire & Magic Jewel = +7% Increased Cast Rate",
+        "Description": "ENCHANT ITEM - Weapon & Sapphire & Magic Jewel = +7% Increased Cast Rate",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Sapphire + Magic Jewel ",
         "CubeRecipeDescription": "1H Weapons + Sapphire + Magic Jewel = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Emerald & Magic Jewel = +7% Increased Attack Speed",
+        "Description": "ENCHANT ITEM - Weapon & Emerald & Magic Jewel = +7% Increased Attack Speed",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Emerald + Magic Jewel ",
         "CubeRecipeDescription": "1H Weapons + Emerald + Magic Jewel = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Skull & Magic Jewel = +2% Mana Steal & +2% Life Steal",
+        "Description": "ENCHANT ITEM - Weapon & Skull & Magic Jewel = +2% Mana Steal & +2% Life Steal",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Skull + Magic Jewel ",
         "CubeRecipeDescription": "1H Weapons + Skull + Magic Jewel = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Amethyst & Magic Jewel = +3 Life / Kill",
+        "Description": "ENCHANT ITEM - Weapon & Amethyst & Magic Jewel = +3 Life / Kill",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Amethyst + Magic Jewel ",
         "CubeRecipeDescription": "1H Weapons + Amethyst + Magic Jewel = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Diamond & Magic Jewel = +2 Mana / Kill",
+        "Description": "ENCHANT ITEM - Weapon & Diamond & Magic Jewel = +2 Mana / Kill",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Diamond + Magic Jewel ",
         "CubeRecipeDescription": "1H Weapons + Diamond + Magic Jewel = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Eth-Rune & Magic Jewel = +6% Mana Regen",
+        "Description": "ENCHANT ITEM - Weapon & Eth-Rune & Magic Jewel = +6% Mana Regen",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Eth Rune + Magic Jewel ",
         "CubeRecipeDescription": "1H Weapons + Eth Rune + Magic Jewel = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Sol-Rune & Magic Jewel = +6 Min Damage & +10 Max Damage",
+        "Description": "ENCHANT ITEM - Weapon & Sol-Rune & Magic Jewel = +6 Min Damage & +10 Max Damage",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Sol Rune + Magic Jewel ",
         "CubeRecipeDescription": "1H Weapons + Sol Rune + Magic Jewel = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Infusion Orb & Topaz & Io-Rune & Magic Jewel = +100 Thorns",
+        "Description": "ENCHANT ITEM - Weapon & Infusion Orb & Topaz & Io-Rune & Magic Jewel = +100 Thorns",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Orb of Infusion + Topaz + Io Rune + Magic Jewel ",
         "CubeRecipeDescription": "1H Weapons + Orb Of Infusion + Topaz + Io Rune + Magic Jewel = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Infusion Orb & Ruby & Lum-Rune & Magic Jewel = +50% Damage to Demons",
+        "Description": "ENCHANT ITEM - Weapon & Infusion Orb & Ruby & Lum-Rune & Magic Jewel = +50% Damage to Demons",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Orb of Infusion + Ruby + Lum Rune + Magic Jewel ",
         "CubeRecipeDescription": "1H Weapons + Orb Of Infusion + Ruby + Lum Rune + Magic Jewel = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Infusion Orb & Skull & Lum-Rune & Magic Jewel = +50% Damage to Undead",
+        "Description": "ENCHANT ITEM - Weapon & Infusion Orb & Skull & Lum-Rune & Magic Jewel = +50% Damage to Undead",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Orb of Infusion + Skull + Lum Rune + Magic Jewel ",
         "CubeRecipeDescription": "1H Weapons + Orb Of Infusion + Skull + Lum Rune + Magic Jewel = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Infusion Orb & Emerald & Lem-Rune & Magic Jewel = +150 Attack Rating",
+        "Description": "ENCHANT ITEM - Weapon & Infusion Orb & Emerald & Lem-Rune & Magic Jewel = +150 Attack Rating",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Orb of Infusion + Emerald + Lem Rune + Magic Jewel ",
         "CubeRecipeDescription": "1H Weapons + Orb Of Infusion + Emerald + Lem Rune + Magic Jewel = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Infusion Orb & Amethyst & Fal-Rune & Magic Jewel = +25% Enhanced Damage & +25 Attack Rating",
+        "Description": "ENCHANT ITEM - Weapon & Infusion Orb & Amethyst & Fal-Rune & Magic Jewel = +15% Enhanced Damage & +15 Attack Rating",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Orb of Infusion + Amethyst + Fal Rune + Magic Jewel ",
         "CubeRecipeDescription": "1H Weapons + Orb Of Infusion + Amethyst + Fal Rune + Magic Jewel = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Infusion Orb & Sapphire & Mal-Rune & Rare Jewel = +15% Increased Cast Rate",
+        "Description": "ENCHANT ITEM - Weapon & Infusion Orb & Sapphire & Mal-Rune & Rare Jewel = +15% Increased Cast Rate",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Orb of Infusion + Sapphire + Mal Rune + Rare Jewel ",
         "CubeRecipeDescription": "1H Weapons + Orb Of Infusion + Sapphire + Mal Rune + Rare Jewel = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Infusion Orb & Ameythst & Mal-Rune & Rare Jewel = +15% Increased Attack Speed",
+        "Description": "ENCHANT ITEM - Weapon & Infusion Orb & Ameythst & Mal-Rune & Rare Jewel = +15% Increased Attack Speed",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Orb of Infusion + Amethyst + Mal Rune + Rare Jewel ",
         "CubeRecipeDescription": "1H Weapons + Orb Of Infusion + Amethyst + Mal Rune + Rare Jewel = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Infusion Orb & Topaz & Ist-Rune & Rare Jewel = +30% Magic Find  & +50% Gold Find",
+        "Description": "ENCHANT ITEM - Weapon & Infusion Orb & Topaz & Ist-Rune & Rare Jewel = +30% Magic Find  & +50% Gold Find",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Orb of Infusion + Topaz + Ist Rune + Rare Jewel ",
         "CubeRecipeDescription": "1H Weapons + Orb Of Infusion + Topaz + Ist Rune + Rare Jewel = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Infusion Orb & Skull & Vex-Rune & Rare Jewel =+5% Mana Steal & +5% Life Steal",
+        "Description": "ENCHANT ITEM - Weapon & Infusion Orb & Skull & Vex-Rune & Rare Jewel =+5% Mana Steal & +5% Life Steal",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Orb of Infusion + Skull + Vex Rune + Rare Jewel ",
         "CubeRecipeDescription": "1H Weapons + Orb Of Infusion + Skull + Vex Rune + Rare Jewel = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Infusion Orb & Emerald & Ohm-Rune & Rare Jewel = +15 Min Damage & 30 Max Damage",
+        "Description": "ENCHANT ITEM - Weapon & Infusion Orb & Emerald & Ohm-Rune & Rare Jewel = +15 Min Damage & 30 Max Damage",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Orb of Infusion + Emerald + Ohm Rune + Rare Jewel ",
         "CubeRecipeDescription": "1H Weapons + Orb Of Infusion + Emerald + Ohm Rune + Rare Jewel = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Infusion Orb & Diamond & Lo-Rune & Rare Jewel = +63-511 Elemental Damage",
+        "Description": "ENCHANT ITEM - Weapon & Infusion Orb & Diamond & Lo-Rune & Rare Jewel = +63-511 Elemental Damage",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Orb of Infusion + Diamond + Lo Rune + Rare Jewel ",
         "CubeRecipeDescription": "1H Weapons + Orb Of Infusion + Diamond + Lo Rune + Rare Jewel = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Infusion Orb & Sapphire & Sur-Rune & Rare Jewel = +10% Open Wounds & +50 Attack Rating",
-        "Item": null,
-        "Output": "1H Weapons",
-        "Input": "1H Weapons + Orb of Infusion + Sapphire + Sur Rune + Rare Jewel ",
-        "CubeRecipeDescription": "1H Weapons + Orb Of Infusion + Sapphire + Sur Rune + Rare Jewel = 1H Weapons"
-    },
-    {
-        "Description": "ITEM UPGRADE - Weapon & Infusion Orb & Ruby & Ber-Rune & Rare Jewel = +10% Deadly Strike & +50 Attack Rating",
-        "Item": null,
-        "Output": "1H Weapons",
-        "Input": "1H Weapons + Orb of Infusion + Ruby + Ber Rune + Rare Jewel ",
-        "CubeRecipeDescription": "1H Weapons + Orb Of Infusion + Ruby + Ber Rune + Rare Jewel = 1H Weapons"
-    },
-    {
-        "Description": "ITEM UPGRADE - Weapon & Infusion Orb & Topaz & Jah-Rune & Rare Jewel = +10% Crushing Blow & +50 Attack Rating",
-        "Item": null,
-        "Output": "1H Weapons",
-        "Input": "1H Weapons + Orb of Infusion + Topaz + Jah Rune + Rare Jewel ",
-        "CubeRecipeDescription": "1H Weapons + Orb Of Infusion + Topaz + Jah Rune + Rare Jewel = 1H Weapons"
-    },
-    {
-        "Description": "ITEM UPGRADE - Weapon & Infusion Orb & Amethyst & Cham-Rune & Rare Jewel = +50% Enhanced Damage &  & +50 Attack Rating",
+        "Description": "ENCHANT ITEM - Weapon & Infusion Orb & Amethyst & Cham-Rune & Rare Jewel = +30% Enhanced Damage &  & +30 Attack Rating",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Orb of Infusion + Amethyst + Cham Rune + Rare Jewel ",
         "CubeRecipeDescription": "1H Weapons + Orb Of Infusion + Amethyst + Cham Rune + Rare Jewel = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Infusion Orb & Amethyst & Cham-Rune & & Nef-Rune Rare Jewel = +50% Enhanced Damage & +50 Attack Rating + Knockback",
+        "Description": "ENCHANT ITEM - Weapon & Infusion Orb & Amethyst & Cham-Rune & & Nef-Rune Rare Jewel = +30% Enhanced Damage & +30 Attack Rating + Knockback",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Orb of Infusion + Amethyst + Cham Rune + Rare Jewel + Nef Rune ",
         "CubeRecipeDescription": "1H Weapons + Orb Of Infusion + Amethyst + Cham Rune + Rare Jewel + Nef Rune = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Infusion Orb & Conversion Orb & Ruby & Zod-Rune & Unique Jewel = +4% Fire Skill Damage & -4% Enemy Fire Res",
+        "Description": "ENCHANT ITEM - Weapon & Infusion Orb & Conversion Orb & Ruby & Zod-Rune & Unique Jewel = +2% Fire Skill Damage & -2% Enemy Fire Res",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Orb of Infusion + Orb of Conversion + Ruby + Zod Rune + Unique Jewel ",
         "CubeRecipeDescription": "1H Weapons + Orb Of Infusion + Orb Of Conversion + Ruby + Zod Rune + Unique Jewel = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Infusion Orb & Conversion Orb & Sapphire & Zod-Rune & Unique Jewel = +4% Cold Skill Damage & -4% Enemy Cold Res",
+        "Description": "ENCHANT ITEM - Weapon & Infusion Orb & Conversion Orb & Sapphire & Zod-Rune & Unique Jewel = +2% Cold Skill Damage & -2% Enemy Cold Res",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Orb of Infusion + Orb of Conversion + Sapphire + Zod Rune + Unique Jewel ",
         "CubeRecipeDescription": "1H Weapons + Orb Of Infusion + Orb Of Conversion + Sapphire + Zod Rune + Unique Jewel = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Infusion Orb & Conversion Orb & Topaz & Zod-Rune & Unique Jewel = +4% Light Skill Damage & -4% Enemy Light Res",
+        "Description": "ENCHANT ITEM - Weapon & Infusion Orb & Conversion Orb & Topaz & Zod-Rune & Unique Jewel = +2% Light Skill Damage & -2% Enemy Light Res",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Orb of Infusion + Orb of Conversion + Topaz + Zod Rune + Unique Jewel ",
         "CubeRecipeDescription": "1H Weapons + Orb Of Infusion + Orb Of Conversion + Topaz + Zod Rune + Unique Jewel = 1H Weapons"
     },
     {
-        "Description": "ITEM UPGRADE - Weapon & Infusion Orb & Conversion Orb & Emerald & Zod-Rune & Unique Jewel = +4% Poison Skill Damage & -4% Enemy Poison Res",
+        "Description": "ENCHANT ITEM - Weapon & Infusion Orb & Conversion Orb & Emerald & Zod-Rune & Unique Jewel = +2% Poison Skill Damage & -2% Enemy Poison Res",
         "Item": null,
         "Output": "1H Weapons",
         "Input": "1H Weapons + Orb of Infusion + Orb of Conversion + Emerald + Zod Rune + Unique Jewel ",

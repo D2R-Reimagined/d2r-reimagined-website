@@ -69,6 +69,10 @@ body {
     color: #478e47;
 }
 
+.set-text-light {
+  color: #65ac65;
+}
+
 .enhanced {
     color: #6f5df7;
 }
@@ -81,6 +85,10 @@ body {
     color: #ef4f4f;
 }
 
+.requirement-dark {
+  color: #bd3131;
+}
+
 .runes span {
     padding: 0 5px 0 5px;
 }
@@ -89,10 +97,22 @@ body {
     padding: 0 5px 0 5px;
 }
 
-.combo, .types, .damage, .durability, .armor {
+.combo, .types, .damage, .durability, .armor, .base-text {
     color: whitesmoke;
 }
 
-.rarity {
+.rarity-text {
     color: lightskyblue;
+  }
+
+.w-10 {
+  width: calc(var(--spacing) * 10);
+}
+
+.w-15 {
+  width: calc(var(--spacing) * 15);
+}
+
+.w-20 {
+  width: calc(var(--spacing) * 20);
 }

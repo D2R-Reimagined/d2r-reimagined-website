@@ -56,7 +56,7 @@
                 <div class="unique-text text-lg mb-1">
                     ${unique.Name}
                 </div>
-                <div class="rarity mb-1" if.bind="unique.Rarity">
+                <div class="rarity-text mb-1" if.bind="unique.Rarity">
                     Rarity: ${unique.Rarity}
                 </div>
                 <div class="armor mb-1" if.bind="unique.Equipment.Name">
@@ -69,8 +69,8 @@
                      repeat.for="damage of unique.Equipment.DamageTypes">
                     ${getDamageTypeString(damage.Type)} ${damage.DamageString}
                 </div>
-                <div class="requirement" if.bind="unique.RequiredLevel > 0">
-                    Level ${unique.RequiredLevel} Required
+                <div class="requirement">
+                    Level ${unique.RequiredLevel > 0 ? unique.RequiredLevel : 1} Required
                 </div>
                 <div class="requirement" if.bind="unique.Equipment.RequiredStrength > 0">
                     ${unique.Equipment.RequiredStrength} Strength Required
