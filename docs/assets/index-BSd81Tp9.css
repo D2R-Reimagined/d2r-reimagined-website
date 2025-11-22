@@ -1582,10 +1582,6 @@ nav details > summary::marker {
   }
 
   @media (min-width: 40rem) {
-    .sm\:w-1\/2 {
-      width: 50%;
-    }
-
     .sm\:px-6 {
       padding-inline: calc(var(--spacing) * 6);
     }
