@@ -1,6 +1,6 @@
-<nav class="bg-gray-800 text-white sticky top-0 z-3">
+<nav class="bg-zinc-800 text-white sticky top-0 z-6">
     <div class="mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center">
+        <div class="flex items-center relative">
             <a class="mr-6" href="/">
                 D2R Reimagined
             </a>
@@ -9,57 +9,69 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
-            <div class="hidden lg:flex lg:items-center lg:justify-between w-full" id="navbarSupportedContent">
-                <ul class="flex space-x-4">
+            <div id="navbarSupportedContent"
+                 class="hidden flex flex-col gap-2 w-full absolute left-0 right-0 top-full bg-zinc-800 border-t border-zinc-700 shadow-md p-3 z-50
+                        max-h-[calc(100dvh-60px)] overflow-y-auto overscroll-contain
+                        lg:static lg:flex lg:flex-row lg:items-center lg:justify-between lg:p-0 lg:shadow-none lg:border-0 lg:bg-transparent lg:max-h-none lg:overflow-visible">
+                <ul class="flex flex-col gap-2 lg:flex-row lg:gap-0 lg:space-x-4">
                     <li>
-                        <a class="hover:text-gray-300 py-2 flex cursor-pointer" aria-current="page" href="/cube-recipes">
-                            Cube Recipes
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-300 py-2 flex cursor-pointer" aria-current="page" href="/uniques">
-                            Uniques
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-300 py-2 flex cursor-pointer" aria-current="page" href="/sets">
-                            Sets
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-300 py-2 flex cursor-pointer" aria-current="page" href="/runewords">
-                            Runewords
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-300 py-2 flex cursor-pointer" aria-current="page" href="/affixes">
-                            Affixes
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-300 py-2 flex cursor-pointer" aria-current="page" href="/armors">
+                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/armors" click.trigger="closeMobileMenu()">
                             Bases
                         </a>
                     </li>
                     <li>
-                        <a class="hover:text-gray-300 py-2 flex cursor-pointer" aria-current="page" href="/grail">
+                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/affixes" click.trigger="closeMobileMenu()">
+                            Affixes
+                        </a>
+                    </li>
+                    <li>
+                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/uniques" click.trigger="closeMobileMenu()">
+                            Uniques
+                        </a>
+                    </li>
+                    <li>
+                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/sets" click.trigger="closeMobileMenu()">
+                            Sets
+                        </a>
+                    </li>
+                    <li>
+                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/runewords" click.trigger="closeMobileMenu()">
+                            Runewords
+                        </a>
+                    </li>
+                    <li>
+                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/cube-recipes" click.trigger="closeMobileMenu()">
+                            Cube Recipes
+                        </a>
+                    </li>
+                    <li>
+                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/grail" click.trigger="closeMobileMenu()">
                             Grail
                         </a>
                     </li>
                     <li>
-                        <a class="hover:text-gray-300 py-2 cursor-pointer flex items-center" aria-current="page" href="https://wiki.d2r-reimagined.com/" external target="_blank">
+                        <a class="hover:text-zinc-400 py-1 cursor-pointer flex items-center" aria-current="page" href="https://wiki.d2r-reimagined.com/" external target="_blank" click.trigger="closeMobileMenu()">
                             Wiki <span class="material-symbols-outlined ml-1">open_in_new</span>
                         </a>
                     </li>
                 </ul>
-                <ul class="flex items-center ml-auto">
-                    <li class="mx-3 relative group">
-                        <a class="hover:text-gray-300 py-2 inline-block cursor-pointer" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Font
-                        </a>
-                        <ul class="hidden group-hover:block absolute right-0 bg-white text-gray-800 shadow-lg rounded py-1 min-w-40">
-                            <li repeat.for="font of fonts"><a class="block px-4 py-2 hover:bg-gray-100 ${font.class} cursor-pointer" click.trigger="handleFontSelected(font)">${font.name}</a></li>
-                        </ul>
+                <ul class="flex flex-col gap-2 lg:flex-row lg:items-center lg:ml-auto">
+                    <li class="relative lg:mx-3">
+                        <details class="relative">
+                            <summary class="list-none hover:text-zinc-300 py-2 inline-flex items-center cursor-pointer select-none pl-0">
+                                Font
+                            </summary>
+                            <ul class="bg-white text-zinc-800 shadow-lg rounded py-1 min-w-40 z-50
+                                       static w-full mt-1 max-h-[50vh] overflow-y-auto overscroll-contain
+                                       lg:absolute lg:right-0 lg:top-full lg:w-auto lg:mt-1 lg:mb-0 lg:max-h-[70vh]">
+                                <li repeat.for="font of fonts">
+                                    <a class="block px-4 py-2 hover:bg-zinc-100 ${font.class} cursor-pointer"
+                                       click.trigger="selectFont(font, $event)">
+                                        ${font.name}
+                                    </a>
+                                </li>
+                            </ul>
+                        </details>
                     </li>
                     <li class="flex items-center">
                         <a href="https://discord.gg/9zZkYrSA8C" target="_blank">

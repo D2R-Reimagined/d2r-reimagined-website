@@ -82,7 +82,7 @@ body {
 }
 
 .requirement {
-    color: #ef4f4f;
+    color: #e14b4b;
 }
 
 .requirement-dark {
@@ -116,3 +116,13 @@ body {
 .w-20 {
   width: calc(var(--spacing) * 20);
 }
+
+/* Navbar Font <details> summary tweaks */
+/* Remove the default disclosure marker and any stray indent so "Font" aligns with other items */
+nav details > summary {
+  list-style: none; /* belt-and-suspenders with Tailwind's list-none */
+  padding-left: 0;
+  margin-left: 0;
+}
+nav details > summary::-webkit-details-marker { display: none; }
+nav details > summary::marker { content: ''; }

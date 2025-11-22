@@ -58,9 +58,9 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 text-center">
             <template repeat.for="family of group.families">
-                <div class="bg-gray-800 rounded shadow p-2" repeat.for="item of family.items">
-                    <div class="bg-gray-800 rounded">
-                        <div class="text-lg text-gray-400">
+                <div class="bg-zinc-800 rounded shadow p-2" repeat.for="item of family.items">
+                    <div class="bg-zinc-800 rounded">
+                        <div class="text-lg text-zinc-400">
                             ${item.Name}
                         </div>
                         <div class="rarity-text mb-1" if.bind="item.GemSockets !== null && item.GemSockets !== undefined  && item.GemSockets !== 0">

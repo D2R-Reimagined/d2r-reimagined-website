@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-DqmPT5xO.js","assets/debounce-ZwsFz6hU.js","assets/cube-recipes-BJXOl2Zy.css","assets/uniques-B1T6YDav.js","assets/uniques-Bk_ERHIS.js","assets/sets-ZfNiheBa.js","assets/runewords-DL5ewFC1.js","assets/grail-CVVJ1rJj.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-Dw2Sat44.js","assets/debounce-ZwsFz6hU.js","assets/cube-recipes-BJXOl2Zy.css","assets/uniques-BJOX7XBX.js","assets/uniques-DR4Eo1cT.js","assets/sets-CjTHn1O-.js","assets/runewords-wKBLKckH.js","assets/grail-COhOzqpJ.js","assets/affixes-CGl2oWVk.js"])))=>i.map(i=>d[i]);
 (function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) return;
@@ -36054,7 +36054,7 @@ MdOutlinedTextField = __decorate([
   t$3("md-outlined-text-field")
 ], MdOutlinedTextField);
 const name$1 = "search-area";
-const template$t = '<div class="search-area">\n    <au-slot></au-slot>\n</div>';
+const template$t = '<div class="search-area">\r\n    <au-slot></au-slot>\r\n</div>';
 const dependencies$1 = [];
 const bindables$1 = {};
 let _e$1;
@@ -36342,79 +36342,101 @@ const __vitePreload = function preload(baseModule, deps, importerUrl) {
   });
 };
 const name = "app";
-const template$s = `<nav class="bg-gray-800 text-white sticky top-0 z-3">
-    <div class="mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center">
-            <a class="mr-6" href="/">
-                D2R Reimagined
-            </a>
-            <button class="lg:hidden ml-auto" type="button" onclick="document.getElementById('navbarSupportedContent').classList.toggle('hidden')" aria-label="Toggle navigation">
-                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
-            <div class="hidden lg:flex lg:items-center lg:justify-between w-full" id="navbarSupportedContent">
-                <ul class="flex space-x-4">
-                    <li>
-                        <a class="hover:text-gray-300 py-2 flex cursor-pointer" aria-current="page" href="/cube-recipes">
-                            Cube Recipes
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-300 py-2 flex cursor-pointer" aria-current="page" href="/uniques">
-                            Uniques
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-300 py-2 flex cursor-pointer" aria-current="page" href="/sets">
-                            Sets
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-300 py-2 flex cursor-pointer" aria-current="page" href="/runewords">
-                            Runewords
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-300 py-2 flex cursor-pointer" aria-current="page" href="/grail">
-                            Grail
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-300 py-2 cursor-pointer flex items-center" aria-current="page" href="https://wiki.d2r-reimagined.com/" external target="_blank">
-                            Wiki <span class="material-symbols-outlined ml-1">open_in_new</span>
-                        </a>
-                    </li>
-                </ul>
-                <ul class="flex items-center ml-auto">
-                    <li class="mx-3 relative group">
-                        <a class="hover:text-gray-300 py-2 inline-block cursor-pointer" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Font
-                        </a>
-                        <ul class="hidden group-hover:block absolute right-0 bg-white text-gray-800 shadow-lg rounded py-1 min-w-40">
-                            <li repeat.for="font of fonts"><a class="block px-4 py-2 hover:bg-gray-100 \${font.class} cursor-pointer" click.trigger="handleFontSelected(font)">\${font.name}</a></li>
-                        </ul>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="https://discord.gg/9zZkYrSA8C" target="_blank">
-                            <svg width=32" height="32" viewBox="0 -28.5 256 256" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
-                                <g>
-                                    <path d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z" fill="#5865F2" fill-rule="nonzero">
-
-                                    </path>
-                                </g>
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</nav>
-
-<div class="w-full px-2">
-    <au-viewport default="Home"></au-viewport>
-</div>
+const template$s = `<nav class="bg-zinc-800 text-white sticky top-0 z-6">\r
+    <div class="mx-auto px-4 sm:px-6 lg:px-8">\r
+        <div class="flex items-center relative">\r
+            <a class="mr-6" href="/">\r
+                D2R Reimagined\r
+            </a>\r
+            <button class="lg:hidden ml-auto" type="button" onclick="document.getElementById('navbarSupportedContent').classList.toggle('hidden')" aria-label="Toggle navigation">\r
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">\r
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>\r
+                </svg>\r
+            </button>\r
+            <div id="navbarSupportedContent"\r
+                 class="hidden flex flex-col gap-2 w-full absolute left-0 right-0 top-full bg-zinc-800 border-t border-zinc-700 shadow-md p-3 z-50\r
+                        max-h-[calc(100dvh-60px)] overflow-y-auto overscroll-contain\r
+                        lg:static lg:flex lg:flex-row lg:items-center lg:justify-between lg:p-0 lg:shadow-none lg:border-0 lg:bg-transparent lg:max-h-none lg:overflow-visible">\r
+                <ul class="flex flex-col gap-2 lg:flex-row lg:gap-0 lg:space-x-4">\r
+                    <li>\r
+                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/armors" click.trigger="closeMobileMenu()">\r
+                            Bases\r
+                        </a>\r
+                    </li>\r
+                    <li>\r
+                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/affixes" click.trigger="closeMobileMenu()">\r
+                            Affixes\r
+                        </a>\r
+                    </li>\r
+                    <li>\r
+                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/uniques" click.trigger="closeMobileMenu()">\r
+                            Uniques\r
+                        </a>\r
+                    </li>\r
+                    <li>\r
+                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/sets" click.trigger="closeMobileMenu()">\r
+                            Sets\r
+                        </a>\r
+                    </li>\r
+                    <li>\r
+                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/runewords" click.trigger="closeMobileMenu()">\r
+                            Runewords\r
+                        </a>\r
+                    </li>\r
+                    <li>\r
+                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/cube-recipes" click.trigger="closeMobileMenu()">\r
+                            Cube Recipes\r
+                        </a>\r
+                    </li>\r
+                    <li>\r
+                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/grail" click.trigger="closeMobileMenu()">\r
+                            Grail\r
+                        </a>\r
+                    </li>\r
+                    <li>\r
+                        <a class="hover:text-zinc-400 py-1 cursor-pointer flex items-center" aria-current="page" href="https://wiki.d2r-reimagined.com/" external target="_blank" click.trigger="closeMobileMenu()">\r
+                            Wiki <span class="material-symbols-outlined ml-1">open_in_new</span>\r
+                        </a>\r
+                    </li>\r
+                </ul>\r
+                <ul class="flex flex-col gap-2 lg:flex-row lg:items-center lg:ml-auto">\r
+                    <li class="relative lg:mx-3">\r
+                        <details class="relative">\r
+                            <summary class="list-none hover:text-zinc-300 py-2 inline-flex items-center cursor-pointer select-none pl-0">\r
+                                Font\r
+                            </summary>\r
+                            <ul class="bg-white text-zinc-800 shadow-lg rounded py-1 min-w-40 z-50\r
+                                       static w-full mt-1 max-h-[50vh] overflow-y-auto overscroll-contain\r
+                                       lg:absolute lg:right-0 lg:top-full lg:w-auto lg:mt-1 lg:mb-0 lg:max-h-[70vh]">\r
+                                <li repeat.for="font of fonts">\r
+                                    <a class="block px-4 py-2 hover:bg-zinc-100 \${font.class} cursor-pointer"\r
+                                       click.trigger="selectFont(font, $event)">\r
+                                        \${font.name}\r
+                                    </a>\r
+                                </li>\r
+                            </ul>\r
+                        </details>\r
+                    </li>\r
+                    <li class="flex items-center">\r
+                        <a href="https://discord.gg/9zZkYrSA8C" target="_blank">\r
+                            <svg width="32" height="32" viewBox="0 -28.5 256 256" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">\r
+                                <g>\r
+                                    <path d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z" fill="#5865F2" fill-rule="nonzero">\r
+\r
+                                    </path>\r
+                                </g>\r
+                            </svg>\r
+                        </a>\r
+                    </li>\r
+                </ul>\r
+            </div>\r
+        </div>\r
+    </div>\r
+</nav>\r
+\r
+<div class="w-full px-2">\r
+    <au-viewport default="Home"></au-viewport>\r
+</div>\r
 `;
 const dependencies = [];
 const bindables = {};
@@ -36471,33 +36493,48 @@ _App_decorators = [customElement(__au2ViewDef), route({
   routes: [
     {
       path: "",
-      component: __vitePreload(() => import("./home-CWpi8Hrq.js"), true ? [] : void 0),
+      component: __vitePreload(() => import("./home-DU4TYZQe.js"), true ? [] : void 0),
       title: "Home"
     },
     {
       path: "cube-recipes",
-      component: __vitePreload(() => import("./cube-recipes-DqmPT5xO.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
+      component: __vitePreload(() => import("./cube-recipes-Dw2Sat44.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
       title: "Cube Recipes"
     },
     {
       path: "uniques",
-      component: __vitePreload(() => import("./uniques-B1T6YDav.js"), true ? __vite__mapDeps([3,1,4]) : void 0),
+      component: __vitePreload(() => import("./uniques-BJOX7XBX.js"), true ? __vite__mapDeps([3,1,4]) : void 0),
       title: "Uniques"
     },
     {
       path: "sets",
-      component: __vitePreload(() => import("./sets-ZfNiheBa.js"), true ? __vite__mapDeps([5,1]) : void 0),
+      component: __vitePreload(() => import("./sets-CjTHn1O-.js"), true ? __vite__mapDeps([5,1]) : void 0),
       title: "Sets"
     },
     {
       path: "runewords",
-      component: __vitePreload(() => import("./runewords-DL5ewFC1.js"), true ? __vite__mapDeps([6,1]) : void 0),
+      component: __vitePreload(() => import("./runewords-wKBLKckH.js"), true ? __vite__mapDeps([6,1]) : void 0),
       title: "Runewords"
     },
     {
       path: "grail",
-      component: __vitePreload(() => import("./grail-CVVJ1rJj.js"), true ? __vite__mapDeps([7,4]) : void 0),
+      component: __vitePreload(() => import("./grail-COhOzqpJ.js"), true ? __vite__mapDeps([7,4]) : void 0),
       title: "Holy Grail"
+    },
+    {
+      path: "armors",
+      component: __vitePreload(() => import("./armors-CXEZCEor.js"), true ? [] : void 0),
+      title: "Armor Bases"
+    },
+    {
+      path: "weapons",
+      component: __vitePreload(() => import("./weapons-EywOTtHl.js"), true ? [] : void 0),
+      title: "Weapon Bases"
+    },
+    {
+      path: "affixes",
+      component: __vitePreload(() => import("./affixes-CGl2oWVk.js"), true ? __vite__mapDeps([8,1]) : void 0),
+      title: "Affixes"
     }
   ]
 })];
@@ -36513,6 +36550,28 @@ class App {
   handleFontSelected(font) {
     window.localStorage.setItem("font", font.class);
     this.loadFont();
+  }
+  /**
+   * Handles font selection from the dropdown and safely closes the <details> element.
+   * Using a single method avoids multi‑statement binding expressions that Aurelia disallows.
+   */
+  selectFont(font, event) {
+    this.handleFontSelected(font);
+    const target = event?.target;
+    const details = target?.closest("details");
+    if (details) {
+      details.removeAttribute("open");
+    }
+    this.closeMobileMenu();
+  }
+  /**
+   * Closes the mobile navigation panel by adding the 'hidden' class back to the container.
+   */
+  closeMobileMenu() {
+    const panel = document.getElementById("navbarSupportedContent");
+    if (panel && !panel.classList.contains("hidden")) {
+      panel.classList.add("hidden");
+    }
   }
   loadFont() {
     const selectedFont = window.localStorage.getItem("font") || "font-resurrected";
@@ -46512,7 +46571,9 @@ void Aurelia2.register(
 ).register(BetsyWebComponentsPlugin$1).register(Resources).register(Elements).app(App).start();
 export {
   CustomElement as C,
+  IRouter as I,
   bindable as b,
   customElement as c,
+  resolve as r,
   watch as w
 };

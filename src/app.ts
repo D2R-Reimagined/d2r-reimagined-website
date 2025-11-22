@@ -68,6 +68,32 @@ export class App {
         this.loadFont();
     }
 
+    /**
+     * Handles font selection from the dropdown and safely closes the <details> element.
+     * Using a single method avoids multi‑statement binding expressions that Aurelia disallows.
+     */
+    selectFont(font: Font, event?: Event) {
+        this.handleFontSelected(font);
+        // Close the <details> dropdown if the event came from within it
+        const target = event?.target as HTMLElement | undefined;
+        const details = target?.closest('details') as HTMLDetailsElement | null;
+        if (details) {
+            details.removeAttribute('open');
+        }
+        // Also close the mobile nav panel if it is open
+        this.closeMobileMenu();
+    }
+
+    /**
+     * Closes the mobile navigation panel by adding the 'hidden' class back to the container.
+     */
+    closeMobileMenu() {
+        const panel = document.getElementById('navbarSupportedContent');
+        if (panel && !panel.classList.contains('hidden')) {
+            panel.classList.add('hidden');
+        }
+    }
+
     loadFont() {
         const selectedFont = window.localStorage.getItem('font') || 'font-resurrected';
         if (selectedFont) {
