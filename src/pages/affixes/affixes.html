@@ -42,7 +42,6 @@
                                 class="w-full"
                                 label="Min Rlvl"
                                 type="number"
-                                value="1"
                                 value.bind="minRequiredLevel"
                         ></moo-text-field>
                     </div>
@@ -53,7 +52,6 @@
                                 class="w-full"
                                 label="Max Rlvl"
                                 type="number"
-                                value="100"
                                 value.bind="maxRequiredLevel"
                         ></moo-text-field>
                     </div>
@@ -70,7 +68,7 @@
                 <div class="rarity-text ml-1 mt-1">${affix.Name}</div>
                 <div class="base-text bg-gray-700 rounded px-1 mr-1 mt-1">${affix.PType}</div>
             </div>
-            <div class="requirement mb-1">Level ${affix.RequiredLevel && affix.RequiredLevel > 0 ? affix.RequiredLevel :
+            <div class="requirement mb-1">Level ${affix.RequiredLevel > 0 ? affix.RequiredLevel :
                 1} Required
             </div>
             <div class="base-text mb-1" if.bind="affix.Level">Affix Level ${affix.Level}${affix.MaxLevel ? ' - ' +
