@@ -19,7 +19,7 @@ export class Runewords {
     types: { label: string, value: string[] }[] = [
         // Parent types
         { label: '-', value: [] },
-        { label: 'Any Armor', value: [ 'Armor', 'Any Armor'] },
+        { label: 'Any Armor', value: [ 'Body Armor', 'Any Armor'] },
         { label: 'Any Helm', value: [ 'Helm' ] },
         { label: 'Any Weapon', value: [ 'Weapon' ] },
         { label: 'Any Melee Weapon', value: [ 'Melee Weapon', 'Weapon' ] },
