@@ -3,6 +3,10 @@ import { debounce, DebouncedFunction } from '../../utilities/debounce';
 import prefixes from '../item-jsons/magicprefix.json';
 import suffixes from '../item-jsons/magicsuffix.json';
 import propertyGroups from '../item-jsons/PropertyGroups.json';
+import {
+    RUNEWORD_TYPE_OPTIONS,
+    getChainForTypeName
+} from '../../resources/constants/item-type-filters';
 
 type PType = 'Prefix' | 'Suffix';
 
@@ -34,6 +38,10 @@ export class Affixes {
     ];
     @bindable selectedGroupDescription: string | undefined;
     private descToGroups: Map<string, Set<number>> = new Map();
+
+    // Item Type dropdown (reuse centralized options)
+    types: { label: string; value: string[] }[] = RUNEWORD_TYPE_OPTIONS.slice();
+    @bindable selectedType: string[] | undefined;
 
     // Required Level filters
     // Note: bound via <moo-text-field>, which provides string values. Accept string as well.
@@ -95,6 +103,11 @@ export class Affixes {
         this.applyFilters();
     }
 
+    @watch('selectedType')
+    handleTypeChanged() {
+        this.applyFilters();
+    }
+
     @watch('minRequiredLevel')
     handleMinReqChanged() {
         if (this._debouncedFilter) this._debouncedFilter();
@@ -124,6 +137,32 @@ export class Affixes {
             // Group filter via description mapping (must match one of the groups when selected)
             if (selectedGroups) {
                 if (!selectedGroups.has(a.Group)) return false;
+            }
+
+            // Item Type filter (uses canonical chains + respects ETypes exclusions)
+            if (this.selectedType && this.selectedType.length > 0) {
+                const selectedSet = new Set<string>(this.selectedType);
+
+                // Allowed by Types (if Types present). If absent, treat as general (allowed).
+                let allowed = true;
+                if (Array.isArray(a.Types) && a.Types.length > 0) {
+                    allowed = a.Types.some((t: any) => {
+                        const raw = t != null ? String(t) : '';
+                        const chain = getChainForTypeName(raw);
+                        return chain.some((c) => selectedSet.has(c));
+                    });
+                }
+                if (!allowed) return false;
+
+                // Excluded by ETypes: if any excluded type (or its parents) matches selection, reject.
+                if (Array.isArray(a.ETypes) && a.ETypes.length > 0) {
+                    const excluded = a.ETypes.some((t: any) => {
+                        const raw = t != null ? String(t) : '';
+                        const chain = getChainForTypeName(raw);
+                        return chain.some((c) => selectedSet.has(c));
+                    });
+                    if (excluded) return false;
+                }
             }
 
             // Required Level range

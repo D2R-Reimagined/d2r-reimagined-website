@@ -1,12 +1,4 @@
-<<<<<<<< Updated upstream:docs/assets/uniques-zm73_g3m.js
-<<<<<<<< HEAD:docs/assets/uniques-BJOX7XBX.js
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-BxZpbDk2.js";
-========
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-C4bIoaiO.js";
->>>>>>>> master:docs/assets/uniques-zm73_g3m.js
-========
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-fyyKpKvt.js";
->>>>>>>> Stashed changes:docs/assets/uniques-BLdAtEuU.js
+import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-Ct1PVUXc.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
 import { j as json } from "./uniques-DR4Eo1cT.js";
 const name = "uniques";

@@ -7,8 +7,7 @@
   background-color: black !important;
 }
 
-/* >= 768px (md) */
-@media (min-width: 768px) {
+@media (min-width: 1025px) {
     .search-area {
       position: sticky;
     top: 60px;
