@@ -20,7 +20,7 @@
                     <div class="mb-2">
                         <moo-select
                                 class="w-full standard-betsy-select"
-                                label="Groups via PropertyGroups.json"
+                                label="Property Type"
                                 options.bind="groupOptions"
                                 value.bind="selectedGroupDescription"
                         ></moo-select>
@@ -65,21 +65,18 @@
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 text-center">
         <div class="bg-gray-800 rounded shadow" repeat.for="affix of filteredAffixes">
             <div class="flex justify-between items-center">
-                <div class="rarity-text ml-1 mt-1">${affix.Name}</div>
-                <div class="base-text bg-gray-700 rounded px-1 mr-1 mt-1">${affix.PType}</div>
+                <div class="enhanced ml-1 mt-1">${affix.Name}</div>
+                <div class="base-text px-1 mr-1 mt-1">${affix.PType}</div>
             </div>
-            <div class="requirement mb-1">Level ${affix.RequiredLevel > 0 ? affix.RequiredLevel :
-                1} Required
+            <div class="requirement mb-1">Level ${affix.RequiredLevel > 0 ? affix.RequiredLevel : 1} Required
             </div>
-            <div class="base-text mb-1" if.bind="affix.Level">Affix Level ${affix.Level}${affix.MaxLevel ? ' - ' +
-                affix.MaxLevel : ''}
+            <div class="base-text mb-1" if.bind="affix.Level">Affix Level ${affix.Level}${affix.MaxLevel ? ' - ' + affix.MaxLevel : ''}
             </div>
             <div if.bind="affix.Types && affix.Types.length">
-                <span class="base-text bg-gray-700 rounded mx-[4px] mb-1 px-1" repeat.for="t of affix.Types">${t}</span>
+                <span class="set-text mb-1 px-1" repeat.for="t of affix.Types">${t}</span>
             </div>
             <div if.bind="affix.ETypes && affix.ETypes.length">
-                <span class="requirement bg-gray-700 rounded mx-[4px] mb-1 px-1"
-                      repeat.for="et of affix.ETypes">${et}</span>
+                <span class="requirement mb-1 px-1" repeat.for="et of affix.ETypes">${et}</span>
             </div>
             <div class="enhanced my-1" repeat.for="prop of affix.Properties">${prop.PropertyString}</div>
         </div>

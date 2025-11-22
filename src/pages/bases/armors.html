@@ -60,7 +60,7 @@
             <template repeat.for="family of group.families">
                 <div class="bg-gray-800 rounded shadow p-2" repeat.for="item of family.items">
                     <div class="bg-gray-800 rounded">
-                        <div class="text-lg base-text">
+                        <div class="text-lg text-gray-400">
                             ${item.Name}
                         </div>
                         <div class="rarity-text mb-1" if.bind="item.GemSockets !== null && item.GemSockets !== undefined  && item.GemSockets !== 0">
@@ -101,7 +101,7 @@
                                     </span>
                                 </div>
                                 <div class="flex flex-col items-end text-right">
-                                    <div class="enhanced" repeat.for="line of group.propertyStrings">
+                                    <div class="enhanced " repeat.for="line of group.propertyStrings">
                                         ${line}
                                     </div>
                                 </div>

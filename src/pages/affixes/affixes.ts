@@ -36,8 +36,9 @@ export class Affixes {
     private descToGroups: Map<string, Set<number>> = new Map();
 
     // Required Level filters
-    @bindable minRequiredLevel: number | undefined;
-    @bindable maxRequiredLevel: number | undefined;
+    // Note: bound via <moo-text-field>, which provides string values. Accept string as well.
+    @bindable minRequiredLevel: number | string | undefined;
+    @bindable maxRequiredLevel: number | string | undefined;
 
     attached() {
         // Normalize prefix/suffix arrays, ensure PType set explicitly (source JSON already has it, but keep consistent)
@@ -112,7 +113,8 @@ export class Affixes {
             ? this.descToGroups.get(this.selectedGroupDescription)
             : undefined;
 
-        const minRL = this.normalizeLevel(this.minRequiredLevel, 0);
+        // Default min to 1 when the box is empty; max defaults to 100
+        const minRL = this.normalizeLevel(this.minRequiredLevel, 1);
         const maxRL = this.normalizeLevel(this.maxRequiredLevel, 100);
 
         this.filteredAffixes = this.allAffixes.filter((a) => {
@@ -146,10 +148,16 @@ export class Affixes {
         });
     }
 
-    private normalizeLevel(val: number | undefined, fallback: number): number {
+    private normalizeLevel(val: number | string | undefined | null, fallback: number): number {
+        // Treat empty/whitespace strings as 'nothing in the box' → use fallback
+        if (val === undefined || val === null) return fallback;
+        if (typeof val === 'string') {
+            if (val.trim() === '') return fallback;
+        }
+
         const n = Number(val);
         if (Number.isFinite(n)) {
-            // clamp between 0 and 100 per requirements
+            // clamp between 0 and 100 per existing behavior
             return Math.max(0, Math.min(100, Math.floor(n)));
         }
         return fallback;
