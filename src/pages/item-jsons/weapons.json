@@ -26,7 +26,7 @@
         "UberCode": "9ha",
         "UltraCode": "7ha",
         "GemSockets": 2,
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -176,7 +176,7 @@
         "UberCode": "9la",
         "UltraCode": "7la",
         "GemSockets": 4,
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -326,7 +326,7 @@
         "UberCode": "9wn",
         "UltraCode": "7wn",
         "GemSockets": 1,
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -446,7 +446,7 @@
         "UberCode": "9cl",
         "UltraCode": "7cl",
         "GemSockets": 2,
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -476,7 +476,7 @@
         "UberCode": "9sc",
         "UltraCode": "7sc",
         "GemSockets": 2,
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -566,7 +566,7 @@
         "UberCode": "9sp",
         "UltraCode": "7sp",
         "GemSockets": 2,
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -776,7 +776,7 @@
         "UberCode": "9ss",
         "UltraCode": "7ss",
         "GemSockets": 2,
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -806,7 +806,7 @@
         "UberCode": "9sm",
         "UltraCode": "7sm",
         "GemSockets": 2,
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -1220,7 +1220,7 @@
         "UberCode": "9dg",
         "UltraCode": "7dg",
         "GemSockets": 1,
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -1353,7 +1353,7 @@
         "NormCode": "tkf",
         "UberCode": "9tk",
         "UltraCode": "7tk",
-        "GemSockets": 0,
+        "GemSockets": 1,
         "AutoPrefix": "317",
         "RequiredClass": "Knife"
     },
@@ -1397,7 +1397,7 @@
         "NormCode": "tax",
         "UberCode": "9ta",
         "UltraCode": "7ta",
-        "GemSockets": 0,
+        "GemSockets": 1,
         "AutoPrefix": "317",
         "RequiredClass": "Axe"
     },
@@ -1441,7 +1441,7 @@
         "NormCode": "bkf",
         "UberCode": "9bk",
         "UltraCode": "7bk",
-        "GemSockets": 0,
+        "GemSockets": 1,
         "AutoPrefix": "317",
         "RequiredClass": "Knife"
     },
@@ -1485,7 +1485,7 @@
         "NormCode": "bal",
         "UberCode": "9b8",
         "UltraCode": "7b8",
-        "GemSockets": 0,
+        "GemSockets": 2,
         "AutoPrefix": "317",
         "RequiredClass": "Axe"
     },
@@ -1503,6 +1503,16 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "AutoMagicGroups": [
+            {
+                "Name": "Replinish Quant",
+                "Level": 1,
+                "RequiredLevel": 1,
+                "PropertyStrings": [
+                    "Replenishes quantity"
+                ]
+            }
+        ],
         "EquipmentType": 1,
         "Name": "Javelin [N]",
         "Code": "jav",
@@ -1519,8 +1529,8 @@
         "NormCode": "jav",
         "UberCode": "9ja",
         "UltraCode": "7ja",
-        "GemSockets": 0,
-        "AutoPrefix": "319",
+        "GemSockets": 2,
+        "AutoPrefix": "317",
         "RequiredClass": ""
     },
     {
@@ -1563,7 +1573,7 @@
         "NormCode": "pil",
         "UberCode": "9pi",
         "UltraCode": "7pi",
-        "GemSockets": 0,
+        "GemSockets": 2,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -1607,7 +1617,7 @@
         "NormCode": "ssp",
         "UberCode": "9s9",
         "UltraCode": "7s7",
-        "GemSockets": 0,
+        "GemSockets": 2,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -1651,7 +1661,7 @@
         "NormCode": "glv",
         "UberCode": "9gl",
         "UltraCode": "7gl",
-        "GemSockets": 0,
+        "GemSockets": 2,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -1695,7 +1705,7 @@
         "NormCode": "tsp",
         "UberCode": "9ts",
         "UltraCode": "7ts",
-        "GemSockets": 0,
+        "GemSockets": 2,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -1726,7 +1736,7 @@
         "UberCode": "9sr",
         "UltraCode": "7sr",
         "GemSockets": 3,
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -1876,7 +1886,7 @@
         "UberCode": "9b7",
         "UltraCode": "7o7",
         "GemSockets": 3,
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -2056,7 +2066,7 @@
         "UberCode": "8ss",
         "UltraCode": "6ss",
         "GemSockets": 2,
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -2206,7 +2216,7 @@
         "UberCode": "8sb",
         "UltraCode": "6sb",
         "GemSockets": 3,
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -2236,7 +2246,7 @@
         "UberCode": "8hb",
         "UltraCode": "6hb",
         "GemSockets": 4,
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -2446,7 +2456,7 @@
         "UberCode": "8lx",
         "UltraCode": "6lx",
         "GemSockets": 3,
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -2716,7 +2726,7 @@
         "UberCode": "",
         "UltraCode": "",
         "GemSockets": 0,
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -2746,7 +2756,7 @@
         "UberCode": "",
         "UltraCode": "",
         "GemSockets": 0,
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -2776,7 +2786,7 @@
         "UberCode": "",
         "UltraCode": "",
         "GemSockets": 0,
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -2806,7 +2816,7 @@
         "UberCode": "",
         "UltraCode": "",
         "GemSockets": 3,
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -2836,7 +2846,7 @@
         "UberCode": "",
         "UltraCode": "",
         "GemSockets": 0,
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -2866,7 +2876,7 @@
         "UberCode": "",
         "UltraCode": "",
         "GemSockets": 5,
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -2896,7 +2906,7 @@
         "UberCode": "",
         "UltraCode": "",
         "GemSockets": 0,
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -2926,7 +2936,7 @@
         "UberCode": "",
         "UltraCode": "",
         "GemSockets": 0,
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -4283,7 +4293,7 @@
         "NormCode": "tkf",
         "UberCode": "9tk",
         "UltraCode": "7tk",
-        "GemSockets": 0,
+        "GemSockets": 2,
         "AutoPrefix": "317",
         "RequiredClass": "Knife"
     },
@@ -4327,7 +4337,7 @@
         "NormCode": "tax",
         "UberCode": "9ta",
         "UltraCode": "7ta",
-        "GemSockets": 0,
+        "GemSockets": 2,
         "AutoPrefix": "317",
         "RequiredClass": "Axe"
     },
@@ -4371,7 +4381,7 @@
         "NormCode": "bkf",
         "UberCode": "9bk",
         "UltraCode": "7bk",
-        "GemSockets": 0,
+        "GemSockets": 2,
         "AutoPrefix": "317",
         "RequiredClass": "Knife"
     },
@@ -4415,7 +4425,7 @@
         "NormCode": "bal",
         "UberCode": "9b8",
         "UltraCode": "7b8",
-        "GemSockets": 0,
+        "GemSockets": 2,
         "AutoPrefix": "317",
         "RequiredClass": "Axe"
     },
@@ -4459,7 +4469,7 @@
         "NormCode": "jav",
         "UberCode": "9ja",
         "UltraCode": "7ja",
-        "GemSockets": 0,
+        "GemSockets": 2,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -4503,7 +4513,7 @@
         "NormCode": "pil",
         "UberCode": "9pi",
         "UltraCode": "7pi",
-        "GemSockets": 0,
+        "GemSockets": 2,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -4547,7 +4557,7 @@
         "NormCode": "ssp",
         "UberCode": "9s9",
         "UltraCode": "7s7",
-        "GemSockets": 0,
+        "GemSockets": 2,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -4591,7 +4601,7 @@
         "NormCode": "glv",
         "UberCode": "9gl",
         "UltraCode": "7gl",
-        "GemSockets": 0,
+        "GemSockets": 2,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -4635,7 +4645,7 @@
         "NormCode": "tsp",
         "UberCode": "9ts",
         "UltraCode": "7ts",
-        "GemSockets": 0,
+        "GemSockets": 2,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -5506,7 +5516,7 @@
         "UberCode": "",
         "UltraCode": "",
         "GemSockets": 3,
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -5536,7 +5546,7 @@
         "UberCode": "",
         "UltraCode": "",
         "GemSockets": 3,
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -5566,7 +5576,7 @@
         "UberCode": "9ar",
         "UltraCode": "7ar",
         "GemSockets": 2,
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": "Assassin"
     },
     {
@@ -7389,7 +7399,7 @@
         "NormCode": "dgr",
         "UberCode": "9dg",
         "UltraCode": "7dg",
-        "GemSockets": 1,
+        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -7419,7 +7429,7 @@
         "NormCode": "dir",
         "UberCode": "9di",
         "UltraCode": "7di",
-        "GemSockets": 1,
+        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -7523,7 +7533,7 @@
         "NormCode": "tkf",
         "UberCode": "9tk",
         "UltraCode": "7tk",
-        "GemSockets": 0,
+        "GemSockets": 2,
         "AutoPrefix": "317",
         "RequiredClass": "Knife"
     },
@@ -7567,7 +7577,7 @@
         "NormCode": "tax",
         "UberCode": "9ta",
         "UltraCode": "7ta",
-        "GemSockets": 0,
+        "GemSockets": 2,
         "AutoPrefix": "317",
         "RequiredClass": "Axe"
     },
@@ -7611,7 +7621,7 @@
         "NormCode": "bkf",
         "UberCode": "9bk",
         "UltraCode": "7bk",
-        "GemSockets": 0,
+        "GemSockets": 2,
         "AutoPrefix": "317",
         "RequiredClass": "Knife"
     },
@@ -7655,7 +7665,7 @@
         "NormCode": "bal",
         "UberCode": "9b8",
         "UltraCode": "7b8",
-        "GemSockets": 0,
+        "GemSockets": 3,
         "AutoPrefix": "317",
         "RequiredClass": "Axe"
     },
@@ -7699,7 +7709,7 @@
         "NormCode": "jav",
         "UberCode": "9ja",
         "UltraCode": "7ja",
-        "GemSockets": 0,
+        "GemSockets": 3,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -7743,7 +7753,7 @@
         "NormCode": "pil",
         "UberCode": "9pi",
         "UltraCode": "7pi",
-        "GemSockets": 0,
+        "GemSockets": 3,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -7787,7 +7797,7 @@
         "NormCode": "ssp",
         "UberCode": "9s9",
         "UltraCode": "7s7",
-        "GemSockets": 0,
+        "GemSockets": 3,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -7831,7 +7841,7 @@
         "NormCode": "glv",
         "UberCode": "9gl",
         "UltraCode": "7gl",
-        "GemSockets": 0,
+        "GemSockets": 3,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -7875,7 +7885,7 @@
         "NormCode": "tsp",
         "UberCode": "9ts",
         "UltraCode": "7ts",
-        "GemSockets": 0,
+        "GemSockets": 3,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -9682,7 +9692,7 @@
         "NormCode": "am5",
         "UberCode": "ama",
         "UltraCode": "amf",
-        "GemSockets": 0,
+        "GemSockets": 2,
         "AutoPrefix": "318",
         "RequiredClass": "Amazon"
     },
@@ -10649,7 +10659,7 @@
         "NormCode": "am5",
         "UberCode": "ama",
         "UltraCode": "amf",
-        "GemSockets": 0,
+        "GemSockets": 2,
         "AutoPrefix": "318",
         "RequiredClass": "Amazon"
     },
@@ -11616,7 +11626,7 @@
         "NormCode": "am5",
         "UberCode": "ama",
         "UltraCode": "amf",
-        "GemSockets": 0,
+        "GemSockets": 3,
         "AutoPrefix": "318",
         "RequiredClass": "Amazon"
     }
