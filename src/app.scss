@@ -100,3 +100,15 @@ body {
 .rarity-text {
     color: lightskyblue;
   }
+
+.w-10 {
+  width: calc(var(--spacing) * 10);
+}
+
+.w-15 {
+  width: calc(var(--spacing) * 15);
+}
+
+.w-20 {
+  width: calc(var(--spacing) * 20);
+}

@@ -1,63 +1,157 @@
+import { bindable, watch } from 'aurelia';
+import { debounce, DebouncedFunction } from '../../utilities/debounce';
 import prefixes from '../item-jsons/magicprefix.json';
 import suffixes from '../item-jsons/magicsuffix.json';
-// Note: All advanced filtering/sorting has been removed per request. Keep only a simple search.
+import propertyGroups from '../item-jsons/PropertyGroups.json';
+
+type PType = 'Prefix' | 'Suffix';
+
+interface PropertyGroupEntry {
+    group: number;
+    items: { description: string }[];
+}
 
 export class Affixes {
+    // Data
     allAffixes: any[] = [];
     filteredAffixes: any[] = [];
 
-    // search text
-    search = '';
-    // debounce settings
-    private filterDebounceHandle: number | undefined;
-    private readonly debounceDelay = 350; // ms
+    // Search text
+    @bindable search: string;
+    private _debouncedFilter!: DebouncedFunction;
 
-    // All filtering/sorting controls removed.
+    // Prefix/Suffix dropdown
+    pTypeOptions = [
+        { value: undefined, label: '-' },
+        { value: 'Prefix', label: 'Prefix' },
+        { value: 'Suffix', label: 'Suffix' }
+    ];
+    @bindable selectedPType: PType | undefined;
+
+    // Group dropdown (built from PropertyGroups.json by description)
+    groupOptions: { value: string | undefined; label: string }[] = [
+        { value: undefined, label: '-' }
+    ];
+    @bindable selectedGroupDescription: string | undefined;
+    private descToGroups: Map<string, Set<number>> = new Map();
+
+    // Required Level filters
+    @bindable minRequiredLevel: number | undefined;
+    @bindable maxRequiredLevel: number | undefined;
 
     attached() {
-        const normalized = (arr: any[], pType: 'Prefix' | 'Suffix') =>
+        // Normalize prefix/suffix arrays, ensure PType set explicitly (source JSON already has it, but keep consistent)
+        const normalized = (arr: any[], pType: PType) =>
             arr.map((a) => ({
                 ...a,
-                PType: pType,
-                AllTypes: Array.from(new Set([...(a.Types || []), ...(a.ETypes || [])])),
+                PType: pType
             }));
 
         this.allAffixes = [
             ...normalized(prefixes as any[], 'Prefix'),
-            ...normalized(suffixes as any[], 'Suffix'),
+            ...normalized(suffixes as any[], 'Suffix')
         ];
 
+        // Build group description → group IDs mapping and options
+        this.buildGroupOptions(propertyGroups as unknown as PropertyGroupEntry[]);
+
+        // Set up debounced filter
+        this._debouncedFilter = debounce(this.applyFilters.bind(this), 350);
+
+        // Initial filter
         this.applyFilters();
     }
 
-    // Debounced wrapper for applyFilters used by the input event
-    debouncedApplyFilters() {
-        if (this.filterDebounceHandle !== undefined) {
-            clearTimeout(this.filterDebounceHandle);
+    private buildGroupOptions(groups: PropertyGroupEntry[]) {
+        const descMap = new Map<string, Set<number>>();
+        for (const entry of groups) {
+            const g = entry.group;
+            for (const item of entry.items || []) {
+                const desc = item.description?.trim();
+                if (!desc) continue;
+                if (!descMap.has(desc)) descMap.set(desc, new Set<number>());
+                descMap.get(desc)!.add(g);
+            }
         }
-        this.filterDebounceHandle = window.setTimeout(() => {
-            this.applyFilters();
-        }, this.debounceDelay);
+
+        this.descToGroups = descMap;
+        const descriptions = Array.from(descMap.keys()).sort((a, b) => a.localeCompare(b));
+        this.groupOptions = [{ value: undefined, label: '-' }, ...descriptions.map(d => ({ value: d, label: d }))];
+    }
+
+    @watch('search')
+    handleSearchChanged() {
+        if (this._debouncedFilter) this._debouncedFilter();
+    }
+
+    @watch('selectedPType')
+    handlePTypeChanged() {
+        this.applyFilters();
+    }
+
+    @watch('selectedGroupDescription')
+    handleGroupChanged() {
+        this.applyFilters();
+    }
+
+    @watch('minRequiredLevel')
+    handleMinReqChanged() {
+        if (this._debouncedFilter) this._debouncedFilter();
+    }
+
+    @watch('maxRequiredLevel')
+    handleMaxReqChanged() {
+        if (this._debouncedFilter) this._debouncedFilter();
     }
 
     applyFilters() {
         const q = (this.search || '').trim().toLowerCase();
-        if (!q) {
-            this.filteredAffixes = this.allAffixes.slice();
-            return;
-        }
+        const hasQuery = q.length > 0;
+
+        const selectedGroups: Set<number> | undefined = this.selectedGroupDescription
+            ? this.descToGroups.get(this.selectedGroupDescription)
+            : undefined;
+
+        const minRL = this.normalizeLevel(this.minRequiredLevel, 0);
+        const maxRL = this.normalizeLevel(this.maxRequiredLevel, 100);
 
         this.filteredAffixes = this.allAffixes.filter((a) => {
-            const name: string = (a.Name || '').toString().toLowerCase();
-            const props: string = (a.Properties || [])
-                .map((p: any) => (p && p.PropertyString ? String(p.PropertyString) : ''))
-                .join('\n')
-                .toLowerCase();
-            const types: string = (a.AllTypes || [])
-                .map((t: any) => (t != null ? String(t) : ''))
-                .join('\n')
-                .toLowerCase();
-            return name.includes(q) || props.includes(q) || types.includes(q);
+            // PType filter
+            if (this.selectedPType && a.PType !== this.selectedPType) return false;
+
+            // Group filter via description mapping (must match one of the groups when selected)
+            if (selectedGroups) {
+                if (!selectedGroups.has(a.Group)) return false;
+            }
+
+            // Required Level range
+            const rl = typeof a.RequiredLevel === 'number' ? a.RequiredLevel : 0;
+            if (rl < minRL || rl > maxRL) return false;
+
+            // Text search (Name, Properties, and Types only). ETypes are display-only and excluded from search.
+            if (hasQuery) {
+                const name: string = (a.Name || '').toString().toLowerCase();
+                const props: string = (a.Properties || [])
+                    .map((p: any) => (p && p.PropertyString ? String(p.PropertyString) : ''))
+                    .join('\n')
+                    .toLowerCase();
+                const types: string = (a.Types || [])
+                    .map((t: any) => (t != null ? String(t) : ''))
+                    .join('\n')
+                    .toLowerCase();
+                if (!(name.includes(q) || props.includes(q) || types.includes(q))) return false;
+            }
+
+            return true;
         });
+    }
+
+    private normalizeLevel(val: number | undefined, fallback: number): number {
+        const n = Number(val);
+        if (Number.isFinite(n)) {
+            // clamp between 0 and 100 per requirements
+            return Math.max(0, Math.min(100, Math.floor(n)));
+        }
+        return fallback;
     }
 }
