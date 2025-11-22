@@ -5,17 +5,38 @@
     <search-area>
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex flex-wrap justify-center items-center text-center">
-                <div class="w-full sm:w-1/2 px-2">
+                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
                     <div class="mb-2">
                         <moo-select
-                                class="w-full"
+                                class="w-full standard-betsy-select"
                                 label="Select Class"
                                 options.bind="classes"
-                                value.bind="selectedClass"
+                                value.bind="class"
                         ></moo-select>
                     </div>
                 </div>
-                <div class="w-full sm:w-1/2 px-2">
+                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
+                    <div class="mb-2">
+                        <moo-select
+                                class="w-full standard-betsy-select"
+                                label="Select Type"
+                                options.bind="types"
+                                value.bind="selectedType"
+                        ></moo-select>
+                    </div>
+                </div>
+                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
+                    <div class="mb-2">
+                        <moo-select
+                                class="w-full standard-betsy-select"
+                                label="Select Equipment"
+                                options.bind="equipmentNames"
+                                value.bind="selectedEquipmentName"
+                                disabled.bind="!selectedType"
+                        ></moo-select>
+                    </div>
+                </div>
+                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
                     <div class="mb-2">
                     <moo-text-field
                             class="w-full"
