@@ -1,8 +1,8 @@
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-fyyKpKvt.js";
+import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-D7OYzrgF.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
-import { c as canonicalizeTypeName, g as getChainForTypeName, R as RUNEWORD_TYPE_OPTIONS, S as SOCKET_AMOUNT_OPTIONS } from "./item-type-filters-BuxsOlXQ.js";
+import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, g as getChainForTypeName, t as type_filtering_options } from "./item-type-filters-3ezJuRu1.js";
 const name = "runewords";
-const template = '<template>\r\n    <h3 class="text-center my-4">\r\n        ${filteredRunewords.length} Runewords Found\r\n    </h3>\r\n    <search-area>\r\n        <div class="max-w-7xl mx-auto px-4">\r\n            <div class="flex flex-wrap justify-center items-center text-center">\r\n                <div class="w-full md:w-1/3 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full"\r\n                                label="Select Socket Count"\r\n                                options.bind="amounts"\r\n                                class="standard-betsy-select"\r\n                                value.bind="selectedAmount"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-1/3 lg:w-1/4 px-2">\r\n                    <div class="my-1">\r\n                        <moo-select\r\n                                class="w-full"\r\n                                label="Select Type"\r\n                                options.bind="types"\r\n                                class="standard-betsy-select"\r\n                                value.bind="selectedType"\r\n                        ></moo-select>\r\n                        <moo-checkbox checked.bind="exclusiveType" id="exclusiveType ">Exact Type Only</moo-checkbox>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-1/3 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-text-field\r\n                                class="w-full"\r\n                                label="Search Runewords"\r\n                                type="text"\r\n                                value.bind="search"\r\n                        ></moo-text-field>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-1/3 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-text-field\r\n                                class="w-full"\r\n                                label="Runes"\r\n                                type="text"\r\n                                value.bind="searchRunes"\r\n                        ></moo-text-field>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </search-area>\r\n    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">\r\n        <div repeat.for="runeword of filteredRunewords">\r\n            <div class="bg-zinc-800 rounded shadow p-2">\r\n                <div class="unique-text text-xl mb-1">\r\n                    ${runeword.Name}\r\n                </div>\r\n                <div class="combo">\r\n                    <span repeat.for="rune of runeword.Runes">\r\n                        ${rune.Name | runeName} ${$index + 1 !== runeword.Runes.length ? \' + \' : \'\'}\r\n                    </span>\r\n                </div>\r\n                <div class="types py-2">\r\n                    <span repeat.for="type of runeword.Types">\r\n                        ${transformTypeName(type.Name)} ${$index + 1 !== runeword.Types.length ? \' or \' : \'\'}\r\n                    </span>\r\n                </div>\r\n                <div class="requirement" if.bind="actualLevelRequirement(runeword) > 0">\r\n                    Level ${runeword.RequiredLevel} Required\r\n                </div>\r\n                <div class="mt-2">\r\n                    <div class="enhanced" repeat.for="property of runeword.Properties">\r\n                        ${property.PropertyString}\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</template>\r\n';
+const template = '<template>\r\n    <h3 class="text-center my-4">\r\n        ${filteredRunewords.length} Runewords Found\r\n    </h3>\r\n    <search-area>\r\n        <div class="max-w-7xl mx-auto px-4">\r\n            <div class="flex flex-wrap justify-center items-center text-center">\r\n                <div class="w-full md:w-1/3 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full"\r\n                                label="Select Socket Count"\r\n                                options.bind="amounts"\r\n                                class="standard-betsy-select"\r\n                                value.bind="selectedAmount"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-1/3 lg:w-1/4 px-2">\r\n                    <div class="my-1">\r\n                        <moo-select\r\n                                class="w-full"\r\n                                label="Select Type"\r\n                                options.bind="types"\r\n                                class="standard-betsy-select"\r\n                                value.bind="selectedType"\r\n                        ></moo-select>\r\n                        <moo-checkbox checked.bind="exclusiveType" id="exclusiveType ">Exact Type Only</moo-checkbox>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-1/3 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-text-field\r\n                                class="w-full"\r\n                                label="Search Runewords"\r\n                                type="text"\r\n                                value.bind="search"\r\n                        ></moo-text-field>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-1/3 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-text-field\r\n                                class="w-full"\r\n                                label="Runes"\r\n                                type="text"\r\n                                value.bind="searchRunes"\r\n                        ></moo-text-field>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </search-area>\r\n    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">\r\n        <div repeat.for="runeword of filteredRunewords">\r\n            <div class="bg-zinc-800 rounded shadow p-2">\r\n                <div class="unique-text text-xl mb-1">\r\n                    ${runeword.Name}\r\n                </div>\r\n                <div class="combo">\r\n                    <span repeat.for="rune of runeword.Runes">\r\n                        ${rune.Name | runeName} ${$index + 1 !== runeword.Runes.length ? \' + \' : \'\'}\r\n                    </span>\r\n                </div>\r\n                <div class="types py-2">\r\n                    <span repeat.for="type of runeword.Types">\r\n                        ${type.Name} ${$index + 1 !== runeword.Types.length ? \' or \' : \'\'}\r\n                    </span>\r\n                </div>\r\n                <div class="requirement">\r\n                    Level ${runeword.RequiredLevel > 0? runeword.RequiredLevel: 1} Required\r\n                </div>\r\n                <div class="mt-2">\r\n                    <div class="enhanced" repeat.for="property of runeword.Properties">\r\n                        ${property.PropertyString}\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</template>\r\n';
 const dependencies = [];
 const bindables = {};
 let _e;
@@ -81,13 +81,32 @@ class Runewords {
     __publicField(this, "exclusiveType", __runInitializers(_init, 16, this)), __runInitializers(_init, 19, this);
     __publicField(this, "_debouncedSearchItem");
     __publicField(this, "filteredRunewords", []);
-    __publicField(this, "types", RUNEWORD_TYPE_OPTIONS.slice());
+    __publicField(this, "types", type_filtering_options.slice());
     __publicField(this, "selectedType");
-    __publicField(this, "amounts", SOCKET_AMOUNT_OPTIONS.slice());
+    __publicField(this, "amounts", [
+      { value: void 0, label: "Any" },
+      { value: 2, label: "2 Sockets" },
+      { value: 3, label: "3 Sockets" },
+      { value: 4, label: "4 Sockets" },
+      { value: 5, label: "5 Sockets" },
+      { value: 6, label: "6 Sockets" }
+    ]);
     __publicField(this, "selectedAmount");
   }
   attached() {
     const urlParams = new URLSearchParams(window.location.search);
+    const present = /* @__PURE__ */ new Set();
+    try {
+      for (const rw of this.runewords) {
+        const types = Array.isArray(rw?.Types) ? rw.Types : [];
+        for (const t of types) {
+          const base = resolveBaseTypeName(t?.Name ?? "");
+          if (base) present.add(base);
+        }
+      }
+    } catch {
+    }
+    this.types = buildOptionsForPresentTypes(type_filtering_options, present);
     const searchParam = urlParams.get("search");
     if (searchParam) {
       this.search = searchParam;
@@ -98,9 +117,7 @@ class Runewords {
     }
     const typeParam = urlParams.get("type");
     if (typeParam) {
-      const parts = typeParam.split(",").map((s) => canonicalizeTypeName(s)).filter(Boolean);
-      const seen = /* @__PURE__ */ new Set();
-      this.selectedType = parts.filter((p) => p && !seen.has(p) ? (seen.add(p), true) : false);
+      this.selectedType = typeParam.split(",");
     }
     const socketsParam = urlParams.get("sockets");
     if (socketsParam) {
@@ -179,18 +196,16 @@ class Runewords {
   updateList() {
     let filteringRunewords = this.runewords;
     if (this.selectedType?.length > 0) {
-      const selectedType = this.exclusiveType ? [this.selectedType[0]] : this.selectedType;
-      const selectedSet = new Set(selectedType);
-      filteringRunewords = filteringRunewords.filter((x) => {
-        for (const type of x.Types) {
-          const rawName = type && (type.Index || type.Name);
-          if (!rawName) continue;
-          const chain = getChainForTypeName(rawName);
-          for (const c of chain) {
-            if (selectedSet.has(c)) return true;
-          }
-        }
-        return false;
+      const selected = this.exclusiveType ? [this.selectedType[0]] : this.selectedType;
+      const selectedSet = new Set(selected);
+      const normalizeBase = (t) => {
+        const raw = t?.Name != null ? String(t.Name) : "";
+        const chain = getChainForTypeName(raw);
+        return chain && chain.length > 0 ? chain[0] : raw;
+      };
+      filteringRunewords = filteringRunewords.filter((rw) => {
+        const types = Array.isArray(rw.Types) ? rw.Types : [];
+        return types.some((t) => selectedSet.has(normalizeBase(t)));
       });
     }
     if (this.selectedAmount) {
@@ -226,21 +241,7 @@ class Runewords {
     }
     this.filteredRunewords = found;
   }
-  transformTypeName(name2) {
-    return canonicalizeTypeName(name2);
-  }
-  actualLevelRequirement(runeword) {
-    for (const property of runeword.Properties) {
-      if (property.PropertyString && property.PropertyString.includes("To Required Level")) {
-        const value = property.PropertyString.substring(1, 3);
-        if (!runeword.RequiredLevel) {
-          return parseInt(value.trim());
-        }
-        return runeword.RequiredLevel + parseInt(value.trim());
-      }
-    }
-    return runeword.RequiredLevel;
-  }
+  // Note: no type name transformations; use the names as exported by the game data.
 }
 _init = __decoratorStart();
 __decorateElement(_init, 1, "handleSearchRunesChanged", _handleSearchRunesChanged_dec, Runewords);

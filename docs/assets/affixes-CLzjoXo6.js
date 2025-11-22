@@ -1,7 +1,8 @@
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-Ct1PVUXc.js";
+import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-D7OYzrgF.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
+import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options, g as getChainForTypeName } from "./item-type-filters-3ezJuRu1.js";
 const name = "affixes";
-const template = '<template>\r\n    <h3 class="text-center my-2">\r\n        ${filteredAffixes.length} Magic Affixes Found\r\n    </h3>\r\n\r\n    <search-area>\r\n        <div class="max-w-7xl mx-auto px-4">\r\n            <div class="flex flex-wrap justify-center items-center text-center">\r\n                <div class="w-full md:w-1/3 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Prefix/Suffix"\r\n                                options.bind="pTypeOptions"\r\n                                value.bind="selectedPType"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-1/3 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Property Type"\r\n                                options.bind="groupOptions"\r\n                                value.bind="selectedGroupDescription"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-1/3 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-text-field\r\n                                class="w-full"\r\n                                label="Search Name, Property, or Type"\r\n                                type="text"\r\n                                value.bind="search"\r\n                        ></moo-text-field>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-1/3 lg:w-1/4 inline-flex flex-nowrap gap-2 px-2">\r\n\r\n                    <div class="mb-2">\r\n                        <moo-text-field\r\n                                class="w-full"\r\n                                label="Min Rlvl"\r\n                                type="number"\r\n                                value.bind="minRequiredLevel"\r\n                        ></moo-text-field>\r\n                    </div>\r\n                    <div class="mb-2">\r\n                        <moo-text-field\r\n                                class="w-full"\r\n                                label="Max Rlvl"\r\n                                type="number"\r\n                                value.bind="maxRequiredLevel"\r\n                        ></moo-text-field>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n    </search-area>\r\n    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 text-center mt-2">\r\n        <div class="bg-zinc-800 rounded shadow" repeat.for="affix of filteredAffixes">\r\n            <div class="flex justify-between items-center">\r\n                <div class="enhanced mt-1 ml-1">${affix.Name}</div>\r\n                <div class="base-text mt-1 mr-1">${affix.PType}</div>\r\n            </div>\r\n            <div class="requirement mb-1">Level ${affix.RequiredLevel > 0 ? affix.RequiredLevel : 1} Required\r\n            </div>\r\n            <div class="base-text mb-1" if.bind="affix.Level">Affix Level ${affix.Level}${affix.MaxLevel ? \' - \' +\r\n                affix.MaxLevel : \'\'}\r\n            </div>\r\n            <div class="flex flex-wrap justify-center" if.bind="affix.Types && affix.Types.length">\r\n                <span class="set-text-light mx-1" repeat.for="t of affix.Types">${t}</span>\r\n            </div>\r\n            <div class="flex flex-wrap justify-center" if.bind="affix.ETypes && affix.ETypes.length">\r\n                <span class="requirement mx-1" repeat.for="et of affix.ETypes">${et}</span>\r\n            </div>\r\n            <div class="enhanced my-1" repeat.for="prop of affix.Properties">${prop.PropertyString}</div>\r\n        </div>\r\n    </div>\r\n</template>\r\n';
+const template = '<template>\r\n    <h3 class="text-center my-2">\r\n        ${filteredAffixes.length} Magic Affixes Found\r\n    </h3>\r\n\r\n    <search-area>\r\n        <div class="max-w-7xl mx-auto px-4">\r\n            <div class="flex flex-wrap justify-center items-center text-center">\r\n                <div class="w-full md:w-1/3 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Prefix/Suffix"\r\n                                options.bind="pTypeOptions"\r\n                                value.bind="selectedPType"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-1/3 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Property Type"\r\n                                options.bind="groupOptions"\r\n                                value.bind="selectedGroupDescription"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-1/3 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Item Type"\r\n                                options.bind="types"\r\n                                value.bind="selectedType"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-1/3 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-text-field\r\n                                class="w-full"\r\n                                label="Search Name, Property, or Type"\r\n                                type="text"\r\n                                value.bind="search"\r\n                        ></moo-text-field>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-1/3 lg:w-1/4 inline-flex flex-nowrap gap-2 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-text-field\r\n                                class="w-full"\r\n                                label="Min Rlvl"\r\n                                type="number"\r\n                                value.bind="minRequiredLevel"\r\n                        ></moo-text-field>\r\n                    </div>\r\n                    <div class="mb-2">\r\n                        <moo-text-field\r\n                                class="w-full"\r\n                                label="Max Rlvl"\r\n                                type="number"\r\n                                value.bind="maxRequiredLevel"\r\n                        ></moo-text-field>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n    </search-area>\r\n    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 text-center mt-2">\r\n        <div class="bg-zinc-800 rounded shadow" repeat.for="affix of filteredAffixes">\r\n            <div class="flex justify-between items-center">\r\n                <div class="enhanced mt-1 ml-1">${affix.Name}</div>\r\n                <div class="base-text mt-1 mr-1">${affix.PType}</div>\r\n            </div>\r\n            <div class="requirement mb-1">Level ${affix.RequiredLevel > 0 ? affix.RequiredLevel : 1} Required\r\n            </div>\r\n            <div class="base-text mb-1" if.bind="affix.Level">Affix Level ${affix.Level}${affix.MaxLevel ? \' - \' +\r\n                affix.MaxLevel : \'\'}\r\n            </div>\r\n            <div class="flex flex-wrap justify-center" if.bind="affix.Types && affix.Types.length">\r\n                <span class="set-text-light mx-1" repeat.for="t of affix.Types">${t}</span>\r\n            </div>\r\n            <div class="flex flex-wrap justify-center" if.bind="affix.ETypes && affix.ETypes.length">\r\n                <span class="requirement mx-1" repeat.for="et of affix.ETypes">${et}</span>\r\n            </div>\r\n            <div class="enhanced my-1" repeat.for="prop of affix.Properties">${prop.PropertyString}</div>\r\n        </div>\r\n    </div>\r\n</template>\r\n';
 const dependencies = [];
 const bindables = {};
 let _e;
@@ -433,8 +434,8 @@ var __privateIn = (member, obj) => Object(obj) !== obj ? __typeError('Cannot use
 var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
 var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "access private method"), method);
-var _handleMaxReqChanged_dec, _handleMinReqChanged_dec, _handleGroupChanged_dec, _handlePTypeChanged_dec, _handleSearchChanged_dec, _maxRequiredLevel_dec, _minRequiredLevel_dec, _selectedGroupDescription_dec, _selectedPType_dec, _search_dec, _Affixes_decorators, _init;
-_Affixes_decorators = [customElement(__au2ViewDef)], _search_dec = [bindable], _selectedPType_dec = [bindable], _selectedGroupDescription_dec = [bindable], _minRequiredLevel_dec = [bindable], _maxRequiredLevel_dec = [bindable], _handleSearchChanged_dec = [watch("search")], _handlePTypeChanged_dec = [watch("selectedPType")], _handleGroupChanged_dec = [watch("selectedGroupDescription")], _handleMinReqChanged_dec = [watch("minRequiredLevel")], _handleMaxReqChanged_dec = [watch("maxRequiredLevel")];
+var _handleMaxReqChanged_dec, _handleMinReqChanged_dec, _handleTypeChanged_dec, _handleGroupChanged_dec, _handlePTypeChanged_dec, _handleSearchChanged_dec, _maxRequiredLevel_dec, _minRequiredLevel_dec, _selectedType_dec, _selectedGroupDescription_dec, _selectedPType_dec, _search_dec, _Affixes_decorators, _init;
+_Affixes_decorators = [customElement(__au2ViewDef)], _search_dec = [bindable], _selectedPType_dec = [bindable], _selectedGroupDescription_dec = [bindable], _selectedType_dec = [bindable], _minRequiredLevel_dec = [bindable], _maxRequiredLevel_dec = [bindable], _handleSearchChanged_dec = [watch("search")], _handlePTypeChanged_dec = [watch("selectedPType")], _handleGroupChanged_dec = [watch("selectedGroupDescription")], _handleTypeChanged_dec = [watch("selectedType")], _handleMinReqChanged_dec = [watch("minRequiredLevel")], _handleMaxReqChanged_dec = [watch("maxRequiredLevel")];
 class Affixes {
   constructor() {
     __runInitializers(_init, 5, this);
@@ -453,8 +454,10 @@ class Affixes {
     ]);
     __publicField(this, "selectedGroupDescription", __runInitializers(_init, 16, this)), __runInitializers(_init, 19, this);
     __publicField(this, "descToGroups", /* @__PURE__ */ new Map());
-    __publicField(this, "minRequiredLevel", __runInitializers(_init, 20, this)), __runInitializers(_init, 23, this);
-    __publicField(this, "maxRequiredLevel", __runInitializers(_init, 24, this)), __runInitializers(_init, 27, this);
+    __publicField(this, "types", type_filtering_options.slice());
+    __publicField(this, "selectedType", __runInitializers(_init, 20, this)), __runInitializers(_init, 23, this);
+    __publicField(this, "minRequiredLevel", __runInitializers(_init, 24, this)), __runInitializers(_init, 27, this);
+    __publicField(this, "maxRequiredLevel", __runInitializers(_init, 28, this)), __runInitializers(_init, 31, this);
   }
   attached() {
     const normalized = (arr, pType) => arr.map((a) => ({
@@ -465,6 +468,18 @@ class Affixes {
       ...normalized(prefixes, "Prefix"),
       ...normalized(suffixes, "Suffix")
     ];
+    const present = /* @__PURE__ */ new Set();
+    try {
+      for (const a of this.allAffixes) {
+        const types = Array.isArray(a?.Types) ? a.Types : [];
+        for (const t of types) {
+          const base = resolveBaseTypeName(t != null ? String(t) : "");
+          if (base) present.add(base);
+        }
+      }
+    } catch {
+    }
+    this.types = buildOptionsForPresentTypes(type_filtering_options, present);
     this.buildGroupOptions(propertyGroups);
     this._debouncedFilter = debounce(this.applyFilters.bind(this), 350);
     this.applyFilters();
@@ -493,6 +508,9 @@ class Affixes {
   handleGroupChanged() {
     this.applyFilters();
   }
+  handleTypeChanged() {
+    this.applyFilters();
+  }
   handleMinReqChanged() {
     if (this._debouncedFilter) this._debouncedFilter();
   }
@@ -509,6 +527,23 @@ class Affixes {
       if (this.selectedPType && a.PType !== this.selectedPType) return false;
       if (selectedGroups) {
         if (!selectedGroups.has(a.Group)) return false;
+      }
+      if (this.selectedType && this.selectedType.length > 0) {
+        const selectedSet = new Set(this.selectedType);
+        const normalize = (t) => {
+          const raw = t != null ? String(t) : "";
+          const chain = getChainForTypeName(raw);
+          return chain && chain.length > 0 ? chain[0] : raw;
+        };
+        let allowed = true;
+        if (Array.isArray(a.Types) && a.Types.length > 0) {
+          allowed = a.Types.some((t) => selectedSet.has(normalize(t)));
+        }
+        if (!allowed) return false;
+        if (Array.isArray(a.ETypes) && a.ETypes.length > 0) {
+          const excluded = a.ETypes.some((t) => selectedSet.has(normalize(t)));
+          if (excluded) return false;
+        }
       }
       const rl = typeof a.RequiredLevel === "number" ? a.RequiredLevel : 0;
       if (rl < minRL || rl > maxRL) return false;
@@ -537,11 +572,13 @@ _init = __decoratorStart();
 __decorateElement(_init, 1, "handleSearchChanged", _handleSearchChanged_dec, Affixes);
 __decorateElement(_init, 1, "handlePTypeChanged", _handlePTypeChanged_dec, Affixes);
 __decorateElement(_init, 1, "handleGroupChanged", _handleGroupChanged_dec, Affixes);
+__decorateElement(_init, 1, "handleTypeChanged", _handleTypeChanged_dec, Affixes);
 __decorateElement(_init, 1, "handleMinReqChanged", _handleMinReqChanged_dec, Affixes);
 __decorateElement(_init, 1, "handleMaxReqChanged", _handleMaxReqChanged_dec, Affixes);
 __decorateElement(_init, 5, "search", _search_dec, Affixes);
 __decorateElement(_init, 5, "selectedPType", _selectedPType_dec, Affixes);
 __decorateElement(_init, 5, "selectedGroupDescription", _selectedGroupDescription_dec, Affixes);
+__decorateElement(_init, 5, "selectedType", _selectedType_dec, Affixes);
 __decorateElement(_init, 5, "minRequiredLevel", _minRequiredLevel_dec, Affixes);
 __decorateElement(_init, 5, "maxRequiredLevel", _maxRequiredLevel_dec, Affixes);
 Affixes = __decorateElement(_init, 0, "Affixes", _Affixes_decorators, Affixes);

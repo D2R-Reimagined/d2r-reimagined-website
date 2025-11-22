@@ -1,7 +1,7 @@
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-fyyKpKvt.js";
+import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-D7OYzrgF.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
 const name = "sets";
-const template = '<template>\r\n    <h3 class="text-center my-4">\r\n        ${sets.length} Sets Found\r\n    </h3>\r\n    <search-area>\r\n        <div class="max-w-7xl mx-auto px-4">\r\n            <div class="flex flex-wrap justify-center items-center text-center">\r\n                <div class="w-full sm:w-1/2 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full"\r\n                                label="Select Class"\r\n                                options.bind="classes"\r\n                                value.bind="selectedClass"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full sm:w-1/2 px-2">\r\n                    <div class="mb-2">\r\n                    <moo-text-field\r\n                            class="w-full"\r\n                            label="Search Sets"\r\n                            type="text"\r\n                            value.bind="search"\r\n                    ></moo-text-field>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </search-area>\r\n\r\n    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">\r\n        <div repeat.for="set of sets">\r\n            <div class="bg-zinc-800 rounded shadow p-2">\r\n                <div class="set-text text-lg mb-1">\r\n                    ${set.Name}\r\n                </div>\r\n\r\n                <div class="partial-sets set-text" repeat.for="partial of set.PartialProperties">\r\n                    ${partial.PropertyString} (${getItemCount(partial.Index)} Items)\r\n                </div>\r\n\r\n                <div class="partial-sets set-text" repeat.for="full of set.FullProperties">\r\n                    ${full.PropertyString} (Full Set)\r\n                </div>\r\n\r\n                <div class="my-3" repeat.for="setItem of set.SetItems">\r\n                    <div class="set-text mb-1">\r\n                        ${setItem.Name}\r\n                    </div>\r\n                    \r\n                    <div class="rarity-text mb-1" if.bind="setItem.Rarity">\r\n                        Rarity: ${setItem.Rarity}\r\n                    </div>\r\n\r\n                    <div class="armor mb-1" if.bind="setItem.Equipment.Name">\r\n                        ${setItem.Equipment.Name}\r\n                    </div>\r\n\r\n                    <div class="armor mt-1" if.bind="setItem.Equipment.ArmorString">\r\n                        Armor: ${setItem.Equipment.ArmorString}\r\n                    </div>\r\n\r\n                    <div class="damage" if.bind="setItem.Equipment.DamageTypes"\r\n                         repeat.for="damage of setItem.Equipment.DamageTypes">\r\n                        ${getDamageTypeString(damage.Type)} ${damage.DamageString}\r\n                    </div>\r\n\r\n                    <div class="requirement">\r\n                        Level ${setItem.RequiredLevel > 0 ? setItem.RequiredLevel : 1} Required\r\n                    </div>\r\n\r\n                    <div class="requirement" if.bind="setItem.Equipment.RequiredStrength > 0">\r\n                        ${setItem.Equipment.RequiredStrength} Strength Required\r\n                    </div>\r\n\r\n                    <div class="requirement" if.bind="setItem.Equipment.RequiredDexterity > 0">\r\n                        ${setItem.Equipment.RequiredDexterity} Dexterity Required\r\n                    </div>\r\n\r\n                    <div class="durability mt-1" if.bind="setItem.Equipment.Durability > 0">\r\n                        ${setItem.Equipment.Durability} Durability\r\n                    </div>\r\n\r\n                    <div class="enhanced" repeat.for="property of setItem.Properties">\r\n                        ${property.PropertyString}\r\n                    </div>\r\n\r\n                    <div class="set-text" repeat.for="setProperty of setItem.SetPropertiesString">\r\n                        ${setProperty}\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</template>\r\n';
+const template = '<template>\r\n    <h3 class="text-center my-4">\r\n        ${sets.length} Sets Found\r\n    </h3>\r\n    <search-area>\r\n        <div class="max-w-7xl mx-auto px-4">\r\n            <div class="flex flex-wrap justify-center items-center text-center">\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Select Class"\r\n                                options.bind="classes"\r\n                                value.bind="class"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Select Type"\r\n                                options.bind="types"\r\n                                value.bind="selectedType"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Select Equipment"\r\n                                options.bind="equipmentNames"\r\n                                value.bind="selectedEquipmentName"\r\n                                disabled.bind="!selectedType"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                    <moo-text-field\r\n                            class="w-full"\r\n                            label="Search Sets"\r\n                            type="text"\r\n                            value.bind="search"\r\n                    ></moo-text-field>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </search-area>\r\n\r\n    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">\r\n        <div repeat.for="set of sets">\r\n            <div class="bg-zinc-800 rounded shadow p-2">\r\n                <div class="set-text text-lg mb-1">\r\n                    ${set.Name}\r\n                </div>\r\n\r\n                <div class="partial-sets set-text" repeat.for="partial of set.PartialProperties">\r\n                    ${partial.PropertyString} (${getItemCount(partial.Index)} Items)\r\n                </div>\r\n\r\n                <div class="partial-sets set-text" repeat.for="full of set.FullProperties">\r\n                    ${full.PropertyString} (Full Set)\r\n                </div>\r\n\r\n                <div class="my-3" repeat.for="setItem of set.SetItems">\r\n                    <div class="set-text mb-1">\r\n                        ${setItem.Name}\r\n                    </div>\r\n                    \r\n                    <div class="rarity-text mb-1" if.bind="setItem.Rarity">\r\n                        Rarity: ${setItem.Rarity}\r\n                    </div>\r\n\r\n                    <div class="armor mb-1" if.bind="setItem.Equipment.Name">\r\n                        ${setItem.Equipment.Name}\r\n                    </div>\r\n\r\n                    <div class="armor mt-1" if.bind="setItem.Equipment.ArmorString">\r\n                        Armor: ${setItem.Equipment.ArmorString}\r\n                    </div>\r\n\r\n                    <div class="damage" if.bind="setItem.Equipment.DamageTypes"\r\n                         repeat.for="damage of setItem.Equipment.DamageTypes">\r\n                        ${getDamageTypeString(damage.Type)} ${damage.DamageString}\r\n                    </div>\r\n\r\n                    <div class="requirement">\r\n                        Level ${setItem.RequiredLevel > 0 ? setItem.RequiredLevel : 1} Required\r\n                    </div>\r\n\r\n                    <div class="requirement" if.bind="setItem.Equipment.RequiredStrength > 0">\r\n                        ${setItem.Equipment.RequiredStrength} Strength Required\r\n                    </div>\r\n\r\n                    <div class="requirement" if.bind="setItem.Equipment.RequiredDexterity > 0">\r\n                        ${setItem.Equipment.RequiredDexterity} Dexterity Required\r\n                    </div>\r\n\r\n                    <div class="durability mt-1" if.bind="setItem.Equipment.Durability > 0">\r\n                        ${setItem.Equipment.Durability} Durability\r\n                    </div>\r\n\r\n                    <div class="enhanced" repeat.for="property of setItem.Properties">\r\n                        ${property.PropertyString}\r\n                    </div>\r\n\r\n                    <div class="set-text" repeat.for="setProperty of setItem.SetPropertiesString">\r\n                        ${setProperty}\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</template>\r\n';
 const dependencies = [];
 const bindables = {};
 let _e;
@@ -69,15 +69,18 @@ var __privateIn = (member, obj) => Object(obj) !== obj ? __typeError('Cannot use
 var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
 var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "access private method"), method);
-var _class_dec, _handleSearchChanged_dec, _search_dec, _Sets_decorators, _init;
-_Sets_decorators = [customElement(__au2ViewDef)], _search_dec = [bindable], _handleSearchChanged_dec = [watch("search")], _class_dec = [bindable];
+var _class_dec, _handleSearchChanged_dec, _selectedEquipmentName_dec, _selectedType_dec, _search_dec, _Sets_decorators, _init;
+_Sets_decorators = [customElement(__au2ViewDef)], _search_dec = [bindable], _selectedType_dec = [bindable], _selectedEquipmentName_dec = [bindable], _handleSearchChanged_dec = [watch("search")], _class_dec = [bindable];
 class Sets {
   constructor() {
     __runInitializers(_init, 5, this);
     __publicField(this, "sets", json);
     __publicField(this, "search", __runInitializers(_init, 8, this)), __runInitializers(_init, 11, this);
+    __publicField(this, "selectedType", __runInitializers(_init, 12, this)), __runInitializers(_init, 15, this);
+    __publicField(this, "selectedEquipmentName", __runInitializers(_init, 16, this)), __runInitializers(_init, 19, this);
     __publicField(this, "_debouncedSearchItem");
-    __publicField(this, "class", __runInitializers(_init, 12, this)), __runInitializers(_init, 15, this);
+    __publicField(this, "equipmentNames", []);
+    __publicField(this, "class", __runInitializers(_init, 20, this)), __runInitializers(_init, 23, this);
     __publicField(this, "classes", [
       { value: null, label: "-" },
       { value: "Amazon", label: "Amazon" },
@@ -99,8 +102,27 @@ class Sets {
     if (classParam) {
       this.class = classParam;
     }
+    const typeParam = urlParams.get("type");
+    if (typeParam) {
+      this.selectedType = typeParam;
+    }
     this._debouncedSearchItem = debounce(this.updateList.bind(this), 350);
+    if (this.selectedType) {
+      this.equipmentNames = this.getSetEquipmentNames();
+    }
     this.updateList();
+  }
+  // Types list derived from set items
+  get types() {
+    const typeSet = /* @__PURE__ */ new Set();
+    for (const set of json) {
+      for (const item of set.SetItems ?? []) {
+        if (item.Type) typeSet.add(item.Type);
+      }
+    }
+    const typeOptions = [{ value: void 0, label: "-" }];
+    Array.from(typeSet).sort().forEach((t) => typeOptions.push({ value: t, label: t }));
+    return typeOptions;
   }
   // Helper method to update URL with current search parameters
   updateUrl() {
@@ -115,14 +137,14 @@ class Sets {
     } else {
       url.searchParams.delete("class");
     }
+    if (this.selectedType) {
+      url.searchParams.set("type", this.selectedType);
+    } else {
+      url.searchParams.delete("type");
+    }
     window.history.pushState({}, "", url.toString());
   }
   handleSearchChanged() {
-    if (!this.search) {
-      this.sets = json;
-      this.updateUrl();
-      return;
-    }
     if (this._debouncedSearchItem) {
       this._debouncedSearchItem();
     }
@@ -133,77 +155,57 @@ class Sets {
     this.updateList();
     this.updateUrl();
   }
+  selectedTypeChanged() {
+    this.equipmentNames = this.getSetEquipmentNames();
+    this.selectedEquipmentName = void 0;
+    if (this._debouncedSearchItem) this._debouncedSearchItem();
+    this.updateUrl();
+  }
+  selectedEquipmentNameChanged() {
+    if (this._debouncedSearchItem) this._debouncedSearchItem();
+  }
   updateList() {
-    if (!this.search && !this.class) {
-      return;
-    }
     try {
-      const foundSets = [];
-      loop1:
-        for (const set of json) {
-          set.AllProperties = [...set.FullProperties || [], ...set.PartialProperties || []];
-          if (this.search && set.Name?.toLowerCase().includes(this.search.toLowerCase())) {
-            foundSets.push(set);
-            continue;
-          }
-          if (set.AllProperties) {
-            for (const property of set.AllProperties) {
-              if (this.class) {
-                if (property.PropertyString?.toLowerCase()?.includes(this.class.toLowerCase())) {
-                  foundSets.push(set);
-                  continue loop1;
-                }
-              } else if (this.search) {
-                if (property.PropertyString?.toLowerCase()?.includes(this.search.toLowerCase())) {
-                  foundSets.push(set);
-                  continue loop1;
-                }
-              }
-            }
-          }
-          if (set.SetItems) {
-            for (const setItem of set.SetItems) {
-              if (this.class) {
-                if (setItem.Name.toLowerCase().includes(this.class.toLowerCase())) {
-                  foundSets.push(set);
-                  continue loop1;
-                }
-              } else if (this.search) {
-                if (setItem.Name.toLowerCase().includes(this.search.toLowerCase())) {
-                  foundSets.push(set);
-                  continue loop1;
-                }
-              }
-              if (setItem.Properties) {
-                for (const property of setItem.Properties) {
-                  if (this.class) {
-                    if (property.PropertyString?.toLowerCase()?.includes(this.class.toLowerCase())) {
-                      foundSets.push(set);
-                      continue loop1;
-                    }
-                  } else if (this.search) {
-                    if (property.PropertyString?.toLowerCase()?.includes(this.search.toLowerCase())) {
-                      foundSets.push(set);
-                      continue loop1;
-                    }
-                  }
-                }
-              }
-              if (this.class) {
-                if (setItem.Equipment.Name.toLowerCase().includes(this.class.toLowerCase())) {
-                  foundSets.push(set);
-                  continue loop1;
-                }
-              } else if (this.search) {
-                if (setItem.Equipment.Name.toLowerCase().includes(this.search.toLowerCase())) {
-                  foundSets.push(set);
-                  continue loop1;
-                }
-              }
-            }
-          }
+      const searchText = this.search?.toLowerCase();
+      const classText = this.class?.toLowerCase();
+      const matchesType = (set) => {
+        if (!this.selectedType) return true;
+        return (set.SetItems ?? []).some((si) => si.Type === this.selectedType);
+      };
+      const matchesEquipment = (set) => {
+        if (!this.selectedEquipmentName) return true;
+        return (set.SetItems ?? []).some((si) => si.Equipment?.Name === this.selectedEquipmentName);
+      };
+      const matchesSearch = (set) => {
+        if (!searchText) return true;
+        if (set.Name?.toLowerCase().includes(searchText)) return true;
+        const allProps = set.AllProperties ?? [...set.FullProperties || [], ...set.PartialProperties || []];
+        if (allProps?.some((p) => p.PropertyString?.toLowerCase()?.includes(searchText))) return true;
+        for (const si of set.SetItems ?? []) {
+          if (si.Name?.toLowerCase().includes(searchText)) return true;
+          if (si.Equipment?.Name?.toLowerCase().includes(searchText)) return true;
+          if (si.Properties?.some((p) => p.PropertyString?.toLowerCase()?.includes(searchText))) return true;
         }
-      this.sets = foundSets;
+        return false;
+      };
+      const matchesClass = (set) => {
+        if (!classText) return true;
+        const allProps = set.AllProperties ?? [...set.FullProperties || [], ...set.PartialProperties || []];
+        if (allProps?.some((p) => p.PropertyString?.toLowerCase()?.includes(classText))) return true;
+        for (const si of set.SetItems ?? []) {
+          if (si.Name?.toLowerCase().includes(classText)) return true;
+          if (si.Equipment?.Name?.toLowerCase().includes(classText)) return true;
+          if (si.Properties?.some((p) => p.PropertyString?.toLowerCase()?.includes(classText))) return true;
+        }
+        return false;
+      };
+      if (!this.search && !this.class && !this.selectedType && !this.selectedEquipmentName) {
+        this.sets = json;
+        return;
+      }
+      this.sets = json.filter(
+        (set) => matchesType(set) && matchesEquipment(set) && matchesSearch(set) && matchesClass(set)
+      );
     } catch (e) {
       console.error(e);
     }
@@ -227,10 +229,26 @@ class Sets {
     if (indexPassed < 6) return 4;
     return 5;
   }
+  // Build equipment names options for the selected type
+  getSetEquipmentNames() {
+    const names = /* @__PURE__ */ new Set();
+    for (const set of json) {
+      for (const si of set.SetItems ?? []) {
+        if (this.selectedType && si.Type !== this.selectedType) continue;
+        const name2 = si.Equipment?.Name;
+        if (name2) names.add(name2);
+      }
+    }
+    const options = [{ value: void 0, label: "-" }];
+    Array.from(names).sort().forEach((n) => options.push({ value: n, label: n }));
+    return options;
+  }
 }
 _init = __decoratorStart();
 __decorateElement(_init, 1, "handleSearchChanged", _handleSearchChanged_dec, Sets);
 __decorateElement(_init, 5, "search", _search_dec, Sets);
+__decorateElement(_init, 5, "selectedType", _selectedType_dec, Sets);
+__decorateElement(_init, 5, "selectedEquipmentName", _selectedEquipmentName_dec, Sets);
 __decorateElement(_init, 5, "class", _class_dec, Sets);
 Sets = __decorateElement(_init, 0, "Sets", _Sets_decorators, Sets);
 __runInitializers(_init, 1, Sets);

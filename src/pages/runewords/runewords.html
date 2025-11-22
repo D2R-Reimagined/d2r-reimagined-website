@@ -64,11 +64,11 @@
                 </div>
                 <div class="types py-2">
                     <span repeat.for="type of runeword.Types">
-                        ${transformTypeName(type.Name)} ${$index + 1 !== runeword.Types.length ? ' or ' : ''}
+                        ${type.Name} ${$index + 1 !== runeword.Types.length ? ' or ' : ''}
                     </span>
                 </div>
-                <div class="requirement" if.bind="actualLevelRequirement(runeword) > 0">
-                    Level ${runeword.RequiredLevel} Required
+                <div class="requirement">
+                    Level ${runeword.RequiredLevel > 0? runeword.RequiredLevel: 1} Required
                 </div>
                 <div class="mt-2">
                     <div class="enhanced" repeat.for="property of runeword.Properties">

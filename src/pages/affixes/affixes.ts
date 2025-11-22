@@ -4,8 +4,10 @@ import prefixes from '../item-jsons/magicprefix.json';
 import suffixes from '../item-jsons/magicsuffix.json';
 import propertyGroups from '../item-jsons/PropertyGroups.json';
 import {
-    RUNEWORD_TYPE_OPTIONS,
-    getChainForTypeName
+    type_filtering_options,
+    getChainForTypeName,
+    buildOptionsForPresentTypes,
+    resolveBaseTypeName
 } from '../../resources/constants/item-type-filters';
 
 type PType = 'Prefix' | 'Suffix';
@@ -39,8 +41,8 @@ export class Affixes {
     @bindable selectedGroupDescription: string | undefined;
     private descToGroups: Map<string, Set<number>> = new Map();
 
-    // Item Type dropdown (reuse centralized options)
-    types: { label: string; value: string[] }[] = RUNEWORD_TYPE_OPTIONS.slice();
+    // Item Type dropdown (reuse centralized options, narrowed per data)
+    types: { label: string; value: string[] }[] = type_filtering_options.slice();
     @bindable selectedType: string[] | undefined;
 
     // Required Level filters
@@ -60,6 +62,22 @@ export class Affixes {
             ...normalized(prefixes as any[], 'Prefix'),
             ...normalized(suffixes as any[], 'Suffix')
         ];
+
+        // Build the set of base type names present across all affixes (Types only)
+        const present = new Set<string>();
+        try {
+            for (const a of this.allAffixes) {
+                const types = Array.isArray(a?.Types) ? a.Types : [];
+                for (const t of types) {
+                    const base = resolveBaseTypeName(t != null ? String(t) : '');
+                    if (base) present.add(base);
+                }
+            }
+        } catch {
+            // keep default options if something unexpected occurs
+        }
+        // Filter the shared preset to only show options relevant to affix data
+        this.types = buildOptionsForPresentTypes(type_filtering_options, present);
 
         // Build group description → group IDs mapping and options
         this.buildGroupOptions(propertyGroups as unknown as PropertyGroupEntry[]);
@@ -139,28 +157,32 @@ export class Affixes {
                 if (!selectedGroups.has(a.Group)) return false;
             }
 
-            // Item Type filter (uses canonical chains + respects ETypes exclusions)
+            // Item Type filter (exact-or-parent matching + respects ETypes exclusions)
             if (this.selectedType && this.selectedType.length > 0) {
                 const selectedSet = new Set<string>(this.selectedType);
+
+                // Helper: normalize a raw type token to our known node name (case-insensitive).
+                // We intentionally do NOT expand the affix's type to its parents; we only compare
+                // the raw type (normalized for case) against the selected chain. This ensures:
+                //  - Selecting "Hand to Hand" matches affixes tagged as [Hand to Hand], [Melee Weapon], or [Weapon]
+                //  - It does NOT match sibling specifics like [Axe], [Mace], etc.
+                const normalize = (t: any) => {
+                    const raw = t != null ? String(t) : '';
+                    const chain = getChainForTypeName(raw);
+                    // First element is the node name we resolved (case-corrected); if unknown, raw
+                    return chain && chain.length > 0 ? chain[0] : raw;
+                };
 
                 // Allowed by Types (if Types present). If absent, treat as general (allowed).
                 let allowed = true;
                 if (Array.isArray(a.Types) && a.Types.length > 0) {
-                    allowed = a.Types.some((t: any) => {
-                        const raw = t != null ? String(t) : '';
-                        const chain = getChainForTypeName(raw);
-                        return chain.some((c) => selectedSet.has(c));
-                    });
+                    allowed = a.Types.some((t: any) => selectedSet.has(normalize(t)));
                 }
                 if (!allowed) return false;
 
                 // Excluded by ETypes: if any excluded type (or its parents) matches selection, reject.
                 if (Array.isArray(a.ETypes) && a.ETypes.length > 0) {
-                    const excluded = a.ETypes.some((t: any) => {
-                        const raw = t != null ? String(t) : '';
-                        const chain = getChainForTypeName(raw);
-                        return chain.some((c) => selectedSet.has(c));
-                    });
+                    const excluded = a.ETypes.some((t: any) => selectedSet.has(normalize(t)));
                     if (excluded) return false;
                 }
             }

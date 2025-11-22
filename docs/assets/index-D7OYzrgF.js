@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-DNI4uoAK.js","assets/debounce-ZwsFz6hU.js","assets/cube-recipes-BJXOl2Zy.css","assets/uniques-BLdAtEuU.js","assets/uniques-DR4Eo1cT.js","assets/sets-DsrYDiER.js","assets/runewords-DgcToxJp.js","assets/item-type-filters-BuxsOlXQ.js","assets/grail-BK4o53HA.js","assets/affixes-DH9w8Gxs.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-tQniSDdT.js","assets/debounce-ZwsFz6hU.js","assets/cube-recipes-BJXOl2Zy.css","assets/uniques-4K0Oe8Em.js","assets/uniques-DR4Eo1cT.js","assets/sets-BPLYM4Er.js","assets/runewords-CytfLbX8.js","assets/item-type-filters-3ezJuRu1.js","assets/grail-CbfE3JR4.js","assets/affixes-CLzjoXo6.js"])))=>i.map(i=>d[i]);
 (function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) return;
@@ -36493,47 +36493,47 @@ _App_decorators = [customElement(__au2ViewDef), route({
   routes: [
     {
       path: "",
-      component: __vitePreload(() => import("./home-ZnH0irFz.js"), true ? [] : void 0),
+      component: __vitePreload(() => import("./home-D8HEqFAw.js"), true ? [] : void 0),
       title: "Home"
     },
     {
       path: "cube-recipes",
-      component: __vitePreload(() => import("./cube-recipes-DNI4uoAK.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
+      component: __vitePreload(() => import("./cube-recipes-tQniSDdT.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
       title: "Cube Recipes"
     },
     {
       path: "uniques",
-      component: __vitePreload(() => import("./uniques-BLdAtEuU.js"), true ? __vite__mapDeps([3,1,4]) : void 0),
+      component: __vitePreload(() => import("./uniques-4K0Oe8Em.js"), true ? __vite__mapDeps([3,1,4]) : void 0),
       title: "Uniques"
     },
     {
       path: "sets",
-      component: __vitePreload(() => import("./sets-DsrYDiER.js"), true ? __vite__mapDeps([5,1]) : void 0),
+      component: __vitePreload(() => import("./sets-BPLYM4Er.js"), true ? __vite__mapDeps([5,1]) : void 0),
       title: "Sets"
     },
     {
       path: "runewords",
-      component: __vitePreload(() => import("./runewords-DgcToxJp.js"), true ? __vite__mapDeps([6,1,7]) : void 0),
+      component: __vitePreload(() => import("./runewords-CytfLbX8.js"), true ? __vite__mapDeps([6,1,7]) : void 0),
       title: "Runewords"
     },
     {
       path: "grail",
-      component: __vitePreload(() => import("./grail-BK4o53HA.js"), true ? __vite__mapDeps([8,4]) : void 0),
+      component: __vitePreload(() => import("./grail-CbfE3JR4.js"), true ? __vite__mapDeps([8,4]) : void 0),
       title: "Holy Grail"
     },
     {
       path: "armors",
-      component: __vitePreload(() => import("./armors-C7UwmV57.js"), true ? [] : void 0),
+      component: __vitePreload(() => import("./armors-D-EoZMg6.js"), true ? [] : void 0),
       title: "Armor Bases"
     },
     {
       path: "weapons",
-      component: __vitePreload(() => import("./weapons-CpWdrFUs.js"), true ? [] : void 0),
+      component: __vitePreload(() => import("./weapons-DEvYUSXd.js"), true ? [] : void 0),
       title: "Weapon Bases"
     },
     {
       path: "affixes",
-      component: __vitePreload(() => import("./affixes-DH9w8Gxs.js"), true ? __vite__mapDeps([9,1,7]) : void 0),
+      component: __vitePreload(() => import("./affixes-CLzjoXo6.js"), true ? __vite__mapDeps([9,1,7]) : void 0),
       title: "Affixes"
     }
   ]
