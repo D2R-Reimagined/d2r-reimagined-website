@@ -1,11 +1,11 @@
 <template>
-    <h3 class="text-center my-2">
+    <h3 class="text-center my-4">
         <span class="rarity-text">${filteredAffixes.length}</span> Magic Affixes Found
     </h3>
 
     <search-area>
         <div class="max-w-screen-2xl mx-auto px-4">
-            <div class="flex flex-wrap xl:flex-nowrap justify-center items-center text-center">
+            <div class="flex flex-wrap justify-center items-center text-center">
                 <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
                     <div class="mb-2">
                         <moo-select
@@ -69,8 +69,8 @@
         </div>
 
     </search-area>
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 text-center mt-2">
-        <div class="bg-zinc-800 rounded shadow" repeat.for="affix of filteredAffixes">
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">
+        <div class="bg-zinc-800 rounded shadow p-2" repeat.for="affix of filteredAffixes">
             <div class="flex justify-between items-center">
                 <div class="enhanced mt-1 ml-1">${affix.Name}</div>
                 <div class="base-text mt-1 mr-1">${affix.PType}</div>

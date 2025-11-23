@@ -125,7 +125,9 @@ export const ITEM_TYPES: ReadonlyArray<ItemTypeNode> = [
     { name: 'Key', code: 'key', parents: ['Miscellaneous'] },
     { name: 'Quest', code: 'ques' },
     { name: 'Bow Quiver', code: 'bowq', parents: ['Missile', 'Second Hand'] },
-    { name: 'Crossbow Quiver', code: 'xboq', parents: ['Missile', 'Second Hand'] },
+    { name: 'Crossbow Bolts', code: 'xboq', parents: ['Missile', 'Second Hand'] },
+    { name: 'Magic Bow Quiv', code: 'mboq', parents: ['Bow Quiver'] },
+    { name: 'Magic Xbow Quiv', code: 'mxbq', parents: ['Crossbow Bolts'] },
 ];
 
 export const ITEM_TYPE_BY_NAME = new Map<string, ItemTypeNode>(
@@ -407,16 +409,13 @@ export const type_filtering_options: ReadonlyArray<FilterOption> = [
     makeTypeOption('Any Weapon', 'Weapon', getDescendantBaseNames('Weapon')),
     makeTypeOption('Melee Weapon', 'Melee Weapon', getDescendantBaseNames('Melee Weapon')),
     makeTypeOption('Missile Weapon', 'Missile Weapon', getDescendantBaseNames('Missile Weapon')),
-
     // Armor subtypes
     makeTypeOption('Body Armor', 'Body Armor'),
     makeTypeOption('Gloves', 'Gloves'),
     makeTypeOption('Boots', 'Boots'),
     makeTypeOption('Belt', 'Belt'),
-
-    // Shields
+    // Shields (Bases Page)
     makeTypeOption('Shield', 'Shield'),
-
     // Jewelry and socket fillers
     makeTypeOption('Ring', 'Ring'),
     makeTypeOption('Amulet', 'Amulet'),
@@ -424,7 +423,6 @@ export const type_filtering_options: ReadonlyArray<FilterOption> = [
     makeTypeOption('Small Charm', 'Small Charm'),
     makeTypeOption('Large Charm', 'Large Charm'),
     makeTypeOption('Grand Charm', 'Grand Charm'),
-
     // Weapon bases
     makeTypeOption('Axe', 'Axe'),
     makeTypeOption('Mace', 'Mace'),
@@ -440,7 +438,9 @@ export const type_filtering_options: ReadonlyArray<FilterOption> = [
     makeTypeOption('Javelin', 'Javelin'),
     makeTypeOption('Throwing Knife', 'Throwing Knife'),
     makeTypeOption('Throwing Axe', 'Throwing Axe'),
-
+    // Quivers and Bolts
+    makeTypeOption('Bow Quiver', 'Magic Bow Quiv'),
+    makeTypeOption('Crossbow Bolts', 'Magic Xbow Quiv'),
     //Class Specific
     makeTypeOption('Amazon Javelin', 'Amazon Javelin'),
     makeTypeOption('Amazon Bow', 'Amazon Bow'),

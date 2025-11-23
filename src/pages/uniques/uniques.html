@@ -1,6 +1,6 @@
 <template>
     <h3 class="text-center my-4">
-        ${uniques.length} Uniques Found
+        <span class="rarity-text">${uniques.length}</span> Uniques Found
     </h3>
     <search-area>
         <div class="max-w-7xl mx-auto px-4">
@@ -52,7 +52,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">
         <div class="bg-zinc-800 rounded shadow p-2" repeat.for="unique of uniques">
-            <div class="bg-zinc-800 rounded shadow">
+            <div class="bg-zinc-800 rounded">
                 <div class="unique-text text-lg mb-1">
                     ${unique.Name}
                 </div>
@@ -69,7 +69,7 @@
                      repeat.for="damage of unique.Equipment.DamageTypes">
                     ${getDamageTypeString(damage.Type)} ${damage.DamageString}
                 </div>
-                <div class="requirement">
+                <div class="requirement mt-1">
                     Level ${unique.RequiredLevel > 0 ? unique.RequiredLevel : 1} Required
                 </div>
                 <div class="requirement" if.bind="unique.Equipment.RequiredStrength > 0">
@@ -81,7 +81,7 @@
                 <div class="durability mt-1" if.bind="unique.Equipment.Durability > 0">
                     ${unique.Equipment.Durability} Durability
                 </div>
-                <div class="mt-2">
+                <div class="mt-1">
                     <div class="enhanced" repeat.for="property of unique.Properties">
                         ${property.PropertyString}
                     </div>

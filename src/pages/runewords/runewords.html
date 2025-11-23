@@ -1,34 +1,32 @@
 <template>
     <h3 class="text-center my-4">
-        ${filteredRunewords.length} Runewords Found
+        <span class="rarity-text">${filteredRunewords.length}</span> Runewords Found
     </h3>
     <search-area>
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex flex-wrap justify-center items-center text-center">
-                <div class="w-full md:w-1/3 lg:w-1/4 px-2">
+                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
                     <div class="mb-2">
                         <moo-select
-                                class="w-full"
+                                class="w-full standard-betsy-select"
                                 label="Select Socket Count"
                                 options.bind="amounts"
-                                class="standard-betsy-select"
                                 value.bind="selectedAmount"
                         ></moo-select>
                     </div>
                 </div>
-                <div class="w-full md:w-1/3 lg:w-1/4 px-2">
+                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
                     <div class="my-1">
                         <moo-select
-                                class="w-full"
+                                class="w-full standard-betsy-select"
                                 label="Select Type"
                                 options.bind="types"
-                                class="standard-betsy-select"
                                 value.bind="selectedType"
                         ></moo-select>
-                        <moo-checkbox checked.bind="exclusiveType" id="exclusiveType ">Exact Type Only</moo-checkbox>
+                        <moo-checkbox checked.bind="exclusiveType" id="exclusiveType">Exact Type Only</moo-checkbox>
                     </div>
                 </div>
-                <div class="w-full md:w-1/3 lg:w-1/4 px-2">
+                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
                     <div class="mb-2">
                         <moo-text-field
                                 class="w-full"
@@ -38,7 +36,7 @@
                         ></moo-text-field>
                     </div>
                 </div>
-                <div class="w-full md:w-1/3 lg:w-1/4 px-2">
+                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
                     <div class="mb-2">
                         <moo-text-field
                                 class="w-full"
@@ -57,20 +55,20 @@
                 <div class="unique-text text-xl mb-1">
                     ${runeword.Name}
                 </div>
-                <div class="combo">
+                <div class="combo mb-1">
                     <span repeat.for="rune of runeword.Runes">
                         ${rune.Name | runeName} ${$index + 1 !== runeword.Runes.length ? ' + ' : ''}
                     </span>
                 </div>
-                <div class="types py-2">
+                <div class="types mb-1">
                     <span repeat.for="type of runeword.Types">
                         ${type.Name} ${$index + 1 !== runeword.Types.length ? ' or ' : ''}
                     </span>
                 </div>
-                <div class="requirement">
+                <div class="requirement mt-1">
                     Level ${runeword.RequiredLevel > 0? runeword.RequiredLevel: 1} Required
                 </div>
-                <div class="mt-2">
+                <div class="mt-1">
                     <div class="enhanced" repeat.for="property of runeword.Properties">
                         ${property.PropertyString}
                     </div>
