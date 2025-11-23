@@ -1,11 +1,41 @@
 <template>
     <h3 class="text-center my-4">
-        Holy Grail Tracker - <span class="rarity-text">${foundCount}</span>/<span class="rarity-text">${uniques.length}</span> Uniques Found (<span class="rarity-text">${filteredUniques.length}</span> Displayed)
+        <span class="unique-text">- Holy Grail Tracker -</span>
+        <template if.bind="selectedCategory === 'sets'">
+            <div>
+                <span class="rarity-text">${setItemFoundCount}</span>/<span
+                    class="rarity-text">${setItemTotalCount}</span>
+                Items Found
+                (<span class="rarity-text">${setItemsDisplayedCount}</span> Displayed)
+            </div>
+            <div>
+                <span class="rarity-text">${foundCount}</span>/<span class="rarity-text">${totalCount}</span>
+                Sets Completed
+                (<span class="rarity-text">${displayedCount}</span> Displayed)
+            </div>
+        </template>
+        <template if.bind="selectedCategory !== 'sets'">
+            <div>
+                <span class="rarity-text">${foundCount}</span>/<span class="rarity-text">${totalCount}</span>
+                Items Found
+                (<span class="rarity-text">${displayedCount}</span> Displayed)
+            </div>
+        </template>
     </h3>
     <search-area>
-        <div class="max-w-7xl mx-auto px-4">
+        <div class="max-w-screen-2xl mx-auto px-4">
             <div class="flex flex-wrap justify-center items-center text-center">
-                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
+                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
+                    <div class="mb-2">
+                        <moo-select
+                                class="w-full standard-betsy-select"
+                                label="Category"
+                                options.bind="categories"
+                                value.bind="selectedCategory"
+                        ></moo-select>
+                    </div>
+                </div>
+                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
                     <div class="mb-2">
                         <moo-select
                                 class="w-full standard-betsy-select"
@@ -15,7 +45,7 @@
                         ></moo-select>
                     </div>
                 </div>
-                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
+                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
                     <div class="mb-2">
                         <moo-select
                                 class="w-full standard-betsy-select"
@@ -25,22 +55,22 @@
                         ></moo-select>
                     </div>
                 </div>
-                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
+                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
                     <div class="mb-2">
                         <moo-select
                                 class="w-full standard-betsy-select"
                                 label="Select Equipment"
                                 options.bind="equipmentNames"
                                 value.bind="selectedEquipmentName"
-                                disabled.bind="!selectedType"
+                                disabled.bind="selectedCategory === 'runewords' || !selectedType"
                         ></moo-select>
                     </div>
                 </div>
-                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
+                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
                     <div class="mb-2">
                         <moo-text-field
                                 class="w-full"
-                                label="Search Uniques"
+                                label="Search"
                                 type="text"
                                 value.bind="search"
                         ></moo-text-field>
@@ -50,32 +80,33 @@
         </div>
     </search-area>
 
-    <div class="mt-2 text-center">
-        <label class="inline-flex items-center cursor-pointer">
-            <input type="checkbox" checked.bind="showFoundItems" class="form-checkbox h-4 w-4 text-blue-600 bg-zinc-700 border-gray-300 rounded focus:ring-blue-500">
-            <span class="ms-3 font-medium text-white">Hide Found Uniques</span>
-        </label>
+    <div class="mt-2 flex justify-center">
+        <moo-checkbox checked.bind="showFoundItems"><span class="ml-1">Hide Found Items</span></moo-checkbox>
     </div>
 
-    <div class="flex justify-center mt-4">
-        <button type="button" click.trigger="resetGrail()" class="cursor-pointer bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-            Reset Grail Progress
+    <div class="flex justify-center mt-2">
+        <button type="button" click.trigger="resetGrail()"
+                class="cursor-pointer bg-red-900 hover:bg-red-600 text-white hover:outline font-bold py-1 px-2 rounded">
+            Reset Grail Category Progress
         </button>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">
-        <div class="bg-zinc-800 rounded shadow p-2" repeat.for="unique of uniques">
-            <div class="bg-zinc-800 rounded shadow relative">
+        <!-- Uniques -->
+        <div class="bg-zinc-800 rounded p-2" repeat.for="unique of filteredUniques"
+             if.bind="selectedCategory === 'uniques'">
+            <div class="bg-zinc-800 rounded relative">
                 <div class="absolute top-2 right-2">
                     <label class="inline-flex items-center cursor-pointer">
-                        <input type="checkbox" checked.bind="foundItems[unique.Name]" change.trigger="updateFoundStatus(unique.Name)" class="sr-only peer">
+                        <input type="checkbox" checked.bind="foundUniques[unique.Name]"
+                               change.trigger="updateFoundStatus(unique.Name)" class="sr-only peer">
                         <div class="relative w-4 h-2 bg-zinc-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:start-[3px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-2 after:w-2 after:transition-all peer-checked:bg-green-600"></div>
                     </label>
                 </div>
-                <div class="unique-text text-lg mb-1 ${foundItems[unique.Name] ? 'text-green-400' : ''}">
+                <div class="unique-text text-lg mb-1 ${foundUniques[unique.Name] ? 'text-green-400' : ''}">
                     ${unique.Name}
                 </div>
-                <div class="rarity mb-1" if.bind="unique.Rarity">
+                <div class="rarity-text mb-1" if.bind="unique.Rarity">
                     Rarity: ${unique.Rarity}
                 </div>
                 <div class="armor mb-1" if.bind="unique.Equipment.Name">
@@ -102,6 +133,94 @@
                 </div>
                 <div class="mt-2">
                     <div class="enhanced" repeat.for="property of unique.Properties">
+                        ${property.PropertyString}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sets (flattened items) -->
+        <div class="bg-zinc-800 rounded p-2" repeat.for="setItem of filteredSetItems"
+             if.bind="selectedCategory === 'sets'">
+            <div class="bg-zinc-800 rounded relative">
+                <div class="absolute top-2 right-2">
+                    <label class="inline-flex items-center cursor-pointer">
+                        <input type="checkbox" checked.bind="foundSets[getSetItemKey(setItem)]"
+                               change.trigger="updateFoundStatus(getSetItemKey(setItem))" class="sr-only peer">
+                        <div class="relative w-4 h-2 bg-zinc-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:start-[3px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-2 after:w-2 after:transition-all peer-checked:bg-green-600"></div>
+                    </label>
+                </div>
+                <div class="set-text-light text-lg mb-1">
+                    ${setItem.Name}
+                </div>
+                <div class="set-text text-md mb-1 opacity-90">
+                    (${setItem.Set})
+                </div>
+                <div class="rarity-text mb-1" if.bind="setItem.Rarity">
+                    Rarity: ${setItem.Rarity}
+                </div>
+                <div class="armor mb-1" if.bind="setItem.Equipment.Name">
+                    ${setItem.Equipment.Name}
+                </div>
+                <div class="armor mb-1" if.bind="setItem.Equipment.ArmorString">
+                    Armor: ${setItem.Equipment.ArmorString}
+                </div>
+                <div class="damage" if.bind="setItem.Equipment.DamageTypes"
+                     repeat.for="damage of setItem.Equipment.DamageTypes">
+                    ${getDamageTypeString(damage.Type)} ${damage.DamageString}
+                </div>
+                <div class="requirement">
+                    Level ${setItem.RequiredLevel > 0 ? setItem.RequiredLevel : 1} Required
+                </div>
+                <div class="requirement" if.bind="setItem.Equipment.RequiredStrength > 0">
+                    ${setItem.Equipment.RequiredStrength} Strength Required
+                </div>
+                <div class="requirement" if.bind="setItem.Equipment.RequiredDexterity > 0">
+                    ${setItem.Equipment.RequiredDexterity} Dexterity Required
+                </div>
+                <div class="durability mt-1" if.bind="setItem.Equipment.Durability > 0">
+                    ${setItem.Equipment.Durability} Durability
+                </div>
+                <div class="mt-1">
+                    <div class="enhanced" repeat.for="property of setItem.Properties">
+                        ${property.PropertyString}
+                    </div>
+                </div>
+                <div class="set-text" repeat.for="setProperty of setItem.SetPropertiesString">
+                    ${setProperty}
+                </div>
+            </div>
+        </div>
+
+        <!-- Runewords -->
+        <div class="bg-zinc-800 rounded p-2" repeat.for="runeword of filteredRunewords"
+             if.bind="selectedCategory === 'runewords'">
+            <div class="bg-zinc-800 rounded relative">
+                <div class="absolute top-2 right-2">
+                    <label class="inline-flex items-center cursor-pointer">
+                        <input type="checkbox" checked.bind="foundRunewords[runeword.Name]"
+                               change.trigger="updateFoundStatus(runeword.Name)" class="sr-only peer">
+                        <div class="relative w-4 h-2 bg-zinc-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:start-[3px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-2 after:w-2 after:transition-all peer-checked:bg-green-600"></div>
+                    </label>
+                </div>
+                <div class="unique-text text-xl mb-1 ${foundRunewords[runeword.Name] ? 'text-green-400' : ''}">
+                    ${runeword.Name}
+                </div>
+                <div class="combo mb-1">
+                    <span repeat.for="rune of runeword.Runes">
+                        ${rune.Name} ${$index + 1 !== runeword.Runes.length ? ' + ' : ''}
+                    </span>
+                </div>
+                <div class="types mb-1">
+                    <span repeat.for="type of runeword.Types">
+                        ${type.Name} ${$index + 1 !== runeword.Types.length ? ' or ' : ''}
+                    </span>
+                </div>
+                <div class="requirement mt-1">
+                    Level ${runeword.RequiredLevel > 0? runeword.RequiredLevel: 1} Required
+                </div>
+                <div class="mt-1">
+                    <div class="enhanced" repeat.for="property of runeword.Properties">
                         ${property.PropertyString}
                     </div>
                 </div>
