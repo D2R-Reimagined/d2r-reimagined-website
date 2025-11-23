@@ -68,18 +68,17 @@
                         </a>
                     </li>
                 </ul>
-                <ul class="flex flex-col gap-2 lg:flex-row lg:items-center lg:ml-auto">
-                    <li class="relative lg:mx-3">
+                <ul class="flex flex-col gap-1 lg:flex-row lg:items-center lg:ml-auto">
+                    <li class="relative lg:mx-1">
                         <details class="relative">
-                            <summary
-                                    class="list-none hover:text-zinc-400 py-2 inline-flex items-center cursor-pointer select-none pl-0">
-                                Font
+                            <summary class="list-none hover:text-zinc-400 py-2 inline-flex items-center cursor-pointer select-none pl-0">
+                                <span class="material-symbols-outlined">type_specimen</span>
                             </summary>
-                            <ul class="bg-zinc-800 shadow-lg rounded py-2 min-w-40 z-50
+                            <ul class="bg-zinc-700 shadow-lg rounded py-2 min-w-30 z-50
                                        static w-full mt-1 max-h-[50vh] overflow-y-auto overscroll-contain
                                        lg:absolute lg:right-0 lg:top-full lg:w-auto lg:mt-1 lg:mb-0 lg:max-h-[70vh]">
                                 <li repeat.for="font of fonts">
-                                    <a class="block px-4 py-2 hover:bg-zinc-700 hover:text-zinc-400 ${font.class} cursor-pointer"
+                                    <a class="block px-2 py-2 hover:bg-zinc-600 hover:text-zinc-400 ${font.class} cursor-pointer"
                                        click.trigger="selectFont(font, $event)">
                                         ${font.name}
                                     </a>

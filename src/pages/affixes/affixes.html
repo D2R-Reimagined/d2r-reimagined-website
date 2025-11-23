@@ -1,12 +1,12 @@
 <template>
     <h3 class="text-center my-2">
-        ${filteredAffixes.length} Magic Affixes Found
+        <span class="rarity-text">${filteredAffixes.length}</span> Magic Affixes Found
     </h3>
 
     <search-area>
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-wrap justify-center items-center text-center">
-                <div class="w-full md:w-1/3 lg:w-1/4 px-2">
+        <div class="max-w-screen-2xl mx-auto px-4">
+            <div class="flex flex-wrap xl:flex-nowrap justify-center items-center text-center">
+                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
                     <div class="mb-2">
                         <moo-select
                                 class="w-full standard-betsy-select"
@@ -16,7 +16,7 @@
                         ></moo-select>
                     </div>
                 </div>
-                <div class="w-full md:w-1/3 lg:w-1/4 px-2">
+                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
                     <div class="mb-2">
                         <moo-select
                                 class="w-full standard-betsy-select"
@@ -26,8 +26,8 @@
                         ></moo-select>
                     </div>
                 </div>
-                <div class="w-full md:w-1/3 lg:w-1/4 px-2">
-                    <div class="mb-2">
+                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
+                    <div class="my-1">
                         <moo-select
                                 class="w-full standard-betsy-select"
                                 label="Item Type"
@@ -37,7 +37,7 @@
                         <moo-checkbox checked.bind="exclusiveType">Exact Type Only</moo-checkbox>
                     </div>
                 </div>
-                <div class="w-full md:w-1/3 lg:w-1/4 px-2">
+                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
                     <div class="mb-2">
                         <moo-text-field
                                 class="w-full"
@@ -47,7 +47,7 @@
                         ></moo-text-field>
                     </div>
                 </div>
-                <div class="w-full md:w-1/3 lg:w-1/4 inline-flex flex-nowrap gap-2 px-2">
+                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 inline-flex flex-nowrap gap-2 px-2">
                     <div class="mb-2">
                         <moo-text-field
                                 class="w-full"
