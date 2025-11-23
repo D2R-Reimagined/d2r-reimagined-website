@@ -10431,7 +10431,7 @@
         "ClassLevelReq": 18,
         "Properties": [
             {
-                "PropertyString": "35% Chance to cast level 1 Corpse Field when struck",
+                "PropertyString": "35% Chance to cast level 1 Confuse when struck",
                 "Index": 0
             }
         ],
@@ -10455,7 +10455,7 @@
         "ClassLevelReq": 18,
         "Properties": [
             {
-                "PropertyString": "35% Chance to cast level 5 Corpse Field when struck",
+                "PropertyString": "35% Chance to cast level 5 Confuse when struck",
                 "Index": 0
             }
         ],
@@ -13016,7 +13016,7 @@
         "ClassLevelReq": 18,
         "Properties": [
             {
-                "PropertyString": "7% Chance to cast level 5 Corpse Field on striking",
+                "PropertyString": "7% Chance to cast level 5 Confuse on striking",
                 "Index": 0
             }
         ],
@@ -15739,8 +15739,8 @@
     {
         "Name": "of Frost",
         "Level": 5,
-        "MaxLevel": 60,
-        "RequiredLevel": 5,
+        "MaxLevel": 20,
+        "RequiredLevel": 3,
         "Group": 10,
         "ClassSpecific": "",
         "Class": "",
@@ -15763,9 +15763,9 @@
     },
     {
         "Name": "of the Icicle",
-        "Level": 35,
-        "MaxLevel": 81,
-        "RequiredLevel": 35,
+        "Level": 10,
+        "MaxLevel": 0,
+        "RequiredLevel": 6,
         "Group": 10,
         "ClassSpecific": "",
         "Class": "",
@@ -15788,9 +15788,9 @@
     },
     {
         "Name": "of the Glacier",
-        "Level": 61,
+        "Level": 30,
         "MaxLevel": 0,
-        "RequiredLevel": 61,
+        "RequiredLevel": 11,
         "Group": 10,
         "ClassSpecific": "",
         "Class": "",
@@ -15813,9 +15813,9 @@
     },
     {
         "Name": "of Winter",
-        "Level": 81,
+        "Level": 40,
         "MaxLevel": 0,
-        "RequiredLevel": 81,
+        "RequiredLevel": 17,
         "Group": 10,
         "ClassSpecific": "",
         "Class": "",
@@ -15838,10 +15838,10 @@
     },
     {
         "Name": "of Flame",
-        "Level": 5,
-        "MaxLevel": 60,
-        "RequiredLevel": 5,
-        "Group": 10,
+        "Level": 10,
+        "MaxLevel": 0,
+        "RequiredLevel": 2,
+        "Group": 12,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -15863,10 +15863,10 @@
     },
     {
         "Name": "of Fire",
-        "Level": 35,
-        "MaxLevel": 81,
-        "RequiredLevel": 35,
-        "Group": 10,
+        "Level": 15,
+        "MaxLevel": 0,
+        "RequiredLevel": 6,
+        "Group": 12,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -15888,10 +15888,10 @@
     },
     {
         "Name": "of Burning",
-        "Level": 61,
+        "Level": 30,
         "MaxLevel": 0,
-        "RequiredLevel": 61,
-        "Group": 10,
+        "RequiredLevel": 10,
+        "Group": 12,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -15913,10 +15913,10 @@
     },
     {
         "Name": "of Incineration",
-        "Level": 81,
+        "Level": 40,
         "MaxLevel": 0,
-        "RequiredLevel": 81,
-        "Group": 10,
+        "RequiredLevel": 16,
+        "Group": 12,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -15938,10 +15938,10 @@
     },
     {
         "Name": "of Shock",
-        "Level": 5,
-        "MaxLevel": 60,
-        "RequiredLevel": 5,
-        "Group": 10,
+        "Level": 10,
+        "MaxLevel": 20,
+        "RequiredLevel": 3,
+        "Group": 13,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -15963,10 +15963,10 @@
     },
     {
         "Name": "of Lightning",
-        "Level": 35,
-        "MaxLevel": 81,
-        "RequiredLevel": 35,
-        "Group": 10,
+        "Level": 15,
+        "MaxLevel": 0,
+        "RequiredLevel": 5,
+        "Group": 13,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -15988,10 +15988,10 @@
     },
     {
         "Name": "of Thunder",
-        "Level": 61,
+        "Level": 30,
         "MaxLevel": 0,
-        "RequiredLevel": 61,
-        "Group": 10,
+        "RequiredLevel": 11,
+        "Group": 13,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -16013,10 +16013,10 @@
     },
     {
         "Name": "of Storms",
-        "Level": 81,
+        "Level": 40,
         "MaxLevel": 0,
-        "RequiredLevel": 81,
-        "Group": 10,
+        "RequiredLevel": 16,
+        "Group": 13,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -16038,10 +16038,10 @@
     },
     {
         "Name": "of Blight",
-        "Level": 5,
-        "MaxLevel": 60,
-        "RequiredLevel": 5,
-        "Group": 10,
+        "Level": 20,
+        "MaxLevel": 0,
+        "RequiredLevel": 10,
+        "Group": 16,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -16049,6 +16049,10 @@
             {
                 "PropertyString": "Adds 18-24 Weapon Poison Damage over 3 seconds",
                 "Index": 0
+            },
+            {
+                "PropertyString": "Poison Length Reduced by 4-6%",
+                "Index": 1
             }
         ],
         "Types": [
@@ -16059,10 +16063,10 @@
     },
     {
         "Name": "of Venom",
-        "Level": 35,
-        "MaxLevel": 81,
-        "RequiredLevel": 35,
-        "Group": 10,
+        "Level": 30,
+        "MaxLevel": 0,
+        "RequiredLevel": 25,
+        "Group": 16,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -16070,6 +16074,10 @@
             {
                 "PropertyString": "Adds 24-30 Weapon Poison Damage over 3 seconds",
                 "Index": 0
+            },
+            {
+                "PropertyString": "Poison Length Reduced by 6-8%",
+                "Index": 1
             }
         ],
         "Types": [
@@ -16080,10 +16088,10 @@
     },
     {
         "Name": "of Pestilence",
-        "Level": 61,
+        "Level": 35,
         "MaxLevel": 0,
-        "RequiredLevel": 61,
-        "Group": 10,
+        "RequiredLevel": 40,
+        "Group": 16,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -16091,6 +16099,10 @@
             {
                 "PropertyString": "Adds 40-47 Weapon Poison Damage over 4 seconds",
                 "Index": 0
+            },
+            {
+                "PropertyString": "Poison Length Reduced by 8-10%",
+                "Index": 1
             }
         ],
         "Types": [
@@ -16101,10 +16113,10 @@
     },
     {
         "Name": "of Anthrax",
-        "Level": 81,
+        "Level": 50,
         "MaxLevel": 0,
-        "RequiredLevel": 81,
-        "Group": 10,
+        "RequiredLevel": 55,
+        "Group": 16,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -16112,6 +16124,10 @@
             {
                 "PropertyString": "Adds 59-69 Weapon Poison Damage over 5 seconds",
                 "Index": 0
+            },
+            {
+                "PropertyString": "Poison Length Reduced by 10-12%",
+                "Index": 1
             }
         ],
         "Types": [
@@ -16123,7 +16139,7 @@
     {
         "Name": "of Dexterity",
         "Level": 1,
-        "MaxLevel": 60,
+        "MaxLevel": 0,
         "RequiredLevel": 1,
         "Group": 31,
         "ClassSpecific": "",
@@ -16131,8 +16147,12 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+2-3 to Dexterity",
+                "PropertyString": "+5-8 to Dexterity",
                 "Index": 0
+            },
+            {
+                "PropertyString": "+5-8 to Vitality",
+                "Index": 1
             }
         ],
         "Types": [
@@ -16144,16 +16164,20 @@
     {
         "Name": "of Dexterity",
         "Level": 35,
-        "MaxLevel": 81,
-        "RequiredLevel": 35,
+        "MaxLevel": 0,
+        "RequiredLevel": 10,
         "Group": 31,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+3-5 to Dexterity",
+                "PropertyString": "+8-10 to Dexterity",
                 "Index": 0
+            },
+            {
+                "PropertyString": "+8-10 to Energy",
+                "Index": 1
             }
         ],
         "Types": [
@@ -16173,8 +16197,12 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+2-3 to Strength",
+                "PropertyString": "+5-8 to Strength",
                 "Index": 0
+            },
+            {
+                "PropertyString": "+5-8 to Vitality",
+                "Index": 1
             }
         ],
         "Types": [
@@ -16186,16 +16214,20 @@
     {
         "Name": "of Strength",
         "Level": 35,
-        "MaxLevel": 81,
-        "RequiredLevel": 35,
+        "MaxLevel": 0,
+        "RequiredLevel": 10,
         "Group": 31,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+3-5 to Strength",
+                "PropertyString": "+8-10 to Strength",
                 "Index": 0
+            },
+            {
+                "PropertyString": "+8-10 to Energy",
+                "Index": 1
             }
         ],
         "Types": [
@@ -16207,8 +16239,8 @@
     {
         "Name": "of Life",
         "Level": 10,
-        "MaxLevel": 60,
-        "RequiredLevel": 10,
+        "MaxLevel": 25,
+        "RequiredLevel": 5,
         "Group": 26,
         "ClassSpecific": "",
         "Class": "",
@@ -16217,6 +16249,10 @@
             {
                 "PropertyString": "+10-15 to Life",
                 "Index": 0
+            },
+            {
+                "PropertyString": "Replenish Life +5",
+                "Index": 1
             }
         ],
         "Types": [
@@ -16228,8 +16264,8 @@
     {
         "Name": "of Life",
         "Level": 20,
-        "MaxLevel": 60,
-        "RequiredLevel": 20,
+        "MaxLevel": 40,
+        "RequiredLevel": 15,
         "Group": 26,
         "ClassSpecific": "",
         "Class": "",
@@ -16238,6 +16274,10 @@
             {
                 "PropertyString": "+15-20 to Life",
                 "Index": 0
+            },
+            {
+                "PropertyString": "Replenish Life +5",
+                "Index": 1
             }
         ],
         "Types": [
@@ -16249,8 +16289,8 @@
     {
         "Name": "of Life",
         "Level": 35,
-        "MaxLevel": 60,
-        "RequiredLevel": 35,
+        "MaxLevel": 55,
+        "RequiredLevel": 30,
         "Group": 26,
         "ClassSpecific": "",
         "Class": "",
@@ -16259,6 +16299,10 @@
             {
                 "PropertyString": "+20-25 to Life",
                 "Index": 0
+            },
+            {
+                "PropertyString": "Replenish Life +5",
+                "Index": 1
             }
         ],
         "Types": [
@@ -16270,8 +16314,8 @@
     {
         "Name": "of Sustenance",
         "Level": 45,
-        "MaxLevel": 81,
-        "RequiredLevel": 45,
+        "MaxLevel": 0,
+        "RequiredLevel": 40,
         "Group": 26,
         "ClassSpecific": "",
         "Class": "",
@@ -16280,6 +16324,10 @@
             {
                 "PropertyString": "+25-30 to Life",
                 "Index": 0
+            },
+            {
+                "PropertyString": "Replenish Life +7",
+                "Index": 1
             }
         ],
         "Types": [
@@ -16291,16 +16339,20 @@
     {
         "Name": "of Sustenance",
         "Level": 55,
-        "MaxLevel": 81,
-        "RequiredLevel": 55,
+        "MaxLevel": 0,
+        "RequiredLevel": 50,
         "Group": 26,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+30-35 to Life",
+                "PropertyString": "+30-40 to Life",
                 "Index": 0
+            },
+            {
+                "PropertyString": "Replenish Life +7",
+                "Index": 1
             }
         ],
         "Types": [
@@ -16313,15 +16365,19 @@
         "Name": "of Sustenance",
         "Level": 61,
         "MaxLevel": 0,
-        "RequiredLevel": 61,
+        "RequiredLevel": 60,
         "Group": 26,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+35-40 to Life",
+                "PropertyString": "+40-50 to Life",
                 "Index": 0
+            },
+            {
+                "PropertyString": "Replenish Life +7",
+                "Index": 1
             }
         ],
         "Types": [
@@ -16334,15 +16390,19 @@
         "Name": "of Vita",
         "Level": 75,
         "MaxLevel": 0,
-        "RequiredLevel": 75,
+        "RequiredLevel": 70,
         "Group": 26,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+40-50 to Life",
+                "PropertyString": "+50-75 to Life",
                 "Index": 0
+            },
+            {
+                "PropertyString": "Replenish Life +10",
+                "Index": 1
             }
         ],
         "Types": [
@@ -16355,15 +16415,19 @@
         "Name": "of Vita",
         "Level": 81,
         "MaxLevel": 0,
-        "RequiredLevel": 81,
+        "RequiredLevel": 80,
         "Group": 26,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+50-60 to Life",
+                "PropertyString": "+75-100 to Life",
                 "Index": 0
+            },
+            {
+                "PropertyString": "Replenish Life +10",
+                "Index": 1
             }
         ],
         "Types": [
@@ -16383,8 +16447,12 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+60-70 to Life",
+                "PropertyString": "+100-150 to Life",
                 "Index": 0
+            },
+            {
+                "PropertyString": "Replenish Life +10",
+                "Index": 1
             }
         ],
         "Types": [
@@ -16397,14 +16465,14 @@
         "Name": "of Inertia",
         "Level": 15,
         "MaxLevel": 0,
-        "RequiredLevel": 15,
+        "RequiredLevel": 14,
         "Group": 35,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+5% Faster Run/Walk Speed",
+                "PropertyString": "+10-15% Faster Run/Walk Speed",
                 "Index": 0
             }
         ],
@@ -16418,14 +16486,14 @@
         "Name": "of Balance",
         "Level": 10,
         "MaxLevel": 0,
-        "RequiredLevel": 10,
+        "RequiredLevel": 1,
         "Group": 18,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+5% Faster Hit Recovery",
+                "PropertyString": "+12-15% Faster Hit Recovery",
                 "Index": 0
             }
         ],
@@ -16452,216 +16520,6 @@
         ],
         "Types": [
             "Hand to Hand"
-        ],
-        "ETypes": [],
-        "PType": "Suffix"
-    },
-    {
-        "Name": "of Vitality",
-        "Level": 1,
-        "MaxLevel": 60,
-        "RequiredLevel": 1,
-        "Group": 31,
-        "ClassSpecific": "",
-        "Class": "",
-        "ClassLevelReq": 0,
-        "Properties": [
-            {
-                "PropertyString": "+2-3 to Vitality",
-                "Index": 0
-            }
-        ],
-        "Types": [
-            "Grand Charm"
-        ],
-        "ETypes": [],
-        "PType": "Suffix"
-    },
-    {
-        "Name": "of Vitality",
-        "Level": 35,
-        "MaxLevel": 81,
-        "RequiredLevel": 35,
-        "Group": 31,
-        "ClassSpecific": "",
-        "Class": "",
-        "ClassLevelReq": 0,
-        "Properties": [
-            {
-                "PropertyString": "+3-5 to Vitality",
-                "Index": 0
-            }
-        ],
-        "Types": [
-            "Grand Charm"
-        ],
-        "ETypes": [],
-        "PType": "Suffix"
-    },
-    {
-        "Name": "of Energy",
-        "Level": 1,
-        "MaxLevel": 60,
-        "RequiredLevel": 1,
-        "Group": 31,
-        "ClassSpecific": "",
-        "Class": "",
-        "ClassLevelReq": 0,
-        "Properties": [
-            {
-                "PropertyString": "+2-3 to Energy",
-                "Index": 0
-            }
-        ],
-        "Types": [
-            "Grand Charm"
-        ],
-        "ETypes": [],
-        "PType": "Suffix"
-    },
-    {
-        "Name": "of Energy",
-        "Level": 35,
-        "MaxLevel": 81,
-        "RequiredLevel": 35,
-        "Group": 31,
-        "ClassSpecific": "",
-        "Class": "",
-        "ClassLevelReq": 0,
-        "Properties": [
-            {
-                "PropertyString": "+3-5 to Energy",
-                "Index": 0
-            }
-        ],
-        "Types": [
-            "Grand Charm"
-        ],
-        "ETypes": [],
-        "PType": "Suffix"
-    },
-    {
-        "Name": "of Dexterity",
-        "Level": 61,
-        "MaxLevel": 0,
-        "RequiredLevel": 61,
-        "Group": 31,
-        "ClassSpecific": "",
-        "Class": "",
-        "ClassLevelReq": 0,
-        "Properties": [
-            {
-                "PropertyString": "+5-8 to Dexterity",
-                "Index": 0
-            }
-        ],
-        "Types": [
-            "Grand Charm"
-        ],
-        "ETypes": [],
-        "PType": "Suffix"
-    },
-    {
-        "Name": "of Strength",
-        "Level": 61,
-        "MaxLevel": 0,
-        "RequiredLevel": 61,
-        "Group": 31,
-        "ClassSpecific": "",
-        "Class": "",
-        "ClassLevelReq": 0,
-        "Properties": [
-            {
-                "PropertyString": "+5-8 to Strength",
-                "Index": 0
-            }
-        ],
-        "Types": [
-            "Grand Charm"
-        ],
-        "ETypes": [],
-        "PType": "Suffix"
-    },
-    {
-        "Name": "of Vitality",
-        "Level": 61,
-        "MaxLevel": 0,
-        "RequiredLevel": 61,
-        "Group": 31,
-        "ClassSpecific": "",
-        "Class": "",
-        "ClassLevelReq": 0,
-        "Properties": [
-            {
-                "PropertyString": "+5-8 to Vitality",
-                "Index": 0
-            }
-        ],
-        "Types": [
-            "Grand Charm"
-        ],
-        "ETypes": [],
-        "PType": "Suffix"
-    },
-    {
-        "Name": "of Energy",
-        "Level": 61,
-        "MaxLevel": 0,
-        "RequiredLevel": 61,
-        "Group": 31,
-        "ClassSpecific": "",
-        "Class": "",
-        "ClassLevelReq": 0,
-        "Properties": [
-            {
-                "PropertyString": "+5-8 to Energy",
-                "Index": 0
-            }
-        ],
-        "Types": [
-            "Grand Charm"
-        ],
-        "ETypes": [],
-        "PType": "Suffix"
-    },
-    {
-        "Name": "of Inertia",
-        "Level": 81,
-        "MaxLevel": 0,
-        "RequiredLevel": 81,
-        "Group": 35,
-        "ClassSpecific": "",
-        "Class": "",
-        "ClassLevelReq": 0,
-        "Properties": [
-            {
-                "PropertyString": "+10% Faster Run/Walk Speed",
-                "Index": 0
-            }
-        ],
-        "Types": [
-            "Grand Charm"
-        ],
-        "ETypes": [],
-        "PType": "Suffix"
-    },
-    {
-        "Name": "of Balance",
-        "Level": 81,
-        "MaxLevel": 0,
-        "RequiredLevel": 81,
-        "Group": 18,
-        "ClassSpecific": "",
-        "Class": "",
-        "ClassLevelReq": 0,
-        "Properties": [
-            {
-                "PropertyString": "+10% Faster Hit Recovery",
-                "Index": 0
-            }
-        ],
-        "Types": [
-            "Grand Charm"
         ],
         "ETypes": [],
         "PType": "Suffix"
