@@ -178,7 +178,8 @@ const CLASS_AGGREGATE_BASES = /* @__PURE__ */ new Set([
   "Druid Item"
 ]);
 function makeTypeOption(label, baseTypeName, extraParents = []) {
-  const value = baseTypeName ? getTypeChain(baseTypeName) : [];
+  if (!baseTypeName) return { label, value: void 0 };
+  const value = getTypeChain(baseTypeName);
   if (extraParents && extraParents.length) {
     const set = new Set(value);
     for (const p of extraParents) {

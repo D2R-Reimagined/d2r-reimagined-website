@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-CqRzfOoV.js","assets/debounce-ZwsFz6hU.js","assets/cube-recipes-BJXOl2Zy.css","assets/uniques-2IcadsIR.js","assets/uniques-DR4Eo1cT.js","assets/item-type-filters-BZbNcWb0.js","assets/sets-Aeo9Ehc-.js","assets/runewords-CcUpH0Ib.js","assets/grail-0ujG-OmP.js","assets/armors-DRiXJ0wo.js","assets/weapons-3fwJRLvt.js","assets/affixes-D7jn7Sm9.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-DgcrRJwm.js","assets/debounce-ZwsFz6hU.js","assets/cube-recipes-BJXOl2Zy.css","assets/uniques-B5PhoWiH.js","assets/uniques-DR4Eo1cT.js","assets/item-type-filters-tjh321-r.js","assets/sets-C39aGMZ_.js","assets/runewords-7okOJ8rk.js","assets/grail-uUROwkiP.js","assets/armors-BXW-SMUC.js","assets/weapons-xWCHhlqO.js","assets/affixes-Hr7c4FAe.js"])))=>i.map(i=>d[i]);
 (function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) return;
@@ -36363,49 +36363,49 @@ const template$s = `<nav class="bg-zinc-800 shadow-md sticky top-0 z-6">\r
                         lg:static lg:flex lg:flex-row lg:items-center lg:justify-between lg:p-0 lg:shadow-none lg:border-0 lg:bg-transparent lg:max-h-none lg:overflow-visible">\r
                 <ul class="flex flex-col gap-2 lg:flex-row lg:gap-0 lg:space-x-4">\r
                     <li>\r
-                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/armors"\r
+                        <a class="hover:text-zinc-400 py-2 flex cursor-pointer" aria-current="page" href="/armors"\r
                            click.trigger="closeMobileMenu()">\r
                             Bases\r
                         </a>\r
                     </li>\r
                     <li>\r
-                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/affixes"\r
+                        <a class="hover:text-zinc-400 py-2 flex cursor-pointer" aria-current="page" href="/affixes"\r
                            click.trigger="closeMobileMenu()">\r
                             Affixes\r
                         </a>\r
                     </li>\r
                     <li>\r
-                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/uniques"\r
+                        <a class="hover:text-zinc-400 py-2 flex cursor-pointer" aria-current="page" href="/uniques"\r
                            click.trigger="closeMobileMenu()">\r
                             Uniques\r
                         </a>\r
                     </li>\r
                     <li>\r
-                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/sets"\r
+                        <a class="hover:text-zinc-400 py-2 flex cursor-pointer" aria-current="page" href="/sets"\r
                            click.trigger="closeMobileMenu()">\r
                             Sets\r
                         </a>\r
                     </li>\r
                     <li>\r
-                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/runewords"\r
+                        <a class="hover:text-zinc-400 py-2 flex cursor-pointer" aria-current="page" href="/runewords"\r
                            click.trigger="closeMobileMenu()">\r
                             Runewords\r
                         </a>\r
                     </li>\r
                     <li>\r
-                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/cube-recipes"\r
+                        <a class="hover:text-zinc-400 py-2 flex cursor-pointer" aria-current="page" href="/cube-recipes"\r
                            click.trigger="closeMobileMenu()">\r
                             Cube Recipes\r
                         </a>\r
                     </li>\r
                     <li>\r
-                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/grail"\r
+                        <a class="hover:text-zinc-400 py-2 flex cursor-pointer" aria-current="page" href="/grail"\r
                            click.trigger="closeMobileMenu()">\r
                             Grail\r
                         </a>\r
                     </li>\r
                     <li>\r
-                        <a class="hover:text-zinc-400 py-1 cursor-pointer flex items-center" aria-current="page"\r
+                        <a class="hover:text-zinc-400 py-2 cursor-pointer flex items-center" aria-current="page"\r
                            href="https://wiki.d2r-reimagined.com/" external target="_blank"\r
                            click.trigger="closeMobileMenu()">\r
                             Wiki <span class="material-symbols-outlined ml-1">open_in_new</span>\r
@@ -36419,7 +36419,7 @@ const template$s = `<nav class="bg-zinc-800 shadow-md sticky top-0 z-6">\r
                                     class="list-none hover:text-zinc-400 py-2 inline-flex items-center cursor-pointer select-none pl-0">\r
                                 Font\r
                             </summary>\r
-                            <ul class="bg-zinc-800 shadow-lg rounded py-1 min-w-40 z-50\r
+                            <ul class="bg-zinc-800 shadow-lg rounded py-2 min-w-40 z-50\r
                                        static w-full mt-1 max-h-[50vh] overflow-y-auto overscroll-contain\r
                                        lg:absolute lg:right-0 lg:top-full lg:w-auto lg:mt-1 lg:mb-0 lg:max-h-[70vh]">\r
                                 <li repeat.for="font of fonts">\r
@@ -36449,9 +36449,26 @@ const template$s = `<nav class="bg-zinc-800 shadow-md sticky top-0 z-6">\r
     </div>\r
 </nav>\r
 \r
-<div class="w-full px-2">\r
+<div class="w-full px-2 pb-12">\r
     <au-viewport default="Home"></au-viewport>\r
 </div>\r
+\r
+<!-- Floating "Back to Top" button: always visible for debug; click triggers App.scrollToTop() -->\r
+<button\r
+    type="button"\r
+    class="fixed bottom-1.5 right-1.5 z-50\r
+           bg-zinc-800 text-zinc-200 border border-zinc-700 rounded-full shadow\r
+           hover:bg-zinc-700 focus:outline-none focus:ring focus:ring-zinc-500/50\r
+           w-5 h-5 flex items-center justify-center"\r
+    aria-label="Back to top"\r
+    title="Back to top"\r
+    click.trigger="scrollToTop()"\r
+    if.bind="showBackToTop">\r
+    <span class="material-symbols-outlined" aria-hidden="true">arrow_upward</span>\r
+    <span class="sr-only">Top</span>\r
+</button>\r
+\r
+<!-- Note: Scroll behavior handled in App.scrollToTop() (src/app.ts). -->\r
 `;
 const dependencies = [];
 const bindables = {};
@@ -36508,47 +36525,47 @@ _App_decorators = [customElement(__au2ViewDef), route({
   routes: [
     {
       path: "",
-      component: __vitePreload(() => import("./home-guVhZ8EM.js"), true ? [] : void 0),
+      component: __vitePreload(() => import("./home-Dp38fyox.js"), true ? [] : void 0),
       title: "Home"
     },
     {
       path: "cube-recipes",
-      component: __vitePreload(() => import("./cube-recipes-CqRzfOoV.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
+      component: __vitePreload(() => import("./cube-recipes-DgcrRJwm.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
       title: "Cube Recipes"
     },
     {
       path: "uniques",
-      component: __vitePreload(() => import("./uniques-2IcadsIR.js"), true ? __vite__mapDeps([3,1,4,5]) : void 0),
+      component: __vitePreload(() => import("./uniques-B5PhoWiH.js"), true ? __vite__mapDeps([3,1,4,5]) : void 0),
       title: "Uniques"
     },
     {
       path: "sets",
-      component: __vitePreload(() => import("./sets-Aeo9Ehc-.js"), true ? __vite__mapDeps([6,1,5]) : void 0),
+      component: __vitePreload(() => import("./sets-C39aGMZ_.js"), true ? __vite__mapDeps([6,1,5]) : void 0),
       title: "Sets"
     },
     {
       path: "runewords",
-      component: __vitePreload(() => import("./runewords-CcUpH0Ib.js"), true ? __vite__mapDeps([7,1,5]) : void 0),
+      component: __vitePreload(() => import("./runewords-7okOJ8rk.js"), true ? __vite__mapDeps([7,1,5]) : void 0),
       title: "Runewords"
     },
     {
       path: "grail",
-      component: __vitePreload(() => import("./grail-0ujG-OmP.js"), true ? __vite__mapDeps([8,4]) : void 0),
+      component: __vitePreload(() => import("./grail-uUROwkiP.js"), true ? __vite__mapDeps([8,4]) : void 0),
       title: "Holy Grail"
     },
     {
       path: "armors",
-      component: __vitePreload(() => import("./armors-DRiXJ0wo.js"), true ? __vite__mapDeps([9,5]) : void 0),
+      component: __vitePreload(() => import("./armors-BXW-SMUC.js"), true ? __vite__mapDeps([9,5]) : void 0),
       title: "Armor Bases"
     },
     {
       path: "weapons",
-      component: __vitePreload(() => import("./weapons-3fwJRLvt.js"), true ? __vite__mapDeps([10,5]) : void 0),
+      component: __vitePreload(() => import("./weapons-xWCHhlqO.js"), true ? __vite__mapDeps([10,5]) : void 0),
       title: "Weapon Bases"
     },
     {
       path: "affixes",
-      component: __vitePreload(() => import("./affixes-D7jn7Sm9.js"), true ? __vite__mapDeps([11,1,5]) : void 0),
+      component: __vitePreload(() => import("./affixes-Hr7c4FAe.js"), true ? __vite__mapDeps([11,1,5]) : void 0),
       title: "Affixes"
     }
   ]
@@ -36559,8 +36576,16 @@ class App {
     { class: "font-resurrected", name: "Resurrected" },
     { class: "font-neutral", name: "Neutral" }
   ];
+  // UI state for back-to-top visibility
+  showBackToTop = false;
+  // Internals for back-to-top monitoring
+  _bt_lastScrollEl;
+  _bt_bound = false;
+  _bt_ticking = false;
   attached() {
     this.loadFont();
+    this.bindBackToTopMonitoring();
+    this.updateBackToTopVisibility();
   }
   handleFontSelected(font) {
     window.localStorage.setItem("font", font.class);
@@ -36594,6 +36619,134 @@ class App {
       const allClasses = this.fonts.map((font) => font.class);
       document.body.classList.remove(...allClasses);
       document.body.classList.add(selectedFont);
+    }
+  }
+  /**
+   * Find the active scroll container used by the current route. Some pages
+   * scroll the window; others place content inside a scrollable container.
+   */
+  getScrollContainer() {
+    const viewportEl = document.querySelector("au-viewport");
+    const isScrollable2 = (el) => {
+      if (!el || !(el instanceof HTMLElement)) return false;
+      const cs = getComputedStyle(el);
+      const oy = cs.overflowY;
+      if (oy !== "auto" && oy !== "scroll") return false;
+      return el.scrollHeight - 1 > el.clientHeight;
+    };
+    let node = viewportEl ? viewportEl.parentElement : null;
+    while (node && node !== document.body) {
+      if (isScrollable2(node)) return node;
+      node = node.parentElement;
+    }
+    return document;
+  }
+  hasNativeSmoothScroll() {
+    return "scrollBehavior" in document.documentElement.style;
+  }
+  easeOutCubic(t2) {
+    return 1 - Math.pow(1 - t2, 3);
+  }
+  animateWindowToTop(duration = 400) {
+    const start = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    if (start <= 0) return;
+    const startTs = performance.now();
+    const step = (ts) => {
+      const p2 = Math.min(1, (ts - startTs) / duration);
+      const eased = this.easeOutCubic(p2);
+      const y2 = Math.round(start * (1 - eased));
+      window.scrollTo(0, y2);
+      if (p2 < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  animateElementToTop(el, duration = 400) {
+    const start = el.scrollTop || 0;
+    if (start <= 0) return;
+    const startTs = performance.now();
+    const step = (ts) => {
+      const p2 = Math.min(1, (ts - startTs) / duration);
+      const eased = this.easeOutCubic(p2);
+      el.scrollTop = Math.round(start * (1 - eased));
+      if (p2 < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  /**
+   * Scroll back to the top of the page, regardless of which element is the
+   * actual scroll root. Uses smooth scrolling when available.
+   */
+  scrollToTop() {
+    const scroller = this.getScrollContainer();
+    const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const duration = reduceMotion ? 0 : 400;
+    if (this.hasNativeSmoothScroll() && duration > 0) {
+      try {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } catch {
+        window.scrollTo(0, 0);
+      }
+    } else if (duration > 0) {
+      this.animateWindowToTop(duration);
+    } else {
+      window.scrollTo(0, 0);
+    }
+    if (scroller && scroller instanceof HTMLElement) {
+      if (duration > 0) {
+        this.animateElementToTop(scroller, duration);
+      } else {
+        scroller.scrollTop = 0;
+      }
+    }
+    if (duration > 0) {
+      window.setTimeout(() => this.updateBackToTopVisibility(), duration + 100);
+    } else {
+      this.updateBackToTopVisibility();
+    }
+  }
+  // ---- Back-to-top show/hide monitoring ----
+  getWindowScrollTop() {
+    return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+  }
+  updateBackToTopVisibility() {
+    const el = this.getScrollContainer();
+    const elTop = el && el instanceof HTMLElement ? el.scrollTop : 0;
+    const scrollTop = Math.max(this.getWindowScrollTop(), elTop || 0);
+    const viewportH = el && el instanceof HTMLElement ? el.clientHeight : window.innerHeight;
+    const threshold = Math.max(viewportH * 2.5, 800);
+    this.showBackToTop = scrollTop > threshold;
+    this._bt_ticking = false;
+  }
+  onAnyScroll = () => {
+    if (!this._bt_ticking) {
+      this._bt_ticking = true;
+      requestAnimationFrame(() => this.updateBackToTopVisibility());
+    }
+  };
+  bindBackToTopMonitoring() {
+    if (this._bt_bound) return;
+    this._bt_bound = true;
+    window.addEventListener("scroll", this.onAnyScroll, { passive: true });
+    window.addEventListener("resize", this.onAnyScroll);
+    const el = this.getScrollContainer();
+    if (el && el instanceof HTMLElement) {
+      this._bt_lastScrollEl = el;
+      el.addEventListener("scroll", this.onAnyScroll, { passive: true });
+    }
+    const viewportEl = document.querySelector("au-viewport");
+    const observeTarget = viewportEl ? viewportEl.parentElement : document.body;
+    if (observeTarget) {
+      const mo = new MutationObserver(() => {
+        const current = this.getScrollContainer();
+        const currentEl = current && current instanceof HTMLElement ? current : void 0;
+        if (currentEl !== this._bt_lastScrollEl) {
+          if (this._bt_lastScrollEl) this._bt_lastScrollEl.removeEventListener("scroll", this.onAnyScroll);
+          if (currentEl) currentEl.addEventListener("scroll", this.onAnyScroll, { passive: true });
+          this._bt_lastScrollEl = currentEl;
+        }
+        this.onAnyScroll();
+      });
+      mo.observe(observeTarget, { attributes: true, childList: true, subtree: true });
     }
   }
 }
