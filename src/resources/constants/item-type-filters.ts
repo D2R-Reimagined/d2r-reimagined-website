@@ -1,16 +1,15 @@
-﻿// Centralized filter constants built from data in
-// C:\z_GitHub\d2r-reimagined-mod\data\global\excel\itemtypes.txt
+﻿// Centralized item-type model and high-performance helpers
+// Source: C:\z_GitHub\d2r-reimagined-mod\data\global\excel\itemtypes.txt
 //
-// Purpose
-// - Provide a single source of truth for item type names, codes, and basic parent relationships
-// - Expose reusable option builders for dropdowns across multiple pages (e.g., Runewords)
-// - Keep UI labels decoupled from underlying type names when needed
+// Goals
+// - Single source of truth for type names, short codes, and parent relationships
+// - Fast, sibling-safe filtering helpers with zero redundant traversals
+// - No renaming/canonicalization beyond case-insensitive lookups (use raw JSON names)
 //
-// Notes
-// - The parent relationships come from the Equiv1 / Equiv2 columns of itemtypes.txt.
-//   We represent parents using human-readable ItemType names rather than codes.
-// - This file intentionally includes the major types currently used by filters across pages.
-//   You can extend ITEM_TYPES with more rows from itemtypes.txt as needed.
+// Implementation notes
+// - Parents come from Equiv1/Equiv2 columns. We reference parents by human-readable names.
+// - Heavy operations (type chains, descendants, adjacency) are precomputed and memoized.
+// - All exported helpers are allocation-conscious and cycle-safe.
 
 export interface ItemTypeNode {
     // Human-friendly name (itemtypes.txt column: ItemType)
@@ -142,42 +141,92 @@ export const ITEM_TYPE_BY_NAME_LC = new Map<string, ItemTypeNode>(
     ITEM_TYPES.map((t) => [t.name.toLowerCase(), t])
 );
 
-/**
- * Returns a type chain used for filtering, starting with the specific type name,
- * followed by its parent names recursively (nearest parent first).
- * Example: getTypeChain('Axe') => ['Axe', 'Melee Weapon', 'Weapon']
- */
-export function getTypeChain(name: string): string[] {
-    const seen = new Set<string>();
-    const chain: string[] = [];
+// ---------------------------------------------
+// Precomputed caches for performance
+// ---------------------------------------------
 
-    let current = ITEM_TYPE_BY_NAME.get(name);
-    while (current && !seen.has(current.name)) {
-        chain.push(current.name);
-        seen.add(current.name);
-        const parentName = current.parents?.[0]; // follow nearest parent first
-        current = parentName ? ITEM_TYPE_BY_NAME.get(parentName) : undefined;
+// Cache of chains: name -> [name, parent, grandparent, ...]
+const CHAIN_CACHE = new Map<string, readonly string[]>();
+
+// Parent adjacency (name -> parents[]) and child adjacency (name -> children[])
+const PARENTS_MAP = new Map<string, readonly string[]>();
+const CHILDREN_MAP = new Map<string, string[]>();
+
+for (const t of ITEM_TYPES) {
+    const parents = (t.parents ?? []).slice();
+    PARENTS_MAP.set(t.name, parents);
+}
+
+// Build children adjacency from parents
+for (const t of ITEM_TYPES) {
+    const parents = PARENTS_MAP.get(t.name) || [];
+    for (const p of parents) {
+        if (!CHILDREN_MAP.has(p)) CHILDREN_MAP.set(p, []);
+        CHILDREN_MAP.get(p)!.push(t.name);
     }
-    // If there are multiple parents listed, include the additional branches after the main chain
-    // (kept simple to avoid duplicates while keeping ordering intuitive for filters)
-    const first = ITEM_TYPE_BY_NAME.get(name);
-    if (first && first.parents && first.parents.length > 1) {
-        for (let i = 1; i < first.parents.length; i++) {
-            const p = first.parents[i];
+}
+
+/**
+ * Compute and memoize the chain for a type name with cycle protection.
+ * Ordering rule: follow the nearest parent first; for additional parents, append
+ * that parent and its chain (excluding duplicates), preserving declaration order.
+ */
+function computeChain(name: string, outerSeen?: Set<string>): readonly string[] {
+    if (CHAIN_CACHE.has(name)) return CHAIN_CACHE.get(name)!;
+
+    const node = ITEM_TYPE_BY_NAME.get(name);
+    if (!node) {
+        // Unknown name: treat as empty chain to avoid surprising matches.
+        CHAIN_CACHE.set(name, Object.freeze([]));
+        return CHAIN_CACHE.get(name)!;
+    }
+
+    const seen = outerSeen ?? new Set<string>();
+    if (seen.has(name)) {
+        // Cycle guard: stop here.
+        CHAIN_CACHE.set(name, Object.freeze([name]));
+        return CHAIN_CACHE.get(name)!;
+    }
+    seen.add(name);
+
+    const chain: string[] = [name];
+    const parents = PARENTS_MAP.get(name) || [];
+    // Follow primary (nearest) parent chain first
+    if (parents.length > 0) {
+        const first = parents[0];
+        if (!seen.has(first)) {
+            const sub = computeChain(first, new Set(seen));
+            for (const s of sub) {
+                if (chain.indexOf(s) === -1) chain.push(s);
+            }
+        } else if (chain.indexOf(first) === -1) {
+            chain.push(first);
+        }
+        // Append additional parent branches
+        for (let i = 1; i < parents.length; i++) {
+            const p = parents[i];
+            if (chain.indexOf(p) === -1) chain.push(p);
             if (!seen.has(p)) {
-                chain.push(p);
-                seen.add(p);
-                const sub = getTypeChain(p);
-                for (const s of sub.slice(1)) { // avoid re-adding p itself
-                    if (!seen.has(s)) {
-                        chain.push(s);
-                        seen.add(s);
-                    }
+                const branch = computeChain(p, new Set(seen));
+                for (const s of branch) {
+                    if (chain.indexOf(s) === -1) chain.push(s);
                 }
             }
         }
     }
-    return chain;
+
+    const frozen = Object.freeze(chain.slice());
+    CHAIN_CACHE.set(name, frozen);
+    return frozen;
+}
+
+/**
+ * Return the chain for a type name: [name, parent, grandparent, ...].
+ * Example: getTypeChain('Axe') => ['Axe', 'Melee Weapon', 'Weapon']
+ * Uses memoized computation with cycle protection.
+ */
+export function getTypeChain(name: string): string[] {
+    return computeChain(name).slice(); // return a shallow copy to keep cache immutable
 }
 
 /**
@@ -194,7 +243,8 @@ export function getChainForTypeName(rawName: string): string[] {
 
 export interface FilterOption {
     label: string;
-    value: string[];
+    // Optional to allow placeholder option with undefined value so bound model can remain undefined
+    value?: string[];
 }
 
 // Class aggregate base names (these should only appear as options when the aggregate itself
@@ -212,9 +262,18 @@ const CLASS_AGGREGATE_BASES = new Set<string>([
 
 // Build a FilterOption from an ItemType name and optional extra parents
 export function makeTypeOption(label: string, baseTypeName?: string, extraParents: string[] = []): FilterOption {
-    const value = baseTypeName ? getTypeChain(baseTypeName) : [];
-    for (const p of extraParents) {
-        if (!value.includes(p)) value.push(p);
+    // For placeholder entries (no base), return undefined so UI bindings can default to "-"
+    if (!baseTypeName) return { label, value: undefined };
+
+    const value = getTypeChain(baseTypeName);
+    if (extraParents && extraParents.length) {
+        const set = new Set<string>(value);
+        for (const p of extraParents) {
+            if (!set.has(p)) {
+                value.push(p);
+                set.add(p);
+            }
+        }
     }
     return { label, value };
 }
@@ -232,24 +291,40 @@ export function resolveBaseTypeName(rawName: string): string {
 }
 
 /**
- * Return all descendant base type names for a given aggregate/base type name.
- * A descendant is any node whose type chain contains the given base name.
- * Ordering follows ITEM_TYPES declaration order and duplicates are removed.
+ * Precompute descendants for all types using CHILDREN_MAP (cycle-safe).
+ * Descendants are ordered by ITEM_TYPES declaration order.
  */
-export function getDescendantBaseNames(baseTypeName: string): string[] {
-    const out: string[] = [];
-    const seen = new Set<string>();
-    for (const t of ITEM_TYPES) {
-        if (t.name === baseTypeName) continue;
-        const chain = getTypeChain(t.name);
-        if (chain.includes(baseTypeName)) {
-            if (!seen.has(t.name)) {
-                out.push(t.name);
-                seen.add(t.name);
+const DESCENDANTS_MAP = new Map<string, readonly string[]>();
+
+function computeDescendants(name: string): readonly string[] {
+    if (DESCENDANTS_MAP.has(name)) return DESCENDANTS_MAP.get(name)!;
+
+    const visited = new Set<string>();
+    const stack: string[] = (CHILDREN_MAP.get(name) || []).slice();
+    while (stack.length) {
+        const child = stack.pop()!;
+        if (visited.has(child)) continue;
+        visited.add(child);
+        const grandchildren = CHILDREN_MAP.get(child);
+        if (grandchildren && grandchildren.length) {
+            for (let i = 0; i < grandchildren.length; i++) {
+                const g = grandchildren[i];
+                if (!visited.has(g)) stack.push(g);
             }
         }
     }
-    return out;
+    // Project visited into stable declaration order
+    const ordered: string[] = [];
+    for (const t of ITEM_TYPES) {
+        if (t.name !== name && visited.has(t.name)) ordered.push(t.name);
+    }
+    const frozen = Object.freeze(ordered);
+    DESCENDANTS_MAP.set(name, frozen);
+    return frozen;
+}
+
+export function getDescendantBaseNames(baseTypeName: string): string[] {
+    return computeDescendants(baseTypeName).slice();
 }
 
 /**
@@ -272,37 +347,44 @@ export function buildOptionsForPresentTypes(
 ): FilterOption[] {
     const result: FilterOption[] = [];
 
-    // Build a closure set that includes present bases and all their parents.
+    // Build a closure set that includes present bases and all their parents (using cached chains)
     const presentClosure = new Set<string>();
     for (const b of presentBaseNames) {
         presentClosure.add(b);
-        const chain = getTypeChain(b);
-        for (const c of chain.slice(1)) presentClosure.add(c);
+        const chain = CHAIN_CACHE.get(b) || computeChain(b);
+        for (let i = 1; i < chain.length; i++) presentClosure.add(chain[i]);
     }
 
-    for (const opt of preset) {
-        // keep placeholder option
+    for (let i = 0; i < preset.length; i++) {
+        const opt = preset[i];
+        // Keep placeholder option
         if (!opt.value || opt.value.length === 0) {
             result.push(opt);
             continue;
         }
 
         const base = opt.value[0];
-        const baseChain = getTypeChain(base);
-        // extras are items that are not part of the base chain (i.e., explicitly appended children)
-        const extras = opt.value.filter(v => !baseChain.includes(v));
+        const baseChain = CHAIN_CACHE.get(base) || computeChain(base);
+        const baseSet = new Set(baseChain);
+        // Extras: tokens not part of the base chain (explicit children/descendants supplied by the preset)
+        const extras: string[] = [];
+        for (let j = 0; j < opt.value.length; j++) {
+            const v = opt.value[j];
+            if (!baseSet.has(v)) extras.push(v);
+        }
 
         // Triggers for inclusion: base or any explicit extras present in the data closure (incl. parents)
-        const triggers = [base, ...extras];
         let include: boolean;
-
         if (CLASS_AGGREGATE_BASES.has(base)) {
             // For class aggregates, only include when the aggregate itself is directly present
-            // as a base type in the data. Do NOT include just because a child (e.g., Primal Helm)
-            // or parent appears via closure to avoid over-populating the dropdown.
             include = presentBaseNames.has(base);
         } else {
-            include = triggers.some(t => presentClosure.has(t));
+            include = presentClosure.has(base);
+            if (!include) {
+                for (let k = 0; k < extras.length; k++) {
+                    if (presentClosure.has(extras[k])) { include = true; break; }
+                }
+            }
         }
         if (include) result.push(opt);
     }

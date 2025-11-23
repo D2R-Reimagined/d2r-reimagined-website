@@ -58,8 +58,6 @@ export class Weapons {
     // Selected type option value (base + parents)
     @bindable selectedType: string[];
     @bindable selectedTier: 'Normal' | 'Exceptional' | 'Elite' | undefined;
-    // Exact type only toggle
-    @bindable exclusiveType: boolean;
 
     tierOptions = [
         { value: undefined, label: '-' },
@@ -147,8 +145,7 @@ export class Weapons {
 
         const filtered = Array.from(combinedSet).filter(i => {
             const byType = !typeFilter || typeFilter.length === 0 || ((): boolean => {
-                const selected = this.exclusiveType ? [this.selectedType?.[0]] : this.selectedType;
-                const selectedSet = new Set<string>(selected || []);
+                const selectedSet = new Set<string>(this.selectedType || []);
                 const base = getChainForTypeName(i?.Type?.Name ?? '')[0] || (i?.Type?.Name ?? '');
                 return selectedSet.has(base);
             })();
@@ -269,9 +266,5 @@ export class Weapons {
         });
     }
 
-    @watch('exclusiveType')
-    handleExclusiveTypeChanged() {
-        // Trigger recompute by touching a bindable used in getter
-        this.search = this.search || '';
-    }
+    
 }

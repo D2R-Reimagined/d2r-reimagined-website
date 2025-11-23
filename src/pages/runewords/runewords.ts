@@ -6,7 +6,8 @@ import {
     type_filtering_options,
     getChainForTypeName,
     buildOptionsForPresentTypes,
-    resolveBaseTypeName
+    resolveBaseTypeName,
+    FilterOption
 } from '../../resources/constants/item-type-filters';
 
 export class Runewords {
@@ -22,7 +23,7 @@ export class Runewords {
 
     // Reuse centralized options (single source of truth),
     // narrowed at runtime to only types present in the runewords data.
-    types: { label: string, value: string[] }[] = type_filtering_options.slice();
+    types: ReadonlyArray<FilterOption> = type_filtering_options.slice();
 
     selectedType: string[];
 

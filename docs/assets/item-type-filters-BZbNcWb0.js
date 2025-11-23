@@ -105,34 +105,62 @@ new Map(
 const ITEM_TYPE_BY_NAME_LC = new Map(
   ITEM_TYPES.map((t) => [t.name.toLowerCase(), t])
 );
-function getTypeChain(name) {
-  const seen = /* @__PURE__ */ new Set();
-  const chain = [];
-  let current = ITEM_TYPE_BY_NAME.get(name);
-  while (current && !seen.has(current.name)) {
-    chain.push(current.name);
-    seen.add(current.name);
-    const parentName = current.parents?.[0];
-    current = parentName ? ITEM_TYPE_BY_NAME.get(parentName) : void 0;
+const CHAIN_CACHE = /* @__PURE__ */ new Map();
+const PARENTS_MAP = /* @__PURE__ */ new Map();
+const CHILDREN_MAP = /* @__PURE__ */ new Map();
+for (const t of ITEM_TYPES) {
+  const parents = (t.parents ?? []).slice();
+  PARENTS_MAP.set(t.name, parents);
+}
+for (const t of ITEM_TYPES) {
+  const parents = PARENTS_MAP.get(t.name) || [];
+  for (const p of parents) {
+    if (!CHILDREN_MAP.has(p)) CHILDREN_MAP.set(p, []);
+    CHILDREN_MAP.get(p).push(t.name);
   }
-  const first = ITEM_TYPE_BY_NAME.get(name);
-  if (first && first.parents && first.parents.length > 1) {
-    for (let i = 1; i < first.parents.length; i++) {
-      const p = first.parents[i];
+}
+function computeChain(name, outerSeen) {
+  if (CHAIN_CACHE.has(name)) return CHAIN_CACHE.get(name);
+  const node = ITEM_TYPE_BY_NAME.get(name);
+  if (!node) {
+    CHAIN_CACHE.set(name, Object.freeze([]));
+    return CHAIN_CACHE.get(name);
+  }
+  const seen = outerSeen ?? /* @__PURE__ */ new Set();
+  if (seen.has(name)) {
+    CHAIN_CACHE.set(name, Object.freeze([name]));
+    return CHAIN_CACHE.get(name);
+  }
+  seen.add(name);
+  const chain = [name];
+  const parents = PARENTS_MAP.get(name) || [];
+  if (parents.length > 0) {
+    const first = parents[0];
+    if (!seen.has(first)) {
+      const sub = computeChain(first, new Set(seen));
+      for (const s of sub) {
+        if (chain.indexOf(s) === -1) chain.push(s);
+      }
+    } else if (chain.indexOf(first) === -1) {
+      chain.push(first);
+    }
+    for (let i = 1; i < parents.length; i++) {
+      const p = parents[i];
+      if (chain.indexOf(p) === -1) chain.push(p);
       if (!seen.has(p)) {
-        chain.push(p);
-        seen.add(p);
-        const sub = getTypeChain(p);
-        for (const s of sub.slice(1)) {
-          if (!seen.has(s)) {
-            chain.push(s);
-            seen.add(s);
-          }
+        const branch = computeChain(p, new Set(seen));
+        for (const s of branch) {
+          if (chain.indexOf(s) === -1) chain.push(s);
         }
       }
     }
   }
-  return chain;
+  const frozen = Object.freeze(chain.slice());
+  CHAIN_CACHE.set(name, frozen);
+  return frozen;
+}
+function getTypeChain(name) {
+  return computeChain(name).slice();
 }
 function getChainForTypeName(rawName) {
   const raw = (rawName ?? "").trim();
@@ -151,8 +179,14 @@ const CLASS_AGGREGATE_BASES = /* @__PURE__ */ new Set([
 ]);
 function makeTypeOption(label, baseTypeName, extraParents = []) {
   const value = baseTypeName ? getTypeChain(baseTypeName) : [];
-  for (const p of extraParents) {
-    if (!value.includes(p)) value.push(p);
+  if (extraParents && extraParents.length) {
+    const set = new Set(value);
+    for (const p of extraParents) {
+      if (!set.has(p)) {
+        value.push(p);
+        set.add(p);
+      }
+    }
   }
   return { label, value };
 }
@@ -162,43 +196,69 @@ function resolveBaseTypeName(rawName) {
   const chain = getChainForTypeName(raw);
   return chain && chain.length > 0 ? chain[0] : raw;
 }
-function getDescendantBaseNames(baseTypeName) {
-  const out = [];
-  const seen = /* @__PURE__ */ new Set();
-  for (const t of ITEM_TYPES) {
-    if (t.name === baseTypeName) continue;
-    const chain = getTypeChain(t.name);
-    if (chain.includes(baseTypeName)) {
-      if (!seen.has(t.name)) {
-        out.push(t.name);
-        seen.add(t.name);
+const DESCENDANTS_MAP = /* @__PURE__ */ new Map();
+function computeDescendants(name) {
+  if (DESCENDANTS_MAP.has(name)) return DESCENDANTS_MAP.get(name);
+  const visited = /* @__PURE__ */ new Set();
+  const stack = (CHILDREN_MAP.get(name) || []).slice();
+  while (stack.length) {
+    const child = stack.pop();
+    if (visited.has(child)) continue;
+    visited.add(child);
+    const grandchildren = CHILDREN_MAP.get(child);
+    if (grandchildren && grandchildren.length) {
+      for (let i = 0; i < grandchildren.length; i++) {
+        const g = grandchildren[i];
+        if (!visited.has(g)) stack.push(g);
       }
     }
   }
-  return out;
+  const ordered = [];
+  for (const t of ITEM_TYPES) {
+    if (t.name !== name && visited.has(t.name)) ordered.push(t.name);
+  }
+  const frozen = Object.freeze(ordered);
+  DESCENDANTS_MAP.set(name, frozen);
+  return frozen;
+}
+function getDescendantBaseNames(baseTypeName) {
+  return computeDescendants(baseTypeName).slice();
 }
 function buildOptionsForPresentTypes(preset, presentBaseNames) {
   const result = [];
   const presentClosure = /* @__PURE__ */ new Set();
   for (const b of presentBaseNames) {
     presentClosure.add(b);
-    const chain = getTypeChain(b);
-    for (const c of chain.slice(1)) presentClosure.add(c);
+    const chain = CHAIN_CACHE.get(b) || computeChain(b);
+    for (let i = 1; i < chain.length; i++) presentClosure.add(chain[i]);
   }
-  for (const opt of preset) {
+  for (let i = 0; i < preset.length; i++) {
+    const opt = preset[i];
     if (!opt.value || opt.value.length === 0) {
       result.push(opt);
       continue;
     }
     const base = opt.value[0];
-    const baseChain = getTypeChain(base);
-    const extras = opt.value.filter((v) => !baseChain.includes(v));
-    const triggers = [base, ...extras];
+    const baseChain = CHAIN_CACHE.get(base) || computeChain(base);
+    const baseSet = new Set(baseChain);
+    const extras = [];
+    for (let j = 0; j < opt.value.length; j++) {
+      const v = opt.value[j];
+      if (!baseSet.has(v)) extras.push(v);
+    }
     let include;
     if (CLASS_AGGREGATE_BASES.has(base)) {
       include = presentBaseNames.has(base);
     } else {
-      include = triggers.some((t) => presentClosure.has(t));
+      include = presentClosure.has(base);
+      if (!include) {
+        for (let k = 0; k < extras.length; k++) {
+          if (presentClosure.has(extras[k])) {
+            include = true;
+            break;
+          }
+        }
+      }
     }
     if (include) result.push(opt);
   }

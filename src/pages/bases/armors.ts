@@ -58,8 +58,6 @@
           // Selected type option value (base + parents)
           @bindable selectedType: string[];
           @bindable selectedTier: 'Normal' | 'Exceptional' | 'Elite' | undefined;
-          // Exact type only toggle
-          @bindable exclusiveType: boolean;
 
           tierOptions = [
               { value: undefined, label: '-' },
@@ -153,8 +151,7 @@
               // Apply Type and Tier filters (Tier is strict as per requirement)
               const filtered = Array.from(combinedSet).filter(i => {
                   const byType = !typeFilter || typeFilter.length === 0 || ((): boolean => {
-                      const selected = this.exclusiveType ? [this.selectedType?.[0]] : this.selectedType;
-                      const selectedSet = new Set<string>(selected || []);
+                      const selectedSet = new Set<string>(this.selectedType || []);
                       const base = getChainForTypeName(i?.Type?.Name ?? '')[0] || (i?.Type?.Name ?? '');
                       return selectedSet.has(base);
                   })();
@@ -282,11 +279,5 @@
               });
           }
 
-          @watch('exclusiveType')
-          handleExclusiveTypeChanged() {
-              // Recompute getter-dependent UI by triggering change detection
-              // Accessing filteredAndGrouped in template will recompute automatically.
-              // Here, we simply force an update by touching a bindable used in filters.
-              this.search = this.search || '';
-          }
+          
       }

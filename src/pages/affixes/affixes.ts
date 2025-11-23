@@ -7,7 +7,8 @@ import {
     type_filtering_options,
     getChainForTypeName,
     buildOptionsForPresentTypes,
-    resolveBaseTypeName
+    resolveBaseTypeName,
+    FilterOption
 } from '../../resources/constants/item-type-filters';
 
 type PType = 'Prefix' | 'Suffix';
@@ -42,7 +43,7 @@ export class Affixes {
     private descToGroups: Map<string, Set<number>> = new Map();
 
     // Item Type dropdown (reuse centralized options, narrowed per data)
-    types: { label: string; value: string[] }[] = type_filtering_options.slice();
+    types: ReadonlyArray<FilterOption> = type_filtering_options.slice();
     @bindable selectedType: string[] | undefined;
 
     // Exact type only toggle
