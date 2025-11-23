@@ -1,15 +1,15 @@
 /* Base (mobile-first) */
 .search-area {
   position: static;
-  top: 60px;           /* default mobile navbar height */
-  z-index: 5;         /* keep above page content but below menus if needed */
-  padding: 16px 0 0 0;  /* small vertical spacing */
+  top: 60px;
+  z-index: 5;
+  padding: 16px 0 0 0;
   background-color: black !important;
 }
 
 @media (min-width: 1025px) {
     .search-area {
       position: sticky;
-    top: 60px;
+      top: 60px;
   }
 }

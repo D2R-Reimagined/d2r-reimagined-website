@@ -23,11 +23,11 @@ export class Sets {
 
     equipmentNames: Array<{ value: string | undefined; label: string } > = [];
 
-    // Centralized, data-driven type options filtered to present types in sets data
+    // Centralized type options, narrowed to types present in data
     types: ReadonlyArray<FilterOption> = type_filtering_options.slice();
 
     attached(): void {
-        // Read search query parameters from URL when component is initialized
+        // Read initial params from URL
         const urlParams = new URLSearchParams(window.location.search);
 
         const searchParam = urlParams.get('search');
@@ -45,7 +45,7 @@ export class Sets {
             this.selectedType = typeParam.split(',');
         }
 
-        // Build data-driven type options from present SetItems types
+        // Collect base type names present in data
         try {
             const present = new Set<string>();
             for (const set of json as any[]) {
@@ -56,21 +56,21 @@ export class Sets {
             }
             this.types = buildOptionsForPresentTypes(type_filtering_options, present);
         } catch {
-            // keep default preset on error
+            // keep defaults on error
         }
 
         // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         this._debouncedSearchItem = debounce(this.updateList.bind(this), 350);
-        // Initialize equipment names if type is preselected
+        // Prebuild Equipment options if type preselected
         if (this.selectedType && this.selectedType.length > 0) {
             this.equipmentNames = this.getSetEquipmentNames();
         }
         this.updateList();
     }
 
-    // Types options now provided by centralized preset via this.types property.
+    // Types provided via shared preset (this.types)
 
-    // Helper method to update URL with current search parameters
+    // Push current filters to URL
     private updateUrl() {
         const url = new URL(window.location.href);
 

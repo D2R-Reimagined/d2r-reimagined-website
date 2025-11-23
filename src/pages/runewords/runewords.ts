@@ -21,8 +21,7 @@ export class Runewords {
 
     filteredRunewords = [];
 
-    // Reuse centralized options (single source of truth),
-    // narrowed at runtime to only types present in the runewords data.
+    // Centralized options, narrowed at runtime to types present in data
     types: ReadonlyArray<FilterOption> = type_filtering_options.slice();
 
     selectedType: string[];
@@ -42,7 +41,7 @@ export class Runewords {
         // Read search query parameters from URL when component is initialized
         const urlParams = new URLSearchParams(window.location.search);
 
-        // Build the set of base type names present in the runewords data
+        // Collect base type names present in data
         const present = new Set<string>();
         try {
             for (const rw of this.runewords as any[]) {
@@ -53,7 +52,7 @@ export class Runewords {
                 }
             }
         } catch {
-            // ignore, keep default options if something unexpected occurs
+            // keep defaults on error
         }
         // Filter the shared preset to only show options relevant to this page's data
         this.types = buildOptionsForPresentTypes(type_filtering_options, present);
@@ -87,7 +86,7 @@ export class Runewords {
         this.updateList();
     }
 
-    // Helper method to update URL with current search parameters
+    // Push current filters to URL
     private updateUrl() {
         const url = new URL(window.location.href);
 
@@ -184,8 +183,7 @@ export class Runewords {
             const selected = this.exclusiveType ? [this.selectedType[0]] : this.selectedType;
             const selectedSet = new Set<string>(selected);
 
-            // Normalize a runeword type token to its base node name (case-insensitive),
-            // without expanding to parents. This prevents sibling leakage via shared parents.
+            // Normalize a token to its base node (case-insensitive); no parent expansion
             const normalizeBase = (t: any) => {
                 const raw = t?.Name != null ? String(t.Name) : '';
                 const chain = getChainForTypeName(raw);
@@ -198,15 +196,15 @@ export class Runewords {
             });
         }
 
-        // Amount filtering
+        // Socket count filter
         if (this.selectedAmount) {
             filteringRunewords = filteringRunewords.filter((x) => x.Runes.length === this.selectedAmount);
         }
 
-        // Initialize found to apply both search filters together
+        // Apply text + rune filters
         let found = filteringRunewords;
 
-        // Regular search filter (by name, properties, types)
+        // Text search (name, props, types)
         if (this.search) {
             found = found.filter((runeword) => {
                 if (runeword.Name.toLowerCase().includes(this.search.toLowerCase())) {

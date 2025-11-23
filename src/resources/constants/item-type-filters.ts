@@ -1,22 +1,13 @@
-﻿// Centralized item-type model and high-performance helpers
-// Source: C:\z_GitHub\d2r-reimagined-mod\data\global\excel\itemtypes.txt
-//
-// Goals
-// - Single source of truth for type names, short codes, and parent relationships
-// - Fast, sibling-safe filtering helpers with zero redundant traversals
-// - No renaming/canonicalization beyond case-insensitive lookups (use raw JSON names)
-//
-// Implementation notes
-// - Parents come from Equiv1/Equiv2 columns. We reference parents by human-readable names.
-// - Heavy operations (type chains, descendants, adjacency) are precomputed and memoized.
-// - All exported helpers are allocation-conscious and cycle-safe.
+﻿// Item-type graph + filter helpers (fast, memoized).
+// Data: itemtypes.txt (D2R Reimagined mod). Parents from Equiv1/Equiv2.
+// Notes: heavy lookups are precomputed; helpers are cycle-safe and allocation-light.
 
 export interface ItemTypeNode {
-    // Human-friendly name (itemtypes.txt column: ItemType)
+    // Human-friendly name (itemtypes.txt: ItemType)
     name: string;
-    // Short code (itemtypes.txt column: Code)
+    // Short code (itemtypes.txt: Code)
     code: string;
-    // Human-friendly parent names (derived from Equiv1/Equiv2). Order: nearest parent first.
+    // Parent names (Equiv1/Equiv2). Order: nearest parent first.
     parents?: string[];
 }
 
@@ -222,19 +213,12 @@ function computeChain(name: string, outerSeen?: Set<string>): readonly string[] 
     return frozen;
 }
 
-/**
- * Return the chain for a type name: [name, parent, grandparent, ...].
- * Example: getTypeChain('Axe') => ['Axe', 'Melee Weapon', 'Weapon']
- * Uses memoized computation with cycle protection.
- */
+/** Type chain: [name, parent, ...]. Example: 'Axe' -> ['Axe','Melee Weapon','Weapon']. Memoized. */
 export function getTypeChain(name: string): string[] {
     return computeChain(name).slice(); // return a shallow copy to keep cache immutable
 }
 
-/**
- * Convenience: given a (possibly non-canonical) type name coming from game data,
- * return the full chain (itself + parents) using our canonical type graph where possible.
- */
+/** Map a raw game type name to its chain using the canonical graph when possible. */
 export function getChainForTypeName(rawName: string): string[] {
     const raw = (rawName ?? '').trim();
     if (!raw) return [''];
@@ -245,13 +229,11 @@ export function getChainForTypeName(rawName: string): string[] {
 
 export interface FilterOption {
     label: string;
-    // Optional to allow placeholder option with undefined value so bound model can remain undefined
+    // Optional so placeholder entries can leave the bound model undefined
     value?: string[];
 }
 
-// Class aggregate base names (these should only appear as options when the aggregate itself
-// exists in the page data; children like Primal Helm, Pelt, Orb, etc. should NOT cause these
-// aggregates to be shown to avoid over-typed dropdowns and duplicates).
+// Class aggregate bases; only show when the aggregate itself exists in page data.
 const CLASS_AGGREGATE_BASES = new Set<string>([
     'Amazon Item',
     'Barbarian Item',
@@ -264,7 +246,7 @@ const CLASS_AGGREGATE_BASES = new Set<string>([
 
 // Build a FilterOption from an ItemType name and optional extra parents
 export function makeTypeOption(label: string, baseTypeName?: string, extraParents: string[] = []): FilterOption {
-    // For placeholder entries (no base), return undefined so UI bindings can default to "-"
+    // Placeholder: return undefined value so UI can default to "-"
     if (!baseTypeName) return { label, value: undefined };
 
     const value = getTypeChain(baseTypeName);

@@ -76,7 +76,7 @@ export class Grail {
     @bindable selectedType: string;
     @bindable selectedEquipmentName: string;
 
-    // Hide Found Items checkbox (unchecked by default). We persist to URL only when true.
+    // Hide Found: unchecked by default; persisted as ?hideFound=true only when checked.
     @bindable showFoundItems: boolean = false;
     
     // Found maps per category
@@ -92,7 +92,7 @@ export class Grail {
     setItemsDisplayedCount: number = 0; // displayed set ITEMS under current filters
     
     binding(): void {
-        // Preprocess sets data: flatten set items for ease of filtering on grail page
+        // Flatten sets to item list for filtering
         try {
             const sets = setsJson as ISetData[];
             this.allSetItems = [];
@@ -105,16 +105,13 @@ export class Grail {
             this.allSetItems = [];
         }
 
-        // Load found items from local storage
+        // Load found-state from localStorage
         this.loadFoundItems();
 
-        // Read initial state from the URL BEFORE first render so the correct
-        // category (and filters) are applied on initial paint.
+        // Hydrate from URL before first render
         this.readUrlStateSafely();
 
-        // If a type was restored from the URL for Uniques/Sets, prebuild
-        // the equipment names list so the Equipment dropdown has options
-        // on first paint as well.
+        // Prebuild Equipment options if a type was restored (non-runewords)
         this.equipmentNames = [{ id: '', name: 'All Equipment' }];
         if (this.selectedType && this.selectedCategory !== 'runewords') {
             try {
@@ -134,21 +131,20 @@ export class Grail {
             }
         }
 
-        // Initialize totals for set items (static)
+        // Cache total set items
         this.setItemTotalCount = this.allSetItems.length;
 
-        // Build filtered lists and counters according to current state
+        // Initial filter + counters
         this.updateList();
     }
 
-    // Read initial state from URL and reflect current filters back into the URL
+    // Reflect current state back into the URL
     attached(): void {
-        // At this point the state has already been restored in binding().
-        // Ensure URL reflects the current state on first load (adds params when absent)
+        // State restored in binding(); push params on first load
         this.updateUrl();
     }
 
-    // Parse URL params defensively; do nothing on errors.
+    // Defensive URL parse
     private readUrlStateSafely(): void {
         try {
             const urlParams = new URLSearchParams(window.location.search);
@@ -175,7 +171,7 @@ export class Grail {
             const s = urlParams.get('search');
             if (s) this.search = s;
 
-            // Hide Found (checkbox means "Hide Found Items"): when param is absent, default to false
+            // Hide Found: default false when param is absent
             const hf = urlParams.get('hideFound');
             this.showFoundItems = hf === 'true' || hf === '1';
         } catch {
@@ -321,7 +317,7 @@ export class Grail {
     }
 
     updateList() {
-        // Helper predicates per category
+        // Filter per category
         const searchText = (this.search || '').toLowerCase();
 
         if (this.selectedCategory === 'uniques') {
@@ -381,7 +377,7 @@ export class Grail {
             this.displayedCount = this.filteredRunewords.length;
         }
 
-        // Update counts after list changes
+        // Refresh counters
         this.updateFoundCount();
         this.updateTotalCount();
         this.updateSetCounters();
@@ -411,8 +407,7 @@ export class Grail {
     }
     
     updateFoundStatus(_itemKey: string): void {
-        // The checkbox's checked.bind already updated the underlying found maps.
-        // We only need to persist and refresh dependent counts/lists.
+        // checked.bind already flipped state; just persist and refresh
         this.saveFoundItems();
         this.updateList();
     }

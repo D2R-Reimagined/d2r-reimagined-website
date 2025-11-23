@@ -117,8 +117,7 @@ body {
   width: calc(var(--spacing) * 20);
 }
 
-/* Navbar Font <details> summary tweaks */
-/* Remove the default disclosure marker and any stray indent so "Font" aligns with other items */
+/* Navbar font picker: hide default disclosure marker and stray indents */
 nav details > summary {
   list-style: none; /* belt-and-suspenders with Tailwind's list-none */
   padding-left: 0;
