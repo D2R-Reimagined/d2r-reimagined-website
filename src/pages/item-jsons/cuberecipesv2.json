@@ -1,4444 +1,8 @@
 [
   {
-    "Index": 1,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Amulet",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"amu,mag\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Amulet",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 2,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Amulet",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"amu,rar\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Amulet",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 3,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Amulet",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"amu,set\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Amulet",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 4,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Amulet",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"amu,uni\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Amulet",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 5,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Amulet",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"amu,crf\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Amulet",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 6,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Any Armor",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Low Quality"
-        ],
-        "RawToken": "\"armo,low\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Any Armor",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 7,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Any Armor",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Normal Quality"
-        ],
-        "RawToken": "\"armo,nor\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Any Armor",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 8,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Any Armor",
-        "Quantity": 1,
-        "Qualifiers": [
-          "High Quality (Superior)"
-        ],
-        "RawToken": "\"armo,hiq\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Any Armor",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 9,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Belt",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"belt,mag\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Belt",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 10,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Belt",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"belt,rar\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Belt",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 11,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Belt",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"belt,set\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Belt",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 12,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Belt",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"belt,uni\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Belt",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 13,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Belt",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"belt,crf\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Belt",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 14,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Boots",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"boot,mag\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Boots",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 15,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Boots",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"boot,rar\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Boots",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 16,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Boots",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"boot,set\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Boots",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 17,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Boots",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"boot,uni\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Boots",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 18,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Boots",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"boot,crf\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Boots",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 19,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Gloves",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"glov,mag\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Gloves",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 20,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Gloves",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"glov,rar\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Gloves",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 21,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Gloves",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"glov,set\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Gloves",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 22,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Gloves",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"glov,uni\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Gloves",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 23,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Gloves",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"glov,crf\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Gloves",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 24,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"helm,mag\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 25,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"helm,rar\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 26,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"helm,set\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 27,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"helm,uni\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 28,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"helm,crf\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 29,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"shld,mag\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 30,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"shld,rar\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 31,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"shld,set\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 32,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"shld,uni\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 33,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"shld,crf\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 34,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"tors,mag\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 35,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"tors,rar\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 36,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"tors,set\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 37,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"tors,uni\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 38,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"tors,crf\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 39,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Ring",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"rin,mag\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Ring",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 40,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Ring",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"rin,rar\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Ring",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 41,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Ring",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"rin,set\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Ring",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 42,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Ring",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"rin,uni\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Ring",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 43,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Ring",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"rin,crf\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Ring",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 44,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Low Quality"
-        ],
-        "RawToken": "\"weap,low\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 45,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Normal Quality"
-        ],
-        "RawToken": "\"weap,nor\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 46,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "High Quality (Superior)"
-        ],
-        "RawToken": "\"weap,hiq\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 47,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"weap,mag\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 48,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"weap,rar\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 49,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"weap,set\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 50,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"weap,uni\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 51,
-    "Op": 18,
-    "Value": 0,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"weap,crf\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "1-100",
-            "Index": 0
-          },
-          {
-            "PropertyString": "Corrupted",
-            "Index": 1
-          }
-        ]
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 52,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Any Armor",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Low Quality"
-        ],
-        "RawToken": "\"armo,low\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Any Armor",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 53,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Any Armor",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Normal Quality"
-        ],
-        "RawToken": "\"armo,nor\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Any Armor",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 54,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Any Armor",
-        "Quantity": 1,
-        "Qualifiers": [
-          "High Quality (Superior)"
-        ],
-        "RawToken": "\"armo,hiq\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Any Armor",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 55,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Amulet",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"amu,rar\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Amulet",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 56,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Amulet",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"amu,uni\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Amulet",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 57,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Amulet",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"amu,set\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Amulet",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 58,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Amulet",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"amu,crf\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Amulet",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 59,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Amulet",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"amu,mag\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Amulet",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 60,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Belt",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"belt,rar\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Belt",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 61,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Belt",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"belt,uni\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Belt",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 62,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Belt",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"belt,set\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Belt",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 63,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Belt",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"belt,crf\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Belt",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 64,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Belt",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"belt,mag\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Belt",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 65,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Boots",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"boot,rar\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Boots",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 66,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Boots",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"boot,uni\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Boots",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 67,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Boots",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"boot,set\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Boots",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 68,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Boots",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"boot,crf\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Boots",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 69,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Boots",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"boot,mag\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Boots",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 70,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Gloves",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"glov,rar\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Gloves",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 71,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Gloves",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"glov,uni\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Gloves",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 72,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Gloves",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"glov,set\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Gloves",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 73,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Gloves",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"glov,crf\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Gloves",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 74,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Gloves",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"glov,mag\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Gloves",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 75,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"helm,rar\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 76,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"helm,uni\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 77,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"helm,set\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 78,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"helm,crf\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 79,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"helm,mag\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 80,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Ring",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"rin,rar\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Ring",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 81,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Ring",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"rin,uni\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Ring",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 82,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Ring",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"rin,set\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Ring",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 83,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Ring",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"rin,crf\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Ring",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 84,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Ring",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"rin,mag\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Ring",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 85,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"shld,rar\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 86,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"shld,uni\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 87,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"shld,set\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 88,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"shld,crf\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 89,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"shld,mag\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 90,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"tors,rar\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 91,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"tors,uni\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 92,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"tors,set\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 93,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"tors,crf\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 94,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"tors,mag\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 95,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"weap,rar\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 96,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"weap,uni\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 97,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"weap,set\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 98,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"weap,crf\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 99,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"weap,mag\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 100,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Low Quality"
-        ],
-        "RawToken": "\"weap,low\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 101,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Normal Quality"
-        ],
-        "RawToken": "\"weap,nor\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
-    "Index": 102,
-    "Op": 15,
-    "Value": 101,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "High Quality (Superior)"
-        ],
-        "RawToken": "\"weap,hiq\""
-      },
-      {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ka3"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Orb of Corruption",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": []
-  },
-  {
     "Index": 103,
     "Op": 15,
+    "Param": 362,
     "Value": 100,
     "Class": "",
     "NumInputs": 2,
@@ -4471,19 +35,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 1
-          },
-          {
-            "PropertyString": "101",
-            "Index": 2
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 104,
     "Op": 15,
+    "Param": 362,
     "Value": 94,
     "Class": "",
     "NumInputs": 2,
@@ -4521,19 +84,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 105,
     "Op": 15,
+    "Param": 362,
     "Value": 89,
     "Class": "",
     "NumInputs": 2,
@@ -4571,19 +133,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 106,
     "Op": 15,
+    "Param": 362,
     "Value": 83,
     "Class": "",
     "NumInputs": 2,
@@ -4621,19 +182,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 107,
     "Op": 15,
+    "Param": 362,
     "Value": 77,
     "Class": "",
     "NumInputs": 2,
@@ -4666,19 +226,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 1
-          },
-          {
-            "PropertyString": "101",
-            "Index": 2
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 108,
     "Op": 15,
+    "Param": 362,
     "Value": 71,
     "Class": "",
     "NumInputs": 2,
@@ -4716,19 +275,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 109,
     "Op": 15,
+    "Param": 362,
     "Value": 65,
     "Class": "",
     "NumInputs": 2,
@@ -4766,19 +324,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 110,
     "Op": 15,
+    "Param": 362,
     "Value": 59,
     "Class": "",
     "NumInputs": 2,
@@ -4816,19 +373,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 111,
     "Op": 15,
+    "Param": 362,
     "Value": 53,
     "Class": "",
     "NumInputs": 2,
@@ -4866,19 +422,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 112,
     "Op": 15,
+    "Param": 362,
     "Value": 46,
     "Class": "",
     "NumInputs": 2,
@@ -4916,19 +471,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 113,
     "Op": 15,
+    "Param": 362,
     "Value": 21,
     "Class": "",
     "NumInputs": 2,
@@ -4956,19 +510,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 114,
     "Op": 15,
+    "Param": 362,
     "Value": 11,
     "Class": "",
     "NumInputs": 2,
@@ -4998,19 +551,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 115,
     "Op": 15,
+    "Param": 362,
     "Value": 1,
     "Class": "",
     "NumInputs": 2,
@@ -5040,19 +592,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 116,
     "Op": 15,
+    "Param": 362,
     "Value": 100,
     "Class": "",
     "NumInputs": 2,
@@ -5085,19 +636,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 1
-          },
-          {
-            "PropertyString": "101",
-            "Index": 2
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 117,
     "Op": 15,
+    "Param": 362,
     "Value": 94,
     "Class": "",
     "NumInputs": 2,
@@ -5135,19 +685,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 118,
     "Op": 15,
+    "Param": 362,
     "Value": 89,
     "Class": "",
     "NumInputs": 2,
@@ -5185,19 +734,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 119,
     "Op": 15,
+    "Param": 362,
     "Value": 83,
     "Class": "",
     "NumInputs": 2,
@@ -5235,19 +783,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 120,
     "Op": 15,
+    "Param": 362,
     "Value": 77,
     "Class": "",
     "NumInputs": 2,
@@ -5285,19 +832,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 121,
     "Op": 15,
+    "Param": 362,
     "Value": 71,
     "Class": "",
     "NumInputs": 2,
@@ -5330,19 +876,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 1
-          },
-          {
-            "PropertyString": "101",
-            "Index": 2
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 122,
     "Op": 15,
+    "Param": 362,
     "Value": 65,
     "Class": "",
     "NumInputs": 2,
@@ -5380,19 +925,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 123,
     "Op": 15,
+    "Param": 362,
     "Value": 59,
     "Class": "",
     "NumInputs": 2,
@@ -5430,19 +974,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 124,
     "Op": 15,
+    "Param": 362,
     "Value": 53,
     "Class": "",
     "NumInputs": 2,
@@ -5475,19 +1018,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 1
-          },
-          {
-            "PropertyString": "101",
-            "Index": 2
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 125,
     "Op": 15,
+    "Param": 362,
     "Value": 46,
     "Class": "",
     "NumInputs": 2,
@@ -5525,19 +1067,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 126,
     "Op": 15,
+    "Param": 362,
     "Value": 21,
     "Class": "",
     "NumInputs": 2,
@@ -5565,19 +1106,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 127,
     "Op": 15,
+    "Param": 362,
     "Value": 11,
     "Class": "",
     "NumInputs": 2,
@@ -5607,19 +1147,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 128,
     "Op": 15,
+    "Param": 362,
     "Value": 1,
     "Class": "",
     "NumInputs": 2,
@@ -5649,19 +1188,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 129,
     "Op": 15,
+    "Param": 362,
     "Value": 100,
     "Class": "",
     "NumInputs": 2,
@@ -5694,19 +1232,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 1
-          },
-          {
-            "PropertyString": "101",
-            "Index": 2
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 130,
     "Op": 15,
+    "Param": 362,
     "Value": 94,
     "Class": "",
     "NumInputs": 2,
@@ -5744,19 +1281,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 131,
     "Op": 15,
+    "Param": 362,
     "Value": 89,
     "Class": "",
     "NumInputs": 2,
@@ -5794,19 +1330,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 132,
     "Op": 15,
+    "Param": 362,
     "Value": 83,
     "Class": "",
     "NumInputs": 2,
@@ -5844,19 +1379,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 133,
     "Op": 15,
+    "Param": 362,
     "Value": 77,
     "Class": "",
     "NumInputs": 2,
@@ -5894,19 +1428,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 134,
     "Op": 15,
+    "Param": 362,
     "Value": 71,
     "Class": "",
     "NumInputs": 2,
@@ -5944,19 +1477,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 135,
     "Op": 15,
+    "Param": 362,
     "Value": 65,
     "Class": "",
     "NumInputs": 2,
@@ -5994,19 +1526,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 136,
     "Op": 15,
+    "Param": 362,
     "Value": 59,
     "Class": "",
     "NumInputs": 2,
@@ -6044,19 +1575,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 137,
     "Op": 15,
+    "Param": 362,
     "Value": 53,
     "Class": "",
     "NumInputs": 2,
@@ -6094,19 +1624,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 138,
     "Op": 15,
+    "Param": 362,
     "Value": 46,
     "Class": "",
     "NumInputs": 2,
@@ -6144,19 +1673,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 139,
     "Op": 15,
+    "Param": 362,
     "Value": 21,
     "Class": "",
     "NumInputs": 2,
@@ -6184,19 +1712,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 140,
     "Op": 15,
+    "Param": 362,
     "Value": 11,
     "Class": "",
     "NumInputs": 2,
@@ -6226,19 +1753,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 141,
     "Op": 15,
+    "Param": 362,
     "Value": 1,
     "Class": "",
     "NumInputs": 2,
@@ -6268,19 +1794,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 142,
     "Op": 15,
+    "Param": 362,
     "Value": 100,
     "Class": "",
     "NumInputs": 2,
@@ -6313,19 +1838,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 1
-          },
-          {
-            "PropertyString": "101",
-            "Index": 2
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 143,
     "Op": 15,
+    "Param": 362,
     "Value": 94,
     "Class": "",
     "NumInputs": 2,
@@ -6363,19 +1887,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 144,
     "Op": 15,
+    "Param": 362,
     "Value": 89,
     "Class": "",
     "NumInputs": 2,
@@ -6413,19 +1936,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 145,
     "Op": 15,
+    "Param": 362,
     "Value": 83,
     "Class": "",
     "NumInputs": 2,
@@ -6463,19 +1985,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 146,
     "Op": 15,
+    "Param": 362,
     "Value": 77,
     "Class": "",
     "NumInputs": 2,
@@ -6513,19 +2034,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 147,
     "Op": 15,
+    "Param": 362,
     "Value": 71,
     "Class": "",
     "NumInputs": 2,
@@ -6563,19 +2083,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 148,
     "Op": 15,
+    "Param": 362,
     "Value": 65,
     "Class": "",
     "NumInputs": 2,
@@ -6613,19 +2132,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 149,
     "Op": 15,
+    "Param": 362,
     "Value": 59,
     "Class": "",
     "NumInputs": 2,
@@ -6663,19 +2181,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 150,
     "Op": 15,
+    "Param": 362,
     "Value": 53,
     "Class": "",
     "NumInputs": 2,
@@ -6708,19 +2225,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 1
-          },
-          {
-            "PropertyString": "101",
-            "Index": 2
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 151,
     "Op": 15,
+    "Param": 362,
     "Value": 46,
     "Class": "",
     "NumInputs": 2,
@@ -6758,19 +2274,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 152,
     "Op": 15,
+    "Param": 362,
     "Value": 21,
     "Class": "",
     "NumInputs": 2,
@@ -6798,19 +2313,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 153,
     "Op": 15,
+    "Param": 362,
     "Value": 11,
     "Class": "",
     "NumInputs": 2,
@@ -6840,19 +2354,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 154,
     "Op": 15,
+    "Param": 362,
     "Value": 1,
     "Class": "",
     "NumInputs": 2,
@@ -6882,19 +2395,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 155,
     "Op": 15,
+    "Param": 362,
     "Value": 100,
     "Class": "",
     "NumInputs": 2,
@@ -6927,19 +2439,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 1
-          },
-          {
-            "PropertyString": "101",
-            "Index": 2
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 156,
     "Op": 15,
+    "Param": 362,
     "Value": 94,
     "Class": "",
     "NumInputs": 2,
@@ -6977,19 +2488,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 157,
     "Op": 15,
+    "Param": 362,
     "Value": 89,
     "Class": "",
     "NumInputs": 2,
@@ -7027,19 +2537,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 158,
     "Op": 15,
+    "Param": 362,
     "Value": 83,
     "Class": "",
     "NumInputs": 2,
@@ -7077,19 +2586,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 159,
     "Op": 15,
+    "Param": 362,
     "Value": 77,
     "Class": "",
     "NumInputs": 2,
@@ -7127,19 +2635,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 160,
     "Op": 15,
+    "Param": 362,
     "Value": 71,
     "Class": "",
     "NumInputs": 2,
@@ -7177,19 +2684,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 161,
     "Op": 15,
+    "Param": 362,
     "Value": 65,
     "Class": "",
     "NumInputs": 2,
@@ -7227,19 +2733,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 162,
     "Op": 15,
+    "Param": 362,
     "Value": 59,
     "Class": "",
     "NumInputs": 2,
@@ -7277,19 +2782,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 163,
     "Op": 15,
+    "Param": 362,
     "Value": 53,
     "Class": "",
     "NumInputs": 2,
@@ -7322,19 +2826,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 1
-          },
-          {
-            "PropertyString": "101",
-            "Index": 2
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 164,
     "Op": 15,
+    "Param": 362,
     "Value": 46,
     "Class": "",
     "NumInputs": 2,
@@ -7372,19 +2875,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 165,
     "Op": 15,
+    "Param": 362,
     "Value": 21,
     "Class": "",
     "NumInputs": 2,
@@ -7412,19 +2914,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 166,
     "Op": 15,
+    "Param": 362,
     "Value": 11,
     "Class": "",
     "NumInputs": 2,
@@ -7454,19 +2955,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 167,
     "Op": 15,
+    "Param": 362,
     "Value": 1,
     "Class": "",
     "NumInputs": 2,
@@ -7496,19 +2996,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 168,
     "Op": 15,
+    "Param": 362,
     "Value": 100,
     "Class": "",
     "NumInputs": 2,
@@ -7541,19 +3040,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 1
-          },
-          {
-            "PropertyString": "101",
-            "Index": 2
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 169,
     "Op": 15,
+    "Param": 362,
     "Value": 94,
     "Class": "",
     "NumInputs": 2,
@@ -7591,19 +3089,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 170,
     "Op": 15,
+    "Param": 362,
     "Value": 89,
     "Class": "",
     "NumInputs": 2,
@@ -7636,19 +3133,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 1
-          },
-          {
-            "PropertyString": "101",
-            "Index": 2
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 171,
     "Op": 15,
+    "Param": 362,
     "Value": 83,
     "Class": "",
     "NumInputs": 2,
@@ -7686,19 +3182,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 172,
     "Op": 15,
+    "Param": 362,
     "Value": 77,
     "Class": "",
     "NumInputs": 2,
@@ -7736,19 +3231,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 173,
     "Op": 15,
+    "Param": 362,
     "Value": 71,
     "Class": "",
     "NumInputs": 2,
@@ -7786,19 +3280,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 174,
     "Op": 15,
+    "Param": 362,
     "Value": 65,
     "Class": "",
     "NumInputs": 2,
@@ -7836,19 +3329,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 175,
     "Op": 15,
+    "Param": 362,
     "Value": 59,
     "Class": "",
     "NumInputs": 2,
@@ -7886,19 +3378,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 176,
     "Op": 15,
+    "Param": 362,
     "Value": 53,
     "Class": "",
     "NumInputs": 2,
@@ -7936,19 +3427,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 177,
     "Op": 15,
+    "Param": 362,
     "Value": 46,
     "Class": "",
     "NumInputs": 2,
@@ -7986,19 +3476,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 178,
     "Op": 15,
+    "Param": 362,
     "Value": 21,
     "Class": "",
     "NumInputs": 2,
@@ -8026,19 +3515,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 179,
     "Op": 15,
+    "Param": 362,
     "Value": 11,
     "Class": "",
     "NumInputs": 2,
@@ -8068,19 +3556,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 180,
     "Op": 15,
+    "Param": 362,
     "Value": 1,
     "Class": "",
     "NumInputs": 2,
@@ -8110,19 +3597,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 181,
     "Op": 15,
+    "Param": 362,
     "Value": 100,
     "Class": "",
     "NumInputs": 2,
@@ -8155,19 +3641,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 1
-          },
-          {
-            "PropertyString": "101",
-            "Index": 2
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 182,
     "Op": 15,
+    "Param": 362,
     "Value": 94,
     "Class": "",
     "NumInputs": 2,
@@ -8205,19 +3690,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 183,
     "Op": 15,
+    "Param": 362,
     "Value": 89,
     "Class": "",
     "NumInputs": 2,
@@ -8255,19 +3739,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 184,
     "Op": 15,
+    "Param": 362,
     "Value": 83,
     "Class": "",
     "NumInputs": 2,
@@ -8305,19 +3788,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 185,
     "Op": 15,
+    "Param": 362,
     "Value": 77,
     "Class": "",
     "NumInputs": 2,
@@ -8355,19 +3837,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 186,
     "Op": 15,
+    "Param": 362,
     "Value": 71,
     "Class": "",
     "NumInputs": 2,
@@ -8405,19 +3886,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 187,
     "Op": 15,
+    "Param": 362,
     "Value": 65,
     "Class": "",
     "NumInputs": 2,
@@ -8455,19 +3935,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 188,
     "Op": 15,
+    "Param": 362,
     "Value": 59,
     "Class": "",
     "NumInputs": 2,
@@ -8505,19 +3984,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 189,
     "Op": 15,
+    "Param": 362,
     "Value": 53,
     "Class": "",
     "NumInputs": 2,
@@ -8555,19 +4033,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 190,
     "Op": 15,
+    "Param": 362,
     "Value": 46,
     "Class": "",
     "NumInputs": 2,
@@ -8605,19 +4082,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 191,
     "Op": 15,
+    "Param": 362,
     "Value": 21,
     "Class": "",
     "NumInputs": 2,
@@ -8645,19 +4121,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 192,
     "Op": 15,
+    "Param": 362,
     "Value": 11,
     "Class": "",
     "NumInputs": 2,
@@ -8687,19 +4162,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 193,
     "Op": 15,
+    "Param": 362,
     "Value": 1,
     "Class": "",
     "NumInputs": 2,
@@ -8729,19 +4203,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 194,
     "Op": 15,
+    "Param": 362,
     "Value": 100,
     "Class": "",
     "NumInputs": 2,
@@ -8774,19 +4247,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 1
-          },
-          {
-            "PropertyString": "101",
-            "Index": 2
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 195,
     "Op": 15,
+    "Param": 362,
     "Value": 94,
     "Class": "",
     "NumInputs": 2,
@@ -8824,19 +4296,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 196,
     "Op": 15,
+    "Param": 362,
     "Value": 89,
     "Class": "",
     "NumInputs": 2,
@@ -8874,19 +4345,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 197,
     "Op": 15,
+    "Param": 362,
     "Value": 83,
     "Class": "",
     "NumInputs": 2,
@@ -8924,19 +4394,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 198,
     "Op": 15,
+    "Param": 362,
     "Value": 77,
     "Class": "",
     "NumInputs": 2,
@@ -8974,19 +4443,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 199,
     "Op": 15,
+    "Param": 362,
     "Value": 71,
     "Class": "",
     "NumInputs": 2,
@@ -9024,19 +4492,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 200,
     "Op": 15,
+    "Param": 362,
     "Value": 65,
     "Class": "",
     "NumInputs": 2,
@@ -9074,19 +4541,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 201,
     "Op": 15,
+    "Param": 362,
     "Value": 59,
     "Class": "",
     "NumInputs": 2,
@@ -9124,19 +4590,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 202,
     "Op": 15,
+    "Param": 362,
     "Value": 53,
     "Class": "",
     "NumInputs": 2,
@@ -9174,19 +4639,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 203,
     "Op": 15,
+    "Param": 362,
     "Value": 46,
     "Class": "",
     "NumInputs": 2,
@@ -9224,19 +4688,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 204,
     "Op": 15,
+    "Param": 362,
     "Value": 21,
     "Class": "",
     "NumInputs": 2,
@@ -9264,19 +4727,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 205,
     "Op": 15,
+    "Param": 362,
     "Value": 11,
     "Class": "",
     "NumInputs": 2,
@@ -9306,19 +4768,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 206,
     "Op": 15,
+    "Param": 362,
     "Value": 1,
     "Class": "",
     "NumInputs": 2,
@@ -9348,19 +4809,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 207,
     "Op": 15,
+    "Param": 362,
     "Value": 100,
     "Class": "",
     "NumInputs": 2,
@@ -9393,19 +4853,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 1
-          },
-          {
-            "PropertyString": "101",
-            "Index": 2
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 208,
     "Op": 15,
+    "Param": 362,
     "Value": 94,
     "Class": "",
     "NumInputs": 2,
@@ -9443,19 +4902,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 209,
     "Op": 15,
+    "Param": 362,
     "Value": 89,
     "Class": "",
     "NumInputs": 2,
@@ -9493,19 +4951,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 210,
     "Op": 15,
+    "Param": 362,
     "Value": 83,
     "Class": "",
     "NumInputs": 2,
@@ -9543,19 +5000,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 211,
     "Op": 15,
+    "Param": 362,
     "Value": 77,
     "Class": "",
     "NumInputs": 2,
@@ -9593,19 +5049,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 212,
     "Op": 15,
+    "Param": 362,
     "Value": 71,
     "Class": "",
     "NumInputs": 2,
@@ -9643,19 +5098,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 213,
     "Op": 15,
+    "Param": 362,
     "Value": 65,
     "Class": "",
     "NumInputs": 2,
@@ -9693,19 +5147,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 214,
     "Op": 15,
+    "Param": 362,
     "Value": 59,
     "Class": "",
     "NumInputs": 2,
@@ -9743,19 +5196,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 215,
     "Op": 15,
+    "Param": 362,
     "Value": 53,
     "Class": "",
     "NumInputs": 2,
@@ -9793,19 +5245,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 216,
     "Op": 15,
+    "Param": 362,
     "Value": 46,
     "Class": "",
     "NumInputs": 2,
@@ -9843,19 +5294,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 2
-          },
-          {
-            "PropertyString": "101",
-            "Index": 3
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 217,
     "Op": 15,
+    "Param": 362,
     "Value": 21,
     "Class": "",
     "NumInputs": 2,
@@ -9883,19 +5333,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 218,
     "Op": 15,
+    "Param": 362,
     "Value": 11,
     "Class": "",
     "NumInputs": 2,
@@ -9925,19 +5374,18 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 219,
     "Op": 15,
+    "Param": 362,
     "Value": 1,
     "Class": "",
     "NumInputs": 2,
@@ -9967,15 +5415,13 @@
           {
             "PropertyString": "Corrupted",
             "Index": 0
-          },
-          {
-            "PropertyString": "101",
-            "Index": 1
           }
         ]
       }
     },
-    "Notes": []
+    "Notes": [
+      "Corruption Outcome"
+    ]
   },
   {
     "Index": 220,
@@ -10643,6 +6089,7 @@
   {
     "Index": 240,
     "Op": 17,
+    "Param": 152,
     "Value": 1,
     "Class": "",
     "NumInputs": 2,
@@ -10682,6 +6129,7 @@
   {
     "Index": 241,
     "Op": 17,
+    "Param": 152,
     "Value": 1,
     "Class": "",
     "NumInputs": 2,
@@ -10721,6 +6169,7 @@
   {
     "Index": 242,
     "Op": 17,
+    "Param": 152,
     "Value": 1,
     "Class": "",
     "NumInputs": 2,
@@ -10760,6 +6209,7 @@
   {
     "Index": 243,
     "Op": 17,
+    "Param": 152,
     "Value": 1,
     "Class": "",
     "NumInputs": 2,
@@ -19942,6 +15392,7 @@
   {
     "Index": 396,
     "Op": 15,
+    "Param": 386,
     "Value": 50,
     "Class": "",
     "NumInputs": 4,
@@ -20003,6 +15454,7 @@
   {
     "Index": 397,
     "Op": 15,
+    "Param": 386,
     "Value": 50,
     "Class": "",
     "NumInputs": 4,
@@ -20064,6 +15516,7 @@
   {
     "Index": 398,
     "Op": 15,
+    "Param": 386,
     "Value": 50,
     "Class": "",
     "NumInputs": 4,
@@ -20125,6 +15578,7 @@
   {
     "Index": 399,
     "Op": 15,
+    "Param": 386,
     "Value": 50,
     "Class": "",
     "NumInputs": 4,
@@ -20186,6 +15640,7 @@
   {
     "Index": 400,
     "Op": 15,
+    "Param": 386,
     "Value": 50,
     "Class": "",
     "NumInputs": 4,
@@ -20247,6 +15702,7 @@
   {
     "Index": 401,
     "Op": 15,
+    "Param": 386,
     "Value": 50,
     "Class": "",
     "NumInputs": 4,
@@ -20308,6 +15764,7 @@
   {
     "Index": 402,
     "Op": 15,
+    "Param": 386,
     "Value": 100,
     "Class": "",
     "NumInputs": 3,
@@ -20361,6 +15818,7 @@
   {
     "Index": 403,
     "Op": 15,
+    "Param": 386,
     "Value": 100,
     "Class": "",
     "NumInputs": 3,
@@ -20414,6 +15872,7 @@
   {
     "Index": 404,
     "Op": 15,
+    "Param": 386,
     "Value": 100,
     "Class": "",
     "NumInputs": 3,
@@ -20467,6 +15926,7 @@
   {
     "Index": 405,
     "Op": 15,
+    "Param": 386,
     "Value": 100,
     "Class": "",
     "NumInputs": 3,
@@ -20520,6 +15980,7 @@
   {
     "Index": 406,
     "Op": 15,
+    "Param": 386,
     "Value": 100,
     "Class": "",
     "NumInputs": 3,
@@ -20573,6 +16034,7 @@
   {
     "Index": 407,
     "Op": 15,
+    "Param": 386,
     "Value": 100,
     "Class": "",
     "NumInputs": 4,
@@ -21438,6 +16900,7 @@
   {
     "Index": 426,
     "Op": 15,
+    "Param": 386,
     "Value": 3,
     "Class": "",
     "NumInputs": 2,
@@ -21506,6 +16969,7 @@
   {
     "Index": 428,
     "Op": 17,
+    "Param": 152,
     "Value": 1,
     "Class": "",
     "NumInputs": 3,
@@ -21553,6 +17017,7 @@
   {
     "Index": 429,
     "Op": 17,
+    "Param": 152,
     "Value": 1,
     "Class": "",
     "NumInputs": 3,
@@ -21600,6 +17065,7 @@
   {
     "Index": 430,
     "Op": 17,
+    "Param": 152,
     "Value": 1,
     "Class": "",
     "NumInputs": 3,
@@ -21647,6 +17113,7 @@
   {
     "Index": 431,
     "Op": 17,
+    "Param": 152,
     "Value": 1,
     "Class": "",
     "NumInputs": 3,
@@ -22442,6 +17909,7 @@
   {
     "Index": 452,
     "Op": 15,
+    "Param": 386,
     "Value": 3,
     "Class": "",
     "NumInputs": 2,
@@ -22491,6 +17959,7 @@
   {
     "Index": 453,
     "Op": 15,
+    "Param": 386,
     "Value": 20,
     "Class": "",
     "NumInputs": 2,
@@ -22540,6 +18009,7 @@
   {
     "Index": 454,
     "Op": 15,
+    "Param": 386,
     "Value": 50,
     "Class": "",
     "NumInputs": 2,
@@ -22589,6 +18059,7 @@
   {
     "Index": 455,
     "Op": 15,
+    "Param": 386,
     "Value": 50,
     "Class": "",
     "NumInputs": 2,
@@ -22638,6 +18109,7 @@
   {
     "Index": 456,
     "Op": 15,
+    "Param": 386,
     "Value": 3,
     "Class": "",
     "NumInputs": 2,
@@ -22687,6 +18159,7 @@
   {
     "Index": 457,
     "Op": 15,
+    "Param": 386,
     "Value": 20,
     "Class": "",
     "NumInputs": 2,
@@ -22736,6 +18209,7 @@
   {
     "Index": 458,
     "Op": 15,
+    "Param": 386,
     "Value": 50,
     "Class": "",
     "NumInputs": 2,
@@ -22785,6 +18259,7 @@
   {
     "Index": 459,
     "Op": 15,
+    "Param": 386,
     "Value": 50,
     "Class": "",
     "NumInputs": 2,
@@ -22834,6 +18309,7 @@
   {
     "Index": 460,
     "Op": 15,
+    "Param": 386,
     "Value": 3,
     "Class": "",
     "NumInputs": 2,
@@ -22883,6 +18359,7 @@
   {
     "Index": 461,
     "Op": 15,
+    "Param": 386,
     "Value": 3,
     "Class": "",
     "NumInputs": 2,
@@ -22932,6 +18409,7 @@
   {
     "Index": 462,
     "Op": 15,
+    "Param": 386,
     "Value": 3,
     "Class": "",
     "NumInputs": 2,
@@ -22981,6 +18459,7 @@
   {
     "Index": 463,
     "Op": 15,
+    "Param": 386,
     "Value": 3,
     "Class": "",
     "NumInputs": 2,
@@ -23030,6 +18509,7 @@
   {
     "Index": 464,
     "Op": 15,
+    "Param": 386,
     "Value": 10,
     "Class": "",
     "NumInputs": 2,
@@ -23079,6 +18559,7 @@
   {
     "Index": 465,
     "Op": 15,
+    "Param": 386,
     "Value": 50,
     "Class": "",
     "NumInputs": 2,
@@ -23371,6 +18852,7 @@
   {
     "Index": 475,
     "Op": 15,
+    "Param": 386,
     "Value": 1,
     "Class": "",
     "NumInputs": 2,
@@ -23416,6 +18898,7 @@
   {
     "Index": 476,
     "Op": 15,
+    "Param": 386,
     "Value": 1,
     "Class": "",
     "NumInputs": 3,
@@ -23467,6 +18950,7 @@
   {
     "Index": 477,
     "Op": 15,
+    "Param": 386,
     "Value": 1,
     "Class": "",
     "NumInputs": 3,
@@ -23518,6 +19002,7 @@
   {
     "Index": 478,
     "Op": 15,
+    "Param": 386,
     "Value": 2,
     "Class": "",
     "NumInputs": 4,
@@ -23577,6 +19062,7 @@
   {
     "Index": 479,
     "Op": 15,
+    "Param": 386,
     "Value": 3,
     "Class": "",
     "NumInputs": 5,
@@ -23636,6 +19122,7 @@
   {
     "Index": 480,
     "Op": 15,
+    "Param": 386,
     "Value": 4,
     "Class": "",
     "NumInputs": 7,
@@ -23701,6 +19188,7 @@
   {
     "Index": 481,
     "Op": 15,
+    "Param": 386,
     "Value": 5,
     "Class": "",
     "NumInputs": 8,
@@ -23766,6 +19254,7 @@
   {
     "Index": 482,
     "Op": 15,
+    "Param": 386,
     "Value": 10,
     "Class": "",
     "NumInputs": 6,
@@ -23839,6 +19328,7 @@
   {
     "Index": 483,
     "Op": 18,
+    "Param": 395,
     "Value": 0,
     "Class": "",
     "NumInputs": 3,
@@ -23892,6 +19382,7 @@
   {
     "Index": 484,
     "Op": 18,
+    "Param": 395,
     "Value": 1,
     "Class": "",
     "NumInputs": 3,
@@ -23945,6 +19436,7 @@
   {
     "Index": 485,
     "Op": 18,
+    "Param": 395,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -23998,6 +19490,7 @@
   {
     "Index": 486,
     "Op": 18,
+    "Param": 395,
     "Value": 3,
     "Class": "",
     "NumInputs": 3,
@@ -24051,6 +19544,7 @@
   {
     "Index": 487,
     "Op": 18,
+    "Param": 395,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -24109,6 +19603,7 @@
   {
     "Index": 488,
     "Op": 18,
+    "Param": 395,
     "Value": 5,
     "Class": "",
     "NumInputs": 3,
@@ -24162,6 +19657,7 @@
   {
     "Index": 489,
     "Op": 18,
+    "Param": 395,
     "Value": 6,
     "Class": "",
     "NumInputs": 3,
@@ -24215,6 +19711,7 @@
   {
     "Index": 490,
     "Op": 18,
+    "Param": 395,
     "Value": 7,
     "Class": "",
     "NumInputs": 3,
@@ -24268,6 +19765,7 @@
   {
     "Index": 491,
     "Op": 18,
+    "Param": 395,
     "Value": 8,
     "Class": "",
     "NumInputs": 3,
@@ -24321,6 +19819,7 @@
   {
     "Index": 492,
     "Op": 18,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -24358,6 +19857,7 @@
   {
     "Index": 493,
     "Op": 18,
+    "Param": 394,
     "Value": 0,
     "Class": "",
     "NumInputs": 4,
@@ -24412,6 +19912,7 @@
   {
     "Index": 494,
     "Op": 18,
+    "Param": 394,
     "Value": 1,
     "Class": "",
     "NumInputs": 4,
@@ -24464,6 +19965,7 @@
   {
     "Index": 495,
     "Op": 18,
+    "Param": 394,
     "Value": 2,
     "Class": "",
     "NumInputs": 4,
@@ -24516,6 +20018,7 @@
   {
     "Index": 496,
     "Op": 18,
+    "Param": 394,
     "Value": 3,
     "Class": "",
     "NumInputs": 4,
@@ -24568,6 +20071,7 @@
   {
     "Index": 497,
     "Op": 18,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 4,
@@ -24620,6 +20124,7 @@
   {
     "Index": 498,
     "Op": 18,
+    "Param": 394,
     "Value": 5,
     "Class": "",
     "NumInputs": 4,
@@ -25623,6 +21128,7 @@
   {
     "Index": 524,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 2,
@@ -25670,6 +21176,7 @@
   {
     "Index": 525,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 2,
@@ -25717,6 +21224,7 @@
   {
     "Index": 526,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 2,
@@ -25764,6 +21272,7 @@
   {
     "Index": 527,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 2,
@@ -25811,6 +21320,7 @@
   {
     "Index": 528,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 2,
@@ -25858,6 +21368,7 @@
   {
     "Index": 529,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 2,
@@ -25905,6 +21416,7 @@
   {
     "Index": 530,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 3,
@@ -25953,6 +21465,7 @@
   {
     "Index": 531,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 3,
@@ -26001,6 +21514,7 @@
   {
     "Index": 532,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 3,
@@ -26049,6 +21563,7 @@
   {
     "Index": 533,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 3,
@@ -26097,6 +21612,7 @@
   {
     "Index": 534,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 4,
@@ -26153,6 +21669,7 @@
   {
     "Index": 535,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 3,
@@ -26203,6 +21720,7 @@
   {
     "Index": 536,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 3,
@@ -26253,6 +21771,7 @@
   {
     "Index": 537,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 3,
@@ -26303,6 +21822,7 @@
   {
     "Index": 538,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 3,
@@ -26353,6 +21873,7 @@
   {
     "Index": 539,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 3,
@@ -26403,6 +21924,7 @@
   {
     "Index": 540,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 3,
@@ -26453,6 +21975,7 @@
   {
     "Index": 541,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 3,
@@ -26503,6 +22026,7 @@
   {
     "Index": 542,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 4,
@@ -26564,6 +22088,7 @@
   {
     "Index": 543,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 4,
@@ -26625,6 +22150,7 @@
   {
     "Index": 544,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 4,
@@ -26686,6 +22212,7 @@
   {
     "Index": 545,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 4,
@@ -26747,6 +22274,7 @@
   {
     "Index": 546,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 4,
@@ -26808,6 +22336,7 @@
   {
     "Index": 547,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 4,
@@ -26869,6 +22398,7 @@
   {
     "Index": 548,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 4,
@@ -26925,6 +22455,7 @@
   {
     "Index": 549,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "Assassin",
     "NumInputs": 3,
@@ -26975,6 +22506,7 @@
   {
     "Index": 550,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "Barbarian",
     "NumInputs": 3,
@@ -27025,6 +22557,7 @@
   {
     "Index": 551,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "Sorceress",
     "NumInputs": 3,
@@ -27075,6 +22608,7 @@
   {
     "Index": 552,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "Druid",
     "NumInputs": 3,
@@ -27125,6 +22659,7 @@
   {
     "Index": 553,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "Necromancer",
     "NumInputs": 3,
@@ -27175,6 +22710,7 @@
   {
     "Index": 554,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "Amazon",
     "NumInputs": 3,
@@ -27225,6 +22761,7 @@
   {
     "Index": 555,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "Paladin",
     "NumInputs": 3,
@@ -27275,6 +22812,7 @@
   {
     "Index": 556,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 3,
@@ -27330,6 +22868,7 @@
   {
     "Index": 557,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 3,
@@ -27385,6 +22924,7 @@
   {
     "Index": 558,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 3,
@@ -27440,6 +22980,7 @@
   {
     "Index": 559,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 3,
@@ -27488,6 +23029,7 @@
   {
     "Index": 560,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 3,
@@ -27536,6 +23078,7 @@
   {
     "Index": 561,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 3,
@@ -27584,6 +23127,7 @@
   {
     "Index": 562,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 3,
@@ -27632,6 +23176,7 @@
   {
     "Index": 563,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 5,
@@ -27699,6 +23244,7 @@
   {
     "Index": 564,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 5,
@@ -27766,6 +23312,7 @@
   {
     "Index": 565,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 5,
@@ -27828,6 +23375,7 @@
   {
     "Index": 566,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 5,
@@ -27890,6 +23438,7 @@
   {
     "Index": 567,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 5,
@@ -27952,6 +23501,7 @@
   {
     "Index": 568,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 5,
@@ -28019,6 +23569,7 @@
   {
     "Index": 569,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 5,
@@ -28081,6 +23632,7 @@
   {
     "Index": 570,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 5,
@@ -28143,6 +23695,7 @@
   {
     "Index": 571,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 5,
@@ -28205,6 +23758,7 @@
   {
     "Index": 572,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 5,
@@ -28267,6 +23821,7 @@
   {
     "Index": 573,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 5,
@@ -28329,6 +23884,7 @@
   {
     "Index": 574,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 5,
@@ -28391,6 +23947,7 @@
   {
     "Index": 575,
     "Op": 16,
+    "Param": 392,
     "Value": 1,
     "Class": "",
     "NumInputs": 5,
@@ -28453,6 +24010,7 @@
   {
     "Index": 576,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -28508,6 +24066,7 @@
   {
     "Index": 577,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -28563,6 +24122,7 @@
   {
     "Index": 578,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -28618,6 +24178,7 @@
   {
     "Index": 579,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -28673,6 +24234,7 @@
   {
     "Index": 580,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -28728,6 +24290,7 @@
   {
     "Index": 581,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -28783,6 +24346,7 @@
   {
     "Index": 582,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -28833,6 +24397,7 @@
   {
     "Index": 583,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -28883,6 +24448,7 @@
   {
     "Index": 584,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -28933,6 +24499,7 @@
   {
     "Index": 585,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -28983,6 +24550,7 @@
   {
     "Index": 586,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -29050,6 +24618,7 @@
   {
     "Index": 587,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -29112,6 +24681,7 @@
   {
     "Index": 588,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -29179,6 +24749,7 @@
   {
     "Index": 589,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -29241,6 +24812,7 @@
   {
     "Index": 590,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -29308,6 +24880,7 @@
   {
     "Index": 591,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -29375,6 +24948,7 @@
   {
     "Index": 592,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -29442,6 +25016,7 @@
   {
     "Index": 593,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -29504,6 +25079,7 @@
   {
     "Index": 594,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -29566,6 +25142,7 @@
   {
     "Index": 595,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -29628,6 +25205,7 @@
   {
     "Index": 596,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -29690,6 +25268,7 @@
   {
     "Index": 597,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -29757,6 +25336,7 @@
   {
     "Index": 598,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -29819,6 +25399,7 @@
   {
     "Index": 599,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -29881,6 +25462,7 @@
   {
     "Index": 600,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -29943,6 +25525,7 @@
   {
     "Index": 601,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -30010,6 +25593,7 @@
   {
     "Index": 602,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -30082,6 +25666,7 @@
   {
     "Index": 603,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -30154,6 +25739,7 @@
   {
     "Index": 604,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -30209,6 +25795,7 @@
   {
     "Index": 605,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -30264,6 +25851,7 @@
   {
     "Index": 606,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -30319,6 +25907,7 @@
   {
     "Index": 607,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -30374,6 +25963,7 @@
   {
     "Index": 608,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -30429,6 +26019,7 @@
   {
     "Index": 609,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -30484,6 +26075,7 @@
   {
     "Index": 610,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -30534,6 +26126,7 @@
   {
     "Index": 611,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -30584,6 +26177,7 @@
   {
     "Index": 612,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -30634,6 +26228,7 @@
   {
     "Index": 613,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -30684,6 +26279,7 @@
   {
     "Index": 614,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -30734,6 +26330,7 @@
   {
     "Index": 615,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -30801,6 +26398,7 @@
   {
     "Index": 616,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -30863,6 +26461,7 @@
   {
     "Index": 617,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -30925,6 +26524,7 @@
   {
     "Index": 618,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -30992,6 +26592,7 @@
   {
     "Index": 619,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -31054,6 +26655,7 @@
   {
     "Index": 620,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -31121,6 +26723,7 @@
   {
     "Index": 621,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -31188,6 +26791,7 @@
   {
     "Index": 622,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -31255,6 +26859,7 @@
   {
     "Index": 623,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -31317,6 +26922,7 @@
   {
     "Index": 624,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -31379,6 +26985,7 @@
   {
     "Index": 625,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -31441,6 +27048,7 @@
   {
     "Index": 626,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -31503,6 +27111,7 @@
   {
     "Index": 627,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -31570,6 +27179,7 @@
   {
     "Index": 628,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -31632,6 +27242,7 @@
   {
     "Index": 629,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -31694,6 +27305,7 @@
   {
     "Index": 630,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -31756,6 +27368,7 @@
   {
     "Index": 631,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -31828,6 +27441,7 @@
   {
     "Index": 632,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -31895,6 +27509,7 @@
   {
     "Index": 633,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -31962,6 +27577,7 @@
   {
     "Index": 634,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -32017,6 +27633,7 @@
   {
     "Index": 635,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -32072,6 +27689,7 @@
   {
     "Index": 636,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -32127,6 +27745,7 @@
   {
     "Index": 637,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -32182,6 +27801,7 @@
   {
     "Index": 638,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -32237,6 +27857,7 @@
   {
     "Index": 639,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -32292,6 +27913,7 @@
   {
     "Index": 640,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -32342,6 +27964,7 @@
   {
     "Index": 641,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -32392,6 +28015,7 @@
   {
     "Index": 642,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -32442,6 +28066,7 @@
   {
     "Index": 643,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -32492,6 +28117,7 @@
   {
     "Index": 644,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -32559,6 +28185,7 @@
   {
     "Index": 645,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -32621,6 +28248,7 @@
   {
     "Index": 646,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -32683,6 +28311,7 @@
   {
     "Index": 647,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -32745,6 +28374,7 @@
   {
     "Index": 648,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -32812,6 +28442,7 @@
   {
     "Index": 649,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -32874,6 +28505,7 @@
   {
     "Index": 650,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -32941,6 +28573,7 @@
   {
     "Index": 651,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -33008,6 +28641,7 @@
   {
     "Index": 652,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -33075,6 +28709,7 @@
   {
     "Index": 653,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -33137,6 +28772,7 @@
   {
     "Index": 654,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -33199,6 +28835,7 @@
   {
     "Index": 655,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -33261,6 +28898,7 @@
   {
     "Index": 656,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -33328,6 +28966,7 @@
   {
     "Index": 657,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -33390,6 +29029,7 @@
   {
     "Index": 658,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -33452,6 +29092,7 @@
   {
     "Index": 659,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -33514,6 +29155,7 @@
   {
     "Index": 660,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -33576,6 +29218,7 @@
   {
     "Index": 661,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -33638,6 +29281,7 @@
   {
     "Index": 662,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -33700,6 +29344,7 @@
   {
     "Index": 663,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -33762,6 +29407,7 @@
   {
     "Index": 664,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -33824,6 +29470,7 @@
   {
     "Index": 665,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -33879,6 +29526,7 @@
   {
     "Index": 666,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -33934,6 +29582,7 @@
   {
     "Index": 667,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -33989,6 +29638,7 @@
   {
     "Index": 668,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -34044,6 +29694,7 @@
   {
     "Index": 669,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -34099,6 +29750,7 @@
   {
     "Index": 670,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -34154,6 +29806,7 @@
   {
     "Index": 671,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -34204,6 +29857,7 @@
   {
     "Index": 672,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -34254,6 +29908,7 @@
   {
     "Index": 673,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -34304,6 +29959,7 @@
   {
     "Index": 674,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 3,
@@ -34354,6 +30010,7 @@
   {
     "Index": 675,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -34421,6 +30078,7 @@
   {
     "Index": 676,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -34483,6 +30141,7 @@
   {
     "Index": 677,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -34545,6 +30204,7 @@
   {
     "Index": 678,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -34612,6 +30272,7 @@
   {
     "Index": 679,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -34674,6 +30335,7 @@
   {
     "Index": 680,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -34741,6 +30403,7 @@
   {
     "Index": 681,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -34808,6 +30471,7 @@
   {
     "Index": 682,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -34875,6 +30539,7 @@
   {
     "Index": 683,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -34937,6 +30602,7 @@
   {
     "Index": 684,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -34999,6 +30665,7 @@
   {
     "Index": 685,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -35061,6 +30728,7 @@
   {
     "Index": 686,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -35128,6 +30796,7 @@
   {
     "Index": 687,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -35190,6 +30859,7 @@
   {
     "Index": 688,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -35252,6 +30922,7 @@
   {
     "Index": 689,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -35314,6 +30985,7 @@
   {
     "Index": 690,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -35376,6 +31048,7 @@
   {
     "Index": 691,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -35438,6 +31111,7 @@
   {
     "Index": 692,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -35500,6 +31174,7 @@
   {
     "Index": 693,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -35562,6 +31237,7 @@
   {
     "Index": 694,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -35624,6 +31300,7 @@
   {
     "Index": 695,
     "Op": 16,
+    "Param": 393,
     "Value": 2,
     "Class": "",
     "NumInputs": 5,
@@ -35686,6 +31363,7 @@
   {
     "Index": 696,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -35741,6 +31419,7 @@
   {
     "Index": 697,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -35796,6 +31475,7 @@
   {
     "Index": 698,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -35851,6 +31531,7 @@
   {
     "Index": 699,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -35906,6 +31587,7 @@
   {
     "Index": 700,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -35961,6 +31643,7 @@
   {
     "Index": 701,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -36016,6 +31699,7 @@
   {
     "Index": 702,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -36066,6 +31750,7 @@
   {
     "Index": 703,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -36116,6 +31801,7 @@
   {
     "Index": 704,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -36166,6 +31852,7 @@
   {
     "Index": 705,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -36216,6 +31903,7 @@
   {
     "Index": 706,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -36283,6 +31971,7 @@
   {
     "Index": 707,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -36345,6 +32034,7 @@
   {
     "Index": 708,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -36407,6 +32097,7 @@
   {
     "Index": 709,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -36469,6 +32160,7 @@
   {
     "Index": 710,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -36531,6 +32223,7 @@
   {
     "Index": 711,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -36593,6 +32286,7 @@
   {
     "Index": 712,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -36660,6 +32354,7 @@
   {
     "Index": 713,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -36722,6 +32417,7 @@
   {
     "Index": 714,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -36789,6 +32485,7 @@
   {
     "Index": 715,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -36856,6 +32553,7 @@
   {
     "Index": 716,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -36923,6 +32621,7 @@
   {
     "Index": 717,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -36985,6 +32684,7 @@
   {
     "Index": 718,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -37047,6 +32747,7 @@
   {
     "Index": 719,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -37109,6 +32810,7 @@
   {
     "Index": 720,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -37176,6 +32878,7 @@
   {
     "Index": 721,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -37238,6 +32941,7 @@
   {
     "Index": 722,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -37300,6 +33004,7 @@
   {
     "Index": 723,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -37362,6 +33067,7 @@
   {
     "Index": 724,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -37429,6 +33135,7 @@
   {
     "Index": 725,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -37484,6 +33191,7 @@
   {
     "Index": 726,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -37539,6 +33247,7 @@
   {
     "Index": 727,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -37594,6 +33303,7 @@
   {
     "Index": 728,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -37649,6 +33359,7 @@
   {
     "Index": 729,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -37704,6 +33415,7 @@
   {
     "Index": 730,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -37759,6 +33471,7 @@
   {
     "Index": 731,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -37809,6 +33522,7 @@
   {
     "Index": 732,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -37859,6 +33573,7 @@
   {
     "Index": 733,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -37909,6 +33624,7 @@
   {
     "Index": 734,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -37959,6 +33675,7 @@
   {
     "Index": 735,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -38026,6 +33743,7 @@
   {
     "Index": 736,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -38088,6 +33806,7 @@
   {
     "Index": 737,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -38150,6 +33869,7 @@
   {
     "Index": 738,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -38217,6 +33937,7 @@
   {
     "Index": 739,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -38279,6 +34000,7 @@
   {
     "Index": 740,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -38346,6 +34068,7 @@
   {
     "Index": 741,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -38413,6 +34136,7 @@
   {
     "Index": 742,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -38480,6 +34204,7 @@
   {
     "Index": 743,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -38542,6 +34267,7 @@
   {
     "Index": 744,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -38604,6 +34330,7 @@
   {
     "Index": 745,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -38666,6 +34393,7 @@
   {
     "Index": 746,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -38733,6 +34461,7 @@
   {
     "Index": 747,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -38795,6 +34524,7 @@
   {
     "Index": 748,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -38857,6 +34587,7 @@
   {
     "Index": 749,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -38919,6 +34650,7 @@
   {
     "Index": 750,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -38981,6 +34713,7 @@
   {
     "Index": 751,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -39043,6 +34776,7 @@
   {
     "Index": 752,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -39105,6 +34839,7 @@
   {
     "Index": 753,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -39167,6 +34902,7 @@
   {
     "Index": 754,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -39234,6 +34970,7 @@
   {
     "Index": 755,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -39289,6 +35026,7 @@
   {
     "Index": 756,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -39339,6 +35077,7 @@
   {
     "Index": 757,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -39389,6 +35128,7 @@
   {
     "Index": 758,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -39439,6 +35179,7 @@
   {
     "Index": 759,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -39494,6 +35235,7 @@
   {
     "Index": 760,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -39544,6 +35286,7 @@
   {
     "Index": 761,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -39594,6 +35337,7 @@
   {
     "Index": 762,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -39644,6 +35388,7 @@
   {
     "Index": 763,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -39699,6 +35444,7 @@
   {
     "Index": 764,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -39761,6 +35507,7 @@
   {
     "Index": 765,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -39823,6 +35570,7 @@
   {
     "Index": 766,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -39885,6 +35633,7 @@
   {
     "Index": 767,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -39947,6 +35696,7 @@
   {
     "Index": 768,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -40014,6 +35764,7 @@
   {
     "Index": 769,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -40076,6 +35827,7 @@
   {
     "Index": 770,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -40138,6 +35890,7 @@
   {
     "Index": 771,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -40205,6 +35958,7 @@
   {
     "Index": 772,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -40272,6 +36026,7 @@
   {
     "Index": 773,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -40339,6 +36094,7 @@
   {
     "Index": 774,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -40409,6 +36165,7 @@
   {
     "Index": 775,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -40476,6 +36233,7 @@
   {
     "Index": 776,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -40543,6 +36301,7 @@
   {
     "Index": 777,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -40610,6 +36369,7 @@
   {
     "Index": 778,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -40677,6 +36437,7 @@
   {
     "Index": 779,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 6,
@@ -40755,6 +36516,7 @@
   {
     "Index": 780,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 6,
@@ -40828,6 +36590,7 @@
   {
     "Index": 781,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 6,
@@ -40901,6 +36664,7 @@
   {
     "Index": 782,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 6,
@@ -40974,6 +36738,7 @@
   {
     "Index": 783,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 6,
@@ -41047,6 +36812,7 @@
   {
     "Index": 784,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -41102,6 +36868,7 @@
   {
     "Index": 785,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -41152,6 +36919,7 @@
   {
     "Index": 786,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -41202,6 +36970,7 @@
   {
     "Index": 787,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -41252,6 +37021,7 @@
   {
     "Index": 788,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -41307,6 +37077,7 @@
   {
     "Index": 789,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -41357,6 +37128,7 @@
   {
     "Index": 790,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -41407,6 +37179,7 @@
   {
     "Index": 791,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -41457,6 +37230,7 @@
   {
     "Index": 792,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -41512,6 +37286,7 @@
   {
     "Index": 793,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -41574,6 +37349,7 @@
   {
     "Index": 794,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -41636,6 +37412,7 @@
   {
     "Index": 795,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -41698,6 +37475,7 @@
   {
     "Index": 796,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -41760,6 +37538,7 @@
   {
     "Index": 797,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -41827,6 +37606,7 @@
   {
     "Index": 798,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -41889,6 +37669,7 @@
   {
     "Index": 799,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -41951,6 +37732,7 @@
   {
     "Index": 800,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -42018,6 +37800,7 @@
   {
     "Index": 801,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -42085,6 +37868,7 @@
   {
     "Index": 802,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -42152,6 +37936,7 @@
   {
     "Index": 803,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -42222,6 +38007,7 @@
   {
     "Index": 804,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -42289,6 +38075,7 @@
   {
     "Index": 805,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -42356,6 +38143,7 @@
   {
     "Index": 806,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -42423,6 +38211,7 @@
   {
     "Index": 807,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -42490,6 +38279,7 @@
   {
     "Index": 808,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 6,
@@ -42568,6 +38358,7 @@
   {
     "Index": 809,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 6,
@@ -42641,6 +38432,7 @@
   {
     "Index": 810,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 6,
@@ -42714,6 +38506,7 @@
   {
     "Index": 811,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 6,
@@ -42787,6 +38580,7 @@
   {
     "Index": 812,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 6,
@@ -42860,6 +38654,7 @@
   {
     "Index": 813,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -42915,6 +38710,7 @@
   {
     "Index": 814,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -42965,6 +38761,7 @@
   {
     "Index": 815,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -43015,6 +38812,7 @@
   {
     "Index": 816,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -43065,6 +38863,7 @@
   {
     "Index": 817,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -43120,6 +38919,7 @@
   {
     "Index": 818,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -43170,6 +38970,7 @@
   {
     "Index": 819,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -43220,6 +39021,7 @@
   {
     "Index": 820,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -43270,6 +39072,7 @@
   {
     "Index": 821,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 3,
@@ -43325,6 +39128,7 @@
   {
     "Index": 822,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -43387,6 +39191,7 @@
   {
     "Index": 823,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -43449,6 +39254,7 @@
   {
     "Index": 824,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -43511,6 +39317,7 @@
   {
     "Index": 825,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -43573,6 +39380,7 @@
   {
     "Index": 826,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -43640,6 +39448,7 @@
   {
     "Index": 827,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -43702,6 +39511,7 @@
   {
     "Index": 828,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -43764,6 +39574,7 @@
   {
     "Index": 829,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -43831,6 +39642,7 @@
   {
     "Index": 830,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -43898,6 +39710,7 @@
   {
     "Index": 831,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -43965,6 +39778,7 @@
   {
     "Index": 832,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -44035,6 +39849,7 @@
   {
     "Index": 833,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -44102,6 +39917,7 @@
   {
     "Index": 834,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -44169,6 +39985,7 @@
   {
     "Index": 835,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -44236,6 +40053,7 @@
   {
     "Index": 836,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -44303,6 +40121,7 @@
   {
     "Index": 837,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 6,
@@ -44381,6 +40200,7 @@
   {
     "Index": 838,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 6,
@@ -44454,6 +40274,7 @@
   {
     "Index": 839,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 6,
@@ -44527,6 +40348,7 @@
   {
     "Index": 840,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 6,
@@ -44600,6 +40422,7 @@
   {
     "Index": 841,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 6,
@@ -44673,6 +40496,7 @@
   {
     "Index": 842,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -44728,6 +40552,7 @@
   {
     "Index": 843,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -44778,6 +40603,7 @@
   {
     "Index": 844,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -44828,6 +40654,7 @@
   {
     "Index": 845,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -44878,6 +40705,7 @@
   {
     "Index": 846,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -44933,6 +40761,7 @@
   {
     "Index": 847,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -44983,6 +40812,7 @@
   {
     "Index": 848,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -45033,6 +40863,7 @@
   {
     "Index": 849,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -45083,6 +40914,7 @@
   {
     "Index": 850,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 3,
@@ -45138,6 +40970,7 @@
   {
     "Index": 851,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -45200,6 +41033,7 @@
   {
     "Index": 852,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -45262,6 +41096,7 @@
   {
     "Index": 853,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -45324,6 +41159,7 @@
   {
     "Index": 854,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -45386,6 +41222,7 @@
   {
     "Index": 855,
     "Op": 16,
+    "Param": 395,
     "Value": 9,
     "Class": "",
     "NumInputs": 5,
@@ -45453,6 +41290,7 @@
   {
     "Index": 856,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -45515,6 +41353,7 @@
   {
     "Index": 857,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -45577,6 +41416,7 @@
   {
     "Index": 858,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -45644,6 +41484,7 @@
   {
     "Index": 859,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -45711,6 +41552,7 @@
   {
     "Index": 860,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -45778,6 +41620,7 @@
   {
     "Index": 861,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -45848,6 +41691,7 @@
   {
     "Index": 862,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -45915,6 +41759,7 @@
   {
     "Index": 863,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -45982,6 +41827,7 @@
   {
     "Index": 864,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -46049,6 +41895,7 @@
   {
     "Index": 865,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 5,
@@ -46116,6 +41963,7 @@
   {
     "Index": 866,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 6,
@@ -46194,6 +42042,7 @@
   {
     "Index": 867,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 6,
@@ -46267,6 +42116,7 @@
   {
     "Index": 868,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 6,
@@ -46340,6 +42190,7 @@
   {
     "Index": 869,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 6,
@@ -46413,6 +42264,7 @@
   {
     "Index": 870,
     "Op": 16,
+    "Param": 394,
     "Value": 4,
     "Class": "",
     "NumInputs": 6,
