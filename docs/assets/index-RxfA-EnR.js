@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-tQniSDdT.js","assets/debounce-ZwsFz6hU.js","assets/cube-recipes-BJXOl2Zy.css","assets/uniques-4K0Oe8Em.js","assets/uniques-DR4Eo1cT.js","assets/sets-BPLYM4Er.js","assets/runewords-CytfLbX8.js","assets/item-type-filters-3ezJuRu1.js","assets/grail-CbfE3JR4.js","assets/affixes-CLzjoXo6.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-CISWikN3.js","assets/debounce-ZwsFz6hU.js","assets/cube-recipes-BJXOl2Zy.css","assets/uniques-DagPF-Dw.js","assets/uniques-DR4Eo1cT.js","assets/item-type-filters-BybChLHm.js","assets/sets-CEL1Wgjs.js","assets/runewords-C7TOqoJq.js","assets/grail-BsEemqXu.js","assets/armors-qQ_aqX9g.js","assets/weapons-C7Jnpazq.js","assets/affixes-BfJ1TM5R.js"])))=>i.map(i=>d[i]);
 (function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) return;
@@ -36348,9 +36348,13 @@ const template$s = `<nav class="bg-zinc-800 shadow-md sticky top-0 z-6">\r
             <a class="hover:text-zinc-400 mr-4" href="/">\r
                 D2R Reimagined\r
             </a>\r
-            <button class="lg:hidden ml-auto" type="button" onclick="document.getElementById('navbarSupportedContent').classList.toggle('hidden')" aria-label="Toggle navigation">\r
-                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">\r
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>\r
+            <button class="lg:hidden ml-auto" type="button"\r
+                    onclick="document.getElementById('navbarSupportedContent').classList.toggle('hidden')"\r
+                    aria-label="Toggle navigation">\r
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"\r
+                     stroke="currentColor">\r
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"\r
+                          d="M4 6h16M4 12h16m-7 6h7"></path>\r
                 </svg>\r
             </button>\r
             <div id="navbarSupportedContent"\r
@@ -36359,42 +36363,51 @@ const template$s = `<nav class="bg-zinc-800 shadow-md sticky top-0 z-6">\r
                         lg:static lg:flex lg:flex-row lg:items-center lg:justify-between lg:p-0 lg:shadow-none lg:border-0 lg:bg-transparent lg:max-h-none lg:overflow-visible">\r
                 <ul class="flex flex-col gap-2 lg:flex-row lg:gap-0 lg:space-x-4">\r
                     <li>\r
-                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/armors" click.trigger="closeMobileMenu()">\r
+                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/armors"\r
+                           click.trigger="closeMobileMenu()">\r
                             Bases\r
                         </a>\r
                     </li>\r
                     <li>\r
-                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/affixes" click.trigger="closeMobileMenu()">\r
+                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/affixes"\r
+                           click.trigger="closeMobileMenu()">\r
                             Affixes\r
                         </a>\r
                     </li>\r
                     <li>\r
-                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/uniques" click.trigger="closeMobileMenu()">\r
+                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/uniques"\r
+                           click.trigger="closeMobileMenu()">\r
                             Uniques\r
                         </a>\r
                     </li>\r
                     <li>\r
-                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/sets" click.trigger="closeMobileMenu()">\r
+                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/sets"\r
+                           click.trigger="closeMobileMenu()">\r
                             Sets\r
                         </a>\r
                     </li>\r
                     <li>\r
-                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/runewords" click.trigger="closeMobileMenu()">\r
+                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/runewords"\r
+                           click.trigger="closeMobileMenu()">\r
                             Runewords\r
                         </a>\r
                     </li>\r
                     <li>\r
-                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/cube-recipes" click.trigger="closeMobileMenu()">\r
+                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/cube-recipes"\r
+                           click.trigger="closeMobileMenu()">\r
                             Cube Recipes\r
                         </a>\r
                     </li>\r
                     <li>\r
-                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/grail" click.trigger="closeMobileMenu()">\r
+                        <a class="hover:text-zinc-400 py-1 flex cursor-pointer" aria-current="page" href="/grail"\r
+                           click.trigger="closeMobileMenu()">\r
                             Grail\r
                         </a>\r
                     </li>\r
                     <li>\r
-                        <a class="hover:text-zinc-400 py-1 cursor-pointer flex items-center" aria-current="page" href="https://wiki.d2r-reimagined.com/" external target="_blank" click.trigger="closeMobileMenu()">\r
+                        <a class="hover:text-zinc-400 py-1 cursor-pointer flex items-center" aria-current="page"\r
+                           href="https://wiki.d2r-reimagined.com/" external target="_blank"\r
+                           click.trigger="closeMobileMenu()">\r
                             Wiki <span class="material-symbols-outlined ml-1">open_in_new</span>\r
                         </a>\r
                     </li>\r
@@ -36402,7 +36415,8 @@ const template$s = `<nav class="bg-zinc-800 shadow-md sticky top-0 z-6">\r
                 <ul class="flex flex-col gap-2 lg:flex-row lg:items-center lg:ml-auto">\r
                     <li class="relative lg:mx-3">\r
                         <details class="relative">\r
-                            <summary class="list-none hover:text-zinc-400 py-2 inline-flex items-center cursor-pointer select-none pl-0">\r
+                            <summary\r
+                                    class="list-none hover:text-zinc-400 py-2 inline-flex items-center cursor-pointer select-none pl-0">\r
                                 Font\r
                             </summary>\r
                             <ul class="bg-zinc-800 shadow-lg rounded py-1 min-w-40 z-50\r
@@ -36419,10 +36433,11 @@ const template$s = `<nav class="bg-zinc-800 shadow-md sticky top-0 z-6">\r
                     </li>\r
                     <li class="flex items-center">\r
                         <a href="https://discord.gg/9zZkYrSA8C" target="_blank">\r
-                            <svg width="" height="32" viewBox="0 -28.5 256 256" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">\r
+                            <svg width="32" height="32" viewBox="0 -28.5 256 256" xmlns="http://www.w3.org/2000/svg"\r
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">\r
                                 <g>\r
-                                    <path d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z" fill="#5865F2" fill-rule="nonzero">\r
-\r
+                                    <path d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z"\r
+                                          fill="#5865F2" fill-rule="nonzero">\r
                                     </path>\r
                                 </g>\r
                             </svg>\r
@@ -36493,47 +36508,47 @@ _App_decorators = [customElement(__au2ViewDef), route({
   routes: [
     {
       path: "",
-      component: __vitePreload(() => import("./home-D8HEqFAw.js"), true ? [] : void 0),
+      component: __vitePreload(() => import("./home-DQLBedxM.js"), true ? [] : void 0),
       title: "Home"
     },
     {
       path: "cube-recipes",
-      component: __vitePreload(() => import("./cube-recipes-tQniSDdT.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
+      component: __vitePreload(() => import("./cube-recipes-CISWikN3.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
       title: "Cube Recipes"
     },
     {
       path: "uniques",
-      component: __vitePreload(() => import("./uniques-4K0Oe8Em.js"), true ? __vite__mapDeps([3,1,4]) : void 0),
+      component: __vitePreload(() => import("./uniques-DagPF-Dw.js"), true ? __vite__mapDeps([3,1,4,5]) : void 0),
       title: "Uniques"
     },
     {
       path: "sets",
-      component: __vitePreload(() => import("./sets-BPLYM4Er.js"), true ? __vite__mapDeps([5,1]) : void 0),
+      component: __vitePreload(() => import("./sets-CEL1Wgjs.js"), true ? __vite__mapDeps([6,1,5]) : void 0),
       title: "Sets"
     },
     {
       path: "runewords",
-      component: __vitePreload(() => import("./runewords-CytfLbX8.js"), true ? __vite__mapDeps([6,1,7]) : void 0),
+      component: __vitePreload(() => import("./runewords-C7TOqoJq.js"), true ? __vite__mapDeps([7,1,5]) : void 0),
       title: "Runewords"
     },
     {
       path: "grail",
-      component: __vitePreload(() => import("./grail-CbfE3JR4.js"), true ? __vite__mapDeps([8,4]) : void 0),
+      component: __vitePreload(() => import("./grail-BsEemqXu.js"), true ? __vite__mapDeps([8,4]) : void 0),
       title: "Holy Grail"
     },
     {
       path: "armors",
-      component: __vitePreload(() => import("./armors-D-EoZMg6.js"), true ? [] : void 0),
+      component: __vitePreload(() => import("./armors-qQ_aqX9g.js"), true ? __vite__mapDeps([9,5]) : void 0),
       title: "Armor Bases"
     },
     {
       path: "weapons",
-      component: __vitePreload(() => import("./weapons-DEvYUSXd.js"), true ? [] : void 0),
+      component: __vitePreload(() => import("./weapons-C7Jnpazq.js"), true ? __vite__mapDeps([10,5]) : void 0),
       title: "Weapon Bases"
     },
     {
       path: "affixes",
-      component: __vitePreload(() => import("./affixes-CLzjoXo6.js"), true ? __vite__mapDeps([9,1,7]) : void 0),
+      component: __vitePreload(() => import("./affixes-BfJ1TM5R.js"), true ? __vite__mapDeps([11,1,5]) : void 0),
       title: "Affixes"
     }
   ]

@@ -45,12 +45,40 @@ export class Affixes {
     types: { label: string; value: string[] }[] = type_filtering_options.slice();
     @bindable selectedType: string[] | undefined;
 
+    // Exact type only toggle
+    @bindable exclusiveType: boolean;
+
     // Required Level filters
     // Note: bound via <moo-text-field>, which provides string values. Accept string as well.
     @bindable minRequiredLevel: number | string | undefined;
     @bindable maxRequiredLevel: number | string | undefined;
 
     attached() {
+        // Read search query parameters from URL when component is initialized
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const searchParam = urlParams.get('search');
+        if (searchParam) this.search = searchParam;
+
+        const ptypeParam = urlParams.get('ptype');
+        if (ptypeParam === 'Prefix' || ptypeParam === 'Suffix') {
+            this.selectedPType = ptypeParam as PType;
+        }
+
+        const groupParam = urlParams.get('group');
+        if (groupParam) this.selectedGroupDescription = groupParam;
+
+        const typeParam = urlParams.get('type');
+        if (typeParam) this.selectedType = typeParam.split(',');
+
+        const minrl = urlParams.get('minrl');
+        if (minrl !== null) this.minRequiredLevel = minrl;
+
+        const maxrl = urlParams.get('maxrl');
+        if (maxrl !== null) this.maxRequiredLevel = maxrl;
+
+        const exactParam = urlParams.get('exact');
+        if (exactParam) this.exclusiveType = exactParam === 'true';
         // Normalize prefix/suffix arrays, ensure PType set explicitly (source JSON already has it, but keep consistent)
         const normalized = (arr: any[], pType: PType) =>
             arr.map((a) => ({
@@ -89,6 +117,47 @@ export class Affixes {
         this.applyFilters();
     }
 
+    // Helper method to update URL with current search parameters
+    private updateUrl() {
+        const url = new URL(window.location.href);
+
+        // search
+        if (this.search && this.search.trim() !== '') url.searchParams.set('search', this.search);
+        else url.searchParams.delete('search');
+
+        // ptype
+        if (this.selectedPType) url.searchParams.set('ptype', this.selectedPType);
+        else url.searchParams.delete('ptype');
+
+        // group (by description)
+        if (this.selectedGroupDescription && this.selectedGroupDescription.trim() !== '') {
+            url.searchParams.set('group', this.selectedGroupDescription);
+        } else url.searchParams.delete('group');
+
+        // type (comma-separated)
+        if (this.selectedType && this.selectedType.length > 0) {
+            url.searchParams.set('type', this.selectedType.join(','));
+        } else url.searchParams.delete('type');
+
+        // min/max required level
+        const minStr = this.minRequiredLevel as any;
+        if (minStr !== undefined && minStr !== null && String(minStr).trim() !== '') {
+            url.searchParams.set('minrl', String(minStr).trim());
+        } else url.searchParams.delete('minrl');
+
+        const maxStr = this.maxRequiredLevel as any;
+        if (maxStr !== undefined && maxStr !== null && String(maxStr).trim() !== '') {
+            url.searchParams.set('maxrl', String(maxStr).trim());
+        } else url.searchParams.delete('maxrl');
+
+        // exact
+        if (this.exclusiveType) url.searchParams.set('exact', 'true');
+        else url.searchParams.delete('exact');
+
+        // push state without reload
+        window.history.pushState({}, '', url.toString());
+    }
+
     private buildGroupOptions(groups: PropertyGroupEntry[]) {
         const descMap = new Map<string, Set<number>>();
         for (const entry of groups) {
@@ -109,31 +178,43 @@ export class Affixes {
     @watch('search')
     handleSearchChanged() {
         if (this._debouncedFilter) this._debouncedFilter();
+        this.updateUrl();
     }
 
     @watch('selectedPType')
     handlePTypeChanged() {
         this.applyFilters();
+        this.updateUrl();
     }
 
     @watch('selectedGroupDescription')
     handleGroupChanged() {
         this.applyFilters();
+        this.updateUrl();
     }
 
     @watch('selectedType')
     handleTypeChanged() {
         this.applyFilters();
+        this.updateUrl();
     }
 
     @watch('minRequiredLevel')
     handleMinReqChanged() {
         if (this._debouncedFilter) this._debouncedFilter();
+        this.updateUrl();
     }
 
     @watch('maxRequiredLevel')
     handleMaxReqChanged() {
         if (this._debouncedFilter) this._debouncedFilter();
+        this.updateUrl();
+    }
+
+    @watch('exclusiveType')
+    handleExclusiveTypeChanged() {
+        if (this._debouncedFilter) this._debouncedFilter();
+        this.updateUrl();
     }
 
     applyFilters() {
@@ -159,7 +240,9 @@ export class Affixes {
 
             // Item Type filter (exact-or-parent matching + respects ETypes exclusions)
             if (this.selectedType && this.selectedType.length > 0) {
-                const selectedSet = new Set<string>(this.selectedType);
+                // For exact mode, only use the base entry from option value; otherwise include base + parents/descendants per option
+                const selected = this.exclusiveType ? [this.selectedType[0]] : this.selectedType;
+                const selectedSet = new Set<string>(selected);
 
                 // Helper: normalize a raw type token to our known node name (case-insensitive).
                 // We intentionally do NOT expand the affix's type to its parents; we only compare

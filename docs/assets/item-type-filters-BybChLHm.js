@@ -26,9 +26,7 @@ const ITEM_TYPES = [
   { name: "Ring", code: "ring" },
   { name: "Amulet", code: "amul" },
   { name: "Small Charm", code: "scha", parents: ["Charm"] },
-  // Pipeline normalization: TSV Medium Charm → exported as 'Large Charm'
   { name: "Large Charm", code: "mcha", parents: ["Charm"] },
-  // Pipeline normalization: TSV Large Charm → exported as 'Grand Charm'
   { name: "Grand Charm", code: "lcha", parents: ["Charm"] },
   { name: "Jewel", code: "jewl", parents: ["Socket Filler"] },
   { name: "Rune", code: "rune", parents: ["Socket Filler"] },
@@ -96,9 +94,7 @@ const ITEM_TYPES = [
   { name: "Key", code: "key", parents: ["Miscellaneous"] },
   { name: "Quest", code: "ques" },
   { name: "Bow Quiver", code: "bowq", parents: ["Missile", "Second Hand"] },
-  { name: "Crossbow Quiver", code: "xboq", parents: ["Missile", "Second Hand"] },
-  // Variants
-  { name: "Hand to Hand 2", code: "h2h2", parents: ["Hand to Hand"] }
+  { name: "Crossbow Quiver", code: "xboq", parents: ["Missile", "Second Hand"] }
 ];
 const ITEM_TYPE_BY_NAME = new Map(
   ITEM_TYPES.map((t) => [t.name, t])
@@ -166,6 +162,21 @@ function resolveBaseTypeName(rawName) {
   const chain = getChainForTypeName(raw);
   return chain && chain.length > 0 ? chain[0] : raw;
 }
+function getDescendantBaseNames(baseTypeName) {
+  const out = [];
+  const seen = /* @__PURE__ */ new Set();
+  for (const t of ITEM_TYPES) {
+    if (t.name === baseTypeName) continue;
+    const chain = getTypeChain(t.name);
+    if (chain.includes(baseTypeName)) {
+      if (!seen.has(t.name)) {
+        out.push(t.name);
+        seen.add(t.name);
+      }
+    }
+  }
+  return out;
+}
 function buildOptionsForPresentTypes(preset, presentBaseNames) {
   const result = [];
   const presentClosure = /* @__PURE__ */ new Set();
@@ -197,12 +208,16 @@ const type_filtering_options = [
   // Placeholder
   makeTypeOption("-", void 0),
   // Aggregate types
-  { label: "Any Armor", value: ["Body Armor", "Helm", "Any Shield", "Gloves", "Boots", "Belt"] },
-  { label: "Any Helm", value: ["Helm", "Primal Helm", "Pelt"] },
-  { label: "Any Shield", value: ["Any Shield", "Voodoo Heads", "Auric Shields"] },
-  makeTypeOption("Any Weapon", "Weapon"),
-  makeTypeOption("Melee Weapon", "Melee Weapon"),
-  makeTypeOption("Missile Weapon", "Missile Weapon"),
+  // Any Armor should include all armor descendants (Body Armor, Helm, Circlet, Shields, Gloves, Boots, Belt, class shields/helms, etc.)
+  makeTypeOption("Any Armor", "Any Armor", getDescendantBaseNames("Any Armor")),
+  // Any Helm should include Circlet, Primal Helm, and Pelt in addition to Helm
+  makeTypeOption("Any Helm", "Helm", getDescendantBaseNames("Helm")),
+  // Any Shield should include generic Shield and class shields
+  makeTypeOption("Any Shield", "Any Shield", getDescendantBaseNames("Any Shield")),
+  // Expand weapon aggregates so that selecting them matches child bases too
+  makeTypeOption("Any Weapon", "Weapon", getDescendantBaseNames("Weapon")),
+  makeTypeOption("Melee Weapon", "Melee Weapon", getDescendantBaseNames("Melee Weapon")),
+  makeTypeOption("Missile Weapon", "Missile Weapon", getDescendantBaseNames("Missile Weapon")),
   // Armor subtypes
   makeTypeOption("Body Armor", "Body Armor"),
   makeTypeOption("Gloves", "Gloves"),

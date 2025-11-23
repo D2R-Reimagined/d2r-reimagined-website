@@ -1,6 +1,7 @@
-import { C as CustomElement, r as resolve, I as IRouter, w as watch, c as customElement, b as bindable } from "./index-D7OYzrgF.js";
+import { C as CustomElement, r as resolve, I as IRouter, w as watch, c as customElement, b as bindable } from "./index-RxfA-EnR.js";
+import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options, g as getChainForTypeName } from "./item-type-filters-BybChLHm.js";
 const name = "armors";
-const template = '<template>\r\n        <h3 class="text-center my-2">\r\n            [N] = Normal [X] = Exceptional [E] = Elite\r\n        </h3>\r\n        <h3 class="text-center my-2">\r\n            <span class="rarity-text">${totalCount}</span> Base Weapons Found\r\n        </h3>\r\n        <search-area>\r\n        <div class="max-w-7xl mx-auto px-4">\r\n            <div class="flex flex-wrap justify-center items-center text-center">\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Base Category"\r\n                                options.bind="datasetOptions"\r\n                                value.bind="selectedDataset"\r\n                                change.trigger="onDatasetChange()"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Filter By Type"\r\n                                options.bind="types"\r\n                                value.bind="selectedType"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Filter By Tier"\r\n                                options.bind="tierOptions"\r\n                                value.bind="selectedTier"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-text-field\r\n                                class="w-full"\r\n                                label="Search Bases"\r\n                                type="text"\r\n                                value.bind="search"\r\n                        ></moo-text-field>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </search-area>\r\n\r\n    <div class="px-2 mt-5" repeat.for="group of filteredAndGrouped">\r\n        <h4 class="text-xl font-semibold mb-2">${group.typeName}</h4>\r\n\r\n        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 text-center">\r\n            <template repeat.for="family of group.families">\r\n                <div class="bg-zinc-800 rounded shadow p-2" repeat.for="item of family.items">\r\n                    <div class="bg-zinc-800 rounded">\r\n                        <div class="text-lg text-zinc-400">\r\n                            ${item.Name}\r\n                        </div>\r\n                        <div class="rarity-text mb-1" if.bind="item.GemSockets !== null && item.GemSockets !== undefined  && item.GemSockets !== 0">\r\n                            Max Sockets: ${item.GemSockets}\r\n                        </div>\r\n                        <div class="armor mb-0" if.bind="item.ArmorString">\r\n                            Armor: ${item.ArmorString}\r\n                        </div>\r\n                        <div class="armor mb-1 text-white" if.bind="item.Block && item.Block > 0">\r\n                            ${item.Block}% Chance to Block\r\n                        </div>\r\n                        <div class="damage" if.bind="item.DamageString">\r\n                            ${getDamageLabel(item)}\r\n                        </div>\r\n                        <div class="set-text" if.bind="item.StrBonus && item.StrBonus > 0">\r\n                            Str Bonus: ${item.StrBonus}%\r\n                        </div>\r\n                        <div class="set-text" if.bind="item.DexBonus && item.DexBonus > 0">\r\n                            Dex Bonus: ${item.DexBonus}%\r\n                        </div>\r\n                        <div class="requirement mt-1">\r\n                            Level ${item.BaseRequiredLevel > 0 ? item.BaseRequiredLevel : 1} Required\r\n                        </div>\r\n                        <div class="requirement" if.bind="item.RequiredStrength && item.RequiredStrength > 0">\r\n                            ${item.RequiredStrength} Strength Required\r\n                        </div>\r\n                        <div class="requirement" if.bind="item.RequiredDexterity && item.RequiredDexterity > 0">\r\n                            ${item.RequiredDexterity} Dexterity Required\r\n                        </div>\r\n                        <div class="durability mt-1" if.bind="item.Durability && item.Durability > 0">\r\n                            ${item.Durability} Durability\r\n                        </div>\r\n                        <div class="mt-1" if.bind="item.AutoMagicGroups && item.AutoMagicGroups.length">\r\n                            <div class="flex justify-between mb-1 items-start" repeat.for="group of groupedProperties(item)">\r\n                                <div class="enhanced whitespace-nowrap text-left">\r\n                                    <span if.bind="group.requiredLevel && group.requiredLevel > 0">\r\n                                        Lvl Req ${group.requiredLevel}\r\n                                    </span>\r\n                                </div>\r\n                                <div class="flex flex-col items-end text-right">\r\n                                    <div class="enhanced " repeat.for="line of group.propertyStrings">\r\n                                        ${line}\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </template>\r\n        </div>\r\n    </div>\r\n</template>\r\n';
+const template = '<template>\r\n        <h3 class="text-center my-2">\r\n            [N] = Normal [X] = Exceptional [E] = Elite\r\n        </h3>\r\n        <h3 class="text-center my-2">\r\n            <span class="rarity-text">${totalCount}</span> Base Weapons Found\r\n        </h3>\r\n        <search-area>\r\n        <div class="max-w-7xl mx-auto px-4">\r\n            <div class="flex flex-wrap justify-center items-center text-center">\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Base Category"\r\n                                options.bind="datasetOptions"\r\n                                value.bind="selectedDataset"\r\n                                change.trigger="onDatasetChange()"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Filter By Type"\r\n                                options.bind="types"\r\n                                value.bind="selectedType"\r\n                        ></moo-select>\r\n                        <moo-checkbox checked.bind="exclusiveType">Exact Type Only</moo-checkbox>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Filter By Tier"\r\n                                options.bind="tierOptions"\r\n                                value.bind="selectedTier"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-text-field\r\n                                class="w-full"\r\n                                label="Search Bases"\r\n                                type="text"\r\n                                value.bind="search"\r\n                        ></moo-text-field>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </search-area>\r\n\r\n    <div class="px-2 mt-5" repeat.for="group of filteredAndGrouped">\r\n        <h4 class="text-xl font-semibold mb-2">${group.typeName}</h4>\r\n\r\n        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 text-center">\r\n            <template repeat.for="family of group.families">\r\n                <div class="bg-zinc-800 rounded shadow p-2" repeat.for="item of family.items">\r\n                    <div class="bg-zinc-800 rounded">\r\n                        <div class="text-lg text-zinc-400">\r\n                            ${item.Name}\r\n                        </div>\r\n                        <div class="rarity-text mb-1" if.bind="item.GemSockets !== null && item.GemSockets !== undefined  && item.GemSockets !== 0">\r\n                            Max Sockets: ${item.GemSockets}\r\n                        </div>\r\n                        <div class="armor mb-0" if.bind="item.ArmorString">\r\n                            Armor: ${item.ArmorString}\r\n                        </div>\r\n                        <div class="armor mb-1 text-white" if.bind="item.Block && item.Block > 0">\r\n                            ${item.Block}% Chance to Block\r\n                        </div>\r\n                        <div class="damage" if.bind="item.DamageString">\r\n                            ${getDamageLabel(item)}\r\n                        </div>\r\n                        <div class="set-text" if.bind="item.StrBonus && item.StrBonus > 0">\r\n                            Str Bonus: ${item.StrBonus}%\r\n                        </div>\r\n                        <div class="set-text" if.bind="item.DexBonus && item.DexBonus > 0">\r\n                            Dex Bonus: ${item.DexBonus}%\r\n                        </div>\r\n                        <div class="requirement mt-1">\r\n                            Level ${item.BaseRequiredLevel > 0 ? item.BaseRequiredLevel : 1} Required\r\n                        </div>\r\n                        <div class="requirement" if.bind="item.RequiredStrength && item.RequiredStrength > 0">\r\n                            ${item.RequiredStrength} Strength Required\r\n                        </div>\r\n                        <div class="requirement" if.bind="item.RequiredDexterity && item.RequiredDexterity > 0">\r\n                            ${item.RequiredDexterity} Dexterity Required\r\n                        </div>\r\n                        <div class="durability mt-1" if.bind="item.Durability && item.Durability > 0">\r\n                            ${item.Durability} Durability\r\n                        </div>\r\n                        <div class="mt-1" if.bind="item.AutoMagicGroups && item.AutoMagicGroups.length">\r\n                            <div class="flex justify-between mb-1 items-start" repeat.for="group of groupedProperties(item)">\r\n                                <div class="enhanced whitespace-nowrap text-left">\r\n                                    <span if.bind="group.requiredLevel && group.requiredLevel > 0">\r\n                                        Lvl Req ${group.requiredLevel}\r\n                                    </span>\r\n                                </div>\r\n                                <div class="flex flex-col items-end text-right">\r\n                                    <div class="enhanced " repeat.for="line of group.propertyStrings">\r\n                                        ${line}\r\n                                    </div>\r\n                                </div>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </template>\r\n        </div>\r\n    </div>\r\n</template>\r\n';
 const dependencies = [];
 const bindables = {};
 let _e;
@@ -68,8 +69,8 @@ var __privateIn = (member, obj) => Object(obj) !== obj ? __typeError('Cannot use
 var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
 var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "access private method"), method);
-var _handleDatasetChanged_dec, _selectedTier_dec, _selectedType_dec, _search_dec, _Armors_decorators, _init;
-_Armors_decorators = [customElement(__au2ViewDef)], _search_dec = [bindable], _selectedType_dec = [bindable], _selectedTier_dec = [bindable], _handleDatasetChanged_dec = [watch("selectedDataset")];
+var _handleExclusiveTypeChanged_dec, _handleDatasetChanged_dec, _exclusiveType_dec, _selectedTier_dec, _selectedType_dec, _search_dec, _Armors_decorators, _init;
+_Armors_decorators = [customElement(__au2ViewDef)], _search_dec = [bindable], _selectedType_dec = [bindable], _selectedTier_dec = [bindable], _exclusiveType_dec = [bindable], _handleDatasetChanged_dec = [watch("selectedDataset")], _handleExclusiveTypeChanged_dec = [watch("exclusiveType")];
 class Armors {
   constructor() {
     __runInitializers(_init, 5, this);
@@ -83,15 +84,26 @@ class Armors {
     __publicField(this, "search", __runInitializers(_init, 8, this)), __runInitializers(_init, 11, this);
     __publicField(this, "selectedType", __runInitializers(_init, 12, this)), __runInitializers(_init, 15, this);
     __publicField(this, "selectedTier", __runInitializers(_init, 16, this)), __runInitializers(_init, 19, this);
+    __publicField(this, "exclusiveType", __runInitializers(_init, 20, this)), __runInitializers(_init, 23, this);
     __publicField(this, "tierOptions", [
       { value: void 0, label: "-" },
       { value: "Normal", label: "Normal" },
       { value: "Exceptional", label: "Exceptional" },
       { value: "Elite", label: "Elite" }
     ]);
+    __publicField(this, "types", type_filtering_options.slice());
   }
   attached() {
     this.selectedDataset = "armors";
+    try {
+      const present = /* @__PURE__ */ new Set();
+      json.forEach((i) => {
+        const base = resolveBaseTypeName(i?.Type?.Name ?? "");
+        if (base) present.add(base);
+      });
+      this.types = buildOptionsForPresentTypes(type_filtering_options, present);
+    } catch {
+    }
   }
   handleDatasetChanged() {
     this.onDatasetChange();
@@ -103,16 +115,7 @@ class Armors {
     const qs = url.search || "";
     void this.router.load(`${target}${qs}`);
   }
-  get types() {
-    const set = /* @__PURE__ */ new Set();
-    json.forEach((i) => {
-      const name2 = i?.Type?.Name;
-      if (name2 && name2.trim() !== "") set.add(name2);
-    });
-    const opts = [{ value: void 0, label: "-" }];
-    Array.from(set).sort().forEach((t) => opts.push({ value: t, label: t }));
-    return opts;
-  }
+  // Type options provided via this.types property
   get filteredAndGrouped() {
     const search = (this.search || "").toLowerCase();
     const typeFilter = this.selectedType;
@@ -147,7 +150,12 @@ class Armors {
       combinedSet = new Set(primary);
     }
     const filtered = Array.from(combinedSet).filter((i) => {
-      const byType = !typeFilter || i?.Type?.Name === typeFilter;
+      const byType = !typeFilter || typeFilter.length === 0 || (() => {
+        const selected = this.exclusiveType ? [this.selectedType?.[0]] : this.selectedType;
+        const selectedSet = new Set(selected || []);
+        const base = getChainForTypeName(i?.Type?.Name ?? "")[0] || (i?.Type?.Name ?? "");
+        return selectedSet.has(base);
+      })();
       if (!byType) return false;
       const byTier = !tierFilter || this.getTier(i) === tierFilter;
       return byTier;
@@ -245,12 +253,17 @@ class Armors {
       return a.name.localeCompare(b.name);
     });
   }
+  handleExclusiveTypeChanged() {
+    this.search = this.search || "";
+  }
 }
 _init = __decoratorStart();
 __decorateElement(_init, 1, "handleDatasetChanged", _handleDatasetChanged_dec, Armors);
+__decorateElement(_init, 1, "handleExclusiveTypeChanged", _handleExclusiveTypeChanged_dec, Armors);
 __decorateElement(_init, 5, "search", _search_dec, Armors);
 __decorateElement(_init, 5, "selectedType", _selectedType_dec, Armors);
 __decorateElement(_init, 5, "selectedTier", _selectedTier_dec, Armors);
+__decorateElement(_init, 5, "exclusiveType", _exclusiveType_dec, Armors);
 Armors = __decorateElement(_init, 0, "Armors", _Armors_decorators, Armors);
 __runInitializers(_init, 1, Armors);
 export {

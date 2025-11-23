@@ -32,7 +32,7 @@
                                 label="Select Equipment"
                                 options.bind="equipmentNames"
                                 value.bind="selectedEquipmentName"
-                                disabled.bind="!selectedType"
+                                disabled.bind="!selectedType || selectedType.length === 0"
                         ></moo-select>
                     </div>
                 </div>

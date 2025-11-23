@@ -1,8 +1,9 @@
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-D7OYzrgF.js";
+import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-RxfA-EnR.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
 import { j as json } from "./uniques-DR4Eo1cT.js";
+import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options, g as getChainForTypeName } from "./item-type-filters-BybChLHm.js";
 const name = "uniques";
-const template = '<template>\r\n    <h3 class="text-center my-4">\r\n        ${uniques.length} Uniques Found\r\n    </h3>\r\n    <search-area>\r\n        <div class="max-w-7xl mx-auto px-4">\r\n            <div class="flex flex-wrap justify-center items-center text-center">\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Select Class"\r\n                                options.bind="classes"\r\n                                value.bind="selectedClass"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Select Type"\r\n                                options.bind="types"\r\n                                value.bind="selectedType"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Select Equipment"\r\n                                options.bind="equipmentNames"\r\n                                value.bind="selectedEquipmentName"\r\n                                disabled.bind="!selectedType"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                    <moo-text-field\r\n                            class="w-full"\r\n                            label="Search Uniques"\r\n                            type="text"\r\n                            value.bind="search"\r\n                    ></moo-text-field>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </search-area>\r\n\r\n    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">\r\n        <div class="bg-zinc-800 rounded shadow p-2" repeat.for="unique of uniques">\r\n            <div class="bg-zinc-800 rounded shadow">\r\n                <div class="unique-text text-lg mb-1">\r\n                    ${unique.Name}\r\n                </div>\r\n                <div class="rarity-text mb-1" if.bind="unique.Rarity">\r\n                    Rarity: ${unique.Rarity}\r\n                </div>\r\n                <div class="armor mb-1" if.bind="unique.Equipment.Name">\r\n                    ${unique.Equipment.Name}\r\n                </div>\r\n                <div class="armor mb-1" if.bind="unique.Equipment.ArmorString">\r\n                    Armor: ${unique.Equipment.ArmorString}\r\n                </div>\r\n                <div class="damage" if.bind="unique.Equipment.DamageTypes"\r\n                     repeat.for="damage of unique.Equipment.DamageTypes">\r\n                    ${getDamageTypeString(damage.Type)} ${damage.DamageString}\r\n                </div>\r\n                <div class="requirement">\r\n                    Level ${unique.RequiredLevel > 0 ? unique.RequiredLevel : 1} Required\r\n                </div>\r\n                <div class="requirement" if.bind="unique.Equipment.RequiredStrength > 0">\r\n                    ${unique.Equipment.RequiredStrength} Strength Required\r\n                </div>\r\n                <div class="requirement" if.bind="unique.Equipment.RequiredDexterity > 0">\r\n                    ${unique.Equipment.RequiredDexterity} Dexterity Required\r\n                </div>\r\n                <div class="durability mt-1" if.bind="unique.Equipment.Durability > 0">\r\n                    ${unique.Equipment.Durability} Durability\r\n                </div>\r\n                <div class="mt-2">\r\n                    <div class="enhanced" repeat.for="property of unique.Properties">\r\n                        ${property.PropertyString}\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</template>\r\n';
+const template = '<template>\r\n    <h3 class="text-center my-4">\r\n        ${uniques.length} Uniques Found\r\n    </h3>\r\n    <search-area>\r\n        <div class="max-w-7xl mx-auto px-4">\r\n            <div class="flex flex-wrap justify-center items-center text-center">\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Select Class"\r\n                                options.bind="classes"\r\n                                value.bind="selectedClass"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Select Type"\r\n                                options.bind="types"\r\n                                value.bind="selectedType"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Select Equipment"\r\n                                options.bind="equipmentNames"\r\n                                value.bind="selectedEquipmentName"\r\n                                disabled.bind="!selectedType || selectedType.length === 0"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                    <moo-text-field\r\n                            class="w-full"\r\n                            label="Search Uniques"\r\n                            type="text"\r\n                            value.bind="search"\r\n                    ></moo-text-field>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </search-area>\r\n\r\n    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">\r\n        <div class="bg-zinc-800 rounded shadow p-2" repeat.for="unique of uniques">\r\n            <div class="bg-zinc-800 rounded shadow">\r\n                <div class="unique-text text-lg mb-1">\r\n                    ${unique.Name}\r\n                </div>\r\n                <div class="rarity-text mb-1" if.bind="unique.Rarity">\r\n                    Rarity: ${unique.Rarity}\r\n                </div>\r\n                <div class="armor mb-1" if.bind="unique.Equipment.Name">\r\n                    ${unique.Equipment.Name}\r\n                </div>\r\n                <div class="armor mb-1" if.bind="unique.Equipment.ArmorString">\r\n                    Armor: ${unique.Equipment.ArmorString}\r\n                </div>\r\n                <div class="damage" if.bind="unique.Equipment.DamageTypes"\r\n                     repeat.for="damage of unique.Equipment.DamageTypes">\r\n                    ${getDamageTypeString(damage.Type)} ${damage.DamageString}\r\n                </div>\r\n                <div class="requirement">\r\n                    Level ${unique.RequiredLevel > 0 ? unique.RequiredLevel : 1} Required\r\n                </div>\r\n                <div class="requirement" if.bind="unique.Equipment.RequiredStrength > 0">\r\n                    ${unique.Equipment.RequiredStrength} Strength Required\r\n                </div>\r\n                <div class="requirement" if.bind="unique.Equipment.RequiredDexterity > 0">\r\n                    ${unique.Equipment.RequiredDexterity} Dexterity Required\r\n                </div>\r\n                <div class="durability mt-1" if.bind="unique.Equipment.Durability > 0">\r\n                    ${unique.Equipment.Durability} Durability\r\n                </div>\r\n                <div class="mt-2">\r\n                    <div class="enhanced" repeat.for="property of unique.Properties">\r\n                        ${property.PropertyString}\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</template>\r\n';
 const dependencies = [];
 const bindables = {};
 let _e;
@@ -80,6 +81,7 @@ class Uniques {
     __publicField(this, "selectedType", __runInitializers(_init, 16, this)), __runInitializers(_init, 19, this);
     __publicField(this, "selectedEquipmentName", __runInitializers(_init, 20, this)), __runInitializers(_init, 23, this);
     __publicField(this, "equipmentNames", []);
+    __publicField(this, "types", type_filtering_options.slice());
     __publicField(this, "_debouncedSearchItem");
     __publicField(this, "classes", [
       { value: void 0, label: "-" },
@@ -104,23 +106,19 @@ class Uniques {
     }
     const typeParam = urlParams.get("type");
     if (typeParam) {
-      this.selectedType = typeParam;
+      this.selectedType = typeParam.split(",");
+    }
+    try {
+      const present = /* @__PURE__ */ new Set();
+      for (const u of json) {
+        const base = resolveBaseTypeName(u?.Type ?? "");
+        if (base) present.add(base);
+      }
+      this.types = buildOptionsForPresentTypes(type_filtering_options, present);
+    } catch {
     }
     this._debouncedSearchItem = debounce(this.updateList.bind(this), 350);
     this.updateList();
-  }
-  get types() {
-    const uniqueTypes = /* @__PURE__ */ new Set();
-    json.forEach((unique) => {
-      if (unique.Type) {
-        uniqueTypes.add(unique.Type);
-      }
-    });
-    const typeOptions = [{ value: void 0, label: "-" }];
-    Array.from(uniqueTypes).sort().forEach((type) => {
-      typeOptions.push({ value: type, label: type });
-    });
-    return typeOptions;
   }
   handleClassChanged() {
     this.updateList();
@@ -158,8 +156,8 @@ class Uniques {
     } else {
       url.searchParams.delete("class");
     }
-    if (this.selectedType) {
-      url.searchParams.set("type", this.selectedType);
+    if (this.selectedType && this.selectedType.length > 0) {
+      url.searchParams.set("type", this.selectedType.join(","));
     } else {
       url.searchParams.delete("type");
     }
@@ -178,12 +176,15 @@ class Uniques {
       return uniqueName.includes(search) || properties.find((p) => p.includes(search)) || baseName.includes(search);
     };
     const isMatchingType = (unique) => {
-      return !this.selectedType || unique.Type === this.selectedType;
+      if (!this.selectedType || this.selectedType.length === 0) return true;
+      const selectedSet = new Set(this.selectedType);
+      const base = getChainForTypeName(unique?.Type ?? "")[0] || (unique?.Type ?? "");
+      return selectedSet.has(base);
     };
     const isMatchingEquipmentName = (unique) => {
       return !this.selectedEquipmentName || unique.Equipment.Name === this.selectedEquipmentName;
     };
-    if (this.selectedType && (!this.equipmentNames || this.equipmentNames.length <= 1)) {
+    if (this.selectedType && this.selectedType.length > 0 && (!this.equipmentNames || this.equipmentNames.length <= 1)) {
       this.equipmentNames = this.getUniqueEquipmentNames();
     }
     this.uniques = json.filter((unique) => !unique.Name.toLowerCase().includes("grabber") && isMatchingSearch(unique) && isMatchingClass(unique) && isMatchingType(unique) && isMatchingEquipmentName(unique));
@@ -201,9 +202,12 @@ class Uniques {
     }
   }
   getUniqueEquipmentNames() {
-    const filteredUniques = json.filter(
-      (unique) => !this.selectedType || unique.Type === this.selectedType
-    );
+    const selectedSet = new Set(this.selectedType || []);
+    const filteredUniques = json.filter((unique) => {
+      if (!this.selectedType || this.selectedType.length === 0) return true;
+      const base = getChainForTypeName(unique?.Type ?? "")[0] || (unique?.Type ?? "");
+      return selectedSet.has(base);
+    });
     const uniqueEquipmentNames = /* @__PURE__ */ new Set();
     filteredUniques.forEach((unique) => {
       if (unique.Equipment && unique.Equipment.Name) {

@@ -210,9 +210,7 @@ const CLASS_AGGREGATE_BASES = new Set<string>([
     'Druid Item',
 ]);
 
-/**
- * Convenience to build a FilterOption from an ItemType name and optional extra parents to append.
- */
+// Build a FilterOption from an ItemType name and optional extra parents
 export function makeTypeOption(label: string, baseTypeName?: string, extraParents: string[] = []): FilterOption {
     const value = baseTypeName ? getTypeChain(baseTypeName) : [];
     for (const p of extraParents) {
@@ -231,6 +229,27 @@ export function resolveBaseTypeName(rawName: string): string {
     if (!raw) return '';
     const chain = getChainForTypeName(raw);
     return chain && chain.length > 0 ? chain[0] : raw;
+}
+
+/**
+ * Return all descendant base type names for a given aggregate/base type name.
+ * A descendant is any node whose type chain contains the given base name.
+ * Ordering follows ITEM_TYPES declaration order and duplicates are removed.
+ */
+export function getDescendantBaseNames(baseTypeName: string): string[] {
+    const out: string[] = [];
+    const seen = new Set<string>();
+    for (const t of ITEM_TYPES) {
+        if (t.name === baseTypeName) continue;
+        const chain = getTypeChain(t.name);
+        if (chain.includes(baseTypeName)) {
+            if (!seen.has(t.name)) {
+                out.push(t.name);
+                seen.add(t.name);
+            }
+        }
+    }
+    return out;
 }
 
 /**
@@ -290,19 +309,22 @@ export function buildOptionsForPresentTypes(
     return result;
 }
 
-// Reusable options for Runewords-style type filtering.
-// Kept here so multiple pages can import the same options.
+// Reusable options for type filtering. Compared against JSON types to t/f display of type in dropdown.
 export const type_filtering_options: ReadonlyArray<FilterOption> = [
     // Placeholder
     makeTypeOption('-', undefined),
 
     // Aggregate types
-    { label: 'Any Armor', value: ['Body Armor', 'Helm', 'Any Shield', 'Gloves', 'Boots', 'Belt'] },
-    { label: 'Any Helm', value: ['Helm', 'Primal Helm', 'Pelt'] },
-    { label: 'Any Shield', value: ['Any Shield', 'Voodoo Heads', 'Auric Shields'] },
-    makeTypeOption('Any Weapon', 'Weapon'),
-    makeTypeOption('Melee Weapon', 'Melee Weapon'),
-    makeTypeOption('Missile Weapon', 'Missile Weapon'),
+    // Any Armor should include all armor descendants (Body Armor, Helm, Circlet, Shields, Gloves, Boots, Belt, class shields/helms, etc.)
+    makeTypeOption('Any Armor', 'Any Armor', getDescendantBaseNames('Any Armor')),
+    // Any Helm should include Circlet, Primal Helm, and Pelt in addition to Helm
+    makeTypeOption('Any Helm', 'Helm', getDescendantBaseNames('Helm')),
+    // Any Shield should include generic Shield and class shields
+    makeTypeOption('Any Shield', 'Any Shield', getDescendantBaseNames('Any Shield')),
+    // Expand weapon aggregates so that selecting them matches child bases too
+    makeTypeOption('Any Weapon', 'Weapon', getDescendantBaseNames('Weapon')),
+    makeTypeOption('Melee Weapon', 'Melee Weapon', getDescendantBaseNames('Melee Weapon')),
+    makeTypeOption('Missile Weapon', 'Missile Weapon', getDescendantBaseNames('Missile Weapon')),
 
     // Armor subtypes
     makeTypeOption('Body Armor', 'Body Armor'),

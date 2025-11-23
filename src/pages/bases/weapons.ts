@@ -2,6 +2,13 @@ import { bindable, watch, resolve } from 'aurelia';
 import { IRouter } from '@aurelia/router';
 
 import json from '../item-jsons/weapons.json';
+import {
+    type_filtering_options,
+    buildOptionsForPresentTypes,
+    resolveBaseTypeName,
+    getChainForTypeName,
+    FilterOption
+} from '../../resources/constants/item-type-filters';
 
 type DamageType = { Type: number; DamageString: string };
 
@@ -48,8 +55,11 @@ export class Weapons {
     items: WeaponBase[] = (json as unknown as WeaponBase[]).map((it, idx) => ({ ...it, __index: idx }));
 
     @bindable search: string;
-    @bindable selectedType: string;
+    // Selected type option value (base + parents)
+    @bindable selectedType: string[];
     @bindable selectedTier: 'Normal' | 'Exceptional' | 'Elite' | undefined;
+    // Exact type only toggle
+    @bindable exclusiveType: boolean;
 
     tierOptions = [
         { value: undefined, label: '-' },
@@ -58,8 +68,22 @@ export class Weapons {
         { value: 'Elite', label: 'Elite' },
     ];
 
+    // Centralized, data-driven type options filtered to present types in bases data
+    types: ReadonlyArray<FilterOption> = type_filtering_options.slice();
+
     attached() {
         this.selectedDataset = 'weapons';
+        // Build type options from present base types in weapons data
+        try {
+            const present = new Set<string>();
+            (json as WeaponBase[]).forEach(i => {
+                const base = resolveBaseTypeName(i?.Type?.Name ?? '');
+                if (base) present.add(base);
+            });
+            this.types = buildOptionsForPresentTypes(type_filtering_options, present);
+        } catch {
+            // keep default preset
+        }
     }
 
     @watch('selectedDataset')
@@ -78,17 +102,7 @@ export class Weapons {
         void this.router.load(`${target}${qs}`);
     }
 
-    get types() {
-        const set = new Set<string>();
-        (json as WeaponBase[]).forEach(i => {
-            const name = i?.Type?.Name;
-            if (name && name.trim() !== '') set.add(name);
-        });
-
-        const opts = [{ value: undefined, label: '-' }];
-        Array.from(set).sort().forEach(t => opts.push({ value: t, label: t }));
-        return opts;
-    }
+    // Type options provided via this.types property
 
     get filteredAndGrouped(): Group[] {
         const search = (this.search || '').toLowerCase();
@@ -132,7 +146,12 @@ export class Weapons {
         }
 
         const filtered = Array.from(combinedSet).filter(i => {
-            const byType = !typeFilter || (i?.Type?.Name === typeFilter);
+            const byType = !typeFilter || typeFilter.length === 0 || ((): boolean => {
+                const selected = this.exclusiveType ? [this.selectedType?.[0]] : this.selectedType;
+                const selectedSet = new Set<string>(selected || []);
+                const base = getChainForTypeName(i?.Type?.Name ?? '')[0] || (i?.Type?.Name ?? '');
+                return selectedSet.has(base);
+            })();
             if (!byType) return false;
             const byTier = !tierFilter || (this.getTier(i) === tierFilter);
             return byTier;
@@ -248,5 +267,11 @@ export class Weapons {
             if (a.minIndex !== b.minIndex) return a.minIndex - b.minIndex;
             return a.name.localeCompare(b.name);
         });
+    }
+
+    @watch('exclusiveType')
+    handleExclusiveTypeChanged() {
+        // Trigger recompute by touching a bindable used in getter
+        this.search = this.search || '';
     }
 }

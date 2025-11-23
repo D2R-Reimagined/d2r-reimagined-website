@@ -2,18 +2,29 @@ import { bindable, watch } from 'aurelia';
 
 import { debounce, DebouncedFunction } from '../../utilities/debounce';
 import json from '../item-jsons/sets.json';
+import {
+    type_filtering_options,
+    buildOptionsForPresentTypes,
+    resolveBaseTypeName,
+    getChainForTypeName,
+    FilterOption
+} from '../../resources/constants/item-type-filters';
 
 import { ISetData } from './set-types';
 
 export class Sets {
     sets: ISetData[] = json;
     @bindable search: string;
-    @bindable selectedType: string;
+    // Selected type option's value: array of base + parents
+    @bindable selectedType: string[];
     @bindable selectedEquipmentName: string;
 
     private _debouncedSearchItem!: DebouncedFunction;
 
     equipmentNames: Array<{ value: string | undefined; label: string } > = [];
+
+    // Centralized, data-driven type options filtered to present types in sets data
+    types: ReadonlyArray<FilterOption> = type_filtering_options.slice();
 
     attached(): void {
         // Read search query parameters from URL when component is initialized
@@ -31,30 +42,33 @@ export class Sets {
 
         const typeParam = urlParams.get('type');
         if (typeParam) {
-            this.selectedType = typeParam;
+            this.selectedType = typeParam.split(',');
+        }
+
+        // Build data-driven type options from present SetItems types
+        try {
+            const present = new Set<string>();
+            for (const set of json as any[]) {
+                for (const item of (set?.SetItems || [])) {
+                    const base = resolveBaseTypeName(item?.Type ?? '');
+                    if (base) present.add(base);
+                }
+            }
+            this.types = buildOptionsForPresentTypes(type_filtering_options, present);
+        } catch {
+            // keep default preset on error
         }
 
         // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         this._debouncedSearchItem = debounce(this.updateList.bind(this), 350);
         // Initialize equipment names if type is preselected
-        if (this.selectedType) {
+        if (this.selectedType && this.selectedType.length > 0) {
             this.equipmentNames = this.getSetEquipmentNames();
         }
         this.updateList();
     }
 
-    // Types list derived from set items
-    get types(): Array<{ value: string | undefined; label: string }> {
-        const typeSet = new Set<string>();
-        for (const set of json) {
-            for (const item of set.SetItems ?? []) {
-                if (item.Type) typeSet.add(item.Type);
-            }
-        }
-        const typeOptions: Array<{ value: string | undefined; label: string }> = [{ value: undefined, label: '-' }];
-        Array.from(typeSet).sort().forEach(t => typeOptions.push({ value: t, label: t }));
-        return typeOptions;
-    }
+    // Types options now provided by centralized preset via this.types property.
 
     // Helper method to update URL with current search parameters
     private updateUrl() {
@@ -75,8 +89,8 @@ export class Sets {
         }
 
         // Update type parameter
-        if (this.selectedType) {
-            url.searchParams.set('type', this.selectedType);
+        if (this.selectedType && this.selectedType.length > 0) {
+            url.searchParams.set('type', this.selectedType.join(','));
         } else {
             url.searchParams.delete('type');
         }
@@ -130,8 +144,12 @@ export class Sets {
             const classText = this.class?.toLowerCase();
 
             const matchesType = (set: ISetData) => {
-                if (!this.selectedType) return true;
-                return (set.SetItems ?? []).some(si => si.Type === this.selectedType);
+                if (!this.selectedType || this.selectedType.length === 0) return true;
+                const selectedSet = new Set<string>(this.selectedType);
+                return (set.SetItems ?? []).some(si => {
+                    const base = getChainForTypeName(si?.Type ?? '')[0] || (si?.Type ?? '');
+                    return selectedSet.has(base);
+                });
             };
 
             const matchesEquipment = (set: ISetData) => {
@@ -167,7 +185,7 @@ export class Sets {
             };
 
             // If no filters at all, show all
-            if (!this.search && !this.class && !this.selectedType && !this.selectedEquipmentName) {
+            if (!this.search && !this.class && (!this.selectedType || this.selectedType.length === 0) && !this.selectedEquipmentName) {
                 this.sets = json;
                 return;
             }
@@ -207,9 +225,13 @@ export class Sets {
     // Build equipment names options for the selected type
     getSetEquipmentNames(): Array<{ value: string | undefined; label: string }> {
         const names = new Set<string>();
-        for (const set of json) {
+        const selectedSet = new Set<string>(this.selectedType || []);
+        for (const set of json as any[]) {
             for (const si of set.SetItems ?? []) {
-                if (this.selectedType && si.Type !== this.selectedType) continue;
+                if (this.selectedType && this.selectedType.length > 0) {
+                    const base = getChainForTypeName(si?.Type ?? '')[0] || (si?.Type ?? '');
+                    if (!selectedSet.has(base)) continue;
+                }
                 const name = si.Equipment?.Name;
                 if (name) names.add(name);
             }

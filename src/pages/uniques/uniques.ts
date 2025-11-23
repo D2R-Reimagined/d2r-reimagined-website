@@ -2,16 +2,27 @@ import { bindable, watch } from 'aurelia';
 
 import { debounce, DebouncedFunction } from '../../utilities/debounce';
 import json from '../item-jsons/uniques.json';
+import {
+    type_filtering_options,
+    buildOptionsForPresentTypes,
+    resolveBaseTypeName,
+    getChainForTypeName,
+    FilterOption
+} from '../../resources/constants/item-type-filters';
 
 export class Uniques {
     uniques = json;
 
     @bindable search: string;
     @bindable selectedClass: string;
-    @bindable selectedType: string;
+    // Selected type value from dropdown: array of base + parent names
+    @bindable selectedType: string[];
     @bindable selectedEquipmentName: string;
 
-    equipmentNames = [];
+    equipmentNames: Array<{ value: string | undefined; label: string }> = [];
+
+    // Centralized, data-driven type options (filtered to present types)
+    types: ReadonlyArray<FilterOption> = type_filtering_options.slice();
 
     private _debouncedSearchItem!: DebouncedFunction;
 
@@ -42,29 +53,24 @@ export class Uniques {
 
         const typeParam = urlParams.get('type');
         if (typeParam) {
-            this.selectedType = typeParam;
+            this.selectedType = typeParam.split(',');
+        }
+        // Build data-driven options from present types in uniques data
+        try {
+            const present = new Set<string>();
+            for (const u of (json as any[])) {
+                const base = resolveBaseTypeName(u?.Type ?? '');
+                if (base) present.add(base);
+            }
+            this.types = buildOptionsForPresentTypes(type_filtering_options, present);
+        } catch {
+            // keep default preset on error
         }
         // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         this._debouncedSearchItem = debounce(this.updateList.bind(this), 350);
         this.updateList();
     }
 
-
-    get types() {
-        const uniqueTypes = new Set();
-        json.forEach(unique => {
-            if (unique.Type) {
-                uniqueTypes.add(unique.Type);
-            }
-        });
-
-        const typeOptions = [{ value: undefined, label: '-' }];
-        Array.from(uniqueTypes).sort().forEach(type => {
-            typeOptions.push({ value: type, label: type });
-        });
-
-        return typeOptions;
-    }
 
     @watch('class')
     handleClassChanged() {
@@ -119,8 +125,8 @@ export class Uniques {
         }
 
         // Update type parameter
-        if (this.selectedType) {
-            url.searchParams.set('type', this.selectedType);
+        if (this.selectedType && this.selectedType.length > 0) {
+            url.searchParams.set('type', this.selectedType.join(','));
         } else {
             url.searchParams.delete('type');
         }
@@ -142,14 +148,17 @@ export class Uniques {
             return uniqueName.includes(search) || properties.find(p => p.includes(search)) || baseName.includes(search);
         }
         const isMatchingType = (unique) => {
-            return !this.selectedType || unique.Type === this.selectedType;
+            if (!this.selectedType || this.selectedType.length === 0) return true;
+            const selectedSet = new Set<string>(this.selectedType);
+            const base = getChainForTypeName(unique?.Type ?? '')[0] || (unique?.Type ?? '');
+            return selectedSet.has(base);
         }
         const isMatchingEquipmentName = (unique) => {
             return !this.selectedEquipmentName || unique.Equipment.Name === this.selectedEquipmentName;
         }
 
         // Update the equipment names list if type is selected
-        if (this.selectedType && (!this.equipmentNames || this.equipmentNames.length <= 1)) {
+        if (this.selectedType && this.selectedType.length > 0 && (!this.equipmentNames || this.equipmentNames.length <= 1)) {
             this.equipmentNames = this.getUniqueEquipmentNames();
         }
 
@@ -175,13 +184,16 @@ export class Uniques {
     }
 
     getUniqueEquipmentNames() {
-        // Filter uniques based on the selected type
-        const filteredUniques = json.filter(unique =>
-            !this.selectedType || unique.Type === this.selectedType
-        );
+        // Filter uniques based on the selected type set (base token)
+        const selectedSet = new Set<string>(this.selectedType || []);
+        const filteredUniques = (json as any[]).filter(unique => {
+            if (!this.selectedType || this.selectedType.length === 0) return true;
+            const base = getChainForTypeName(unique?.Type ?? '')[0] || (unique?.Type ?? '');
+            return selectedSet.has(base);
+        });
 
         // Extract unique Equipment.Name values
-        const uniqueEquipmentNames = new Set();
+        const uniqueEquipmentNames = new Set<string>();
         filteredUniques.forEach(unique => {
             if (unique.Equipment && unique.Equipment.Name) {
                 uniqueEquipmentNames.add(unique.Equipment.Name);
@@ -189,11 +201,12 @@ export class Uniques {
         });
 
         // Create options array
-        const equipmentNameOptions = [{ value: undefined, label: '-' }];
+        const equipmentNameOptions: Array<{ value: string | undefined; label: string }> = [{ value: undefined, label: '-' }];
         Array.from(uniqueEquipmentNames).sort().forEach(name => {
             equipmentNameOptions.push({ value: name, label: name });
         });
 
         return equipmentNameOptions;
     }
+
 }
