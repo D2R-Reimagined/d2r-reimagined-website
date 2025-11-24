@@ -177,58 +177,127 @@ export class CubeRecipes {
     recipes: DisplayRecipe[] = [...this.allRecipes];
     @bindable search: string;
 
+    // Filters and options
+    @bindable selectedNote: string | undefined;
+    @bindable selectedClass: string | undefined;
+
+    noteOptions: Array<{ value: string | undefined; label: string }> = [];
+    classOptions: Array<{ value: string | undefined; label: string }> = [];
+
     private _debouncedSearchItem!: DebouncedFunction;
 
     binding() {
-        // Read search query parameter from URL when component is initialized
+        // Build dropdown options from the existing data set
+        try {
+            const noteSet = new Set<string>();
+            const classSet = new Set<string>();
+            for (const r of this.allRecipes) {
+                const raw = r._raw as V2Recipe | undefined;
+                for (const n of (raw?.Notes ?? [])) {
+                    const t = String(n || '').trim();
+                    if (t) noteSet.add(t);
+                }
+                const cls = String(raw?.Class || '').trim();
+                if (cls) classSet.add(cls);
+            }
+            const noteList = Array.from(noteSet).sort((a, b) => a.localeCompare(b));
+            const classList = Array.from(classSet).sort((a, b) => a.localeCompare(b));
+            this.noteOptions = [{ value: undefined, label: '-' }, ...noteList.map(n => ({ value: n, label: n }))];
+            this.classOptions = [{ value: undefined, label: '-' }, ...classList.map(c => ({ value: c, label: c }))];
+        } catch {
+            this.noteOptions = [{ value: undefined, label: '-' }];
+            this.classOptions = [{ value: undefined, label: '-' }];
+        }
+
+        // Read query parameters from URL when component is initialized
         const urlParams = new URLSearchParams(window.location.search);
         const searchParam = urlParams.get('search');
-        if (searchParam) {
-            this.search = searchParam;
-        }
+        if (searchParam) this.search = searchParam;
+
+        const noteParam = urlParams.get('note');
+        if (noteParam) this.selectedNote = noteParam;
+
+        const classParam = urlParams.get('class');
+        if (classParam) this.selectedClass = classParam;
     }
 
     attached() {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         this._debouncedSearchItem = debounce(this.handleSearch.bind(this), 350);
+        // Run initial filter pass based on any URL params
+        this.handleSearch();
     }
 
     @watch('search')
     handleSearchChanged() {
         this._debouncedSearchItem();
+        this.updateUrl();
+    }
 
-        // Update URL with search query parameter
+    @watch('selectedNote')
+    handleSelectedNoteChanged() {
+        this.handleSearch();
+        this.updateUrl();
+    }
+
+    @watch('selectedClass')
+    handleSelectedClassChanged() {
+        this.handleSearch();
+        this.updateUrl();
+    }
+
+    // Inputs/Outputs-only flags removed as redundant; search always scans all text
+
+    private updateUrl() {
+        // Update URL with current filters without page reload
         const url = new URL(window.location.href);
-        if (this.search && this.search.trim() !== '') {
-            url.searchParams.set('search', this.search);
-        } else {
-            url.searchParams.delete('search');
-        }
+        if (this.search && this.search.trim() !== '') url.searchParams.set('search', this.search);
+        else url.searchParams.delete('search');
 
-        // Update the URL without reloading the page
+        if (this.selectedNote && String(this.selectedNote).trim() !== '') url.searchParams.set('note', String(this.selectedNote));
+        else url.searchParams.delete('note');
+
+        if (this.selectedClass && String(this.selectedClass).trim() !== '') url.searchParams.set('class', String(this.selectedClass));
+        else url.searchParams.delete('class');
+
         window.history.pushState({}, '', url.toString());
     }
 
     handleSearch() {
-        if (!this.search) {
+        const term = (this.search || '').trim().toLowerCase();
+        const selectedNote = (this.selectedNote || '').toLowerCase();
+        const selectedClass = (this.selectedClass || '').toLowerCase();
+
+        if (!term && !selectedNote && !selectedClass) {
             this.recipes = this.allRecipes;
             return;
         }
-        const found = [];
+
+        const found: DisplayRecipe[] = [];
         for (const recipe of this.allRecipes) {
-            // Normalize empty fields
-            const desc = recipe.Description ?? '';
-            const out = recipe.Output ?? '';
-            const inp = recipe.Input ?? '';
-            if (
-                inp.toLowerCase().includes(this.search.toLowerCase())
-                || out.toLowerCase().includes(this.search.toLowerCase())
-                || desc.toLowerCase().includes(this.search.toLowerCase())
-            ) {
-                found.push(recipe);
+            // Filter by class (exact match)
+            if (selectedClass) {
+                const rc = (recipe.Class || '').toLowerCase();
+                if (rc !== selectedClass) continue;
             }
+
+            // Filter by note (exact match among raw note array)
+            if (selectedNote) {
+                const notes = (recipe._raw?.Notes || []).map(n => String(n || '').toLowerCase());
+                if (!notes.includes(selectedNote)) continue;
+            }
+
+            // Text search (always searches across inputs, outputs, and description)
+            if (term) {
+                const desc = (recipe.Description || '').toLowerCase();
+                const inp = [recipe.Input || '', ...(recipe.Inputs || [])].join(' | ').toLowerCase();
+                const out = [recipe.Output || '', ...(recipe.Outputs || [])].join(' | ').toLowerCase();
+                const haystack = [inp, out, desc].join(' | ');
+                if (!haystack.includes(term)) continue;
+            }
+
+            found.push(recipe);
         }
         this.recipes = found;
-
     }
 }

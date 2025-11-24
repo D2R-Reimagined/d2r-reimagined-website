@@ -6758,7 +6758,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Item Crafting Recipe"
+    ]
   },
   {
     "Index": 251,
@@ -17422,7 +17424,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Rejuvenation Potion Recipe"
+    ]
   },
   {
     "Index": 427,
@@ -17901,7 +17905,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Recycle Recipe"
+    ]
   },
   {
     "Index": 438,
@@ -17938,7 +17944,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Recycle Recipe"
+    ]
   },
   {
     "Index": 439,
@@ -17975,7 +17983,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Recycle Recipe"
+    ]
   },
   {
     "Index": 440,
@@ -18012,7 +18022,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Recycle Recipe"
+    ]
   },
   {
     "Index": 441,
@@ -18049,7 +18061,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Recycle Recipe"
+    ]
   },
   {
     "Index": 442,
@@ -18086,7 +18100,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Recycle Recipe"
+    ]
   },
   {
     "Index": 443,
@@ -18123,7 +18139,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Recycle Recipe"
+    ]
   },
   {
     "Index": 444,
@@ -18160,7 +18178,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Recycle Recipe"
+    ]
   },
   {
     "Index": 445,
@@ -18197,7 +18217,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Recycle Recipe"
+    ]
   },
   {
     "Index": 446,
@@ -18234,7 +18256,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Recycle Recipe"
+    ]
   },
   {
     "Index": 447,
@@ -18271,7 +18295,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Recycle Recipe"
+    ]
   },
   {
     "Index": 448,
@@ -18308,7 +18334,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Recycle Recipe"
+    ]
   },
   {
     "Index": 449,
@@ -18345,7 +18373,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Recycle Recipe"
+    ]
   },
   {
     "Index": 450,
@@ -18382,7 +18412,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Recycle Recipe"
+    ]
   },
   {
     "Index": 451,
@@ -18433,7 +18465,8 @@
       }
     },
     "Notes": [
-      "Item Crafting Recipe"
+      "Item Crafting Recipe",
+      "Reroll Item Recipe"
     ]
   },
   {
@@ -18485,7 +18518,8 @@
       }
     },
     "Notes": [
-      "Item Crafting Recipe"
+      "Item Crafting Recipe",
+      "Reroll Item Recipe"
     ]
   },
   {
@@ -18536,7 +18570,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Item Recipe"
+    ]
   },
   {
     "Index": 454,
@@ -18586,7 +18622,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Item Recipe"
+    ]
   },
   {
     "Index": 455,
@@ -18637,7 +18675,8 @@
       }
     },
     "Notes": [
-      "Item Crafting Recipe"
+      "Item Crafting Recipe",
+      "Reroll Item Recipe"
     ]
   },
   {
@@ -18689,7 +18728,8 @@
       }
     },
     "Notes": [
-      "Item Crafting Recipe"
+      "Item Crafting Recipe",
+      "Reroll Item Recipe"
     ]
   },
   {
@@ -18740,7 +18780,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Item Recipe"
+    ]
   },
   {
     "Index": 458,
@@ -18790,7 +18832,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Item Recipe"
+    ]
   },
   {
     "Index": 459,
@@ -18841,7 +18885,8 @@
       }
     },
     "Notes": [
-      "Item Crafting Recipe"
+      "Item Crafting Recipe",
+      "Reroll Item Recipe"
     ]
   },
   {
@@ -18893,7 +18938,8 @@
       }
     },
     "Notes": [
-      "Item Crafting Recipe"
+      "Item Crafting Recipe",
+      "Reroll Item Recipe"
     ]
   },
   {
@@ -18945,7 +18991,8 @@
       }
     },
     "Notes": [
-      "Item Crafting Recipe"
+      "Item Crafting Recipe",
+      "Reroll Item Recipe"
     ]
   },
   {
@@ -18997,7 +19044,8 @@
       }
     },
     "Notes": [
-      "Item Crafting Recipe"
+      "Item Crafting Recipe",
+      "Reroll Item Recipe"
     ]
   },
   {
@@ -19049,7 +19097,8 @@
       }
     },
     "Notes": [
-      "Item Crafting Recipe"
+      "Item Crafting Recipe",
+      "Reroll Item Recipe"
     ]
   },
   {
@@ -19100,7 +19149,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Item Recipe"
+    ]
   },
   {
     "Index": 465,
@@ -20409,7 +20460,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Uber Charm Upgrade Recipe"
+    ]
   },
   {
     "Index": 492,
@@ -20723,7 +20776,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Uber Charm Upgrade Recipe"
+    ]
   },
   {
     "Index": 498,
@@ -21519,7 +21574,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Repair Non-Ethereal Item"
+    ]
   },
   {
     "Index": 515,
@@ -21559,7 +21616,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Repair Non-Ethereal Item"
+    ]
   },
   {
     "Index": 516,

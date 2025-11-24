@@ -1,16 +1,44 @@
 <template>
     <h3 class="text-center my-4">
-        ${recipes.length} Recipes Found
+        <span class="rarity-text">${recipes.length}</span> Recipes Found
     </h3>
     <search-area>
-        <div class="my-2 text-center">
-            <form>
-                <label>Search Recipes</label><br>
-                <input type="text" value.bind="search" class="border rounded px-2 py-1" />
-            </form>
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-wrap justify-center items-center text-center">
+                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
+                    <div class="mb-2">
+                        <moo-select
+                                class="w-full standard-betsy-select"
+                                label="Select Note"
+                                options.bind="noteOptions"
+                                value.bind="selectedNote"
+                        ></moo-select>
+                    </div>
+                </div>
+                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
+                    <div class="mb-2">
+                        <moo-select
+                                class="w-full standard-betsy-select"
+                                label="Select Class"
+                                options.bind="classOptions"
+                                value.bind="selectedClass"
+                        ></moo-select>
+                    </div>
+                </div>
+                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
+                    <div class="mb-2">
+                        <moo-text-field
+                                class="w-full"
+                                label="Search Recipes"
+                                type="text"
+                                value.bind="search"
+                        ></moo-text-field>
+                    </div>
+                </div>
+            </div>
         </div>
     </search-area>
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center">
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">
         <div repeat.for="recipe of recipes">
             <div class="bg-zinc-800 rounded shadow p-2">
                 <div class="unique-text">
@@ -23,12 +51,12 @@
 
                 <div class="unique-text">=</div>
 
-                    <div class="output-block" repeat.for="blk of recipe.OutputBlocks">
-                        <div class="output-title">${blk.lineOne}</div>
-                        <div repeat.for="prop of blk.properties" class="enhanced output-prop">${prop}</div>
-                        <div if.bind="blk.chanceText" class="requirement output-prop">${blk.chanceText}</div>
-                    </div>
+                <div class="output-block" repeat.for="blk of recipe.OutputBlocks">
+                    <div class="output-title">${blk.lineOne}</div>
+                    <div repeat.for="prop of blk.properties" class="enhanced output-prop">${prop}</div>
+                    <div if.bind="blk.chanceText" class="requirement output-prop">${blk.chanceText}</div>
                 </div>
             </div>
         </div>
-    </template>
+    </div>
+</template>
