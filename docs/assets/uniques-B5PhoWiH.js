@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:docs/assets/uniques-B5PhoWiH.js
 import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-CFDqh_h_.js";
+========
+import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-RxNSMCuM.js";
+>>>>>>>> master:docs/assets/uniques-cKpgVkAG.js
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
 import { j as json } from "./uniques-DR4Eo1cT.js";
 import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options, g as getChainForTypeName } from "./item-type-filters-tjh321-r.js";

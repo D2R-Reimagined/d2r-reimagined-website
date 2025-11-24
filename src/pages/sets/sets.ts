@@ -162,12 +162,16 @@ export class Sets {
                 if (set.Name?.toLowerCase().includes(searchText)) return true;
 
                 const allProps = set.AllProperties ?? [...(set.FullProperties || []), ...(set.PartialProperties || [])];
+                // Match set-level properties (partial/full bonuses)
                 if (allProps?.some(p => p.PropertyString?.toLowerCase()?.includes(searchText))) return true;
 
                 for (const si of set.SetItems ?? []) {
                     if (si.Name?.toLowerCase().includes(searchText)) return true;
                     if (si.Equipment?.Name?.toLowerCase().includes(searchText)) return true;
+                    // Match base item properties
                     if (si.Properties?.some(p => p.PropertyString?.toLowerCase()?.includes(searchText))) return true;
+                    // Match item-level set properties shown in UI (SetPropertiesString)
+                    if (si.SetPropertiesString?.some(s => s?.toLowerCase()?.includes(searchText))) return true;
                 }
                 return false;
             };
@@ -180,6 +184,7 @@ export class Sets {
                     if (si.Name?.toLowerCase().includes(classText)) return true;
                     if (si.Equipment?.Name?.toLowerCase().includes(classText)) return true;
                     if (si.Properties?.some(p => p.PropertyString?.toLowerCase()?.includes(classText))) return true;
+                    if (si.SetPropertiesString?.some(s => s?.toLowerCase()?.includes(classText))) return true;
                 }
                 return false;
             };
