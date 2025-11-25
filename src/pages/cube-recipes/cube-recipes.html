@@ -46,13 +46,13 @@
                 <div class="description" repeat.for="inp of recipe.Inputs">${inp}</div>
                 <div class="my-1 unique-text">=====</div>
                 <div class="space-y-1">
-                <div class="output-block" repeat.for="blk of recipe.OutputBlocks">
-                    <div class="output-title">${blk.lineOne}</div>
-                    <div repeat.for="prop of blk.properties" class="enhanced output-prop">${prop}</div>
-                    <div if.bind="blk.chanceText" class="requirement output-prop">${blk.chanceText}</div>
+                    <div class="output-block" repeat.for="blk of recipe.OutputBlocks">
+                        <div class="output-title">${blk.lineOne}</div>
+                        <div repeat.for="prop of blk.properties" class="enhanced output-prop">${prop}</div>
+                        <div if.bind="blk.chanceText" class="requirement output-prop">${blk.chanceText}</div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </template>
