@@ -15783,11 +15783,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -50",
@@ -15812,7 +15810,6 @@
       }
     },
     "Notes": [
-      "Item Crafting Recipe",
       "Sunder Item Crafting Recipe"
     ]
   },
@@ -15854,11 +15851,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -50",
@@ -15883,7 +15878,6 @@
       }
     },
     "Notes": [
-      "Item Crafting Recipe",
       "Sunder Item Crafting Recipe"
     ]
   },
@@ -15925,11 +15919,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -50",
@@ -15954,7 +15946,6 @@
       }
     },
     "Notes": [
-      "Item Crafting Recipe",
       "Sunder Item Crafting Recipe"
     ]
   },
@@ -15996,11 +15987,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -50",
@@ -16025,7 +16014,6 @@
       }
     },
     "Notes": [
-      "Item Crafting Recipe",
       "Sunder Item Crafting Recipe"
     ]
   },
@@ -16067,11 +16055,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -50",
@@ -16096,7 +16082,6 @@
       }
     },
     "Notes": [
-      "Item Crafting Recipe",
       "Sunder Item Crafting Recipe"
     ]
   },
@@ -16138,11 +16123,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -50",
@@ -16167,7 +16150,6 @@
       }
     },
     "Notes": [
-      "Item Crafting Recipe",
       "Sunder Item Crafting Recipe"
     ]
   },
@@ -16203,11 +16185,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -100",
@@ -16259,11 +16239,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -100",
@@ -16315,11 +16293,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -100",
@@ -16371,11 +16347,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -100",
@@ -16427,11 +16401,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -100",
@@ -16483,11 +16455,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -100",
@@ -17379,11 +17349,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -3",
@@ -18442,11 +18410,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -3",
@@ -18465,7 +18431,6 @@
       }
     },
     "Notes": [
-      "Item Crafting Recipe",
       "Reroll Item Recipe"
     ]
   },
@@ -18495,11 +18460,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -20",
@@ -18518,7 +18481,6 @@
       }
     },
     "Notes": [
-      "Item Crafting Recipe",
       "Reroll Item Recipe"
     ]
   },
@@ -18548,11 +18510,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -50",
@@ -18600,11 +18560,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -50",
@@ -18652,11 +18610,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -3",
@@ -18675,7 +18631,6 @@
       }
     },
     "Notes": [
-      "Item Crafting Recipe",
       "Reroll Item Recipe"
     ]
   },
@@ -18705,11 +18660,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -20",
@@ -18728,7 +18681,6 @@
       }
     },
     "Notes": [
-      "Item Crafting Recipe",
       "Reroll Item Recipe"
     ]
   },
@@ -18758,11 +18710,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -50",
@@ -18810,11 +18760,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -50",
@@ -18862,11 +18810,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -3",
@@ -18885,7 +18831,6 @@
       }
     },
     "Notes": [
-      "Item Crafting Recipe",
       "Reroll Item Recipe"
     ]
   },
@@ -18915,11 +18860,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -3",
@@ -18938,7 +18881,6 @@
       }
     },
     "Notes": [
-      "Item Crafting Recipe",
       "Reroll Item Recipe"
     ]
   },
@@ -18968,11 +18910,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -3",
@@ -18991,7 +18931,6 @@
       }
     },
     "Notes": [
-      "Item Crafting Recipe",
       "Reroll Item Recipe"
     ]
   },
@@ -19021,11 +18960,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -3",
@@ -19044,7 +18981,6 @@
       }
     },
     "Notes": [
-      "Item Crafting Recipe",
       "Reroll Item Recipe"
     ]
   },
@@ -19074,11 +19010,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -10",
@@ -19097,7 +19031,6 @@
       }
     },
     "Notes": [
-      "Item Crafting Recipe",
       "Reroll Item Recipe"
     ]
   },
@@ -19127,11 +19060,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -50",
@@ -19438,11 +19369,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -1",
@@ -19492,11 +19421,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -1",
@@ -19546,11 +19473,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -1",
@@ -19608,11 +19533,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -2",
@@ -19670,11 +19593,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -3",
@@ -19738,11 +19659,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -4",
@@ -19806,11 +19725,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -5",
@@ -19882,11 +19799,9 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Return Base Type",
+        "Name": "Return Gem Bag, Update Gem Credits",
         "Quantity": 1,
-        "Qualifiers": [
-          "Keep Modifiers"
-        ],
+        "Qualifiers": [],
         "Properties": [
           {
             "PropertyString": "Gems: -10",

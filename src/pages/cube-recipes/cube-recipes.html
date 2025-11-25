@@ -41,16 +41,11 @@
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">
         <div repeat.for="recipe of recipes">
             <div class="bg-zinc-800 rounded shadow p-2">
-                <div class="unique-text">
-                    ${recipe.Description}
-                </div>
-                <!-- Show class between note and the first input when present -->
+                <div class="mb-1 unique-text">${recipe.Description}</div>
                 <div class="requirement" if.bind="recipe.Class">(${recipe.Class} Only)</div>
-                <!-- Render inputs as individual lines; no value converter needed -->
                 <div class="description" repeat.for="inp of recipe.Inputs">${inp}</div>
-
-                <div class="unique-text">=</div>
-
+                <div class="my-1 unique-text">=====</div>
+                <div class="space-y-1">
                 <div class="output-block" repeat.for="blk of recipe.OutputBlocks">
                     <div class="output-title">${blk.lineOne}</div>
                     <div repeat.for="prop of blk.properties" class="enhanced output-prop">${prop}</div>
@@ -58,5 +53,6 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </template>
