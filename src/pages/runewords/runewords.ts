@@ -2,6 +2,13 @@ import { bindable, watch } from 'aurelia';
 
 import { debounce, DebouncedFunction } from '../../utilities/debounce';
 import json from '../item-jsons/runewords.json';
+import {
+    type_filtering_options,
+    getChainForTypeName,
+    buildOptionsForPresentTypes,
+    resolveBaseTypeName,
+    FilterOption
+} from '../../resources/constants/item-type-filters';
 
 export class Runewords {
     runewords = json;
@@ -14,40 +21,8 @@ export class Runewords {
 
     filteredRunewords = [];
 
-    // The order of the value entries matters, going from specific to generic.
-    // When checking the exclusive box, only the first value element is selected.
-    types: { label: string, value: string[] }[] = [
-        // Parent types
-        { label: '-', value: [] },
-        { label: 'Any Armor', value: [ 'Body Armor', 'Any Armor'] },
-        { label: 'Any Helm', value: [ 'Helm' ] },
-        { label: 'Any Weapon', value: [ 'Weapon' ] },
-        { label: 'Any Melee Weapon', value: [ 'Melee Weapon', 'Weapon' ] },
-        { label: 'Any Missile Weapon', value: [ 'Missile Weapon', 'Weapon' ] },
-        { label: 'Any Shield', value: ['Any Shield'] },
-        // Specific weapon types
-        { label: 'Axe', value: [ 'Axe', 'Melee Weapon', 'Weapon' ] },
-        { label: 'Club', value: [ 'Club', 'Melee Weapon', 'Weapon'] },
-        { label: 'Hammer', value: [ 'Hammer', 'Melee Weapon', 'Weapon' ] },
-        { label: 'Hand to Hand', value: [ 'Hand to Hand', 'Melee Weapon', 'Weapon' ] },
-        { label: 'Mace', value: [ 'Mace', 'Melee Weapon', 'Weapon' ] },
-        { label: 'Orb', value: ['Orb'] },
-        { label: 'Polearm', value: [ 'Polearm', 'Melee Weapon', 'Weapon' ] },
-        { label: 'Scepter', value: ['Scepter', 'Melee Weapon', 'Weapon' ] },
-        { label: 'Staff', value: [ 'Staff', 'Melee Weapon', 'Weapon' ] },
-        { label: 'Spear', value: [ 'Spear', 'Melee Weapon', 'Weapon' ] },
-        { label: 'Sword', value: [ 'Sword', 'Melee Weapon', 'Weapon' ] },
-        { label: 'Wand', value: [ 'Wand', 'Melee Weapon', 'Weapon' ] },
-        // Specific armor types
-        { label: 'Circlet', value: [ 'Circlet', 'Helm' ] },
-        // Class specific types
-        { label: 'Amazon Bow', value: [ 'Amazon Bow', 'Missile Weapon', 'Weapon' ] },
-        { label: 'Amazon Spear', value: [ 'Amazon Spear', 'Spear', 'Melee Weapon', 'Weapon' ] },
-        { label: 'Necromancer Shield', value: [ 'Necromancer Item', 'Any Shield' ] },
-        { label: 'Barbarian Item', value: [ 'Barbarian Item' ] },
-        { label: 'Paladin Item', value: [ 'Paladin Item' ] },
-        { label: 'Druid Item', value: [ 'Druid Item' ] },
-    ]
+    // Centralized options, narrowed at runtime to types present in data
+    types: ReadonlyArray<FilterOption> = type_filtering_options.slice();
 
     selectedType: string[];
 
@@ -65,6 +40,22 @@ export class Runewords {
     attached() {
         // Read search query parameters from URL when component is initialized
         const urlParams = new URLSearchParams(window.location.search);
+
+        // Collect base type names present in data
+        const present = new Set<string>();
+        try {
+            for (const rw of this.runewords as any[]) {
+                const types = Array.isArray(rw?.Types) ? rw.Types : [];
+                for (const t of types) {
+                    const base = resolveBaseTypeName(t?.Name ?? '');
+                    if (base) present.add(base);
+                }
+            }
+        } catch {
+            // keep defaults on error
+        }
+        // Filter the shared preset to only show options relevant to this page's data
+        this.types = buildOptionsForPresentTypes(type_filtering_options, present);
 
         const searchParam = urlParams.get('search');
         if (searchParam) {
@@ -95,7 +86,7 @@ export class Runewords {
         this.updateList();
     }
 
-    // Helper method to update URL with current search parameters
+    // Push current filters to URL
     private updateUrl() {
         const url = new URL(window.location.href);
 
@@ -188,26 +179,32 @@ export class Runewords {
 
         // Type filtering
         if (this.selectedType?.length > 0) {
-            const selectedType = this.exclusiveType ? [this.selectedType[0]] : this.selectedType;
-            filteringRunewords = filteringRunewords.filter((x) => {
-                for (const type of x.Types) {
-                    if (selectedType.includes(type.Index) || (type.Index === 'Merc Equip' && selectedType.includes('Helm'))) {
-                        return true;
-                    }
-                }
-                return false;
+            // For "Exact Type Only", only use the base entry of the option; otherwise include its parents.
+            const selected = this.exclusiveType ? [this.selectedType[0]] : this.selectedType;
+            const selectedSet = new Set<string>(selected);
+
+            // Normalize a token to its base node (case-insensitive); no parent expansion
+            const normalizeBase = (t: any) => {
+                const raw = t?.Name != null ? String(t.Name) : '';
+                const chain = getChainForTypeName(raw);
+                return chain && chain.length > 0 ? chain[0] : raw;
+            };
+
+            filteringRunewords = filteringRunewords.filter((rw) => {
+                const types = Array.isArray(rw.Types) ? rw.Types : [];
+                return types.some((t) => selectedSet.has(normalizeBase(t)));
             });
         }
 
-        // Amount filtering
+        // Socket count filter
         if (this.selectedAmount) {
             filteringRunewords = filteringRunewords.filter((x) => x.Runes.length === this.selectedAmount);
         }
 
-        // Initialize found to apply both search filters together
+        // Apply text + rune filters
         let found = filteringRunewords;
 
-        // Regular search filter (by name, properties, types)
+        // Text search (name, props, types)
         if (this.search) {
             found = found.filter((runeword) => {
                 if (runeword.Name.toLowerCase().includes(this.search.toLowerCase())) {
@@ -245,25 +242,5 @@ export class Runewords {
         this.filteredRunewords = found;
     }
 
-    transformTypeName(name) {
-        switch (name) {
-            case 'Merc Equip':
-                return 'Helm'
-            default:
-                return name;
-        }
-    }
-
-    actualLevelRequirement(runeword) {
-        for (const property of runeword.Properties) {
-            if (property.PropertyString && property.PropertyString.includes('To Required Level')) {
-                const value = property.PropertyString.substring(1, 3);
-                if(!runeword.RequiredLevel) {
-                    return parseInt(value.trim());
-                }
-                return runeword.RequiredLevel + parseInt(value.trim());
-            }
-        }
-        return runeword.RequiredLevel
-    }
+    // Note: no type name transformations; use the names as exported by the game data.
 }

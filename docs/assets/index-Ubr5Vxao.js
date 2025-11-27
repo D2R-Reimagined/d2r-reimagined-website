@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-CITpNzfu.js","assets/debounce-ZwsFz6hU.js","assets/cube-recipes-BJXOl2Zy.css","assets/uniques-cKpgVkAG.js","assets/uniques-Bk_ERHIS.js","assets/sets-BEY_VVO2.js","assets/runewords-BrFtOLOL.js","assets/grail-CH0_rYPj.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-BfDvoyf-.js","assets/debounce-ZwsFz6hU.js","assets/cube-recipes-BJXOl2Zy.css","assets/uniques-JD_lS7hY.js","assets/uniques-DaUoXFKu.js","assets/item-type-filters-EbkYbcFa.js","assets/sets-COe8yXok.js","assets/sets-DYK1PFWV.js","assets/runewords-DE6-ydwt.js","assets/runewords-CBz0H1iM.js","assets/grail-DgaKspr5.js","assets/armors-CpOcSfL8.js","assets/weapons-P-OCa3EG.js","assets/affixes-ZgrxdEPX.js"])))=>i.map(i=>d[i]);
 (function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) return;
@@ -1615,7 +1615,7 @@ function __esDecorate$2(ctor, descriptorIn, decorators, contextIn, initializers,
   if (target) Object.defineProperty(target, contextIn.name, descriptor);
   done = true;
 }
-function __runInitializers$6(thisArg, initializers, value) {
+function __runInitializers$5(thisArg, initializers, value) {
   var useValue = arguments.length > 2;
   for (var i3 = 0; i3 < initializers.length; i3++) {
     value = useValue ? initializers[i3].call(thisArg, value) : initializers[i3].call(thisArg);
@@ -1823,7 +1823,7 @@ let DefaultLogger = (() => {
   return _a2 = class DefaultLogger {
     /* eslint-disable default-param-last */
     constructor(config = resolve(ILogConfig), factory = resolve(ILogEventFactory), sinks = resolve(all(ISink)), scope = resolve(optional(ILogScopes)) ?? [], parent = null) {
-      this.scope = (__runInitializers$6(this, _instanceExtraInitializers), scope);
+      this.scope = (__runInitializers$5(this, _instanceExtraInitializers), scope);
       this._scopedLoggers = createLookup$1();
       let traceSinks;
       let debugSinks;
@@ -36054,7 +36054,7 @@ MdOutlinedTextField = __decorate([
   t$3("md-outlined-text-field")
 ], MdOutlinedTextField);
 const name$1 = "search-area";
-const template$t = '<div class="search-area">\n    <au-slot></au-slot>\n</div>';
+const template$t = '<div class="search-area">\r\n    <au-slot></au-slot>\r\n</div>';
 const dependencies$1 = [];
 const bindables$1 = {};
 let _e$1;
@@ -36072,50 +36072,6 @@ const __au2ViewDef$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defi
   name: name$1,
   register: register$1,
   template: template$t
-}, Symbol.toStringTag, { value: "Module" }));
-var __create$3 = Object.create;
-var __defProp$3 = Object.defineProperty;
-var __getOwnPropDesc$3 = Object.getOwnPropertyDescriptor;
-var __knownSymbol$3 = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : Symbol.for("Symbol." + name2);
-var __typeError$3 = (msg) => {
-  throw TypeError(msg);
-};
-var __defNormalProp$3 = (obj, key, value) => key in obj ? __defProp$3(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __name$3 = (target, value) => __defProp$3(target, "name", { value, configurable: true });
-var __decoratorStart$3 = (base) => [, , , __create$3(null)];
-var __decoratorStrings$3 = ["class", "method", "getter", "setter", "accessor", "field", "value", "get", "set"];
-var __expectFn$3 = (fn) => fn !== void 0 && typeof fn !== "function" ? __typeError$3("Function expected") : fn;
-var __decoratorContext$3 = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings$3[kind], name: name2, metadata, addInitializer: (fn) => done._ ? __typeError$3("Already initialized") : fns.push(__expectFn$3(fn || null)) });
-var __decoratorMetadata$3 = (array, target) => __defNormalProp$3(target, __knownSymbol$3("metadata"), array[3]);
-var __runInitializers$5 = (array, flags, self, value) => {
-  for (var i3 = 0, fns = array[flags >> 1], n3 = fns && fns.length; i3 < n3; i3++) fns[i3].call(self);
-  return value;
-};
-var __decorateElement$3 = (array, flags, name2, decorators, target, extra) => {
-  var it, done, ctx, k3 = flags & 7, p2 = false;
-  var j2 = 0;
-  var extraInitializers = array[j2] || (array[j2] = []);
-  var desc = k3 && (target = target.prototype, k3 < 5 && (k3 > 3 || !p2) && __getOwnPropDesc$3(target, name2));
-  __name$3(target, name2);
-  for (var i3 = decorators.length - 1; i3 >= 0; i3--) {
-    ctx = __decoratorContext$3(k3, name2, done = {}, array[3], extraInitializers);
-    it = (0, decorators[i3])(target, ctx), done._ = 1;
-    __expectFn$3(it) && (target = it);
-  }
-  return __decoratorMetadata$3(array, target), desc && __defProp$3(target, name2, desc), p2 ? k3 ^ 4 ? extra : desc : target;
-};
-var _SearchArea_decorators, _init$3;
-_SearchArea_decorators = [customElement(__au2ViewDef$1)];
-class SearchArea {
-}
-_init$3 = __decoratorStart$3();
-SearchArea = __decorateElement$3(_init$3, 0, "SearchArea", _SearchArea_decorators, SearchArea);
-__runInitializers$5(_init$3, 1, SearchArea);
-const Elements = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  get SearchArea() {
-    return SearchArea;
-  }
 }, Symbol.toStringTag, { value: "Module" }));
 var __create$2 = Object.create;
 var __defProp$2 = Object.defineProperty;
@@ -36148,24 +36104,19 @@ var __decorateElement$2 = (array, flags, name2, decorators, target, extra) => {
   }
   return __decoratorMetadata$2(array, target), desc && __defProp$2(target, name2, desc), p2 ? k3 ^ 4 ? extra : desc : target;
 };
-var _CubeInputsValueConverter_decorators, _init$2;
-_CubeInputsValueConverter_decorators = [valueConverter("cubeInputs")];
-class CubeInputsValueConverter {
-  toView(value) {
-    if (!value) {
-      return;
-    }
-    let returnString = "";
-    const splitStrings = value.split(" + ");
-    for (const string of splitStrings) {
-      returnString += string + "<br>";
-    }
-    return returnString;
-  }
+var _SearchArea_decorators, _init$2;
+_SearchArea_decorators = [customElement(__au2ViewDef$1)];
+class SearchArea {
 }
 _init$2 = __decoratorStart$2();
-CubeInputsValueConverter = __decorateElement$2(_init$2, 0, "CubeInputsValueConverter", _CubeInputsValueConverter_decorators, CubeInputsValueConverter);
-__runInitializers$4(_init$2, 1, CubeInputsValueConverter);
+SearchArea = __decorateElement$2(_init$2, 0, "SearchArea", _SearchArea_decorators, SearchArea);
+__runInitializers$4(_init$2, 1, SearchArea);
+const Elements = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  get SearchArea() {
+    return SearchArea;
+  }
+}, Symbol.toStringTag, { value: "Module" }));
 var __create$1 = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc$1 = Object.getOwnPropertyDescriptor;
@@ -36280,9 +36231,6 @@ RuneNameValueConverter = __decorateElement$1(_init$1, 0, "RuneNameValueConverter
 __runInitializers$3(_init$1, 1, RuneNameValueConverter);
 const Resources = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  get CubeInputsValueConverter() {
-    return CubeInputsValueConverter;
-  },
   get RuneNameValueConverter() {
     return RuneNameValueConverter;
   }
@@ -36342,79 +36290,132 @@ const __vitePreload = function preload(baseModule, deps, importerUrl) {
   });
 };
 const name = "app";
-const template$s = `<nav class="bg-gray-800 text-white sticky top-0 z-3">
-    <div class="mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center">
-            <a class="mr-6" href="/">
-                D2R Reimagined
-            </a>
-            <button class="lg:hidden ml-auto" type="button" onclick="document.getElementById('navbarSupportedContent').classList.toggle('hidden')" aria-label="Toggle navigation">
-                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
-            <div class="hidden lg:flex lg:items-center lg:justify-between w-full" id="navbarSupportedContent">
-                <ul class="flex space-x-4">
-                    <li>
-                        <a class="hover:text-gray-300 py-2 flex cursor-pointer" aria-current="page" href="/cube-recipes">
-                            Cube Recipes
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-300 py-2 flex cursor-pointer" aria-current="page" href="/uniques">
-                            Uniques
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-300 py-2 flex cursor-pointer" aria-current="page" href="/sets">
-                            Sets
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-300 py-2 flex cursor-pointer" aria-current="page" href="/runewords">
-                            Runewords
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-300 py-2 flex cursor-pointer" aria-current="page" href="/grail">
-                            Grail
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-300 py-2 cursor-pointer flex items-center" aria-current="page" href="https://wiki.d2r-reimagined.com/" external target="_blank">
-                            Wiki <span class="material-symbols-outlined ml-1">open_in_new</span>
-                        </a>
-                    </li>
-                </ul>
-                <ul class="flex items-center ml-auto">
-                    <li class="mx-3 relative group">
-                        <a class="hover:text-gray-300 py-2 inline-block cursor-pointer" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Font
-                        </a>
-                        <ul class="hidden group-hover:block absolute right-0 bg-white text-gray-800 shadow-lg rounded py-1 min-w-40">
-                            <li repeat.for="font of fonts"><a class="block px-4 py-2 hover:bg-gray-100 \${font.class} cursor-pointer" click.trigger="handleFontSelected(font)">\${font.name}</a></li>
-                        </ul>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="https://discord.gg/9zZkYrSA8C" target="_blank">
-                            <svg width=32" height="32" viewBox="0 -28.5 256 256" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
-                                <g>
-                                    <path d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z" fill="#5865F2" fill-rule="nonzero">
-
-                                    </path>
-                                </g>
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</nav>
-
-<div class="w-full px-2">
-    <au-viewport default="Home"></au-viewport>
-</div>
+const template$s = `<nav class="bg-gray-800 shadow-md sticky top-0 z-6">\r
+    <div class="mx-auto px-4 sm:px-6 lg:px-8">\r
+        <div class="flex items-center relative">\r
+            <a class="hover:text-gray-400 mr-4" href="/">\r
+                D2R Reimagined\r
+            </a>\r
+            <button class="lg:hidden ml-auto" type="button"\r
+                    onclick="document.getElementById('navbarSupportedContent').classList.toggle('hidden')"\r
+                    aria-label="Toggle navigation">\r
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"\r
+                     stroke="currentColor">\r
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"\r
+                          d="M4 6h16M4 12h16m-7 6h7"></path>\r
+                </svg>\r
+            </button>\r
+            <div id="navbarSupportedContent"\r
+                 class="hidden flex flex-col gap-2 w-full absolute left-0 right-0 top-full bg-gray-800 border-t border-gray-700 shadow-md p-3 z-50\r
+                        max-h-[calc(100dvh-60px)] overflow-y-auto overscroll-contain\r
+                        lg:static lg:flex lg:flex-row lg:items-center lg:justify-between lg:p-0 lg:shadow-none lg:border-0 lg:bg-transparent lg:max-h-none lg:overflow-visible">\r
+                <ul class="flex flex-col gap-2 lg:flex-row lg:gap-0 lg:space-x-4">\r
+                    <li>\r
+                        <a class="hover:text-gray-400 py-2 flex cursor-pointer" aria-current="page" href="/armors"\r
+                           click.trigger="closeMobileMenu()">\r
+                            Bases\r
+                        </a>\r
+                    </li>\r
+                    <li>\r
+                        <a class="hover:text-gray-400 py-2 flex cursor-pointer" aria-current="page" href="/affixes"\r
+                           click.trigger="closeMobileMenu()">\r
+                            Affixes\r
+                        </a>\r
+                    </li>\r
+                    <li>\r
+                        <a class="hover:text-gray-400 py-2 flex cursor-pointer" aria-current="page" href="/uniques"\r
+                           click.trigger="closeMobileMenu()">\r
+                            Uniques\r
+                        </a>\r
+                    </li>\r
+                    <li>\r
+                        <a class="hover:text-gray-400 py-2 flex cursor-pointer" aria-current="page" href="/sets"\r
+                           click.trigger="closeMobileMenu()">\r
+                            Sets\r
+                        </a>\r
+                    </li>\r
+                    <li>\r
+                        <a class="hover:text-gray-400 py-2 flex cursor-pointer" aria-current="page" href="/runewords"\r
+                           click.trigger="closeMobileMenu()">\r
+                            Runewords\r
+                        </a>\r
+                    </li>\r
+                    <li>\r
+                        <a class="hover:text-gray-400 py-2 flex cursor-pointer" aria-current="page" href="/cube-recipes"\r
+                           click.trigger="closeMobileMenu()">\r
+                            Cube Recipes\r
+                        </a>\r
+                    </li>\r
+                    <li>\r
+                        <a class="hover:text-gray-400 py-2 flex cursor-pointer" aria-current="page" href="/grail"\r
+                           click.trigger="closeMobileMenu()">\r
+                            Grail\r
+                        </a>\r
+                    </li>\r
+                    <li>\r
+                        <a class="hover:text-gray-400 py-2 cursor-pointer flex items-center" aria-current="page"\r
+                           href="https://wiki.d2r-reimagined.com/" external target="_blank"\r
+                           click.trigger="closeMobileMenu()">\r
+                            Wiki <span class="material-symbols-outlined ml-1">open_in_new</span>\r
+                        </a>\r
+                    </li>\r
+                </ul>\r
+                <ul class="flex flex-col gap-1 lg:flex-row lg:items-center lg:ml-auto">\r
+                    <li class="relative lg:mx-1">\r
+                        <details class="relative">\r
+                            <summary class="list-none hover:text-gray-400 py-2 inline-flex items-center cursor-pointer select-none pl-0">\r
+                                <span class="material-symbols-outlined">type_specimen</span>\r
+                            </summary>\r
+                            <ul class="bg-gray-700 shadow-lg rounded py-2 min-w-30 z-50\r
+                                       static w-full mt-1 max-h-[50vh] overflow-y-auto overscroll-contain\r
+                                       lg:absolute lg:right-0 lg:top-full lg:w-auto lg:mt-1 lg:mb-0 lg:max-h-[70vh]">\r
+                                <li repeat.for="font of fonts">\r
+                                    <a class="block px-2 py-2 hover:bg-gray-600 hover:text-gray-400 \${font.class} cursor-pointer"\r
+                                       click.trigger="selectFont(font, $event)">\r
+                                        \${font.name}\r
+                                    </a>\r
+                                </li>\r
+                            </ul>\r
+                        </details>\r
+                    </li>\r
+                    <li class="flex items-center">\r
+                        <a href="https://discord.gg/9zZkYrSA8C" target="_blank">\r
+                            <svg width="32" height="32" viewBox="0 -28.5 256 256" xmlns="http://www.w3.org/2000/svg"\r
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">\r
+                                <g>\r
+                                    <path d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z"\r
+                                          fill="#5865F2" fill-rule="nonzero">\r
+                                    </path>\r
+                                </g>\r
+                            </svg>\r
+                        </a>\r
+                    </li>\r
+                </ul>\r
+            </div>\r
+        </div>\r
+    </div>\r
+</nav>\r
+\r
+<div class="w-full px-2 pb-12">\r
+    <au-viewport default="Home"></au-viewport>\r
+</div>\r
+\r
+<!-- Floating "Back to Top" button: always visible for debug; click triggers App.scrollToTop() -->\r
+<button\r
+    type="button"\r
+    class="fixed bottom-1.5 right-1.5 z-50\r
+           bg-gray-800 text-gray-200 border border-gray-700 rounded-full shadow\r
+           hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-500/50\r
+           w-5 h-5 flex items-center justify-center"\r
+    aria-label="Back to top"\r
+    title="Back to top"\r
+    click.trigger="scrollToTop()"\r
+    if.bind="showBackToTop">\r
+    <span class="material-symbols-outlined" aria-hidden="true">arrow_upward</span>\r
+    <span class="sr-only">Top</span>\r
+</button>\r
+\r
+<!-- Note: Scroll behavior handled in App.scrollToTop() (src/app.ts). -->\r
 `;
 const dependencies = [];
 const bindables = {};
@@ -36471,33 +36472,48 @@ _App_decorators = [customElement(__au2ViewDef), route({
   routes: [
     {
       path: "",
-      component: __vitePreload(() => import("./home-CqFlz45H.js"), true ? [] : void 0),
+      component: __vitePreload(() => import("./home-Y-V8OEmD.js"), true ? [] : void 0),
       title: "Home"
     },
     {
       path: "cube-recipes",
-      component: __vitePreload(() => import("./cube-recipes-CITpNzfu.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
+      component: __vitePreload(() => import("./cube-recipes-BfDvoyf-.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
       title: "Cube Recipes"
     },
     {
       path: "uniques",
-      component: __vitePreload(() => import("./uniques-cKpgVkAG.js"), true ? __vite__mapDeps([3,1,4]) : void 0),
+      component: __vitePreload(() => import("./uniques-JD_lS7hY.js"), true ? __vite__mapDeps([3,1,4,5]) : void 0),
       title: "Uniques"
     },
     {
       path: "sets",
-      component: __vitePreload(() => import("./sets-BEY_VVO2.js"), true ? __vite__mapDeps([5,1]) : void 0),
+      component: __vitePreload(() => import("./sets-COe8yXok.js"), true ? __vite__mapDeps([6,1,7,5]) : void 0),
       title: "Sets"
     },
     {
       path: "runewords",
-      component: __vitePreload(() => import("./runewords-BrFtOLOL.js"), true ? __vite__mapDeps([6,1]) : void 0),
+      component: __vitePreload(() => import("./runewords-DE6-ydwt.js"), true ? __vite__mapDeps([8,1,9,5]) : void 0),
       title: "Runewords"
     },
     {
       path: "grail",
-      component: __vitePreload(() => import("./grail-CH0_rYPj.js"), true ? __vite__mapDeps([7,4]) : void 0),
+      component: __vitePreload(() => import("./grail-DgaKspr5.js"), true ? __vite__mapDeps([10,1,9,7,4]) : void 0),
       title: "Holy Grail"
+    },
+    {
+      path: "armors",
+      component: __vitePreload(() => import("./armors-CpOcSfL8.js"), true ? __vite__mapDeps([11,5]) : void 0),
+      title: "Armor Bases"
+    },
+    {
+      path: "weapons",
+      component: __vitePreload(() => import("./weapons-P-OCa3EG.js"), true ? __vite__mapDeps([12,5]) : void 0),
+      title: "Weapon Bases"
+    },
+    {
+      path: "affixes",
+      component: __vitePreload(() => import("./affixes-ZgrxdEPX.js"), true ? __vite__mapDeps([13,1,5]) : void 0),
+      title: "Affixes"
     }
   ]
 })];
@@ -36507,12 +36523,59 @@ class App {
     { class: "font-resurrected", name: "Resurrected" },
     { class: "font-neutral", name: "Neutral" }
   ];
+  // UI state for back-to-top visibility
+  showBackToTop = false;
+  // Internals for back-to-top monitoring
+  _bt_lastScrollEl;
+  _bt_bound = false;
+  _bt_ticking = false;
+  // Global document click handler to close the font <details> when clicking outside
+  _onDocClick;
   attached() {
     this.loadFont();
+    this.bindBackToTopMonitoring();
+    this.updateBackToTopVisibility();
+    this._onDocClick = (ev) => {
+      const details = document.querySelector("nav details");
+      if (!details) return;
+      if (!details.hasAttribute("open")) return;
+      const target = ev.target;
+      if (target && details.contains(target)) return;
+      details.removeAttribute("open");
+    };
+    document.addEventListener("click", this._onDocClick, true);
   }
   handleFontSelected(font) {
     window.localStorage.setItem("font", font.class);
     this.loadFont();
+  }
+  detached() {
+    if (this._onDocClick) {
+      document.removeEventListener("click", this._onDocClick, true);
+      this._onDocClick = void 0;
+    }
+  }
+  /**
+   * Handles font selection from the dropdown and safely closes the <details> element.
+   * Using a single method avoids multi‑statement binding expressions that Aurelia disallows.
+   */
+  selectFont(font, event) {
+    this.handleFontSelected(font);
+    const target = event?.target;
+    const details = target?.closest("details");
+    if (details) {
+      details.removeAttribute("open");
+    }
+    this.closeMobileMenu();
+  }
+  /**
+   * Closes the mobile navigation panel by adding the 'hidden' class back to the container.
+   */
+  closeMobileMenu() {
+    const panel = document.getElementById("navbarSupportedContent");
+    if (panel && !panel.classList.contains("hidden")) {
+      panel.classList.add("hidden");
+    }
   }
   loadFont() {
     const selectedFont = window.localStorage.getItem("font") || "font-resurrected";
@@ -36520,6 +36583,134 @@ class App {
       const allClasses = this.fonts.map((font) => font.class);
       document.body.classList.remove(...allClasses);
       document.body.classList.add(selectedFont);
+    }
+  }
+  /**
+   * Find the active scroll container used by the current route. Some pages
+   * scroll the window; others place content inside a scrollable container.
+   */
+  getScrollContainer() {
+    const viewportEl = document.querySelector("au-viewport");
+    const isScrollable2 = (el) => {
+      if (!el || !(el instanceof HTMLElement)) return false;
+      const cs = getComputedStyle(el);
+      const oy = cs.overflowY;
+      if (oy !== "auto" && oy !== "scroll") return false;
+      return el.scrollHeight - 1 > el.clientHeight;
+    };
+    let node = viewportEl ? viewportEl.parentElement : null;
+    while (node && node !== document.body) {
+      if (isScrollable2(node)) return node;
+      node = node.parentElement;
+    }
+    return document;
+  }
+  hasNativeSmoothScroll() {
+    return "scrollBehavior" in document.documentElement.style;
+  }
+  easeOutCubic(t2) {
+    return 1 - Math.pow(1 - t2, 3);
+  }
+  animateWindowToTop(duration = 400) {
+    const start = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    if (start <= 0) return;
+    const startTs = performance.now();
+    const step = (ts) => {
+      const p2 = Math.min(1, (ts - startTs) / duration);
+      const eased = this.easeOutCubic(p2);
+      const y2 = Math.round(start * (1 - eased));
+      window.scrollTo(0, y2);
+      if (p2 < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  animateElementToTop(el, duration = 400) {
+    const start = el.scrollTop || 0;
+    if (start <= 0) return;
+    const startTs = performance.now();
+    const step = (ts) => {
+      const p2 = Math.min(1, (ts - startTs) / duration);
+      const eased = this.easeOutCubic(p2);
+      el.scrollTop = Math.round(start * (1 - eased));
+      if (p2 < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  /**
+   * Scroll back to the top of the page, regardless of which element is the
+   * actual scroll root. Uses smooth scrolling when available.
+   */
+  scrollToTop() {
+    const scroller = this.getScrollContainer();
+    const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const duration = reduceMotion ? 0 : 400;
+    if (this.hasNativeSmoothScroll() && duration > 0) {
+      try {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } catch {
+        window.scrollTo(0, 0);
+      }
+    } else if (duration > 0) {
+      this.animateWindowToTop(duration);
+    } else {
+      window.scrollTo(0, 0);
+    }
+    if (scroller && scroller instanceof HTMLElement) {
+      if (duration > 0) {
+        this.animateElementToTop(scroller, duration);
+      } else {
+        scroller.scrollTop = 0;
+      }
+    }
+    if (duration > 0) {
+      window.setTimeout(() => this.updateBackToTopVisibility(), duration + 100);
+    } else {
+      this.updateBackToTopVisibility();
+    }
+  }
+  // ---- Back-to-top show/hide monitoring ----
+  getWindowScrollTop() {
+    return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+  }
+  updateBackToTopVisibility() {
+    const el = this.getScrollContainer();
+    const elTop = el && el instanceof HTMLElement ? el.scrollTop : 0;
+    const scrollTop = Math.max(this.getWindowScrollTop(), elTop || 0);
+    const viewportH = el && el instanceof HTMLElement ? el.clientHeight : window.innerHeight;
+    const threshold = Math.max(viewportH * 2.5, 800);
+    this.showBackToTop = scrollTop > threshold;
+    this._bt_ticking = false;
+  }
+  onAnyScroll = () => {
+    if (!this._bt_ticking) {
+      this._bt_ticking = true;
+      requestAnimationFrame(() => this.updateBackToTopVisibility());
+    }
+  };
+  bindBackToTopMonitoring() {
+    if (this._bt_bound) return;
+    this._bt_bound = true;
+    window.addEventListener("scroll", this.onAnyScroll, { passive: true });
+    window.addEventListener("resize", this.onAnyScroll);
+    const el = this.getScrollContainer();
+    if (el && el instanceof HTMLElement) {
+      this._bt_lastScrollEl = el;
+      el.addEventListener("scroll", this.onAnyScroll, { passive: true });
+    }
+    const viewportEl = document.querySelector("au-viewport");
+    const observeTarget = viewportEl ? viewportEl.parentElement : document.body;
+    if (observeTarget) {
+      const mo = new MutationObserver(() => {
+        const current = this.getScrollContainer();
+        const currentEl = current && current instanceof HTMLElement ? current : void 0;
+        if (currentEl !== this._bt_lastScrollEl) {
+          if (this._bt_lastScrollEl) this._bt_lastScrollEl.removeEventListener("scroll", this.onAnyScroll);
+          if (currentEl) currentEl.addEventListener("scroll", this.onAnyScroll, { passive: true });
+          this._bt_lastScrollEl = currentEl;
+        }
+        this.onAnyScroll();
+      });
+      mo.observe(observeTarget, { attributes: true, childList: true, subtree: true });
     }
   }
 }
@@ -46512,7 +46703,9 @@ void Aurelia2.register(
 ).register(BetsyWebComponentsPlugin$1).register(Resources).register(Elements).app(App).start();
 export {
   CustomElement as C,
+  IRouter as I,
   bindable as b,
   customElement as c,
+  resolve as r,
   watch as w
 };
