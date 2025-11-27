@@ -2,7 +2,7 @@ import { bindable, watch } from 'aurelia';
 import { debounce, DebouncedFunction } from '../../utilities/debounce';
 import prefixes from '../item-jsons/magicprefix.json';
 import suffixes from '../item-jsons/magicsuffix.json';
-import propertyGroups from '../item-jsons/PropertyGroups.json';
+import propertyGroups from '../item-jsons/property_groups.json';
 import {
     type_filtering_options,
     getChainForTypeName,
@@ -35,7 +35,7 @@ export class Affixes {
     ];
     @bindable selectedPType: PType | undefined;
 
-    // Group dropdown (built from PropertyGroups.json by description)
+    // Group dropdown (built from property_groups.json by description)
     groupOptions: { value: string | undefined; label: string }[] = [
         { value: undefined, label: '-' }
     ];
