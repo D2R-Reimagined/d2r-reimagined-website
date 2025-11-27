@@ -94,7 +94,9 @@ const ITEM_TYPES = [
   { name: "Key", code: "key", parents: ["Miscellaneous"] },
   { name: "Quest", code: "ques" },
   { name: "Bow Quiver", code: "bowq", parents: ["Missile", "Second Hand"] },
-  { name: "Crossbow Quiver", code: "xboq", parents: ["Missile", "Second Hand"] }
+  { name: "Crossbow Bolts", code: "xboq", parents: ["Missile", "Second Hand"] },
+  { name: "Magic Bow Quiv", code: "mboq", parents: ["Bow Quiver"] },
+  { name: "Magic Xbow Quiv", code: "mxbq", parents: ["Crossbow Bolts"] }
 ];
 const ITEM_TYPE_BY_NAME = new Map(
   ITEM_TYPES.map((t) => [t.name, t])
@@ -284,7 +286,7 @@ const type_filtering_options = [
   makeTypeOption("Gloves", "Gloves"),
   makeTypeOption("Boots", "Boots"),
   makeTypeOption("Belt", "Belt"),
-  // Shields
+  // Shields (Bases Page)
   makeTypeOption("Shield", "Shield"),
   // Jewelry and socket fillers
   makeTypeOption("Ring", "Ring"),
@@ -308,6 +310,9 @@ const type_filtering_options = [
   makeTypeOption("Javelin", "Javelin"),
   makeTypeOption("Throwing Knife", "Throwing Knife"),
   makeTypeOption("Throwing Axe", "Throwing Axe"),
+  // Quivers and Bolts
+  makeTypeOption("Bow Quiver", "Magic Bow Quiv"),
+  makeTypeOption("Crossbow Bolts", "Magic Xbow Quiv"),
   //Class Specific
   makeTypeOption("Amazon Javelin", "Amazon Javelin"),
   makeTypeOption("Amazon Bow", "Amazon Bow"),

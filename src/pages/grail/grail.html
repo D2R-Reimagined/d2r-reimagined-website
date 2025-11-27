@@ -22,6 +22,7 @@
             </div>
         </template>
     </h3>
+
     <search-area>
         <div class="max-w-screen-2xl mx-auto px-4">
             <div class="flex flex-wrap justify-center items-center text-center">
@@ -93,14 +94,14 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">
         <!-- Uniques -->
-        <div class="bg-zinc-800 rounded p-2" repeat.for="unique of filteredUniques"
+        <div class="bg-gray-800 rounded p-2" repeat.for="unique of filteredUniques"
              if.bind="selectedCategory === 'uniques'">
-            <div class="bg-zinc-800 rounded relative">
+            <div class="bg-gray-800 rounded relative">
                 <div class="absolute top-2 right-2">
                     <label class="inline-flex items-center cursor-pointer">
                         <input type="checkbox" checked.bind="foundUniques[unique.Name]"
                                change.trigger="updateFoundStatus(unique.Name)" class="sr-only peer">
-                        <div class="relative w-4 h-2 bg-zinc-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:start-[3px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-2 after:w-2 after:transition-all peer-checked:bg-green-600"></div>
+                        <div class="relative w-4 h-2 bg-gray-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:start-[3px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-2 after:w-2 after:transition-all peer-checked:bg-green-600"></div>
                     </label>
                 </div>
                 <div class="unique-text text-lg mb-1 ${foundUniques[unique.Name] ? 'text-green-400' : ''}">
@@ -140,14 +141,14 @@
         </div>
 
         <!-- Sets (flattened items) -->
-        <div class="bg-zinc-800 rounded p-2" repeat.for="setItem of filteredSetItems"
+        <div class="bg-gray-800 rounded p-2" repeat.for="setItem of filteredSetItems"
              if.bind="selectedCategory === 'sets'">
-            <div class="bg-zinc-800 rounded relative">
+            <div class="bg-gray-800 rounded relative">
                 <div class="absolute top-2 right-2">
                     <label class="inline-flex items-center cursor-pointer">
                         <input type="checkbox" checked.bind="foundSets[getSetItemKey(setItem)]"
                                change.trigger="updateFoundStatus(getSetItemKey(setItem))" class="sr-only peer">
-                        <div class="relative w-4 h-2 bg-zinc-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:start-[3px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-2 after:w-2 after:transition-all peer-checked:bg-green-600"></div>
+                        <div class="relative w-4 h-2 bg-gray-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:start-[3px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-2 after:w-2 after:transition-all peer-checked:bg-green-600"></div>
                     </label>
                 </div>
                 <div class="set-text-light text-lg mb-1">
@@ -193,14 +194,14 @@
         </div>
 
         <!-- Runewords -->
-        <div class="bg-zinc-800 rounded p-2" repeat.for="runeword of filteredRunewords"
+        <div class="bg-gray-800 rounded p-2" repeat.for="runeword of filteredRunewords"
              if.bind="selectedCategory === 'runewords'">
-            <div class="bg-zinc-800 rounded relative">
+            <div class="bg-gray-800 rounded relative">
                 <div class="absolute top-2 right-2">
                     <label class="inline-flex items-center cursor-pointer">
                         <input type="checkbox" checked.bind="foundRunewords[runeword.Name]"
                                change.trigger="updateFoundStatus(runeword.Name)" class="sr-only peer">
-                        <div class="relative w-4 h-2 bg-zinc-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:start-[3px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-2 after:w-2 after:transition-all peer-checked:bg-green-600"></div>
+                        <div class="relative w-4 h-2 bg-gray-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:start-[3px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-2 after:w-2 after:transition-all peer-checked:bg-green-600"></div>
                     </label>
                 </div>
                 <div class="unique-text text-xl mb-1 ${foundRunewords[runeword.Name] ? 'text-green-400' : ''}">

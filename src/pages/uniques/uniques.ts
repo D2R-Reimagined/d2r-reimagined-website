@@ -25,6 +25,7 @@ export class Uniques {
     types: ReadonlyArray<FilterOption> = type_filtering_options.slice();
 
     private _debouncedSearchItem!: DebouncedFunction;
+    private _debouncedUpdateUrl!: DebouncedFunction;
 
     classes = [
         { value: undefined, label: '-' },
@@ -68,6 +69,7 @@ export class Uniques {
         }
         // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         this._debouncedSearchItem = debounce(this.updateList.bind(this), 350);
+        this._debouncedUpdateUrl = debounce(this.updateUrl.bind(this), 150);
         this.updateList();
     }
 
@@ -75,7 +77,7 @@ export class Uniques {
     @watch('class')
     handleClassChanged() {
         this.updateList();
-        this.updateUrl();
+        if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
     }
 
     @watch('search')
@@ -83,7 +85,7 @@ export class Uniques {
         if (this._debouncedSearchItem) {
             this._debouncedSearchItem();
         }
-        this.updateUrl();
+        if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
     }
 
     @watch('selectedType')
@@ -96,7 +98,7 @@ export class Uniques {
         if (this._debouncedSearchItem) {
             this._debouncedSearchItem();
         }
-        this.updateUrl();
+        if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
     }
 
     @watch('selectedEquipmentName')
@@ -136,26 +138,39 @@ export class Uniques {
     }
 
     updateList() {
+        const searchLower = (this.search || '').toLowerCase();
+        const selectedClassLower = (this.selectedClass || '').toLowerCase();
+        const selectedTypeSet = (this.selectedType && this.selectedType.length > 0)
+            ? new Set<string>(this.selectedType)
+            : null;
+
         const isMatchingClass = (unique) => {
-            return !this.selectedClass || unique.Equipment.RequiredClass?.toLowerCase().includes(this.selectedClass?.toLowerCase());
-        }
+            if (!selectedClassLower) return true;
+            const req = unique?.Equipment?.RequiredClass ? String(unique.Equipment.RequiredClass).toLowerCase() : '';
+            return req.includes(selectedClassLower);
+        };
         const isMatchingSearch = (unique) => {
-            if (!this.search) return true;
-            const search = this.search.toLowerCase();
-            const uniqueName = unique.Name.toLowerCase();
-            const properties = unique.Properties.map((property) => property.PropertyString.toLowerCase());
-            const baseName = unique.Equipment.Name.toLowerCase();
-            return uniqueName.includes(search) || properties.find(p => p.includes(search)) || baseName.includes(search);
-        }
+            if (!searchLower) return true;
+            // Name
+            if (String(unique?.Name || '').toLowerCase().includes(searchLower)) return true;
+            // Properties
+            const props = Array.isArray(unique?.Properties) ? unique.Properties : [];
+            for (const p of props) {
+                const s = String(p?.PropertyString || '').toLowerCase();
+                if (s.includes(searchLower)) return true;
+            }
+            // Base name
+            const baseName = String(unique?.Equipment?.Name || '').toLowerCase();
+            return baseName.includes(searchLower);
+        };
         const isMatchingType = (unique) => {
-            if (!this.selectedType || this.selectedType.length === 0) return true;
-            const selectedSet = new Set<string>(this.selectedType);
+            if (!selectedTypeSet) return true;
             const base = getChainForTypeName(unique?.Type ?? '')[0] || (unique?.Type ?? '');
-            return selectedSet.has(base);
-        }
+            return selectedTypeSet.has(base);
+        };
         const isMatchingEquipmentName = (unique) => {
-            return !this.selectedEquipmentName || unique.Equipment.Name === this.selectedEquipmentName;
-        }
+            return !this.selectedEquipmentName || String(unique?.Equipment?.Name || '') === this.selectedEquipmentName;
+        };
 
         // Update the equipment names list if type is selected
         if (this.selectedType && this.selectedType.length > 0 && (!this.equipmentNames || this.equipmentNames.length <= 1)) {
@@ -163,7 +178,7 @@ export class Uniques {
         }
 
         this.uniques = json.filter(unique =>
-            !unique.Name.toLowerCase().includes('grabber') &&
+            !String(unique?.Name || '').toLowerCase().includes('grabber') &&
             isMatchingSearch(unique) &&
             isMatchingClass(unique) &&
             isMatchingType(unique) &&

@@ -1,4 +1,5 @@
 import { bindable } from 'aurelia';
+import { debounce, DebouncedFunction } from '../../utilities/debounce';
 
 import runewordsJson from '../item-jsons/runewords.json';
 import setsJson from '../item-jsons/sets.json';
@@ -91,6 +92,10 @@ export class Grail {
     setItemTotalCount: number = 0;      // total set ITEMS
     setItemsDisplayedCount: number = 0; // displayed set ITEMS under current filters
     
+    // Debouncers to keep UI interactions (like checkbox clicks) snappy
+    private _debouncedSaveFound!: DebouncedFunction;
+    private _debouncedUpdateList!: DebouncedFunction;
+    
     binding(): void {
         // Flatten sets to item list for filtering
         try {
@@ -133,6 +138,10 @@ export class Grail {
 
         // Cache total set items
         this.setItemTotalCount = this.allSetItems.length;
+
+        // Prepare debounced actions to avoid long click handlers
+        this._debouncedSaveFound = debounce(() => this.saveFoundItems(), 200);
+        this._debouncedUpdateList = debounce(() => this.updateList(), 50);
 
         // Initial filter + counters
         this.updateList();
@@ -407,9 +416,11 @@ export class Grail {
     }
     
     updateFoundStatus(_itemKey: string): void {
-        // checked.bind already flipped state; just persist and refresh
-        this.saveFoundItems();
-        this.updateList();
+        // checked.bind already flipped state; just persist and refresh.
+        // Do both actions via debouncers so the actual click handler returns quickly
+        // (prevents "[Violation] 'click' handler took ...ms").
+        if (this._debouncedSaveFound) this._debouncedSaveFound();
+        if (this._debouncedUpdateList) this._debouncedUpdateList();
     }
     
     updateFoundCount(): void {

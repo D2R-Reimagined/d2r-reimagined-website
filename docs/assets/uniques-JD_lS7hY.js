@@ -1,13 +1,9 @@
-<<<<<<<< HEAD:docs/assets/uniques-B5PhoWiH.js
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-CFDqh_h_.js";
-========
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-RxNSMCuM.js";
->>>>>>>> master:docs/assets/uniques-cKpgVkAG.js
+import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-Ubr5Vxao.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
-import { j as json } from "./uniques-DR4Eo1cT.js";
-import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options, g as getChainForTypeName } from "./item-type-filters-tjh321-r.js";
+import { u as uniquesJson } from "./uniques-DaUoXFKu.js";
+import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options, g as getChainForTypeName } from "./item-type-filters-EbkYbcFa.js";
 const name = "uniques";
-const template = '<template>\r\n    <h3 class="text-center my-4">\r\n        ${uniques.length} Uniques Found\r\n    </h3>\r\n    <search-area>\r\n        <div class="max-w-7xl mx-auto px-4">\r\n            <div class="flex flex-wrap justify-center items-center text-center">\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Select Class"\r\n                                options.bind="classes"\r\n                                value.bind="selectedClass"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Select Type"\r\n                                options.bind="types"\r\n                                value.bind="selectedType"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Select Equipment"\r\n                                options.bind="equipmentNames"\r\n                                value.bind="selectedEquipmentName"\r\n                                disabled.bind="!selectedType || selectedType.length === 0"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                    <moo-text-field\r\n                            class="w-full"\r\n                            label="Search Uniques"\r\n                            type="text"\r\n                            value.bind="search"\r\n                    ></moo-text-field>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </search-area>\r\n\r\n    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">\r\n        <div class="bg-zinc-800 rounded shadow p-2" repeat.for="unique of uniques">\r\n            <div class="bg-zinc-800 rounded shadow">\r\n                <div class="unique-text text-lg mb-1">\r\n                    ${unique.Name}\r\n                </div>\r\n                <div class="rarity-text mb-1" if.bind="unique.Rarity">\r\n                    Rarity: ${unique.Rarity}\r\n                </div>\r\n                <div class="armor mb-1" if.bind="unique.Equipment.Name">\r\n                    ${unique.Equipment.Name}\r\n                </div>\r\n                <div class="armor mb-1" if.bind="unique.Equipment.ArmorString">\r\n                    Armor: ${unique.Equipment.ArmorString}\r\n                </div>\r\n                <div class="damage" if.bind="unique.Equipment.DamageTypes"\r\n                     repeat.for="damage of unique.Equipment.DamageTypes">\r\n                    ${getDamageTypeString(damage.Type)} ${damage.DamageString}\r\n                </div>\r\n                <div class="requirement">\r\n                    Level ${unique.RequiredLevel > 0 ? unique.RequiredLevel : 1} Required\r\n                </div>\r\n                <div class="requirement" if.bind="unique.Equipment.RequiredStrength > 0">\r\n                    ${unique.Equipment.RequiredStrength} Strength Required\r\n                </div>\r\n                <div class="requirement" if.bind="unique.Equipment.RequiredDexterity > 0">\r\n                    ${unique.Equipment.RequiredDexterity} Dexterity Required\r\n                </div>\r\n                <div class="durability mt-1" if.bind="unique.Equipment.Durability > 0">\r\n                    ${unique.Equipment.Durability} Durability\r\n                </div>\r\n                <div class="mt-2">\r\n                    <div class="enhanced" repeat.for="property of unique.Properties">\r\n                        ${property.PropertyString}\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</template>\r\n';
+const template = '<template>\r\n    <h3 class="text-center my-4">\r\n        <span class="rarity-text">${uniques.length}</span> Uniques Found\r\n    </h3>\r\n    <search-area>\r\n        <div class="max-w-7xl mx-auto px-4">\r\n            <div class="flex flex-wrap justify-center items-center text-center">\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Select Class"\r\n                                options.bind="classes"\r\n                                value.bind="selectedClass"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Select Type"\r\n                                options.bind="types"\r\n                                value.bind="selectedType"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Select Equipment"\r\n                                options.bind="equipmentNames"\r\n                                value.bind="selectedEquipmentName"\r\n                                disabled.bind="!selectedType || selectedType.length === 0"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                    <moo-text-field\r\n                            class="w-full"\r\n                            label="Search Uniques"\r\n                            type="text"\r\n                            value.bind="search"\r\n                    ></moo-text-field>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </search-area>\r\n\r\n    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">\r\n        <div class="bg-gray-800 rounded shadow p-2" repeat.for="unique of uniques">\r\n            <div class="bg-gray-800 rounded">\r\n                <div class="unique-text text-lg mb-1">\r\n                    ${unique.Name}\r\n                </div>\r\n                <div class="rarity-text mb-1" if.bind="unique.Rarity">\r\n                    Rarity: ${unique.Rarity}\r\n                </div>\r\n                <div class="armor mb-1" if.bind="unique.Equipment.Name">\r\n                    ${unique.Equipment.Name}\r\n                </div>\r\n                <div class="armor mb-1" if.bind="unique.Equipment.ArmorString">\r\n                    Armor: ${unique.Equipment.ArmorString}\r\n                </div>\r\n                <div class="damage" if.bind="unique.Equipment.DamageTypes"\r\n                     repeat.for="damage of unique.Equipment.DamageTypes">\r\n                    ${getDamageTypeString(damage.Type)} ${damage.DamageString}\r\n                </div>\r\n                <div class="requirement mt-1">\r\n                    Level ${unique.RequiredLevel > 0 ? unique.RequiredLevel : 1} Required\r\n                </div>\r\n                <div class="requirement" if.bind="unique.Equipment.RequiredStrength > 0">\r\n                    ${unique.Equipment.RequiredStrength} Strength Required\r\n                </div>\r\n                <div class="requirement" if.bind="unique.Equipment.RequiredDexterity > 0">\r\n                    ${unique.Equipment.RequiredDexterity} Dexterity Required\r\n                </div>\r\n                <div class="durability mt-1" if.bind="unique.Equipment.Durability > 0">\r\n                    ${unique.Equipment.Durability} Durability\r\n                </div>\r\n                <div class="mt-1">\r\n                    <div class="enhanced" repeat.for="property of unique.Properties">\r\n                        ${property.PropertyString}\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</template>\r\n';
 const dependencies = [];
 const bindables = {};
 let _e;
@@ -79,7 +75,7 @@ _Uniques_decorators = [customElement(__au2ViewDef)], _search_dec = [bindable], _
 class Uniques {
   constructor() {
     __runInitializers(_init, 5, this);
-    __publicField(this, "uniques", json);
+    __publicField(this, "uniques", uniquesJson);
     __publicField(this, "search", __runInitializers(_init, 8, this)), __runInitializers(_init, 11, this);
     __publicField(this, "selectedClass", __runInitializers(_init, 12, this)), __runInitializers(_init, 15, this);
     __publicField(this, "selectedType", __runInitializers(_init, 16, this)), __runInitializers(_init, 19, this);
@@ -87,6 +83,7 @@ class Uniques {
     __publicField(this, "equipmentNames", []);
     __publicField(this, "types", type_filtering_options.slice());
     __publicField(this, "_debouncedSearchItem");
+    __publicField(this, "_debouncedUpdateUrl");
     __publicField(this, "classes", [
       { value: void 0, label: "-" },
       { value: "Amazon", label: "Amazon" },
@@ -114,7 +111,7 @@ class Uniques {
     }
     try {
       const present = /* @__PURE__ */ new Set();
-      for (const u of json) {
+      for (const u of uniquesJson) {
         const base = resolveBaseTypeName(u?.Type ?? "");
         if (base) present.add(base);
       }
@@ -122,17 +119,18 @@ class Uniques {
     } catch {
     }
     this._debouncedSearchItem = debounce(this.updateList.bind(this), 350);
+    this._debouncedUpdateUrl = debounce(this.updateUrl.bind(this), 150);
     this.updateList();
   }
   handleClassChanged() {
     this.updateList();
-    this.updateUrl();
+    if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
   }
   handleSearchChanged() {
     if (this._debouncedSearchItem) {
       this._debouncedSearchItem();
     }
-    this.updateUrl();
+    if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
   }
   handleTypeChanged() {
     this.equipmentNames = this.getUniqueEquipmentNames();
@@ -140,7 +138,7 @@ class Uniques {
     if (this._debouncedSearchItem) {
       this._debouncedSearchItem();
     }
-    this.updateUrl();
+    if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
   }
   handleEquipmentNameChanged() {
     if (this._debouncedSearchItem) {
@@ -168,30 +166,37 @@ class Uniques {
     window.history.pushState({}, "", url.toString());
   }
   updateList() {
+    const searchLower = (this.search || "").toLowerCase();
+    const selectedClassLower = (this.selectedClass || "").toLowerCase();
+    const selectedTypeSet = this.selectedType && this.selectedType.length > 0 ? new Set(this.selectedType) : null;
     const isMatchingClass = (unique) => {
-      return !this.selectedClass || unique.Equipment.RequiredClass?.toLowerCase().includes(this.selectedClass?.toLowerCase());
+      if (!selectedClassLower) return true;
+      const req = unique?.Equipment?.RequiredClass ? String(unique.Equipment.RequiredClass).toLowerCase() : "";
+      return req.includes(selectedClassLower);
     };
     const isMatchingSearch = (unique) => {
-      if (!this.search) return true;
-      const search = this.search.toLowerCase();
-      const uniqueName = unique.Name.toLowerCase();
-      const properties = unique.Properties.map((property) => property.PropertyString.toLowerCase());
-      const baseName = unique.Equipment.Name.toLowerCase();
-      return uniqueName.includes(search) || properties.find((p) => p.includes(search)) || baseName.includes(search);
+      if (!searchLower) return true;
+      if (String(unique?.Name || "").toLowerCase().includes(searchLower)) return true;
+      const props = Array.isArray(unique?.Properties) ? unique.Properties : [];
+      for (const p of props) {
+        const s = String(p?.PropertyString || "").toLowerCase();
+        if (s.includes(searchLower)) return true;
+      }
+      const baseName = String(unique?.Equipment?.Name || "").toLowerCase();
+      return baseName.includes(searchLower);
     };
     const isMatchingType = (unique) => {
-      if (!this.selectedType || this.selectedType.length === 0) return true;
-      const selectedSet = new Set(this.selectedType);
+      if (!selectedTypeSet) return true;
       const base = getChainForTypeName(unique?.Type ?? "")[0] || (unique?.Type ?? "");
-      return selectedSet.has(base);
+      return selectedTypeSet.has(base);
     };
     const isMatchingEquipmentName = (unique) => {
-      return !this.selectedEquipmentName || unique.Equipment.Name === this.selectedEquipmentName;
+      return !this.selectedEquipmentName || String(unique?.Equipment?.Name || "") === this.selectedEquipmentName;
     };
     if (this.selectedType && this.selectedType.length > 0 && (!this.equipmentNames || this.equipmentNames.length <= 1)) {
       this.equipmentNames = this.getUniqueEquipmentNames();
     }
-    this.uniques = json.filter((unique) => !unique.Name.toLowerCase().includes("grabber") && isMatchingSearch(unique) && isMatchingClass(unique) && isMatchingType(unique) && isMatchingEquipmentName(unique));
+    this.uniques = uniquesJson.filter((unique) => !String(unique?.Name || "").toLowerCase().includes("grabber") && isMatchingSearch(unique) && isMatchingClass(unique) && isMatchingType(unique) && isMatchingEquipmentName(unique));
   }
   getDamageTypeString(type) {
     switch (type) {
@@ -207,7 +212,7 @@ class Uniques {
   }
   getUniqueEquipmentNames() {
     const selectedSet = new Set(this.selectedType || []);
-    const filteredUniques = json.filter((unique) => {
+    const filteredUniques = uniquesJson.filter((unique) => {
       if (!this.selectedType || this.selectedType.length === 0) return true;
       const base = getChainForTypeName(unique?.Type ?? "")[0] || (unique?.Type ?? "");
       return selectedSet.has(base);

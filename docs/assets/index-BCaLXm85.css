@@ -1,9 +1,9 @@
 /* Base (mobile-first) */
 .search-area {
   position: static;
-  top: 60px; /* default mobile navbar height */
-  z-index: 5; /* keep above page content but below menus if needed */
-  padding: 16px 0 0 0; /* small vertical spacing */
+  top: 60px;
+  z-index: 5;
+  padding: 16px 0 0 0;
   background-color: black !important;
 }
 
@@ -126,7 +126,7 @@ body {
 }
 
 .set-text-light {
-  color: #65ac65;
+  color: #7de17d;
 }
 
 .enhanced {
@@ -173,8 +173,7 @@ body {
   width: calc(var(--spacing) * 20);
 }
 
-/* Navbar Font <details> summary tweaks */
-/* Remove the default disclosure marker and any stray indent so "Font" aligns with other items */
+/* Navbar font picker: hide default disclosure marker and stray indents */
 nav details > summary {
   list-style: none; /* belt-and-suspenders with Tailwind's list-none */
   padding-left: 0;
@@ -250,30 +249,29 @@ nav details > summary::marker {
     --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --color-red-600: oklch(57.7% .245 27.325);
-    --color-red-700: oklch(50.5% .213 27.518);
+    --color-red-900: oklch(39.6% .141 25.723);
     --color-green-400: oklch(79.2% .209 151.711);
     --color-green-600: oklch(62.7% .194 149.214);
     --color-blue-300: oklch(80.9% .105 251.813);
-    --color-blue-500: oklch(62.3% .214 259.815);
-    --color-blue-600: oklch(54.6% .245 262.881);
+    --color-gray-200: oklch(92.8% .006 264.531);
     --color-gray-300: oklch(87.2% .01 258.338);
-    --color-zinc-200: oklch(92% .004 286.32);
-    --color-zinc-400: oklch(70.5% .015 286.067);
-    --color-zinc-500: oklch(55.2% .016 285.938);
-    --color-zinc-700: oklch(37% .013 285.805);
-    --color-zinc-800: oklch(27.4% .006 286.033);
+    --color-gray-400: oklch(70.7% .022 261.325);
+    --color-gray-500: oklch(55.1% .027 264.364);
+    --color-gray-600: oklch(44.6% .03 256.802);
+    --color-gray-700: oklch(37.3% .034 259.733);
+    --color-gray-800: oklch(27.8% .033 256.848);
     --color-white: #fff;
     --spacing: .25rem;
     --breakpoint-sm: 40rem;
     --breakpoint-md: 48rem;
     --breakpoint-lg: 64rem;
     --breakpoint-xl: 80rem;
+    --breakpoint-2xl: 96rem;
     --container-7xl: 80rem;
     --text-lg: 1.125rem;
     --text-lg--line-height: calc(1.75 / 1.125);
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
-    --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --radius-sm: .25rem;
@@ -859,20 +857,12 @@ nav details > summary::marker {
     margin-block: auto;
   }
 
-  .ms-3 {
-    margin-inline-start: calc(var(--spacing) * 3);
-  }
-
   .mt-1 {
     margin-top: calc(var(--spacing) * 1);
   }
 
   .mt-2 {
     margin-top: calc(var(--spacing) * 2);
-  }
-
-  .mt-4 {
-    margin-top: calc(var(--spacing) * 4);
   }
 
   .mt-5 {
@@ -955,10 +945,6 @@ nav details > summary::marker {
     height: calc(var(--spacing) * 2);
   }
 
-  .h-4 {
-    height: calc(var(--spacing) * 4);
-  }
-
   .h-5 {
     height: calc(var(--spacing) * 5);
   }
@@ -1035,8 +1021,12 @@ nav details > summary::marker {
     max-width: var(--container-7xl);
   }
 
-  .min-w-40 {
-    min-width: calc(var(--spacing) * 40);
+  .max-w-screen-2xl {
+    max-width: var(--breakpoint-2xl);
+  }
+
+  .min-w-30 {
+    min-width: calc(var(--spacing) * 30);
   }
 
   .flex-shrink {
@@ -1131,6 +1121,10 @@ nav details > summary::marker {
     justify-content: center;
   }
 
+  .gap-1 {
+    gap: calc(var(--spacing) * 1);
+  }
+
   .gap-2 {
     gap: calc(var(--spacing) * 2);
   }
@@ -1188,20 +1182,24 @@ nav details > summary::marker {
     border-top-width: 1px;
   }
 
-  .border-gray-300 {
-    border-color: var(--color-gray-300);
+  .border-gray-700 {
+    border-color: var(--color-gray-700);
   }
 
   .border-white {
     border-color: var(--color-white);
   }
 
-  .border-zinc-700 {
-    border-color: var(--color-zinc-700);
+  .bg-gray-700 {
+    background-color: var(--color-gray-700);
   }
 
-  .bg-red-600 {
-    background-color: var(--color-red-600);
+  .bg-gray-800 {
+    background-color: var(--color-gray-800);
+  }
+
+  .bg-red-900 {
+    background-color: var(--color-red-900);
   }
 
   .bg-transparent {
@@ -1210,14 +1208,6 @@ nav details > summary::marker {
 
   .bg-white {
     background-color: var(--color-white);
-  }
-
-  .bg-zinc-700 {
-    background-color: var(--color-zinc-700);
-  }
-
-  .bg-zinc-800 {
-    background-color: var(--color-zinc-800);
   }
 
   .p-0 {
@@ -1355,11 +1345,6 @@ nav details > summary::marker {
     font-weight: var(--font-weight-bold);
   }
 
-  .font-medium {
-    --tw-font-weight: var(--font-weight-medium);
-    font-weight: var(--font-weight-medium);
-  }
-
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
@@ -1377,8 +1362,12 @@ nav details > summary::marker {
     white-space: nowrap;
   }
 
-  .text-blue-600 {
-    color: var(--color-blue-600);
+  .text-gray-200 {
+    color: var(--color-gray-200);
+  }
+
+  .text-gray-400 {
+    color: var(--color-gray-400);
   }
 
   .text-green-400 {
@@ -1387,14 +1376,6 @@ nav details > summary::marker {
 
   .text-white {
     color: var(--color-white);
-  }
-
-  .text-zinc-200 {
-    color: var(--color-zinc-200);
-  }
-
-  .text-zinc-400 {
-    color: var(--color-zinc-400);
   }
 
   .capitalize {
@@ -1415,6 +1396,10 @@ nav details > summary::marker {
 
   .underline {
     text-decoration-line: underline;
+  }
+
+  .opacity-90 {
+    opacity: .9;
   }
 
   .shadow {
@@ -1571,16 +1556,25 @@ nav details > summary::marker {
   }
 
   @media (hover: hover) {
-    .hover\:bg-red-700:hover {
-      background-color: var(--color-red-700);
+    .hover\:bg-gray-600:hover {
+      background-color: var(--color-gray-600);
     }
 
-    .hover\:bg-zinc-700:hover {
-      background-color: var(--color-zinc-700);
+    .hover\:bg-gray-700:hover {
+      background-color: var(--color-gray-700);
     }
 
-    .hover\:text-zinc-400:hover {
-      color: var(--color-zinc-400);
+    .hover\:bg-red-600:hover {
+      background-color: var(--color-red-600);
+    }
+
+    .hover\:text-gray-400:hover {
+      color: var(--color-gray-400);
+    }
+
+    .hover\:outline:hover {
+      outline-style: var(--tw-outline-style);
+      outline-width: 1px;
     }
   }
 
@@ -1589,17 +1583,13 @@ nav details > summary::marker {
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
 
-  .focus\:ring-blue-500:focus {
-    --tw-ring-color: var(--color-blue-500);
-  }
-
-  .focus\:ring-zinc-500\/50:focus {
-    --tw-ring-color: #71717b80;
+  .focus\:ring-gray-500\/50:focus {
+    --tw-ring-color: #6a728280;
   }
 
   @supports (color: color-mix(in lab, red, red)) {
-    .focus\:ring-zinc-500\/50:focus {
-      --tw-ring-color: color-mix(in oklab, var(--color-zinc-500) 50%, transparent);
+    .focus\:ring-gray-500\/50:focus {
+      --tw-ring-color: color-mix(in oklab, var(--color-gray-500) 50%, transparent);
     }
   }
 
@@ -1615,10 +1605,6 @@ nav details > summary::marker {
   }
 
   @media (min-width: 48rem) {
-    .md\:w-1\/3 {
-      width: 33.3333%;
-    }
-
     .md\:w-5\/12 {
       width: 41.6667%;
     }
@@ -1645,8 +1631,8 @@ nav details > summary::marker {
       right: calc(var(--spacing) * 0);
     }
 
-    .lg\:mx-3 {
-      margin-inline: calc(var(--spacing) * 3);
+    .lg\:mx-1 {
+      margin-inline: calc(var(--spacing) * 1);
     }
 
     .lg\:mt-1 {
@@ -1735,6 +1721,10 @@ nav details > summary::marker {
   }
 
   @media (min-width: 80rem) {
+    .xl\:w-1\/5 {
+      width: 20%;
+    }
+
     .xl\:grid-cols-3 {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }

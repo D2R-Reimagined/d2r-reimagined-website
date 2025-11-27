@@ -67,16 +67,42 @@ export class App {
     private _bt_bound = false;
     private _bt_ticking = false;
 
+    // Global document click handler to close the font <details> when clicking outside
+    private _onDocClick?: (ev: MouseEvent) => void;
+
     attached() {
         this.loadFont();
         this.bindBackToTopMonitoring();
         // Initial computation
         this.updateBackToTopVisibility();
+
+        // Close the font selection list when clicking anywhere outside of it
+        this._onDocClick = (ev: MouseEvent) => {
+            const details = document.querySelector('nav details') as HTMLDetailsElement | null;
+            if (!details) return;
+            // Only act when the dropdown is currently open
+            if (!details.hasAttribute('open')) return;
+            const target = ev.target as Node | null;
+            // If the click was inside the <details>, ignore it
+            if (target && details.contains(target)) return;
+            // Otherwise, close the dropdown
+            details.removeAttribute('open');
+        };
+        // Use capture to ensure we run before other handlers that might stop propagation
+        document.addEventListener('click', this._onDocClick, true);
     }
 
     handleFontSelected(font: Font) {
         window.localStorage.setItem('font', font.class);
         this.loadFont();
+    }
+
+    detached() {
+        // Clean up the global click listener
+        if (this._onDocClick) {
+            document.removeEventListener('click', this._onDocClick, true);
+            this._onDocClick = undefined;
+        }
     }
 
     /**
