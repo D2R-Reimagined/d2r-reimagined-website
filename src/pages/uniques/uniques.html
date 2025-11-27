@@ -38,12 +38,12 @@
                 </div>
                 <div class="w-full md:w-5/12 lg:w-1/4 px-2">
                     <div class="mb-2">
-                    <moo-text-field
-                            class="w-full"
-                            label="Search Uniques"
-                            type="text"
-                            value.bind="search"
-                    ></moo-text-field>
+                        <moo-text-field
+                                class="w-full"
+                                label="Search Uniques"
+                                type="text"
+                                value.bind="search"
+                        ></moo-text-field>
                     </div>
                 </div>
             </div>
@@ -62,7 +62,7 @@
                 <div class="armor mb-1" if.bind="unique.Equipment.Name">
                     ${unique.Equipment.Name}
                 </div>
-                <div class="armor mb-1" if.bind="unique.Equipment.ArmorString">
+                <div class="armor" if.bind="unique.Equipment.ArmorString">
                     Armor: ${unique.Equipment.ArmorString}
                 </div>
                 <div class="damage" if.bind="unique.Equipment.DamageTypes"

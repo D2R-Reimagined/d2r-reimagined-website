@@ -71,7 +71,8 @@
                 <ul class="flex flex-col gap-1 lg:flex-row lg:items-center lg:ml-auto">
                     <li class="relative lg:mx-1">
                         <details class="relative">
-                            <summary class="list-none hover:text-gray-400 py-2 inline-flex items-center cursor-pointer select-none pl-0">
+                            <summary
+                                    class="list-none hover:text-gray-400 py-2 inline-flex items-center cursor-pointer select-none pl-0">
                                 <span class="material-symbols-outlined">type_specimen</span>
                             </summary>
                             <ul class="bg-gray-700 shadow-lg rounded py-2 min-w-30 z-50
@@ -110,15 +111,15 @@
 
 <!-- Floating "Back to Top" button: always visible for debug; click triggers App.scrollToTop() -->
 <button
-    type="button"
-    class="fixed bottom-1.5 right-1.5 z-50
+        type="button"
+        class="fixed bottom-1.5 right-1.5 z-50
            bg-gray-800 text-gray-200 border border-gray-700 rounded-full shadow
            hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-500/50
            w-5 h-5 flex items-center justify-center"
-    aria-label="Back to top"
-    title="Back to top"
-    click.trigger="scrollToTop()"
-    if.bind="showBackToTop">
+        aria-label="Back to top"
+        title="Back to top"
+        click.trigger="scrollToTop()"
+        if.bind="showBackToTop">
     <span class="material-symbols-outlined" aria-hidden="true">arrow_upward</span>
     <span class="sr-only">Top</span>
 </button>

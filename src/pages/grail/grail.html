@@ -163,14 +163,14 @@
                 <div class="armor mb-1" if.bind="setItem.Equipment.Name">
                     ${setItem.Equipment.Name}
                 </div>
-                <div class="armor mb-1" if.bind="setItem.Equipment.ArmorString">
+                <div class="armor" if.bind="setItem.Equipment.ArmorString">
                     Armor: ${setItem.Equipment.ArmorString}
                 </div>
                 <div class="damage" if.bind="setItem.Equipment.DamageTypes"
                      repeat.for="damage of setItem.Equipment.DamageTypes">
                     ${getDamageTypeString(damage.Type)} ${damage.DamageString}
                 </div>
-                <div class="requirement">
+                <div class="requirement mt-1">
                     Level ${setItem.RequiredLevel > 0 ? setItem.RequiredLevel : 1} Required
                 </div>
                 <div class="requirement" if.bind="setItem.Equipment.RequiredStrength > 0">

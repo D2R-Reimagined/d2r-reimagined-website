@@ -66,12 +66,13 @@
                         <div class="rarity-text mb-1" if.bind="item.GemSockets !== null && item.GemSockets !== undefined  && item.GemSockets !== 0">
                             Max Sockets: ${item.GemSockets}
                         </div>
-                        <div class="armor mb-0" if.bind="item.ArmorString">
+                        <div class="armor" if.bind="item.ArmorString">
                             Armor: ${item.ArmorString}
                         </div>
-                        <div class="armor mb-1 text-white" if.bind="item.Block && item.Block > 0">
-                            ${item.Block}% Chance to Block
+                        <div class="armor" if.bind="item.Block && item.Block > 0">
+                            Block: ${item.Block}%
                         </div>
+                        <div class="mt-1">
                         <div class="damage" if.bind="item.DamageString">
                             ${getDamageLabel(item)}
                         </div>
@@ -80,6 +81,7 @@
                         </div>
                         <div class="set-text" if.bind="item.DexBonus && item.DexBonus > 0">
                             Dex Bonus: ${item.DexBonus}%
+                        </div>
                         </div>
                         <div class="requirement mt-1">
                             Level ${item.BaseRequiredLevel > 0 ? item.BaseRequiredLevel : 1} Required
