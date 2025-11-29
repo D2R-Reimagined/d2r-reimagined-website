@@ -1,7 +1,7 @@
-import { C as CustomElement, c as customElement, b as bindable } from "./index-RxNSMCuM.js";
+import { C as CustomElement, c as customElement, b as bindable } from "./index-9byCzbXT.js";
 import { j as json } from "./uniques-Bk_ERHIS.js";
 const name = "grail";
-const template = '<template>\n    <h3 class="text-center my-4">\n        Holy Grail Tracker - ${foundCount}/${uniques.length} Uniques Found (${filteredUniques.length} Displayed)\n    </h3>\n    <search-area>\n        <div class="max-w-7xl mx-auto px-4">\n            <div class="flex flex-wrap justify-center items-center text-center">\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\n                    <div class="mb-2">\n                        <moo-select\n                                class="w-full standard-betsy-select"\n                                label="Select Class"\n                                options.bind="classes"\n                                value.bind="selectedClass"\n                        ></moo-select>\n                    </div>\n                </div>\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\n                    <div class="mb-2">\n                        <moo-select\n                                class="w-full standard-betsy-select"\n                                label="Select Type"\n                                options.bind="types"\n                                value.bind="selectedType"\n                        ></moo-select>\n                    </div>\n                </div>\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\n                    <div class="mb-2">\n                        <moo-select\n                                class="w-full standard-betsy-select"\n                                label="Select Equipment"\n                                options.bind="equipmentNames"\n                                value.bind="selectedEquipmentName"\n                                disabled.bind="!selectedType"\n                        ></moo-select>\n                    </div>\n                </div>\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\n                    <div class="mb-2">\n                        <moo-text-field\n                                class="w-full"\n                                label="Search Uniques"\n                                type="text"\n                                value.bind="search"\n                        ></moo-text-field>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </search-area>\n\n    <div class="mt-2 text-center">\n        <label class="inline-flex items-center cursor-pointer">\n            <input type="checkbox" checked.bind="showFoundItems" class="form-checkbox h-4 w-4 text-blue-600 bg-gray-700 border-gray-300 rounded focus:ring-blue-500">\n            <span class="ms-3 font-medium text-white">Hide Found Uniques</span>\n        </label>\n    </div>\n\n    <div class="flex justify-center mt-4">\n        <button type="button" click.trigger="resetGrail()" class="cursor-pointer bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">\n            Reset Grail Progress\n        </button>\n    </div>\n\n    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">\n        <div class="bg-gray-800 rounded shadow p-2" repeat.for="unique of uniques">\n            <div class="bg-gray-800 rounded shadow relative">\n                <div class="absolute top-2 right-2">\n                    <label class="inline-flex items-center cursor-pointer">\n                        <input type="checkbox" checked.bind="foundItems[unique.Name]" change.trigger="updateFoundStatus(unique.Name)" class="sr-only peer">\n                        <div class="relative w-4 h-2 bg-gray-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[\'\'] after:absolute after:start-[3px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-2 after:w-2 after:transition-all peer-checked:bg-green-600"></div>\n                    </label>\n                </div>\n                <div class="unique-text text-lg mb-1 ${foundItems[unique.Name] ? \'text-green-400\' : \'\'}">\n                    ${unique.Name}\n                </div>\n                <div class="rarity mb-1" if.bind="unique.Rarity">\n                    Rarity: ${unique.Rarity}\n                </div>\n                <div class="armor mb-1" if.bind="unique.Equipment.Name">\n                    ${unique.Equipment.Name}\n                </div>\n                <div class="armor mb-1" if.bind="unique.Equipment.ArmorString">\n                    Armor: ${unique.Equipment.ArmorString}\n                </div>\n                <div class="damage" if.bind="unique.Equipment.DamageTypes"\n                     repeat.for="damage of unique.Equipment.DamageTypes">\n                    ${getDamageTypeString(damage.Type)} ${damage.DamageString}\n                </div>\n                <div class="requirement" if.bind="unique.RequiredLevel > 0">\n                    Level ${unique.RequiredLevel} Required\n                </div>\n                <div class="requirement" if.bind="unique.Equipment.RequiredStrength > 0">\n                    ${unique.Equipment.RequiredStrength} Strength Required\n                </div>\n                <div class="requirement" if.bind="unique.Equipment.RequiredDexterity > 0">\n                    ${unique.Equipment.RequiredDexterity} Dexterity Required\n                </div>\n                <div class="durability mt-1" if.bind="unique.Equipment.Durability > 0">\n                    ${unique.Equipment.Durability} Durability\n                </div>\n                <div class="mt-2">\n                    <div class="enhanced" repeat.for="property of unique.Properties">\n                        ${property.PropertyString}\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</template>';
+const template = '<template>\n    <h3 class="text-center my-4">\n        Holy Grail Tracker - ${foundCount}/${uniques.length} Uniques Found (${filteredUniques.length} Displayed)\n    </h3>\n    <search-area>\n        <div class="max-w-7xl mx-auto px-4">\n            <div class="flex flex-wrap justify-center items-center text-center">\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\n                    <div class="mb-2">\n                        <moo-select\n                                class="w-full standard-betsy-select"\n                                label="Select Class"\n                                options.bind="classes"\n                                value.bind="selectedClass"\n                        ></moo-select>\n                    </div>\n                </div>\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\n                    <div class="mb-2">\n                        <moo-select\n                                class="w-full standard-betsy-select"\n                                label="Select Type"\n                                options.bind="types"\n                                value.bind="selectedType"\n                        ></moo-select>\n                    </div>\n                </div>\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\n                    <div class="mb-2">\n                        <moo-select\n                                class="w-full standard-betsy-select"\n                                label="Select Equipment"\n                                options.bind="equipmentNames"\n                                value.bind="selectedEquipmentName"\n                                disabled.bind="!selectedType"\n                        ></moo-select>\n                    </div>\n                </div>\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\n                    <div class="mb-2">\n                        <moo-text-field\n                                class="w-full"\n                                label="Search Uniques"\n                                type="text"\n                                value.bind="search"\n                        ></moo-text-field>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </search-area>\n\n    <div class="mt-2 text-center">\n        <label class="inline-flex items-center cursor-pointer">\n            <input type="checkbox" checked.bind="showFoundItems" class="form-checkbox h-4 w-4 text-blue-600 bg-gray-700 border-gray-300 rounded focus:ring-blue-500">\n            <span class="ms-3 font-medium text-white">Hide Found Uniques</span>\n        </label>\n    </div>\n\n    <div class="flex justify-center mt-4">\n        <button type="button" click.trigger="resetGrail()" class="cursor-pointer bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">\n            Reset Grail Progress\n        </button>\n    </div>\n\n    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">\n        <div class="bg-gray-800 rounded shadow p-2" repeat.for="unique of filteredUniques">\n            <div class="bg-gray-800 rounded shadow relative">\n                <div class="absolute top-2 right-2">\n                    <label class="inline-flex items-center cursor-pointer">\n                        <input type="checkbox" checked.bind="foundItems[unique.Name]" change.trigger="updateFoundStatus(unique.Name)" class="sr-only peer">\n                        <div class="relative w-4 h-2 bg-gray-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[\'\'] after:absolute after:start-[3px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-2 after:w-2 after:transition-all peer-checked:bg-green-600"></div>\n                    </label>\n                </div>\n                <div class="unique-text text-lg mb-1 ${foundItems[unique.Name] ? \'text-green-400\' : \'\'}">\n                    ${unique.Name}\n                </div>\n                <div class="rarity mb-1" if.bind="unique.Rarity">\n                    Rarity: ${unique.Rarity}\n                </div>\n                <div class="armor mb-1" if.bind="unique.Equipment.Name">\n                    ${unique.Equipment.Name}\n                </div>\n                <div class="armor mb-1" if.bind="unique.Equipment.ArmorString">\n                    Armor: ${unique.Equipment.ArmorString}\n                </div>\n                <div class="damage" if.bind="unique.Equipment.DamageTypes"\n                     repeat.for="damage of unique.Equipment.DamageTypes">\n                    ${getDamageTypeString(damage.Type)} ${damage.DamageString}\n                </div>\n                <div class="requirement" if.bind="unique.RequiredLevel > 0">\n                    Level ${unique.RequiredLevel} Required\n                </div>\n                <div class="requirement" if.bind="unique.Equipment.RequiredStrength > 0">\n                    ${unique.Equipment.RequiredStrength} Strength Required\n                </div>\n                <div class="requirement" if.bind="unique.Equipment.RequiredDexterity > 0">\n                    ${unique.Equipment.RequiredDexterity} Dexterity Required\n                </div>\n                <div class="durability mt-1" if.bind="unique.Equipment.Durability > 0">\n                    ${unique.Equipment.Durability} Durability\n                </div>\n                <div class="mt-2">\n                    <div class="enhanced" repeat.for="property of unique.Properties">\n                        ${property.PropertyString}\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</template>';
 const dependencies = [];
 const bindables = {};
 let _e;
@@ -74,6 +74,7 @@ class Grail {
   constructor() {
     __publicField(this, "uniques", json);
     __publicField(this, "filteredUniques", []);
+    __publicField(this, "filteredFoundCount", 0);
     __publicField(this, "classes", [
       { value: void 0, label: "-" },
       { value: "Amazon", label: "Amazon" },
@@ -84,7 +85,7 @@ class Grail {
       { value: "Paladin", label: "Paladin" },
       { value: "Sorceress", label: "Sorceress" }
     ]);
-    __publicField(this, "equipmentNames", [{ id: "", name: "All Equipment" }]);
+    __publicField(this, "equipmentNames", [{ value: void 0, label: "-" }]);
     __publicField(this, "search", __runInitializers(_init, 8, this)), __runInitializers(_init, 11, this);
     __publicField(this, "selectedClass", __runInitializers(_init, 12, this)), __runInitializers(_init, 15, this);
     __publicField(this, "selectedType", __runInitializers(_init, 16, this)), __runInitializers(_init, 19, this);
@@ -97,6 +98,7 @@ class Grail {
     this.loadFoundItems();
     this.filteredUniques = [...this.uniques];
     this.updateFoundCount();
+    this.updateList();
   }
   get types() {
     const uniqueTypes = /* @__PURE__ */ new Set();
@@ -115,21 +117,8 @@ class Grail {
     this.updateList();
   }
   selectedTypeChanged() {
-    this.selectedEquipmentName = "";
-    this.equipmentNames = [{ id: "", name: "All Equipment" }];
-    if (!this.selectedType) {
-      this.updateList();
-      return;
-    }
-    const equipmentSet = /* @__PURE__ */ new Set();
-    this.uniques.forEach((unique) => {
-      if (unique.Equipment && unique.Equipment.Type === this.selectedType && unique.Equipment.Name) {
-        equipmentSet.add(unique.Equipment.Name);
-      }
-    });
-    equipmentSet.forEach((name2) => {
-      this.equipmentNames.push({ id: name2, name: name2 });
-    });
+    this.equipmentNames = this.getUniqueEquipmentNames();
+    this.selectedEquipmentName = void 0;
     this.updateList();
   }
   selectedEquipmentNameChanged() {
@@ -149,8 +138,8 @@ class Grail {
       if (!this.search) return true;
       const search = this.search.toLowerCase();
       const uniqueName = unique.Name.toLowerCase();
-      const properties = unique.Properties.map((property) => property.PropertyString.toLowerCase());
-      const baseName = unique.Equipment.Name.toLowerCase();
+      const properties = unique.Properties?.map((property) => property.PropertyString.toLowerCase()) ?? [];
+      const baseName = unique.Equipment?.Name?.toLowerCase() ?? "";
       return uniqueName.includes(search) || properties.find((p) => p.includes(search)) || baseName.includes(search);
     };
     const isMatchingType = (unique) => {
@@ -159,10 +148,11 @@ class Grail {
     const isMatchingEquipmentName = (unique) => {
       return !this.selectedEquipmentName || unique.Equipment.Name === this.selectedEquipmentName;
     };
-    if (this.selectedType && (!this.equipmentNames || this.equipmentNames.length <= 1)) {
-      this.equipmentNames = this.getUniqueEquipmentNames();
-    }
-    this.uniques = json.filter((unique) => !unique.Name.toLowerCase().includes("grabber") && isMatchingSearch(unique) && isMatchingClass(unique) && isMatchingType(unique) && isMatchingEquipmentName(unique) && (!this.showFoundItems || !this.foundItems[unique.Name]));
+    const baseFiltered = this.uniques.filter(
+      (unique) => !unique.Name.toLowerCase().includes("grabber") && isMatchingSearch(unique) && isMatchingClass(unique) && isMatchingType(unique) && isMatchingEquipmentName(unique)
+    );
+    this.filteredFoundCount = baseFiltered.reduce((count, u) => count + (this.foundItems[u.Name] ? 1 : 0), 0);
+    this.filteredUniques = baseFiltered.filter((u) => !this.showFoundItems || !this.foundItems[u.Name]);
   }
   loadFoundItems() {
     const savedItems = localStorage.getItem("d2r-grail-items");
@@ -174,9 +164,9 @@ class Grail {
     localStorage.setItem("d2r-grail-items", JSON.stringify(this.foundItems));
   }
   updateFoundStatus(itemName) {
-    this.foundItems[itemName] = !!this.foundItems[itemName];
     this.saveFoundItems();
     this.updateFoundCount();
+    this.updateList();
   }
   updateFoundCount() {
     this.foundCount = Object.values(this.foundItems).filter((value) => value).length;
@@ -186,21 +176,36 @@ class Grail {
       this.foundItems = {};
       this.saveFoundItems();
       this.updateFoundCount();
+      this.updateList();
     }
   }
   getDamageTypeString(type) {
     switch (type) {
-      case 0:
-        return "Damage:";
-      case 1:
-        return "One-Hand Damage:";
-      case 2:
-        return "Two-Hand Damage:";
       case 3:
-        return "Throw Damage:";
+        return "Damage: ";
+      case 2:
+        return "Throw Damage: ";
+      case 1:
+        return "Two-Handed Damage: ";
       default:
-        return "Damage:";
+        return "Damage: ";
     }
+  }
+  getUniqueEquipmentNames() {
+    const filtered = this.uniques.filter(
+      (unique) => !this.selectedType || unique.Type === this.selectedType
+    );
+    const uniqueEquipmentNames = /* @__PURE__ */ new Set();
+    filtered.forEach((unique) => {
+      if (unique.Equipment && unique.Equipment.Name) {
+        uniqueEquipmentNames.add(unique.Equipment.Name);
+      }
+    });
+    const equipmentNameOptions = [{ value: void 0, label: "-" }];
+    Array.from(uniqueEquipmentNames).sort().forEach((name2) => {
+      equipmentNameOptions.push({ value: name2, label: name2 });
+    });
+    return equipmentNameOptions;
   }
 }
 _init = __decoratorStart();
