@@ -3,8 +3,8 @@ import { bindable } from 'aurelia';
 import json from '../item-jsons/uniques.json';
 
 interface ISelectOption {
-    id: string;
-    name: string;
+    value: string | undefined;
+    label: string;
 }
 
 interface IDamageType {
@@ -18,16 +18,18 @@ interface IProperty {
 
 interface IEquipment {
     Name?: string;
-    Type?: string;
+    Type?: string | { Name?: string };
     ArmorString?: string;
     DamageTypes?: IDamageType[];
     RequiredStrength?: number;
     RequiredDexterity?: number;
     Durability?: number;
+    RequiredClass?: string;
 }
 
 interface IUniqueItem {
     Name: string;
+    Type?: string;
     Class?: string;
     Rarity?: string;
     RequiredLevel?: number;
@@ -38,6 +40,7 @@ interface IUniqueItem {
 export class Grail {
     uniques: IUniqueItem[] = json as IUniqueItem[];
     filteredUniques: IUniqueItem[] = [];
+    filteredFoundCount: number = 0;
 
     classes = [
         { value: undefined, label: '-' },
@@ -50,13 +53,13 @@ export class Grail {
         { value: 'Sorceress', label: 'Sorceress' }
     ];
 
-    equipmentNames: ISelectOption[] = [{ id: '', name: 'All Equipment' }];
+    equipmentNames: ISelectOption[] = [{ value: undefined, label: '-' }];
 
 
     @bindable search: string;
     @bindable selectedClass: string;
     @bindable selectedType: string;
-    @bindable selectedEquipmentName: string;
+    @bindable selectedEquipmentName: string | undefined;
 
     @bindable showFoundItems: boolean = true;
     
@@ -70,6 +73,7 @@ export class Grail {
         
         // Update the count after loading data
         this.updateFoundCount();
+        this.updateList();
     }
 
     get types() {
@@ -93,30 +97,11 @@ export class Grail {
     }
     
     selectedTypeChanged(): void {
-        // Reset equipment selection
-        this.selectedEquipmentName = '';
-        this.equipmentNames = [{ id: '', name: 'All Equipment' }];
-        
-        if (!this.selectedType) {
-            this.updateList();
-            return;
-        }
-        
-        // Extract equipment names for the selected type
-        const equipmentSet = new Set<string>();
-        this.uniques.forEach(unique => {
-            if (unique.Equipment && 
-                unique.Equipment.Type === this.selectedType && 
-                unique.Equipment.Name) {
-                equipmentSet.add(unique.Equipment.Name);
-            }
-        });
-        
-        // Add equipment names to dropdown
-        equipmentSet.forEach(name => {
-            this.equipmentNames.push({ id: name, name });
-        });
-        
+        // Update equipment names when type changes
+        this.equipmentNames = this.getUniqueEquipmentNames();
+        // Reset selected equipment name when type changes
+        this.selectedEquipmentName = undefined as unknown as string;
+
         this.updateList();
     }
     
@@ -140,8 +125,8 @@ export class Grail {
             if (!this.search) return true;
             const search = this.search.toLowerCase();
             const uniqueName = unique.Name.toLowerCase();
-            const properties = unique.Properties.map((property) => property.PropertyString.toLowerCase());
-            const baseName = unique.Equipment.Name.toLowerCase();
+            const properties = (unique.Properties?.map((property) => property.PropertyString.toLowerCase())) ?? [];
+            const baseName = unique.Equipment?.Name?.toLowerCase() ?? '';
             return uniqueName.includes(search) || properties.find(p => p.includes(search)) || baseName.includes(search);
         }
         const isMatchingType = (unique) => {
@@ -151,18 +136,20 @@ export class Grail {
             return !this.selectedEquipmentName || unique.Equipment.Name === this.selectedEquipmentName;
         }
 
-        // Update the equipment names list if type is selected
-        if (this.selectedType && (!this.equipmentNames || this.equipmentNames.length <= 1)) {
-            this.equipmentNames = this.getUniqueEquipmentNames();
-        }
-
-        this.uniques = json.filter(unique =>
+        // Build base filtered list without mutating the original uniques
+        const baseFiltered = this.uniques.filter(unique =>
             !unique.Name.toLowerCase().includes('grabber') &&
             isMatchingSearch(unique) &&
             isMatchingClass(unique) &&
             isMatchingType(unique) &&
-            isMatchingEquipmentName(unique) &&
-            (!this.showFoundItems || !this.foundItems[unique.Name]));
+            isMatchingEquipmentName(unique)
+        );
+
+        // Count of found items among the base filtered set (regardless of hide toggle)
+        this.filteredFoundCount = baseFiltered.reduce((count, u) => count + (this.foundItems[u.Name] ? 1 : 0), 0);
+
+        // Apply "Hide Found Uniques" toggle
+        this.filteredUniques = baseFiltered.filter(u => !this.showFoundItems || !this.foundItems[u.Name]);
     }
     
     loadFoundItems(): void {
@@ -177,14 +164,12 @@ export class Grail {
     }
     
     updateFoundStatus(itemName: string): void {
-        // Toggle found status\
-        this.foundItems[itemName] = !!this.foundItems[itemName];
-        
-        // Save to local storage
+        // The checked.bind already updated foundItems, just persist and refresh
         this.saveFoundItems();
-        
-        // Update count
+
+        // Update counts and filtered list (to hide found when toggle is on)
         this.updateFoundCount();
+        this.updateList();
     }
     
     updateFoundCount(): void {
@@ -196,21 +181,43 @@ export class Grail {
             this.foundItems = {};
             this.saveFoundItems();
             this.updateFoundCount();
+            this.updateList();
         }
     }
     
     getDamageTypeString(type: number): string {
         switch (type) {
-            case 0:
-                return 'Damage:';
-            case 1:
-                return 'One-Hand Damage:';
-            case 2:
-                return 'Two-Hand Damage:';
             case 3:
-                return 'Throw Damage:';
+                return 'Damage: ';
+            case 2:
+                return 'Throw Damage: ';
+            case 1:
+                return 'Two-Handed Damage: '
             default:
-                return 'Damage:';
+                return 'Damage: ';
         }
+    }
+
+    getUniqueEquipmentNames(): ISelectOption[] {
+        // Filter uniques based on the selected type
+        const filtered = this.uniques.filter(unique =>
+            !this.selectedType || unique.Type === this.selectedType
+        );
+
+        // Extract unique Equipment.Name values
+        const uniqueEquipmentNames = new Set<string>();
+        filtered.forEach(unique => {
+            if (unique.Equipment && unique.Equipment.Name) {
+                uniqueEquipmentNames.add(unique.Equipment.Name);
+            }
+        });
+
+        // Create options array
+        const equipmentNameOptions: ISelectOption[] = [{ value: undefined, label: '-' }];
+        Array.from(uniqueEquipmentNames).sort().forEach(name => {
+            equipmentNameOptions.push({ value: name, label: name });
+        });
+
+        return equipmentNameOptions;
     }
 }
