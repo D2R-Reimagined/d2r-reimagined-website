@@ -74,7 +74,7 @@ export class Uniques {
     }
 
 
-    @watch('class')
+    @watch('selectedClass')
     handleClassChanged() {
         this.updateList();
         if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();

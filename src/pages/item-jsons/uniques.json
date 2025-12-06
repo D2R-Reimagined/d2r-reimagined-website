@@ -473,7 +473,7 @@
             "RequiredStrength": 0,
             "RequiredDexterity": 21,
             "Durability": 250,
-            "RequiredClass": "Knife"
+            "RequiredClass": ""
         }
     },
     {
@@ -1479,7 +1479,7 @@
             "RequiredStrength": 0,
             "RequiredDexterity": 40,
             "Durability": 250,
-            "RequiredClass": "Axe"
+            "RequiredClass": ""
         }
     },
     {
@@ -2094,7 +2094,7 @@
             "RequiredStrength": 0,
             "RequiredDexterity": 21,
             "Durability": 250,
-            "RequiredClass": "Knife"
+            "RequiredClass": ""
         }
     },
     {
@@ -3812,7 +3812,7 @@
             "RequiredStrength": 0,
             "RequiredDexterity": 40,
             "Durability": 250,
-            "RequiredClass": "Axe"
+            "RequiredClass": ""
         }
     },
     {
@@ -9772,7 +9772,7 @@
             "RequiredStrength": 0,
             "RequiredDexterity": 51,
             "Durability": 250,
-            "RequiredClass": "Knife"
+            "RequiredClass": ""
         }
     },
     {
@@ -10733,7 +10733,7 @@
             "RequiredStrength": 0,
             "RequiredDexterity": 57,
             "Durability": 250,
-            "RequiredClass": "Axe"
+            "RequiredClass": ""
         }
     },
     {
@@ -12440,7 +12440,7 @@
             "RequiredStrength": 0,
             "RequiredDexterity": 40,
             "Durability": 250,
-            "RequiredClass": "Axe"
+            "RequiredClass": ""
         }
     },
     {
@@ -12504,7 +12504,7 @@
             "RequiredStrength": 0,
             "RequiredDexterity": 21,
             "Durability": 250,
-            "RequiredClass": "Knife"
+            "RequiredClass": ""
         }
     },
     {
@@ -12572,7 +12572,7 @@
             "RequiredStrength": 0,
             "RequiredDexterity": 51,
             "Durability": 250,
-            "RequiredClass": "Knife"
+            "RequiredClass": ""
         }
     },
     {
@@ -17691,7 +17691,7 @@
             "RequiredStrength": 0,
             "RequiredDexterity": 57,
             "Durability": 250,
-            "RequiredClass": "Axe"
+            "RequiredClass": ""
         }
     },
     {
@@ -27875,7 +27875,7 @@
             "RequiredStrength": 0,
             "RequiredDexterity": 57,
             "Durability": 250,
-            "RequiredClass": "Axe"
+            "RequiredClass": ""
         }
     },
     {
@@ -36402,7 +36402,7 @@
             "RequiredStrength": 25,
             "RequiredDexterity": 52,
             "Durability": 250,
-            "RequiredClass": "Knife"
+            "RequiredClass": ""
         }
     },
     {
@@ -37096,7 +37096,7 @@
             "RequiredStrength": 25,
             "RequiredDexterity": 80,
             "Durability": 250,
-            "RequiredClass": "Axe"
+            "RequiredClass": ""
         }
     },
     {
@@ -37984,7 +37984,7 @@
             "RequiredStrength": 25,
             "RequiredDexterity": 52,
             "Durability": 250,
-            "RequiredClass": "Knife"
+            "RequiredClass": ""
         }
     },
     {
@@ -39648,7 +39648,7 @@
             "RequiredStrength": 25,
             "RequiredDexterity": 97,
             "Durability": 250,
-            "RequiredClass": "Knife"
+            "RequiredClass": ""
         }
     },
     {
@@ -41753,7 +41753,7 @@
             "RequiredStrength": 25,
             "RequiredDexterity": 106,
             "Durability": 250,
-            "RequiredClass": "Axe"
+            "RequiredClass": ""
         }
     },
     {
@@ -45330,7 +45330,7 @@
             "RequiredStrength": 25,
             "RequiredDexterity": 80,
             "Durability": 250,
-            "RequiredClass": "Axe"
+            "RequiredClass": ""
         }
     },
     {
@@ -47112,7 +47112,7 @@
             "RequiredStrength": 25,
             "RequiredDexterity": 97,
             "Durability": 250,
-            "RequiredClass": "Knife"
+            "RequiredClass": ""
         }
     },
     {
@@ -48901,7 +48901,7 @@
             "RequiredStrength": 25,
             "RequiredDexterity": 106,
             "Durability": 250,
-            "RequiredClass": "Axe"
+            "RequiredClass": ""
         }
     },
     {
@@ -50961,7 +50961,7 @@
             "RequiredStrength": 25,
             "RequiredDexterity": 80,
             "Durability": 250,
-            "RequiredClass": "Axe"
+            "RequiredClass": ""
         }
     },
     {
@@ -53446,7 +53446,7 @@
             "RequiredStrength": 25,
             "RequiredDexterity": 106,
             "Durability": 250,
-            "RequiredClass": "Axe"
+            "RequiredClass": ""
         }
     },
     {
@@ -55858,7 +55858,7 @@
             "RequiredStrength": 48,
             "RequiredDexterity": 141,
             "Durability": 250,
-            "RequiredClass": "Knife"
+            "RequiredClass": ""
         }
     },
     {
@@ -59150,7 +59150,7 @@
             "RequiredStrength": 96,
             "RequiredDexterity": 122,
             "Durability": 250,
-            "RequiredClass": "Axe"
+            "RequiredClass": ""
         }
     },
     {
@@ -60611,7 +60611,7 @@
             "RequiredStrength": 25,
             "RequiredDexterity": 97,
             "Durability": 250,
-            "RequiredClass": "Knife"
+            "RequiredClass": ""
         }
     },
     {
@@ -60948,7 +60948,7 @@
             "RequiredStrength": 88,
             "RequiredDexterity": 108,
             "Durability": 250,
-            "RequiredClass": "Axe"
+            "RequiredClass": ""
         }
     },
     {
@@ -64368,7 +64368,7 @@
             "RequiredStrength": 45,
             "RequiredDexterity": 142,
             "Durability": 250,
-            "RequiredClass": "Knife"
+            "RequiredClass": ""
         }
     },
     {
@@ -66201,7 +66201,7 @@
             "RequiredStrength": 88,
             "RequiredDexterity": 108,
             "Durability": 250,
-            "RequiredClass": "Axe"
+            "RequiredClass": ""
         }
     },
     {
@@ -67843,7 +67843,7 @@
             "RequiredStrength": 45,
             "RequiredDexterity": 142,
             "Durability": 250,
-            "RequiredClass": "Knife"
+            "RequiredClass": ""
         }
     },
     {
@@ -67915,7 +67915,7 @@
             "RequiredStrength": 48,
             "RequiredDexterity": 141,
             "Durability": 250,
-            "RequiredClass": "Knife"
+            "RequiredClass": ""
         }
     },
     {
@@ -67979,7 +67979,7 @@
             "RequiredStrength": 48,
             "RequiredDexterity": 141,
             "Durability": 250,
-            "RequiredClass": "Knife"
+            "RequiredClass": ""
         }
     },
     {
@@ -68043,7 +68043,7 @@
             "RequiredStrength": 45,
             "RequiredDexterity": 142,
             "Durability": 250,
-            "RequiredClass": "Knife"
+            "RequiredClass": ""
         }
     },
     {
@@ -71053,7 +71053,7 @@
             "RequiredStrength": 96,
             "RequiredDexterity": 122,
             "Durability": 250,
-            "RequiredClass": "Axe"
+            "RequiredClass": ""
         }
     },
     {

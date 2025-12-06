@@ -1355,7 +1355,7 @@
         "UltraCode": "7tk",
         "GemSockets": 0,
         "AutoPrefix": "317",
-        "RequiredClass": "Knife"
+        "RequiredClass": ""
     },
     {
         "DamageTypes": [
@@ -1399,7 +1399,7 @@
         "UltraCode": "7ta",
         "GemSockets": 0,
         "AutoPrefix": "317",
-        "RequiredClass": "Axe"
+        "RequiredClass": ""
     },
     {
         "DamageTypes": [
@@ -1443,7 +1443,7 @@
         "UltraCode": "7bk",
         "GemSockets": 0,
         "AutoPrefix": "317",
-        "RequiredClass": "Knife"
+        "RequiredClass": ""
     },
     {
         "DamageTypes": [
@@ -1487,7 +1487,7 @@
         "UltraCode": "7b8",
         "GemSockets": 0,
         "AutoPrefix": "317",
-        "RequiredClass": "Axe"
+        "RequiredClass": ""
     },
     {
         "DamageTypes": [
@@ -4285,7 +4285,7 @@
         "UltraCode": "7tk",
         "GemSockets": 0,
         "AutoPrefix": "317",
-        "RequiredClass": "Knife"
+        "RequiredClass": ""
     },
     {
         "DamageTypes": [
@@ -4329,7 +4329,7 @@
         "UltraCode": "7ta",
         "GemSockets": 0,
         "AutoPrefix": "317",
-        "RequiredClass": "Axe"
+        "RequiredClass": ""
     },
     {
         "DamageTypes": [
@@ -4373,7 +4373,7 @@
         "UltraCode": "7bk",
         "GemSockets": 0,
         "AutoPrefix": "317",
-        "RequiredClass": "Knife"
+        "RequiredClass": ""
     },
     {
         "DamageTypes": [
@@ -4417,7 +4417,7 @@
         "UltraCode": "7b8",
         "GemSockets": 0,
         "AutoPrefix": "317",
-        "RequiredClass": "Axe"
+        "RequiredClass": ""
     },
     {
         "DamageTypes": [
@@ -7525,7 +7525,7 @@
         "UltraCode": "7tk",
         "GemSockets": 0,
         "AutoPrefix": "317",
-        "RequiredClass": "Knife"
+        "RequiredClass": ""
     },
     {
         "DamageTypes": [
@@ -7569,7 +7569,7 @@
         "UltraCode": "7ta",
         "GemSockets": 0,
         "AutoPrefix": "317",
-        "RequiredClass": "Axe"
+        "RequiredClass": ""
     },
     {
         "DamageTypes": [
@@ -7613,7 +7613,7 @@
         "UltraCode": "7bk",
         "GemSockets": 0,
         "AutoPrefix": "317",
-        "RequiredClass": "Knife"
+        "RequiredClass": ""
     },
     {
         "DamageTypes": [
@@ -7657,7 +7657,7 @@
         "UltraCode": "7b8",
         "GemSockets": 0,
         "AutoPrefix": "317",
-        "RequiredClass": "Axe"
+        "RequiredClass": ""
     },
     {
         "DamageTypes": [
