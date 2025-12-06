@@ -1,4 +1,4 @@
-﻿// Item-type graph + filter helpers (fast, memoized).
+﻿// Item-type graph and filter helpers (fast, memoized).
 // Data: itemtypes.txt (D2R Reimagined mod). Parents from Equiv1/Equiv2.
 // Notes: heavy lookups are precomputed; helpers are cycle-safe and allocation-light.
 
@@ -245,11 +245,17 @@ const CLASS_AGGREGATE_BASES = new Set<string>([
 ]);
 
 // Build a FilterOption from an ItemType name and optional extra parents
-export function makeTypeOption(label: string, baseTypeName?: string, extraParents: string[] = []): FilterOption {
+export function makeTypeOption(
+    label: string,
+    baseTypeName?: string,
+    extraParents: string[] = [],
+    exactBaseOnly: boolean = false
+): FilterOption {
     // Placeholder: return undefined value so UI can default to "-"
     if (!baseTypeName) return { label, value: undefined };
 
-    const value = getTypeChain(baseTypeName);
+    // For exactBaseOnly, do NOT include implicit parents from the graph; keep only the base
+    const value = exactBaseOnly ? [baseTypeName] : getTypeChain(baseTypeName);
     if (extraParents && extraParents.length) {
         const set = new Set<string>(value);
         for (const p of extraParents) {
@@ -424,15 +430,16 @@ export const type_filtering_options: ReadonlyArray<FilterOption> = [
     makeTypeOption('Bow Quiver', 'Magic Bow Quiv'),
     makeTypeOption('Crossbow Bolts', 'Magic Xbow Quiv'),
     //Class Specific
-    makeTypeOption('Amazon Javelin', 'Amazon Javelin'),
-    makeTypeOption('Amazon Bow', 'Amazon Bow'),
-    makeTypeOption('Amazon Spear', 'Amazon Spear'),
-    makeTypeOption('Assassin Weapon', 'Hand to Hand'),
-    makeTypeOption('Barbarian Helm', 'Primal Helm'),
-    makeTypeOption('Druid Helm', 'Pelt'),
-    makeTypeOption('Necromancer Shield', 'Voodoo Heads'),
-    makeTypeOption('Paladin Shield', 'Auric Shields'),
-    makeTypeOption('Sorceress Orb', 'Orb'),
+    // Class-specific leaf types must match ONLY themselves (no leakage to their generic parents)
+    makeTypeOption('Amazon Javelin', 'Amazon Javelin', [], true),
+    makeTypeOption('Amazon Bow', 'Amazon Bow', [], true),
+    makeTypeOption('Amazon Spear', 'Amazon Spear', [], true),
+    makeTypeOption('Assassin Weapon', 'Hand to Hand', [], true),
+    makeTypeOption('Barbarian Helm', 'Primal Helm', [], true),
+    makeTypeOption('Druid Helm', 'Pelt', [], true),
+    makeTypeOption('Necromancer Shield', 'Voodoo Heads', [], true),
+    makeTypeOption('Paladin Shield', 'Auric Shields', [], true),
+    makeTypeOption('Sorceress Orb', 'Orb', [], true),
 ];
 
 // Utility lookups (optional)
