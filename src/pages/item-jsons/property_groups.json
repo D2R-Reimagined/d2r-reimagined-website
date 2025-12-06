@@ -1,0 +1,814 @@
+[
+  {
+    "group": 111,
+    "items": [
+      {
+        "description": "Damage"
+      }
+    ]
+  },
+  {
+    "group": 105,
+    "items": [
+      {
+        "description": "Damage"
+      }
+    ]
+  },
+  {
+    "group": 123,
+    "items": [
+      {
+        "description": "Demon Damage"
+      }
+    ]
+  },
+  {
+    "group": 142,
+    "items": [
+      {
+        "description": "Undead Damage"
+      }
+    ]
+  },
+  {
+    "group": 110,
+    "items": [
+      {
+        "description": "Attack Rating"
+      }
+    ]
+  },
+  {
+    "group": 200,
+    "items": [
+      {
+        "description": "Attack Rating"
+      }
+    ]
+  },
+  {
+    "group": 103,
+    "items": [
+      {
+        "description": "Damage"
+      }
+    ]
+  },
+  {
+    "group": 104,
+    "items": [
+      {
+        "description": "Damage"
+      }
+    ]
+  },
+  {
+    "group": 101,
+    "items": [
+      {
+        "description": "Defense"
+      }
+    ]
+  },
+  {
+    "group": 125,
+    "items": [
+      {
+        "description": "Skill Levels"
+      }
+    ]
+  },
+  {
+    "group": 201,
+    "items": [
+      {
+        "description": "Skill Levels"
+      }
+    ]
+  },
+  {
+    "group": 137,
+    "items": [
+      {
+        "description": "Elemental Weapon Damage"
+      }
+    ]
+  },
+  {
+    "group": 138,
+    "items": [
+      {
+        "description": "Elemental Weapon Damage"
+      }
+    ]
+  },
+  {
+    "group": 139,
+    "items": [
+      {
+        "description": "Elemental Weapon Damage"
+      }
+    ]
+  },
+  {
+    "group": 140,
+    "items": [
+      {
+        "description": "Elemental Weapon Damage"
+      }
+    ]
+  },
+  {
+    "group": 117,
+    "items": [
+      {
+        "description": "Resistances"
+      }
+    ]
+  },
+  {
+    "group": 118,
+    "items": [
+      {
+        "description": "Resistances"
+      }
+    ]
+  },
+  {
+    "group": 119,
+    "items": [
+      {
+        "description": "Resistances"
+      }
+    ]
+  },
+  {
+    "group": 120,
+    "items": [
+      {
+        "description": "Resistances"
+      }
+    ]
+  },
+  {
+    "group": 116,
+    "items": [
+      {
+        "description": "Resistances"
+      }
+    ]
+  },
+  {
+    "group": 115,
+    "items": [
+      {
+        "description": "Mana"
+      }
+    ]
+  },
+  {
+    "group": 121,
+    "items": [
+      {
+        "description": "Mana"
+      }
+    ]
+  },
+  {
+    "group": 107,
+    "items": [
+      {
+        "description": "Mana"
+      }
+    ]
+  },
+  {
+    "group": 112,
+    "items": [
+      {
+        "description": "Light Radius"
+      }
+    ]
+  },
+  {
+    "group": 114,
+    "items": [
+      {
+        "description": "Magic Find"
+      }
+    ]
+  },
+  {
+    "group": 122,
+    "items": [
+      {
+        "description": "Sockets"
+      }
+    ]
+  },
+  {
+    "group": 141,
+    "items": [
+      {
+        "description": "Elemental Weapon Damage"
+      }
+    ]
+  },
+  {
+    "group": 102,
+    "items": [
+      {
+        "description": "Resistances"
+      }
+    ]
+  },
+  {
+    "group": 113,
+    "items": [
+      {
+        "description": "Weapon Effects"
+      }
+    ]
+  },
+  {
+    "group": 202,
+    "items": [
+      {
+        "description": "Weapon Effects"
+      }
+    ]
+  },
+  {
+    "group": 203,
+    "items": [
+      {
+        "description": "Elemental Weapon Damage"
+      }
+    ]
+  },
+  {
+    "group": 204,
+    "items": [
+      {
+        "description": "Experience"
+      }
+    ]
+  },
+  {
+    "group": 205,
+    "items": [
+      {
+        "description": "Kick Damage"
+      }
+    ]
+  },
+  {
+    "group": 206,
+    "items": [
+      {
+        "description": "Damage"
+      }
+    ]
+  },
+  {
+    "group": 207,
+    "items": [
+      {
+        "description": "Equip Aura"
+      }
+    ]
+  },
+  {
+    "group": 209,
+    "items": [
+      {
+        "description": "Elemental Skill Effect"
+      }
+    ]
+  },
+  {
+    "group": 44,
+    "items": [
+      {
+        "description": "Charges"
+      }
+    ]
+  },
+  {
+    "group": 130,
+    "items": [
+      {
+        "description": "Resistances"
+      }
+    ]
+  },
+  {
+    "group": 131,
+    "items": [
+      {
+        "description": "Mana"
+      }
+    ]
+  },
+  {
+    "group": 133,
+    "items": [
+      {
+        "description": "Resistances"
+      }
+    ]
+  },
+  {
+    "group": 134,
+    "items": [
+      {
+        "description": "Life"
+      }
+    ]
+  },
+  {
+    "group": 210,
+    "items": [
+      {
+        "description": "Thorns"
+      }
+    ]
+  },
+  {
+    "group": 211,
+    "items": [
+      {
+        "description": "Speeds"
+      }
+    ]
+  },
+  {
+    "group": 212,
+    "items": [
+      {
+        "description": "Speeds"
+      },
+      {
+        "description": "Weapon Effects"
+      }
+    ]
+  },
+  {
+    "group": 213,
+    "items": [
+      {
+        "description": "Skill Levels"
+      }
+    ]
+  },
+  {
+    "group": 214,
+    "items": [
+      {
+        "description": "Elemental Skill Effect"
+      }
+    ]
+  },
+  {
+    "group": 215,
+    "items": [
+      {
+        "description": "Elemental Skill Effect"
+      }
+    ]
+  },
+  {
+    "group": 143,
+    "items": [
+      {
+        "description": "Damage"
+      }
+    ]
+  },
+  {
+    "group": 61,
+    "items": [
+      {
+        "description": "Damage"
+      },
+            {
+        "description": "Defense"
+      }
+    ]
+  },
+  {
+    "group": 14,
+    "items": [
+      {
+        "description": "Damage"
+      }
+    ]
+  },
+  {
+    "group": 15,
+    "items": [
+      {
+        "description": "Damage"
+      }
+    ]
+  },
+  {
+    "group": 10,
+    "items": [
+      {
+        "description": "Elemental Weapon Damage"
+      }
+    ]
+  },
+  {
+    "group": 12,
+    "items": [
+      {
+        "description": "Elemental Weapon Damage"
+      }
+    ]
+  },
+  {
+    "group": 13,
+    "items": [
+      {
+        "description": "Elemental Weapon Damage"
+      }
+    ]
+  },
+  {
+    "group": 16,
+    "items": [
+      {
+        "description": "Elemental Weapon Damage"
+      }
+    ]
+  },
+  {
+    "group": 11,
+    "items": [
+      {
+        "description": "Elemental Effect Defense"
+      }
+    ]
+  },
+  {
+    "group": 29,
+    "items": [
+      {
+        "description": "Elemental Effect Defense"
+      }
+    ]
+  },
+  {
+    "group": 27,
+    "items": [
+      {
+        "description": "Life Leech"
+      }
+    ]
+  },
+  {
+    "group": 28,
+    "items": [
+      {
+        "description": "Mana Leech"
+      }
+    ]
+  },
+  {
+    "group": 60,
+    "items": [
+        {
+        "description": "Life Leech"
+      },
+      {
+        "description": "Mana Leech"
+      }
+    ]
+  },
+  {
+    "group": 1,
+    "items": [
+      {
+        "description": "Resistances"
+      }
+    ]
+  },
+  {
+    "group": 2,
+    "items": [
+      {
+        "description": "Resistances"
+      },
+      {
+        "description": "Resistances"
+      }
+    ]
+  },
+  {
+    "group": 3,
+    "items": [
+      {
+        "description": "Absorbs"
+      }
+    ]
+  },
+  {
+    "group": 43,
+    "items": [
+      {
+        "description": "Resistances"
+      }
+    ]
+  },
+  {
+    "group": 67,
+    "items": [
+      {
+        "description": "Resistances"
+      }
+    ]
+  },
+  {
+    "group": 17,
+    "items": [
+      {
+        "description": "Attributes"
+      }
+    ]
+  },
+  {
+    "group": 31,
+    "items": [
+      {
+        "description": "Attributes"
+      }
+    ]
+  },
+  {
+    "group": 23,
+    "items": [
+      {
+        "description": "Attributes"
+      }
+    ]
+  },
+  {
+    "group": 42,
+    "items": [
+      {
+        "description": "Attributes"
+      }
+    ]
+  },
+  {
+    "group": 26,
+    "items": [
+      {
+        "description": "Life"
+      }
+    ]
+  },
+  {
+    "group": 41,
+    "items": [
+      {
+        "description": "Life"
+      }
+    ]
+  },
+  {
+    "group": 19,
+    "items": [
+      {
+        "description": "Life"
+      }
+    ]
+  },
+  {
+    "group": 35,
+    "items": [
+      {
+        "description": "Speeds"
+      }
+    ]
+  },
+  {
+    "group": 18,
+    "items": [
+      {
+        "description": "Speeds"
+      }
+    ]
+  },
+  {
+    "group": 7,
+    "items": [
+      {
+        "description": "Speeds"
+      }
+    ]
+  },
+  {
+    "group": 6,
+    "items": [
+      {
+        "description": "Thorns"
+      }
+    ]
+  },
+  {
+    "group": 25,
+    "items": [
+      {
+        "description": "Light Radius"
+      }
+    ]
+  },
+  {
+    "group": 22,
+    "items": [
+      {
+        "description": "Magic Find"
+      }
+    ]
+  },
+  {
+    "group": 21,
+    "items": [
+      {
+        "description": "Gold Find"
+      }
+    ]
+  },
+  {
+    "group": 30,
+    "items": [
+      {
+        "description": "Requirements"
+      }
+    ]
+  },
+  {
+    "group": 37,
+    "items": [
+      {
+        "description": "Auto-Repair"
+      }
+    ]
+  },
+  {
+    "group": 39,
+    "items": [
+      {
+        "description": "Indestructible"
+      }
+    ]
+  },
+  {
+    "group": 4,
+    "items": [
+      {
+        "description": "Weapon Effects"
+      }
+    ]
+  },
+  {
+    "group": 5,
+    "items": [
+      {
+        "description": "Weapon Effects"
+      }
+    ]
+  },
+  {
+    "group": 8,
+    "items": [
+      {
+        "description": "Block Chance"
+      }
+    ]
+  },
+  {
+    "group": 9,
+    "items": [
+      {
+        "description": "Speeds"
+      }
+    ]
+  },
+  {
+    "group": 20,
+    "items": [
+      {
+        "description": "Weapon Effects"
+      }
+    ]
+  },
+  {
+    "group": 24,
+    "items": [
+      {
+        "description": "Weapon Effects"
+      }
+    ]
+  },
+  {
+    "group": 63,
+    "items": [
+      {
+        "description": "Vendor Prices"
+      }
+    ]
+  },
+  {
+    "group": 64,
+    "items": [
+      {
+        "description": "Weapon Effects"
+      }
+    ]
+  },
+  {
+    "group": 65,
+    "items": [
+      {
+        "description": "Weapon Effects"
+      }
+    ]
+  },
+  {
+    "group": 66,
+    "items": [
+      {
+        "description": "Reanimate"
+      }
+    ]
+  },
+  {
+    "group": 77,
+    "items": [
+      {
+        "description": "CTC When Struck"
+      }
+    ]
+  },
+  {
+    "group": 78,
+    "items": [
+      {
+        "description": "CTC When Striking"
+      }
+    ]
+  },
+  {
+    "group": 79,
+    "items": [
+      {
+        "description": "CTC on Level-Up"
+      }
+    ]
+  },
+  {
+    "group": 80,
+    "items": [
+      {
+        "description": "Life"
+      }
+    ]
+  },
+  {
+    "group": 81,
+    "items": [
+      {
+        "description": "Skill Special Effects"
+      }
+    ]
+  },
+  {
+    "group": 32,
+    "items": [
+      {
+        "description": "Speeds"
+      }
+    ]
+  },
+  {
+    "group": 82,
+    "items": [
+      {
+        "description": "Elemental Skill Effect"
+      }
+    ]
+  },
+  {
+    "group": 83,
+    "items": [
+      {
+        "description": "Elemental Skill Effect"
+      }
+    ]
+  }
+]
