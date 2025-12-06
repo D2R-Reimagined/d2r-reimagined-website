@@ -54,8 +54,8 @@ export class Affixes {
     @bindable minRequiredLevel: number | string | undefined;
     @bindable maxRequiredLevel: number | string | undefined;
 
-    attached() {
-        // Read search query parameters from URL when component is initialized
+    binding() {
+        // Read search query parameters from URL before first render
         const urlParams = new URLSearchParams(window.location.search);
 
         const searchParam = urlParams.get('search');
@@ -70,7 +70,9 @@ export class Affixes {
         if (groupParam) this.selectedGroupDescription = groupParam;
 
         const typeParam = urlParams.get('type');
-        if (typeParam) this.selectedType = typeParam.split(',');
+        // Defer mapping of type until after options are built
+        let typeBaseFromUrl: string | undefined;
+        if (typeParam) typeBaseFromUrl = typeParam.split(',')[0];
 
         const minrl = urlParams.get('minrl');
         if (minrl !== null) this.minRequiredLevel = minrl;
@@ -80,6 +82,7 @@ export class Affixes {
 
         const exactParam = urlParams.get('exact');
         if (exactParam) this.exclusiveType = exactParam === 'true';
+
         // Normalize prefix/suffix arrays, ensure PType set explicitly (source JSON already has it, but keep consistent)
         const normalized = (arr: any[], pType: PType) =>
             arr.map((a) => ({
@@ -108,6 +111,12 @@ export class Affixes {
         // Filter the shared preset to only show options relevant to affix data
         this.types = buildOptionsForPresentTypes(type_filtering_options, present);
 
+        // Map URL 'type' (serialized as base) to the exact option.value reference
+        if (typeBaseFromUrl) {
+            const opt = this.types.find(o => o.value && o.value[0] === typeBaseFromUrl);
+            this.selectedType = opt?.value;
+        }
+
         // Build group description → group IDs mapping and options
         this.buildGroupOptions(propertyGroups as unknown as PropertyGroupEntry[]);
 
@@ -116,6 +125,11 @@ export class Affixes {
 
         // Initial filter
         this.applyFilters();
+    }
+
+    attached() {
+        // Push initial state into URL (removes stale params when empty)
+        this.updateUrl();
     }
 
     // Helper method to update URL with current search parameters
@@ -135,9 +149,9 @@ export class Affixes {
             url.searchParams.set('group', this.selectedGroupDescription);
         } else url.searchParams.delete('group');
 
-        // type (comma-separated)
+        // type (serialize as base token only)
         if (this.selectedType && this.selectedType.length > 0) {
-            url.searchParams.set('type', this.selectedType.join(','));
+            url.searchParams.set('type', this.selectedType[0]);
         } else url.searchParams.delete('type');
 
         // min/max required level
@@ -239,35 +253,75 @@ export class Affixes {
                 if (!selectedGroups.has(a.Group)) return false;
             }
 
-            // Item Type filter (exact-or-parent matching + respects ETypes exclusions)
+            // Item Type filter (mirror Runewords behavior: parent vs. leaf semantics + Exact toggle)
             if (this.selectedType && this.selectedType.length > 0) {
-                // For exact mode, only use the base entry from option value; otherwise include base + parents/descendants per option
-                const selected = this.exclusiveType ? [this.selectedType[0]] : this.selectedType;
-                const selectedSet = new Set<string>(selected);
+                const selectedBase = resolveBaseTypeName(this.selectedType[0] ?? '');
+                if (selectedBase) {
+                    const selectedChain = getChainForTypeName(selectedBase);
+                    const selectedChainSet = new Set<string>(selectedChain);
 
-                // Helper: normalize a raw type token to our known node name (case-insensitive).
-                // We intentionally do NOT expand the affix's type to its parents; we only compare
-                // the raw type (normalized for case) against the selected chain. This ensures:
-                //  - Selecting "Hand to Hand" matches affixes tagged as [Hand to Hand], [Melee Weapon], or [Weapon]
-                //  - It does NOT match sibling specifics like [Axe], [Mace], etc.
-                const normalize = (t: any) => {
-                    const raw = t != null ? String(t) : '';
-                    const chain = getChainForTypeName(raw);
-                    // First element is the node name we resolved (case-corrected); if unknown, raw
-                    return chain && chain.length > 0 ? chain[0] : raw;
-                };
+                    // Determine if the selected type has descendants present in data. If so and Exact is OFF,
+                    // selecting it should include descendants (affix type chain contains selectedBase). If not,
+                    // treat selection as a leaf and include only the ancestor line (affix base is in selectedChainSet).
+                    let hasDescendantInData = false;
+                    if (!this.exclusiveType) {
+                        try {
+                            outer: for (const aff of this.allAffixes as any[]) {
+                                const types = Array.isArray(aff?.Types) ? aff.Types : [];
+                                for (let i = 0; i < types.length; i++) {
+                                    const raw = types[i] != null ? String(types[i]) : '';
+                                    const chain = getChainForTypeName(raw);
+                                    if (!chain || chain.length === 0) continue;
+                                    const base = chain[0];
+                                    if (base !== selectedBase && chain.indexOf(selectedBase) !== -1) {
+                                        hasDescendantInData = true;
+                                        break outer;
+                                    }
+                                }
+                            }
+                        } catch {
+                            hasDescendantInData = false;
+                        }
+                    }
 
-                // Allowed by Types (if Types present). If absent, treat as general (allowed).
-                let allowed = true;
-                if (Array.isArray(a.Types) && a.Types.length > 0) {
-                    allowed = a.Types.some((t: any) => selectedSet.has(normalize(t)));
-                }
-                if (!allowed) return false;
+                    // Allowed by Types (if Types present). If absent, treat as general (allowed).
+                    const types = Array.isArray(a.Types) ? a.Types : [];
+                    if (types.length > 0) {
+                        const allowed = types.some((t: any) => {
+                            const chain = getChainForTypeName(t != null ? String(t) : '');
+                            if (!chain || chain.length === 0) return false;
+                            const itemBase = chain[0];
+                            if (this.exclusiveType) {
+                                // Exact: only match the exact base
+                                return itemBase === selectedBase;
+                            } else if (hasDescendantInData) {
+                                // Parent selected: include descendants (type chain contains selectedBase)
+                                return chain.indexOf(selectedBase) !== -1;
+                            } else {
+                                // Leaf selected: include only ancestor line (no sibling leakage)
+                                return selectedChainSet.has(itemBase);
+                            }
+                        });
+                        if (!allowed) return false;
+                    }
 
-                // Excluded by ETypes: if any excluded type (or its parents) matches selection, reject.
-                if (Array.isArray(a.ETypes) && a.ETypes.length > 0) {
-                    const excluded = a.ETypes.some((t: any) => selectedSet.has(normalize(t)));
-                    if (excluded) return false;
+                    // Excluded by ETypes: if any excluded type matches selection per the same rules, reject.
+                    const e = Array.isArray(a.ETypes) ? a.ETypes : [];
+                    if (e.length > 0) {
+                        const excluded = e.some((t: any) => {
+                            const chain = getChainForTypeName(t != null ? String(t) : '');
+                            if (!chain || chain.length === 0) return false;
+                            const itemBase = chain[0];
+                            if (this.exclusiveType) {
+                                return itemBase === selectedBase;
+                            } else if (hasDescendantInData) {
+                                return chain.indexOf(selectedBase) !== -1;
+                            } else {
+                                return selectedChainSet.has(itemBase);
+                            }
+                        });
+                        if (excluded) return false;
+                    }
                 }
             }
 

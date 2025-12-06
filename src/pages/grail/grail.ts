@@ -113,8 +113,14 @@ export class Grail {
         // Load found-state from localStorage
         this.loadFoundItems();
 
-        // Hydrate from URL before first render
-        this.readUrlStateSafely();
+        // Grail should always load empty and ignore external URL params
+        // Reset all page-scoped filters to empty defaults
+        this.selectedCategory = 'uniques';
+        this.selectedClass = undefined as any;
+        this.selectedType = undefined as any;
+        this.selectedEquipmentName = undefined as any;
+        this.search = undefined as any;
+        this.showFoundItems = false;
 
         // Prebuild Equipment options if a type was restored (non-runewords)
         this.equipmentNames = [{ id: '', name: 'All Equipment' }];
@@ -149,39 +155,56 @@ export class Grail {
 
     // Reflect current state back into the URL
     attached(): void {
-        // State restored in binding(); push params on first load
+        // Push clean state into URL on first load (no external hydration)
         this.updateUrl();
     }
 
-    // Defensive URL parse
+    // When navigating away, clear Grail-related params from the URL so returning starts empty
+    detached(): void {
+        try {
+            const url = new URL(window.location.href);
+            // Only remove Grail-scoped parameters; do not touch global filters used by other pages
+            url.searchParams.delete('g-category');
+            url.searchParams.delete('g-class');
+            url.searchParams.delete('g-type');
+            url.searchParams.delete('g-equipment');
+            url.searchParams.delete('g-search');
+            url.searchParams.delete('g-hideFound');
+            window.history.pushState({}, '', url.toString());
+        } catch {
+            // ignore
+        }
+    }
+
+    // Defensive URL parse (Grail-scoped params only)
     private readUrlStateSafely(): void {
         try {
             const urlParams = new URLSearchParams(window.location.search);
 
-            // Category
-            const cat = (urlParams.get('category') || '').toLowerCase();
+            // Category (grail-scoped)
+            const cat = (urlParams.get('g-category') || '').toLowerCase();
             if (cat === 'uniques' || cat === 'sets' || cat === 'runewords') {
                 this.selectedCategory = cat as any;
             }
 
             // Class
-            const cls = urlParams.get('class');
+            const cls = urlParams.get('g-class');
             if (cls) this.selectedClass = cls;
 
             // Type (string token per data)
-            const t = urlParams.get('type');
+            const t = urlParams.get('g-type');
             if (t) this.selectedType = t;
 
             // Equipment name (exact match token)
-            const eq = urlParams.get('equipment');
+            const eq = urlParams.get('g-equipment');
             if (eq) this.selectedEquipmentName = eq;
 
             // Search text
-            const s = urlParams.get('search');
+            const s = urlParams.get('g-search');
             if (s) this.search = s;
 
             // Hide Found: default false when param is absent
-            const hf = urlParams.get('hideFound');
+            const hf = urlParams.get('g-hideFound');
             this.showFoundItems = hf === 'true' || hf === '1';
         } catch {
             // ignore URL parse issues
@@ -193,42 +216,42 @@ export class Grail {
         try {
             const url = new URL(window.location.href);
 
-            // Always persist selected category
-            url.searchParams.set('category', this.selectedCategory);
+            // Always persist selected category (Grail-scoped)
+            url.searchParams.set('g-category', this.selectedCategory);
 
-            // Class
+            // Class (Grail-scoped)
             if (this.selectedClass && this.selectedClass.trim() !== '') {
-                url.searchParams.set('class', this.selectedClass);
+                url.searchParams.set('g-class', this.selectedClass);
             } else {
-                url.searchParams.delete('class');
+                url.searchParams.delete('g-class');
             }
 
-            // Type
+            // Type (Grail-scoped)
             if (this.selectedType && String(this.selectedType).trim() !== '') {
-                url.searchParams.set('type', String(this.selectedType));
+                url.searchParams.set('g-type', String(this.selectedType));
             } else {
-                url.searchParams.delete('type');
+                url.searchParams.delete('g-type');
             }
 
-            // Equipment
+            // Equipment (Grail-scoped)
             if (this.selectedEquipmentName && this.selectedEquipmentName.trim() !== '') {
-                url.searchParams.set('equipment', this.selectedEquipmentName);
+                url.searchParams.set('g-equipment', this.selectedEquipmentName);
             } else {
-                url.searchParams.delete('equipment');
+                url.searchParams.delete('g-equipment');
             }
 
-            // Search
+            // Search (Grail-scoped)
             if (this.search && this.search.trim() !== '') {
-                url.searchParams.set('search', this.search);
+                url.searchParams.set('g-search', this.search);
             } else {
-                url.searchParams.delete('search');
+                url.searchParams.delete('g-search');
             }
 
-            // Hide Found (only include when true to keep URL tidy)
+            // Hide Found (Grail-scoped; only include when true to keep URL tidy)
             if (this.showFoundItems) {
-                url.searchParams.set('hideFound', 'true');
+                url.searchParams.set('g-hideFound', 'true');
             } else {
-                url.searchParams.delete('hideFound');
+                url.searchParams.delete('g-hideFound');
             }
 
             window.history.pushState({}, '', url.toString());

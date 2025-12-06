@@ -53,27 +53,27 @@
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">
         <div repeat.for="runeword of filteredRunewords">
             <div class="bg-gray-800 rounded shadow p-2">
-                <div class="unique-text text-xl mb-1">
+
+                <div class="unique-text text-lg mb-1">
                     ${runeword.Name}
                 </div>
-                <div class="combo mb-1">
-                    <span repeat.for="rune of runeword.Runes">
-                        ${rune.Name | runeName} ${$index + 1 !== runeword.Runes.length ? ' + ' : ''}
-                    </span>
-                </div>
-                <div class="types mb-1">
-                    <span repeat.for="type of runeword.Types">
+
+                <div class="types mb-1"><span repeat.for="type of runeword.Types">
                         ${type.Name} ${$index + 1 !== runeword.Types.length ? ' or ' : ''}
-                    </span>
+                    </span></div>
+
+                <div class="combo"><span repeat.for="rune of runeword.Runes">
+                        ${rune.Name | runeName} ${$index + 1 !== runeword.Runes.length ? ' + ' : ''}
+                    </span></div>
+
+                <div class="requirement my-1">
+                    Required Level: ${runeword.RequiredLevel > 0? runeword.RequiredLevel: 1}
                 </div>
-                <div class="requirement mt-1">
-                    Level ${runeword.RequiredLevel > 0? runeword.RequiredLevel: 1} Required
+
+                <div class="enhanced" repeat.for="property of runeword.Properties">
+                    ${property.PropertyString}
                 </div>
-                <div class="mt-1">
-                    <div class="enhanced" repeat.for="property of runeword.Properties">
-                        ${property.PropertyString}
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>

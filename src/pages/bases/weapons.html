@@ -60,42 +60,60 @@
             <template repeat.for="family of group.families">
                 <div class="bg-gray-800 rounded shadow p-2" repeat.for="item of family.items">
                     <div class="bg-gray-800 rounded">
-                        <div class="text-lg text-gray-400">
-                            ${item.Name}
-                        </div>
-                        <div class="rarity-text mb-1"
-                             if.bind="item.GemSockets !== null && item.GemSockets !== undefined  && item.GemSockets !== 0">
-                            Max Sockets: ${item.GemSockets}
-                        </div>
-                        <div class="damage" if.bind="item.DamageTypes && item.DamageTypes.length">
-                            <div repeat.for="d of item.DamageTypes">
-                                ${getDamageTypeString(d.Type)} ${d.DamageString}
+
+                        <div class="mb-1">
+                            <div class="text-lg text-gray-400">
+                                ${item.Name}
+                            </div>
+                            <div class="rarity-text"
+                                 if.bind="item.GemSockets !== null && item.GemSockets !== undefined  && item.GemSockets !== 0">
+                                Max Sockets: ${item.GemSockets}
                             </div>
                         </div>
-                        <div class="set-text" if.bind="item.Speed !== null && item.Speed !== undefined">
-                            Speed: ${item.Speed}
+
+                        <div class="mb-1">
+                            <div class="armor" if.bind="(item.Type && item.Type.Name) || group.typeName">
+                                ${item.Type && item.Type.Name ? item.Type.Name : group.typeName}
+                            </div>
+                            <div class="damage" if.bind="item.DamageTypes && item.DamageTypes.length">
+                                <div repeat.for="d of item.DamageTypes">
+                                    ${getDamageTypeString(d.Type)} ${d.DamageString}
+                                </div>
+                            </div>
+                            <div class="durability" if.bind="item.Durability && item.Durability > 0">
+                                Durability: ${item.Durability}
+                            </div>
                         </div>
-                        <div class="set-text" if.bind="item.StrBonus && item.StrBonus > 0">
-                            Str Bonus: ${item.StrBonus}%
+
+                        <div class="mb-1">
+                            <div class="requirement" if.bind="item.RequiredClass && item.RequiredClass.length">
+                                (${item.RequiredClass} Only)
+                            </div>
+                            <div class="requirement" if.bind="item.RequiredDexterity && item.RequiredDexterity > 0">
+                                ${item.RequiredDexterity} Dexterity Required
+                            </div>
+                            <div class="requirement" if.bind="item.RequiredStrength && item.RequiredStrength > 0">
+                                ${item.RequiredStrength} Strength Required
+                            </div>
+                            <div class="requirement">
+                                Level ${item.BaseRequiredLevel > 0 ? item.BaseRequiredLevel : 1} Required
+                            </div>
                         </div>
-                        <div class="set-text" if.bind="item.DexBonus && item.DexBonus > 0">
-                            Dex Bonus: ${item.DexBonus}%
+
+                        <div class="mb-1">
+                            <div class="set-text" if.bind="item.Speed !== null && item.Speed !== undefined">
+                                Speed: ${item.Speed}
+                            </div>
+                            <div class="set-text" if.bind="item.StrBonus && item.StrBonus > 0">
+                                Str Bonus: ${item.StrBonus}%
+                            </div>
+                            <div class="set-text" if.bind="item.DexBonus && item.DexBonus > 0">
+                                Dex Bonus: ${item.DexBonus}%
+                            </div>
                         </div>
-                        <div class="requirement mt-1">
-                            Level ${item.BaseRequiredLevel > 0 ? item.BaseRequiredLevel : 1}
-                            Required
-                        </div>
-                        <div class="requirement" if.bind="item.RequiredStrength && item.RequiredStrength > 0">
-                            ${item.RequiredStrength} Strength Required
-                        </div>
-                        <div class="requirement" if.bind="item.RequiredDexterity && item.RequiredDexterity > 0">
-                            ${item.RequiredDexterity} Dexterity Required
-                        </div>
-                        <div class="durability mt-1" if.bind="item.Durability && item.Durability > 0">
-                            ${item.Durability} Durability
-                        </div>
-                        <div class="mt-1" if.bind="item.AutoMagicGroups && item.AutoMagicGroups.length">
-                            <div class="flex justify-between mb-1 items-start"
+
+                        <div if.bind="item.AutoMagicGroups && item.AutoMagicGroups.length">
+                            <div class="flex justify-between items-start mb-1"
                                  repeat.for="group of groupedProperties(item)">
                                 <div class="enhanced whitespace-nowrap text-left">
                                     <span if.bind="group.requiredLevel && group.requiredLevel > 0">
@@ -109,6 +127,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </template>

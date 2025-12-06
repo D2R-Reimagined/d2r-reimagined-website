@@ -26,8 +26,8 @@ export class Sets {
     // Centralized type options, narrowed to types present in data
     types: ReadonlyArray<FilterOption> = type_filtering_options.slice();
 
-    attached(): void {
-        // Read initial params from URL
+    // Build options and hydrate from URL BEFORE controls render
+    binding(): void {
         const urlParams = new URLSearchParams(window.location.search);
 
         const searchParam = urlParams.get('search');
@@ -40,12 +40,7 @@ export class Sets {
             this.class = classParam;
         }
 
-        const typeParam = urlParams.get('type');
-        if (typeParam) {
-            this.selectedType = typeParam.split(',');
-        }
-
-        // Collect base type names present in data
+        // Collect base type names present in data and build options
         try {
             const present = new Set<string>();
             for (const set of json as any[]) {
@@ -59,6 +54,16 @@ export class Sets {
             // keep defaults on error
         }
 
+        // Map URL 'type' (serialized as base) to the exact option.value reference
+        const typeParam = urlParams.get('type');
+        if (typeParam) {
+            const base = typeParam.split(',')[0];
+            const opt = this.types.find(o => o.value && o.value[0] === base);
+            this.selectedType = opt?.value;
+        }
+    }
+
+    attached(): void {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         this._debouncedSearchItem = debounce(this.updateList.bind(this), 350);
         // Prebuild Equipment options if type preselected
@@ -88,9 +93,9 @@ export class Sets {
             url.searchParams.delete('class');
         }
 
-        // Update type parameter
+        // Update type parameter (serialize as base token only)
         if (this.selectedType && this.selectedType.length > 0) {
-            url.searchParams.set('type', this.selectedType.join(','));
+            url.searchParams.set('type', this.selectedType[0]);
         } else {
             url.searchParams.delete('type');
         }

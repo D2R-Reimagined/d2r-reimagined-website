@@ -430,7 +430,8 @@ export const type_filtering_options: ReadonlyArray<FilterOption> = [
     makeTypeOption('Bow Quiver', 'Magic Bow Quiv'),
     makeTypeOption('Crossbow Bolts', 'Magic Xbow Quiv'),
     //Class Specific
-    // Class-specific leaf types must match ONLY themselves (no leakage to their generic parents)
+    // Class-specific leaf types must match ONLY themselves by default on pages without an "Exact" toggle
+    // (Bases, Uniques, Sets). Runewords inherits parents via its own filtering logic and parent selections.
     makeTypeOption('Amazon Javelin', 'Amazon Javelin', [], true),
     makeTypeOption('Amazon Bow', 'Amazon Bow', [], true),
     makeTypeOption('Amazon Spear', 'Amazon Spear', [], true),

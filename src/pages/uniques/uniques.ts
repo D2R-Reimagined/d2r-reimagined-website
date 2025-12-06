@@ -38,8 +38,8 @@ export class Uniques {
         { value: 'Sorceress', label: 'Sorceress' }
     ];
 
-    attached() {
-        // Read search query parameters from URL when component is initialized
+    // Hydrate state from URL and build type options BEFORE the controls render
+    binding() {
         const urlParams = new URLSearchParams(window.location.search);
 
         const searchParam = urlParams.get('search');
@@ -52,10 +52,6 @@ export class Uniques {
             this.selectedClass = classParam;
         }
 
-        const typeParam = urlParams.get('type');
-        if (typeParam) {
-            this.selectedType = typeParam.split(',');
-        }
         // Build data-driven options from present types in uniques data
         try {
             const present = new Set<string>();
@@ -67,9 +63,25 @@ export class Uniques {
         } catch {
             // keep default preset on error
         }
+
+        // Map URL 'type' (serialized as base) to the exact option.value reference
+        const typeParam = urlParams.get('type');
+        if (typeParam) {
+            const base = typeParam.split(',')[0]; // support legacy multi-token by taking first
+            const opt = this.types.find(o => o.value && o.value[0] === base);
+            this.selectedType = opt?.value;
+        }
+    }
+
+    attached() {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         this._debouncedSearchItem = debounce(this.updateList.bind(this), 350);
         this._debouncedUpdateUrl = debounce(this.updateUrl.bind(this), 150);
+
+        // Prebuild Equipment options if type preselected
+        if (this.selectedType && this.selectedType.length > 0) {
+            this.equipmentNames = this.getUniqueEquipmentNames();
+        }
         this.updateList();
     }
 
@@ -126,9 +138,9 @@ export class Uniques {
             url.searchParams.delete('class');
         }
 
-        // Update type parameter
+        // Update type parameter (serialize as base token only)
         if (this.selectedType && this.selectedType.length > 0) {
-            url.searchParams.set('type', this.selectedType.join(','));
+            url.searchParams.set('type', this.selectedType[0]);
         } else {
             url.searchParams.delete('type');
         }

@@ -69,8 +69,8 @@ export class Weapons {
     // Centralized, data-driven type options filtered to present types in bases data
     types: ReadonlyArray<FilterOption> = type_filtering_options.slice();
 
-    attached() {
-        this.selectedDataset = 'weapons';
+    // Build options and hydrate from URL BEFORE controls render
+    binding() {
         // Build type options from present base types in weapons data
         try {
             const present = new Set<string>();
@@ -82,11 +82,69 @@ export class Weapons {
         } catch {
             // keep default preset
         }
+
+        // Hydrate from URL (search, tier, type mapped to exact option.value reference)
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchParam = urlParams.get('search');
+        if (searchParam) this.search = searchParam;
+        const tierParam = urlParams.get('tier');
+        if (tierParam === 'Normal' || tierParam === 'Exceptional' || tierParam === 'Elite') {
+            this.selectedTier = tierParam as any;
+        }
+        const typeParam = urlParams.get('type');
+        if (typeParam) {
+            const base = typeParam.split(',')[0];
+            const opt = this.types.find(o => o.value && o.value[0] === base);
+            this.selectedType = opt?.value;
+        }
+    }
+
+    attached() {
+        this.selectedDataset = 'weapons';
     }
 
     @watch('selectedDataset')
     handleDatasetChanged() {
         this.onDatasetChange();
+    }
+
+    // Reflect filters into URL (no reload)
+    private updateUrl() {
+        const url = new URL(window.location.href);
+        // search
+        if (this.search && this.search.trim() !== '') {
+            url.searchParams.set('search', this.search);
+        } else {
+            url.searchParams.delete('search');
+        }
+        // type (base token)
+        if (this.selectedType && this.selectedType.length > 0) {
+            url.searchParams.set('type', this.selectedType[0]);
+        } else {
+            url.searchParams.delete('type');
+        }
+        // tier
+        if (this.selectedTier) {
+            url.searchParams.set('tier', this.selectedTier);
+        } else {
+            url.searchParams.delete('tier');
+        }
+        window.history.pushState({}, '', url.toString());
+    }
+
+    @watch('search')
+    handleSearchChanged() {
+        this.updateUrl();
+    }
+
+    @watch('selectedType')
+    handleTypeChanged() {
+        this.updateUrl();
+    }
+
+    @watch('selectedTier')
+    handleTierChanged() {
+        this.updateUrl();
     }
 
     onDatasetChange() {

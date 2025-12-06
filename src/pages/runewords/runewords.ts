@@ -15,7 +15,7 @@ export class Runewords {
 
     @bindable search: string;
     @bindable searchRunes: string;
-    @bindable exclusiveType: boolean;
+    @bindable exclusiveType: boolean = false;
 
     private _debouncedSearchItem!: DebouncedFunction;
 
@@ -37,8 +37,8 @@ export class Runewords {
 
     selectedAmount: number;
 
-    attached() {
-        // Read search query parameters from URL when component is initialized
+    // Build options and hydrate filters from URL before controls render
+    binding() {
         const urlParams = new URLSearchParams(window.location.search);
 
         // Collect base type names present in data
@@ -67,9 +67,12 @@ export class Runewords {
             this.searchRunes = runesParam;
         }
 
+        // Map URL 'type' (now serialized as base only) to the exact option.value reference
         const typeParam = urlParams.get('type');
         if (typeParam) {
-            this.selectedType = typeParam.split(',');
+            const base = typeParam.split(',')[0]; // support legacy comma list by taking first token
+            const opt = this.types.find(o => o.value && o.value[0] === base);
+            this.selectedType = opt?.value; // use same array reference as option so select reflects it
         }
 
         const socketsParam = urlParams.get('sockets');
@@ -81,6 +84,9 @@ export class Runewords {
         if (exactParam) {
             this.exclusiveType = exactParam === 'true';
         }
+    }
+
+    attached() {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         this._debouncedSearchItem = debounce(this.updateList.bind(this), 350);
         this.updateList();
@@ -104,9 +110,9 @@ export class Runewords {
             url.searchParams.delete('runes');
         }
 
-        // Update type parameter
+        // Update type parameter (serialize as base token only)
         if (this.selectedType && this.selectedType.length > 0) {
-            url.searchParams.set('type', this.selectedType.join(','));
+            url.searchParams.set('type', this.selectedType[0]);
         } else {
             url.searchParams.delete('type');
         }
@@ -179,21 +185,62 @@ export class Runewords {
 
         // Type filtering
         if (this.selectedType?.length > 0) {
-            // For "Exact Type Only", only use the base entry of the option; otherwise include its parents.
-            const selected = this.exclusiveType ? [this.selectedType[0]] : this.selectedType;
-            const selectedSet = new Set<string>(selected);
+            // Derive a single selected base token (decoupled from option value arrays)
+            const selectedBase = resolveBaseTypeName(this.selectedType[0] ?? '');
+            if (selectedBase) {
+                const selectedChain = getChainForTypeName(selectedBase);
+                const selectedChainSet = new Set<string>(selectedChain);
 
-            // Normalize a token to its base node (case-insensitive); no parent expansion
-            const normalizeBase = (t: any) => {
-                const raw = t?.Name != null ? String(t.Name) : '';
-                const chain = getChainForTypeName(raw);
-                return chain && chain.length > 0 ? chain[0] : raw;
-            };
+                // Decide direction of inheritance when Exact is OFF:
+                // - If the selected type has descendants present in data (e.g., Bow -> Amazon Bow),
+                //   then selecting it should include its descendants (itemChain includes selectedBase).
+                // - If it is a leaf (e.g., Amazon Spear, Hand to Hand), selecting it should include
+                //   only its ancestor line (itemBase is in selectedChainSet) to avoid sibling leakage
+                //   via shared parents like Melee Weapon/Weapon.
+                let hasDescendantInData = false;
+                if (!this.exclusiveType) {
+                    try {
+                        outer: for (const rw of this.runewords as any[]) {
+                            const types = Array.isArray(rw?.Types) ? rw.Types : [];
+                            for (let i = 0; i < types.length; i++) {
+                                const raw = types[i]?.Name != null ? String(types[i].Name) : '';
+                                const chain = getChainForTypeName(raw);
+                                if (!chain || chain.length === 0) continue;
+                                const base = chain[0];
+                                if (base !== selectedBase && chain.indexOf(selectedBase) !== -1) {
+                                    hasDescendantInData = true;
+                                    break outer;
+                                }
+                            }
+                        }
+                    } catch {
+                        // On error, default to conservative (ancestor-only) behavior
+                        hasDescendantInData = false;
+                    }
+                }
 
-            filteringRunewords = filteringRunewords.filter((rw) => {
-                const types = Array.isArray(rw.Types) ? rw.Types : [];
-                return types.some((t) => selectedSet.has(normalizeBase(t)));
-            });
+                filteringRunewords = filteringRunewords.filter((rw) => {
+                    const types = Array.isArray(rw.Types) ? rw.Types : [];
+                    for (let i = 0; i < types.length; i++) {
+                        const raw = types[i]?.Name != null ? String(types[i].Name) : '';
+                        const chain = getChainForTypeName(raw);
+                        if (!chain || chain.length === 0) continue;
+                        const itemBase = chain[0];
+
+                        if (this.exclusiveType) {
+                            // Exact: compare only the base of the item type
+                            if (itemBase === selectedBase) return true;
+                        } else if (hasDescendantInData) {
+                            // Parent selected: include descendants (item has selectedBase in its chain)
+                            if (chain.indexOf(selectedBase) !== -1) return true;
+                        } else {
+                            // Leaf selected: include only the ancestor line (no sibling leakage)
+                            if (selectedChainSet.has(itemBase)) return true;
+                        }
+                    }
+                    return false;
+                });
+            }
         }
 
         // Socket count filter

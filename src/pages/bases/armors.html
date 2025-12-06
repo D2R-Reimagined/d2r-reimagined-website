@@ -1,11 +1,11 @@
 <template>
-        <h3 class="text-center my-4">
-            [N] = Normal [X] = Exceptional [E] = Elite
-        </h3>
-        <h3 class="text-center my-4">
-            <span class="rarity-text">${totalCount}</span> Base Armors Found
-        </h3>
-        <search-area>
+    <h3 class="text-center my-4">
+        [N] = Normal [X] = Exceptional [E] = Elite
+    </h3>
+    <h3 class="text-center my-4">
+        <span class="rarity-text">${totalCount}</span> Base Armors Found
+    </h3>
+    <search-area>
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex flex-wrap justify-center items-center text-center">
                 <div class="w-full md:w-5/12 lg:w-1/4 px-2">
@@ -54,49 +54,68 @@
     </search-area>
 
     <div class="px-2 mt-5" repeat.for="group of filteredAndGrouped">
-        <h4 class="text-xl font-semibold mb-2">${group.typeName}</h4>
+        <h4 class="text-xl font-semibold">${group.typeName}</h4>
 
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 text-center">
             <template repeat.for="family of group.families">
                 <div class="bg-gray-800 rounded shadow p-2" repeat.for="item of family.items">
                     <div class="bg-gray-800 rounded">
-                        <div class="text-lg text-gray-400">
-                            ${item.Name}
+
+                        <div class="mb-1">
+                            <div class="text-lg text-gray-400">
+                                ${item.Name}
+                            </div>
+                            <div class="rarity-text"
+                                 if.bind="item.GemSockets !== null && item.GemSockets !== undefined  && item.GemSockets !== 0">
+                                Max Sockets: ${item.GemSockets}
+                            </div>
                         </div>
-                        <div class="rarity-text mb-1" if.bind="item.GemSockets !== null && item.GemSockets !== undefined  && item.GemSockets !== 0">
-                            Max Sockets: ${item.GemSockets}
+
+                        <div class="mb-1">
+                            <div class="armor" if.bind="(item.Type && item.Type.Name) || group.typeName">
+                                ${item.Type && item.Type.Name ? item.Type.Name : group.typeName}
+                            </div>
+                            <div class="armor" if.bind="item.ArmorString">
+                                Defense: ${item.ArmorString}
+                            </div>
+                            <div class="armor" if.bind="item.Block && item.Block > 0">
+                                Block: ${item.Block}%
+                            </div>
+                            <div class="damage" if.bind="item.DamageString">
+                                ${getDamageLabel(item)}
+                            </div>
+                            <div class="durability" if.bind="item.Durability && item.Durability > 0">
+                                Durability: ${item.Durability}
+                            </div>
                         </div>
-                        <div class="armor" if.bind="item.ArmorString">
-                            Armor: ${item.ArmorString}
+
+                        <div class="mb-1">
+                            <div class="requirement" if.bind="item.RequiredClass && item.RequiredClass.length">
+                                (${item.RequiredClass} Only)
+                            </div>
+                            <div class="requirement" if.bind="item.RequiredDexterity && item.RequiredDexterity > 0">
+                                ${item.RequiredDexterity} Dexterity Required
+                            </div>
+                            <div class="requirement" if.bind="item.RequiredStrength && item.RequiredStrength > 0">
+                                ${item.RequiredStrength} Strength Required
+                            </div>
+                            <div class="requirement">
+                                Required Level: ${item.BaseRequiredLevel > 0 ? item.BaseRequiredLevel : 1}
+                            </div>
                         </div>
-                        <div class="armor" if.bind="item.Block && item.Block > 0">
-                            Block: ${item.Block}%
+
+                        <div class="mb-1">
+                            <div class="set-text" if.bind="item.StrBonus && item.StrBonus > 0">
+                                Str Bonus: ${item.StrBonus}%
+                            </div>
+                            <div class="set-text" if.bind="item.DexBonus && item.DexBonus > 0">
+                                Dex Bonus: ${item.DexBonus}%
+                            </div>
                         </div>
-                        <div class="mt-1">
-                        <div class="damage" if.bind="item.DamageString">
-                            ${getDamageLabel(item)}
-                        </div>
-                        <div class="set-text" if.bind="item.StrBonus && item.StrBonus > 0">
-                            Str Bonus: ${item.StrBonus}%
-                        </div>
-                        <div class="set-text" if.bind="item.DexBonus && item.DexBonus > 0">
-                            Dex Bonus: ${item.DexBonus}%
-                        </div>
-                        </div>
-                        <div class="requirement mt-1">
-                            Level ${item.BaseRequiredLevel > 0 ? item.BaseRequiredLevel : 1} Required
-                        </div>
-                        <div class="requirement" if.bind="item.RequiredStrength && item.RequiredStrength > 0">
-                            ${item.RequiredStrength} Strength Required
-                        </div>
-                        <div class="requirement" if.bind="item.RequiredDexterity && item.RequiredDexterity > 0">
-                            ${item.RequiredDexterity} Dexterity Required
-                        </div>
-                        <div class="durability mt-1" if.bind="item.Durability && item.Durability > 0">
-                            ${item.Durability} Durability
-                        </div>
-                        <div class="mt-1" if.bind="item.AutoMagicGroups && item.AutoMagicGroups.length">
-                            <div class="flex justify-between mb-1 items-start" repeat.for="group of groupedProperties(item)">
+
+                        <div if.bind="item.AutoMagicGroups && item.AutoMagicGroups.length">
+                            <div class="flex justify-between items-start mb-1"
+                                 repeat.for="group of groupedProperties(item)">
                                 <div class="enhanced whitespace-nowrap text-left">
                                     <span if.bind="group.requiredLevel && group.requiredLevel > 0">
                                         Lvl Req ${group.requiredLevel}
@@ -109,6 +128,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </template>
