@@ -146,7 +146,8 @@
                 "Index": 2
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Hsarus' Defense",
@@ -284,7 +285,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Cleglaw's Brace",
@@ -429,7 +431,8 @@
                 "Index": 0
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Iratha's Finery",
@@ -620,7 +623,8 @@
                 "Index": 0
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Isenhart's Armory",
@@ -810,7 +814,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Vidala's Rig",
@@ -993,7 +998,8 @@
                 "Index": 3
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Milabrega's Regalia",
@@ -1190,7 +1196,8 @@
                 "Index": 3
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Cathan's Traps",
@@ -1416,7 +1423,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Tancred's Battlegear",
@@ -1638,7 +1646,8 @@
                 "Index": 0
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Sigon's Complete Steel",
@@ -1898,7 +1907,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Infernal Tools",
@@ -2056,7 +2066,8 @@
                 "Index": 5
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Berserker's Arsenal",
@@ -2197,7 +2208,8 @@
                 "Index": 0
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Death's Disguise",
@@ -2338,7 +2350,8 @@
                 "Index": 2
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Angelic Raiment",
@@ -2520,7 +2533,8 @@
                 "Index": 2
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Arctic Gear",
@@ -2702,7 +2716,8 @@
                 "Index": 2
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Arcanna's Tricks",
@@ -2892,7 +2907,8 @@
                 "Index": 2
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Natalya's Odium",
@@ -3146,7 +3162,8 @@
                 "Index": 6
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Aldur's Watchtower",
@@ -3424,7 +3441,8 @@
                 "Index": 0
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Immortal King",
@@ -3777,7 +3795,8 @@
                 "Index": 3
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Tal Rasha's Wrappings",
@@ -4086,7 +4105,8 @@
                 "Index": 0
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Griswold's Legacy",
@@ -4326,7 +4346,8 @@
                 "Index": 0
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Trang-Oul's Avatar",
@@ -4648,7 +4669,8 @@
                 "Index": 0
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "M'avina's Battle Hymn",
@@ -4936,7 +4958,8 @@
                 "Index": 4
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "The Disciple",
@@ -5186,7 +5209,8 @@
                 "Index": 0
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Heaven's Brethren",
@@ -5428,7 +5452,8 @@
                 "Index": 3
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Orphan's Call",
@@ -5659,7 +5684,8 @@
                 "Index": 5
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Hwanin's Majesty",
@@ -5877,7 +5903,8 @@
                 "Index": 3
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Sazabi's Grand Tribute",
@@ -6064,7 +6091,8 @@
                 "Index": 4
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Bul-Kathos' Children",
@@ -6206,7 +6234,8 @@
                 "Index": 3
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Cow King's Leathers",
@@ -6386,7 +6415,8 @@
                 "Index": 3
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Naj's Ancient Vestige",
@@ -6593,7 +6623,8 @@
                 "Index": 3
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Sander's Folly",
@@ -6803,7 +6834,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "Y"
     },
     {
         "Index": "Midnight Calling",
@@ -7001,7 +7033,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Nature's Grove",
@@ -7182,7 +7215,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Grimlock's Grave",
@@ -7369,7 +7403,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Corgina's Element",
@@ -7565,7 +7600,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Sheena's Grace",
@@ -7745,7 +7781,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Talonrage's Fury",
@@ -7932,7 +7969,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Greyhawk's Mantle",
@@ -8118,7 +8156,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Silent Runnings",
@@ -8344,7 +8383,8 @@
                 "Index": 2
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Snowmane's Jewelry",
@@ -8521,7 +8561,8 @@
                 "Index": 2
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Four Seasons",
@@ -8714,7 +8755,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Forgotten Treasures",
@@ -8989,7 +9031,8 @@
                 "Index": 2
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Insight of Brother Laz",
@@ -9263,7 +9306,8 @@
                 "Index": 2
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Hades' Underworld",
@@ -9510,7 +9554,8 @@
                 "Index": 4
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Darque's Cabal",
@@ -9723,7 +9768,8 @@
                 "Index": 4
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Red Havoc's Challenge",
@@ -9945,7 +9991,8 @@
                 "Index": 4
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Mishy's Avatar",
@@ -10256,7 +10303,8 @@
                 "Index": 4
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Joel's Sanctuary",
@@ -10488,7 +10536,8 @@
                 "Index": 3
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "JBouley's Scion",
@@ -10705,7 +10754,8 @@
                 "Index": 4
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Forsaken Divinity",
@@ -10900,7 +10950,8 @@
                 "Index": 2
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Volf's Undead Legion",
@@ -11112,7 +11163,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Legacy of Vashna",
@@ -11279,7 +11331,8 @@
                 "Index": 2
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Salander's Tirade",
@@ -11444,7 +11497,8 @@
                 "Index": 4
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Jerik's Dragon Armor",
@@ -11599,7 +11653,8 @@
                 "Index": 2
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Onyx's Primal Rage",
@@ -11881,7 +11936,8 @@
                 "Index": 3
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Brother Laz' Calling",
@@ -12157,7 +12213,8 @@
                 "Index": 3
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "The Mysterious Spin",
@@ -12390,7 +12447,8 @@
                 "Index": 2
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Darkmage's Astral Projection",
@@ -12666,7 +12724,8 @@
                 "Index": 3
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Phrozen Heart's Mysticism",
@@ -12929,7 +12988,8 @@
                 "Index": 3
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Chaos Energy",
@@ -13200,7 +13260,8 @@
                 "Index": 3
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Aiel Shieldmaiden",
@@ -13480,7 +13541,8 @@
                 "Index": 3
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Myhrginoc's Warbreeder",
@@ -13705,7 +13767,8 @@
                 "Index": 2
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Nefarious Ways",
@@ -13926,7 +13989,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Kraj's Memorial",
@@ -14149,7 +14213,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "The Darkest Weaves",
@@ -14302,7 +14367,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Blood Raven's Despair",
@@ -14475,7 +14541,8 @@
                 "Index": 3
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Narrow Path Between Light and Darkness",
@@ -14728,7 +14795,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Treasure Hunter",
@@ -15072,7 +15140,8 @@
                 "Index": 0
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Yohann's Savant",
@@ -15293,7 +15362,8 @@
                 "Index": 3
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Zhoulomcrist's Dread",
@@ -15514,7 +15584,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "The Warlord of Blood",
@@ -15842,7 +15913,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Darque Necromancy",
@@ -16098,7 +16170,8 @@
                 "Index": 2
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Marhawkman's Disguise",
@@ -16335,7 +16408,8 @@
                 "Index": 3
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Aragorn's Scorn",
@@ -16550,7 +16624,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Bogrot's Magic",
@@ -16727,7 +16802,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Cedric's Jinx",
@@ -16890,7 +16966,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Dragon Reborn",
@@ -17200,7 +17277,8 @@
                 "Index": 0
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Soldier's Cairn",
@@ -17361,7 +17439,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Gweibret's Rule",
@@ -17625,7 +17704,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Haunted Asylum",
@@ -17897,7 +17977,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Alyssa's Archery",
@@ -18061,7 +18142,8 @@
                 "Index": 0
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Forbidden Lore",
@@ -18275,7 +18357,8 @@
                 "Index": 2
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Hannibal's Demise",
@@ -18501,7 +18584,8 @@
                 "Index": 0
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Wrath of Vengeance",
@@ -18769,7 +18853,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Servitude or Rebellion",
@@ -18937,7 +19022,8 @@
                 "Index": 2
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Kaldorn's Majesty",
@@ -19176,7 +19262,8 @@
                 "Index": 3
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Warlock's Exploration",
@@ -19409,7 +19496,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Amaunator's Peace",
@@ -19724,7 +19812,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Tika's Request",
@@ -20011,7 +20100,8 @@
                 "Index": 2
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Corthala Family Heirlooms",
@@ -20280,7 +20370,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Knight's Gallantry",
@@ -20545,7 +20636,8 @@
                 "Index": 3
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Lord Sith's Province",
@@ -20785,7 +20877,8 @@
                 "Index": 0
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Kai Lord's Valiance",
@@ -21061,7 +21154,8 @@
                 "Index": 4
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Path of Bravery",
@@ -21377,7 +21471,8 @@
                 "Index": 2
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Terror of the Deep",
@@ -21606,7 +21701,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Celestial Hierarchy",
@@ -21942,7 +22038,8 @@
                 "Index": 0
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Lords of Hell",
@@ -22165,7 +22262,8 @@
                 "Index": 3
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Corruption Coils",
@@ -22302,7 +22400,8 @@
                 "Index": 3
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Maadi's Paradox",
@@ -22591,7 +22690,8 @@
                 "Index": 1
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "The Raven's Nest",
@@ -22901,7 +23001,8 @@
                 "Index": 2
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Tools of Vindication",
@@ -23058,7 +23159,8 @@
                 "Index": 0
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Panda's Polar Adventure",
@@ -23340,6 +23442,7 @@
                 "Index": 4
             }
         ],
-        "Level": 1
+        "Level": 1,
+        "Vanilla": "N"
     }
 ]

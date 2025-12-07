@@ -6,6 +6,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Cap [N]",
         "Code": "cap",
@@ -22,7 +23,6 @@
         "NormCode": "cap",
         "UberCode": "xap",
         "UltraCode": "uap",
-        "GemSockets": 2,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -33,6 +33,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Skull Cap [N]",
         "Code": "skp",
@@ -49,7 +50,6 @@
         "NormCode": "skp",
         "UberCode": "xkp",
         "UltraCode": "ukp",
-        "GemSockets": 2,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -60,6 +60,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Helm [N]",
         "Code": "hlm",
@@ -76,7 +77,6 @@
         "NormCode": "hlm",
         "UberCode": "xlm",
         "UltraCode": "ulm",
-        "GemSockets": 2,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -87,6 +87,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Full Helm [N]",
         "Code": "fhl",
@@ -103,7 +104,6 @@
         "NormCode": "fhl",
         "UberCode": "xhl",
         "UltraCode": "uhl",
-        "GemSockets": 2,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -114,6 +114,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-40:2, 41+:3",
         "EquipmentType": 0,
         "Name": "Great Helm [N]",
         "Code": "ghm",
@@ -130,7 +131,6 @@
         "NormCode": "ghm",
         "UberCode": "xhm",
         "UltraCode": "uhm",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -141,6 +141,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-40:2, 41+:3",
         "EquipmentType": 0,
         "Name": "Crown [N]",
         "Code": "crn",
@@ -157,7 +158,6 @@
         "NormCode": "crn",
         "UberCode": "xrn",
         "UltraCode": "urn",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -168,6 +168,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-40:2, 41+:3",
         "EquipmentType": 0,
         "Name": "Mask [N]",
         "Code": "msk",
@@ -184,7 +185,6 @@
         "NormCode": "msk",
         "UberCode": "xsk",
         "UltraCode": "usk",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -195,6 +195,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Quilted Armor [N]",
         "Code": "qui",
@@ -211,7 +212,6 @@
         "NormCode": "qui",
         "UberCode": "xui",
         "UltraCode": "uui",
-        "GemSockets": 2,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -222,6 +222,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Leather Armor [N]",
         "Code": "lea",
@@ -238,7 +239,6 @@
         "NormCode": "lea",
         "UberCode": "xea",
         "UltraCode": "uea",
-        "GemSockets": 2,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -249,6 +249,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Hard Leather Armor [N]",
         "Code": "hla",
@@ -265,7 +266,6 @@
         "NormCode": "hla",
         "UberCode": "xla",
         "UltraCode": "ula",
-        "GemSockets": 2,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -276,6 +276,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Studded Leather [N]",
         "Code": "stu",
@@ -292,7 +293,6 @@
         "NormCode": "stu",
         "UberCode": "xtu",
         "UltraCode": "utu",
-        "GemSockets": 2,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -303,6 +303,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 0,
         "Name": "Ring Mail [N]",
         "Code": "rng",
@@ -319,7 +320,6 @@
         "NormCode": "rng",
         "UberCode": "xng",
         "UltraCode": "ung",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -330,6 +330,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Scale Mail [N]",
         "Code": "scl",
@@ -346,7 +347,6 @@
         "NormCode": "scl",
         "UberCode": "xcl",
         "UltraCode": "ucl",
-        "GemSockets": 2,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -357,6 +357,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Chain Mail [N]",
         "Code": "chn",
@@ -373,7 +374,6 @@
         "NormCode": "chn",
         "UberCode": "xhn",
         "UltraCode": "uhn",
-        "GemSockets": 2,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -384,6 +384,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 0,
         "Name": "Breast Plate [N]",
         "Code": "brs",
@@ -400,7 +401,6 @@
         "NormCode": "brs",
         "UberCode": "xrs",
         "UltraCode": "urs",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -411,6 +411,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Splint Mail [N]",
         "Code": "spl",
@@ -427,7 +428,6 @@
         "NormCode": "spl",
         "UberCode": "xpl",
         "UltraCode": "upl",
-        "GemSockets": 2,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -438,6 +438,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Plate Mail [N]",
         "Code": "plt",
@@ -454,7 +455,6 @@
         "NormCode": "plt",
         "UberCode": "xlt",
         "UltraCode": "ult",
-        "GemSockets": 2,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -465,6 +465,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Field Plate [N]",
         "Code": "fld",
@@ -481,7 +482,6 @@
         "NormCode": "fld",
         "UberCode": "xld",
         "UltraCode": "uld",
-        "GemSockets": 2,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -492,6 +492,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 0,
         "Name": "Gothic Plate [N]",
         "Code": "gth",
@@ -508,7 +509,6 @@
         "NormCode": "gth",
         "UberCode": "xth",
         "UltraCode": "uth",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -519,6 +519,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 0,
         "Name": "Full Plate Mail [N]",
         "Code": "ful",
@@ -535,7 +536,6 @@
         "NormCode": "ful",
         "UberCode": "xul",
         "UltraCode": "uul",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -546,6 +546,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 0,
         "Name": "Ancient Armor [N]",
         "Code": "aar",
@@ -562,7 +563,6 @@
         "NormCode": "aar",
         "UberCode": "xar",
         "UltraCode": "uar",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -573,6 +573,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 0,
         "Name": "Light Plate [N]",
         "Code": "ltp",
@@ -589,7 +590,6 @@
         "NormCode": "ltp",
         "UberCode": "xtp",
         "UltraCode": "utp",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -600,6 +600,7 @@
         "Block": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:1",
         "EquipmentType": 0,
         "Name": "Buckler [N]",
         "Code": "buc",
@@ -616,7 +617,6 @@
         "NormCode": "buc",
         "UberCode": "xuc",
         "UltraCode": "uuc",
-        "GemSockets": 1,
         "AutoPrefix": "316",
         "RequiredClass": ""
     },
@@ -627,6 +627,7 @@
         "Block": 5,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Small Shield [N]",
         "Code": "sml",
@@ -643,7 +644,6 @@
         "NormCode": "sml",
         "UberCode": "xml",
         "UltraCode": "uml",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -654,6 +654,7 @@
         "Block": 12,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 0,
         "Name": "Large Shield [N]",
         "Code": "lrg",
@@ -670,7 +671,6 @@
         "NormCode": "lrg",
         "UberCode": "xrg",
         "UltraCode": "urg",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -681,6 +681,7 @@
         "Block": 8,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 0,
         "Name": "Kite Shield [N]",
         "Code": "kit",
@@ -697,7 +698,6 @@
         "NormCode": "kit",
         "UberCode": "xit",
         "UltraCode": "uit",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -708,6 +708,7 @@
         "Block": 24,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 0,
         "Name": "Tower Shield [N]",
         "Code": "tow",
@@ -724,7 +725,6 @@
         "NormCode": "tow",
         "UberCode": "xow",
         "UltraCode": "uow",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -735,6 +735,7 @@
         "Block": 16,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 0,
         "Name": "Gothic Shield [N]",
         "Code": "gts",
@@ -751,7 +752,6 @@
         "NormCode": "gts",
         "UberCode": "xts",
         "UltraCode": "uts",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -762,6 +762,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Leather Gloves [N]",
         "Code": "lgl",
@@ -778,7 +779,6 @@
         "NormCode": "lgl",
         "UberCode": "xlg",
         "UltraCode": "ulg",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -789,6 +789,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Heavy Gloves [N]",
         "Code": "vgl",
@@ -805,7 +806,6 @@
         "NormCode": "vgl",
         "UberCode": "xvg",
         "UltraCode": "uvg",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -816,6 +816,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Chain Gloves [N]",
         "Code": "mgl",
@@ -832,7 +833,6 @@
         "NormCode": "mgl",
         "UberCode": "xmg",
         "UltraCode": "umg",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -843,6 +843,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Light Gauntlets [N]",
         "Code": "tgl",
@@ -859,7 +860,6 @@
         "NormCode": "tgl",
         "UberCode": "xtg",
         "UltraCode": "utg",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -870,6 +870,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Gauntlets [N]",
         "Code": "hgl",
@@ -886,7 +887,6 @@
         "NormCode": "hgl",
         "UberCode": "xhg",
         "UltraCode": "uhg",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -897,6 +897,7 @@
         "Block": null,
         "StrBonus": 120,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Boots [N]",
         "Code": "lbt",
@@ -913,7 +914,6 @@
         "NormCode": "lbt",
         "UberCode": "xlb",
         "UltraCode": "ulb",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -924,6 +924,7 @@
         "Block": null,
         "StrBonus": 120,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Heavy Boots [N]",
         "Code": "vbt",
@@ -940,7 +941,6 @@
         "NormCode": "vbt",
         "UberCode": "xvb",
         "UltraCode": "uvb",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -951,6 +951,7 @@
         "Block": null,
         "StrBonus": 120,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Chain Boots [N]",
         "Code": "mbt",
@@ -967,7 +968,6 @@
         "NormCode": "mbt",
         "UberCode": "xmb",
         "UltraCode": "umb",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -978,6 +978,7 @@
         "Block": null,
         "StrBonus": 120,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Light Plated Boots [N]",
         "Code": "tbt",
@@ -994,7 +995,6 @@
         "NormCode": "tbt",
         "UberCode": "xtb",
         "UltraCode": "utb",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1005,6 +1005,7 @@
         "Block": null,
         "StrBonus": 120,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Greaves [N]",
         "Code": "hbt",
@@ -1021,7 +1022,6 @@
         "NormCode": "hbt",
         "UberCode": "xhb",
         "UltraCode": "uhb",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1032,6 +1032,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Sash [N]",
         "Code": "lbl",
@@ -1048,7 +1049,6 @@
         "NormCode": "lbl",
         "UberCode": "zlb",
         "UltraCode": "ulc",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1059,6 +1059,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Light Belt [N]",
         "Code": "vbl",
@@ -1075,7 +1076,6 @@
         "NormCode": "vbl",
         "UberCode": "zvb",
         "UltraCode": "uvc",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1086,6 +1086,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Belt [N]",
         "Code": "mbl",
@@ -1102,7 +1103,6 @@
         "NormCode": "mbl",
         "UberCode": "zmb",
         "UltraCode": "umc",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1113,6 +1113,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Heavy Belt [N]",
         "Code": "tbl",
@@ -1129,7 +1130,6 @@
         "NormCode": "tbl",
         "UberCode": "ztb",
         "UltraCode": "utc",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1140,6 +1140,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Plated Belt [N]",
         "Code": "hbl",
@@ -1156,7 +1157,6 @@
         "NormCode": "hbl",
         "UberCode": "zhb",
         "UltraCode": "uhc",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1167,6 +1167,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Bone Helm [N]",
         "Code": "bhm",
@@ -1183,7 +1184,6 @@
         "NormCode": "bhm",
         "UberCode": "xh9",
         "UltraCode": "uh9",
-        "GemSockets": 2,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1194,6 +1194,7 @@
         "Block": 20,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Bone Shield [N]",
         "Code": "bsh",
@@ -1210,7 +1211,6 @@
         "NormCode": "bsh",
         "UberCode": "xsh",
         "UltraCode": "ush",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -1221,6 +1221,7 @@
         "Block": 10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Spiked Shield [N]",
         "Code": "spk",
@@ -1237,7 +1238,6 @@
         "NormCode": "spk",
         "UberCode": "xpk",
         "UltraCode": "upk",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -1248,6 +1248,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "War Hat [X]",
         "Code": "xap",
@@ -1264,7 +1265,6 @@
         "NormCode": "cap",
         "UberCode": "xap",
         "UltraCode": "uap",
-        "GemSockets": 2,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1275,6 +1275,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Sallet [X]",
         "Code": "xkp",
@@ -1291,7 +1292,6 @@
         "NormCode": "skp",
         "UberCode": "xkp",
         "UltraCode": "ukp",
-        "GemSockets": 2,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1302,6 +1302,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Casque [X]",
         "Code": "xlm",
@@ -1318,7 +1319,6 @@
         "NormCode": "hlm",
         "UberCode": "xlm",
         "UltraCode": "ulm",
-        "GemSockets": 2,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1329,6 +1329,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Basinet [X]",
         "Code": "xhl",
@@ -1345,7 +1346,6 @@
         "NormCode": "fhl",
         "UberCode": "xhl",
         "UltraCode": "uhl",
-        "GemSockets": 2,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1356,6 +1356,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-40:2, 41+:3",
         "EquipmentType": 0,
         "Name": "Winged Helm [X]",
         "Code": "xhm",
@@ -1372,7 +1373,6 @@
         "NormCode": "ghm",
         "UberCode": "xhm",
         "UltraCode": "uhm",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1383,6 +1383,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-40:2, 41+:3",
         "EquipmentType": 0,
         "Name": "Grand Crown [X]",
         "Code": "xrn",
@@ -1399,7 +1400,6 @@
         "NormCode": "crn",
         "UberCode": "xrn",
         "UltraCode": "urn",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1410,6 +1410,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-40:2, 41+:3",
         "EquipmentType": 0,
         "Name": "Death Mask [X]",
         "Code": "xsk",
@@ -1426,7 +1427,6 @@
         "NormCode": "msk",
         "UberCode": "xsk",
         "UltraCode": "usk",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1437,6 +1437,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Ghost Armor [X]",
         "Code": "xui",
@@ -1453,7 +1454,6 @@
         "NormCode": "qui",
         "UberCode": "xui",
         "UltraCode": "uui",
-        "GemSockets": 2,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1464,6 +1464,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Serpentskin Armor [X]",
         "Code": "xea",
@@ -1480,7 +1481,6 @@
         "NormCode": "lea",
         "UberCode": "xea",
         "UltraCode": "uea",
-        "GemSockets": 2,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1491,6 +1491,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Demonhide Armor [X]",
         "Code": "xla",
@@ -1507,7 +1508,6 @@
         "NormCode": "hla",
         "UberCode": "xla",
         "UltraCode": "ula",
-        "GemSockets": 2,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1518,6 +1518,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Trellised Armor [X]",
         "Code": "xtu",
@@ -1534,7 +1535,6 @@
         "NormCode": "stu",
         "UberCode": "xtu",
         "UltraCode": "utu",
-        "GemSockets": 2,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1545,6 +1545,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 0,
         "Name": "Linked Mail [X]",
         "Code": "xng",
@@ -1561,7 +1562,6 @@
         "NormCode": "rng",
         "UberCode": "xng",
         "UltraCode": "ung",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1572,6 +1572,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 0,
         "Name": "Tigulated Mail [X]",
         "Code": "xcl",
@@ -1588,7 +1589,6 @@
         "NormCode": "scl",
         "UberCode": "xcl",
         "UltraCode": "ucl",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1599,6 +1599,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 0,
         "Name": "Mesh Armor [X]",
         "Code": "xhn",
@@ -1615,7 +1616,6 @@
         "NormCode": "chn",
         "UberCode": "xhn",
         "UltraCode": "uhn",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1626,6 +1626,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 0,
         "Name": "Cuirass [X]",
         "Code": "xrs",
@@ -1642,7 +1643,6 @@
         "NormCode": "brs",
         "UberCode": "xrs",
         "UltraCode": "urs",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1653,6 +1653,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 0,
         "Name": "Russet Armor [X]",
         "Code": "xpl",
@@ -1669,7 +1670,6 @@
         "NormCode": "spl",
         "UberCode": "xpl",
         "UltraCode": "upl",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1680,6 +1680,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 0,
         "Name": "Templar Coat [X]",
         "Code": "xlt",
@@ -1696,7 +1697,6 @@
         "NormCode": "plt",
         "UberCode": "xlt",
         "UltraCode": "ult",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1707,6 +1707,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 0,
         "Name": "Sharktooth Armor [X]",
         "Code": "xld",
@@ -1723,7 +1724,6 @@
         "NormCode": "fld",
         "UberCode": "xld",
         "UltraCode": "uld",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1734,6 +1734,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 0,
         "Name": "Embossed Plate [X]",
         "Code": "xth",
@@ -1750,7 +1751,6 @@
         "NormCode": "gth",
         "UberCode": "xth",
         "UltraCode": "uth",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1761,6 +1761,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 0,
         "Name": "Chaos Armor [X]",
         "Code": "xul",
@@ -1777,7 +1778,6 @@
         "NormCode": "ful",
         "UberCode": "xul",
         "UltraCode": "uul",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1788,6 +1788,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 0,
         "Name": "Ornate Plate [X]",
         "Code": "xar",
@@ -1804,7 +1805,6 @@
         "NormCode": "aar",
         "UberCode": "xar",
         "UltraCode": "uar",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1815,6 +1815,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 0,
         "Name": "Mage Plate [X]",
         "Code": "xtp",
@@ -1831,7 +1832,6 @@
         "NormCode": "ltp",
         "UberCode": "xtp",
         "UltraCode": "utp",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -1842,6 +1842,7 @@
         "Block": 10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:1",
         "EquipmentType": 0,
         "Name": "Defender [X]",
         "Code": "xuc",
@@ -1858,7 +1859,6 @@
         "NormCode": "buc",
         "UberCode": "xuc",
         "UltraCode": "uuc",
-        "GemSockets": 1,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -1869,6 +1869,7 @@
         "Block": 12,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Round Shield [X]",
         "Code": "xml",
@@ -1885,7 +1886,6 @@
         "NormCode": "sml",
         "UberCode": "xml",
         "UltraCode": "uml",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -1896,6 +1896,7 @@
         "Block": 14,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 0,
         "Name": "Scutum [X]",
         "Code": "xrg",
@@ -1912,7 +1913,6 @@
         "NormCode": "lrg",
         "UberCode": "xrg",
         "UltraCode": "urg",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -1923,6 +1923,7 @@
         "Block": 18,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 0,
         "Name": "Dragon Shield [X]",
         "Code": "xit",
@@ -1939,7 +1940,6 @@
         "NormCode": "kit",
         "UberCode": "xit",
         "UltraCode": "uit",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -1950,6 +1950,7 @@
         "Block": 24,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 0,
         "Name": "Pavise [X]",
         "Code": "xow",
@@ -1966,7 +1967,6 @@
         "NormCode": "tow",
         "UberCode": "xow",
         "UltraCode": "uow",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -1977,6 +1977,7 @@
         "Block": 16,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 0,
         "Name": "Ancient Shield [X]",
         "Code": "xts",
@@ -1993,7 +1994,6 @@
         "NormCode": "gts",
         "UberCode": "xts",
         "UltraCode": "uts",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -2004,6 +2004,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Demonhide Gloves [X]",
         "Code": "xlg",
@@ -2020,7 +2021,6 @@
         "NormCode": "lgl",
         "UberCode": "xlg",
         "UltraCode": "ulg",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -2031,6 +2031,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Sharkskin Gloves [X]",
         "Code": "xvg",
@@ -2047,7 +2048,6 @@
         "NormCode": "vgl",
         "UberCode": "xvg",
         "UltraCode": "uvg",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -2058,6 +2058,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Heavy Bracers [X]",
         "Code": "xmg",
@@ -2074,7 +2075,6 @@
         "NormCode": "mgl",
         "UberCode": "xmg",
         "UltraCode": "umg",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -2085,6 +2085,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Battle Gauntlets [X]",
         "Code": "xtg",
@@ -2101,7 +2102,6 @@
         "NormCode": "tgl",
         "UberCode": "xtg",
         "UltraCode": "utg",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -2112,6 +2112,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "War Gauntlets [X]",
         "Code": "xhg",
@@ -2128,7 +2129,6 @@
         "NormCode": "hgl",
         "UberCode": "xhg",
         "UltraCode": "uhg",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -2139,6 +2139,7 @@
         "Block": null,
         "StrBonus": 120,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Demonhide Boots [X]",
         "Code": "xlb",
@@ -2155,7 +2156,6 @@
         "NormCode": "lbt",
         "UberCode": "xlb",
         "UltraCode": "ulb",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -2166,6 +2166,7 @@
         "Block": null,
         "StrBonus": 120,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Sharkskin Boots [X]",
         "Code": "xvb",
@@ -2182,7 +2183,6 @@
         "NormCode": "vbt",
         "UberCode": "xvb",
         "UltraCode": "uvb",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -2193,6 +2193,7 @@
         "Block": null,
         "StrBonus": 120,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Mesh Boots [X]",
         "Code": "xmb",
@@ -2209,7 +2210,6 @@
         "NormCode": "mbt",
         "UberCode": "xmb",
         "UltraCode": "umb",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -2220,6 +2220,7 @@
         "Block": null,
         "StrBonus": 120,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Battle Boots [X]",
         "Code": "xtb",
@@ -2236,7 +2237,6 @@
         "NormCode": "tbt",
         "UberCode": "xtb",
         "UltraCode": "utb",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -2247,6 +2247,7 @@
         "Block": null,
         "StrBonus": 120,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "War Boots [X]",
         "Code": "xhb",
@@ -2263,7 +2264,6 @@
         "NormCode": "hbt",
         "UberCode": "xhb",
         "UltraCode": "uhb",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -2274,6 +2274,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Demonhide Sash [X]",
         "Code": "zlb",
@@ -2290,7 +2291,6 @@
         "NormCode": "lbl",
         "UberCode": "zlb",
         "UltraCode": "ulc",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -2301,6 +2301,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Sharkskin Belt [X]",
         "Code": "zvb",
@@ -2317,7 +2318,6 @@
         "NormCode": "vbl",
         "UberCode": "zvb",
         "UltraCode": "uvc",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -2328,6 +2328,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Mesh Belt [X]",
         "Code": "zmb",
@@ -2344,7 +2345,6 @@
         "NormCode": "mbl",
         "UberCode": "zmb",
         "UltraCode": "umc",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -2355,6 +2355,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Battle Belt [X]",
         "Code": "ztb",
@@ -2371,7 +2372,6 @@
         "NormCode": "tbl",
         "UberCode": "ztb",
         "UltraCode": "utc",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -2382,6 +2382,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "War Belt [X]",
         "Code": "zhb",
@@ -2398,7 +2399,6 @@
         "NormCode": "hbl",
         "UberCode": "zhb",
         "UltraCode": "uhc",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -2409,6 +2409,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Grim Helm [X]",
         "Code": "xh9",
@@ -2425,7 +2426,6 @@
         "NormCode": "bhm",
         "UberCode": "xh9",
         "UltraCode": "uh9",
-        "GemSockets": 2,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -2436,6 +2436,7 @@
         "Block": 20,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Grim Shield [X]",
         "Code": "xsh",
@@ -2452,7 +2453,6 @@
         "NormCode": "bsh",
         "UberCode": "xsh",
         "UltraCode": "ush",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -2463,6 +2463,7 @@
         "Block": 17,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Barbed Shield [X]",
         "Code": "xpk",
@@ -2479,7 +2480,6 @@
         "NormCode": "spk",
         "UberCode": "xpk",
         "UltraCode": "upk",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -2490,6 +2490,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 0,
         "Name": "Wolf Head [N]",
         "Code": "dr1",
@@ -2506,7 +2507,6 @@
         "NormCode": "dr1",
         "UberCode": "dr6",
         "UltraCode": "drb",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": "Druid"
     },
@@ -2517,6 +2517,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 0,
         "Name": "Hawk Helm [N]",
         "Code": "dr2",
@@ -2533,7 +2534,6 @@
         "NormCode": "dr2",
         "UberCode": "dr7",
         "UltraCode": "drc",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": "Druid"
     },
@@ -2544,6 +2544,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 0,
         "Name": "Antlers [N]",
         "Code": "dr3",
@@ -2560,7 +2561,6 @@
         "NormCode": "dr3",
         "UberCode": "dr8",
         "UltraCode": "drd",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": "Druid"
     },
@@ -2571,6 +2571,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 0,
         "Name": "Falcon Mask [N]",
         "Code": "dr4",
@@ -2587,7 +2588,6 @@
         "NormCode": "dr4",
         "UberCode": "dr9",
         "UltraCode": "dre",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": "Druid"
     },
@@ -2598,6 +2598,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 0,
         "Name": "Spirit Mask [N]",
         "Code": "dr5",
@@ -2614,7 +2615,6 @@
         "NormCode": "dr5",
         "UberCode": "dra",
         "UltraCode": "drf",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": "Druid"
     },
@@ -2625,6 +2625,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 0,
         "Name": "Jawbone Cap [N]",
         "Code": "ba1",
@@ -2641,7 +2642,6 @@
         "NormCode": "ba1",
         "UberCode": "ba6",
         "UltraCode": "bab",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": "Barbarian"
     },
@@ -2652,6 +2652,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 0,
         "Name": "Fanged Helm [N]",
         "Code": "ba2",
@@ -2668,7 +2669,6 @@
         "NormCode": "ba2",
         "UberCode": "ba7",
         "UltraCode": "bac",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": "Barbarian"
     },
@@ -2679,6 +2679,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 0,
         "Name": "Horned Helm [N]",
         "Code": "ba3",
@@ -2695,7 +2696,6 @@
         "NormCode": "ba3",
         "UberCode": "ba8",
         "UltraCode": "bad",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": "Barbarian"
     },
@@ -2706,6 +2706,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 0,
         "Name": "Assault Helmet [N]",
         "Code": "ba4",
@@ -2722,7 +2723,6 @@
         "NormCode": "ba4",
         "UberCode": "ba9",
         "UltraCode": "bae",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": "Barbarian"
     },
@@ -2733,6 +2733,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 0,
         "Name": "Avenger Guard [N]",
         "Code": "ba5",
@@ -2749,7 +2750,6 @@
         "NormCode": "ba5",
         "UberCode": "baa",
         "UltraCode": "baf",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": "Barbarian"
     },
@@ -2760,6 +2760,7 @@
         "Block": 10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "AutoMagicGroups": [
             {
                 "Name": "Shimmering",
@@ -2863,7 +2864,6 @@
         "NormCode": "pa1",
         "UberCode": "pa6",
         "UltraCode": "pab",
-        "GemSockets": 4,
         "AutoPrefix": "304",
         "RequiredClass": "Paladin"
     },
@@ -2874,6 +2874,7 @@
         "Block": 15,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "AutoMagicGroups": [
             {
                 "Name": "Shimmering",
@@ -2977,7 +2978,6 @@
         "NormCode": "pa2",
         "UberCode": "pa7",
         "UltraCode": "pac",
-        "GemSockets": 4,
         "AutoPrefix": "304",
         "RequiredClass": "Paladin"
     },
@@ -2988,6 +2988,7 @@
         "Block": 20,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "AutoMagicGroups": [
             {
                 "Name": "Shimmering",
@@ -3091,7 +3092,6 @@
         "NormCode": "pa3",
         "UberCode": "pa8",
         "UltraCode": "pad",
-        "GemSockets": 4,
         "AutoPrefix": "304",
         "RequiredClass": "Paladin"
     },
@@ -3102,6 +3102,7 @@
         "Block": 22,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "AutoMagicGroups": [
             {
                 "Name": "Shimmering",
@@ -3205,7 +3206,6 @@
         "NormCode": "pa4",
         "UberCode": "pa9",
         "UltraCode": "pae",
-        "GemSockets": 4,
         "AutoPrefix": "304",
         "RequiredClass": "Paladin"
     },
@@ -3216,6 +3216,7 @@
         "Block": 25,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "AutoMagicGroups": [
             {
                 "Name": "Shimmering",
@@ -3319,7 +3320,6 @@
         "NormCode": "pa5",
         "UberCode": "paa",
         "UltraCode": "paf",
-        "GemSockets": 4,
         "AutoPrefix": "304",
         "RequiredClass": "Paladin"
     },
@@ -3330,6 +3330,7 @@
         "Block": 3,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "AutoMagicGroups": [
             {
                 "Name": "of Blight",
@@ -3384,7 +3385,6 @@
         "NormCode": "ne1",
         "UberCode": "ne6",
         "UltraCode": "neb",
-        "GemSockets": 2,
         "AutoPrefix": "305",
         "RequiredClass": "Necromancer"
     },
@@ -3395,6 +3395,7 @@
         "Block": 5,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "AutoMagicGroups": [
             {
                 "Name": "of Blight",
@@ -3449,7 +3450,6 @@
         "NormCode": "ne2",
         "UberCode": "ne7",
         "UltraCode": "neg",
-        "GemSockets": 2,
         "AutoPrefix": "305",
         "RequiredClass": "Necromancer"
     },
@@ -3460,6 +3460,7 @@
         "Block": 8,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "AutoMagicGroups": [
             {
                 "Name": "of Blight",
@@ -3514,7 +3515,6 @@
         "NormCode": "ne3",
         "UberCode": "ne8",
         "UltraCode": "ned",
-        "GemSockets": 2,
         "AutoPrefix": "305",
         "RequiredClass": "Necromancer"
     },
@@ -3525,6 +3525,7 @@
         "Block": 10,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "AutoMagicGroups": [
             {
                 "Name": "of Blight",
@@ -3579,7 +3580,6 @@
         "NormCode": "ne4",
         "UberCode": "ne9",
         "UltraCode": "nee",
-        "GemSockets": 2,
         "AutoPrefix": "305",
         "RequiredClass": "Necromancer"
     },
@@ -3590,6 +3590,7 @@
         "Block": 12,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "AutoMagicGroups": [
             {
                 "Name": "of Blight",
@@ -3644,7 +3645,6 @@
         "NormCode": "ne5",
         "UberCode": "nea",
         "UltraCode": "nef",
-        "GemSockets": 2,
         "AutoPrefix": "305",
         "RequiredClass": "Necromancer"
     },
@@ -3655,6 +3655,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:1, 26+:2",
         "EquipmentType": 0,
         "Name": "Circlet [N]",
         "Code": "ci0",
@@ -3671,7 +3672,6 @@
         "NormCode": "ci0",
         "UberCode": "ci2",
         "UltraCode": "ci3",
-        "GemSockets": 2,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -3682,6 +3682,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:1, 26+:2",
         "EquipmentType": 0,
         "Name": "Coronet [N]",
         "Code": "ci1",
@@ -3698,7 +3699,6 @@
         "NormCode": "ci1",
         "UberCode": "ci2",
         "UltraCode": "ci3",
-        "GemSockets": 2,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -3709,6 +3709,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:1, 26-40:2, 41+:3",
         "EquipmentType": 0,
         "Name": "Tiara [X]",
         "Code": "ci2",
@@ -3725,7 +3726,6 @@
         "NormCode": "ci1",
         "UberCode": "ci2",
         "UltraCode": "ci3",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -3736,6 +3736,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:1, 26-40:2, 41+:4",
         "EquipmentType": 0,
         "Name": "Diadem [E]",
         "Code": "ci3",
@@ -3752,7 +3753,6 @@
         "NormCode": "ci1",
         "UberCode": "ci2",
         "UltraCode": "ci3",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -3763,6 +3763,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-40:2, 41+:4",
         "EquipmentType": 0,
         "Name": "Shako [E]",
         "Code": "uap",
@@ -3779,7 +3780,6 @@
         "NormCode": "cap",
         "UberCode": "xap",
         "UltraCode": "uap",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -3790,6 +3790,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-40:2, 41+:4",
         "EquipmentType": 0,
         "Name": "Hydraskull [E]",
         "Code": "ukp",
@@ -3806,7 +3807,6 @@
         "NormCode": "skp",
         "UberCode": "xkp",
         "UltraCode": "ukp",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -3817,6 +3817,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-40:2, 41+:4",
         "EquipmentType": 0,
         "Name": "Armet [E]",
         "Code": "ulm",
@@ -3833,7 +3834,6 @@
         "NormCode": "hlm",
         "UberCode": "xlm",
         "UltraCode": "ulm",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -3844,6 +3844,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-40:2, 41+:4",
         "EquipmentType": 0,
         "Name": "Giant Conch [E]",
         "Code": "uhl",
@@ -3860,7 +3861,6 @@
         "NormCode": "fhl",
         "UberCode": "xhl",
         "UltraCode": "uhl",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -3871,6 +3871,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-40:2, 41+:4",
         "EquipmentType": 0,
         "Name": "Spired Helm [E]",
         "Code": "uhm",
@@ -3887,7 +3888,6 @@
         "NormCode": "ghm",
         "UberCode": "xhm",
         "UltraCode": "uhm",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -3898,6 +3898,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-40:2, 41+:4",
         "EquipmentType": 0,
         "Name": "Corona [E]",
         "Code": "urn",
@@ -3914,7 +3915,6 @@
         "NormCode": "crn",
         "UberCode": "xrn",
         "UltraCode": "urn",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -3925,6 +3925,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-40:2, 41+:4",
         "EquipmentType": 0,
         "Name": "Demonhead [E]",
         "Code": "usk",
@@ -3941,7 +3942,6 @@
         "NormCode": "msk",
         "UberCode": "xsk",
         "UltraCode": "usk",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -3952,6 +3952,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 0,
         "Name": "Dusk Shroud [E]",
         "Code": "uui",
@@ -3968,7 +3969,6 @@
         "NormCode": "qui",
         "UberCode": "xui",
         "UltraCode": "uui",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -3979,6 +3979,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 0,
         "Name": "Wyrmhide [E]",
         "Code": "uea",
@@ -3995,7 +3996,6 @@
         "NormCode": "lea",
         "UberCode": "xea",
         "UltraCode": "uea",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4006,6 +4006,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 0,
         "Name": "Scarab Husk [E]",
         "Code": "ula",
@@ -4022,7 +4023,6 @@
         "NormCode": "hla",
         "UberCode": "xla",
         "UltraCode": "ula",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4033,6 +4033,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 0,
         "Name": "Wire Fleece [E]",
         "Code": "utu",
@@ -4049,7 +4050,6 @@
         "NormCode": "stu",
         "UberCode": "xtu",
         "UltraCode": "utu",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4060,6 +4060,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 0,
         "Name": "Diamond Mail [E]",
         "Code": "ung",
@@ -4076,7 +4077,6 @@
         "NormCode": "rng",
         "UberCode": "xng",
         "UltraCode": "ung",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4087,6 +4087,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 0,
         "Name": "Loricated Mail [E]",
         "Code": "ucl",
@@ -4103,7 +4104,6 @@
         "NormCode": "scl",
         "UberCode": "xcl",
         "UltraCode": "ucl",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4114,6 +4114,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 0,
         "Name": "Boneweave [E]",
         "Code": "uhn",
@@ -4130,7 +4131,6 @@
         "NormCode": "chn",
         "UberCode": "xhn",
         "UltraCode": "uhn",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4141,6 +4141,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 0,
         "Name": "Great Hauberk [E]",
         "Code": "urs",
@@ -4157,7 +4158,6 @@
         "NormCode": "brs",
         "UberCode": "xrs",
         "UltraCode": "urs",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4168,6 +4168,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 0,
         "Name": "Balrog Skin [E]",
         "Code": "upl",
@@ -4184,7 +4185,6 @@
         "NormCode": "spl",
         "UberCode": "xpl",
         "UltraCode": "upl",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4195,6 +4195,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 0,
         "Name": "Hellforge Plate [E]",
         "Code": "ult",
@@ -4211,7 +4212,6 @@
         "NormCode": "plt",
         "UberCode": "xlt",
         "UltraCode": "ult",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4222,6 +4222,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 0,
         "Name": "Kraken Shell [E]",
         "Code": "uld",
@@ -4238,7 +4239,6 @@
         "NormCode": "fld",
         "UberCode": "xld",
         "UltraCode": "uld",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4249,6 +4249,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 0,
         "Name": "Lacquered Plate [E]",
         "Code": "uth",
@@ -4265,7 +4266,6 @@
         "NormCode": "gth",
         "UberCode": "xth",
         "UltraCode": "uth",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4276,6 +4276,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 0,
         "Name": "Shadow Plate [E]",
         "Code": "uul",
@@ -4292,7 +4293,6 @@
         "NormCode": "ful",
         "UberCode": "xul",
         "UltraCode": "uul",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4303,6 +4303,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 0,
         "Name": "Sacred Armor [E]",
         "Code": "uar",
@@ -4319,7 +4320,6 @@
         "NormCode": "aar",
         "UberCode": "xar",
         "UltraCode": "uar",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4330,6 +4330,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 0,
         "Name": "Archon Plate [E]",
         "Code": "utp",
@@ -4346,7 +4347,6 @@
         "NormCode": "ltp",
         "UberCode": "xtp",
         "UltraCode": "utp",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4357,6 +4357,7 @@
         "Block": 22,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Heater [E]",
         "Code": "uuc",
@@ -4373,7 +4374,6 @@
         "NormCode": "buc",
         "UberCode": "xuc",
         "UltraCode": "uuc",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4384,6 +4384,7 @@
         "Block": 20,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 0,
         "Name": "Luna [E]",
         "Code": "uml",
@@ -4400,7 +4401,6 @@
         "NormCode": "sml",
         "UberCode": "xml",
         "UltraCode": "uml",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4411,6 +4411,7 @@
         "Block": 24,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-40:3, 41+:4",
         "EquipmentType": 0,
         "Name": "Hyperion [E]",
         "Code": "urg",
@@ -4427,7 +4428,6 @@
         "NormCode": "lrg",
         "UberCode": "xrg",
         "UltraCode": "urg",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4438,6 +4438,7 @@
         "Block": 22,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-40:3, 41+:4",
         "EquipmentType": 0,
         "Name": "Monarch [E]",
         "Code": "uit",
@@ -4454,7 +4455,6 @@
         "NormCode": "kit",
         "UberCode": "xit",
         "UltraCode": "uit",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4465,6 +4465,7 @@
         "Block": 24,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-40:3, 41+:4",
         "EquipmentType": 0,
         "Name": "Aegis [E]",
         "Code": "uow",
@@ -4481,7 +4482,6 @@
         "NormCode": "tow",
         "UberCode": "xow",
         "UltraCode": "uow",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4492,6 +4492,7 @@
         "Block": 24,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-40:3, 41+:4",
         "EquipmentType": 0,
         "Name": "Ward [E]",
         "Code": "uts",
@@ -4508,7 +4509,6 @@
         "NormCode": "gts",
         "UberCode": "xts",
         "UltraCode": "uts",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4519,6 +4519,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Bramble Mitts [E]",
         "Code": "ulg",
@@ -4535,7 +4536,6 @@
         "NormCode": "lgl",
         "UberCode": "xlg",
         "UltraCode": "ulg",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4546,6 +4546,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Vampirebone Gloves [E]",
         "Code": "uvg",
@@ -4562,7 +4563,6 @@
         "NormCode": "vgl",
         "UberCode": "xvg",
         "UltraCode": "uvg",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4573,6 +4573,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Vambraces [E]",
         "Code": "umg",
@@ -4589,7 +4590,6 @@
         "NormCode": "mgl",
         "UberCode": "xmg",
         "UltraCode": "umg",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4600,6 +4600,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Crusader Gauntlets [E]",
         "Code": "utg",
@@ -4616,7 +4617,6 @@
         "NormCode": "tgl",
         "UberCode": "xtg",
         "UltraCode": "utg",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4627,6 +4627,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Ogre Gauntlets [E]",
         "Code": "uhg",
@@ -4643,7 +4644,6 @@
         "NormCode": "hgl",
         "UberCode": "xhg",
         "UltraCode": "uhg",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4654,6 +4654,7 @@
         "Block": null,
         "StrBonus": 120,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Wyrmhide Boots [E]",
         "Code": "ulb",
@@ -4670,7 +4671,6 @@
         "NormCode": "lbt",
         "UberCode": "xlb",
         "UltraCode": "ulb",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4681,6 +4681,7 @@
         "Block": null,
         "StrBonus": 120,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Scarabshell Boots [E]",
         "Code": "uvb",
@@ -4697,7 +4698,6 @@
         "NormCode": "vbt",
         "UberCode": "xvb",
         "UltraCode": "uvb",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4708,6 +4708,7 @@
         "Block": null,
         "StrBonus": 120,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Boneweave Boots [E]",
         "Code": "umb",
@@ -4724,7 +4725,6 @@
         "NormCode": "mbt",
         "UberCode": "xmb",
         "UltraCode": "umb",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4735,6 +4735,7 @@
         "Block": null,
         "StrBonus": 120,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Mirrored Boots [E]",
         "Code": "utb",
@@ -4751,7 +4752,6 @@
         "NormCode": "tbt",
         "UberCode": "xtb",
         "UltraCode": "utb",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4762,6 +4762,7 @@
         "Block": null,
         "StrBonus": 120,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Myrmidon Greaves [E]",
         "Code": "uhb",
@@ -4778,7 +4779,6 @@
         "NormCode": "hbt",
         "UberCode": "xhb",
         "UltraCode": "uhb",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4789,6 +4789,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Spiderweb Sash [E]",
         "Code": "ulc",
@@ -4805,7 +4806,6 @@
         "NormCode": "lbl",
         "UberCode": "zlb",
         "UltraCode": "ulc",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4816,6 +4816,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Vampirefang Belt [E]",
         "Code": "uvc",
@@ -4832,7 +4833,6 @@
         "NormCode": "vbl",
         "UberCode": "zvb",
         "UltraCode": "uvc",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4843,6 +4843,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Mithril Coil [E]",
         "Code": "umc",
@@ -4859,7 +4860,6 @@
         "NormCode": "mbl",
         "UberCode": "zmb",
         "UltraCode": "umc",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4870,6 +4870,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Troll Belt [E]",
         "Code": "utc",
@@ -4886,7 +4887,6 @@
         "NormCode": "tbl",
         "UberCode": "ztb",
         "UltraCode": "utc",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4897,6 +4897,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 0,
         "Name": "Colossus Girdle [E]",
         "Code": "uhc",
@@ -4913,7 +4914,6 @@
         "NormCode": "hbl",
         "UberCode": "zhb",
         "UltraCode": "uhc",
-        "GemSockets": 0,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4924,6 +4924,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-40:2, 41+:4",
         "EquipmentType": 0,
         "Name": "Bone Visage [E]",
         "Code": "uh9",
@@ -4940,7 +4941,6 @@
         "NormCode": "bhm",
         "UberCode": "xh9",
         "UltraCode": "uh9",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": ""
     },
@@ -4951,6 +4951,7 @@
         "Block": 20,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-40:3, 41+:4",
         "EquipmentType": 0,
         "Name": "Troll Nest [E]",
         "Code": "ush",
@@ -4967,7 +4968,6 @@
         "NormCode": "bsh",
         "UberCode": "xsh",
         "UltraCode": "ush",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4978,6 +4978,7 @@
         "Block": 20,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 0,
         "Name": "Blade Barrier [E]",
         "Code": "upk",
@@ -4994,7 +4995,6 @@
         "NormCode": "spk",
         "UberCode": "xpk",
         "UltraCode": "upk",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -5005,6 +5005,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 0,
         "Name": "Alpha Helm [X]",
         "Code": "dr6",
@@ -5021,7 +5022,6 @@
         "NormCode": "dr1",
         "UberCode": "dr6",
         "UltraCode": "drb",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": "Druid"
     },
@@ -5032,6 +5032,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 0,
         "Name": "Griffon Headdress [X]",
         "Code": "dr7",
@@ -5048,7 +5049,6 @@
         "NormCode": "dr2",
         "UberCode": "dr7",
         "UltraCode": "drc",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": "Druid"
     },
@@ -5059,6 +5059,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 0,
         "Name": "Hunter's Guise [X]",
         "Code": "dr8",
@@ -5075,7 +5076,6 @@
         "NormCode": "dr3",
         "UberCode": "dr8",
         "UltraCode": "drd",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": "Druid"
     },
@@ -5086,6 +5086,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 0,
         "Name": "Sacred Feathers [X]",
         "Code": "dr9",
@@ -5102,7 +5103,6 @@
         "NormCode": "dr4",
         "UberCode": "dr9",
         "UltraCode": "dre",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": "Druid"
     },
@@ -5113,6 +5113,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 0,
         "Name": "Totemic Mask [X]",
         "Code": "dra",
@@ -5129,7 +5130,6 @@
         "NormCode": "dr5",
         "UberCode": "dra",
         "UltraCode": "drf",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": "Druid"
     },
@@ -5140,6 +5140,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 0,
         "Name": "Jawbone Visor [X]",
         "Code": "ba6",
@@ -5156,7 +5157,6 @@
         "NormCode": "ba1",
         "UberCode": "ba6",
         "UltraCode": "bab",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": "Barbarian"
     },
@@ -5167,6 +5167,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 0,
         "Name": "Lion Helm [X]",
         "Code": "ba7",
@@ -5183,7 +5184,6 @@
         "NormCode": "ba2",
         "UberCode": "ba7",
         "UltraCode": "bac",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": "Barbarian"
     },
@@ -5194,6 +5194,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 0,
         "Name": "Rage Mask [X]",
         "Code": "ba8",
@@ -5210,7 +5211,6 @@
         "NormCode": "ba3",
         "UberCode": "ba8",
         "UltraCode": "bad",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": "Barbarian"
     },
@@ -5221,6 +5221,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 0,
         "Name": "Savage Helmet [X]",
         "Code": "ba9",
@@ -5237,7 +5238,6 @@
         "NormCode": "ba4",
         "UberCode": "ba9",
         "UltraCode": "bae",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": "Barbarian"
     },
@@ -5248,6 +5248,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 0,
         "Name": "Slayer Guard [X]",
         "Code": "baa",
@@ -5264,7 +5265,6 @@
         "NormCode": "ba5",
         "UberCode": "baa",
         "UltraCode": "baf",
-        "GemSockets": 3,
         "AutoPrefix": "",
         "RequiredClass": "Barbarian"
     },
@@ -5275,6 +5275,7 @@
         "Block": 10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "AutoMagicGroups": [
             {
                 "Name": "Shimmering",
@@ -5378,7 +5379,6 @@
         "NormCode": "pa1",
         "UberCode": "pa6",
         "UltraCode": "pab",
-        "GemSockets": 4,
         "AutoPrefix": "304",
         "RequiredClass": "Paladin"
     },
@@ -5389,6 +5389,7 @@
         "Block": 15,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "AutoMagicGroups": [
             {
                 "Name": "Shimmering",
@@ -5492,7 +5493,6 @@
         "NormCode": "pa2",
         "UberCode": "pa7",
         "UltraCode": "pac",
-        "GemSockets": 4,
         "AutoPrefix": "304",
         "RequiredClass": "Paladin"
     },
@@ -5503,6 +5503,7 @@
         "Block": 20,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "AutoMagicGroups": [
             {
                 "Name": "Shimmering",
@@ -5606,7 +5607,6 @@
         "NormCode": "pa3",
         "UberCode": "pa8",
         "UltraCode": "pad",
-        "GemSockets": 4,
         "AutoPrefix": "304",
         "RequiredClass": "Paladin"
     },
@@ -5617,6 +5617,7 @@
         "Block": 22,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "AutoMagicGroups": [
             {
                 "Name": "Shimmering",
@@ -5720,7 +5721,6 @@
         "NormCode": "pa4",
         "UberCode": "pa9",
         "UltraCode": "pae",
-        "GemSockets": 4,
         "AutoPrefix": "304",
         "RequiredClass": "Paladin"
     },
@@ -5731,6 +5731,7 @@
         "Block": 25,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "AutoMagicGroups": [
             {
                 "Name": "Shimmering",
@@ -5834,7 +5835,6 @@
         "NormCode": "pa5",
         "UberCode": "paa",
         "UltraCode": "paf",
-        "GemSockets": 4,
         "AutoPrefix": "304",
         "RequiredClass": "Paladin"
     },
@@ -5845,6 +5845,7 @@
         "Block": 3,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "AutoMagicGroups": [
             {
                 "Name": "of Blight",
@@ -5899,7 +5900,6 @@
         "NormCode": "ne1",
         "UberCode": "ne6",
         "UltraCode": "neb",
-        "GemSockets": 2,
         "AutoPrefix": "305",
         "RequiredClass": "Necromancer"
     },
@@ -5910,6 +5910,7 @@
         "Block": 5,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "AutoMagicGroups": [
             {
                 "Name": "of Blight",
@@ -5964,7 +5965,6 @@
         "NormCode": "ne2",
         "UberCode": "ne7",
         "UltraCode": "neg",
-        "GemSockets": 2,
         "AutoPrefix": "305",
         "RequiredClass": "Necromancer"
     },
@@ -5975,6 +5975,7 @@
         "Block": 8,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "AutoMagicGroups": [
             {
                 "Name": "of Blight",
@@ -6029,7 +6030,6 @@
         "NormCode": "ne3",
         "UberCode": "ne8",
         "UltraCode": "ned",
-        "GemSockets": 2,
         "AutoPrefix": "305",
         "RequiredClass": "Necromancer"
     },
@@ -6040,6 +6040,7 @@
         "Block": 10,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "AutoMagicGroups": [
             {
                 "Name": "of Blight",
@@ -6094,7 +6095,6 @@
         "NormCode": "ne4",
         "UberCode": "ne9",
         "UltraCode": "nee",
-        "GemSockets": 3,
         "AutoPrefix": "305",
         "RequiredClass": "Necromancer"
     },
@@ -6105,6 +6105,7 @@
         "Block": 12,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "AutoMagicGroups": [
             {
                 "Name": "of Blight",
@@ -6159,7 +6160,6 @@
         "NormCode": "ne5",
         "UberCode": "nea",
         "UltraCode": "nef",
-        "GemSockets": 3,
         "AutoPrefix": "305",
         "RequiredClass": "Necromancer"
     },
@@ -6170,6 +6170,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26-40:3, 41+:4",
         "EquipmentType": 0,
         "Name": "Blood Spirit [E]",
         "Code": "drb",
@@ -6186,7 +6187,6 @@
         "NormCode": "dr1",
         "UberCode": "dr6",
         "UltraCode": "drb",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": "Druid"
     },
@@ -6197,6 +6197,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26-40:3, 41+:4",
         "EquipmentType": 0,
         "Name": "Sun Spirit [E]",
         "Code": "drc",
@@ -6213,7 +6214,6 @@
         "NormCode": "dr2",
         "UberCode": "dr7",
         "UltraCode": "drc",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": "Druid"
     },
@@ -6224,6 +6224,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26-40:3, 41+:4",
         "EquipmentType": 0,
         "Name": "Earth Spirit [E]",
         "Code": "drd",
@@ -6240,7 +6241,6 @@
         "NormCode": "dr3",
         "UberCode": "dr8",
         "UltraCode": "drd",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": "Druid"
     },
@@ -6251,6 +6251,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26-40:3, 41+:4",
         "EquipmentType": 0,
         "Name": "Sky Spirit [E]",
         "Code": "dre",
@@ -6267,7 +6268,6 @@
         "NormCode": "dr4",
         "UberCode": "dr9",
         "UltraCode": "dre",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": "Druid"
     },
@@ -6278,6 +6278,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26-40:3, 41+:4",
         "EquipmentType": 0,
         "Name": "Dream Spirit [E]",
         "Code": "drf",
@@ -6294,7 +6295,6 @@
         "NormCode": "dr5",
         "UberCode": "dra",
         "UltraCode": "drf",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": "Druid"
     },
@@ -6305,6 +6305,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26-40:3, 41+:4",
         "EquipmentType": 0,
         "Name": "Carnage Helm [E]",
         "Code": "bab",
@@ -6321,7 +6322,6 @@
         "NormCode": "ba1",
         "UberCode": "ba6",
         "UltraCode": "bab",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": "Barbarian"
     },
@@ -6332,6 +6332,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26-40:3, 41+:4",
         "EquipmentType": 0,
         "Name": "Fury Visor [E]",
         "Code": "bac",
@@ -6348,7 +6349,6 @@
         "NormCode": "ba2",
         "UberCode": "ba7",
         "UltraCode": "bac",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": "Barbarian"
     },
@@ -6359,6 +6359,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26-40:3, 41+:4",
         "EquipmentType": 0,
         "Name": "Destroyer Helm [E]",
         "Code": "bad",
@@ -6375,7 +6376,6 @@
         "NormCode": "ba3",
         "UberCode": "ba8",
         "UltraCode": "bad",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": "Barbarian"
     },
@@ -6386,6 +6386,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26-40:3, 41+:4",
         "EquipmentType": 0,
         "Name": "Conqueror Crown [E]",
         "Code": "bae",
@@ -6402,7 +6403,6 @@
         "NormCode": "ba4",
         "UberCode": "ba9",
         "UltraCode": "bae",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": "Barbarian"
     },
@@ -6413,6 +6413,7 @@
         "Block": null,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26-40:3, 41+:4",
         "EquipmentType": 0,
         "Name": "Guardian Crown [E]",
         "Code": "baf",
@@ -6429,7 +6430,6 @@
         "NormCode": "ba5",
         "UberCode": "baa",
         "UltraCode": "baf",
-        "GemSockets": 4,
         "AutoPrefix": "",
         "RequiredClass": "Barbarian"
     },
@@ -6440,6 +6440,7 @@
         "Block": 30,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "AutoMagicGroups": [
             {
                 "Name": "Shimmering",
@@ -6543,7 +6544,6 @@
         "NormCode": "pa1",
         "UberCode": "pa6",
         "UltraCode": "pab",
-        "GemSockets": 4,
         "AutoPrefix": "304",
         "RequiredClass": "Paladin"
     },
@@ -6554,6 +6554,7 @@
         "Block": 28,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "AutoMagicGroups": [
             {
                 "Name": "Shimmering",
@@ -6657,7 +6658,6 @@
         "NormCode": "pa2",
         "UberCode": "pa7",
         "UltraCode": "pac",
-        "GemSockets": 4,
         "AutoPrefix": "304",
         "RequiredClass": "Paladin"
     },
@@ -6668,6 +6668,7 @@
         "Block": 25,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "AutoMagicGroups": [
             {
                 "Name": "Shimmering",
@@ -6771,7 +6772,6 @@
         "NormCode": "pa3",
         "UberCode": "pa8",
         "UltraCode": "pad",
-        "GemSockets": 4,
         "AutoPrefix": "304",
         "RequiredClass": "Paladin"
     },
@@ -6782,6 +6782,7 @@
         "Block": 22,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "AutoMagicGroups": [
             {
                 "Name": "Shimmering",
@@ -6885,7 +6886,6 @@
         "NormCode": "pa4",
         "UberCode": "pa9",
         "UltraCode": "pae",
-        "GemSockets": 4,
         "AutoPrefix": "304",
         "RequiredClass": "Paladin"
     },
@@ -6896,6 +6896,7 @@
         "Block": 19,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "AutoMagicGroups": [
             {
                 "Name": "Shimmering",
@@ -6999,7 +7000,6 @@
         "NormCode": "pa5",
         "UberCode": "paa",
         "UltraCode": "paf",
-        "GemSockets": 4,
         "AutoPrefix": "304",
         "RequiredClass": "Paladin"
     },
@@ -7010,6 +7010,7 @@
         "Block": 3,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "AutoMagicGroups": [
             {
                 "Name": "of Blight",
@@ -7064,7 +7065,6 @@
         "NormCode": "ne1",
         "UberCode": "ne6",
         "UltraCode": "neb",
-        "GemSockets": 3,
         "AutoPrefix": "305",
         "RequiredClass": "Necromancer"
     },
@@ -7075,6 +7075,7 @@
         "Block": 5,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "AutoMagicGroups": [
             {
                 "Name": "of Blight",
@@ -7129,7 +7130,6 @@
         "NormCode": "ne2",
         "UberCode": "ne7",
         "UltraCode": "neg",
-        "GemSockets": 3,
         "AutoPrefix": "305",
         "RequiredClass": "Necromancer"
     },
@@ -7140,6 +7140,7 @@
         "Block": 8,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "AutoMagicGroups": [
             {
                 "Name": "of Blight",
@@ -7194,7 +7195,6 @@
         "NormCode": "ne3",
         "UberCode": "ne8",
         "UltraCode": "ned",
-        "GemSockets": 3,
         "AutoPrefix": "305",
         "RequiredClass": "Necromancer"
     },
@@ -7205,6 +7205,7 @@
         "Block": 10,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26-40:3, 41+:4",
         "AutoMagicGroups": [
             {
                 "Name": "of Blight",
@@ -7259,7 +7260,6 @@
         "NormCode": "ne4",
         "UberCode": "ne9",
         "UltraCode": "nee",
-        "GemSockets": 4,
         "AutoPrefix": "305",
         "RequiredClass": "Necromancer"
     },
@@ -7270,6 +7270,7 @@
         "Block": 12,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26-40:3, 41+:4",
         "AutoMagicGroups": [
             {
                 "Name": "of Blight",
@@ -7324,7 +7325,6 @@
         "NormCode": "ne5",
         "UberCode": "nea",
         "UltraCode": "nef",
-        "GemSockets": 4,
         "AutoPrefix": "305",
         "RequiredClass": "Necromancer"
     }

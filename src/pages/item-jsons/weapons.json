@@ -9,6 +9,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Hand Axe [N]",
         "Code": "hax",
@@ -25,7 +26,6 @@
         "NormCode": "hax",
         "UberCode": "9ha",
         "UltraCode": "7ha",
-        "GemSockets": 2,
         "AutoPrefix": "316",
         "RequiredClass": ""
     },
@@ -39,6 +39,7 @@
         "Speed": 10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:4",
         "EquipmentType": 1,
         "Name": "Axe [N]",
         "Code": "axe",
@@ -55,7 +56,6 @@
         "NormCode": "axe",
         "UberCode": "9ax",
         "UltraCode": "7ax",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -69,6 +69,7 @@
         "Speed": 10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:4, 26+:5",
         "EquipmentType": 1,
         "Name": "Double Axe [N]",
         "Code": "2ax",
@@ -85,7 +86,6 @@
         "NormCode": "2ax",
         "UberCode": "92a",
         "UltraCode": "72a",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -99,6 +99,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 25,
+        "GemSockets": "1-25:4, 26-40:5, 41+:6",
         "EquipmentType": 1,
         "Name": "Military Pick [N]",
         "Code": "mpi",
@@ -115,7 +116,6 @@
         "NormCode": "mpi",
         "UberCode": "9mp",
         "UltraCode": "7mp",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -129,6 +129,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:4, 26-40:5, 41+:6",
         "EquipmentType": 1,
         "Name": "War Axe [N]",
         "Code": "wax",
@@ -145,7 +146,6 @@
         "NormCode": "wax",
         "UberCode": "9wa",
         "UltraCode": "7wa",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -159,6 +159,7 @@
         "Speed": -10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1+:4",
         "EquipmentType": 1,
         "Name": "Large Axe [N]",
         "Code": "lax",
@@ -175,7 +176,6 @@
         "NormCode": "lax",
         "UberCode": "9la",
         "UltraCode": "7la",
-        "GemSockets": 4,
         "AutoPrefix": "316",
         "RequiredClass": ""
     },
@@ -189,6 +189,7 @@
         "Speed": 0,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:4, 26+:5",
         "EquipmentType": 1,
         "Name": "Broad Axe [N]",
         "Code": "bax",
@@ -205,7 +206,6 @@
         "NormCode": "bax",
         "UberCode": "9ba",
         "UltraCode": "7ba",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -219,6 +219,7 @@
         "Speed": 10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:4, 26+:5",
         "EquipmentType": 1,
         "Name": "Battle Axe [N]",
         "Code": "btx",
@@ -235,7 +236,6 @@
         "NormCode": "btx",
         "UberCode": "9bt",
         "UltraCode": "7bt",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -249,6 +249,7 @@
         "Speed": -10,
         "StrBonus": 150,
         "DexBonus": 25,
+        "GemSockets": "1-25:4, 26-40:5, 41+:6",
         "EquipmentType": 1,
         "Name": "Great Axe [N]",
         "Code": "gax",
@@ -265,7 +266,6 @@
         "NormCode": "gax",
         "UberCode": "9ga",
         "UltraCode": "7ga",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -279,6 +279,7 @@
         "Speed": 10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:4, 26-40:5, 41+:6",
         "EquipmentType": 1,
         "Name": "Giant Axe [N]",
         "Code": "gix",
@@ -295,7 +296,6 @@
         "NormCode": "gix",
         "UberCode": "9gi",
         "UltraCode": "7gi",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -309,6 +309,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:1",
         "EquipmentType": 1,
         "Name": "Wand [N]",
         "Code": "wnd",
@@ -325,7 +326,6 @@
         "NormCode": "wnd",
         "UberCode": "9wn",
         "UltraCode": "7wn",
-        "GemSockets": 1,
         "AutoPrefix": "316",
         "RequiredClass": ""
     },
@@ -339,6 +339,7 @@
         "Speed": 10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:1",
         "EquipmentType": 1,
         "Name": "Yew Wand [N]",
         "Code": "ywn",
@@ -355,7 +356,6 @@
         "NormCode": "ywn",
         "UberCode": "9yw",
         "UltraCode": "7yw",
-        "GemSockets": 1,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -369,6 +369,7 @@
         "Speed": -20,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Bone Wand [N]",
         "Code": "bwn",
@@ -385,7 +386,6 @@
         "NormCode": "bwn",
         "UberCode": "9bw",
         "UltraCode": "7bw",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -399,6 +399,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Grim Wand [N]",
         "Code": "gwn",
@@ -415,7 +416,6 @@
         "NormCode": "gwn",
         "UberCode": "9gw",
         "UltraCode": "7gw",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -429,6 +429,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Club [N]",
         "Code": "clb",
@@ -445,7 +446,6 @@
         "NormCode": "clb",
         "UberCode": "9cl",
         "UltraCode": "7cl",
-        "GemSockets": 2,
         "AutoPrefix": "316",
         "RequiredClass": ""
     },
@@ -459,6 +459,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Scepter [N]",
         "Code": "scp",
@@ -475,7 +476,6 @@
         "NormCode": "scp",
         "UberCode": "9sc",
         "UltraCode": "7sc",
-        "GemSockets": 2,
         "AutoPrefix": "316",
         "RequiredClass": ""
     },
@@ -489,6 +489,7 @@
         "Speed": 10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Grand Scepter [N]",
         "Code": "gsc",
@@ -505,7 +506,6 @@
         "NormCode": "gsc",
         "UberCode": "9qs",
         "UltraCode": "7qs",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -519,6 +519,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:5",
         "EquipmentType": 1,
         "Name": "War Scepter [N]",
         "Code": "wsp",
@@ -535,7 +536,6 @@
         "NormCode": "wsp",
         "UberCode": "9ws",
         "UltraCode": "7ws",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -549,6 +549,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Spiked Club [N]",
         "Code": "spc",
@@ -565,7 +566,6 @@
         "NormCode": "spc",
         "UberCode": "9sp",
         "UltraCode": "7sp",
-        "GemSockets": 2,
         "AutoPrefix": "316",
         "RequiredClass": ""
     },
@@ -579,6 +579,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Mace [N]",
         "Code": "mac",
@@ -595,7 +596,6 @@
         "NormCode": "mac",
         "UberCode": "9ma",
         "UltraCode": "7ma",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -609,6 +609,7 @@
         "Speed": 10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Morning Star [N]",
         "Code": "mst",
@@ -625,7 +626,6 @@
         "NormCode": "mst",
         "UberCode": "9mt",
         "UltraCode": "7mt",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -639,6 +639,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 25,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Flail [N]",
         "Code": "fla",
@@ -655,7 +656,6 @@
         "NormCode": "fla",
         "UberCode": "9fl",
         "UltraCode": "7fl",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -669,6 +669,7 @@
         "Speed": 20,
         "StrBonus": 110,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "War Hammer [N]",
         "Code": "whm",
@@ -685,7 +686,6 @@
         "NormCode": "whm",
         "UberCode": "9wh",
         "UltraCode": "7wh",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -699,6 +699,7 @@
         "Speed": 10,
         "StrBonus": 160,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Maul [N]",
         "Code": "mau",
@@ -715,7 +716,6 @@
         "NormCode": "mau",
         "UberCode": "9m9",
         "UltraCode": "7m7",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -729,6 +729,7 @@
         "Speed": 20,
         "StrBonus": 160,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Great Maul [N]",
         "Code": "gma",
@@ -745,7 +746,6 @@
         "NormCode": "gma",
         "UberCode": "9gm",
         "UltraCode": "7gm",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -759,6 +759,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Short Sword [N]",
         "Code": "ssd",
@@ -775,7 +776,6 @@
         "NormCode": "ssd",
         "UberCode": "9ss",
         "UltraCode": "7ss",
-        "GemSockets": 2,
         "AutoPrefix": "316",
         "RequiredClass": ""
     },
@@ -789,6 +789,7 @@
         "Speed": -20,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Scimitar [N]",
         "Code": "scm",
@@ -805,7 +806,6 @@
         "NormCode": "scm",
         "UberCode": "9sm",
         "UltraCode": "7sm",
-        "GemSockets": 2,
         "AutoPrefix": "316",
         "RequiredClass": ""
     },
@@ -819,6 +819,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 25,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Sabre [N]",
         "Code": "sbr",
@@ -835,7 +836,6 @@
         "NormCode": "sbr",
         "UberCode": "9sb",
         "UltraCode": "7sb",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -849,6 +849,7 @@
         "Speed": 20,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Falchion [N]",
         "Code": "flc",
@@ -865,7 +866,6 @@
         "NormCode": "flc",
         "UberCode": "9fc",
         "UltraCode": "7fc",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -879,6 +879,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Crystal Sword [N]",
         "Code": "crs",
@@ -895,7 +896,6 @@
         "NormCode": "crs",
         "UberCode": "9cr",
         "UltraCode": "7cr",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -909,6 +909,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Broad Sword [N]",
         "Code": "bsd",
@@ -925,7 +926,6 @@
         "NormCode": "bsd",
         "UberCode": "9bs",
         "UltraCode": "7bs",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -939,6 +939,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 25,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Long Sword [N]",
         "Code": "lsd",
@@ -955,7 +956,6 @@
         "NormCode": "lsd",
         "UberCode": "9ls",
         "UltraCode": "7ls",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -969,6 +969,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 25,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "War Sword [N]",
         "Code": "wsd",
@@ -985,7 +986,6 @@
         "NormCode": "wsd",
         "UberCode": "9wd",
         "UltraCode": "7wd",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -1003,6 +1003,7 @@
         "Speed": 0,
         "StrBonus": 125,
         "DexBonus": 50,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Two-Handed Sword [N]",
         "Code": "2hs",
@@ -1019,7 +1020,6 @@
         "NormCode": "2hs",
         "UberCode": "92h",
         "UltraCode": "72h",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -1037,6 +1037,7 @@
         "Speed": 10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Claymore [N]",
         "Code": "clm",
@@ -1053,7 +1054,6 @@
         "NormCode": "clm",
         "UberCode": "9cm",
         "UltraCode": "7cm",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -1071,6 +1071,7 @@
         "Speed": 0,
         "StrBonus": 125,
         "DexBonus": 50,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Giant Sword [N]",
         "Code": "gis",
@@ -1087,7 +1088,6 @@
         "NormCode": "gis",
         "UberCode": "9gs",
         "UltraCode": "7gs",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -1105,6 +1105,7 @@
         "Speed": 10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Bastard Sword [N]",
         "Code": "bsw",
@@ -1121,7 +1122,6 @@
         "NormCode": "bsw",
         "UberCode": "9b9",
         "UltraCode": "7b7",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -1139,6 +1139,7 @@
         "Speed": -10,
         "StrBonus": 125,
         "DexBonus": 50,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Flamberge [N]",
         "Code": "flb",
@@ -1155,7 +1156,6 @@
         "NormCode": "flb",
         "UberCode": "9fb",
         "UltraCode": "7fb",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -1173,6 +1173,7 @@
         "Speed": 10,
         "StrBonus": 125,
         "DexBonus": 50,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Great Sword [N]",
         "Code": "gsd",
@@ -1189,7 +1190,6 @@
         "NormCode": "gsd",
         "UberCode": "9gd",
         "UltraCode": "7gd",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -1203,6 +1203,7 @@
         "Speed": -20,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1+:1",
         "EquipmentType": 1,
         "Name": "Dagger [N]",
         "Code": "dgr",
@@ -1219,7 +1220,6 @@
         "NormCode": "dgr",
         "UberCode": "9dg",
         "UltraCode": "7dg",
-        "GemSockets": 1,
         "AutoPrefix": "316",
         "RequiredClass": ""
     },
@@ -1233,6 +1233,7 @@
         "Speed": 0,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1+:1",
         "EquipmentType": 1,
         "Name": "Dirk [N]",
         "Code": "dir",
@@ -1249,7 +1250,6 @@
         "NormCode": "dir",
         "UberCode": "9di",
         "UltraCode": "7di",
-        "GemSockets": 1,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -1263,6 +1263,7 @@
         "Speed": -20,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Kris [N]",
         "Code": "kri",
@@ -1279,7 +1280,6 @@
         "NormCode": "kri",
         "UberCode": "9kr",
         "UltraCode": "7kr",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -1293,6 +1293,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Blade [N]",
         "Code": "bld",
@@ -1309,7 +1310,6 @@
         "NormCode": "bld",
         "UberCode": "9bl",
         "UltraCode": "7bl",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -1327,6 +1327,7 @@
         "Speed": 0,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -1353,7 +1354,6 @@
         "NormCode": "tkf",
         "UberCode": "9tk",
         "UltraCode": "7tk",
-        "GemSockets": 0,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -1371,6 +1371,7 @@
         "Speed": 10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -1397,7 +1398,6 @@
         "NormCode": "tax",
         "UberCode": "9ta",
         "UltraCode": "7ta",
-        "GemSockets": 0,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -1415,6 +1415,7 @@
         "Speed": -20,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -1441,7 +1442,6 @@
         "NormCode": "bkf",
         "UberCode": "9bk",
         "UltraCode": "7bk",
-        "GemSockets": 0,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -1459,6 +1459,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -1485,7 +1486,6 @@
         "NormCode": "bal",
         "UberCode": "9b8",
         "UltraCode": "7b8",
-        "GemSockets": 0,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -1503,6 +1503,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "EquipmentType": 1,
         "Name": "Javelin [N]",
         "Code": "jav",
@@ -1519,7 +1520,6 @@
         "NormCode": "jav",
         "UberCode": "9ja",
         "UltraCode": "7ja",
-        "GemSockets": 0,
         "AutoPrefix": "319",
         "RequiredClass": ""
     },
@@ -1537,6 +1537,7 @@
         "Speed": 0,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -1563,7 +1564,6 @@
         "NormCode": "pil",
         "UberCode": "9pi",
         "UltraCode": "7pi",
-        "GemSockets": 0,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -1581,6 +1581,7 @@
         "Speed": 10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -1607,7 +1608,6 @@
         "NormCode": "ssp",
         "UberCode": "9s9",
         "UltraCode": "7s7",
-        "GemSockets": 0,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -1625,6 +1625,7 @@
         "Speed": 20,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -1651,7 +1652,6 @@
         "NormCode": "glv",
         "UberCode": "9gl",
         "UltraCode": "7gl",
-        "GemSockets": 0,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -1669,6 +1669,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -1695,7 +1696,6 @@
         "NormCode": "tsp",
         "UberCode": "9ts",
         "UltraCode": "7ts",
-        "GemSockets": 0,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -1709,6 +1709,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 75,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Spear [N]",
         "Code": "spr",
@@ -1725,7 +1726,6 @@
         "NormCode": "spr",
         "UberCode": "9sr",
         "UltraCode": "7sr",
-        "GemSockets": 3,
         "AutoPrefix": "316",
         "RequiredClass": ""
     },
@@ -1739,6 +1739,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 75,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Trident [N]",
         "Code": "tri",
@@ -1755,7 +1756,6 @@
         "NormCode": "tri",
         "UberCode": "9tr",
         "UltraCode": "7tr",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -1769,6 +1769,7 @@
         "Speed": -20,
         "StrBonus": 100,
         "DexBonus": 75,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Brandistock [N]",
         "Code": "brn",
@@ -1785,7 +1786,6 @@
         "NormCode": "brn",
         "UberCode": "9br",
         "UltraCode": "7br",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -1799,6 +1799,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 75,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Spetum [N]",
         "Code": "spt",
@@ -1815,7 +1816,6 @@
         "NormCode": "spt",
         "UberCode": "9st",
         "UltraCode": "7st",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -1829,6 +1829,7 @@
         "Speed": 20,
         "StrBonus": 100,
         "DexBonus": 75,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Pike [N]",
         "Code": "pik",
@@ -1845,7 +1846,6 @@
         "NormCode": "pik",
         "UberCode": "9p9",
         "UltraCode": "7p7",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -1859,6 +1859,7 @@
         "Speed": 10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Bardiche [N]",
         "Code": "bar",
@@ -1875,7 +1876,6 @@
         "NormCode": "bar",
         "UberCode": "9b7",
         "UltraCode": "7o7",
-        "GemSockets": 3,
         "AutoPrefix": "316",
         "RequiredClass": ""
     },
@@ -1889,6 +1889,7 @@
         "Speed": 0,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Voulge [N]",
         "Code": "vou",
@@ -1905,7 +1906,6 @@
         "NormCode": "vou",
         "UberCode": "9vo",
         "UltraCode": "7vo",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -1919,6 +1919,7 @@
         "Speed": -10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Scythe [N]",
         "Code": "scy",
@@ -1935,7 +1936,6 @@
         "NormCode": "scy",
         "UberCode": "9s8",
         "UltraCode": "7s8",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -1949,6 +1949,7 @@
         "Speed": 10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Poleaxe [N]",
         "Code": "pax",
@@ -1965,7 +1966,6 @@
         "NormCode": "pax",
         "UberCode": "9pa",
         "UltraCode": "7pa",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -1979,6 +1979,7 @@
         "Speed": 0,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Halberd [N]",
         "Code": "hal",
@@ -1995,7 +1996,6 @@
         "NormCode": "hal",
         "UberCode": "9h9",
         "UltraCode": "7h7",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -2009,6 +2009,7 @@
         "Speed": -10,
         "StrBonus": 125,
         "DexBonus": 50,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "War Scythe [N]",
         "Code": "wsc",
@@ -2025,7 +2026,6 @@
         "NormCode": "wsc",
         "UberCode": "9wc",
         "UltraCode": "7wc",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -2039,6 +2039,7 @@
         "Speed": -10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Short Staff [N]",
         "Code": "sst",
@@ -2055,7 +2056,6 @@
         "NormCode": "sst",
         "UberCode": "8ss",
         "UltraCode": "6ss",
-        "GemSockets": 2,
         "AutoPrefix": "316",
         "RequiredClass": ""
     },
@@ -2069,6 +2069,7 @@
         "Speed": 0,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Long Staff [N]",
         "Code": "lst",
@@ -2085,7 +2086,6 @@
         "NormCode": "lst",
         "UberCode": "8ls",
         "UltraCode": "6ls",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -2099,6 +2099,7 @@
         "Speed": 10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1+:4",
         "EquipmentType": 1,
         "Name": "Gnarled Staff [N]",
         "Code": "cst",
@@ -2115,7 +2116,6 @@
         "NormCode": "cst",
         "UberCode": "8cs",
         "UltraCode": "6cs",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -2129,6 +2129,7 @@
         "Speed": 0,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1+:4",
         "EquipmentType": 1,
         "Name": "Battle Staff [N]",
         "Code": "bst",
@@ -2145,7 +2146,6 @@
         "NormCode": "bst",
         "UberCode": "8bs",
         "UltraCode": "6bs",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -2159,6 +2159,7 @@
         "Speed": 20,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:5, 26+:6",
         "EquipmentType": 1,
         "Name": "War Staff [N]",
         "Code": "wst",
@@ -2175,7 +2176,6 @@
         "NormCode": "wst",
         "UberCode": "8ws",
         "UltraCode": "6ws",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -2189,6 +2189,7 @@
         "Speed": 5,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Short Bow [N]",
         "Code": "sbw",
@@ -2205,7 +2206,6 @@
         "NormCode": "sbw",
         "UberCode": "8sb",
         "UltraCode": "6sb",
-        "GemSockets": 3,
         "AutoPrefix": "316",
         "RequiredClass": ""
     },
@@ -2219,6 +2219,7 @@
         "Speed": -10,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Hunter's Bow [N]",
         "Code": "hbw",
@@ -2235,7 +2236,6 @@
         "NormCode": "hbw",
         "UberCode": "8hb",
         "UltraCode": "6hb",
-        "GemSockets": 4,
         "AutoPrefix": "316",
         "RequiredClass": ""
     },
@@ -2249,6 +2249,7 @@
         "Speed": 0,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Long Bow [N]",
         "Code": "lbw",
@@ -2265,7 +2266,6 @@
         "NormCode": "lbw",
         "UberCode": "8lb",
         "UltraCode": "6lb",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -2279,6 +2279,7 @@
         "Speed": -10,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Composite Bow [N]",
         "Code": "cbw",
@@ -2295,7 +2296,6 @@
         "NormCode": "cbw",
         "UberCode": "8cb",
         "UltraCode": "6cb",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -2309,6 +2309,7 @@
         "Speed": 0,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Short Battle Bow [N]",
         "Code": "sbb",
@@ -2325,7 +2326,6 @@
         "NormCode": "sbb",
         "UberCode": "8s8",
         "UltraCode": "6s7",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -2339,6 +2339,7 @@
         "Speed": 10,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Long Battle Bow [N]",
         "Code": "lbb",
@@ -2355,7 +2356,6 @@
         "NormCode": "lbb",
         "UberCode": "8l8",
         "UltraCode": "6l7",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -2369,6 +2369,7 @@
         "Speed": 0,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Short War Bow [N]",
         "Code": "swb",
@@ -2385,7 +2386,6 @@
         "NormCode": "swb",
         "UberCode": "8sw",
         "UltraCode": "6sw",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -2399,6 +2399,7 @@
         "Speed": 10,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Long War Bow [N]",
         "Code": "lwb",
@@ -2415,7 +2416,6 @@
         "NormCode": "lwb",
         "UberCode": "8lw",
         "UltraCode": "6lw",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -2429,6 +2429,7 @@
         "Speed": -10,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Light Crossbow [N]",
         "Code": "lxb",
@@ -2445,7 +2446,6 @@
         "NormCode": "lxb",
         "UberCode": "8lx",
         "UltraCode": "6lx",
-        "GemSockets": 3,
         "AutoPrefix": "316",
         "RequiredClass": ""
     },
@@ -2459,6 +2459,7 @@
         "Speed": 0,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Crossbow [N]",
         "Code": "mxb",
@@ -2475,7 +2476,6 @@
         "NormCode": "mxb",
         "UberCode": "8mx",
         "UltraCode": "6mx",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -2489,6 +2489,7 @@
         "Speed": 10,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Heavy Crossbow [N]",
         "Code": "hxb",
@@ -2505,7 +2506,6 @@
         "NormCode": "hxb",
         "UberCode": "8hx",
         "UltraCode": "6hx",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -2519,6 +2519,7 @@
         "Speed": -40,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Repeating Crossbow [N]",
         "Code": "rxb",
@@ -2535,7 +2536,6 @@
         "NormCode": "rxb",
         "UberCode": "8rx",
         "UltraCode": "6rx",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -2549,6 +2549,7 @@
         "Speed": 0,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 1,
         "Name": "Rancid Gas Potion",
         "Code": "gps",
@@ -2565,7 +2566,6 @@
         "NormCode": "gps",
         "UberCode": "",
         "UltraCode": "",
-        "GemSockets": 0,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -2579,6 +2579,7 @@
         "Speed": 0,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 1,
         "Name": "Oil Potion",
         "Code": "ops",
@@ -2595,7 +2596,6 @@
         "NormCode": "ops",
         "UberCode": "",
         "UltraCode": "",
-        "GemSockets": 0,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -2609,6 +2609,7 @@
         "Speed": 0,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 1,
         "Name": "Choking Gas Potion",
         "Code": "gpm",
@@ -2625,7 +2626,6 @@
         "NormCode": "gpm",
         "UberCode": "",
         "UltraCode": "",
-        "GemSockets": 0,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -2639,6 +2639,7 @@
         "Speed": 0,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 1,
         "Name": "Exploding Potion",
         "Code": "opm",
@@ -2655,7 +2656,6 @@
         "NormCode": "opm",
         "UberCode": "",
         "UltraCode": "",
-        "GemSockets": 0,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -2669,6 +2669,7 @@
         "Speed": 0,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 1,
         "Name": "Strangling Gas Potion",
         "Code": "gpl",
@@ -2685,7 +2686,6 @@
         "NormCode": "gpl",
         "UberCode": "",
         "UltraCode": "",
-        "GemSockets": 0,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -2699,6 +2699,7 @@
         "Speed": 0,
         "StrBonus": 0,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 1,
         "Name": "Fulminating Potion",
         "Code": "opl",
@@ -2715,7 +2716,6 @@
         "NormCode": "opl",
         "UberCode": "",
         "UltraCode": "",
-        "GemSockets": 0,
         "AutoPrefix": "316",
         "RequiredClass": ""
     },
@@ -2729,6 +2729,7 @@
         "Speed": -20,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 1,
         "Name": "Decoy Gidbinn",
         "Code": "d33",
@@ -2745,7 +2746,6 @@
         "NormCode": "d33",
         "UberCode": "",
         "UltraCode": "",
-        "GemSockets": 0,
         "AutoPrefix": "316",
         "RequiredClass": ""
     },
@@ -2759,6 +2759,7 @@
         "Speed": -20,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 1,
         "Name": "The Gidbinn",
         "Code": "g33",
@@ -2775,7 +2776,6 @@
         "NormCode": "g33",
         "UberCode": "",
         "UltraCode": "",
-        "GemSockets": 0,
         "AutoPrefix": "316",
         "RequiredClass": ""
     },
@@ -2789,6 +2789,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Wirt's Leg",
         "Code": "leg",
@@ -2805,7 +2806,6 @@
         "NormCode": "leg",
         "UberCode": "",
         "UltraCode": "",
-        "GemSockets": 3,
         "AutoPrefix": "316",
         "RequiredClass": ""
     },
@@ -2819,6 +2819,7 @@
         "Speed": 20,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 1,
         "Name": "Horadric Malus",
         "Code": "hdm",
@@ -2835,7 +2836,6 @@
         "NormCode": "hdm",
         "UberCode": "",
         "UltraCode": "",
-        "GemSockets": 0,
         "AutoPrefix": "316",
         "RequiredClass": ""
     },
@@ -2849,6 +2849,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Hell Forge Hammer",
         "Code": "hfh",
@@ -2865,7 +2866,6 @@
         "NormCode": "hfh",
         "UberCode": "",
         "UltraCode": "",
-        "GemSockets": 5,
         "AutoPrefix": "316",
         "RequiredClass": ""
     },
@@ -2879,6 +2879,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 1,
         "Name": "Horadric Staff",
         "Code": "hst",
@@ -2895,7 +2896,6 @@
         "NormCode": "hst",
         "UberCode": "",
         "UltraCode": "",
-        "GemSockets": 0,
         "AutoPrefix": "316",
         "RequiredClass": ""
     },
@@ -2909,6 +2909,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "0",
         "EquipmentType": 1,
         "Name": "Shaft of the Horadric Staff",
         "Code": "msf",
@@ -2925,7 +2926,6 @@
         "NormCode": "msf",
         "UberCode": "",
         "UltraCode": "",
-        "GemSockets": 0,
         "AutoPrefix": "316",
         "RequiredClass": ""
     },
@@ -2939,6 +2939,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Hatchet [X]",
         "Code": "9ha",
@@ -2955,7 +2956,6 @@
         "NormCode": "hax",
         "UberCode": "9ha",
         "UltraCode": "7ha",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -2969,6 +2969,7 @@
         "Speed": 10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:4",
         "EquipmentType": 1,
         "Name": "Cleaver [X]",
         "Code": "9ax",
@@ -2985,7 +2986,6 @@
         "NormCode": "axe",
         "UberCode": "9ax",
         "UltraCode": "7ax",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -2999,6 +2999,7 @@
         "Speed": 10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:4, 26+:5",
         "EquipmentType": 1,
         "Name": "Twin Axe [X]",
         "Code": "92a",
@@ -3015,7 +3016,6 @@
         "NormCode": "2ax",
         "UberCode": "92a",
         "UltraCode": "72a",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3029,6 +3029,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 25,
+        "GemSockets": "1-25:4, 26-40:5, 41+:6",
         "EquipmentType": 1,
         "Name": "Crowbill [X]",
         "Code": "9mp",
@@ -3045,7 +3046,6 @@
         "NormCode": "mpi",
         "UberCode": "9mp",
         "UltraCode": "7mp",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3059,6 +3059,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:4, 26-40:5, 41+:6",
         "EquipmentType": 1,
         "Name": "Naga [X]",
         "Code": "9wa",
@@ -3075,7 +3076,6 @@
         "NormCode": "wax",
         "UberCode": "9wa",
         "UltraCode": "7wa",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3089,6 +3089,7 @@
         "Speed": -10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1+:4",
         "EquipmentType": 1,
         "Name": "Military Axe [X]",
         "Code": "9la",
@@ -3105,7 +3106,6 @@
         "NormCode": "lax",
         "UberCode": "9la",
         "UltraCode": "7la",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3119,6 +3119,7 @@
         "Speed": 0,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:4, 26+:5",
         "EquipmentType": 1,
         "Name": "Bearded Axe [X]",
         "Code": "9ba",
@@ -3135,7 +3136,6 @@
         "NormCode": "bax",
         "UberCode": "9ba",
         "UltraCode": "7ba",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3149,6 +3149,7 @@
         "Speed": 10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:4, 26+:5",
         "EquipmentType": 1,
         "Name": "Tabar [X]",
         "Code": "9bt",
@@ -3165,7 +3166,6 @@
         "NormCode": "btx",
         "UberCode": "9bt",
         "UltraCode": "7bt",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3179,6 +3179,7 @@
         "Speed": -10,
         "StrBonus": 150,
         "DexBonus": 25,
+        "GemSockets": "1-25:4, 26-40:5, 41+:6",
         "EquipmentType": 1,
         "Name": "Gothic Axe [X]",
         "Code": "9ga",
@@ -3195,7 +3196,6 @@
         "NormCode": "gax",
         "UberCode": "9ga",
         "UltraCode": "7ga",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3209,6 +3209,7 @@
         "Speed": 10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:4, 26-40:5, 41+:6",
         "EquipmentType": 1,
         "Name": "Ancient Axe [X]",
         "Code": "9gi",
@@ -3225,7 +3226,6 @@
         "NormCode": "gix",
         "UberCode": "9gi",
         "UltraCode": "7gi",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3239,6 +3239,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:1",
         "EquipmentType": 1,
         "Name": "Burnt Wand [X]",
         "Code": "9wn",
@@ -3255,7 +3256,6 @@
         "NormCode": "wnd",
         "UberCode": "9wn",
         "UltraCode": "7wn",
-        "GemSockets": 1,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3269,6 +3269,7 @@
         "Speed": 10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Petrified Wand [X]",
         "Code": "9yw",
@@ -3285,7 +3286,6 @@
         "NormCode": "ywn",
         "UberCode": "9yw",
         "UltraCode": "7yw",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3299,6 +3299,7 @@
         "Speed": -20,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Tomb Wand [X]",
         "Code": "9bw",
@@ -3315,7 +3316,6 @@
         "NormCode": "bwn",
         "UberCode": "9bw",
         "UltraCode": "7bw",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3329,6 +3329,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Grave Wand [X]",
         "Code": "9gw",
@@ -3345,7 +3346,6 @@
         "NormCode": "gwn",
         "UberCode": "9gw",
         "UltraCode": "7gw",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3359,6 +3359,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Cudgel [X]",
         "Code": "9cl",
@@ -3375,7 +3376,6 @@
         "NormCode": "clb",
         "UberCode": "9cl",
         "UltraCode": "7cl",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3389,6 +3389,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Rune Scepter [X]",
         "Code": "9sc",
@@ -3405,7 +3406,6 @@
         "NormCode": "scp",
         "UberCode": "9sc",
         "UltraCode": "7sc",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3419,6 +3419,7 @@
         "Speed": 10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Holy Water Sprinkler [X]",
         "Code": "9qs",
@@ -3435,7 +3436,6 @@
         "NormCode": "gsc",
         "UberCode": "9qs",
         "UltraCode": "7qs",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3449,6 +3449,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:5",
         "EquipmentType": 1,
         "Name": "Divine Scepter [X]",
         "Code": "9ws",
@@ -3465,7 +3466,6 @@
         "NormCode": "wsp",
         "UberCode": "9ws",
         "UltraCode": "7ws",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3479,6 +3479,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Barbed Club [X]",
         "Code": "9sp",
@@ -3495,7 +3496,6 @@
         "NormCode": "spc",
         "UberCode": "9sp",
         "UltraCode": "7sp",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3509,6 +3509,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Flanged Mace [X]",
         "Code": "9ma",
@@ -3525,7 +3526,6 @@
         "NormCode": "mac",
         "UberCode": "9ma",
         "UltraCode": "7ma",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3539,6 +3539,7 @@
         "Speed": 10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Jagged Star [X]",
         "Code": "9mt",
@@ -3555,7 +3556,6 @@
         "NormCode": "mst",
         "UberCode": "9mt",
         "UltraCode": "7mt",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3569,6 +3569,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 25,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Knout [X]",
         "Code": "9fl",
@@ -3585,7 +3586,6 @@
         "NormCode": "fla",
         "UberCode": "9fl",
         "UltraCode": "7fl",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3599,6 +3599,7 @@
         "Speed": 20,
         "StrBonus": 110,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Battle Hammer [X]",
         "Code": "9wh",
@@ -3615,7 +3616,6 @@
         "NormCode": "whm",
         "UberCode": "9wh",
         "UltraCode": "7wh",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3629,6 +3629,7 @@
         "Speed": 10,
         "StrBonus": 160,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "War Club [X]",
         "Code": "9m9",
@@ -3645,7 +3646,6 @@
         "NormCode": "mau",
         "UberCode": "9m9",
         "UltraCode": "7m7",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3659,6 +3659,7 @@
         "Speed": 20,
         "StrBonus": 160,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Martel de Fer [X]",
         "Code": "9gm",
@@ -3675,7 +3676,6 @@
         "NormCode": "gma",
         "UberCode": "9gm",
         "UltraCode": "7gm",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3689,6 +3689,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Gladius [X]",
         "Code": "9ss",
@@ -3705,7 +3706,6 @@
         "NormCode": "ssd",
         "UberCode": "9ss",
         "UltraCode": "7ss",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3719,6 +3719,7 @@
         "Speed": -30,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Cutlass [X]",
         "Code": "9sm",
@@ -3735,7 +3736,6 @@
         "NormCode": "scm",
         "UberCode": "9sm",
         "UltraCode": "7sm",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3749,6 +3749,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 25,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Shamshir [X]",
         "Code": "9sb",
@@ -3765,7 +3766,6 @@
         "NormCode": "sbr",
         "UberCode": "9sb",
         "UltraCode": "7sb",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3779,6 +3779,7 @@
         "Speed": 20,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Tulwar [X]",
         "Code": "9fc",
@@ -3795,7 +3796,6 @@
         "NormCode": "flc",
         "UberCode": "9fc",
         "UltraCode": "7fc",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3809,6 +3809,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Dimensional Blade [X]",
         "Code": "9cr",
@@ -3825,7 +3826,6 @@
         "NormCode": "crs",
         "UberCode": "9cr",
         "UltraCode": "7cr",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3839,6 +3839,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Battle Sword [X]",
         "Code": "9bs",
@@ -3855,7 +3856,6 @@
         "NormCode": "bsd",
         "UberCode": "9bs",
         "UltraCode": "7bs",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3869,6 +3869,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 25,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Rune Sword [X]",
         "Code": "9ls",
@@ -3885,7 +3886,6 @@
         "NormCode": "lsd",
         "UberCode": "9ls",
         "UltraCode": "7ls",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3899,6 +3899,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 25,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Ancient Sword [X]",
         "Code": "9wd",
@@ -3915,7 +3916,6 @@
         "NormCode": "wsd",
         "UberCode": "9wd",
         "UltraCode": "7wd",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3933,6 +3933,7 @@
         "Speed": 0,
         "StrBonus": 125,
         "DexBonus": 50,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Espandon [X]",
         "Code": "92h",
@@ -3949,7 +3950,6 @@
         "NormCode": "2hs",
         "UberCode": "92h",
         "UltraCode": "72h",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -3967,6 +3967,7 @@
         "Speed": 10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Dacian Falx [X]",
         "Code": "9cm",
@@ -3983,7 +3984,6 @@
         "NormCode": "clm",
         "UberCode": "9cm",
         "UltraCode": "7cm",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4001,6 +4001,7 @@
         "Speed": 0,
         "StrBonus": 125,
         "DexBonus": 50,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Tusk Sword [X]",
         "Code": "9gs",
@@ -4017,7 +4018,6 @@
         "NormCode": "gis",
         "UberCode": "9gs",
         "UltraCode": "7gs",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4035,6 +4035,7 @@
         "Speed": 10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Gothic Sword [X]",
         "Code": "9b9",
@@ -4051,7 +4052,6 @@
         "NormCode": "bsw",
         "UberCode": "9b9",
         "UltraCode": "7b7",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4069,6 +4069,7 @@
         "Speed": -10,
         "StrBonus": 125,
         "DexBonus": 50,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Zweihander [X]",
         "Code": "9fb",
@@ -4085,7 +4086,6 @@
         "NormCode": "flb",
         "UberCode": "9fb",
         "UltraCode": "7fb",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4103,6 +4103,7 @@
         "Speed": 10,
         "StrBonus": 125,
         "DexBonus": 50,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Executioner Sword [X]",
         "Code": "9gd",
@@ -4119,7 +4120,6 @@
         "NormCode": "gsd",
         "UberCode": "9gd",
         "UltraCode": "7gd",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4133,6 +4133,7 @@
         "Speed": -20,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Poignard [X]",
         "Code": "9dg",
@@ -4149,7 +4150,6 @@
         "NormCode": "dgr",
         "UberCode": "9dg",
         "UltraCode": "7dg",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4163,6 +4163,7 @@
         "Speed": 0,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Rondel [X]",
         "Code": "9di",
@@ -4179,7 +4180,6 @@
         "NormCode": "dir",
         "UberCode": "9di",
         "UltraCode": "7di",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4193,6 +4193,7 @@
         "Speed": -20,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 1,
         "Name": "Cinquedeas [X]",
         "Code": "9kr",
@@ -4209,7 +4210,6 @@
         "NormCode": "kri",
         "UberCode": "9kr",
         "UltraCode": "7kr",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4223,6 +4223,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 1,
         "Name": "Stiletto [X]",
         "Code": "9bl",
@@ -4239,7 +4240,6 @@
         "NormCode": "bld",
         "UberCode": "9bl",
         "UltraCode": "7bl",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4257,6 +4257,7 @@
         "Speed": 0,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -4283,7 +4284,6 @@
         "NormCode": "tkf",
         "UberCode": "9tk",
         "UltraCode": "7tk",
-        "GemSockets": 0,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -4301,6 +4301,7 @@
         "Speed": 10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -4327,7 +4328,6 @@
         "NormCode": "tax",
         "UberCode": "9ta",
         "UltraCode": "7ta",
-        "GemSockets": 0,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -4345,6 +4345,7 @@
         "Speed": -20,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -4371,7 +4372,6 @@
         "NormCode": "bkf",
         "UberCode": "9bk",
         "UltraCode": "7bk",
-        "GemSockets": 0,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -4389,6 +4389,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -4415,7 +4416,6 @@
         "NormCode": "bal",
         "UberCode": "9b8",
         "UltraCode": "7b8",
-        "GemSockets": 0,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -4433,6 +4433,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -4459,7 +4460,6 @@
         "NormCode": "jav",
         "UberCode": "9ja",
         "UltraCode": "7ja",
-        "GemSockets": 0,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -4477,6 +4477,7 @@
         "Speed": 0,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -4503,7 +4504,6 @@
         "NormCode": "pil",
         "UberCode": "9pi",
         "UltraCode": "7pi",
-        "GemSockets": 0,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -4521,6 +4521,7 @@
         "Speed": 10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -4547,7 +4548,6 @@
         "NormCode": "ssp",
         "UberCode": "9s9",
         "UltraCode": "7s7",
-        "GemSockets": 0,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -4565,6 +4565,7 @@
         "Speed": 20,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -4591,7 +4592,6 @@
         "NormCode": "glv",
         "UberCode": "9gl",
         "UltraCode": "7gl",
-        "GemSockets": 0,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -4609,6 +4609,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -4635,7 +4636,6 @@
         "NormCode": "tsp",
         "UberCode": "9ts",
         "UltraCode": "7ts",
-        "GemSockets": 0,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -4649,6 +4649,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 75,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "War Spear [X]",
         "Code": "9sr",
@@ -4665,7 +4666,6 @@
         "NormCode": "spr",
         "UberCode": "9sr",
         "UltraCode": "7sr",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4679,6 +4679,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 75,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Fuscina [X]",
         "Code": "9tr",
@@ -4695,7 +4696,6 @@
         "NormCode": "tri",
         "UberCode": "9tr",
         "UltraCode": "7tr",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4709,6 +4709,7 @@
         "Speed": -20,
         "StrBonus": 100,
         "DexBonus": 75,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "War Fork [X]",
         "Code": "9br",
@@ -4725,7 +4726,6 @@
         "NormCode": "brn",
         "UberCode": "9br",
         "UltraCode": "7br",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4739,6 +4739,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 75,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Yari [X]",
         "Code": "9st",
@@ -4755,7 +4756,6 @@
         "NormCode": "spt",
         "UberCode": "9st",
         "UltraCode": "7st",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4769,6 +4769,7 @@
         "Speed": 20,
         "StrBonus": 100,
         "DexBonus": 75,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Lance [X]",
         "Code": "9p9",
@@ -4785,7 +4786,6 @@
         "NormCode": "pik",
         "UberCode": "9p9",
         "UltraCode": "7p7",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4799,6 +4799,7 @@
         "Speed": 10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Lochaber Axe [X]",
         "Code": "9b7",
@@ -4815,7 +4816,6 @@
         "NormCode": "bar",
         "UberCode": "9b7",
         "UltraCode": "7o7",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4829,6 +4829,7 @@
         "Speed": 0,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Bill [X]",
         "Code": "9vo",
@@ -4845,7 +4846,6 @@
         "NormCode": "vou",
         "UberCode": "9vo",
         "UltraCode": "7vo",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4859,6 +4859,7 @@
         "Speed": -10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Battle Scythe [X]",
         "Code": "9s8",
@@ -4875,7 +4876,6 @@
         "NormCode": "scy",
         "UberCode": "9s8",
         "UltraCode": "7s8",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4889,6 +4889,7 @@
         "Speed": 10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Partizan [X]",
         "Code": "9pa",
@@ -4905,7 +4906,6 @@
         "NormCode": "pax",
         "UberCode": "9pa",
         "UltraCode": "7pa",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4919,6 +4919,7 @@
         "Speed": 0,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Bec-de-Corbin [X]",
         "Code": "9h9",
@@ -4935,7 +4936,6 @@
         "NormCode": "hal",
         "UberCode": "9h9",
         "UltraCode": "7h7",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4949,6 +4949,7 @@
         "Speed": -10,
         "StrBonus": 125,
         "DexBonus": 50,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Grim Scythe [X]",
         "Code": "9wc",
@@ -4965,7 +4966,6 @@
         "NormCode": "wsc",
         "UberCode": "9wc",
         "UltraCode": "7wc",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -4979,6 +4979,7 @@
         "Speed": -10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Jo Staff [X]",
         "Code": "8ss",
@@ -4995,7 +4996,6 @@
         "NormCode": "sst",
         "UberCode": "8ss",
         "UltraCode": "6ss",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -5009,6 +5009,7 @@
         "Speed": 0,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Quarterstaff [X]",
         "Code": "8ls",
@@ -5025,7 +5026,6 @@
         "NormCode": "lst",
         "UberCode": "8ls",
         "UltraCode": "6ls",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -5039,6 +5039,7 @@
         "Speed": 10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1+:4",
         "EquipmentType": 1,
         "Name": "Cedar Staff [X]",
         "Code": "8cs",
@@ -5055,7 +5056,6 @@
         "NormCode": "cst",
         "UberCode": "8cs",
         "UltraCode": "6cs",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -5069,6 +5069,7 @@
         "Speed": 0,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1+:4",
         "EquipmentType": 1,
         "Name": "Gothic Staff [X]",
         "Code": "8bs",
@@ -5085,7 +5086,6 @@
         "NormCode": "bst",
         "UberCode": "8bs",
         "UltraCode": "6bs",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -5099,6 +5099,7 @@
         "Speed": 20,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:5, 26+:6",
         "EquipmentType": 1,
         "Name": "Rune Staff [X]",
         "Code": "8ws",
@@ -5115,7 +5116,6 @@
         "NormCode": "wst",
         "UberCode": "8ws",
         "UltraCode": "6ws",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -5129,6 +5129,7 @@
         "Speed": 5,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Edge Bow [X]",
         "Code": "8sb",
@@ -5145,7 +5146,6 @@
         "NormCode": "sbw",
         "UberCode": "8sb",
         "UltraCode": "6sb",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -5159,6 +5159,7 @@
         "Speed": -10,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Razor Bow [X]",
         "Code": "8hb",
@@ -5175,7 +5176,6 @@
         "NormCode": "hbw",
         "UberCode": "8hb",
         "UltraCode": "6hb",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -5189,6 +5189,7 @@
         "Speed": 0,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Cedar Bow [X]",
         "Code": "8lb",
@@ -5205,7 +5206,6 @@
         "NormCode": "lbw",
         "UberCode": "8lb",
         "UltraCode": "6lb",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -5219,6 +5219,7 @@
         "Speed": -10,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Double Bow [X]",
         "Code": "8cb",
@@ -5235,7 +5236,6 @@
         "NormCode": "cbw",
         "UberCode": "8cb",
         "UltraCode": "6cb",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -5249,6 +5249,7 @@
         "Speed": 0,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Short Siege Bow [X]",
         "Code": "8s8",
@@ -5265,7 +5266,6 @@
         "NormCode": "sbb",
         "UberCode": "8s8",
         "UltraCode": "6s7",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -5279,6 +5279,7 @@
         "Speed": 10,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Large Siege Bow [X]",
         "Code": "8l8",
@@ -5295,7 +5296,6 @@
         "NormCode": "lbb",
         "UberCode": "8l8",
         "UltraCode": "6l7",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -5309,6 +5309,7 @@
         "Speed": 0,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Rune Bow [X]",
         "Code": "8sw",
@@ -5325,7 +5326,6 @@
         "NormCode": "swb",
         "UberCode": "8sw",
         "UltraCode": "6sw",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -5339,6 +5339,7 @@
         "Speed": 10,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Gothic Bow [X]",
         "Code": "8lw",
@@ -5355,7 +5356,6 @@
         "NormCode": "lwb",
         "UberCode": "8lw",
         "UltraCode": "6lw",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -5369,6 +5369,7 @@
         "Speed": -10,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Arbalest [X]",
         "Code": "8lx",
@@ -5385,7 +5386,6 @@
         "NormCode": "lxb",
         "UberCode": "8lx",
         "UltraCode": "6lx",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -5399,6 +5399,7 @@
         "Speed": 0,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Siege Crossbow [X]",
         "Code": "8mx",
@@ -5415,7 +5416,6 @@
         "NormCode": "mxb",
         "UberCode": "8mx",
         "UltraCode": "6mx",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -5429,6 +5429,7 @@
         "Speed": 10,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Ballista [X]",
         "Code": "8hx",
@@ -5445,7 +5446,6 @@
         "NormCode": "hxb",
         "UberCode": "8hx",
         "UltraCode": "6hx",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -5459,6 +5459,7 @@
         "Speed": -60,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Chu-Ko-Nu [X]",
         "Code": "8rx",
@@ -5475,7 +5476,6 @@
         "NormCode": "rxb",
         "UberCode": "8rx",
         "UltraCode": "6rx",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -5489,6 +5489,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Khalim's Flail",
         "Code": "qf1",
@@ -5505,7 +5506,6 @@
         "NormCode": "fla",
         "UberCode": "",
         "UltraCode": "",
-        "GemSockets": 3,
         "AutoPrefix": "316",
         "RequiredClass": ""
     },
@@ -5519,6 +5519,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Khalim's Will",
         "Code": "qf2",
@@ -5535,7 +5536,6 @@
         "NormCode": "fla",
         "UberCode": "",
         "UltraCode": "",
-        "GemSockets": 3,
         "AutoPrefix": "316",
         "RequiredClass": ""
     },
@@ -5549,6 +5549,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Katar [N]",
         "Code": "ktr",
@@ -5565,7 +5566,6 @@
         "NormCode": "ktr",
         "UberCode": "9ar",
         "UltraCode": "7ar",
-        "GemSockets": 2,
         "AutoPrefix": "316",
         "RequiredClass": "Assassin"
     },
@@ -5579,6 +5579,7 @@
         "Speed": 0,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Wrist Blade [N]",
         "Code": "wrb",
@@ -5595,7 +5596,6 @@
         "NormCode": "wrb",
         "UberCode": "9wb",
         "UltraCode": "7wb",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": "Assassin"
     },
@@ -5609,6 +5609,7 @@
         "Speed": 10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Hatchet Hands [N]",
         "Code": "axf",
@@ -5625,7 +5626,6 @@
         "NormCode": "axf",
         "UberCode": "9xf",
         "UltraCode": "7xf",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": "Assassin"
     },
@@ -5639,6 +5639,7 @@
         "Speed": 0,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Cestus [N]",
         "Code": "ces",
@@ -5655,7 +5656,6 @@
         "NormCode": "ces",
         "UberCode": "9cs",
         "UltraCode": "7cs",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": "Assassin"
     },
@@ -5669,6 +5669,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 1,
         "Name": "Claws [N]",
         "Code": "clw",
@@ -5685,7 +5686,6 @@
         "NormCode": "clw",
         "UberCode": "9lw",
         "UltraCode": "7lw",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": "Assassin"
     },
@@ -5699,6 +5699,7 @@
         "Speed": -20,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 1,
         "Name": "Blade Talons [N]",
         "Code": "btl",
@@ -5715,7 +5716,6 @@
         "NormCode": "btl",
         "UberCode": "9tw",
         "UltraCode": "7tw",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": "Assassin"
     },
@@ -5729,6 +5729,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 1,
         "Name": "Scissors Katar [N]",
         "Code": "skr",
@@ -5745,7 +5746,6 @@
         "NormCode": "skr",
         "UberCode": "9qr",
         "UltraCode": "7qr",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": "Assassin"
     },
@@ -5759,6 +5759,7 @@
         "Speed": 0,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 1,
         "Name": "Quhab [X]",
         "Code": "9ar",
@@ -5775,7 +5776,6 @@
         "NormCode": "ktr",
         "UberCode": "9ar",
         "UltraCode": "7ar",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": "Assassin"
     },
@@ -5789,6 +5789,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Wrist Spike [X]",
         "Code": "9wb",
@@ -5805,7 +5806,6 @@
         "NormCode": "wrb",
         "UberCode": "9wb",
         "UltraCode": "7wb",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": "Assassin"
     },
@@ -5819,6 +5819,7 @@
         "Speed": 10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Fascia [X]",
         "Code": "9xf",
@@ -5835,7 +5836,6 @@
         "NormCode": "axf",
         "UberCode": "9xf",
         "UltraCode": "7xf",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": "Assassin"
     },
@@ -5849,6 +5849,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Hand Scythe [X]",
         "Code": "9cs",
@@ -5865,7 +5866,6 @@
         "NormCode": "ces",
         "UberCode": "9cs",
         "UltraCode": "7cs",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -5879,6 +5879,7 @@
         "Speed": -20,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 1,
         "Name": "Greater Claws [X]",
         "Code": "9lw",
@@ -5895,7 +5896,6 @@
         "NormCode": "clw",
         "UberCode": "9lw",
         "UltraCode": "7lw",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -5909,6 +5909,7 @@
         "Speed": -30,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 1,
         "Name": "Greater Talons [X]",
         "Code": "9tw",
@@ -5925,7 +5926,6 @@
         "NormCode": "btl",
         "UberCode": "9tw",
         "UltraCode": "7tw",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -5939,6 +5939,7 @@
         "Speed": 0,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 1,
         "Name": "Scissors Quhab [X]",
         "Code": "9qr",
@@ -5955,7 +5956,6 @@
         "NormCode": "skr",
         "UberCode": "9qr",
         "UltraCode": "7qr",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -5969,6 +5969,7 @@
         "Speed": 0,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 1,
         "Name": "Suwayyah [E]",
         "Code": "7ar",
@@ -5985,7 +5986,6 @@
         "NormCode": "ktr",
         "UberCode": "9ar",
         "UltraCode": "7ar",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -5999,6 +5999,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 1,
         "Name": "Wrist Sword [E]",
         "Code": "7wb",
@@ -6015,7 +6016,6 @@
         "NormCode": "wrb",
         "UberCode": "9wb",
         "UltraCode": "7wb",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6029,6 +6029,7 @@
         "Speed": 10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "War Fist [E]",
         "Code": "7xf",
@@ -6045,7 +6046,6 @@
         "NormCode": "axf",
         "UberCode": "9xf",
         "UltraCode": "7xf",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6059,6 +6059,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Battle Cestus [E]",
         "Code": "7cs",
@@ -6075,7 +6076,6 @@
         "NormCode": "ces",
         "UberCode": "9cs",
         "UltraCode": "7cs",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6089,6 +6089,7 @@
         "Speed": -20,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 1,
         "Name": "Feral Claws [E]",
         "Code": "7lw",
@@ -6105,7 +6106,6 @@
         "NormCode": "clw",
         "UberCode": "9lw",
         "UltraCode": "7lw",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6119,6 +6119,7 @@
         "Speed": -30,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 1,
         "Name": "Runic Talons [E]",
         "Code": "7tw",
@@ -6135,7 +6136,6 @@
         "NormCode": "btl",
         "UberCode": "9tw",
         "UltraCode": "7tw",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6149,6 +6149,7 @@
         "Speed": 0,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 1,
         "Name": "Scissors Suwayyah [E]",
         "Code": "7qr",
@@ -6165,7 +6166,6 @@
         "NormCode": "skr",
         "UberCode": "9qr",
         "UltraCode": "7qr",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6179,6 +6179,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Tomahawk [E]",
         "Code": "7ha",
@@ -6195,7 +6196,6 @@
         "NormCode": "hax",
         "UberCode": "9ha",
         "UltraCode": "7ha",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6209,6 +6209,7 @@
         "Speed": 10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:4",
         "EquipmentType": 1,
         "Name": "Small Crescent [E]",
         "Code": "7ax",
@@ -6225,7 +6226,6 @@
         "NormCode": "axe",
         "UberCode": "9ax",
         "UltraCode": "7ax",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6239,6 +6239,7 @@
         "Speed": 10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:4, 26+:5",
         "EquipmentType": 1,
         "Name": "Ettin Axe [E]",
         "Code": "72a",
@@ -6255,7 +6256,6 @@
         "NormCode": "2ax",
         "UberCode": "92a",
         "UltraCode": "72a",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6269,6 +6269,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 25,
+        "GemSockets": "1-25:4, 26-40:5, 41+:6",
         "EquipmentType": 1,
         "Name": "War Spike [E]",
         "Code": "7mp",
@@ -6285,7 +6286,6 @@
         "NormCode": "mpi",
         "UberCode": "9mp",
         "UltraCode": "7mp",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6299,6 +6299,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:4, 26-40:5, 41+:6",
         "EquipmentType": 1,
         "Name": "Berserker Axe [E]",
         "Code": "7wa",
@@ -6315,7 +6316,6 @@
         "NormCode": "wax",
         "UberCode": "9wa",
         "UltraCode": "7wa",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6329,6 +6329,7 @@
         "Speed": -15,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1+:4",
         "EquipmentType": 1,
         "Name": "Feral Axe [E]",
         "Code": "7la",
@@ -6345,7 +6346,6 @@
         "NormCode": "lax",
         "UberCode": "9la",
         "UltraCode": "7la",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6359,6 +6359,7 @@
         "Speed": 0,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:4, 26+:5",
         "EquipmentType": 1,
         "Name": "Silver-edged Axe [E]",
         "Code": "7ba",
@@ -6375,7 +6376,6 @@
         "NormCode": "bax",
         "UberCode": "9ba",
         "UltraCode": "7ba",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6389,6 +6389,7 @@
         "Speed": 10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:4, 26+:5",
         "EquipmentType": 1,
         "Name": "Decapitator [E]",
         "Code": "7bt",
@@ -6405,7 +6406,6 @@
         "NormCode": "btx",
         "UberCode": "9bt",
         "UltraCode": "7bt",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6419,6 +6419,7 @@
         "Speed": -10,
         "StrBonus": 150,
         "DexBonus": 25,
+        "GemSockets": "1-25:4, 26-40:5, 41+:6",
         "EquipmentType": 1,
         "Name": "Champion Axe [E]",
         "Code": "7ga",
@@ -6435,7 +6436,6 @@
         "NormCode": "gax",
         "UberCode": "9ga",
         "UltraCode": "7ga",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6449,6 +6449,7 @@
         "Speed": 10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:4, 26-40:5, 41+:6",
         "EquipmentType": 1,
         "Name": "Glorious Axe [E]",
         "Code": "7gi",
@@ -6465,7 +6466,6 @@
         "NormCode": "gix",
         "UberCode": "9gi",
         "UltraCode": "7gi",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6479,6 +6479,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Polished Wand [E]",
         "Code": "7wn",
@@ -6495,7 +6496,6 @@
         "NormCode": "wnd",
         "UberCode": "9wn",
         "UltraCode": "7wn",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6509,6 +6509,7 @@
         "Speed": 10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Ghost Wand [E]",
         "Code": "7yw",
@@ -6525,7 +6526,6 @@
         "NormCode": "ywn",
         "UberCode": "9yw",
         "UltraCode": "7yw",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6539,6 +6539,7 @@
         "Speed": -20,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Lich Wand [E]",
         "Code": "7bw",
@@ -6555,7 +6556,6 @@
         "NormCode": "bwn",
         "UberCode": "9bw",
         "UltraCode": "7bw",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6569,6 +6569,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Unearthed Wand [E]",
         "Code": "7gw",
@@ -6585,7 +6586,6 @@
         "NormCode": "gwn",
         "UberCode": "9gw",
         "UltraCode": "7gw",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6599,6 +6599,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Truncheon [E]",
         "Code": "7cl",
@@ -6615,7 +6616,6 @@
         "NormCode": "clb",
         "UberCode": "9cl",
         "UltraCode": "7cl",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6629,6 +6629,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Mighty Scepter [E]",
         "Code": "7sc",
@@ -6645,7 +6646,6 @@
         "NormCode": "scp",
         "UberCode": "9sc",
         "UltraCode": "7sc",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6659,6 +6659,7 @@
         "Speed": 10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Seraph Rod [E]",
         "Code": "7qs",
@@ -6675,7 +6676,6 @@
         "NormCode": "gsc",
         "UberCode": "9qs",
         "UltraCode": "7qs",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6689,6 +6689,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:5",
         "EquipmentType": 1,
         "Name": "Caduceus [E]",
         "Code": "7ws",
@@ -6705,7 +6706,6 @@
         "NormCode": "wsp",
         "UberCode": "9ws",
         "UltraCode": "7ws",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6719,6 +6719,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Tyrant Club [E]",
         "Code": "7sp",
@@ -6735,7 +6736,6 @@
         "NormCode": "spc",
         "UberCode": "9sp",
         "UltraCode": "7sp",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6749,6 +6749,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Reinforced Mace [E]",
         "Code": "7ma",
@@ -6765,7 +6766,6 @@
         "NormCode": "mac",
         "UberCode": "9ma",
         "UltraCode": "7ma",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6779,6 +6779,7 @@
         "Speed": 10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Devil Star [E]",
         "Code": "7mt",
@@ -6795,7 +6796,6 @@
         "NormCode": "mst",
         "UberCode": "9mt",
         "UltraCode": "7mt",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6809,6 +6809,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 25,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Scourge [E]",
         "Code": "7fl",
@@ -6825,7 +6826,6 @@
         "NormCode": "fla",
         "UberCode": "9fl",
         "UltraCode": "7fl",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6839,6 +6839,7 @@
         "Speed": 20,
         "StrBonus": 110,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Legendary Mallet [E]",
         "Code": "7wh",
@@ -6855,7 +6856,6 @@
         "NormCode": "whm",
         "UberCode": "9wh",
         "UltraCode": "7wh",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6869,6 +6869,7 @@
         "Speed": 10,
         "StrBonus": 160,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Ogre Maul [E]",
         "Code": "7m7",
@@ -6885,7 +6886,6 @@
         "NormCode": "mau",
         "UberCode": "9m9",
         "UltraCode": "7m7",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6899,6 +6899,7 @@
         "Speed": 20,
         "StrBonus": 160,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Thunder Maul [E]",
         "Code": "7gm",
@@ -6915,7 +6916,6 @@
         "NormCode": "gma",
         "UberCode": "9gm",
         "UltraCode": "7gm",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6929,6 +6929,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Falcata [E]",
         "Code": "7ss",
@@ -6945,7 +6946,6 @@
         "NormCode": "ssd",
         "UberCode": "9ss",
         "UltraCode": "7ss",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6959,6 +6959,7 @@
         "Speed": -20,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Ataghan [E]",
         "Code": "7sm",
@@ -6975,7 +6976,6 @@
         "NormCode": "scm",
         "UberCode": "9sm",
         "UltraCode": "7sm",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -6989,6 +6989,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 25,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Elegant Blade [E]",
         "Code": "7sb",
@@ -7005,7 +7006,6 @@
         "NormCode": "sbr",
         "UberCode": "9sb",
         "UltraCode": "7sb",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -7019,6 +7019,7 @@
         "Speed": 10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Hydra Edge [E]",
         "Code": "7fc",
@@ -7035,7 +7036,6 @@
         "NormCode": "flc",
         "UberCode": "9fc",
         "UltraCode": "7fc",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -7049,6 +7049,7 @@
         "Speed": -30,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Phase Blade [E]",
         "Code": "7cr",
@@ -7065,7 +7066,6 @@
         "NormCode": "crs",
         "UberCode": "9cr",
         "UltraCode": "7cr",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -7079,6 +7079,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Conquest Sword [E]",
         "Code": "7bs",
@@ -7095,7 +7096,6 @@
         "NormCode": "bsd",
         "UberCode": "9bs",
         "UltraCode": "7bs",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -7109,6 +7109,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 25,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Cryptic Sword [E]",
         "Code": "7ls",
@@ -7125,7 +7126,6 @@
         "NormCode": "lsd",
         "UberCode": "9ls",
         "UltraCode": "7ls",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -7139,6 +7139,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 25,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Mythical Sword [E]",
         "Code": "7wd",
@@ -7155,7 +7156,6 @@
         "NormCode": "wsd",
         "UberCode": "9wd",
         "UltraCode": "7wd",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -7173,6 +7173,7 @@
         "Speed": -15,
         "StrBonus": 125,
         "DexBonus": 50,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Legend Sword [E]",
         "Code": "72h",
@@ -7189,7 +7190,6 @@
         "NormCode": "2hs",
         "UberCode": "92h",
         "UltraCode": "72h",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -7207,6 +7207,7 @@
         "Speed": -5,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Highland Blade [E]",
         "Code": "7cm",
@@ -7223,7 +7224,6 @@
         "NormCode": "clm",
         "UberCode": "9cm",
         "UltraCode": "7cm",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -7241,6 +7241,7 @@
         "Speed": 0,
         "StrBonus": 125,
         "DexBonus": 50,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Balrog Blade [E]",
         "Code": "7gs",
@@ -7257,7 +7258,6 @@
         "NormCode": "gis",
         "UberCode": "9gs",
         "UltraCode": "7gs",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -7275,6 +7275,7 @@
         "Speed": -10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Champion Sword [E]",
         "Code": "7b7",
@@ -7291,7 +7292,6 @@
         "NormCode": "bsw",
         "UberCode": "9b9",
         "UltraCode": "7b7",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -7309,6 +7309,7 @@
         "Speed": 10,
         "StrBonus": 125,
         "DexBonus": 50,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Colossus Sword [E]",
         "Code": "7fb",
@@ -7325,7 +7326,6 @@
         "NormCode": "flb",
         "UberCode": "9fb",
         "UltraCode": "7fb",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -7343,6 +7343,7 @@
         "Speed": 5,
         "StrBonus": 125,
         "DexBonus": 50,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Colossus Blade [E]",
         "Code": "7gd",
@@ -7359,7 +7360,6 @@
         "NormCode": "gsd",
         "UberCode": "9gd",
         "UltraCode": "7gd",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -7373,6 +7373,7 @@
         "Speed": -20,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1+:1",
         "EquipmentType": 1,
         "Name": "Bone Knife [E]",
         "Code": "7dg",
@@ -7389,7 +7390,6 @@
         "NormCode": "dgr",
         "UberCode": "9dg",
         "UltraCode": "7dg",
-        "GemSockets": 1,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -7403,6 +7403,7 @@
         "Speed": 0,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1+:1",
         "EquipmentType": 1,
         "Name": "Mithril Point [E]",
         "Code": "7di",
@@ -7419,7 +7420,6 @@
         "NormCode": "dir",
         "UberCode": "9di",
         "UltraCode": "7di",
-        "GemSockets": 1,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -7433,6 +7433,7 @@
         "Speed": -20,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 1,
         "Name": "Fanged Knife [E]",
         "Code": "7kr",
@@ -7449,7 +7450,6 @@
         "NormCode": "kri",
         "UberCode": "9kr",
         "UltraCode": "7kr",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -7463,6 +7463,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "1-25:2, 26+:3",
         "EquipmentType": 1,
         "Name": "Legend Spike [E]",
         "Code": "7bl",
@@ -7479,7 +7480,6 @@
         "NormCode": "bld",
         "UberCode": "9bl",
         "UltraCode": "7bl",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -7497,6 +7497,7 @@
         "Speed": 0,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -7523,7 +7524,6 @@
         "NormCode": "tkf",
         "UberCode": "9tk",
         "UltraCode": "7tk",
-        "GemSockets": 0,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -7541,6 +7541,7 @@
         "Speed": 10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -7567,7 +7568,6 @@
         "NormCode": "tax",
         "UberCode": "9ta",
         "UltraCode": "7ta",
-        "GemSockets": 0,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -7585,6 +7585,7 @@
         "Speed": -20,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -7611,7 +7612,6 @@
         "NormCode": "bkf",
         "UberCode": "9bk",
         "UltraCode": "7bk",
-        "GemSockets": 0,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -7629,6 +7629,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -7655,7 +7656,6 @@
         "NormCode": "bal",
         "UberCode": "9b8",
         "UltraCode": "7b8",
-        "GemSockets": 0,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -7673,6 +7673,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -7699,7 +7700,6 @@
         "NormCode": "jav",
         "UberCode": "9ja",
         "UltraCode": "7ja",
-        "GemSockets": 0,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -7717,6 +7717,7 @@
         "Speed": 0,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -7743,7 +7744,6 @@
         "NormCode": "pil",
         "UberCode": "9pi",
         "UltraCode": "7pi",
-        "GemSockets": 0,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -7761,6 +7761,7 @@
         "Speed": 10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -7787,7 +7788,6 @@
         "NormCode": "ssp",
         "UberCode": "9s9",
         "UltraCode": "7s7",
-        "GemSockets": 0,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -7805,6 +7805,7 @@
         "Speed": 20,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -7831,7 +7832,6 @@
         "NormCode": "glv",
         "UberCode": "9gl",
         "UltraCode": "7gl",
-        "GemSockets": 0,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -7849,6 +7849,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -7875,7 +7876,6 @@
         "NormCode": "tsp",
         "UberCode": "9ts",
         "UltraCode": "7ts",
-        "GemSockets": 0,
         "AutoPrefix": "317",
         "RequiredClass": ""
     },
@@ -7889,6 +7889,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 75,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Hyperion Spear [E]",
         "Code": "7sr",
@@ -7905,7 +7906,6 @@
         "NormCode": "spr",
         "UberCode": "9sr",
         "UltraCode": "7sr",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -7919,6 +7919,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 75,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Stygian Pike [E]",
         "Code": "7tr",
@@ -7935,7 +7936,6 @@
         "NormCode": "tri",
         "UberCode": "9tr",
         "UltraCode": "7tr",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -7949,6 +7949,7 @@
         "Speed": -20,
         "StrBonus": 100,
         "DexBonus": 75,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Mancatcher [E]",
         "Code": "7br",
@@ -7965,7 +7966,6 @@
         "NormCode": "brn",
         "UberCode": "9br",
         "UltraCode": "7br",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -7979,6 +7979,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 75,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Ghost Spear [E]",
         "Code": "7st",
@@ -7995,7 +7996,6 @@
         "NormCode": "spt",
         "UberCode": "9st",
         "UltraCode": "7st",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -8009,6 +8009,7 @@
         "Speed": 20,
         "StrBonus": 100,
         "DexBonus": 75,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "War Pike [E]",
         "Code": "7p7",
@@ -8025,7 +8026,6 @@
         "NormCode": "pik",
         "UberCode": "9p9",
         "UltraCode": "7p7",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -8039,6 +8039,7 @@
         "Speed": 0,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Ogre Axe [E]",
         "Code": "7o7",
@@ -8055,7 +8056,6 @@
         "NormCode": "bar",
         "UberCode": "9b7",
         "UltraCode": "7o7",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -8069,6 +8069,7 @@
         "Speed": 10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Colossus Voulge [E]",
         "Code": "7vo",
@@ -8085,7 +8086,6 @@
         "NormCode": "vou",
         "UberCode": "9vo",
         "UltraCode": "7vo",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -8099,6 +8099,7 @@
         "Speed": -10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Thresher [E]",
         "Code": "7s8",
@@ -8115,7 +8116,6 @@
         "NormCode": "scy",
         "UberCode": "9s8",
         "UltraCode": "7s8",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -8129,6 +8129,7 @@
         "Speed": 10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Cryptic Axe [E]",
         "Code": "7pa",
@@ -8145,7 +8146,6 @@
         "NormCode": "pax",
         "UberCode": "9pa",
         "UltraCode": "7pa",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -8159,6 +8159,7 @@
         "Speed": 0,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Great Poleaxe [E]",
         "Code": "7h7",
@@ -8175,7 +8176,6 @@
         "NormCode": "hal",
         "UberCode": "9h9",
         "UltraCode": "7h7",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -8189,6 +8189,7 @@
         "Speed": -10,
         "StrBonus": 125,
         "DexBonus": 50,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Giant Thresher [E]",
         "Code": "7wc",
@@ -8205,7 +8206,6 @@
         "NormCode": "wsc",
         "UberCode": "9wc",
         "UltraCode": "7wc",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -8219,6 +8219,7 @@
         "Speed": -10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "EquipmentType": 1,
         "Name": "Walking Stick [E]",
         "Code": "6ss",
@@ -8235,7 +8236,6 @@
         "NormCode": "sst",
         "UberCode": "8ss",
         "UltraCode": "6ss",
-        "GemSockets": 2,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -8249,6 +8249,7 @@
         "Speed": 10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Stalagmite [E]",
         "Code": "6ls",
@@ -8265,7 +8266,6 @@
         "NormCode": "lst",
         "UberCode": "8ls",
         "UltraCode": "6ls",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -8279,6 +8279,7 @@
         "Speed": 0,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1+:4",
         "EquipmentType": 1,
         "Name": "Elder Staff [E]",
         "Code": "6cs",
@@ -8295,7 +8296,6 @@
         "NormCode": "cst",
         "UberCode": "8cs",
         "UltraCode": "6cs",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -8309,6 +8309,7 @@
         "Speed": 0,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1+:4",
         "EquipmentType": 1,
         "Name": "Shillelagh [E]",
         "Code": "6bs",
@@ -8325,7 +8326,6 @@
         "NormCode": "bst",
         "UberCode": "8bs",
         "UltraCode": "6bs",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -8339,6 +8339,7 @@
         "Speed": 10,
         "StrBonus": 150,
         "DexBonus": 0,
+        "GemSockets": "1-25:5, 26+:6",
         "EquipmentType": 1,
         "Name": "Archon Staff [E]",
         "Code": "6ws",
@@ -8355,7 +8356,6 @@
         "NormCode": "wst",
         "UberCode": "8ws",
         "UltraCode": "6ws",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -8369,6 +8369,7 @@
         "Speed": 5,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Spider Bow [E]",
         "Code": "6sb",
@@ -8385,7 +8386,6 @@
         "NormCode": "sbw",
         "UberCode": "8sb",
         "UltraCode": "6sb",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -8399,6 +8399,7 @@
         "Speed": -10,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Blade Bow [E]",
         "Code": "6hb",
@@ -8415,7 +8416,6 @@
         "NormCode": "hbw",
         "UberCode": "8hb",
         "UltraCode": "6hb",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -8429,6 +8429,7 @@
         "Speed": 0,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Shadow Bow [E]",
         "Code": "6lb",
@@ -8445,7 +8446,6 @@
         "NormCode": "lbw",
         "UberCode": "8lb",
         "UltraCode": "6lb",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -8459,6 +8459,7 @@
         "Speed": -10,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Great Bow [E]",
         "Code": "6cb",
@@ -8475,7 +8476,6 @@
         "NormCode": "cbw",
         "UberCode": "8cb",
         "UltraCode": "6cb",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -8489,6 +8489,7 @@
         "Speed": 0,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Diamond Bow [E]",
         "Code": "6s7",
@@ -8505,7 +8506,6 @@
         "NormCode": "sbb",
         "UberCode": "8s8",
         "UltraCode": "6s7",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -8519,6 +8519,7 @@
         "Speed": 10,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Crusader Bow [E]",
         "Code": "6l7",
@@ -8535,7 +8536,6 @@
         "NormCode": "lbb",
         "UberCode": "8l8",
         "UltraCode": "6l7",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -8549,6 +8549,7 @@
         "Speed": 0,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Ward Bow [E]",
         "Code": "6sw",
@@ -8565,7 +8566,6 @@
         "NormCode": "swb",
         "UberCode": "8sw",
         "UltraCode": "6sw",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -8579,6 +8579,7 @@
         "Speed": 10,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Hydra Bow [E]",
         "Code": "6lw",
@@ -8595,7 +8596,6 @@
         "NormCode": "lwb",
         "UberCode": "8lw",
         "UltraCode": "6lw",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -8609,6 +8609,7 @@
         "Speed": -10,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1+:3",
         "EquipmentType": 1,
         "Name": "Pellet Bow [E]",
         "Code": "6lx",
@@ -8625,7 +8626,6 @@
         "NormCode": "lxb",
         "UberCode": "8lx",
         "UltraCode": "6lx",
-        "GemSockets": 3,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -8639,6 +8639,7 @@
         "Speed": 0,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26+:4",
         "EquipmentType": 1,
         "Name": "Gorgon Crossbow [E]",
         "Code": "6mx",
@@ -8655,7 +8656,6 @@
         "NormCode": "mxb",
         "UberCode": "8mx",
         "UltraCode": "6mx",
-        "GemSockets": 4,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -8669,6 +8669,7 @@
         "Speed": 10,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "EquipmentType": 1,
         "Name": "Colossus Crossbow [E]",
         "Code": "6hx",
@@ -8685,7 +8686,6 @@
         "NormCode": "hxb",
         "UberCode": "8hx",
         "UltraCode": "6hx",
-        "GemSockets": 6,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -8699,6 +8699,7 @@
         "Speed": -60,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "EquipmentType": 1,
         "Name": "Demon Crossbow [E]",
         "Code": "6rx",
@@ -8715,7 +8716,6 @@
         "NormCode": "rxb",
         "UberCode": "8rx",
         "UltraCode": "6rx",
-        "GemSockets": 5,
         "AutoPrefix": "312",
         "RequiredClass": ""
     },
@@ -8729,6 +8729,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "AutoMagicGroups": [
             {
                 "Name": "Mana 1",
@@ -8851,7 +8852,6 @@
         "NormCode": "ob1",
         "UberCode": "ob6",
         "UltraCode": "obb",
-        "GemSockets": 2,
         "AutoPrefix": "315",
         "RequiredClass": "Sorceress"
     },
@@ -8865,6 +8865,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "AutoMagicGroups": [
             {
                 "Name": "Mana 1",
@@ -8987,7 +8988,6 @@
         "NormCode": "ob2",
         "UberCode": "ob7",
         "UltraCode": "obc",
-        "GemSockets": 2,
         "AutoPrefix": "315",
         "RequiredClass": "Sorceress"
     },
@@ -9001,6 +9001,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "AutoMagicGroups": [
             {
                 "Name": "Mana 1",
@@ -9123,7 +9124,6 @@
         "NormCode": "ob3",
         "UberCode": "ob8",
         "UltraCode": "obd",
-        "GemSockets": 2,
         "AutoPrefix": "315",
         "RequiredClass": "Sorceress"
     },
@@ -9137,6 +9137,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "AutoMagicGroups": [
             {
                 "Name": "Mana 1",
@@ -9259,7 +9260,6 @@
         "NormCode": "ob4",
         "UberCode": "ob9",
         "UltraCode": "obe",
-        "GemSockets": 2,
         "AutoPrefix": "315",
         "RequiredClass": "Sorceress"
     },
@@ -9273,6 +9273,7 @@
         "Speed": 10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "AutoMagicGroups": [
             {
                 "Name": "Mana 1",
@@ -9395,7 +9396,6 @@
         "NormCode": "ob5",
         "UberCode": "oba",
         "UltraCode": "obf",
-        "GemSockets": 3,
         "AutoPrefix": "315",
         "RequiredClass": "Sorceress"
     },
@@ -9409,6 +9409,7 @@
         "Speed": 0,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "AutoMagicGroups": [
             {
                 "Name": "Bow 1",
@@ -9451,7 +9452,6 @@
         "NormCode": "am1",
         "UberCode": "am6",
         "UltraCode": "amb",
-        "GemSockets": 5,
         "AutoPrefix": "313",
         "RequiredClass": "Amazon"
     },
@@ -9465,6 +9465,7 @@
         "Speed": 10,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "AutoMagicGroups": [
             {
                 "Name": "Bow 1",
@@ -9507,7 +9508,6 @@
         "NormCode": "am2",
         "UberCode": "am7",
         "UltraCode": "amc",
-        "GemSockets": 5,
         "AutoPrefix": "313",
         "RequiredClass": "Amazon"
     },
@@ -9521,6 +9521,7 @@
         "Speed": 0,
         "StrBonus": 80,
         "DexBonus": 50,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "AutoMagicGroups": [
             {
                 "Name": "Spear 1",
@@ -9563,7 +9564,6 @@
         "NormCode": "am3",
         "UberCode": "am8",
         "UltraCode": "amd",
-        "GemSockets": 6,
         "AutoPrefix": "314",
         "RequiredClass": "Amazon"
     },
@@ -9577,6 +9577,7 @@
         "Speed": 10,
         "StrBonus": 80,
         "DexBonus": 50,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "AutoMagicGroups": [
             {
                 "Name": "Spear 1",
@@ -9619,7 +9620,6 @@
         "NormCode": "am4",
         "UberCode": "am9",
         "UltraCode": "ame",
-        "GemSockets": 6,
         "AutoPrefix": "314",
         "RequiredClass": "Amazon"
     },
@@ -9637,6 +9637,7 @@
         "Speed": -10,
         "StrBonus": 80,
         "DexBonus": 50,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "A Jav 1",
@@ -9682,7 +9683,6 @@
         "NormCode": "am5",
         "UberCode": "ama",
         "UltraCode": "amf",
-        "GemSockets": 0,
         "AutoPrefix": "318",
         "RequiredClass": "Amazon"
     },
@@ -9696,6 +9696,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "AutoMagicGroups": [
             {
                 "Name": "Mana 1",
@@ -9818,7 +9819,6 @@
         "NormCode": "ob1",
         "UberCode": "ob6",
         "UltraCode": "obb",
-        "GemSockets": 2,
         "AutoPrefix": "315",
         "RequiredClass": "Sorceress"
     },
@@ -9832,6 +9832,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "AutoMagicGroups": [
             {
                 "Name": "Mana 1",
@@ -9954,7 +9955,6 @@
         "NormCode": "ob2",
         "UberCode": "ob7",
         "UltraCode": "obc",
-        "GemSockets": 2,
         "AutoPrefix": "315",
         "RequiredClass": "Sorceress"
     },
@@ -9968,6 +9968,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "AutoMagicGroups": [
             {
                 "Name": "Mana 1",
@@ -10090,7 +10091,6 @@
         "NormCode": "ob3",
         "UberCode": "ob8",
         "UltraCode": "obd",
-        "GemSockets": 2,
         "AutoPrefix": "315",
         "RequiredClass": "Sorceress"
     },
@@ -10104,6 +10104,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "AutoMagicGroups": [
             {
                 "Name": "Mana 1",
@@ -10226,7 +10227,6 @@
         "NormCode": "ob4",
         "UberCode": "ob9",
         "UltraCode": "obe",
-        "GemSockets": 2,
         "AutoPrefix": "315",
         "RequiredClass": "Sorceress"
     },
@@ -10240,6 +10240,7 @@
         "Speed": 10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "AutoMagicGroups": [
             {
                 "Name": "Mana 1",
@@ -10362,7 +10363,6 @@
         "NormCode": "ob5",
         "UberCode": "oba",
         "UltraCode": "obf",
-        "GemSockets": 3,
         "AutoPrefix": "315",
         "RequiredClass": "Sorceress"
     },
@@ -10376,6 +10376,7 @@
         "Speed": 0,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "AutoMagicGroups": [
             {
                 "Name": "Bow 1",
@@ -10418,7 +10419,6 @@
         "NormCode": "am1",
         "UberCode": "am6",
         "UltraCode": "amb",
-        "GemSockets": 5,
         "AutoPrefix": "313",
         "RequiredClass": "Amazon"
     },
@@ -10432,6 +10432,7 @@
         "Speed": 10,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "AutoMagicGroups": [
             {
                 "Name": "Bow 1",
@@ -10474,7 +10475,6 @@
         "NormCode": "am2",
         "UberCode": "am7",
         "UltraCode": "amc",
-        "GemSockets": 5,
         "AutoPrefix": "313",
         "RequiredClass": "Amazon"
     },
@@ -10488,6 +10488,7 @@
         "Speed": 0,
         "StrBonus": 80,
         "DexBonus": 50,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "AutoMagicGroups": [
             {
                 "Name": "Spear 1",
@@ -10530,7 +10531,6 @@
         "NormCode": "am3",
         "UberCode": "am8",
         "UltraCode": "amd",
-        "GemSockets": 6,
         "AutoPrefix": "314",
         "RequiredClass": "Amazon"
     },
@@ -10544,6 +10544,7 @@
         "Speed": 20,
         "StrBonus": 80,
         "DexBonus": 50,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "AutoMagicGroups": [
             {
                 "Name": "Spear 1",
@@ -10586,7 +10587,6 @@
         "NormCode": "am4",
         "UberCode": "am9",
         "UltraCode": "ame",
-        "GemSockets": 6,
         "AutoPrefix": "314",
         "RequiredClass": "Amazon"
     },
@@ -10604,6 +10604,7 @@
         "Speed": -10,
         "StrBonus": 80,
         "DexBonus": 50,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "A Jav 1",
@@ -10649,7 +10650,6 @@
         "NormCode": "am5",
         "UberCode": "ama",
         "UltraCode": "amf",
-        "GemSockets": 0,
         "AutoPrefix": "318",
         "RequiredClass": "Amazon"
     },
@@ -10663,6 +10663,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "AutoMagicGroups": [
             {
                 "Name": "Mana 1",
@@ -10785,7 +10786,6 @@
         "NormCode": "ob1",
         "UberCode": "ob6",
         "UltraCode": "obb",
-        "GemSockets": 2,
         "AutoPrefix": "315",
         "RequiredClass": "Sorceress"
     },
@@ -10799,6 +10799,7 @@
         "Speed": -10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "AutoMagicGroups": [
             {
                 "Name": "Mana 1",
@@ -10921,7 +10922,6 @@
         "NormCode": "ob2",
         "UberCode": "ob7",
         "UltraCode": "obc",
-        "GemSockets": 2,
         "AutoPrefix": "315",
         "RequiredClass": "Sorceress"
     },
@@ -10935,6 +10935,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "AutoMagicGroups": [
             {
                 "Name": "Mana 1",
@@ -11057,7 +11058,6 @@
         "NormCode": "ob3",
         "UberCode": "ob8",
         "UltraCode": "obd",
-        "GemSockets": 2,
         "AutoPrefix": "315",
         "RequiredClass": "Sorceress"
     },
@@ -11071,6 +11071,7 @@
         "Speed": 0,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1+:2",
         "AutoMagicGroups": [
             {
                 "Name": "Mana 1",
@@ -11193,7 +11194,6 @@
         "NormCode": "ob4",
         "UberCode": "ob9",
         "UltraCode": "obe",
-        "GemSockets": 2,
         "AutoPrefix": "315",
         "RequiredClass": "Sorceress"
     },
@@ -11207,6 +11207,7 @@
         "Speed": 10,
         "StrBonus": 100,
         "DexBonus": 0,
+        "GemSockets": "1-25:2, 26+:3",
         "AutoMagicGroups": [
             {
                 "Name": "Mana 1",
@@ -11329,7 +11330,6 @@
         "NormCode": "ob5",
         "UberCode": "oba",
         "UltraCode": "obf",
-        "GemSockets": 3,
         "AutoPrefix": "315",
         "RequiredClass": "Sorceress"
     },
@@ -11343,6 +11343,7 @@
         "Speed": -10,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "AutoMagicGroups": [
             {
                 "Name": "Bow 1",
@@ -11385,7 +11386,6 @@
         "NormCode": "am1",
         "UberCode": "am6",
         "UltraCode": "amb",
-        "GemSockets": 5,
         "AutoPrefix": "313",
         "RequiredClass": "Amazon"
     },
@@ -11399,6 +11399,7 @@
         "Speed": 10,
         "StrBonus": 0,
         "DexBonus": 100,
+        "GemSockets": "1-25:3, 26-40:4, 41+:5",
         "AutoMagicGroups": [
             {
                 "Name": "Bow 1",
@@ -11441,7 +11442,6 @@
         "NormCode": "am2",
         "UberCode": "am7",
         "UltraCode": "amc",
-        "GemSockets": 5,
         "AutoPrefix": "313",
         "RequiredClass": "Amazon"
     },
@@ -11455,6 +11455,7 @@
         "Speed": 0,
         "StrBonus": 80,
         "DexBonus": 50,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "AutoMagicGroups": [
             {
                 "Name": "Spear 1",
@@ -11497,7 +11498,6 @@
         "NormCode": "am3",
         "UberCode": "am8",
         "UltraCode": "amd",
-        "GemSockets": 6,
         "AutoPrefix": "314",
         "RequiredClass": "Amazon"
     },
@@ -11511,6 +11511,7 @@
         "Speed": 20,
         "StrBonus": 80,
         "DexBonus": 50,
+        "GemSockets": "1-25:3, 26-40:4, 41+:6",
         "AutoMagicGroups": [
             {
                 "Name": "Spear 1",
@@ -11553,7 +11554,6 @@
         "NormCode": "am4",
         "UberCode": "am9",
         "UltraCode": "ame",
-        "GemSockets": 6,
         "AutoPrefix": "314",
         "RequiredClass": "Amazon"
     },
@@ -11571,6 +11571,7 @@
         "Speed": -10,
         "StrBonus": 80,
         "DexBonus": 50,
+        "GemSockets": "0",
         "AutoMagicGroups": [
             {
                 "Name": "A Jav 1",
@@ -11616,7 +11617,6 @@
         "NormCode": "am5",
         "UberCode": "ama",
         "UltraCode": "amf",
-        "GemSockets": 0,
         "AutoPrefix": "318",
         "RequiredClass": "Amazon"
     }

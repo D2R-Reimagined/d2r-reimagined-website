@@ -55,7 +55,12 @@ export class Runewords {
             // keep defaults on error
         }
         // Filter the shared preset to only show options relevant to this page's data
-        this.types = buildOptionsForPresentTypes(type_filtering_options, present);
+        // Enable base de-duplication to collapse identical-base entries like 'Helm' and 'Any Helm'.
+        this.types = buildOptionsForPresentTypes(
+            type_filtering_options,
+            present,
+            { dedupeByBase: true, preferLabelStartsWith: 'Any ' }
+        );
 
         const searchParam = urlParams.get('search');
         if (searchParam) {

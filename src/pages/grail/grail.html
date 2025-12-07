@@ -63,7 +63,7 @@
                                 label="Select Equipment"
                                 options.bind="equipmentNames"
                                 value.bind="selectedEquipmentName"
-                                disabled.bind="selectedCategory === 'runewords' || !selectedType"
+                                disabled.bind="selectedCategory === 'runewords' || !(selectedType && selectedType.length)"
                         ></moo-select>
                     </div>
                 </div>

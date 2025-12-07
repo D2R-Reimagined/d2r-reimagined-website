@@ -333,7 +333,8 @@ export function getDescendantBaseNames(baseTypeName: string): string[] {
  */
 export function buildOptionsForPresentTypes(
     preset: ReadonlyArray<FilterOption>,
-    presentBaseNames: ReadonlySet<string>
+    presentBaseNames: ReadonlySet<string>,
+    opts?: { dedupeByBase?: boolean; preferLabelStartsWith?: string }
 ): FilterOption[] {
     const result: FilterOption[] = [];
 
@@ -363,13 +364,17 @@ export function buildOptionsForPresentTypes(
             if (!baseSet.has(v)) extras.push(v);
         }
 
-        // Triggers for inclusion: base or any explicit extras present in the data closure (incl. parents)
+        // Triggers for inclusion:
+        // - Simple (no extras): include ONLY if the option's base itself is present in data (not just parents)
+        // - Aggregate (has extras): include if the base is present OR any explicit extras are present (parents allowed via closure)
+        // - Class aggregates: include only when the aggregate itself is directly present
         let include: boolean;
         if (CLASS_AGGREGATE_BASES.has(base)) {
-            // For class aggregates, only include when the aggregate itself is directly present
+            include = presentBaseNames.has(base);
+        } else if (extras.length === 0) {
             include = presentBaseNames.has(base);
         } else {
-            include = presentClosure.has(base);
+            include = presentBaseNames.has(base);
             if (!include) {
                 for (let k = 0; k < extras.length; k++) {
                     if (presentClosure.has(extras[k])) { include = true; break; }
@@ -378,6 +383,44 @@ export function buildOptionsForPresentTypes(
         }
         if (include) result.push(opt);
     }
+
+    // Optional: de-duplicate options that share the same base token (value[0]).
+    // Useful on pages where selection/URL are based solely on the base, making
+    // entries like 'Helm' and 'Any Helm' indistinguishable. When enabled, we
+    // keep at most one per base, preferring labels that start with a prefix
+    // such as 'Any ' when provided.
+    if (opts && opts.dedupeByBase) {
+        const prefer = opts.preferLabelStartsWith || '';
+        const kept: FilterOption[] = [];
+        const byBase = new Map<string, number>();
+        for (let i = 0; i < result.length; i++) {
+            const opt = result[i];
+            if (!opt.value || opt.value.length === 0) {
+                // Always keep placeholders as-is
+                kept.push(opt);
+                continue;
+            }
+            const base = opt.value[0];
+            if (!byBase.has(base)) {
+                byBase.set(base, kept.length);
+                kept.push(opt);
+            } else {
+                const idx = byBase.get(base)!;
+                const current = kept[idx];
+                const currLabel = (current?.label || '');
+                const nextLabel = (opt.label || '');
+                const currPreferred = prefer && currLabel.startsWith(prefer);
+                const nextPreferred = prefer && nextLabel.startsWith(prefer);
+                // Replace only if the new one is preferred and the current is not
+                if (!currPreferred && nextPreferred) {
+                    kept[idx] = opt;
+                }
+                // Otherwise keep existing (preserve first occurrence/order)
+            }
+        }
+        return kept;
+    }
+
     return result;
 }
 
@@ -389,7 +432,8 @@ export const type_filtering_options: ReadonlyArray<FilterOption> = [
     // Aggregate types
     // Any Armor should include all armor descendants (Body Armor, Helm, Circlet, Shields, Gloves, Boots, Belt, class shields/helms, etc.)
     makeTypeOption('Any Armor', 'Any Armor', getDescendantBaseNames('Any Armor')),
-    // Any Helm should include Circlet, Primal Helm, and Pelt in addition to Helm
+    // Any Helm should include Helm itself plus Circlet, Primal Helm, and Pelt
+    // Use base 'Helm' so plain helms are matched as well; add all helm descendants as extras
     makeTypeOption('Any Helm', 'Helm', getDescendantBaseNames('Helm')),
     // Any Shield should include generic Shield and class shields
     makeTypeOption('Any Shield', 'Any Shield', getDescendantBaseNames('Any Shield')),
@@ -402,6 +446,8 @@ export const type_filtering_options: ReadonlyArray<FilterOption> = [
     makeTypeOption('Gloves', 'Gloves'),
     makeTypeOption('Boots', 'Boots'),
     makeTypeOption('Belt', 'Belt'),
+    makeTypeOption('Helm', 'Helm', [], true),
+    makeTypeOption('Circlet', 'Circlet', [], true),
     // Shields (Bases Page)
     makeTypeOption('Shield', 'Shield'),
     // Jewelry and socket fillers
@@ -426,9 +472,9 @@ export const type_filtering_options: ReadonlyArray<FilterOption> = [
     makeTypeOption('Javelin', 'Javelin'),
     makeTypeOption('Throwing Knife', 'Throwing Knife'),
     makeTypeOption('Throwing Axe', 'Throwing Axe'),
-    // Quivers and Bolts
-    makeTypeOption('Bow Quiver', 'Magic Bow Quiv'),
-    makeTypeOption('Crossbow Bolts', 'Magic Xbow Quiv'),
+    // Quivers and Bolts: base on the non-magic types and include their descendants (magic quivers)
+    makeTypeOption('Bow Quiver', 'Bow Quiver', getDescendantBaseNames('Bow Quiver')),
+    makeTypeOption('Crossbow Bolts', 'Crossbow Bolts', getDescendantBaseNames('Crossbow Bolts')),
     //Class Specific
     // Class-specific leaf types must match ONLY themselves by default on pages without an "Exact" toggle
     // (Bases, Uniques, Sets). Runewords inherits parents via its own filtering logic and parent selections.

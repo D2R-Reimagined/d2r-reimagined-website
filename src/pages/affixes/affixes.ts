@@ -109,7 +109,13 @@ export class Affixes {
             // keep default options if something unexpected occurs
         }
         // Filter the shared preset to only show options relevant to affix data
-        this.types = buildOptionsForPresentTypes(type_filtering_options, present);
+        // Enable base de-duplication so identical-base entries like 'Helm' and 'Any Helm'
+        // collapse to a single visible option (prefer labels starting with 'Any ').
+        this.types = buildOptionsForPresentTypes(
+            type_filtering_options,
+            present,
+            { dedupeByBase: true, preferLabelStartsWith: 'Any ' }
+        );
 
         // Map URL 'type' (serialized as base) to the exact option.value reference
         if (typeBaseFromUrl) {
