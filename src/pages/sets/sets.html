@@ -76,6 +76,9 @@
                         <div class="rarity-text" if.bind="setItem.Rarity">
                             Rarity: ${setItem.Rarity}
                         </div>
+                        <div class="rarity-text" if.bind="setItem.Vanilla">
+                            Vanilla: ${setItem.Vanilla === 'Y' ? 'Yes' : 'No'}
+                        </div>
                     </div>
 
                     <div class="mb-1">
