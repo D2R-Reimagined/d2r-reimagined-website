@@ -16,6 +16,8 @@ export class Runewords {
     @bindable search: string;
     @bindable searchRunes: string;
     @bindable exclusiveType: boolean = false;
+    // When true, hide items where Vanilla === 'Y'
+    @bindable hideVanilla: boolean = false;
 
     private _debouncedSearchItem!: DebouncedFunction;
 
@@ -71,6 +73,10 @@ export class Runewords {
         if (runesParam) {
             this.searchRunes = runesParam;
         }
+
+        // Boolean param: hideVanilla=true
+        const hv = urlParams.get('hideVanilla');
+        if (hv === 'true' || hv === '1') this.hideVanilla = true;
 
         // Map URL 'type' (now serialized as base only) to the exact option.value reference
         const typeParam = urlParams.get('type');
@@ -136,6 +142,13 @@ export class Runewords {
             url.searchParams.delete('exact');
         }
 
+        // Update hideVanilla parameter
+        if (this.hideVanilla) {
+            url.searchParams.set('hideVanilla', 'true');
+        } else {
+            url.searchParams.delete('hideVanilla');
+        }
+
         // Update the URL without reloading the page
         window.history.pushState({}, '', url.toString());
     }
@@ -174,6 +187,14 @@ export class Runewords {
 
     @watch('exclusiveType')
     handleExclusiveTypeChanged() {
+        if (this._debouncedSearchItem) {
+            this._debouncedSearchItem();
+        }
+        this.updateUrl();
+    }
+
+    @watch('hideVanilla')
+    handleHideVanillaChanged() {
         if (this._debouncedSearchItem) {
             this._debouncedSearchItem();
         }
@@ -288,6 +309,11 @@ export class Runewords {
                     runewordRuneNames.includes(inputRune)
                 );
             });
+        }
+
+        // Hide Vanilla filter
+        if (this.hideVanilla) {
+            found = found.filter((rw) => String(rw?.Vanilla || '').toUpperCase() !== 'Y');
         }
 
         // Set the filtered runewords at the end

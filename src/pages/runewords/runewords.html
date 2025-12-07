@@ -1,7 +1,8 @@
 <template>
     <h3 class="text-center my-4">
-        <span class="rarity-text">${filteredRunewords.length}</span> Runewords Found
+        <span class="text-sky-300">${filteredRunewords.length}</span> Runewords Found
     </h3>
+
     <search-area>
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex flex-wrap justify-center items-center text-center">
@@ -23,17 +24,20 @@
                                 options.bind="types"
                                 value.bind="selectedType"
                         ></moo-select>
-                        <moo-checkbox checked.bind="exclusiveType" id="exclusiveType">Exact Type Only</moo-checkbox>
+                        <moo-checkbox checked.bind="exclusiveType" id="exclusiveType">
+                            <span class="ml-1">Exact Type Only</span></moo-checkbox>
                     </div>
                 </div>
                 <div class="w-full md:w-5/12 lg:w-1/4 px-2">
-                    <div class="mb-2">
+                    <div class="my-1">
                         <moo-text-field
                                 class="w-full"
                                 label="Search Runewords"
                                 type="text"
                                 value.bind="search"
                         ></moo-text-field>
+                            <moo-checkbox checked.bind="hideVanilla">
+                                <span class="ml-1">Hide Vanilla</span></moo-checkbox>
                     </div>
                 </div>
                 <div class="w-full md:w-5/12 lg:w-1/4 px-2">
@@ -51,31 +55,31 @@
     </search-area>
 
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">
-        <div repeat.for="runeword of filteredRunewords">
-            <div class="bg-gray-800 rounded shadow p-2">
+        <div class="bg-gray-800 rounded shadow p-2" repeat.for="runeword of filteredRunewords">
+            <div class="bg-gray-800 rounded">
 
                 <div class="mb-1">
                     <div class="unique-text text-lg">
                         ${runeword.Name}
                     </div>
-                    <div class="rarity-text">
-                        ${runeword.Vanilla === 'Y' ? 'Vanilla' : 'Non-Vanilla'}
+                    <div class="text-sky-300">
+                        ${runeword.Vanilla === 'Y' ? 'Vanilla' : 'Mod'}
                     </div>
                 </div>
 
-                <div class="types mb-1"><span repeat.for="type of runeword.Types">
+                <div class="text-gray-50 mb-1"><span repeat.for="type of runeword.Types">
                         ${type.Name} ${$index + 1 !== runeword.Types.length ? ' or ' : ''}
                     </span></div>
 
-                <div class="combo"><span repeat.for="rune of runeword.Runes">
+                <div class="text-gray-50"><span repeat.for="rune of runeword.Runes">
                         ${rune.Name | runeName} ${$index + 1 !== runeword.Runes.length ? ' + ' : ''}
                     </span></div>
 
-                <div class="requirement my-1">
+                <div class="text-red-500 my-1">
                     Required Level: ${runeword.RequiredLevel > 0? runeword.RequiredLevel: 1}
                 </div>
 
-                <div class="enhanced" repeat.for="property of runeword.Properties">
+                <div class="text-indigo-500" repeat.for="property of runeword.Properties">
                     ${property.PropertyString}
                 </div>
 

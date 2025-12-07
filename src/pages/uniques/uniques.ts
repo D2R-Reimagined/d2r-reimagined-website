@@ -15,6 +15,8 @@ export class Uniques {
 
     @bindable search: string;
     @bindable selectedClass: string;
+    // When true, hide items where Vanilla === 'Y'
+    @bindable hideVanilla: boolean = false;
     // Selected type value from dropdown: array of base + parent names
     @bindable selectedType: string[];
     @bindable selectedEquipmentName: string;
@@ -52,6 +54,10 @@ export class Uniques {
             this.selectedClass = classParam;
         }
 
+        // Boolean param: hideVanilla=true
+        const hv = urlParams.get('hideVanilla');
+        if (hv === 'true' || hv === '1') this.hideVanilla = true;
+
         // Build data-driven options from present types in uniques data
         try {
             const present = new Set<string>();
@@ -88,6 +94,12 @@ export class Uniques {
 
     @watch('selectedClass')
     handleClassChanged() {
+        this.updateList();
+        if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
+    }
+
+    @watch('hideVanilla')
+    handleHideVanillaChanged() {
         this.updateList();
         if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
     }
@@ -145,6 +157,13 @@ export class Uniques {
             url.searchParams.delete('type');
         }
 
+        // Update hideVanilla parameter (omit when false)
+        if (this.hideVanilla) {
+            url.searchParams.set('hideVanilla', 'true');
+        } else {
+            url.searchParams.delete('hideVanilla');
+        }
+
         // Update the URL without reloading the page
         window.history.pushState({}, '', url.toString());
     }
@@ -183,6 +202,11 @@ export class Uniques {
         const isMatchingEquipmentName = (unique) => {
             return !this.selectedEquipmentName || String(unique?.Equipment?.Name || '') === this.selectedEquipmentName;
         };
+        const isMatchingVanilla = (unique) => {
+            if (!this.hideVanilla) return true;
+            const v = String(unique?.Vanilla || '').toUpperCase();
+            return v !== 'Y';
+        };
 
         // Update the equipment names list if type is selected
         if (this.selectedType && this.selectedType.length > 0 && (!this.equipmentNames || this.equipmentNames.length <= 1)) {
@@ -194,7 +218,8 @@ export class Uniques {
             isMatchingSearch(unique) &&
             isMatchingClass(unique) &&
             isMatchingType(unique) &&
-            isMatchingEquipmentName(unique));
+            isMatchingEquipmentName(unique) &&
+            isMatchingVanilla(unique));
     }
 
     getDamageTypeString(type: number) {

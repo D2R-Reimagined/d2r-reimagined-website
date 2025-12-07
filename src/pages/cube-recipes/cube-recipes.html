@@ -1,6 +1,6 @@
 <template>
     <h3 class="text-center my-4">
-        <span class="rarity-text">${recipes.length}</span> Recipes Found
+        <span class="text-sky-300">${recipes.length}</span> Recipes Found
     </h3>
     <search-area>
         <div class="max-w-7xl mx-auto px-4">
@@ -45,10 +45,10 @@
                 <div class="mb-1 unique-text">
                     ${recipe.Description}
                 </div>
-                <div class="requirement" if.bind="recipe.Class">
+                <div class="text-red-500" if.bind="recipe.Class">
                     (${recipe.Class} Only)
                 </div>
-                <div class="description" repeat.for="inp of recipe.Inputs">
+                <div class="text-gray-50" repeat.for="inp of recipe.Inputs">
                     ${inp}
                 </div>
                 <div class="my-1 unique-text">
@@ -59,10 +59,10 @@
                         <div class="output-title">
                             ${blk.lineOne}
                         </div>
-                        <div repeat.for="prop of blk.properties" class="enhanced output-prop">
+                        <div repeat.for="prop of blk.properties" class="text-indigo-500 output-prop">
                             ${prop}
                         </div>
-                        <div if.bind="blk.chanceText" class="requirement output-prop">
+                        <div if.bind="blk.chanceText" class="text-red-500 output-prop">
                             ${blk.chanceText}
                         </div>
                     </div>

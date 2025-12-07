@@ -3,8 +3,6 @@ import { bindable, watch } from 'aurelia';
 import { debounce, DebouncedFunction } from '../../utilities/debounce';
 import v2json from '../item-jsons/cube_recipes_v2.json';
 
-import './cube-recipes.scss';
-
 type V2Input = {
     Name: string;
     Quantity?: number;

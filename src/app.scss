@@ -2,71 +2,73 @@
 
 /* font converted using font-converter.net. thank you! */
 @font-face {
-    font-family: "DiabloHeavy";
-    src: url("assets/fonts/DiabloHeavy.eot"); /* IE9 Compat Modes */
-    src: url("assets/fonts/DiabloHeavy.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
-    url("assets/fonts/DiabloHeavy.otf") format("opentype"), /* Open Type Font */
-    url("assets/fonts/DiabloHeavy.ttf") format("truetype"), /* Safari, Android, iOS */
-    url("assets/fonts/DiabloHeavy.woff") format("woff"), /* Modern Browsers */
-    url("assets/fonts/DiabloHeavy.woff2") format("woff2"); /* Modern Browsers */
-    font-weight: normal;
-    font-style: normal;
+  font-family: "DiabloHeavy";
+  src: url("assets/fonts/DiabloHeavy.eot"); /* IE9 Compat Modes */
+  src: url("assets/fonts/DiabloHeavy.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+  url("assets/fonts/DiabloHeavy.otf") format("opentype"), /* Open Type Font */
+  url("assets/fonts/DiabloHeavy.ttf") format("truetype"), /* Safari, Android, iOS */
+  url("assets/fonts/DiabloHeavy.woff") format("woff"), /* Modern Browsers */
+  url("assets/fonts/DiabloHeavy.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "DiabloLight";
-    src: url("assets/fonts/DiabloLight.eot"); /* IE9 Compat Modes */
-    src: url("assets/fonts/DiabloLight.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
-    url("assets/fonts/DiabloLight.otf") format("opentype"), /* Open Type Font */
-    url("assets/fonts/DiabloLight.ttf") format("truetype"), /* Safari, Android, iOS */
-    url("assets/fonts/DiabloLight.woff") format("woff"), /* Modern Browsers */
-    url("assets/fonts/DiabloLight.woff2") format("woff2"); /* Modern Browsers */
-    font-weight: normal;
-    font-style: normal;
+  font-family: "DiabloLight";
+  src: url("assets/fonts/DiabloLight.eot"); /* IE9 Compat Modes */
+  src: url("assets/fonts/DiabloLight.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+  url("assets/fonts/DiabloLight.otf") format("opentype"), /* Open Type Font */
+  url("assets/fonts/DiabloLight.ttf") format("truetype"), /* Safari, Android, iOS */
+  url("assets/fonts/DiabloLight.woff") format("woff"), /* Modern Browsers */
+  url("assets/fonts/DiabloLight.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: "D2R";
-    src: url("assets/fonts/ExocetBlizzardMixedCaps-Medium.eot"); /* IE9 Compat Modes */
-    src: url("assets/fonts/ExocetBlizzardMixedCaps-Medium?#iefix") format("embedded-opentype"), /* IE6-IE8 */
-    url("assets/fonts/ExocetBlizzardMixedCaps-Medium.otf") format("opentype"), /* Open Type Font */
-    url("assets/fonts/ExocetBlizzardMixedCaps-Medium.ttf") format("truetype"), /* Safari, Android, iOS */
-    url("assets/fonts/ExocetBlizzardMixedCaps-Medium.woff") format("woff"), /* Modern Browsers */
-    url("assets/fonts/ExocetBlizzardMixedCaps-Medium.woff2") format("woff2"), /* Modern Browsers */
-    url("assets/fonts/ExocetBlizzardMixedCaps-Medium.svg#ExocetBlizzardMixedCaps-Medium") format("svg");
-    font-style: normal;
+  font-family: "D2R";
+  src: url("assets/fonts/ExocetBlizzardMixedCaps-Medium.eot"); /* IE9 Compat Modes */
+  src: url("assets/fonts/ExocetBlizzardMixedCaps-Medium.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+  url("assets/fonts/ExocetBlizzardMixedCaps-Medium.otf") format("opentype"), /* Open Type Font */
+  url("assets/fonts/ExocetBlizzardMixedCaps-Medium.ttf") format("truetype"), /* Safari, Android, iOS */
+  url("assets/fonts/ExocetBlizzardMixedCaps-Medium.woff") format("woff"), /* Modern Browsers */
+  url("assets/fonts/ExocetBlizzardMixedCaps-Medium.woff2") format("woff2"), /* Modern Browsers */
+  url("assets/fonts/ExocetBlizzardMixedCaps-Medium.svg#ExocetBlizzardMixedCaps-Medium") format("svg");
+  font-style: normal;
 }
 
 .font-classic {
-    font-family: DiabloLight !important;
-    font-size: 14px;
+  font-family: DiabloLight !important;
+  font-size: 14px;
 }
+
 .font-resurrected {
-    font-family: D2R !important;
-    font-size: 17px;
-    line-height: 22px;
+  font-family: D2R !important;
+  font-size: 17px;
+  line-height: 22px;
 }
+
 .font-neutral {
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 16px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
 }
 
 body {
-    padding: 0 !important;
-    background-color: black !important;
-    color: white !important;
+  padding: 0 !important;
+  background-color: black !important;
+  color: white !important;
 }
 
 .cursor-pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .unique-text {
-    color: #c7b790ed;
+  color: #c7b790ed;
 }
 
 .set-text {
-    color: #478e47;
+  color: #478e47;
 }
 
 .set-text-light {
@@ -74,31 +76,31 @@ body {
 }
 
 .enhanced {
-    color: #6f5df7;
+  color: #6f5df7;
 }
 
 .set-header {
-    font-size: 26px;
+  font-size: 26px;
 }
 
 .requirement {
-    color: #e14b4b;
+  color: #e14b4b;
 }
 
 .runes span {
-    padding: 0 5px 0 5px;
+  padding: 0 5px 0 5px;
 }
 
 .runeword-types span {
-    padding: 0 5px 0 5px;
+  padding: 0 5px 0 5px;
 }
 
 .combo, .types, .damage, .durability, .armor, .base-text {
-    color: whitesmoke;
+  color: whitesmoke;
 }
 
 .rarity-text {
-    color: lightskyblue;
+  color: lightskyblue;
 }
 
 /* Navbar font picker: hide default disclosure marker and stray indents */
@@ -107,5 +109,11 @@ nav details > summary {
   padding-left: 0;
   margin-left: 0;
 }
-nav details > summary::-webkit-details-marker { display: none; }
-nav details > summary::marker { content: ''; }
+
+nav details > summary::-webkit-details-marker {
+  display: none;
+}
+
+nav details > summary::marker {
+  content: '';
+}

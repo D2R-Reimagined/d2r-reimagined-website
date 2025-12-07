@@ -1,6 +1,6 @@
 <template>
     <h3 class="text-center my-4">
-        <span class="rarity-text">${sets.length}</span> Sets Found
+        <span class="text-sky-300">${sets.length}</span> Sets Found
     </h3>
     <search-area>
         <div class="max-w-7xl mx-auto px-4">
@@ -37,90 +37,95 @@
                     </div>
                 </div>
                 <div class="w-full md:w-5/12 lg:w-1/4 px-2">
-                    <div class="mb-2">
+                    <div class="my-1">
                         <moo-text-field
                                 class="w-full"
                                 label="Search Sets"
                                 type="text"
                                 value.bind="search"
                         ></moo-text-field>
+                            <moo-checkbox
+                                    checked.bind="hideVanilla"><span class="ml-1">Hide Vanilla</span></moo-checkbox>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </search-area>
 
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">
         <div class="bg-gray-800 rounded shadow p-2" repeat.for="set of sets">
             <div class="bg-gray-800 rounded">
 
-                <div class="set-text-light text-lg mb-1">
+                <div class="mb-1">
+                <div class=" text-green-400 text-lg">
                     ${set.Name}
+                </div>
+                    <div class="text-sky-300">
+                        ${set.Vanilla === 'Y' ? 'Vanilla' : 'Mod'}
+                    </div>
                 </div>
 
                 <div class="mb-1">
-                    <div class="partial-sets set-text" repeat.for="partial of set.PartialProperties">
+                    <div class="partial-sets  text-green-600" repeat.for="partial of set.PartialProperties">
                         ${partial.PropertyString} (${getItemCount(partial.Index)} Items)
                     </div>
-                    <div class="partial-sets set-text" repeat.for="full of set.FullProperties">
+                    <div class="partial-sets  text-green-600" repeat.for="full of set.FullProperties">
                         ${full.PropertyString} (Full Set)
                     </div>
                 </div>
 
-                <div repeat.for="setItem of set.SetItems">
+                <div repeat.for="setItem of set.SetItems"
+                     if.bind="!hideVanilla || (set.Vanilla || '').toUpperCase() !== 'Y'">
 
                     <div class="mt-2 mb-1">
-                        <div class="set-text-light">
+                        <div class=" text-green-400" if.bind="!hideVanilla || (set.Vanilla || '').toUpperCase() !== 'Y'">
                             ${setItem.Name}
                         </div>
-                        <div class="rarity-text" if.bind="setItem.Rarity">
+                        <div class="text-sky-300" if.bind="setItem.Rarity">
                             Rarity: ${setItem.Rarity}
-                        </div>
-                        <div class="rarity-text" if.bind="setItem.Vanilla">
-                            Vanilla: ${setItem.Vanilla === 'Y' ? 'Yes' : 'No'}
                         </div>
                     </div>
 
                     <div class="mb-1">
-                        <div class="armor" if.bind="setItem.Equipment.Name">
+                        <div class="text-gray-50" if.bind="setItem.Equipment.Name">
                             ${setItem.Equipment.Name}
                         </div>
-                        <div class="armor" if.bind="setItem.Equipment.ArmorString">
+                        <div class="text-gray-50" if.bind="setItem.Equipment.ArmorString">
                             Defense: ${setItem.Equipment.ArmorString}
                         </div>
-                        <div class="armor"
+                        <div class="text-gray-50"
                              if.bind="setItem.Equipment.Block !== null && setItem.Equipment.Block !== undefined && setItem.Equipment.Block > 0">
                             Block: ${setItem.Equipment.Block}%
                         </div>
-                        <div class="damage" if.bind="setItem.Equipment.DamageTypes"
+                        <div class="text-gray-50" if.bind="setItem.Equipment.DamageTypes"
                              repeat.for="damage of setItem.Equipment.DamageTypes">
                             ${getDamageTypeString(damage.Type)} ${damage.DamageString}
                         </div>
-                        <div class="durability" if.bind="setItem.Equipment.Durability > 0">
+                        <div class="text-gray-50" if.bind="setItem.Equipment.Durability > 0">
                             Durability: ${setItem.Equipment.Durability}
                         </div>
                     </div>
 
                     <div class="mb-1">
-                        <div class="requirement"
+                        <div class="text-red-500"
                              if.bind="setItem.Equipment.RequiredClass && setItem.Equipment.RequiredClass.length">
                             (${setItem.Equipment.RequiredClass} Only)
                         </div>
-                        <div class="requirement" if.bind="setItem.Equipment.RequiredDexterity > 0">
+                        <div class="text-red-500" if.bind="setItem.Equipment.RequiredDexterity > 0">
                             ${setItem.Equipment.RequiredDexterity} Dexterity Required
                         </div>
-                        <div class="requirement" if.bind="setItem.Equipment.RequiredStrength > 0">
+                        <div class="text-red-500" if.bind="setItem.Equipment.RequiredStrength > 0">
                             ${setItem.Equipment.RequiredStrength} Strength Required
                         </div>
-                        <div class="requirement">
+                        <div class="text-red-500">
                             Level ${setItem.RequiredLevel > 0 ? setItem.RequiredLevel : 1} Required
                         </div>
                     </div>
 
-                    <div class="enhanced" repeat.for="property of setItem.Properties">
+                    <div class="text-indigo-500" repeat.for="property of setItem.Properties">
                         ${property.PropertyString}
                     </div>
-                    <div class="set-text" repeat.for="setProperty of setItem.SetPropertiesString">
+                    <div class=" text-green-600" repeat.for="setProperty of setItem.SetPropertiesString">
                         ${setProperty}
                     </div>
 

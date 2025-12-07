@@ -1,15 +1,15 @@
 <template>
-    <h3 class="text-center my-4">
-        [N] = Normal [X] = Exceptional [E] = Elite<br>(Item Level): Sockets
+    <h3 class="text-center mt-4 mb-2">
+        [N] = Normal [X] = Exceptional [E] = Elite
     </h3>
-    <h3 class="text-center my-4">
-        <span class="rarity-text">${totalCount}</span> Base Weapons Found
+    <h3 class="text-center mt-2 mb-4">
+        <span class="text-sky-300">${totalCount}</span> Base Weapons Found
     </h3>
 
     <search-area>
-        <div class="max-w-7xl mx-auto px-4">
+        <div class="max-w-screen-2xlxl mx-auto px-4">
             <div class="flex flex-wrap justify-center items-center text-center">
-                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
+                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
                     <div class="mb-2">
                         <moo-select
                                 class="w-full standard-betsy-select"
@@ -20,7 +20,17 @@
                         ></moo-select>
                     </div>
                 </div>
-                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
+                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
+                    <div class="mb-2">
+                        <moo-select
+                                class="w-full standard-betsy-select"
+                                label="Filter By Sockets"
+                                options.bind="socketOptions"
+                                value.bind="selectedSockets"
+                        ></moo-select>
+                    </div>
+                </div>
+                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
                     <div class="mb-2">
                         <moo-select
                                 class="w-full standard-betsy-select"
@@ -30,7 +40,7 @@
                         ></moo-select>
                     </div>
                 </div>
-                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
+                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
                     <div class="mb-2">
                         <moo-select
                                 class="w-full standard-betsy-select"
@@ -40,7 +50,7 @@
                         ></moo-select>
                     </div>
                 </div>
-                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
+                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
                     <div class="mb-2">
                         <moo-text-field
                                 class="w-full"
@@ -66,49 +76,50 @@
                             <div class="text-lg text-gray-400">
                                 ${item.Name}
                             </div>
-                            <div class="rarity-text"
+                            <div class="text-sky-300"
                                  if.bind="(typeof item.GemSockets === 'number' ? item.GemSockets > 0 : (item.GemSockets && item.GemSockets !== '0'))">
-                                ${item.GemSockets}
+                                <div>(Item Level): Sockets</div>
+                                <div>${item.GemSockets}</div>
                             </div>
                         </div>
 
                         <div class="mb-1">
-                            <div class="armor" if.bind="(item.Type && item.Type.Name) || group.typeName">
+                            <div class="text-gray-50" if.bind="(item.Type && item.Type.Name) || group.typeName">
                                 ${item.Type && item.Type.Name ? item.Type.Name : group.typeName}
                             </div>
-                            <div class="damage" if.bind="item.DamageTypes && item.DamageTypes.length">
+                            <div class="text-gray-50" if.bind="item.DamageTypes && item.DamageTypes.length">
                                 <div repeat.for="d of item.DamageTypes">
                                     ${getDamageTypeString(d.Type)} ${d.DamageString}
                                 </div>
                             </div>
-                            <div class="durability" if.bind="item.Durability && item.Durability > 0">
+                            <div class="text-gray-50" if.bind="item.Durability && item.Durability > 0">
                                 Durability: ${item.Durability}
                             </div>
                         </div>
 
                         <div class="mb-1">
-                            <div class="requirement" if.bind="item.RequiredClass && item.RequiredClass.length">
+                            <div class="text-red-500" if.bind="item.RequiredClass && item.RequiredClass.length">
                                 (${item.RequiredClass} Only)
                             </div>
-                            <div class="requirement" if.bind="item.RequiredDexterity && item.RequiredDexterity > 0">
+                            <div class="text-red-500" if.bind="item.RequiredDexterity && item.RequiredDexterity > 0">
                                 ${item.RequiredDexterity} Dexterity Required
                             </div>
-                            <div class="requirement" if.bind="item.RequiredStrength && item.RequiredStrength > 0">
+                            <div class="text-red-500" if.bind="item.RequiredStrength && item.RequiredStrength > 0">
                                 ${item.RequiredStrength} Strength Required
                             </div>
-                            <div class="requirement">
+                            <div class="text-red-500">
                                 Level ${item.BaseRequiredLevel > 0 ? item.BaseRequiredLevel : 1} Required
                             </div>
                         </div>
 
                         <div class="mb-1">
-                            <div class="set-text" if.bind="item.Speed !== null && item.Speed !== undefined">
+                            <div class=" text-green-600" if.bind="item.Speed !== null && item.Speed !== undefined">
                                 Speed: ${item.Speed}
                             </div>
-                            <div class="set-text" if.bind="item.StrBonus && item.StrBonus > 0">
+                            <div class=" text-green-600" if.bind="item.StrBonus && item.StrBonus > 0">
                                 Str Bonus: ${item.StrBonus}%
                             </div>
-                            <div class="set-text" if.bind="item.DexBonus && item.DexBonus > 0">
+                            <div class=" text-green-600" if.bind="item.DexBonus && item.DexBonus > 0">
                                 Dex Bonus: ${item.DexBonus}%
                             </div>
                         </div>
@@ -116,13 +127,13 @@
                         <div if.bind="item.AutoMagicGroups && item.AutoMagicGroups.length">
                             <div class="flex justify-between items-start mb-1"
                                  repeat.for="group of groupedProperties(item)">
-                                <div class="enhanced whitespace-nowrap text-left">
+                                <div class="text-indigo-500 whitespace-nowrap text-left">
                                     <span if.bind="group.requiredLevel && group.requiredLevel > 0">
                                         Lvl Req ${group.requiredLevel}
                                     </span>
                                 </div>
                                 <div class="flex flex-col items-end text-right">
-                                    <div class="enhanced" repeat.for="line of group.propertyStrings">
+                                    <div class="text-indigo-500" repeat.for="line of group.propertyStrings">
                                         ${line}
                                     </div>
                                 </div>

@@ -3,22 +3,22 @@
         <span class="unique-text">- Holy Grail Tracker -</span>
         <template if.bind="selectedCategory === 'sets'">
             <div>
-                <span class="rarity-text">${setItemFoundCount}</span>/<span
-                    class="rarity-text">${setItemTotalCount}</span>
+                <span class="text-sky-300">${setItemFoundCount}</span>/<span
+                    class="text-sky-300">${setItemTotalCount}</span>
                 Items Found
-                (<span class="rarity-text">${setItemsDisplayedCount}</span> Displayed)
+                (<span class="text-sky-300">${setItemsDisplayedCount}</span> Displayed)
             </div>
             <div>
-                <span class="rarity-text">${foundCount}</span>/<span class="rarity-text">${totalCount}</span>
+                <span class="text-sky-300">${foundCount}</span>/<span class="text-sky-300">${totalCount}</span>
                 Sets Completed
-                (<span class="rarity-text">${displayedCount}</span> Displayed)
+                (<span class="text-sky-300">${displayedCount}</span> Displayed)
             </div>
         </template>
         <template if.bind="selectedCategory !== 'sets'">
             <div>
-                <span class="rarity-text">${foundCount}</span>/<span class="rarity-text">${totalCount}</span>
+                <span class="text-sky-300">${foundCount}</span>/<span class="text-sky-300">${totalCount}</span>
                 Items Found
-                (<span class="rarity-text">${displayedCount}</span> Displayed)
+                (<span class="text-sky-300">${displayedCount}</span> Displayed)
             </div>
         </template>
     </h3>
@@ -46,6 +46,7 @@
                         ></moo-select>
                     </div>
                 </div>
+
                 <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
                     <div class="mb-2">
                         <moo-select
@@ -68,13 +69,14 @@
                     </div>
                 </div>
                 <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
-                    <div class="mb-2">
+                    <div class="my-1">
                         <moo-text-field
                                 class="w-full"
                                 label="Search"
                                 type="text"
                                 value.bind="search"
                         ></moo-text-field>
+                        <moo-checkbox checked.bind="hideVanilla"><span class="ml-1">Hide Vanilla</span></moo-checkbox>
                     </div>
                 </div>
             </div>
@@ -106,55 +108,55 @@
                 </div>
 
                 <div class="mb-1">
-                    <div class="unique-text text-lg ${foundUniques[unique.Name] ? 'text-green-400' : ''}">
+                    <div class="unique-text text-lg ${foundUniques[unique.Name] ? 'found' : ''}">
                         ${unique.Name}
                     </div>
-                    <div class="rarity-text" if.bind="unique.Rarity">
+                    <div class="text-sky-300" if.bind="unique.Rarity">
                         Rarity: ${unique.Rarity}
                     </div>
-                    <div class="rarity-text" if.bind="unique.Vanilla">
-                        Vanilla: ${unique.Vanilla === 'Y' ? 'Yes' : 'No'}
+                    <div class="text-sky-300" if.bind="unique.Vanilla">
+                        ${unique.Vanilla === 'Y' ? 'Vanilla' : 'Mod'}
                     </div>
                 </div>
 
                 <div class="mb-1">
-                    <div class="armor" if.bind="unique.Equipment.Name">
+                    <div class="text-gray-50" if.bind="unique.Equipment.Name">
                         ${unique.Equipment.Name}
                     </div>
-                    <div class="armor" if.bind="unique.Equipment.ArmorString">
+                    <div class="text-gray-50" if.bind="unique.Equipment.ArmorString">
                         Defense: ${unique.Equipment.ArmorString}
                     </div>
-                    <div class="armor"
+                    <div class="text-gray-50"
                          if.bind="unique.Equipment.Block !== null && unique.Equipment.Block !== undefined && unique.Equipment.Block > 0">
                         Block: ${unique.Equipment.Block}%
                     </div>
-                    <div class="damage" if.bind="unique.Equipment.DamageTypes"
+                    <div class="text-gray-50" if.bind="unique.Equipment.DamageTypes"
                          repeat.for="damage of unique.Equipment.DamageTypes">
                         ${getDamageTypeString(damage.Type)} ${damage.DamageString}
                     </div>
-                    <div class="durability" if.bind="unique.Equipment.Durability > 0">
+                    <div class="text-gray-50" if.bind="unique.Equipment.Durability > 0">
                         Durability: ${unique.Equipment.Durability}
                     </div>
                 </div>
 
                 <div class="mb-1">
-                    <div class="requirement"
+                    <div class="text-red-500"
                          if.bind="unique.Equipment.RequiredClass && unique.Equipment.RequiredClass.length">
                         (${unique.Equipment.RequiredClass} Only)
                     </div>
-                    <div class="requirement" if.bind="unique.Equipment.RequiredDexterity > 0">
+                    <div class="text-red-500" if.bind="unique.Equipment.RequiredDexterity > 0">
                         Required Dexterity: ${unique.Equipment.RequiredDexterity}
                     </div>
-                    <div class="requirement" if.bind="unique.Equipment.RequiredStrength > 0">
+                    <div class="text-red-500" if.bind="unique.Equipment.RequiredStrength > 0">
                         Required Strength: ${unique.Equipment.RequiredStrength}
                     </div>
-                    <div class="requirement">
+                    <div class="text-red-500">
                         Required Level: ${unique.RequiredLevel > 0 ? unique.RequiredLevel : 1}
                     </div>
                 </div>
 
                 <div>
-                    <div class="enhanced" repeat.for="property of unique.Properties">
+                    <div class="text-indigo-500" repeat.for="property of unique.Properties">
                         ${property.PropertyString}
                     </div>
                 </div>
@@ -173,62 +175,62 @@
                 </div>
 
                 <div class="mt-2 mb-1">
-                    <div class="set-text-light text-lg">
+                    <div class=" text-green-400 text-lg ${foundSets[getSetItemKey(setItem)] ? 'found' : ''}">
                         ${setItem.Name}
                     </div>
-                    <div class="set-text text-md opacity-90">
+                    <div class=" text-green-600 text-md opacity-90 ${foundSets[getSetItemKey(setItem)] ? 'found' : ''}">
                         (${setItem.Set})
                     </div>
-                    <div class="rarity-text" if.bind="setItem.Rarity">
+                    <div class="text-sky-300" if.bind="setItem.Rarity">
                         Rarity: ${setItem.Rarity}
                     </div>
-                    <div class="rarity-text" if.bind="setItem.Vanilla">
-                        Vanilla: ${setItem.Vanilla === 'Y' ? 'Yes' : 'No'}
+                    <div class="text-sky-300" if.bind="setItem.Vanilla">
+                        ${setItem.Vanilla === 'Y' ? 'Vanilla' : 'Mod'}
                     </div>
                 </div>
 
                 <div class="mb-1">
-                    <div class="armor" if.bind="setItem.Equipment.Name">
+                    <div class="text-gray-50" if.bind="setItem.Equipment.Name">
                         ${setItem.Equipment.Name}
                     </div>
-                    <div class="armor" if.bind="setItem.Equipment.ArmorString">
+                    <div class="text-gray-50" if.bind="setItem.Equipment.ArmorString">
                         Defense: ${setItem.Equipment.ArmorString}
                     </div>
-                    <div class="armor"
+                    <div class="text-gray-50"
                          if.bind="setItem.Equipment.Block !== null && setItem.Equipment.Block !== undefined && setItem.Equipment.Block > 0">
                         Block: ${setItem.Equipment.Block}%
                     </div>
-                    <div class="damage" if.bind="setItem.Equipment.DamageTypes"
+                    <div class="text-gray-50" if.bind="setItem.Equipment.DamageTypes"
                          repeat.for="damage of setItem.Equipment.DamageTypes">
                         ${getDamageTypeString(damage.Type)} ${damage.DamageString}
                     </div>
-                    <div class="durability" if.bind="setItem.Equipment.Durability > 0">
+                    <div class="text-gray-50" if.bind="setItem.Equipment.Durability > 0">
                         Durability: ${setItem.Equipment.Durability}
                     </div>
                 </div>
 
                 <div class="mb-1">
-                    <div class="requirement"
+                    <div class="text-red-500"
                          if.bind="setItem.Equipment.RequiredClass && setItem.Equipment.RequiredClass.length">
                         (${setItem.Equipment.RequiredClass} Only)
                     </div>
-                    <div class="requirement" if.bind="setItem.Equipment.RequiredDexterity > 0">
+                    <div class="text-red-500" if.bind="setItem.Equipment.RequiredDexterity > 0">
                         Required Dexterity: ${setItem.Equipment.RequiredDexterity}
                     </div>
-                    <div class="requirement" if.bind="setItem.Equipment.RequiredStrength > 0">
+                    <div class="text-red-500" if.bind="setItem.Equipment.RequiredStrength > 0">
                         Required Strength: ${setItem.Equipment.RequiredStrength}
                     </div>
-                    <div class="requirement">
+                    <div class="text-red-500">
                         Required Level: ${setItem.RequiredLevel > 0 ? setItem.RequiredLevel : 1}
                     </div>
                 </div>
 
                 <div>
-                    <div class="enhanced" repeat.for="property of setItem.Properties">
+                    <div class="text-indigo-500" repeat.for="property of setItem.Properties">
                         ${property.PropertyString}
                     </div>
                 </div>
-                <div class="set-text" repeat.for="setProperty of setItem.SetPropertiesString">
+                <div class=" text-green-600" repeat.for="setProperty of setItem.SetPropertiesString">
                     ${setProperty}
                 </div>
             </div>
@@ -246,32 +248,32 @@
                 </div>
 
                 <div class="mb-1">
-                    <div class="unique-text text-lg mb-1 ${foundRunewords[runeword.Name] ? 'text-green-400' : ''}">
+                    <div class="unique-text text-lg mb-1 ${foundRunewords[runeword.Name] ? 'found' : ''}">
                         ${runeword.Name}
                     </div>
-                    <div class="rarity-text" if.bind="runeword.Vanilla">
-                        Vanilla: ${runeword.Vanilla === 'Y' ? 'Yes' : 'No'}
+                    <div class="text-sky-300" if.bind="runeword.Vanilla">
+                        ${runeword.Vanilla === 'Y' ? 'Vanilla' : 'Mod'}
                     </div>
                 </div>
 
-                <div class="types mb-1">
+                <div class="text-gray-50 mb-1">
                     <span repeat.for="type of runeword.Types">
                         ${type.Name} ${$index + 1 !== runeword.Types.length ? ' or ' : ''}
                     </span>
                 </div>
 
-                <div class="combo">
+                <div class="text-gray-50">
                     <span repeat.for="rune of runeword.Runes">
                         ${rune.Name} ${$index + 1 !== runeword.Runes.length ? ' + ' : ''}
                     </span>
                 </div>
 
-                <div class="requirement my-1">
+                <div class="text-red-500 my-1">
                     Required Level: ${runeword.RequiredLevel > 0? runeword.RequiredLevel: 1}
                 </div>
 
                 <div>
-                    <div class="enhanced" repeat.for="property of runeword.Properties">
+                    <div class="text-indigo-500" repeat.for="property of runeword.Properties">
                         ${property.PropertyString}
                     </div>
                 </div>

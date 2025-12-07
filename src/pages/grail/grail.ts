@@ -84,6 +84,8 @@ export class Grail {
     // Centralized type filter: selected value is an array of base + parents (or just base for exact-only options)
     @bindable selectedType: string[];
     @bindable selectedEquipmentName: string;
+    // When true, hide items where Vanilla === 'Y'
+    @bindable hideVanilla: boolean = false;
 
     // Centralized options list (rebuilt per category based on data present)
     types: ReadonlyArray<FilterOption> = type_filtering_options.slice();
@@ -192,6 +194,7 @@ export class Grail {
             url.searchParams.delete('g-equipment');
             url.searchParams.delete('g-search');
             url.searchParams.delete('g-hideFound');
+            url.searchParams.delete('g-hideVanilla');
             window.history.pushState({}, '', url.toString());
         } catch {
             // ignore
@@ -228,6 +231,10 @@ export class Grail {
             // Hide Found: default false when param is absent
             const hf = urlParams.get('g-hideFound');
             this.showFoundItems = hf === 'true' || hf === '1';
+
+            // Boolean: g-hideVanilla=true
+            const hv = urlParams.get('g-hideVanilla');
+            if (hv === 'true' || hv === '1') this.hideVanilla = true;
         } catch {
             // ignore URL parse issues
         }
@@ -274,6 +281,13 @@ export class Grail {
                 url.searchParams.set('g-hideFound', 'true');
             } else {
                 url.searchParams.delete('g-hideFound');
+            }
+
+            // Hide Vanilla (Grail-scoped)
+            if (this.hideVanilla) {
+                url.searchParams.set('g-hideVanilla', 'true');
+            } else {
+                url.searchParams.delete('g-hideVanilla');
             }
 
             window.history.pushState({}, '', url.toString());
@@ -384,6 +398,11 @@ export class Grail {
         this.updateUrl();
     }
 
+    hideVanillaChanged(): void {
+        this.updateList();
+        this.updateUrl();
+    }
+
     updateList() {
         // Filter per category
         const searchText = (this.search || '').toLowerCase();
@@ -396,6 +415,7 @@ export class Grail {
                 const okClass = !this.selectedClass || String(unique?.Equipment?.RequiredClass || '').toLowerCase().includes(String(this.selectedClass).toLowerCase());
                 const okType = !selectedTypeSet || selectedTypeSet.has(getChainForTypeName(unique?.Type ?? '')[0] || (unique?.Type ?? ''));
                 const okEquip = !this.selectedEquipmentName || String(unique?.Equipment?.Name || '') === this.selectedEquipmentName;
+                const okVanilla = !this.hideVanilla || String(unique?.Vanilla || '').toUpperCase() !== 'Y';
                 const okSearch = !searchText || (
                     String(unique?.Name || '').toLowerCase().includes(searchText) ||
                     (Array.isArray(unique?.Properties) && unique.Properties.some((p: any) => String(p?.PropertyString || '').toLowerCase().includes(searchText))) ||
@@ -404,7 +424,7 @@ export class Grail {
                 const notGrabber = !String(unique?.Name || '').toLowerCase().includes('grabber');
                 const key = this.getUniqueKey(unique);
                 const okFound = !this.showFoundItems || !this.foundUniques[key];
-                return okClass && okType && okEquip && okSearch && notGrabber && okFound;
+                return okClass && okType && okEquip && okVanilla && okSearch && notGrabber && okFound;
             }) as IUniqueItem[];
             this.filteredUniques = result;
             this.displayedCount = this.filteredUniques.length;
@@ -413,6 +433,7 @@ export class Grail {
                 const okClass = !this.selectedClass || String(item?.Equipment?.RequiredClass || '').toLowerCase().includes(String(this.selectedClass).toLowerCase());
                 const okType = !selectedTypeSet || selectedTypeSet.has(getChainForTypeName(item?.Type ?? '')[0] || (item?.Type ?? ''));
                 const okEquip = !this.selectedEquipmentName || String(item?.Equipment?.Name || '') === this.selectedEquipmentName;
+                const okVanilla = !this.hideVanilla || String(item?.Vanilla || '').toUpperCase() !== 'Y';
                 const okSearch = !searchText || (
                     String(item?.Name || '').toLowerCase().includes(searchText) ||
                     (Array.isArray(item?.Properties) && item.Properties.some((p: any) => String(p?.PropertyString || '').toLowerCase().includes(searchText))) ||
@@ -421,7 +442,7 @@ export class Grail {
                 );
                 const key = this.getSetItemKey(item);
                 const okFound = !this.showFoundItems || !this.foundSets[key];
-                return okClass && okType && okEquip && okSearch && okFound;
+                return okClass && okType && okEquip && okVanilla && okSearch && okFound;
             }) as ISetItem[];
             this.filteredSetItems = result;
             // Items displayed (original display)
@@ -484,6 +505,7 @@ export class Grail {
             }
 
             const result = list.filter((rw: any) => {
+                const okVanilla = !this.hideVanilla || String(rw?.Vanilla || '').toUpperCase() !== 'Y';
                 const okSearch = !searchText || (
                     String(rw?.Name || '').toLowerCase().includes(searchText) ||
                     (Array.isArray(rw?.Properties) && rw.Properties.some((p: any) => String(p?.PropertyString || '').toLowerCase().includes(searchText))) ||
@@ -491,7 +513,7 @@ export class Grail {
                 );
                 const key = this.getRunewordKey(rw);
                 const okFound = !this.showFoundItems || !this.foundRunewords[key];
-                return okSearch && okFound;
+                return okVanilla && okSearch && okFound;
             });
             this.filteredRunewords = result;
             this.displayedCount = this.filteredRunewords.length;

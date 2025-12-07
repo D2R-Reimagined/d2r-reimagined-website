@@ -1,6 +1,6 @@
 <template>
     <h3 class="text-center my-4">
-        <span class="rarity-text">${filteredAffixes.length}</span> Magic Affixes Found
+        <span class="text-sky-300">${filteredAffixes.length}</span> Magic Affixes Found
     </h3>
 
     <search-area>
@@ -72,21 +72,21 @@
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">
         <div class="bg-gray-800 rounded shadow p-2" repeat.for="affix of filteredAffixes">
             <div class="flex justify-between items-center">
-                <div class="enhanced mt-1 ml-1">${affix.Name}</div>
-                <div class="base-text mt-1 mr-1">${affix.PType}</div>
+                <div class="text-indigo-500 mt-1 ml-1">${affix.Name}</div>
+                <div class="text-gray-50 mt-1 mr-1">${affix.PType}</div>
             </div>
-            <div class="requirement mb-1">Level ${affix.RequiredLevel > 0 ? affix.RequiredLevel : 1} Required
+            <div class="text-red-500 mb-1">Level ${affix.RequiredLevel > 0 ? affix.RequiredLevel : 1} Required
             </div>
-            <div class="base-text mb-1" if.bind="affix.Level">Affix Level ${affix.Level}${affix.MaxLevel ? ' - ' +
+            <div class="text-gray-50 mb-1" if.bind="affix.Level">Affix Level ${affix.Level}${affix.MaxLevel ? ' - ' +
                 affix.MaxLevel : ''}
             </div>
             <div class="flex flex-wrap justify-center" if.bind="affix.Types && affix.Types.length">
-                <span class="set-text-light mx-1" repeat.for="t of affix.Types">${t}</span>
+                <span class=" text-green-400 mx-1" repeat.for="t of affix.Types">${t}</span>
             </div>
             <div class="flex flex-wrap justify-center" if.bind="affix.ETypes && affix.ETypes.length">
-                <span class="requirement mx-1" repeat.for="et of affix.ETypes">${et}</span>
+                <span class="text-red-500 mx-1" repeat.for="et of affix.ETypes">${et}</span>
             </div>
-            <div class="enhanced my-1" repeat.for="prop of affix.Properties">${prop.PropertyString}</div>
+            <div class="text-indigo-500 my-1" repeat.for="prop of affix.Properties">${prop.PropertyString}</div>
         </div>
     </div>
 </template>

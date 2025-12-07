@@ -18,6 +18,8 @@ export class Sets {
     // Selected type option's value: array of base + parents
     @bindable selectedType: string[];
     @bindable selectedEquipmentName: string;
+    // When true, exclude items where Vanilla === 'Y'
+    @bindable hideVanilla: boolean = false;
 
     private _debouncedSearchItem!: DebouncedFunction;
 
@@ -39,6 +41,10 @@ export class Sets {
         if (classParam) {
             this.class = classParam;
         }
+
+        // Boolean param
+        const hv = urlParams.get('hideVanilla');
+        if (hv === 'true' || hv === '1') this.hideVanilla = true;
 
         // Collect base type names present in data and build options
         try {
@@ -100,6 +106,13 @@ export class Sets {
             url.searchParams.delete('type');
         }
 
+        // Update hideVanilla parameter
+        if (this.hideVanilla) {
+            url.searchParams.set('hideVanilla', 'true');
+        } else {
+            url.searchParams.delete('hideVanilla');
+        }
+
         // Update the URL without reloading the page
         window.history.pushState({}, '', url.toString());
     }
@@ -127,6 +140,12 @@ export class Sets {
 
     classChanged(): void {
         this.sets = json;
+        this.updateList();
+        this.updateUrl();
+    }
+
+    @watch('hideVanilla')
+    handleHideVanillaChanged(): void {
         this.updateList();
         this.updateUrl();
     }
@@ -181,6 +200,12 @@ export class Sets {
                 return false;
             };
 
+            const matchesVanilla = (set: ISetData) => {
+                if (!this.hideVanilla) return true;
+                // Hide entire set based on set-level Vanilla flag
+                return String((set as any)?.Vanilla || '').toUpperCase() !== 'Y';
+            };
+
             const matchesClass = (set: ISetData) => {
                 if (!classText) return true;
                 const allProps = set.AllProperties ?? [...(set.FullProperties || []), ...(set.PartialProperties || [])];
@@ -194,8 +219,9 @@ export class Sets {
                 return false;
             };
 
-            // If no filters at all, show all
-            if (!this.search && !this.class && (!this.selectedType || this.selectedType.length === 0) && !this.selectedEquipmentName) {
+            // If no filters at all (including hideVanilla), show all
+            // Important: do NOT early-return when hideVanilla is true, so the vanilla filter can take effect
+            if (!this.search && !this.class && (!this.selectedType || this.selectedType.length === 0) && !this.selectedEquipmentName && !this.hideVanilla) {
                 this.sets = json;
                 return;
             }
@@ -204,7 +230,8 @@ export class Sets {
                 matchesType(set) &&
                 matchesEquipment(set) &&
                 matchesSearch(set) &&
-                matchesClass(set)
+                matchesClass(set) &&
+                matchesVanilla(set)
             );
         } catch (e) {
             console.error(e);

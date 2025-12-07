@@ -66,13 +66,23 @@ export class Weapons {
         { value: 'Elite', label: 'Elite' },
     ];
 
+    // Sockets filter options (colon labels per GemSockets notation)
+    socketOptions = [
+        { value: undefined, label: '-' },
+        { value: 1, label: '1' },
+        { value: 2, label: '2' },
+        { value: 3, label: '3' },
+        { value: 4, label: '4' },
+        { value: 5, label: '5' },
+        { value: 6, label: '6' },
+    ];
+    @bindable selectedSockets: number | undefined;
+
     // Centralized, data-driven type options filtered to present types in bases data
     types: ReadonlyArray<FilterOption> = type_filtering_options.slice();
 
-    // Build options and hydrate from URL BEFORE controls render
     binding() {
-        // Build type options from present base types in weapons data
-        try {
+            try {
             const present = new Set<string>();
             (json as WeaponBase[]).forEach(i => {
                 const base = resolveBaseTypeName(i?.Type?.Name ?? '');
@@ -83,13 +93,17 @@ export class Weapons {
             // keep default preset
         }
 
-        // Hydrate from URL (search, tier, type mapped to exact option.value reference)
         const urlParams = new URLSearchParams(window.location.search);
         const searchParam = urlParams.get('search');
         if (searchParam) this.search = searchParam;
         const tierParam = urlParams.get('tier');
         if (tierParam === 'Normal' || tierParam === 'Exceptional' || tierParam === 'Elite') {
             this.selectedTier = tierParam as any;
+        }
+        const socketsParam = urlParams.get('sockets');
+        if (socketsParam) {
+            const n = parseInt(socketsParam, 10);
+            if (!Number.isNaN(n) && n >= 1 && n <= 6) this.selectedSockets = n as 1|2|3|4|5|6 as number;
         }
         const typeParam = urlParams.get('type');
         if (typeParam) {
@@ -129,6 +143,12 @@ export class Weapons {
         } else {
             url.searchParams.delete('tier');
         }
+        // sockets
+        if (this.selectedSockets && this.selectedSockets >= 1 && this.selectedSockets <= 6) {
+            url.searchParams.set('sockets', String(this.selectedSockets));
+        } else {
+            url.searchParams.delete('sockets');
+        }
         window.history.pushState({}, '', url.toString());
     }
 
@@ -144,6 +164,11 @@ export class Weapons {
 
     @watch('selectedTier')
     handleTierChanged() {
+        this.updateUrl();
+    }
+
+    @watch('selectedSockets')
+    handleSocketsChanged() {
         this.updateUrl();
     }
 
@@ -201,6 +226,7 @@ export class Weapons {
             combinedSet = new Set<WeaponBase>(primary);
         }
 
+        const sockets = this.selectedSockets;
         const filtered = Array.from(combinedSet).filter(i => {
             const byType = !typeFilter || typeFilter.length === 0 || ((): boolean => {
                 const selectedSet = new Set<string>(this.selectedType || []);
@@ -209,7 +235,17 @@ export class Weapons {
             })();
             if (!byType) return false;
             const byTier = !tierFilter || (this.getTier(i) === tierFilter);
-            return byTier;
+            if (!byTier) return false;
+            // Sockets filter: supports numeric and string GemSockets representations
+            if (!sockets) return true;
+            const gs: unknown = (i as any).GemSockets as any;
+            if (typeof gs === 'number') return gs === sockets;
+            if (typeof gs === 'string') {
+                // Match ": N" with no trailing digit to avoid ": 1" matching ": 10"
+                const re = new RegExp(`:\\s*${sockets}(?!\\d)`);
+                return re.test(gs);
+            }
+            return false;
         });
 
         const typeMap = new Map<string, WeaponBase[]>();
