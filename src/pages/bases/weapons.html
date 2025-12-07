@@ -1,6 +1,6 @@
 <template>
     <h3 class="text-center my-4">
-        [N] = Normal [X] = Exceptional [E] = Elite
+        [N] = Normal [X] = Exceptional [E] = Elite<br>(Item Level): Sockets
     </h3>
     <h3 class="text-center my-4">
         <span class="rarity-text">${totalCount}</span> Base Weapons Found
@@ -66,8 +66,8 @@
                                 ${item.Name}
                             </div>
                             <div class="rarity-text"
-                                 if.bind="item.GemSockets !== null && item.GemSockets !== undefined  && item.GemSockets !== 0">
-                                Max Sockets: ${item.GemSockets}
+                                 if.bind="(typeof item.GemSockets === 'number' ? item.GemSockets > 0 : (item.GemSockets && item.GemSockets !== '0'))">
+                                ${item.GemSockets}
                             </div>
                         </div>
 
