@@ -260,5 +260,16 @@ export class Uniques {
 
         return equipmentNameOptions;
     }
+    // Reset all filters to their default values and refresh
+    resetFilters() {
+        this.search = '';
+        this.selectedClass = undefined;
+        this.hideVanilla = false;
+        this.selectedType = [];
+        this.selectedEquipmentName = undefined;
+        this.equipmentNames = [{ value: undefined, label: '-' }];
 
+        this.updateList();
+        this.updateUrl();
+    }
 }
