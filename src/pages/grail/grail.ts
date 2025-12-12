@@ -1,4 +1,5 @@
 import { bindable, watch } from 'aurelia';
+import { isBlankOrInvalid } from '../../utilities/url-sanitize';
 import { debounce, DebouncedFunction } from '../../utilities/debounce';
 
 import runewordsJson from '../item-jsons/runewords.json';
@@ -58,7 +59,7 @@ export class Grail {
     filteredRunewords: any[] = [];
 
     classes = [
-        { value: undefined, label: '-' },
+        { value: '' as any, label: '-' },
         { value: 'Amazon', label: 'Amazon' },
         { value: 'Assassin', label: 'Assassin' },
         { value: 'Barbarian', label: 'Barbarian' },
@@ -81,7 +82,8 @@ export class Grail {
 
     @bindable search: string;
     @bindable selectedClass: string;
-    // Centralized type filter: selected value is an array of base + parents (or just base for exact-only options)
+    // Centralized type filter (UI binds to the base token; internal uses array of base+parents)
+    @bindable selectedTypeBase: string | undefined;
     @bindable selectedType: string[];
     @bindable selectedEquipmentName: string;
     // When true, hide items where Vanilla === 'Y'
@@ -109,7 +111,7 @@ export class Grail {
     
     // Debouncers to keep UI interactions (like checkbox clicks) snappy
     private _debouncedSaveFound!: DebouncedFunction;
-    private _debouncedUpdateList!: DebouncedFunction;
+    private _debouncedApplyFilters!: DebouncedFunction;
     
     binding(): void {
         // Flatten sets to item list for filtering
@@ -134,12 +136,12 @@ export class Grail {
         // Build type options based on selected category and data present
         this.rebuildTypeOptions();
 
-        // Map URL g-type (serialized as base) to exact option.value reference
-        // so that the select shows the correct value array
-        if (this.selectedType && this.selectedType.length === 1) {
-            const base = this.selectedType[0];
-            const opt = this.types.find(o => o.value && o.value[0] === base);
-            this.selectedType = opt?.value; // may remain undefined if not found
+        // Initialize internal selectedType array from selectedTypeBase and available options
+        if (this.selectedTypeBase) {
+            const opt = this.types.find(o => o.value && o.value[0] === this.selectedTypeBase);
+            this.selectedType = opt?.value ?? [this.selectedTypeBase];
+        } else {
+            this.selectedType = undefined as any;
         }
 
         // Prebuild Equipment options if a type was restored (non-runewords)
@@ -171,7 +173,11 @@ export class Grail {
 
         // Prepare debounced actions to avoid long click handlers
         this._debouncedSaveFound = debounce(() => this.saveFoundItems(), 200);
-        this._debouncedUpdateList = debounce(() => this.updateList(), 50);
+        // Debounced filter application (updates list + URL together)
+        this._debouncedApplyFilters = debounce(() => {
+            this.updateList();
+            this.updateUrl();
+        }, 300);
 
         // Initial filter + counters
         this.updateList();
@@ -214,19 +220,23 @@ export class Grail {
 
             // Class
             const cls = urlParams.get('g-class');
-            if (cls) this.selectedClass = cls;
+            if (cls && !isBlankOrInvalid(cls)) this.selectedClass = cls;
 
             // Type (serialized as base token only)
             const t = urlParams.get('g-type');
-            if (t) this.selectedType = [t];
+            if (t && !isBlankOrInvalid(t)) {
+                this.selectedTypeBase = t;
+            } else {
+                this.selectedTypeBase = undefined as any;
+            }
 
             // Equipment name (exact match token)
             const eq = urlParams.get('g-equipment');
-            if (eq) this.selectedEquipmentName = eq;
+            if (eq && !isBlankOrInvalid(eq)) this.selectedEquipmentName = eq;
 
             // Search text
             const s = urlParams.get('g-search');
-            if (s) this.search = s;
+            if (s && !isBlankOrInvalid(s)) this.search = s;
 
             // Hide Found: default false when param is absent
             const hf = urlParams.get('g-hideFound');
@@ -249,28 +259,28 @@ export class Grail {
             url.searchParams.set('g-category', this.selectedCategory);
 
             // Class (Grail-scoped)
-            if (this.selectedClass && this.selectedClass.trim() !== '') {
+            if (this.selectedClass && this.selectedClass.trim() !== '' && !isBlankOrInvalid(this.selectedClass)) {
                 url.searchParams.set('g-class', this.selectedClass);
             } else {
                 url.searchParams.delete('g-class');
             }
 
             // Type (Grail-scoped, serialize base only)
-            if (this.selectedType && this.selectedType.length > 0) {
-                url.searchParams.set('g-type', this.selectedType[0]);
+            if (this.selectedTypeBase && !isBlankOrInvalid(this.selectedTypeBase)) {
+                url.searchParams.set('g-type', this.selectedTypeBase);
             } else {
                 url.searchParams.delete('g-type');
             }
 
             // Equipment (Grail-scoped)
-            if (this.selectedEquipmentName && this.selectedEquipmentName.trim() !== '') {
+            if (this.selectedEquipmentName && this.selectedEquipmentName.trim() !== '' && !isBlankOrInvalid(this.selectedEquipmentName)) {
                 url.searchParams.set('g-equipment', this.selectedEquipmentName);
             } else {
                 url.searchParams.delete('g-equipment');
             }
 
             // Search (Grail-scoped)
-            if (this.search && this.search.trim() !== '') {
+            if (this.search && this.search.trim() !== '' && !isBlankOrInvalid(this.search)) {
                 url.searchParams.set('g-search', this.search);
             } else {
                 url.searchParams.delete('g-search');
@@ -345,8 +355,7 @@ export class Grail {
     }
 
     selectedClassChanged(): void {
-        this.updateList();
-        this.updateUrl();
+        if (this._debouncedApplyFilters) this._debouncedApplyFilters();
     }
     
     @watch('selectedType')
@@ -383,29 +392,79 @@ export class Grail {
         this.updateUrl();
     }
     
-    selectedEquipmentNameChanged(): void {
-        this.updateList();
-        this.updateUrl();
-    }
-    
     searchChanged(): void {
-        this.updateList();
-        this.updateUrl();
+        if (this._debouncedApplyFilters) this._debouncedApplyFilters();
     }
     
     showFoundItemsChanged(): void {
-        this.updateList();
-        this.updateUrl();
+        if (this._debouncedApplyFilters) this._debouncedApplyFilters();
     }
 
     hideVanillaChanged(): void {
+        if (this._debouncedApplyFilters) this._debouncedApplyFilters();
+    }
+
+    selectedTypeBaseChanged(): void {
+        // Sync internal array model and dependent equipment options
+        if (this.selectedTypeBase && this.selectedTypeBase !== '') {
+            const opt = this.types.find(o => o.value && o.value[0] === this.selectedTypeBase);
+            this.selectedType = opt?.value ?? [this.selectedTypeBase];
+        } else {
+            this.selectedType = undefined as any;
+            this.selectedEquipmentName = '';
+        }
+        // Rebuild equipment names for Uniques/Sets when a type is selected
+        this.equipmentNames = [{ id: '', name: 'All Equipment' }];
+        if (this.selectedType && this.selectedType.length > 0 && this.selectedCategory !== 'runewords') {
+            try {
+                const set = new Set<string>();
+                if (this.selectedCategory === 'uniques') {
+                    const selectedBases = new Set<string>(this.selectedType);
+                    for (const u of this.uniques) {
+                        const base = getChainForTypeName((u as any)?.Type ?? '')[0] || ((u as any)?.Type ?? '');
+                        if (selectedBases.has(base) && u?.Equipment?.Name) set.add(u.Equipment.Name);
+                    }
+                } else if (this.selectedCategory === 'sets') {
+                    const selectedBases = new Set<string>(this.selectedType);
+                    for (const it of this.allSetItems) {
+                        const base = getChainForTypeName((it as any)?.Type ?? '')[0] || ((it as any)?.Type ?? '');
+                        if (selectedBases.has(base) && it?.Equipment?.Name) set.add(it.Equipment.Name);
+                    }
+                }
+                for (const name of set) this.equipmentNames.push({ id: name, name });
+            } catch { /* ignore */ }
+        }
+        if (this._debouncedApplyFilters) this._debouncedApplyFilters();
+    }
+
+    selectedEquipmentNameChanged(): void {
+        if (this._debouncedApplyFilters) this._debouncedApplyFilters();
+    }
+
+    // Reset only the filter controls (not found-state or progress)
+    resetFilters(): void {
+        this.search = '' as any;
+        this.selectedClass = '' as any;
+        // Clear type and dependent equipment
+        this.selectedTypeBase = '' as any;
+        this.selectedType = undefined as any;
+        this.selectedEquipmentName = '';
+        this.equipmentNames = [{ id: '', name: 'All Equipment' }];
+        // Visibility toggles
+        this.showFoundItems = false;
+        this.hideVanilla = false;
+
+        // Rebuild options list for current category and refresh
+        this.rebuildTypeOptions();
         this.updateList();
+        this.updateTotalCount();
         this.updateUrl();
     }
 
     updateList() {
         // Filter per category
-        const searchText = (this.search || '').toLowerCase();
+        const searchRaw = (this.search || '').trim().toLowerCase();
+        const searchTokens = searchRaw.length ? searchRaw.split(/\s+/) : [];
         const selectedTypeSet = (this.selectedType && this.selectedType.length > 0)
             ? new Set<string>(this.selectedType)
             : null;
@@ -416,11 +475,17 @@ export class Grail {
                 const okType = !selectedTypeSet || selectedTypeSet.has(getChainForTypeName(unique?.Type ?? '')[0] || (unique?.Type ?? ''));
                 const okEquip = !this.selectedEquipmentName || String(unique?.Equipment?.Name || '') === this.selectedEquipmentName;
                 const okVanilla = !this.hideVanilla || String(unique?.Vanilla || '').toUpperCase() !== 'Y';
-                const okSearch = !searchText || (
-                    String(unique?.Name || '').toLowerCase().includes(searchText) ||
-                    (Array.isArray(unique?.Properties) && unique.Properties.some((p: any) => String(p?.PropertyString || '').toLowerCase().includes(searchText))) ||
-                    String(unique?.Equipment?.Name || '').toLowerCase().includes(searchText)
-                );
+                const okSearch = !searchTokens.length || ((): boolean => {
+                    const hay = [
+                        String(unique?.Name || ''),
+                        ...(Array.isArray(unique?.Properties) ? unique.Properties.map((p: any) => String(p?.PropertyString || '')) : []),
+                        String(unique?.Equipment?.Name || ''),
+                    ]
+                        .filter(Boolean)
+                        .join(' ')
+                        .toLowerCase();
+                    return searchTokens.every(t => hay.includes(t));
+                })();
                 const notGrabber = !String(unique?.Name || '').toLowerCase().includes('grabber');
                 const key = this.getUniqueKey(unique);
                 const okFound = !this.showFoundItems || !this.foundUniques[key];
@@ -434,12 +499,18 @@ export class Grail {
                 const okType = !selectedTypeSet || selectedTypeSet.has(getChainForTypeName(item?.Type ?? '')[0] || (item?.Type ?? ''));
                 const okEquip = !this.selectedEquipmentName || String(item?.Equipment?.Name || '') === this.selectedEquipmentName;
                 const okVanilla = !this.hideVanilla || String(item?.Vanilla || '').toUpperCase() !== 'Y';
-                const okSearch = !searchText || (
-                    String(item?.Name || '').toLowerCase().includes(searchText) ||
-                    (Array.isArray(item?.Properties) && item.Properties.some((p: any) => String(p?.PropertyString || '').toLowerCase().includes(searchText))) ||
-                    (Array.isArray(item?.SetPropertiesString) && item.SetPropertiesString.some((s: any) => String(s || '').toLowerCase().includes(searchText))) ||
-                    String(item?.Equipment?.Name || '').toLowerCase().includes(searchText)
-                );
+                const okSearch = !searchTokens.length || ((): boolean => {
+                    const hay = [
+                        String(item?.Name || ''),
+                        ...(Array.isArray(item?.Properties) ? item.Properties.map((p: any) => String(p?.PropertyString || '')) : []),
+                        ...(Array.isArray(item?.SetPropertiesString) ? item.SetPropertiesString.map((s: any) => String(s || '')) : []),
+                        String(item?.Equipment?.Name || ''),
+                    ]
+                        .filter(Boolean)
+                        .join(' ')
+                        .toLowerCase();
+                    return searchTokens.every(t => hay.includes(t));
+                })();
                 const key = this.getSetItemKey(item);
                 const okFound = !this.showFoundItems || !this.foundSets[key];
                 return okClass && okType && okEquip && okVanilla && okSearch && okFound;
@@ -506,11 +577,17 @@ export class Grail {
 
             const result = list.filter((rw: any) => {
                 const okVanilla = !this.hideVanilla || String(rw?.Vanilla || '').toUpperCase() !== 'Y';
-                const okSearch = !searchText || (
-                    String(rw?.Name || '').toLowerCase().includes(searchText) ||
-                    (Array.isArray(rw?.Properties) && rw.Properties.some((p: any) => String(p?.PropertyString || '').toLowerCase().includes(searchText))) ||
-                    (Array.isArray(rw?.Types) && rw.Types.some((t: any) => String(t?.Name || '').toLowerCase().includes(searchText)))
-                );
+                const okSearch = !searchTokens.length || ((): boolean => {
+                    const hay = [
+                        String(rw?.Name || ''),
+                        ...(Array.isArray(rw?.Properties) ? rw.Properties.map((p: any) => String(p?.PropertyString || '')) : []),
+                        ...(Array.isArray(rw?.Types) ? rw.Types.map((t: any) => String(t?.Name || '')) : []),
+                    ]
+                        .filter(Boolean)
+                        .join(' ')
+                        .toLowerCase();
+                    return searchTokens.every(t => hay.includes(t));
+                })();
                 const key = this.getRunewordKey(rw);
                 const okFound = !this.showFoundItems || !this.foundRunewords[key];
                 return okVanilla && okSearch && okFound;
@@ -553,7 +630,7 @@ export class Grail {
         // Do both actions via debouncers so the actual click handler returns quickly
         // (prevents "[Violation] 'click' handler took ...ms").
         if (this._debouncedSaveFound) this._debouncedSaveFound();
-        if (this._debouncedUpdateList) this._debouncedUpdateList();
+        if (this._debouncedApplyFilters) this._debouncedApplyFilters();
     }
     
     updateFoundCount(): void {

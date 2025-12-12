@@ -427,7 +427,7 @@ export function buildOptionsForPresentTypes(
 // Reusable options for type filtering. Compared against JSON types to t/f display of type in dropdown.
 export const type_filtering_options: ReadonlyArray<FilterOption> = [
     // Placeholder
-    makeTypeOption('-', undefined),
+    makeTypeOption('Any', undefined),
 
     // Aggregate types
     // Any Armor should include all armor descendants (Body Armor, Helm, Circlet, Shields, Gloves, Boots, Belt, class shields/helms, etc.)

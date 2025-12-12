@@ -1,4 +1,4 @@
-@use 'styles/md-styles';
+@use "styles/tailwind.css";
 
 /* font converted using font-converter.net. thank you! */
 @font-face {
@@ -63,30 +63,6 @@ body {
   cursor: pointer;
 }
 
-.unique-text {
-  color: #c7b790ed;
-}
-
-.set-text {
-  color: #478e47;
-}
-
-.set-text-light {
-  color: #7de17d;
-}
-
-.enhanced {
-  color: #6f5df7;
-}
-
-.set-header {
-  font-size: 26px;
-}
-
-.requirement {
-  color: #e14b4b;
-}
-
 .runes span {
   padding: 0 5px 0 5px;
 }
@@ -95,25 +71,6 @@ body {
   padding: 0 5px 0 5px;
 }
 
-.combo, .types, .damage, .durability, .armor, .base-text {
-  color: whitesmoke;
-}
-
-.rarity-text {
-  color: lightskyblue;
-}
-
-/* Navbar font picker: hide default disclosure marker and stray indents */
-nav details > summary {
-  list-style: none; /* belt-and-suspenders with Tailwind's list-none */
-  padding-left: 0;
-  margin-left: 0;
-}
-
-nav details > summary::-webkit-details-marker {
-  display: none;
-}
-
-nav details > summary::marker {
-  content: '';
+.set-header {
+  font-size: 26px;
 }

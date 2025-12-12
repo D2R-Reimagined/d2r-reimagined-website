@@ -1,0 +1,59 @@
+﻿@import "tailwindcss";
+@plugin "flowbite/plugin";
+
+/* Navbar font picker: hide default disclosure marker and stray indents */
+nav details > summary {
+    list-style: none; /* belt-and-suspenders with Tailwind's list-none */
+    padding-left: 0;
+    margin-left: 0;
+}
+
+nav details > summary::-webkit-details-marker {
+    display: none;
+}
+
+nav details > summary::marker {
+    content: '';
+}
+
+
+
+.link-text {
+    color: #f0f0f0
+}
+
+.link-text:hover {
+    color: #b3b3b3;
+}
+
+.unique-text {
+    color: #c7b790;
+}
+
+.set-text {
+    color: #249a24;
+}
+
+.set-text-light {
+    color: #4cc238;
+}
+
+.base-text {
+    color: #c7c7c7;
+}
+
+.prop-text {
+    color: #6377ef;
+}
+
+.requirement-text {
+    color: #e84a4a;
+}
+
+.type-text{
+    color: #f0f0f0;
+}
+
+.rarity-text {
+    color: #63c7ef;
+}

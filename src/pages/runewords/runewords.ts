@@ -1,4 +1,5 @@
 import { bindable, watch } from 'aurelia';
+import { isBlankOrInvalid } from '../../utilities/url-sanitize';
 
 import { debounce, DebouncedFunction } from '../../utilities/debounce';
 import json from '../item-jsons/runewords.json';
@@ -26,10 +27,11 @@ export class Runewords {
     // Centralized options, narrowed at runtime to types present in data
     types: ReadonlyArray<FilterOption> = type_filtering_options.slice();
 
-    selectedType: string[];
+    // Selected type: base token (scalar)
+    selectedType: string | undefined;
 
     amounts = [
-        { value: undefined, label: 'Any' },
+        { value: '', label: 'Any' },
         { value: 2, label: '2 Sockets' },
         { value: 3, label: '3 Sockets' },
         { value: 4, label: '4 Sockets' },
@@ -37,7 +39,7 @@ export class Runewords {
         { value: 6, label: '6 Sockets' }
     ];
 
-    selectedAmount: number;
+    selectedAmount: number | undefined;
 
     // Build options and hydrate filters from URL before controls render
     binding() {
@@ -65,12 +67,12 @@ export class Runewords {
         );
 
         const searchParam = urlParams.get('search');
-        if (searchParam) {
+        if (searchParam && !isBlankOrInvalid(searchParam)) {
             this.search = searchParam;
         }
 
         const runesParam = urlParams.get('runes');
-        if (runesParam) {
+        if (runesParam && !isBlankOrInvalid(runesParam)) {
             this.searchRunes = runesParam;
         }
 
@@ -78,21 +80,22 @@ export class Runewords {
         const hv = urlParams.get('hideVanilla');
         if (hv === 'true' || hv === '1') this.hideVanilla = true;
 
-        // Map URL 'type' (now serialized as base only) to the exact option.value reference
+        // Map URL 'type' (now serialized as base only) to a scalar base token
         const typeParam = urlParams.get('type');
-        if (typeParam) {
+        if (typeParam && !isBlankOrInvalid(typeParam)) {
             const base = typeParam.split(',')[0]; // support legacy comma list by taking first token
             const opt = this.types.find(o => o.value && o.value[0] === base);
-            this.selectedType = opt?.value; // use same array reference as option so select reflects it
+            this.selectedType = opt ? base : undefined;
         }
 
         const socketsParam = urlParams.get('sockets');
-        if (socketsParam) {
-            this.selectedAmount = parseInt(socketsParam, 10);
+        if (socketsParam && !isBlankOrInvalid(socketsParam)) {
+            const n = parseInt(socketsParam, 10);
+            if (Number.isFinite(n) && n >= 2 && n <= 6) this.selectedAmount = n;
         }
 
         const exactParam = urlParams.get('exact');
-        if (exactParam) {
+        if (exactParam && !isBlankOrInvalid(exactParam)) {
             this.exclusiveType = exactParam === 'true';
         }
     }
@@ -122,15 +125,15 @@ export class Runewords {
         }
 
         // Update type parameter (serialize as base token only)
-        if (this.selectedType && this.selectedType.length > 0) {
-            url.searchParams.set('type', this.selectedType[0]);
+        if (this.selectedType && this.selectedType !== '') {
+            url.searchParams.set('type', this.selectedType);
         } else {
             url.searchParams.delete('type');
         }
 
         // Update sockets parameter
-        if (this.selectedAmount) {
-            url.searchParams.set('sockets', this.selectedAmount.toString());
+        if (typeof this.selectedAmount === 'number' && Number.isFinite(this.selectedAmount) && this.selectedAmount >= 2 && this.selectedAmount <= 6) {
+            url.searchParams.set('sockets', String(this.selectedAmount));
         } else {
             url.searchParams.delete('sockets');
         }
@@ -179,6 +182,15 @@ export class Runewords {
 
     @watch('selectedAmount')
     selectedAmountChanged() {
+        // Coerce from string to number when coming from <select>
+        if (typeof this.selectedAmount !== 'number') {
+            const v = Number(this.selectedAmount);
+            if (Number.isFinite(v) && v >= 2 && v <= 6) {
+                this.selectedAmount = v as any;
+            } else {
+                this.selectedAmount = undefined as any;
+            }
+        }
         if (this._debouncedSearchItem) {
             this._debouncedSearchItem();
         }
@@ -210,9 +222,9 @@ export class Runewords {
         let filteringRunewords = this.runewords;
 
         // Type filtering
-        if (this.selectedType?.length > 0) {
-            // Derive a single selected base token (decoupled from option value arrays)
-            const selectedBase = resolveBaseTypeName(this.selectedType[0] ?? '');
+        if (this.selectedType) {
+            // Derive a single selected base token
+            const selectedBase = resolveBaseTypeName(this.selectedType ?? '');
             if (selectedBase) {
                 const selectedChain = getChainForTypeName(selectedBase);
                 const selectedChainSet = new Set<string>(selectedChain);
@@ -277,23 +289,20 @@ export class Runewords {
         // Apply text + rune filters
         let found = filteringRunewords;
 
-        // Text search (name, props, types)
-        if (this.search) {
+        // Text search (tokenized AND across name, properties, types)
+        const searchRaw = (this.search || '').trim().toLowerCase();
+        const searchTokens = searchRaw.length ? searchRaw.split(/\s+/) : [];
+        if (searchTokens.length) {
             found = found.filter((runeword) => {
-                if (runeword.Name.toLowerCase().includes(this.search.toLowerCase())) {
-                    return true;
-                }
-                for (const property of runeword.Properties) {
-                    if (property.PropertyString.toLowerCase().includes(this.search.toLowerCase())) {
-                        return true;
-                    }
-                }
-                for (const type of runeword.Types) {
-                    if (type.Name.toLowerCase().includes(this.search.toLowerCase())) {
-                        return true;
-                    }
-                }
-                return false;
+                const hay = [
+                    String(runeword.Name || ''),
+                    ...((runeword.Properties || []).map((p: any) => String(p?.PropertyString || ''))),
+                    ...((runeword.Types || []).map((t: any) => String(t?.Name || ''))),
+                ]
+                    .filter(Boolean)
+                    .join(' ')
+                    .toLowerCase();
+                return searchTokens.every(t => hay.includes(t));
             });
         }
 
@@ -318,6 +327,19 @@ export class Runewords {
 
         // Set the filtered runewords at the end
         this.filteredRunewords = found;
+    }
+
+    // Reset all filters and refresh URL/list
+    resetFilters() {
+        this.search = '';
+        this.searchRunes = '';
+        this.selectedType = undefined;
+        this.selectedAmount = undefined as any;
+        this.exclusiveType = false;
+        this.hideVanilla = false;
+
+        this.updateList();
+        this.updateUrl();
     }
 
     // Note: no type name transformations; use the names as exported by the game data.

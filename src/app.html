@@ -1,7 +1,7 @@
-<nav class="bg-gray-800 shadow-md sticky top-0 z-6">
-    <div class="mx-auto px-4 sm:px-6 lg:px-8">
+<nav class="bg-gray-800 shadow-md sticky top-0 h-[60px] z-6">
+    <div class="mx-auto px-4 py-2 sm:px-6 lg:px-8">
         <div class="flex items-center relative">
-            <a class="hover:text-gray-400 mr-4" href="/">
+            <a class="link-text mr-4" href="/">
                 D2R Reimagined
             </a>
             <button class="lg:hidden ml-auto" type="button"
@@ -19,49 +19,49 @@
                         lg:static lg:flex lg:flex-row lg:items-center lg:justify-between lg:p-0 lg:shadow-none lg:border-0 lg:bg-transparent lg:max-h-none lg:overflow-visible">
                 <ul class="flex flex-col gap-2 lg:flex-row lg:gap-0 lg:space-x-4">
                     <li>
-                        <a class="hover:text-gray-400 py-2 flex cursor-pointer" aria-current="page" href="/armors"
+                        <a class="link-text py-2 flex cursor-pointer" aria-current="page" href="/armors"
                            click.trigger="closeMobileMenu()">
                             Bases
                         </a>
                     </li>
                     <li>
-                        <a class="hover:text-gray-400 py-2 flex cursor-pointer" aria-current="page" href="/affixes"
+                        <a class="link-text py-2 flex cursor-pointer" aria-current="page" href="/affixes"
                            click.trigger="closeMobileMenu()">
                             Affixes
                         </a>
                     </li>
                     <li>
-                        <a class="hover:text-gray-400 py-2 flex cursor-pointer" aria-current="page" href="/uniques"
+                        <a class="link-text py-2 flex cursor-pointer" aria-current="page" href="/uniques"
                            click.trigger="closeMobileMenu()">
                             Uniques
                         </a>
                     </li>
                     <li>
-                        <a class="hover:text-gray-400 py-2 flex cursor-pointer" aria-current="page" href="/sets"
+                        <a class="link-text py-2 flex cursor-pointer" aria-current="page" href="/sets"
                            click.trigger="closeMobileMenu()">
                             Sets
                         </a>
                     </li>
                     <li>
-                        <a class="hover:text-gray-400 py-2 flex cursor-pointer" aria-current="page" href="/runewords"
+                        <a class="link-text py-2 flex cursor-pointer" aria-current="page" href="/runewords"
                            click.trigger="closeMobileMenu()">
                             Runewords
                         </a>
                     </li>
                     <li>
-                        <a class="hover:text-gray-400 py-2 flex cursor-pointer" aria-current="page" href="/grail"
+                        <a class="link-text py-2 flex cursor-pointer" aria-current="page" href="/grail"
                            click.trigger="closeMobileMenu()">
                             Grail
                         </a>
                     </li>
                     <li>
-                        <a class="hover:text-gray-400 py-2 flex cursor-pointer" aria-current="page" href="/cube-recipes"
+                        <a class="link-text py-2 flex cursor-pointer" aria-current="page" href="/cube-recipes"
                            click.trigger="closeMobileMenu()">
                             Cube Recipes
                         </a>
                     </li>
                     <li>
-                        <a class="hover:text-gray-400 py-2 cursor-pointer flex items-center" aria-current="page"
+                        <a class="link-text py-2 cursor-pointer flex items-center" aria-current="page"
                            href="https://wiki.d2r-reimagined.com/" external target="_blank"
                            click.trigger="closeMobileMenu()">
                             Wiki <span class="material-symbols-outlined ml-1">open_in_new</span>
@@ -72,14 +72,14 @@
                     <li class="relative lg:mx-1">
                         <details class="relative">
                             <summary
-                                    class="list-none hover:text-gray-400 py-2 inline-flex items-center cursor-pointer select-none pl-0">
+                                    class="list-none link-text py-2 inline-flex items-center cursor-pointer select-none pl-0">
                                 <span class="material-symbols-outlined">type_specimen</span>
                             </summary>
                             <ul class="bg-gray-700 shadow-lg rounded py-2 min-w-30 z-50
                                        static w-full mt-1 max-h-[50vh] overflow-y-auto overscroll-contain
                                        lg:absolute lg:right-0 lg:top-full lg:w-auto lg:mt-1 lg:mb-0 lg:max-h-[70vh]">
                                 <li repeat.for="font of fonts">
-                                    <a class="block px-2 py-2 hover:bg-gray-600 hover:text-gray-400 ${font.class} cursor-pointer"
+                                    <a class="block px-2 py-2 hover:bg-gray-600 link-text ${font.class} cursor-pointer"
                                        click.trigger="selectFont(font, $event)">
                                         ${font.name}
                                     </a>
@@ -113,7 +113,7 @@
 <button
         type="button"
         class="fixed bottom-1.5 right-1.5 z-50
-           bg-gray-800 text-gray-200 border border-gray-700 rounded-full shadow
+           bg-gray-800 type-text border border-gray-700 rounded-full shadow
            hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-500/50
            w-5 h-5 flex items-center justify-center"
         aria-label="Back to top"

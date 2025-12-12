@@ -1,10 +1,12 @@
 import { bindable, resolve,watch } from 'aurelia';
+import { isBlankOrInvalid } from '../../utilities/url-sanitize';
 import { IRouter } from '@aurelia/router';
 
 import {
     buildOptionsForPresentTypes,
     FilterOption,
     getChainForTypeName,
+    getDescendantBaseNames,
     resolveBaseTypeName,
     type_filtering_options } from '../../resources/constants/item-type-filters';
 import json from '../item-jsons/armors.json';
@@ -54,12 +56,12 @@ export class Armors {
     items: ArmorBase[] = (json as unknown as ArmorBase[]).map((it, idx) => ({ ...it, __index: idx }));
 
     @bindable search: string;
-    // Selected type option value (base + parents)
-    @bindable selectedType: string[];
+    // Selected type option value: base token (scalar). Previously an array; changed to scalar to avoid AUR0654
+    @bindable selectedType: string | undefined;
     @bindable selectedTier: 'Normal' | 'Exceptional' | 'Elite' | undefined;
 
     tierOptions = [
-        { value: undefined, label: '-' },
+        { value: '' as any, label: 'Any' },
         { value: 'Normal', label: 'Normal' },
         { value: 'Exceptional', label: 'Exceptional' },
         { value: 'Elite', label: 'Elite' },
@@ -67,11 +69,11 @@ export class Armors {
 
     // Sockets filter options (colon labels per GemSockets notation)
     socketOptions = [
-        { value: undefined, label: '-' },
-        { value: 1, label: '1' },
-        { value: 2, label: '2' },
-        { value: 3, label: '3' },
-        { value: 4, label: '4' },
+        { value: '' as any, label: 'Any' },
+        { value: 1, label: '1 Socket' },
+        { value: 2, label: '2 Sockets' },
+        { value: 3, label: '3 Sockets' },
+        { value: 4, label: '4 Sockets' },
     ];
     @bindable selectedSockets: number | undefined;
 
@@ -87,7 +89,8 @@ export class Armors {
                 const base = resolveBaseTypeName(i?.Type?.Name ?? '');
                 if (base) present.add(base);
             });
-            this.types = buildOptionsForPresentTypes(type_filtering_options, present);
+            // Dedupe by base so options like "Any Helm" vs "Helm" don't produce duplicate values
+            this.types = buildOptionsForPresentTypes(type_filtering_options, present, { dedupeByBase: true, preferLabelStartsWith: 'Any ' });
         } catch {
             // keep default preset
         }
@@ -96,7 +99,7 @@ export class Armors {
         const urlParams = new URLSearchParams(window.location.search);
         // search
         const searchParam = urlParams.get('search');
-        if (searchParam) this.search = searchParam;
+        if (searchParam && !isBlankOrInvalid(searchParam)) this.search = searchParam;
         // tier
         const tierParam = urlParams.get('tier');
         if (tierParam === 'Normal' || tierParam === 'Exceptional' || tierParam === 'Elite') {
@@ -104,15 +107,15 @@ export class Armors {
         }
         // sockets
         const socketsParam = urlParams.get('sockets');
-        if (socketsParam) {
+        if (socketsParam && !isBlankOrInvalid(socketsParam)) {
             const n = parseInt(socketsParam, 10);
             if (!Number.isNaN(n) && n >= 1 && n <= 6) this.selectedSockets = n as 1 | 2 | 3 | 4 | 5 | 6 as number;
         }
         const typeParam = urlParams.get('type');
-        if (typeParam) {
+        if (typeParam && !isBlankOrInvalid(typeParam)) {
             const base = typeParam.split(',')[0];
             const opt = this.types.find(o => o.value && o.value[0] === base);
-            this.selectedType = opt?.value;
+            this.selectedType = opt ? base : undefined;
         }
     }
 
@@ -136,8 +139,8 @@ export class Armors {
             url.searchParams.delete('search');
         }
         // type (base token)
-        if (this.selectedType && this.selectedType.length > 0) {
-            url.searchParams.set('type', this.selectedType[0]);
+        if (this.selectedType && this.selectedType !== '') {
+            url.searchParams.set('type', this.selectedType);
         } else {
             url.searchParams.delete('type');
         }
@@ -163,16 +166,30 @@ export class Armors {
 
     @watch('selectedType')
     handleTypeChanged() {
+        if (this.selectedType === '') this.selectedType = undefined;
         this.updateUrl();
     }
 
     @watch('selectedTier')
     handleTierChanged() {
+        if (this.selectedTier === '' as any) this.selectedTier = undefined;
         this.updateUrl();
     }
 
     @watch('selectedSockets')
     handleSocketsChanged() {
+        // Coerce from string to number when coming from <select>
+        if (typeof this.selectedSockets !== 'number') {
+            const v = Number(this.selectedSockets);
+            if (Number.isFinite(v) && v >= 1 && v <= 6) {
+                this.selectedSockets = v as any;
+            } else {
+                this.selectedSockets = undefined;
+            }
+        }
+        if (typeof this.selectedSockets !== 'number' || !Number.isFinite(this.selectedSockets) || this.selectedSockets < 1 || this.selectedSockets > 6) {
+            this.selectedSockets = undefined;
+        }
         this.updateUrl();
     }
 
@@ -183,15 +200,31 @@ export class Armors {
         const url = new URL(window.location.href);
         if (url.pathname === target) return; // already there
 
-        const qs = url.search || '';
+        // Sanitize params before preserving
+        // Remove blank/invalid params to avoid carrying bad values across datasets
+        const params = url.searchParams;
+        const remove: string[] = [];
+        params.forEach((v, k) => { if (isBlankOrInvalid(v)) remove.push(k); });
+        remove.forEach(k => params.delete(k));
+        const qs = params.toString() ? `?${params.toString()}` : '';
         // Use router.load to trigger a real navigation + component swap
         void this.router.load(`${target}${qs}`);
+    }
+
+    // Reset filters to defaults and refresh
+    resetFilters() {
+        this.search = '';
+        this.selectedType = undefined;
+        this.selectedTier = undefined;
+        this.selectedSockets = undefined as any;
+        this.updateUrl();
     }
 
     // Type options provided via this.types property
 
     get filteredAndGrouped(): Group[] {
-        const search = (this.search || '').toLowerCase();
+        const searchRaw = (this.search || '').trim().toLowerCase();
+        const searchTokens = searchRaw.length ? searchRaw.split(/\s+/) : [];
         const typeFilter = this.selectedType;
         const tierFilter = this.selectedTier;
 
@@ -199,7 +232,7 @@ export class Armors {
 
         // Helper: basic search match across key fields
         const matchesSearch = (i: ArmorBase) => {
-            if (!search) return true;
+            if (!searchTokens.length) return true;
             const hay = [
                 i.Name,
                 i.Type?.Name,
@@ -210,15 +243,15 @@ export class Armors {
                 .filter(Boolean)
                 .join(' ')
                 .toLowerCase();
-            return hay.includes(search);
+            return searchTokens.every(t => hay.includes(t));
         };
 
         // Primary matches using search
-        const primary = search ? allItems.filter(matchesSearch) : allItems.slice();
+        const primary = searchTokens.length ? allItems.filter(matchesSearch) : allItems.slice();
 
         // Build associated set from code family (single-hop, non-recursive)
         let combinedSet: Set<ArmorBase>;
-        if (search) {
+        if (searchTokens.length) {
             const codeSet = new Set<string>();
             for (const i of primary) {
                 if (i.NormCode) codeSet.add(i.NormCode.toLowerCase());
@@ -236,11 +269,21 @@ export class Armors {
 
         // Apply Type, Tier, and Sockets filters (Tier is strict as per requirement)
         const sockets = this.selectedSockets;
+        // Precompute allowed type set from the selected base: include base and its descendants for aggregates
+        const allowedTypeSet: Set<string> | null = ((): Set<string> | null => {
+            if (!typeFilter) return null;
+            const set = new Set<string>();
+            set.add(typeFilter);
+            // Include descendants for aggregate options like "Any Armor", "Any Helm", etc.
+            const descendants = getDescendantBaseNames(typeFilter);
+            for (let i = 0; i < descendants.length; i++) set.add(descendants[i]);
+            return set;
+        })();
+
         const filtered = Array.from(combinedSet).filter(i => {
-            const byType = !typeFilter || typeFilter.length === 0 || ((): boolean => {
-                const selectedSet = new Set<string>(this.selectedType || []);
+            const byType = !allowedTypeSet || ((): boolean => {
                 const base = getChainForTypeName(i?.Type?.Name ?? '')[0] || (i?.Type?.Name ?? '');
-                return selectedSet.has(base);
+                return allowedTypeSet.has(base);
             })();
             if (!byType) return false;
             const byTier = !tierFilter || (this.getTier(i) === tierFilter);

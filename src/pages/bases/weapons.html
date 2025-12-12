@@ -3,61 +3,57 @@
         [N] = Normal [X] = Exceptional [E] = Elite
     </h3>
     <h3 class="text-center mt-2 mb-4">
-        <span class="text-sky-300">${totalCount}</span> Base Weapons Found
+        <span class="rarity-text">${totalCount}</span> Base Weapons Found
     </h3>
 
     <search-area>
-        <div class="max-w-screen-2xlxl mx-auto px-4">
+        <div class="max-w-screen-2xl mx-auto px-4">
             <div class="flex flex-wrap justify-center items-center text-center">
                 <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
                     <div class="mb-2">
-                        <moo-select
-                                class="w-full standard-betsy-select"
-                                label="Base Category"
-                                options.bind="datasetOptions"
-                                value.bind="selectedDataset"
-                                change.trigger="onDatasetChange()"
-                        ></moo-select>
+                        <label class="block  type-text mb-1">Base Category</label>
+                        <select class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5"
+                                value.bind="selectedDataset" change.trigger="onDatasetChange()">
+                            <option repeat.for="opt of datasetOptions" value.bind="opt.value">${opt.label}</option>
+                        </select>
                     </div>
                 </div>
                 <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
                     <div class="mb-2">
-                        <moo-select
-                                class="w-full standard-betsy-select"
-                                label="Filter By Sockets"
-                                options.bind="socketOptions"
-                                value.bind="selectedSockets"
-                        ></moo-select>
+                        <label class="block  type-text mb-1">Filter By Sockets</label>
+                        <select class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5"
+                                value.bind="selectedSockets">
+                            <option repeat.for="opt of socketOptions" model.bind="opt.value">${opt.label}</option>
+                        </select>
                     </div>
                 </div>
                 <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
                     <div class="mb-2">
-                        <moo-select
-                                class="w-full standard-betsy-select"
-                                label="Filter By Type"
-                                options.bind="types"
-                                value.bind="selectedType"
-                        ></moo-select>
+                        <label class="block  type-text mb-1">Filter By Type</label>
+                        <select class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5" value.bind="selectedType">
+                            <option repeat.for="opt of types" value.bind="opt.value && opt.value.length ? opt.value[0] : ''">${opt.label}</option>
+                        </select>
                     </div>
                 </div>
                 <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
                     <div class="mb-2">
-                        <moo-select
-                                class="w-full standard-betsy-select"
-                                label="Filter By Tier"
-                                options.bind="tierOptions"
-                                value.bind="selectedTier"
-                        ></moo-select>
+                        <label class="block  type-text mb-1">Filter By Tier</label>
+                        <select class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5" value.bind="selectedTier">
+                            <option repeat.for="opt of tierOptions" value.bind="opt.value">${opt.label}</option>
+                        </select>
                     </div>
                 </div>
                 <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
                     <div class="mb-2">
-                        <moo-text-field
-                                class="w-full"
-                                label="Search Bases"
-                                type="text"
-                                value.bind="search"
-                        ></moo-text-field>
+                        <label class="block  type-text mb-1">Search Bases</label>
+                        <input class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5" type="text" value.bind="search" placeholder="Search..." />
+                    </div>
+                </div>
+                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
+                    <div class="mb-2">
+                        <label class="block  type-text mb-1 invisible">Reset</label>
+                        <button class="w-full bg-gray-700 hover:bg-gray-600 type-text  py-2 px-3 rounded-lg"
+                                type="button" click.trigger="resetFilters()">Reset Filters</button>
                     </div>
                 </div>
             </div>
@@ -73,10 +69,10 @@
                     <div class="bg-gray-800 rounded">
 
                         <div class="mb-1">
-                            <div class="text-lg text-gray-400">
+                            <div class="text-lg base-text">
                                 ${item.Name}
                             </div>
-                            <div class="text-sky-300"
+                            <div class="rarity-text"
                                  if.bind="(typeof item.GemSockets === 'number' ? item.GemSockets > 0 : (item.GemSockets && item.GemSockets !== '0'))">
                                 <div>(Item Level): Sockets</div>
                                 <div>${item.GemSockets}</div>
@@ -84,42 +80,42 @@
                         </div>
 
                         <div class="mb-1">
-                            <div class="text-gray-50" if.bind="(item.Type && item.Type.Name) || group.typeName">
+                            <div class="type-text" if.bind="(item.Type && item.Type.Name) || group.typeName">
                                 ${item.Type && item.Type.Name ? item.Type.Name : group.typeName}
                             </div>
-                            <div class="text-gray-50" if.bind="item.DamageTypes && item.DamageTypes.length">
+                            <div class="type-text" if.bind="item.DamageTypes && item.DamageTypes.length">
                                 <div repeat.for="d of item.DamageTypes">
                                     ${getDamageTypeString(d.Type)} ${d.DamageString}
                                 </div>
                             </div>
-                            <div class="text-gray-50" if.bind="item.Durability && item.Durability > 0">
+                            <div class="type-text" if.bind="item.Durability && item.Durability > 0">
                                 Durability: ${item.Durability}
                             </div>
                         </div>
 
                         <div class="mb-1">
-                            <div class="text-red-500" if.bind="item.RequiredClass && item.RequiredClass.length">
+                            <div class="requirement-text" if.bind="item.RequiredClass && item.RequiredClass.length">
                                 (${item.RequiredClass} Only)
                             </div>
-                            <div class="text-red-500" if.bind="item.RequiredDexterity && item.RequiredDexterity > 0">
+                            <div class="requirement-text" if.bind="item.RequiredDexterity && item.RequiredDexterity > 0">
                                 ${item.RequiredDexterity} Dexterity Required
                             </div>
-                            <div class="text-red-500" if.bind="item.RequiredStrength && item.RequiredStrength > 0">
+                            <div class="requirement-text" if.bind="item.RequiredStrength && item.RequiredStrength > 0">
                                 ${item.RequiredStrength} Strength Required
                             </div>
-                            <div class="text-red-500">
+                            <div class="requirement-text">
                                 Level ${item.BaseRequiredLevel > 0 ? item.BaseRequiredLevel : 1} Required
                             </div>
                         </div>
 
                         <div class="mb-1">
-                            <div class=" text-green-600" if.bind="item.Speed !== null && item.Speed !== undefined">
+                            <div class=" set-text" if.bind="item.Speed !== null && item.Speed !== undefined">
                                 Speed: ${item.Speed}
                             </div>
-                            <div class=" text-green-600" if.bind="item.StrBonus && item.StrBonus > 0">
+                            <div class=" set-text" if.bind="item.StrBonus && item.StrBonus > 0">
                                 Str Bonus: ${item.StrBonus}%
                             </div>
-                            <div class=" text-green-600" if.bind="item.DexBonus && item.DexBonus > 0">
+                            <div class=" set-text" if.bind="item.DexBonus && item.DexBonus > 0">
                                 Dex Bonus: ${item.DexBonus}%
                             </div>
                         </div>
@@ -127,13 +123,13 @@
                         <div if.bind="item.AutoMagicGroups && item.AutoMagicGroups.length">
                             <div class="flex justify-between items-start mb-1"
                                  repeat.for="group of groupedProperties(item)">
-                                <div class="text-indigo-500 whitespace-nowrap text-left">
+                                <div class="prop-text whitespace-nowrap text-left">
                                     <span if.bind="group.requiredLevel && group.requiredLevel > 0">
                                         Lvl Req ${group.requiredLevel}
                                     </span>
                                 </div>
                                 <div class="flex flex-col items-end text-right">
-                                    <div class="text-indigo-500" repeat.for="line of group.propertyStrings">
+                                    <div class="prop-text" repeat.for="line of group.propertyStrings">
                                         ${line}
                                     </div>
                                 </div>

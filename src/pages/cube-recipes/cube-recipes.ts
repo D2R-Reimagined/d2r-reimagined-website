@@ -1,4 +1,5 @@
 import { bindable, watch } from 'aurelia';
+import { isBlankOrInvalid } from '../../utilities/url-sanitize';
 
 import { debounce, DebouncedFunction } from '../../utilities/debounce';
 import v2json from '../item-jsons/cube_recipes_v2.json';
@@ -200,23 +201,23 @@ export class CubeRecipes {
             }
             const noteList = Array.from(noteSet).sort((a, b) => a.localeCompare(b));
             const classList = Array.from(classSet).sort((a, b) => a.localeCompare(b));
-            this.noteOptions = [{ value: undefined, label: '-' }, ...noteList.map(n => ({ value: n, label: n }))];
-            this.classOptions = [{ value: undefined, label: '-' }, ...classList.map(c => ({ value: c, label: c }))];
+            this.noteOptions = [{ value: '' as any, label: '-' }, ...noteList.map(n => ({ value: n, label: n }))];
+            this.classOptions = [{ value: '' as any, label: '-' }, ...classList.map(c => ({ value: c, label: c }))];
         } catch {
-            this.noteOptions = [{ value: undefined, label: '-' }];
-            this.classOptions = [{ value: undefined, label: '-' }];
+            this.noteOptions = [{ value: '' as any, label: '-' }];
+            this.classOptions = [{ value: '' as any, label: '-' }];
         }
 
         // Read query parameters from URL when component is initialized
         const urlParams = new URLSearchParams(window.location.search);
         const searchParam = urlParams.get('search');
-        if (searchParam) this.search = searchParam;
+        if (searchParam && !isBlankOrInvalid(searchParam)) this.search = searchParam;
 
         const noteParam = urlParams.get('note');
-        if (noteParam) this.selectedNote = noteParam;
+        if (noteParam && !isBlankOrInvalid(noteParam)) this.selectedNote = noteParam;
 
         const classParam = urlParams.get('class');
-        if (classParam) this.selectedClass = classParam;
+        if (classParam && !isBlankOrInvalid(classParam)) this.selectedClass = classParam;
     }
 
     attached() {
@@ -262,11 +263,12 @@ export class CubeRecipes {
     }
 
     handleSearch() {
-        const term = (this.search || '').trim().toLowerCase();
+        const termRaw = (this.search || '').trim().toLowerCase();
+        const tokens = termRaw.length ? termRaw.split(/\s+/) : [];
         const selectedNote = (this.selectedNote || '').toLowerCase();
         const selectedClass = (this.selectedClass || '').toLowerCase();
 
-        if (!term && !selectedNote && !selectedClass) {
+        if (!tokens.length && !selectedNote && !selectedClass) {
             this.recipes = this.allRecipes;
             return;
         }
@@ -285,17 +287,26 @@ export class CubeRecipes {
                 if (!notes.includes(selectedNote)) continue;
             }
 
-            // Text search (always searches across inputs, outputs, and description)
-            if (term) {
+            // Text search (tokenized AND across inputs, outputs, and description)
+            if (tokens.length) {
                 const desc = (recipe.Description || '').toLowerCase();
-                const inp = [recipe.Input || '', ...(recipe.Inputs || [])].join(' | ').toLowerCase();
-                const out = [recipe.Output || '', ...(recipe.Outputs || [])].join(' | ').toLowerCase();
-                const haystack = [inp, out, desc].join(' | ');
-                if (!haystack.includes(term)) continue;
+                const inp = [recipe.Input || '', ...(recipe.Inputs || [])].join(' ').toLowerCase();
+                const out = [recipe.Output || '', ...(recipe.Outputs || [])].join(' ').toLowerCase();
+                const haystack = [inp, out, desc].filter(Boolean).join(' ');
+                if (!tokens.every(t => haystack.includes(t))) continue;
             }
 
             found.push(recipe);
         }
         this.recipes = found;
+    }
+
+    // Reset filters to default (show all) and refresh URL/list
+    resetFilters() {
+        this.search = '';
+        this.selectedNote = undefined;
+        this.selectedClass = undefined;
+        this.recipes = this.allRecipes;
+        this.updateUrl();
     }
 }

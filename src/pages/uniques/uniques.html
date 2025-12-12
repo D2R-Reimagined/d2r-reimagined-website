@@ -1,57 +1,45 @@
 <template>
     <h3 class="text-center my-4">
-        <span class="text-sky-300">${uniques.length}</span> Uniques Found
+        <span class="rarity-text">${uniques.length}</span> Uniques Found
     </h3>
     <search-area>
         <div class="max-w-screen-2xl mx-auto px-4">
             <div class="flex flex-wrap justify-center items-center text-center">
                 <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
                     <div class="mb-2">
-                        <moo-select
-                                class="w-full standard-betsy-select"
-                                label="Select Class"
-                                options.bind="classes"
-                                value.bind="selectedClass"
-                        ></moo-select>
+                        <label class="block  type-text mb-1">Select Class</label>
+                        <select class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5" value.bind="selectedClass">
+                            <option repeat.for="opt of classes" value.bind="opt.value">${opt.label}</option>
+                        </select>
                     </div>
                 </div>
                 <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
                     <div class="mb-2">
-                        <moo-select
-                                class="w-full standard-betsy-select"
-                                label="Select Type"
-                                options.bind="types"
-                                value.bind="selectedType"
-                        ></moo-select>
+                        <label class="block  type-text mb-1">Select Type</label>
+                        <select class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5" value.bind="selectedType">
+                            <option repeat.for="opt of types" value.bind="opt.value && opt.value.length ? opt.value[0] : ''">${opt.label}</option>
+                        </select>
                     </div>
                 </div>
                 <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
                     <div class="mb-2">
-                        <moo-select
-                                class="w-full standard-betsy-select"
-                                label="Select Equipment"
-                                options.bind="equipmentNames"
-                                value.bind="selectedEquipmentName"
-                                disabled.bind="!selectedType || selectedType.length === 0"
-                        ></moo-select>
+                        <label class="block  type-text mb-1">Select Equipment</label>
+                        <select class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5" value.bind="selectedEquipmentName" disabled.bind="!selectedType">
+                            <option repeat.for="opt of equipmentNames" value.bind="opt.value">${opt.label}</option>
+                        </select>
                     </div>
                 </div>
                 <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
                     <div class="my-1">
-                        <moo-text-field
-                                class="w-full"
-                                label="Search Uniques"
-                                type="text"
-                                value.bind="search"
-                        ></moo-text-field>
-                        <moo-checkbox checked.bind="hideVanilla"><span class="ml-1">Hide Vanilla</span></moo-checkbox>
+                        <label class="block  type-text mb-1">Search Uniques</label>
+                        <input class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5" type="text" value.bind="search" placeholder="Search..." />
+                        <label class="inline-flex items-center mt-2"><input type="checkbox" class="mr-2" checked.bind="hideVanilla"><span class="ml-1">Hide Vanilla</span></label>
                     </div>
                 </div>
                 <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
                     <div class="mb-2">
-                        <moo-button class="w-full standard-betsy-select" click.trigger="resetFilters()">
-                            Reset Filters
-                        </moo-button>
+                        <button class="w-full bg-gray-700 hover:bg-gray-600 type-text  py-2 px-3 rounded-lg"
+                                type="button" click.trigger="resetFilters()">Reset Filters</button>
                     </div>
                 </div>
             </div>
@@ -66,51 +54,51 @@
                     <div class="unique-text text-lg">
                         ${unique.Name}
                     </div>
-                    <div class="text-sky-300" if.bind="unique.Rarity">
+                    <div class="rarity-text" if.bind="unique.Rarity">
                         Rarity: ${unique.Rarity}
                     </div>
-                    <div class="text-sky-300" if.bind="unique.Vanilla">
+                    <div class="rarity-text" if.bind="unique.Vanilla">
                         ${unique.Vanilla === 'Y' ? 'Vanilla' : 'Mod'}
                     </div>
                 </div>
 
                 <div class="mb-1">
-                    <div class="text-gray-50" if.bind="unique.Equipment.Name">
+                    <div class="type-text" if.bind="unique.Equipment.Name">
                         ${unique.Equipment.Name}
                     </div>
-                    <div class="text-gray-50" if.bind="unique.Equipment.ArmorString">
+                    <div class="type-text" if.bind="unique.Equipment.ArmorString">
                         Defense: ${unique.Equipment.ArmorString}
                     </div>
-                    <div class="text-gray-50"
+                    <div class="type-text"
                          if.bind="unique.Equipment.Block !== null && unique.Equipment.Block !== undefined && unique.Equipment.Block > 0">
                         Block: ${unique.Equipment.Block}%
                     </div>
-                    <div class="text-gray-50" if.bind="unique.Equipment.DamageTypes"
+                    <div class="type-text" if.bind="unique.Equipment.DamageTypes"
                          repeat.for="damage of unique.Equipment.DamageTypes">
                         ${getDamageTypeString(damage.Type)} ${damage.DamageString}
                     </div>
-                    <div class="text-gray-50" if.bind="unique.Equipment.Durability > 0">
+                    <div class="type-text" if.bind="unique.Equipment.Durability > 0">
                         Durability: ${unique.Equipment.Durability}
                     </div>
                 </div>
 
                 <div class="mb-1">
-                    <div class="text-red-500"
+                    <div class="requirement-text"
                          if.bind="unique.Equipment.RequiredClass && unique.Equipment.RequiredClass.length">
                         (${unique.Equipment.RequiredClass} Only)
                     </div>
-                    <div class="text-red-500" if.bind="unique.Equipment.RequiredDexterity > 0">
+                    <div class="requirement-text" if.bind="unique.Equipment.RequiredDexterity > 0">
                         Required Dexterity: ${unique.Equipment.RequiredDexterity}
                     </div>
-                    <div class="text-red-500" if.bind="unique.Equipment.RequiredStrength > 0">
+                    <div class="requirement-text" if.bind="unique.Equipment.RequiredStrength > 0">
                         Required Strength: ${unique.Equipment.RequiredStrength}
                     </div>
-                    <div class="text-red-500">
+                    <div class="requirement-text">
                         Required Level: ${unique.RequiredLevel > 0 ? unique.RequiredLevel : 1}
                     </div>
                 </div>
 
-                <div class="text-indigo-500" repeat.for="property of unique.Properties">
+                <div class="prop-text" repeat.for="property of unique.Properties">
                     ${property.PropertyString}
                 </div>
 

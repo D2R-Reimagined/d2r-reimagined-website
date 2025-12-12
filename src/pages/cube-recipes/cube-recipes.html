@@ -1,38 +1,37 @@
 <template>
     <h3 class="text-center my-4">
-        <span class="text-sky-300">${recipes.length}</span> Recipes Found
+        <span class="rarity-text">${recipes.length}</span> Recipes Found
     </h3>
     <search-area>
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex flex-wrap justify-center items-center text-center">
                 <div class="w-full md:w-5/12 lg:w-1/4 px-2">
                     <div class="mb-2">
-                        <moo-select
-                                class="w-full standard-betsy-select"
-                                label="Select Note"
-                                options.bind="noteOptions"
-                                value.bind="selectedNote"
-                        ></moo-select>
+                        <label class="block  type-text mb-1">Select Note</label>
+                        <select class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5" value.bind="selectedNote">
+                            <option repeat.for="opt of noteOptions" value.bind="opt.value">${opt.label}</option>
+                        </select>
                     </div>
                 </div>
                 <div class="w-full md:w-5/12 lg:w-1/4 px-2">
                     <div class="mb-2">
-                        <moo-select
-                                class="w-full standard-betsy-select"
-                                label="Select Class"
-                                options.bind="classOptions"
-                                value.bind="selectedClass"
-                        ></moo-select>
+                        <label class="block  type-text mb-1">Select Class</label>
+                        <select class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5" value.bind="selectedClass">
+                            <option repeat.for="opt of classOptions" value.bind="opt.value">${opt.label}</option>
+                        </select>
                     </div>
                 </div>
                 <div class="w-full md:w-5/12 lg:w-1/4 px-2">
                     <div class="mb-2">
-                        <moo-text-field
-                                class="w-full"
-                                label="Search Recipes"
-                                type="text"
-                                value.bind="search"
-                        ></moo-text-field>
+                        <label class="block  type-text mb-1">Search Recipes</label>
+                        <input class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5" type="text" value.bind="search" placeholder="Search..." />
+                    </div>
+                </div>
+                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
+                    <div class="mb-2">
+                        <label class="block  type-text mb-1 invisible">Reset</label>
+                        <button class="w-full bg-gray-700 hover:bg-gray-600 type-text  py-2 px-3 rounded-lg"
+                                type="button" click.trigger="resetFilters()">Reset Filters</button>
                     </div>
                 </div>
             </div>
@@ -45,10 +44,10 @@
                 <div class="mb-1 unique-text">
                     ${recipe.Description}
                 </div>
-                <div class="text-red-500" if.bind="recipe.Class">
+                <div class="requirement-text" if.bind="recipe.Class">
                     (${recipe.Class} Only)
                 </div>
-                <div class="text-gray-50" repeat.for="inp of recipe.Inputs">
+                <div class="type-text" repeat.for="inp of recipe.Inputs">
                     ${inp}
                 </div>
                 <div class="my-1 unique-text">
@@ -59,10 +58,10 @@
                         <div class="output-title">
                             ${blk.lineOne}
                         </div>
-                        <div repeat.for="prop of blk.properties" class="text-indigo-500 output-prop">
+                        <div repeat.for="prop of blk.properties" class="prop-text output-prop">
                             ${prop}
                         </div>
-                        <div if.bind="blk.chanceText" class="text-red-500 output-prop">
+                        <div if.bind="blk.chanceText" class="requirement-text output-prop">
                             ${blk.chanceText}
                         </div>
                     </div>

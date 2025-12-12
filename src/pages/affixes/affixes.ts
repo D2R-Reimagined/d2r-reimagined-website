@@ -1,4 +1,5 @@
 import { bindable, watch } from 'aurelia';
+import { isBlankOrInvalid } from '../../utilities/url-sanitize';
 import { debounce, DebouncedFunction } from '../../utilities/debounce';
 import prefixes from '../item-jsons/magicprefix.json';
 import suffixes from '../item-jsons/magicsuffix.json';
@@ -29,7 +30,7 @@ export class Affixes {
 
     // Prefix/Suffix dropdown
     pTypeOptions = [
-        { value: undefined, label: '-' },
+        { value: '', label: 'Any' },
         { value: 'Prefix', label: 'Prefix' },
         { value: 'Suffix', label: 'Suffix' }
     ];
@@ -37,17 +38,24 @@ export class Affixes {
 
     // Group dropdown (built from property_groups.json by description)
     groupOptions: { value: string | undefined; label: string }[] = [
-        { value: undefined, label: '-' }
+        { value: '', label: 'Any' }
     ];
     @bindable selectedGroupDescription: string | undefined;
     private descToGroups: Map<string, Set<number>> = new Map();
 
     // Item Type dropdown (reuse centralized options, narrowed per data)
     types: ReadonlyArray<FilterOption> = type_filtering_options.slice();
-    @bindable selectedType: string[] | undefined;
+    // Selected type: scalar base token
+    @bindable selectedType: string | undefined;
 
     // Exact type only toggle
     @bindable exclusiveType: boolean;
+
+    // rLvl dropdown options (1–99). "Any" will be represented by an empty string option in the view.
+    rLevelOptions: { value: string; label: string }[] = Array.from({ length: 99 }, (_, i) => {
+        const v = String(i + 1);
+        return { value: v, label: v };
+    });
 
     // Required Level filters
     // Note: bound via <moo-text-field>, which provides string values. Accept string as well.
@@ -59,7 +67,7 @@ export class Affixes {
         const urlParams = new URLSearchParams(window.location.search);
 
         const searchParam = urlParams.get('search');
-        if (searchParam) this.search = searchParam;
+        if (searchParam && !isBlankOrInvalid(searchParam)) this.search = searchParam;
 
         const ptypeParam = urlParams.get('ptype');
         if (ptypeParam === 'Prefix' || ptypeParam === 'Suffix') {
@@ -67,21 +75,25 @@ export class Affixes {
         }
 
         const groupParam = urlParams.get('group');
-        if (groupParam) this.selectedGroupDescription = groupParam;
+        if (groupParam && !isBlankOrInvalid(groupParam)) this.selectedGroupDescription = groupParam;
 
         const typeParam = urlParams.get('type');
-        // Defer mapping of type until after options are built
+        // Defer mapping of type until after options are built (scalar base)
         let typeBaseFromUrl: string | undefined;
-        if (typeParam) typeBaseFromUrl = typeParam.split(',')[0];
+        if (typeParam && !isBlankOrInvalid(typeParam)) typeBaseFromUrl = typeParam.split(',')[0];
 
         const minrl = urlParams.get('minrl');
-        if (minrl !== null) this.minRequiredLevel = minrl;
+        if (minrl !== null && !isBlankOrInvalid(minrl)) this.minRequiredLevel = minrl;
 
         const maxrl = urlParams.get('maxrl');
-        if (maxrl !== null) this.maxRequiredLevel = maxrl;
+        if (maxrl !== null && !isBlankOrInvalid(maxrl)) this.maxRequiredLevel = maxrl;
 
         const exactParam = urlParams.get('exact');
-        if (exactParam) this.exclusiveType = exactParam === 'true';
+        if (exactParam && !isBlankOrInvalid(exactParam)) this.exclusiveType = exactParam === 'true';
+
+        // Default the selects to "Any" when no URL value is provided
+        if (this.minRequiredLevel === undefined) this.minRequiredLevel = '';
+        if (this.maxRequiredLevel === undefined) this.maxRequiredLevel = '';
 
         // Normalize prefix/suffix arrays, ensure PType set explicitly (source JSON already has it, but keep consistent)
         const normalized = (arr: any[], pType: PType) =>
@@ -117,10 +129,10 @@ export class Affixes {
             { dedupeByBase: true, preferLabelStartsWith: 'Any ' }
         );
 
-        // Map URL 'type' (serialized as base) to the exact option.value reference
+        // Map URL 'type' (serialized as base) to a scalar base token
         if (typeBaseFromUrl) {
             const opt = this.types.find(o => o.value && o.value[0] === typeBaseFromUrl);
-            this.selectedType = opt?.value;
+            this.selectedType = opt ? typeBaseFromUrl : undefined;
         }
 
         // Build group description → group IDs mapping and options
@@ -156,8 +168,8 @@ export class Affixes {
         } else url.searchParams.delete('group');
 
         // type (serialize as base token only)
-        if (this.selectedType && this.selectedType.length > 0) {
-            url.searchParams.set('type', this.selectedType[0]);
+        if (this.selectedType && this.selectedType !== '') {
+            url.searchParams.set('type', this.selectedType);
         } else url.searchParams.delete('type');
 
         // min/max required level
@@ -193,7 +205,7 @@ export class Affixes {
 
         this.descToGroups = descMap;
         const descriptions = Array.from(descMap.keys()).sort((a, b) => a.localeCompare(b));
-        this.groupOptions = [{ value: undefined, label: '-' }, ...descriptions.map(d => ({ value: d, label: d }))];
+        this.groupOptions = [{ value: '', label: 'Any' }, ...descriptions.map(d => ({ value: d, label: d }))];
     }
 
     @watch('search')
@@ -240,15 +252,18 @@ export class Affixes {
 
     applyFilters() {
         const q = (this.search || '').trim().toLowerCase();
-        const hasQuery = q.length > 0;
+        const tokens = q.length ? q.split(/\s+/) : [];
+        const hasQuery = tokens.length > 0;
 
         const selectedGroups: Set<number> | undefined = this.selectedGroupDescription
             ? this.descToGroups.get(this.selectedGroupDescription)
             : undefined;
 
-        // Default min to 1 when the box is empty; max defaults to 100
-        const minRL = this.normalizeLevel(this.minRequiredLevel, 1);
-        const maxRL = this.normalizeLevel(this.maxRequiredLevel, 100);
+        // Default min to 1 when empty; max defaults to 99 to match UI range
+        const minRLRaw = this.normalizeLevel(this.minRequiredLevel, 1);
+        const maxRLRaw = this.normalizeLevel(this.maxRequiredLevel, 99);
+        const minRL = Math.min(minRLRaw, maxRLRaw);
+        const maxRL = Math.max(minRLRaw, maxRLRaw);
 
         this.filteredAffixes = this.allAffixes.filter((a) => {
             // PType filter
@@ -260,8 +275,8 @@ export class Affixes {
             }
 
             // Item Type filter (mirror Runewords behavior: parent vs. leaf semantics + Exact toggle)
-            if (this.selectedType && this.selectedType.length > 0) {
-                const selectedBase = resolveBaseTypeName(this.selectedType[0] ?? '');
+            if (this.selectedType) {
+                const selectedBase = resolveBaseTypeName(this.selectedType ?? '');
                 if (selectedBase) {
                     const selectedChain = getChainForTypeName(selectedBase);
                     const selectedChainSet = new Set<string>(selectedChain);
@@ -335,22 +350,36 @@ export class Affixes {
             const rl = typeof a.RequiredLevel === 'number' ? a.RequiredLevel : 0;
             if (rl < minRL || rl > maxRL) return false;
 
-            // Text search (Name, Properties, and Types only). ETypes are display-only and excluded from search.
+            // Text search (tokenized AND; search across Name, Properties, and Types only). ETypes are excluded.
             if (hasQuery) {
-                const name: string = (a.Name || '').toString().toLowerCase();
-                const props: string = (a.Properties || [])
-                    .map((p: any) => (p && p.PropertyString ? String(p.PropertyString) : ''))
-                    .join('\n')
+                const hay = [
+                    String(a?.Name || ''),
+                    ...((a?.Properties || []).map((p: any) => (p && p.PropertyString ? String(p.PropertyString) : ''))),
+                    ...((a?.Types || []).map((t: any) => (t != null ? String(t) : ''))),
+                ]
+                    .filter(Boolean)
+                    .join(' ')
                     .toLowerCase();
-                const types: string = (a.Types || [])
-                    .map((t: any) => (t != null ? String(t) : ''))
-                    .join('\n')
-                    .toLowerCase();
-                if (!(name.includes(q) || props.includes(q) || types.includes(q))) return false;
+                if (!tokens.every(t => hay.includes(t))) return false;
             }
 
             return true;
         });
+    }
+
+    // Reset all filters to defaults and refresh URL/list
+    resetFilters() {
+        this.search = '';
+        this.selectedPType = undefined;
+        this.selectedGroupDescription = undefined;
+        this.selectedType = undefined;
+        this.exclusiveType = false;
+        // Set to empty string so the dropdowns select the "Any" option explicitly
+        this.minRequiredLevel = '';
+        this.maxRequiredLevel = '';
+
+        this.applyFilters();
+        this.updateUrl();
     }
 
     private normalizeLevel(val: number | string | undefined | null, fallback: number): number {

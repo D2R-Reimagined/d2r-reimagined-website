@@ -1,6 +1,6 @@
 <template>
     <h3 class="text-center my-4">
-        <span class="text-sky-300">${filteredRunewords.length}</span> Runewords Found
+        <span class="rarity-text">${filteredRunewords.length}</span> Runewords Found
     </h3>
 
     <search-area>
@@ -8,46 +8,45 @@
             <div class="flex flex-wrap justify-center items-center text-center">
                 <div class="w-full md:w-5/12 lg:w-1/4 px-2">
                     <div class="mb-2">
-                        <moo-select
-                                class="w-full standard-betsy-select"
-                                label="Select Socket Count"
-                                options.bind="amounts"
-                                value.bind="selectedAmount"
-                        ></moo-select>
+                        <label class="block  type-text mb-1">Select Socket Count</label>
+                        <select class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5"
+                                value.bind="selectedAmount">
+                            <option repeat.for="opt of amounts" model.bind="opt.value">${opt.label}</option>
+                        </select>
                     </div>
                 </div>
                 <div class="w-full md:w-5/12 lg:w-1/4 px-2">
                     <div class="my-1">
-                        <moo-select
-                                class="w-full standard-betsy-select"
-                                label="Select Type"
-                                options.bind="types"
-                                value.bind="selectedType"
-                        ></moo-select>
-                        <moo-checkbox checked.bind="exclusiveType" id="exclusiveType">
-                            <span class="ml-1">Exact Type Only</span></moo-checkbox>
+                        <label class="block  type-text mb-1">Select Type</label>
+                        <select class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5"
+                                value.bind="selectedType">
+                            <option repeat.for="opt of types" value.bind="opt.value && opt.value.length ? opt.value[0] : ''">${opt.label}</option>
+                        </select>
+                        <label class="inline-flex items-center mt-2"><input type="checkbox" class="mr-2" id="exclusiveType"
+                                                                           checked.bind="exclusiveType"><span class="ml-1">Exact Type Only</span></label>
                     </div>
                 </div>
                 <div class="w-full md:w-5/12 lg:w-1/4 px-2">
                     <div class="my-1">
-                        <moo-text-field
-                                class="w-full"
-                                label="Search Runewords"
-                                type="text"
-                                value.bind="search"
-                        ></moo-text-field>
-                            <moo-checkbox checked.bind="hideVanilla">
-                                <span class="ml-1">Hide Vanilla</span></moo-checkbox>
+                        <label class="block  type-text mb-1">Search Runewords</label>
+                        <input class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5"
+                               type="text" value.bind="search" placeholder="Search..." />
+                        <label class="inline-flex items-center mt-2"><input type="checkbox" class="mr-2"
+                                                                           checked.bind="hideVanilla"><span class="ml-1">Hide Vanilla</span></label>
                     </div>
                 </div>
                 <div class="w-full md:w-5/12 lg:w-1/4 px-2">
                     <div class="mb-2">
-                        <moo-text-field
-                                class="w-full"
-                                label="Runes"
-                                type="text"
-                                value.bind="searchRunes"
-                        ></moo-text-field>
+                        <label class="block  type-text mb-1">Runes</label>
+                        <input class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5"
+                               type="text" value.bind="searchRunes" placeholder="e.g. ral+ort+tal" />
+                    </div>
+                </div>
+                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
+                    <div class="mb-2">
+                        <label class="block  type-text mb-1 invisible">Reset</label>
+                        <button class="w-full bg-gray-700 hover:bg-gray-600 type-text  py-2 px-3 rounded-lg"
+                                type="button" click.trigger="resetFilters()">Reset Filters</button>
                     </div>
                 </div>
             </div>
@@ -62,24 +61,24 @@
                     <div class="unique-text text-lg">
                         ${runeword.Name}
                     </div>
-                    <div class="text-sky-300">
+                    <div class="rarity-text">
                         ${runeword.Vanilla === 'Y' ? 'Vanilla' : 'Mod'}
                     </div>
                 </div>
 
-                <div class="text-gray-50 mb-1"><span repeat.for="type of runeword.Types">
+                <div class="type-text mb-1"><span repeat.for="type of runeword.Types">
                         ${type.Name} ${$index + 1 !== runeword.Types.length ? ' or ' : ''}
                     </span></div>
 
-                <div class="text-gray-50"><span repeat.for="rune of runeword.Runes">
+                <div class="type-text"><span repeat.for="rune of runeword.Runes">
                         ${rune.Name | runeName} ${$index + 1 !== runeword.Runes.length ? ' + ' : ''}
                     </span></div>
 
-                <div class="text-red-500 my-1">
+                <div class="requirement-text my-1">
                     Required Level: ${runeword.RequiredLevel > 0? runeword.RequiredLevel: 1}
                 </div>
 
-                <div class="text-indigo-500" repeat.for="property of runeword.Properties">
+                <div class="prop-text" repeat.for="property of runeword.Properties">
                     ${property.PropertyString}
                 </div>
 
