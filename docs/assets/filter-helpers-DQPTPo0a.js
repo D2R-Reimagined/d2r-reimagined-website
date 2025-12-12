@@ -179,9 +179,9 @@ const CLASS_AGGREGATE_BASES = /* @__PURE__ */ new Set([
   "Assassin Item",
   "Druid Item"
 ]);
-function makeTypeOption(label, baseTypeName, extraParents = []) {
+function makeTypeOption(label, baseTypeName, extraParents = [], exactBaseOnly = false) {
   if (!baseTypeName) return { label, value: void 0 };
-  const value = getTypeChain(baseTypeName);
+  const value = exactBaseOnly ? [baseTypeName] : getTypeChain(baseTypeName);
   if (extraParents && extraParents.length) {
     const set = new Set(value);
     for (const p of extraParents) {
@@ -227,7 +227,7 @@ function computeDescendants(name) {
 function getDescendantBaseNames(baseTypeName) {
   return computeDescendants(baseTypeName).slice();
 }
-function buildOptionsForPresentTypes(preset, presentBaseNames) {
+function buildOptionsForPresentTypes(preset, presentBaseNames, opts) {
   const result = [];
   const presentClosure = /* @__PURE__ */ new Set();
   for (const b of presentBaseNames) {
@@ -252,8 +252,10 @@ function buildOptionsForPresentTypes(preset, presentBaseNames) {
     let include;
     if (CLASS_AGGREGATE_BASES.has(base)) {
       include = presentBaseNames.has(base);
+    } else if (extras.length === 0) {
+      include = presentBaseNames.has(base);
     } else {
-      include = presentClosure.has(base);
+      include = presentBaseNames.has(base);
       if (!include) {
         for (let k = 0; k < extras.length; k++) {
           if (presentClosure.has(extras[k])) {
@@ -265,15 +267,42 @@ function buildOptionsForPresentTypes(preset, presentBaseNames) {
     }
     if (include) result.push(opt);
   }
+  if (opts && opts.dedupeByBase) {
+    const prefer = opts.preferLabelStartsWith || "";
+    const kept = [];
+    const byBase = /* @__PURE__ */ new Map();
+    for (let i = 0; i < result.length; i++) {
+      const opt = result[i];
+      if (!opt.value || opt.value.length === 0) {
+        kept.push(opt);
+        continue;
+      }
+      const base = opt.value[0];
+      if (!byBase.has(base)) {
+        byBase.set(base, kept.length);
+        kept.push(opt);
+      } else {
+        const idx = byBase.get(base);
+        const current = kept[idx];
+        const currLabel = current?.label || "";
+        const nextLabel = opt.label || "";
+        const currPreferred = prefer && currLabel.startsWith(prefer);
+        const nextPreferred = prefer && nextLabel.startsWith(prefer);
+        if (!currPreferred && nextPreferred) {
+          kept[idx] = opt;
+        }
+      }
+    }
+    return kept;
+  }
   return result;
 }
 const type_filtering_options = [
-  // Placeholder
-  makeTypeOption("-", void 0),
   // Aggregate types
   // Any Armor should include all armor descendants (Body Armor, Helm, Circlet, Shields, Gloves, Boots, Belt, class shields/helms, etc.)
   makeTypeOption("Any Armor", "Any Armor", getDescendantBaseNames("Any Armor")),
-  // Any Helm should include Circlet, Primal Helm, and Pelt in addition to Helm
+  // Any Helm should include Helm itself plus Circlet, Primal Helm, and Pelt
+  // Use base 'Helm' so plain helms are matched as well; add all helm descendants as extras
   makeTypeOption("Any Helm", "Helm", getDescendantBaseNames("Helm")),
   // Any Shield should include generic Shield and class shields
   makeTypeOption("Any Shield", "Any Shield", getDescendantBaseNames("Any Shield")),
@@ -286,6 +315,8 @@ const type_filtering_options = [
   makeTypeOption("Gloves", "Gloves"),
   makeTypeOption("Boots", "Boots"),
   makeTypeOption("Belt", "Belt"),
+  makeTypeOption("Helm", "Helm", [], true),
+  makeTypeOption("Circlet", "Circlet", [], true),
   // Shields (Bases Page)
   makeTypeOption("Shield", "Shield"),
   // Jewelry and socket fillers
@@ -310,23 +341,52 @@ const type_filtering_options = [
   makeTypeOption("Javelin", "Javelin"),
   makeTypeOption("Throwing Knife", "Throwing Knife"),
   makeTypeOption("Throwing Axe", "Throwing Axe"),
-  // Quivers and Bolts
-  makeTypeOption("Bow Quiver", "Magic Bow Quiv"),
-  makeTypeOption("Crossbow Bolts", "Magic Xbow Quiv"),
+  // Quivers and Bolts: base on the non-magic types and include their descendants (magic quivers)
+  makeTypeOption("Bow Quiver", "Bow Quiver", getDescendantBaseNames("Bow Quiver")),
+  makeTypeOption("Crossbow Bolts", "Crossbow Bolts", getDescendantBaseNames("Crossbow Bolts")),
   //Class Specific
-  makeTypeOption("Amazon Javelin", "Amazon Javelin"),
-  makeTypeOption("Amazon Bow", "Amazon Bow"),
-  makeTypeOption("Amazon Spear", "Amazon Spear"),
-  makeTypeOption("Assassin Weapon", "Hand to Hand"),
-  makeTypeOption("Barbarian Helm", "Primal Helm"),
-  makeTypeOption("Druid Helm", "Pelt"),
-  makeTypeOption("Necromancer Shield", "Voodoo Heads"),
-  makeTypeOption("Paladin Shield", "Auric Shields"),
-  makeTypeOption("Sorceress Orb", "Orb")
+  // Class-specific leaf types must match ONLY themselves by default on pages without an "Exact" toggle
+  // (Bases, Uniques, Sets). Runewords inherits parents via its own filtering logic and parent selections.
+  makeTypeOption("Amazon Javelin", "Amazon Javelin", [], true),
+  makeTypeOption("Amazon Bow", "Amazon Bow", [], true),
+  makeTypeOption("Amazon Spear", "Amazon Spear", [], true),
+  makeTypeOption("Assassin Weapon", "Hand to Hand", [], true),
+  makeTypeOption("Barbarian Helm", "Primal Helm", [], true),
+  makeTypeOption("Druid Helm", "Pelt", [], true),
+  makeTypeOption("Necromancer Shield", "Voodoo Heads", [], true),
+  makeTypeOption("Paladin Shield", "Auric Shields", [], true),
+  makeTypeOption("Sorceress Orb", "Orb", [], true)
 ];
+function prependTypeResetOption(options, label = "-") {
+  const reset = { label, value: [] };
+  return [reset, ...options];
+}
+function toOptionalNumber(val, clampMin = 0, clampMax = 100) {
+  if (val === void 0 || val === null) return void 0;
+  if (typeof val === "string") {
+    const t = val.trim();
+    if (t === "") return void 0;
+    const n = Number(t);
+    return Number.isFinite(n) ? Math.max(clampMin, Math.min(clampMax, Math.floor(n))) : void 0;
+  }
+  if (typeof val === "number" && Number.isFinite(val)) {
+    return Math.max(clampMin, Math.min(clampMax, Math.floor(val)));
+  }
+  return void 0;
+}
+function swapMinMax(min, max) {
+  if (typeof min === "number" && typeof max === "number" && min > max) {
+    return [max, min];
+  }
+  return [min, max];
+}
 export {
+  getChainForTypeName as a,
   buildOptionsForPresentTypes as b,
-  getChainForTypeName as g,
+  toOptionalNumber as c,
+  getDescendantBaseNames as g,
+  prependTypeResetOption as p,
   resolveBaseTypeName as r,
+  swapMinMax as s,
   type_filtering_options as t
 };

@@ -1,8 +1,8 @@
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-Ubr5Vxao.js";
+import { C as CustomElement, i as isBlankOrInvalid, w as watch, c as customElement, b as bindable } from "./index-04lAwL3n.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
-import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options, g as getChainForTypeName } from "./item-type-filters-EbkYbcFa.js";
+import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, p as prependTypeResetOption, c as toOptionalNumber, s as swapMinMax, a as getChainForTypeName, t as type_filtering_options } from "./filter-helpers-DQPTPo0a.js";
 const name = "affixes";
-const template = '<template>\r\n    <h3 class="text-center my-4">\r\n        <span class="rarity-text">${filteredAffixes.length}</span> Magic Affixes Found\r\n    </h3>\r\n\r\n    <search-area>\r\n        <div class="max-w-screen-2xl mx-auto px-4">\r\n            <div class="flex flex-wrap justify-center items-center text-center">\r\n                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Prefix/Suffix"\r\n                                options.bind="pTypeOptions"\r\n                                value.bind="selectedPType"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Property Type"\r\n                                options.bind="groupOptions"\r\n                                value.bind="selectedGroupDescription"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">\r\n                    <div class="my-1">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Item Type"\r\n                                options.bind="types"\r\n                                value.bind="selectedType"\r\n                        ></moo-select>\r\n                        <moo-checkbox checked.bind="exclusiveType">Exact Type Only</moo-checkbox>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-text-field\r\n                                class="w-full"\r\n                                label="Search Name, Property, or Type"\r\n                                type="text"\r\n                                value.bind="search"\r\n                        ></moo-text-field>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 inline-flex flex-nowrap gap-2 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-text-field\r\n                                class="w-full"\r\n                                label="Min Rlvl"\r\n                                type="number"\r\n                                value.bind="minRequiredLevel"\r\n                        ></moo-text-field>\r\n                    </div>\r\n                    <div class="mb-2">\r\n                        <moo-text-field\r\n                                class="w-full"\r\n                                label="Max Rlvl"\r\n                                type="number"\r\n                                value.bind="maxRequiredLevel"\r\n                        ></moo-text-field>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n    </search-area>\r\n    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">\r\n        <div class="bg-gray-800 rounded shadow p-2" repeat.for="affix of filteredAffixes">\r\n            <div class="flex justify-between items-center">\r\n                <div class="enhanced mt-1 ml-1">${affix.Name}</div>\r\n                <div class="base-text mt-1 mr-1">${affix.PType}</div>\r\n            </div>\r\n            <div class="requirement mb-1">Level ${affix.RequiredLevel > 0 ? affix.RequiredLevel : 1} Required\r\n            </div>\r\n            <div class="base-text mb-1" if.bind="affix.Level">Affix Level ${affix.Level}${affix.MaxLevel ? \' - \' +\r\n                affix.MaxLevel : \'\'}\r\n            </div>\r\n            <div class="flex flex-wrap justify-center" if.bind="affix.Types && affix.Types.length">\r\n                <span class="set-text-light mx-1" repeat.for="t of affix.Types">${t}</span>\r\n            </div>\r\n            <div class="flex flex-wrap justify-center" if.bind="affix.ETypes && affix.ETypes.length">\r\n                <span class="requirement mx-1" repeat.for="et of affix.ETypes">${et}</span>\r\n            </div>\r\n            <div class="enhanced my-1" repeat.for="prop of affix.Properties">${prop.PropertyString}</div>\r\n        </div>\r\n    </div>\r\n</template>\r\n';
+const template = '<template>\r\n    <h3 class="text-center my-4">\r\n        <span class="rarity-text">${filteredAffixes.length}</span> Magic Affixes Found\r\n    </h3>\r\n\r\n    <search-area>\r\n        <div class="max-w-11/12 m-auto px-4">\r\n            <div class="flex flex-wrap justify-center items-start">\r\n\r\n                <div class="w-full lg:w-auto lg:min-w-70 px-2">\r\n                    <div class="relative mb-2">\r\n                        <select id="ptype" class="select-base peer" value.bind="selectedPType" required>\r\n                            <option repeat.for="opt of pTypeOptions" value.bind="opt.value"> ${opt.label}</option>\r\n                        </select>\r\n                        <label for="ptype" class="floating-label">Prefix/Suffix</label>\r\n                    </div>\r\n                </div>\r\n\r\n                <div class="w-full lg:w-auto lg:min-w-70 px-2">\r\n                    <div class="relative mb-2">\r\n                        <select id="desc" class="select-base peer" value.bind="selectedGroupDescription" required>\r\n                            <option repeat.for="opt of groupOptions" value.bind="opt.value"> ${opt.label}</option>\r\n                        </select>\r\n                        <label for="desc" class="floating-label">\r\n                            Property Type</label>\r\n                    </div>\r\n                </div>\r\n\r\n                <div class="w-full lg:w-auto lg:min-w-70 px-2">\r\n                    <div class="relative mb-2">\r\n                        <select id="itype" class="select-base peer" value.bind="selectedType" required>\r\n                            <option repeat.for="opt of types"\r\n                                    value.bind="opt.value && opt.value.length ? opt.value[0] : \'\'">${opt.label}\r\n                            </option>\r\n                        </select>\r\n                        <label for="itype" class="floating-label">Item Type</label>\r\n                    </div>\r\n                    <div class="flex mb-2">\r\n                        <input id="exacttype" type="checkbox" class="check-base" checked.bind="exclusiveType">\r\n                        <label for="exacttype" class="block type-text ml-1">Exact Type Only </label>\r\n                    </div>\r\n                </div>\r\n\r\n                <div class="w-full lg:w-auto lg:min-w-70 px-2">\r\n                    <div class="relative mb-2">\r\n                        <input id="tokensearch" class="select-base peer" type="text" value.bind="search" required/>\r\n                        <label for="tokensearch" class="floating-label">Filter by Input</label>\r\n                    </div>\r\n                </div>\r\n\r\n                <div class="w-full lg:w-auto lg:min-w-70 px-2 flex flex-nowrap">\r\n                    <div class="w-full relative mb-2 mr-2">\r\n                        <select id="minrlvl" class="select-base peer" value.bind="minRequiredLevel" required>\r\n                            <option repeat.for="opt of rLevelOptions" value.bind="opt.value">${opt.label}</option>\r\n                        </select>\r\n                        <label for="minrlvl" class="floating-label">Min rLvl</label>\r\n                    </div>\r\n                    <div class="w-full relative mb-2 ml-2">\r\n                        <select id="maxrlvl" class="select-base peer" value.bind="maxRequiredLevel" required>\r\n                            <option repeat.for="opt of rLevelOptions" value.bind="opt.value">${opt.label}</option>\r\n                        </select>\r\n                        <label for="maxrlvl" class="floating-label">Max rLvl</label>\r\n                    </div>\r\n                </div>\r\n\r\n                <div class="w-full lg:w-auto lg:min-w-35 px-2">\r\n                    <div class="mb-2">\r\n                        <button id="filterreset" class="button-base" type="button" click.trigger="resetFilters()">\r\n                            Reset Filters\r\n                        </button>\r\n                    </div>\r\n                </div>\r\n\r\n            </div>\r\n        </div>\r\n    </search-area>\r\n\r\n    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">\r\n        <div class="bg-gray-800 rounded-lg shadow p-2" repeat.for="affix of filteredAffixes">\r\n            <div class="flex justify-between items-center">\r\n                <div class="prop-text mt-1 ml-1">${affix.Name}</div>\r\n                <div class="type-text mt-1 mr-1">${affix.PType}</div>\r\n            </div>\r\n            <div class="requirement-text mb-1">Level ${affix.RequiredLevel > 0 ? affix.RequiredLevel : 1} Required\r\n            </div>\r\n            <div class="type-text mb-1" if.bind="affix.Level">Affix Level ${affix.Level}${affix.MaxLevel ? \' - \' +\r\n                affix.MaxLevel : \'\'}\r\n            </div>\r\n            <div class="flex flex-wrap justify-center" if.bind="affix.Types && affix.Types.length">\r\n                <span class="set-text mx-1" repeat.for="t of affix.Types">${t}</span>\r\n            </div>\r\n            <div class="flex flex-wrap justify-center" if.bind="affix.ETypes && affix.ETypes.length">\r\n                <span class="requirement-text mx-1" repeat.for="et of affix.ETypes">${et}</span>\r\n            </div>\r\n            <div class="prop-text my-1" repeat.for="prop of affix.Properties">${prop.PropertyString}</div>\r\n        </div>\r\n    </div>\r\n</template>\r\n';
 const dependencies = [];
 const bindables = {};
 let _e;
@@ -82,40 +82,53 @@ class Affixes {
     __publicField(this, "search", __runInitializers(_init, 8, this)), __runInitializers(_init, 11, this);
     __publicField(this, "_debouncedFilter");
     __publicField(this, "pTypeOptions", [
-      { value: void 0, label: "-" },
+      { value: "", label: "-" },
       { value: "Prefix", label: "Prefix" },
       { value: "Suffix", label: "Suffix" }
     ]);
     __publicField(this, "selectedPType", __runInitializers(_init, 12, this)), __runInitializers(_init, 15, this);
     __publicField(this, "groupOptions", [
-      { value: void 0, label: "-" }
+      { value: "", label: "-" }
     ]);
     __publicField(this, "selectedGroupDescription", __runInitializers(_init, 16, this)), __runInitializers(_init, 19, this);
     __publicField(this, "descToGroups", /* @__PURE__ */ new Map());
     __publicField(this, "types", type_filtering_options.slice());
     __publicField(this, "selectedType", __runInitializers(_init, 20, this)), __runInitializers(_init, 23, this);
     __publicField(this, "exclusiveType", __runInitializers(_init, 24, this)), __runInitializers(_init, 27, this);
+    __publicField(this, "rLevelOptions", [
+      { value: "", label: "-" },
+      ...Array.from({ length: 99 }, (_, i) => {
+        const v = String(i + 1);
+        return { value: v, label: v };
+      })
+    ]);
     __publicField(this, "minRequiredLevel", __runInitializers(_init, 28, this)), __runInitializers(_init, 31, this);
     __publicField(this, "maxRequiredLevel", __runInitializers(_init, 32, this)), __runInitializers(_init, 35, this);
   }
-  attached() {
+  binding() {
     const urlParams = new URLSearchParams(window.location.search);
     const searchParam = urlParams.get("search");
-    if (searchParam) this.search = searchParam;
+    if (searchParam && !isBlankOrInvalid(searchParam)) this.search = searchParam;
     const ptypeParam = urlParams.get("ptype");
     if (ptypeParam === "Prefix" || ptypeParam === "Suffix") {
       this.selectedPType = ptypeParam;
     }
     const groupParam = urlParams.get("group");
-    if (groupParam) this.selectedGroupDescription = groupParam;
+    if (groupParam && !isBlankOrInvalid(groupParam)) this.selectedGroupDescription = groupParam;
     const typeParam = urlParams.get("type");
-    if (typeParam) this.selectedType = typeParam.split(",");
+    let typeBaseFromUrl;
+    if (typeParam && !isBlankOrInvalid(typeParam)) typeBaseFromUrl = typeParam.split(",")[0];
     const minrl = urlParams.get("minrl");
-    if (minrl !== null) this.minRequiredLevel = minrl;
+    if (minrl !== null && !isBlankOrInvalid(minrl)) this.minRequiredLevel = minrl;
     const maxrl = urlParams.get("maxrl");
-    if (maxrl !== null) this.maxRequiredLevel = maxrl;
+    if (maxrl !== null && !isBlankOrInvalid(maxrl)) this.maxRequiredLevel = maxrl;
     const exactParam = urlParams.get("exact");
-    if (exactParam) this.exclusiveType = exactParam === "true";
+    if (exactParam && !isBlankOrInvalid(exactParam)) this.exclusiveType = exactParam === "true";
+    if (this.selectedPType === void 0) this.selectedPType = "";
+    if (this.selectedGroupDescription === void 0) this.selectedGroupDescription = "";
+    if (this.selectedType === void 0) this.selectedType = "";
+    if (this.minRequiredLevel === void 0) this.minRequiredLevel = "";
+    if (this.maxRequiredLevel === void 0) this.maxRequiredLevel = "";
     const normalized = (arr, pType) => arr.map((a) => ({
       ...a,
       PType: pType
@@ -135,10 +148,22 @@ class Affixes {
       }
     } catch {
     }
-    this.types = buildOptionsForPresentTypes(type_filtering_options, present);
+    this.types = buildOptionsForPresentTypes(
+      type_filtering_options,
+      present,
+      { dedupeByBase: true, preferLabelStartsWith: "Any " }
+    );
+    this.types = prependTypeResetOption(this.types);
+    if (typeBaseFromUrl) {
+      const opt = this.types.find((o) => o.value && o.value[0] === typeBaseFromUrl);
+      this.selectedType = opt ? typeBaseFromUrl : void 0;
+    }
     this.buildGroupOptions(propertyGroups);
     this._debouncedFilter = debounce(this.applyFilters.bind(this), 350);
     this.applyFilters();
+  }
+  attached() {
+    this.updateUrl();
   }
   // Helper method to update URL with current search parameters
   updateUrl() {
@@ -150,8 +175,8 @@ class Affixes {
     if (this.selectedGroupDescription && this.selectedGroupDescription.trim() !== "") {
       url.searchParams.set("group", this.selectedGroupDescription);
     } else url.searchParams.delete("group");
-    if (this.selectedType && this.selectedType.length > 0) {
-      url.searchParams.set("type", this.selectedType.join(","));
+    if (this.selectedType && this.selectedType !== "") {
+      url.searchParams.set("type", this.selectedType);
     } else url.searchParams.delete("type");
     const minStr = this.minRequiredLevel;
     if (minStr !== void 0 && minStr !== null && String(minStr).trim() !== "") {
@@ -178,22 +203,22 @@ class Affixes {
     }
     this.descToGroups = descMap;
     const descriptions = Array.from(descMap.keys()).sort((a, b) => a.localeCompare(b));
-    this.groupOptions = [{ value: void 0, label: "-" }, ...descriptions.map((d) => ({ value: d, label: d }))];
+    this.groupOptions = [{ value: "", label: "-" }, ...descriptions.map((d) => ({ value: d, label: d }))];
   }
   handleSearchChanged() {
     if (this._debouncedFilter) this._debouncedFilter();
     this.updateUrl();
   }
   handlePTypeChanged() {
-    this.applyFilters();
+    if (this._debouncedFilter) this._debouncedFilter();
     this.updateUrl();
   }
   handleGroupChanged() {
-    this.applyFilters();
+    if (this._debouncedFilter) this._debouncedFilter();
     this.updateUrl();
   }
   handleTypeChanged() {
-    this.applyFilters();
+    if (this._debouncedFilter) this._debouncedFilter();
     this.updateUrl();
   }
   handleMinReqChanged() {
@@ -210,54 +235,101 @@ class Affixes {
   }
   applyFilters() {
     const q = (this.search || "").trim().toLowerCase();
-    const hasQuery = q.length > 0;
+    const tokens = q.length ? q.split(/\s+/) : [];
+    const hasQuery = tokens.length > 0;
     const selectedGroups = this.selectedGroupDescription ? this.descToGroups.get(this.selectedGroupDescription) : void 0;
-    const minRL = this.normalizeLevel(this.minRequiredLevel, 1);
-    const maxRL = this.normalizeLevel(this.maxRequiredLevel, 100);
+    let minOpt = toOptionalNumber(this.minRequiredLevel);
+    let maxOpt = toOptionalNumber(this.maxRequiredLevel);
+    [minOpt, maxOpt] = swapMinMax(minOpt, maxOpt);
     this.filteredAffixes = this.allAffixes.filter((a) => {
       if (this.selectedPType && a.PType !== this.selectedPType) return false;
       if (selectedGroups) {
         if (!selectedGroups.has(a.Group)) return false;
       }
-      if (this.selectedType && this.selectedType.length > 0) {
-        const selected = this.exclusiveType ? [this.selectedType[0]] : this.selectedType;
-        const selectedSet = new Set(selected);
-        const normalize = (t) => {
-          const raw = t != null ? String(t) : "";
-          const chain = getChainForTypeName(raw);
-          return chain && chain.length > 0 ? chain[0] : raw;
-        };
-        let allowed = true;
-        if (Array.isArray(a.Types) && a.Types.length > 0) {
-          allowed = a.Types.some((t) => selectedSet.has(normalize(t)));
-        }
-        if (!allowed) return false;
-        if (Array.isArray(a.ETypes) && a.ETypes.length > 0) {
-          const excluded = a.ETypes.some((t) => selectedSet.has(normalize(t)));
-          if (excluded) return false;
+      if (this.selectedType) {
+        const selectedBase = resolveBaseTypeName(this.selectedType ?? "");
+        if (selectedBase) {
+          const selectedChain = getChainForTypeName(selectedBase);
+          const selectedChainSet = new Set(selectedChain);
+          let hasDescendantInData = false;
+          if (!this.exclusiveType) {
+            try {
+              outer: for (const aff of this.allAffixes) {
+                const types2 = Array.isArray(aff?.Types) ? aff.Types : [];
+                for (let i = 0; i < types2.length; i++) {
+                  const raw = types2[i] != null ? String(types2[i]) : "";
+                  const chain = getChainForTypeName(raw);
+                  if (!chain || chain.length === 0) continue;
+                  const base = chain[0];
+                  if (base !== selectedBase && chain.indexOf(selectedBase) !== -1) {
+                    hasDescendantInData = true;
+                    break outer;
+                  }
+                }
+              }
+            } catch {
+              hasDescendantInData = false;
+            }
+          }
+          const types = Array.isArray(a.Types) ? a.Types : [];
+          if (types.length > 0) {
+            const allowed = types.some((t) => {
+              const chain = getChainForTypeName(t != null ? String(t) : "");
+              if (!chain || chain.length === 0) return false;
+              const itemBase = chain[0];
+              if (this.exclusiveType) {
+                return itemBase === selectedBase;
+              } else if (hasDescendantInData) {
+                return chain.indexOf(selectedBase) !== -1;
+              } else {
+                return selectedChainSet.has(itemBase);
+              }
+            });
+            if (!allowed) return false;
+          }
+          const e = Array.isArray(a.ETypes) ? a.ETypes : [];
+          if (e.length > 0) {
+            const excluded = e.some((t) => {
+              const chain = getChainForTypeName(t != null ? String(t) : "");
+              if (!chain || chain.length === 0) return false;
+              const itemBase = chain[0];
+              if (this.exclusiveType) {
+                return itemBase === selectedBase;
+              } else if (hasDescendantInData) {
+                return chain.indexOf(selectedBase) !== -1;
+              } else {
+                return selectedChainSet.has(itemBase);
+              }
+            });
+            if (excluded) return false;
+          }
         }
       }
       const rl = typeof a.RequiredLevel === "number" ? a.RequiredLevel : 0;
-      if (rl < minRL || rl > maxRL) return false;
+      if (typeof minOpt === "number" && rl < minOpt) return false;
+      if (typeof maxOpt === "number" && rl > maxOpt) return false;
       if (hasQuery) {
-        const name2 = (a.Name || "").toString().toLowerCase();
-        const props = (a.Properties || []).map((p) => p && p.PropertyString ? String(p.PropertyString) : "").join("\n").toLowerCase();
-        const types = (a.Types || []).map((t) => t != null ? String(t) : "").join("\n").toLowerCase();
-        if (!(name2.includes(q) || props.includes(q) || types.includes(q))) return false;
+        const hay = [
+          String(a?.Name || ""),
+          ...(a?.Properties || []).map((p) => p && p.PropertyString ? String(p.PropertyString) : ""),
+          ...(a?.Types || []).map((t) => t != null ? String(t) : "")
+        ].filter(Boolean).join(" ").toLowerCase();
+        if (!tokens.every((t) => hay.includes(t))) return false;
       }
       return true;
     });
   }
-  normalizeLevel(val, fallback) {
-    if (val === void 0 || val === null) return fallback;
-    if (typeof val === "string") {
-      if (val.trim() === "") return fallback;
-    }
-    const n = Number(val);
-    if (Number.isFinite(n)) {
-      return Math.max(0, Math.min(100, Math.floor(n)));
-    }
-    return fallback;
+  // Reset all filters to defaults and refresh URL/list
+  resetFilters() {
+    this.search = "";
+    this.selectedPType = "";
+    this.selectedGroupDescription = "";
+    this.selectedType = "";
+    this.exclusiveType = false;
+    this.minRequiredLevel = "";
+    this.maxRequiredLevel = "";
+    this.applyFilters();
+    this.updateUrl();
   }
 }
 _init = __decoratorStart();

@@ -1,7 +1,7 @@
-import { C as CustomElement, w as watch, c as customElement, b as bindable } from "./index-Ubr5Vxao.js";
+import { C as CustomElement, i as isBlankOrInvalid, w as watch, c as customElement, b as bindable } from "./index-04lAwL3n.js";
 import { d as debounce } from "./debounce-ZwsFz6hU.js";
 const name = "cube-recipes";
-const template = '<template>\r\n    <h3 class="text-center my-4">\r\n        <span class="rarity-text">${recipes.length}</span> Recipes Found\r\n    </h3>\r\n    <search-area>\r\n        <div class="max-w-7xl mx-auto px-4">\r\n            <div class="flex flex-wrap justify-center items-center text-center">\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Select Note"\r\n                                options.bind="noteOptions"\r\n                                value.bind="selectedNote"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-select\r\n                                class="w-full standard-betsy-select"\r\n                                label="Select Class"\r\n                                options.bind="classOptions"\r\n                                value.bind="selectedClass"\r\n                        ></moo-select>\r\n                    </div>\r\n                </div>\r\n                <div class="w-full md:w-5/12 lg:w-1/4 px-2">\r\n                    <div class="mb-2">\r\n                        <moo-text-field\r\n                                class="w-full"\r\n                                label="Search Recipes"\r\n                                type="text"\r\n                                value.bind="search"\r\n                        ></moo-text-field>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </search-area>\r\n\r\n    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">\r\n        <div class="bg-gray-800 rounded shadow p-2" repeat.for="recipe of recipes">\r\n            <div class="bg-gray-800 rounded">\r\n                <div class="mb-1 unique-text">\r\n                    ${recipe.Description}\r\n                </div>\r\n                <div class="requirement" if.bind="recipe.Class">\r\n                    (${recipe.Class} Only)\r\n                </div>\r\n                <div class="description" repeat.for="inp of recipe.Inputs">\r\n                    ${inp}\r\n                </div>\r\n                <div class="my-1 unique-text">\r\n                    =====\r\n                </div>\r\n                <div class="mt-1">\r\n                    <div class="output-block" repeat.for="blk of recipe.OutputBlocks">\r\n                        <div class="output-title">\r\n                            ${blk.lineOne}\r\n                        </div>\r\n                        <div repeat.for="prop of blk.properties" class="enhanced output-prop">\r\n                            ${prop}\r\n                        </div>\r\n                        <div if.bind="blk.chanceText" class="requirement output-prop">\r\n                            ${blk.chanceText}\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</template>';
+const template = '<template>\r\n    <h3 class="text-center my-4">\r\n        <span class="rarity-text">${recipes.length}</span> Recipes Found\r\n    </h3>\r\n    <search-area>\r\n        <div class="max-w-11/12 m-auto px-4">\r\n            <div class="flex flex-wrap justify-center items-start">\r\n\r\n                <div class="w-full lg:w-auto lg:min-w-70 px-2">\r\n                    <div class="relative mb-2">\r\n                        <select id="notesel" class="select-base peer" value.bind="selectedNote" required>\r\n                            <option repeat.for="opt of noteOptions" value.bind="opt.value">${opt.label}</option>\r\n                        </select>\r\n                        <label for="notesel" class="floating-label">Recipe Type</label>\r\n                    </div>\r\n                </div>\r\n\r\n                <div class="w-full lg:w-auto lg:min-w-70 px-2">\r\n                    <div class="relative mb-2">\r\n                        <select id="ficlass" class="select-base peer" value.bind="selectedClass" required>\r\n                            <option repeat.for="opt of classOptions" value.bind="opt.value">${opt.label}</option>\r\n                        </select>\r\n                        <label for="ficlass" class="floating-label">Select Class</label>\r\n                    </div>\r\n                </div>\r\n\r\n                <div class="w-full lg:w-auto lg:min-w-70 px-2">\r\n                    <div class="relative mb-2">\r\n                        <input id="inputsearch" class="select-base peer" type="text" value.bind="search" required/>\r\n                        <label for="inputsearch" class="floating-label">Filter by Input</label>\r\n                    </div>\r\n                </div>\r\n\r\n                <div class="w-full lg:w-auto lg:min-w-35 px-2">\r\n                    <div class="mb-2">\r\n                        <button class="button-base" type="button" click.trigger="resetFilters()">\r\n                            Reset Filters\r\n                        </button>\r\n                    </div>\r\n                </div>\r\n\r\n            </div>\r\n        </div>\r\n    </search-area>\r\n\r\n    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">\r\n        <div class="bg-gray-800 rounded-lg shadow p-2" repeat.for="recipe of recipes">\r\n            <div class="bg-gray-800 rounded">\r\n                <div class="mb-1 unique-text">\r\n                    ${recipe.Description}\r\n                </div>\r\n                <div class="requirement-text" if.bind="recipe.Class">\r\n                    (${recipe.Class} Only)\r\n                </div>\r\n                <div class="type-text" repeat.for="inp of recipe.Inputs">\r\n                    ${inp}\r\n                </div>\r\n                <div class="my-1 unique-text">\r\n                    =====\r\n                </div>\r\n                <div class="mt-1">\r\n                    <div class="output-block" repeat.for="blk of recipe.OutputBlocks">\r\n                        <div class="output-title">\r\n                            ${blk.lineOne}\r\n                        </div>\r\n                        <div repeat.for="prop of blk.properties" class="prop-text output-prop">\r\n                            ${prop}\r\n                        </div>\r\n                        <div if.bind="blk.chanceText" class="requirement-text output-prop">\r\n                            ${blk.chanceText}\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</template>';
 const dependencies = [];
 const bindables = {};
 let _e;
@@ -183,19 +183,19 @@ class CubeRecipes {
       }
       const noteList = Array.from(noteSet).sort((a, b) => a.localeCompare(b));
       const classList = Array.from(classSet).sort((a, b) => a.localeCompare(b));
-      this.noteOptions = [{ value: void 0, label: "-" }, ...noteList.map((n) => ({ value: n, label: n }))];
-      this.classOptions = [{ value: void 0, label: "-" }, ...classList.map((c) => ({ value: c, label: c }))];
+      this.noteOptions = [{ value: "", label: "-" }, ...noteList.map((n) => ({ value: n, label: n }))];
+      this.classOptions = [{ value: "", label: "-" }, ...classList.map((c) => ({ value: c, label: c }))];
     } catch {
-      this.noteOptions = [{ value: void 0, label: "-" }];
-      this.classOptions = [{ value: void 0, label: "-" }];
+      this.noteOptions = [{ value: "", label: "-" }];
+      this.classOptions = [{ value: "", label: "-" }];
     }
     const urlParams = new URLSearchParams(window.location.search);
     const searchParam = urlParams.get("search");
-    if (searchParam) this.search = searchParam;
+    if (searchParam && !isBlankOrInvalid(searchParam)) this.search = searchParam;
     const noteParam = urlParams.get("note");
-    if (noteParam) this.selectedNote = noteParam;
+    if (noteParam && !isBlankOrInvalid(noteParam)) this.selectedNote = noteParam;
     const classParam = urlParams.get("class");
-    if (classParam) this.selectedClass = classParam;
+    if (classParam && !isBlankOrInvalid(classParam)) this.selectedClass = classParam;
   }
   attached() {
     this._debouncedSearchItem = debounce(this.handleSearch.bind(this), 350);
@@ -225,10 +225,11 @@ class CubeRecipes {
     window.history.pushState({}, "", url.toString());
   }
   handleSearch() {
-    const term = (this.search || "").trim().toLowerCase();
+    const termRaw = (this.search || "").trim().toLowerCase();
+    const tokens = termRaw.length ? termRaw.split(/\s+/) : [];
     const selectedNote = (this.selectedNote || "").toLowerCase();
     const selectedClass = (this.selectedClass || "").toLowerCase();
-    if (!term && !selectedNote && !selectedClass) {
+    if (!tokens.length && !selectedNote && !selectedClass) {
       this.recipes = this.allRecipes;
       return;
     }
@@ -242,16 +243,24 @@ class CubeRecipes {
         const notes = (recipe._raw?.Notes || []).map((n) => String(n || "").toLowerCase());
         if (!notes.includes(selectedNote)) continue;
       }
-      if (term) {
+      if (tokens.length) {
         const desc = (recipe.Description || "").toLowerCase();
-        const inp = [recipe.Input || "", ...recipe.Inputs || []].join(" | ").toLowerCase();
-        const out = [recipe.Output || "", ...recipe.Outputs || []].join(" | ").toLowerCase();
-        const haystack = [inp, out, desc].join(" | ");
-        if (!haystack.includes(term)) continue;
+        const inp = [recipe.Input || "", ...recipe.Inputs || []].join(" ").toLowerCase();
+        const out = [recipe.Output || "", ...recipe.Outputs || []].join(" ").toLowerCase();
+        const haystack = [inp, out, desc].filter(Boolean).join(" ");
+        if (!tokens.every((t) => haystack.includes(t))) continue;
       }
       found.push(recipe);
     }
     this.recipes = found;
+  }
+  // Reset filters to default (show all) and refresh URL/list
+  resetFilters() {
+    this.search = "";
+    this.selectedNote = void 0;
+    this.selectedClass = void 0;
+    this.recipes = this.allRecipes;
+    this.updateUrl();
   }
 }
 _init = __decoratorStart();
