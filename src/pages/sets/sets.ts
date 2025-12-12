@@ -11,6 +11,7 @@ import {
     getDescendantBaseNames,
     FilterOption
 } from '../../resources/constants/item-type-filters';
+import { prependTypeResetOption } from '../../utilities/filter-helpers';
 
 import { ISetData } from './set-types';
 
@@ -58,6 +59,8 @@ export class Sets {
                 }
             }
             this.types = buildOptionsForPresentTypes(type_filtering_options, present, { dedupeByBase: true, preferLabelStartsWith: 'Any ' });
+            // Prepend a uniform reset option so users can clear the selection with '-'
+            this.types = prependTypeResetOption(this.types);
         } catch {
             // keep defaults on error
         }

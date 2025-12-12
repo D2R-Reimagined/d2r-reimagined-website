@@ -37,6 +37,10 @@ nav details > summary::marker {
     .peer:valid ~ .floating-label {
         @apply bg-transparent top-1 -translate-y-2/5 scale-75;
     }
+
+    .peer:disabled ~ .floating-label {
+        @apply bg-gray-900 text-gray-500;
+    }
 }
 
 /* Base select style use: class="select-base peer" */
@@ -52,6 +56,10 @@ nav details > summary::marker {
 
 .select-base:focus {
     @apply ring-0 border-gray-300;
+}
+
+.select-base:disabled {
+    @apply bg-gray-900 border-gray-700
 }
 
 /* Base checkbox style use: class="check-base" */
@@ -70,7 +78,7 @@ nav details > summary::marker {
 
 /* Base button style use: class="button-base" */
 @utility button-base {
-    @apply w-full h-10.5 border rounded-lg p-2
+    @apply w-full h-10.5 border rounded-lg p-2 cursor-pointer
     border-gray-600 type-text bg-red-900
 }
 
@@ -81,7 +89,7 @@ nav details > summary::marker {
 /* Text Colors */
 
 .link-text {
-    @apply text-white
+    @apply text-gray-50
 }
 
 .link-text:hover {
@@ -90,6 +98,10 @@ nav details > summary::marker {
 
 @utility unique-text {
     color: #c7b790;
+}
+
+@utility type-text {
+    @apply text-gray-50
 }
 
 .set-text {
@@ -110,10 +122,6 @@ nav details > summary::marker {
 
 .requirement-text {
     color: #e84a4a;
-}
-
-@utility type-text {
-    color: #f0f0f0;
 }
 
 .rarity-text {

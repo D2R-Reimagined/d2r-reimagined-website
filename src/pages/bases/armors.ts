@@ -9,6 +9,7 @@ import {
     getDescendantBaseNames,
     resolveBaseTypeName,
     type_filtering_options } from '../../resources/constants/item-type-filters';
+import { prependTypeResetOption } from '../../utilities/filter-helpers';
 import json from '../item-jsons/armors.json';
 
 // New automagic property schema (legacy no longer supported)
@@ -61,7 +62,7 @@ export class Armors {
     @bindable selectedTier: 'Normal' | 'Exceptional' | 'Elite' | undefined;
 
     tierOptions = [
-        { value: '' as any, label: 'Any' },
+        { value: '' as any, label: '-' },
         { value: 'Normal', label: 'Normal' },
         { value: 'Exceptional', label: 'Exceptional' },
         { value: 'Elite', label: 'Elite' },
@@ -69,7 +70,7 @@ export class Armors {
 
     // Sockets filter options (colon labels per GemSockets notation)
     socketOptions = [
-        { value: '' as any, label: 'Any' },
+        { value: '' as any, label: '-' },
         { value: 1, label: '1 Socket' },
         { value: 2, label: '2 Sockets' },
         { value: 3, label: '3 Sockets' },
@@ -91,6 +92,8 @@ export class Armors {
             });
             // Dedupe by base so options like "Any Helm" vs "Helm" don't produce duplicate values
             this.types = buildOptionsForPresentTypes(type_filtering_options, present, { dedupeByBase: true, preferLabelStartsWith: 'Any ' });
+            // Prepend a uniform reset option so users can clear the selection with '-'
+            this.types = prependTypeResetOption(this.types);
         } catch {
             // keep default preset
         }

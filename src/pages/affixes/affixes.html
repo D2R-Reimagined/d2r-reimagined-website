@@ -4,7 +4,6 @@
     </h3>
 
     <search-area>
-
         <div class="max-w-11/12 m-auto px-4">
             <div class="flex flex-wrap justify-center items-start">
 
@@ -28,7 +27,7 @@
                 </div>
 
                 <div class="w-full lg:w-auto lg:min-w-70 px-2">
-                    <div class="relative">
+                    <div class="relative mb-2">
                         <select id="itype" class="select-base peer" value.bind="selectedType" required>
                             <option repeat.for="opt of types"
                                     value.bind="opt.value && opt.value.length ? opt.value[0] : ''">${opt.label}
@@ -36,7 +35,7 @@
                         </select>
                         <label for="itype" class="floating-label">Item Type</label>
                     </div>
-                    <div class="flex my-2">
+                    <div class="flex mb-2">
                         <input id="exacttype" type="checkbox" class="check-base" checked.bind="exclusiveType">
                         <label for="exacttype" class="block type-text ml-1">Exact Type Only </label>
                     </div>
@@ -44,9 +43,8 @@
 
                 <div class="w-full lg:w-auto lg:min-w-70 px-2">
                     <div class="relative mb-2">
-                        <input id="tokensearch"
-                               class="select-base peer" type="text" value.bind="search" required/> <label
-                            for="tokensearch" class="floating-label">Filter by Input</label>
+                        <input id="tokensearch" class="select-base peer" type="text" value.bind="search" required/>
+                        <label for="tokensearch" class="floating-label">Filter by Input</label>
                     </div>
                 </div>
 
@@ -75,11 +73,10 @@
 
             </div>
         </div>
-
     </search-area>
 
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">
-        <div class="bg-gray-800 border border-gray-600 rounded shadow p-2" repeat.for="affix of filteredAffixes">
+        <div class="bg-gray-800 rounded-lg shadow p-2" repeat.for="affix of filteredAffixes">
             <div class="flex justify-between items-center">
                 <div class="prop-text mt-1 ml-1">${affix.Name}</div>
                 <div class="type-text mt-1 mr-1">${affix.PType}</div>

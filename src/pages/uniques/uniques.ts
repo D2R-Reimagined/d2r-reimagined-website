@@ -11,6 +11,7 @@ import {
     getDescendantBaseNames,
     FilterOption
 } from '../../resources/constants/item-type-filters';
+import { prependTypeResetOption } from '../../utilities/filter-helpers';
 
 export class Uniques {
     uniques = json;
@@ -68,6 +69,8 @@ export class Uniques {
                 if (base) present.add(base);
             }
             this.types = buildOptionsForPresentTypes(type_filtering_options, present);
+            // Prepend a uniform reset option so users can clear the selection with '-'
+            this.types = prependTypeResetOption(this.types);
         } catch {
             // keep default preset on error
         }

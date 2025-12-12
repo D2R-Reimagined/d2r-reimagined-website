@@ -3,43 +3,48 @@
         <span class="rarity-text">${recipes.length}</span> Recipes Found
     </h3>
     <search-area>
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-wrap justify-center items-center text-center">
-                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
-                    <div class="mb-2">
-                        <label class="block  type-text mb-1">Select Note</label>
-                        <select class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5" value.bind="selectedNote">
+        <div class="max-w-11/12 m-auto px-4">
+            <div class="flex flex-wrap justify-center items-start">
+
+                <div class="w-full lg:w-auto lg:min-w-70 px-2">
+                    <div class="relative mb-2">
+                        <select id="notesel" class="select-base peer" value.bind="selectedNote" required>
                             <option repeat.for="opt of noteOptions" value.bind="opt.value">${opt.label}</option>
                         </select>
+                        <label for="notesel" class="floating-label">Recipe Type</label>
                     </div>
                 </div>
-                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
-                    <div class="mb-2">
-                        <label class="block  type-text mb-1">Select Class</label>
-                        <select class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5" value.bind="selectedClass">
+
+                <div class="w-full lg:w-auto lg:min-w-70 px-2">
+                    <div class="relative mb-2">
+                        <select id="ficlass" class="select-base peer" value.bind="selectedClass" required>
                             <option repeat.for="opt of classOptions" value.bind="opt.value">${opt.label}</option>
                         </select>
+                        <label for="ficlass" class="floating-label">Select Class</label>
                     </div>
                 </div>
-                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
+
+                <div class="w-full lg:w-auto lg:min-w-70 px-2">
+                    <div class="relative mb-2">
+                        <input id="inputsearch" class="select-base peer" type="text" value.bind="search" required/>
+                        <label for="inputsearch" class="floating-label">Filter by Input</label>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-auto lg:min-w-35 px-2">
                     <div class="mb-2">
-                        <label class="block  type-text mb-1">Search Recipes</label>
-                        <input class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5" type="text" value.bind="search" placeholder="Search..." />
+                        <button class="button-base" type="button" click.trigger="resetFilters()">
+                            Reset Filters
+                        </button>
                     </div>
                 </div>
-                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
-                    <div class="mb-2">
-                        <label class="block  type-text mb-1 invisible">Reset</label>
-                        <button class="w-full bg-gray-700 hover:bg-gray-600 type-text  py-2 px-3 rounded-lg"
-                                type="button" click.trigger="resetFilters()">Reset Filters</button>
-                    </div>
-                </div>
+
             </div>
         </div>
     </search-area>
 
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">
-        <div class="bg-gray-800 rounded shadow p-2" repeat.for="recipe of recipes">
+        <div class="bg-gray-800 rounded-lg shadow p-2" repeat.for="recipe of recipes">
             <div class="bg-gray-800 rounded">
                 <div class="mb-1 unique-text">
                     ${recipe.Description}

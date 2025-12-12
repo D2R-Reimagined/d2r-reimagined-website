@@ -11,6 +11,7 @@ import {
     getDescendantBaseNames,
     FilterOption
 } from '../../resources/constants/item-type-filters';
+import { prependTypeResetOption } from '../../utilities/filter-helpers';
 
 type DamageType = { Type: number; DamageString: string };
 
@@ -62,7 +63,7 @@ export class Weapons {
     @bindable selectedTier: 'Normal' | 'Exceptional' | 'Elite' | undefined;
 
     tierOptions = [
-        { value: '' as any, label: 'Any' },
+        { value: '' as any, label: '-' },
         { value: 'Normal', label: 'Normal' },
         { value: 'Exceptional', label: 'Exceptional' },
         { value: 'Elite', label: 'Elite' },
@@ -70,7 +71,7 @@ export class Weapons {
 
     // Sockets filter options (colon labels per GemSockets notation)
     socketOptions = [
-        { value: '' as any, label: 'Any' },
+        { value: '' as any, label: '-' },
         { value: 1, label: '1 Socket' },
         { value: 2, label: '2 Sockets' },
         { value: 3, label: '3 Sockets' },
@@ -91,6 +92,8 @@ export class Weapons {
                 if (base) present.add(base);
             });
             this.types = buildOptionsForPresentTypes(type_filtering_options, present, { dedupeByBase: true, preferLabelStartsWith: 'Any ' });
+            // Prepend a uniform reset option so users can clear the selection with '-'
+            this.types = prependTypeResetOption(this.types);
         } catch {
             // keep default preset
         }

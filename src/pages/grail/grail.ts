@@ -1,6 +1,7 @@
 import { bindable, watch } from 'aurelia';
 import { isBlankOrInvalid } from '../../utilities/url-sanitize';
 import { debounce, DebouncedFunction } from '../../utilities/debounce';
+import { prependTypeResetOption } from '../../utilities/filter-helpers';
 
 import runewordsJson from '../item-jsons/runewords.json';
 import setsJson from '../item-jsons/sets.json';
@@ -69,7 +70,7 @@ export class Grail {
         { value: 'Sorceress', label: 'Sorceress' }
     ];
 
-    equipmentNames: ISelectOption[] = [{ id: '', name: 'All Equipment' }];
+    equipmentNames: ISelectOption[] = [{ id: '', name: '-' }];
 
     // Category handling
     categories = [
@@ -145,7 +146,7 @@ export class Grail {
         }
 
         // Prebuild Equipment options if a type was restored (non-runewords)
-        this.equipmentNames = [{ id: '', name: 'All Equipment' }];
+        this.equipmentNames = [{ id: '', name: '-' }];
         if (this.selectedType && this.selectedType.length > 0 && this.selectedCategory !== 'runewords') {
             try {
                 const set = new Set<string>();
@@ -339,6 +340,8 @@ export class Grail {
             present,
             { dedupeByBase: true, preferLabelStartsWith: 'Any ' }
         );
+        // Prepend reset option so users can clear selection with '-'
+        this.types = prependTypeResetOption(this.types);
     }
     
     selectedCategoryChanged(): void {
@@ -346,7 +349,7 @@ export class Grail {
         this.selectedClass = undefined;
         this.selectedType = undefined as any;
         this.selectedEquipmentName = '';
-        this.equipmentNames = [{ id: '', name: 'All Equipment' }];
+        this.equipmentNames = [{ id: '', name: '-' }];
         // Rebuild options per category and clear type selection
         this.rebuildTypeOptions();
         this.updateList();
@@ -362,7 +365,7 @@ export class Grail {
     selectedTypeChanged(): void {
         // Reset equipment selection
         this.selectedEquipmentName = '';
-        this.equipmentNames = [{ id: '', name: 'All Equipment' }];
+        this.equipmentNames = [{ id: '', name: '-' }];
 
         if (!this.selectedType || this.selectedType.length === 0) {
             this.updateList();

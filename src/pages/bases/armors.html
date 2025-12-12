@@ -7,55 +7,63 @@
     </h3>
 
     <search-area>
-        <div class="max-w-screen-2xl mx-auto px-4">
-            <div class="flex flex-wrap justify-center items-center text-center">
-                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
-                    <div class="mb-2">
-                        <label class="block  type-text mb-1">Base Category</label>
-                        <select class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5"
-                                value.bind="selectedDataset" change.trigger="onDatasetChange()">
+        <div class="max-w-11/12 m-auto px-4">
+            <div class="flex flex-wrap justify-center items-start">
+
+                <div class="w-full lg:w-auto lg:min-w-70 px-2">
+                    <div class="relative mb-2">
+                        <select id="category" class="select-base peer" value.bind="selectedDataset"
+                                change.trigger="onDatasetChange()" required>
                             <option repeat.for="opt of datasetOptions" value.bind="opt.value">${opt.label}</option>
                         </select>
+                        <label for="category" class="floating-label">Category</label>
                     </div>
                 </div>
-                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
-                    <div class="mb-2">
-                        <label class="block  type-text mb-1">Filter By Sockets</label>
-                        <select class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5"
-                                value.bind="selectedSockets">
+
+                <div class="w-full lg:w-auto lg:min-w-70 px-2">
+                    <div class="relative mb-2">
+                        <select id="sockets" class="select-base peer" value.bind="selectedSockets" required>
                             <option repeat.for="opt of socketOptions" model.bind="opt.value">${opt.label}</option>
                         </select>
+                        <label for="sockets" class="floating-label">Sockets</label>
                     </div>
                 </div>
-                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
-                    <div class="mb-2">
-                        <label class="block  type-text mb-1">Filter By Type</label>
-                        <select class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5" value.bind="selectedType">
-                            <option repeat.for="opt of types" value.bind="opt.value && opt.value.length ? opt.value[0] : ''">${opt.label}</option>
+
+                <div class="w-full lg:w-auto lg:min-w-70 px-2">
+                    <div class="relative mb-2">
+                        <select id="itype" class="select-base peer" value.bind="selectedType" required>
+                            <option repeat.for="opt of types"
+                                    value.bind="opt.value && opt.value.length ? opt.value[0] : ''">${opt.label}
+                            </option>
                         </select>
+                        <label for="itype" class="floating-label">Item Type</label>
                     </div>
                 </div>
-                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
-                    <div class="mb-2">
-                        <label class="block  type-text mb-1">Filter By Tier</label>
-                        <select class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5" value.bind="selectedTier">
+
+                <div class="w-full lg:w-auto lg:min-w-70 px-2">
+                    <div class="relative mb-2">
+                        <select id="tier" class="select-base peer" value.bind="selectedTier" required>
                             <option repeat.for="opt of tierOptions" value.bind="opt.value">${opt.label}</option>
                         </select>
+                        <label for="tier" class="floating-label">Tier</label>
                     </div>
                 </div>
-                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
+
+                <div class="w-full lg:w-auto lg:min-w-70 px-2">
+                    <div class="relative mb-2">
+                        <input id="inputsearch" class="select-base peer" type="text" value.bind="search" required/>
+                        <label for="inputsearch" class="floating-label">Filter by Input</label>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-auto lg:min-w-35 px-2">
                     <div class="mb-2">
-                        <label class="block  type-text mb-1">Search Bases</label>
-                        <input class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5" type="text" value.bind="search" placeholder="Search..." />
+                        <button class="button-base" type="button" click.trigger="resetFilters()">
+                            Reset Filters
+                        </button>
                     </div>
                 </div>
-                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
-                    <div class="mb-2">
-                        <label class="block  type-text mb-1 invisible">Reset</label>
-                        <button class="w-full bg-gray-700 hover:bg-gray-600 type-text  py-2 px-3 rounded-lg"
-                                type="button" click.trigger="resetFilters()">Reset Filters</button>
-                    </div>
-                </div>
+
             </div>
         </div>
     </search-area>
@@ -65,7 +73,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 text-center">
             <template repeat.for="family of group.families">
-                <div class="bg-gray-800 rounded shadow p-2" repeat.for="item of family.items">
+                <div class="bg-gray-800 rounded-lg shadow p-2" repeat.for="item of family.items">
                     <div class="bg-gray-800 rounded">
 
                         <div class="mb-1">
@@ -101,7 +109,8 @@
                             <div class="requirement-text" if.bind="item.RequiredClass && item.RequiredClass.length">
                                 (${item.RequiredClass} Only)
                             </div>
-                            <div class="requirement-text" if.bind="item.RequiredDexterity && item.RequiredDexterity > 0">
+                            <div class="requirement-text"
+                                 if.bind="item.RequiredDexterity && item.RequiredDexterity > 0">
                                 ${item.RequiredDexterity} Dexterity Required
                             </div>
                             <div class="requirement-text" if.bind="item.RequiredStrength && item.RequiredStrength > 0">

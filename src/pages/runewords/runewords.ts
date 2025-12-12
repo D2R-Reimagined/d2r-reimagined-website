@@ -2,6 +2,7 @@ import { bindable, watch } from 'aurelia';
 import { isBlankOrInvalid } from '../../utilities/url-sanitize';
 
 import { debounce, DebouncedFunction } from '../../utilities/debounce';
+import { prependTypeResetOption } from '../../utilities/filter-helpers';
 import json from '../item-jsons/runewords.json';
 import {
     type_filtering_options,
@@ -31,12 +32,12 @@ export class Runewords {
     selectedType: string | undefined;
 
     amounts = [
-        { value: '', label: 'Any' },
-        { value: 2, label: '2 Sockets' },
-        { value: 3, label: '3 Sockets' },
-        { value: 4, label: '4 Sockets' },
-        { value: 5, label: '5 Sockets' },
-        { value: 6, label: '6 Sockets' }
+        { value: '' as any, label: '-' },
+        { value: 2, label: '2 Runes' },
+        { value: 3, label: '3 Runes' },
+        { value: 4, label: '4 Runes' },
+        { value: 5, label: '5 Runes' },
+        { value: 6, label: '6 Runes' }
     ];
 
     selectedAmount: number | undefined;
@@ -65,6 +66,8 @@ export class Runewords {
             present,
             { dedupeByBase: true, preferLabelStartsWith: 'Any ' }
         );
+        // Prepend a uniform reset option so users can clear the selection with '-'
+        this.types = prependTypeResetOption(this.types);
 
         const searchParam = urlParams.get('search');
         if (searchParam && !isBlankOrInvalid(searchParam)) {

@@ -24,72 +24,87 @@
     </h3>
 
     <search-area>
-        <div class="max-w-screen-2xl mx-auto px-4">
-            <div class="flex flex-wrap justify-center items-center text-center">
-                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
-                    <div class="mb-2">
-                        <label class="block  type-text mb-1">Category</label>
-                        <select class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5" value.bind="selectedCategory">
+        <div class="max-w-11/12 m-auto px-4">
+            <div class="flex flex-wrap justify-center items-start">
+
+                <div class="w-full lg:w-auto lg:min-w-70 px-2">
+                    <div class="relative mb-2">
+                        <select id="category" class="select-base peer" value.bind="selectedCategory" required>
                             <option repeat.for="opt of categories" value.bind="opt.value">${opt.label}</option>
                         </select>
-                    </div>
-                </div>
-                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
-                    <div class="mb-2">
-                        <label class="block  type-text mb-1">Select Class</label>
-                        <select class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5" value.bind="selectedClass">
-                            <option repeat.for="opt of classes" value.bind="opt.value">${opt.label}</option>
-                        </select>
+                        <label for="category" class="floating-label">Category</label>
                     </div>
                 </div>
 
-                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
-                    <div class="mb-2">
-                        <label class="block  type-text mb-1">Select Type</label>
-                        <select class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5" value.bind="selectedTypeBase">
-                            <option repeat.for="opt of types" value.bind="opt.value && opt.value.length ? opt.value[0] : ''">${opt.label}</option>
+                <div class="w-full lg:w-auto lg:min-w-70 px-2">
+                    <div class="relative mb-2">
+                        <select id="ficlass" class="select-base peer" value.bind="selectedClass" required>
+                            <option repeat.for="opt of classes" value.bind="opt.value">${opt.label}</option>
                         </select>
+                        <label for="ficlass" class="floating-label">Select Class</label>
                     </div>
                 </div>
-                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
-                    <div class="mb-2">
-                        <label class="block  type-text mb-1">Select Equipment</label>
-                        <select class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5"
+
+                <div class="w-full lg:w-auto lg:min-w-70 px-2">
+                    <div class="relative mb-2">
+                        <select id="itype" class="select-base peer" value.bind="selectedTypeBase" required>
+                            <option repeat.for="opt of types"
+                                    value.bind="opt.value && opt.value.length ? opt.value[0] : ''">${opt.label}
+                            </option>
+                        </select>
+                        <label for="itype" class="floating-label">Select Type</label>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-auto lg:min-w-70 px-2">
+                    <div class="relative mb-2">
+                        <select id="eqsel" class="select-base peer"
                                 value.bind="selectedEquipmentName"
-                                disabled.bind="selectedCategory === 'runewords' || !selectedTypeBase">
+                                disabled.bind="selectedCategory === 'runewords' || !selectedTypeBase" required>
                             <option repeat.for="opt of equipmentNames" value.bind="opt.id">${opt.name}</option>
                         </select>
+                        <label for="eqsel" class="floating-label">Select Equipment</label>
                     </div>
                 </div>
-                <div class="w-full md:w-5/12 lg:w-1/4 xl:w-1/5 px-2">
-                    <div class="my-1">
-                        <label class="block  type-text mb-1">Search</label>
-                        <input class="w-full bg-gray-900 border border-gray-600 type-text  rounded-lg p-2.5" type="text" value.bind="search" placeholder="Search..." />
-                        <label class="inline-flex items-center mt-2"><input type="checkbox" class="mr-2" checked.bind="hideVanilla"><span class="ml-1">Hide Vanilla</span></label>
+
+                <div class="w-full lg:w-auto lg:min-w-70 px-2">
+                    <div class="relative mb-2">
+                        <input id="inputsearch" class="select-base peer" type="text" value.bind="search" required/>
+                        <label for="inputsearch" class="floating-label">Filter by Input</label>
+                    </div>
+                    <div class="flex mb-2">
+                        <input id="hidevan" type="checkbox" class="check-base" checked.bind="hideVanilla">
+                        <label for="hidevan" class="block type-text ml-1">Hide Vanilla</label>
                     </div>
                 </div>
+
+                <div class="w-full lg:w-auto lg:min-w-35 px-2">
+                    <div class="mb-2">
+                        <button id="filterreset" class="button-base" type="button" click.trigger="resetFilters()">
+                            Reset Filters
+                        </button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </search-area>
 
-    <div class="mt-2 flex justify-center">
-        <label class="inline-flex items-center"><input type="checkbox" class="mr-2" checked.bind="showFoundItems"><span class="ml-1">Hide Found Items</span></label>
-    </div>
-
-    <div class="flex justify-center mt-2 gap-2">
-        <button type="button" click.trigger="resetFilters()"
-                class="cursor-pointer bg-gray-700 hover:bg-gray-600 type-text hover:outline font-bold py-1 px-2 rounded">
-            Reset Filters
-        </button>
-        <button type="button" click.trigger="resetGrail()"
-                class="cursor-pointer bg-red-900 hover:bg-red-600 type-text hover:outline font-bold py-1 px-2 rounded">
-            Reset Grail Category Progress
-        </button>
-    </div>
+            <div class="w-full lg:w-fit m-auto lg:min-w-35 px-2 pt-2">
+                <div class="mb-2 flex">
+                    <input id="hidefound" type="checkbox" class="check-base" checked.bind="showFoundItems">
+                    <label for="hidefound" class="block type-text ml-1">Hide Found Items</label>
+                </div>
+            </div>
+            <div class="w-full lg:w-fit m-auto lg:min-w-35 p-2">
+                    <button type="button" click.trigger="resetGrail()" class="button-base">
+                        Reset Grail Category Progress
+                    </button>
+                </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">
 
-        <div class="bg-gray-800 rounded shadow p-2" repeat.for="unique of filteredUniques"
+        <div class="bg-gray-800 rounded-lg shadow p-2" repeat.for="unique of filteredUniques"
              if.bind="selectedCategory === 'uniques'">
             <div class="bg-gray-800 rounded relative">
                 <div class="absolute top-2 right-2">
