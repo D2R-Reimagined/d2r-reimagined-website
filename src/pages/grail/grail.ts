@@ -113,6 +113,11 @@ export class Grail {
     // Debouncers to keep UI interactions (like checkbox clicks) snappy
     private _debouncedSaveFound!: DebouncedFunction;
     private _debouncedApplyFilters!: DebouncedFunction;
+
+    // Precomputed token maps for fast, cross-field search
+    private _uniqueTokens = new Map<string, Set<string>>();
+    private _setItemTokens = new Map<string, Set<string>>();
+    private _runewordTokens = new Map<string, Set<string>>();
     
     binding(): void {
         // Flatten sets to item list for filtering
@@ -169,6 +174,9 @@ export class Grail {
             }
         }
 
+        // Precompute search tokens for all categories (once per load)
+        this.buildAllTokens();
+
         // Cache total set items
         this.setItemTotalCount = this.allSetItems.length;
 
@@ -178,7 +186,7 @@ export class Grail {
         this._debouncedApplyFilters = debounce(() => {
             this.updateList();
             this.updateUrl();
-        }, 300);
+        }, 350);
 
         // Initial filter + counters
         this.updateList();
@@ -466,8 +474,7 @@ export class Grail {
 
     updateList() {
         // Filter per category
-        const searchRaw = (this.search || '').trim().toLowerCase();
-        const searchTokens = searchRaw.length ? searchRaw.split(/\s+/) : [];
+        const searchTokens = this.normalizeQueryTokens(this.search);
         const selectedTypeSet = (this.selectedType && this.selectedType.length > 0)
             ? new Set<string>(this.selectedType)
             : null;
@@ -478,17 +485,10 @@ export class Grail {
                 const okType = !selectedTypeSet || selectedTypeSet.has(getChainForTypeName(unique?.Type ?? '')[0] || (unique?.Type ?? ''));
                 const okEquip = !this.selectedEquipmentName || String(unique?.Equipment?.Name || '') === this.selectedEquipmentName;
                 const okVanilla = !this.hideVanilla || String(unique?.Vanilla || '').toUpperCase() !== 'Y';
-                const okSearch = !searchTokens.length || ((): boolean => {
-                    const hay = [
-                        String(unique?.Name || ''),
-                        ...(Array.isArray(unique?.Properties) ? unique.Properties.map((p: any) => String(p?.PropertyString || '')) : []),
-                        String(unique?.Equipment?.Name || ''),
-                    ]
-                        .filter(Boolean)
-                        .join(' ')
-                        .toLowerCase();
-                    return searchTokens.every(t => hay.includes(t));
-                })();
+                const okSearch = this.tokensPartiallyMatch(
+                    this._uniqueTokens.get(this.getUniqueKey(unique)),
+                    searchTokens
+                );
                 const notGrabber = !String(unique?.Name || '').toLowerCase().includes('grabber');
                 const key = this.getUniqueKey(unique);
                 const okFound = !this.showFoundItems || !this.foundUniques[key];
@@ -502,18 +502,10 @@ export class Grail {
                 const okType = !selectedTypeSet || selectedTypeSet.has(getChainForTypeName(item?.Type ?? '')[0] || (item?.Type ?? ''));
                 const okEquip = !this.selectedEquipmentName || String(item?.Equipment?.Name || '') === this.selectedEquipmentName;
                 const okVanilla = !this.hideVanilla || String(item?.Vanilla || '').toUpperCase() !== 'Y';
-                const okSearch = !searchTokens.length || ((): boolean => {
-                    const hay = [
-                        String(item?.Name || ''),
-                        ...(Array.isArray(item?.Properties) ? item.Properties.map((p: any) => String(p?.PropertyString || '')) : []),
-                        ...(Array.isArray(item?.SetPropertiesString) ? item.SetPropertiesString.map((s: any) => String(s || '')) : []),
-                        String(item?.Equipment?.Name || ''),
-                    ]
-                        .filter(Boolean)
-                        .join(' ')
-                        .toLowerCase();
-                    return searchTokens.every(t => hay.includes(t));
-                })();
+                const okSearch = this.tokensPartiallyMatch(
+                    this._setItemTokens.get(this.getSetItemKey(item)),
+                    searchTokens
+                );
                 const key = this.getSetItemKey(item);
                 const okFound = !this.showFoundItems || !this.foundSets[key];
                 return okClass && okType && okEquip && okVanilla && okSearch && okFound;
@@ -580,17 +572,10 @@ export class Grail {
 
             const result = list.filter((rw: any) => {
                 const okVanilla = !this.hideVanilla || String(rw?.Vanilla || '').toUpperCase() !== 'Y';
-                const okSearch = !searchTokens.length || ((): boolean => {
-                    const hay = [
-                        String(rw?.Name || ''),
-                        ...(Array.isArray(rw?.Properties) ? rw.Properties.map((p: any) => String(p?.PropertyString || '')) : []),
-                        ...(Array.isArray(rw?.Types) ? rw.Types.map((t: any) => String(t?.Name || '')) : []),
-                    ]
-                        .filter(Boolean)
-                        .join(' ')
-                        .toLowerCase();
-                    return searchTokens.every(t => hay.includes(t));
-                })();
+                const okSearch = this.tokensPartiallyMatch(
+                    this._runewordTokens.get(this.getRunewordKey(rw)),
+                    searchTokens
+                );
                 const key = this.getRunewordKey(rw);
                 const okFound = !this.showFoundItems || !this.foundRunewords[key];
                 return okVanilla && okSearch && okFound;
@@ -603,6 +588,148 @@ export class Grail {
         this.updateFoundCount();
         this.updateTotalCount();
         this.updateSetCounters();
+    }
+
+    // --- Tokenization helpers -------------------------------------------------
+
+    private normalizeQueryTokens(input: string | undefined | null): string[] {
+        const raw = (input || '').trim().toLowerCase();
+        if (!raw) return [];
+        // Replace all non-alphanumeric with spaces, collapse whitespace
+        const cleaned = raw.replace(/[^a-z0-9]+/g, ' ').trim();
+        if (!cleaned) return [];
+        return cleaned.split(/\s+/);
+    }
+
+    private tokenizeStrings(values: Array<string | undefined | null>): Set<string> {
+        const out = new Set<string>();
+        for (const v of values) {
+            if (v == null) continue;
+            const s = String(v).toLowerCase();
+            const cleaned = s.replace(/[^a-z0-9]+/g, ' ').trim();
+            if (!cleaned) continue;
+            for (const tok of cleaned.split(/\s+/)) {
+                if (tok) out.add(tok);
+            }
+        }
+        return out;
+    }
+
+    private tokensFromTypeChain(typeName: string | undefined | null): Set<string> {
+        const chain = getChainForTypeName(typeName ? String(typeName) : '');
+        return this.tokenizeStrings(chain);
+    }
+
+    private buildTokensForUnique(u: any): Set<string> {
+        const tokens = this.tokenizeStrings([
+            u?.Name,
+            u?.Equipment?.Name,
+            u?.Equipment?.RequiredClass,
+        ]);
+        // Properties
+        if (Array.isArray(u?.Properties)) {
+            tokensFor: for (const p of u.Properties) {
+                const s = p?.PropertyString != null ? String(p.PropertyString) : '';
+                if (s) {
+                    for (const t of this.tokenizeStrings([s])) tokens.add(t);
+                }
+            }
+        }
+        // Type chain
+        for (const t of this.tokensFromTypeChain(u?.Type)) tokens.add(t);
+        return tokens;
+    }
+
+    private buildTokensForSetItem(it: any): Set<string> {
+        const tokens = this.tokenizeStrings([
+            it?.Name,
+            it?.Set,
+            it?.Equipment?.Name,
+            it?.Equipment?.RequiredClass,
+        ]);
+        if (Array.isArray(it?.Properties)) {
+            for (const p of it.Properties) {
+                const s = p?.PropertyString != null ? String(p.PropertyString) : '';
+                if (s) for (const t of this.tokenizeStrings([s])) tokens.add(t);
+            }
+        }
+        if (Array.isArray(it?.SetPropertiesString)) {
+            for (const s of it.SetPropertiesString) {
+                if (s) for (const t of this.tokenizeStrings([String(s)])) tokens.add(t);
+            }
+        }
+        for (const t of this.tokensFromTypeChain(it?.Type)) tokens.add(t);
+        return tokens;
+    }
+
+    private buildTokensForRuneword(rw: any): Set<string> {
+        const tokens = this.tokenizeStrings([
+            rw?.Name,
+        ]);
+        if (Array.isArray(rw?.Properties)) {
+            for (const p of rw.Properties) {
+                const s = p?.PropertyString != null ? String(p.PropertyString) : '';
+                if (s) for (const t of this.tokenizeStrings([s])) tokens.add(t);
+            }
+        }
+        if (Array.isArray(rw?.Types)) {
+            for (const t of rw.Types) {
+                const name = t?.Name != null ? String(t.Name) : '';
+                // include raw type name tokens and its chain
+                for (const tok of this.tokenizeStrings([name])) tokens.add(tok);
+                for (const tok of this.tokensFromTypeChain(name)) tokens.add(tok);
+            }
+        }
+        if (Array.isArray(rw?.Runes)) {
+            for (const r of rw.Runes) {
+                const name = r?.Name != null ? String(r.Name) : '';
+                for (const tok of this.tokenizeStrings([name])) tokens.add(tok);
+            }
+        }
+        return tokens;
+    }
+
+    private buildAllTokens(): void {
+        this._uniqueTokens.clear();
+        this._setItemTokens.clear();
+        this._runewordTokens.clear();
+
+        try {
+            for (const u of this.uniques as any[]) {
+                const key = this.getUniqueKey(u);
+                this._uniqueTokens.set(key, this.buildTokensForUnique(u));
+            }
+        } catch {}
+
+        try {
+            for (const it of this.allSetItems as any[]) {
+                const key = this.getSetItemKey(it);
+                this._setItemTokens.set(key, this.buildTokensForSetItem(it));
+            }
+        } catch {}
+
+        try {
+            for (const rw of this.runewords as any[]) {
+                const key = this.getRunewordKey(rw);
+                this._runewordTokens.set(key, this.buildTokensForRuneword(rw));
+            }
+        } catch {}
+    }
+
+    // Checks that every query token is present as a substring of at least one item token
+    // Enables partial (prefix/infix) matching instead of exact whole-word matching
+    private tokensPartiallyMatch(allTokens: Set<string> | undefined, queryTokens: string[]): boolean {
+        if (!queryTokens.length) return true;
+        if (!allTokens || allTokens.size === 0) return false;
+        for (let i = 0; i < queryTokens.length; i++) {
+            const q = queryTokens[i];
+            let hit = false;
+            for (const tok of allTokens) {
+                if (tok.includes(q)) { hit = true; break; }
+            }
+            if (!hit) return false;
+        }
+        return true;
     }
     
     loadFoundItems(): void {

@@ -11,7 +11,9 @@
                 <div class="w-full lg:w-auto lg:min-w-70 px-2">
                     <div class="relative mb-2">
                         <select id="runecount" class="select-base peer" value.bind="selectedAmount" required>
-                            <option repeat.for="opt of amounts" model.bind="opt.value">${opt.label}</option>
+                            <!-- Placeholder must be empty-string for :invalid, while numeric options use model.bind for stable selection mapping -->
+                            <option repeat.for="opt of amounts" if.bind="opt.value === ''" value="">${opt.label}</option>
+                            <option repeat.for="opt of amounts" if.bind="opt.value !== ''" model.bind="opt.value">${opt.label}</option>
                         </select>
                         <label for="runecount" class="floating-label">Rune Count</label>
                     </div>

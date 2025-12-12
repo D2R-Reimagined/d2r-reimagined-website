@@ -23,7 +23,9 @@
                 <div class="w-full lg:w-auto lg:min-w-70 px-2">
                     <div class="relative mb-2">
                         <select id="sockets" class="select-base peer" value.bind="selectedSockets" required>
-                            <option repeat.for="opt of socketOptions" model.bind="opt.value">${opt.label}</option>
+                            <!-- Ensure placeholder is truly empty (invalid) while keeping numeric options typed via model.bind -->
+                            <option repeat.for="opt of socketOptions" if.bind="opt.value === ''" value="">${opt.label}</option>
+                            <option repeat.for="opt of socketOptions" if.bind="opt.value !== ''" model.bind="opt.value">${opt.label}</option>
                         </select>
                         <label for="sockets" class="floating-label">Sockets</label>
                     </div>
