@@ -5,81 +5,81 @@
 
     <search-area>
 
-        <div class="max-w-11/12 mx-auto px-4">
-            <div class="flex flex-wrap justify-center items-start text-center">
+        <div class="max-w-11/12 m-auto px-4">
+            <div class="flex flex-wrap justify-center items-start">
 
-                <div class="w-auto min-w-50 px-2">
+                <div class="w-full lg:w-auto lg:min-w-70 px-2">
                     <div class="relative mb-2">
-                        <select id="ptype"
-                                class="select-base peer"
-                                value.bind="selectedPType" required>
-                            <option repeat.for="opt of pTypeOptions" value.bind="opt.value">${opt.label}</option>
+                        <select id="ptype" class="select-base peer" value.bind="selectedPType" required>
+                            <option repeat.for="opt of pTypeOptions" value.bind="opt.value"> ${opt.label}</option>
                         </select>
                         <label for="ptype" class="floating-label">Prefix/Suffix</label>
                     </div>
                 </div>
 
-                <div class="w-auto min-w-50 px-2">
+                <div class="w-full lg:w-auto lg:min-w-70 px-2">
                     <div class="relative mb-2">
-                        <select id="desc"
-                                class="select-base peer"
-                                value.bind="selectedGroupDescription" required>
-                            <option repeat.for="opt of groupOptions" value.bind="opt.value">${opt.label}</option>
+                        <select id="desc" class="select-base peer" value.bind="selectedGroupDescription" required>
+                            <option repeat.for="opt of groupOptions" value.bind="opt.value"> ${opt.label}</option>
                         </select>
-                        <label for="desc" class="floating-label">Property Type</label>
+                        <label for="desc" class="floating-label">
+                            Property Type</label>
                     </div>
                 </div>
-                <div class="w-auto min-w-50 px-2">
+
+                <div class="w-full lg:w-auto lg:min-w-70 px-2">
                     <div class="relative">
-                        <select id="itype"
-                                class="select-base peer"
-                                value.bind="selectedType" required>
+                        <select id="itype" class="select-base peer" value.bind="selectedType" required>
                             <option repeat.for="opt of types"
                                     value.bind="opt.value && opt.value.length ? opt.value[0] : ''">${opt.label}
                             </option>
                         </select>
                         <label for="itype" class="floating-label">Item Type</label>
                     </div>
-                    <label for="exacttype" class="block my-2 type-text">
-                        <input id="exacttype" type="checkbox" class="mr-2" checked.bind="exclusiveType">Exact Type Only
-                    </label>
-                </div>
-                <div class="w-auto min-w-50 px-2">
-                    <div class="relative mb-2">
-                        <input id="tokensearch"
-                               class="peer w-full bg-gray-800 border-1 border-gray-600 ring-0 focus:ring-0 focus:border-gray-400 rounded-lg type-text z-0"
-                               type="text" value.bind="search" required/>
-                        <label for="tokensearch" class="floating-label">Filter by Input</label>
+                    <div class="flex my-2">
+                        <input id="exacttype" type="checkbox" class="check-base" checked.bind="exclusiveType">
+                        <label for="exacttype" class="block type-text ml-1">Exact Type Only </label>
                     </div>
                 </div>
-                <div class="w-auto px-2 flex flex-nowrap">
-                    <div class="min-w-32 relative mr-2">
+
+                <div class="w-full lg:w-auto lg:min-w-70 px-2">
+                    <div class="relative mb-2">
+                        <input id="tokensearch"
+                               class="select-base peer" type="text" value.bind="search" required/> <label
+                            for="tokensearch" class="floating-label">Filter by Input</label>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-auto lg:min-w-70 px-2 flex flex-nowrap">
+                    <div class="w-full relative mb-2 mr-2">
                         <select id="minrlvl" class="select-base peer" value.bind="minRequiredLevel" required>
                             <option repeat.for="opt of rLevelOptions" value.bind="opt.value">${opt.label}</option>
                         </select>
                         <label for="minrlvl" class="floating-label">Min rLvl</label>
                     </div>
-                    <div class="min-w-32 relative ml-2">
+                    <div class="w-full relative mb-2 ml-2">
                         <select id="maxrlvl" class="select-base peer" value.bind="maxRequiredLevel" required>
                             <option repeat.for="opt of rLevelOptions" value.bind="opt.value">${opt.label}</option>
                         </select>
                         <label for="maxrlvl" class="floating-label">Max rLvl</label>
                     </div>
-                    <div class="w-auto min-w-38 px-2">
-                        <div class="mb-2">
-                            <button id="filterreset"
-                                    class="w-full h-10.5 bg-red-900 hover:bg-red-600 border border-gray-600 hover:border-gray-400 type-text rounded-lg p-2"
-                                    type="button" click.trigger="resetFilters()">Reset Filters
-                            </button>
-                        </div>
+                </div>
+
+                <div class="w-full lg:w-auto lg:min-w-35 px-2">
+                    <div class="mb-2">
+                        <button id="filterreset" class="button-base" type="button" click.trigger="resetFilters()">
+                            Reset Filters
+                        </button>
                     </div>
                 </div>
+
             </div>
         </div>
+
     </search-area>
 
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">
-        <div class="bg-gray-800 rounded shadow p-2" repeat.for="affix of filteredAffixes">
+        <div class="bg-gray-800 border border-gray-600 rounded shadow p-2" repeat.for="affix of filteredAffixes">
             <div class="flex justify-between items-center">
                 <div class="prop-text mt-1 ml-1">${affix.Name}</div>
                 <div class="type-text mt-1 mr-1">${affix.PType}</div>

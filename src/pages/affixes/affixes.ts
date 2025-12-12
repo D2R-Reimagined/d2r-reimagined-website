@@ -1,6 +1,7 @@
 import { bindable, watch } from 'aurelia';
 import { isBlankOrInvalid } from '../../utilities/url-sanitize';
 import { debounce, DebouncedFunction } from '../../utilities/debounce';
+import { toOptionalNumber, prependTypeResetOption, swapMinMax } from '../../utilities/filter-helpers';
 import prefixes from '../item-jsons/magicprefix.json';
 import suffixes from '../item-jsons/magicsuffix.json';
 import propertyGroups from '../item-jsons/property_groups.json';
@@ -30,7 +31,7 @@ export class Affixes {
 
     // Prefix/Suffix dropdown
     pTypeOptions = [
-        { value: '', label: 'Any' },
+        { value: '', label: '-' },
         { value: 'Prefix', label: 'Prefix' },
         { value: 'Suffix', label: 'Suffix' }
     ];
@@ -38,7 +39,7 @@ export class Affixes {
 
     // Group dropdown (built from property_groups.json by description)
     groupOptions: { value: string | undefined; label: string }[] = [
-        { value: '', label: 'Any' }
+        { value: '', label: '-' }
     ];
     @bindable selectedGroupDescription: string | undefined;
     private descToGroups: Map<string, Set<number>> = new Map();
@@ -51,11 +52,14 @@ export class Affixes {
     // Exact type only toggle
     @bindable exclusiveType: boolean;
 
-    // rLvl dropdown options (1–99). "Any" will be represented by an empty string option in the view.
-    rLevelOptions: { value: string; label: string }[] = Array.from({ length: 99 }, (_, i) => {
-        const v = String(i + 1);
-        return { value: v, label: v };
-    });
+    // rLvl dropdown options ("-" empty first option, then 1–99)
+    rLevelOptions: { value: string; label: string }[] = [
+        { value: '', label: '-' },
+        ...Array.from({ length: 99 }, (_, i) => {
+            const v = String(i + 1);
+            return { value: v, label: v };
+        })
+    ];
 
     // Required Level filters
     // Note: bound via <moo-text-field>, which provides string values. Accept string as well.
@@ -91,7 +95,10 @@ export class Affixes {
         const exactParam = urlParams.get('exact');
         if (exactParam && !isBlankOrInvalid(exactParam)) this.exclusiveType = exactParam === 'true';
 
-        // Default the selects to "Any" when no URL value is provided
+        // Default the selects to '-' (empty) when no URL value is provided so labels rest centered
+        if (this.selectedPType === undefined) this.selectedPType = '' as any;
+        if (this.selectedGroupDescription === undefined) this.selectedGroupDescription = '';
+        if (this.selectedType === undefined) this.selectedType = '';
         if (this.minRequiredLevel === undefined) this.minRequiredLevel = '';
         if (this.maxRequiredLevel === undefined) this.maxRequiredLevel = '';
 
@@ -128,6 +135,9 @@ export class Affixes {
             present,
             { dedupeByBase: true, preferLabelStartsWith: 'Any ' }
         );
+
+        // Prepend a uniform reset option to types
+        this.types = prependTypeResetOption(this.types);
 
         // Map URL 'type' (serialized as base) to a scalar base token
         if (typeBaseFromUrl) {
@@ -205,7 +215,7 @@ export class Affixes {
 
         this.descToGroups = descMap;
         const descriptions = Array.from(descMap.keys()).sort((a, b) => a.localeCompare(b));
-        this.groupOptions = [{ value: '', label: 'Any' }, ...descriptions.map(d => ({ value: d, label: d }))];
+        this.groupOptions = [{ value: '', label: '-' }, ...descriptions.map(d => ({ value: d, label: d }))];
     }
 
     @watch('search')
@@ -216,19 +226,19 @@ export class Affixes {
 
     @watch('selectedPType')
     handlePTypeChanged() {
-        this.applyFilters();
+        if (this._debouncedFilter) this._debouncedFilter();
         this.updateUrl();
     }
 
     @watch('selectedGroupDescription')
     handleGroupChanged() {
-        this.applyFilters();
+        if (this._debouncedFilter) this._debouncedFilter();
         this.updateUrl();
     }
 
     @watch('selectedType')
     handleTypeChanged() {
-        this.applyFilters();
+        if (this._debouncedFilter) this._debouncedFilter();
         this.updateUrl();
     }
 
@@ -259,11 +269,10 @@ export class Affixes {
             ? this.descToGroups.get(this.selectedGroupDescription)
             : undefined;
 
-        // Default min to 1 when empty; max defaults to 99 to match UI range
-        const minRLRaw = this.normalizeLevel(this.minRequiredLevel, 1);
-        const maxRLRaw = this.normalizeLevel(this.maxRequiredLevel, 99);
-        const minRL = Math.min(minRLRaw, maxRLRaw);
-        const maxRL = Math.max(minRLRaw, maxRLRaw);
+        // Optional bounds: '-' (empty) means no lower/upper bound
+        let minOpt = toOptionalNumber(this.minRequiredLevel);
+        let maxOpt = toOptionalNumber(this.maxRequiredLevel);
+        [minOpt, maxOpt] = swapMinMax(minOpt, maxOpt);
 
         this.filteredAffixes = this.allAffixes.filter((a) => {
             // PType filter
@@ -348,7 +357,8 @@ export class Affixes {
 
             // Required Level range
             const rl = typeof a.RequiredLevel === 'number' ? a.RequiredLevel : 0;
-            if (rl < minRL || rl > maxRL) return false;
+            if (typeof minOpt === 'number' && rl < minOpt) return false;
+            if (typeof maxOpt === 'number' && rl > maxOpt) return false;
 
             // Text search (tokenized AND; search across Name, Properties, and Types only). ETypes are excluded.
             if (hasQuery) {
@@ -370,11 +380,12 @@ export class Affixes {
     // Reset all filters to defaults and refresh URL/list
     resetFilters() {
         this.search = '';
-        this.selectedPType = undefined;
-        this.selectedGroupDescription = undefined;
-        this.selectedType = undefined;
+        // Set to empty strings so dropdowns pick the '-' option
+        this.selectedPType = '' as any;
+        this.selectedGroupDescription = '';
+        this.selectedType = '';
         this.exclusiveType = false;
-        // Set to empty string so the dropdowns select the "Any" option explicitly
+        // Set to empty string so the dropdowns select the "-" option explicitly
         this.minRequiredLevel = '';
         this.maxRequiredLevel = '';
 
@@ -382,18 +393,5 @@ export class Affixes {
         this.updateUrl();
     }
 
-    private normalizeLevel(val: number | string | undefined | null, fallback: number): number {
-        // Treat empty/whitespace strings as 'nothing in the box' → use fallback
-        if (val === undefined || val === null) return fallback;
-        if (typeof val === 'string') {
-            if (val.trim() === '') return fallback;
-        }
 
-        const n = Number(val);
-        if (Number.isFinite(n)) {
-            // clamp between 0 and 100 per existing behavior
-            return Math.max(0, Math.min(100, Math.floor(n)));
-        }
-        return fallback;
-    }
 }

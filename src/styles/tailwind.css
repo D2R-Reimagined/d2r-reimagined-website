@@ -1,4 +1,5 @@
 ﻿@import "tailwindcss";
+
 @plugin "flowbite/plugin";
 
 /* Navbar font picker: hide default disclosure marker and stray indents */
@@ -41,25 +42,53 @@ nav details > summary::marker {
 /* Base select style use: class="select-base peer" */
 @utility select-base {
     @apply w-full rounded-lg z-0 ring-0
-    bg-gray-800 border border-gray-600 type-text;
+    bg-gray-800 border border-gray-600 type-text
+    px-3 py-2; /* standardize control height/padding for consistent floating-label alignment */
+}
+
+.select-base:hover {
+    @apply ring-0 border-gray-300;
 }
 
 .select-base:focus {
-    @apply ring-0 border-gray-400;
+    @apply ring-0 border-gray-300;
 }
 
+/* Base checkbox style use: class="check-base" */
+@utility check-base {
+    @apply rounded-md h-5 w-5 border ring-0 ring-offset-0
+    bg-gray-800 border-gray-600
+}
+
+.check-base:checked {
+    @apply bg-gray-700
+}
+
+.check-base:hover {
+    @apply border-gray-300
+}
+
+/* Base button style use: class="button-base" */
+@utility button-base {
+    @apply w-full h-10.5 border rounded-lg p-2
+    border-gray-600 type-text bg-red-900
+}
+
+.button-base:hover {
+    @apply border-gray-300 bg-red-600;
+}
 
 /* Text Colors */
 
 .link-text {
-    color: #f0f0f0
+    @apply text-white
 }
 
 .link-text:hover {
-    color: #b3b3b3;
+    @apply unique-text
 }
 
-.unique-text {
+@utility unique-text {
     color: #c7b790;
 }
 
