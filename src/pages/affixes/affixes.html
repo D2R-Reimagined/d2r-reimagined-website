@@ -11,106 +11,70 @@
                 <div class="w-auto min-w-50 px-2">
                     <div class="relative mb-2">
                         <select id="ptype"
-                                class="peer w-full bg-gray-800 border-1 border-gray-600 ring-0 focus:ring-0 focus:border-gray-400 rounded-lg type-text z-0"
+                                class="select-base peer"
                                 value.bind="selectedPType" required>
                             <option repeat.for="opt of pTypeOptions" value.bind="opt.value">${opt.label}</option>
                         </select>
-                        <label for="ptype"
-                               class="pointer-events-none z-10 ml-1 origin-left bg-gray-800 type-text
-                               absolute left-2 top-1/2 -translate-y-1/2 transition-all duration-200 transform
-                               peer-focus:bg-transparent peer-focus:top-1 peer-focus:scale-75
-                               peer-valid:bg-transparent peer-valid:top-1 peer-valid:scale-75
-                               peer-invalid:top-1/2 peer-invalid:scale-100">Prefix/Suffix</label>
+                        <label for="ptype" class="floating-label">Prefix/Suffix</label>
                     </div>
                 </div>
 
                 <div class="w-auto min-w-50 px-2">
                     <div class="relative mb-2">
                         <select id="desc"
-                                class="peer w-full bg-gray-800 border-1 border-gray-600 ring-0 focus:ring-0 focus:border-gray-400 rounded-lg type-text z-0"
+                                class="select-base peer"
                                 value.bind="selectedGroupDescription" required>
                             <option repeat.for="opt of groupOptions" value.bind="opt.value">${opt.label}</option>
                         </select>
-                        <label for="desc"
-                               class="pointer-events-none z-10 ml-1 origin-left bg-gray-800 type-text
-                               absolute left-2 top-1/2 -translate-y-1/2 transition-all duration-200 transform
-                               peer-focus:bg-transparent peer-focus:top-1 peer-focus:scale-75
-                               peer-valid:bg-transparent peer-valid:top-1 peer-valid:scale-75
-                               peer-invalid:top-1/2 peer-invalid:scale-100">Property Type</label>
+                        <label for="desc" class="floating-label">Property Type</label>
                     </div>
                 </div>
                 <div class="w-auto min-w-50 px-2">
                     <div class="relative">
                         <select id="itype"
-                                class="peer w-full bg-gray-800 border-1 border-gray-600 ring-0 focus:ring-0 focus:border-gray-400 rounded-lg type-text z-0"
+                                class="select-base peer"
                                 value.bind="selectedType" required>
                             <option repeat.for="opt of types"
                                     value.bind="opt.value && opt.value.length ? opt.value[0] : ''">${opt.label}
                             </option>
                         </select>
-                        <label for="itype"
-                               class="pointer-events-none z-10 ml-1 origin-left bg-gray-800 type-text
-                               absolute left-2 top-1/2 -translate-y-1/2 transition-all duration-200 transform
-                               peer-focus:bg-transparent peer-focus:top-1 peer-focus:scale-75
-                               peer-valid:bg-transparent peer-valid:top-1 peer-valid:scale-75
-                               peer-invalid:top-1/2 peer-invalid:scale-100">Item Type</label>
+                        <label for="itype" class="floating-label">Item Type</label>
                     </div>
                     <label for="exacttype" class="block my-2 type-text">
                         <input id="exacttype" type="checkbox" class="mr-2" checked.bind="exclusiveType">Exact Type Only
                     </label>
                 </div>
-            <div class="w-auto min-w-50 px-2">
-                <div class="relative mb-2">
-                    <input id="tokensearch"
-                           class="peer w-full bg-gray-800 border-1 border-gray-600 ring-0 focus:ring-0 focus:border-gray-400 rounded-lg type-text z-0"
-                           type="text" value.bind="search" required/>
-                    <label for="tokensearch"
-                           class="pointer-events-none z-10 ml-1 origin-left bg-gray-800
-                               absolute left-2 top-1/2 -translate-y-1/2 transition-all duration-200 transform
-                               peer-focus:bg-transparent peer-focus:top-1 peer-focus:scale-75
-                               peer-valid:bg-transparent peer-valid:top-1 peer-valid:scale-75
-                               peer-invalid:top-1/2 peer-invalid:scale-100">Filter by Input</label>
+                <div class="w-auto min-w-50 px-2">
+                    <div class="relative mb-2">
+                        <input id="tokensearch"
+                               class="peer w-full bg-gray-800 border-1 border-gray-600 ring-0 focus:ring-0 focus:border-gray-400 rounded-lg type-text z-0"
+                               type="text" value.bind="search" required/>
+                        <label for="tokensearch" class="floating-label">Filter by Input</label>
+                    </div>
+                </div>
+                <div class="w-auto px-2 flex flex-nowrap">
+                    <div class="min-w-32 relative mr-2">
+                        <select id="minrlvl" class="select-base peer" value.bind="minRequiredLevel" required>
+                            <option repeat.for="opt of rLevelOptions" value.bind="opt.value">${opt.label}</option>
+                        </select>
+                        <label for="minrlvl" class="floating-label">Min rLvl</label>
+                    </div>
+                    <div class="min-w-32 relative ml-2">
+                        <select id="maxrlvl" class="select-base peer" value.bind="maxRequiredLevel" required>
+                            <option repeat.for="opt of rLevelOptions" value.bind="opt.value">${opt.label}</option>
+                        </select>
+                        <label for="maxrlvl" class="floating-label">Max rLvl</label>
+                    </div>
+                    <div class="w-auto min-w-38 px-2">
+                        <div class="mb-2">
+                            <button id="filterreset"
+                                    class="w-full h-10.5 bg-red-900 hover:bg-red-600 border border-gray-600 hover:border-gray-400 type-text rounded-lg p-2"
+                                    type="button" click.trigger="resetFilters()">Reset Filters
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="w-auto px-2 flex flex-nowrap">
-                <div class="min-w-32 relative mr-2">
-                    <select id="minrlvl"
-                            class="peer w-full bg-gray-800 border-1 border-gray-600 ring-0 focus:ring-0 focus:border-gray-400 rounded-lg type-text z-0"
-                            value.bind="minRequiredLevel" required>
-                        <option value="">Any</option>
-                        <option repeat.for="opt of rLevelOptions" value.bind="opt.value">${opt.label}</option>
-                    </select>
-                    <label for="minrlvl"
-                           class="pointer-events-none z-10 ml-1 origin-left bg-gray-800 type-text
-                       absolute left-2 top-1/2 -translate-y-1/2 transition-all duration-200 transform
-                       peer-focus:bg-transparent peer-focus:top-1 peer-focus:scale-75
-                       peer-valid:bg-transparent peer-valid:top-1 peer-valid:scale-75
-                       peer-invalid:top-1/2 peer-invalid:scale-100">Min rLvl</label>
-                </div>
-                <div class="min-w-32 relative ml-2">
-                    <select id="maxrlvl"
-                            class="peer w-full bg-gray-800 border-1 border-gray-600 ring-0 focus:ring-0 focus:border-gray-400 rounded-lg type-text z-0"
-                            value.bind="maxRequiredLevel" required>
-                        <option value="">Any</option>
-                        <option repeat.for="opt of rLevelOptions" value.bind="opt.value">${opt.label}</option>
-                    </select>
-                    <label for="maxrlvl"
-                           class="pointer-events-none z-10 ml-1 origin-left bg-gray-800 type-text
-                       absolute left-2 top-1/2 -translate-y-1/2 transition-all duration-200 transform
-                       peer-focus:bg-transparent peer-focus:top-1 peer-focus:scale-75
-                       peer-valid:bg-transparent peer-valid:top-1 peer-valid:scale-75
-                       peer-invalid:top-1/2 peer-invalid:scale-100">Max rLvl</label>
-                </div>
-                <div class="w-auto min-w-32 px-2">
-                <div class="mb-2">
-                    <button id="filterreset"
-                            class="w-full bg-red-900 hover:bg-red-600 border border-gray-600 hover:border-gray-400 type-text rounded-lg p-2"
-                            type="button" click.trigger="resetFilters()">Reset Filters
-                    </button>
-                </div>
-            </div>
-        </div>
-        </div>
         </div>
     </search-area>
 

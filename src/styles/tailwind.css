@@ -16,7 +16,40 @@ nav details > summary::marker {
     content: '';
 }
 
+/* Base label style use: class="floating-label" */
+@utility floating-label {
+    @apply pointer-events-none z-10 ml-1 origin-left
+    absolute left-2 top-1/2 -translate-y-1/2
+    transform transition-all duration-200
+    bg-gray-800 type-text;
+}
 
+@layer utilities {
+    /* Default resting state: centered over the input */
+    .peer:invalid ~ .floating-label {
+        @apply top-1/2 -translate-y-1/2 scale-100;
+    }
+
+    /* Float/shrink when focused or valid (focus should win even if invalid) */
+    .peer:focus ~ .floating-label,
+    .peer:focus:invalid ~ .floating-label,
+    .peer:valid ~ .floating-label {
+        @apply bg-transparent top-1 -translate-y-2/5 scale-75;
+    }
+}
+
+/* Base select style use: class="select-base peer" */
+@utility select-base {
+    @apply w-full rounded-lg z-0 ring-0
+    bg-gray-800 border border-gray-600 type-text;
+}
+
+.select-base:focus {
+    @apply ring-0 border-gray-400;
+}
+
+
+/* Text Colors */
 
 .link-text {
     color: #f0f0f0
@@ -50,7 +83,7 @@ nav details > summary::marker {
     color: #e84a4a;
 }
 
-.type-text{
+@utility type-text {
     color: #f0f0f0;
 }
 
