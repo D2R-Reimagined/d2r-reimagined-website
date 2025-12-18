@@ -218,8 +218,8 @@ const TooltipManager = (() => {
         clickHide: () => {
             clearIdle(rec);
             t.hide();
-            // Prevent the tooltip from reappearing for 1 second after a click
-            rec.suppressedUntil = Date.now() + 650;
+            // Prevent the tooltip from reappearing for .4 seconds after a click
+            rec.suppressedUntil = Date.now() + 400;
         },
         idleTimer: null,
         suppressedUntil: 0,
