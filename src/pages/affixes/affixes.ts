@@ -12,6 +12,7 @@ import { debounce, IDebouncedFunction } from '../../utilities/debounce';
 import {
     prependTypeResetOption,
     swapMinMax,
+    tokenizeSearch,
     toOptionalNumber,
 } from '../../utilities/filter-helpers';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
@@ -295,8 +296,7 @@ export class Affixes {
     }
 
     applyFilters() {
-        const q = (this.search || '').trim().toLowerCase();
-        const tokens = q.length ? q.split(/\s+/) : [];
+        const tokens = tokenizeSearch(this.search);
         const hasQuery = tokens.length > 0;
 
         const selectedGroups: Set<number> | undefined = this

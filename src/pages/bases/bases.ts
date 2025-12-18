@@ -8,7 +8,7 @@ import {
     type_filtering_options,
 } from '../../resources/constants';
 import { getDamageTypeString as getDamageTypeStringUtil } from '../../utilities/damage-types';
-import { prependTypeResetOption } from '../../utilities/filter-helpers';
+import { prependTypeResetOption, tokenizeSearch } from '../../utilities/filter-helpers';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 import armorsJson from '../item-jsons/armors.json';
 import weaponsJson from '../item-jsons/weapons.json';
@@ -225,8 +225,7 @@ export class Bases {
 
     // Grouping, search, type/tier/socket all mirror existing logic
     get filteredAndGrouped() {
-        const searchRaw = (this.search || '').trim().toLowerCase();
-        const searchTokens = searchRaw.length ? searchRaw.split(/\s+/) : [];
+        const searchTokens = tokenizeSearch(this.search);
         const typeFilter = this.selectedType;
         const tierFilter = this.selectedTier;
         const sockets = this.selectedSockets;

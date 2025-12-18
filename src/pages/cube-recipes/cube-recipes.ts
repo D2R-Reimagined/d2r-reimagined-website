@@ -1,6 +1,7 @@
 import { bindable, watch } from 'aurelia';
 
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
+import { tokenizeSearch } from '../../utilities/filter-helpers';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 import v2json from '../item-jsons/cube_recipes_v2.json';
 
@@ -280,8 +281,7 @@ export class CubeRecipes {
     }
 
     handleSearch() {
-        const termRaw = (this.search || '').trim().toLowerCase();
-        const tokens = termRaw.length ? termRaw.split(/\s+/) : [];
+        const tokens = tokenizeSearch(this.search);
         const selectedNote = (this.selectedNote || '').toLowerCase();
         const selectedClass = (this.selectedClass || '').toLowerCase();
 

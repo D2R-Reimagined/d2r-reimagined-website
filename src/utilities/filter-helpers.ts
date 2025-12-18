@@ -60,14 +60,15 @@ export function swapMinMax<T extends number | undefined>(
     return [min, max];
 }
 
-/** Tokenize a search string into lowercase terms, splitting by alphanumeric boundaries. */
+/** Tokenize a search string into lowercase terms. Splits only by ',' or '|'. */
 export function tokenizeSearch(input: string | undefined | null): string[] {
     const raw = (input || '').trim().toLowerCase();
     if (!raw) return [];
-    // Replace all non-alphanumeric with spaces, collapse whitespace
-    const cleaned = raw.replace(/[^a-z0-9]+/g, ' ').trim();
-    if (!cleaned) return [];
-    return cleaned.split(/\s+/);
+    // Split only by ',' or '|'
+    return raw
+        .split(/[,|]/)
+        .map((s) => s.trim())
+        .filter(Boolean);
 }
 
 /** Check if an item is 'vanilla' based on its Vanilla property (usually 'Y'). */
