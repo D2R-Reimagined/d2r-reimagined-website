@@ -2205,8 +2205,8 @@
         ],
         "Types": [
             {
-                "Name": "Druid Item",
-                "Index": "Druid Item",
+                "Name": "Pelt",
+                "Index": "Pelt",
                 "Class": "dru"
             }
         ],
@@ -3345,8 +3345,8 @@
         ],
         "Types": [
             {
-                "Name": "Barbarian Item",
-                "Index": "Barbarian Item",
+                "Name": "Primal Helm",
+                "Index": "Primal Helm",
                 "Class": "bar"
             }
         ],
@@ -4110,8 +4110,8 @@
         ],
         "Types": [
             {
-                "Name": "Paladin Item",
-                "Index": "Paladin Item",
+                "Name": "Auric Shields",
+                "Index": "Auric Shields",
                 "Class": "pal"
             }
         ],
@@ -8612,8 +8612,8 @@
         ],
         "Types": [
             {
-                "Name": "Paladin Item",
-                "Index": "Paladin Item",
+                "Name": "Auric Shields",
+                "Index": "Auric Shields",
                 "Class": "pal"
             }
         ],
@@ -8701,8 +8701,8 @@
         ],
         "Types": [
             {
-                "Name": "Barbarian Item",
-                "Index": "Barbarian Item",
+                "Name": "Primal Helm",
+                "Index": "Primal Helm",
                 "Class": "bar"
             }
         ],
@@ -9947,8 +9947,8 @@
         ],
         "Types": [
             {
-                "Name": "Necromancer Item",
-                "Index": "Necromancer Item",
+                "Name": "Voodoo Heads",
+                "Index": "Voodoo Heads",
                 "Class": "nec"
             }
         ],
@@ -12295,8 +12295,8 @@
         ],
         "Types": [
             {
-                "Name": "Paladin Item",
-                "Index": "Paladin Item",
+                "Name": "Auric Shields",
+                "Index": "Auric Shields",
                 "Class": "pal"
             }
         ],
@@ -17541,8 +17541,8 @@
         ],
         "Types": [
             {
-                "Name": "Druid Item",
-                "Index": "Druid Item",
+                "Name": "Pelt",
+                "Index": "Pelt",
                 "Class": "dru"
             }
         ],
@@ -18313,8 +18313,8 @@
         ],
         "Types": [
             {
-                "Name": "Barbarian Item",
-                "Index": "Barbarian Item",
+                "Name": "Primal Helm",
+                "Index": "Primal Helm",
                 "Class": "bar"
             }
         ],

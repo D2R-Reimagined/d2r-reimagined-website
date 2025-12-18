@@ -8040,7 +8040,7 @@
         ],
         "Properties": [
           {
-            "PropertyString": "+32-34 to Passive and Magic Skills (Amazon Only)",
+            "PropertyString": "+1 Random Skill Tab (Barbarian Only)",
             "ModChance": 100,
             "Index": 0
           },
@@ -8106,7 +8106,7 @@
         ],
         "Properties": [
           {
-            "PropertyString": "+8-10 to Passive and Magic Skills (Amazon Only)",
+            "PropertyString": "+1 Random Skill Tab (Sorceress Only)",
             "ModChance": 100,
             "Index": 0
           },
@@ -8172,7 +8172,7 @@
         ],
         "Properties": [
           {
-            "PropertyString": "+0-2 to Passive and Magic Skills (Amazon Only)",
+            "PropertyString": "+1 Random Skill Tab (Amazon Only)",
             "ModChance": 100,
             "Index": 0
           },
@@ -8238,7 +8238,7 @@
         ],
         "Properties": [
           {
-            "PropertyString": "+16-18 to Passive and Magic Skills (Amazon Only)",
+            "PropertyString": "+1 Random Skill Tab (Necromancer Only)",
             "ModChance": 100,
             "Index": 0
           },
@@ -8304,7 +8304,7 @@
         ],
         "Properties": [
           {
-            "PropertyString": "+24-26 to Passive and Magic Skills (Amazon Only)",
+            "PropertyString": "+1 Random Skill Tab (Paladin Only)",
             "ModChance": 100,
             "Index": 0
           },
@@ -8370,7 +8370,7 @@
         ],
         "Properties": [
           {
-            "PropertyString": "+40-42 to Passive and Magic Skills (Amazon Only)",
+            "PropertyString": "+1 Random Skill Tab (Druid Only)",
             "ModChance": 100,
             "Index": 0
           },
@@ -8436,7 +8436,7 @@
         ],
         "Properties": [
           {
-            "PropertyString": "+48-50 to Passive and Magic Skills (Amazon Only)",
+            "PropertyString": "+1 Random Skill Tab (Assassin Only)",
             "ModChance": 100,
             "Index": 0
           },
@@ -8502,7 +8502,7 @@
         ],
         "Properties": [
           {
-            "PropertyString": "+32-34 to Passive and Magic Skills (Amazon Only)",
+            "PropertyString": "+1 Random Skill Tab (Barbarian Only)",
             "ModChance": 100,
             "Index": 0
           },
@@ -8568,7 +8568,7 @@
         ],
         "Properties": [
           {
-            "PropertyString": "+8-10 to Passive and Magic Skills (Amazon Only)",
+            "PropertyString": "+1 Random Skill Tab (Sorceress Only)",
             "ModChance": 100,
             "Index": 0
           },
@@ -8634,7 +8634,7 @@
         ],
         "Properties": [
           {
-            "PropertyString": "+0-2 to Passive and Magic Skills (Amazon Only)",
+            "PropertyString": "+1 Random Skill Tab (Amazon Only)",
             "ModChance": 100,
             "Index": 0
           },
@@ -8700,7 +8700,7 @@
         ],
         "Properties": [
           {
-            "PropertyString": "+16-18 to Passive and Magic Skills (Amazon Only)",
+            "PropertyString": "+1 Random Skill Tab (Necromancer Only)",
             "ModChance": 100,
             "Index": 0
           },
@@ -8766,7 +8766,7 @@
         ],
         "Properties": [
           {
-            "PropertyString": "+24-26 to Passive and Magic Skills (Amazon Only)",
+            "PropertyString": "+1 Random Skill Tab (Paladin Only)",
             "ModChance": 100,
             "Index": 0
           },
@@ -8832,7 +8832,7 @@
         ],
         "Properties": [
           {
-            "PropertyString": "+40-42 to Passive and Magic Skills (Amazon Only)",
+            "PropertyString": "+1 Random Skill Tab (Druid Only)",
             "ModChance": 100,
             "Index": 0
           },
@@ -8898,7 +8898,7 @@
         ],
         "Properties": [
           {
-            "PropertyString": "+48-50 to Passive and Magic Skills (Amazon Only)",
+            "PropertyString": "+1 Random Skill Tab (Assassin Only)",
             "ModChance": 100,
             "Index": 0
           },
@@ -15313,7 +15313,7 @@
         ],
         "Properties": [
           {
-            "PropertyString": "+48-50 to Passive and Magic Skills (Amazon Only)",
+            "PropertyString": "+1 Random Skill Tab (Assassin Only)",
             "ModChance": 100,
             "Index": 0
           }
@@ -15374,7 +15374,7 @@
         ],
         "Properties": [
           {
-            "PropertyString": "+32-34 to Passive and Magic Skills (Amazon Only)",
+            "PropertyString": "+1 Random Skill Tab (Barbarian Only)",
             "ModChance": 100,
             "Index": 0
           }
@@ -15435,7 +15435,7 @@
         ],
         "Properties": [
           {
-            "PropertyString": "+8-10 to Passive and Magic Skills (Amazon Only)",
+            "PropertyString": "+1 Random Skill Tab (Sorceress Only)",
             "ModChance": 100,
             "Index": 0
           }
@@ -15496,7 +15496,7 @@
         ],
         "Properties": [
           {
-            "PropertyString": "+40-42 to Passive and Magic Skills (Amazon Only)",
+            "PropertyString": "+1 Random Skill Tab (Druid Only)",
             "ModChance": 100,
             "Index": 0
           }
@@ -15557,7 +15557,7 @@
         ],
         "Properties": [
           {
-            "PropertyString": "+16-18 to Passive and Magic Skills (Amazon Only)",
+            "PropertyString": "+1 Random Skill Tab (Necromancer Only)",
             "ModChance": 100,
             "Index": 0
           }
@@ -15618,7 +15618,7 @@
         ],
         "Properties": [
           {
-            "PropertyString": "+0-2 to Passive and Magic Skills (Amazon Only)",
+            "PropertyString": "+1 Random Skill Tab (Amazon Only)",
             "ModChance": 100,
             "Index": 0
           }
@@ -15679,7 +15679,7 @@
         ],
         "Properties": [
           {
-            "PropertyString": "+24-26 to Passive and Magic Skills (Amazon Only)",
+            "PropertyString": "+1 Random Skill Tab (Paladin Only)",
             "ModChance": 100,
             "Index": 0
           }

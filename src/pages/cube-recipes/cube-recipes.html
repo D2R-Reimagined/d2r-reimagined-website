@@ -1,40 +1,69 @@
 <template>
-    <h3 class="text-center my-4">
+    <h3 class="text-lg type-text text-center mx-auto my-4">
         <span class="rarity-text">${recipes.length}</span> Recipes Found
     </h3>
+
     <search-area>
-        <div class="max-w-11/12 m-auto px-4">
-            <div class="flex flex-wrap justify-center items-start">
+        <div class="w-full m-auto px-5 py-2">
+            <div class="flex flex-wrap justify-center items-start gap-2">
 
-                <div class="w-full lg:w-auto lg:min-w-70 px-2">
-                    <div class="relative mb-2">
-                        <select id="notesel" class="select-base peer" value.bind="selectedNote" required>
-                            <option repeat.for="opt of noteOptions" value.bind="opt.value">${opt.label}</option>
-                        </select>
-                        <label for="notesel" class="floating-label">Recipe Type</label>
+                <div class="w-full lg:w-auto lg:min-w-60"
+                     data-help-text="Filter recipes by type (reroll, upgrade, craft, etc.).">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <select id="notesel" class="select-base peer" value.bind="selectedNote">
+                                <option repeat.for="opt of noteOptions" value.bind="opt.value">${opt.label}</option>
+                            </select>
+                            <label for="notesel" class="floating-label">Select Recipe Type</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="notesel">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Recipe Type filter</span>
+                        </button>
                     </div>
                 </div>
 
-                <div class="w-full lg:w-auto lg:min-w-70 px-2">
-                    <div class="relative mb-2">
-                        <select id="ficlass" class="select-base peer" value.bind="selectedClass" required>
-                            <option repeat.for="opt of classOptions" value.bind="opt.value">${opt.label}</option>
-                        </select>
-                        <label for="ficlass" class="floating-label">Select Class</label>
+                <div class="w-full lg:w-auto lg:min-w-60"
+                     data-help-text="Filter recipes by character class. note: These are all the same for each class but grant class-specific skills on use.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <select id="ficlass" class="select-base peer" value.bind="selectedClass">
+                                <option repeat.for="opt of classOptions" value.bind="opt.value">${opt.label}</option>
+                            </select>
+                            <label for="ficlass" class="floating-label">Select Class</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="ficlass">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Class filter</span>
+                        </button>
                     </div>
                 </div>
 
-                <div class="w-full lg:w-auto lg:min-w-70 px-2">
-                    <div class="relative mb-2">
-                        <input id="inputsearch" class="select-base peer" type="text" value.bind="search" required/>
-                        <label for="inputsearch" class="floating-label">Filter by Input</label>
+                <div class="w-full lg:w-60"
+                     data-help-text="Search across all fields. Uses (space) as an 'AND' modifier. ex: Typing sorc skill mana will return items with only all 3 words.">
+                    <div class="flex items-stretch">
+                        <div class="trailing-icon flex-1" data-icon="search">
+                            <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search"
+                                   placeholder=" "/>
+                            <label for="inputsearch" class="floating-label">Search...</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="inputsearch">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Search</span>
+                        </button>
                     </div>
                 </div>
 
-                <div class="w-full lg:w-auto lg:min-w-35 px-2">
-                    <div class="mb-2">
-                        <button class="button-base" type="button" click.trigger="resetFilters()">
-                            Reset Filters
+                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Reset all filters to default.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <button id="resetfilters" class="button-base" type="button" click.trigger="resetFilters()">
+                                Reset Filters
+                            </button>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="resetfilters">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Reset Filters</span>
                         </button>
                     </div>
                 </div>
@@ -43,35 +72,38 @@
         </div>
     </search-area>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">
-        <div class="bg-gray-800 rounded-lg shadow p-2" repeat.for="recipe of recipes">
-            <div class="bg-gray-800 rounded">
-                <div class="mb-1 unique-text">
-                    ${recipe.Description}
+    <div class="card-container">
+        <div class="card-box card-vis" repeat.for="recipe of recipes">
+
+            <div class="mb-1  text-xl unique-text">
+                ${recipe.Description}
+            </div>
+
+            <div class="text-base requirement-text" if.bind="recipe.Class">
+                (${recipe.Class} Only)
+            </div>
+
+            <div class="text-base type-text" repeat.for="inp of recipe.Inputs">
+                ${inp}
+            </div>
+
+            <div class="my-1 text-xl unique-text">
+                ==========
+            </div>
+
+            <div class="mb-1 last:mb-0" repeat.for="blk of recipe.OutputBlocks">
+                <div class="text-base type-text">
+                    ${blk.lineOne}
                 </div>
-                <div class="requirement-text" if.bind="recipe.Class">
-                    (${recipe.Class} Only)
+                <div repeat.for="prop of blk.properties" class="text-base prop-text">
+                    ${prop}
                 </div>
-                <div class="type-text" repeat.for="inp of recipe.Inputs">
-                    ${inp}
-                </div>
-                <div class="my-1 unique-text">
-                    =====
-                </div>
-                <div class="mt-1">
-                    <div class="output-block" repeat.for="blk of recipe.OutputBlocks">
-                        <div class="output-title">
-                            ${blk.lineOne}
-                        </div>
-                        <div repeat.for="prop of blk.properties" class="prop-text output-prop">
-                            ${prop}
-                        </div>
-                        <div if.bind="blk.chanceText" class="requirement-text output-prop">
-                            ${blk.chanceText}
-                        </div>
-                    </div>
+                <div if.bind="blk.chanceText" class="text-base requirement-text">
+                    ${blk.chanceText}
                 </div>
             </div>
         </div>
+
     </div>
+
 </template>

@@ -1,7 +1,7 @@
 import { bindable, watch } from 'aurelia';
-import { isBlankOrInvalid } from '../../utilities/url-sanitize';
 
-import { debounce, DebouncedFunction } from '../../utilities/debounce';
+import { debounce, IDebouncedFunction } from '../../utilities/debounce';
+import { isBlankOrInvalid } from '../../utilities/url-sanitize';
 import v2json from '../item-jsons/cube_recipes_v2.json';
 
 type V2Input = {
@@ -50,7 +50,7 @@ type OutputBlock = {
 type DisplayRecipe = {
     // Keeping legacy field names so the existing template keeps working
     Description: string;
-    // Optional class restriction/label coming from the recipe JSON
+    // Optional selectedClass restriction/label coming from the recipe JSON
     Class?: string;
     // Joined strings for rendering/searching (kept for backwards compatibility)
     Input: string; // e.g. "1 x Amulet, Corrupted + 1 x Orb of Corruption"
@@ -84,10 +84,12 @@ function mapV2ToDisplay(recipes: V2Recipe[]): DisplayRecipe[] {
         return name.startsWith('Return');
     };
 
-    return (recipes || []).map(r => {
+    return (recipes || []).map((r) => {
         // Compute special chance text for "orb of corruption recipe" notes
-        const hasOrbOfCorruptionNote = (r.Notes ?? []).some(n =>
-            typeof n === 'string' && n.toLowerCase().includes('orb of corruption recipe')
+        const hasOrbOfCorruptionNote = (r.Notes ?? []).some(
+            (n) =>
+                typeof n === 'string' &&
+                n.toLowerCase().includes('orb of corruption recipe'),
         );
 
         let chanceText: string | undefined;
@@ -118,7 +120,7 @@ function mapV2ToDisplay(recipes: V2Recipe[]): DisplayRecipe[] {
             }
         }
         // Inputs (include qualifiers as modifiers)
-        const inputsArr = (r.Inputs ?? []).map(inp => {
+        const inputsArr = (r.Inputs ?? []).map((inp) => {
             const base = toQtyName(inp.Quantity, inp.Name);
             const qStr = joinQualifiers(inp.Qualifiers);
             return qStr ? `${base}, ${qStr}` : base;
@@ -136,10 +138,14 @@ function mapV2ToDisplay(recipes: V2Recipe[]): DisplayRecipe[] {
                     ? `${out.Name ?? ''}`.trim()
                     : toQtyName(out.Quantity, out.Name);
                 const qStr = joinQualifiers(out.Qualifiers);
-                const props = (out.Properties ?? []).map(p => p.PropertyString).filter(Boolean);
+                const props = (out.Properties ?? [])
+                    .map((p) => p.PropertyString)
+                    .filter(Boolean);
                 const withQual = qStr ? `${base}, ${qStr}` : base;
                 // Append properties after a comma without extra parentheses wrapper
-                const withProps = props.length ? `${withQual}, ${props.join('; ')}` : withQual;
+                const withProps = props.length
+                    ? `${withQual}, ${props.join('; ')}`
+                    : withQual;
                 outputsArr.push(withProps);
 
                 // Build structured block
@@ -183,7 +189,7 @@ export class CubeRecipes {
     noteOptions: Array<{ value: string | undefined; label: string }> = [];
     classOptions: Array<{ value: string | undefined; label: string }> = [];
 
-    private _debouncedSearchItem!: DebouncedFunction;
+    private _debouncedSearchItem!: IDebouncedFunction;
 
     binding() {
         // Build dropdown options from the existing data set
@@ -191,8 +197,8 @@ export class CubeRecipes {
             const noteSet = new Set<string>();
             const classSet = new Set<string>();
             for (const r of this.allRecipes) {
-                const raw = r._raw as V2Recipe | undefined;
-                for (const n of (raw?.Notes ?? [])) {
+                const raw = r._raw;
+                for (const n of raw?.Notes ?? []) {
                     const t = String(n || '').trim();
                     if (t) noteSet.add(t);
                 }
@@ -201,47 +207,65 @@ export class CubeRecipes {
             }
             const noteList = Array.from(noteSet).sort((a, b) => a.localeCompare(b));
             const classList = Array.from(classSet).sort((a, b) => a.localeCompare(b));
-            this.noteOptions = [{ value: '' as any, label: '-' }, ...noteList.map(n => ({ value: n, label: n }))];
-            this.classOptions = [{ value: '' as any, label: '-' }, ...classList.map(c => ({ value: c, label: c }))];
+            this.noteOptions = [
+                { value: '', label: '-' },
+                ...noteList.map((n) => ({ value: n, label: n })),
+            ];
+            this.classOptions = [
+                { value: '', label: '-' },
+                ...classList.map((c) => ({ value: c, label: c })),
+            ];
         } catch {
-            this.noteOptions = [{ value: '' as any, label: '-' }];
-            this.classOptions = [{ value: '' as any, label: '-' }];
+            this.noteOptions = [{ value: '', label: '-' }];
+            this.classOptions = [{ value: '', label: '-' }];
         }
 
         // Read query parameters from URL when component is initialized
         const urlParams = new URLSearchParams(window.location.search);
         const searchParam = urlParams.get('search');
-        if (searchParam && !isBlankOrInvalid(searchParam)) this.search = searchParam;
+        if (searchParam && !isBlankOrInvalid(searchParam))
+            this.search = searchParam;
 
         const noteParam = urlParams.get('note');
-        if (noteParam && !isBlankOrInvalid(noteParam)) this.selectedNote = noteParam;
+        if (noteParam && !isBlankOrInvalid(noteParam))
+            this.selectedNote = noteParam;
 
-        const classParam = urlParams.get('class');
-        if (classParam && !isBlankOrInvalid(classParam)) this.selectedClass = classParam;
+        const classParam = urlParams.get('selectedClass');
+        if (classParam && !isBlankOrInvalid(classParam))
+            this.selectedClass = classParam;
     }
 
     attached() {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-        this._debouncedSearchItem = debounce(this.handleSearch.bind(this), 350);
+        this._debouncedSearchItem = debounce(() => this.handleSearch(), 350);
         // Run initial filter pass based on any URL params
         this.handleSearch();
     }
 
     @watch('search')
     handleSearchChanged() {
-        this._debouncedSearchItem();
+        if (this._debouncedSearchItem) {
+            this._debouncedSearchItem();
+        }
         this.updateUrl();
     }
 
     @watch('selectedNote')
     handleSelectedNoteChanged() {
-        this.handleSearch();
+        if (this._debouncedSearchItem) {
+            this._debouncedSearchItem();
+        } else {
+            this.handleSearch();
+        }
         this.updateUrl();
     }
 
     @watch('selectedClass')
     handleSelectedClassChanged() {
-        this.handleSearch();
+        if (this._debouncedSearchItem) {
+            this._debouncedSearchItem();
+        } else {
+            this.handleSearch();
+        }
         this.updateUrl();
     }
 
@@ -250,14 +274,17 @@ export class CubeRecipes {
     private updateUrl() {
         // Update URL with current filters without page reload
         const url = new URL(window.location.href);
-        if (this.search && this.search.trim() !== '') url.searchParams.set('search', this.search);
+        if (this.search && this.search.trim() !== '')
+            url.searchParams.set('search', this.search);
         else url.searchParams.delete('search');
 
-        if (this.selectedNote && String(this.selectedNote).trim() !== '') url.searchParams.set('note', String(this.selectedNote));
+        if (this.selectedNote && String(this.selectedNote).trim() !== '')
+            url.searchParams.set('note', String(this.selectedNote));
         else url.searchParams.delete('note');
 
-        if (this.selectedClass && String(this.selectedClass).trim() !== '') url.searchParams.set('class', String(this.selectedClass));
-        else url.searchParams.delete('class');
+        if (this.selectedClass && String(this.selectedClass).trim() !== '')
+            url.searchParams.set('selectedClass', String(this.selectedClass));
+        else url.searchParams.delete('selectedClass');
 
         window.history.pushState({}, '', url.toString());
     }
@@ -275,7 +302,7 @@ export class CubeRecipes {
 
         const found: DisplayRecipe[] = [];
         for (const recipe of this.allRecipes) {
-            // Filter by class (exact match)
+            // Filter by selectedClass (exact match)
             if (selectedClass) {
                 const rc = (recipe.Class || '').toLowerCase();
                 if (rc !== selectedClass) continue;
@@ -283,17 +310,23 @@ export class CubeRecipes {
 
             // Filter by note (exact match among raw note array)
             if (selectedNote) {
-                const notes = (recipe._raw?.Notes || []).map(n => String(n || '').toLowerCase());
+                const notes = (recipe._raw?.Notes || []).map((n) =>
+                    String(n || '').toLowerCase(),
+                );
                 if (!notes.includes(selectedNote)) continue;
             }
 
             // Text search (tokenized AND across inputs, outputs, and description)
             if (tokens.length) {
                 const desc = (recipe.Description || '').toLowerCase();
-                const inp = [recipe.Input || '', ...(recipe.Inputs || [])].join(' ').toLowerCase();
-                const out = [recipe.Output || '', ...(recipe.Outputs || [])].join(' ').toLowerCase();
+                const inp = [recipe.Input || '', ...(recipe.Inputs || [])]
+                    .join(' ')
+                    .toLowerCase();
+                const out = [recipe.Output || '', ...(recipe.Outputs || [])]
+                    .join(' ')
+                    .toLowerCase();
                 const haystack = [inp, out, desc].filter(Boolean).join(' ');
-                if (!tokens.every(t => haystack.includes(t))) continue;
+                if (!tokens.every((t) => haystack.includes(t))) continue;
             }
 
             found.push(recipe);

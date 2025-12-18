@@ -2,7 +2,7 @@
 // Data: itemtypes.txt (D2R Reimagined mod). Parents from Equiv1/Equiv2.
 // Notes: heavy lookups are precomputed; helpers are cycle-safe and allocation-light.
 
-export interface ItemTypeNode {
+export interface IItemTypeNode {
     // Human-friendly name (itemtypes.txt: ItemType)
     name: string;
     // Short code (itemtypes.txt: Code)
@@ -12,7 +12,7 @@ export interface ItemTypeNode {
 }
 
 // Types and their relationships
-export const ITEM_TYPES: ReadonlyArray<ItemTypeNode> = [
+export const ITEM_TYPES: ReadonlyArray<IItemTypeNode> = [
     // High-level categories
     { name: 'Any', code: '' },
     { name: 'None', code: 'none' },
@@ -83,7 +83,7 @@ export const ITEM_TYPES: ReadonlyArray<ItemTypeNode> = [
     { name: 'Assassin Item', code: 'assn', parents: ['Class Specific'] },
     { name: 'Druid Item', code: 'drui', parents: ['Class Specific'] },
 
-    // Class specific weapons
+    // Class-specific weapons
     { name: 'Amazon Bow', code: 'abow', parents: ['Amazon Item', 'Bow', 'Missile Weapon', 'Weapon'] },
     { name: 'Amazon Spear', code: 'aspe', parents: ['Amazon Item', 'Spear', 'Melee Weapon', 'Weapon'] },
     { name: 'Amazon Javelin', code: 'ajav', parents: ['Amazon Item', 'Javelin', 'Melee Weapon', 'Weapon'] },
@@ -121,23 +121,14 @@ export const ITEM_TYPES: ReadonlyArray<ItemTypeNode> = [
     { name: 'Magic Xbow Quiv', code: 'mxbq', parents: ['Crossbow Bolts'] },
 ];
 
-export const ITEM_TYPE_BY_NAME = new Map<string, ItemTypeNode>(
-    ITEM_TYPES.map((t) => [t.name, t])
-);
+export const ITEM_TYPE_BY_NAME = new Map<string, IItemTypeNode>(ITEM_TYPES.map((t) => [t.name, t]));
 
-export const ITEM_TYPE_BY_CODE = new Map<string, ItemTypeNode>(
-    ITEM_TYPES.map((t) => [t.code, t])
-);
+export const ITEM_TYPE_BY_CODE = new Map<string, IItemTypeNode>(ITEM_TYPES.map((t) => [t.code, t]));
 
 // Case-insensitive name lookup to tolerate minor casing differences in JSON sources
-export const ITEM_TYPE_BY_NAME_LC = new Map<string, ItemTypeNode>(
-    ITEM_TYPES.map((t) => [t.name.toLowerCase(), t])
-);
+export const ITEM_TYPE_BY_NAME_LC = new Map<string, IItemTypeNode>(ITEM_TYPES.map((t) => [t.name.toLowerCase(), t]));
 
-// ---------------------------------------------
 // Precomputed caches for performance
-// ---------------------------------------------
-
 // Cache of chains: name -> [name, parent, grandparent, ...]
 const CHAIN_CACHE = new Map<string, readonly string[]>();
 
@@ -154,8 +145,12 @@ for (const t of ITEM_TYPES) {
 for (const t of ITEM_TYPES) {
     const parents = PARENTS_MAP.get(t.name) || [];
     for (const p of parents) {
-        if (!CHILDREN_MAP.has(p)) CHILDREN_MAP.set(p, []);
-        CHILDREN_MAP.get(p)!.push(t.name);
+        let arr = CHILDREN_MAP.get(p);
+        if (!arr) {
+            arr = [];
+            CHILDREN_MAP.set(p, arr);
+        }
+        arr.push(t.name);
     }
 }
 
@@ -165,26 +160,29 @@ for (const t of ITEM_TYPES) {
  * that parent and its chain (excluding duplicates), preserving declaration order.
  */
 function computeChain(name: string, outerSeen?: Set<string>): readonly string[] {
-    if (CHAIN_CACHE.has(name)) return CHAIN_CACHE.get(name)!;
+    const cached = CHAIN_CACHE.get(name);
+    if (cached) return cached;
 
     const node = ITEM_TYPE_BY_NAME.get(name);
     if (!node) {
-        // Unknown name: treat as empty chain to avoid surprising matches.
-        CHAIN_CACHE.set(name, Object.freeze([]));
-        return CHAIN_CACHE.get(name)!;
+        // Unknown name: treat as an empty chain to avoid surprising matches.
+        const empty: readonly string[] = Object.freeze([]);
+        CHAIN_CACHE.set(name, empty);
+        return empty;
     }
 
     const seen = outerSeen ?? new Set<string>();
     if (seen.has(name)) {
         // Cycle guard: stop here.
-        CHAIN_CACHE.set(name, Object.freeze([name]));
-        return CHAIN_CACHE.get(name)!;
+        const selfOnly: readonly string[] = Object.freeze([name]);
+        CHAIN_CACHE.set(name, selfOnly);
+        return selfOnly;
     }
     seen.add(name);
 
     const chain: string[] = [name];
     const parents = PARENTS_MAP.get(name) || [];
-    // Follow primary (nearest) parent chain first
+    // Follow the primary (nearest) parent chain first
     if (parents.length > 0) {
         const first = parents[0];
         if (!seen.has(first)) {
@@ -213,9 +211,9 @@ function computeChain(name: string, outerSeen?: Set<string>): readonly string[] 
     return frozen;
 }
 
-/** Type chain: [name, parent, ...]. Example: 'Axe' -> ['Axe','Melee Weapon','Weapon']. Memoized. */
+/** Type chain: [name, parent, ...]. Example: 'Axe' -> ['Axe','Melee Weapon', 'Weapon']. Memoized. */
 export function getTypeChain(name: string): string[] {
-    return computeChain(name).slice(); // return a shallow copy to keep cache immutable
+    return computeChain(name).slice(); // return a shallow copy to keep the cache immutable
 }
 
 /** Map a raw game type name to its chain using the canonical graph when possible. */
@@ -227,30 +225,22 @@ export function getChainForTypeName(rawName: string): string[] {
     return node ? getTypeChain(node.name) : [raw];
 }
 
-export interface FilterOption {
+export interface IFilterOption {
     label: string;
     // Optional so placeholder entries can leave the bound model undefined
     value?: string[];
 }
 
 // Class aggregate bases; only show when the aggregate itself exists in page data.
-const CLASS_AGGREGATE_BASES = new Set<string>([
-    'Amazon Item',
-    'Barbarian Item',
-    'Necromancer Item',
-    'Paladin Item',
-    'Sorceress Item',
-    'Assassin Item',
-    'Druid Item',
-]);
+const CLASS_AGGREGATE_BASES = new Set<string>(['Amazon Item', 'Barbarian Item', 'Necromancer Item', 'Paladin Item', 'Sorceress Item', 'Assassin Item', 'Druid Item']);
 
-// Build a FilterOption from an ItemType name and optional extra parents
+// Build an IFilterOption from an ItemType name and optional extra parents
 export function makeTypeOption(
     label: string,
     baseTypeName?: string,
     extraParents: string[] = [],
-    exactBaseOnly: boolean = false
-): FilterOption {
+    exactBaseOnly: boolean = false,
+): IFilterOption {
     // Placeholder: return undefined value so UI can default to "-"
     if (!baseTypeName) return { label, value: undefined };
 
@@ -287,12 +277,14 @@ export function resolveBaseTypeName(rawName: string): string {
 const DESCENDANTS_MAP = new Map<string, readonly string[]>();
 
 function computeDescendants(name: string): readonly string[] {
-    if (DESCENDANTS_MAP.has(name)) return DESCENDANTS_MAP.get(name)!;
+    const cached = DESCENDANTS_MAP.get(name);
+    if (cached) return cached;
 
     const visited = new Set<string>();
     const stack: string[] = (CHILDREN_MAP.get(name) || []).slice();
     while (stack.length) {
-        const child = stack.pop()!;
+        const child = stack.pop();
+        if (!child) continue;
         if (visited.has(child)) continue;
         visited.add(child);
         const grandchildren = CHILDREN_MAP.get(child);
@@ -332,11 +324,11 @@ export function getDescendantBaseNames(baseTypeName: string): string[] {
  * names not part of that base chain are considered extras.
  */
 export function buildOptionsForPresentTypes(
-    preset: ReadonlyArray<FilterOption>,
+    preset: ReadonlyArray<IFilterOption>,
     presentBaseNames: ReadonlySet<string>,
-    opts?: { dedupeByBase?: boolean; preferLabelStartsWith?: string }
-): FilterOption[] {
-    const result: FilterOption[] = [];
+    opts?: { dedupeByBase?: boolean; preferLabelStartsWith?: string },
+): IFilterOption[] {
+    const result: IFilterOption[] = [];
 
     // Build a closure set that includes present bases and all their parents (using cached chains)
     const presentClosure = new Set<string>();
@@ -366,7 +358,7 @@ export function buildOptionsForPresentTypes(
 
         // Triggers for inclusion:
         // - Simple (no extras): include ONLY if the option's base itself is present in data (not just parents)
-        // - Aggregate (has extras): include if the base is present OR any explicit extras are present (parents allowed via closure)
+        // - Aggregate (has extras): include it if the base is present OR any explicit extras are present (parents allowed via closure)
         // - Class aggregates: include only when the aggregate itself is directly present
         let include: boolean;
         if (CLASS_AGGREGATE_BASES.has(base)) {
@@ -377,21 +369,24 @@ export function buildOptionsForPresentTypes(
             include = presentBaseNames.has(base);
             if (!include) {
                 for (let k = 0; k < extras.length; k++) {
-                    if (presentClosure.has(extras[k])) { include = true; break; }
+                    if (presentClosure.has(extras[k])) {
+                        include = true;
+                        break;
+                    }
                 }
             }
         }
         if (include) result.push(opt);
     }
 
-    // Optional: de-duplicate options that share the same base token (value[0]).
+    // Optional: deduplicate options that share the same base token (value[0]).
     // Useful on pages where selection/URL are based solely on the base, making
     // entries like 'Helm' and 'Any Helm' indistinguishable. When enabled, we
     // keep at most one per base, preferring labels that start with a prefix
     // such as 'Any ' when provided.
     if (opts && opts.dedupeByBase) {
         const prefer = opts.preferLabelStartsWith || '';
-        const kept: FilterOption[] = [];
+        const kept: IFilterOption[] = [];
         const byBase = new Map<string, number>();
         for (let i = 0; i < result.length; i++) {
             const opt = result[i];
@@ -401,19 +396,19 @@ export function buildOptionsForPresentTypes(
                 continue;
             }
             const base = opt.value[0];
-            if (!byBase.has(base)) {
+            const existingIdx = byBase.get(base);
+            if (existingIdx === undefined) {
                 byBase.set(base, kept.length);
                 kept.push(opt);
             } else {
-                const idx = byBase.get(base)!;
-                const current = kept[idx];
-                const currLabel = (current?.label || '');
-                const nextLabel = (opt.label || '');
+                const current = kept[existingIdx];
+                const currLabel = current?.label || '';
+                const nextLabel = opt.label || '';
                 const currPreferred = prefer && currLabel.startsWith(prefer);
                 const nextPreferred = prefer && nextLabel.startsWith(prefer);
-                // Replace only if the new one is preferred and the current is not
+                // Replace it only if the new one is preferred and the current is not
                 if (!currPreferred && nextPreferred) {
-                    kept[idx] = opt;
+                    kept[existingIdx] = opt;
                 }
                 // Otherwise keep existing (preserve first occurrence/order)
             }
@@ -424,9 +419,9 @@ export function buildOptionsForPresentTypes(
     return result;
 }
 
-// Reusable options for type filtering. Compared against JSON types to t/f display of type in dropdown.
-export const type_filtering_options: ReadonlyArray<FilterOption> = [
-    // Aggregate types
+// Reusable options for type filtering. Compared against JSON types to t/f display of a type in the dropdown.
+export const type_filtering_options: ReadonlyArray<IFilterOption> = [
+    // Aggregate the types
     // Any Armor should include all armor descendants (Body Armor, Helm, Circlet, Shields, Gloves, Boots, Belt, class shields/helms, etc.)
     makeTypeOption('Any Armor', 'Any Armor', getDescendantBaseNames('Any Armor')),
     // Any Helm should include Helm itself plus Circlet, Primal Helm, and Pelt
@@ -472,13 +467,13 @@ export const type_filtering_options: ReadonlyArray<FilterOption> = [
     // Quivers and Bolts: base on the non-magic types and include their descendants (magic quivers)
     makeTypeOption('Bow Quiver', 'Bow Quiver', getDescendantBaseNames('Bow Quiver')),
     makeTypeOption('Crossbow Bolts', 'Crossbow Bolts', getDescendantBaseNames('Crossbow Bolts')),
-    //Class Specific
+    // Class Specific
     // Class-specific leaf types must match ONLY themselves by default on pages without an "Exact" toggle
     // (Bases, Uniques, Sets). Runewords inherits parents via its own filtering logic and parent selections.
     makeTypeOption('Amazon Javelin', 'Amazon Javelin', [], true),
     makeTypeOption('Amazon Bow', 'Amazon Bow', [], true),
     makeTypeOption('Amazon Spear', 'Amazon Spear', [], true),
-    makeTypeOption('Assassin Weapon', 'Hand to Hand', [], true),
+    makeTypeOption('Assassin Claw', 'Hand to Hand', [], true),
     makeTypeOption('Barbarian Helm', 'Primal Helm', [], true),
     makeTypeOption('Druid Helm', 'Pelt', [], true),
     makeTypeOption('Necromancer Shield', 'Voodoo Heads', [], true),
@@ -487,10 +482,10 @@ export const type_filtering_options: ReadonlyArray<FilterOption> = [
 ];
 
 // Utility lookups (optional)
-export function findTypeByName(name: string): ItemTypeNode | undefined {
+export function findTypeByName(name: string): IItemTypeNode | undefined {
     return ITEM_TYPE_BY_NAME.get(name);
 }
 
-export function findTypeByCode(code: string): ItemTypeNode | undefined {
+export function findTypeByCode(code: string): IItemTypeNode | undefined {
     return ITEM_TYPE_BY_CODE.get(code);
 }

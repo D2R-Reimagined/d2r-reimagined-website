@@ -32,26 +32,19 @@ import { route } from '@aurelia/router';
             path: 'grail',
             component: import('./pages/grail/grail'),
             title: 'Holy Grail',
-        }
-        ,
-        {
-            path: 'armors',
-            component: import('./pages/bases/armors'),
-            title: 'Armor Bases',
         },
         {
-            path: 'weapons',
-            component: import('./pages/bases/weapons'),
-            title: 'Weapon Bases',
+            path: 'bases',
+            component: import('./pages/bases/bases'),
+            title: 'Bases',
         },
         {
             path: 'affixes',
             component: import('./pages/affixes/affixes'),
             title: 'Affixes',
-        }
-    ]
+        },
+    ],
 })
-
 export class App {
     fonts: Font[] = [
         { class: 'font-classic', name: 'Classic' },
@@ -62,12 +55,18 @@ export class App {
     // UI state for back-to-top visibility
     showBackToTop = false;
 
+    // UI state for font dropdown visibility
+    fontMenuOpen = false;
+
+    // Selected font (class) reflected to bindings for labels/tooltips
+    selectedFontClass: string = 'font-resurrected';
+
     // Internals for back-to-top monitoring
     private _bt_lastScrollEl?: HTMLElement;
     private _bt_bound = false;
     private _bt_ticking = false;
 
-    // Global document click handler to close the font <details> when clicking outside
+    // Global document click handler to close popovers/menus when clicking outside
     private _onDocClick?: (ev: MouseEvent) => void;
 
     attached() {
@@ -76,17 +75,35 @@ export class App {
         // Initial computation
         this.updateBackToTopVisibility();
 
-        // Close the font selection list when clicking anywhere outside of it
+        // Close menus when clicking anywhere outside them
         this._onDocClick = (ev: MouseEvent) => {
-            const details = document.querySelector('nav details') as HTMLDetailsElement | null;
-            if (!details) return;
-            // Only act when the dropdown is currently open
-            if (!details.hasAttribute('open')) return;
             const target = ev.target as Node | null;
-            // If the click was inside the <details>, ignore it
-            if (target && details.contains(target)) return;
-            // Otherwise, close the dropdown
-            details.removeAttribute('open');
+
+            // 1) Close the font dropdown when clicking outside
+            if (this.fontMenuOpen) {
+                const menuHost = document.querySelector('nav .font-menu');
+                const clickInsideMenu = !!(
+                    target &&
+          menuHost &&
+          menuHost.contains(target)
+                );
+                if (!clickInsideMenu) {
+                    this.closeFontMenu();
+                }
+            }
+
+            // 2) Close the mobile menu when clicking outside the panel and its toggle button
+            const panel = document.getElementById('navbar-sticky');
+            const toggle = document.querySelector(
+                'nav button[aria-controls="navbar-sticky"]',
+            );
+            if (panel && !panel.classList.contains('hidden')) {
+                const clickInsidePanel = !!(target && panel.contains(target));
+                const clickOnToggle = !!(target && toggle && toggle.contains(target));
+                if (!clickInsidePanel && !clickOnToggle) {
+                    this.closeMobileMenu();
+                }
+            }
         };
         // Use capture to ensure we run before other handlers that might stop propagation
         document.addEventListener('click', this._onDocClick, true);
@@ -98,7 +115,7 @@ export class App {
     }
 
     detached() {
-        // Clean up the global click listener
+    // Clean up the global click listener
         if (this._onDocClick) {
             document.removeEventListener('click', this._onDocClick, true);
             this._onDocClick = undefined;
@@ -106,44 +123,77 @@ export class App {
     }
 
     /**
-     * Handles font selection from the dropdown and safely closes the <details> element.
-     * Using a single method avoids multi‑statement binding expressions that Aurelia disallows.
-     */
-    selectFont(font: Font, event?: Event) {
+   * Handles font selection from the dropdown and closes the custom menu.
+   */
+    selectFont(font: Font) {
         this.handleFontSelected(font);
-        // Close the <details> dropdown if the event came from within it
-        const target = event?.target as HTMLElement | undefined;
-        const details = target?.closest('details') as HTMLDetailsElement | null;
-        if (details) {
-            details.removeAttribute('open');
-        }
-        // Also close the mobile nav panel if it is open
+        this.closeFontMenu();
         this.closeMobileMenu();
     }
 
     /**
-     * Closes the mobile navigation panel by adding the 'hidden' class back to the container.
-     */
+   * Open/close helpers for the font dropdown
+   */
+    closeFontMenu() {
+        this.fontMenuOpen = false;
+    }
+
+    toggleFontMenu() {
+        this.fontMenuOpen = !this.fontMenuOpen;
+    }
+
+    /**
+   * Toggle the mobile navigation panel visibility and sync aria-expanded on the button.
+   */
+    toggleMobileMenu(btn?: EventTarget | null) {
+        const panel = document.getElementById('navbar-sticky');
+        if (!panel) return;
+
+        panel.classList.toggle('hidden');
+        const expanded = !panel.classList.contains('hidden');
+
+        const button = (
+      btn instanceof HTMLElement
+          ? btn
+          : document.querySelector('nav button[aria-controls="navbar-sticky"]')
+    ) as HTMLButtonElement | null;
+        if (button) {
+            button.setAttribute('aria-expanded', expanded.toString());
+        }
+    }
+
+    /**
+   * Closes the mobile navigation panel by adding the 'hidden' class back to the container.
+   */
     closeMobileMenu() {
-        const panel = document.getElementById('navbarSupportedContent');
+        const panel = document.getElementById('navbar-sticky');
         if (panel && !panel.classList.contains('hidden')) {
             panel.classList.add('hidden');
+        }
+        // Ensure the hamburger button reflects the collapsed state
+        const toggle = document.querySelector(
+            'nav button[aria-controls="navbar-sticky"]',
+        );
+        if (toggle) {
+            toggle.setAttribute('aria-expanded', 'false');
         }
     }
 
     loadFont() {
-        const selectedFont = window.localStorage.getItem('font') || 'font-resurrected';
+        const selectedFont =
+      window.localStorage.getItem('font') || 'font-resurrected';
+        this.selectedFontClass = selectedFont;
         if (selectedFont) {
-            const allClasses = this.fonts.map(font => font.class);
+            const allClasses = this.fonts.map((font) => font.class);
             document.body.classList.remove(...allClasses);
             document.body.classList.add(selectedFont);
         }
     }
 
     /**
-     * Find the active scroll container used by the current route. Some pages
-     * scroll the window; others place content inside a scrollable container.
-     */
+   * Find the active scroll container used by the current route. Some pages
+   * scroll the window; others place content inside a scrollable container.
+   */
     private getScrollContainer(): HTMLElement | Document | undefined {
         const viewportEl = document.querySelector('au-viewport');
         const isScrollable = (el: Element | null): el is HTMLElement => {
@@ -151,11 +201,13 @@ export class App {
             const cs = getComputedStyle(el);
             const oy = cs.overflowY;
             if (oy !== 'auto' && oy !== 'scroll') return false;
-            return (el.scrollHeight - 1) > el.clientHeight;
+            return el.scrollHeight - 1 > el.clientHeight;
         };
-        let node: HTMLElement | null = viewportEl ? viewportEl.parentElement : null;
+        // Walk up from the au-viewport's parent using Element typing and only
+        // return when we positively narrow to an HTMLElement that is scrollable.
+        let node: Element | null = viewportEl ? viewportEl.parentElement : null;
         while (node && node !== document.body) {
-            if (isScrollable(node)) return node;
+            if (node instanceof HTMLElement && isScrollable(node)) return node;
             node = node.parentElement;
         }
         // Fall back to document scrolling
@@ -163,8 +215,12 @@ export class App {
     }
 
     private hasNativeSmoothScroll(): boolean {
-        // Most engines expose 'scrollBehavior' on documentElement.style when supported
-        return 'scrollBehavior' in (document.documentElement.style as any);
+    // Most engines expose 'scrollBehavior' on documentElement.style when supported
+        const style = document.documentElement.style as unknown as Record<
+      string,
+      unknown
+    >;
+        return 'scrollBehavior' in style;
     }
 
     private easeOutCubic(t: number) {
@@ -172,7 +228,11 @@ export class App {
     }
 
     private animateWindowToTop(duration = 400) {
-        const start = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        const start =
+      window.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0;
         if (start <= 0) return;
         const startTs = performance.now();
         const step = (ts: number) => {
@@ -199,17 +259,23 @@ export class App {
     }
 
     /**
-     * Scroll back to the top of the page, regardless of which element is the
-     * actual scroll root. Uses smooth scrolling when available.
-     */
+   * Scroll back to the top of the page, regardless of which element is the
+   * actual scroll root. Uses smooth scrolling when available.
+   */
     scrollToTop() {
         const scroller = this.getScrollContainer();
-        const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const reduceMotion =
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const duration = reduceMotion ? 0 : 400;
 
         // Window: use native smooth when available, else manual fallback
         if (this.hasNativeSmoothScroll() && duration > 0) {
-            try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch { window.scrollTo(0, 0); }
+            try {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } catch {
+                window.scrollTo(0, 0);
+            }
         } else if (duration > 0) {
             this.animateWindowToTop(duration);
         } else {
@@ -236,14 +302,20 @@ export class App {
 
     // ---- Back-to-top show/hide monitoring ----
     private getWindowScrollTop(): number {
-        return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        return (
+            window.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0
+        );
     }
 
     private updateBackToTopVisibility() {
         const el = this.getScrollContainer();
         const elTop = el && el instanceof HTMLElement ? el.scrollTop : 0;
         const scrollTop = Math.max(this.getWindowScrollTop(), elTop || 0);
-        const viewportH = el && el instanceof HTMLElement ? el.clientHeight : window.innerHeight;
+        const viewportH =
+      el && el instanceof HTMLElement ? el.clientHeight : window.innerHeight;
         const threshold = Math.max(viewportH * 2.5, 800);
         this.showBackToTop = scrollTop > threshold;
         this._bt_ticking = false;
@@ -260,7 +332,7 @@ export class App {
         if (this._bt_bound) return;
         this._bt_bound = true;
 
-        // Always monitor window
+        // Always monitor a window
         window.addEventListener('scroll', this.onAnyScroll, { passive: true });
         window.addEventListener('resize', this.onAnyScroll);
 
@@ -277,20 +349,32 @@ export class App {
         if (observeTarget) {
             const mo = new MutationObserver(() => {
                 const current = this.getScrollContainer();
-                const currentEl = current && current instanceof HTMLElement ? current : undefined;
+                const currentEl =
+          current && current instanceof HTMLElement ? current : undefined;
                 if (currentEl !== this._bt_lastScrollEl) {
-                    if (this._bt_lastScrollEl) this._bt_lastScrollEl.removeEventListener('scroll', this.onAnyScroll);
-                    if (currentEl) currentEl.addEventListener('scroll', this.onAnyScroll, { passive: true });
+                    if (this._bt_lastScrollEl)
+                        this._bt_lastScrollEl.removeEventListener(
+                            'scroll',
+                            this.onAnyScroll,
+                        );
+                    if (currentEl)
+                        currentEl.addEventListener('scroll', this.onAnyScroll, {
+                            passive: true,
+                        });
                     this._bt_lastScrollEl = currentEl;
                 }
                 this.onAnyScroll();
             });
-            mo.observe(observeTarget, { attributes: true, childList: true, subtree: true });
+            mo.observe(observeTarget, {
+                attributes: true,
+                childList: true,
+                subtree: true,
+            });
         }
     }
 }
 
 type Font = {
-    class: string;
-    name: string;
+  class: string;
+  name: string;
 };

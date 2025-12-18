@@ -2508,7 +2508,7 @@
         "UberCode": "dr6",
         "UltraCode": "drb",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -2535,7 +2535,7 @@
         "UberCode": "dr7",
         "UltraCode": "drc",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -2562,7 +2562,7 @@
         "UberCode": "dr8",
         "UltraCode": "drd",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -2589,7 +2589,7 @@
         "UberCode": "dr9",
         "UltraCode": "dre",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -2616,7 +2616,7 @@
         "UberCode": "dra",
         "UltraCode": "drf",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -2643,7 +2643,7 @@
         "UberCode": "ba6",
         "UltraCode": "bab",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -2670,7 +2670,7 @@
         "UberCode": "ba7",
         "UltraCode": "bac",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -2697,7 +2697,7 @@
         "UberCode": "ba8",
         "UltraCode": "bad",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -2724,7 +2724,7 @@
         "UberCode": "ba9",
         "UltraCode": "bae",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -2751,7 +2751,7 @@
         "UberCode": "baa",
         "UltraCode": "baf",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": ""
     },
     {
         "DamageString": "2 to 6",
@@ -2865,7 +2865,7 @@
         "UberCode": "pa6",
         "UltraCode": "pab",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": ""
     },
     {
         "DamageString": "2 to 8",
@@ -2979,7 +2979,7 @@
         "UberCode": "pa7",
         "UltraCode": "pac",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": ""
     },
     {
         "DamageString": "3 to 9",
@@ -3093,7 +3093,7 @@
         "UberCode": "pa8",
         "UltraCode": "pad",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": ""
     },
     {
         "DamageString": "4 to 10",
@@ -3207,7 +3207,7 @@
         "UberCode": "pa9",
         "UltraCode": "pae",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": ""
     },
     {
         "DamageString": "4 to 12",
@@ -3321,7 +3321,7 @@
         "UberCode": "paa",
         "UltraCode": "paf",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -3386,7 +3386,7 @@
         "UberCode": "ne6",
         "UltraCode": "neb",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -3451,7 +3451,7 @@
         "UberCode": "ne7",
         "UltraCode": "neg",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -3516,7 +3516,7 @@
         "UberCode": "ne8",
         "UltraCode": "ned",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -3581,7 +3581,7 @@
         "UberCode": "ne9",
         "UltraCode": "nee",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -3646,7 +3646,7 @@
         "UberCode": "nea",
         "UltraCode": "nef",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -5023,7 +5023,7 @@
         "UberCode": "dr6",
         "UltraCode": "drb",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -5050,7 +5050,7 @@
         "UberCode": "dr7",
         "UltraCode": "drc",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -5077,7 +5077,7 @@
         "UberCode": "dr8",
         "UltraCode": "drd",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -5104,7 +5104,7 @@
         "UberCode": "dr9",
         "UltraCode": "dre",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -5131,7 +5131,7 @@
         "UberCode": "dra",
         "UltraCode": "drf",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -5158,7 +5158,7 @@
         "UberCode": "ba6",
         "UltraCode": "bab",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -5185,7 +5185,7 @@
         "UberCode": "ba7",
         "UltraCode": "bac",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -5212,7 +5212,7 @@
         "UberCode": "ba8",
         "UltraCode": "bad",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -5239,7 +5239,7 @@
         "UberCode": "ba9",
         "UltraCode": "bae",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -5266,7 +5266,7 @@
         "UberCode": "baa",
         "UltraCode": "baf",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": ""
     },
     {
         "DamageString": "12 to 16",
@@ -5380,7 +5380,7 @@
         "UberCode": "pa6",
         "UltraCode": "pab",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": ""
     },
     {
         "DamageString": "15 to 20",
@@ -5494,7 +5494,7 @@
         "UberCode": "pa7",
         "UltraCode": "pac",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": ""
     },
     {
         "DamageString": "18 to 24",
@@ -5608,7 +5608,7 @@
         "UberCode": "pa8",
         "UltraCode": "pad",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": ""
     },
     {
         "DamageString": "20 to 28",
@@ -5722,7 +5722,7 @@
         "UberCode": "pa9",
         "UltraCode": "pae",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": ""
     },
     {
         "DamageString": "24 to 32",
@@ -5836,7 +5836,7 @@
         "UberCode": "paa",
         "UltraCode": "paf",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -5901,7 +5901,7 @@
         "UberCode": "ne6",
         "UltraCode": "neb",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -5966,7 +5966,7 @@
         "UberCode": "ne7",
         "UltraCode": "neg",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -6031,7 +6031,7 @@
         "UberCode": "ne8",
         "UltraCode": "ned",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -6096,7 +6096,7 @@
         "UberCode": "ne9",
         "UltraCode": "nee",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -6161,7 +6161,7 @@
         "UberCode": "nea",
         "UltraCode": "nef",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -6188,7 +6188,7 @@
         "UberCode": "dr6",
         "UltraCode": "drb",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -6215,7 +6215,7 @@
         "UberCode": "dr7",
         "UltraCode": "drc",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -6242,7 +6242,7 @@
         "UberCode": "dr8",
         "UltraCode": "drd",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -6269,7 +6269,7 @@
         "UberCode": "dr9",
         "UltraCode": "dre",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -6296,7 +6296,7 @@
         "UberCode": "dra",
         "UltraCode": "drf",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -6323,7 +6323,7 @@
         "UberCode": "ba6",
         "UltraCode": "bab",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -6350,7 +6350,7 @@
         "UberCode": "ba7",
         "UltraCode": "bac",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -6377,7 +6377,7 @@
         "UberCode": "ba8",
         "UltraCode": "bad",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -6404,7 +6404,7 @@
         "UberCode": "ba9",
         "UltraCode": "bae",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -6431,7 +6431,7 @@
         "UberCode": "baa",
         "UltraCode": "baf",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": ""
     },
     {
         "DamageString": "22 to 70",
@@ -6545,7 +6545,7 @@
         "UberCode": "pa6",
         "UltraCode": "pab",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": ""
     },
     {
         "DamageString": "35 to 58",
@@ -6659,7 +6659,7 @@
         "UberCode": "pa7",
         "UltraCode": "pac",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": ""
     },
     {
         "DamageString": "10 to 82",
@@ -6773,7 +6773,7 @@
         "UberCode": "pa8",
         "UltraCode": "pad",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": ""
     },
     {
         "DamageString": "46",
@@ -6887,7 +6887,7 @@
         "UberCode": "pa9",
         "UltraCode": "pae",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": ""
     },
     {
         "DamageString": "5 to 87",
@@ -7001,7 +7001,7 @@
         "UberCode": "paa",
         "UltraCode": "paf",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -7066,7 +7066,7 @@
         "UberCode": "ne6",
         "UltraCode": "neb",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -7131,7 +7131,7 @@
         "UberCode": "ne7",
         "UltraCode": "neg",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -7196,7 +7196,7 @@
         "UberCode": "ne8",
         "UltraCode": "ned",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -7261,7 +7261,7 @@
         "UberCode": "ne9",
         "UltraCode": "nee",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": ""
     },
     {
         "DamageString": null,
@@ -7326,6 +7326,6 @@
         "UberCode": "nea",
         "UltraCode": "nef",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": ""
     }
 ]

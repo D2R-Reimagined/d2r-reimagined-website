@@ -1,72 +1,117 @@
 <template>
-    <h3 class="text-center my-4">
+    <h3 class="text-lg type-text text-center mx-auto mt-4">
+        <span class="text-lg set-text">Green text </span>are included item types.
+    </h3>
+    <h3 class="text-lg type-text text-center mx-auto mb-4">
+        <span class="text-lg requirement-text">Red text </span>are excluded item types.
+    </h3>
+    <h3 class="text-lg type-text text-center mx-auto my-4">
         <span class="rarity-text">${filteredAffixes.length}</span> Magic Affixes Found
     </h3>
 
     <search-area>
-        <div class="max-w-11/12 m-auto px-4">
-            <div class="flex flex-wrap justify-center items-start">
+        <div class="w-full m-auto px-5 py-2">
+            <div class="flex flex-wrap justify-center items-start gap-2">
 
-                <div class="w-full lg:w-auto lg:min-w-70 px-2">
-                    <div class="relative mb-2">
-                        <select id="ptype" class="select-base peer" value.bind="selectedPType" required>
-                            <option repeat.for="opt of pTypeOptions" value.bind="opt.value"> ${opt.label}</option>
-                        </select>
-                        <label for="ptype" class="floating-label">Prefix/Suffix</label>
+                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Choose between prefixes, suffixes, or both.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <select id="ptype" class="select-base peer" value.bind="selectedPType">
+                                <option repeat.for="opt of pTypeOptions" value.bind="opt.value"> ${opt.label}</option>
+                            </select>
+                            <label for="ptype" class="floating-label">Select Affix Type</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="ptype">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Affix Type filter</span>
+                        </button>
                     </div>
                 </div>
 
-                <div class="w-full lg:w-auto lg:min-w-70 px-2">
-                    <div class="relative mb-2">
-                        <select id="desc" class="select-base peer" value.bind="selectedGroupDescription" required>
-                            <option repeat.for="opt of groupOptions" value.bind="opt.value"> ${opt.label}</option>
-                        </select>
-                        <label for="desc" class="floating-label">
-                            Property Type</label>
+                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Filter by property group (e.g., Damage, Defense, Utility). Note: Still WIP some may be incorrect.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <select id="desc" class="select-base peer" value.bind="selectedGroupDescription">
+                                <option repeat.for="opt of groupOptions" value.bind="opt.value"> ${opt.label}</option>
+                            </select>
+                            <label for="desc" class="floating-label">
+                                Select Property Type</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="desc">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Property Type filter</span>
+                        </button>
                     </div>
                 </div>
 
-                <div class="w-full lg:w-auto lg:min-w-70 px-2">
-                    <div class="relative mb-2">
-                        <select id="itype" class="select-base peer" value.bind="selectedType" required>
+                <div class="w-full lg:w-auto lg:min-w-60 flex flex-nowrap" data-help-text="Filter by base item type. Toggle ‘Exact’ to remove variants.">
+                    <div class="w-full relative">
+                        <select id="itype" class="select-base-exact peer" value.bind="selectedType">
                             <option repeat.for="opt of types"
                                     value.bind="opt.value && opt.value.length ? opt.value[0] : ''">${opt.label}
                             </option>
                         </select>
-                        <label for="itype" class="floating-label">Item Type</label>
+                        <label for="itype" class="floating-label">Select Item Type</label>
                     </div>
-                    <div class="flex mb-2">
-                        <input id="exacttype" type="checkbox" class="check-base" checked.bind="exclusiveType">
-                        <label for="exacttype" class="block type-text ml-1">Exact Type Only </label>
+                    <div class="flex items-center">
+                        <button
+                                type="button"
+                                class="exact-button"
+                                aria-pressed.bind="exclusiveType"
+                                click.trigger="exclusiveType = !exclusiveType">
+                            <span class="exact-indicator"></span>
+                            Exact
+                        </button>
+                    </div>
+                    <button type="button" class="m-info-button" aria-expanded="false" data-info-for="itype">
+                        <span class="mso">info</span>
+                        <span class="sr-only">More info about Item Type filter</span>
+                    </button>
+                </div>
+
+                <div class="w-full lg:w-60" data-help-text="Search across all fields. Uses (space) as an 'AND' modifier. ex: Typing sorc skill mana will return items with only all 3 words.">
+                    <div class="flex items-stretch">
+                        <div class="trailing-icon flex-1" data-icon="search">
+                            <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search"
+                                   placeholder=" "/>
+                            <label for="inputsearch" class="floating-label">Search...</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="inputsearch">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Search</span>
+                        </button>
                     </div>
                 </div>
 
-                <div class="w-full lg:w-auto lg:min-w-70 px-2">
-                    <div class="relative mb-2">
-                        <input id="tokensearch" class="select-base peer" type="text" value.bind="search" required/>
-                        <label for="tokensearch" class="floating-label">Filter by Input</label>
-                    </div>
-                </div>
-
-                <div class="w-full lg:w-auto lg:min-w-70 px-2 flex flex-nowrap">
-                    <div class="w-full relative mb-2 mr-2">
-                        <select id="minrlvl" class="select-base peer" value.bind="minRequiredLevel" required>
+                <div class="w-full flex flex-nowrap gap-2 lg:w-auto lg:min-w-60" data-help-text="Filter by required level range. The min and max values will update each other if they overlap.">
+                    <div class="w-full relative">
+                        <select id="minrlvl" class="select-base peer" value.bind="minRequiredLevel">
                             <option repeat.for="opt of rLevelOptions" value.bind="opt.value">${opt.label}</option>
                         </select>
-                        <label for="minrlvl" class="floating-label">Min rLvl</label>
+                        <label for="minrlvl" class="floating-label">Min RLv</label>
                     </div>
-                    <div class="w-full relative mb-2 ml-2">
-                        <select id="maxrlvl" class="select-base peer" value.bind="maxRequiredLevel" required>
+                    <div class="w-full relative">
+                        <select id="maxrlvl" class="select-base peer" value.bind="maxRequiredLevel">
                             <option repeat.for="opt of rLevelOptions" value.bind="opt.value">${opt.label}</option>
                         </select>
-                        <label for="maxrlvl" class="floating-label">Max rLvl</label>
+                        <label for="maxrlvl" class="floating-label">Max RLv</label>
                     </div>
+                    <button type="button" class="m-info-button ml-0!" aria-expanded="false" data-info-for="minrlvl">
+                        <span class="mso">info</span>
+                        <span class="sr-only">More info about Required Level filters</span>
+                    </button>
                 </div>
 
-                <div class="w-full lg:w-auto lg:min-w-35 px-2">
-                    <div class="mb-2">
-                        <button id="filterreset" class="button-base" type="button" click.trigger="resetFilters()">
-                            Reset Filters
+                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Reset all filters to default.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <button id="filterreset" class="button-base" type="button" click.trigger="resetFilters()">
+                                Reset Filters
+                            </button>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="filterreset">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Reset Filters</span>
                         </button>
                     </div>
                 </div>
@@ -75,24 +120,32 @@
         </div>
     </search-area>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">
-        <div class="bg-gray-800 rounded-lg shadow p-2" repeat.for="affix of filteredAffixes">
-            <div class="flex justify-between items-center">
-                <div class="prop-text mt-1 ml-1">${affix.Name}</div>
-                <div class="type-text mt-1 mr-1">${affix.PType}</div>
+    <div class="card-container">
+        <div class="card-box card-vis" repeat.for="affix of filteredAffixes">
+
+                <div class="flex justify-between items-center">
+                    <div class="text-lg prop-text mt-1 ml-1">${affix.Name}</div>
+                    <div class="text-lg type-text mt-1 mr-1">${affix.PType}</div>
+                </div>
+
+                <div class="text-base requirement-text mb-1">
+                    Level ${affix.RequiredLevel >0? affix.RequiredLevel: 1} Required
+                </div>
+
+                <div class="text-base type-text mb-1" if.bind="affix.Level">
+                    Affix Level ${affix.Level}${affix.MaxLevel ? '-' + affix.MaxLevel : ''}
+                </div>
+
+                <div class="flex flex-wrap justify-center" if.bind="affix.Types && affix.Types.length">
+                    <span class="text-base set-text mx-1" repeat.for="t of affix.Types">${t}</span>
+                </div>
+
+                <div class="flex flex-wrap justify-center" if.bind="affix.ETypes && affix.ETypes.length">
+                    <span class="text-base requirement-text mx-1" repeat.for="et of affix.ETypes">${et}</span>
+                </div>
+
+                <div class="text-base prop-text my-1" repeat.for="prop of affix.Properties">${prop.PropertyString}</div>
+
             </div>
-            <div class="requirement-text mb-1">Level ${affix.RequiredLevel > 0 ? affix.RequiredLevel : 1} Required
-            </div>
-            <div class="type-text mb-1" if.bind="affix.Level">Affix Level ${affix.Level}${affix.MaxLevel ? ' - ' +
-                affix.MaxLevel : ''}
-            </div>
-            <div class="flex flex-wrap justify-center" if.bind="affix.Types && affix.Types.length">
-                <span class="set-text mx-1" repeat.for="t of affix.Types">${t}</span>
-            </div>
-            <div class="flex flex-wrap justify-center" if.bind="affix.ETypes && affix.ETypes.length">
-                <span class="requirement-text mx-1" repeat.for="et of affix.ETypes">${et}</span>
-            </div>
-            <div class="prop-text my-1" repeat.for="prop of affix.Properties">${prop.PropertyString}</div>
         </div>
-    </div>
 </template>

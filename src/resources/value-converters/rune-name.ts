@@ -49,11 +49,11 @@ export class RuneNameValueConverter {
             case 'Um Rune':
                 return 'Um (22)';
             case 'Mal Rune':
-                return 'Mal (23)';  
+                return 'Mal (23)';
             case 'Ist Rune':
                 return 'Ist (24)';
             case 'Gul Rune':
-                return 'Gul (25)';  
+                return 'Gul (25)';
             case 'Vex Rune':
                 return 'Vex (26)';
             case 'Ohm Rune':

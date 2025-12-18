@@ -1,51 +1,68 @@
 import { bindable, watch } from 'aurelia';
+
+import {
+    buildOptionsForPresentTypes,
+    getChainForTypeName,
+    IFilterOption,
+    resolveBaseTypeName,
+    type_filtering_options,
+} from '../../resources/constants/item-type-filters';
+import { debounce, IDebouncedFunction } from '../../utilities/debounce';
+import {
+    prependTypeResetOption,
+    swapMinMax,
+    toOptionalNumber,
+} from '../../utilities/filter-helpers';
 import { isBlankOrInvalid } from '../../utilities/url-sanitize';
-import { debounce, DebouncedFunction } from '../../utilities/debounce';
-import { toOptionalNumber, prependTypeResetOption, swapMinMax } from '../../utilities/filter-helpers';
 import prefixes from '../item-jsons/magicprefix.json';
 import suffixes from '../item-jsons/magicsuffix.json';
 import propertyGroups from '../item-jsons/property_groups.json';
-import {
-    type_filtering_options,
-    getChainForTypeName,
-    buildOptionsForPresentTypes,
-    resolveBaseTypeName,
-    FilterOption
-} from '../../resources/constants/item-type-filters';
 
 type PType = 'Prefix' | 'Suffix';
 
-interface PropertyGroupEntry {
+interface IPropertyGroupEntry {
     group: number;
     items: { description: string }[];
 }
 
+// Minimal shape for affix JSON items used by this page.
+// We only type the fields we read to avoid over-constraining the data.
+interface IAffixItem {
+    Name?: string;
+    PType: PType;
+    Group?: number;
+    Types?: Array<string | number>;
+    ETypes?: Array<string | number>;
+    RequiredLevel?: number | string;
+    Properties?: Array<{ PropertyString?: string }>;
+}
+
 export class Affixes {
     // Data
-    allAffixes: any[] = [];
-    filteredAffixes: any[] = [];
+    allAffixes: IAffixItem[] = [];
+    filteredAffixes: IAffixItem[] = [];
 
     // Search text
     @bindable search: string;
-    private _debouncedFilter!: DebouncedFunction;
+    private _debouncedFilter!: IDebouncedFunction;
 
     // Prefix/Suffix dropdown
     pTypeOptions = [
         { value: '', label: '-' },
         { value: 'Prefix', label: 'Prefix' },
-        { value: 'Suffix', label: 'Suffix' }
+        { value: 'Suffix', label: 'Suffix' },
     ];
     @bindable selectedPType: PType | undefined;
 
     // Group dropdown (built from property_groups.json by description)
     groupOptions: { value: string | undefined; label: string }[] = [
-        { value: '', label: '-' }
+        { value: '', label: '-' },
     ];
     @bindable selectedGroupDescription: string | undefined;
     private descToGroups: Map<string, Set<number>> = new Map();
 
     // Item Type dropdown (reuse centralized options, narrowed per data)
-    types: ReadonlyArray<FilterOption> = type_filtering_options.slice();
+    types: ReadonlyArray<IFilterOption> = type_filtering_options.slice();
     // Selected type: scalar base token
     @bindable selectedType: string | undefined;
 
@@ -58,7 +75,7 @@ export class Affixes {
         ...Array.from({ length: 99 }, (_, i) => {
             const v = String(i + 1);
             return { value: v, label: v };
-        })
+        }),
     ];
 
     // Required Level filters
@@ -71,7 +88,8 @@ export class Affixes {
         const urlParams = new URLSearchParams(window.location.search);
 
         const searchParam = urlParams.get('search');
-        if (searchParam && !isBlankOrInvalid(searchParam)) this.search = searchParam;
+        if (searchParam && !isBlankOrInvalid(searchParam))
+            this.search = searchParam;
 
         const ptypeParam = urlParams.get('ptype');
         if (ptypeParam === 'Prefix' || ptypeParam === 'Suffix') {
@@ -79,39 +97,48 @@ export class Affixes {
         }
 
         const groupParam = urlParams.get('group');
-        if (groupParam && !isBlankOrInvalid(groupParam)) this.selectedGroupDescription = groupParam;
+        if (groupParam && !isBlankOrInvalid(groupParam))
+            this.selectedGroupDescription = groupParam;
 
         const typeParam = urlParams.get('type');
         // Defer mapping of type until after options are built (scalar base)
         let typeBaseFromUrl: string | undefined;
-        if (typeParam && !isBlankOrInvalid(typeParam)) typeBaseFromUrl = typeParam.split(',')[0];
+        if (typeParam && !isBlankOrInvalid(typeParam))
+            typeBaseFromUrl = typeParam.split(',')[0];
 
         const minrl = urlParams.get('minrl');
-        if (minrl !== null && !isBlankOrInvalid(minrl)) this.minRequiredLevel = minrl;
+        if (minrl !== null && !isBlankOrInvalid(minrl))
+            this.minRequiredLevel = minrl;
 
         const maxrl = urlParams.get('maxrl');
-        if (maxrl !== null && !isBlankOrInvalid(maxrl)) this.maxRequiredLevel = maxrl;
+        if (maxrl !== null && !isBlankOrInvalid(maxrl))
+            this.maxRequiredLevel = maxrl;
 
         const exactParam = urlParams.get('exact');
-        if (exactParam && !isBlankOrInvalid(exactParam)) this.exclusiveType = exactParam === 'true';
+        if (exactParam && !isBlankOrInvalid(exactParam))
+            this.exclusiveType = exactParam === 'true';
 
         // Default the selects to '-' (empty) when no URL value is provided so labels rest centered
-        if (this.selectedPType === undefined) this.selectedPType = '' as any;
-        if (this.selectedGroupDescription === undefined) this.selectedGroupDescription = '';
+        // For PType, keep undefined to select the "-" option without introducing unsafe casts
+        if (this.selectedPType === undefined) this.selectedPType = undefined;
+        if (this.selectedGroupDescription === undefined)
+            this.selectedGroupDescription = '';
         if (this.selectedType === undefined) this.selectedType = '';
         if (this.minRequiredLevel === undefined) this.minRequiredLevel = '';
         if (this.maxRequiredLevel === undefined) this.maxRequiredLevel = '';
 
         // Normalize prefix/suffix arrays, ensure PType set explicitly (source JSON already has it, but keep consistent)
-        const normalized = (arr: any[], pType: PType) =>
+        const normalized = (arr: ReadonlyArray<IAffixItem>, pType: PType) =>
             arr.map((a) => ({
                 ...a,
-                PType: pType
+                PType: pType,
             }));
 
+        const prefixList = (prefixes as unknown as IAffixItem[]) || [];
+        const suffixList = (suffixes as unknown as IAffixItem[]) || [];
         this.allAffixes = [
-            ...normalized(prefixes as any[], 'Prefix'),
-            ...normalized(suffixes as any[], 'Suffix')
+            ...normalized(prefixList, 'Prefix'),
+            ...normalized(suffixList, 'Suffix'),
         ];
 
         // Build the set of base type names present across all affixes (Types only)
@@ -130,26 +157,27 @@ export class Affixes {
         // Filter the shared preset to only show options relevant to affix data
         // Enable base de-duplication so identical-base entries like 'Helm' and 'Any Helm'
         // collapse to a single visible option (prefer labels starting with 'Any ').
-        this.types = buildOptionsForPresentTypes(
-            type_filtering_options,
-            present,
-            { dedupeByBase: true, preferLabelStartsWith: 'Any ' }
-        );
+        this.types = buildOptionsForPresentTypes(type_filtering_options, present, {
+            dedupeByBase: true,
+            preferLabelStartsWith: 'Any ',
+        });
 
         // Prepend a uniform reset option to types
         this.types = prependTypeResetOption(this.types);
 
         // Map URL 'type' (serialized as base) to a scalar base token
         if (typeBaseFromUrl) {
-            const opt = this.types.find(o => o.value && o.value[0] === typeBaseFromUrl);
+            const opt = this.types.find(
+                (o) => o.value && o.value[0] === typeBaseFromUrl,
+            );
             this.selectedType = opt ? typeBaseFromUrl : undefined;
         }
 
         // Build group description → group IDs mapping and options
-        this.buildGroupOptions(propertyGroups as unknown as PropertyGroupEntry[]);
+        this.buildGroupOptions(propertyGroups as unknown as IPropertyGroupEntry[]);
 
-        // Set up debounced filter
-        this._debouncedFilter = debounce(this.applyFilters.bind(this), 350);
+        // Set up debounced filter (arrow wrapper avoids unsafe bind typing)
+        this._debouncedFilter = debounce(() => this.applyFilters(), 350);
 
         // Initial filter
         this.applyFilters();
@@ -165,7 +193,8 @@ export class Affixes {
         const url = new URL(window.location.href);
 
         // search
-        if (this.search && this.search.trim() !== '') url.searchParams.set('search', this.search);
+        if (this.search && this.search.trim() !== '')
+            url.searchParams.set('search', this.search);
         else url.searchParams.delete('search');
 
         // ptype
@@ -173,7 +202,10 @@ export class Affixes {
         else url.searchParams.delete('ptype');
 
         // group (by description)
-        if (this.selectedGroupDescription && this.selectedGroupDescription.trim() !== '') {
+        if (
+            this.selectedGroupDescription &&
+            this.selectedGroupDescription.trim() !== ''
+        ) {
             url.searchParams.set('group', this.selectedGroupDescription);
         } else url.searchParams.delete('group');
 
@@ -183,13 +215,21 @@ export class Affixes {
         } else url.searchParams.delete('type');
 
         // min/max required level
-        const minStr = this.minRequiredLevel as any;
-        if (minStr !== undefined && minStr !== null && String(minStr).trim() !== '') {
+        const minStr = this.minRequiredLevel;
+        if (
+            minStr !== undefined &&
+            minStr !== null &&
+            String(minStr).trim() !== ''
+        ) {
             url.searchParams.set('minrl', String(minStr).trim());
         } else url.searchParams.delete('minrl');
 
-        const maxStr = this.maxRequiredLevel as any;
-        if (maxStr !== undefined && maxStr !== null && String(maxStr).trim() !== '') {
+        const maxStr = this.maxRequiredLevel;
+        if (
+            maxStr !== undefined &&
+            maxStr !== null &&
+            String(maxStr).trim() !== ''
+        ) {
             url.searchParams.set('maxrl', String(maxStr).trim());
         } else url.searchParams.delete('maxrl');
 
@@ -201,21 +241,30 @@ export class Affixes {
         window.history.pushState({}, '', url.toString());
     }
 
-    private buildGroupOptions(groups: PropertyGroupEntry[]) {
+    private buildGroupOptions(groups: IPropertyGroupEntry[]) {
         const descMap = new Map<string, Set<number>>();
         for (const entry of groups) {
             const g = entry.group;
             for (const item of entry.items || []) {
                 const desc = item.description?.trim();
                 if (!desc) continue;
-                if (!descMap.has(desc)) descMap.set(desc, new Set<number>());
-                descMap.get(desc)!.add(g);
+                let set = descMap.get(desc);
+                if (!set) {
+                    set = new Set<number>();
+                    descMap.set(desc, set);
+                }
+                set.add(g);
             }
         }
 
         this.descToGroups = descMap;
-        const descriptions = Array.from(descMap.keys()).sort((a, b) => a.localeCompare(b));
-        this.groupOptions = [{ value: '', label: '-' }, ...descriptions.map(d => ({ value: d, label: d }))];
+        const descriptions = Array.from(descMap.keys()).sort((a, b) =>
+            a.localeCompare(b),
+        );
+        this.groupOptions = [
+            { value: '', label: '-' },
+            ...descriptions.map((d) => ({ value: d, label: d })),
+        ];
     }
 
     @watch('search')
@@ -244,12 +293,36 @@ export class Affixes {
 
     @watch('minRequiredLevel')
     handleMinReqChanged() {
+        // If min exceeds max, coerce max to min so UI stays consistent
+        const minNum = toOptionalNumber(this.minRequiredLevel);
+        const maxNum = toOptionalNumber(this.maxRequiredLevel);
+        if (
+            typeof minNum === 'number' &&
+            typeof maxNum === 'number' &&
+            minNum > maxNum
+        ) {
+            // Preserve the original bound type (string/number) for consistency with select binding
+            this.maxRequiredLevel = this.minRequiredLevel;
+        }
+
         if (this._debouncedFilter) this._debouncedFilter();
         this.updateUrl();
     }
 
     @watch('maxRequiredLevel')
     handleMaxReqChanged() {
+        // If max is below min, coerce min to max so UI stays consistent
+        const minNum = toOptionalNumber(this.minRequiredLevel);
+        const maxNum = toOptionalNumber(this.maxRequiredLevel);
+        if (
+            typeof minNum === 'number' &&
+            typeof maxNum === 'number' &&
+            maxNum < minNum
+        ) {
+            // Preserve the original bound type (string/number) for consistency with select binding
+            this.minRequiredLevel = this.maxRequiredLevel;
+        }
+
         if (this._debouncedFilter) this._debouncedFilter();
         this.updateUrl();
     }
@@ -265,7 +338,8 @@ export class Affixes {
         const tokens = q.length ? q.split(/\s+/) : [];
         const hasQuery = tokens.length > 0;
 
-        const selectedGroups: Set<number> | undefined = this.selectedGroupDescription
+        const selectedGroups: Set<number> | undefined = this
+            .selectedGroupDescription
             ? this.descToGroups.get(this.selectedGroupDescription)
             : undefined;
 
@@ -280,7 +354,8 @@ export class Affixes {
 
             // Group filter via description mapping (must match one of the groups when selected)
             if (selectedGroups) {
-                if (!selectedGroups.has(a.Group)) return false;
+                const grp = a?.Group;
+                if (grp == null || !selectedGroups.has(grp)) return false;
             }
 
             // Item Type filter (mirror Runewords behavior: parent vs. leaf semantics + Exact toggle)
@@ -296,14 +371,17 @@ export class Affixes {
                     let hasDescendantInData = false;
                     if (!this.exclusiveType) {
                         try {
-                            outer: for (const aff of this.allAffixes as any[]) {
+                            outer: for (const aff of this.allAffixes) {
                                 const types = Array.isArray(aff?.Types) ? aff.Types : [];
                                 for (let i = 0; i < types.length; i++) {
                                     const raw = types[i] != null ? String(types[i]) : '';
                                     const chain = getChainForTypeName(raw);
                                     if (!chain || chain.length === 0) continue;
                                     const base = chain[0];
-                                    if (base !== selectedBase && chain.indexOf(selectedBase) !== -1) {
+                                    if (
+                                        base !== selectedBase &&
+                                        chain.indexOf(selectedBase) !== -1
+                                    ) {
                                         hasDescendantInData = true;
                                         break outer;
                                     }
@@ -317,7 +395,7 @@ export class Affixes {
                     // Allowed by Types (if Types present). If absent, treat as general (allowed).
                     const types = Array.isArray(a.Types) ? a.Types : [];
                     if (types.length > 0) {
-                        const allowed = types.some((t: any) => {
+                        const allowed = types.some((t) => {
                             const chain = getChainForTypeName(t != null ? String(t) : '');
                             if (!chain || chain.length === 0) return false;
                             const itemBase = chain[0];
@@ -338,7 +416,7 @@ export class Affixes {
                     // Excluded by ETypes: if any excluded type matches selection per the same rules, reject.
                     const e = Array.isArray(a.ETypes) ? a.ETypes : [];
                     if (e.length > 0) {
-                        const excluded = e.some((t: any) => {
+                        const excluded = e.some((t) => {
                             const chain = getChainForTypeName(t != null ? String(t) : '');
                             if (!chain || chain.length === 0) return false;
                             const itemBase = chain[0];
@@ -364,13 +442,15 @@ export class Affixes {
             if (hasQuery) {
                 const hay = [
                     String(a?.Name || ''),
-                    ...((a?.Properties || []).map((p: any) => (p && p.PropertyString ? String(p.PropertyString) : ''))),
-                    ...((a?.Types || []).map((t: any) => (t != null ? String(t) : ''))),
+                    ...(a?.Properties || []).map((p) =>
+                        p && p.PropertyString ? String(p.PropertyString) : '',
+                    ),
+                    ...(a?.Types || []).map((t) => (t != null ? String(t) : '')),
                 ]
                     .filter(Boolean)
                     .join(' ')
                     .toLowerCase();
-                if (!tokens.every(t => hay.includes(t))) return false;
+                if (!tokens.every((t) => hay.includes(t))) return false;
             }
 
             return true;
@@ -380,8 +460,8 @@ export class Affixes {
     // Reset all filters to defaults and refresh URL/list
     resetFilters() {
         this.search = '';
-        // Set to empty strings so dropdowns pick the '-' option
-        this.selectedPType = '' as any;
+        // Keep undefined so dropdown picks the '-' option safely
+        this.selectedPType = undefined;
         this.selectedGroupDescription = '';
         this.selectedType = '';
         this.exclusiveType = false;
@@ -392,6 +472,4 @@ export class Affixes {
         this.applyFilters();
         this.updateUrl();
     }
-
-
 }

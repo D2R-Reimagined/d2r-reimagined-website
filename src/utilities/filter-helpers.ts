@@ -1,28 +1,30 @@
 ﻿// Small reusable helpers for filter UIs (select reset options, numeric parsing, etc.).
 
-import type { FilterOption } from '../resources/constants/item-type-filters';
+import type { IFilterOption } from '../resources/constants';
 
 export type LabeledStringOption = { value: string; label: string };
 
-// Build a standard reset option for string-valued selects: visible label '-', empty value ''
-export function makeStringResetOption(label: string = '-'): LabeledStringOption {
+// Build a standard reset option for string-valued selecting: visible label '-', empty value ''
+export function makeStringResetOption(
+    label: string = '-',
+): LabeledStringOption {
     return { value: '', label };
 }
 
 // Prepend the standard reset option to an array of string-valued options
 export function prependStringResetOption(
     options: ReadonlyArray<LabeledStringOption>,
-    label: string = '-'
+    label: string = '-',
 ): LabeledStringOption[] {
     return [makeStringResetOption(label), ...options];
 }
 
-// For the Item Type options (FilterOption uses string[] for value), prepend the reset option
+// For the Item Type options (IFilterOption uses string[] for value), prepend the reset option
 export function prependTypeResetOption(
-    options: ReadonlyArray<FilterOption>,
-    label: string = '-'
-): ReadonlyArray<FilterOption> {
-    const reset: FilterOption = { label, value: [] };
+    options: ReadonlyArray<IFilterOption>,
+    label: string = '-',
+): ReadonlyArray<IFilterOption> {
+    const reset: IFilterOption = { label, value: [] };
     return [reset, ...options];
 }
 
@@ -30,7 +32,7 @@ export function prependTypeResetOption(
 export function toOptionalNumber(
     val: number | string | undefined | null,
     clampMin: number = 0,
-    clampMax: number = 100
+    clampMax: number = 100,
 ): number | undefined {
     if (val === undefined || val === null) return undefined;
     if (typeof val === 'string') {
@@ -41,7 +43,7 @@ export function toOptionalNumber(
             ? Math.max(clampMin, Math.min(clampMax, Math.floor(n)))
             : undefined;
     }
-    if (typeof val === 'number' && Number.isFinite(val)) {
+    if (Number.isFinite(val)) {
         return Math.max(clampMin, Math.min(clampMax, Math.floor(val)));
     }
     return undefined;
@@ -50,7 +52,7 @@ export function toOptionalNumber(
 // Ensure min <= max when both are numbers; otherwise return unchanged
 export function swapMinMax<T extends number | undefined>(
     min: T,
-    max: T
+    max: T,
 ): [T, T] {
     if (typeof min === 'number' && typeof max === 'number' && min > max) {
         return [max as T, min as T];

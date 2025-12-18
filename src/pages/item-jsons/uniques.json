@@ -533,7 +533,7 @@
             "RequiredStrength": 12,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -583,7 +583,7 @@
             "RequiredStrength": 16,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -1177,7 +1177,7 @@
             "RequiredStrength": 16,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -1655,7 +1655,7 @@
             "RequiredStrength": 25,
             "RequiredDexterity": 0,
             "Durability": 25,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -2811,7 +2811,7 @@
             "RequiredStrength": 12,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -2861,7 +2861,7 @@
             "RequiredStrength": 16,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -2911,7 +2911,7 @@
             "RequiredStrength": 20,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -3539,7 +3539,7 @@
             "RequiredStrength": 14,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -4033,7 +4033,7 @@
             "RequiredStrength": 26,
             "RequiredDexterity": 0,
             "Durability": 30,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -4438,7 +4438,7 @@
             "RequiredStrength": 35,
             "RequiredDexterity": 0,
             "Durability": 35,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -5154,7 +5154,7 @@
             "RequiredStrength": 14,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -5212,7 +5212,7 @@
             "RequiredStrength": 25,
             "RequiredDexterity": 0,
             "Durability": 25,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -5262,7 +5262,7 @@
             "RequiredStrength": 16,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -6736,7 +6736,7 @@
             "RequiredStrength": 24,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -7526,7 +7526,7 @@
             "RequiredStrength": 18,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -7580,7 +7580,7 @@
             "RequiredStrength": 40,
             "RequiredDexterity": 0,
             "Durability": 40,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -8130,7 +8130,7 @@
             "RequiredStrength": 20,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -8755,7 +8755,7 @@
             "RequiredStrength": 26,
             "RequiredDexterity": 0,
             "Durability": 30,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -8805,7 +8805,7 @@
             "RequiredStrength": 45,
             "RequiredDexterity": 0,
             "Durability": 70,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -9507,7 +9507,7 @@
             "RequiredStrength": 35,
             "RequiredDexterity": 0,
             "Durability": 35,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -10174,7 +10174,7 @@
             "RequiredStrength": 18,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -10220,7 +10220,7 @@
             "RequiredStrength": 28,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -11276,7 +11276,7 @@
             "RequiredStrength": 20,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -11334,7 +11334,7 @@
             "RequiredStrength": 50,
             "RequiredDexterity": 0,
             "Durability": 50,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -12166,7 +12166,7 @@
             "RequiredStrength": 24,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -13035,7 +13035,7 @@
             "RequiredStrength": 40,
             "RequiredDexterity": 0,
             "Durability": 40,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -13089,7 +13089,7 @@
             "RequiredStrength": 55,
             "RequiredDexterity": 0,
             "Durability": 50,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -13955,7 +13955,7 @@
             "RequiredStrength": 45,
             "RequiredDexterity": 0,
             "Durability": 45,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -14759,7 +14759,7 @@
             "RequiredStrength": 20,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -14809,7 +14809,7 @@
             "RequiredStrength": 28,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -16183,7 +16183,7 @@
             "RequiredStrength": 65,
             "RequiredDexterity": 0,
             "Durability": 60,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -16237,7 +16237,7 @@
             "RequiredStrength": 30,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -17372,7 +17372,7 @@
             "RequiredStrength": 25,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -17422,7 +17422,7 @@
             "RequiredStrength": 65,
             "RequiredDexterity": 0,
             "Durability": 55,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -18314,7 +18314,7 @@
             "RequiredStrength": 50,
             "RequiredDexterity": 0,
             "Durability": 95,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -18368,7 +18368,7 @@
             "RequiredStrength": 55,
             "RequiredDexterity": 0,
             "Durability": 75,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -21781,7 +21781,7 @@
             "RequiredStrength": 38,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -21835,7 +21835,7 @@
             "RequiredStrength": 44,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -22929,7 +22929,7 @@
             "RequiredStrength": 25,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -22983,7 +22983,7 @@
             "RequiredStrength": 44,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -23037,7 +23037,7 @@
             "RequiredStrength": 58,
             "RequiredDexterity": 0,
             "Durability": 25,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -23091,7 +23091,7 @@
             "RequiredStrength": 30,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -24057,7 +24057,7 @@
             "RequiredStrength": 65,
             "RequiredDexterity": 0,
             "Durability": 55,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -25358,7 +25358,7 @@
             "RequiredStrength": 65,
             "RequiredDexterity": 0,
             "Durability": 60,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -26389,7 +26389,7 @@
             "RequiredStrength": 41,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -26443,7 +26443,7 @@
             "RequiredStrength": 73,
             "RequiredDexterity": 0,
             "Durability": 35,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -26497,7 +26497,7 @@
             "RequiredStrength": 50,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -27163,7 +27163,7 @@
             "RequiredStrength": 59,
             "RequiredDexterity": 0,
             "Durability": 30,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -27213,7 +27213,7 @@
             "RequiredStrength": 44,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -28640,7 +28640,7 @@
             "RequiredStrength": 38,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -28694,7 +28694,7 @@
             "RequiredStrength": 58,
             "RequiredDexterity": 0,
             "Durability": 0,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -29803,7 +29803,7 @@
             "RequiredStrength": 47,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -29857,7 +29857,7 @@
             "RequiredStrength": 88,
             "RequiredDexterity": 0,
             "Durability": 45,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -30705,7 +30705,7 @@
             "RequiredStrength": 44,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -30759,7 +30759,7 @@
             "RequiredStrength": 56,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -31730,7 +31730,7 @@
             "RequiredStrength": 50,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -33317,7 +33317,7 @@
             "RequiredStrength": 41,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -33371,7 +33371,7 @@
             "RequiredStrength": 69,
             "RequiredDexterity": 0,
             "Durability": 40,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -33421,7 +33421,7 @@
             "RequiredStrength": 103,
             "RequiredDexterity": 0,
             "Durability": 50,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -34048,7 +34048,7 @@
             "RequiredStrength": 50,
             "RequiredDexterity": 0,
             "Durability": 120,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -34106,7 +34106,7 @@
             "RequiredStrength": 73,
             "RequiredDexterity": 0,
             "Durability": 35,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -34164,7 +34164,7 @@
             "RequiredStrength": 62,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -35429,7 +35429,7 @@
             "RequiredStrength": 59,
             "RequiredDexterity": 0,
             "Durability": 30,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -36167,7 +36167,7 @@
             "RequiredStrength": 118,
             "RequiredDexterity": 0,
             "Durability": 55,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -36229,7 +36229,7 @@
             "RequiredStrength": 58,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -36559,7 +36559,7 @@
             "RequiredStrength": 89,
             "RequiredDexterity": 0,
             "Durability": 50,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -36686,7 +36686,7 @@
             "RequiredStrength": 65,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -38238,7 +38238,7 @@
             "RequiredStrength": 47,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -38296,7 +38296,7 @@
             "RequiredStrength": 88,
             "RequiredDexterity": 0,
             "Durability": 45,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -38350,7 +38350,7 @@
             "RequiredStrength": 56,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -40622,7 +40622,7 @@
             "RequiredStrength": 69,
             "RequiredDexterity": 0,
             "Durability": 40,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -41570,7 +41570,7 @@
             "RequiredStrength": 114,
             "RequiredDexterity": 0,
             "Durability": 60,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -41624,7 +41624,7 @@
             "RequiredStrength": 103,
             "RequiredDexterity": 0,
             "Durability": 125,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -41678,7 +41678,7 @@
             "RequiredStrength": 62,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -42761,7 +42761,7 @@
             "RequiredStrength": 50,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -45347,7 +45347,7 @@
             "RequiredStrength": 77,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -46707,7 +46707,7 @@
             "RequiredStrength": 89,
             "RequiredDexterity": 0,
             "Durability": 50,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -46765,7 +46765,7 @@
             "RequiredStrength": 106,
             "RequiredDexterity": 0,
             "Durability": 25,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -46827,7 +46827,7 @@
             "RequiredStrength": 65,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -47645,7 +47645,7 @@
             "RequiredStrength": 118,
             "RequiredDexterity": 0,
             "Durability": 55,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -48227,7 +48227,7 @@
             "RequiredStrength": 58,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -50043,7 +50043,7 @@
             "RequiredStrength": 114,
             "RequiredDexterity": 0,
             "Durability": 60,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -51034,7 +51034,7 @@
             "RequiredStrength": 77,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -51092,7 +51092,7 @@
             "RequiredStrength": 86,
             "RequiredDexterity": 0,
             "Durability": 45,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -52461,7 +52461,7 @@
             "RequiredStrength": 82,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -52519,7 +52519,7 @@
             "RequiredStrength": 106,
             "RequiredDexterity": 0,
             "Durability": 25,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -53693,7 +53693,7 @@
             "RequiredStrength": 95,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -54894,7 +54894,7 @@
             "RequiredStrength": 95,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -55282,7 +55282,7 @@
             "RequiredStrength": 151,
             "RequiredDexterity": 0,
             "Durability": 45,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -56020,7 +56020,7 @@
             "RequiredStrength": 113,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -56127,7 +56127,7 @@
             "RequiredStrength": 86,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -56338,7 +56338,7 @@
             "RequiredStrength": 82,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -57517,7 +57517,7 @@
             "RequiredStrength": 106,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -58515,7 +58515,7 @@
             "RequiredStrength": 95,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -59146,7 +59146,7 @@
             "RequiredStrength": 91,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -59204,7 +59204,7 @@
             "RequiredStrength": 148,
             "RequiredDexterity": 0,
             "Durability": 90,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -59262,7 +59262,7 @@
             "RequiredStrength": 129,
             "RequiredDexterity": 0,
             "Durability": 35,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -59308,7 +59308,7 @@
             "RequiredStrength": 118,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -59457,7 +59457,7 @@
             "RequiredStrength": 104,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -60988,7 +60988,7 @@
             "RequiredStrength": 109,
             "RequiredDexterity": 0,
             "Durability": 68,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -62868,7 +62868,7 @@
             "RequiredStrength": 124,
             "RequiredDexterity": 0,
             "Durability": 55,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -63302,7 +63302,7 @@
             "RequiredStrength": 91,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -63488,7 +63488,7 @@
             "RequiredStrength": 95,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -63896,7 +63896,7 @@
             "RequiredStrength": 86,
             "RequiredDexterity": 0,
             "Durability": 45,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -63954,7 +63954,7 @@
             "RequiredStrength": 104,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -65017,7 +65017,7 @@
             "RequiredStrength": 113,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -65519,7 +65519,7 @@
             "RequiredStrength": 151,
             "RequiredDexterity": 0,
             "Durability": 45,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -66875,7 +66875,7 @@
             "RequiredStrength": 109,
             "RequiredDexterity": 0,
             "Durability": 68,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -66971,7 +66971,7 @@
             "RequiredStrength": 174,
             "RequiredDexterity": 0,
             "Durability": 50,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -67593,7 +67593,7 @@
             "RequiredStrength": 124,
             "RequiredDexterity": 0,
             "Durability": 55,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -68123,7 +68123,7 @@
             "RequiredStrength": 129,
             "RequiredDexterity": 0,
             "Durability": 35,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -68763,7 +68763,7 @@
             "RequiredStrength": 142,
             "RequiredDexterity": 0,
             "Durability": 65,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -70467,7 +70467,7 @@
             "RequiredStrength": 142,
             "RequiredDexterity": 0,
             "Durability": 65,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {
@@ -70521,7 +70521,7 @@
             "RequiredStrength": 196,
             "RequiredDexterity": 0,
             "Durability": 55,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -70579,7 +70579,7 @@
             "RequiredStrength": 86,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -73686,7 +73686,7 @@
             "RequiredStrength": 106,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Necromancer"
+            "RequiredClass": ""
         }
     },
     {
@@ -73748,7 +73748,7 @@
             "RequiredStrength": 174,
             "RequiredDexterity": 0,
             "Durability": 50,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -73806,7 +73806,7 @@
             "RequiredStrength": 118,
             "RequiredDexterity": 0,
             "Durability": 20,
-            "RequiredClass": "Druid"
+            "RequiredClass": ""
         }
     },
     {
@@ -74273,7 +74273,7 @@
             "RequiredStrength": 196,
             "RequiredDexterity": 0,
             "Durability": 55,
-            "RequiredClass": "Barbarian"
+            "RequiredClass": ""
         }
     },
     {
@@ -74327,7 +74327,7 @@
             "RequiredStrength": 148,
             "RequiredDexterity": 0,
             "Durability": 90,
-            "RequiredClass": "Paladin"
+            "RequiredClass": ""
         }
     },
     {

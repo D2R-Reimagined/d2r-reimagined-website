@@ -1,19 +1,40 @@
 import { bindable, watch } from 'aurelia';
-import { isBlankOrInvalid } from '../../utilities/url-sanitize';
 
-import { debounce, DebouncedFunction } from '../../utilities/debounce';
-import { prependTypeResetOption } from '../../utilities/filter-helpers';
-import json from '../item-jsons/runewords.json';
 import {
-    type_filtering_options,
-    getChainForTypeName,
     buildOptionsForPresentTypes,
+    getChainForTypeName,
+    IFilterOption,
     resolveBaseTypeName,
-    FilterOption
+    type_filtering_options,
 } from '../../resources/constants/item-type-filters';
+import { debounce, IDebouncedFunction } from '../../utilities/debounce';
+import { prependTypeResetOption } from '../../utilities/filter-helpers';
+import { isBlankOrInvalid } from '../../utilities/url-sanitize';
+import json from '../item-jsons/runewords.json';
+
+// Minimal types used by the Runewords page (only fields actually read)
+interface IRunewordProperty {
+    PropertyString?: string;
+}
+
+interface IRunewordType {
+    Name: string;
+}
+
+interface IRunewordRune {
+    Name: string;
+}
+
+interface IRunewordData {
+    Name: string;
+    Types?: IRunewordType[];
+    Runes: IRunewordRune[];
+    Properties?: IRunewordProperty[];
+    Vanilla?: string | number | boolean;
+}
 
 export class Runewords {
-    runewords = json;
+    runewords: IRunewordData[] = json as unknown as IRunewordData[];
 
     @bindable search: string;
     @bindable searchRunes: string;
@@ -21,23 +42,23 @@ export class Runewords {
     // When true, hide items where Vanilla === 'Y'
     @bindable hideVanilla: boolean = false;
 
-    private _debouncedSearchItem!: DebouncedFunction;
+    private _debouncedSearchItem!: IDebouncedFunction;
 
-    filteredRunewords = [];
+    filteredRunewords: IRunewordData[] = [];
 
     // Centralized options, narrowed at runtime to types present in data
-    types: ReadonlyArray<FilterOption> = type_filtering_options.slice();
+    types: ReadonlyArray<IFilterOption> = type_filtering_options.slice();
 
     // Selected type: base token (scalar)
     selectedType: string | undefined;
 
-    amounts = [
-        { value: '' as any, label: '-' },
+    amounts: Array<{ value: number | ''; label: string }> = [
+        { value: '', label: '-' },
         { value: 2, label: '2 Runes' },
         { value: 3, label: '3 Runes' },
         { value: 4, label: '4 Runes' },
         { value: 5, label: '5 Runes' },
-        { value: 6, label: '6 Runes' }
+        { value: 6, label: '6 Runes' },
     ];
 
     selectedAmount: number | undefined;
@@ -49,7 +70,7 @@ export class Runewords {
         // Collect base type names present in data
         const present = new Set<string>();
         try {
-            for (const rw of this.runewords as any[]) {
+            for (const rw of this.runewords || []) {
                 const types = Array.isArray(rw?.Types) ? rw.Types : [];
                 for (const t of types) {
                     const base = resolveBaseTypeName(t?.Name ?? '');
@@ -61,11 +82,10 @@ export class Runewords {
         }
         // Filter the shared preset to only show options relevant to this page's data
         // Enable base de-duplication to collapse identical-base entries like 'Helm' and 'Any Helm'.
-        this.types = buildOptionsForPresentTypes(
-            type_filtering_options,
-            present,
-            { dedupeByBase: true, preferLabelStartsWith: 'Any ' }
-        );
+        this.types = buildOptionsForPresentTypes(type_filtering_options, present, {
+            dedupeByBase: true,
+            preferLabelStartsWith: 'Any ',
+        });
         // Prepend a uniform reset option so users can clear the selection with '-'
         this.types = prependTypeResetOption(this.types);
 
@@ -87,7 +107,7 @@ export class Runewords {
         const typeParam = urlParams.get('type');
         if (typeParam && !isBlankOrInvalid(typeParam)) {
             const base = typeParam.split(',')[0]; // support legacy comma list by taking first token
-            const opt = this.types.find(o => o.value && o.value[0] === base);
+            const opt = this.types.find((o) => o.value && o.value[0] === base);
             this.selectedType = opt ? base : undefined;
         }
 
@@ -104,8 +124,7 @@ export class Runewords {
     }
 
     attached() {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-        this._debouncedSearchItem = debounce(this.updateList.bind(this), 350);
+        this._debouncedSearchItem = debounce(() => this.updateList(), 350);
         this.updateList();
     }
 
@@ -135,7 +154,12 @@ export class Runewords {
         }
 
         // Update sockets parameter
-        if (typeof this.selectedAmount === 'number' && Number.isFinite(this.selectedAmount) && this.selectedAmount >= 2 && this.selectedAmount <= 6) {
+        if (
+            typeof this.selectedAmount === 'number' &&
+            Number.isFinite(this.selectedAmount) &&
+            this.selectedAmount >= 2 &&
+            this.selectedAmount <= 6
+        ) {
             url.searchParams.set('sockets', String(this.selectedAmount));
         } else {
             url.searchParams.delete('sockets');
@@ -161,25 +185,19 @@ export class Runewords {
 
     @watch('searchRunes')
     handleSearchRunesChanged() {
-        if (this._debouncedSearchItem) {
-            this._debouncedSearchItem();
-        }
+        if (this._debouncedSearchItem) this._debouncedSearchItem();
         this.updateUrl();
     }
 
     @watch('search')
     handleSearchChanged() {
-        if (this._debouncedSearchItem) {
-            this._debouncedSearchItem();
-        }
+        if (this._debouncedSearchItem) this._debouncedSearchItem();
         this.updateUrl();
     }
 
     @watch('selectedType')
     selectedTypeChanged() {
-        if (this._debouncedSearchItem) {
-            this._debouncedSearchItem();
-        }
+        if (this._debouncedSearchItem) this._debouncedSearchItem();
         this.updateUrl();
     }
 
@@ -189,9 +207,9 @@ export class Runewords {
         if (typeof this.selectedAmount !== 'number') {
             const v = Number(this.selectedAmount);
             if (Number.isFinite(v) && v >= 2 && v <= 6) {
-                this.selectedAmount = v as any;
+                this.selectedAmount = v;
             } else {
-                this.selectedAmount = undefined as any;
+                this.selectedAmount = undefined;
             }
         }
         if (this._debouncedSearchItem) {
@@ -202,31 +220,29 @@ export class Runewords {
 
     @watch('exclusiveType')
     handleExclusiveTypeChanged() {
-        if (this._debouncedSearchItem) {
-            this._debouncedSearchItem();
-        }
+        if (this._debouncedSearchItem) this._debouncedSearchItem();
         this.updateUrl();
     }
 
     @watch('hideVanilla')
     handleHideVanillaChanged() {
-        if (this._debouncedSearchItem) {
-            this._debouncedSearchItem();
-        }
+        if (this._debouncedSearchItem) this._debouncedSearchItem();
         this.updateUrl();
     }
 
     normalizeRuneName(name: string): string {
         // Remove " Rune" suffix and trim any extra spaces
-        return name.replace(/ rune$/i, '').trim().toLowerCase();
+        return name
+            .replace(/ rune$/i, '')
+            .trim()
+            .toLowerCase();
     }
 
     updateList() {
-        let filteringRunewords = this.runewords;
+        let filteringRunewords: IRunewordData[] = this.runewords;
 
         // Type filtering
         if (this.selectedType) {
-            // Derive a single selected base token
             const selectedBase = resolveBaseTypeName(this.selectedType ?? '');
             if (selectedBase) {
                 const selectedChain = getChainForTypeName(selectedBase);
@@ -241,14 +257,17 @@ export class Runewords {
                 let hasDescendantInData = false;
                 if (!this.exclusiveType) {
                     try {
-                        outer: for (const rw of this.runewords as any[]) {
+                        outer: for (const rw of this.runewords) {
                             const types = Array.isArray(rw?.Types) ? rw.Types : [];
                             for (let i = 0; i < types.length; i++) {
                                 const raw = types[i]?.Name != null ? String(types[i].Name) : '';
                                 const chain = getChainForTypeName(raw);
                                 if (!chain || chain.length === 0) continue;
                                 const base = chain[0];
-                                if (base !== selectedBase && chain.indexOf(selectedBase) !== -1) {
+                                if (
+                                    base !== selectedBase &&
+                                    chain.indexOf(selectedBase) !== -1
+                                ) {
                                     hasDescendantInData = true;
                                     break outer;
                                 }
@@ -286,7 +305,9 @@ export class Runewords {
 
         // Socket count filter
         if (this.selectedAmount) {
-            filteringRunewords = filteringRunewords.filter((x) => x.Runes.length === this.selectedAmount);
+            filteringRunewords = filteringRunewords.filter(
+                (x) => (x.Runes?.length ?? 0) === this.selectedAmount,
+            );
         }
 
         // Apply text + rune filters
@@ -299,33 +320,64 @@ export class Runewords {
             found = found.filter((runeword) => {
                 const hay = [
                     String(runeword.Name || ''),
-                    ...((runeword.Properties || []).map((p: any) => String(p?.PropertyString || ''))),
-                    ...((runeword.Types || []).map((t: any) => String(t?.Name || ''))),
+                    ...(runeword.Properties || []).map((p: IRunewordProperty) =>
+                        String(p?.PropertyString || ''),
+                    ),
+                    ...(runeword.Types || []).map((t: IRunewordType) =>
+                        String(t?.Name || ''),
+                    ),
                 ]
                     .filter(Boolean)
                     .join(' ')
                     .toLowerCase();
-                return searchTokens.every(t => hay.includes(t));
+                return searchTokens.every((t) => hay.includes(t));
             });
         }
 
-        // Rune search filter
+        // Rune search filter (AND-of-OR groups)
         if (this.searchRunes) {
-            const inputRuneList = this.searchRunes.split(' ')
-                .map((rune) => rune.trim().toLowerCase())
-                .filter((rune) => rune.length > 0);
+            // Normalize operators:
+            // - Space and '+' are AND (become spaces)
+            // - ',' and '|' are OR (become '|')
+            // Also normalize remaining whitespace to single spaces.
+            const normalized = (this.searchRunes || '')
+                .trim()
+                .toLowerCase()
+                // Treat ',' and '|' as OR
+                .replace(/\s*[,|]\s*/g, '|')
+                // Treat '+' and whitespace as AND (space)
+                .replace(/\s*\+\s*/g, ' ')
+                .replace(/\s+/g, ' ');
 
-            found = found.filter((runeword) => {
-                const runewordRuneNames = runeword.Runes.map((rune) => this.normalizeRuneName(rune.Name));
-                return inputRuneList.every((inputRune) =>
-                    runewordRuneNames.includes(inputRune)
-                );
-            });
+            // Split into AND groups by spaces; within each group, tokens separated by '|' are OR options.
+            const groups: string[][] = normalized
+                .split(' ')
+                .map((group) =>
+                    group
+                        .split('|')
+                        .map((tok) => this.normalizeRuneName(tok))
+                        .filter(Boolean),
+                )
+                .filter((g) => g.length > 0);
+
+            if (groups.length) {
+                found = found.filter((runeword) => {
+                    const runewordRuneNames = (runeword.Runes ?? []).map((rune) =>
+                        this.normalizeRuneName(String(rune.Name)),
+                    );
+                    // For each AND group, at least one OR token must be present in the runeword
+                    return groups.every((orGroup) =>
+                        orGroup.some((token) => runewordRuneNames.includes(token)),
+                    );
+                });
+            }
         }
 
         // Hide Vanilla filter
         if (this.hideVanilla) {
-            found = found.filter((rw) => String(rw?.Vanilla || '').toUpperCase() !== 'Y');
+            found = found.filter(
+                (rw) => String(rw?.Vanilla || '').toUpperCase() !== 'Y',
+            );
         }
 
         // Set the filtered runewords at the end
@@ -337,7 +389,7 @@ export class Runewords {
         this.search = '';
         this.searchRunes = '';
         this.selectedType = undefined;
-        this.selectedAmount = undefined as any;
+        this.selectedAmount = undefined;
         this.exclusiveType = false;
         this.hideVanilla = false;
 

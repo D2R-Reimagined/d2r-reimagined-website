@@ -6,7 +6,6 @@
             {
                 "Type": "Shield",
                 "Set": "Civerb's Vestments",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+21-22 to Mana (Civerb's Icon)",
                     "+25-26% Poison Resistance (Civerb's Cudgel)"
@@ -45,7 +44,6 @@
             {
                 "Type": "Amulet",
                 "Set": "Civerb's Vestments",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+25 Defense (3 Items)",
                     "+25% Cold Resistance (2 Items)"
@@ -80,7 +78,6 @@
             {
                 "Type": "Scepter",
                 "Set": "Civerb's Vestments",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Civerb's Cudgel",
                 "Index": "Civerb's Cudgel",
@@ -159,7 +156,6 @@
             {
                 "Type": "Boots",
                 "Set": "Hsarus' Defense",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+10 to Attack Rating (Per Character Level) (2 Items)"
                 ],
@@ -197,7 +193,6 @@
             {
                 "Type": "Shield",
                 "Set": "Hsarus' Defense",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+2.5 Defense (Per Character Level) (2 Items)"
                 ],
@@ -235,7 +230,6 @@
             {
                 "Type": "Belt",
                 "Set": "Hsarus' Defense",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+2.5 Defense (Per Character Level) (2 Items)"
                 ],
@@ -301,7 +295,6 @@
             {
                 "Type": "Sword",
                 "Set": "Cleglaw's Brace",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+1.25 to Maximum Weapon Damage (Per Character Level) (2 Items)"
                 ],
@@ -342,7 +335,6 @@
             {
                 "Type": "Shield",
                 "Set": "Cleglaw's Brace",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+15% to All Resistances (2 Items)"
                 ],
@@ -380,7 +372,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Cleglaw's Brace",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+10 to Attack Rating (Per Character Level) (2 Items)"
                 ],
@@ -450,7 +441,6 @@
             {
                 "Type": "Amulet",
                 "Set": "Iratha's Finery",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+15% to All Resistances (2 Items)"
                 ],
@@ -484,7 +474,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Iratha's Finery",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+20% Increased Attack Speed (2 Items)"
                 ],
@@ -522,7 +511,6 @@
             {
                 "Type": "Helm",
                 "Set": "Iratha's Finery",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+2 Defense (Per Character Level) (2 Items)"
                 ],
@@ -560,7 +548,6 @@
             {
                 "Type": "Belt",
                 "Set": "Iratha's Finery",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+10 to Dexterity (2 Items)"
                 ],
@@ -646,7 +633,6 @@
             {
                 "Type": "Sword",
                 "Set": "Isenhart's Armory",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+5 to Attack Rating (Per Character Level) (2 Items)"
                 ],
@@ -687,7 +673,6 @@
             {
                 "Type": "Shield",
                 "Set": "Isenhart's Armory",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+8% to All Resistances (2 Items)"
                 ],
@@ -725,7 +710,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Isenhart's Armory",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+2 Defense (Per Character Level) (2 Items)"
                 ],
@@ -763,7 +747,6 @@
             {
                 "Type": "Helm",
                 "Set": "Isenhart's Armory",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+8% to All Resistances (2 Items)"
                 ],
@@ -841,7 +824,6 @@
             {
                 "Type": "Bow",
                 "Set": "Vidala's Rig",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+8 to Attack Rating (Per Character Level) (2 Items)"
                 ],
@@ -882,7 +864,6 @@
             {
                 "Type": "Boots",
                 "Set": "Vidala's Rig",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+8% to All Resistances (2 Items)"
                 ],
@@ -916,7 +897,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Vidala's Rig",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+2.5 Defense (Per Character Level) (3 Items)",
                     "+24% Fire Resistance (2 Items)"
@@ -955,7 +935,6 @@
             {
                 "Type": "Amulet",
                 "Set": "Vidala's Rig",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+50% Chance Items Roll Magic or Better (2 Items)"
                 ],
@@ -1029,7 +1008,6 @@
             {
                 "Type": "Shield",
                 "Set": "Milabrega's Regalia",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+50% Enhanced Defense (3 Items)",
                     "+50 to Life (2 Items)"
@@ -1068,7 +1046,6 @@
             {
                 "Type": "Scepter",
                 "Set": "Milabrega's Regalia",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Milabrega's Rod",
                 "Index": "Milabrega's Rod",
@@ -1111,7 +1088,6 @@
             {
                 "Type": "Helm",
                 "Set": "Milabrega's Regalia",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+40% Cold Resistance (2 Items)"
                 ],
@@ -1149,7 +1125,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Milabrega's Regalia",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+100% Enhanced Defense (2 Items)"
                 ],
@@ -1231,7 +1206,6 @@
             {
                 "Type": "Staff",
                 "Set": "Cathan's Traps",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+50 to Mana (2 Items)",
                     "+10% to All Resistances (3 Items)"
@@ -1273,7 +1247,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Cathan's Traps",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+30% Fire Resistance (3 Items)",
                     "Attacker Takes Damage of 5 (2 Items)"
@@ -1312,7 +1285,6 @@
             {
                 "Type": "Helm",
                 "Set": "Cathan's Traps",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+2 Defense (Per Character Level) (2 Items)"
                 ],
@@ -1350,7 +1322,6 @@
             {
                 "Type": "Amulet",
                 "Set": "Cathan's Traps",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+50 to Attack Rating (2 Items)",
                     "+25% Chance Items Roll Magic or Better (3 Items)"
@@ -1385,7 +1356,6 @@
             {
                 "Type": "Ring",
                 "Set": "Cathan's Traps",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+10 to Strength (2 Items)"
                 ],
@@ -1463,7 +1433,6 @@
             {
                 "Type": "Axe",
                 "Set": "Tancred's Battlegear",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+20% Increased Attack Speed (3 Items)",
                     "+20 to Mana (2 Items)"
@@ -1505,7 +1474,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Tancred's Battlegear",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+2 Defense (Per Character Level) (2 Items)"
                 ],
@@ -1543,7 +1511,6 @@
             {
                 "Type": "Boots",
                 "Set": "Tancred's Battlegear",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+30% Faster Run/Walk Speed (2 Items)",
                     "+10 to Strength (3 Items)"
@@ -1582,7 +1549,6 @@
             {
                 "Type": "Amulet",
                 "Set": "Tancred's Battlegear",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+60 to Attack Rating (3 Items)",
                     "+78% Chance Items Roll Magic or Better (2 Items)"
@@ -1617,7 +1583,6 @@
             {
                 "Type": "Helm",
                 "Set": "Tancred's Battlegear",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+10% to All Resistances (2 Items)"
                 ],
@@ -1691,7 +1656,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Sigon's Complete Steel",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+30% Increased Attack Speed (2 Items)"
                 ],
@@ -1729,7 +1693,6 @@
             {
                 "Type": "Helm",
                 "Set": "Sigon's Complete Steel",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+8 to Attack Rating (Per Character Level) (2 Items)"
                 ],
@@ -1767,7 +1730,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Sigon's Complete Steel",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "Attacker Takes Damage of 20 (2 Items)"
                 ],
@@ -1805,7 +1767,6 @@
             {
                 "Type": "Boots",
                 "Set": "Sigon's Complete Steel",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+50 to Attack Rating (2 Items)",
                     "+50% Chance Items Roll Magic or Better (3 Items)"
@@ -1844,7 +1805,6 @@
             {
                 "Type": "Belt",
                 "Set": "Sigon's Complete Steel",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+2 Defense (Per Character Level) (2 Items)"
                 ],
@@ -1882,7 +1842,6 @@
             {
                 "Type": "Shield",
                 "Set": "Sigon's Complete Steel",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Sigon's Guard",
                 "Index": "Sigon's Guard",
@@ -1958,7 +1917,6 @@
             {
                 "Type": "Helm",
                 "Set": "Infernal Tools",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+2 Defense (Per Character Level) (2 Items)"
                 ],
@@ -1996,7 +1954,6 @@
             {
                 "Type": "Wand",
                 "Set": "Infernal Tools",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+10 to Attack Rating (Per Character Level) (2 Items)"
                 ],
@@ -2037,7 +1994,6 @@
             {
                 "Type": "Belt",
                 "Set": "Infernal Tools",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+25% Poison Resistance (2 Items)",
                     "Half Freeze Duration (3 Items)"
@@ -2120,7 +2076,6 @@
             {
                 "Type": "Helm",
                 "Set": "Berserker's Arsenal",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+8 to Attack Rating (Per Character Level) (2 Items)"
                 ],
@@ -2158,7 +2113,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Berserker's Arsenal",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+3 Defense (Per Character Level) (2 Items)"
                 ],
@@ -2196,7 +2150,6 @@
             {
                 "Type": "Axe",
                 "Set": "Berserker's Arsenal",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+50% Enhanced Weapon Damage (2 Items)"
                 ],
@@ -2265,7 +2218,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Death's Disguise",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+30% Increased Attack Speed (2 Items)"
                 ],
@@ -2303,7 +2255,6 @@
             {
                 "Type": "Belt",
                 "Set": "Death's Disguise",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+15% to All Resistances (2 Items)"
                 ],
@@ -2341,7 +2292,6 @@
             {
                 "Type": "Sword",
                 "Set": "Death's Disguise",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "Adds 25-75 Weapon Cold Damage (2 Items)"
                 ],
@@ -2410,7 +2360,6 @@
             {
                 "Type": "Sword",
                 "Set": "Angelic Raiment",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+30% Increased Attack Speed (3 Items)",
                     "+75% Enhanced Weapon Damage (2 Items)"
@@ -2452,7 +2401,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Angelic Raiment",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+150 Defense (2 Items)",
                     "+50% Fire Resistance (3 Items)"
@@ -2491,7 +2439,6 @@
             {
                 "Type": "Ring",
                 "Set": "Angelic Raiment",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+12 to Attack Rating (Per Character Level) (2 Items)",
                     "+50% Chance Items Roll Magic or Better (3 Items)"
@@ -2526,7 +2473,6 @@
             {
                 "Type": "Amulet",
                 "Set": "Angelic Raiment",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+1 to All Skills (3 Items)",
                     "+75 to Life (2 Items)"
@@ -2597,7 +2543,6 @@
             {
                 "Type": "Bow",
                 "Set": "Arctic Gear",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+8 to Attack Rating (Per Character Level) (2 Items)",
                     "Adds 20-30 Weapon Cold Damage (3 Items)"
@@ -2639,7 +2584,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Arctic Gear",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+3 Defense (Per Character Level) (2 Items)",
                     "+15% Cold Resistance (3 Items)"
@@ -2678,7 +2622,6 @@
             {
                 "Type": "Belt",
                 "Set": "Arctic Gear",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+10% Cold Resistance (3 Items)",
                     "+40% Chance Items Roll Magic or Better (2 Items)"
@@ -2717,7 +2660,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Arctic Gear",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+50 to Attack Rating (2 Items)",
                     "+10 to Dexterity (3 Items)"
@@ -2784,7 +2726,6 @@
             {
                 "Type": "Amulet",
                 "Set": "Arcanna's Tricks",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+20% Fire Resistance (3 Items)",
                     "+50% Chance Items Roll Magic or Better (2 Items)"
@@ -2819,7 +2760,6 @@
             {
                 "Type": "Staff",
                 "Set": "Arcanna's Tricks",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+50 to Mana (2 Items)",
                     "+5% Mana Regeneration (3 Items)"
@@ -2861,7 +2801,6 @@
             {
                 "Type": "Helm",
                 "Set": "Arcanna's Tricks",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+3 Defense (Per Character Level) (2 Items)",
                     "+15% Lightning Resistance (3 Items)"
@@ -2900,7 +2839,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Arcanna's Tricks",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+100 Defense (2 Items)",
                     "+10 to Energy (3 Items)"
@@ -2979,7 +2917,6 @@
             {
                 "Type": "Helm",
                 "Set": "Natalya's Odium",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Natalya's Totem",
                 "Index": "Natalya's Totem",
@@ -3027,7 +2964,6 @@
             {
                 "Type": "Hand to Hand",
                 "Set": "Natalya's Odium",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Natalya's Mark",
                 "Index": "Natalya's Mark",
@@ -3086,7 +3022,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Natalya's Odium",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Natalya's Shadow",
                 "Index": "Natalya's Shadow",
@@ -3138,7 +3073,6 @@
             {
                 "Type": "Boots",
                 "Set": "Natalya's Odium",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Natalya's Soul",
                 "Index": "Natalya's Soul",
@@ -3238,7 +3172,6 @@
             {
                 "Type": "Pelt",
                 "Set": "Aldur's Watchtower",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+15 to Energy (2 Items)",
                     "+15 to Energy (3 Items)",
@@ -3288,13 +3221,12 @@
                     "RequiredStrength": 56,
                     "RequiredDexterity": 0,
                     "Durability": 20,
-                    "RequiredClass": "Druid"
+                    "RequiredClass": ""
                 }
             },
             {
                 "Type": "Body Armor",
                 "Set": "Aldur's Watchtower",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+15 to Vitality (2 Items)",
                     "+15 to Vitality (3 Items)",
@@ -3354,7 +3286,6 @@
             {
                 "Type": "Mace",
                 "Set": "Aldur's Watchtower",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+15 to Strength (2 Items)",
                     "+15 to Strength (3 Items)",
@@ -3417,7 +3348,6 @@
             {
                 "Type": "Boots",
                 "Set": "Aldur's Watchtower",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+15 to Dexterity (2 Items)",
                     "+15 to Dexterity (3 Items)",
@@ -3521,7 +3451,6 @@
             {
                 "Type": "Primal Helm",
                 "Set": "Immortal King",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Immortal King's Will",
                 "Index": "Immortal King's Will",
@@ -3567,13 +3496,12 @@
                     "RequiredStrength": 65,
                     "RequiredDexterity": 0,
                     "Durability": 55,
-                    "RequiredClass": "Barbarian"
+                    "RequiredClass": ""
                 }
             },
             {
                 "Type": "Body Armor",
                 "Set": "Immortal King",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+25% Faster Hit Recovery (2 Items)",
                     "+50% Enhanced Defense (6 Items)",
@@ -3623,7 +3551,6 @@
             {
                 "Type": "Belt",
                 "Set": "Immortal King",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+2 to Masteries & Throwing Skills (Barbarian Only) (6 Items)",
                     "+25% Faster Hit Recovery (3 Items)",
@@ -3673,7 +3600,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Immortal King",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+25% Increased Attack Speed (2 Items)",
                     "+10% Mana stolen per hit (5 Items)",
@@ -3723,7 +3649,6 @@
             {
                 "Type": "Boots",
                 "Set": "Immortal King",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+2 to Combat Skills (Barbarian Only) (3 Items)",
                     "+160 Defense (4 Items)",
@@ -3772,7 +3697,6 @@
             {
                 "Type": "Hammer",
                 "Set": "Immortal King",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "Adds 250-361 Weapon Magic Damage (6 Items)",
                     "Adds 211-397 Weapon Fire Damage (2 Items)",
@@ -3881,7 +3805,6 @@
             {
                 "Type": "Belt",
                 "Set": "Tal Rasha's Wrappings",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+10% Faster Cast Rate (3 Items)",
                     "+60 Defense (2 Items)"
@@ -3932,7 +3855,6 @@
             {
                 "Type": "Amulet",
                 "Set": "Tal Rasha's Wrappings",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+10% Faster Cast Rate (4 Items)"
                 ],
@@ -3978,7 +3900,6 @@
             {
                 "Type": "Orb",
                 "Set": "Tal Rasha's Wrappings",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+1 to Sorceress Skill Levels (2 Items)",
                     "-15% to Enemy Fire Resistance (3 Items)",
@@ -4042,7 +3963,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Tal Rasha's Wrappings",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+10% Faster Cast Rate (2 Items)"
                 ],
@@ -4100,7 +4020,6 @@
             {
                 "Type": "Helm",
                 "Set": "Tal Rasha's Wrappings",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Tal Rasha's Horadric Crest",
                 "Index": "Tal Rasha's Horadric Crest",
@@ -4196,7 +4115,6 @@
             {
                 "Type": "Helm",
                 "Set": "Griswold's Legacy",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+2 to Offensive Auras (Paladin Only) (2 Items)"
                 ],
@@ -4250,7 +4168,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Griswold's Legacy",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Griswold's Heart",
                 "Index": "Griswold's Heart",
@@ -4298,7 +4215,6 @@
             {
                 "Type": "Scepter",
                 "Set": "Griswold's Legacy",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+2 to Combat Skills (Paladin Only) (2 Items)",
                     "Adds 10-20 Weapon Damage (3 Items)",
@@ -4353,7 +4269,6 @@
             {
                 "Type": "Auric Shields",
                 "Set": "Griswold's Legacy",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Griswold's Honor",
                 "Index": "Griswold's Honor",
@@ -4395,7 +4310,7 @@
                     "RequiredStrength": 148,
                     "RequiredDexterity": 0,
                     "Durability": 90,
-                    "RequiredClass": "Paladin"
+                    "RequiredClass": ""
                 }
             }
         ],
@@ -4441,7 +4356,6 @@
             {
                 "Type": "Helm",
                 "Set": "Trang-Oul's Avatar",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Trang-Oul's Guise",
                 "Index": "Trang-Oul's Guise",
@@ -4489,7 +4403,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Trang-Oul's Avatar",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+50% Lightning Resistance (3 Items)",
                     "+25% Physical Damage Reduction (5 Items)"
@@ -4544,7 +4457,6 @@
             {
                 "Type": "Voodoo Heads",
                 "Set": "Trang-Oul's Avatar",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "-25% to Enemy Poison Resistance (3 Items)",
                     "Replenish Life +15 (4 Items)"
@@ -4597,13 +4509,12 @@
                     "RequiredStrength": 50,
                     "RequiredDexterity": 0,
                     "Durability": 20,
-                    "RequiredClass": "Necromancer"
+                    "RequiredClass": ""
                 }
             },
             {
                 "Type": "Gloves",
                 "Set": "Trang-Oul's Avatar",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Trang-Oul's Claws",
                 "Index": "Trang-Oul's Claws",
@@ -4651,7 +4562,6 @@
             {
                 "Type": "Belt",
                 "Set": "Trang-Oul's Avatar",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+40% Cold Resistance (3 Items)"
                 ],
@@ -4769,7 +4679,6 @@
             {
                 "Type": "Circlet",
                 "Set": "M'avina's Battle Hymn",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+1 to All Skills (2 Items)",
                     "+50% Bonus to Attack Rating (3 Items)",
@@ -4817,7 +4726,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "M'avina's Battle Hymn",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+30% Faster Hit Recovery (3 Items)"
                 ],
@@ -4871,7 +4779,6 @@
             {
                 "Type": "Gloves",
                 "Set": "M'avina's Battle Hymn",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "Adds 131-252 Weapon Cold Damage (4 Items)",
                     "+20% to Cold Skill Damage (5 Items)"
@@ -4926,7 +4833,6 @@
             {
                 "Type": "Belt",
                 "Set": "M'avina's Battle Hymn",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "+25% to All Resistances (4 Items)"
                 ],
@@ -4972,7 +4878,6 @@
             {
                 "Type": "Amazon Bow",
                 "Set": "M'avina's Battle Hymn",
-                "Vanilla": "Y",
                 "SetPropertiesString": [
                     "10% Chance to cast level 15 Nova on striking (3 Items)",
                     "+2 to Bow and Crossbow Skills (Amazon Only) (4 Items)",
@@ -5063,7 +4968,6 @@
             {
                 "Type": "Amulet",
                 "Set": "The Disciple",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Telling of Beads",
                 "Index": "Telling of Beads",
@@ -5103,7 +5007,6 @@
             {
                 "Type": "Gloves",
                 "Set": "The Disciple",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Laying of Hands",
                 "Index": "Laying of Hands",
@@ -5151,7 +5054,6 @@
             {
                 "Type": "Boots",
                 "Set": "The Disciple",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Rite of Passage",
                 "Index": "Rite of Passage",
@@ -5191,7 +5093,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "The Disciple",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Dark Adherent",
                 "Index": "Dark Adherent",
@@ -5235,7 +5136,6 @@
             {
                 "Type": "Belt",
                 "Set": "The Disciple",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Credendum",
                 "Index": "Credendum",
@@ -5319,7 +5219,6 @@
             {
                 "Type": "Mace",
                 "Set": "Heaven's Brethren",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Dangoon's Teaching",
                 "Index": "Dangoon's Teaching",
@@ -5366,7 +5265,6 @@
             {
                 "Type": "Shield",
                 "Set": "Heaven's Brethren",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Taebaek's Glory",
                 "Index": "Taebaek's Glory",
@@ -5422,7 +5320,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Heaven's Brethren",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Haemosu's Adamant",
                 "Index": "Haemosu's Adamant",
@@ -5470,7 +5367,6 @@
             {
                 "Type": "Helm",
                 "Set": "Heaven's Brethren",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Ondal's Almighty",
                 "Index": "Ondal's Almighty",
@@ -5566,7 +5462,6 @@
             {
                 "Type": "Helm",
                 "Set": "Orphan's Call",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Guillaume's Face",
                 "Index": "Guillaume's Face",
@@ -5614,7 +5509,6 @@
             {
                 "Type": "Belt",
                 "Set": "Orphan's Call",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Wilhelm's Pride",
                 "Index": "Wilhelm's Pride",
@@ -5658,7 +5552,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Orphan's Call",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Magnus' Skin",
                 "Index": "Magnus' Skin",
@@ -5706,7 +5599,6 @@
             {
                 "Type": "Shield",
                 "Set": "Orphan's Call",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Whitstan's Guard",
                 "Index": "Whitstan's Guard",
@@ -5802,7 +5694,6 @@
             {
                 "Type": "Helm",
                 "Set": "Hwanin's Majesty",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Hwanin's Splendor",
                 "Index": "Hwanin's Splendor",
@@ -5846,7 +5737,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Hwanin's Majesty",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Hwanin's Refuge",
                 "Index": "Hwanin's Refuge",
@@ -5890,7 +5780,6 @@
             {
                 "Type": "Belt",
                 "Set": "Hwanin's Majesty",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Hwanin's Blessing",
                 "Index": "Hwanin's Blessing",
@@ -5934,7 +5823,6 @@
             {
                 "Type": "Polearm",
                 "Set": "Hwanin's Majesty",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Hwanin's Justice",
                 "Index": "Hwanin's Justice",
@@ -6025,7 +5913,6 @@
             {
                 "Type": "Sword",
                 "Set": "Sazabi's Grand Tribute",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Sazabi's Cobalt Redeemer",
                 "Index": "Sazabi's Cobalt Redeemer",
@@ -6084,7 +5971,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Sazabi's Grand Tribute",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Sazabi's Ghost Liberator",
                 "Index": "Sazabi's Ghost Liberator",
@@ -6132,7 +6018,6 @@
             {
                 "Type": "Helm",
                 "Set": "Sazabi's Grand Tribute",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Sazabi's Mental Sheath",
                 "Index": "Sazabi's Mental Sheath",
@@ -6216,7 +6101,6 @@
             {
                 "Type": "Sword",
                 "Set": "Bul-Kathos' Children",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Bul-Kathos' Sacred Charge",
                 "Index": "Bul-Kathos' Sacred Charge",
@@ -6267,7 +6151,6 @@
             {
                 "Type": "Sword",
                 "Set": "Bul-Kathos' Children",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Bul-Kathos' Tribal Guardian",
                 "Index": "Bul-Kathos' Tribal Guardian",
@@ -6361,7 +6244,6 @@
             {
                 "Type": "Helm",
                 "Set": "Cow King's Leathers",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Cow King's Horns",
                 "Index": "Cow King's Horns",
@@ -6405,7 +6287,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Cow King's Leathers",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Cow King's Hide",
                 "Index": "Cow King's Hide",
@@ -6449,7 +6330,6 @@
             {
                 "Type": "Boots",
                 "Set": "Cow King's Leathers",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Cow King's Hooves",
                 "Index": "Cow King's Hooves",
@@ -6545,7 +6425,6 @@
             {
                 "Type": "Staff",
                 "Set": "Naj's Ancient Vestige",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Naj's Puzzler",
                 "Index": "Naj's Puzzler",
@@ -6604,7 +6483,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Naj's Ancient Vestige",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Naj's Light Plate",
                 "Index": "Naj's Light Plate",
@@ -6656,7 +6534,6 @@
             {
                 "Type": "Circlet",
                 "Set": "Naj's Ancient Vestige",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Naj's Circlet",
                 "Index": "Naj's Circlet",
@@ -6756,7 +6633,6 @@
             {
                 "Type": "Helm",
                 "Set": "Sander's Folly",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Sander's Paragon",
                 "Index": "Sander's Paragon",
@@ -6796,7 +6672,6 @@
             {
                 "Type": "Boots",
                 "Set": "Sander's Folly",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Sander's Riprap",
                 "Index": "Sander's Riprap",
@@ -6840,7 +6715,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Sander's Folly",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Sander's Taboo",
                 "Index": "Sander's Taboo",
@@ -6884,7 +6758,6 @@
             {
                 "Type": "Wand",
                 "Set": "Sander's Folly",
-                "Vanilla": "Y",
                 "SetPropertiesString": [],
                 "Name": "Sander's Superstition",
                 "Index": "Sander's Superstition",
@@ -6971,7 +6844,6 @@
             {
                 "Type": "Hand to Hand",
                 "Set": "Midnight Calling",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+15 to Minimum Weapon Damage (2 Items)"
                 ],
@@ -7012,7 +6884,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Midnight Calling",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+2 to Traps (Assassin Only) (3 Items)"
                 ],
@@ -7054,7 +6925,6 @@
             {
                 "Type": "Helm",
                 "Set": "Midnight Calling",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Magic Damage Reduced By 6 (2 Items)"
                 ],
@@ -7096,7 +6966,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Midnight Calling",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Physical Damage Reduced By 8 (3 Items)"
                 ],
@@ -7174,7 +7043,6 @@
             {
                 "Type": "Ring",
                 "Set": "Nature's Grove",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Peace Ring",
                 "Index": "Peace Ring",
@@ -7206,7 +7074,6 @@
             {
                 "Type": "Hammer",
                 "Set": "Nature's Grove",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Adds 10-30 Weapon Cold Damage (2 Items)"
                 ],
@@ -7247,7 +7114,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Nature's Grove",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Replenish Life +3 (3 Items)",
                     "+75% Mana Regeneration (4 Items)"
@@ -7286,7 +7152,6 @@
             {
                 "Type": "Pelt",
                 "Set": "Nature's Grove",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+4 to Lycanthropy (Druid Only) (4 Items)"
                 ],
@@ -7318,7 +7183,7 @@
                     "RequiredStrength": 24,
                     "RequiredDexterity": 0,
                     "Durability": 20,
-                    "RequiredClass": "Druid"
+                    "RequiredClass": ""
                 }
             }
         ],
@@ -7360,7 +7225,6 @@
             {
                 "Type": "Voodoo Heads",
                 "Set": "Grimlock's Grave",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+100% Enhanced Defense (2 Items)"
                 ],
@@ -7392,13 +7256,12 @@
                     "RequiredStrength": 14,
                     "RequiredDexterity": 0,
                     "Durability": 20,
-                    "RequiredClass": "Necromancer"
+                    "RequiredClass": ""
                 }
             },
             {
                 "Type": "Wand",
                 "Set": "Grimlock's Grave",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Adds 8-20 Weapon Damage (3 Items)"
                 ],
@@ -7439,7 +7302,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Grimlock's Grave",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+77 Defense (2 Items)",
                     "+40% Mana Regeneration (3 Items)"
@@ -7478,7 +7340,6 @@
             {
                 "Type": "Belt",
                 "Set": "Grimlock's Grave",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+20 Defense (2 Items)"
                 ],
@@ -7552,7 +7413,6 @@
             {
                 "Type": "Orb",
                 "Set": "Corgina's Element",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+1 to Cold Skills (Sorceress Only) (2 Items)",
                     "+1 to Lightning Skills (Sorceress Only) (3 Items)",
@@ -7595,7 +7455,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Corgina's Element",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+1 to Mana (Per Character Level) (3 Items)",
                     "+10% Damage Taken Goes To Mana (2 Items)"
@@ -7634,7 +7493,6 @@
             {
                 "Type": "Shield",
                 "Set": "Corgina's Element",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+15% Faster Block Rate (2 Items)",
                     "+20% Cold Resistance (3 Items)",
@@ -7674,7 +7532,6 @@
             {
                 "Type": "Boots",
                 "Set": "Corgina's Element",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+20% Fire Resistance (2 Items)",
                     "+20% Poison Resistance (3 Items)"
@@ -7753,7 +7610,6 @@
             {
                 "Type": "Amazon Bow",
                 "Set": "Sheena's Grace",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+25% Increased Attack Speed (4 Items)"
                 ],
@@ -7794,7 +7650,6 @@
             {
                 "Type": "Amulet",
                 "Set": "Sheena's Grace",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+12% to All Resistances (3 Items)"
                 ],
@@ -7824,7 +7679,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Sheena's Grace",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+5% Life stolen per hit (4 Items)",
                     "Physical Damage Reduced By 12 (2 Items)",
@@ -7864,7 +7718,6 @@
             {
                 "Type": "Belt",
                 "Set": "Sheena's Grace",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+10 to Vitality (2 Items)"
                 ],
@@ -7938,7 +7791,6 @@
             {
                 "Type": "Primal Helm",
                 "Set": "Talonrage's Fury",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+1 to Combat Skills (Barbarian Only) (3 Items)"
                 ],
@@ -7970,13 +7822,12 @@
                     "RequiredStrength": 55,
                     "RequiredDexterity": 0,
                     "Durability": 50,
-                    "RequiredClass": "Barbarian"
+                    "RequiredClass": ""
                 }
             },
             {
                 "Type": "Body Armor",
                 "Set": "Talonrage's Fury",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+40 to Life (2 Items)",
                     "+10% Physical Damage Reduction (4 Items)"
@@ -8015,7 +7866,6 @@
             {
                 "Type": "Spear",
                 "Set": "Talonrage's Fury",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+30% Increased Attack Speed (2 Items)"
                 ],
@@ -8056,7 +7906,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Talonrage's Fury",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+20 to Strength (3 Items)"
                 ],
@@ -8130,7 +7979,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Greyhawk's Mantle",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Replenish Life +3 (4 Items)"
                 ],
@@ -8168,7 +8016,6 @@
             {
                 "Type": "Scepter",
                 "Set": "Greyhawk's Mantle",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "15% Chance to cast level 3 Frozen Armor when struck (3 Items)"
                 ],
@@ -8209,7 +8056,6 @@
             {
                 "Type": "Auric Shields",
                 "Set": "Greyhawk's Mantle",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+25% Faster Block Rate (3 Items)"
                 ],
@@ -8241,13 +8087,12 @@
                     "RequiredStrength": 40,
                     "RequiredDexterity": 0,
                     "Durability": 40,
-                    "RequiredClass": "Paladin"
+                    "RequiredClass": ""
                 }
             },
             {
                 "Type": "Helm",
                 "Set": "Greyhawk's Mantle",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+20 to Life (3 Items)"
                 ],
@@ -8321,7 +8166,6 @@
             {
                 "Type": "Shield",
                 "Set": "Silent Runnings",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "20% Increased Chance of Blocking (2 Items)"
                 ],
@@ -8359,7 +8203,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Silent Runnings",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+25% Chance Items Roll Magic or Better (3 Items)"
                 ],
@@ -8397,7 +8240,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Silent Runnings",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+8% Physical Damage Reduction (3 Items)"
                 ],
@@ -8435,7 +8277,6 @@
             {
                 "Type": "Belt",
                 "Set": "Silent Runnings",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+20 Defense (3 Items)"
                 ],
@@ -8473,7 +8314,6 @@
             {
                 "Type": "Helm",
                 "Set": "Silent Runnings",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Beast Collar",
                 "Index": "Beast Collar",
@@ -8553,7 +8393,6 @@
             {
                 "Type": "Circlet",
                 "Set": "Snowmane's Jewelry",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+15% Faster Hit Recovery (3 Items)",
                     "+20 to Life (2 Items)"
@@ -8592,7 +8431,6 @@
             {
                 "Type": "Belt",
                 "Set": "Snowmane's Jewelry",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+10% Physical Damage Reduction (4 Items)"
                 ],
@@ -8630,7 +8468,6 @@
             {
                 "Type": "Ring",
                 "Set": "Snowmane's Jewelry",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+30 to Life (3 Items)",
                     "+15% Chance Items Roll Magic or Better (4 Items)"
@@ -8665,7 +8502,6 @@
             {
                 "Type": "Amulet",
                 "Set": "Snowmane's Jewelry",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+1 to All Skills (3 Items)"
                 ],
@@ -8735,7 +8571,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Four Seasons",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+10% to Maximum Cold Resistance (3 Items)",
                     "+10% Cold Damage Absorbed (2 Items)",
@@ -8775,7 +8610,6 @@
             {
                 "Type": "Helm",
                 "Set": "Four Seasons",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+10% to Maximum Lightning Resistance (3 Items)",
                     "+10% Lightning Damage Absorbed (2 Items)"
@@ -8814,7 +8648,6 @@
             {
                 "Type": "Boots",
                 "Set": "Four Seasons",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+10% to Maximum Fire Resistance (3 Items)",
                     "+10% Fire Damage Absorbed (2 Items)"
@@ -8853,7 +8686,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Four Seasons",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+10% to Maximum Poison Resistance (3 Items)",
                     "+10% Magic Resistance (2 Items)",
@@ -8933,7 +8765,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Forgotten Treasures",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+10% Magic Resistance (4 Items)",
                     "+15% Physical Damage Reduction (6 Items)"
@@ -8972,7 +8803,6 @@
             {
                 "Type": "Helm",
                 "Set": "Forgotten Treasures",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+30 to Mana (2 Items)",
                     "+50% Mana Regeneration (5 Items)"
@@ -9011,7 +8841,6 @@
             {
                 "Type": "Belt",
                 "Set": "Forgotten Treasures",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+5% Mana stolen per hit (4 Items)",
                     "+50 to Life (3 Items)"
@@ -9050,7 +8879,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Forgotten Treasures",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+5% Life stolen per hit (4 Items)",
                     "+10 to Strength (6 Items)"
@@ -9089,7 +8917,6 @@
             {
                 "Type": "Boots",
                 "Set": "Forgotten Treasures",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+20% Faster Hit Recovery (3 Items)",
                     "+10 to Dexterity (5 Items)"
@@ -9128,7 +8955,6 @@
             {
                 "Type": "Shield",
                 "Set": "Forgotten Treasures",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+25% Faster Block Rate (2 Items)",
                     "20% Increased Chance of Blocking (4 Items)"
@@ -9215,7 +9041,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Insight of Brother Laz",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+15 to Strength (3 Items)"
                 ],
@@ -9261,7 +9086,6 @@
             {
                 "Type": "Auric Shields",
                 "Set": "Insight of Brother Laz",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "7% Chance to cast level 1 Frozen Orb when struck (5 Items)"
                 ],
@@ -9301,13 +9125,12 @@
                     "RequiredStrength": 69,
                     "RequiredDexterity": 0,
                     "Durability": 40,
-                    "RequiredClass": "Paladin"
+                    "RequiredClass": ""
                 }
             },
             {
                 "Type": "Amulet",
                 "Set": "Insight of Brother Laz",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "9% Chance to cast level 2 Mind Blast when struck (3 Items)",
                     "+25 to Mana (2 Items)"
@@ -9350,7 +9173,6 @@
             {
                 "Type": "Scepter",
                 "Set": "Insight of Brother Laz",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "12% Chance to cast level 1 Fire Wall on striking (3 Items)",
                     "+1 to Maximum Weapon Damage (Per Character Level) (4 Items)"
@@ -9400,7 +9222,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Insight of Brother Laz",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "6% Chance to cast level 2 War Cry when struck (4 Items)",
                     "Replenish Life +3 (5 Items)"
@@ -9495,7 +9316,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Hades' Underworld",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+50 to Mana (4 Items)"
                 ],
@@ -9537,7 +9357,6 @@
             {
                 "Type": "Voodoo Heads",
                 "Set": "Hades' Underworld",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+20% Physical Damage Reduction (4 Items)"
                 ],
@@ -9573,13 +9392,12 @@
                     "RequiredStrength": 47,
                     "RequiredDexterity": 0,
                     "Durability": 20,
-                    "RequiredClass": "Necromancer"
+                    "RequiredClass": ""
                 }
             },
             {
                 "Type": "Ring",
                 "Set": "Hades' Underworld",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Vampire's Crusade",
                 "Index": "Vampire's Crusade",
@@ -9619,7 +9437,6 @@
             {
                 "Type": "Boots",
                 "Set": "Hades' Underworld",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Cannot Be Frozen (5 Items)"
                 ],
@@ -9661,7 +9478,6 @@
             {
                 "Type": "Helm",
                 "Set": "Hades' Underworld",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+100% Extra Gold from Monsters (3 Items)",
                     "+35% Chance Items Roll Magic or Better (4 Items)"
@@ -9748,7 +9564,6 @@
             {
                 "Type": "Primal Helm",
                 "Set": "Darque's Cabal",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+15% Increased Attack Speed (4 Items)",
                     "+15 to Maximum Weapon Damage (2 Items)"
@@ -9789,13 +9604,12 @@
                     "RequiredStrength": 103,
                     "RequiredDexterity": 0,
                     "Durability": 50,
-                    "RequiredClass": "Barbarian"
+                    "RequiredClass": ""
                 }
             },
             {
                 "Type": "Body Armor",
                 "Set": "Darque's Cabal",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+100% Damage to Demons (2 Items)"
                 ],
@@ -9837,7 +9651,6 @@
             {
                 "Type": "Sword",
                 "Set": "Darque's Cabal",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+40% Increased Attack Speed (2 Items)",
                     "Adds 50-125 Weapon Damage (3 Items)",
@@ -9884,7 +9697,6 @@
             {
                 "Type": "Shield",
                 "Set": "Darque's Cabal",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+20% Faster Block Rate (3 Items)"
                 ],
@@ -9966,7 +9778,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Red Havoc's Challenge",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+1 to Maximum Weapon Damage (Per Character Level) (3 Items)"
                 ],
@@ -10008,7 +9819,6 @@
             {
                 "Type": "Pelt",
                 "Set": "Red Havoc's Challenge",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+25% Chance Items Roll Magic or Better (2 Items)"
                 ],
@@ -10048,13 +9858,12 @@
                     "RequiredStrength": 44,
                     "RequiredDexterity": 0,
                     "Durability": 20,
-                    "RequiredClass": "Druid"
+                    "RequiredClass": ""
                 }
             },
             {
                 "Type": "Hammer",
                 "Set": "Red Havoc's Challenge",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+35% to All Resistances (3 Items)"
                 ],
@@ -10103,7 +9912,6 @@
             {
                 "Type": "Belt",
                 "Set": "Red Havoc's Challenge",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+50 to Mana (4 Items)"
                 ],
@@ -10193,7 +10001,6 @@
             {
                 "Type": "Boots",
                 "Set": "Mishy's Avatar",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+20% Faster Hit Recovery (2 Items)"
                 ],
@@ -10239,7 +10046,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Mishy's Avatar",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+15% Increased Attack Speed (3 Items)",
                     "+25 to Life (4 Items)"
@@ -10286,7 +10092,6 @@
             {
                 "Type": "Circlet",
                 "Set": "Mishy's Avatar",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Silent Whisper",
                 "Index": "Silent Whisper",
@@ -10330,7 +10135,6 @@
             {
                 "Type": "Ring",
                 "Set": "Mishy's Avatar",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Warder's Bond",
                 "Index": "Warder's Bond",
@@ -10370,7 +10174,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Mishy's Avatar",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+20% Increased Attack Speed (5 Items)"
                 ],
@@ -10416,7 +10219,6 @@
             {
                 "Type": "Amazon Bow",
                 "Set": "Mishy's Avatar",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Adds 25-100 Weapon Fire Damage (6 Items)",
                     "Adds 25-100 Weapon Lightning Damage (6 Items)",
@@ -10511,7 +10313,6 @@
             {
                 "Type": "Orb",
                 "Set": "Joel's Sanctuary",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Eye of the Trent",
                 "Index": "Eye of the Trent",
@@ -10558,7 +10359,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Joel's Sanctuary",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Replenish Life +5 (4 Items)"
                 ],
@@ -10608,7 +10408,6 @@
             {
                 "Type": "Helm",
                 "Set": "Joel's Sanctuary",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Half Freeze Duration (3 Items)"
                 ],
@@ -10658,7 +10457,6 @@
             {
                 "Type": "Shield",
                 "Set": "Joel's Sanctuary",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "20% Increased Chance of Blocking (2 Items)"
                 ],
@@ -10748,7 +10546,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "JBouley's Scion",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Shadow Ninja",
                 "Index": "Shadow Ninja",
@@ -10792,7 +10589,6 @@
             {
                 "Type": "Gloves",
                 "Set": "JBouley's Scion",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+15% to All Resistances (3 Items)"
                 ],
@@ -10834,7 +10630,6 @@
             {
                 "Type": "Hand to Hand",
                 "Set": "JBouley's Scion",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+8% Mana stolen per hit (4 Items)",
                     "+8% Life stolen per hit (3 Items)"
@@ -10880,7 +10675,6 @@
             {
                 "Type": "Belt",
                 "Set": "JBouley's Scion",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Slows Target by 15% (2 Items)"
                 ],
@@ -10970,7 +10764,6 @@
             {
                 "Type": "Ring",
                 "Set": "Forsaken Divinity",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Fall From Grace",
                 "Index": "Fall From Grace",
@@ -11010,7 +10803,6 @@
             {
                 "Type": "Ring",
                 "Set": "Forsaken Divinity",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Tyrial's Grief",
                 "Index": "Tyrial's Grief",
@@ -11050,7 +10842,6 @@
             {
                 "Type": "Amulet",
                 "Set": "Forsaken Divinity",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Redemption Denied",
                 "Index": "Redemption Denied",
@@ -11090,7 +10881,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Forsaken Divinity",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+1 to All Skills (4 Items)",
                     "+100% Extra Gold from Monsters (2 Items)",
@@ -11170,7 +10960,6 @@
             {
                 "Type": "Shield",
                 "Set": "Volf's Undead Legion",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "35% Increased Chance of Blocking (2 Items)"
                 ],
@@ -11216,7 +11005,6 @@
             {
                 "Type": "Sword",
                 "Set": "Volf's Undead Legion",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+20% Increased Attack Speed (2 Items)",
                     "+100% Damage to Demons (4 Items)"
@@ -11262,7 +11050,6 @@
             {
                 "Type": "Helm",
                 "Set": "Volf's Undead Legion",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+1 to Sorceress Skill Levels (4 Items)",
                     "+15 to Strength (3 Items)"
@@ -11305,7 +11092,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Volf's Undead Legion",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Cannot Be Frozen (4 Items)"
                 ],
@@ -11387,7 +11173,6 @@
             {
                 "Type": "Knife",
                 "Set": "Legacy of Vashna",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+8 Life after each Kill (2 Items)",
                     "+5 to Mana after each Kill (3 Items)"
@@ -11433,7 +11218,6 @@
             {
                 "Type": "Helm",
                 "Set": "Legacy of Vashna",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+5 to Raise Skeleton (oskill) (2 Items)",
                     "+3 to Skeleton Mastery (oskill) (3 Items)"
@@ -11476,7 +11260,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Legacy of Vashna",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Prevent Monster Heal (3 Items)"
                 ],
@@ -11558,7 +11341,6 @@
             {
                 "Type": "Polearm",
                 "Set": "Salander's Tirade",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Adds 75-120 Weapon Fire Damage (2 Items)"
                 ],
@@ -11603,7 +11385,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Salander's Tirade",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+35 to Life (2 Items)"
                 ],
@@ -11649,7 +11430,6 @@
             {
                 "Type": "Helm",
                 "Set": "Salander's Tirade",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+35 to Mana (2 Items)"
                 ],
@@ -11727,7 +11507,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Jerik's Dragon Armor",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+40% to Fire Skill Damage (2 Items)"
                 ],
@@ -11765,7 +11544,6 @@
             {
                 "Type": "Shield",
                 "Set": "Jerik's Dragon Armor",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+30% Faster Block Rate (3 Items)",
                     "20% Increased Chance of Blocking (2 Items)"
@@ -11804,7 +11582,6 @@
             {
                 "Type": "Helm",
                 "Set": "Jerik's Dragon Armor",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Magic Damage Reduced By 20 (3 Items)"
                 ],
@@ -11886,7 +11663,6 @@
             {
                 "Type": "Boots",
                 "Set": "Onyx's Primal Rage",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+30 to Strength (4 Items)",
                     "Physical Damage Reduced By 15 (2 Items)",
@@ -11934,7 +11710,6 @@
             {
                 "Type": "Sword",
                 "Set": "Onyx's Primal Rage",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+40% Increased Attack Speed (4 Items)",
                     "+7% Mana stolen per hit (2 Items)",
@@ -11989,7 +11764,6 @@
             {
                 "Type": "Sword",
                 "Set": "Onyx's Primal Rage",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "12% Chance to cast level 19 Nova on striking (2 Items)",
                     "+50 to Life (3 Items)"
@@ -12043,7 +11817,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Onyx's Primal Rage",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "15% Chance to cast level 7 Meteor when struck (3 Items)",
                     "+1 to Barbarian Skill Levels (2 Items)"
@@ -12090,7 +11863,6 @@
             {
                 "Type": "Primal Helm",
                 "Set": "Onyx's Primal Rage",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+20% Increased Attack Speed (3 Items)",
                     "+16 to Attack Rating (Per Character Level) (4 Items)",
@@ -12128,7 +11900,7 @@
                     "RequiredStrength": 196,
                     "RequiredDexterity": 0,
                     "Durability": 55,
-                    "RequiredClass": "Barbarian"
+                    "RequiredClass": ""
                 }
             }
         ],
@@ -12174,7 +11946,6 @@
             {
                 "Type": "Helm",
                 "Set": "Brother Laz' Calling",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+1 to Paladin Skill Levels (2 Items)",
                     "+20% Faster Hit Recovery (3 Items)",
@@ -12218,7 +11989,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Brother Laz' Calling",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+1 to All Skills (2 Items)",
                     "Slain Monsters Rest in Peace (3 Items)",
@@ -12266,7 +12036,6 @@
             {
                 "Type": "Auric Shields",
                 "Set": "Brother Laz' Calling",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+15 to Minimum Weapon Damage (3 Items)",
                     "+33 to Maximum Weapon Damage (2 Items)",
@@ -12312,13 +12081,12 @@
                     "RequiredStrength": 142,
                     "RequiredDexterity": 0,
                     "Durability": 65,
-                    "RequiredClass": "Paladin"
+                    "RequiredClass": ""
                 }
             },
             {
                 "Type": "Gloves",
                 "Set": "Brother Laz' Calling",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "10% Chance to cast level 3 Amplify Damage when struck (2 Items)",
                     "+15% to All Resistances (3 Items)",
@@ -12366,7 +12134,6 @@
             {
                 "Type": "Scepter",
                 "Set": "Brother Laz' Calling",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "20% Chance to cast level 8 Frost Nova on striking (3 Items)",
                     "+25 to Dexterity (2 Items)"
@@ -12456,7 +12223,6 @@
             {
                 "Type": "Circlet",
                 "Set": "The Mysterious Spin",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+1.5 Defense (Per Character Level) (3 Items)",
                     "+1.25 to Life (Per Character Level) (5 Items)",
@@ -12496,7 +12262,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "The Mysterious Spin",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+20% Faster Cast Rate (5 Items)",
                     "+20% Faster Hit Recovery (5 Items)",
@@ -12535,7 +12300,6 @@
             {
                 "Type": "Belt",
                 "Set": "The Mysterious Spin",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+10% to All Resistances (5 Items)",
                     "+10% Cold Damage Absorbed (2 Items)",
@@ -12574,7 +12338,6 @@
             {
                 "Type": "Shield",
                 "Set": "The Mysterious Spin",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+40% Faster Block Rate (3 Items)",
                     "40% Increased Chance of Blocking (2 Items)",
@@ -12613,7 +12376,6 @@
             {
                 "Type": "Orb",
                 "Set": "The Mysterious Spin",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+10% to Fire Skill Damage (2 Items)",
                     "+10% to Cold Skill Damage (3 Items)",
@@ -12695,7 +12457,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Darkmage's Astral Projection",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+15% to All Resistances (4 Items)",
                     "+15% Physical Damage Reduction (2 Items)"
@@ -12742,7 +12503,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Darkmage's Astral Projection",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "4% Chance to cast level 20 Shock Wave when struck (4 Items)",
                     "+25 to Strength (4 Items)",
@@ -12790,7 +12550,6 @@
             {
                 "Type": "Boots",
                 "Set": "Darkmage's Astral Projection",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "20% Chance to cast level 14 Nova when struck (5 Items)",
                     "+6% Mana stolen per hit (4 Items)",
@@ -12838,7 +12597,6 @@
             {
                 "Type": "Mace",
                 "Set": "Darkmage's Astral Projection",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "8% Chance to cast level 12 Meteor on striking (4 Items)",
                     "+1 to All Skills (3 Items)",
@@ -12889,7 +12647,6 @@
             {
                 "Type": "Pelt",
                 "Set": "Darkmage's Astral Projection",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+2 to Druid Skill Levels (3 Items)",
                     "+135 to Life (4 Items)",
@@ -12931,7 +12688,7 @@
                     "RequiredStrength": 113,
                     "RequiredDexterity": 0,
                     "Durability": 0,
-                    "RequiredClass": "Druid"
+                    "RequiredClass": ""
                 }
             }
         ],
@@ -12977,7 +12734,6 @@
             {
                 "Type": "Hand to Hand",
                 "Set": "Phrozen Heart's Mysticism",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+20% Chance of Crushing Blow (3 Items)",
                     "+20% Deadly Strike (2 Items)",
@@ -13024,7 +12780,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Phrozen Heart's Mysticism",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+20% Physical Damage Reduction (2 Items)",
                     "Cannot Be Frozen (4 Items)",
@@ -13068,7 +12823,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Phrozen Heart's Mysticism",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+20% Increased Attack Speed (2 Items)",
                     "+50% Enhanced Weapon Damage (3 Items)",
@@ -13113,7 +12867,6 @@
             {
                 "Type": "Boots",
                 "Set": "Phrozen Heart's Mysticism",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+3 to Dodge (oskill) (2 Items)",
                     "+3 to Evade (oskill) (3 Items)",
@@ -13158,7 +12911,6 @@
             {
                 "Type": "Belt",
                 "Set": "Phrozen Heart's Mysticism",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+10 Kick Damage (3 Items)",
                     "+15% Physical Damage Reduction (4 Items)",
@@ -13246,7 +12998,6 @@
             {
                 "Type": "Amulet",
                 "Set": "Chaos Energy",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+23% to All Resistances (3 Items)",
                     "+35% Chance Items Roll Magic or Better (4 Items)"
@@ -13289,7 +13040,6 @@
             {
                 "Type": "Helm",
                 "Set": "Chaos Energy",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+50 to Mana (2 Items)",
                     "+22% Damage Taken Goes To Mana (5 Items)"
@@ -13336,7 +13086,6 @@
             {
                 "Type": "Voodoo Heads",
                 "Set": "Chaos Energy",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+55 to Mana (5 Items)",
                     "+22% to All Resistances (3 Items)"
@@ -13377,13 +13126,12 @@
                     "RequiredStrength": 106,
                     "RequiredDexterity": 0,
                     "Durability": 20,
-                    "RequiredClass": "Necromancer"
+                    "RequiredClass": ""
                 }
             },
             {
                 "Type": "Boots",
                 "Set": "Chaos Energy",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+30% Faster Run/Walk Speed (2 Items)",
                     "+20% Increased Attack Speed (4 Items)",
@@ -13431,7 +13179,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Chaos Energy",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+85 to Life (2 Items)",
                     "+77 to Mana (4 Items)",
@@ -13523,7 +13270,6 @@
             {
                 "Type": "Amazon Javelin",
                 "Set": "Aiel Shieldmaiden",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+2 to Amazon Skill Levels (3 Items)",
                     "+20% Increased Attack Speed (2 Items)"
@@ -13581,7 +13327,6 @@
             {
                 "Type": "Shield",
                 "Set": "Aiel Shieldmaiden",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+25% to All Resistances (4 Items)",
                     "+20% Physical Damage Reduction (3 Items)"
@@ -13628,7 +13373,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Aiel Shieldmaiden",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+75 to Life (4 Items)",
                     "+75 to Mana (5 Items)"
@@ -13675,7 +13419,6 @@
             {
                 "Type": "Ring",
                 "Set": "Aiel Shieldmaiden",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+35 to Life (3 Items)",
                     "+20% Chance Items Roll Magic or Better (2 Items)"
@@ -13718,7 +13461,6 @@
             {
                 "Type": "Belt",
                 "Set": "Aiel Shieldmaiden",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+25% to Lightning Skill Damage (3 Items)",
                     "+15 Life after each Kill (4 Items)"
@@ -13809,7 +13551,6 @@
             {
                 "Type": "Axe",
                 "Set": "Myhrginoc's Warbreeder",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Myhrginoc's Headhunter",
                 "Index": "Myhrginoc's Headhunter",
@@ -13860,7 +13601,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Myhrginoc's Warbreeder",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Myhrginoc's Black Rain",
                 "Index": "Myhrginoc's Black Rain",
@@ -13908,7 +13648,6 @@
             {
                 "Type": "Helm",
                 "Set": "Myhrginoc's Warbreeder",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Myhrginoc's Crimson Crusader",
                 "Index": "Myhrginoc's Crimson Crusader",
@@ -13952,7 +13691,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Myhrginoc's Warbreeder",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+22% Chance of Crushing Blow (2 Items)",
                     "+16% Deadly Strike (3 Items)"
@@ -14039,7 +13777,6 @@
             {
                 "Type": "Polearm",
                 "Set": "Nefarious Ways",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+4% Extra Gold from Monsters (Per Character Level) (3 Items)",
                     "+2% Chance Items Roll Magic or Better (Per Character Level) (2 Items)"
@@ -14089,7 +13826,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Nefarious Ways",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Wicked Impulse",
                 "Index": "wicked Impulse",
@@ -14133,7 +13869,6 @@
             {
                 "Type": "Boots",
                 "Set": "Nefarious Ways",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+30% Chance Items Roll Magic or Better (3 Items)"
                 ],
@@ -14179,7 +13914,6 @@
             {
                 "Type": "Helm",
                 "Set": "Nefarious Ways",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+7 to Mana after each Kill (2 Items)"
                 ],
@@ -14265,7 +13999,6 @@
             {
                 "Type": "Amulet",
                 "Set": "Kraj's Memorial",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+18% to All Resistances (2 Items)",
                     "Half Freeze Duration (3 Items)"
@@ -14308,7 +14041,6 @@
             {
                 "Type": "Shield",
                 "Set": "Kraj's Memorial",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Level 4 Cleansing Aura When Equipped (4 Items)",
                     "+25% Faster Hit Recovery (3 Items)",
@@ -14356,7 +14088,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Kraj's Memorial",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+70 to Life (3 Items)"
                 ],
@@ -14402,7 +14133,6 @@
             {
                 "Type": "Mace",
                 "Set": "Kraj's Memorial",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+25% Increased Attack Speed (2 Items)",
                     "+18 Life after each Kill (3 Items)",
@@ -14493,7 +14223,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "The Darkest Weaves",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+50% Faster Hit Recovery (2 Items)"
                 ],
@@ -14531,7 +14260,6 @@
             {
                 "Type": "Sword",
                 "Set": "The Darkest Weaves",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+1 to Maximum Weapon Damage (Per Character Level) (2 Items)"
                 ],
@@ -14572,7 +14300,6 @@
             {
                 "Type": "Shield",
                 "Set": "The Darkest Weaves",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+50% Faster Block Rate (2 Items)"
                 ],
@@ -14650,7 +14377,6 @@
             {
                 "Type": "Helm",
                 "Set": "Blood Raven's Despair",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+10 to all Attributes (2 Items)"
                 ],
@@ -14696,7 +14422,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Blood Raven's Despair",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+6% Mana stolen per hit (2 Items)"
                 ],
@@ -14742,7 +14467,6 @@
             {
                 "Type": "Bow",
                 "Set": "Blood Raven's Despair",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+10 to Immolation Arrow (oskill) (2 Items)"
                 ],
@@ -14827,7 +14551,6 @@
             {
                 "Type": "Helm",
                 "Set": "Narrow Path Between Light and Darkness",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "25% Chance to cast level 1 Frost Nova when struck (3 Items)",
                     "+15% Increased Attack Speed (2 Items)"
@@ -14874,7 +14597,6 @@
             {
                 "Type": "Ring",
                 "Set": "Narrow Path Between Light and Darkness",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+45 to Mana (2 Items)",
                     "+10% Mana Regeneration (4 Items)",
@@ -14914,7 +14636,6 @@
             {
                 "Type": "Ring",
                 "Set": "Narrow Path Between Light and Darkness",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+45 to Life (2 Items)",
                     "Physical Damage Reduced By 10 (3 Items)"
@@ -14953,7 +14674,6 @@
             {
                 "Type": "Scepter",
                 "Set": "Narrow Path Between Light and Darkness",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+13-16 to Merc Static Field (oskill) (3 Items)",
                     "Adds 1-50 Weapon Lightning Damage (2 Items)",
@@ -15008,7 +14728,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Narrow Path Between Light and Darkness",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+1 to All Skills (3 Items)"
                 ],
@@ -15086,7 +14805,6 @@
             {
                 "Type": "Belt",
                 "Set": "Treasure Hunter",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Kingpin's Wrap",
                 "Index": "Kingpin's Wrap",
@@ -15138,7 +14856,6 @@
             {
                 "Type": "Boots",
                 "Set": "Treasure Hunter",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Kingpin's Greaves",
                 "Index": "Kingpin's Greaves",
@@ -15194,7 +14911,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Treasure Hunter",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+10 to Vitality (2 Items)",
                     "+10 to Energy (3 Items)"
@@ -15245,7 +14961,6 @@
             {
                 "Type": "Ring",
                 "Set": "Treasure Hunter",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+44 to Life (5 Items)",
                     "+15% Chance Items Roll Magic or Better (4 Items)"
@@ -15288,7 +15003,6 @@
             {
                 "Type": "Helm",
                 "Set": "Treasure Hunter",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Kingpin's Crown",
                 "Index": "Kingpin's Crown",
@@ -15340,7 +15054,6 @@
             {
                 "Type": "Sword",
                 "Set": "Treasure Hunter",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Adds 50-120 Weapon Damage (6 Items)"
                 ],
@@ -15437,7 +15150,6 @@
             {
                 "Type": "Helm",
                 "Set": "Yohann's Savant",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Wiseman's Cap",
                 "Index": "Wiseman's Cap",
@@ -15481,7 +15193,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Yohann's Savant",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Replenish Life +5 (4 Items)"
                 ],
@@ -15527,7 +15238,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Yohann's Savant",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+35% Chance Items Roll Magic or Better (3 Items)"
                 ],
@@ -15573,7 +15283,6 @@
             {
                 "Type": "Staff",
                 "Set": "Yohann's Savant",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+1 to Whirlwind (oskill) (4 Items)",
                     "+5% Mana stolen per hit (3 Items)"
@@ -15663,7 +15372,6 @@
             {
                 "Type": "Helm",
                 "Set": "Zhoulomcrist's Dread",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+1 to Warmth (oskill) (4 Items)",
                     "+1 to Warmth (oskill) (5 Items)",
@@ -15707,7 +15415,6 @@
             {
                 "Type": "Axe",
                 "Set": "Zhoulomcrist's Dread",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "20% Chance to cast level 15 Life Tap when you Kill an Enemy (4 Items)"
                 ],
@@ -15760,7 +15467,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Zhoulomcrist's Dread",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Physical Damage Reduced By 20 (3 Items)",
                     "Magic Damage Reduced By 25 (4 Items)"
@@ -15807,7 +15513,6 @@
             {
                 "Type": "Ring",
                 "Set": "Zhoulomcrist's Dread",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Freezes target +2 (4 Items)"
                 ],
@@ -15889,7 +15594,6 @@
             {
                 "Type": "Gloves",
                 "Set": "The Warlord of Blood",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+20% Bonus to Attack Rating (4 Items)",
                     "+15% Chance of Crushing Blow (3 Items)",
@@ -15931,7 +15635,6 @@
             {
                 "Type": "Boots",
                 "Set": "The Warlord of Blood",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Adds 10-20 Weapon Damage (3 Items)",
                     "+313 Defense (6 Items)",
@@ -15973,7 +15676,6 @@
             {
                 "Type": "Helm",
                 "Set": "The Warlord of Blood",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Adds 25-200 Weapon Lightning Damage (6 Items)",
                     "-15% to Enemy Lightning Resistance (4 Items)",
@@ -16021,7 +15723,6 @@
             {
                 "Type": "Belt",
                 "Set": "The Warlord of Blood",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Adds 100-150 Weapon Fire Damage (6 Items)",
                     "-15% to Enemy Fire Resistance (4 Items)",
@@ -16073,7 +15774,6 @@
             {
                 "Type": "Shield",
                 "Set": "The Warlord of Blood",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Elysian Fields",
                 "Index": "Elysian Fields",
@@ -16129,7 +15829,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "The Warlord of Blood",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+2 to All Skills (6 Items)",
                     "Prevent Monster Heal (6 Items)"
@@ -16224,7 +15923,6 @@
             {
                 "Type": "Belt",
                 "Set": "Darque Necromancy",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+1 to Mana (Per Character Level) (5 Items)"
                 ],
@@ -16266,7 +15964,6 @@
             {
                 "Type": "Shield",
                 "Set": "Darque Necromancy",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "25% Increased Chance of Blocking (4 Items)"
                 ],
@@ -16312,7 +16009,6 @@
             {
                 "Type": "Wand",
                 "Set": "Darque Necromancy",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Twilight of Evil",
                 "Index": "Twilight of Evil",
@@ -16359,7 +16055,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Darque Necromancy",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+20% Cold Resistance (3 Items)",
                     "+10% Lightning Resistance (4 Items)",
@@ -16404,7 +16099,6 @@
             {
                 "Type": "Amulet",
                 "Set": "Darque Necromancy",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+100% Extra Gold from Monsters (5 Items)"
                 ],
@@ -16486,7 +16180,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Marhawkman's Disguise",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Andariel's Claw",
                 "Index": "Andariel's Claw",
@@ -16538,7 +16231,6 @@
             {
                 "Type": "Boots",
                 "Set": "Marhawkman's Disguise",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Andariel's Hooves",
                 "Index": "Andariel's Hooves",
@@ -16586,7 +16278,6 @@
             {
                 "Type": "Helm",
                 "Set": "Marhawkman's Disguise",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Andariel's Mask",
                 "Index": "Andariel's Mask",
@@ -16634,7 +16325,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Marhawkman's Disguise",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+4% to Experience Gained (4 Items)"
                 ],
@@ -16728,7 +16418,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Aragorn's Scorn",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Aragorn's Contempt",
                 "Index": "Aragorn's Contempt",
@@ -16772,7 +16461,6 @@
             {
                 "Type": "Axe",
                 "Set": "Aragorn's Scorn",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Adds 45-135 Weapon Damage (4 Items)",
                     "+8-12 Life after each Kill (2 Items)"
@@ -16818,7 +16506,6 @@
             {
                 "Type": "Shield",
                 "Set": "Aragorn's Scorn",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Aragorn's Indignation",
                 "Index": "Aragorn's Indignation",
@@ -16866,7 +16553,6 @@
             {
                 "Type": "Boots",
                 "Set": "Aragorn's Scorn",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+25 to Dexterity (3 Items)"
                 ],
@@ -16948,7 +16634,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Bogrot's Magic",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Winter's Embrace",
                 "Index": "Winter's Embrace",
@@ -16992,7 +16677,6 @@
             {
                 "Type": "Mace",
                 "Set": "Bogrot's Magic",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+50% Mana Regeneration (3 Items)"
                 ],
@@ -17041,7 +16725,6 @@
             {
                 "Type": "Shield",
                 "Set": "Bogrot's Magic",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Between Fire and Ice",
                 "Index": "Between Fire and Ice",
@@ -17129,7 +16812,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Cedric's Jinx",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+5 Defense (Per Character Level) (3 Items)"
                 ],
@@ -17175,7 +16857,6 @@
             {
                 "Type": "Hammer",
                 "Set": "Cedric's Jinx",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+6% Mana stolen per hit (2 Items)",
                     "+6% Life stolen per hit (3 Items)"
@@ -17221,7 +16902,6 @@
             {
                 "Type": "Shield",
                 "Set": "Cedric's Jinx",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Neprida's Kiss",
                 "Index": "Neprida's Kiss",
@@ -17296,7 +16976,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Dragon Reborn",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+10 Life after each Kill (2 Items)",
                     "+3 to Mana after each Kill (4 Items)"
@@ -17339,7 +17018,6 @@
             {
                 "Type": "Sword",
                 "Set": "Dragon Reborn",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Heron-Branded Blade",
                 "Index": "Heron-Branded Blade",
@@ -17394,7 +17072,6 @@
             {
                 "Type": "Ring",
                 "Set": "Dragon Reborn",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+40 to Life (5 Items)"
                 ],
@@ -17436,7 +17113,6 @@
             {
                 "Type": "Amulet",
                 "Set": "Dragon Reborn",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "35% Chance to cast level 1 Decrepify when struck (5 Items)",
                     "+1 to All Skills (6 Items)"
@@ -17475,7 +17151,6 @@
             {
                 "Type": "Shield",
                 "Set": "Dragon Reborn",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Taint of Saidin",
                 "Index": "Taint of Saidin",
@@ -17523,7 +17198,6 @@
             {
                 "Type": "Boots",
                 "Set": "Dragon Reborn",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+30% Faster Run/Walk Speed (3 Items)",
                     "+1 to Life (Per Character Level) (6 Items)",
@@ -17613,7 +17287,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Soldier's Cairn",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Heroes Stand",
                 "Index": "Heroes Stand",
@@ -17653,7 +17326,6 @@
             {
                 "Type": "Sword",
                 "Set": "Soldier's Cairn",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+3 to Melee Mastery (oskill) (2 Items)",
                     "Adds 100-150 Weapon Damage (3 Items)",
@@ -17704,7 +17376,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Soldier's Cairn",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+1 to All Skills (2 Items)"
                 ],
@@ -17778,7 +17449,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Gweibret's Rule",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Judicial Decree",
                 "Index": "Judicial Decree",
@@ -17822,7 +17492,6 @@
             {
                 "Type": "Sword",
                 "Set": "Gweibret's Rule",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Regime of Regulation",
                 "Index": "Regime of Regulation",
@@ -17873,7 +17542,6 @@
             {
                 "Type": "Shield",
                 "Set": "Gweibret's Rule",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+20% Faster Block Rate (4 Items)",
                     "20% Increased Chance of Blocking (3 Items)"
@@ -17920,7 +17588,6 @@
             {
                 "Type": "Belt",
                 "Set": "Gweibret's Rule",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+10% Faster Cast Rate (2 Items)",
                     "+30 to Mana (3 Items)",
@@ -17960,7 +17627,6 @@
             {
                 "Type": "Amulet",
                 "Set": "Gweibret's Rule",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Dominion's Thesis",
                 "Index": "Dominion's Thesis",
@@ -18048,7 +17714,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Haunted Asylum",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+200 Defense (4 Items)",
                     "+50% Chance Items Roll Magic or Better (5 Items)"
@@ -18099,7 +17764,6 @@
             {
                 "Type": "Sword",
                 "Set": "Haunted Asylum",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Adds 25-75 Weapon Damage (4 Items)"
                 ],
@@ -18148,7 +17812,6 @@
             {
                 "Type": "Shield",
                 "Set": "Haunted Asylum",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+25% to All Resistances (5 Items)"
                 ],
@@ -18194,7 +17857,6 @@
             {
                 "Type": "Helm",
                 "Set": "Haunted Asylum",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Haunted Wisdom",
                 "Index": "Haunted Wisdom",
@@ -18246,7 +17908,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Haunted Asylum",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Revenant's Claw",
                 "Index": "Revenant's Claw",
@@ -18326,7 +17987,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Alyssa's Archery",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Alyssa's Essence",
                 "Index": "Alyssa's Essence",
@@ -18370,7 +18030,6 @@
             {
                 "Type": "Bow",
                 "Set": "Alyssa's Archery",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+50 to Minimum Weapon Damage (3 Items)",
                     "+2 to Maximum Weapon Damage (Per Character Level) (2 Items)"
@@ -18416,7 +18075,6 @@
             {
                 "Type": "Boots",
                 "Set": "Alyssa's Archery",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+30% Faster Run/Walk Speed (3 Items)"
                 ],
@@ -18494,7 +18152,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Forbidden Lore",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Unholy Vows",
                 "Index": "Unholy Vows",
@@ -18538,7 +18195,6 @@
             {
                 "Type": "Knife",
                 "Set": "Forbidden Lore",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Vampirebone Dagger",
                 "Index": "Vampirebone Dagger",
@@ -18593,7 +18249,6 @@
             {
                 "Type": "Shield",
                 "Set": "Forbidden Lore",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "22% Increased Chance of Blocking (2 Items)",
                     "+15 to Dexterity (3 Items)",
@@ -18633,7 +18288,6 @@
             {
                 "Type": "Belt",
                 "Set": "Forbidden Lore",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Death's Door",
                 "Index": "Death's Door",
@@ -18713,7 +18367,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Hannibal's Demise",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Hannibal's Shattered Plate",
                 "Index": "Hannibal's Shattered Plate",
@@ -18761,7 +18414,6 @@
             {
                 "Type": "Throwing Knife",
                 "Set": "Hannibal's Demise",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Adds 25-75 Weapon Damage (3 Items)",
                     "Increased Stack Size (2 Items)"
@@ -18823,7 +18475,6 @@
             {
                 "Type": "Helm",
                 "Set": "Hannibal's Demise",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+30% Lightning Resistance (3 Items)"
                 ],
@@ -18869,7 +18520,6 @@
             {
                 "Type": "Boots",
                 "Set": "Hannibal's Demise",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+20% Faster Run/Walk Speed (2 Items)",
                     "+100 to Attack Rating (3 Items)"
@@ -18944,7 +18594,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Wrath of Vengeance",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Replenish Life +8 (5 Items)"
                 ],
@@ -18990,7 +18639,6 @@
             {
                 "Type": "Javelin",
                 "Set": "Wrath of Vengeance",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "37% Chance to cast level 10 Chain Lightning on striking (2 Items)",
                     "+6 to Charged Strike (oskill) (3 Items)"
@@ -19044,7 +18692,6 @@
             {
                 "Type": "Boots",
                 "Set": "Wrath of Vengeance",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Harvest of Cruelty",
                 "Index": "Harvest of Cruelty",
@@ -19092,7 +18739,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Wrath of Vengeance",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+1 to Frost Nova (oskill) (2 Items)",
                     "+1 to Blizzard (oskill) (3 Items)",
@@ -19136,7 +18782,6 @@
             {
                 "Type": "Belt",
                 "Set": "Wrath of Vengeance",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+1 to All Skills (3 Items)"
                 ],
@@ -19218,7 +18863,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Servitude or Rebellion",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Slave to Anarchy",
                 "Index": "Slave to Anarchy",
@@ -19266,7 +18910,6 @@
             {
                 "Type": "Spear",
                 "Set": "Servitude or Rebellion",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Bound by Honor",
                 "Index": "Bound by Honor",
@@ -19317,7 +18960,6 @@
             {
                 "Type": "Belt",
                 "Set": "Servitude or Rebellion",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Replenish Life +3-5 (2 Items)"
                 ],
@@ -19390,7 +19032,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Kaldorn's Majesty",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+50% to All Resistances (4 Items)"
                 ],
@@ -19432,7 +19073,6 @@
             {
                 "Type": "Polearm",
                 "Set": "Kaldorn's Majesty",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Axe of Arvoreen",
                 "Index": "Axe of Arvoreen",
@@ -19479,7 +19119,6 @@
             {
                 "Type": "Helm",
                 "Set": "Kaldorn's Majesty",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Windspar Mask",
                 "Index": "Windspar Mask",
@@ -19519,7 +19158,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Kaldorn's Majesty",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Waterwyrd's Talon",
                 "Index": "Waterwyrd's Talon",
@@ -19555,7 +19193,6 @@
             {
                 "Type": "Belt",
                 "Set": "Kaldorn's Majesty",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Daystar Wrap",
                 "Index": "Daystar Wrap",
@@ -19635,7 +19272,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Warlock's Exploration",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Incarnadine Elven Plate",
                 "Index": "Incarnadine Elven Plate",
@@ -19675,7 +19311,6 @@
             {
                 "Type": "Staff",
                 "Set": "Warlock's Exploration",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+20% Faster Cast Rate (3 Items)",
                     "+2% to Experience Gained (4 Items)"
@@ -19717,7 +19352,6 @@
             {
                 "Type": "Helm",
                 "Set": "Warlock's Exploration",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+150 Defense (5 Items)",
                     "+40% Increased Maximum Life (4 Items)",
@@ -19758,7 +19392,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Warlock's Exploration",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Teleomortis' Gloves",
                 "Index": "Teleomortis' Gloves",
@@ -19794,7 +19427,6 @@
             {
                 "Type": "Belt",
                 "Set": "Warlock's Exploration",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Citadel Belt",
                 "Index": "Citadel Belt",
@@ -19874,7 +19506,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Amaunator's Peace",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Holy Shroud of Amaunator",
                 "Index": "Holy Shroud of Amaunator",
@@ -19918,7 +19549,6 @@
             {
                 "Type": "Axe",
                 "Set": "Amaunator's Peace",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Adds 40-80 Weapon Damage (5 Items)"
                 ],
@@ -19971,7 +19601,6 @@
             {
                 "Type": "Shield",
                 "Set": "Amaunator's Peace",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Holy Buckler of Amaunator",
                 "Index": "Holy Buckler of Amaunator",
@@ -20023,7 +19652,6 @@
             {
                 "Type": "Ring",
                 "Set": "Amaunator's Peace",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Holy Ring of Amaunator",
                 "Index": "Holy Ring of Amaunator",
@@ -20067,7 +19695,6 @@
             {
                 "Type": "Boots",
                 "Set": "Amaunator's Peace",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+20 to Maximum Weapon Damage (6 Items)",
                     "+8-15% to Lightning Skill Damage (5 Items)",
@@ -20109,7 +19736,6 @@
             {
                 "Type": "Belt",
                 "Set": "Amaunator's Peace",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+33% Mana Regeneration (5 Items)",
                     "+33% Chance Items Roll Magic or Better (4 Items)"
@@ -20196,7 +19822,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Tika's Request",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Frostwyrm Hide",
                 "Index": "Frostwyrm Hide",
@@ -20244,7 +19869,6 @@
             {
                 "Type": "Axe",
                 "Set": "Tika's Request",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+2.5 to Maximum Weapon Damage (Per Character Level) (4 Items)"
                 ],
@@ -20297,7 +19921,6 @@
             {
                 "Type": "Helm",
                 "Set": "Tika's Request",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+25% Chance Items Roll Magic or Better (3 Items)"
                 ],
@@ -20347,7 +19970,6 @@
             {
                 "Type": "Belt",
                 "Set": "Tika's Request",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Girdle of Kitthix",
                 "Index": "Girdle of Kitthix",
@@ -20395,7 +20017,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Tika's Request",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+45 to Life (4 Items)"
                 ],
@@ -20489,7 +20110,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Corthala Family Heirlooms",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Sir Tylan's Sylvan Mail",
                 "Index": "Sir Tylan's Sylvan Mail",
@@ -20533,7 +20153,6 @@
             {
                 "Type": "Crossbow",
                 "Set": "Corthala Family Heirlooms",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+10 to Magic Arrow (oskill) (3 Items)",
                     "+6 to Guided Arrow (oskill) (4 Items)",
@@ -20588,7 +20207,6 @@
             {
                 "Type": "Helm",
                 "Set": "Corthala Family Heirlooms",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Yavin's Infernal Visage",
                 "Index": "Yavin's Infernal Visage",
@@ -20632,7 +20250,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Corthala Family Heirlooms",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+20% Increased Attack Speed (3 Items)"
                 ],
@@ -20678,7 +20295,6 @@
             {
                 "Type": "Boots",
                 "Set": "Corthala Family Heirlooms",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+30% Faster Run/Walk Speed (4 Items)"
                 ],
@@ -20764,7 +20380,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Knight's Gallantry",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Mail of Courageousness",
                 "Index": "Mail of Courageousness",
@@ -20812,7 +20427,6 @@
             {
                 "Type": "Club",
                 "Set": "Knight's Gallantry",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Baton of Intrepidity",
                 "Index": "Baton of Intrepidity",
@@ -20863,7 +20477,6 @@
             {
                 "Type": "Shield",
                 "Set": "Knight's Gallantry",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Wall of Bravery",
                 "Index": "Wall of Bravery",
@@ -20911,7 +20524,6 @@
             {
                 "Type": "Helm",
                 "Set": "Knight's Gallantry",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Helm of Chivalry",
                 "Index": "Helm of Chivalry",
@@ -20959,7 +20571,6 @@
             {
                 "Type": "Belt",
                 "Set": "Knight's Gallantry",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Adds 1-100 Weapon Lightning Damage (4 Items)",
                     "+30 to Life (2 Items)",
@@ -21035,7 +20646,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Lord Sith's Province",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Ebony Plate of Evil",
                 "Index": "Ebony Plate of Evil",
@@ -21083,7 +20693,6 @@
             {
                 "Type": "Shield",
                 "Set": "Lord Sith's Province",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Deflector of Light",
                 "Index": "Deflector of Light",
@@ -21135,7 +20744,6 @@
             {
                 "Type": "Helm",
                 "Set": "Lord Sith's Province",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Dark Cataclysm",
                 "Index": "Dark Cataclysm",
@@ -21183,7 +20791,6 @@
             {
                 "Type": "Wand",
                 "Set": "Lord Sith's Province",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Adds 80-180 Weapon Damage (4 Items)"
                 ],
@@ -21280,7 +20887,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Kai Lord's Valiance",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Helshazag",
                 "Index": "Helshazag",
@@ -21328,7 +20934,6 @@
             {
                 "Type": "Sword",
                 "Set": "Kai Lord's Valiance",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Adds 256-500 Weapon Magic Damage (5 Items)"
                 ],
@@ -21381,7 +20986,6 @@
             {
                 "Type": "Belt",
                 "Set": "Kai Lord's Valiance",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Helghast Waistband",
                 "Index": "Helghast Waistband",
@@ -21429,7 +21033,6 @@
             {
                 "Type": "Boots",
                 "Set": "Kai Lord's Valiance",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+30% Faster Run/Walk Speed (3 Items)"
                 ],
@@ -21479,7 +21082,6 @@
             {
                 "Type": "Shield",
                 "Set": "Kai Lord's Valiance",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Level 6 Holy Shock Aura When Equipped (2 Items)",
                     "+65% Chance Items Roll Magic or Better (3 Items)"
@@ -21562,7 +21164,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Path of Bravery",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "-20% to Enemy Fire Resistance (2 Items)",
                     "-20% to Enemy Fire Resistance (3 Items)",
@@ -21607,7 +21208,6 @@
             {
                 "Type": "Helm",
                 "Set": "Path of Bravery",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "-20% to Enemy Cold Resistance (2 Items)",
                     "-20% to Enemy Cold Resistance (3 Items)",
@@ -21652,7 +21252,6 @@
             {
                 "Type": "Belt",
                 "Set": "Path of Bravery",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "-20% to Enemy Lightning Resistance (2 Items)",
                     "-20% to Enemy Lightning Resistance (3 Items)",
@@ -21697,7 +21296,6 @@
             {
                 "Type": "Boots",
                 "Set": "Path of Bravery",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "-20% to Enemy Poison Resistance (2 Items)",
                     "-20% to Enemy Poison Resistance (3 Items)",
@@ -21742,7 +21340,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Path of Bravery",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+20% Increased Attack Speed (3 Items)"
                 ],
@@ -21788,7 +21385,6 @@
             {
                 "Type": "Scepter",
                 "Set": "Path of Bravery",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "Adds 50-100 Weapon Damage (4 Items)",
                     "-20% to Enemy Fire Resistance (2 Items)",
@@ -21885,7 +21481,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Terror of the Deep",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Great White Terror",
                 "Index": "Great White Terror",
@@ -21933,7 +21528,6 @@
             {
                 "Type": "Polearm",
                 "Set": "Terror of the Deep",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+45% Increased Attack Speed (4 Items)",
                     "Adds 50-250 Weapon Damage (3 Items)"
@@ -21987,7 +21581,6 @@
             {
                 "Type": "Belt",
                 "Set": "Terror of the Deep",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Mako's Quickness",
                 "Index": "Mako's Quickness",
@@ -22035,7 +21628,6 @@
             {
                 "Type": "Boots",
                 "Set": "Terror of the Deep",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Hammerhead's Persistence",
                 "Index": "Hammerhead's Persistence",
@@ -22119,7 +21711,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Celestial Hierarchy",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Angels",
                 "Index": "Angels",
@@ -22171,7 +21762,6 @@
             {
                 "Type": "Sword",
                 "Set": "Celestial Hierarchy",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+250 to Maximum Weapon Damage (6 Items)",
                     "Adds 100-200 Weapon Magic Damage (2 Items)",
@@ -22232,7 +21822,6 @@
             {
                 "Type": "Belt",
                 "Set": "Celestial Hierarchy",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+50% Mana Regeneration (3 Items)",
                     "+10% to All Resistances (4 Items)",
@@ -22280,7 +21869,6 @@
             {
                 "Type": "Boots",
                 "Set": "Celestial Hierarchy",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+35 to Strength (5 Items)"
                 ],
@@ -22330,7 +21918,6 @@
             {
                 "Type": "Helm",
                 "Set": "Celestial Hierarchy",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Cherubim",
                 "Index": "Cherubim",
@@ -22378,7 +21965,6 @@
             {
                 "Type": "Ring",
                 "Set": "Celestial Hierarchy",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Seraphim",
                 "Index": "Seraphim",
@@ -22462,7 +22048,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Lords of Hell",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Mephisto's Misty Aura",
                 "Index": "Mephisto's Misty Aura",
@@ -22506,7 +22091,6 @@
             {
                 "Type": "Ring",
                 "Set": "Lords of Hell",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+50% Chance Items Roll Magic or Better (4 Items)"
                 ],
@@ -22552,7 +22136,6 @@
             {
                 "Type": "Amulet",
                 "Set": "Lords of Hell",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Baal's Cryptic Amulet",
                 "Index": "Baal's Cryptic Amulet",
@@ -22592,7 +22175,6 @@
             {
                 "Type": "Javelin",
                 "Set": "Lords of Hell",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+8 to Lightning Fury (oskill) (3 Items)",
                     "+25% Increased Attack Speed (2 Items)"
@@ -22690,7 +22272,6 @@
             {
                 "Type": "Ring",
                 "Set": "Corruption Coils",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+40% to Fire Skill Damage (3 Items)",
                     "+50% Chance Items Roll Magic or Better (2 Items)"
@@ -22725,7 +22306,6 @@
             {
                 "Type": "Ring",
                 "Set": "Corruption Coils",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+40% to Lightning Skill Damage (3 Items)",
                     "+100% Extra Gold from Monsters (2 Items)"
@@ -22760,7 +22340,6 @@
             {
                 "Type": "Amulet",
                 "Set": "Corruption Coils",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "10% Chance to cast level 20 Taunt when struck (2 Items)",
                     "+40% to Cold Skill Damage (3 Items)"
@@ -22831,7 +22410,6 @@
             {
                 "Type": "Gloves",
                 "Set": "Maadi's Paradox",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+5 to Bone Spear (Necromancer Only) (3 Items)",
                     "+30 to Energy (2 Items)"
@@ -22878,7 +22456,6 @@
             {
                 "Type": "Helm",
                 "Set": "Maadi's Paradox",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+15-20% Faster Run/Walk Speed (2 Items)",
                     "+15% Faster Cast Rate (3 Items)"
@@ -22929,7 +22506,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Maadi's Paradox",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+50 to Vitality (2 Items)",
                     "+50 to Energy (3 Items)",
@@ -22982,7 +22558,6 @@
             {
                 "Type": "Wand",
                 "Set": "Maadi's Paradox",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+25% Faster Cast Rate (2 Items)",
                     "+20% to All Resistances (3 Items)"
@@ -23032,7 +22607,6 @@
             {
                 "Type": "Voodoo Heads",
                 "Set": "Maadi's Paradox",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+1 Bone Spear Projectiles (5 Items)"
                 ],
@@ -23080,7 +22654,7 @@
                     "RequiredStrength": 91,
                     "RequiredDexterity": 0,
                     "Durability": 20,
-                    "RequiredClass": "Necromancer"
+                    "RequiredClass": ""
                 }
             }
         ],
@@ -23126,7 +22700,6 @@
             {
                 "Type": "Gloves",
                 "Set": "The Raven's Nest",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+15% Faster Cast Rate (4 Items)",
                     "+30% Cold Resistance (2 Items)"
@@ -23169,7 +22742,6 @@
             {
                 "Type": "Boots",
                 "Set": "The Raven's Nest",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+30% Faster Run/Walk Speed (2 Items)",
                     "+20% to All Resistances (3 Items)"
@@ -23216,7 +22788,6 @@
             {
                 "Type": "Shield",
                 "Set": "The Raven's Nest",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+2 to All Skills (3 Items)",
                     "+2% to Maximum Cold Resistance (4 Items)",
@@ -23272,7 +22843,6 @@
             {
                 "Type": "Knife",
                 "Set": "The Raven's Nest",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+2 to Raven Hits (4 Items)",
                     "+10% Faster Cast Rate (2 Items)"
@@ -23334,7 +22904,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "The Raven's Nest",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+3% to Maximum Cold Resistance (4 Items)",
                     "+10% Cold Damage Absorbed (2 Items)",
@@ -23442,7 +23011,6 @@
             {
                 "Type": "Hammer",
                 "Set": "Tools of Vindication",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+40% Increased Attack Speed (2 Items)"
                 ],
@@ -23487,7 +23055,6 @@
             {
                 "Type": "Auric Shields",
                 "Set": "Tools of Vindication",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+ to Minimum Weapon Damage (3 Items)",
                     "+30% Cold Resistance (2 Items)",
@@ -23529,13 +23096,12 @@
                     "RequiredStrength": 89,
                     "RequiredDexterity": 0,
                     "Durability": 50,
-                    "RequiredClass": "Paladin"
+                    "RequiredClass": ""
                 }
             },
             {
                 "Type": "Belt",
                 "Set": "Tools of Vindication",
-                "Vanilla": "N",
                 "SetPropertiesString": [
                     "+ to Minimum Weapon Damage (2 Items)",
                     "+30% Lightning Resistance (3 Items)",
@@ -23603,7 +23169,6 @@
             {
                 "Type": "Pelt",
                 "Set": "Panda's Polar Adventure",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Panda's Pelt",
                 "Index": "Panda's Pelt",
@@ -23645,13 +23210,12 @@
                     "RequiredStrength": 44,
                     "RequiredDexterity": 0,
                     "Durability": 20,
-                    "RequiredClass": "Druid"
+                    "RequiredClass": ""
                 }
             },
             {
                 "Type": "Gloves",
                 "Set": "Panda's Polar Adventure",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Panda's Mittens",
                 "Index": "Panda's Mitts",
@@ -23699,7 +23263,6 @@
             {
                 "Type": "Body Armor",
                 "Set": "Panda's Polar Adventure",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Panda's Jacket",
                 "Index": "Panda's Coat",
@@ -23747,7 +23310,6 @@
             {
                 "Type": "Belt",
                 "Set": "Panda's Polar Adventure",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Panda's Sash",
                 "Index": "Panda's Sash",
@@ -23791,7 +23353,6 @@
             {
                 "Type": "Shield",
                 "Set": "Panda's Polar Adventure",
-                "Vanilla": "N",
                 "SetPropertiesString": [],
                 "Name": "Panda's Sled",
                 "Index": "Panda's Sled",
