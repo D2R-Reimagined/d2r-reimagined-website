@@ -63,7 +63,7 @@ const ITEM_TYPES = [
   { name: "Sorceress Item", code: "sorc", parents: ["Class Specific"] },
   { name: "Assassin Item", code: "assn", parents: ["Class Specific"] },
   { name: "Druid Item", code: "drui", parents: ["Class Specific"] },
-  // Class specific weapons
+  // Class-specific weapons
   { name: "Amazon Bow", code: "abow", parents: ["Amazon Item", "Bow", "Missile Weapon", "Weapon"] },
   { name: "Amazon Spear", code: "aspe", parents: ["Amazon Item", "Spear", "Melee Weapon", "Weapon"] },
   { name: "Amazon Javelin", code: "ajav", parents: ["Amazon Item", "Javelin", "Melee Weapon", "Weapon"] },
@@ -98,15 +98,9 @@ const ITEM_TYPES = [
   { name: "Magic Bow Quiv", code: "mboq", parents: ["Bow Quiver"] },
   { name: "Magic Xbow Quiv", code: "mxbq", parents: ["Crossbow Bolts"] }
 ];
-const ITEM_TYPE_BY_NAME = new Map(
-  ITEM_TYPES.map((t) => [t.name, t])
-);
-new Map(
-  ITEM_TYPES.map((t) => [t.code, t])
-);
-const ITEM_TYPE_BY_NAME_LC = new Map(
-  ITEM_TYPES.map((t) => [t.name.toLowerCase(), t])
-);
+const ITEM_TYPE_BY_NAME = new Map(ITEM_TYPES.map((t) => [t.name, t]));
+new Map(ITEM_TYPES.map((t) => [t.code, t]));
+const ITEM_TYPE_BY_NAME_LC = new Map(ITEM_TYPES.map((t) => [t.name.toLowerCase(), t]));
 const CHAIN_CACHE = /* @__PURE__ */ new Map();
 const PARENTS_MAP = /* @__PURE__ */ new Map();
 const CHILDREN_MAP = /* @__PURE__ */ new Map();
@@ -117,21 +111,28 @@ for (const t of ITEM_TYPES) {
 for (const t of ITEM_TYPES) {
   const parents = PARENTS_MAP.get(t.name) || [];
   for (const p of parents) {
-    if (!CHILDREN_MAP.has(p)) CHILDREN_MAP.set(p, []);
-    CHILDREN_MAP.get(p).push(t.name);
+    let arr = CHILDREN_MAP.get(p);
+    if (!arr) {
+      arr = [];
+      CHILDREN_MAP.set(p, arr);
+    }
+    arr.push(t.name);
   }
 }
 function computeChain(name, outerSeen) {
-  if (CHAIN_CACHE.has(name)) return CHAIN_CACHE.get(name);
+  const cached = CHAIN_CACHE.get(name);
+  if (cached) return cached;
   const node = ITEM_TYPE_BY_NAME.get(name);
   if (!node) {
-    CHAIN_CACHE.set(name, Object.freeze([]));
-    return CHAIN_CACHE.get(name);
+    const empty = Object.freeze([]);
+    CHAIN_CACHE.set(name, empty);
+    return empty;
   }
   const seen = outerSeen ?? /* @__PURE__ */ new Set();
   if (seen.has(name)) {
-    CHAIN_CACHE.set(name, Object.freeze([name]));
-    return CHAIN_CACHE.get(name);
+    const selfOnly = Object.freeze([name]);
+    CHAIN_CACHE.set(name, selfOnly);
+    return selfOnly;
   }
   seen.add(name);
   const chain = [name];
@@ -170,15 +171,7 @@ function getChainForTypeName(rawName) {
   const node = ITEM_TYPE_BY_NAME.get(raw) || ITEM_TYPE_BY_NAME_LC.get(raw.toLowerCase());
   return node ? getTypeChain(node.name) : [raw];
 }
-const CLASS_AGGREGATE_BASES = /* @__PURE__ */ new Set([
-  "Amazon Item",
-  "Barbarian Item",
-  "Necromancer Item",
-  "Paladin Item",
-  "Sorceress Item",
-  "Assassin Item",
-  "Druid Item"
-]);
+const CLASS_AGGREGATE_BASES = /* @__PURE__ */ new Set(["Amazon Item", "Barbarian Item", "Necromancer Item", "Paladin Item", "Sorceress Item", "Assassin Item", "Druid Item"]);
 function makeTypeOption(label, baseTypeName, extraParents = [], exactBaseOnly = false) {
   if (!baseTypeName) return { label, value: void 0 };
   const value = exactBaseOnly ? [baseTypeName] : getTypeChain(baseTypeName);
@@ -201,11 +194,13 @@ function resolveBaseTypeName(rawName) {
 }
 const DESCENDANTS_MAP = /* @__PURE__ */ new Map();
 function computeDescendants(name) {
-  if (DESCENDANTS_MAP.has(name)) return DESCENDANTS_MAP.get(name);
+  const cached = DESCENDANTS_MAP.get(name);
+  if (cached) return cached;
   const visited = /* @__PURE__ */ new Set();
   const stack = (CHILDREN_MAP.get(name) || []).slice();
   while (stack.length) {
     const child = stack.pop();
+    if (!child) continue;
     if (visited.has(child)) continue;
     visited.add(child);
     const grandchildren = CHILDREN_MAP.get(child);
@@ -278,18 +273,18 @@ function buildOptionsForPresentTypes(preset, presentBaseNames, opts) {
         continue;
       }
       const base = opt.value[0];
-      if (!byBase.has(base)) {
+      const existingIdx = byBase.get(base);
+      if (existingIdx === void 0) {
         byBase.set(base, kept.length);
         kept.push(opt);
       } else {
-        const idx = byBase.get(base);
-        const current = kept[idx];
+        const current = kept[existingIdx];
         const currLabel = current?.label || "";
         const nextLabel = opt.label || "";
         const currPreferred = prefer && currLabel.startsWith(prefer);
         const nextPreferred = prefer && nextLabel.startsWith(prefer);
         if (!currPreferred && nextPreferred) {
-          kept[idx] = opt;
+          kept[existingIdx] = opt;
         }
       }
     }
@@ -298,7 +293,7 @@ function buildOptionsForPresentTypes(preset, presentBaseNames, opts) {
   return result;
 }
 const type_filtering_options = [
-  // Aggregate types
+  // Aggregate the types
   // Any Armor should include all armor descendants (Body Armor, Helm, Circlet, Shields, Gloves, Boots, Belt, class shields/helms, etc.)
   makeTypeOption("Any Armor", "Any Armor", getDescendantBaseNames("Any Armor")),
   // Any Helm should include Helm itself plus Circlet, Primal Helm, and Pelt
@@ -344,13 +339,13 @@ const type_filtering_options = [
   // Quivers and Bolts: base on the non-magic types and include their descendants (magic quivers)
   makeTypeOption("Bow Quiver", "Bow Quiver", getDescendantBaseNames("Bow Quiver")),
   makeTypeOption("Crossbow Bolts", "Crossbow Bolts", getDescendantBaseNames("Crossbow Bolts")),
-  //Class Specific
+  // Class Specific
   // Class-specific leaf types must match ONLY themselves by default on pages without an "Exact" toggle
   // (Bases, Uniques, Sets). Runewords inherits parents via its own filtering logic and parent selections.
   makeTypeOption("Amazon Javelin", "Amazon Javelin", [], true),
   makeTypeOption("Amazon Bow", "Amazon Bow", [], true),
   makeTypeOption("Amazon Spear", "Amazon Spear", [], true),
-  makeTypeOption("Assassin Weapon", "Hand to Hand", [], true),
+  makeTypeOption("Assassin Claw", "Hand to Hand", [], true),
   makeTypeOption("Barbarian Helm", "Primal Helm", [], true),
   makeTypeOption("Druid Helm", "Pelt", [], true),
   makeTypeOption("Necromancer Shield", "Voodoo Heads", [], true),
@@ -369,7 +364,7 @@ function toOptionalNumber(val, clampMin = 0, clampMax = 100) {
     const n = Number(t);
     return Number.isFinite(n) ? Math.max(clampMin, Math.min(clampMax, Math.floor(n))) : void 0;
   }
-  if (typeof val === "number" && Number.isFinite(val)) {
+  if (Number.isFinite(val)) {
     return Math.max(clampMin, Math.min(clampMax, Math.floor(val)));
   }
   return void 0;
@@ -380,11 +375,25 @@ function swapMinMax(min, max) {
   }
   return [min, max];
 }
+function tokenizeSearch(input) {
+  const raw = (input || "").trim().toLowerCase();
+  if (!raw) return [];
+  const cleaned = raw.replace(/[^a-z0-9]+/g, " ").trim();
+  if (!cleaned) return [];
+  return cleaned.split(/\s+/);
+}
+function isVanillaItem(vanilla) {
+  if (vanilla === void 0 || vanilla === null) return false;
+  const vStr = typeof vanilla === "string" || typeof vanilla === "number" || typeof vanilla === "boolean" ? String(vanilla).toUpperCase() : "";
+  return vStr === "Y";
+}
 export {
-  getChainForTypeName as a,
+  tokenizeSearch as a,
   buildOptionsForPresentTypes as b,
-  toOptionalNumber as c,
+  getChainForTypeName as c,
+  toOptionalNumber as d,
   getDescendantBaseNames as g,
+  isVanillaItem as i,
   prependTypeResetOption as p,
   resolveBaseTypeName as r,
   swapMinMax as s,

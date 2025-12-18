@@ -46,6 +46,33 @@ export function cleanCurrentUrl(): void {
             window.history.replaceState({}, '', url.toString());
         }
     } catch {
-    // no-op
+        // no-op
+    }
+}
+
+/**
+ * Synchronize a set of properties to the URL search parameters and update history state.
+ * properties: a map of key-value pairs to set in the URL.
+ * push: if true, uses pushState; if false, uses replaceState.
+ */
+export function syncParamsToUrl(
+    params: Record<string, string | boolean | number | undefined | null>,
+    push: boolean = true,
+): void {
+    try {
+        const url = new URL(window.location.href);
+        for (const [key, val] of Object.entries(params)) {
+            url.searchParams.delete(key);
+            if (!isBlankOrInvalid(val)) {
+                url.searchParams.set(key, String(val));
+            }
+        }
+        if (push) {
+            window.history.pushState({}, '', url.toString());
+        } else {
+            window.history.replaceState({}, '', url.toString());
+        }
+    } catch {
+        // no-op
     }
 }

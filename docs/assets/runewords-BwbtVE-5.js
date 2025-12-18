@@ -1,104 +1,186 @@
-import { C as CustomElement, i as isBlankOrInvalid, w as watch, c as customElement, b as bindable } from "./index-04lAwL3n.js";
-import { d as debounce } from "./debounce-ZwsFz6hU.js";
-import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, p as prependTypeResetOption, a as getChainForTypeName, t as type_filtering_options } from "./filter-helpers-DQPTPo0a.js";
-import { r as runewordsJson } from "./runewords-DIDEqgbm.js";
+import { C as CustomElement, i as isBlankOrInvalid, w as watch, c as customElement, b as bindable } from "./index-BcLyVs97.js";
+import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, p as prependTypeResetOption, c as getChainForTypeName, t as type_filtering_options } from "./filter-helpers-OZCyS2Ps.js";
+import { d as debounce } from "./debounce-DlM2vs2L.js";
+import { r as runewordsJson } from "./runewords-9XTgQhJw.js";
 const name = "runewords";
 const template = `<template>\r
-    <h3 class="text-center my-4">\r
+    <h3 class="text-lg type-text text-center mx-auto my-4">\r
         <span class="rarity-text">\${filteredRunewords.length}</span> Runewords Found\r
     </h3>\r
 \r
     <search-area>\r
+        <div class="w-full m-auto px-5 py-2">\r
+            <div class="flex flex-wrap justify-center items-start gap-2">\r
 \r
-        <div class="max-w-11/12 m-auto px-4">\r
-            <div class="flex flex-wrap justify-center items-start">\r
-\r
-                <div class="w-full lg:w-auto lg:min-w-70 px-2">\r
-                    <div class="relative mb-2">\r
-                        <select id="runecount" class="select-base peer" value.bind="selectedAmount" required>\r
-                            <option repeat.for="opt of amounts" model.bind="opt.value">\${opt.label}</option>\r
-                        </select>\r
-                        <label for="runecount" class="floating-label">Rune Count</label>\r
+                <div class="w-full lg:w-auto lg:min-w-40"\r
+                     data-help-text="Filter by number of runes required. This amount is exact.">\r
+                    <div class="flex items-stretch">\r
+                        <div class="relative flex-1">\r
+                            <select id="runecount" class="select-base peer" value.bind="selectedAmount">\r
+                                <option repeat.for="opt of amounts" if.bind="opt.value === ''" value="">\${opt.label}\r
+                                </option>\r
+                                <option repeat.for="opt of amounts" if.bind="opt.value !== ''" model.bind="opt.value">\r
+                                    \${opt.label}\r
+                                </option>\r
+                            </select>\r
+                            <label for="runecount" class="floating-label">Rune Count</label>\r
+                        </div>\r
+                        <!-- Mobile-only info button -->\r
+                        <button type="button"\r
+                                class="m-info-button"\r
+                                aria-expanded="false" data-info-for="runecount"\r
+                        >\r
+                            <span class="mso">info</span>\r
+                            <span class="sr-only">More info about Item Type filter</span>\r
+                        </button>\r
                     </div>\r
                 </div>\r
 \r
-                <div class="w-full lg:w-auto lg:min-w-70 px-2">\r
-                    <div class="relative mb-2">\r
-                        <select id="itype" class="select-base peer" value.bind="selectedType" required>\r
+                <div class="w-full lg:w-auto lg:min-w-70 flex flex-nowrap items-stretch"\r
+                     data-help-text="Filter by base item type. Toggle ‘Exact’ to remove variants."\r
+                >\r
+                    <div class="relative flex-1">\r
+                        <select id="itype" class="select-base-exact peer" value.bind="selectedType">\r
                             <option repeat.for="opt of types"\r
                                     value.bind="opt.value && opt.value.length ? opt.value[0] : ''">\${opt.label}\r
                             </option>\r
                         </select>\r
-                        <label for="itype" class="floating-label">Item Type</label>\r
+                        <label for="itype" class="floating-label">Select Item Type</label>\r
                     </div>\r
-                    <div class="flex mb-2">\r
-                        <input id="exacttype" type="checkbox" class="check-base" id="exclusiveType"\r
-                               checked.bind="exclusiveType">\r
-                        <label for="exacttype" class="block type-text ml-1">Exact Type Only</label>\r
+                    <div class="flex items-center">\r
+                        <button\r
+                                type="button"\r
+                                class="exact-button"\r
+                                aria-pressed.bind="exclusiveType"\r
+                                click.trigger="exclusiveType = !exclusiveType">\r
+                            <span class="exact-indicator"></span>\r
+                            Exact\r
+                        </button>\r
+                    </div>\r
+                    <!-- Mobile-only info button -->\r
+                    <button type="button"\r
+                            class="m-info-button"\r
+                            aria-expanded="false" data-info-for="itype"\r
+                    >\r
+                        <span class="mso">info</span>\r
+                        <span class="sr-only">More info about Item Type filter</span>\r
+                    </button>\r
+                </div>\r
+\r
+                <div class="w-full lg:w-60"\r
+                     data-help-text="Search across all fields. Uses (space) as an 'AND' modifier. ex: Typing sorc skill mana will return items with only all 3 words.">\r
+                    <div class="flex items-stretch">\r
+                        <div class="trailing-icon flex-1" data-icon="search">\r
+                            <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search"\r
+                                   placeholder=" "/>\r
+                            <label for="inputsearch" class="floating-label">Search...</label>\r
+                        </div>\r
+                        <!-- Mobile only info button -->\r
+                        <button type="button"\r
+                                class="m-info-button"\r
+                                aria-expanded="false"\r
+                                data-info-for="inputsearch">\r
+                            <span class="mso">info</span>\r
+                            <span class="sr-only">More info about the Hide Vanilla button</span>\r
+                        </button>\r
                     </div>\r
                 </div>\r
 \r
-                <div class="w-full lg:w-auto lg:min-w-70 px-2">\r
-                    <div class="relative mb-2">\r
-                        <input id="rwsearch" class="select-base peer" type="text" value.bind="search" required/>\r
-                        <label for="rwsearch" class="floating-label">Filter by Input</label>\r
-                    </div>\r
-                    <div class="flex mb-2">\r
-                        <input id="hidevan" type="checkbox" class="check-base" checked.bind="hideVanilla">\r
-                        <label for="hidevan" class="block type-text ml-1">Hide Vanilla</label>\r
+                <div class="w-full lg:w-60"\r
+                     data-help-text="Search for specific Runes. Uses (space) and + as AND. Uses , and | as OR. ex: El Eld|Hel Zod returns only Breath of the Dying and Starlight.">\r
+                    <div class="flex items-stretch">\r
+                        <div class="trailing-icon flex-1" data-icon="search">\r
+                            <input id="runesearch" type="text" class="select-base peer pr-12 w-full"\r
+                                   value.bind="searchRunes"\r
+                                   placeholder=" "/>\r
+                            <label for="runesearch" class="floating-label">Runes Only...</label>\r
+                        </div>\r
+\r
+                        <!-- Mobile only info button -->\r
+                        <button type="button"\r
+                                class="m-info-button"\r
+                                aria-expanded="false"\r
+                                data-info-for="runesearch">\r
+                            <span class="mso">info</span>\r
+                            <span class="sr-only">More info about Rune Only search</span>\r
+                        </button>\r
                     </div>\r
                 </div>\r
 \r
-                <div class="w-full lg:w-auto lg:min-w-70 px-2">\r
-                    <div class="relative mb-2">\r
-                        <input id="runesearch" class="select-base peer" type="text" value.bind="searchRunes" required/>\r
-                        <label for="runesearch" class="floating-label">Rune Check</label>\r
+                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Filter toggle to hide Vanilla items.">\r
+                    <div class="flex items-stretch">\r
+                        <div class="relative flex-1">\r
+                            <button\r
+                                    id="hidevanillabutton"\r
+                                    type="button"\r
+                                    class="vanilla-button flex-row-reverse"\r
+                                    aria-pressed.bind="hideVanilla"\r
+                                    click.trigger="hideVanilla = !hideVanilla">\r
+                                <span class="vanilla-indicator"></span>\r
+                                Hide Vanilla\r
+                            </button>\r
+                        </div>\r
+                        <!-- Mobile only info button -->\r
+                        <button type="button"\r
+                                class="m-info-button"\r
+                                aria-expanded="false"\r
+                                data-info-for="hidevanillabutton">\r
+                            <span class="mso">info</span>\r
+                            <span class="sr-only">More info about the Hide Vanilla button</span>\r
+                        </button>\r
                     </div>\r
                 </div>\r
 \r
-                <div class="w-full lg:w-auto lg:min-w-35 px-2">\r
-                    <div class="mb-2">\r
-                        <button class="button-base" type="button" click.trigger="resetFilters()">\r
-                            Reset Filters\r
+                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Reset all filters to default.">\r
+                    <div class="flex items-stretch">\r
+                        <div class="relative flex-1">\r
+                            <button id="resetfilters" class="button-base" type="button" click.trigger="resetFilters()">\r
+                                Reset Filters\r
+                            </button>\r
+                        </div>\r
+                        <!-- Mobile only info button -->\r
+                        <button type="button"\r
+                                class="m-info-button"\r
+                                aria-expanded="false"\r
+                                data-info-for="resetfilters">\r
+                            <span class="mso">info</span>\r
+                            <span class="sr-only">More info about the Hide Vanilla button</span>\r
                         </button>\r
                     </div>\r
                 </div>\r
 \r
             </div>\r
         </div>\r
-\r
     </search-area>\r
 \r
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">\r
-        <div class="bg-gray-800 rounded shadow p-2" repeat.for="runeword of filteredRunewords">\r
-            <div class="bg-gray-800 rounded">\r
+    <div class="card-container">\r
+        <div class="card-box card-vis" repeat.for="runeword of filteredRunewords">\r
 \r
-                <div class="mb-1">\r
-                    <div class="unique-text text-lg">\r
-                        \${runeword.Name}\r
-                    </div>\r
-                    <div class="rarity-text">\r
-                        \${runeword.Vanilla === 'Y' ? 'Vanilla' : 'Mod'}\r
-                    </div>\r
+            <div class="mb-1">\r
+                <div class="text-xl unique-text">\r
+                    \${runeword.Name}\r
                 </div>\r
+                <div class="text-base rarity-text">\r
+                    \${runeword.Vanilla === 'Y' ? 'Vanilla' : 'Mod'}\r
+                </div>\r
+            </div>\r
 \r
-                <div class="type-text mb-1"><span repeat.for="type of runeword.Types">\r
+            <div class="text-base type-text mb-1"><span repeat.for="type of runeword.Types">\r
                         \${type.Name} \${$index + 1 !== runeword.Types.length ? ' or ' : ''}\r
                     </span></div>\r
 \r
-                <div class="type-text"><span repeat.for="rune of runeword.Runes">\r
+            <div class="text-base type-text"><span repeat.for="rune of runeword.Runes">\r
                         \${rune.Name | runeName} \${$index + 1 !== runeword.Runes.length ? ' + ' : ''}\r
                     </span></div>\r
 \r
-                <div class="requirement-text my-1">\r
-                    Required Level: \${runeword.RequiredLevel > 0? runeword.RequiredLevel: 1}\r
-                </div>\r
-\r
-                <div class="prop-text" repeat.for="property of runeword.Properties">\r
-                    \${property.PropertyString}\r
-                </div>\r
-\r
+            <div class="text-base requirement-text my-1">\r
+                Required Level: \${runeword.RequiredLevel > 0? runeword.RequiredLevel: 1}\r
             </div>\r
+\r
+            <div class="text-base prop-text" repeat.for="property of runeword.Properties">\r
+                \${property.PropertyString}\r
+            </div>\r
+\r
         </div>\r
     </div>\r
 </template>\r
@@ -198,7 +280,7 @@ class Runewords {
     const urlParams = new URLSearchParams(window.location.search);
     const present = /* @__PURE__ */ new Set();
     try {
-      for (const rw of this.runewords) {
+      for (const rw of this.runewords || []) {
         const types = Array.isArray(rw?.Types) ? rw.Types : [];
         for (const t of types) {
           const base = resolveBaseTypeName(t?.Name ?? "");
@@ -207,11 +289,10 @@ class Runewords {
       }
     } catch {
     }
-    this.types = buildOptionsForPresentTypes(
-      type_filtering_options,
-      present,
-      { dedupeByBase: true, preferLabelStartsWith: "Any " }
-    );
+    this.types = buildOptionsForPresentTypes(type_filtering_options, present, {
+      dedupeByBase: true,
+      preferLabelStartsWith: "Any "
+    });
     this.types = prependTypeResetOption(this.types);
     const searchParam = urlParams.get("search");
     if (searchParam && !isBlankOrInvalid(searchParam)) {
@@ -240,7 +321,7 @@ class Runewords {
     }
   }
   attached() {
-    this._debouncedSearchItem = debounce(this.updateList.bind(this), 350);
+    this._debouncedSearchItem = debounce(() => this.updateList(), 350);
     this.updateList();
   }
   // Push current filters to URL
@@ -279,21 +360,15 @@ class Runewords {
     window.history.pushState({}, "", url.toString());
   }
   handleSearchRunesChanged() {
-    if (this._debouncedSearchItem) {
-      this._debouncedSearchItem();
-    }
+    if (this._debouncedSearchItem) this._debouncedSearchItem();
     this.updateUrl();
   }
   handleSearchChanged() {
-    if (this._debouncedSearchItem) {
-      this._debouncedSearchItem();
-    }
+    if (this._debouncedSearchItem) this._debouncedSearchItem();
     this.updateUrl();
   }
   selectedTypeChanged() {
-    if (this._debouncedSearchItem) {
-      this._debouncedSearchItem();
-    }
+    if (this._debouncedSearchItem) this._debouncedSearchItem();
     this.updateUrl();
   }
   selectedAmountChanged() {
@@ -311,15 +386,11 @@ class Runewords {
     this.updateUrl();
   }
   handleExclusiveTypeChanged() {
-    if (this._debouncedSearchItem) {
-      this._debouncedSearchItem();
-    }
+    if (this._debouncedSearchItem) this._debouncedSearchItem();
     this.updateUrl();
   }
   handleHideVanillaChanged() {
-    if (this._debouncedSearchItem) {
-      this._debouncedSearchItem();
-    }
+    if (this._debouncedSearchItem) this._debouncedSearchItem();
     this.updateUrl();
   }
   normalizeRuneName(name2) {
@@ -372,7 +443,9 @@ class Runewords {
       }
     }
     if (this.selectedAmount) {
-      filteringRunewords = filteringRunewords.filter((x) => x.Runes.length === this.selectedAmount);
+      filteringRunewords = filteringRunewords.filter(
+        (x) => (x.Runes?.length ?? 0) === this.selectedAmount
+      );
     }
     let found = filteringRunewords;
     const searchRaw = (this.search || "").trim().toLowerCase();
@@ -381,23 +454,36 @@ class Runewords {
       found = found.filter((runeword) => {
         const hay = [
           String(runeword.Name || ""),
-          ...(runeword.Properties || []).map((p) => String(p?.PropertyString || "")),
-          ...(runeword.Types || []).map((t) => String(t?.Name || ""))
+          ...(runeword.Properties || []).map(
+            (p) => String(p?.PropertyString || "")
+          ),
+          ...(runeword.Types || []).map(
+            (t) => String(t?.Name || "")
+          )
         ].filter(Boolean).join(" ").toLowerCase();
         return searchTokens.every((t) => hay.includes(t));
       });
     }
     if (this.searchRunes) {
-      const inputRuneList = this.searchRunes.split(" ").map((rune) => rune.trim().toLowerCase()).filter((rune) => rune.length > 0);
-      found = found.filter((runeword) => {
-        const runewordRuneNames = runeword.Runes.map((rune) => this.normalizeRuneName(rune.Name));
-        return inputRuneList.every(
-          (inputRune) => runewordRuneNames.includes(inputRune)
-        );
-      });
+      const normalized = (this.searchRunes || "").trim().toLowerCase().replace(/\s*[,|]\s*/g, "|").replace(/\s*\+\s*/g, " ").replace(/\s+/g, " ");
+      const groups = normalized.split(" ").map(
+        (group) => group.split("|").map((tok) => this.normalizeRuneName(tok)).filter(Boolean)
+      ).filter((g) => g.length > 0);
+      if (groups.length) {
+        found = found.filter((runeword) => {
+          const runewordRuneNames = (runeword.Runes ?? []).map(
+            (rune) => this.normalizeRuneName(String(rune.Name))
+          );
+          return groups.every(
+            (orGroup) => orGroup.some((token) => runewordRuneNames.includes(token))
+          );
+        });
+      }
     }
     if (this.hideVanilla) {
-      found = found.filter((rw) => String(rw?.Vanilla || "").toUpperCase() !== "Y");
+      found = found.filter(
+        (rw) => String(rw?.Vanilla || "").toUpperCase() !== "Y"
+      );
     }
     this.filteredRunewords = found;
   }

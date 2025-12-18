@@ -1,5 +1,4 @@
-﻿import { bindable, resolve, watch } from 'aurelia';
-import { IRouter } from '@aurelia/router';
+﻿import { bindable, watch } from 'aurelia';
 
 import {
     buildOptionsForPresentTypes,
@@ -8,7 +7,7 @@ import {
     IFilterOption,
     resolveBaseTypeName,
     type_filtering_options,
-} from '../../resources/constants/item-type-filters';
+} from '../../resources/constants';
 import { getDamageTypeString as getDamageTypeStringUtil } from '../../utilities/damage-type';
 import { prependTypeResetOption } from '../../utilities/filter-helpers';
 import { isBlankOrInvalid } from '../../utilities/url-sanitize';
@@ -51,7 +50,6 @@ interface IBaseItem {
 }
 
 export class Bases {
-    private readonly router = resolve(IRouter);
 
     // Category: "" (both), "armors", "weapons"
     categoryOptions: Array<{ value: '' | 'armors' | 'weapons'; label: string; }> = [
@@ -94,7 +92,7 @@ export class Bases {
 
     // Build type options and hydrate from URL
     binding() {
-        // Default category based on path if query is absent (supports /armors and /weapons routes)
+        // Default category based on the path if a query is absent (supports /armors and /weapons routes)
         const path = window.location.pathname.toLowerCase();
         const urlParams = new URLSearchParams(window.location.search);
         const catParam = urlParams.get('category');
@@ -134,7 +132,7 @@ export class Bases {
     }
 
     private rebuildTypeOptions() {
-        // Build present base set from the currently selected category (or both)
+        // Build the present base set from the currently selected category (or both)
         const present = new Set<string>();
         const datasets = this.selectedCategory === 'armors' ? [this.itemsArmor] : this.selectedCategory === 'weapons' ? [this.itemsWeapon] : [this.itemsArmor, this.itemsWeapon];
         for (const ds of datasets) {
@@ -176,9 +174,9 @@ export class Bases {
     }
 
     handleCategoryChange() {
-        // Rebuild types when category changes; keep other filters, just reflect URL
+        // Rebuild types when a category changes; keep other filters, just reflect URL
         this.rebuildTypeOptions();
-        // If previously selected type is no longer present, clear it
+        // If the previously selected type is no longer present, clear it
         if (
             this.selectedType &&
             !this.types.some((o) => o.value && o.value[0] === this.selectedType)
@@ -233,7 +231,7 @@ export class Bases {
         this.selectedSockets = undefined;
         // Rebuild type options to reflect the combined dataset again
         this.rebuildTypeOptions();
-        // Ensure URL is updated (category param removed when empty)
+        // Ensure the URL is updated (category param removed when empty)
         this.updateUrl();
     }
 
@@ -284,7 +282,7 @@ export class Bases {
         });
         const combinedSet = new Set<IBaseItem>([...primary, ...associated]);
 
-        // Precompute allowed type set (base + descendants)
+        // Precompute the allowed type set (base + descendants)
         const allowedTypeSet: Set<string> | null = (() => {
             if (!typeFilter) return null;
             const set = new Set<string>();
@@ -393,6 +391,8 @@ export class Bases {
 
     getTier(i: IBaseItem): 'Normal' | 'Exceptional' | 'Elite' | undefined {
         const name: string = i?.Name ?? '';
+        // Valid in this use
+        // noinspection RegExpSingleCharAlternation,RegExpRedundantEscape
         const m = name.match(/\[(N|X|E)\]/i);
         if (m) {
             const ch = m[1].toUpperCase();

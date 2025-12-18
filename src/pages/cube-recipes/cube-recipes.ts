@@ -67,7 +67,7 @@ type DisplayRecipe = {
 function mapV2ToDisplay(recipes: V2Recipe[]): DisplayRecipe[] {
     const toQtyName = (qty?: number, name?: string) => {
         const q = typeof qty === 'number' && qty > 0 ? qty : 1;
-        // Format as "1x Name" to match requested style
+        // Format as "1x Name" to match the requested style
         return `${q}x ${name ?? ''}`.trim();
     };
 
@@ -88,7 +88,6 @@ function mapV2ToDisplay(recipes: V2Recipe[]): DisplayRecipe[] {
         // Compute special chance text for "orb of corruption recipe" notes
         const hasOrbOfCorruptionNote = (r.Notes ?? []).some(
             (n) =>
-                typeof n === 'string' &&
                 n.toLowerCase().includes('orb of corruption recipe'),
         );
 
@@ -142,13 +141,13 @@ function mapV2ToDisplay(recipes: V2Recipe[]): DisplayRecipe[] {
                     .map((p) => p.PropertyString)
                     .filter(Boolean);
                 const withQual = qStr ? `${base}, ${qStr}` : base;
-                // Append properties after a comma without extra parentheses wrapper
+                // Append properties after a comma without an extra parentheses wrapper
                 const withProps = props.length
                     ? `${withQual}, ${props.join('; ')}`
                     : withQual;
                 outputsArr.push(withProps);
 
-                // Build structured block
+                // Build a structured block
                 outputBlocks.push({
                     key: k,
                     title: base,
@@ -220,7 +219,7 @@ export class CubeRecipes {
             this.classOptions = [{ value: '', label: '-' }];
         }
 
-        // Read query parameters from URL when component is initialized
+        // Read query parameters from URL when the component is initialized
         const urlParams = new URLSearchParams(window.location.search);
         const searchParam = urlParams.get('search');
         if (searchParam && !isBlankOrInvalid(searchParam))
@@ -237,7 +236,7 @@ export class CubeRecipes {
 
     attached() {
         this._debouncedSearchItem = debounce(() => this.handleSearch(), 350);
-        // Run initial filter pass based on any URL params
+        // Run the initial filter pass based on any URL params
         this.handleSearch();
     }
 
@@ -272,7 +271,7 @@ export class CubeRecipes {
     // Inputs/Outputs-only flags removed as redundant; search always scans all text
 
     private updateUrl() {
-        // Update URL with current filters without page reload
+        // Update URL with current filters without a page reload
         const url = new URL(window.location.href);
         if (this.search && this.search.trim() !== '')
             url.searchParams.set('search', this.search);
@@ -308,7 +307,7 @@ export class CubeRecipes {
                 if (rc !== selectedClass) continue;
             }
 
-            // Filter by note (exact match among raw note array)
+            // Filter by note (exact match among a raw note array)
             if (selectedNote) {
                 const notes = (recipe._raw?.Notes || []).map((n) =>
                     String(n || '').toLowerCase(),
@@ -334,7 +333,7 @@ export class CubeRecipes {
         this.recipes = found;
     }
 
-    // Reset filters to default (show all) and refresh URL/list
+    // Reset filters by default (show all) and refresh URL/list
     resetFilters() {
         this.search = '';
         this.selectedNote = undefined;

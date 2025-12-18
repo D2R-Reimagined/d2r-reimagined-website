@@ -2,6 +2,7 @@ import { bindable, watch } from 'aurelia';
 
 import {
     buildOptionsForPresentTypes,
+    character_class_options,
     getChainForTypeName,
     getDescendantBaseNames,
     IFilterOption,
@@ -10,8 +11,8 @@ import {
 } from '../../resources/constants';
 import { getDamageTypeString as getDamageTypeStringUtil } from '../../utilities/damage-type';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
-import { prependTypeResetOption } from '../../utilities/filter-helpers';
-import { isBlankOrInvalid } from '../../utilities/url-sanitize';
+import { isVanillaItem,prependTypeResetOption, tokenizeSearch } from '../../utilities/filter-helpers';
+import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 import json from '../item-jsons/sets.json';
 
 import { ISetData } from './set-types';
@@ -96,48 +97,13 @@ export class Sets {
 
     // Push current filters to URL
     private updateUrl() {
-        const url = new URL(window.location.href);
-
-        // Update search parameter
-        if (this.search && this.search.trim() !== '') {
-            url.searchParams.set('search', this.search);
-        } else {
-            url.searchParams.delete('search');
-        }
-
-        // Update selectedClass parameter
-        if (this.selectedClass && !isBlankOrInvalid(this.selectedClass)) {
-            url.searchParams.set('selectedClass', this.selectedClass);
-        } else {
-            url.searchParams.delete('selectedClass');
-        }
-
-        // Update type parameter (serialize as base token only)
-        if (this.selectedType && this.selectedType !== '') {
-            url.searchParams.set('type', this.selectedType);
-        } else {
-            url.searchParams.delete('type');
-        }
-
-        // Equipment name
-        if (
-            this.selectedEquipmentName &&
-            !isBlankOrInvalid(this.selectedEquipmentName)
-        ) {
-            url.searchParams.set('equipment', this.selectedEquipmentName);
-        } else {
-            url.searchParams.delete('equipment');
-        }
-
-        // Update hideVanilla parameter
-        if (this.hideVanilla) {
-            url.searchParams.set('hideVanilla', 'true');
-        } else {
-            url.searchParams.delete('hideVanilla');
-        }
-
-        // Update the URL without reloading the page
-        window.history.pushState({}, '', url.toString());
+        syncParamsToUrl({
+            search: this.search,
+            selectedClass: this.selectedClass,
+            type: this.selectedType,
+            equipment: this.selectedEquipmentName,
+            hideVanilla: this.hideVanilla,
+        });
     }
 
     @watch('search')
@@ -150,30 +116,17 @@ export class Sets {
 
     @bindable selectedClass: string | undefined;
 
-    classes: Array<{ value: string | null; label: string }> = [
-        { value: '', label: '-' },
-        { value: 'Amazon', label: 'Amazon' },
-        { value: 'Assassin', label: 'Assassin' },
-        { value: 'Barbarian', label: 'Barbarian' },
-        { value: 'Druid', label: 'Druid' },
-        { value: 'Necromancer', label: 'Necromancer' },
-        { value: 'Paladin', label: 'Paladin' },
-        { value: 'Sorceress', label: 'Sorceress' },
-    ];
+    classes = character_class_options;
 
-    classChanged(): void {
-        this.sets = json;
-        this.updateList();
-        this.updateUrl();
-    }
-
+    @watch('selectedClass')
     @watch('hideVanilla')
-    handleHideVanillaChanged(): void {
+    handleFilterChanged(): void {
         this.updateList();
         this.updateUrl();
     }
 
-    selectedTypeChanged(): void {
+    @watch('selectedType')
+    handleTypeChanged(): void {
         // Update equipment names when type changes and reset selection
         this.equipmentNames = this.getSetEquipmentNames();
         this.selectedEquipmentName = undefined;
@@ -181,15 +134,15 @@ export class Sets {
         this.updateUrl();
     }
 
-    selectedEquipmentNameChanged(): void {
+    @watch('selectedEquipmentName')
+    handleEquipmentNameChanged(): void {
         if (this._debouncedSearchItem) this._debouncedSearchItem();
         this.updateUrl();
     }
 
     updateList(): void {
         try {
-            const searchRaw = (this.search || '').trim().toLowerCase();
-            const searchTokens = searchRaw.length ? searchRaw.split(/\s+/) : [];
+            const searchTokens = tokenizeSearch(this.search);
             const classText = this.selectedClass?.toLowerCase();
 
             const matchesType = (set: ISetData) => {
@@ -235,13 +188,7 @@ export class Sets {
             };
 
             const matchesVanilla = (set: ISetData) => {
-                if (!this.hideVanilla) return true;
-                // Hide the entire set based on a set-level Vanilla flag (tolerate missing field)
-                const v: unknown = (set as unknown as Record<string, unknown>)[
-                    'Vanilla'
-                ];
-                const vStr = typeof v === 'string' || typeof v === 'number' || typeof v === 'boolean' ? String(v).toUpperCase() : '';
-                return vStr !== 'Y';
+                return !this.hideVanilla || !isVanillaItem(set?.Vanilla);
             };
 
             const matchesClass = (set: ISetData) => {

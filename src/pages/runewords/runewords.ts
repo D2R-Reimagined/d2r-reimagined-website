@@ -6,7 +6,7 @@ import {
     IFilterOption,
     resolveBaseTypeName,
     type_filtering_options,
-} from '../../resources/constants/item-type-filters';
+} from '../../resources/constants';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
 import { prependTypeResetOption } from '../../utilities/filter-helpers';
 import { isBlankOrInvalid } from '../../utilities/url-sanitize';
@@ -39,7 +39,6 @@ export class Runewords {
     @bindable search: string;
     @bindable searchRunes: string;
     @bindable exclusiveType: boolean = false;
-    // When true, hide items where Vanilla === 'Y'
     @bindable hideVanilla: boolean = false;
 
     private _debouncedSearchItem!: IDebouncedFunction;
@@ -81,7 +80,7 @@ export class Runewords {
             // keep defaults on error
         }
         // Filter the shared preset to only show options relevant to this page's data
-        // Enable base de-duplication to collapse identical-base entries like 'Helm' and 'Any Helm'.
+        // Enable base deduplication to collapse identical-base entries like 'Helm' and 'Any Helm'.
         this.types = buildOptionsForPresentTypes(type_filtering_options, present, {
             dedupeByBase: true,
             preferLabelStartsWith: 'Any ',
@@ -106,7 +105,7 @@ export class Runewords {
         // Map URL 'type' (now serialized as base only) to a scalar base token
         const typeParam = urlParams.get('type');
         if (typeParam && !isBlankOrInvalid(typeParam)) {
-            const base = typeParam.split(',')[0]; // support legacy comma list by taking first token
+            const base = typeParam.split(',')[0]; // support legacy comma list by taking the first token
             const opt = this.types.find((o) => o.value && o.value[0] === base);
             this.selectedType = opt ? base : undefined;
         }
@@ -248,12 +247,13 @@ export class Runewords {
                 const selectedChain = getChainForTypeName(selectedBase);
                 const selectedChainSet = new Set<string>(selectedChain);
 
-                // Decide direction of inheritance when Exact is OFF:
-                // - If the selected type has descendants present in data (e.g., Bow -> Amazon Bow),
-                //   then selecting it should include its descendants (itemChain includes selectedBase).
-                // - If it is a leaf (e.g., Amazon Spear, Hand to Hand), selecting it should include
-                //   only its ancestor line (itemBase is in selectedChainSet) to avoid sibling leakage
-                //   via shared parents like Melee Weapon/Weapon.
+                /** Decide the direction of inheritance when Exact is OFF:
+                 *  - If the selected type has descendants present in data (e.g., Bow -> Amazon Bow),
+                 *  then selecting it should include its descendants (itemChain includes selectedBase).
+                 *  - If it is a leaf (e.g., Amazon Spear, Hand to Hand), selecting it should include
+                 *  only its ancestor line (itemBase is in selectedChainSet) to avoid sibling leakage
+                 *  via shared parents like Melee Weapon/Weapon.
+                 *  */
                 let hasDescendantInData = false;
                 if (!this.exclusiveType) {
                     try {

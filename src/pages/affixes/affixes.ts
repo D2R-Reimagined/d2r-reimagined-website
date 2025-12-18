@@ -6,7 +6,7 @@ import {
     IFilterOption,
     resolveBaseTypeName,
     type_filtering_options,
-} from '../../resources/constants/item-type-filters';
+} from '../../resources/constants';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
 import {
     prependTypeResetOption,
@@ -66,10 +66,10 @@ export class Affixes {
     // Selected type: scalar base token
     @bindable selectedType: string | undefined;
 
-    // Exact type only toggle
+    // Exact type-only toggle
     @bindable exclusiveType: boolean;
 
-    // rLvl dropdown options ("-" empty first option, then 1–99)
+    // rLvl dropdown options ("-" empty first option; then 1–99)
     rLevelOptions: { value: string; label: string }[] = [
         { value: '', label: '-' },
         ...Array.from({ length: 99 }, (_, i) => {
@@ -84,7 +84,7 @@ export class Affixes {
     @bindable maxRequiredLevel: number | string | undefined;
 
     binding() {
-        // Read search query parameters from URL before first render
+        // Read search query parameters from URL before the first render
         const urlParams = new URLSearchParams(window.location.search);
 
         const searchParam = urlParams.get('search');
@@ -101,7 +101,7 @@ export class Affixes {
             this.selectedGroupDescription = groupParam;
 
         const typeParam = urlParams.get('type');
-        // Defer mapping of type until after options are built (scalar base)
+        // Defer mapping of a type until after options are built (scalar base)
         let typeBaseFromUrl: string | undefined;
         if (typeParam && !isBlankOrInvalid(typeParam))
             typeBaseFromUrl = typeParam.split(',')[0];
@@ -118,7 +118,7 @@ export class Affixes {
         if (exactParam && !isBlankOrInvalid(exactParam))
             this.exclusiveType = exactParam === 'true';
 
-        // Default the selects to '-' (empty) when no URL value is provided so labels rest centered
+        // Default the selection to '-' (empty) when no URL value is provided, so labels rest centered
         // For PType, keep undefined to select the "-" option without introducing unsafe casts
         if (this.selectedPType === undefined) this.selectedPType = undefined;
         if (this.selectedGroupDescription === undefined)
@@ -155,7 +155,7 @@ export class Affixes {
             // keep default options if something unexpected occurs
         }
         // Filter the shared preset to only show options relevant to affix data
-        // Enable base de-duplication so identical-base entries like 'Helm' and 'Any Helm'
+        // Enable base deduplication so identical-base entries like 'Helm' and 'Any Helm'
         // collapse to a single visible option (prefer labels starting with 'Any ').
         this.types = buildOptionsForPresentTypes(type_filtering_options, present, {
             dedupeByBase: true,
@@ -176,7 +176,7 @@ export class Affixes {
         // Build group description → group IDs mapping and options
         this.buildGroupOptions(propertyGroups as unknown as IPropertyGroupEntry[]);
 
-        // Set up debounced filter (arrow wrapper avoids unsafe bind typing)
+        // Set up a debounced filter (arrow wrapper avoids unsafe bind typing)
         this._debouncedFilter = debounce(() => this.applyFilters(), 350);
 
         // Initial filter
@@ -237,7 +237,7 @@ export class Affixes {
         if (this.exclusiveType) url.searchParams.set('exact', 'true');
         else url.searchParams.delete('exact');
 
-        // push state without reload
+        // push state without a reload
         window.history.pushState({}, '', url.toString());
     }
 
@@ -293,7 +293,7 @@ export class Affixes {
 
     @watch('minRequiredLevel')
     handleMinReqChanged() {
-        // If min exceeds max, coerce max to min so UI stays consistent
+        // If min exceeds max, coerce max to min so the UI stays consistent
         const minNum = toOptionalNumber(this.minRequiredLevel);
         const maxNum = toOptionalNumber(this.maxRequiredLevel);
         if (
@@ -311,7 +311,7 @@ export class Affixes {
 
     @watch('maxRequiredLevel')
     handleMaxReqChanged() {
-        // If max is below min, coerce min to max so UI stays consistent
+        // If max is below min, coerce min to max so the UI stays consistent
         const minNum = toOptionalNumber(this.minRequiredLevel);
         const maxNum = toOptionalNumber(this.maxRequiredLevel);
         if (
@@ -365,9 +365,10 @@ export class Affixes {
                     const selectedChain = getChainForTypeName(selectedBase);
                     const selectedChainSet = new Set<string>(selectedChain);
 
-                    // Determine if the selected type has descendants present in data. If so and Exact is OFF,
-                    // selecting it should include descendants (affix type chain contains selectedBase). If not,
-                    // treat selection as a leaf and include only the ancestor line (affix base is in selectedChainSet).
+                    /** Determine if the selected type has descendants present in data. If so and Exact is OFF,
+                     *  selecting it should include descendants (affix type chain contains selectedBase). If not,
+                     *  treat selection as a leaf and include only the ancestor line (affix base is in selectedChainSet).
+                     **/
                     let hasDescendantInData = false;
                     if (!this.exclusiveType) {
                         try {
@@ -392,7 +393,7 @@ export class Affixes {
                         }
                     }
 
-                    // Allowed by Types (if Types present). If absent, treat as general (allowed).
+                    // Allowed by Types (if Types present). If absent, treat as any (allowed).
                     const types = Array.isArray(a.Types) ? a.Types : [];
                     if (types.length > 0) {
                         const allowed = types.some((t) => {
@@ -403,7 +404,7 @@ export class Affixes {
                                 // Exact: only match the exact base
                                 return itemBase === selectedBase;
                             } else if (hasDescendantInData) {
-                                // Parent selected: include descendants (type chain contains selectedBase)
+                                // Parent selected: include descendants (the type chain contains selectedBase)
                                 return chain.indexOf(selectedBase) !== -1;
                             } else {
                                 // Leaf selected: include only ancestor line (no sibling leakage)
@@ -460,12 +461,10 @@ export class Affixes {
     // Reset all filters to defaults and refresh URL/list
     resetFilters() {
         this.search = '';
-        // Keep undefined so dropdown picks the '-' option safely
         this.selectedPType = undefined;
         this.selectedGroupDescription = '';
         this.selectedType = '';
         this.exclusiveType = false;
-        // Set to empty string so the dropdowns select the "-" option explicitly
         this.minRequiredLevel = '';
         this.maxRequiredLevel = '';
 

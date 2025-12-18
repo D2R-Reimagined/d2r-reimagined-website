@@ -2,6 +2,7 @@ import { bindable, watch } from 'aurelia';
 
 import {
     buildOptionsForPresentTypes,
+    character_class_options,
     getChainForTypeName,
     getDescendantBaseNames,
     IFilterOption,
@@ -10,8 +11,8 @@ import {
 } from '../../resources/constants';
 import { getDamageTypeString as getDamageTypeStringUtil } from '../../utilities/damage-type';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
-import { prependTypeResetOption } from '../../utilities/filter-helpers';
-import { isBlankOrInvalid } from '../../utilities/url-sanitize';
+import { isVanillaItem,prependTypeResetOption, tokenizeSearch } from '../../utilities/filter-helpers';
+import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 import json from '../item-jsons/uniques.json';
 
 // Minimal shapes for uniques JSON used by this page. Only type what we read.
@@ -51,16 +52,7 @@ export class Uniques {
     private _debouncedSearchItem!: IDebouncedFunction;
     private _debouncedUpdateUrl!: IDebouncedFunction;
 
-    classes = [
-        { value: '', label: '-' },
-        { value: 'Amazon', label: 'Amazon' },
-        { value: 'Assassin', label: 'Assassin' },
-        { value: 'Barbarian', label: 'Barbarian' },
-        { value: 'Druid', label: 'Druid' },
-        { value: 'Necromancer', label: 'Necromancer' },
-        { value: 'Paladin', label: 'Paladin' },
-        { value: 'Sorceress', label: 'Sorceress' },
-    ];
+    classes = character_class_options;
 
     // Hydrate state from URL and build type options BEFORE the controls render
     binding() {
@@ -121,13 +113,8 @@ export class Uniques {
     }
 
     @watch('selectedClass')
-    handleClassChanged() {
-        this.updateList();
-        if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
-    }
-
     @watch('hideVanilla')
-    handleHideVanillaChanged() {
+    handleFilterChanged() {
         this.updateList();
         if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
     }
@@ -156,50 +143,17 @@ export class Uniques {
 
     // Helper method to update URL with current search parameters
     private updateUrl() {
-        const url = new URL(window.location.href);
-
-        // Update search parameter
-        if (this.search && this.search.trim() !== '') {
-            url.searchParams.set('search', this.search);
-        } else {
-            url.searchParams.delete('search');
-        }
-
-        // Update selectedClass parameter
-        if (this.selectedClass && !isBlankOrInvalid(this.selectedClass)) {
-            url.searchParams.set('selectedClass', this.selectedClass);
-        } else {
-            url.searchParams.delete('selectedClass');
-        }
-
-        // Update type parameter (serialize as base token only)
-        if (this.selectedType && this.selectedType !== '') {
-            url.searchParams.set('type', this.selectedType);
-        } else {
-            url.searchParams.delete('type');
-        }
-
-        // Update hideVanilla parameter (omit when false)
-        if (this.hideVanilla) {
-            url.searchParams.set('hideVanilla', 'true');
-        } else {
-            url.searchParams.delete('hideVanilla');
-        }
-
-        // Update equipment name parameter (exact match)
-        if (this.selectedEquipmentName && !isBlankOrInvalid(this.selectedEquipmentName)) {
-            url.searchParams.set('equipment', this.selectedEquipmentName);
-        } else {
-            url.searchParams.delete('equipment');
-        }
-
-        // Update the URL without reloading the page
-        window.history.pushState({}, '', url.toString());
+        syncParamsToUrl({
+            search: this.search,
+            selectedClass: this.selectedClass,
+            type: this.selectedType,
+            hideVanilla: this.hideVanilla,
+            equipment: this.selectedEquipmentName,
+        });
     }
 
     updateList() {
-        const searchRaw = (this.search || '').trim().toLowerCase();
-        const searchTokens = searchRaw.length ? searchRaw.split(/\s+/) : [];
+        const searchTokens = tokenizeSearch(this.search);
         const selectedClassLower = (this.selectedClass || '').toLowerCase();
         // Build an allowed set from the selected base + its descendants (aggregates)
         const allowedTypeSet: Set<string> | null = ((): Set<string> | null => {
@@ -245,13 +199,7 @@ export class Uniques {
             );
         };
         const isMatchingVanilla = (unique: IUniqueItem) => {
-            if (!this.hideVanilla) return true;
-            const v: unknown = unique?.Vanilla as unknown;
-            const vStr =
-                typeof v === 'string' || typeof v === 'number' || typeof v === 'boolean'
-                    ? String(v).toUpperCase()
-                    : '';
-            return vStr !== 'Y';
+            return !this.hideVanilla || !isVanillaItem(unique?.Vanilla);
         };
 
         // Update the equipment names list if a type is selected

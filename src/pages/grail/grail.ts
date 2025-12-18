@@ -2,14 +2,15 @@ import { bindable, watch } from 'aurelia';
 
 import {
     buildOptionsForPresentTypes,
+    character_class_options,
     getChainForTypeName,
     IFilterOption,
     resolveBaseTypeName,
     type_filtering_options,
-} from '../../resources/constants/item-type-filters';
+} from '../../resources/constants';
 import { getDamageTypeString as getDamageTypeStringUtil } from '../../utilities/damage-type';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
-import { prependTypeResetOption } from '../../utilities/filter-helpers';
+import { isVanillaItem,prependTypeResetOption, tokenizeSearch } from '../../utilities/filter-helpers';
 import { isBlankOrInvalid } from '../../utilities/url-sanitize';
 import runewordsJson from '../item-jsons/runewords.json';
 import setsJson from '../item-jsons/sets.json';
@@ -84,16 +85,7 @@ export class Grail {
     runewords: IRunewordData[] = runewordsJson as unknown as IRunewordData[];
     filteredRunewords: IRunewordData[] = [];
 
-    classes: Array<{ value: string | undefined; label: string }> = [
-        { value: '', label: '-' },
-        { value: 'Amazon', label: 'Amazon' },
-        { value: 'Assassin', label: 'Assassin' },
-        { value: 'Barbarian', label: 'Barbarian' },
-        { value: 'Druid', label: 'Druid' },
-        { value: 'Necromancer', label: 'Necromancer' },
-        { value: 'Paladin', label: 'Paladin' },
-        { value: 'Sorceress', label: 'Sorceress' },
-    ];
+    classes = character_class_options;
 
     equipmentNames: ISelectOption[] = [{ id: '', name: '-' }];
 
@@ -166,7 +158,7 @@ export class Grail {
         // Build type options based on selected category and data present
         this.rebuildTypeOptions();
 
-        // Initialize internal selectedType array from selectedTypeBase and available options
+        // Initialize an internal selectedType array from selectedTypeBase and available options
         if (this.selectedTypeBase) {
             const opt = this.types.find(
                 (o) => o.value && o.value[0] === this.selectedTypeBase,
@@ -226,9 +218,9 @@ export class Grail {
         this.updateList();
     }
 
-    // Reflect current state back into the URL
+    // Reflect the current state back into the URL
     attached(): void {
-        // Push clean state into URL on first load (no external hydration)
+        // Push clean state into URL on the first load (no external hydration)
         this.updateUrl();
     }
 
@@ -262,7 +254,7 @@ export class Grail {
             }
 
             // Class
-            const cls = urlParams.get('g-class');
+            const cls = urlParams.get('g-selectedClass');
             if (cls && !isBlankOrInvalid(cls)) this.selectedClass = cls;
 
             // Type (serialized as base token only)
@@ -388,12 +380,12 @@ export class Grail {
         } catch {
             // keep default preset on error
         }
-        // For grail: de-duplicate by base so 'Helm' vs 'Any Helm' doesn't appear twice in a base-serialized URL model
+        // For grail: deduplicate by base so 'Helm' vs. 'Any Helm' doesn't appear twice in a base-serialized URL model
         this.types = buildOptionsForPresentTypes(type_filtering_options, present, {
             dedupeByBase: true,
             preferLabelStartsWith: 'Any ',
         });
-        // Prepend reset option so users can clear selection with '-'
+        // Prepend a reset option so users can clear the selection with '-'
         this.types = prependTypeResetOption(this.types);
     }
 
@@ -525,7 +517,7 @@ export class Grail {
         this.showFoundItems = false;
         this.hideVanilla = false;
 
-        // Rebuild options list for current category and refresh
+        // Rebuild options list for the current category and refresh
         this.rebuildTypeOptions();
         this.updateList();
         this.updateTotalCount();
@@ -534,7 +526,7 @@ export class Grail {
 
     updateList() {
         // Filter per category
-        const searchTokens = this.normalizeQueryTokens(this.search);
+        const searchTokens = tokenizeSearch(this.search);
         const selectedTypeSet =
             this.selectedType && this.selectedType.length > 0
                 ? new Set<string>(this.selectedType)
@@ -555,9 +547,7 @@ export class Grail {
                 const okEquip =
                     !this.selectedEquipmentName ||
                     String(unique?.Equipment?.Name || '') === this.selectedEquipmentName;
-                const okVanilla =
-                    !this.hideVanilla ||
-                    String(unique?.Vanilla || '').toUpperCase() !== 'Y';
+                const okVanilla = !this.hideVanilla || !isVanillaItem(unique?.Vanilla);
                 const okSearch = this.tokensPartiallyMatch(
                     this._uniqueTokens.get(this.getUniqueKey(unique)),
                     searchTokens,
@@ -594,9 +584,7 @@ export class Grail {
                 const okEquip =
                     !this.selectedEquipmentName ||
                     String(item?.Equipment?.Name || '') === this.selectedEquipmentName;
-                const okVanilla =
-                    !this.hideVanilla ||
-                    String(item?.Vanilla || '').toUpperCase() !== 'Y';
+                const okVanilla = !this.hideVanilla || !isVanillaItem(item?.Vanilla);
                 const okSearch = this.tokensPartiallyMatch(
                     this._setItemTokens.get(this.getSetItemKey(item)),
                     searchTokens,
@@ -617,7 +605,7 @@ export class Grail {
         } else if (this.selectedCategory === 'runewords') {
             let list: IRunewordData[] = this.runewords;
 
-            // Type filtering modeled after Runewords page
+            // Type filtering modeled after the Runewords page
             if (Array.isArray(this.selectedType) && this.selectedType.length > 0) {
                 const selectedBase = resolveBaseTypeName(this.selectedType[0] ?? '');
                 if (selectedBase) {
@@ -670,8 +658,7 @@ export class Grail {
             }
 
             const result = list.filter((rw: IRunewordData) => {
-                const okVanilla =
-                    !this.hideVanilla || String(rw?.Vanilla || '').toUpperCase() !== 'Y';
+                const okVanilla = !this.hideVanilla || !isVanillaItem(rw?.Vanilla);
                 const okSearch = this.tokensPartiallyMatch(
                     this._runewordTokens.get(this.getRunewordKey(rw)),
                     searchTokens,
@@ -690,29 +677,14 @@ export class Grail {
         this.updateSetCounters();
     }
 
-    // --- Tokenization helpers -------------------------------------------------
-
-    private normalizeQueryTokens(input: string | undefined | null): string[] {
-        const raw = (input || '').trim().toLowerCase();
-        if (!raw) return [];
-        // Replace all non-alphanumeric with spaces, collapse whitespace
-        const cleaned = raw.replace(/[^a-z0-9]+/g, ' ').trim();
-        if (!cleaned) return [];
-        return cleaned.split(/\s+/);
-    }
-
+    //Tokenization helpers
     private tokenizeStrings(
         values: Array<string | undefined | null>,
     ): Set<string> {
         const out = new Set<string>();
         for (const v of values) {
-            if (v == null) continue;
-            const s = String(v).toLowerCase();
-            const cleaned = s.replace(/[^a-z0-9]+/g, ' ').trim();
-            if (!cleaned) continue;
-            for (const tok of cleaned.split(/\s+/)) {
-                if (tok) out.add(tok);
-            }
+            const toks = tokenizeSearch(v);
+            for (const tok of toks) out.add(tok);
         }
         return out;
     }
@@ -1012,7 +984,7 @@ export class Grail {
         }
     }
 
-    // Maintain original item-based counters for Sets header first line
+    // Maintain original item-based counters for Sets header-first line
     private updateSetCounters(): void {
         try {
             this.setItemTotalCount = this.allSetItems.length;
@@ -1027,30 +999,5 @@ export class Grail {
             this.setItemFoundCount = 0;
         }
         // setItemsDisplayedCount is updated inside updateList() for sets; when not on sets, leave as-is
-    }
-
-    private getUniqueEquipmentNames(): ISelectOption[] {
-        const set = new Set<string>();
-        const selectedBases = this.selectedType
-            ? new Set<string>(this.selectedType)
-            : null;
-        if (this.selectedCategory === 'uniques') {
-            for (const u of this.uniques) {
-                const base = getChainForTypeName(u?.Type ?? '')[0] || (u?.Type ?? '');
-                if (selectedBases && !selectedBases.has(base)) continue;
-                if (u?.Equipment?.Name) set.add(u.Equipment.Name);
-            }
-        } else if (this.selectedCategory === 'sets') {
-            for (const it of this.allSetItems) {
-                const base = getChainForTypeName(it?.Type ?? '')[0] || (it?.Type ?? '');
-                if (selectedBases && !selectedBases.has(base)) continue;
-                if (it?.Equipment?.Name) set.add(it.Equipment.Name);
-            }
-        }
-        const result: ISelectOption[] = [{ id: '', name: '-' }];
-        for (const name of Array.from(set).sort()) {
-            result.push({ id: name, name });
-        }
-        return result;
     }
 }

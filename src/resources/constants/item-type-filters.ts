@@ -1,6 +1,5 @@
 ﻿// Item-type graph and filter helpers (fast, memoized).
 // Data: itemtypes.txt (D2R Reimagined mod). Parents from Equiv1/Equiv2.
-// Notes: heavy lookups are precomputed; helpers are cycle-safe and allocation-light.
 
 export interface IItemTypeNode {
     // Human-friendly name (itemtypes.txt: ItemType)
@@ -481,11 +480,3 @@ export const type_filtering_options: ReadonlyArray<IFilterOption> = [
     makeTypeOption('Sorceress Orb', 'Orb', [], true),
 ];
 
-// Utility lookups (optional)
-export function findTypeByName(name: string): IItemTypeNode | undefined {
-    return ITEM_TYPE_BY_NAME.get(name);
-}
-
-export function findTypeByCode(code: string): IItemTypeNode | undefined {
-    return ITEM_TYPE_BY_CODE.get(code);
-}

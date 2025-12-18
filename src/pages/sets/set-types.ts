@@ -40,5 +40,6 @@ export interface ISetData {
     SetItems: ISetItem[];
     FullProperties: IProperty[];
     PartialProperties: IProperty[];
-    AllProperties?: IProperty[]; // Added by the code
+    AllProperties?: IProperty[];
+    Vanilla?: string |number |boolean; // present in data, used in filtering
 }

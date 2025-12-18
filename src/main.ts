@@ -25,12 +25,13 @@ interface ITooltipLike {
   destroy?: () => void;
 }
 type TooltipRecord = {
-  tooltip: ITooltipLike;
-  clickHide: EventListener;
-  enter?: EventListener;
-  leave?: EventListener;
-  move?: EventListener;
-  idleTimer?: number | null;
+    tooltip: ITooltipLike;
+    clickHide: () => void;
+    enter?: EventListener;
+    leave?: EventListener;
+    move?: EventListener;
+    idleTimer?: number | null;
+    suppressedUntil?: number;
 };
 
 // Helpers to provide a single help source that can render as a tooltip (lg+)
@@ -214,11 +215,18 @@ const TooltipManager = (() => {
 
     const rec: TooltipRecord = {
         tooltip: t,
-        clickHide: () => t.hide(),
+        clickHide: () => {
+            clearIdle(rec);
+            t.hide();
+            // Prevent the tooltip from reappearing for 1 second after a click
+            rec.suppressedUntil = Date.now() + 1000;
+        },
         idleTimer: null,
+        suppressedUntil: 0,
     };
 
     const onEnter: EventListener = () => {
+        if (Date.now() < (rec.suppressedUntil || 0)) return;
         clearIdle(rec);
         rec.idleTimer = window.setTimeout(() => {
             try {
@@ -229,6 +237,7 @@ const TooltipManager = (() => {
         }, idleMs);
     };
     const onMove: EventListener = () => {
+        if (Date.now() < (rec.suppressedUntil || 0)) return;
         // Any cursor movement while hovering resets the idle timer until stable for idleMs
         clearIdle(rec);
         rec.idleTimer = window.setTimeout(() => {
@@ -301,12 +310,23 @@ const TooltipManager = (() => {
 
     const attachDocClickHandler = () => {
         if (docClickHandler) return;
-        docClickHandler = () => {
-            instances.forEach(({ tooltip }) => {
-                try {
-                    tooltip.hide?.();
-                } catch {
-                    /* noop */
+        docClickHandler = (event: Event) => {
+            const target = event.target as HTMLElement;
+            instances.forEach((rec, trigger) => {
+                // If the user clicks outside the trigger, hide it immediately
+                if (!trigger.contains(target)) {
+                    try {
+                        rec.tooltip.hide?.();
+                        if (rec.idleTimer != null) {
+                            clearTimeout(rec.idleTimer);
+                            rec.idleTimer = null;
+                        }
+                    } catch {
+                        /* noop */
+                    }
+                } else {
+                    // If they clicked inside the trigger, activate the suppression
+                    rec.clickHide();
                 }
             });
         };

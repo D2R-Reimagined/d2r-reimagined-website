@@ -1,12 +1,14 @@
-import { C as CustomElement, i as isBlankOrInvalid, w as watch, c as customElement, b as bindable } from "./index-04lAwL3n.js";
-import { d as debounce } from "./debounce-ZwsFz6hU.js";
-import { a as getChainForTypeName, r as resolveBaseTypeName, b as buildOptionsForPresentTypes, p as prependTypeResetOption, t as type_filtering_options } from "./filter-helpers-DQPTPo0a.js";
-import { r as runewordsJson } from "./runewords-DIDEqgbm.js";
-import { s as setsJson } from "./sets-Dh9IIbeB.js";
-import { u as uniquesJson } from "./uniques-DpTOnbm-.js";
+import { C as CustomElement, i as isBlankOrInvalid, w as watch, c as customElement, b as bindable } from "./index-BcLyVs97.js";
+import { c as getChainForTypeName, r as resolveBaseTypeName, b as buildOptionsForPresentTypes, p as prependTypeResetOption, a as tokenizeSearch, i as isVanillaItem, t as type_filtering_options } from "./filter-helpers-OZCyS2Ps.js";
+import { c as character_class_options } from "./character-classes-LLAbBzNg.js";
+import { g as getDamageTypeString } from "./damage-type-Du-j2Hbt.js";
+import { d as debounce } from "./debounce-DlM2vs2L.js";
+import { r as runewordsJson } from "./runewords-9XTgQhJw.js";
+import { s as setsJson } from "./sets-BTNJ3NrF.js";
+import { u as uniquesJson } from "./uniques-PVVDDl-d.js";
 const name = "grail";
 const template = `<template>\r
-    <h3 class="text-center my-4">\r
+    <h3 class="text-lg type-text text-center items-center mx-auto my-4">\r
         <span class="unique-text">- Holy Grail Tracker -</span>\r
         <template if.bind="selectedCategory === 'sets'">\r
             <div>\r
@@ -16,79 +18,165 @@ const template = `<template>\r
                 (<span class="rarity-text">\${setItemsDisplayedCount}</span> Displayed)\r
             </div>\r
             <div>\r
-                <span class="rarity-text">\${foundCount}</span>/<span class="rarity-text">\${totalCount}</span>\r
+                <span class="rarity-text">\${foundCount}</span>/<span\r
+                    class="rarity-text">\${totalCount}</span>\r
                 Sets Completed\r
                 (<span class="rarity-text">\${displayedCount}</span> Displayed)\r
             </div>\r
         </template>\r
         <template if.bind="selectedCategory !== 'sets'">\r
-            <div>\r
-                <span class="rarity-text">\${foundCount}</span>/<span class="rarity-text">\${totalCount}</span>\r
+            <div class="mb-11">\r
+                <span class="rarity-text">\${foundCount}</span>/<span\r
+                    class="rarity-text">\${totalCount}</span>\r
                 Items Found\r
                 (<span class="rarity-text">\${displayedCount}</span> Displayed)\r
             </div>\r
         </template>\r
     </h3>\r
 \r
+    <div class="flex flex-col items-center gap-2 px-5 pb-5">\r
+        <div class="w-full lg:w-85" data-help-text="Reset the tracked progress for the current Grail category only." data-tooltip-placement="top">\r
+            <div class="flex items-stretch">\r
+                <div class="relative flex-1">\r
+                    <button id="resetgrailcat" type="button" click.trigger="resetGrail()" class="button-base">\r
+                        Reset Grail Category Progress\r
+                    </button>\r
+                </div>\r
+                <button type="button" class="m-info-button" aria-expanded="false" data-info-for="resetgrailcat">\r
+                    <span class="mso">info</span>\r
+                    <span class="sr-only">More info about Reset Grail Category Progress</span>\r
+                </button>\r
+            </div>\r
+        </div>\r
+        <div class="w-full lg:w-85" data-help-text="Filter toggle to hide items you've already found.">\r
+            <div class="flex items-stretch">\r
+                <div class="relative flex-1">\r
+                    <button id="hidefounditems" type="button" class="vanilla-button flex-row-reverse justify-between"\r
+                            aria-pressed.bind="showFoundItems"\r
+                            click.trigger="showFoundItems = !showFoundItems"><span class="vanilla-indicator"></span>\r
+                        Hide Found Items\r
+                    </button>\r
+                </div>\r
+                <button type="button" class="m-info-button" aria-expanded="false" data-info-for="hidefounditems">\r
+                    <span class="mso">info</span>\r
+                    <span class="sr-only">More info about the Hide Found Items button</span>\r
+                </button>\r
+            </div>\r
+        </div>\r
+    </div>\r
+\r
     <search-area>\r
-        <div class="max-w-11/12 m-auto px-4">\r
-            <div class="flex flex-wrap justify-center items-start">\r
+        <div class="w-full m-auto px-5 py-2">\r
+            <div class="flex flex-wrap justify-center items-start gap-2">\r
 \r
-                <div class="w-full lg:w-auto lg:min-w-70 px-2">\r
-                    <div class="relative mb-2">\r
-                        <select id="category" class="select-base peer" value.bind="selectedCategory" required>\r
-                            <option repeat.for="opt of categories" value.bind="opt.value">\${opt.label}</option>\r
-                        </select>\r
-                        <label for="category" class="floating-label">Category</label>\r
+                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Choose the Grail category list.">\r
+                    <div class="flex items-stretch">\r
+                        <div class="relative flex-1">\r
+                            <select id="category" class="select-base peer" value.bind="selectedCategory">\r
+                                <option repeat.for="opt of categories" value.bind="opt.value">\${opt.label}</option>\r
+                            </select>\r
+                            <label for="category" class="floating-label">Select Category</label>\r
+                        </div>\r
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="category">\r
+                            <span class="mso">info</span>\r
+                            <span class="sr-only">More info about Category filter</span>\r
+                        </button>\r
                     </div>\r
                 </div>\r
 \r
-                <div class="w-full lg:w-auto lg:min-w-70 px-2">\r
-                    <div class="relative mb-2">\r
-                        <select id="ficlass" class="select-base peer" value.bind="selectedClass" required>\r
-                            <option repeat.for="opt of classes" value.bind="opt.value">\${opt.label}</option>\r
-                        </select>\r
-                        <label for="ficlass" class="floating-label">Select Class</label>\r
+                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Filter by character class.">\r
+                    <div class="flex items-stretch">\r
+                        <div class="relative flex-1">\r
+                            <select id="ficlass" class="select-base peer" value.bind="selectedClass">\r
+                                <option repeat.for="opt of classes" value.bind="opt.value">\${opt.label}</option>\r
+                            </select>\r
+                            <label for="ficlass" class="floating-label">Select Class</label>\r
+                        </div>\r
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="ficlass">\r
+                            <span class="mso">info</span>\r
+                            <span class="sr-only">More info about Class filter</span>\r
+                        </button>\r
                     </div>\r
                 </div>\r
 \r
-                <div class="w-full lg:w-auto lg:min-w-70 px-2">\r
-                    <div class="relative mb-2">\r
-                        <select id="itype" class="select-base peer" value.bind="selectedTypeBase" required>\r
-                            <option repeat.for="opt of types"\r
-                                    value.bind="opt.value && opt.value.length ? opt.value[0] : ''">\${opt.label}\r
-                            </option>\r
-                        </select>\r
-                        <label for="itype" class="floating-label">Select Type</label>\r
+                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Filter by base item type, looser than other pages due to Grail.">\r
+                    <div class="flex items-stretch">\r
+                        <div class="relative flex-1">\r
+                            <select id="itype" class="select-base peer" value.bind="selectedTypeBase">\r
+                                <option repeat.for="opt of types"\r
+                                        value.bind="opt.value && opt.value.length ? opt.value[0] : ''">\${opt.label}\r
+                                </option>\r
+                            </select>\r
+                            <label for="itype" class="floating-label">Select Type</label>\r
+                        </div>\r
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="itype">\r
+                            <span class="mso">info</span>\r
+                            <span class="sr-only">More info about Type filter</span>\r
+                        </button>\r
                     </div>\r
                 </div>\r
 \r
-                <div class="w-full lg:w-auto lg:min-w-70 px-2">\r
-                    <div class="relative mb-2">\r
-                        <select id="eqsel" class="select-base peer"\r
-                                value.bind="selectedEquipmentName"\r
-                                disabled.bind="selectedCategory === 'runewords' || !selectedTypeBase" required>\r
-                            <option repeat.for="opt of equipmentNames" value.bind="opt.id">\${opt.name}</option>\r
-                        </select>\r
-                        <label for="eqsel" class="floating-label">Select Equipment</label>\r
+                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Filter to a specific equipment for the selected item type, disabled if one isn't selected.">\r
+                    <div class="flex items-stretch">\r
+                        <div class="relative flex-1">\r
+                            <select id="eqsel" class="select-base peer"\r
+                                    value.bind="selectedEquipmentName"\r
+                                    disabled.bind="selectedCategory === 'runewords' || !selectedTypeBase">\r
+                                <option repeat.for="opt of equipmentNames" value.bind="opt.id">\${opt.name}</option>\r
+                            </select>\r
+                            <label for="eqsel" class="floating-label">Select Equipment</label>\r
+                        </div>\r
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="eqsel">\r
+                            <span class="mso">info</span>\r
+                            <span class="sr-only">More info about Equipment filter</span>\r
+                        </button>\r
                     </div>\r
                 </div>\r
 \r
-                <div class="w-full lg:w-auto lg:min-w-70 px-2">\r
-                    <div class="relative mb-2">\r
-                        <input id="inputsearch" class="select-base peer" type="text" value.bind="search" required/>\r
-                        <label for="inputsearch" class="floating-label">Filter by Input</label>\r
-                    </div>\r
-                    <div class="flex mb-2">\r
-                        <input id="hidevan" type="checkbox" class="check-base" checked.bind="hideVanilla">\r
-                        <label for="hidevan" class="block type-text ml-1">Hide Vanilla</label>\r
+                <div class="w-full lg:w-60" data-help-text="Search across all fields. Uses (space) as an 'AND' modifier. ex: Typing sorc skill mana will return items with only all 3 words.">\r
+                    <div class="flex items-stretch">\r
+                        <div class="trailing-icon flex-1" data-icon="search">\r
+                            <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search"\r
+                                   placeholder=" "/>\r
+                            <label for="inputsearch" class="floating-label">Search...</label>\r
+                        </div>\r
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="inputsearch">\r
+                            <span class="mso">info</span>\r
+                            <span class="sr-only">More info about Search</span>\r
+                        </button>\r
                     </div>\r
                 </div>\r
 \r
-                <div class="w-full lg:w-auto lg:min-w-35 px-2">\r
-                    <div class="mb-2">\r
-                        <button id="filterreset" class="button-base" type="button" click.trigger="resetFilters()">\r
-                            Reset Filters\r
+                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Filter toggle to hide Vanilla items.">\r
+                    <div class="flex items-stretch">\r
+                        <div class="relative flex-1">\r
+                            <button\r
+                                    id="hidevanillabutton"\r
+                                    type="button"\r
+                                    class="vanilla-button flex-row-reverse"\r
+                                    aria-pressed.bind="hideVanilla"\r
+                                    click.trigger="hideVanilla = !hideVanilla">\r
+                                <span class="vanilla-indicator"></span>\r
+                                Hide Vanilla\r
+                            </button>\r
+                        </div>\r
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="hidevanillabutton">\r
+                            <span class="mso">info</span>\r
+                            <span class="sr-only">More info about the Hide Vanilla button</span>\r
+                        </button>\r
+                    </div>\r
+                </div>\r
+\r
+                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Reset all filters to default.">\r
+                    <div class="flex items-stretch">\r
+                        <div class="relative flex-1">\r
+                            <button id="filterreset" class="button-base" type="button" click.trigger="resetFilters()">\r
+                                Reset Filters\r
+                            </button>\r
+                        </div>\r
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="filterreset">\r
+                            <span class="mso">info</span>\r
+                            <span class="sr-only">More info about Reset Filters</span>\r
                         </button>\r
                     </div>\r
                 </div>\r
@@ -97,198 +185,194 @@ const template = `<template>\r
         </div>\r
     </search-area>\r
 \r
-            <div class="w-full lg:w-fit m-auto lg:min-w-35 px-2 pt-2">\r
-                <div class="mb-2 flex">\r
-                    <input id="hidefound" type="checkbox" class="check-base" checked.bind="showFoundItems">\r
-                    <label for="hidefound" class="block type-text ml-1">Hide Found Items</label>\r
-                </div>\r
-            </div>\r
-            <div class="w-full lg:w-fit m-auto lg:min-w-35 p-2">\r
-                    <button type="button" click.trigger="resetGrail()" class="button-base">\r
-                        Reset Grail Category Progress\r
-                    </button>\r
-                </div>\r
-\r
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">\r
-\r
-        <div class="bg-gray-800 rounded-lg shadow p-2" repeat.for="unique of filteredUniques"\r
+    <div class="card-container">\r
+        <div class="card-box card-vis" repeat.for="unique of filteredUniques"\r
              if.bind="selectedCategory === 'uniques'">\r
-            <div class="bg-gray-800 rounded relative">\r
+            <div class="relative">\r
+\r
                 <div class="absolute top-2 right-2">\r
                     <label class="inline-flex items-center cursor-pointer">\r
-                        <input type="checkbox" checked.bind="foundUniques[unique.Name]"\r
-                               change.trigger="updateFoundStatus(unique.Name)" class="sr-only peer">\r
-                        <div class="relative w-4 h-2 bg-gray-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:start-[3px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-2 after:w-2 after:transition-all peer-checked:bg-green-600"></div>\r
+                        <input type="checkbox"\r
+                               checked.bind="foundUniques[unique.Name]"\r
+                               change.trigger="updateFoundStatus(unique.Name)"\r
+                               class="sr-only peer">\r
+                        <span class="grail-toggle"></span>\r
                     </label>\r
                 </div>\r
 \r
                 <div class="mb-1">\r
-                    <div class="unique-text text-lg \${foundUniques[unique.Name] ? 'found' : ''}">\r
+                    <div class="text-xl unique-text \${foundUniques[unique.Name] ? 'found' : ''}">\r
                         \${unique.Name}\r
                     </div>\r
-                    <div class="rarity-text" if.bind="unique.Rarity">\r
+                    <div class="text-base rarity-text" if.bind="unique.Rarity">\r
                         Rarity: \${unique.Rarity}\r
                     </div>\r
-                    <div class="rarity-text" if.bind="unique.Vanilla">\r
+                    <div class="text-base rarity-text" if.bind="unique.Vanilla">\r
                         \${unique.Vanilla === 'Y' ? 'Vanilla' : 'Mod'}\r
                     </div>\r
                 </div>\r
 \r
                 <div class="mb-1">\r
-                    <div class="type-text" if.bind="unique.Equipment.Name">\r
+                    <div class="text-base type-text" if.bind="unique.Equipment.Name">\r
                         \${unique.Equipment.Name}\r
                     </div>\r
-                    <div class="type-text" if.bind="unique.Equipment.ArmorString">\r
+                    <div class="text-base type-text" if.bind="unique.Equipment.ArmorString">\r
                         Defense: \${unique.Equipment.ArmorString}\r
                     </div>\r
-                    <div class="type-text"\r
+                    <div class="text-base type-text"\r
                          if.bind="unique.Equipment.Block !== null && unique.Equipment.Block !== undefined && unique.Equipment.Block > 0">\r
                         Block: \${unique.Equipment.Block}%\r
                     </div>\r
-                    <div class="type-text" if.bind="unique.Equipment.DamageTypes"\r
+                    <div class="text-base type-text" if.bind="unique.Equipment.DamageTypes"\r
                          repeat.for="damage of unique.Equipment.DamageTypes">\r
                         \${getDamageTypeString(damage.Type)} \${damage.DamageString}\r
                     </div>\r
-                    <div class="type-text" if.bind="unique.Equipment.Durability > 0">\r
+                    <div class="text-base type-text" if.bind="unique.Equipment.Durability > 0">\r
                         Durability: \${unique.Equipment.Durability}\r
                     </div>\r
                 </div>\r
 \r
                 <div class="mb-1">\r
-                    <div class="requirement-text"\r
+                    <div class="text-base requirement-text"\r
                          if.bind="unique.Equipment.RequiredClass && unique.Equipment.RequiredClass.length">\r
                         (\${unique.Equipment.RequiredClass} Only)\r
                     </div>\r
-                    <div class="requirement-text" if.bind="unique.Equipment.RequiredDexterity > 0">\r
+                    <div class="text-base requirement-text" if.bind="unique.Equipment.RequiredDexterity > 0">\r
                         Required Dexterity: \${unique.Equipment.RequiredDexterity}\r
                     </div>\r
-                    <div class="requirement-text" if.bind="unique.Equipment.RequiredStrength > 0">\r
+                    <div class="text-base requirement-text" if.bind="unique.Equipment.RequiredStrength > 0">\r
                         Required Strength: \${unique.Equipment.RequiredStrength}\r
                     </div>\r
-                    <div class="requirement-text">\r
-                        Required Level: \${unique.RequiredLevel > 0 ? unique.RequiredLevel : 1}\r
+                    <div class="text-base requirement-text">\r
+                        Required Level: \${unique.RequiredLevel > 0? unique.RequiredLevel: 1}\r
                     </div>\r
                 </div>\r
 \r
                 <div>\r
-                    <div class="prop-text" repeat.for="property of unique.Properties">\r
+                    <div class="text-base prop-text" repeat.for="property of unique.Properties">\r
                         \${property.PropertyString}\r
                     </div>\r
                 </div>\r
             </div>\r
         </div>\r
 \r
-        <div class="bg-gray-800 rounded shadow p-2" repeat.for="setItem of filteredSetItems"\r
+        <div class="card-box card-vis" repeat.for="setItem of filteredSetItems"\r
              if.bind="selectedCategory === 'sets'">\r
-            <div class="bg-gray-800 rounded relative">\r
+            <div class="relative">\r
+\r
                 <div class="absolute top-2 right-2">\r
                     <label class="inline-flex items-center cursor-pointer">\r
-                        <input type="checkbox" checked.bind="foundSets[getSetItemKey(setItem)]"\r
-                               change.trigger="updateFoundStatus(getSetItemKey(setItem))" class="sr-only peer">\r
-                        <div class="relative w-4 h-2 bg-gray-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:start-[3px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-2 after:w-2 after:transition-all peer-checked:bg-green-600"></div>\r
+                        <input type="checkbox"\r
+                               checked.bind="foundSets[getSetItemKey(setItem)]"\r
+                               change.trigger="updateFoundStatus(getSetItemKey(setItem))"\r
+                               class="sr-only peer">\r
+                        <span class="grail-toggle"></span>\r
                     </label>\r
                 </div>\r
 \r
-                <div class="mt-2 mb-1">\r
-                    <div class=" set-text-light text-lg \${foundSets[getSetItemKey(setItem)] ? 'found' : ''}">\r
+                <div class="mb-1">\r
+                    <div class="text-xl set-text-light \${foundSets[getSetItemKey(setItem)] ? 'found' : ''}">\r
                         \${setItem.Name}\r
                     </div>\r
-                    <div class=" set-text  opacity-90 \${foundSets[getSetItemKey(setItem)] ? 'found' : ''}">\r
+                    <div class="text-base set-text  opacity-90 \${foundSets[getSetItemKey(setItem)] ? 'found' : ''}">\r
                         (\${setItem.Set})\r
                     </div>\r
-                    <div class="rarity-text" if.bind="setItem.Rarity">\r
+                    <div class="text-base rarity-text" if.bind="setItem.Rarity">\r
                         Rarity: \${setItem.Rarity}\r
                     </div>\r
-                    <div class="rarity-text" if.bind="setItem.Vanilla">\r
+                    <div class="text-base rarity-text" if.bind="setItem.Vanilla">\r
                         \${setItem.Vanilla === 'Y' ? 'Vanilla' : 'Mod'}\r
                     </div>\r
                 </div>\r
 \r
                 <div class="mb-1">\r
-                    <div class="type-text" if.bind="setItem.Equipment.Name">\r
+                    <div class="text-base type-text" if.bind="setItem.Equipment.Name">\r
                         \${setItem.Equipment.Name}\r
                     </div>\r
-                    <div class="type-text" if.bind="setItem.Equipment.ArmorString">\r
+                    <div class="text-base type-text" if.bind="setItem.Equipment.ArmorString">\r
                         Defense: \${setItem.Equipment.ArmorString}\r
                     </div>\r
-                    <div class="type-text"\r
+                    <div class="text-base type-text"\r
                          if.bind="setItem.Equipment.Block !== null && setItem.Equipment.Block !== undefined && setItem.Equipment.Block > 0">\r
                         Block: \${setItem.Equipment.Block}%\r
                     </div>\r
-                    <div class="type-text" if.bind="setItem.Equipment.DamageTypes"\r
+                    <div class="text-base type-text" if.bind="setItem.Equipment.DamageTypes"\r
                          repeat.for="damage of setItem.Equipment.DamageTypes">\r
                         \${getDamageTypeString(damage.Type)} \${damage.DamageString}\r
                     </div>\r
-                    <div class="type-text" if.bind="setItem.Equipment.Durability > 0">\r
+                    <div class="text-base type-text" if.bind="setItem.Equipment.Durability > 0">\r
                         Durability: \${setItem.Equipment.Durability}\r
                     </div>\r
                 </div>\r
 \r
                 <div class="mb-1">\r
-                    <div class="requirement-text"\r
+                    <div class="text-base requirement-text"\r
                          if.bind="setItem.Equipment.RequiredClass && setItem.Equipment.RequiredClass.length">\r
                         (\${setItem.Equipment.RequiredClass} Only)\r
                     </div>\r
-                    <div class="requirement-text" if.bind="setItem.Equipment.RequiredDexterity > 0">\r
+                    <div class="text-base requirement-text" if.bind="setItem.Equipment.RequiredDexterity > 0">\r
                         Required Dexterity: \${setItem.Equipment.RequiredDexterity}\r
                     </div>\r
-                    <div class="requirement-text" if.bind="setItem.Equipment.RequiredStrength > 0">\r
+                    <div class="text-base requirement-text" if.bind="setItem.Equipment.RequiredStrength > 0">\r
                         Required Strength: \${setItem.Equipment.RequiredStrength}\r
                     </div>\r
-                    <div class="requirement-text">\r
-                        Required Level: \${setItem.RequiredLevel > 0 ? setItem.RequiredLevel : 1}\r
+                    <div class="text-base requirement-text">\r
+                        Required Level: \${setItem.RequiredLevel > 0? setItem.RequiredLevel: 1}\r
                     </div>\r
                 </div>\r
 \r
                 <div>\r
-                    <div class="prop-text" repeat.for="property of setItem.Properties">\r
+                    <div class="text-base prop-text" repeat.for="property of setItem.Properties">\r
                         \${property.PropertyString}\r
                     </div>\r
                 </div>\r
-                <div class=" set-text" repeat.for="setProperty of setItem.SetPropertiesString">\r
+                <div class="text-base set-text" repeat.for="setProperty of setItem.SetPropertiesString">\r
                     \${setProperty}\r
                 </div>\r
             </div>\r
         </div>\r
 \r
-        <div class="bg-gray-800 rounded shadow p-2" repeat.for="runeword of filteredRunewords"\r
+        <div class="card-box card-vis" repeat.for="runeword of filteredRunewords"\r
              if.bind="selectedCategory === 'runewords'">\r
-            <div class="bg-gray-800 rounded relative">\r
+            <div class="relative">\r
+\r
                 <div class="absolute top-2 right-2">\r
                     <label class="inline-flex items-center cursor-pointer">\r
-                        <input type="checkbox" checked.bind="foundRunewords[runeword.Name]"\r
-                               change.trigger="updateFoundStatus(runeword.Name)" class="sr-only peer">\r
-                        <div class="relative w-4 h-2 bg-gray-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:start-[3px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-2 after:w-2 after:transition-all peer-checked:bg-green-600"></div>\r
+                        <input type="checkbox"\r
+                               class="sr-only peer"\r
+                               checked.bind="foundRunewords[runeword.Name]"\r
+                               change.trigger="updateFoundStatus(runeword.Name)">\r
+                        <span class="grail-toggle"></span>\r
                     </label>\r
                 </div>\r
 \r
                 <div class="mb-1">\r
-                    <div class="unique-text text-lg mb-1 \${foundRunewords[runeword.Name] ? 'found' : ''}">\r
+                    <div class="text-xl unique-text mb-1 \${foundRunewords[runeword.Name] ? 'found' : ''}">\r
                         \${runeword.Name}\r
                     </div>\r
-                    <div class="rarity-text" if.bind="runeword.Vanilla">\r
+                    <div class="text-base rarity-text" if.bind="runeword.Vanilla">\r
                         \${runeword.Vanilla === 'Y' ? 'Vanilla' : 'Mod'}\r
                     </div>\r
                 </div>\r
 \r
-                <div class="type-text mb-1">\r
+                <div class="text-base type-text mb-1">\r
                     <span repeat.for="type of runeword.Types">\r
                         \${type.Name} \${$index + 1 !== runeword.Types.length ? ' or ' : ''}\r
                     </span>\r
                 </div>\r
 \r
-                <div class="type-text">\r
+                <div class="text-base type-text">\r
                     <span repeat.for="rune of runeword.Runes">\r
                         \${rune.Name} \${$index + 1 !== runeword.Runes.length ? ' + ' : ''}\r
                     </span>\r
                 </div>\r
 \r
-                <div class="requirement-text my-1">\r
+                <div class="text-base requirement-text my-1">\r
                     Required Level: \${runeword.RequiredLevel > 0? runeword.RequiredLevel: 1}\r
                 </div>\r
 \r
                 <div>\r
-                    <div class="prop-text" repeat.for="property of runeword.Properties">\r
+                    <div class="text-base prop-text" repeat.for="property of runeword.Properties">\r
                         \${property.PropertyString}\r
                     </div>\r
                 </div>\r
@@ -374,16 +458,7 @@ class Grail {
     __publicField(this, "filteredSetItems", []);
     __publicField(this, "runewords", runewordsJson);
     __publicField(this, "filteredRunewords", []);
-    __publicField(this, "classes", [
-      { value: "", label: "-" },
-      { value: "Amazon", label: "Amazon" },
-      { value: "Assassin", label: "Assassin" },
-      { value: "Barbarian", label: "Barbarian" },
-      { value: "Druid", label: "Druid" },
-      { value: "Necromancer", label: "Necromancer" },
-      { value: "Paladin", label: "Paladin" },
-      { value: "Sorceress", label: "Sorceress" }
-    ]);
+    __publicField(this, "classes", character_class_options);
     __publicField(this, "equipmentNames", [{ id: "", name: "-" }]);
     __publicField(this, "categories", [
       { value: "uniques", label: "Uniques" },
@@ -411,6 +486,10 @@ class Grail {
     __publicField(this, "setItemsDisplayedCount", 0);
     __publicField(this, "_debouncedSaveFound");
     __publicField(this, "_debouncedApplyFilters");
+    __publicField(this, "_uniqueTokens", /* @__PURE__ */ new Map());
+    __publicField(this, "_setItemTokens", /* @__PURE__ */ new Map());
+    __publicField(this, "_runewordTokens", /* @__PURE__ */ new Map());
+    __publicField(this, "getDamageTypeString", getDamageTypeString);
   }
   binding() {
     try {
@@ -428,7 +507,9 @@ class Grail {
     this.readUrlStateSafely();
     this.rebuildTypeOptions();
     if (this.selectedTypeBase) {
-      const opt = this.types.find((o) => o.value && o.value[0] === this.selectedTypeBase);
+      const opt = this.types.find(
+        (o) => o.value && o.value[0] === this.selectedTypeBase
+      );
       this.selectedType = opt?.value ?? [this.selectedTypeBase];
     } else {
       this.selectedType = void 0;
@@ -441,28 +522,31 @@ class Grail {
           const selectedBases = new Set(this.selectedType);
           for (const u of this.uniques) {
             const base = getChainForTypeName(u?.Type ?? "")[0] || (u?.Type ?? "");
-            if (selectedBases.has(base) && u?.Equipment?.Name) set.add(u.Equipment.Name);
+            if (selectedBases.has(base) && u?.Equipment?.Name)
+              set.add(u.Equipment.Name);
           }
         } else if (this.selectedCategory === "sets") {
           const selectedBases = new Set(this.selectedType);
           for (const it of this.allSetItems) {
             const base = getChainForTypeName(it?.Type ?? "")[0] || (it?.Type ?? "");
-            if (selectedBases.has(base) && it?.Equipment?.Name) set.add(it.Equipment.Name);
+            if (selectedBases.has(base) && it?.Equipment?.Name)
+              set.add(it.Equipment.Name);
           }
         }
         for (const name2 of set) this.equipmentNames.push({ id: name2, name: name2 });
       } catch {
       }
     }
+    this.buildAllTokens();
     this.setItemTotalCount = this.allSetItems.length;
     this._debouncedSaveFound = debounce(() => this.saveFoundItems(), 200);
     this._debouncedApplyFilters = debounce(() => {
       this.updateList();
       this.updateUrl();
-    }, 300);
+    }, 350);
     this.updateList();
   }
-  // Reflect current state back into the URL
+  // Reflect the current state back into the URL
   attached() {
     this.updateUrl();
   }
@@ -471,7 +555,7 @@ class Grail {
     try {
       const url = new URL(window.location.href);
       url.searchParams.delete("g-category");
-      url.searchParams.delete("g-class");
+      url.searchParams.delete("g-selectedClass");
       url.searchParams.delete("g-type");
       url.searchParams.delete("g-equipment");
       url.searchParams.delete("g-search");
@@ -489,7 +573,7 @@ class Grail {
       if (cat === "uniques" || cat === "sets" || cat === "runewords") {
         this.selectedCategory = cat;
       }
-      const cls = urlParams.get("g-class");
+      const cls = urlParams.get("g-selectedClass");
       if (cls && !isBlankOrInvalid(cls)) this.selectedClass = cls;
       const t = urlParams.get("g-type");
       if (t && !isBlankOrInvalid(t)) {
@@ -514,9 +598,9 @@ class Grail {
       const url = new URL(window.location.href);
       url.searchParams.set("g-category", this.selectedCategory);
       if (this.selectedClass && this.selectedClass.trim() !== "" && !isBlankOrInvalid(this.selectedClass)) {
-        url.searchParams.set("g-class", this.selectedClass);
+        url.searchParams.set("g-selectedClass", this.selectedClass);
       } else {
-        url.searchParams.delete("g-class");
+        url.searchParams.delete("g-selectedClass");
       }
       if (this.selectedTypeBase && !isBlankOrInvalid(this.selectedTypeBase)) {
         url.searchParams.set("g-type", this.selectedTypeBase);
@@ -551,19 +635,19 @@ class Grail {
     const present = /* @__PURE__ */ new Set();
     try {
       if (this.selectedCategory === "uniques") {
-        for (const u of uniquesJson) {
+        for (const u of this.uniques) {
           const base = resolveBaseTypeName(u?.Type ?? "");
           if (base) present.add(base);
         }
       } else if (this.selectedCategory === "sets") {
         for (const s of setsJson) {
-          for (const it of s?.SetItems || []) {
+          for (const it of s?.SetItems ?? []) {
             const base = resolveBaseTypeName(it?.Type ?? "");
             if (base) present.add(base);
           }
         }
       } else if (this.selectedCategory === "runewords") {
-        for (const rw of runewordsJson) {
+        for (const rw of this.runewords) {
           const types = Array.isArray(rw?.Types) ? rw.Types : [];
           for (const t of types) {
             const base = resolveBaseTypeName(t?.Name ?? "");
@@ -573,17 +657,16 @@ class Grail {
       }
     } catch {
     }
-    this.types = buildOptionsForPresentTypes(
-      type_filtering_options,
-      present,
-      { dedupeByBase: true, preferLabelStartsWith: "Any " }
-    );
+    this.types = buildOptionsForPresentTypes(type_filtering_options, present, {
+      dedupeByBase: true,
+      preferLabelStartsWith: "Any "
+    });
     this.types = prependTypeResetOption(this.types);
   }
   selectedCategoryChanged() {
     this.selectedClass = void 0;
     this.selectedType = void 0;
-    this.selectedEquipmentName = "";
+    this.selectedEquipmentName = void 0;
     this.equipmentNames = [{ id: "", name: "-" }];
     this.rebuildTypeOptions();
     this.updateList();
@@ -594,7 +677,7 @@ class Grail {
     if (this._debouncedApplyFilters) this._debouncedApplyFilters();
   }
   selectedTypeChanged() {
-    this.selectedEquipmentName = "";
+    this.selectedEquipmentName = void 0;
     this.equipmentNames = [{ id: "", name: "-" }];
     if (!this.selectedType || this.selectedType.length === 0) {
       this.updateList();
@@ -607,12 +690,14 @@ class Grail {
       if (this.selectedCategory === "uniques") {
         for (const u of this.uniques) {
           const base = getChainForTypeName(u?.Type ?? "")[0] || (u?.Type ?? "");
-          if (selectedBases.has(base) && u?.Equipment?.Name) set.add(u.Equipment.Name);
+          if (selectedBases.has(base) && u?.Equipment?.Name)
+            set.add(u.Equipment.Name);
         }
       } else if (this.selectedCategory === "sets") {
         for (const it of this.allSetItems) {
           const base = getChainForTypeName(it?.Type ?? "")[0] || (it?.Type ?? "");
-          if (selectedBases.has(base) && it?.Equipment?.Name) set.add(it.Equipment.Name);
+          if (selectedBases.has(base) && it?.Equipment?.Name)
+            set.add(it.Equipment.Name);
         }
       }
       for (const name2 of set) this.equipmentNames.push({ id: name2, name: name2 });
@@ -631,13 +716,15 @@ class Grail {
   }
   selectedTypeBaseChanged() {
     if (this.selectedTypeBase && this.selectedTypeBase !== "") {
-      const opt = this.types.find((o) => o.value && o.value[0] === this.selectedTypeBase);
+      const opt = this.types.find(
+        (o) => o.value && o.value[0] === this.selectedTypeBase
+      );
       this.selectedType = opt?.value ?? [this.selectedTypeBase];
     } else {
       this.selectedType = void 0;
-      this.selectedEquipmentName = "";
+      this.selectedEquipmentName = void 0;
     }
-    this.equipmentNames = [{ id: "", name: "All Equipment" }];
+    this.equipmentNames = [{ id: "", name: "-" }];
     if (this.selectedType && this.selectedType.length > 0 && this.selectedCategory !== "runewords") {
       try {
         const set = /* @__PURE__ */ new Set();
@@ -645,13 +732,15 @@ class Grail {
           const selectedBases = new Set(this.selectedType);
           for (const u of this.uniques) {
             const base = getChainForTypeName(u?.Type ?? "")[0] || (u?.Type ?? "");
-            if (selectedBases.has(base) && u?.Equipment?.Name) set.add(u.Equipment.Name);
+            if (selectedBases.has(base) && u?.Equipment?.Name)
+              set.add(u.Equipment.Name);
           }
         } else if (this.selectedCategory === "sets") {
           const selectedBases = new Set(this.selectedType);
           for (const it of this.allSetItems) {
             const base = getChainForTypeName(it?.Type ?? "")[0] || (it?.Type ?? "");
-            if (selectedBases.has(base) && it?.Equipment?.Name) set.add(it.Equipment.Name);
+            if (selectedBases.has(base) && it?.Equipment?.Name)
+              set.add(it.Equipment.Name);
           }
         }
         for (const name2 of set) this.equipmentNames.push({ id: name2, name: name2 });
@@ -666,11 +755,11 @@ class Grail {
   // Reset only the filter controls (not found-state or progress)
   resetFilters() {
     this.search = "";
-    this.selectedClass = "";
-    this.selectedTypeBase = "";
+    this.selectedClass = void 0;
+    this.selectedTypeBase = void 0;
     this.selectedType = void 0;
-    this.selectedEquipmentName = "";
-    this.equipmentNames = [{ id: "", name: "All Equipment" }];
+    this.selectedEquipmentName = void 0;
+    this.equipmentNames = [{ id: "", name: "-" }];
     this.showFoundItems = false;
     this.hideVanilla = false;
     this.rebuildTypeOptions();
@@ -679,23 +768,20 @@ class Grail {
     this.updateUrl();
   }
   updateList() {
-    const searchRaw = (this.search || "").trim().toLowerCase();
-    const searchTokens = searchRaw.length ? searchRaw.split(/\s+/) : [];
+    const searchTokens = tokenizeSearch(this.search);
     const selectedTypeSet = this.selectedType && this.selectedType.length > 0 ? new Set(this.selectedType) : null;
     if (this.selectedCategory === "uniques") {
-      const result = uniquesJson.filter((unique) => {
+      const result = this.uniques.filter((unique) => {
         const okClass = !this.selectedClass || String(unique?.Equipment?.RequiredClass || "").toLowerCase().includes(String(this.selectedClass).toLowerCase());
-        const okType = !selectedTypeSet || selectedTypeSet.has(getChainForTypeName(unique?.Type ?? "")[0] || (unique?.Type ?? ""));
+        const okType = !selectedTypeSet || selectedTypeSet.has(
+          getChainForTypeName(unique?.Type ?? "")[0] || (unique?.Type ?? "")
+        );
         const okEquip = !this.selectedEquipmentName || String(unique?.Equipment?.Name || "") === this.selectedEquipmentName;
-        const okVanilla = !this.hideVanilla || String(unique?.Vanilla || "").toUpperCase() !== "Y";
-        const okSearch = !searchTokens.length || (() => {
-          const hay = [
-            String(unique?.Name || ""),
-            ...Array.isArray(unique?.Properties) ? unique.Properties.map((p) => String(p?.PropertyString || "")) : [],
-            String(unique?.Equipment?.Name || "")
-          ].filter(Boolean).join(" ").toLowerCase();
-          return searchTokens.every((t) => hay.includes(t));
-        })();
+        const okVanilla = !this.hideVanilla || !isVanillaItem(unique?.Vanilla);
+        const okSearch = this.tokensPartiallyMatch(
+          this._uniqueTokens.get(this.getUniqueKey(unique)),
+          searchTokens
+        );
         const notGrabber = !String(unique?.Name || "").toLowerCase().includes("grabber");
         const key = this.getUniqueKey(unique);
         const okFound = !this.showFoundItems || !this.foundUniques[key];
@@ -706,18 +792,15 @@ class Grail {
     } else if (this.selectedCategory === "sets") {
       const result = this.allSetItems.filter((item) => {
         const okClass = !this.selectedClass || String(item?.Equipment?.RequiredClass || "").toLowerCase().includes(String(this.selectedClass).toLowerCase());
-        const okType = !selectedTypeSet || selectedTypeSet.has(getChainForTypeName(item?.Type ?? "")[0] || (item?.Type ?? ""));
+        const okType = !selectedTypeSet || selectedTypeSet.has(
+          getChainForTypeName(item?.Type ?? "")[0] || (item?.Type ?? "")
+        );
         const okEquip = !this.selectedEquipmentName || String(item?.Equipment?.Name || "") === this.selectedEquipmentName;
-        const okVanilla = !this.hideVanilla || String(item?.Vanilla || "").toUpperCase() !== "Y";
-        const okSearch = !searchTokens.length || (() => {
-          const hay = [
-            String(item?.Name || ""),
-            ...Array.isArray(item?.Properties) ? item.Properties.map((p) => String(p?.PropertyString || "")) : [],
-            ...Array.isArray(item?.SetPropertiesString) ? item.SetPropertiesString.map((s) => String(s || "")) : [],
-            String(item?.Equipment?.Name || "")
-          ].filter(Boolean).join(" ").toLowerCase();
-          return searchTokens.every((t) => hay.includes(t));
-        })();
+        const okVanilla = !this.hideVanilla || !isVanillaItem(item?.Vanilla);
+        const okSearch = this.tokensPartiallyMatch(
+          this._setItemTokens.get(this.getSetItemKey(item)),
+          searchTokens
+        );
         const key = this.getSetItemKey(item);
         const okFound = !this.showFoundItems || !this.foundSets[key];
         return okClass && okType && okEquip && okVanilla && okSearch && okFound;
@@ -731,7 +814,7 @@ class Grail {
       this.displayedCount = displayedSets.size;
     } else if (this.selectedCategory === "runewords") {
       let list = this.runewords;
-      if (this.selectedType?.length > 0) {
+      if (Array.isArray(this.selectedType) && this.selectedType.length > 0) {
         const selectedBase = resolveBaseTypeName(this.selectedType[0] ?? "");
         if (selectedBase) {
           const selectedChain = getChainForTypeName(selectedBase);
@@ -776,15 +859,11 @@ class Grail {
         }
       }
       const result = list.filter((rw) => {
-        const okVanilla = !this.hideVanilla || String(rw?.Vanilla || "").toUpperCase() !== "Y";
-        const okSearch = !searchTokens.length || (() => {
-          const hay = [
-            String(rw?.Name || ""),
-            ...Array.isArray(rw?.Properties) ? rw.Properties.map((p) => String(p?.PropertyString || "")) : [],
-            ...Array.isArray(rw?.Types) ? rw.Types.map((t) => String(t?.Name || "")) : []
-          ].filter(Boolean).join(" ").toLowerCase();
-          return searchTokens.every((t) => hay.includes(t));
-        })();
+        const okVanilla = !this.hideVanilla || !isVanillaItem(rw?.Vanilla);
+        const okSearch = this.tokensPartiallyMatch(
+          this._runewordTokens.get(this.getRunewordKey(rw)),
+          searchTokens
+        );
         const key = this.getRunewordKey(rw);
         const okFound = !this.showFoundItems || !this.foundRunewords[key];
         return okVanilla && okSearch && okFound;
@@ -795,6 +874,140 @@ class Grail {
     this.updateFoundCount();
     this.updateTotalCount();
     this.updateSetCounters();
+  }
+  //Tokenization helpers
+  tokenizeStrings(values) {
+    const out = /* @__PURE__ */ new Set();
+    for (const v of values) {
+      const toks = tokenizeSearch(v);
+      for (const tok of toks) out.add(tok);
+    }
+    return out;
+  }
+  tokensFromTypeChain(typeName) {
+    const chain = getChainForTypeName(typeName ? String(typeName) : "");
+    return this.tokenizeStrings(chain);
+  }
+  buildTokensForUnique(u) {
+    const baseVals = [
+      u?.Name,
+      u?.Equipment?.Name,
+      u?.Equipment?.RequiredClass
+    ];
+    const tokens = this.tokenizeStrings(baseVals);
+    if (Array.isArray(u?.Properties)) {
+      for (const p of u.Properties) {
+        const s = p?.PropertyString != null ? String(p.PropertyString) : "";
+        if (s) {
+          for (const t of this.tokenizeStrings([s])) tokens.add(t);
+        }
+      }
+    }
+    for (const t of this.tokensFromTypeChain(u?.Type)) tokens.add(t);
+    return tokens;
+  }
+  buildTokensForSetItem(it) {
+    const baseVals = [
+      it?.Name,
+      it?.Set,
+      it?.Equipment?.Name
+    ];
+    const tokens = this.tokenizeStrings(baseVals);
+    if (Array.isArray(it?.Properties)) {
+      for (const p of it.Properties) {
+        const s = p?.PropertyString != null ? String(p.PropertyString) : "";
+        if (s) for (const t of this.tokenizeStrings([s])) tokens.add(t);
+      }
+    }
+    if (Array.isArray(it?.SetPropertiesString)) {
+      for (const s of it.SetPropertiesString) {
+        if (s) for (const t of this.tokenizeStrings([String(s)])) tokens.add(t);
+      }
+    }
+    for (const t of this.tokensFromTypeChain(it?.Type)) tokens.add(t);
+    return tokens;
+  }
+  buildTokensForRuneword(rw) {
+    const tokens = this.tokenizeStrings([rw?.Name]);
+    if (Array.isArray(rw?.Properties)) {
+      for (const p of rw.Properties) {
+        const s = p?.PropertyString != null ? String(p.PropertyString) : "";
+        if (s) for (const t of this.tokenizeStrings([s])) tokens.add(t);
+      }
+    }
+    if (Array.isArray(rw?.Types)) {
+      for (const t of rw.Types) {
+        const name2 = t?.Name != null ? String(t.Name) : "";
+        for (const tok of this.tokenizeStrings([name2])) tokens.add(tok);
+        for (const tok of this.tokensFromTypeChain(name2)) tokens.add(tok);
+      }
+    }
+    if (Array.isArray(rw?.Runes)) {
+      for (const r of rw.Runes) {
+        const name2 = r?.Name != null ? String(r.Name) : "";
+        for (const tok of this.tokenizeStrings([name2])) tokens.add(tok);
+      }
+    }
+    return tokens;
+  }
+  buildAllTokens() {
+    this._uniqueTokens.clear();
+    this._setItemTokens.clear();
+    this._runewordTokens.clear();
+    try {
+      for (const u of this.uniques) {
+        const key = this.getUniqueKey(u);
+        this._uniqueTokens.set(key, this.buildTokensForUnique(u));
+      }
+    } catch {
+    }
+    try {
+      for (const it of this.allSetItems) {
+        const key = this.getSetItemKey(it);
+        this._setItemTokens.set(key, this.buildTokensForSetItem(it));
+      }
+    } catch {
+    }
+    try {
+      for (const rw of this.runewords) {
+        const key = this.getRunewordKey(rw);
+        this._runewordTokens.set(key, this.buildTokensForRuneword(rw));
+      }
+    } catch {
+    }
+  }
+  // Checks that every query token is present as a substring of at least one item token
+  // Enables partial (prefix/infix) matching instead of exact whole-word matching
+  tokensPartiallyMatch(allTokens, queryTokens) {
+    if (!queryTokens.length) return true;
+    if (!allTokens || allTokens.size === 0) return false;
+    for (let i = 0; i < queryTokens.length; i++) {
+      const q = queryTokens[i];
+      let hit = false;
+      for (const tok of allTokens) {
+        if (tok.includes(q)) {
+          hit = true;
+          break;
+        }
+      }
+      if (!hit) return false;
+    }
+    return true;
+  }
+  parseFoundMap(raw) {
+    if (!raw) return {};
+    try {
+      const obj = JSON.parse(raw);
+      if (obj && typeof obj === "object") {
+        const result = {};
+        for (const [k, v] of Object.entries(obj)) {
+          result[k] = Boolean(v);
+        }
+        return result;
+      }
+    } catch {
+    }
+    return {};
   }
   loadFoundItems() {
     const legacy = localStorage.getItem("d2r-grail-items");
@@ -812,13 +1025,16 @@ class Grail {
     const savedU = localStorage.getItem("d2r-grail-uniques");
     const savedS = localStorage.getItem("d2r-grail-sets");
     const savedR = localStorage.getItem("d2r-grail-runewords");
-    if (savedU) this.foundUniques = JSON.parse(savedU);
-    if (savedS) this.foundSets = JSON.parse(savedS);
-    if (savedR) this.foundRunewords = JSON.parse(savedR);
+    this.foundUniques = this.parseFoundMap(savedU);
+    this.foundSets = this.parseFoundMap(savedS);
+    this.foundRunewords = this.parseFoundMap(savedR);
   }
   saveFoundItems() {
     try {
-      localStorage.setItem("d2r-grail-uniques", JSON.stringify(this.foundUniques));
+      localStorage.setItem(
+        "d2r-grail-uniques",
+        JSON.stringify(this.foundUniques)
+      );
     } catch {
     }
     try {
@@ -826,7 +1042,10 @@ class Grail {
     } catch {
     }
     try {
-      localStorage.setItem("d2r-grail-runewords", JSON.stringify(this.foundRunewords));
+      localStorage.setItem(
+        "d2r-grail-runewords",
+        JSON.stringify(this.foundRunewords)
+      );
     } catch {
     }
   }
@@ -840,14 +1059,16 @@ class Grail {
     } else if (this.selectedCategory === "sets") {
       this.foundCount = this.computeCompletedSetsCount();
     } else if (this.selectedCategory === "runewords") {
-      this.foundCount = Object.values(this.foundRunewords).filter(Boolean).length;
+      this.foundCount = Object.values(this.foundRunewords).filter(
+        Boolean
+      ).length;
     } else {
       this.foundCount = 0;
     }
   }
   updateTotalCount() {
     if (this.selectedCategory === "uniques") {
-      this.totalCount = uniquesJson.length;
+      this.totalCount = this.uniques.length;
     } else if (this.selectedCategory === "sets") {
       try {
         this.totalCount = setsJson.length;
@@ -861,7 +1082,9 @@ class Grail {
     }
   }
   resetGrail() {
-    if (confirm("Are you sure you want to reset your Grail progress for this category? This cannot be undone.")) {
+    if (confirm(
+      "Are you sure you want to reset your Grail progress for this category? This cannot be undone."
+    )) {
       if (this.selectedCategory === "uniques") {
         this.foundUniques = {};
       } else if (this.selectedCategory === "sets") {
@@ -872,20 +1095,6 @@ class Grail {
       this.saveFoundItems();
       this.updateFoundCount();
       this.updateList();
-    }
-  }
-  getDamageTypeString(type) {
-    switch (type) {
-      case 0:
-        return "Damage:";
-      case 1:
-        return "One-Hand Damage:";
-      case 2:
-        return "Two-Hand Damage:";
-      case 3:
-        return "Throw Damage:";
-      default:
-        return "Damage:";
     }
   }
   // Helpers for keys and equipment name list
@@ -920,7 +1129,7 @@ class Grail {
       return 0;
     }
   }
-  // Maintain original item-based counters for Sets header first line
+  // Maintain original item-based counters for Sets header-first line
   updateSetCounters() {
     try {
       this.setItemTotalCount = this.allSetItems.length;
@@ -928,34 +1137,12 @@ class Grail {
       this.setItemTotalCount = 0;
     }
     try {
-      this.setItemFoundCount = Object.values(this.foundSets).filter(Boolean).length;
+      this.setItemFoundCount = Object.values(this.foundSets).filter(
+        Boolean
+      ).length;
     } catch {
       this.setItemFoundCount = 0;
     }
-    if (this.selectedCategory !== "sets") {
-      this.setItemsDisplayedCount = this.setItemsDisplayedCount;
-    }
-  }
-  getUniqueEquipmentNames() {
-    const set = /* @__PURE__ */ new Set();
-    if (this.selectedCategory === "uniques") {
-      for (const u of this.uniques) {
-        if ((!this.selectedType || u.Type === this.selectedType) && u?.Equipment?.Name) {
-          set.add(u.Equipment.Name);
-        }
-      }
-    } else if (this.selectedCategory === "sets") {
-      for (const it of this.allSetItems) {
-        if ((!this.selectedType || it.Type === this.selectedType) && it?.Equipment?.Name) {
-          set.add(it.Equipment.Name);
-        }
-      }
-    }
-    const result = [{ id: "", name: "All Equipment" }];
-    for (const name2 of Array.from(set).sort()) {
-      result.push({ id: name2, name: name2 });
-    }
-    return result;
   }
 }
 _init = __decoratorStart();

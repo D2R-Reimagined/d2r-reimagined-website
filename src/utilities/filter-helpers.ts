@@ -59,3 +59,25 @@ export function swapMinMax<T extends number | undefined>(
     }
     return [min, max];
 }
+
+/** Tokenize a search string into lowercase terms, splitting by alphanumeric boundaries. */
+export function tokenizeSearch(input: string | undefined | null): string[] {
+    const raw = (input || '').trim().toLowerCase();
+    if (!raw) return [];
+    // Replace all non-alphanumeric with spaces, collapse whitespace
+    const cleaned = raw.replace(/[^a-z0-9]+/g, ' ').trim();
+    if (!cleaned) return [];
+    return cleaned.split(/\s+/);
+}
+
+/** Check if an item is 'vanilla' based on its Vanilla property (usually 'Y'). */
+export function isVanillaItem(vanilla: unknown): boolean {
+    if (vanilla === undefined || vanilla === null) return false;
+    const vStr =
+        typeof vanilla === 'string' ||
+        typeof vanilla === 'number' ||
+        typeof vanilla === 'boolean'
+            ? String(vanilla).toUpperCase()
+            : '';
+    return vStr === 'Y';
+}
