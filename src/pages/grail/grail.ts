@@ -11,7 +11,7 @@ import {
 import { getDamageTypeString as getDamageTypeStringUtil } from '../../utilities/damage-type';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
 import { isVanillaItem,prependTypeResetOption, tokenizeSearch } from '../../utilities/filter-helpers';
-import { isBlankOrInvalid } from '../../utilities/url-sanitize';
+import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 import runewordsJson from '../item-jsons/runewords.json';
 import setsJson from '../item-jsons/sets.json';
 import uniquesJson from '../item-jsons/uniques.json';
@@ -236,7 +236,7 @@ export class Grail {
             url.searchParams.delete('g-search');
             url.searchParams.delete('g-hideFound');
             url.searchParams.delete('g-hideVanilla');
-            window.history.pushState({}, '', url.toString());
+            window.history.replaceState({}, '', url.toString());
         } catch {
             // ignore
         }
@@ -287,70 +287,15 @@ export class Grail {
 
     // Update browser URL with current selection and filters (no reload)
     private updateUrl(): void {
-        try {
-            const url = new URL(window.location.href);
-
-            // Always persist selected category (Grail-scoped)
-            url.searchParams.set('g-category', this.selectedCategory);
-
-            // Class (Grail-scoped)
-            if (
-                this.selectedClass &&
-                this.selectedClass.trim() !== '' &&
-                !isBlankOrInvalid(this.selectedClass)
-            ) {
-                url.searchParams.set('g-selectedClass', this.selectedClass);
-            } else {
-                url.searchParams.delete('g-selectedClass');
-            }
-
-            // Type (Grail-scoped, serialize base only)
-            if (this.selectedTypeBase && !isBlankOrInvalid(this.selectedTypeBase)) {
-                url.searchParams.set('g-type', this.selectedTypeBase);
-            } else {
-                url.searchParams.delete('g-type');
-            }
-
-            // Equipment (Grail-scoped)
-            if (
-                this.selectedEquipmentName &&
-                this.selectedEquipmentName.trim() !== '' &&
-                !isBlankOrInvalid(this.selectedEquipmentName)
-            ) {
-                url.searchParams.set('g-equipment', this.selectedEquipmentName);
-            } else {
-                url.searchParams.delete('g-equipment');
-            }
-
-            // Search (Grail-scoped)
-            if (
-                this.search &&
-                this.search.trim() !== '' &&
-                !isBlankOrInvalid(this.search)
-            ) {
-                url.searchParams.set('g-search', this.search);
-            } else {
-                url.searchParams.delete('g-search');
-            }
-
-            // Hide Found (Grail-scoped; only include when true to keep URL tidy)
-            if (this.showFoundItems) {
-                url.searchParams.set('g-hideFound', 'true');
-            } else {
-                url.searchParams.delete('g-hideFound');
-            }
-
-            // Hide Vanilla (Grail-scoped)
-            if (this.hideVanilla) {
-                url.searchParams.set('g-hideVanilla', 'true');
-            } else {
-                url.searchParams.delete('g-hideVanilla');
-            }
-
-            window.history.pushState({}, '', url.toString());
-        } catch {
-            // ignore URL update issues
-        }
+        syncParamsToUrl({
+            'g-category': this.selectedCategory,
+            'g-selectedClass': this.selectedClass,
+            'g-type': this.selectedTypeBase,
+            'g-equipment': this.selectedEquipmentName,
+            'g-search': this.search,
+            'g-hideFound': this.showFoundItems,
+            'g-hideVanilla': this.hideVanilla,
+        }, false);
     }
 
     private rebuildTypeOptions(): void {

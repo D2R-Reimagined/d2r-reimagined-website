@@ -9,7 +9,7 @@ import {
 } from '../../resources/constants';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
 import { prependTypeResetOption } from '../../utilities/filter-helpers';
-import { isBlankOrInvalid } from '../../utilities/url-sanitize';
+import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 import json from '../item-jsons/runewords.json';
 
 // Minimal types used by the Runewords page (only fields actually read)
@@ -125,61 +125,19 @@ export class Runewords {
     attached() {
         this._debouncedSearchItem = debounce(() => this.updateList(), 350);
         this.updateList();
+        this.updateUrl();
     }
 
     // Push current filters to URL
     private updateUrl() {
-        const url = new URL(window.location.href);
-
-        // Update search parameter
-        if (this.search && this.search.trim() !== '') {
-            url.searchParams.set('search', this.search);
-        } else {
-            url.searchParams.delete('search');
-        }
-
-        // Update runes parameter
-        if (this.searchRunes && this.searchRunes.trim() !== '') {
-            url.searchParams.set('runes', this.searchRunes);
-        } else {
-            url.searchParams.delete('runes');
-        }
-
-        // Update type parameter (serialize as base token only)
-        if (this.selectedType && this.selectedType !== '') {
-            url.searchParams.set('type', this.selectedType);
-        } else {
-            url.searchParams.delete('type');
-        }
-
-        // Update sockets parameter
-        if (
-            typeof this.selectedAmount === 'number' &&
-            Number.isFinite(this.selectedAmount) &&
-            this.selectedAmount >= 2 &&
-            this.selectedAmount <= 6
-        ) {
-            url.searchParams.set('sockets', String(this.selectedAmount));
-        } else {
-            url.searchParams.delete('sockets');
-        }
-
-        // Update exact parameter
-        if (this.exclusiveType) {
-            url.searchParams.set('exact', 'true');
-        } else {
-            url.searchParams.delete('exact');
-        }
-
-        // Update hideVanilla parameter
-        if (this.hideVanilla) {
-            url.searchParams.set('hideVanilla', 'true');
-        } else {
-            url.searchParams.delete('hideVanilla');
-        }
-
-        // Update the URL without reloading the page
-        window.history.pushState({}, '', url.toString());
+        syncParamsToUrl({
+            search: this.search,
+            runes: this.searchRunes,
+            type: this.selectedType,
+            sockets: this.selectedAmount,
+            exact: this.exclusiveType,
+            hideVanilla: this.hideVanilla,
+        }, false);
     }
 
     @watch('searchRunes')

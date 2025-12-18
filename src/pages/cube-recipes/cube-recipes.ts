@@ -1,7 +1,7 @@
 import { bindable, watch } from 'aurelia';
 
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
-import { isBlankOrInvalid } from '../../utilities/url-sanitize';
+import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 import v2json from '../item-jsons/cube_recipes_v2.json';
 
 type V2Input = {
@@ -238,6 +238,7 @@ export class CubeRecipes {
         this._debouncedSearchItem = debounce(() => this.handleSearch(), 350);
         // Run the initial filter pass based on any URL params
         this.handleSearch();
+        this.updateUrl();
     }
 
     @watch('search')
@@ -271,21 +272,11 @@ export class CubeRecipes {
     // Inputs/Outputs-only flags removed as redundant; search always scans all text
 
     private updateUrl() {
-        // Update URL with current filters without a page reload
-        const url = new URL(window.location.href);
-        if (this.search && this.search.trim() !== '')
-            url.searchParams.set('search', this.search);
-        else url.searchParams.delete('search');
-
-        if (this.selectedNote && String(this.selectedNote).trim() !== '')
-            url.searchParams.set('note', String(this.selectedNote));
-        else url.searchParams.delete('note');
-
-        if (this.selectedClass && String(this.selectedClass).trim() !== '')
-            url.searchParams.set('selectedClass', String(this.selectedClass));
-        else url.searchParams.delete('selectedClass');
-
-        window.history.pushState({}, '', url.toString());
+        syncParamsToUrl({
+            search: this.search,
+            note: this.selectedNote,
+            selectedClass: this.selectedClass,
+        }, false);
     }
 
     handleSearch() {

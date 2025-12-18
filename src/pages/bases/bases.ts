@@ -10,7 +10,7 @@ import {
 } from '../../resources/constants';
 import { getDamageTypeString as getDamageTypeStringUtil } from '../../utilities/damage-type';
 import { prependTypeResetOption } from '../../utilities/filter-helpers';
-import { isBlankOrInvalid } from '../../utilities/url-sanitize';
+import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 import armorsJson from '../item-jsons/armors.json';
 import weaponsJson from '../item-jsons/weapons.json';
 
@@ -127,10 +127,6 @@ export class Bases {
         }
     }
 
-    attached() {
-        // no-op
-    }
-
     private rebuildTypeOptions() {
         // Build the present base set from the currently selected category (or both)
         const present = new Set<string>();
@@ -152,25 +148,18 @@ export class Bases {
         this.types = prependTypeResetOption(options);
     }
 
+    attached() {
+        this.updateUrl();
+    }
+
     private updateUrl() {
-        const url = new URL(window.location.href);
-
-        if (this.search && this.search.trim() !== '')
-            url.searchParams.set('search', this.search);
-        else url.searchParams.delete('search');
-        if (this.selectedType && this.selectedType !== '')
-            url.searchParams.set('type', this.selectedType);
-        else url.searchParams.delete('type');
-        if (this.selectedTier) url.searchParams.set('tier', this.selectedTier);
-        else url.searchParams.delete('tier');
-        if (this.selectedSockets && this.selectedSockets >= 1 && this.selectedSockets <= 6)
-            url.searchParams.set('sockets', String(this.selectedSockets));
-        else url.searchParams.delete('sockets');
-        if (this.selectedCategory)
-            url.searchParams.set('category', this.selectedCategory);
-        else url.searchParams.delete('category');
-
-        window.history.pushState({}, '', url.toString());
+        syncParamsToUrl({
+            search: this.search,
+            type: this.selectedType,
+            tier: this.selectedTier,
+            sockets: this.selectedSockets,
+            category: this.selectedCategory,
+        }, false);
     }
 
     handleCategoryChange() {

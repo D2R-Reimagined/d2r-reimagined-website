@@ -61,12 +61,13 @@ export function syncParamsToUrl(
 ): void {
     try {
         const url = new URL(window.location.href);
+        const newParams = new URLSearchParams();
         for (const [key, val] of Object.entries(params)) {
-            url.searchParams.delete(key);
             if (!isBlankOrInvalid(val)) {
-                url.searchParams.set(key, String(val));
+                newParams.set(key, String(val));
             }
         }
+        url.search = newParams.toString();
         if (push) {
             window.history.pushState({}, '', url.toString());
         } else {

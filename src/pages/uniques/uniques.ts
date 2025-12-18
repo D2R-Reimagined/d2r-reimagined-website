@@ -110,6 +110,7 @@ export class Uniques {
             this.equipmentNames = this.getUniqueEquipmentNames();
         }
         this.updateList();
+        this.updateUrl();
     }
 
     @watch('selectedClass')
@@ -149,7 +150,7 @@ export class Uniques {
             type: this.selectedType,
             hideVanilla: this.hideVanilla,
             equipment: this.selectedEquipmentName,
-        });
+        }, false);
     }
 
     updateList() {

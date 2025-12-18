@@ -91,6 +91,7 @@ export class Sets {
             this.equipmentNames = this.getSetEquipmentNames();
         }
         this.updateList();
+        this.updateUrl();
     }
 
     // Types provided via shared preset (this.types)
@@ -103,7 +104,7 @@ export class Sets {
             type: this.selectedType,
             equipment: this.selectedEquipmentName,
             hideVanilla: this.hideVanilla,
-        });
+        }, false);
     }
 
     @watch('search')

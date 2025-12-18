@@ -13,7 +13,7 @@ import {
     swapMinMax,
     toOptionalNumber,
 } from '../../utilities/filter-helpers';
-import { isBlankOrInvalid } from '../../utilities/url-sanitize';
+import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 import prefixes from '../item-jsons/magicprefix.json';
 import suffixes from '../item-jsons/magicsuffix.json';
 import propertyGroups from '../item-jsons/property_groups.json';
@@ -190,55 +190,15 @@ export class Affixes {
 
     // Helper method to update URL with current search parameters
     private updateUrl() {
-        const url = new URL(window.location.href);
-
-        // search
-        if (this.search && this.search.trim() !== '')
-            url.searchParams.set('search', this.search);
-        else url.searchParams.delete('search');
-
-        // ptype
-        if (this.selectedPType) url.searchParams.set('ptype', this.selectedPType);
-        else url.searchParams.delete('ptype');
-
-        // group (by description)
-        if (
-            this.selectedGroupDescription &&
-            this.selectedGroupDescription.trim() !== ''
-        ) {
-            url.searchParams.set('group', this.selectedGroupDescription);
-        } else url.searchParams.delete('group');
-
-        // type (serialize as base token only)
-        if (this.selectedType && this.selectedType !== '') {
-            url.searchParams.set('type', this.selectedType);
-        } else url.searchParams.delete('type');
-
-        // min/max required level
-        const minStr = this.minRequiredLevel;
-        if (
-            minStr !== undefined &&
-            minStr !== null &&
-            String(minStr).trim() !== ''
-        ) {
-            url.searchParams.set('minrl', String(minStr).trim());
-        } else url.searchParams.delete('minrl');
-
-        const maxStr = this.maxRequiredLevel;
-        if (
-            maxStr !== undefined &&
-            maxStr !== null &&
-            String(maxStr).trim() !== ''
-        ) {
-            url.searchParams.set('maxrl', String(maxStr).trim());
-        } else url.searchParams.delete('maxrl');
-
-        // exact
-        if (this.exclusiveType) url.searchParams.set('exact', 'true');
-        else url.searchParams.delete('exact');
-
-        // push state without a reload
-        window.history.pushState({}, '', url.toString());
+        syncParamsToUrl({
+            search: this.search,
+            ptype: this.selectedPType,
+            group: this.selectedGroupDescription,
+            type: this.selectedType,
+            minrl: this.minRequiredLevel,
+            maxrl: this.maxRequiredLevel,
+            exact: this.exclusiveType,
+        }, false);
     }
 
     private buildGroupOptions(groups: IPropertyGroupEntry[]) {
