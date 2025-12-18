@@ -4,6 +4,7 @@ import {
     buildOptionsForPresentTypes,
     character_class_options,
     getChainForTypeName,
+    getChainForTypeNameReadonly,
     getDescendantBaseNames,
     IFilterOption,
     resolveBaseTypeName,
@@ -146,16 +147,21 @@ export class Sets {
             const searchTokens = tokenizeSearch(this.search);
             const classText = this.selectedClass?.toLowerCase();
 
-            const matchesType = (set: ISetData) => {
-                // Build an allowed set from selected base + descendants
-                if (!this.selectedType) return true;
+            // Build an allowed set from selected base + descendants
+            const allowedTypeSet: Set<string> | null = ((): Set<string> | null => {
+                if (!this.selectedType) return null;
                 const allowed = new Set<string>();
                 allowed.add(this.selectedType);
                 const desc = getDescendantBaseNames(this.selectedType);
                 for (let i = 0; i < desc.length; i++) allowed.add(desc[i]);
+                return allowed;
+            })();
+
+            const matchesType = (set: ISetData) => {
+                if (!allowedTypeSet) return true;
                 return (set.SetItems ?? []).some((si) => {
-                    const base = getChainForTypeName(si?.Type ?? '')[0] || (si?.Type ?? '');
-                    return allowed.has(base);
+                    const base = getChainForTypeNameReadonly(si?.Type ?? '')[0] || (si?.Type ?? '');
+                    return allowedTypeSet.has(base);
                 });
             };
 
@@ -279,7 +285,7 @@ export class Sets {
             for (const si of set.SetItems ?? []) {
                 if (allowed) {
                     const base =
-                        getChainForTypeName(si?.Type ?? '')[0] || (si?.Type ?? '');
+                        getChainForTypeNameReadonly(si?.Type ?? '')[0] || (si?.Type ?? '');
                     if (!allowed.has(base)) continue;
                 }
                 const name = si.Equipment?.Name;

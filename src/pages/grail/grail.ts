@@ -4,6 +4,7 @@ import {
     buildOptionsForPresentTypes,
     character_class_options,
     getChainForTypeName,
+    getChainForTypeNameReadonly,
     IFilterOption,
     resolveBaseTypeName,
     type_filtering_options,
@@ -181,7 +182,7 @@ export class Grail {
                     const selectedBases = new Set<string>(this.selectedType);
                     for (const u of this.uniques) {
                         const base =
-                            getChainForTypeName(u?.Type ?? '')[0] || (u?.Type ?? '');
+                            getChainForTypeNameReadonly(u?.Type ?? '')[0] || (u?.Type ?? '');
                         if (selectedBases.has(base) && u?.Equipment?.Name)
                             set.add(u.Equipment.Name);
                     }
@@ -189,7 +190,7 @@ export class Grail {
                     const selectedBases = new Set<string>(this.selectedType);
                     for (const it of this.allSetItems) {
                         const base =
-                            getChainForTypeName(it?.Type ?? '')[0] || (it?.Type ?? '');
+                            getChainForTypeNameReadonly(it?.Type ?? '')[0] || (it?.Type ?? '');
                         if (selectedBases.has(base) && it?.Equipment?.Name)
                             set.add(it.Equipment.Name);
                     }
@@ -369,14 +370,14 @@ export class Grail {
             const selectedBases = new Set<string>(this.selectedType);
             if (this.selectedCategory === 'uniques') {
                 for (const u of this.uniques) {
-                    const base = getChainForTypeName(u?.Type ?? '')[0] || (u?.Type ?? '');
+                    const base = getChainForTypeNameReadonly(u?.Type ?? '')[0] || (u?.Type ?? '');
                     if (selectedBases.has(base) && u?.Equipment?.Name)
                         set.add(u.Equipment.Name);
                 }
             } else if (this.selectedCategory === 'sets') {
                 for (const it of this.allSetItems) {
                     const base =
-                        getChainForTypeName(it?.Type ?? '')[0] || (it?.Type ?? '');
+                        getChainForTypeNameReadonly(it?.Type ?? '')[0] || (it?.Type ?? '');
                     if (selectedBases.has(base) && it?.Equipment?.Name)
                         set.add(it.Equipment.Name);
                 }
@@ -424,7 +425,7 @@ export class Grail {
                     const selectedBases = new Set<string>(this.selectedType);
                     for (const u of this.uniques) {
                         const base =
-                            getChainForTypeName(u?.Type ?? '')[0] || (u?.Type ?? '');
+                            getChainForTypeNameReadonly(u?.Type ?? '')[0] || (u?.Type ?? '');
                         if (selectedBases.has(base) && u?.Equipment?.Name)
                             set.add(u.Equipment.Name);
                     }
@@ -432,7 +433,7 @@ export class Grail {
                     const selectedBases = new Set<string>(this.selectedType);
                     for (const it of this.allSetItems) {
                         const base =
-                            getChainForTypeName(it?.Type ?? '')[0] || (it?.Type ?? '');
+                            getChainForTypeNameReadonly(it?.Type ?? '')[0] || (it?.Type ?? '');
                         if (selectedBases.has(base) && it?.Equipment?.Name)
                             set.add(it.Equipment.Name);
                     }
@@ -472,6 +473,7 @@ export class Grail {
     updateList() {
         // Filter per category
         const searchTokens = tokenizeSearch(this.search);
+
         const selectedTypeSet =
             this.selectedType && this.selectedType.length > 0
                 ? new Set<string>(this.selectedType)
@@ -487,7 +489,7 @@ export class Grail {
                 const okType =
                     !selectedTypeSet ||
                     selectedTypeSet.has(
-                        getChainForTypeName(unique?.Type ?? '')[0] || (unique?.Type ?? ''),
+                        getChainForTypeNameReadonly(unique?.Type ?? '')[0] || (unique?.Type ?? ''),
                     );
                 const okEquip =
                     !this.selectedEquipmentName ||
@@ -524,7 +526,7 @@ export class Grail {
                 const okType =
                     !selectedTypeSet ||
                     selectedTypeSet.has(
-                        getChainForTypeName(item?.Type ?? '')[0] || (item?.Type ?? ''),
+                        getChainForTypeNameReadonly(item?.Type ?? '')[0] || (item?.Type ?? ''),
                     );
                 const okEquip =
                     !this.selectedEquipmentName ||
@@ -554,7 +556,7 @@ export class Grail {
             if (Array.isArray(this.selectedType) && this.selectedType.length > 0) {
                 const selectedBase = resolveBaseTypeName(this.selectedType[0] ?? '');
                 if (selectedBase) {
-                    const selectedChain = getChainForTypeName(selectedBase);
+                    const selectedChain = getChainForTypeNameReadonly(selectedBase);
                     const selectedChainSet = new Set<string>(selectedChain);
 
                     let hasDescendantInData = false;
@@ -565,7 +567,7 @@ export class Grail {
                                 for (let i = 0; i < types.length; i++) {
                                     const raw =
                                         types[i]?.Name != null ? String(types[i].Name) : '';
-                                    const chain = getChainForTypeName(raw);
+                                    const chain = getChainForTypeNameReadonly(raw);
                                     if (!chain || chain.length === 0) continue;
                                     const base = chain[0];
                                     if (
@@ -586,7 +588,7 @@ export class Grail {
                         const types = Array.isArray(rw.Types) ? rw.Types : [];
                         for (let i = 0; i < types.length; i++) {
                             const raw = types[i]?.Name != null ? String(types[i].Name) : '';
-                            const chain = getChainForTypeName(raw);
+                            const chain = getChainForTypeNameReadonly(raw);
                             if (!chain || chain.length === 0) continue;
                             const itemBase = chain[0];
                             if (this.exclusiveType) {
@@ -637,7 +639,7 @@ export class Grail {
     private tokensFromTypeChain(
         typeName: string | undefined | null,
     ): Set<string> {
-        const chain = getChainForTypeName(typeName ? String(typeName) : '');
+        const chain = getChainForTypeNameReadonly(typeName ? String(typeName) : '');
         return this.tokenizeStrings(chain);
     }
 

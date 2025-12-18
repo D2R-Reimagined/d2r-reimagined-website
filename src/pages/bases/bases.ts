@@ -2,7 +2,7 @@
 
 import {
     buildOptionsForPresentTypes,
-    getChainForTypeName,
+    getChainForTypeNameReadonly,
     getDescendantBaseNames,
     IFilterOption,
     resolveBaseTypeName,
@@ -286,7 +286,7 @@ export class Bases {
                 !allowedTypeSet ||
                 (() => {
                     const base =
-                        getChainForTypeName(i?.Type?.Name ?? '')[0] ||
+                        getChainForTypeNameReadonly(i?.Type?.Name ?? '')[0] ||
                         (i?.Type?.Name ?? '');
                     return allowedTypeSet.has(base);
                 })();

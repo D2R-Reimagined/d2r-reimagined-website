@@ -4,6 +4,7 @@ import {
     buildOptionsForPresentTypes,
     character_class_options,
     getChainForTypeName,
+    getChainForTypeNameReadonly,
     getDescendantBaseNames,
     IFilterOption,
     resolveBaseTypeName,
@@ -156,6 +157,7 @@ export class Uniques {
     updateList() {
         const searchTokens = tokenizeSearch(this.search);
         const selectedClassLower = (this.selectedClass || '').toLowerCase();
+
         // Build an allowed set from the selected base + its descendants (aggregates)
         const allowedTypeSet: Set<string> | null = ((): Set<string> | null => {
             if (!this.selectedType) return null;
@@ -190,7 +192,7 @@ export class Uniques {
         const isMatchingType = (unique: IUniqueItem) => {
             if (!allowedTypeSet) return true;
             const base =
-                getChainForTypeName(unique?.Type ?? '')[0] || (unique?.Type ?? '');
+                getChainForTypeNameReadonly(unique?.Type ?? '')[0] || (unique?.Type ?? '');
             return allowedTypeSet.has(base);
         };
         const isMatchingEquipmentName = (unique: IUniqueItem) => {
@@ -240,7 +242,7 @@ export class Uniques {
             (unique: IUniqueItem) => {
                 if (!allowedTypeSet) return true;
                 const base =
-                    getChainForTypeName(unique?.Type ?? '')[0] || (unique?.Type ?? '');
+                    getChainForTypeNameReadonly(unique?.Type ?? '')[0] || (unique?.Type ?? '');
                 return allowedTypeSet.has(base);
             },
         );

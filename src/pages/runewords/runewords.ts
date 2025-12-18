@@ -2,7 +2,7 @@ import { bindable, watch } from 'aurelia';
 
 import {
     buildOptionsForPresentTypes,
-    getChainForTypeName,
+    getChainForTypeNameReadonly,
     IFilterOption,
     resolveBaseTypeName,
     type_filtering_options,
@@ -202,7 +202,7 @@ export class Runewords {
         if (this.selectedType) {
             const selectedBase = resolveBaseTypeName(this.selectedType ?? '');
             if (selectedBase) {
-                const selectedChain = getChainForTypeName(selectedBase);
+                const selectedChain = getChainForTypeNameReadonly(selectedBase);
                 const selectedChainSet = new Set<string>(selectedChain);
 
                 /** Decide the direction of inheritance when Exact is OFF:
@@ -219,7 +219,7 @@ export class Runewords {
                             const types = Array.isArray(rw?.Types) ? rw.Types : [];
                             for (let i = 0; i < types.length; i++) {
                                 const raw = types[i]?.Name != null ? String(types[i].Name) : '';
-                                const chain = getChainForTypeName(raw);
+                                const chain = getChainForTypeNameReadonly(raw);
                                 if (!chain || chain.length === 0) continue;
                                 const base = chain[0];
                                 if (
@@ -241,7 +241,7 @@ export class Runewords {
                     const types = Array.isArray(rw.Types) ? rw.Types : [];
                     for (let i = 0; i < types.length; i++) {
                         const raw = types[i]?.Name != null ? String(types[i].Name) : '';
-                        const chain = getChainForTypeName(raw);
+                        const chain = getChainForTypeNameReadonly(raw);
                         if (!chain || chain.length === 0) continue;
                         const itemBase = chain[0];
 

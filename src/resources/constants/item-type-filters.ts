@@ -215,6 +215,11 @@ export function getTypeChain(name: string): string[] {
     return computeChain(name).slice(); // return a shallow copy to keep the cache immutable
 }
 
+/** Returns the cached frozen chain without copying. */
+export function getTypeChainReadonly(name: string): readonly string[] {
+    return computeChain(name);
+}
+
 /** Map a raw game type name to its chain using the canonical graph when possible. */
 export function getChainForTypeName(rawName: string): string[] {
     const raw = (rawName ?? '').trim();
@@ -222,6 +227,15 @@ export function getChainForTypeName(rawName: string): string[] {
     // Prefer case-insensitive match to align JSON values with our graph without renaming them globally
     const node = ITEM_TYPE_BY_NAME.get(raw) || ITEM_TYPE_BY_NAME_LC.get(raw.toLowerCase());
     return node ? getTypeChain(node.name) : [raw];
+}
+
+/** Returns the cached frozen chain for a type name without copying. */
+export function getChainForTypeNameReadonly(rawName: string): readonly string[] {
+    const raw = (rawName ?? '').trim();
+    if (!raw) return Object.freeze(['']);
+    // Prefer case-insensitive match to align JSON values with our graph without renaming them globally
+    const node = ITEM_TYPE_BY_NAME.get(raw) || ITEM_TYPE_BY_NAME_LC.get(raw.toLowerCase());
+    return node ? computeChain(node.name) : Object.freeze([raw]);
 }
 
 export interface IFilterOption {
@@ -265,7 +279,7 @@ export function makeTypeOption(
 export function resolveBaseTypeName(rawName: string): string {
     const raw = (rawName ?? '').trim();
     if (!raw) return '';
-    const chain = getChainForTypeName(raw);
+    const chain = getChainForTypeNameReadonly(raw);
     return chain && chain.length > 0 ? chain[0] : raw;
 }
 

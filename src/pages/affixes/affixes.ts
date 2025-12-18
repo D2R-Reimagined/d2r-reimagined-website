@@ -2,7 +2,7 @@ import { bindable, watch } from 'aurelia';
 
 import {
     buildOptionsForPresentTypes,
-    getChainForTypeName,
+    getChainForTypeNameReadonly,
     IFilterOption,
     resolveBaseTypeName,
     type_filtering_options,
@@ -45,6 +45,7 @@ export class Affixes {
     // Search text
     @bindable search: string;
     private _debouncedFilter!: IDebouncedFunction;
+    private _isCoercing = false;
 
     // Prefix/Suffix dropdown
     pTypeOptions = [
@@ -253,6 +254,7 @@ export class Affixes {
 
     @watch('minRequiredLevel')
     handleMinReqChanged() {
+        if (this._isCoercing) return;
         // If min exceeds max, coerce max to min so the UI stays consistent
         const minNum = toOptionalNumber(this.minRequiredLevel);
         const maxNum = toOptionalNumber(this.maxRequiredLevel);
@@ -261,8 +263,10 @@ export class Affixes {
             typeof maxNum === 'number' &&
             minNum > maxNum
         ) {
+            this._isCoercing = true;
             // Preserve the original bound type (string/number) for consistency with select binding
             this.maxRequiredLevel = this.minRequiredLevel;
+            this._isCoercing = false;
         }
 
         if (this._debouncedFilter) this._debouncedFilter();
@@ -271,6 +275,7 @@ export class Affixes {
 
     @watch('maxRequiredLevel')
     handleMaxReqChanged() {
+        if (this._isCoercing) return;
         // If max is below min, coerce min to max so the UI stays consistent
         const minNum = toOptionalNumber(this.minRequiredLevel);
         const maxNum = toOptionalNumber(this.maxRequiredLevel);
@@ -279,8 +284,10 @@ export class Affixes {
             typeof maxNum === 'number' &&
             maxNum < minNum
         ) {
+            this._isCoercing = true;
             // Preserve the original bound type (string/number) for consistency with select binding
             this.minRequiredLevel = this.maxRequiredLevel;
+            this._isCoercing = false;
         }
 
         if (this._debouncedFilter) this._debouncedFilter();
@@ -308,6 +315,43 @@ export class Affixes {
         let maxOpt = toOptionalNumber(this.maxRequiredLevel);
         [minOpt, maxOpt] = swapMinMax(minOpt, maxOpt);
 
+        // Precompute type filter variables
+        let selectedBase = '';
+        let selectedChainSet = new Set<string>();
+        let hasDescendantInData = false;
+
+        if (this.selectedType) {
+            selectedBase = resolveBaseTypeName(this.selectedType ?? '');
+            if (selectedBase) {
+                const selectedChain = getChainForTypeNameReadonly(selectedBase);
+                selectedChainSet = new Set<string>(selectedChain);
+
+                if (!this.exclusiveType) {
+                    try {
+                        outer: for (const aff of this.allAffixes) {
+                            const types = Array.isArray(aff?.Types) ? aff.Types : [];
+                            for (let i = 0; i < types.length; i++) {
+                                const chain = getChainForTypeNameReadonly(
+                                    types[i] != null ? String(types[i]) : '',
+                                );
+                                if (!chain || chain.length === 0) continue;
+                                const base = chain[0];
+                                if (
+                                    base !== selectedBase &&
+                                    chain.indexOf(selectedBase) !== -1
+                                ) {
+                                    hasDescendantInData = true;
+                                    break outer;
+                                }
+                            }
+                        }
+                    } catch {
+                        hasDescendantInData = false;
+                    }
+                }
+            }
+        }
+
         this.filteredAffixes = this.allAffixes.filter((a) => {
             // PType filter
             if (this.selectedPType && a.PType !== this.selectedPType) return false;
@@ -319,78 +363,48 @@ export class Affixes {
             }
 
             // Item Type filter (mirror Runewords behavior: parent vs. leaf semantics + Exact toggle)
-            if (this.selectedType) {
-                const selectedBase = resolveBaseTypeName(this.selectedType ?? '');
-                if (selectedBase) {
-                    const selectedChain = getChainForTypeName(selectedBase);
-                    const selectedChainSet = new Set<string>(selectedChain);
-
-                    /** Determine if the selected type has descendants present in data. If so and Exact is OFF,
-                     *  selecting it should include descendants (affix type chain contains selectedBase). If not,
-                     *  treat selection as a leaf and include only the ancestor line (affix base is in selectedChainSet).
-                     **/
-                    let hasDescendantInData = false;
-                    if (!this.exclusiveType) {
-                        try {
-                            outer: for (const aff of this.allAffixes) {
-                                const types = Array.isArray(aff?.Types) ? aff.Types : [];
-                                for (let i = 0; i < types.length; i++) {
-                                    const raw = types[i] != null ? String(types[i]) : '';
-                                    const chain = getChainForTypeName(raw);
-                                    if (!chain || chain.length === 0) continue;
-                                    const base = chain[0];
-                                    if (
-                                        base !== selectedBase &&
-                                        chain.indexOf(selectedBase) !== -1
-                                    ) {
-                                        hasDescendantInData = true;
-                                        break outer;
-                                    }
-                                }
-                            }
-                        } catch {
-                            hasDescendantInData = false;
+            if (this.selectedType && selectedBase) {
+                // Allowed by Types (if Types present). If absent, treat as any (allowed).
+                const types = Array.isArray(a.Types) ? a.Types : [];
+                if (types.length > 0) {
+                    const allowed = types.some((t) => {
+                        const chain = getChainForTypeNameReadonly(
+                            t != null ? String(t) : '',
+                        );
+                        if (!chain || chain.length === 0) return false;
+                        const itemBase = chain[0];
+                        if (this.exclusiveType) {
+                            // Exact: only match the exact base
+                            return itemBase === selectedBase;
+                        } else if (hasDescendantInData) {
+                            // Parent selected: include descendants (the type chain contains selectedBase)
+                            return chain.indexOf(selectedBase) !== -1;
+                        } else {
+                            // Leaf selected: include only ancestor line (no sibling leakage)
+                            return selectedChainSet.has(itemBase);
                         }
-                    }
+                    });
+                    if (!allowed) return false;
+                }
 
-                    // Allowed by Types (if Types present). If absent, treat as any (allowed).
-                    const types = Array.isArray(a.Types) ? a.Types : [];
-                    if (types.length > 0) {
-                        const allowed = types.some((t) => {
-                            const chain = getChainForTypeName(t != null ? String(t) : '');
-                            if (!chain || chain.length === 0) return false;
-                            const itemBase = chain[0];
-                            if (this.exclusiveType) {
-                                // Exact: only match the exact base
-                                return itemBase === selectedBase;
-                            } else if (hasDescendantInData) {
-                                // Parent selected: include descendants (the type chain contains selectedBase)
-                                return chain.indexOf(selectedBase) !== -1;
-                            } else {
-                                // Leaf selected: include only ancestor line (no sibling leakage)
-                                return selectedChainSet.has(itemBase);
-                            }
-                        });
-                        if (!allowed) return false;
-                    }
-
-                    // Excluded by ETypes: if any excluded type matches selection per the same rules, reject.
-                    const e = Array.isArray(a.ETypes) ? a.ETypes : [];
-                    if (e.length > 0) {
-                        const excluded = e.some((t) => {
-                            const chain = getChainForTypeName(t != null ? String(t) : '');
-                            if (!chain || chain.length === 0) return false;
-                            const itemBase = chain[0];
-                            if (this.exclusiveType) {
-                                return itemBase === selectedBase;
-                            } else if (hasDescendantInData) {
-                                return chain.indexOf(selectedBase) !== -1;
-                            } else {
-                                return selectedChainSet.has(itemBase);
-                            }
-                        });
-                        if (excluded) return false;
-                    }
+                // Excluded by ETypes: if any excluded type matches selection per the same rules, reject.
+                const e = Array.isArray(a.ETypes) ? a.ETypes : [];
+                if (e.length > 0) {
+                    const excluded = e.some((t) => {
+                        const chain = getChainForTypeNameReadonly(
+                            t != null ? String(t) : '',
+                        );
+                        if (!chain || chain.length === 0) return false;
+                        const itemBase = chain[0];
+                        if (this.exclusiveType) {
+                            return itemBase === selectedBase;
+                        } else if (hasDescendantInData) {
+                            return chain.indexOf(selectedBase) !== -1;
+                        } else {
+                            return selectedChainSet.has(itemBase);
+                        }
+                    });
+                    if (excluded) return false;
                 }
             }
 
