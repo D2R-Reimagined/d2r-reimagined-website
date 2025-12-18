@@ -8,9 +8,9 @@ import {
     resolveBaseTypeName,
     type_filtering_options,
 } from '../../resources/constants';
+import { getDamageTypeString as getDamageTypeStringUtil } from '../../utilities/damage-types';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
 import {
-    getDamageTypeString as getDamageTypeStringUtil,
     isVanillaItem,
     prependTypeResetOption,
     tokenizeSearch,

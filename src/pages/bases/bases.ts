@@ -7,7 +7,8 @@ import {
     resolveBaseTypeName,
     type_filtering_options,
 } from '../../resources/constants';
-import { getDamageTypeString as getDamageTypeStringUtil, prependTypeResetOption } from '../../utilities/filter-helpers';
+import { getDamageTypeString as getDamageTypeStringUtil } from '../../utilities/damage-types';
+import { prependTypeResetOption } from '../../utilities/filter-helpers';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 import armorsJson from '../item-jsons/armors.json';
 import weaponsJson from '../item-jsons/weapons.json';
