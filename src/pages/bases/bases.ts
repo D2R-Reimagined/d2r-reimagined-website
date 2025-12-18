@@ -3,13 +3,11 @@
 import {
     buildOptionsForPresentTypes,
     getChainForTypeNameReadonly,
-    getDescendantBaseNames,
     IFilterOption,
     resolveBaseTypeName,
     type_filtering_options,
 } from '../../resources/constants';
-import { getDamageTypeString as getDamageTypeStringUtil } from '../../utilities/damage-type';
-import { prependTypeResetOption } from '../../utilities/filter-helpers';
+import { getDamageTypeString as getDamageTypeStringUtil, prependTypeResetOption } from '../../utilities/filter-helpers';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 import armorsJson from '../item-jsons/armors.json';
 import weaponsJson from '../item-jsons/weapons.json';
@@ -60,7 +58,7 @@ export class Bases {
     @bindable selectedCategory: '' | 'armors' | 'weapons' = '';
 
     @bindable search: string;
-    @bindable selectedType: string | undefined;
+    @bindable selectedType: string = '';
     @bindable selectedTier: 'Normal' | 'Exceptional' | 'Elite' | undefined;
     @bindable selectedSockets: number | undefined;
 
@@ -121,9 +119,8 @@ export class Bases {
 
         const typeParam = urlParams.get('type');
         if (typeParam && !isBlankOrInvalid(typeParam)) {
-            const base = typeParam.split(',')[0];
-            const opt = this.types.find((o) => o.value && o.value[0] === base);
-            this.selectedType = opt ? base : undefined;
+            const opt = this.types.find((o) => o.id === typeParam);
+            this.selectedType = opt ? opt.id : '';
         }
     }
 
@@ -140,10 +137,6 @@ export class Bases {
         const options = buildOptionsForPresentTypes(
             type_filtering_options,
             present,
-            {
-                dedupeByBase: true,
-                preferLabelStartsWith: 'Any ',
-            },
         );
         this.types = prependTypeResetOption(options);
     }
@@ -168,9 +161,9 @@ export class Bases {
         // If the previously selected type is no longer present, clear it
         if (
             this.selectedType &&
-            !this.types.some((o) => o.value && o.value[0] === this.selectedType)
+            !this.types.some((o) => o.id === this.selectedType)
         ) {
-            this.selectedType = undefined;
+            this.selectedType = '';
         }
         this.updateUrl();
     }
@@ -182,7 +175,6 @@ export class Bases {
 
     @watch('selectedType')
     onTypeChanged() {
-        if (this.selectedType === '') this.selectedType = undefined;
         this.updateUrl();
     }
 
@@ -215,7 +207,7 @@ export class Bases {
         // Reset all filters, including category (Both)
         this.selectedCategory = '';
         this.search = '';
-        this.selectedType = undefined;
+        this.selectedType = '';
         this.selectedTier = undefined;
         this.selectedSockets = undefined;
         // Rebuild type options to reflect the combined dataset again
@@ -271,14 +263,11 @@ export class Bases {
         });
         const combinedSet = new Set<IBaseItem>([...primary, ...associated]);
 
-        // Precompute the allowed type set (base + descendants)
+        // Precompute the allowed type set (base + descendants + ancestors)
         const allowedTypeSet: Set<string> | null = (() => {
             if (!typeFilter) return null;
-            const set = new Set<string>();
-            set.add(typeFilter);
-            const descendants = getDescendantBaseNames(typeFilter);
-            for (const d of descendants) set.add(d);
-            return set;
+            const opt = this.types.find((o) => o.id === typeFilter);
+            return opt && opt.value ? new Set<string>(opt.value) : null;
         })();
 
         const filtered = Array.from(combinedSet).filter((i) => {

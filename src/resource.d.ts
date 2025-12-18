@@ -2,7 +2,7 @@
 // Kept minimal to satisfy the tsconfig "files" entry and common imports.
 
 declare module '*.json' {
-  const value: any;
+  const value: unknown;
   export default value;
 }
 

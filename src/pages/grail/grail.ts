@@ -3,15 +3,18 @@ import { bindable, watch } from 'aurelia';
 import {
     buildOptionsForPresentTypes,
     character_class_options,
-    getChainForTypeName,
     getChainForTypeNameReadonly,
     IFilterOption,
     resolveBaseTypeName,
     type_filtering_options,
 } from '../../resources/constants';
-import { getDamageTypeString as getDamageTypeStringUtil } from '../../utilities/damage-type';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
-import { isVanillaItem,prependTypeResetOption, tokenizeSearch } from '../../utilities/filter-helpers';
+import {
+    getDamageTypeString as getDamageTypeStringUtil,
+    isVanillaItem,
+    prependTypeResetOption,
+    tokenizeSearch,
+} from '../../utilities/filter-helpers';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 import runewordsJson from '../item-jsons/runewords.json';
 import setsJson from '../item-jsons/sets.json';
@@ -101,7 +104,7 @@ export class Grail {
     @bindable search: string;
     @bindable selectedClass: string | undefined;
     // Centralized type filter (UI binds to the base token; internal uses array of base+parents)
-    @bindable selectedTypeBase: string | undefined;
+    @bindable selectedTypeBase: string = '';
     @bindable selectedType: string[] | undefined;
     @bindable selectedEquipmentName: string | undefined;
     // When true, hide items where Vanilla === 'Y'
@@ -161,9 +164,7 @@ export class Grail {
 
         // Initialize an internal selectedType array from selectedTypeBase and available options
         if (this.selectedTypeBase) {
-            const opt = this.types.find(
-                (o) => o.value && o.value[0] === this.selectedTypeBase,
-            );
+            const opt = this.types.find((o) => o.id === this.selectedTypeBase);
             this.selectedType = opt?.value ?? [this.selectedTypeBase];
         } else {
             this.selectedType = undefined;
@@ -263,7 +264,7 @@ export class Grail {
             if (t && !isBlankOrInvalid(t)) {
                 this.selectedTypeBase = t;
             } else {
-                this.selectedTypeBase = undefined;
+                this.selectedTypeBase = '';
             }
 
             // Equipment name (exact match token)
@@ -326,11 +327,7 @@ export class Grail {
         } catch {
             // keep default preset on error
         }
-        // For grail: deduplicate by base so 'Helm' vs. 'Any Helm' doesn't appear twice in a base-serialized URL model
-        this.types = buildOptionsForPresentTypes(type_filtering_options, present, {
-            dedupeByBase: true,
-            preferLabelStartsWith: 'Any ',
-        });
+        this.types = buildOptionsForPresentTypes(type_filtering_options, present);
         // Prepend a reset option so users can clear the selection with '-'
         this.types = prependTypeResetOption(this.types);
     }
@@ -338,6 +335,7 @@ export class Grail {
     selectedCategoryChanged(): void {
         // Reset filters on category change
         this.selectedClass = undefined;
+        this.selectedTypeBase = '';
         this.selectedType = undefined;
         this.selectedEquipmentName = undefined;
         this.equipmentNames = [{ id: '', name: '-' }];
@@ -404,9 +402,7 @@ export class Grail {
     selectedTypeBaseChanged(): void {
         // Sync internal array model and dependent equipment options
         if (this.selectedTypeBase && this.selectedTypeBase !== '') {
-            const opt = this.types.find(
-                (o) => o.value && o.value[0] === this.selectedTypeBase,
-            );
+            const opt = this.types.find((o) => o.id === this.selectedTypeBase);
             this.selectedType = opt?.value ?? [this.selectedTypeBase];
         } else {
             this.selectedType = undefined;
@@ -455,7 +451,7 @@ export class Grail {
         this.search = '';
         this.selectedClass = undefined;
         // Clear type and dependent equipment
-        this.selectedTypeBase = undefined;
+        this.selectedTypeBase = '';
         this.selectedType = undefined;
         this.selectedEquipmentName = undefined;
         this.equipmentNames = [{ id: '', name: '-' }];
@@ -626,7 +622,7 @@ export class Grail {
 
     //Tokenization helpers
     private tokenizeStrings(
-        values: Array<string | undefined | null>,
+        values: readonly (string | undefined | null)[],
     ): Set<string> {
         const out = new Set<string>();
         for (const v of values) {

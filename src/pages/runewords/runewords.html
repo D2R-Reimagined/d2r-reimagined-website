@@ -37,7 +37,7 @@
                     <div class="relative flex-1">
                         <select id="itype" class="select-base-exact peer" value.bind="selectedType">
                             <option repeat.for="opt of types"
-                                    value.bind="opt.value && opt.value.length ? opt.value[0] : ''">${opt.label}
+                                    value.bind="opt.id">${opt.label}
                             </option>
                         </select>
                         <label for="itype" class="floating-label">Select Item Type</label>

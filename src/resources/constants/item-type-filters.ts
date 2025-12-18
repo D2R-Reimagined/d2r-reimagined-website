@@ -239,6 +239,7 @@ export function getChainForTypeNameReadonly(rawName: string): readonly string[] 
 }
 
 export interface IFilterOption {
+    id: string;
     label: string;
     // Optional so placeholder entries can leave the bound model undefined
     value?: string[];
@@ -253,22 +254,42 @@ export function makeTypeOption(
     baseTypeName?: string,
     extraParents: string[] = [],
     exactBaseOnly: boolean = false,
+    id?: string,
 ): IFilterOption {
-    // Placeholder: return undefined value so UI can default to "-"
-    if (!baseTypeName) return { label, value: undefined };
+    if (!baseTypeName) return { id: '', label, value: undefined };
+    const finalId = id || (exactBaseOnly ? `exact-${baseTypeName}` : baseTypeName).toLowerCase().replace(/\s+/g, '-');
 
     // For exactBaseOnly, do NOT include implicit parents from the graph; keep only the base
-    const value = exactBaseOnly ? [baseTypeName] : getTypeChain(baseTypeName);
+    let value = exactBaseOnly ? [baseTypeName] : getTypeChain(baseTypeName);
+
+    // For non-exact options, also include descendants to allow matching children
+    if (!exactBaseOnly) {
+        const descendants = getDescendantBaseNames(baseTypeName);
+        if (descendants.length > 0) {
+            const set = new Set<string>(value);
+            const combined = [...value];
+            for (const d of descendants) {
+                if (!set.has(d)) {
+                    combined.push(d);
+                    set.add(d);
+                }
+            }
+            value = combined;
+        }
+    }
+
     if (extraParents && extraParents.length) {
         const set = new Set<string>(value);
+        const combined = [...value];
         for (const p of extraParents) {
             if (!set.has(p)) {
-                value.push(p);
+                combined.push(p);
                 set.add(p);
             }
         }
+        value = combined;
     }
-    return { label, value };
+    return { id: finalId, label, value };
 }
 
 /**
@@ -322,6 +343,20 @@ export function getDescendantBaseNames(baseTypeName: string): string[] {
     return computeDescendants(baseTypeName).slice();
 }
 
+export const ANCESTOR_ONLY_WHEN_EXACT_OFF: string[] = [
+    'circlet',
+    'barbarian-helm',
+    'druid-helm',
+    'amazon-bow',
+    'amazon-spear',
+    'amazon-javelin',
+    'assassin-claw',
+    'necromancer-shield',
+    'paladin-shield',
+    'sorceress-orb',
+    'helm',
+];
+
 /**
  * Given a preset of filter options and a set of base item type names present in the data,
  * return a filtered list of options appropriate for that data.
@@ -339,7 +374,6 @@ export function getDescendantBaseNames(baseTypeName: string): string[] {
 export function buildOptionsForPresentTypes(
     preset: ReadonlyArray<IFilterOption>,
     presentBaseNames: ReadonlySet<string>,
-    opts?: { dedupeByBase?: boolean; preferLabelStartsWith?: string },
 ): IFilterOption[] {
     const result: IFilterOption[] = [];
 
@@ -392,43 +426,6 @@ export function buildOptionsForPresentTypes(
         if (include) result.push(opt);
     }
 
-    // Optional: deduplicate options that share the same base token (value[0]).
-    // Useful on pages where selection/URL are based solely on the base, making
-    // entries like 'Helm' and 'Any Helm' indistinguishable. When enabled, we
-    // keep at most one per base, preferring labels that start with a prefix
-    // such as 'Any ' when provided.
-    if (opts && opts.dedupeByBase) {
-        const prefer = opts.preferLabelStartsWith || '';
-        const kept: IFilterOption[] = [];
-        const byBase = new Map<string, number>();
-        for (let i = 0; i < result.length; i++) {
-            const opt = result[i];
-            if (!opt.value || opt.value.length === 0) {
-                // Always keep placeholders as-is
-                kept.push(opt);
-                continue;
-            }
-            const base = opt.value[0];
-            const existingIdx = byBase.get(base);
-            if (existingIdx === undefined) {
-                byBase.set(base, kept.length);
-                kept.push(opt);
-            } else {
-                const current = kept[existingIdx];
-                const currLabel = current?.label || '';
-                const nextLabel = opt.label || '';
-                const currPreferred = prefer && currLabel.startsWith(prefer);
-                const nextPreferred = prefer && nextLabel.startsWith(prefer);
-                // Replace it only if the new one is preferred and the current is not
-                if (!currPreferred && nextPreferred) {
-                    kept[existingIdx] = opt;
-                }
-                // Otherwise keep existing (preserve first occurrence/order)
-            }
-        }
-        return kept;
-    }
-
     return result;
 }
 
@@ -436,23 +433,23 @@ export function buildOptionsForPresentTypes(
 export const type_filtering_options: ReadonlyArray<IFilterOption> = [
     // Aggregate the types
     // Any Armor should include all armor descendants (Body Armor, Helm, Circlet, Shields, Gloves, Boots, Belt, class shields/helms, etc.)
-    makeTypeOption('Any Armor', 'Any Armor', getDescendantBaseNames('Any Armor')),
+    makeTypeOption('Any Armor', 'Any Armor', [], false, 'any-armor'),
     // Any Helm should include Helm itself plus Circlet, Primal Helm, and Pelt
     // Use base 'Helm' so plain helms are matched as well; add all helm descendants as extras
-    makeTypeOption('Any Helm', 'Helm', getDescendantBaseNames('Helm')),
+    makeTypeOption('Any Helm', 'Helm', [], false, 'any-helm'),
     // Any Shield should include generic Shield and class shields
-    makeTypeOption('Any Shield', 'Any Shield', getDescendantBaseNames('Any Shield')),
+    makeTypeOption('Any Shield', 'Any Shield', [], false, 'any-shield'),
     // Expand weapon aggregates so that selecting them matches child bases too
-    makeTypeOption('Any Weapon', 'Weapon', getDescendantBaseNames('Weapon')),
-    makeTypeOption('Melee Weapon', 'Melee Weapon', getDescendantBaseNames('Melee Weapon')),
-    makeTypeOption('Missile Weapon', 'Missile Weapon', getDescendantBaseNames('Missile Weapon')),
+    makeTypeOption('Any Weapon', 'Weapon', [], false, 'any-weapon'),
+    makeTypeOption('Melee Weapon', 'Melee Weapon', [], false, 'melee-weapon'),
+    makeTypeOption('Missile Weapon', 'Missile Weapon', [], false, 'missile-weapon'),
     // Armor subtypes
     makeTypeOption('Body Armor', 'Body Armor'),
     makeTypeOption('Gloves', 'Gloves'),
     makeTypeOption('Boots', 'Boots'),
     makeTypeOption('Belt', 'Belt'),
-    makeTypeOption('Helm', 'Helm', [], true),
-    makeTypeOption('Circlet', 'Circlet', [], true),
+    makeTypeOption('Helm', 'Helm', [], true, 'helm'),
+    makeTypeOption('Circlet', 'Circlet', [], true, 'circlet'),
     // Shields (Bases Page)
     makeTypeOption('Shield', 'Shield'),
     // Jewelry and socket fillers
@@ -478,19 +475,20 @@ export const type_filtering_options: ReadonlyArray<IFilterOption> = [
     makeTypeOption('Throwing Knife', 'Throwing Knife'),
     makeTypeOption('Throwing Axe', 'Throwing Axe'),
     // Quivers and Bolts: base on the non-magic types and include their descendants (magic quivers)
-    makeTypeOption('Bow Quiver', 'Bow Quiver', getDescendantBaseNames('Bow Quiver')),
-    makeTypeOption('Crossbow Bolts', 'Crossbow Bolts', getDescendantBaseNames('Crossbow Bolts')),
+    makeTypeOption('Bow Quiver', 'Bow Quiver'),
+    makeTypeOption('Crossbow Bolts', 'Crossbow Bolts'),
     // Class Specific
     // Class-specific leaf types must match ONLY themselves by default on pages without an "Exact" toggle
     // (Bases, Uniques, Sets). Runewords inherits parents via its own filtering logic and parent selections.
-    makeTypeOption('Amazon Javelin', 'Amazon Javelin', [], true),
-    makeTypeOption('Amazon Bow', 'Amazon Bow', [], true),
-    makeTypeOption('Amazon Spear', 'Amazon Spear', [], true),
-    makeTypeOption('Assassin Claw', 'Hand to Hand', [], true),
-    makeTypeOption('Barbarian Helm', 'Primal Helm', [], true),
-    makeTypeOption('Druid Helm', 'Pelt', [], true),
-    makeTypeOption('Necromancer Shield', 'Voodoo Heads', [], true),
-    makeTypeOption('Paladin Shield', 'Auric Shields', [], true),
-    makeTypeOption('Sorceress Orb', 'Orb', [], true),
+    makeTypeOption('Amazon Javelin', 'Amazon Javelin', [], true, 'amazon-javelin'),
+    makeTypeOption('Amazon Bow', 'Amazon Bow', [], true, 'amazon-bow'),
+    makeTypeOption('Amazon Spear', 'Amazon Spear', [], true, 'amazon-spear'),
+    makeTypeOption('Assassin Claw', 'Hand to Hand', [], true, 'assassin-claw'),
+    makeTypeOption('Barbarian Helm', 'Primal Helm', [], true, 'barbarian-helm'),
+    makeTypeOption('Druid Helm', 'Pelt', [], true, 'druid-helm'),
+    makeTypeOption('Necromancer Shield', 'Voodoo Heads', [], true, 'necromancer-shield'),
+    makeTypeOption('Paladin Shield', 'Auric Shields', [], true, 'paladin-shield'),
+    makeTypeOption('Sorceress Orb', 'Orb', [], true, 'sorceress-orb'),
+
 ];
 

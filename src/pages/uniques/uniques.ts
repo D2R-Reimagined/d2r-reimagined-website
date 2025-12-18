@@ -3,16 +3,18 @@ import { bindable, watch } from 'aurelia';
 import {
     buildOptionsForPresentTypes,
     character_class_options,
-    getChainForTypeName,
     getChainForTypeNameReadonly,
-    getDescendantBaseNames,
     IFilterOption,
     resolveBaseTypeName,
     type_filtering_options,
 } from '../../resources/constants';
-import { getDamageTypeString as getDamageTypeStringUtil } from '../../utilities/damage-type';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
-import { isVanillaItem,prependTypeResetOption, tokenizeSearch } from '../../utilities/filter-helpers';
+import {
+    getDamageTypeString as getDamageTypeStringUtil,
+    isVanillaItem,
+    prependTypeResetOption,
+    tokenizeSearch,
+} from '../../utilities/filter-helpers';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 import json from '../item-jsons/uniques.json';
 
@@ -42,7 +44,7 @@ export class Uniques {
     // When true, hide items where Vanilla === 'Y'
     @bindable hideVanilla: boolean = false;
     // Selected type value from dropdown: base token (scalar)
-    @bindable selectedType: string | undefined;
+    @bindable selectedType: string = '';
     @bindable selectedEquipmentName: string | undefined;
 
     equipmentNames: Array<{ value: string | undefined; label: string }> = [];
@@ -87,12 +89,11 @@ export class Uniques {
             // keep default preset on error
         }
 
-        // Map URL 'type' (serialized as base) to a scalar base token
+        // Map URL 'type' (id)
         const typeParam = urlParams.get('type');
         if (typeParam && !isBlankOrInvalid(typeParam)) {
-            const base = typeParam.split(',')[0]; // support legacy multi-token by taking first
-            const opt = this.types.find((o) => o.value && o.value[0] === base);
-            this.selectedType = opt ? base : undefined;
+            const opt = this.types.find((o) => o.id === typeParam);
+            this.selectedType = opt ? opt.id : '';
         }
 
         // Equipment name (exact match)
@@ -158,14 +159,11 @@ export class Uniques {
         const searchTokens = tokenizeSearch(this.search);
         const selectedClassLower = (this.selectedClass || '').toLowerCase();
 
-        // Build an allowed set from the selected base + its descendants (aggregates)
+        // Build an allowed set from the selected base + its descendants (aggregates) + ancestors
         const allowedTypeSet: Set<string> | null = ((): Set<string> | null => {
             if (!this.selectedType) return null;
-            const set = new Set<string>();
-            set.add(this.selectedType);
-            const descendants = getDescendantBaseNames(this.selectedType);
-            for (let i = 0; i < descendants.length; i++) set.add(descendants[i]);
-            return set;
+            const opt = this.types.find((o) => o.id === this.selectedType);
+            return opt && opt.value ? new Set<string>(opt.value) : null;
         })();
 
         const isMatchingClass = (unique: IUniqueItem) => {
@@ -229,14 +227,11 @@ export class Uniques {
     getDamageTypeString = getDamageTypeStringUtil;
 
     getUniqueEquipmentNames() {
-        // Filter uniques based on the selected base (include descendants)
+        // Filter uniques based on the selected base (include descendants + ancestors)
         const allowedTypeSet: Set<string> | null = ((): Set<string> | null => {
             if (!this.selectedType) return null;
-            const set = new Set<string>();
-            set.add(this.selectedType);
-            const descendants = getDescendantBaseNames(this.selectedType);
-            for (let i = 0; i < descendants.length; i++) set.add(descendants[i]);
-            return set;
+            const opt = this.types.find((o) => o.id === this.selectedType);
+            return opt && opt.value ? new Set<string>(opt.value) : null;
         })();
         const filteredUniques = (json as unknown as IUniqueItem[]).filter(
             (unique: IUniqueItem) => {
@@ -274,7 +269,7 @@ export class Uniques {
         this.search = '';
         this.selectedClass = undefined;
         this.hideVanilla = false;
-        this.selectedType = undefined;
+        this.selectedType = '';
         this.selectedEquipmentName = undefined;
         this.equipmentNames = [{ value: '', label: '-' }];
 

@@ -3,16 +3,18 @@ import { bindable, watch } from 'aurelia';
 import {
     buildOptionsForPresentTypes,
     character_class_options,
-    getChainForTypeName,
     getChainForTypeNameReadonly,
-    getDescendantBaseNames,
     IFilterOption,
     resolveBaseTypeName,
     type_filtering_options,
 } from '../../resources/constants';
-import { getDamageTypeString as getDamageTypeStringUtil } from '../../utilities/damage-type';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
-import { isVanillaItem,prependTypeResetOption, tokenizeSearch } from '../../utilities/filter-helpers';
+import {
+    getDamageTypeString as getDamageTypeStringUtil,
+    isVanillaItem,
+    prependTypeResetOption,
+    tokenizeSearch,
+} from '../../utilities/filter-helpers';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 import json from '../item-jsons/sets.json';
 
@@ -22,7 +24,7 @@ export class Sets {
     sets: ISetData[] = json;
     @bindable search: string;
     // Selected type: base token (scalar)
-    @bindable selectedType: string | undefined;
+    @bindable selectedType: string = '';
     @bindable selectedEquipmentName: string | undefined;
     // When true, exclude items where Vanilla === 'Y'
     @bindable hideVanilla: boolean = false;
@@ -61,23 +63,18 @@ export class Sets {
                     if (base) present.add(base);
                 }
             }
-            this.types = buildOptionsForPresentTypes(
-                type_filtering_options,
-                present,
-                { dedupeByBase: true, preferLabelStartsWith: 'Any ' },
-            );
+            this.types = buildOptionsForPresentTypes(type_filtering_options, present);
             // Prepend a uniform reset option so users can clear the selection with '-'
             this.types = prependTypeResetOption(this.types);
         } catch {
             // keep defaults on error
         }
 
-        // Map URL 'type' (serialized as base) to a scalar base token
+        // Map URL 'type' (id)
         const typeParam = urlParams.get('type');
         if (typeParam && !isBlankOrInvalid(typeParam)) {
-            const base = typeParam.split(',')[0];
-            const opt = this.types.find((o) => o.value && o.value[0] === base);
-            this.selectedType = opt ? base : undefined;
+            const opt = this.types.find((o) => o.id === typeParam);
+            this.selectedType = opt ? opt.id : '';
         }
         // Equipment (exact)
         const eqParam = urlParams.get('equipment');
@@ -147,14 +144,11 @@ export class Sets {
             const searchTokens = tokenizeSearch(this.search);
             const classText = this.selectedClass?.toLowerCase();
 
-            // Build an allowed set from selected base + descendants
+            // Build an allowed set from selected base + descendants + ancestors
             const allowedTypeSet: Set<string> | null = ((): Set<string> | null => {
                 if (!this.selectedType) return null;
-                const allowed = new Set<string>();
-                allowed.add(this.selectedType);
-                const desc = getDescendantBaseNames(this.selectedType);
-                for (let i = 0; i < desc.length; i++) allowed.add(desc[i]);
-                return allowed;
+                const opt = this.types.find((o) => o.id === this.selectedType);
+                return opt && opt.value ? new Set<string>(opt.value) : null;
             })();
 
             const matchesType = (set: ISetData) => {
@@ -272,14 +266,11 @@ export class Sets {
         label: string;
     }> {
         const names = new Set<string>();
-        // Allowed set from selected base + descendants
+        // Allowed set from selected base + descendants + ancestors
         const allowed: Set<string> | null = ((): Set<string> | null => {
             if (!this.selectedType) return null;
-            const set = new Set<string>();
-            set.add(this.selectedType);
-            const desc = getDescendantBaseNames(this.selectedType);
-            for (let i = 0; i < desc.length; i++) set.add(desc[i]);
-            return set;
+            const opt = this.types.find((o) => o.id === this.selectedType);
+            return opt && opt.value ? new Set<string>(opt.value) : null;
         })();
         for (const set of (json as unknown as ISetData[]) || []) {
             for (const si of set.SetItems ?? []) {
@@ -305,7 +296,7 @@ export class Sets {
     resetFilters(): void {
         this.search = '';
         this.selectedClass = undefined;
-        this.selectedType = undefined;
+        this.selectedType = '';
         this.selectedEquipmentName = undefined;
         this.hideVanilla = false;
         this.equipmentNames = [{ value: '', label: '-' }];

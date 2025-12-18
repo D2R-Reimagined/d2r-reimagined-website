@@ -1,6 +1,7 @@
 import { bindable, watch } from 'aurelia';
 
 import {
+    ANCESTOR_ONLY_WHEN_EXACT_OFF,
     buildOptionsForPresentTypes,
     getChainForTypeNameReadonly,
     IFilterOption,
@@ -65,7 +66,7 @@ export class Affixes {
     // Item Type dropdown (reuse centralized options, narrowed per data)
     types: ReadonlyArray<IFilterOption> = type_filtering_options.slice();
     // Selected type: scalar base token
-    @bindable selectedType: string | undefined;
+    @bindable selectedType: string = '';
 
     // Exact type-only toggle
     @bindable exclusiveType: boolean;
@@ -156,22 +157,15 @@ export class Affixes {
             // keep default options if something unexpected occurs
         }
         // Filter the shared preset to only show options relevant to affix data
-        // Enable base deduplication so identical-base entries like 'Helm' and 'Any Helm'
-        // collapse to a single visible option (prefer labels starting with 'Any ').
-        this.types = buildOptionsForPresentTypes(type_filtering_options, present, {
-            dedupeByBase: true,
-            preferLabelStartsWith: 'Any ',
-        });
+        this.types = buildOptionsForPresentTypes(type_filtering_options, present);
 
         // Prepend a uniform reset option to types
         this.types = prependTypeResetOption(this.types);
 
-        // Map URL 'type' (serialized as base) to a scalar base token
+        // Map URL 'type' (id)
         if (typeBaseFromUrl) {
-            const opt = this.types.find(
-                (o) => o.value && o.value[0] === typeBaseFromUrl,
-            );
-            this.selectedType = opt ? typeBaseFromUrl : undefined;
+            const opt = this.types.find((o) => o.id === typeBaseFromUrl);
+            this.selectedType = opt ? opt.id : '';
         }
 
         // Build group description → group IDs mapping and options
@@ -315,39 +309,18 @@ export class Affixes {
         let maxOpt = toOptionalNumber(this.maxRequiredLevel);
         [minOpt, maxOpt] = swapMinMax(minOpt, maxOpt);
 
-        // Precompute type filter variables
-        let selectedBase = '';
-        let selectedChainSet = new Set<string>();
-        let hasDescendantInData = false;
-
+        // Precompute the allowed type set (base + descendants + ancestors)
+        let selectedBase: string | undefined;
+        let selectedSet: Set<string> | undefined;
         if (this.selectedType) {
-            selectedBase = resolveBaseTypeName(this.selectedType ?? '');
-            if (selectedBase) {
-                const selectedChain = getChainForTypeNameReadonly(selectedBase);
-                selectedChainSet = new Set<string>(selectedChain);
+            const opt = this.types.find((o) => o.id === this.selectedType);
+            if (opt && opt.value && opt.value.length > 0) {
+                selectedBase = opt.value[0];
 
-                if (!this.exclusiveType) {
-                    try {
-                        outer: for (const aff of this.allAffixes) {
-                            const types = Array.isArray(aff?.Types) ? aff.Types : [];
-                            for (let i = 0; i < types.length; i++) {
-                                const chain = getChainForTypeNameReadonly(
-                                    types[i] != null ? String(types[i]) : '',
-                                );
-                                if (!chain || chain.length === 0) continue;
-                                const base = chain[0];
-                                if (
-                                    base !== selectedBase &&
-                                    chain.indexOf(selectedBase) !== -1
-                                ) {
-                                    hasDescendantInData = true;
-                                    break outer;
-                                }
-                            }
-                        }
-                    } catch {
-                        hasDescendantInData = false;
-                    }
+                if (!this.exclusiveType && opt.id && ANCESTOR_ONLY_WHEN_EXACT_OFF.includes(opt.id)) {
+                    selectedSet = new Set(getChainForTypeNameReadonly(selectedBase));
+                } else {
+                    selectedSet = new Set<string>(opt.value);
                 }
             }
         }
@@ -362,8 +335,8 @@ export class Affixes {
                 if (grp == null || !selectedGroups.has(grp)) return false;
             }
 
-            // Item Type filter (mirror Runewords behavior: parent vs. leaf semantics + Exact toggle)
-            if (this.selectedType && selectedBase) {
+            // Item Type filter (parent vs. leaf semantics + Exact toggle)
+            if (this.selectedType && selectedBase && selectedSet) {
                 // Allowed by Types (if Types present). If absent, treat as any (allowed).
                 const types = Array.isArray(a.Types) ? a.Types : [];
                 if (types.length > 0) {
@@ -376,12 +349,8 @@ export class Affixes {
                         if (this.exclusiveType) {
                             // Exact: only match the exact base
                             return itemBase === selectedBase;
-                        } else if (hasDescendantInData) {
-                            // Parent selected: include descendants (the type chain contains selectedBase)
-                            return chain.indexOf(selectedBase) !== -1;
                         } else {
-                            // Leaf selected: include only ancestor line (no sibling leakage)
-                            return selectedChainSet.has(itemBase);
+                            return selectedSet.has(itemBase);
                         }
                     });
                     if (!allowed) return false;
@@ -398,10 +367,8 @@ export class Affixes {
                         const itemBase = chain[0];
                         if (this.exclusiveType) {
                             return itemBase === selectedBase;
-                        } else if (hasDescendantInData) {
-                            return chain.indexOf(selectedBase) !== -1;
                         } else {
-                            return selectedChainSet.has(itemBase);
+                            return selectedSet.has(itemBase);
                         }
                     });
                     if (excluded) return false;

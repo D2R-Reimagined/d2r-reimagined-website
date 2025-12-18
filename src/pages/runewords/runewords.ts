@@ -1,10 +1,9 @@
 import { bindable, watch } from 'aurelia';
 
 import {
-    buildOptionsForPresentTypes,
+    ANCESTOR_ONLY_WHEN_EXACT_OFF,
     getChainForTypeNameReadonly,
     IFilterOption,
-    resolveBaseTypeName,
     type_filtering_options,
 } from '../../resources/constants';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
@@ -49,7 +48,7 @@ export class Runewords {
     types: ReadonlyArray<IFilterOption> = type_filtering_options.slice();
 
     // Selected type: base token (scalar)
-    selectedType: string | undefined;
+    selectedType: string = '';
 
     amounts: Array<{ value: number | ''; label: string }> = [
         { value: '', label: '-' },
@@ -66,25 +65,44 @@ export class Runewords {
     binding() {
         const urlParams = new URLSearchParams(window.location.search);
 
-        // Collect base type names present in data
-        const present = new Set<string>();
+        // Collect EXPLICIT base type names present in data (Runewords-only behavior)
+        const presentExplicitBases = new Set<string>();
         try {
             for (const rw of this.runewords || []) {
                 const types = Array.isArray(rw?.Types) ? rw.Types : [];
                 for (const t of types) {
-                    const base = resolveBaseTypeName(t?.Name ?? '');
-                    if (base) present.add(base);
+                    const chain = getChainForTypeNameReadonly(t?.Name ?? '');
+                    const base = chain && chain.length ? chain[0] : '';
+                    if (base) presentExplicitBases.add(base);
                 }
             }
         } catch {
             // keep defaults on error
         }
-        // Filter the shared preset to only show options relevant to this page's data
-        // Enable base deduplication to collapse identical-base entries like 'Helm' and 'Any Helm'.
-        this.types = buildOptionsForPresentTypes(type_filtering_options, present, {
-            dedupeByBase: true,
-            preferLabelStartsWith: 'Any ',
+
+        // Build options WITHOUT pulling in implied parents (e.g., Amazon Bow → Bow)
+        this.types = type_filtering_options.filter((opt) => {
+            // Always keep a placeholder
+            if (!opt.value || opt.value.length === 0) return true;
+
+            const base = opt.value[0];
+
+            // Aggregates: include it only if they actually match something in this dataset
+            if (
+                opt.id === 'any-armor' ||
+                opt.id === 'any-weapon' ||
+                opt.id === 'melee-weapon' ||
+                opt.id === 'missile-weapon' ||
+                opt.id === 'any-helm' ||
+                opt.id === 'any-shield'
+            ) {
+                return opt.value.some((v) => presentExplicitBases.has(v));
+            }
+
+            // Non-aggregates: ONLY show if the base explicitly exists
+            return presentExplicitBases.has(base);
         });
+
         // Prepend a uniform reset option so users can clear the selection with '-'
         this.types = prependTypeResetOption(this.types);
 
@@ -102,12 +120,11 @@ export class Runewords {
         const hv = urlParams.get('hideVanilla');
         if (hv === 'true' || hv === '1') this.hideVanilla = true;
 
-        // Map URL 'type' (now serialized as base only) to a scalar base token
+        // Map URL 'type' (id)
         const typeParam = urlParams.get('type');
         if (typeParam && !isBlankOrInvalid(typeParam)) {
-            const base = typeParam.split(',')[0]; // support legacy comma list by taking the first token
-            const opt = this.types.find((o) => o.value && o.value[0] === base);
-            this.selectedType = opt ? base : undefined;
+            const opt = this.types.find((o) => o.id === typeParam);
+            this.selectedType = opt ? opt.id : '';
         }
 
         const socketsParam = urlParams.get('sockets');
@@ -200,41 +217,15 @@ export class Runewords {
 
         // Type filtering
         if (this.selectedType) {
-            const selectedBase = resolveBaseTypeName(this.selectedType ?? '');
-            if (selectedBase) {
-                const selectedChain = getChainForTypeNameReadonly(selectedBase);
-                const selectedChainSet = new Set<string>(selectedChain);
+            const opt = this.types.find((o) => o.id === this.selectedType);
+            if (opt && opt.value && opt.value.length > 0) {
+                const selectedBase = opt.value[0];
+                let selectedSet: Set<string>;
 
-                /** Decide the direction of inheritance when Exact is OFF:
-                 *  - If the selected type has descendants present in data (e.g., Bow -> Amazon Bow),
-                 *  then selecting it should include its descendants (itemChain includes selectedBase).
-                 *  - If it is a leaf (e.g., Amazon Spear, Hand to Hand), selecting it should include
-                 *  only its ancestor line (itemBase is in selectedChainSet) to avoid sibling leakage
-                 *  via shared parents like Melee Weapon/Weapon.
-                 *  */
-                let hasDescendantInData = false;
-                if (!this.exclusiveType) {
-                    try {
-                        outer: for (const rw of this.runewords) {
-                            const types = Array.isArray(rw?.Types) ? rw.Types : [];
-                            for (let i = 0; i < types.length; i++) {
-                                const raw = types[i]?.Name != null ? String(types[i].Name) : '';
-                                const chain = getChainForTypeNameReadonly(raw);
-                                if (!chain || chain.length === 0) continue;
-                                const base = chain[0];
-                                if (
-                                    base !== selectedBase &&
-                                    chain.indexOf(selectedBase) !== -1
-                                ) {
-                                    hasDescendantInData = true;
-                                    break outer;
-                                }
-                            }
-                        }
-                    } catch {
-                        // On error, default to conservative (ancestor-only) behavior
-                        hasDescendantInData = false;
-                    }
+                if (!this.exclusiveType && opt.id && ANCESTOR_ONLY_WHEN_EXACT_OFF.includes(opt.id)) {
+                    selectedSet = new Set(getChainForTypeNameReadonly(selectedBase));
+                } else {
+                    selectedSet = new Set<string>(opt.value);
                 }
 
                 filteringRunewords = filteringRunewords.filter((rw) => {
@@ -248,12 +239,10 @@ export class Runewords {
                         if (this.exclusiveType) {
                             // Exact: compare only the base of the item type
                             if (itemBase === selectedBase) return true;
-                        } else if (hasDescendantInData) {
-                            // Parent selected: include descendants (item has selectedBase in its chain)
-                            if (chain.indexOf(selectedBase) !== -1) return true;
                         } else {
-                            // Leaf selected: include only the ancestor line (no sibling leakage)
-                            if (selectedChainSet.has(itemBase)) return true;
+                            // Full semantics: match if the item base is in the selected option's value set
+                            // (which includes ancestors and descendants for non-exact options)
+                            if (selectedSet.has(itemBase)) return true;
                         }
                     }
                     return false;
@@ -346,7 +335,7 @@ export class Runewords {
     resetFilters() {
         this.search = '';
         this.searchRunes = '';
-        this.selectedType = undefined;
+        this.selectedType = '';
         this.selectedAmount = undefined;
         this.exclusiveType = false;
         this.hideVanilla = false;
