@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-N6CVL9HS.js","assets/debounce-DlM2vs2L.js","assets/uniques-DC40Q7Xb.js","assets/filter-helpers-OZCyS2Ps.js","assets/character-classes-LLAbBzNg.js","assets/damage-type-Du-j2Hbt.js","assets/uniques-PVVDDl-d.js","assets/sets-CstKaweM.js","assets/sets-BTNJ3NrF.js","assets/runewords-BwbtVE-5.js","assets/runewords-9XTgQhJw.js","assets/grail-I6Xqpwcn.js","assets/bases-BP19b7Vh.js","assets/affixes-CQC77MtR.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-_ZYvOM6b.js","assets/debounce-DlM2vs2L.js","assets/filter-helpers-018iK1be.js","assets/uniques-BrABpcyN.js","assets/item-type-filters-DhJkOFOx.js","assets/character-classes-LLAbBzNg.js","assets/damage-types-Du-j2Hbt.js","assets/uniques-DeMJXKTa.js","assets/sets-vPDHlE1Y.js","assets/sets-BHx8JpOO.js","assets/runewords-BaX_jQqX.js","assets/runewords-9XTgQhJw.js","assets/grail-D1D660zj.js","assets/bases-DW8HyicE.js","assets/affixes-DZD_rpQI.js"])))=>i.map(i=>d[i]);
 (function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) return;
@@ -25568,7 +25568,7 @@ const RouterConfiguration = {
   }
 };
 const name$1 = "search-area";
-const template$1 = '<div class="static top-16 z-10 m-auto bg-black border-b border-gray-600 lg:sticky">\r\n    <au-slot></au-slot>\r\n</div>';
+const template$1 = '<div class="static top-16 z-10 m-auto bg-black border-b border-gray-600 lg:sticky">\n    <au-slot></au-slot>\n</div>';
 const dependencies$1 = [];
 const bindables$1 = {};
 let _e$1;
@@ -25787,12 +25787,13 @@ function cleanCurrentUrl() {
 function syncParamsToUrl(params, push = true) {
   try {
     const url = new URL(window.location.href);
+    const newParams = new URLSearchParams();
     for (const [key, val] of Object.entries(params)) {
-      url.searchParams.delete(key);
       if (!isBlankOrInvalid(val)) {
-        url.searchParams.set(key, String(val));
+        newParams.set(key, String(val));
       }
     }
+    url.search = newParams.toString();
     if (push) {
       window.history.pushState({}, "", url.toString());
     } else {
@@ -25856,125 +25857,125 @@ const __vitePreload = function preload(baseModule, deps, importerUrl) {
   });
 };
 const name = "app";
-const template = `<nav class="bg-gray-800 fixed w-full z-20 top-0 left-0 shadow-xl border-b border-gray-600 h-16">\r
-    <div class="w-full h-16 px-4 flex flex-nowrap items-center justify-between mx-auto">\r
-\r
-        <a href="/" class="text-xl link-text truncate">\r
-            D2R Reimagined\r
-        </a>\r
-\r
-        <div class="flex lg:order-2">\r
-            <!-- Font selection dropdown -->\r
-            <div class="flex items-center relative font-menu px-4">\r
-                <button type="button"\r
-                        class="text-2xl link-text inline-flex items-center cursor-pointer select-none"\r
-                        data-help-text="Select a font for viewing the site."\r
-                        data-tooltip-placement="bottom"\r
-                        aria-label="Choose font"\r
-                        aria-haspopup="true"\r
-                        aria-expanded.bind="fontMenuOpen.toString()"\r
-                        click.trigger="toggleFontMenu()"\r
-                        keydown.trigger="event.key === 'Escape' && closeFontMenu()">\r
-                    <span class="sr-only">Select Font</span>\r
-                    <span class="mso">type_specimen</span>\r
-                </button>\r
-                <!-- Dropdown panel -->\r
-                <div if.bind="fontMenuOpen"\r
-                     class="fixed right-5 top-15.75 min-w-70 z-30 bg-gray-800 border border-gray-600 rounded-b-lg shadow-md overflow-hidden"\r
-                     role="menu"\r
-                     keydown.trigger="event.key === 'Escape' && closeFontMenu()">\r
-                    <ul class="py-1">\r
-                        <li repeat.for="font of fonts">\r
-                            <button type="button"\r
-                                    class="w-full text-left p-4 text-lg link-text flex items-center justify-between"\r
-                                    role="menuitem"\r
-                                    title.bind="'Preview ' + font.name"\r
-                                    click.trigger="selectFont(font, $event)">\r
-                                <span class.bind="font.class">\${font.name}</span>\r
-                                <span if.bind="font.class === selectedFontClass"\r
-                                      class="mso ml-2">check</span>\r
-                            </button>\r
-                        </li>\r
-                    </ul>\r
-                </div>\r
-            </div>\r
-\r
-            <button type="button"\r
-                    class="flex items-center px-2 text-2xl link-text lg:hidden"\r
-                    aria-controls="navbar-sticky" aria-expanded="false"\r
-                    click.trigger="toggleMobileMenu($event.currentTarget)">\r
-                <span class="sr-only">Open main menu</span>\r
-                <span class="mso">menu</span>\r
-            </button>\r
-\r
-            <a href="https://discord.gg/9zZkYrSA8C" target="_blank"\r
-               class="hidden items-center lg:flex text-purple-500 hover:text-purple-400">\r
-                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"\r
-                     viewBox="0 0 24 24">\r
-                    <path d="M18.942 5.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.586 11.586 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3 17.392 17.392 0 0 0-2.868 11.662 15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.638 10.638 0 0 1-1.706-.83c.143-.106.283-.217.418-.331a11.664 11.664 0 0 0 10.118 0c.137.114.277.225.418.331-.544.328-1.116.606-1.71.832a12.58 12.58 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM8.678 14.813a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.929 1.929 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z"/>\r
-                </svg>\r
-            </a>\r
-        </div>\r
-\r
-        <div class="w-auto hidden fixed right-5 top-15.75 items-center justify-between lg:static lg:flex lg:w-auto lg:ms-0 lg:order-1"\r
-             id="navbar-sticky">\r
-            <ul class="flex flex-col gap-4 p-4 border border-gray-600 bg-gray-800 rounded-b-lg lg:flex-row lg:gap-6 lg:p-0 lg:border-0 lg:bg-transparent">\r
-                <li>\r
-                    <a href="/bases" class="block text-lg link-text" aria-current="page"\r
-                       click.trigger="closeMobileMenu()">Bases</a>\r
-                </li>\r
-                <li>\r
-                    <a href="/affixes" class="block text-lg link-text" aria-current="page"\r
-                       click.trigger="closeMobileMenu()">Affixes</a>\r
-                </li>\r
-                <li>\r
-                    <a href="/uniques" class="block text-lg link-text" aria-current="page"\r
-                       click.trigger="closeMobileMenu()">Uniques</a>\r
-                </li>\r
-                <li>\r
-                    <a href="/sets" class="block text-lg link-text" aria-current="page"\r
-                       click.trigger="closeMobileMenu()">Sets</a>\r
-                </li>\r
-                <li>\r
-                    <a href="/runewords" class="block text-lg link-text" aria-current="page"\r
-                       click.trigger="closeMobileMenu()">Runewords</a>\r
-                </li>\r
-                <li>\r
-                    <a href="/grail" class="block text-lg link-text" aria-current="page"\r
-                       click.trigger="closeMobileMenu()">Grail</a>\r
-                </li>\r
-                <li>\r
-                    <a href="/cube-recipes" class="block text-lg link-text truncate" aria-current="page"\r
-                       click.trigger="closeMobileMenu()">Cube Recipes</a>\r
-                </li>\r
-                <li>\r
-                    <a href="https://wiki.d2r-reimagined.com/" target="_blank"\r
-                       class="flex text-lg link-text items-center" aria-current="page"\r
-                       click.trigger="closeMobileMenu()">Wiki<span class="mso ml-1">open_in_new</span>\r
-                    </a>\r
-                </li>\r
-            </ul>\r
-        </div>\r
-\r
-    </div>\r
-</nav>\r
-\r
-<!-- Nav Bar Spacer -->\r
-<div class="h-16"></div>\r
-\r
-<div class="w-full pb-12">\r
-    <au-viewport default="Home"></au-viewport>\r
-</div>\r
-\r
-<!-- Floating Top Button visible after about 2 screens of height -->\r
-<button type="button"\r
-        class="min-w-10 min-h-10 m-auto flex items-center justify-center text-2xl type-text\r
-        fixed bottom-2 right-2 z-50 ring-0 ring-offset-0 rounded-full shadow-md\r
-         bg-gray-800 border border-gray-600 hover:bg-gray-700 hover:border-gray-400"\r
-        aria-label="Back to top" click.trigger="scrollToTop()" if.bind="showBackToTop">\r
-    <span class="mso" aria-hidden="true">arrow_upward</span>\r
-    <span class="sr-only">Top</span>\r
-</button>\r
+const template = `<nav class="bg-gray-800 fixed w-full z-20 top-0 left-0 shadow-xl border-b border-gray-600 h-16">
+    <div class="w-full h-16 px-4 flex flex-nowrap items-center justify-between mx-auto">
+
+        <a href="/" class="text-xl link-text truncate">
+            D2R Reimagined
+        </a>
+
+        <div class="flex lg:order-2">
+            <!-- Font selection dropdown -->
+            <div class="flex items-center relative font-menu px-4">
+                <button type="button"
+                        class="text-2xl link-text inline-flex items-center cursor-pointer select-none"
+                        data-help-text="Select a font for viewing the site."
+                        data-tooltip-placement="bottom"
+                        aria-label="Choose font"
+                        aria-haspopup="true"
+                        aria-expanded.bind="fontMenuOpen.toString()"
+                        click.trigger="toggleFontMenu()"
+                        keydown.trigger="event.key === 'Escape' && closeFontMenu()">
+                    <span class="sr-only">Select Font</span>
+                    <span class="mso">type_specimen</span>
+                </button>
+                <!-- Dropdown panel -->
+                <div if.bind="fontMenuOpen"
+                     class="fixed right-5 top-15.75 min-w-70 z-30 bg-gray-800 border border-gray-600 rounded-b-lg shadow-md overflow-hidden"
+                     role="menu"
+                     keydown.trigger="event.key === 'Escape' && closeFontMenu()">
+                    <ul class="py-1">
+                        <li repeat.for="font of fonts">
+                            <button type="button"
+                                    class="w-full text-left p-4 text-lg link-text flex items-center justify-between"
+                                    role="menuitem"
+                                    title.bind="'Preview ' + font.name"
+                                    click.trigger="selectFont(font, $event)">
+                                <span class.bind="font.class">\${font.name}</span>
+                                <span if.bind="font.class === selectedFontClass"
+                                      class="mso ml-2">check</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <button type="button"
+                    class="flex items-center px-2 text-2xl link-text lg:hidden"
+                    aria-controls="navbar-sticky" aria-expanded="false"
+                    click.trigger="toggleMobileMenu($event.currentTarget)">
+                <span class="sr-only">Open main menu</span>
+                <span class="mso">menu</span>
+            </button>
+
+            <a href="https://discord.gg/9zZkYrSA8C" target="_blank"
+               class="hidden items-center lg:flex text-purple-500 hover:text-purple-400">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                     viewBox="0 0 24 24">
+                    <path d="M18.942 5.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.586 11.586 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3 17.392 17.392 0 0 0-2.868 11.662 15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.638 10.638 0 0 1-1.706-.83c.143-.106.283-.217.418-.331a11.664 11.664 0 0 0 10.118 0c.137.114.277.225.418.331-.544.328-1.116.606-1.71.832a12.58 12.58 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM8.678 14.813a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.929 1.929 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z"/>
+                </svg>
+            </a>
+        </div>
+
+        <div class="w-auto hidden fixed right-5 top-15.75 items-center justify-between lg:static lg:flex lg:w-auto lg:ms-0 lg:order-1"
+             id="navbar-sticky">
+            <ul class="flex flex-col gap-4 p-4 border border-gray-600 bg-gray-800 rounded-b-lg lg:flex-row lg:gap-6 lg:p-0 lg:border-0 lg:bg-transparent">
+                <li>
+                    <a href="/bases" class="block text-lg link-text" aria-current="page"
+                       click.trigger="closeMobileMenu()">Bases</a>
+                </li>
+                <li>
+                    <a href="/affixes" class="block text-lg link-text" aria-current="page"
+                       click.trigger="closeMobileMenu()">Affixes</a>
+                </li>
+                <li>
+                    <a href="/uniques" class="block text-lg link-text" aria-current="page"
+                       click.trigger="closeMobileMenu()">Uniques</a>
+                </li>
+                <li>
+                    <a href="/sets" class="block text-lg link-text" aria-current="page"
+                       click.trigger="closeMobileMenu()">Sets</a>
+                </li>
+                <li>
+                    <a href="/runewords" class="block text-lg link-text" aria-current="page"
+                       click.trigger="closeMobileMenu()">Runewords</a>
+                </li>
+                <li>
+                    <a href="/grail" class="block text-lg link-text" aria-current="page"
+                       click.trigger="closeMobileMenu()">Grail</a>
+                </li>
+                <li>
+                    <a href="/cube-recipes" class="block text-lg link-text truncate" aria-current="page"
+                       click.trigger="closeMobileMenu()">Cube Recipes</a>
+                </li>
+                <li>
+                    <a href="https://wiki.d2r-reimagined.com/" target="_blank"
+                       class="flex text-lg link-text items-center" aria-current="page"
+                       click.trigger="closeMobileMenu()">Wiki<span class="mso ml-1">open_in_new</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+<!-- Nav Bar Spacer -->
+<div class="h-16"></div>
+
+<div class="w-full pb-12">
+    <au-viewport default="Home"></au-viewport>
+</div>
+
+<!-- Floating Top Button visible after about 2 screens of height -->
+<button type="button"
+        class="min-w-10 min-h-10 m-auto flex items-center justify-center text-2xl type-text
+        fixed bottom-2 right-2 z-50 ring-0 ring-offset-0 rounded-full shadow-md
+         bg-gray-800 border border-gray-600 hover:bg-gray-700 hover:border-gray-400"
+        aria-label="Back to top" click.trigger="scrollToTop()" if.bind="showBackToTop">
+    <span class="mso" aria-hidden="true">arrow_upward</span>
+    <span class="sr-only">Top</span>
+</button>
 `;
 const dependencies = [];
 const bindables = {};
@@ -26031,42 +26032,42 @@ _App_decorators = [customElement(__au2ViewDef), route({
   routes: [
     {
       path: "",
-      component: __vitePreload(() => import("./home-CM-eGuxF.js"), true ? [] : void 0),
+      component: __vitePreload(() => import("./home-DKRP_qpO.js"), true ? [] : void 0),
       title: "Home"
     },
     {
       path: "cube-recipes",
-      component: __vitePreload(() => import("./cube-recipes-N6CVL9HS.js"), true ? __vite__mapDeps([0,1]) : void 0),
+      component: __vitePreload(() => import("./cube-recipes-_ZYvOM6b.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
       title: "Cube Recipes"
     },
     {
       path: "uniques",
-      component: __vitePreload(() => import("./uniques-DC40Q7Xb.js"), true ? __vite__mapDeps([2,3,4,5,1,6]) : void 0),
+      component: __vitePreload(() => import("./uniques-BrABpcyN.js"), true ? __vite__mapDeps([3,4,5,6,1,2,7]) : void 0),
       title: "Uniques"
     },
     {
       path: "sets",
-      component: __vitePreload(() => import("./sets-CstKaweM.js"), true ? __vite__mapDeps([7,3,4,5,1,8]) : void 0),
+      component: __vitePreload(() => import("./sets-vPDHlE1Y.js"), true ? __vite__mapDeps([8,4,5,6,1,2,9]) : void 0),
       title: "Sets"
     },
     {
       path: "runewords",
-      component: __vitePreload(() => import("./runewords-BwbtVE-5.js"), true ? __vite__mapDeps([9,3,1,10]) : void 0),
+      component: __vitePreload(() => import("./runewords-BaX_jQqX.js"), true ? __vite__mapDeps([10,4,1,2,11]) : void 0),
       title: "Runewords"
     },
     {
       path: "grail",
-      component: __vitePreload(() => import("./grail-I6Xqpwcn.js"), true ? __vite__mapDeps([11,3,4,5,1,10,8,6]) : void 0),
+      component: __vitePreload(() => import("./grail-D1D660zj.js"), true ? __vite__mapDeps([12,4,5,6,1,2,11,9,7]) : void 0),
       title: "Holy Grail"
     },
     {
       path: "bases",
-      component: __vitePreload(() => import("./bases-BP19b7Vh.js"), true ? __vite__mapDeps([12,3,5]) : void 0),
+      component: __vitePreload(() => import("./bases-DW8HyicE.js"), true ? __vite__mapDeps([13,4,6,2]) : void 0),
       title: "Bases"
     },
     {
       path: "affixes",
-      component: __vitePreload(() => import("./affixes-CQC77MtR.js"), true ? __vite__mapDeps([13,3,1]) : void 0),
+      component: __vitePreload(() => import("./affixes-DZD_rpQI.js"), true ? __vite__mapDeps([14,4,1,2]) : void 0),
       title: "Affixes"
     }
   ]
@@ -33397,10 +33398,16 @@ const TooltipManager = (() => {
     };
     const rec = {
       tooltip: t,
-      clickHide: () => t.hide(),
-      idleTimer: null
+      clickHide: () => {
+        clearIdle(rec);
+        t.hide();
+        rec.suppressedUntil = Date.now() + 400;
+      },
+      idleTimer: null,
+      suppressedUntil: 0
     };
     const onEnter = () => {
+      if (Date.now() < (rec.suppressedUntil || 0)) return;
       clearIdle(rec);
       rec.idleTimer = window.setTimeout(() => {
         try {
@@ -33410,6 +33417,7 @@ const TooltipManager = (() => {
       }, idleMs);
     };
     const onMove = () => {
+      if (Date.now() < (rec.suppressedUntil || 0)) return;
       clearIdle(rec);
       rec.idleTimer = window.setTimeout(() => {
         try {
@@ -33464,11 +33472,20 @@ const TooltipManager = (() => {
   };
   const attachDocClickHandler = () => {
     if (docClickHandler) return;
-    docClickHandler = () => {
-      instances2.forEach(({ tooltip }) => {
-        try {
-          tooltip.hide?.();
-        } catch {
+    docClickHandler = (event) => {
+      const target = event.target;
+      instances2.forEach((rec, trigger) => {
+        if (!trigger.contains(target)) {
+          try {
+            rec.tooltip.hide?.();
+            if (rec.idleTimer != null) {
+              clearTimeout(rec.idleTimer);
+              rec.idleTimer = null;
+            }
+          } catch {
+          }
+        } else {
+          rec.clickHide();
         }
       });
     };

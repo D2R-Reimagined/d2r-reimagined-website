@@ -1,8 +1,9 @@
-import { C as CustomElement, i as isBlankOrInvalid, w as watch, c as customElement, b as bindable } from "./index-BcLyVs97.js";
-import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, p as prependTypeResetOption, d as toOptionalNumber, s as swapMinMax, c as getChainForTypeName, t as type_filtering_options } from "./filter-helpers-OZCyS2Ps.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-Cisy9H3s.js";
+import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, A as ANCESTOR_ONLY_WHEN_EXACT_OFF, g as getChainForTypeNameReadonly, t as type_filtering_options } from "./item-type-filters-DhJkOFOx.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
+import { p as prependTypeResetOption, a as toOptionalNumber, t as tokenizeSearch, s as swapMinMax } from "./filter-helpers-018iK1be.js";
 const name = "affixes";
-const template = '<template>\r\n    <h3 class="text-lg type-text text-center mx-auto mt-4">\r\n        <span class="text-lg set-text">Green text </span>are included item types.\r\n    </h3>\r\n    <h3 class="text-lg type-text text-center mx-auto mb-4">\r\n        <span class="text-lg requirement-text">Red text </span>are excluded item types.\r\n    </h3>\r\n    <h3 class="text-lg type-text text-center mx-auto my-4">\r\n        <span class="rarity-text">${filteredAffixes.length}</span> Magic Affixes Found\r\n    </h3>\r\n\r\n    <search-area>\r\n        <div class="w-full m-auto px-5 py-2">\r\n            <div class="flex flex-wrap justify-center items-start gap-2">\r\n\r\n                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Choose between prefixes, suffixes, or both.">\r\n                    <div class="flex items-stretch">\r\n                        <div class="relative flex-1">\r\n                            <select id="ptype" class="select-base peer" value.bind="selectedPType">\r\n                                <option repeat.for="opt of pTypeOptions" value.bind="opt.value"> ${opt.label}</option>\r\n                            </select>\r\n                            <label for="ptype" class="floating-label">Select Affix Type</label>\r\n                        </div>\r\n                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="ptype">\r\n                            <span class="mso">info</span>\r\n                            <span class="sr-only">More info about Affix Type filter</span>\r\n                        </button>\r\n                    </div>\r\n                </div>\r\n\r\n                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Filter by property group (e.g., Damage, Defense, Utility). Note: Still WIP some may be incorrect.">\r\n                    <div class="flex items-stretch">\r\n                        <div class="relative flex-1">\r\n                            <select id="desc" class="select-base peer" value.bind="selectedGroupDescription">\r\n                                <option repeat.for="opt of groupOptions" value.bind="opt.value"> ${opt.label}</option>\r\n                            </select>\r\n                            <label for="desc" class="floating-label">\r\n                                Select Property Type</label>\r\n                        </div>\r\n                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="desc">\r\n                            <span class="mso">info</span>\r\n                            <span class="sr-only">More info about Property Type filter</span>\r\n                        </button>\r\n                    </div>\r\n                </div>\r\n\r\n                <div class="w-full lg:w-auto lg:min-w-60 flex flex-nowrap" data-help-text="Filter by base item type. Toggle ‘Exact’ to remove variants.">\r\n                    <div class="w-full relative">\r\n                        <select id="itype" class="select-base-exact peer" value.bind="selectedType">\r\n                            <option repeat.for="opt of types"\r\n                                    value.bind="opt.value && opt.value.length ? opt.value[0] : \'\'">${opt.label}\r\n                            </option>\r\n                        </select>\r\n                        <label for="itype" class="floating-label">Select Item Type</label>\r\n                    </div>\r\n                    <div class="flex items-center">\r\n                        <button\r\n                                type="button"\r\n                                class="exact-button"\r\n                                aria-pressed.bind="exclusiveType"\r\n                                click.trigger="exclusiveType = !exclusiveType">\r\n                            <span class="exact-indicator"></span>\r\n                            Exact\r\n                        </button>\r\n                    </div>\r\n                    <button type="button" class="m-info-button" aria-expanded="false" data-info-for="itype">\r\n                        <span class="mso">info</span>\r\n                        <span class="sr-only">More info about Item Type filter</span>\r\n                    </button>\r\n                </div>\r\n\r\n                <div class="w-full lg:w-60" data-help-text="Search across all fields. Uses (space) as an \'AND\' modifier. ex: Typing sorc skill mana will return items with only all 3 words.">\r\n                    <div class="flex items-stretch">\r\n                        <div class="trailing-icon flex-1" data-icon="search">\r\n                            <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search"\r\n                                   placeholder=" "/>\r\n                            <label for="inputsearch" class="floating-label">Search...</label>\r\n                        </div>\r\n                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="inputsearch">\r\n                            <span class="mso">info</span>\r\n                            <span class="sr-only">More info about Search</span>\r\n                        </button>\r\n                    </div>\r\n                </div>\r\n\r\n                <div class="w-full flex flex-nowrap gap-2 lg:w-auto lg:min-w-60" data-help-text="Filter by required level range. The min and max values will update each other if they overlap.">\r\n                    <div class="w-full relative">\r\n                        <select id="minrlvl" class="select-base peer" value.bind="minRequiredLevel">\r\n                            <option repeat.for="opt of rLevelOptions" value.bind="opt.value">${opt.label}</option>\r\n                        </select>\r\n                        <label for="minrlvl" class="floating-label">Min RLv</label>\r\n                    </div>\r\n                    <div class="w-full relative">\r\n                        <select id="maxrlvl" class="select-base peer" value.bind="maxRequiredLevel">\r\n                            <option repeat.for="opt of rLevelOptions" value.bind="opt.value">${opt.label}</option>\r\n                        </select>\r\n                        <label for="maxrlvl" class="floating-label">Max RLv</label>\r\n                    </div>\r\n                    <button type="button" class="m-info-button ml-0!" aria-expanded="false" data-info-for="minrlvl">\r\n                        <span class="mso">info</span>\r\n                        <span class="sr-only">More info about Required Level filters</span>\r\n                    </button>\r\n                </div>\r\n\r\n                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Reset all filters to default.">\r\n                    <div class="flex items-stretch">\r\n                        <div class="relative flex-1">\r\n                            <button id="filterreset" class="button-base" type="button" click.trigger="resetFilters()">\r\n                                Reset Filters\r\n                            </button>\r\n                        </div>\r\n                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="filterreset">\r\n                            <span class="mso">info</span>\r\n                            <span class="sr-only">More info about Reset Filters</span>\r\n                        </button>\r\n                    </div>\r\n                </div>\r\n\r\n            </div>\r\n        </div>\r\n    </search-area>\r\n\r\n    <div class="card-container">\r\n        <div class="card-box card-vis" repeat.for="affix of filteredAffixes">\r\n\r\n                <div class="flex justify-between items-center">\r\n                    <div class="text-lg prop-text mt-1 ml-1">${affix.Name}</div>\r\n                    <div class="text-lg type-text mt-1 mr-1">${affix.PType}</div>\r\n                </div>\r\n\r\n                <div class="text-base requirement-text mb-1">\r\n                    Level ${affix.RequiredLevel >0? affix.RequiredLevel: 1} Required\r\n                </div>\r\n\r\n                <div class="text-base type-text mb-1" if.bind="affix.Level">\r\n                    Affix Level ${affix.Level}${affix.MaxLevel ? \'-\' + affix.MaxLevel : \'\'}\r\n                </div>\r\n\r\n                <div class="flex flex-wrap justify-center" if.bind="affix.Types && affix.Types.length">\r\n                    <span class="text-base set-text mx-1" repeat.for="t of affix.Types">${t}</span>\r\n                </div>\r\n\r\n                <div class="flex flex-wrap justify-center" if.bind="affix.ETypes && affix.ETypes.length">\r\n                    <span class="text-base requirement-text mx-1" repeat.for="et of affix.ETypes">${et}</span>\r\n                </div>\r\n\r\n                <div class="text-base prop-text my-1" repeat.for="prop of affix.Properties">${prop.PropertyString}</div>\r\n\r\n            </div>\r\n        </div>\r\n</template>\r\n';
+const template = '<template>\n    <h3 class="text-lg type-text text-center mx-auto mt-4">\n        <span class="text-lg set-text">Green text </span>are included item types.\n    </h3>\n    <h3 class="text-lg type-text text-center mx-auto mb-4">\n        <span class="text-lg requirement-text">Red text </span>are excluded item types.\n    </h3>\n    <h3 class="text-lg type-text text-center mx-auto my-4">\n        <span class="rarity-text">${filteredAffixes.length}</span> Magic Affixes Found\n    </h3>\n\n    <search-area>\n        <div class="w-full m-auto px-5 py-2">\n            <div class="flex flex-wrap justify-center items-start gap-2">\n\n                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Choose between prefixes, suffixes, or both.">\n                    <div class="flex items-stretch">\n                        <div class="relative flex-1">\n                            <select id="ptype" class="select-base peer" value.bind="selectedPType">\n                                <option repeat.for="opt of pTypeOptions" value.bind="opt.value"> ${opt.label}</option>\n                            </select>\n                            <label for="ptype" class="floating-label">Select Affix Type</label>\n                        </div>\n                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="ptype">\n                            <span class="mso">info</span>\n                            <span class="sr-only">More info about Affix Type filter</span>\n                        </button>\n                    </div>\n                </div>\n\n                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Filter by property group (e.g., Damage, Defense, Utility). Note: Still WIP some may be incorrect.">\n                    <div class="flex items-stretch">\n                        <div class="relative flex-1">\n                            <select id="desc" class="select-base peer" value.bind="selectedGroupDescription">\n                                <option repeat.for="opt of groupOptions" value.bind="opt.value"> ${opt.label}</option>\n                            </select>\n                            <label for="desc" class="floating-label">\n                                Select Property Type</label>\n                        </div>\n                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="desc">\n                            <span class="mso">info</span>\n                            <span class="sr-only">More info about Property Type filter</span>\n                        </button>\n                    </div>\n                </div>\n\n                <div class="w-full lg:w-auto lg:min-w-60 flex flex-nowrap" data-help-text="Filter by base item type. Toggle ‘Exact’ to remove variants.">\n                    <div class="w-full relative">\n                        <select id="itype" class="select-base-exact peer" value.bind="selectedType">\n                            <option repeat.for="opt of types"\n                                    value.bind="opt.id">${opt.label}\n                            </option>\n                        </select>\n                        <label for="itype" class="floating-label">Select Item Type</label>\n                    </div>\n                    <div class="flex items-center">\n                        <button\n                                type="button"\n                                class="exact-button"\n                                aria-pressed.bind="exclusiveType"\n                                click.trigger="exclusiveType = !exclusiveType">\n                            <span class="exact-indicator"></span>\n                            Exact\n                        </button>\n                    </div>\n                    <button type="button" class="m-info-button" aria-expanded="false" data-info-for="itype">\n                        <span class="mso">info</span>\n                        <span class="sr-only">More info about Item Type filter</span>\n                    </button>\n                </div>\n\n                <div class="w-full lg:w-60" data-help-text="Search across all fields. Attempts to exact entry, can seperate words with \',\' or \'|\' for loose instead ">\n                    <div class="flex items-stretch">\n                        <div class="trailing-icon flex-1" data-icon="search">\n                            <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search"\n                                   placeholder=" "/>\n                            <label for="inputsearch" class="floating-label">Search...</label>\n                        </div>\n                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="inputsearch">\n                            <span class="mso">info</span>\n                            <span class="sr-only">More info about Search</span>\n                        </button>\n                    </div>\n                </div>\n\n                <div class="w-full flex flex-nowrap gap-2 lg:w-auto lg:min-w-60" data-help-text="Filter by required level range. The min and max values will update each other if they overlap.">\n                    <div class="w-full relative">\n                        <select id="minrlvl" class="select-base peer" value.bind="minRequiredLevel">\n                            <option repeat.for="opt of rLevelOptions" value.bind="opt.value">${opt.label}</option>\n                        </select>\n                        <label for="minrlvl" class="floating-label">Min RLv</label>\n                    </div>\n                    <div class="w-full relative">\n                        <select id="maxrlvl" class="select-base peer" value.bind="maxRequiredLevel">\n                            <option repeat.for="opt of rLevelOptions" value.bind="opt.value">${opt.label}</option>\n                        </select>\n                        <label for="maxrlvl" class="floating-label">Max RLv</label>\n                    </div>\n                    <button type="button" class="m-info-button ml-0!" aria-expanded="false" data-info-for="minrlvl">\n                        <span class="mso">info</span>\n                        <span class="sr-only">More info about Required Level filters</span>\n                    </button>\n                </div>\n\n                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Reset all filters to default.">\n                    <div class="flex items-stretch">\n                        <div class="relative flex-1">\n                            <button id="filterreset" class="button-base" type="button" click.trigger="resetFilters()">\n                                Reset Filters\n                            </button>\n                        </div>\n                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="filterreset">\n                            <span class="mso">info</span>\n                            <span class="sr-only">More info about Reset Filters</span>\n                        </button>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </search-area>\n\n    <div class="card-container">\n        <div class="card-box card-vis" repeat.for="affix of filteredAffixes">\n\n                <div class="flex justify-between items-center">\n                    <div class="text-lg prop-text mt-1 ml-1">${affix.Name}</div>\n                    <div class="text-lg type-text mt-1 mr-1">${affix.PType}</div>\n                </div>\n\n                <div class="text-base requirement-text mb-1">\n                    Level ${affix.RequiredLevel >0? affix.RequiredLevel: 1} Required\n                </div>\n\n                <div class="text-base type-text mb-1" if.bind="affix.Level">\n                    Affix Level ${affix.Level}${affix.MaxLevel ? \'-\' + affix.MaxLevel : \'\'}\n                </div>\n\n                <div class="flex flex-wrap justify-center" if.bind="affix.Types && affix.Types.length">\n                    <span class="text-base set-text mx-1" repeat.for="t of affix.Types">${t}</span>\n                </div>\n\n                <div class="flex flex-wrap justify-center" if.bind="affix.ETypes && affix.ETypes.length">\n                    <span class="text-base requirement-text mx-1" repeat.for="et of affix.ETypes">${et}</span>\n                </div>\n\n                <div class="text-base prop-text my-1" repeat.for="prop of affix.Properties">${prop.PropertyString}</div>\n\n            </div>\n        </div>\n</template>\n';
 const dependencies = [];
 const bindables = {};
 let _e;
@@ -81,6 +82,7 @@ class Affixes {
     __publicField(this, "filteredAffixes", []);
     __publicField(this, "search", __runInitializers(_init, 8, this)), __runInitializers(_init, 11, this);
     __publicField(this, "_debouncedFilter");
+    __publicField(this, "_isCoercing", false);
     __publicField(this, "pTypeOptions", [
       { value: "", label: "-" },
       { value: "Prefix", label: "Prefix" },
@@ -93,7 +95,7 @@ class Affixes {
     __publicField(this, "selectedGroupDescription", __runInitializers(_init, 16, this)), __runInitializers(_init, 19, this);
     __publicField(this, "descToGroups", /* @__PURE__ */ new Map());
     __publicField(this, "types", type_filtering_options.slice());
-    __publicField(this, "selectedType", __runInitializers(_init, 20, this)), __runInitializers(_init, 23, this);
+    __publicField(this, "selectedType", __runInitializers(_init, 20, this, "")), __runInitializers(_init, 23, this);
     __publicField(this, "exclusiveType", __runInitializers(_init, 24, this)), __runInitializers(_init, 27, this);
     __publicField(this, "rLevelOptions", [
       { value: "", label: "-" },
@@ -157,16 +159,11 @@ class Affixes {
       }
     } catch {
     }
-    this.types = buildOptionsForPresentTypes(type_filtering_options, present, {
-      dedupeByBase: true,
-      preferLabelStartsWith: "Any "
-    });
+    this.types = buildOptionsForPresentTypes(type_filtering_options, present);
     this.types = prependTypeResetOption(this.types);
     if (typeBaseFromUrl) {
-      const opt = this.types.find(
-        (o) => o.value && o.value[0] === typeBaseFromUrl
-      );
-      this.selectedType = opt ? typeBaseFromUrl : void 0;
+      const opt = this.types.find((o) => o.id === typeBaseFromUrl);
+      this.selectedType = opt ? opt.id : "";
     }
     this.buildGroupOptions(propertyGroups);
     this._debouncedFilter = debounce(() => this.applyFilters(), 350);
@@ -177,29 +174,15 @@ class Affixes {
   }
   // Helper method to update URL with current search parameters
   updateUrl() {
-    const url = new URL(window.location.href);
-    if (this.search && this.search.trim() !== "")
-      url.searchParams.set("search", this.search);
-    else url.searchParams.delete("search");
-    if (this.selectedPType) url.searchParams.set("ptype", this.selectedPType);
-    else url.searchParams.delete("ptype");
-    if (this.selectedGroupDescription && this.selectedGroupDescription.trim() !== "") {
-      url.searchParams.set("group", this.selectedGroupDescription);
-    } else url.searchParams.delete("group");
-    if (this.selectedType && this.selectedType !== "") {
-      url.searchParams.set("type", this.selectedType);
-    } else url.searchParams.delete("type");
-    const minStr = this.minRequiredLevel;
-    if (minStr !== void 0 && minStr !== null && String(minStr).trim() !== "") {
-      url.searchParams.set("minrl", String(minStr).trim());
-    } else url.searchParams.delete("minrl");
-    const maxStr = this.maxRequiredLevel;
-    if (maxStr !== void 0 && maxStr !== null && String(maxStr).trim() !== "") {
-      url.searchParams.set("maxrl", String(maxStr).trim());
-    } else url.searchParams.delete("maxrl");
-    if (this.exclusiveType) url.searchParams.set("exact", "true");
-    else url.searchParams.delete("exact");
-    window.history.pushState({}, "", url.toString());
+    syncParamsToUrl({
+      search: this.search,
+      ptype: this.selectedPType,
+      group: this.selectedGroupDescription,
+      type: this.selectedType,
+      minrl: this.minRequiredLevel,
+      maxrl: this.maxRequiredLevel,
+      exact: this.exclusiveType
+    }, false);
   }
   buildGroupOptions(groups) {
     const descMap = /* @__PURE__ */ new Map();
@@ -242,19 +225,25 @@ class Affixes {
     this.updateUrl();
   }
   handleMinReqChanged() {
+    if (this._isCoercing) return;
     const minNum = toOptionalNumber(this.minRequiredLevel);
     const maxNum = toOptionalNumber(this.maxRequiredLevel);
     if (typeof minNum === "number" && typeof maxNum === "number" && minNum > maxNum) {
+      this._isCoercing = true;
       this.maxRequiredLevel = this.minRequiredLevel;
+      this._isCoercing = false;
     }
     if (this._debouncedFilter) this._debouncedFilter();
     this.updateUrl();
   }
   handleMaxReqChanged() {
+    if (this._isCoercing) return;
     const minNum = toOptionalNumber(this.minRequiredLevel);
     const maxNum = toOptionalNumber(this.maxRequiredLevel);
     if (typeof minNum === "number" && typeof maxNum === "number" && maxNum < minNum) {
+      this._isCoercing = true;
       this.minRequiredLevel = this.maxRequiredLevel;
+      this._isCoercing = false;
     }
     if (this._debouncedFilter) this._debouncedFilter();
     this.updateUrl();
@@ -264,76 +253,63 @@ class Affixes {
     this.updateUrl();
   }
   applyFilters() {
-    const q = (this.search || "").trim().toLowerCase();
-    const tokens = q.length ? q.split(/\s+/) : [];
+    const tokens = tokenizeSearch(this.search);
     const hasQuery = tokens.length > 0;
     const selectedGroups = this.selectedGroupDescription ? this.descToGroups.get(this.selectedGroupDescription) : void 0;
     let minOpt = toOptionalNumber(this.minRequiredLevel);
     let maxOpt = toOptionalNumber(this.maxRequiredLevel);
     [minOpt, maxOpt] = swapMinMax(minOpt, maxOpt);
+    let selectedBase;
+    let selectedSet;
+    if (this.selectedType) {
+      const opt = this.types.find((o) => o.id === this.selectedType);
+      if (opt && opt.value && opt.value.length > 0) {
+        selectedBase = opt.value[0];
+        if (!this.exclusiveType && opt.id && ANCESTOR_ONLY_WHEN_EXACT_OFF.includes(opt.id)) {
+          selectedSet = new Set(getChainForTypeNameReadonly(selectedBase));
+        } else {
+          selectedSet = new Set(opt.value);
+        }
+      }
+    }
     this.filteredAffixes = this.allAffixes.filter((a) => {
       if (this.selectedPType && a.PType !== this.selectedPType) return false;
       if (selectedGroups) {
         const grp = a?.Group;
         if (grp == null || !selectedGroups.has(grp)) return false;
       }
-      if (this.selectedType) {
-        const selectedBase = resolveBaseTypeName(this.selectedType ?? "");
-        if (selectedBase) {
-          const selectedChain = getChainForTypeName(selectedBase);
-          const selectedChainSet = new Set(selectedChain);
-          let hasDescendantInData = false;
-          if (!this.exclusiveType) {
-            try {
-              outer: for (const aff of this.allAffixes) {
-                const types2 = Array.isArray(aff?.Types) ? aff.Types : [];
-                for (let i = 0; i < types2.length; i++) {
-                  const raw = types2[i] != null ? String(types2[i]) : "";
-                  const chain = getChainForTypeName(raw);
-                  if (!chain || chain.length === 0) continue;
-                  const base = chain[0];
-                  if (base !== selectedBase && chain.indexOf(selectedBase) !== -1) {
-                    hasDescendantInData = true;
-                    break outer;
-                  }
-                }
-              }
-            } catch {
-              hasDescendantInData = false;
+      if (this.selectedType && selectedBase && selectedSet) {
+        const types = Array.isArray(a.Types) ? a.Types : [];
+        if (types.length > 0) {
+          const allowed = types.some((t) => {
+            const chain = getChainForTypeNameReadonly(
+              t != null ? String(t) : ""
+            );
+            if (!chain || chain.length === 0) return false;
+            const itemBase = chain[0];
+            if (this.exclusiveType) {
+              return itemBase === selectedBase;
+            } else {
+              return selectedSet.has(itemBase);
             }
-          }
-          const types = Array.isArray(a.Types) ? a.Types : [];
-          if (types.length > 0) {
-            const allowed = types.some((t) => {
-              const chain = getChainForTypeName(t != null ? String(t) : "");
-              if (!chain || chain.length === 0) return false;
-              const itemBase = chain[0];
-              if (this.exclusiveType) {
-                return itemBase === selectedBase;
-              } else if (hasDescendantInData) {
-                return chain.indexOf(selectedBase) !== -1;
-              } else {
-                return selectedChainSet.has(itemBase);
-              }
-            });
-            if (!allowed) return false;
-          }
-          const e = Array.isArray(a.ETypes) ? a.ETypes : [];
-          if (e.length > 0) {
-            const excluded = e.some((t) => {
-              const chain = getChainForTypeName(t != null ? String(t) : "");
-              if (!chain || chain.length === 0) return false;
-              const itemBase = chain[0];
-              if (this.exclusiveType) {
-                return itemBase === selectedBase;
-              } else if (hasDescendantInData) {
-                return chain.indexOf(selectedBase) !== -1;
-              } else {
-                return selectedChainSet.has(itemBase);
-              }
-            });
-            if (excluded) return false;
-          }
+          });
+          if (!allowed) return false;
+        }
+        const e = Array.isArray(a.ETypes) ? a.ETypes : [];
+        if (e.length > 0) {
+          const excluded = e.some((t) => {
+            const chain = getChainForTypeNameReadonly(
+              t != null ? String(t) : ""
+            );
+            if (!chain || chain.length === 0) return false;
+            const itemBase = chain[0];
+            if (this.exclusiveType) {
+              return itemBase === selectedBase;
+            } else {
+              return selectedSet.has(itemBase);
+            }
+          });
+          if (excluded) return false;
         }
       }
       const rl = typeof a.RequiredLevel === "number" ? a.RequiredLevel : 0;
