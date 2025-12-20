@@ -118,7 +118,8 @@ function ensureInfoPanelFor(button: HTMLElement): HTMLElement | null {
 }
 
 const TooltipManager = (() => {
-    const hoverMql = matchMedia('(hover: hover) and (pointer: fine)');
+    // Use "any-*" variants to better support hybrid/touch devices that still have a fine/hover-capable pointer
+    const hoverMql = matchMedia('(any-hover: hover) and (any-pointer: fine)');
     const lgMql = matchMedia('(min-width: 1024px)'); // tailwind lg breakpoint
 
     let enabled = false;
