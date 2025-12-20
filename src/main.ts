@@ -26,6 +26,7 @@ interface ITooltipLike {
 }
 type TooltipRecord = {
     tooltip: ITooltipLike;
+    targetEl: HTMLElement;
     clickHide: () => void;
     enter?: EventListener;
     leave?: EventListener;
@@ -142,7 +143,9 @@ const TooltipManager = (() => {
             const tipId = 'tt-' + help.id;
             target.id = tipId;
             target.setAttribute('role', 'tooltip');
-            target.className = 'tooltip-base';
+            // Start hidden via a separate state class to avoid Tailwind/Flowbite ordering issues in prod
+            // See tooltip CSS: base visuals are in `tooltip-base`, state is in `tooltip-hidden`.
+            target.className = 'tooltip-base tooltip-hidden';
             target.appendChild(help.node);
             // Place after trigger for Flowbite positioning
             trigger.insertAdjacentElement('afterend', target);
@@ -216,9 +219,17 @@ const TooltipManager = (() => {
 
     const rec: TooltipRecord = {
         tooltip: t,
+        targetEl: target,
         clickHide: () => {
             clearIdle(rec);
-            t.hide();
+            try {
+                t.hide();
+            } catch {
+                /* noop */
+            } finally {
+                // Ensure the hidden state is applied regardless of Flowbite internals
+                target.classList.add('tooltip-hidden');
+            }
             // Prevent the tooltip from reappearing for .4 seconds after a click
             rec.suppressedUntil = Date.now() + 400;
         },
@@ -230,10 +241,13 @@ const TooltipManager = (() => {
         if (Date.now() < (rec.suppressedUntil || 0)) return;
         clearIdle(rec);
         rec.idleTimer = window.setTimeout(() => {
+            // Remove our hidden state before showing; if the show fails, restore it
+            target.classList.remove('tooltip-hidden');
             try {
                 t.show();
             } catch {
-                /* noop */
+                // Restore hidden state if show fails
+                target.classList.add('tooltip-hidden');
             }
         }, idleMs);
     };
@@ -242,10 +256,11 @@ const TooltipManager = (() => {
         // Any cursor movement while hovering resets the idle timer until stable for idleMs
         clearIdle(rec);
         rec.idleTimer = window.setTimeout(() => {
+            target.classList.remove('tooltip-hidden');
             try {
                 t.show();
             } catch {
-                /* noop */
+                target.classList.add('tooltip-hidden');
             }
         }, idleMs);
     };
@@ -254,7 +269,9 @@ const TooltipManager = (() => {
         try {
             t.hide();
         } catch {
-        /* noop */
+            /* noop */
+        } finally {
+            target.classList.add('tooltip-hidden');
         }
     };
 
@@ -324,6 +341,9 @@ const TooltipManager = (() => {
                         }
                     } catch {
                         /* noop */
+                    } finally {
+                        // Always ensure the hidden state class is present
+                        rec.targetEl.classList.add('tooltip-hidden');
                     }
                 } else {
                     // If they clicked inside the trigger, activate the suppression
@@ -354,30 +374,30 @@ const TooltipManager = (() => {
         enabled = false;
 
         // Hide and destroy all tooltip instances and remove per-trigger listeners
-        instances.forEach(
-            ({ tooltip, clickHide, enter, leave, move, idleTimer }, trigger) => {
+        instances.forEach((rec, trigger) => {
+            try {
+                rec.tooltip.hide?.();
+            } catch {
+                /* noop */
+            } finally {
+                rec.targetEl.classList.add('tooltip-hidden');
+            }
+            try {
+                rec.tooltip.destroy?.();
+            } catch {
+                /* noop */
+            }
+            trigger.removeEventListener('click', rec.clickHide);
+            if (rec.enter) trigger.removeEventListener('mouseenter', rec.enter);
+            if (rec.leave) trigger.removeEventListener('mouseleave', rec.leave);
+            if (rec.move) trigger.removeEventListener('mousemove', rec.move);
+            if (rec.idleTimer != null)
                 try {
-                    tooltip.hide?.();
+                    clearTimeout(rec.idleTimer);
                 } catch {
                     /* noop */
                 }
-                try {
-                    tooltip.destroy?.();
-                } catch {
-                    /* noop */
-                }
-                trigger.removeEventListener('click', clickHide);
-                if (enter) trigger.removeEventListener('mouseenter', enter);
-                if (leave) trigger.removeEventListener('mouseleave', leave);
-                if (move) trigger.removeEventListener('mousemove', move);
-                if (idleTimer != null)
-                    try {
-                        clearTimeout(idleTimer);
-                    } catch {
-                        /* noop */
-                    }
-            },
-        );
+        });
         instances.clear();
 
         detachDocClickHandler();
