@@ -1,73 +1,119 @@
-<nav class="bg-gray-800 text-white sticky top-0 z-3">
-    <div class="mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center">
-            <a class="mr-6" href="/">
-                D2R Reimagined
-            </a>
-            <button class="lg:hidden ml-auto" type="button" onclick="document.getElementById('navbarSupportedContent').classList.toggle('hidden')" aria-label="Toggle navigation">
-                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
-            <div class="hidden lg:flex lg:items-center lg:justify-between w-full" id="navbarSupportedContent">
-                <ul class="flex space-x-4">
-                    <li>
-                        <a class="hover:text-gray-300 py-2 flex cursor-pointer" aria-current="page" href="/cube-recipes">
-                            Cube Recipes
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-300 py-2 flex cursor-pointer" aria-current="page" href="/uniques">
-                            Uniques
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-300 py-2 flex cursor-pointer" aria-current="page" href="/sets">
-                            Sets
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-300 py-2 flex cursor-pointer" aria-current="page" href="/runewords">
-                            Runewords
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-300 py-2 flex cursor-pointer" aria-current="page" href="/grail">
-                            Grail
-                        </a>
-                    </li>
-                    <li>
-                        <a class="hover:text-gray-300 py-2 cursor-pointer flex items-center" aria-current="page" href="https://wiki.d2r-reimagined.com/" external target="_blank">
-                            Wiki <span class="material-symbols-outlined ml-1">open_in_new</span>
-                        </a>
-                    </li>
-                </ul>
-                <ul class="flex items-center ml-auto">
-                    <li class="mx-3 relative group">
-                        <a class="hover:text-gray-300 py-2 inline-block cursor-pointer" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Font
-                        </a>
-                        <ul class="hidden group-hover:block absolute right-0 bg-white text-gray-800 shadow-lg rounded py-1 min-w-40">
-                            <li repeat.for="font of fonts"><a class="block px-4 py-2 hover:bg-gray-100 ${font.class} cursor-pointer" click.trigger="handleFontSelected(font)">${font.name}</a></li>
-                        </ul>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="https://discord.gg/9zZkYrSA8C" target="_blank">
-                            <svg width=32" height="32" viewBox="0 -28.5 256 256" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
-                                <g>
-                                    <path d="M216.856339,16.5966031 C200.285002,8.84328665 182.566144,3.2084988 164.041564,0 C161.766523,4.11318106 159.108624,9.64549908 157.276099,14.0464379 C137.583995,11.0849896 118.072967,11.0849896 98.7430163,14.0464379 C96.9108417,9.64549908 94.1925838,4.11318106 91.8971895,0 C73.3526068,3.2084988 55.6133949,8.86399117 39.0420583,16.6376612 C5.61752293,67.146514 -3.4433191,116.400813 1.08711069,164.955721 C23.2560196,181.510915 44.7403634,191.567697 65.8621325,198.148576 C71.0772151,190.971126 75.7283628,183.341335 79.7352139,175.300261 C72.104019,172.400575 64.7949724,168.822202 57.8887866,164.667963 C59.7209612,163.310589 61.5131304,161.891452 63.2445898,160.431257 C105.36741,180.133187 151.134928,180.133187 192.754523,160.431257 C194.506336,161.891452 196.298154,163.310589 198.110326,164.667963 C191.183787,168.842556 183.854737,172.420929 176.223542,175.320965 C180.230393,183.341335 184.861538,190.991831 190.096624,198.16893 C211.238746,191.588051 232.743023,181.531619 254.911949,164.955721 C260.227747,108.668201 245.831087,59.8662432 216.856339,16.5966031 Z M85.4738752,135.09489 C72.8290281,135.09489 62.4592217,123.290155 62.4592217,108.914901 C62.4592217,94.5396472 72.607595,82.7145587 85.4738752,82.7145587 C98.3405064,82.7145587 108.709962,94.5189427 108.488529,108.914901 C108.508531,123.290155 98.3405064,135.09489 85.4738752,135.09489 Z M170.525237,135.09489 C157.88039,135.09489 147.510584,123.290155 147.510584,108.914901 C147.510584,94.5396472 157.658606,82.7145587 170.525237,82.7145587 C183.391518,82.7145587 193.761324,94.5189427 193.539891,108.914901 C193.539891,123.290155 183.391518,135.09489 170.525237,135.09489 Z" fill="#5865F2" fill-rule="nonzero">
+<nav class="bg-gray-800 fixed w-full z-20 top-0 left-0 shadow-xl border-b border-gray-600 h-16">
+    <div class="w-full h-16 px-4 flex flex-nowrap items-center justify-between mx-auto">
 
-                                    </path>
-                                </g>
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
+        <a href="/" class="text-xl link-text truncate">
+            D2R Reimagined
+        </a>
+
+        <div class="flex lg:order-2">
+            <!-- Font selection dropdown -->
+            <div class="flex items-center relative font-menu px-4">
+                <button type="button"
+                        class="text-2xl link-text inline-flex items-center cursor-pointer select-none"
+                        data-help-text="Select a font for viewing the site."
+                        data-tooltip-placement="bottom"
+                        aria-label="Choose font"
+                        aria-haspopup="true"
+                        aria-expanded.bind="fontMenuOpen.toString()"
+                        click.trigger="toggleFontMenu()"
+                        keydown.trigger="event.key === 'Escape' && closeFontMenu()">
+                    <span class="sr-only">Select Font</span>
+                    <span class="mso">type_specimen</span>
+                </button>
+                <!-- Dropdown panel -->
+                <div if.bind="fontMenuOpen"
+                     class="fixed right-5 top-15.75 min-w-70 z-30 bg-gray-800 border border-gray-600 rounded-b-lg shadow-md overflow-hidden"
+                     role="menu"
+                     keydown.trigger="event.key === 'Escape' && closeFontMenu()">
+                    <ul class="py-1">
+                        <li repeat.for="font of fonts">
+                            <button type="button"
+                                    class="w-full text-left p-4 text-lg link-text flex items-center justify-between"
+                                    role="menuitem"
+                                    title.bind="'Preview ' + font.name"
+                                    click.trigger="selectFont(font, $event)">
+                                <span class.bind="font.class">${font.name}</span>
+                                <span if.bind="font.class === selectedFontClass"
+                                      class="mso ml-2">check</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
             </div>
+
+            <button type="button"
+                    class="flex items-center px-2 text-2xl link-text lg:hidden"
+                    aria-controls="navbar-sticky" aria-expanded="false"
+                    click.trigger="toggleMobileMenu($event.currentTarget)">
+                <span class="sr-only">Open main menu</span>
+                <span class="mso">menu</span>
+            </button>
+
+            <a href="https://discord.gg/9zZkYrSA8C" target="_blank"
+               class="hidden items-center lg:flex text-purple-500 hover:text-purple-400">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                     viewBox="0 0 24 24">
+                    <path d="M18.942 5.556a16.3 16.3 0 0 0-4.126-1.3 12.04 12.04 0 0 0-.529 1.1 15.175 15.175 0 0 0-4.573 0 11.586 11.586 0 0 0-.535-1.1 16.274 16.274 0 0 0-4.129 1.3 17.392 17.392 0 0 0-2.868 11.662 15.785 15.785 0 0 0 4.963 2.521c.41-.564.773-1.16 1.084-1.785a10.638 10.638 0 0 1-1.706-.83c.143-.106.283-.217.418-.331a11.664 11.664 0 0 0 10.118 0c.137.114.277.225.418.331-.544.328-1.116.606-1.71.832a12.58 12.58 0 0 0 1.084 1.785 16.46 16.46 0 0 0 5.064-2.595 17.286 17.286 0 0 0-2.973-11.59ZM8.678 14.813a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.918 1.918 0 0 1 1.8 2.047 1.929 1.929 0 0 1-1.8 2.045Zm6.644 0a1.94 1.94 0 0 1-1.8-2.045 1.93 1.93 0 0 1 1.8-2.047 1.919 1.919 0 0 1 1.8 2.047 1.93 1.93 0 0 1-1.8 2.045Z"/>
+                </svg>
+            </a>
         </div>
+
+        <div class="w-auto hidden fixed right-5 top-15.75 items-center justify-between lg:static lg:flex lg:w-auto lg:ms-0 lg:order-1"
+             id="navbar-sticky">
+            <ul class="flex flex-col gap-4 p-4 border border-gray-600 bg-gray-800 rounded-b-lg lg:flex-row lg:gap-6 lg:p-0 lg:border-0 lg:bg-transparent">
+                <li>
+                    <a href="/bases" class="block text-lg link-text" aria-current="page"
+                       click.trigger="closeMobileMenu()">Bases</a>
+                </li>
+                <li>
+                    <a href="/affixes" class="block text-lg link-text" aria-current="page"
+                       click.trigger="closeMobileMenu()">Affixes</a>
+                </li>
+                <li>
+                    <a href="/uniques" class="block text-lg link-text" aria-current="page"
+                       click.trigger="closeMobileMenu()">Uniques</a>
+                </li>
+                <li>
+                    <a href="/sets" class="block text-lg link-text" aria-current="page"
+                       click.trigger="closeMobileMenu()">Sets</a>
+                </li>
+                <li>
+                    <a href="/runewords" class="block text-lg link-text" aria-current="page"
+                       click.trigger="closeMobileMenu()">Runewords</a>
+                </li>
+                <li>
+                    <a href="/grail" class="block text-lg link-text" aria-current="page"
+                       click.trigger="closeMobileMenu()">Grail</a>
+                </li>
+                <li>
+                    <a href="/cube-recipes" class="block text-lg link-text truncate" aria-current="page"
+                       click.trigger="closeMobileMenu()">Cube Recipes</a>
+                </li>
+                <li>
+                    <a href="https://wiki.d2r-reimagined.com/" target="_blank"
+                       class="flex text-lg link-text items-center" aria-current="page"
+                       click.trigger="closeMobileMenu()">Wiki<span class="mso ml-1">open_in_new</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
     </div>
 </nav>
 
-<div class="w-full px-2">
+<!-- Nav Bar Spacer -->
+<div class="h-16"></div>
+
+<div class="w-full pb-12">
     <au-viewport default="Home"></au-viewport>
 </div>
+
+<!-- Floating Top Button visible after about 2 screens of height -->
+<button type="button"
+        class="min-w-10 min-h-10 m-auto flex items-center justify-center text-2xl type-text
+        fixed bottom-2 right-2 z-50 ring-0 ring-offset-0 rounded-full shadow-md
+         bg-gray-800 border border-gray-600 hover:bg-gray-700 hover:border-gray-400"
+        aria-label="Back to top" click.trigger="scrollToTop()" if.bind="showBackToTop">
+    <span class="mso" aria-hidden="true">arrow_upward</span>
+    <span class="sr-only">Top</span>
+</button>

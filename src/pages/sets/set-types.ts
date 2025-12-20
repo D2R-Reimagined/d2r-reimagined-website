@@ -14,6 +14,7 @@ export interface IEquipment {
     RequiredDexterity?: number;
     Durability?: number;
     ItemLevel?: number;
+    RequiredClass?: string; // present in some data and used in grail filters
 }
 
 export interface ISetItem {
@@ -30,6 +31,7 @@ export interface ISetItem {
     Properties: IProperty[];
     Equipment: IEquipment;
     DamageArmorEnhanced?: boolean;
+    Vanilla?: string | number | boolean; // present in data, used in filtering
 }
 
 export interface ISetData {
@@ -38,5 +40,6 @@ export interface ISetData {
     SetItems: ISetItem[];
     FullProperties: IProperty[];
     PartialProperties: IProperty[];
-    AllProperties?: IProperty[]; // Added by the code
+    AllProperties?: IProperty[];
+    Vanilla?: string |number |boolean; // present in data, used in filtering
 }

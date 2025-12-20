@@ -1,6 +1,21 @@
 import { bindable, watch } from 'aurelia';
 
-import { debounce, DebouncedFunction } from '../../utilities/debounce';
+import {
+    buildOptionsForPresentTypes,
+    character_class_options,
+    getChainForTypeNameReadonly,
+    IFilterOption,
+    resolveBaseTypeName,
+    type_filtering_options,
+} from '../../resources/constants';
+import { getDamageTypeString as getDamageTypeStringUtil } from '../../utilities/damage-types';
+import { debounce, IDebouncedFunction } from '../../utilities/debounce';
+import {
+    isVanillaItem,
+    prependTypeResetOption,
+    tokenizeSearch,
+} from '../../utilities/filter-helpers';
+import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 import json from '../item-jsons/sets.json';
 
 import { ISetData } from './set-types';
@@ -8,81 +23,86 @@ import { ISetData } from './set-types';
 export class Sets {
     sets: ISetData[] = json;
     @bindable search: string;
-    @bindable selectedType: string;
-    @bindable selectedEquipmentName: string;
+    // Selected type: base token (scalar)
+    @bindable selectedType: string = '';
+    @bindable selectedEquipmentName: string | undefined;
+    // When true, exclude items where Vanilla === 'Y'
+    @bindable hideVanilla: boolean = false;
 
-    private _debouncedSearchItem!: DebouncedFunction;
+    private _debouncedSearchItem!: IDebouncedFunction;
 
-    equipmentNames: Array<{ value: string | undefined; label: string } > = [];
+    equipmentNames: Array<{ value: string | undefined; label: string }> = [];
 
-    attached(): void {
-        // Read search query parameters from URL when component is initialized
+    // Centralized type options, narrowed to types present in data
+    types: ReadonlyArray<IFilterOption> = type_filtering_options.slice();
+
+    // Build options and hydrate from URL BEFORE controls render
+    binding(): void {
         const urlParams = new URLSearchParams(window.location.search);
 
         const searchParam = urlParams.get('search');
-        if (searchParam) {
+        if (searchParam && !isBlankOrInvalid(searchParam)) {
             this.search = searchParam;
         }
 
-        const classParam = urlParams.get('class');
-        if (classParam) {
-            this.class = classParam;
+        const classParam = urlParams.get('selectedClass');
+        if (classParam && !isBlankOrInvalid(classParam)) {
+            this.selectedClass = classParam;
         }
 
+        // Boolean param
+        const hv = urlParams.get('hideVanilla');
+        if (hv === 'true' || hv === '1') this.hideVanilla = true;
+
+        // Collect base type names present in data and build options
+        try {
+            const present = new Set<string>();
+            for (const set of (json as unknown as ISetData[]) || []) {
+                for (const item of set?.SetItems || []) {
+                    const base = resolveBaseTypeName(item?.Type ?? '');
+                    if (base) present.add(base);
+                }
+            }
+            this.types = buildOptionsForPresentTypes(type_filtering_options, present);
+            // Prepend a uniform reset option so users can clear the selection with '-'
+            this.types = prependTypeResetOption(this.types);
+        } catch {
+            // keep defaults on error
+        }
+
+        // Map URL 'type' (id)
         const typeParam = urlParams.get('type');
-        if (typeParam) {
-            this.selectedType = typeParam;
+        if (typeParam && !isBlankOrInvalid(typeParam)) {
+            const opt = this.types.find((o) => o.id === typeParam);
+            this.selectedType = opt ? opt.id : '';
         }
+        // Equipment (exact)
+        const eqParam = urlParams.get('equipment');
+        if (eqParam && !isBlankOrInvalid(eqParam))
+            this.selectedEquipmentName = eqParam;
+    }
 
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-        this._debouncedSearchItem = debounce(this.updateList.bind(this), 350);
-        // Initialize equipment names if type is preselected
+    attached(): void {
+        this._debouncedSearchItem = debounce(() => this.updateList(), 350);
+        // Prebuild Equipment options if type preselected
         if (this.selectedType) {
             this.equipmentNames = this.getSetEquipmentNames();
         }
         this.updateList();
+        this.updateUrl();
     }
 
-    // Types list derived from set items
-    get types(): Array<{ value: string | undefined; label: string }> {
-        const typeSet = new Set<string>();
-        for (const set of json) {
-            for (const item of set.SetItems ?? []) {
-                if (item.Type) typeSet.add(item.Type);
-            }
-        }
-        const typeOptions: Array<{ value: string | undefined; label: string }> = [{ value: undefined, label: '-' }];
-        Array.from(typeSet).sort().forEach(t => typeOptions.push({ value: t, label: t }));
-        return typeOptions;
-    }
+    // Types provided via shared preset (this.types)
 
-    // Helper method to update URL with current search parameters
+    // Push current filters to URL
     private updateUrl() {
-        const url = new URL(window.location.href);
-
-        // Update search parameter
-        if (this.search && this.search.trim() !== '') {
-            url.searchParams.set('search', this.search);
-        } else {
-            url.searchParams.delete('search');
-        }
-
-        // Update class parameter
-        if (this.class) {
-            url.searchParams.set('class', this.class);
-        } else {
-            url.searchParams.delete('class');
-        }
-
-        // Update type parameter
-        if (this.selectedType) {
-            url.searchParams.set('type', this.selectedType);
-        } else {
-            url.searchParams.delete('type');
-        }
-
-        // Update the URL without reloading the page
-        window.history.pushState({}, '', url.toString());
+        syncParamsToUrl({
+            search: this.search,
+            selectedClass: this.selectedClass,
+            type: this.selectedType,
+            equipment: this.selectedEquipmentName,
+            hideVanilla: this.hideVanilla,
+        }, false);
     }
 
     @watch('search')
@@ -93,26 +113,19 @@ export class Sets {
         this.updateUrl();
     }
 
-    @bindable class: string;
+    @bindable selectedClass: string | undefined;
 
-    classes: Array<{ value: string | null; label: string }> = [
-        { value: null, label: '-' },
-        { value: 'Amazon', label: 'Amazon' },
-        { value: 'Assassin', label: 'Assassin' },
-        { value: 'Barbarian', label: 'Barbarian' },
-        { value: 'Druid', label: 'Druid' },
-        { value: 'Necromancer', label: 'Necromancer' },
-        { value: 'Paladin', label: 'Paladin' },
-        { value: 'Sorceress', label: 'Sorceress' }
-    ];
+    classes = character_class_options;
 
-    classChanged(): void {
-        this.sets = json;
+    @watch('selectedClass')
+    @watch('hideVanilla')
+    handleFilterChanged(): void {
         this.updateList();
         this.updateUrl();
     }
 
-    selectedTypeChanged(): void {
+    @watch('selectedType')
+    handleTypeChanged(): void {
         // Update equipment names when type changes and reset selection
         this.equipmentNames = this.getSetEquipmentNames();
         this.selectedEquipmentName = undefined;
@@ -120,86 +133,124 @@ export class Sets {
         this.updateUrl();
     }
 
-    selectedEquipmentNameChanged(): void {
+    @watch('selectedEquipmentName')
+    handleEquipmentNameChanged(): void {
         if (this._debouncedSearchItem) this._debouncedSearchItem();
+        this.updateUrl();
     }
 
     updateList(): void {
         try {
-            const searchText = this.search?.toLowerCase();
-            const classText = this.class?.toLowerCase();
+            const searchTokens = tokenizeSearch(this.search);
+            const classText = this.selectedClass?.toLowerCase();
+
+            // Build an allowed set from selected base + descendants + ancestors
+            const allowedTypeSet: Set<string> | null = ((): Set<string> | null => {
+                if (!this.selectedType) return null;
+                const opt = this.types.find((o) => o.id === this.selectedType);
+                return opt && opt.value ? new Set<string>(opt.value) : null;
+            })();
 
             const matchesType = (set: ISetData) => {
-                if (!this.selectedType) return true;
-                return (set.SetItems ?? []).some(si => si.Type === this.selectedType);
+                if (!allowedTypeSet) return true;
+                return (set.SetItems ?? []).some((si) => {
+                    const base = getChainForTypeNameReadonly(si?.Type ?? '')[0] || (si?.Type ?? '');
+                    return allowedTypeSet.has(base);
+                });
             };
 
             const matchesEquipment = (set: ISetData) => {
                 if (!this.selectedEquipmentName) return true;
-                return (set.SetItems ?? []).some(si => si.Equipment?.Name === this.selectedEquipmentName);
+                return (set.SetItems ?? []).some(
+                    (si) => si.Equipment?.Name === this.selectedEquipmentName,
+                );
             };
 
             const matchesSearch = (set: ISetData) => {
-                if (!searchText) return true;
-                if (set.Name?.toLowerCase().includes(searchText)) return true;
-
-                const allProps = set.AllProperties ?? [...(set.FullProperties || []), ...(set.PartialProperties || [])];
-                // Match set-level properties (partial/full bonuses)
-                if (allProps?.some(p => p.PropertyString?.toLowerCase()?.includes(searchText))) return true;
-
+                if (!searchTokens.length) return true;
+                const hayParts: string[] = [];
+                if (set.Name) hayParts.push(String(set.Name));
+                const allProps = set.AllProperties ?? [
+                    ...(set.FullProperties || []),
+                    ...(set.PartialProperties || []),
+                ];
+                for (const p of allProps || [])
+                    hayParts.push(String(p?.PropertyString || ''));
                 for (const si of set.SetItems ?? []) {
-                    if (si.Name?.toLowerCase().includes(searchText)) return true;
-                    if (si.Equipment?.Name?.toLowerCase().includes(searchText)) return true;
-                    // Match base item properties
-                    if (si.Properties?.some(p => p.PropertyString?.toLowerCase()?.includes(searchText))) return true;
-                    // Match item-level set properties shown in UI (SetPropertiesString)
-                    if (si.SetPropertiesString?.some(s => s?.toLowerCase()?.includes(searchText))) return true;
+                    hayParts.push(String(si?.Name || ''));
+                    hayParts.push(String(si?.Equipment?.Name || ''));
+                    for (const p of si?.Properties || [])
+                        hayParts.push(String(p?.PropertyString || ''));
+                    for (const s of si?.SetPropertiesString || [])
+                        hayParts.push(String(s || ''));
                 }
-                return false;
+                const hay = hayParts.filter(Boolean).join(' ').toLowerCase();
+                return searchTokens.every((t) => hay.includes(t));
+            };
+
+            const matchesVanilla = (set: ISetData) => {
+                return !this.hideVanilla || !isVanillaItem(set?.Vanilla);
             };
 
             const matchesClass = (set: ISetData) => {
                 if (!classText) return true;
-                const allProps = set.AllProperties ?? [...(set.FullProperties || []), ...(set.PartialProperties || [])];
-                if (allProps?.some(p => p.PropertyString?.toLowerCase()?.includes(classText))) return true;
+                const allProps = set.AllProperties ?? [
+                    ...(set.FullProperties || []),
+                    ...(set.PartialProperties || []),
+                ];
+                if (
+                    allProps?.some((p) =>
+                        p.PropertyString?.toLowerCase()?.includes(classText),
+                    )
+                )
+                    return true;
                 for (const si of set.SetItems ?? []) {
                     if (si.Name?.toLowerCase().includes(classText)) return true;
-                    if (si.Equipment?.Name?.toLowerCase().includes(classText)) return true;
-                    if (si.Properties?.some(p => p.PropertyString?.toLowerCase()?.includes(classText))) return true;
-                    if (si.SetPropertiesString?.some(s => s?.toLowerCase()?.includes(classText))) return true;
+                    if (si.Equipment?.Name?.toLowerCase().includes(classText))
+                        return true;
+                    if (
+                        si.Properties?.some((p) =>
+                            p.PropertyString?.toLowerCase()?.includes(classText),
+                        )
+                    )
+                        return true;
+                    if (
+                        si.SetPropertiesString?.some((s) =>
+                            s?.toLowerCase()?.includes(classText),
+                        )
+                    )
+                        return true;
                 }
                 return false;
             };
 
-            // If no filters at all, show all
-            if (!this.search && !this.class && !this.selectedType && !this.selectedEquipmentName) {
+            // If no filters at all (including hideVanilla), show all
+            // Important: do NOT early-return when hideVanilla is true, so the vanilla filter can take effect
+            if (
+                !this.search &&
+                !this.selectedClass &&
+                !this.selectedType &&
+                !this.selectedEquipmentName &&
+                !this.hideVanilla
+            ) {
                 this.sets = json;
                 return;
             }
 
-            this.sets = json.filter(set =>
-                matchesType(set) &&
-                matchesEquipment(set) &&
-                matchesSearch(set) &&
-                matchesClass(set)
+            this.sets = json.filter(
+                (set) =>
+                    matchesType(set) &&
+                    matchesEquipment(set) &&
+                    matchesSearch(set) &&
+                    matchesClass(set) &&
+                    matchesVanilla(set),
             );
         } catch (e) {
-            console.error(e);
+            // ignore
         }
     }
 
-    getDamageTypeString(type: number): string {
-        switch (type) {
-            case 3:
-                return 'Damage: ';
-            case 2:
-                return 'Throw Damage: ';
-            case 1:
-                return 'Two-Handed Damage: ';
-            default:
-                return 'Damage: ';
-        }
-    }
+    getDamageTypeString = getDamageTypeStringUtil;
 
     // Partial set bonus count display by index 0-1 = 2, 2-3 = 3, 4-5 = 4, 6+ = 5
     getItemCount(indexPassed: number): number {
@@ -210,17 +261,47 @@ export class Sets {
     }
 
     // Build equipment names options for the selected type
-    getSetEquipmentNames(): Array<{ value: string | undefined; label: string }> {
+    getSetEquipmentNames(): Array<{
+        value: string | undefined;
+        label: string;
+    }> {
         const names = new Set<string>();
-        for (const set of json) {
+        // Allowed set from selected base + descendants + ancestors
+        const allowed: Set<string> | null = ((): Set<string> | null => {
+            if (!this.selectedType) return null;
+            const opt = this.types.find((o) => o.id === this.selectedType);
+            return opt && opt.value ? new Set<string>(opt.value) : null;
+        })();
+        for (const set of (json as unknown as ISetData[]) || []) {
             for (const si of set.SetItems ?? []) {
-                if (this.selectedType && si.Type !== this.selectedType) continue;
+                if (allowed) {
+                    const base =
+                        getChainForTypeNameReadonly(si?.Type ?? '')[0] || (si?.Type ?? '');
+                    if (!allowed.has(base)) continue;
+                }
                 const name = si.Equipment?.Name;
                 if (name) names.add(name);
             }
         }
-        const options: Array<{ value: string | undefined; label: string }> = [{ value: undefined, label: '-' }];
-        Array.from(names).sort().forEach(n => options.push({ value: n, label: n }));
+        const options: Array<{ value: string | undefined; label: string }> = [
+            { value: '', label: '-' },
+        ];
+        Array.from(names)
+            .sort()
+            .forEach((n) => options.push({ value: n, label: n }));
         return options;
+    }
+
+    // Reset all filters to defaults and refresh
+    resetFilters(): void {
+        this.search = '';
+        this.selectedClass = undefined;
+        this.selectedType = '';
+        this.selectedEquipmentName = undefined;
+        this.hideVanilla = false;
+        this.equipmentNames = [{ value: '', label: '-' }];
+
+        this.updateList();
+        this.updateUrl();
     }
 }

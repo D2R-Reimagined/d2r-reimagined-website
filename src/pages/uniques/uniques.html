@@ -1,92 +1,166 @@
 <template>
-    <h3 class="text-center my-4">
-        ${uniques.length} Uniques Found
+    <h3 class="text-lg type-text text-center mx-auto my-4">
+        <span class="rarity-text">${uniques.length}</span> Uniques Found
     </h3>
+
     <search-area>
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-wrap justify-center items-center text-center">
-                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
-                    <div class="mb-2">
-                        <moo-select
-                                class="w-full standard-betsy-select"
-                                label="Select Class"
-                                options.bind="classes"
-                                value.bind="selectedClass"
-                        ></moo-select>
+        <div class="w-full m-auto px-5 py-2">
+            <div class="flex flex-wrap justify-center items-start gap-2">
+
+                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Filter by character class.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <select id="ficlass" class="select-base peer" value.bind="selectedClass">
+                                <option repeat.for="opt of classes" value.bind="opt.value">${opt.label}</option>
+                            </select>
+                            <label for="ficlass" class="floating-label">Select Class</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="ficlass">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Class filter</span>
+                        </button>
                     </div>
                 </div>
-                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
-                    <div class="mb-2">
-                        <moo-select
-                                class="w-full standard-betsy-select"
-                                label="Select Type"
-                                options.bind="types"
-                                value.bind="selectedType"
-                        ></moo-select>
+
+                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Filter by base item type, only includes class specific variants on generic types.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <select id="itype" class="select-base peer" value.bind="selectedType">
+                                <option repeat.for="opt of types"
+                                        value.bind="opt.id">${opt.label}
+                                </option>
+                            </select>
+                            <label for="itype" class="floating-label">Select Item Type</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="itype">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Item Type filter</span>
+                        </button>
                     </div>
                 </div>
-                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
-                    <div class="mb-2">
-                        <moo-select
-                                class="w-full standard-betsy-select"
-                                label="Select Equipment"
-                                options.bind="equipmentNames"
-                                value.bind="selectedEquipmentName"
-                                disabled.bind="!selectedType"
-                        ></moo-select>
+
+                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Filter to a specific equipment for the selected item type, disabled if one isn't selected.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <select id="eqsel" class="select-base peer" value.bind="selectedEquipmentName"
+                                    disabled.bind="!selectedType">
+                                <option repeat.for="opt of equipmentNames" value.bind="opt.value">${opt.label}</option>
+                            </select>
+                            <label for="eqsel" class="floating-label">Select Equipment</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="eqsel">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Equipment filter</span>
+                        </button>
                     </div>
                 </div>
-                <div class="w-full md:w-5/12 lg:w-1/4 px-2">
-                    <div class="mb-2">
-                    <moo-text-field
-                            class="w-full"
-                            label="Search Uniques"
-                            type="text"
-                            value.bind="search"
-                    ></moo-text-field>
+
+                <div class="w-full lg:w-60" data-help-text="Search across all fields. Attempts to exact entry, can seperate words with ',' or '|' for loose instead ">
+                    <div class="flex items-stretch">
+                        <div class="trailing-icon flex-1" data-icon="search">
+                            <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search" placeholder=" "/>
+                            <label for="inputsearch" class="floating-label">Search...</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="inputsearch">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Search</span>qq
+                        </button>
                     </div>
                 </div>
+
+                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Filter toggle to hide Vanilla items.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <button
+                                    id="hidevanillabutton"
+                                    type="button"
+                                    class="vanilla-button flex-row-reverse"
+                                    aria-pressed.bind="hideVanilla"
+                                    click.trigger="hideVanilla = !hideVanilla">
+                                <span class="vanilla-indicator"></span>
+                                Hide Vanilla
+                            </button>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="hidevanillabutton">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about the Hide Vanilla button</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Reset all filters to default.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <button id="resetfilters" class="button-base" type="button" click.trigger="resetFilters()">
+                                Reset Filters
+                            </button>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="resetfilters">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Reset Filters</span>
+                        </button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </search-area>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2 px-2 text-center mt-5">
-        <div class="bg-gray-800 rounded shadow p-2" repeat.for="unique of uniques">
-            <div class="bg-gray-800 rounded shadow">
-                <div class="unique-text text-lg mb-1">
-                    ${unique.Name}
-                </div>
-                <div class="rarity mb-1" if.bind="unique.Rarity">
-                    Rarity: ${unique.Rarity}
-                </div>
-                <div class="armor mb-1" if.bind="unique.Equipment.Name">
-                    ${unique.Equipment.Name}
-                </div>
-                <div class="armor mb-1" if.bind="unique.Equipment.ArmorString">
-                    Armor: ${unique.Equipment.ArmorString}
-                </div>
-                <div class="damage" if.bind="unique.Equipment.DamageTypes"
-                     repeat.for="damage of unique.Equipment.DamageTypes">
-                    ${getDamageTypeString(damage.Type)} ${damage.DamageString}
-                </div>
-                <div class="requirement" if.bind="unique.RequiredLevel > 0">
-                    Level ${unique.RequiredLevel} Required
-                </div>
-                <div class="requirement" if.bind="unique.Equipment.RequiredStrength > 0">
-                    ${unique.Equipment.RequiredStrength} Strength Required
-                </div>
-                <div class="requirement" if.bind="unique.Equipment.RequiredDexterity > 0">
-                    ${unique.Equipment.RequiredDexterity} Dexterity Required
-                </div>
-                <div class="durability mt-1" if.bind="unique.Equipment.Durability > 0">
-                    ${unique.Equipment.Durability} Durability
-                </div>
-                <div class="mt-2">
-                    <div class="enhanced" repeat.for="property of unique.Properties">
-                        ${property.PropertyString}
+    <div class="card-container">
+        <div class="card-box card-vis" repeat.for="unique of uniques">
+
+                <div class="mb-1">
+                    <div class="text-xl unique-text">
+                        ${unique.Name}
+                    </div>
+                    <div class="text-base rarity-text" if.bind="unique.Rarity">
+                        Rarity: ${unique.Rarity}
+                    </div>
+                    <div class="text-base rarity-text" if.bind="unique.Vanilla">
+                        ${unique.Vanilla === 'Y' ? 'Vanilla' : 'Mod'}
                     </div>
                 </div>
+
+                <div class="mb-1">
+                    <div class="text-base type-text" if.bind="unique.Equipment.Name">
+                        ${unique.Equipment.Name}
+                    </div>
+                    <div class="text-base type-text" if.bind="unique.Equipment.ArmorString">
+                        Defense: ${unique.Equipment.ArmorString}
+                    </div>
+                    <div class="text-base type-text"
+                         if.bind="unique.Equipment.Block !== null && unique.Equipment.Block !== undefined && unique.Equipment.Block > 0">
+                        Block: ${unique.Equipment.Block}%
+                    </div>
+                    <div class="text-base type-text" if.bind="unique.Equipment.DamageTypes"
+                         repeat.for="damage of unique.Equipment.DamageTypes">
+                        ${getDamageTypeString(damage.Type)} ${damage.DamageString}
+                    </div>
+                    <div class="text-base type-text" if.bind="unique.Equipment.Durability > 0">
+                        Durability: ${unique.Equipment.Durability}
+                    </div>
+                </div>
+
+                <div class="mb-1">
+                    <div class="text-base requirement-text"
+                         if.bind="unique.Equipment.RequiredClass && unique.Equipment.RequiredClass.length">
+                        (${unique.Equipment.RequiredClass} Only)
+                    </div>
+                    <div class="text-base requirement-text" if.bind="unique.Equipment.RequiredDexterity > 0">
+                        Required Dexterity: ${unique.Equipment.RequiredDexterity}
+                    </div>
+                    <div class="text-base requirement-text" if.bind="unique.Equipment.RequiredStrength > 0">
+                        Required Strength: ${unique.Equipment.RequiredStrength}
+                    </div>
+                    <div class="text-base requirement-text">
+                        Required Level: ${unique.RequiredLevel > 0? unique.RequiredLevel: 1}
+                    </div>
+                </div>
+
+                <div class="text-base prop-text" repeat.for="property of unique.Properties">
+                    ${property.PropertyString}
+                </div>
+
+                </div>
             </div>
-        </div>
-    </div>
 </template>

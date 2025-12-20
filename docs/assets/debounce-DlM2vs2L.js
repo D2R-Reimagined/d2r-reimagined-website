@@ -1,18 +1,19 @@
 function debounce(func, time) {
   let timeout;
-  const debouncedFunction = (...args) => {
+  const debouncedFunction = ((...args) => {
     if (debouncedFunction.isDebouncing) {
       clearTimeout(timeout);
     }
     debouncedFunction.isDebouncing = true;
     debouncedFunction.isRunning = false;
-    timeout = window.setTimeout(async () => {
+    timeout = window.setTimeout(() => {
       debouncedFunction.isRunning = true;
-      await func(...args);
-      debouncedFunction.isRunning = false;
-      debouncedFunction.isDebouncing = false;
+      void Promise.resolve(func(...args)).finally(() => {
+        debouncedFunction.isRunning = false;
+        debouncedFunction.isDebouncing = false;
+      });
     }, time);
-  };
+  });
   debouncedFunction.isDebouncing = false;
   debouncedFunction.isRunning = false;
   debouncedFunction.cancel = () => {

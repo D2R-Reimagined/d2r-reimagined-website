@@ -7,10 +7,31 @@
   <meta name="description" content="D2R Reimagined Mod Project">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <base href="/">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=open_in_new" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_upward,check,delete,info,menu,open_in_new,reset_settings,search,type_specimen" />
 </head>
 
 <body>
+  <script>
+    (function () {
+      try {
+        var allowed = ['font-classic', 'font-resurrected', 'font-neutral'];
+        var stored = localStorage.getItem('font');
+        var cssClass = allowed.indexOf(stored) !== -1 ? stored : 'font-resurrected';
+
+        function apply(cls) {
+          var b = document.body;
+          if (!b) return false;
+          for (var i = 0; i < allowed.length; i++) b.classList.remove(allowed[i]);
+          b.classList.add(cls);
+          return true;
+        }
+
+        if (!apply(cssClass)) {
+          document.addEventListener('DOMContentLoaded', function () { apply(cssClass); });
+        }
+      } catch (e) { /* no-op */ }
+    })();
+  </script>
   <app></app>
   <script type="module" src="/src/main.ts"></script>
 </body>
