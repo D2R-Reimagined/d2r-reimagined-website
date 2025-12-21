@@ -1,4 +1,4 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-C0Mb6ggE.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-C8R6a5r-.js";
 import { g as getChainForTypeNameReadonly, r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options } from "./item-type-filters-DhJkOFOx.js";
 import { c as character_class_options } from "./character-classes-LLAbBzNg.js";
 import { g as getDamageTypeString } from "./damage-types-Du-j2Hbt.js";
@@ -134,7 +134,7 @@ const template = `<template>
                     </div>
                 </div>
 
-                <div class="w-full lg:w-60" data-help-text="Search across all fields. Attempts to exact entry, can seperate words with ',' or '|' for loose instead ">
+                <div class="w-full lg:w-60" data-help-text="Search across all fields. Attempts to match exact entry, can seperate words with ',' or '|' for loose instead ">
                     <div class="flex items-stretch">
                         <div class="trailing-icon flex-1" data-icon="search">
                             <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search"
