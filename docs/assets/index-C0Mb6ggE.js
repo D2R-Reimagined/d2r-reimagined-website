@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-DBkqVUp4.js","assets/debounce-DlM2vs2L.js","assets/filter-helpers-018iK1be.js","assets/uniques-BhhDYdtJ.js","assets/item-type-filters-DhJkOFOx.js","assets/character-classes-LLAbBzNg.js","assets/damage-types-Du-j2Hbt.js","assets/uniques-DeMJXKTa.js","assets/sets-C8Xvs8Rv.js","assets/sets-BHx8JpOO.js","assets/runewords-BbCSrJ9a.js","assets/runewords-9XTgQhJw.js","assets/grail-D3m3WJ7q.js","assets/bases-D_KlRpvt.js","assets/affixes-BYexWBSJ.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-DPl98Xzv.js","assets/debounce-DlM2vs2L.js","assets/filter-helpers-018iK1be.js","assets/uniques-5Tm9OJWE.js","assets/item-type-filters-DhJkOFOx.js","assets/character-classes-LLAbBzNg.js","assets/damage-types-Du-j2Hbt.js","assets/uniques-DeMJXKTa.js","assets/sets-8FjmzTBV.js","assets/sets-BHx8JpOO.js","assets/runewords-gJLEBj3-.js","assets/runewords-9XTgQhJw.js","assets/grail-CpvLl-kd.js","assets/bases-XrcHnjv1.js","assets/affixes-DRBOjo9s.js"])))=>i.map(i=>d[i]);
 (function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) return;
@@ -26032,42 +26032,42 @@ _App_decorators = [customElement(__au2ViewDef), route({
   routes: [
     {
       path: "",
-      component: __vitePreload(() => import("./home-BhP5G3Yg.js"), true ? [] : void 0),
+      component: __vitePreload(() => import("./home-7V7x300N.js"), true ? [] : void 0),
       title: "Home"
     },
     {
       path: "cube-recipes",
-      component: __vitePreload(() => import("./cube-recipes-DBkqVUp4.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
+      component: __vitePreload(() => import("./cube-recipes-DPl98Xzv.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
       title: "Cube Recipes"
     },
     {
       path: "uniques",
-      component: __vitePreload(() => import("./uniques-BhhDYdtJ.js"), true ? __vite__mapDeps([3,4,5,6,1,2,7]) : void 0),
+      component: __vitePreload(() => import("./uniques-5Tm9OJWE.js"), true ? __vite__mapDeps([3,4,5,6,1,2,7]) : void 0),
       title: "Uniques"
     },
     {
       path: "sets",
-      component: __vitePreload(() => import("./sets-C8Xvs8Rv.js"), true ? __vite__mapDeps([8,4,5,6,1,2,9]) : void 0),
+      component: __vitePreload(() => import("./sets-8FjmzTBV.js"), true ? __vite__mapDeps([8,4,5,6,1,2,9]) : void 0),
       title: "Sets"
     },
     {
       path: "runewords",
-      component: __vitePreload(() => import("./runewords-BbCSrJ9a.js"), true ? __vite__mapDeps([10,4,1,2,11]) : void 0),
+      component: __vitePreload(() => import("./runewords-gJLEBj3-.js"), true ? __vite__mapDeps([10,4,1,2,11]) : void 0),
       title: "Runewords"
     },
     {
       path: "grail",
-      component: __vitePreload(() => import("./grail-D3m3WJ7q.js"), true ? __vite__mapDeps([12,4,5,6,1,2,11,9,7]) : void 0),
+      component: __vitePreload(() => import("./grail-CpvLl-kd.js"), true ? __vite__mapDeps([12,4,5,6,1,2,11,9,7]) : void 0),
       title: "Holy Grail"
     },
     {
       path: "bases",
-      component: __vitePreload(() => import("./bases-D_KlRpvt.js"), true ? __vite__mapDeps([13,4,6,2]) : void 0),
+      component: __vitePreload(() => import("./bases-XrcHnjv1.js"), true ? __vite__mapDeps([13,4,6,2]) : void 0),
       title: "Bases"
     },
     {
       path: "affixes",
-      component: __vitePreload(() => import("./affixes-BYexWBSJ.js"), true ? __vite__mapDeps([14,4,1,2]) : void 0),
+      component: __vitePreload(() => import("./affixes-DRBOjo9s.js"), true ? __vite__mapDeps([14,4,1,2]) : void 0),
       title: "Affixes"
     }
   ]
@@ -33354,7 +33354,7 @@ const TooltipManager = (() => {
       const tipId = "tt-" + help.id;
       target.id = tipId;
       target.setAttribute("role", "tooltip");
-      target.className = "tooltip-base";
+      target.className = "tooltip-base tooltip-hidden";
       target.appendChild(help.node);
       trigger.insertAdjacentElement("afterend", target);
       trigger.setAttribute("aria-describedby", tipId);
@@ -33398,9 +33398,15 @@ const TooltipManager = (() => {
     };
     const rec = {
       tooltip: t,
+      targetEl: target,
       clickHide: () => {
         clearIdle(rec);
-        t.hide();
+        try {
+          t.hide();
+        } catch {
+        } finally {
+          target.classList.add("tooltip-hidden");
+        }
         rec.suppressedUntil = Date.now() + 400;
       },
       idleTimer: null,
@@ -33410,9 +33416,11 @@ const TooltipManager = (() => {
       if (Date.now() < (rec.suppressedUntil || 0)) return;
       clearIdle(rec);
       rec.idleTimer = window.setTimeout(() => {
+        target.classList.remove("tooltip-hidden");
         try {
           t.show();
         } catch {
+          target.classList.add("tooltip-hidden");
         }
       }, idleMs);
     };
@@ -33420,9 +33428,11 @@ const TooltipManager = (() => {
       if (Date.now() < (rec.suppressedUntil || 0)) return;
       clearIdle(rec);
       rec.idleTimer = window.setTimeout(() => {
+        target.classList.remove("tooltip-hidden");
         try {
           t.show();
         } catch {
+          target.classList.add("tooltip-hidden");
         }
       }, idleMs);
     };
@@ -33431,6 +33441,8 @@ const TooltipManager = (() => {
       try {
         t.hide();
       } catch {
+      } finally {
+        target.classList.add("tooltip-hidden");
       }
     };
     rec.enter = onEnter;
@@ -33483,6 +33495,8 @@ const TooltipManager = (() => {
               rec.idleTimer = null;
             }
           } catch {
+          } finally {
+            rec.targetEl.classList.add("tooltip-hidden");
           }
         } else {
           rec.clickHide();
@@ -33506,27 +33520,27 @@ const TooltipManager = (() => {
   const disable = () => {
     if (!enabled) return;
     enabled = false;
-    instances2.forEach(
-      ({ tooltip, clickHide, enter: enter2, leave, move, idleTimer }, trigger) => {
-        try {
-          tooltip.hide?.();
-        } catch {
-        }
-        try {
-          tooltip.destroy?.();
-        } catch {
-        }
-        trigger.removeEventListener("click", clickHide);
-        if (enter2) trigger.removeEventListener("mouseenter", enter2);
-        if (leave) trigger.removeEventListener("mouseleave", leave);
-        if (move) trigger.removeEventListener("mousemove", move);
-        if (idleTimer != null)
-          try {
-            clearTimeout(idleTimer);
-          } catch {
-          }
+    instances2.forEach((rec, trigger) => {
+      try {
+        rec.tooltip.hide?.();
+      } catch {
+      } finally {
+        rec.targetEl.classList.add("tooltip-hidden");
       }
-    );
+      try {
+        rec.tooltip.destroy?.();
+      } catch {
+      }
+      trigger.removeEventListener("click", rec.clickHide);
+      if (rec.enter) trigger.removeEventListener("mouseenter", rec.enter);
+      if (rec.leave) trigger.removeEventListener("mouseleave", rec.leave);
+      if (rec.move) trigger.removeEventListener("mousemove", rec.move);
+      if (rec.idleTimer != null)
+        try {
+          clearTimeout(rec.idleTimer);
+        } catch {
+        }
+    });
     instances2.clear();
     detachDocClickHandler();
     detachObserver();
