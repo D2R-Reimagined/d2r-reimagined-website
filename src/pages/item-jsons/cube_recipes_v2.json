@@ -5736,7 +5736,8 @@
       }
     },
     "Notes": [
-      "Orb of Socketing Recipe"
+      "Orb of Socketing Recipe",
+      "Socket Punch Recipe"
     ]
   },
   {
@@ -5772,7 +5773,8 @@
       }
     },
     "Notes": [
-      "Orb of Socketing Recipe"
+      "Orb of Socketing Recipe",
+      "Socket Punch Recipe"
     ]
   },
   {
@@ -43539,6 +43541,5766 @@
     },
     "Notes": [
       "Item Enchantment Recipe"
+    ]
+  },
+  {
+    "Index": 15344,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Low Quality"
+        ],
+        "RawToken": "\"helm,low\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15345,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality"
+        ],
+        "RawToken": "\"helm,nor\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15346,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)"
+        ],
+        "RawToken": "\"helm,hiq\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15347,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"helm,mag\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15348,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"helm,rar\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15349,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"helm,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15350,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"helm,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15351,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"helm,uni\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15352,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Low Quality"
+        ],
+        "RawToken": "\"helm,low\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15353,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality"
+        ],
+        "RawToken": "\"helm,nor\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15354,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)"
+        ],
+        "RawToken": "\"helm,hiq\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15355,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"helm,mag\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15356,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"helm,rar\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15357,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"helm,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15358,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"helm,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15359,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"helm,uni\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15360,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Low Quality"
+        ],
+        "RawToken": "\"helm,low\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15361,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality"
+        ],
+        "RawToken": "\"helm,nor\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15362,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)"
+        ],
+        "RawToken": "\"helm,hiq\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15363,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"helm,mag\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15364,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"helm,rar\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15365,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"helm,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15366,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"helm,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15367,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"helm,uni\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15368,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Low Quality"
+        ],
+        "RawToken": "\"helm,low\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15369,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality"
+        ],
+        "RawToken": "\"helm,nor\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15370,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)"
+        ],
+        "RawToken": "\"helm,hiq\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15371,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"helm,mag\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15372,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"helm,rar\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15373,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"helm,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15374,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"helm,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15375,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"helm,uni\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15376,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Low Quality"
+        ],
+        "RawToken": "\"tors,low\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15377,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality"
+        ],
+        "RawToken": "\"tors,nor\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15378,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)"
+        ],
+        "RawToken": "\"tors,hiq\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15379,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"tors,mag\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15380,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"tors,rar\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15381,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"tors,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15382,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"tors,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15383,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"tors,uni\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15384,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Low Quality"
+        ],
+        "RawToken": "\"tors,low\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15385,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality"
+        ],
+        "RawToken": "\"tors,nor\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15386,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)"
+        ],
+        "RawToken": "\"tors,hiq\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15387,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"tors,mag\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15388,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"tors,rar\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15389,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"tors,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15390,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"tors,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15391,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"tors,uni\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15392,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Low Quality"
+        ],
+        "RawToken": "\"tors,low\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15393,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality"
+        ],
+        "RawToken": "\"tors,nor\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15394,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)"
+        ],
+        "RawToken": "\"tors,hiq\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15395,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"tors,mag\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15396,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"tors,rar\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15397,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"tors,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15398,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"tors,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15399,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"tors,uni\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15400,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Low Quality"
+        ],
+        "RawToken": "\"tors,low\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15401,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality"
+        ],
+        "RawToken": "\"tors,nor\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15402,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)"
+        ],
+        "RawToken": "\"tors,hiq\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15403,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"tors,mag\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15404,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"tors,rar\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15405,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"tors,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15406,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"tors,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15407,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"tors,uni\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15424,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Low Quality"
+        ],
+        "RawToken": "\"shld,low\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15425,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality"
+        ],
+        "RawToken": "\"shld,nor\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15426,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)"
+        ],
+        "RawToken": "\"shld,hiq\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15427,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"shld,mag\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15428,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"shld,rar\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15429,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"shld,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15430,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"shld,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15431,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"shld,uni\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15432,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Low Quality"
+        ],
+        "RawToken": "\"shld,low\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15433,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality"
+        ],
+        "RawToken": "\"shld,nor\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15434,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)"
+        ],
+        "RawToken": "\"shld,hiq\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15435,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"shld,mag\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15436,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"shld,rar\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15437,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"shld,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15438,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"shld,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15439,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"shld,uni\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15440,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Low Quality"
+        ],
+        "RawToken": "\"shld,low\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15441,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality"
+        ],
+        "RawToken": "\"shld,nor\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15442,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)"
+        ],
+        "RawToken": "\"shld,hiq\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15443,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"shld,mag\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15444,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"shld,rar\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15445,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"shld,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15446,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"shld,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15447,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"shld,uni\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15448,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Low Quality"
+        ],
+        "RawToken": "\"shld,low\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15449,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality"
+        ],
+        "RawToken": "\"shld,nor\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15450,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)"
+        ],
+        "RawToken": "\"shld,hiq\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15451,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"shld,mag\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15452,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"shld,rar\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15453,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"shld,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15454,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"shld,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15455,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"shld,uni\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15456,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Low Quality"
+        ],
+        "RawToken": "\"weap,low\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15457,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality"
+        ],
+        "RawToken": "\"weap,nor\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15458,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)"
+        ],
+        "RawToken": "\"weap,hiq\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15459,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"weap,mag\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15460,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"weap,rar\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15461,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"weap,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15462,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"weap,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15463,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"weap,uni\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15464,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Low Quality"
+        ],
+        "RawToken": "\"weap,low\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15465,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality"
+        ],
+        "RawToken": "\"weap,nor\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15466,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)"
+        ],
+        "RawToken": "\"weap,hiq\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15467,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"weap,mag\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15468,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"weap,rar\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15469,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"weap,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15470,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"weap,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15471,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"weap,uni\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15472,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Low Quality"
+        ],
+        "RawToken": "\"weap,low\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15473,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality"
+        ],
+        "RawToken": "\"weap,nor\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15474,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)"
+        ],
+        "RawToken": "\"weap,hiq\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15475,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"weap,mag\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15476,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"weap,rar\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15477,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"weap,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15478,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"weap,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15479,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"weap,uni\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15480,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Low Quality"
+        ],
+        "RawToken": "\"weap,low\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15481,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality"
+        ],
+        "RawToken": "\"weap,nor\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15482,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)"
+        ],
+        "RawToken": "\"weap,hiq\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15483,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"weap,mag\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15484,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"weap,rar\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15485,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"weap,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15486,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"weap,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15487,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"weap,uni\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15488,
+    "Class": "",
+    "NumInputs": 6,
+    "ResolvedInputsCount": 6,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Low Quality"
+        ],
+        "RawToken": "\"weap,low\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 5,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=5\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (5)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15489,
+    "Class": "",
+    "NumInputs": 6,
+    "ResolvedInputsCount": 6,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality"
+        ],
+        "RawToken": "\"weap,nor\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 5,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=5\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (5)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15490,
+    "Class": "",
+    "NumInputs": 6,
+    "ResolvedInputsCount": 6,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)"
+        ],
+        "RawToken": "\"weap,hiq\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 5,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=5\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (5)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15491,
+    "Class": "",
+    "NumInputs": 6,
+    "ResolvedInputsCount": 6,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"weap,mag\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 5,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=5\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (5)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15492,
+    "Class": "",
+    "NumInputs": 6,
+    "ResolvedInputsCount": 6,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"weap,rar\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 5,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=5\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (5)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15493,
+    "Class": "",
+    "NumInputs": 6,
+    "ResolvedInputsCount": 6,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"weap,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 5,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=5\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (5)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15494,
+    "Class": "",
+    "NumInputs": 6,
+    "ResolvedInputsCount": 6,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"weap,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 5,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=5\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (5)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15495,
+    "Class": "",
+    "NumInputs": 6,
+    "ResolvedInputsCount": 6,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"weap,uni\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 5,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=5\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (5)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15496,
+    "Class": "",
+    "NumInputs": 7,
+    "ResolvedInputsCount": 7,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Low Quality"
+        ],
+        "RawToken": "\"weap,low\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 6,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=6\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (6)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15497,
+    "Class": "",
+    "NumInputs": 7,
+    "ResolvedInputsCount": 7,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality"
+        ],
+        "RawToken": "\"weap,nor\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 6,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=6\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (6)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15498,
+    "Class": "",
+    "NumInputs": 7,
+    "ResolvedInputsCount": 7,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)"
+        ],
+        "RawToken": "\"weap,hiq\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 6,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=6\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (6)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15499,
+    "Class": "",
+    "NumInputs": 7,
+    "ResolvedInputsCount": 7,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"weap,mag\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 6,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=6\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (6)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15500,
+    "Class": "",
+    "NumInputs": 7,
+    "ResolvedInputsCount": 7,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"weap,rar\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 6,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=6\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (6)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15501,
+    "Class": "",
+    "NumInputs": 7,
+    "ResolvedInputsCount": 7,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"weap,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 6,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=6\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (6)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15502,
+    "Class": "",
+    "NumInputs": 7,
+    "ResolvedInputsCount": 7,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"weap,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 6,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=6\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (6)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15503,
+    "Class": "",
+    "NumInputs": 7,
+    "ResolvedInputsCount": 7,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"weap,uni\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 6,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=6\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (6)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
     ]
   }
 ]
