@@ -185,7 +185,9 @@ export class Uniques {
                 .filter(Boolean)
                 .join(' ')
                 .toLowerCase();
-            return searchTokens.every((t) => hay.includes(t));
+            return searchTokens.some((group) =>
+                group.every((t) => hay.includes(t)),
+            );
         };
         const isMatchingType = (unique: IUniqueItem) => {
             if (!allowedTypeSet) return true;

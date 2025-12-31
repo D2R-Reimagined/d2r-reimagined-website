@@ -60,15 +60,20 @@ export function swapMinMax<T extends number | undefined>(
     return [min, max];
 }
 
-/** Tokenize a search string into lowercase terms. Splits only by ',' or '|'. */
-export function tokenizeSearch(input: string | undefined | null): string[] {
+/** Tokenize a search string into OR groups (split by ',' or '|') of AND terms (split by '+'). */
+export function tokenizeSearch(input: string | undefined | null): string[][] {
     const raw = (input || '').trim().toLowerCase();
     if (!raw) return [];
-    // Split only by ',' or '|'
+    // Split by OR operators: ',' or '|'
     return raw
         .split(/[,|]/)
-        .map((s) => s.trim())
-        .filter(Boolean);
+        .map((group) =>
+            group
+                .split('+')
+                .map((s) => s.trim())
+                .filter(Boolean),
+        )
+        .filter((group) => group.length > 0);
 }
 
 /** Check if an item is 'vanilla' based on its Vanilla property (usually 'Y'). */

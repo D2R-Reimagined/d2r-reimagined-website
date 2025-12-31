@@ -740,26 +740,26 @@ export class Grail {
         }
     }
 
-    // Checks that every query token is present as a substring of at least one item token
-    // Enables partial (prefix/infix) matching instead of exact whole-word matching
+    // Checks that the search query matches the item's tokens.
+    // queryGroups is an OR-list of AND-groups (string[][]).
+    // An item matches if at least one OR-group matches.
+    // An OR-group matches if all its AND-terms are present as substrings in any item token.
     private tokensPartiallyMatch(
         allTokens: Set<string> | undefined,
-        queryTokens: string[],
+        queryGroups: string[][],
     ): boolean {
-        if (!queryTokens.length) return true;
+        if (!queryGroups.length) return true;
         if (!allTokens || allTokens.size === 0) return false;
-        for (let i = 0; i < queryTokens.length; i++) {
-            const q = queryTokens[i];
-            let hit = false;
-            for (const tok of allTokens) {
-                if (tok.includes(q)) {
-                    hit = true;
-                    break;
+
+        return queryGroups.some((group) => {
+            // Every term in this AND-group must have at least one partial match in allTokens
+            return group.every((term) => {
+                for (const tok of allTokens) {
+                    if (tok.includes(term)) return true;
                 }
-            }
-            if (!hit) return false;
-        }
-        return true;
+                return false;
+            });
+        });
     }
 
     private parseFoundMap(raw: string | null): Record<string, boolean> {
