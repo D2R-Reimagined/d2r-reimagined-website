@@ -1,9 +1,9 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-CCGjgfne.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-D2sPk4Uz.js";
 import { g as getChainForTypeNameReadonly, r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options } from "./item-type-filters-DhJkOFOx.js";
 import { c as character_class_options } from "./character-classes-LLAbBzNg.js";
 import { g as getDamageTypeString } from "./damage-types-Du-j2Hbt.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
-import { p as prependTypeResetOption, t as tokenizeSearch, i as isVanillaItem } from "./filter-helpers-018iK1be.js";
+import { p as prependTypeResetOption, t as tokenizeSearch, i as isVanillaItem } from "./filter-helpers-C07hLFTd.js";
 import { r as runewordsJson } from "./runewords-9XTgQhJw.js";
 import { s as setsJson } from "./sets-BHx8JpOO.js";
 import { u as uniquesJson } from "./uniques-DeMJXKTa.js";
@@ -134,7 +134,7 @@ const template = `<template>
                     </div>
                 </div>
 
-                <div class="w-full lg:w-60" data-help-text="Search across all fields. Attempts to match exact entry, can seperate words with ',' or '|' for loose instead ">
+                <div class="w-full lg:w-60" data-help-text="Search across all fields. Attempts exact match. Seperate with '+' for AND match. Seperate with ',' or '|' for OR match. ex. 'fire skill damage+enemy fire' finds items with only both tokens. 'fire skill damage,enemy fire' finds items with either token.">
                     <div class="flex items-stretch">
                         <div class="trailing-icon flex-1" data-icon="search">
                             <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search"
@@ -944,23 +944,21 @@ class Grail {
     } catch {
     }
   }
-  // Checks that every query token is present as a substring of at least one item token
-  // Enables partial (prefix/infix) matching instead of exact whole-word matching
-  tokensPartiallyMatch(allTokens, queryTokens) {
-    if (!queryTokens.length) return true;
+  // Checks that the search query matches the item's tokens.
+  // queryGroups is an OR-list of AND-groups (string[][]).
+  // An item matches if at least one OR-group matches.
+  // An OR-group matches if all its AND-terms are present as substrings in any item token.
+  tokensPartiallyMatch(allTokens, queryGroups) {
+    if (!queryGroups.length) return true;
     if (!allTokens || allTokens.size === 0) return false;
-    for (let i = 0; i < queryTokens.length; i++) {
-      const q = queryTokens[i];
-      let hit = false;
-      for (const tok of allTokens) {
-        if (tok.includes(q)) {
-          hit = true;
-          break;
+    return queryGroups.some((group) => {
+      return group.every((term) => {
+        for (const tok of allTokens) {
+          if (tok.includes(term)) return true;
         }
-      }
-      if (!hit) return false;
-    }
-    return true;
+        return false;
+      });
+    });
   }
   parseFoundMap(raw) {
     if (!raw) return {};

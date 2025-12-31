@@ -1,8 +1,116 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-CCGjgfne.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-D2sPk4Uz.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
-import { t as tokenizeSearch } from "./filter-helpers-018iK1be.js";
+import { t as tokenizeSearch } from "./filter-helpers-C07hLFTd.js";
 const name = "cube-recipes";
-const template = '<template>\n    <h3 class="text-lg type-text text-center mx-auto my-4">\n        <span class="rarity-text">${recipes.length}</span> Recipes Found\n    </h3>\n\n    <search-area>\n        <div class="w-full m-auto px-5 py-2">\n            <div class="flex flex-wrap justify-center items-start gap-2">\n\n                <div class="w-full lg:w-auto lg:min-w-60"\n                     data-help-text="Filter recipes by type (reroll, upgrade, craft, etc.).">\n                    <div class="flex items-stretch">\n                        <div class="relative flex-1">\n                            <select id="notesel" class="select-base peer" value.bind="selectedNote">\n                                <option repeat.for="opt of noteOptions" value.bind="opt.value">${opt.label}</option>\n                            </select>\n                            <label for="notesel" class="floating-label">Select Recipe Type</label>\n                        </div>\n                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="notesel">\n                            <span class="mso">info</span>\n                            <span class="sr-only">More info about Recipe Type filter</span>\n                        </button>\n                    </div>\n                </div>\n\n                <div class="w-full lg:w-auto lg:min-w-60"\n                     data-help-text="Filter recipes by character class. note: These are all the same for each class but grant class-specific skills on use.">\n                    <div class="flex items-stretch">\n                        <div class="relative flex-1">\n                            <select id="ficlass" class="select-base peer" value.bind="selectedClass">\n                                <option repeat.for="opt of classOptions" value.bind="opt.value">${opt.label}</option>\n                            </select>\n                            <label for="ficlass" class="floating-label">Select Class</label>\n                        </div>\n                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="ficlass">\n                            <span class="mso">info</span>\n                            <span class="sr-only">More info about Class filter</span>\n                        </button>\n                    </div>\n                </div>\n\n                <div class="w-full lg:w-60"\n                     data-help-text="Search across all fields. Attempts to match exact entry, can seperate words with \',\' or \'|\' for loose instead ">\n                    <div class="flex items-stretch">\n                        <div class="trailing-icon flex-1" data-icon="search">\n                            <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search"\n                                   placeholder=" "/>\n                            <label for="inputsearch" class="floating-label">Search...</label>\n                        </div>\n                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="inputsearch">\n                            <span class="mso">info</span>\n                            <span class="sr-only">More info about Search</span>\n                        </button>\n                    </div>\n                </div>\n\n                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Reset all filters to default.">\n                    <div class="flex items-stretch">\n                        <div class="relative flex-1">\n                            <button id="resetfilters" class="button-base" type="button" click.trigger="resetFilters()">\n                                Reset Filters\n                            </button>\n                        </div>\n                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="resetfilters">\n                            <span class="mso">info</span>\n                            <span class="sr-only">More info about Reset Filters</span>\n                        </button>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </search-area>\n\n    <div class="card-container">\n        <div class="card-box card-vis" repeat.for="recipe of recipes">\n\n            <div class="mb-1  text-xl unique-text">\n                ${recipe.Description}\n            </div>\n\n            <div class="text-base requirement-text" if.bind="recipe.Class">\n                (${recipe.Class} Only)\n            </div>\n\n            <div class="text-base type-text" repeat.for="inp of recipe.Inputs">\n                ${inp}\n            </div>\n\n            <div class="my-1 text-xl unique-text">\n                ==========\n            </div>\n\n            <div class="mb-1 last:mb-0" repeat.for="blk of recipe.OutputBlocks">\n                <div class="text-base type-text">\n                    ${blk.lineOne}\n                </div>\n                <div repeat.for="prop of blk.properties" class="text-base prop-text">\n                    ${prop}\n                </div>\n                <div if.bind="blk.chanceText" class="text-base requirement-text">\n                    ${blk.chanceText}\n                </div>\n            </div>\n        </div>\n\n    </div>\n\n</template>';
+const template = `<template>
+    <h3 class="text-lg type-text text-center mx-auto my-4">
+        <span class="rarity-text">\${recipes.length}</span> Recipes Found
+    </h3>
+
+    <search-area>
+        <div class="w-full m-auto px-5 py-2">
+            <div class="flex flex-wrap justify-center items-start gap-2">
+
+                <div class="w-full lg:w-auto lg:min-w-60"
+                     data-help-text="Filter recipes by type (reroll, upgrade, craft, etc.).">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <select id="notesel" class="select-base peer" value.bind="selectedNote">
+                                <option repeat.for="opt of noteOptions" value.bind="opt.value">\${opt.label}</option>
+                            </select>
+                            <label for="notesel" class="floating-label">Select Recipe Type</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="notesel">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Recipe Type filter</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-auto lg:min-w-60"
+                     data-help-text="Filter recipes by character class. note: These are all the same for each class but grant class-specific skills on use.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <select id="ficlass" class="select-base peer" value.bind="selectedClass">
+                                <option repeat.for="opt of classOptions" value.bind="opt.value">\${opt.label}</option>
+                            </select>
+                            <label for="ficlass" class="floating-label">Select Class</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="ficlass">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Class filter</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-60"
+                     data-help-text="Search across all fields. Attempts exact match. Seperate with '+' for AND match. Seperate with ',' or '|' for OR match. ex. 'fire skill damage+enemy fire' finds items with only both tokens. 'fire skill damage,enemy fire' finds items with either token.">
+                    <div class="flex items-stretch">
+                        <div class="trailing-icon flex-1" data-icon="search">
+                            <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search"
+                                   placeholder=" "/>
+                            <label for="inputsearch" class="floating-label">Search...</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="inputsearch">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Search</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Reset all filters to default.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <button id="resetfilters" class="button-base" type="button" click.trigger="resetFilters()">
+                                Reset Filters
+                            </button>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="resetfilters">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Reset Filters</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </search-area>
+
+    <div class="card-container">
+        <div class="card-box card-vis" repeat.for="recipe of recipes">
+
+            <div class="mb-1  text-xl unique-text">
+                \${recipe.Description}
+            </div>
+
+            <div class="text-base requirement-text" if.bind="recipe.Class">
+                (\${recipe.Class} Only)
+            </div>
+
+            <div class="text-base type-text" repeat.for="inp of recipe.Inputs">
+                \${inp}
+            </div>
+
+            <div class="my-1 text-xl unique-text">
+                ==========
+            </div>
+
+            <div class="mb-1 last:mb-0" repeat.for="blk of recipe.OutputBlocks">
+                <div class="text-base type-text">
+                    \${blk.lineOne}
+                </div>
+                <div repeat.for="prop of blk.properties" class="text-base prop-text">
+                    \${prop}
+                </div>
+                <div if.bind="blk.chanceText" class="text-base requirement-text">
+                    \${blk.chanceText}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</template>`;
 const dependencies = [];
 const bindables = {};
 let _e;
@@ -267,7 +375,8 @@ class CubeRecipes {
         const inp = [recipe.Input || "", ...recipe.Inputs || []].join(" ").toLowerCase();
         const out = [recipe.Output || "", ...recipe.Outputs || []].join(" ").toLowerCase();
         const haystack = [inp, out, desc].filter(Boolean).join(" ");
-        if (!tokens.every((t) => haystack.includes(t))) continue;
+        if (!tokens.some((group) => group.every((t) => haystack.includes(t))))
+          continue;
       }
       found.push(recipe);
     }

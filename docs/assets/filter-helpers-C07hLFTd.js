@@ -24,7 +24,9 @@ function swapMinMax(min, max) {
 function tokenizeSearch(input) {
   const raw = (input || "").trim().toLowerCase();
   if (!raw) return [];
-  return raw.split(/[,|]/).map((s) => s.trim()).filter(Boolean);
+  return raw.split(/[,|]/).map(
+    (group) => group.split("+").map((s) => s.trim()).filter(Boolean)
+  ).filter((group) => group.length > 0);
 }
 function isVanillaItem(vanilla) {
   if (vanilla === void 0 || vanilla === null) return false;

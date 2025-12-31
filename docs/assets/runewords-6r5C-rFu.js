@@ -1,7 +1,7 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-CCGjgfne.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-D2sPk4Uz.js";
 import { g as getChainForTypeNameReadonly, t as type_filtering_options, A as ANCESTOR_ONLY_WHEN_EXACT_OFF } from "./item-type-filters-DhJkOFOx.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
-import { p as prependTypeResetOption, t as tokenizeSearch } from "./filter-helpers-018iK1be.js";
+import { p as prependTypeResetOption, t as tokenizeSearch } from "./filter-helpers-C07hLFTd.js";
 import { r as runewordsJson } from "./runewords-9XTgQhJw.js";
 const name = "runewords";
 const template = `<template>
@@ -69,7 +69,7 @@ const template = `<template>
                 </div>
 
                 <div class="w-full lg:w-60"
-                     data-help-text="Search across all fields. Attempts to match exact entry, can seperate words with ',' or '|' for loose instead ">
+                     data-help-text="Search across all fields. Attempts exact match. Seperate with '+' for AND match. Seperate with ',' or '|' for OR match. ex. 'fire skill damage+enemy fire' finds items with only both tokens. 'fire skill damage,enemy fire' finds items with either token.">
                     <div class="flex items-stretch">
                         <div class="trailing-icon flex-1" data-icon="search">
                             <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search"
@@ -425,7 +425,9 @@ class Runewords {
             (t) => String(t?.Name || "")
           )
         ].filter(Boolean).join(" ").toLowerCase();
-        return searchTokens.every((t) => hay.includes(t));
+        return searchTokens.some(
+          (group) => group.every((t) => hay.includes(t))
+        );
       });
     }
     if (this.searchRunes) {
