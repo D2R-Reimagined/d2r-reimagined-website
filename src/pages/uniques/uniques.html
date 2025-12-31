@@ -106,6 +106,50 @@
         </div>
     </search-area>
 
+    <weapon-sort-area>
+        <div class="w-full m-auto px-5 py-2">
+            <div class="flex flex-wrap justify-center items-start gap-2">
+                <div class="flex flex-row items-center gap-2 weapon-sort-bar"
+                     if.bind="isWeaponType">
+                    <span class="label whitespace-nowrap">Sort weapons by:</span>
+                    <button
+                            type="button"
+                            class="vanilla-button flex flex-row items-center whitespace-nowrap flex-row-reverse"
+                            aria-pressed.bind="(weaponSortMode === 'avg-melee-phys-descending' || weaponSortMode === 'avg-melee-phys-ascending')"
+                            class.bind="(weaponSortMode === 'avg-melee-phys-descending' || weaponSortMode === 'avg-melee-phys-ascending') ? 'active' : ''"
+                            click.trigger="onMeleePhysDamageClicked()">
+                        <span class="vanilla-indicator"></span>
+                        Melee Physical Damage
+                        <span if.bind="this.weaponSortMode==='avg-melee-phys-ascending'">↓</span>
+                        <span if.bind="this.weaponSortMode==='avg-melee-phys-descending'">↑</span>
+                    </button>
+                    <button
+                            type="button"
+                            class="vanilla-button flex flex-row items-center whitespace-nowrap flex-row-reverse"
+                            aria-pressed.bind="(weaponSortMode === 'avg-throw-phys-descending' || weaponSortMode === 'avg-throw-phys-ascending')"
+                            class.bind="(weaponSortMode === 'avg-throw-phys-descending' || weaponSortMode === 'avg-throw-phys-ascending') ? 'active' : ''"
+                            click.trigger="onThrowPhysDamageClicked()">
+                        <span class="vanilla-indicator"></span>
+                        Throw Physical Damage
+                        <span if.bind="this.weaponSortMode==='avg-throw-phys-ascending'">↓</span>
+                        <span if.bind="this.weaponSortMode==='avg-throw-phys-descending'">↑</span>
+                    </button>
+                    <button
+                            type="button"
+                            class="vanilla-button flex flex-row items-center whitespace-nowrap flex-row-reverse"
+                            aria-pressed.bind="(weaponSortMode === 'avg-non-phys-descending' || weaponSortMode === 'avg-non-phys-ascending')"
+                            class.bind="(weaponSortMode === 'avg-non-phys-descending' || weaponSortMode === 'avg-non-phys-ascending') ? 'active' : ''"
+                            click.trigger="onNonPhysDamPropertyClicked()">
+                        <span class="vanilla-indicator"></span>
+                        Non-Physical Damage
+                        <span if.bind="this.weaponSortMode==='avg-non-phys-ascending'">↓</span>
+                        <span if.bind="this.weaponSortMode==='avg-non-phys-descending'">↑</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </weapon-sort-area>
+
     <div class="card-container">
         <div class="card-box card-vis" repeat.for="unique of uniques">
 
@@ -132,9 +176,21 @@
                          if.bind="unique.Equipment.Block !== null && unique.Equipment.Block !== undefined && unique.Equipment.Block > 0">
                         Block: ${unique.Equipment.Block}%
                     </div>
-                    <div class="text-base type-text" if.bind="unique.Equipment.DamageTypes"
-                         repeat.for="damage of unique.Equipment.DamageTypes">
+                    <div class="text-base type-text"
+                         repeat.for="damage of unique.Equipment.DamageTypes"
+                         if.bind="unique.Equipment.DamageTypes && damage.Type === 3"
+                         click.trigger="onMeleePhysDamageClicked()">
                         ${getDamageTypeString(damage.Type)} ${damage.DamageString}
+                        <span if.bind="this.weaponSortMode==='avg-melee-phys-ascending'">↓</span>
+                        <span if.bind="this.weaponSortMode==='avg-melee-phys-descending'">↑</span>
+                    </div>
+                    <div class="text-base type-text"
+                         repeat.for="damage of unique.Equipment.DamageTypes"
+                         if.bind="unique.Equipment.DamageTypes && damage.Type === 2"
+                         click.trigger="onThrowPhysDamageClicked()">
+                        ${getDamageTypeString(damage.Type)} ${damage.DamageString}
+                        <span if.bind="this.weaponSortMode==='avg-throw-phys-ascending'">↓</span>
+                        <span if.bind="this.weaponSortMode==='avg-throw-phys-descending'">↑</span>
                     </div>
                     <div class="text-base type-text" if.bind="unique.Equipment.Durability > 0">
                         Durability: ${unique.Equipment.Durability}
@@ -157,7 +213,17 @@
                     </div>
                 </div>
 
-                <div class="text-base prop-text" repeat.for="property of unique.Properties">
+                <div class="text-base prop-text" 
+                    repeat.for="property of unique.Properties"
+                    if.bind="parseDamageProperty(property) !== null"
+                    click.trigger="onNonPhysDamPropertyClicked()"
+                    class.bind="parseDamageProperty(property) !== null ? 'clickable' : ''">
+                    ${property.PropertyString}
+                    <span if.bind="this.weaponSortMode==='avg-non-phys-ascending'">↓</span>
+                    <span if.bind="this.weaponSortMode==='avg-non-phys-descending'">↑</span>
+                </div>
+                <div class="text-base prop-text" repeat.for="property of unique.Properties"
+                    if.bind="parseDamageProperty(property) === null">
                     ${property.PropertyString}
                 </div>
 

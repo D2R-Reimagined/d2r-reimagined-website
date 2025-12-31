@@ -36,6 +36,20 @@ interface IUniqueItem {
     Vanilla?: string | number | boolean;
 }
 
+// Types of final damage format in weapons: (1) X-Y damage; (2) (X1-X2) to (Y1-Y2) damage
+// NOTE: Strictly for ease
+type SimpleDamage = {
+    min: number;
+    max: number;
+};
+
+type RangedDamage = {
+    min_min: number;
+    min_max: number;
+    max_min: number;
+    max_max: number;
+};
+
 export class Uniques {
     uniques: IUniqueItem[] = json as unknown as IUniqueItem[];
 
@@ -46,6 +60,13 @@ export class Uniques {
     // Selected type value from dropdown: base token (scalar)
     @bindable selectedType: string = '';
     @bindable selectedEquipmentName: string | undefined;
+    // Current possible sorting modes
+    // TODO: Specific non-physical damage sorting in the future? (e.g.: fire damage)
+    @bindable weaponSortMode: 'none' |
+        'avg-throw-phys-ascending' |'avg-throw-phys-descending' |
+        'avg-melee-phys-ascending' | 'avg-melee-phys-descending' |
+        'avg-non-phys-ascending' | 'avg-non-phys-descending' |
+        'something-else' = 'none';
 
     equipmentNames: Array<{ value: string | undefined; label: string }> = [];
 
@@ -54,6 +75,35 @@ export class Uniques {
 
     private _debouncedSearchItem!: IDebouncedFunction;
     private _debouncedUpdateUrl!: IDebouncedFunction;
+
+    // Weapon type strings (used in isWeaponType)
+    // NOTE: not really elegant. Is there a better way of separating between weapons and non-weapons without
+    // rewritting interfaces?
+    private readonly weaponTypes = new Set<string>([
+        'any-weapon',
+        'missile-weapon',
+        'melee-weapon',
+        'axe',
+        'mace',
+        'hammer',
+        'sword',
+        'knife',
+        'spear',
+        'polearm',
+        'staff',
+        'wand',
+        'bow',
+        'crossbow',
+        'javelin',
+        'throwing-knife',
+        'throwing-axe',
+        'amazon-javelin',
+        'amazon-bow',
+        'amazon-spear',
+        'assassin-claw',
+        'sorceress-orb'
+    ]);
+
 
     classes = character_class_options;
 
@@ -115,8 +165,14 @@ export class Uniques {
         this.updateUrl();
     }
 
+    // Check if selected type is a weapon type
+    get isWeaponType(): boolean {
+        return this.selectedType && this.weaponTypes.has(this.selectedType);
+    }
+
     @watch('selectedClass')
     @watch('hideVanilla')
+    @watch('weaponSortMode')
     handleFilterChanged() {
         this.updateList();
         if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
@@ -134,6 +190,9 @@ export class Uniques {
         this.equipmentNames = this.getUniqueEquipmentNames();
         // Reset selected equipment name when type changes
         this.selectedEquipmentName = undefined;
+
+        // Reset sorting mode when type changes to non-weapon type
+        if (!this.isWeaponType) this.weaponSortMode = 'none';
 
         if (this._debouncedSearchItem) this._debouncedSearchItem();
         if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
@@ -224,6 +283,51 @@ export class Uniques {
                 isMatchingEquipmentName(unique) &&
                 isMatchingVanilla(unique),
         );
+
+        // Main sorting logic:
+        // - descending: second avg damage - first avg damage;
+        // - ascending: first avg damage - second avg damage.
+        if (this.isWeaponType) {
+            switch(this.weaponSortMode) {
+                case 'avg-melee-phys-descending': {
+                    this.uniques = this.uniques.slice().sort((a,b) => 
+                        this.getWeaponPhysDamValue(b, 3) - this.getWeaponPhysDamValue(a, 3)
+                    );
+                    break;
+                }
+                case 'avg-melee-phys-ascending': {
+                    this.uniques = this.uniques.slice().sort((a,b) => 
+                        this.getWeaponPhysDamValue(a, 3) - this.getWeaponPhysDamValue(b, 3)
+                    );
+                    break;
+                }
+                case 'avg-throw-phys-descending': {
+                    this.uniques = this.uniques.slice().sort((a,b) => 
+                        this.getWeaponPhysDamValue(b, 2) - this.getWeaponPhysDamValue(a, 2)
+                    );
+                    break;
+                }
+                case 'avg-throw-phys-ascending': {
+                    this.uniques = this.uniques.slice().sort((a,b) => 
+                        this.getWeaponPhysDamValue(a, 2) - this.getWeaponPhysDamValue(b, 2)
+                    );
+                    break;
+                }
+                case 'avg-non-phys-descending': {
+                    this.uniques = this.uniques.slice().sort((a,b) => 
+                        this.getWeaponNonPhysDamValueFromProperties(b) - this.getWeaponNonPhysDamValueFromProperties(a)
+                    );
+                    break;
+                }
+                case 'avg-non-phys-ascending': {
+                    this.uniques = this.uniques.slice().sort((a,b) => 
+                        this.getWeaponNonPhysDamValueFromProperties(a) - this.getWeaponNonPhysDamValueFromProperties(b)
+                    );
+                    break;
+                }
+                default: break;
+            }
+        }
     }
 
     getDamageTypeString = getDamageTypeStringUtil;
@@ -277,5 +381,158 @@ export class Uniques {
 
         this.updateList();
         this.updateUrl();
+    }
+
+    // Handle clicking any of the non-physical damage sorting interactables:
+    // - property line that is non-physical damage related;
+    // - weapon-sort-bar tab buttons
+    onNonPhysDamPropertyClicked() {
+        if (this.weaponSortMode !== 'avg-non-phys-descending' && this.weaponSortMode !== 'avg-non-phys-ascending') {
+            this.weaponSortMode = 'avg-non-phys-descending';
+        } else if (this.weaponSortMode === 'avg-non-phys-descending') {
+            this.weaponSortMode = 'avg-non-phys-ascending'
+        } else if (this.weaponSortMode === 'avg-non-phys-ascending') {
+                this.weaponSortMode = 'none'
+        }
+    }
+
+    // Handle clicking any of the throw physical damage sorting interactables
+    // - same as non-physical damage;
+    // - final throw physical damage line
+    onThrowPhysDamageClicked() {
+        if (this.weaponSortMode !== 'avg-throw-phys-descending' && this.weaponSortMode !== 'avg-throw-phys-ascending') {
+            this.weaponSortMode = 'avg-throw-phys-descending';
+        } else if (this.weaponSortMode === 'avg-throw-phys-descending') {
+            this.weaponSortMode = 'avg-throw-phys-ascending'
+        } else if (this.weaponSortMode === 'avg-throw-phys-ascending') {
+                this.weaponSortMode = 'none'
+        }
+    }
+
+    // Handle clicking any of the melee physical damage sorting interactables
+    // - same as non-physical damage;
+    // - final melee physical damage line
+    onMeleePhysDamageClicked() {
+        if (this.weaponSortMode !== 'avg-melee-phys-descending' && this.weaponSortMode !== 'avg-melee-phys-ascending') {
+            this.weaponSortMode = 'avg-melee-phys-descending';
+        } else if (this.weaponSortMode === 'avg-melee-phys-descending') {
+            this.weaponSortMode = 'avg-melee-phys-ascending'
+        } else if (this.weaponSortMode === 'avg-melee-phys-ascending') {
+                this.weaponSortMode = 'none'
+        }
+    }
+
+    // Parse the damage string from a given item
+    // NOTE: Matches: (1) X to Y; (2) (X1-X2) to (Y1-Y2)
+    parseDamageString(damage_string: string): SimpleDamage | RangedDamage | null {
+        const SIMPLE_DAMAGE_REGEX = /^\s*(\d+)\s+to\s+(\d+)\s*$/;
+        const RANGED_DAMAGE_REGEX = /^\s*\((\d+)\s*-\s*(\d+)\)\s+to\s+\((\d+)\s*-\s*(\d+)\)\s*$/;
+
+        let match = damage_string.match(SIMPLE_DAMAGE_REGEX);
+
+        if (match) {
+            return {
+                min: Number(match[1]),
+                max: Number(match[2])
+            };
+        }
+
+        match = damage_string.match(RANGED_DAMAGE_REGEX);
+
+        if (match) {
+            return {
+                min_min: Number(match[1]),
+                min_max: Number(match[2]),
+                max_min: Number(match[3]),
+                max_max: Number(match[4]),
+            };
+        }
+
+        return null;
+    }
+
+    // Parse the final physical damage lines from items
+    // NOTE: dam_type: 2 = throw, 3 = melee
+    getWeaponPhysDamValue(unique: any, dam_type: number): number {
+        const damage_entry = unique.Equipment?.DamageTypes?.find(entry => entry.Type === dam_type);
+        if (!damage_entry) return 0;
+        let damage_string = damage_entry.DamageString;
+        if (!damage_string) return 0;
+
+        const parsed = this.parseDamageString(damage_string);
+        if (!parsed) return 0;
+
+        if ('min' in parsed) {
+            return (parsed.min + parsed.max) / 2;
+        }
+
+        let avg_min_dam = (parsed.min_min + parsed.min_max) / 2;
+        let avg_max_dam = (parsed.max_min + parsed.max_max) / 2;
+        let avg_dam = (avg_min_dam + avg_max_dam) / 2;
+
+        return avg_dam;
+    }
+
+    // Reads and parses unique item's single properties and matches possible formats.
+    // NOTE: Matches: (1) Adds X-Y to <Type> Damage; (2) Adds X-Y Weapon <Type> Damage; (3) (X-Y) to Minimum <Type> Damage;
+    // NOTE: Did I miss some other format? Didn't find any (X-Y) to Maximum <Type> Damage.
+    parseDamageProperty(property: IUniqueProperty) : SimpleDamage | null {
+        if (!property) return null;
+        if (!property.PropertyString) return null;
+
+        const ADDS_ELEMENTAL_DAMAGE_REGEX = /^Adds\s+(\d+)\s*-\s*(\d+)\s+to\s+(Cold|Fire|Lightning)\s+Damage$/i;
+        const ADDS_WEAPON_ELEMENTAL_DAMAGE_REGEX = /^Adds\s+(\d+)\s*-\s*(\d+)\s+Weapon\s+(Cold|Lightning|Fire|Magic)\s+Damage$/i;
+        const ADDS_MAGIC_DAMAGE_REGEX = /^Adds\s+(\d+)\s*-\s*(\d+)\s+magic\s+damage$/i;
+        const ADDS_MIN_ELEMENTAL_DAMAGE_REGEX = /^\+(\d+)\s*-\s*(\d+)\s+to\s+Minimum\s+(Cold|Lightning|Fire|Poison)\s+Damage$/i;
+
+        let match = property.PropertyString.match(ADDS_ELEMENTAL_DAMAGE_REGEX);
+        if (match) {
+            return {
+                min: Number(match[1]),
+                max: Number(match[2])
+            };
+        }
+
+        match = property.PropertyString.match(ADDS_MAGIC_DAMAGE_REGEX);
+        if (match) {
+            return {
+                min: Number(match[1]),
+                max: Number(match[2])
+            };
+        }
+
+        match = property.PropertyString.match(ADDS_MIN_ELEMENTAL_DAMAGE_REGEX);
+        if (match) {
+            return {
+                min: Number(match[1]),
+                max: 0
+            };
+        }
+
+        match = property.PropertyString.match(ADDS_WEAPON_ELEMENTAL_DAMAGE_REGEX);
+        if (match) {
+            return {
+                min: Number(match[1]),
+                max: Number(match[2])
+            };
+        }
+
+        return null;
+    }
+
+    // Reads properties, selects them in case they are a damage property and adds to the total average 
+    // accordingly.
+    getWeaponNonPhysDamValueFromProperties(unique: IUniqueItem): number {
+        let weapon_properties = unique.Properties;
+        if (!weapon_properties) return 0;
+        let avg_non_phys_dam = 0;
+        weapon_properties.forEach((property) => {
+            let current_property_dam = this.parseDamageProperty(property);
+            if (current_property_dam !== null) {
+                avg_non_phys_dam += (current_property_dam.min + current_property_dam.max) / 2;
+            }
+        });
+
+        return avg_non_phys_dam;
     }
 }
