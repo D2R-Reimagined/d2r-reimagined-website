@@ -185,7 +185,9 @@ export class Sets {
                         hayParts.push(String(s || ''));
                 }
                 const hay = hayParts.filter(Boolean).join(' ').toLowerCase();
-                return searchTokens.every((t) => hay.includes(t));
+                return searchTokens.some((group) =>
+                    group.every((t) => hay.includes(t)),
+                );
             };
 
             const matchesVanilla = (set: ISetData) => {

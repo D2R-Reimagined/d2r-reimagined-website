@@ -316,7 +316,10 @@ export class CubeRecipes {
                     .join(' ')
                     .toLowerCase();
                 const haystack = [inp, out, desc].filter(Boolean).join(' ');
-                if (!tokens.every((t) => haystack.includes(t))) continue;
+                if (
+                    !tokens.some((group) => group.every((t) => haystack.includes(t)))
+                )
+                    continue;
             }
 
             found.push(recipe);

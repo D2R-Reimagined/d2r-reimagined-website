@@ -392,7 +392,8 @@ export class Affixes {
                     .filter(Boolean)
                     .join(' ')
                     .toLowerCase();
-                if (!tokens.every((t) => hay.includes(t))) return false;
+                if (!tokens.some((group) => group.every((t) => hay.includes(t))))
+                    return false;
             }
 
             return true;

@@ -69,7 +69,7 @@
                     </button>
                 </div>
 
-                <div class="w-full lg:w-60" data-help-text="Search across all fields. Attempts to match exact entry, can seperate words with ',' or '|' for loose instead ">
+                <div class="w-full lg:w-60" data-help-text="Search across all fields. Attempts exact match. Seperate with '+' for AND match. Seperate with ',' or '|' for OR match. ex. 'fire skill damage+enemy fire' finds items with only both tokens. 'fire skill damage,enemy fire' finds items with either token.">
                     <div class="flex items-stretch">
                         <div class="trailing-icon flex-1" data-icon="search">
                             <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search"
