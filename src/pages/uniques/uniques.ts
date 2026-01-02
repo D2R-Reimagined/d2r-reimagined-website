@@ -10,8 +10,6 @@ import {
 } from '../../resources/constants';
 import {
     getDamageTypeString as getDamageTypeStringUtil,
-    getWeaponNonPhysDamValueFromProperties,
-    getWeaponPhysDamValue,
     IUniqueItem,
     parseDamageProperty,
 } from '../../utilities/damage-types';
@@ -21,16 +19,17 @@ import {
     prependTypeResetOption,
     tokenizeSearch,
 } from '../../utilities/filter-helpers';
+import {
+    getSortKeyFromDamageType as getSortKeyFromDamageTypeUtil,
+    sortItemsByWeaponDamage,
+    toggleWeaponSort,
+    WeaponSortMode,
+    weaponSortOptions,
+} from '../../utilities/item-sorting';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 import json from '../item-jsons/uniques.json';
 
 // Minimal shapes for uniques JSON used by this page. Only type what we read.
-
-export type WeaponSortMode = 'none' |
-    'avg-throw-phys-ascending' | 'avg-throw-phys-descending' |
-    'avg-1h-phys-ascending' | 'avg-1h-phys-descending' |
-    'avg-2h-phys-ascending' | 'avg-2h-phys-descending' |
-    'avg-non-phys-ascending' | 'avg-non-phys-descending';
 
 export class Uniques {
     uniques: IUniqueItem[] = json as unknown as IUniqueItem[];
@@ -137,12 +136,7 @@ export class Uniques {
         if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
     }
 
-    weaponSortOptions = [
-        { id: 'sort1h', type: '1h-phys', label: '1H Physical', help: 'Sort by One-Handed Physical Damage.' },
-        { id: 'sort2h', type: '2h-phys', label: '2H Physical', help: 'Sort by Two-Handed Physical Damage.' },
-        { id: 'sortthrow', type: 'throw-phys', label: 'Throw Physical', help: 'Sort by Throw Physical Damage.' },
-        { id: 'sortnonphys', type: 'non-phys', label: 'Non-Physical', help: 'Sort by Non-Physical Damage.' },
-    ];
+    weaponSortOptions = weaponSortOptions;
 
     @watch('selectedType')
     handleTypeChanged() {
@@ -246,18 +240,7 @@ export class Uniques {
 
         // Main sorting logic:
         if (this.isWeaponType && this.weaponSortMode !== 'none') {
-            const isAsc = this.weaponSortMode.includes('ascending');
-            const mode = this.weaponSortMode;
-            this.uniques = this.uniques.slice().sort((a, b) => {
-                let vA = 0, vB = 0;
-                if (mode.includes('1h-phys')) { vA = getWeaponPhysDamValue(a, [3, 0]); vB = getWeaponPhysDamValue(b, [3, 0]); }
-                else if (mode.includes('2h-phys')) { vA = getWeaponPhysDamValue(a, 1); vB = getWeaponPhysDamValue(b, 1); }
-                else if (mode.includes('throw-phys')) { vA = getWeaponPhysDamValue(a, 2); vB = getWeaponPhysDamValue(b, 2); }
-                else if (mode.includes('non-phys')) { vA = getWeaponNonPhysDamValueFromProperties(a); vB = getWeaponNonPhysDamValueFromProperties(b); }
-                if (vA === 0 && vB !== 0) return 1;
-                if (vA !== 0 && vB === 0) return -1;
-                return isAsc ? vA - vB : vB - vA;
-            });
+            this.uniques = sortItemsByWeaponDamage(this.uniques, this.weaponSortMode);
         }
     }
 
@@ -322,15 +305,10 @@ export class Uniques {
     }
 
     toggleSort(type: string) {
-        const desc = `avg-${type}-descending` as WeaponSortMode;
-        const asc = `avg-${type}-ascending` as WeaponSortMode;
-        this.weaponSortMode = this.weaponSortMode === desc ? asc : (this.weaponSortMode === asc ? 'none' : desc);
+        this.weaponSortMode = toggleWeaponSort(this.weaponSortMode, type);
     }
 
     getSortKeyFromDamageType(type: number): string | null {
-        if (type === 0 || type === 3) return '1h-phys';
-        if (type === 1) return '2h-phys';
-        if (type === 2) return 'throw-phys';
-        return null;
+        return getSortKeyFromDamageTypeUtil(type);
     }
 }

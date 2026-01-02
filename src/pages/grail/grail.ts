@@ -8,13 +8,23 @@ import {
     resolveBaseTypeName,
     type_filtering_options,
 } from '../../resources/constants';
-import { getDamageTypeString as getDamageTypeStringUtil } from '../../utilities/damage-types';
+import {
+    getDamageTypeString as getDamageTypeStringUtil,
+    parseDamageProperty,
+} from '../../utilities/damage-types';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
 import {
     isVanillaItem,
     prependTypeResetOption,
     tokenizeSearch,
 } from '../../utilities/filter-helpers';
+import {
+    getSortKeyFromDamageType as getSortKeyFromDamageTypeUtil,
+    sortItemsByWeaponDamage,
+    toggleWeaponSort,
+    WeaponSortMode,
+    weaponSortOptions,
+} from '../../utilities/item-sorting';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 import runewordsJson from '../item-jsons/runewords.json';
 import setsJson from '../item-jsons/sets.json';
@@ -109,6 +119,16 @@ export class Grail {
     @bindable selectedEquipmentName: string | undefined;
     // When true, hide items where Vanilla === 'Y'
     @bindable hideVanilla: boolean = false;
+    @bindable weaponSortMode: WeaponSortMode = 'none';
+
+    // Helper to check if current type is weapon
+    get isWeaponType(): boolean {
+        if (!this.selectedTypeBase) return false;
+        const opt = this.types.find((o) => o.id === this.selectedTypeBase);
+        return !!(opt && opt.value && opt.value.includes('Weapon'));
+    }
+
+    weaponSortOptions = weaponSortOptions;
 
     // Centralized options list (rebuilt per category based on data present)
     types: ReadonlyArray<IFilterOption> = type_filtering_options.slice();
@@ -439,6 +459,10 @@ export class Grail {
                 /* ignore */
             }
         }
+
+        // Reset sorting mode when type changes to non-weapon type
+        if (!this.isWeaponType) this.weaponSortMode = 'none';
+
         if (this._debouncedApplyFilters) this._debouncedApplyFilters();
     }
 
@@ -458,12 +482,28 @@ export class Grail {
         // Visibility toggles
         this.showFoundItems = false;
         this.hideVanilla = false;
+        this.weaponSortMode = 'none';
 
         // Rebuild options list for the current category and refresh
         this.rebuildTypeOptions();
         this.updateList();
         this.updateTotalCount();
         this.updateUrl();
+    }
+
+    // Reset only the weapon sorting mode
+    resetSort() {
+        this.weaponSortMode = 'none';
+        if (this._debouncedApplyFilters) this._debouncedApplyFilters();
+    }
+
+    toggleSort(type: string) {
+        this.weaponSortMode = toggleWeaponSort(this.weaponSortMode, type);
+        if (this._debouncedApplyFilters) this._debouncedApplyFilters();
+    }
+
+    getSortKeyFromDamageType(type: number): string | null {
+        return getSortKeyFromDamageTypeUtil(type);
     }
 
     updateList() {
@@ -511,6 +551,9 @@ export class Grail {
                 );
             });
             this.filteredUniques = result;
+            if (this.isWeaponType && this.weaponSortMode !== 'none') {
+                this.filteredUniques = sortItemsByWeaponDamage(this.filteredUniques, this.weaponSortMode);
+            }
             this.displayedCount = this.filteredUniques.length;
         } else if (this.selectedCategory === 'sets') {
             const result = this.allSetItems.filter((item) => {
@@ -537,6 +580,9 @@ export class Grail {
                 return okClass && okType && okEquip && okVanilla && okSearch && okFound;
             });
             this.filteredSetItems = result;
+            if (this.isWeaponType && this.weaponSortMode !== 'none') {
+                this.filteredSetItems = sortItemsByWeaponDamage(this.filteredSetItems, this.weaponSortMode);
+            }
             // Items displayed (original display)
             this.setItemsDisplayedCount = this.filteredSetItems.length;
             // Count unique sets among displayed items
@@ -890,8 +936,8 @@ export class Grail {
     }
 
     getDamageTypeString = getDamageTypeStringUtil;
+    parseDamageProperty = parseDamageProperty;
 
-    // Helpers for keys and equipment name list
     private getUniqueKey(u: IUniqueItem): string {
         return String(u?.Name || '');
     }

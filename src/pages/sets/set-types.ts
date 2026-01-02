@@ -8,6 +8,7 @@ export interface IProperty {
 export interface IEquipment {
     Name: string;
     DamageString?: string;
+    DamageTypes?: { Type: number, DamageString: string }[];
     ArmorString?: string;
     EquipmentType?: number;
     RequiredStrength?: number;

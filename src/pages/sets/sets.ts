@@ -8,13 +8,25 @@ import {
     resolveBaseTypeName,
     type_filtering_options,
 } from '../../resources/constants';
-import { getDamageTypeString as getDamageTypeStringUtil } from '../../utilities/damage-types';
+import {
+    getDamageTypeString as getDamageTypeStringUtil,
+    getWeaponNonPhysDamValueFromProperties,
+    getWeaponPhysDamValue,
+    IUniqueItem,
+    parseDamageProperty,
+} from '../../utilities/damage-types';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
 import {
     isVanillaItem,
     prependTypeResetOption,
     tokenizeSearch,
 } from '../../utilities/filter-helpers';
+import {
+    getSortKeyFromDamageType as getSortKeyFromDamageTypeUtil,
+    toggleWeaponSort,
+    WeaponSortMode,
+    weaponSortOptions,
+} from '../../utilities/item-sorting';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 import json from '../item-jsons/sets.json';
 
@@ -23,18 +35,32 @@ import { ISetData } from './set-types';
 export class Sets {
     sets: ISetData[] = json;
     @bindable search: string;
+    @bindable selectedClass: string | undefined;
     // Selected type: base token (scalar)
     @bindable selectedType: string = '';
     @bindable selectedEquipmentName: string | undefined;
     // When true, exclude items where Vanilla === 'Y'
     @bindable hideVanilla: boolean = false;
+    @bindable weaponSortMode: WeaponSortMode = 'none';
 
     private _debouncedSearchItem!: IDebouncedFunction;
+    private _debouncedUpdateUrl!: IDebouncedFunction;
 
     equipmentNames: Array<{ value: string | undefined; label: string }> = [];
 
     // Centralized type options, narrowed to types present in data
     types: ReadonlyArray<IFilterOption> = type_filtering_options.slice();
+
+    classes = character_class_options;
+
+    // Check if selected type is a weapon type
+    get isWeaponType(): boolean {
+        if (!this.selectedType) return false;
+        const opt = this.types.find((o) => o.id === this.selectedType);
+        return !!(opt && opt.value && opt.value.includes('Weapon'));
+    }
+
+    weaponSortOptions = weaponSortOptions;
 
     // Build options and hydrate from URL BEFORE controls render
     binding(): void {
@@ -84,6 +110,7 @@ export class Sets {
 
     attached(): void {
         this._debouncedSearchItem = debounce(() => this.updateList(), 350);
+        this._debouncedUpdateUrl = debounce(() => this.updateUrl(), 150);
         // Prebuild Equipment options if type preselected
         if (this.selectedType) {
             this.equipmentNames = this.getSetEquipmentNames();
@@ -110,18 +137,15 @@ export class Sets {
         if (this._debouncedSearchItem) {
             this._debouncedSearchItem();
         }
-        this.updateUrl();
+        if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
     }
-
-    @bindable selectedClass: string | undefined;
-
-    classes = character_class_options;
 
     @watch('selectedClass')
     @watch('hideVanilla')
+    @watch('weaponSortMode')
     handleFilterChanged(): void {
         this.updateList();
-        this.updateUrl();
+        if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
     }
 
     @watch('selectedType')
@@ -129,14 +153,17 @@ export class Sets {
         // Update equipment names when type changes and reset selection
         this.equipmentNames = this.getSetEquipmentNames();
         this.selectedEquipmentName = undefined;
+
+        // Reset sorting mode when type changes to non-weapon type
+        if (!this.isWeaponType) this.weaponSortMode = 'none';
+
         if (this._debouncedSearchItem) this._debouncedSearchItem();
-        this.updateUrl();
+        if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
     }
 
     @watch('selectedEquipmentName')
     handleEquipmentNameChanged(): void {
         if (this._debouncedSearchItem) this._debouncedSearchItem();
-        this.updateUrl();
     }
 
     updateList(): void {
@@ -247,12 +274,39 @@ export class Sets {
                     matchesClass(set) &&
                     matchesVanilla(set),
             );
+
+            // Main sorting logic:
+            if (this.isWeaponType && this.weaponSortMode !== 'none') {
+                const isAsc = this.weaponSortMode.includes('ascending');
+                const mode = this.weaponSortMode;
+                this.sets = this.sets.slice().sort((a, b) => {
+                    const getBestDam = (set: ISetData) => {
+                        let maxV = 0;
+                        for (const item of set.SetItems) {
+                            let v = 0;
+                            if (mode.includes('1h-phys')) v = getWeaponPhysDamValue(item as unknown as IUniqueItem, [3, 0]);
+                            else if (mode.includes('2h-phys')) v = getWeaponPhysDamValue(item as unknown as IUniqueItem, 1);
+                            else if (mode.includes('throw-phys')) v = getWeaponPhysDamValue(item as unknown as IUniqueItem, 2);
+                            else if (mode.includes('non-phys')) v = getWeaponNonPhysDamValueFromProperties(item as unknown as IUniqueItem);
+                            if (v > maxV) maxV = v;
+                        }
+                        return maxV;
+                    };
+                    const vA = getBestDam(a);
+                    const vB = getBestDam(b);
+
+                    if (vA === 0 && vB !== 0) return 1;
+                    if (vA !== 0 && vB === 0) return -1;
+                    return isAsc ? vA - vB : vB - vA;
+                });
+            }
         } catch (e) {
             // ignore
         }
     }
 
     getDamageTypeString = getDamageTypeStringUtil;
+    parseDamageProperty = parseDamageProperty;
 
     // Partial set bonus count display by index 0-1 = 2, 2-3 = 3, 4-5 = 4, 6+ = 5
     getItemCount(indexPassed: number): number {
@@ -302,8 +356,22 @@ export class Sets {
         this.selectedEquipmentName = undefined;
         this.hideVanilla = false;
         this.equipmentNames = [{ value: '', label: '-' }];
+        this.weaponSortMode = 'none';
 
         this.updateList();
         this.updateUrl();
+    }
+
+    // Reset only the weapon sorting mode
+    resetSort() {
+        this.weaponSortMode = 'none';
+    }
+
+    toggleSort(type: string) {
+        this.weaponSortMode = toggleWeaponSort(this.weaponSortMode, type);
+    }
+
+    getSortKeyFromDamageType(type: number): string | null {
+        return getSortKeyFromDamageTypeUtil(type);
     }
 }
