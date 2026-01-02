@@ -8,7 +8,13 @@ import {
     resolveBaseTypeName,
     type_filtering_options,
 } from '../../resources/constants';
-import { getDamageTypeString as getDamageTypeStringUtil } from '../../utilities/damage-types';
+import {
+    getDamageTypeString as getDamageTypeStringUtil,
+    getWeaponNonPhysDamValueFromProperties,
+    getWeaponPhysDamValue,
+    IUniqueItem,
+    parseDamageProperty,
+} from '../../utilities/damage-types';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
 import {
     isVanillaItem,
@@ -19,22 +25,12 @@ import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize'
 import json from '../item-jsons/uniques.json';
 
 // Minimal shapes for uniques JSON used by this page. Only type what we read.
-interface IUniqueProperty {
-    PropertyString?: string;
-}
 
-interface IUniqueEquipment {
-    Name?: string;
-    RequiredClass?: string;
-}
-
-interface IUniqueItem {
-    Name?: string;
-    Type?: string;
-    Equipment?: IUniqueEquipment;
-    Properties?: IUniqueProperty[];
-    Vanilla?: string | number | boolean;
-}
+export type WeaponSortMode = 'none' |
+    'avg-throw-phys-ascending' | 'avg-throw-phys-descending' |
+    'avg-1h-phys-ascending' | 'avg-1h-phys-descending' |
+    'avg-2h-phys-ascending' | 'avg-2h-phys-descending' |
+    'avg-non-phys-ascending' | 'avg-non-phys-descending';
 
 export class Uniques {
     uniques: IUniqueItem[] = json as unknown as IUniqueItem[];
@@ -46,6 +42,9 @@ export class Uniques {
     // Selected type value from dropdown: base token (scalar)
     @bindable selectedType: string = '';
     @bindable selectedEquipmentName: string | undefined;
+    // Current possible sorting modes
+    // TODO: Specific non-physical damage sorting in the future? (e.g.: fire damage)
+    @bindable weaponSortMode: WeaponSortMode = 'none';
 
     equipmentNames: Array<{ value: string | undefined; label: string }> = [];
 
@@ -54,6 +53,8 @@ export class Uniques {
 
     private _debouncedSearchItem!: IDebouncedFunction;
     private _debouncedUpdateUrl!: IDebouncedFunction;
+
+
 
     classes = character_class_options;
 
@@ -115,8 +116,16 @@ export class Uniques {
         this.updateUrl();
     }
 
+    // Check if selected type is a weapon type
+    get isWeaponType(): boolean {
+        if (!this.selectedType) return false;
+        const opt = this.types.find((o) => o.id === this.selectedType);
+        return !!(opt && opt.value && opt.value.includes('Weapon'));
+    }
+
     @watch('selectedClass')
     @watch('hideVanilla')
+    @watch('weaponSortMode')
     handleFilterChanged() {
         this.updateList();
         if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
@@ -128,12 +137,22 @@ export class Uniques {
         if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
     }
 
+    weaponSortOptions = [
+        { id: 'sort1h', type: '1h-phys', label: '1H Physical', help: 'Sort by One-Handed Physical Damage.' },
+        { id: 'sort2h', type: '2h-phys', label: '2H Physical', help: 'Sort by Two-Handed Physical Damage.' },
+        { id: 'sortthrow', type: 'throw-phys', label: 'Throw Physical', help: 'Sort by Throw Physical Damage.' },
+        { id: 'sortnonphys', type: 'non-phys', label: 'Non-Physical', help: 'Sort by Non-Physical Damage.' },
+    ];
+
     @watch('selectedType')
     handleTypeChanged() {
         // Update equipment names when type changes
         this.equipmentNames = this.getUniqueEquipmentNames();
         // Reset selected equipment name when type changes
         this.selectedEquipmentName = undefined;
+
+        // Reset sorting mode when type changes to non-weapon type
+        if (!this.isWeaponType) this.weaponSortMode = 'none';
 
         if (this._debouncedSearchItem) this._debouncedSearchItem();
         if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
@@ -224,9 +243,26 @@ export class Uniques {
                 isMatchingEquipmentName(unique) &&
                 isMatchingVanilla(unique),
         );
+
+        // Main sorting logic:
+        if (this.isWeaponType && this.weaponSortMode !== 'none') {
+            const isAsc = this.weaponSortMode.includes('ascending');
+            const mode = this.weaponSortMode;
+            this.uniques = this.uniques.slice().sort((a, b) => {
+                let vA = 0, vB = 0;
+                if (mode.includes('1h-phys')) { vA = getWeaponPhysDamValue(a, [3, 0]); vB = getWeaponPhysDamValue(b, [3, 0]); }
+                else if (mode.includes('2h-phys')) { vA = getWeaponPhysDamValue(a, 1); vB = getWeaponPhysDamValue(b, 1); }
+                else if (mode.includes('throw-phys')) { vA = getWeaponPhysDamValue(a, 2); vB = getWeaponPhysDamValue(b, 2); }
+                else if (mode.includes('non-phys')) { vA = getWeaponNonPhysDamValueFromProperties(a); vB = getWeaponNonPhysDamValueFromProperties(b); }
+                if (vA === 0 && vB !== 0) return 1;
+                if (vA !== 0 && vB === 0) return -1;
+                return isAsc ? vA - vB : vB - vA;
+            });
+        }
     }
 
     getDamageTypeString = getDamageTypeStringUtil;
+    parseDamageProperty = parseDamageProperty;
 
     getUniqueEquipmentNames() {
         // Filter uniques based on the selected base (include descendants + ancestors)
@@ -274,8 +310,27 @@ export class Uniques {
         this.selectedType = '';
         this.selectedEquipmentName = undefined;
         this.equipmentNames = [{ value: '', label: '-' }];
+        this.weaponSortMode = 'none';
 
         this.updateList();
         this.updateUrl();
+    }
+
+    // Reset only the weapon sorting mode
+    resetSort() {
+        this.weaponSortMode = 'none';
+    }
+
+    toggleSort(type: string) {
+        const desc = `avg-${type}-descending` as WeaponSortMode;
+        const asc = `avg-${type}-ascending` as WeaponSortMode;
+        this.weaponSortMode = this.weaponSortMode === desc ? asc : (this.weaponSortMode === asc ? 'none' : desc);
+    }
+
+    getSortKeyFromDamageType(type: number): string | null {
+        if (type === 0 || type === 3) return '1h-phys';
+        if (type === 1) return '2h-phys';
+        if (type === 2) return 'throw-phys';
+        return null;
     }
 }

@@ -106,6 +106,47 @@
         </div>
     </search-area>
 
+    <weapon-sort-area if.bind="isWeaponType">
+        <div class="w-full m-auto px-5 py-2">
+            <h4 class="text-lg type-text text-center mb-2">Sort by Average Weapon Damage:</h4>
+            <div class="flex flex-wrap justify-center items-start gap-2">
+
+                <div repeat.for="opt of weaponSortOptions" class="w-full lg:w-auto lg:min-w-45" data-help-text.bind="opt.help">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <button id.bind="opt.id" class="vanilla-button flex-row-reverse" type="button" click.trigger="toggleSort(opt.type)"
+                                    aria-pressed.bind="weaponSortMode.includes(opt.type)">
+                                <span class="mso ${weaponSortMode.includes(opt.type) ? 'set-text-light' : ''}">
+                                    ${weaponSortMode === 'avg-' + opt.type + '-ascending' ? 'arrow_upward' : (weaponSortMode === 'avg-' + opt.type + '-descending' ? 'arrow_downward' : 'unknown_med')}
+                                </span>
+                                ${opt.label}
+                            </button>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for.bind="opt.id">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about ${opt.label} sorting</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Reset weapon sorting.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <button id="resetsort" class="button-base" type="button" click.trigger="resetSort()">
+                                Reset Sort
+                            </button>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="resetsort">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Reset Sort</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </weapon-sort-area>
+
     <div class="card-container">
         <div class="card-box card-vis" repeat.for="unique of uniques">
 
@@ -132,9 +173,14 @@
                          if.bind="unique.Equipment.Block !== null && unique.Equipment.Block !== undefined && unique.Equipment.Block > 0">
                         Block: ${unique.Equipment.Block}%
                     </div>
-                    <div class="text-base type-text" if.bind="unique.Equipment.DamageTypes"
-                         repeat.for="damage of unique.Equipment.DamageTypes">
-                        ${getDamageTypeString(damage.Type)} ${damage.DamageString}
+                    <div class="text-base type-text flex items-center justify-center gap-1"
+                         repeat.for="damage of unique.Equipment.DamageTypes"
+                         click.trigger="getSortKeyFromDamageType(damage.Type) ? toggleSort(getSortKeyFromDamageType(damage.Type)) : null"
+                         class.bind="getSortKeyFromDamageType(damage.Type) ? 'clickable' : ''">
+                        <span>${getDamageTypeString(damage.Type)} ${damage.DamageString}</span>
+                        <span class="mso set-text-light" if.bind="getSortKeyFromDamageType(damage.Type) && weaponSortMode.includes(getSortKeyFromDamageType(damage.Type))">
+                            ${weaponSortMode.includes('ascending') ? 'arrow_upward' : 'arrow_downward'}
+                        </span>
                     </div>
                     <div class="text-base type-text" if.bind="unique.Equipment.Durability > 0">
                         Durability: ${unique.Equipment.Durability}
@@ -157,8 +203,14 @@
                     </div>
                 </div>
 
-                <div class="text-base prop-text" repeat.for="property of unique.Properties">
-                    ${property.PropertyString}
+                <div class="text-base prop-text flex items-center justify-center gap-1"
+                    repeat.for="property of unique.Properties"
+                    click.trigger="parseDamageProperty(property.PropertyString) ? toggleSort('non-phys') : null"
+                    class.bind="parseDamageProperty(property.PropertyString) ? 'clickable' : ''">
+                    <span>${property.PropertyString}</span>
+                    <span class="mso set-text-light" if.bind="parseDamageProperty(property.PropertyString) && weaponSortMode.includes('non-phys')">
+                        ${weaponSortMode.includes('ascending') ? 'arrow_upward' : 'arrow_downward'}
+                    </span>
                 </div>
 
                 </div>
