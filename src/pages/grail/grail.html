@@ -176,7 +176,8 @@
         </div>
     </search-area>
 
-    <weapon-sort-area if.bind="isWeaponType && selectedCategory !== 'runewords'">
+    <!-- weapon-sort-area -->
+    <div if.bind="isWeaponType && selectedCategory !== 'runewords'">
         <div class="w-full m-auto px-5 py-2">
             <h4 class="text-lg type-text text-center mb-2">Sort by Average Weapon Damage:</h4>
             <div class="flex flex-wrap justify-center items-start gap-2">
@@ -215,7 +216,7 @@
 
             </div>
         </div>
-    </weapon-sort-area>
+    </div>
 
     <div class="card-container">
         <div class="card-box card-vis" repeat.for="unique of filteredUniques"
