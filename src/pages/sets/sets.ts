@@ -4,6 +4,7 @@ import {
     buildOptionsForPresentTypes,
     character_class_options,
     getChainForTypeNameReadonly,
+    getTypeChain,
     IFilterOption,
     resolveBaseTypeName,
     type_filtering_options,
@@ -57,7 +58,16 @@ export class Sets {
     get isWeaponType(): boolean {
         if (!this.selectedType) return false;
         const opt = this.types.find((o) => o.id === this.selectedType);
-        return !!(opt && opt.value && opt.value.includes('Weapon'));
+        if (!opt || !opt.value) return false;
+
+        // Check if 'Weapon' is in the values (works for aggregates and non-exact types)
+        if (opt.value.includes('Weapon')) return true;
+
+        // For exact types, we need to check their ancestors in the type graph
+        return opt.value.some(typeName => {
+            const chain = getTypeChain(typeName);
+            return chain.includes('Weapon');
+        });
     }
 
     weaponSortOptions = weaponSortOptions;
