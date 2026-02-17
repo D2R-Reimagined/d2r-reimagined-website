@@ -23910,5 +23910,381 @@
         ],
         "ETypes": [],
         "PType": "Prefix"
+    },
+    {
+        "Name": "Chaotic",
+        "Level": 50,
+        "MaxLevel": 0,
+        "RequiredLevel": 42,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+1 to Chaos Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Grand Charm"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Sullied",
+        "Level": 50,
+        "MaxLevel": 0,
+        "RequiredLevel": 42,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+1 to Eldritch Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Grand Charm"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Fiendish",
+        "Level": 50,
+        "MaxLevel": 0,
+        "RequiredLevel": 42,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+1 to Demon Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Grand Charm"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Chaotic",
+        "Level": 20,
+        "MaxLevel": 0,
+        "RequiredLevel": 15,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+1 to Chaos Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Knife",
+            "Grimoire",
+            "Amulet",
+            "Circlet"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Erratic",
+        "Level": 40,
+        "MaxLevel": 0,
+        "RequiredLevel": 30,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+2 to Chaos Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Knife",
+            "Grimoire",
+            "Amulet",
+            "Circlet"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Torrid",
+        "Level": 60,
+        "MaxLevel": 0,
+        "RequiredLevel": 45,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+3 to Chaos Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Knife",
+            "Grimoire",
+            "Amulet",
+            "Circlet"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Sullied",
+        "Level": 20,
+        "MaxLevel": 0,
+        "RequiredLevel": 15,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+1 to Eldritch Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Knife",
+            "Grimoire",
+            "Amulet",
+            "Sword",
+            "Circlet"
+        ],
+        "ETypes": [
+            "Throwing Knife"
+        ],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Tainted",
+        "Level": 40,
+        "MaxLevel": 0,
+        "RequiredLevel": 30,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+2 to Eldritch Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Knife",
+            "Grimoire",
+            "Amulet",
+            "Sword",
+            "Circlet"
+        ],
+        "ETypes": [
+            "Throwing Knife"
+        ],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Forbidden",
+        "Level": 60,
+        "MaxLevel": 0,
+        "RequiredLevel": 45,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+3 to Eldritch Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Knife",
+            "Grimoire",
+            "Amulet",
+            "Sword",
+            "Circlet"
+        ],
+        "ETypes": [
+            "Throwing Knife"
+        ],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Fiendish",
+        "Level": 20,
+        "MaxLevel": 0,
+        "RequiredLevel": 15,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+1 to Demon Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Knife",
+            "Grimoire",
+            "Amulet",
+            "Circlet"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Dreadful",
+        "Level": 40,
+        "MaxLevel": 0,
+        "RequiredLevel": 30,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+2 to Demon Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Knife",
+            "Grimoire",
+            "Amulet",
+            "Circlet"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Malevolent",
+        "Level": 60,
+        "MaxLevel": 0,
+        "RequiredLevel": 45,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+3 to Demon Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Knife",
+            "Grimoire",
+            "Amulet",
+            "Circlet"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Devil's",
+        "Level": 36,
+        "MaxLevel": 0,
+        "RequiredLevel": 27,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+1 to Warlock Skill Levels",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Amulet",
+            "Circlet"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Arch-Devil's",
+        "Level": 90,
+        "MaxLevel": 0,
+        "RequiredLevel": 67,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+2 to Warlock Skill Levels",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Amulet",
+            "Circlet"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Devil's",
+        "Level": 30,
+        "MaxLevel": 0,
+        "RequiredLevel": 22,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+1 to Warlock Skill Levels",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Knife",
+            "Grimoire"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Arch-Devil's",
+        "Level": 50,
+        "MaxLevel": 0,
+        "RequiredLevel": 42,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+2 to Warlock Skill Levels",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Knife",
+            "Grimoire"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
     }
 ]
