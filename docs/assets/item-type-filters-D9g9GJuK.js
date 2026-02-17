@@ -28,7 +28,9 @@ const ITEM_TYPES = [
   { name: "Small Charm", code: "scha", parents: ["Charm"] },
   { name: "Large Charm", code: "mcha", parents: ["Charm"] },
   { name: "Grand Charm", code: "lcha", parents: ["Charm"] },
+  { name: "Crafted Sunder Charm", code: "csch", parents: ["Charm"] },
   { name: "Jewel", code: "jewl", parents: ["Socket Filler"] },
+  { name: "Colossal Jewel", code: "cjwl", parents: ["Jewel"] },
   { name: "Rune", code: "rune", parents: ["Socket Filler"] },
   { name: "Gem", code: "gem", parents: ["Socket Filler"] },
   // Weapon families
@@ -63,6 +65,7 @@ const ITEM_TYPES = [
   { name: "Sorceress Item", code: "sorc", parents: ["Class Specific"] },
   { name: "Assassin Item", code: "assn", parents: ["Class Specific"] },
   { name: "Druid Item", code: "drui", parents: ["Class Specific"] },
+  { name: "Warlock Item", code: "warl", parents: ["Class Specific"] },
   // Class-specific weapons
   { name: "Amazon Bow", code: "abow", parents: ["Amazon Item", "Bow", "Missile Weapon", "Weapon"] },
   { name: "Amazon Spear", code: "aspe", parents: ["Amazon Item", "Spear", "Melee Weapon", "Weapon"] },
@@ -74,6 +77,7 @@ const ITEM_TYPES = [
   { name: "Pelt", code: "pelt", parents: ["Druid Item", "Helm"] },
   { name: "Voodoo Heads", code: "head", parents: ["Necromancer Item", "Any Shield"] },
   { name: "Auric Shields", code: "ashd", parents: ["Paladin Item", "Any Shield"] },
+  { name: "Grimoire", code: "grim", parents: ["Warlock Item", "Any Shield"] },
   // Miscellaneous consumables and scrolls
   { name: "Gold", code: "gold", parents: ["Miscellaneous"] },
   { name: "Player Body Part", code: "play", parents: ["Miscellaneous"] },
@@ -171,7 +175,7 @@ function getChainForTypeNameReadonly(rawName) {
   const node = ITEM_TYPE_BY_NAME.get(raw) || ITEM_TYPE_BY_NAME_LC.get(raw.toLowerCase());
   return node ? computeChain(node.name) : Object.freeze([raw]);
 }
-const CLASS_AGGREGATE_BASES = /* @__PURE__ */ new Set(["Amazon Item", "Barbarian Item", "Necromancer Item", "Paladin Item", "Sorceress Item", "Assassin Item", "Druid Item"]);
+const CLASS_AGGREGATE_BASES = /* @__PURE__ */ new Set(["Amazon Item", "Barbarian Item", "Necromancer Item", "Paladin Item", "Sorceress Item", "Assassin Item", "Druid Item", "Warlock Item"]);
 function makeTypeOption(label, baseTypeName, extraParents = [], exactBaseOnly = false, id) {
   if (!baseTypeName) return { id: "", label, value: void 0 };
   const finalId = id || (exactBaseOnly ? `exact-${baseTypeName}` : baseTypeName).toLowerCase().replace(/\s+/g, "-");
@@ -250,6 +254,7 @@ const ANCESTOR_ONLY_WHEN_EXACT_OFF = [
   "necromancer-shield",
   "paladin-shield",
   "sorceress-orb",
+  "warlock-grimoire",
   "helm"
 ];
 function buildOptionsForPresentTypes(preset, presentBaseNames) {
@@ -320,9 +325,11 @@ const type_filtering_options = [
   makeTypeOption("Ring", "Ring"),
   makeTypeOption("Amulet", "Amulet"),
   makeTypeOption("Jewel", "Jewel"),
+  makeTypeOption("Colossal Jewel", "Colossal Jewel"),
   makeTypeOption("Small Charm", "Small Charm"),
   makeTypeOption("Large Charm", "Large Charm"),
   makeTypeOption("Grand Charm", "Grand Charm"),
+  makeTypeOption("Crafted Sunder Charm", "Crafted Sunder Charm"),
   // Weapon bases
   makeTypeOption("Axe", "Axe"),
   makeTypeOption("Mace", "Mace"),
@@ -352,7 +359,8 @@ const type_filtering_options = [
   makeTypeOption("Druid Helm", "Pelt", [], true, "druid-helm"),
   makeTypeOption("Necromancer Shield", "Voodoo Heads", [], true, "necromancer-shield"),
   makeTypeOption("Paladin Shield", "Auric Shields", [], true, "paladin-shield"),
-  makeTypeOption("Sorceress Orb", "Orb", [], true, "sorceress-orb")
+  makeTypeOption("Sorceress Orb", "Orb", [], true, "sorceress-orb"),
+  makeTypeOption("Warlock Grimoire", "Grimoire", [], true, "warlock-grimoire")
 ];
 export {
   ANCESTOR_ONLY_WHEN_EXACT_OFF as A,
