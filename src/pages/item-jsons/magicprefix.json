@@ -17072,7 +17072,7 @@
         "ClassLevelReq": 1,
         "Properties": [
             {
-                "PropertyString": "Level 1 Frost Blast (150 Charges)",
+                "PropertyString": "Level 1 Ice Barrage (150 Charges)",
                 "Index": 0
             }
         ],
@@ -17094,7 +17094,7 @@
         "ClassLevelReq": 1,
         "Properties": [
             {
-                "PropertyString": "Level 10 Frost Blast (150 Charges)",
+                "PropertyString": "Level 10 Ice Barrage (150 Charges)",
                 "Index": 0
             }
         ],

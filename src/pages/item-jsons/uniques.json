@@ -20561,7 +20561,7 @@
         "Code": "hbt",
         "Properties": [
             {
-                "PropertyString": "Level 5 Vigor Aura When Equipped",
+                "PropertyString": "Level 2-3 Vigor Aura When Equipped",
                 "Index": 6
             },
             {
@@ -25326,7 +25326,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Level 1-3 Holy Freeze Aura When Equipped",
+                "PropertyString": "Level 3-5 Holy Freeze Aura When Equipped",
                 "Index": 4
             },
             {
@@ -25334,12 +25334,12 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+1 to Cold Mastery (oskill)",
-                "Index": 6
-            },
-            {
                 "PropertyString": "+180-200% Enhanced Weapon Damage",
                 "Index": 0
+            },
+            {
+                "PropertyString": "-10-15% to Enemy Cold Resistance",
+                "Index": 6
             },
             {
                 "PropertyString": "+75 to Mana",
@@ -28116,7 +28116,7 @@
         "Vanilla": "N",
         "Name": "Bolt Case of Piercing",
         "Index": "Bolt Case of Piercing",
-        "Enabled": true,
+        "Enabled": false,
         "Rarity": 1,
         "ItemLevel": 1,
         "RequiredLevel": 35,
@@ -44497,6 +44497,178 @@
         }
     },
     {
+        "Type": "Ring",
+        "Vanilla": "N",
+        "Name": "Sling",
+        "Index": "Sling",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 58,
+        "RequiredLevel": 50,
+        "Code": "rin",
+        "Properties": [
+            {
+                "PropertyString": "+1 to Townportal O Skill (oskill)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+10% Faster Cast Rate",
+                "Index": 1
+            },
+            {
+                "PropertyString": "-3-5% to Enemy Magic Resistance",
+                "Index": 2
+            },
+            {
+                "PropertyString": "Slows Target by 15%",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+10-15 to Energy",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+10-20% Chance Items Roll Magic or Better",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Ring",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Ring",
+        "Vanilla": "N",
+        "Name": "Opalvein",
+        "Index": "Opalvein",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 58,
+        "RequiredLevel": 50,
+        "Code": "rin",
+        "Properties": [
+            {
+                "PropertyString": "2% Chance to cast level 15 Flame Wave on attack",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+10% Faster Cast Rate",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+6-8% to All Resistances",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+1-3 Life after each Kill",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+1-3 to Mana after each Kill",
+                "Index": 5
+            },
+            {
+                "group-properties": {
+                    "magdam-rand": [
+                        {
+                            "PropertyString": "+3-5% to Magic Skill Damage",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "+20-40% Enhanced Weapon Damage",
+                            "Index": 1
+                        },
+                        {
+                            "PropertyString": "+3-5% to Fire Skill Damage",
+                            "Index": 2
+                        },
+                        {
+                            "PropertyString": "+3-5% to Cold Skill Damage",
+                            "Index": 3
+                        },
+                        {
+                            "PropertyString": "+3-5% to Lightning Skill Damage",
+                            "Index": 4
+                        },
+                        {
+                            "PropertyString": "+3-5% to Poison Skill Damage",
+                            "Index": 5
+                        }
+                    ]
+                }
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Ring",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Helm",
+        "Vanilla": "N",
+        "Name": "Hellwarden's Will",
+        "Index": "Unique Warlock Helm",
+        "Enabled": true,
+        "Rarity": 2,
+        "ItemLevel": 55,
+        "RequiredLevel": 50,
+        "Code": "xsk",
+        "Properties": [
+            {
+                "PropertyString": "+1 to All Skills",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20% Increased Attack Speed",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+20% Faster Cast Rate",
+                "Index": 3
+            },
+            {
+                "PropertyString": "-5-8% to Enemy Fire Resistance",
+                "Index": 1
+            },
+            {
+                "PropertyString": "-5-8% to Enemy Magic Resistance",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+150-215% Enhanced Defense",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+4-6 to Mana after each Kill",
+                "Index": 6
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "217-274",
+            "Block": null,
+            "EquipmentType": 0,
+            "Name": "Death Mask [X]",
+            "RequiredStrength": "55",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": ""
+        }
+    },
+    {
         "Type": "Axe",
         "Vanilla": "N",
         "Name": "Harvest of Souls",
@@ -46573,6 +46745,72 @@
         }
     },
     {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "Measured Wrath",
+        "Index": "Measured Wrath",
+        "Enabled": true,
+        "Rarity": 3,
+        "ItemLevel": 58,
+        "RequiredLevel": 52,
+        "Code": "wa6",
+        "Properties": [
+            {
+                "PropertyString": "5% Chance to cast level 25 Ring Of Fire when struck",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+1 to Warlock Skill Levels",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+25% Faster Cast Rate",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+1-3 to Summon Tainted (Warlock Only)",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+1-3 to Ring of Fire (Warlock Only)",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+1-3 to Flame Wave (Warlock Only)",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+130-180% Enhanced Defense",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+10-20 to Vitality",
+                "Index": 7
+            },
+            {
+                "PropertyString": "+20-30% to All Resistances",
+                "Index": 9
+            },
+            {
+                "PropertyString": "+3-5 Life after each Kill",
+                "Index": 8
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "112-137",
+            "Block": 3,
+            "EquipmentType": 0,
+            "Name": "Burnt Text [X]",
+            "RequiredStrength": "38",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
+        }
+    },
+    {
         "Type": "Axe",
         "Vanilla": "N",
         "Name": "Ogre's Breath",
@@ -47430,6 +47668,52 @@
         }
     },
     {
+        "Type": "Amulet",
+        "Vanilla": "N",
+        "Name": "Entropy Locket",
+        "Index": "Entropy Locket",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 60,
+        "RequiredLevel": 54,
+        "Code": "amu",
+        "Properties": [
+            {
+                "PropertyString": "4% Chance to cast level 19 Miasma Chains on striking",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+5-10% Faster Cast Rate",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+5-10% to Magic Skill Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+10-15% Increased Maximum Mana",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+25-40% Lightning Resistance",
+                "Index": 3
+            },
+            {
+                "PropertyString": "Magic Damage Reduced By 8-12",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Amulet",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
         "Type": "Axe",
         "Vanilla": "N",
         "Name": "Spirit Naga",
@@ -48155,11 +48439,11 @@
         "Code": "8lw",
         "Properties": [
             {
-                "PropertyString": "15% Chance to cast level 25 Fist Of The Heavens on striking",
+                "PropertyString": "10% Chance to cast level 25 Fist Of The Heavens on striking",
                 "Index": 4
             },
             {
-                "PropertyString": "+1 to Multiple Shot (oskill)",
+                "PropertyString": "+1 to Strafe (oskill)",
                 "Index": 1
             },
             {
@@ -49834,7 +50118,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Drain Life -6 (Per Character Level)",
+                "PropertyString": "Drain Life -4 (Per Character Level)",
                 "Index": 3
             },
             {
@@ -53453,6 +53737,71 @@
     {
         "Type": "Sword",
         "Vanilla": "N",
+        "Name": "Dreadfang",
+        "Index": "Dreadfang",
+        "Enabled": true,
+        "Rarity": 2,
+        "ItemLevel": 69,
+        "RequiredLevel": 61,
+        "Code": "72h",
+        "Properties": [
+            {
+                "PropertyString": "33% Chance to cast level 3 Amplify Damage on striking",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+33% Increased Attack Speed",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+133-166% Enhanced Weapon Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+33% Bonus to Attack Rating",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+3-6% Mana stolen per hit",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+33% Deadly Strike",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+3 to Mirrored Blades (Warlock Only)",
+                "Index": 5
+            },
+            {
+                "PropertyString": "Requirements Reduced By -33%",
+                "Index": 7
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageTypes": [
+                {
+                    "Type": 0,
+                    "DamageString": "(51-58) to (130-148)"
+                },
+                {
+                    "Type": 1,
+                    "DamageString": "(116-133) to (219-250)"
+                }
+            ],
+            "Speed": -15,
+            "EquipmentType": 1,
+            "Name": "Legend Sword [E]",
+            "RequiredStrength": "117",
+            "RequiredDexterity": "67",
+            "Durability": 250,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Sword",
+        "Vanilla": "N",
         "Name": "Black Razor",
         "Index": "Black Razor",
         "Enabled": true,
@@ -55611,7 +55960,7 @@
         "Vanilla": "N",
         "Name": "Bolt Case of Slaying",
         "Index": "Bolt Case of Slaying",
-        "Enabled": true,
+        "Enabled": false,
         "Rarity": 1,
         "ItemLevel": 1,
         "RequiredLevel": 65,
@@ -56766,6 +57115,123 @@
             "RequiredStrength": "144",
             "RequiredDexterity": "0",
             "Durability": 40,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Boots",
+        "Vanilla": "N",
+        "Name": "Wraithstep",
+        "Index": "Wraithstep",
+        "Enabled": true,
+        "Rarity": 2,
+        "ItemLevel": 73,
+        "RequiredLevel": 67,
+        "Code": "utb",
+        "Properties": [
+            {
+                "PropertyString": "+30% Faster Run/Walk Speed",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+20% Faster Hit Recovery",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+40-60 Defense",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+10-15 to Dexterity",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+10-15 to Energy",
+                "Index": 5
+            },
+            {
+                "group-properties": {
+                    "skilltab-war": [
+                        {
+                            "PropertyString": "+1 Random Skill Tab (Warlock Only)",
+                            "Index": 0
+                        }
+                    ]
+                }
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": "50 to 145",
+            "DamageStringPrefix": "Kick Damage",
+            "ArmorString": "99-128",
+            "Block": null,
+            "EquipmentType": 0,
+            "Name": "Mirrored Boots [E]",
+            "RequiredStrength": "163",
+            "RequiredDexterity": "0",
+            "Durability": 18,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Knife",
+        "Vanilla": "N",
+        "Name": "Bloodpact Shard",
+        "Index": "Bloodpact Shard",
+        "Enabled": true,
+        "Rarity": 2,
+        "ItemLevel": 73,
+        "RequiredLevel": 67,
+        "Code": "7di",
+        "Properties": [
+            {
+                "PropertyString": "+1 to All Skills",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+30% Faster Cast Rate",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+2-3 to Blood Oath (Warlock Only)",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+2-3 to Blood Boil (Warlock Only)",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+1-3 to Bind Demon (Warlock Only)",
+                "Index": 5
+            },
+            {
+                "PropertyString": "Slows Target by 25%",
+                "Index": 7
+            },
+            {
+                "PropertyString": "+10-15% Increased Maximum Life",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+20-35% Chance Items Roll Magic or Better",
+                "Index": 6
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "DamageTypes": [
+                {
+                    "Type": 3,
+                    "DamageString": "37 to 53"
+                }
+            ],
+            "Speed": 0,
+            "EquipmentType": 1,
+            "Name": "Mithril Point [E]",
+            "RequiredStrength": "55",
+            "RequiredDexterity": "98",
+            "Durability": 250,
             "RequiredClass": ""
         }
     },
@@ -60017,6 +60483,60 @@
         }
     },
     {
+        "Type": "Belt",
+        "Vanilla": "N",
+        "Name": "Gheed's Wager",
+        "Index": "Gheed's Wager",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 79,
+        "RequiredLevel": 71,
+        "Code": "utc",
+        "Properties": [
+            {
+                "PropertyString": "+10-20% Faster Run/Walk Speed",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+10-20% Faster Cast Rate",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+10-20% Faster Hit Recovery",
+                "Index": 1
+            },
+            {
+                "PropertyString": "-3-7% to Enemy Magic Resistance",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+90-150% Enhanced Defense",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+5-15% to All Resistances",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+44-75% Extra Gold from Monsters",
+                "Index": 6
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "127-167",
+            "Block": null,
+            "EquipmentType": 0,
+            "Name": "Troll Belt [E]",
+            "RequiredStrength": "151",
+            "RequiredDexterity": "0",
+            "Durability": 18,
+            "RequiredClass": ""
+        }
+    },
+    {
         "Type": "Axe",
         "Vanilla": "N",
         "Name": "Death Slaad",
@@ -60607,6 +61127,68 @@
             "RequiredDexterity": "0",
             "Durability": 0,
             "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "Ars Tor'Baalos",
+        "Index": "Ars Tor'Baalos",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 85,
+        "RequiredLevel": 73,
+        "Code": "wae",
+        "Properties": [
+            {
+                "PropertyString": "15% Chance to cast level 1 Decrepify when struck",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+2 to Demon Skills (Warlock Only)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+2-3 to Demonic Mastery (Warlock Only)",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+2-4 to Blood Boil (Warlock Only)",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+2-3 to Engorge (Warlock Only)",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+2-3 to Consume (Warlock Only)",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+120-150% Enhanced Defense",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+1.5 to Life (Per Character Level)",
+                "Index": 7
+            },
+            {
+                "PropertyString": "+5-10% Physical Damage Reduction",
+                "Index": 8
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "323-367",
+            "Block": 10,
+            "EquipmentType": 0,
+            "Name": "Blasphemous Compendium [E]",
+            "RequiredStrength": "95",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
         }
     },
     {
@@ -62436,6 +63018,1290 @@
         }
     },
     {
+        "Type": "Grand Charm",
+        "Vanilla": "Y",
+        "Name": "Cold Rupture",
+        "Index": "Cold Rupture",
+        "Enabled": false,
+        "Rarity": 1,
+        "ItemLevel": 69,
+        "RequiredLevel": 75,
+        "Code": "cm3",
+        "Properties": [
+            {
+                "PropertyString": "Monster Cold Immunity is Sundered",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-90 to -70% Cold Resistance",
+                "Index": 1
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Grand Charm",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Grand Charm",
+        "Vanilla": "Y",
+        "Name": "Flame Rift",
+        "Index": "Flame Rift",
+        "Enabled": false,
+        "Rarity": 1,
+        "ItemLevel": 69,
+        "RequiredLevel": 75,
+        "Code": "cm3",
+        "Properties": [
+            {
+                "PropertyString": "Monster Fire Immunity is Sundered",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-90 to -70% Fire Resistance",
+                "Index": 1
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Grand Charm",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Grand Charm",
+        "Vanilla": "Y",
+        "Name": "Crack of the Heavens",
+        "Index": "Crack of the Heavens",
+        "Enabled": false,
+        "Rarity": 1,
+        "ItemLevel": 69,
+        "RequiredLevel": 75,
+        "Code": "cm3",
+        "Properties": [
+            {
+                "PropertyString": "Monster Lightning Immunity is Sundered",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-90 to -70% Lightning Resistance",
+                "Index": 1
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Grand Charm",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Grand Charm",
+        "Vanilla": "Y",
+        "Name": "Rotting Fissure",
+        "Index": "Rotting Fissure",
+        "Enabled": false,
+        "Rarity": 1,
+        "ItemLevel": 69,
+        "RequiredLevel": 75,
+        "Code": "cm3",
+        "Properties": [
+            {
+                "PropertyString": "Monster Poison Immunity is Sundered",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-90 to -70% Poison Resistance",
+                "Index": 1
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Grand Charm",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Grand Charm",
+        "Vanilla": "Y",
+        "Name": "Bone Break",
+        "Index": "Bone Break",
+        "Enabled": false,
+        "Rarity": 1,
+        "ItemLevel": 69,
+        "RequiredLevel": 75,
+        "Code": "cm3",
+        "Properties": [
+            {
+                "PropertyString": "Monster Physical Immunity is Sundered",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-20 to -10% Physical Damage Reduction",
+                "Index": 1
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Grand Charm",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Grand Charm",
+        "Vanilla": "Y",
+        "Name": "Black Cleft",
+        "Index": "Black Cleft",
+        "Enabled": false,
+        "Rarity": 1,
+        "ItemLevel": 69,
+        "RequiredLevel": 75,
+        "Code": "cm3",
+        "Properties": [
+            {
+                "PropertyString": "Monster Magic Immunity is Sundered",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-65 to -45% Magic Resistance",
+                "Index": 1
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Grand Charm",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Colossal Jewel",
+        "Vanilla": "N",
+        "Name": "Defender's Bile",
+        "Index": "Defender's Bile",
+        "Enabled": false,
+        "Rarity": 1,
+        "ItemLevel": 110,
+        "RequiredLevel": 75,
+        "Code": "cjw",
+        "Properties": [
+            {
+                "PropertyString": "1% Chance to cast level 25 Bone Armor when struck",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Adds 96 Weapon Poison Damage over 1 seconds",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+5-10% to Poison Skill Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "-5-10% to Enemy Poison Resistance",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+3-5% to Experience Gained",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+25-50% Extra Gold from Monsters",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+15-35% Chance Items Roll Magic or Better",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Jewel",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Colossal Jewel",
+        "Vanilla": "N",
+        "Name": "Guardian's Thunder",
+        "Index": "Guardian's Thunder",
+        "Enabled": false,
+        "Rarity": 1,
+        "ItemLevel": 110,
+        "RequiredLevel": 75,
+        "Code": "cjw",
+        "Properties": [
+            {
+                "PropertyString": "1% Chance to cast level 25 Cyclone Armor when struck",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Adds 1-75 Weapon Lightning Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+5-10% to Lightning Skill Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "-5-10% to Enemy Lightning Resistance",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+3-5% to Experience Gained",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+25-50% Extra Gold from Monsters",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+15-35% Chance Items Roll Magic or Better",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Jewel",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Colossal Jewel",
+        "Vanilla": "N",
+        "Name": "Protector's Frost",
+        "Index": "Protector's Frost",
+        "Enabled": false,
+        "Rarity": 1,
+        "ItemLevel": 110,
+        "RequiredLevel": 75,
+        "Code": "cjw",
+        "Properties": [
+            {
+                "PropertyString": "1% Chance to cast level 25 Frozen Armor when struck",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Adds 10-30 Weapon Cold Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+5-10% to Cold Skill Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "-5-10% to Enemy Cold Resistance",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+3-5% to Experience Gained",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+25-50% Extra Gold from Monsters",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+15-35% Chance Items Roll Magic or Better",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Jewel",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Colossal Jewel",
+        "Vanilla": "N",
+        "Name": "Defender's Fire",
+        "Index": "Defender's Fire",
+        "Enabled": false,
+        "Rarity": 1,
+        "ItemLevel": 110,
+        "RequiredLevel": 75,
+        "Code": "cjw",
+        "Properties": [
+            {
+                "PropertyString": "1% Chance to cast level 25 Blaze when struck",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Adds 20-60 Weapon Fire Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+5-10% to Fire Skill Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "-5-10% to Enemy Fire Resistance",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+3-5% to Experience Gained",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+25-50% Extra Gold from Monsters",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+15-35% Chance Items Roll Magic or Better",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Jewel",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Colossal Jewel",
+        "Vanilla": "N",
+        "Name": "Protector's Stone",
+        "Index": "Protector's Stone",
+        "Enabled": false,
+        "Rarity": 1,
+        "ItemLevel": 110,
+        "RequiredLevel": 75,
+        "Code": "cjw",
+        "Properties": [
+            {
+                "PropertyString": "1% Chance to cast level 15 Fade when struck",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+30-50% Enhanced Weapon Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "Adds 10-30 Weapon Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "-5-10% to Enemy Physical Damage Resistance",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+3-5% to Experience Gained",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+25-50% Extra Gold from Monsters",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+15-35% Chance Items Roll Magic or Better",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Jewel",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Colossal Jewel",
+        "Vanilla": "N",
+        "Name": "Guardian's Light",
+        "Index": "Guardian's Light",
+        "Enabled": false,
+        "Rarity": 1,
+        "ItemLevel": 110,
+        "RequiredLevel": 75,
+        "Code": "cjw",
+        "Properties": [
+            {
+                "PropertyString": "1% Chance to cast level 25 Psychic Ward when struck",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Adds 15-35 Weapon Magic Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+5-10% to Magic Skill Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "-5-10% to Enemy Magic Resistance",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+3-5% to Experience Gained",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+25-50% Extra Gold from Monsters",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+15-35% Chance Items Roll Magic or Better",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Jewel",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Grand Charm",
+        "Vanilla": "N",
+        "Name": "Latent Cold Rupture",
+        "Index": "PreCrafted Cold Rupture",
+        "Enabled": true,
+        "Rarity": 2,
+        "ItemLevel": 69,
+        "RequiredLevel": 75,
+        "Code": "cm3",
+        "Properties": [
+            {
+                "PropertyString": "Monster Cold Immunity is Sundered",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-90% Cold Resistance",
+                "Index": 1
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Grand Charm",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Grand Charm",
+        "Vanilla": "N",
+        "Name": "Latent Flame Rift",
+        "Index": "PreCrafted Flame Rift",
+        "Enabled": true,
+        "Rarity": 2,
+        "ItemLevel": 69,
+        "RequiredLevel": 75,
+        "Code": "cm3",
+        "Properties": [
+            {
+                "PropertyString": "Monster Fire Immunity is Sundered",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-90% Fire Resistance",
+                "Index": 1
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Grand Charm",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Grand Charm",
+        "Vanilla": "N",
+        "Name": "Latent Crack of the Heavens",
+        "Index": "PreCrafted Crack of the Heavens",
+        "Enabled": true,
+        "Rarity": 2,
+        "ItemLevel": 69,
+        "RequiredLevel": 75,
+        "Code": "cm3",
+        "Properties": [
+            {
+                "PropertyString": "Monster Lightning Immunity is Sundered",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-90% Lightning Resistance",
+                "Index": 1
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Grand Charm",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Grand Charm",
+        "Vanilla": "N",
+        "Name": "Latent Rotting Fissure",
+        "Index": "PreCrafted Rotting Fissure",
+        "Enabled": true,
+        "Rarity": 2,
+        "ItemLevel": 69,
+        "RequiredLevel": 75,
+        "Code": "cm3",
+        "Properties": [
+            {
+                "PropertyString": "Monster Poison Immunity is Sundered",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-90% Poison Resistance",
+                "Index": 1
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Grand Charm",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Grand Charm",
+        "Vanilla": "N",
+        "Name": "Latent Bone Break",
+        "Index": "PreCrafted Bone Break",
+        "Enabled": true,
+        "Rarity": 2,
+        "ItemLevel": 69,
+        "RequiredLevel": 75,
+        "Code": "cm3",
+        "Properties": [
+            {
+                "PropertyString": "Monster Physical Immunity is Sundered",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-20% Physical Damage Reduction",
+                "Index": 1
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Grand Charm",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Grand Charm",
+        "Vanilla": "N",
+        "Name": "Latent Black Cleft",
+        "Index": "PreCrafted Black Cleft",
+        "Enabled": true,
+        "Rarity": 2,
+        "ItemLevel": 69,
+        "RequiredLevel": 75,
+        "Code": "cm3",
+        "Properties": [
+            {
+                "PropertyString": "Monster Magic Immunity is Sundered",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-65% Magic Resistance",
+                "Index": 1
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Grand Charm",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Crafted Sunder Charm",
+        "Vanilla": "N",
+        "Name": "Renewed Cold Rupture",
+        "Index": "Crafted Cold Rupture",
+        "Enabled": false,
+        "Rarity": 1,
+        "ItemLevel": 69,
+        "RequiredLevel": 75,
+        "Code": "cs2",
+        "Properties": [
+            {
+                "PropertyString": "Monster Cold Immunity is Sundered",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-90 to -70% Cold Resistance",
+                "Index": 1
+            },
+            {
+                "group-properties": {
+                    "Gelid-Affix1": [
+                        {
+                            "PropertyString": "+5-15% to Cold Skill Damage",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "-5-10% to Enemy Cold Resistance",
+                            "Index": 1
+                        }
+                    ]
+                }
+            },
+            {
+                "group-properties": {
+                    "Gelid-Affix2": [
+                        {
+                            "PropertyString": "+14-25% Chance Items Roll Magic or Better",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "+20-55% Extra Gold from Monsters",
+                            "Index": 1
+                        }
+                    ]
+                }
+            },
+            {
+                "group-properties": {
+                    "Gelid-Affix3": [
+                        {
+                            "PropertyString": "+10-65 to Life",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "+10-75 to Mana",
+                            "Index": 1
+                        }
+                    ]
+                }
+            },
+            {
+                "group-properties": {
+                    "Gelid-Affix4": [
+                        {
+                            "PropertyString": "+5-10% Faster Run/Walk Speed",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "+12-24% Faster Hit Recovery",
+                            "Index": 1
+                        },
+                        {
+                            "PropertyString": "+3-8 to all Attributes",
+                            "Index": 2
+                        }
+                    ]
+                }
+            },
+            {
+                "group-properties": {
+                    "Gelid-Affix6": [
+                        {
+                            "PropertyString": "Magic Damage Reduced By 5-10",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "Physical Damage Reduced By 5-10",
+                            "Index": 1
+                        }
+                    ]
+                }
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Grand Charm",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Crafted Sunder Charm",
+        "Vanilla": "N",
+        "Name": "Renewed Flame Rift",
+        "Index": "Crafted Flame Rift",
+        "Enabled": false,
+        "Rarity": 1,
+        "ItemLevel": 69,
+        "RequiredLevel": 75,
+        "Code": "cs2",
+        "Properties": [
+            {
+                "PropertyString": "Monster Fire Immunity is Sundered",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-90 to -70% Fire Resistance",
+                "Index": 1
+            },
+            {
+                "group-properties": {
+                    "Incendiary-Affix1": [
+                        {
+                            "PropertyString": "+5-15% to Fire Skill Damage",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "-5-10% to Enemy Fire Resistance",
+                            "Index": 1
+                        }
+                    ]
+                }
+            },
+            {
+                "group-properties": {
+                    "Incendiary-Affix2": [
+                        {
+                            "PropertyString": "+14-25% Chance Items Roll Magic or Better",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "+20-55% Extra Gold from Monsters",
+                            "Index": 1
+                        }
+                    ]
+                }
+            },
+            {
+                "group-properties": {
+                    "Incendiary-Affix3": [
+                        {
+                            "PropertyString": "+10-65 to Life",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "+10-75 to Mana",
+                            "Index": 1
+                        }
+                    ]
+                }
+            },
+            {
+                "group-properties": {
+                    "Incendiary-Affix4": [
+                        {
+                            "PropertyString": "+5-10% Faster Run/Walk Speed",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "+12-24% Faster Hit Recovery",
+                            "Index": 1
+                        },
+                        {
+                            "PropertyString": "+3-8 to all Attributes",
+                            "Index": 2
+                        }
+                    ]
+                }
+            },
+            {
+                "group-properties": {
+                    "Incendiary-Affix6": [
+                        {
+                            "PropertyString": "Magic Damage Reduced By 5-10",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "Physical Damage Reduced By 5-10",
+                            "Index": 1
+                        }
+                    ]
+                }
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Grand Charm",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Crafted Sunder Charm",
+        "Vanilla": "N",
+        "Name": "Renewed Crack of the Heavens",
+        "Index": "Crafted Crack of the Heavens",
+        "Enabled": false,
+        "Rarity": 1,
+        "ItemLevel": 69,
+        "RequiredLevel": 75,
+        "Code": "cs2",
+        "Properties": [
+            {
+                "PropertyString": "Monster Lightning Immunity is Sundered",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-90 to -70% Lightning Resistance",
+                "Index": 1
+            },
+            {
+                "group-properties": {
+                    "Magnetic-Affix1": [
+                        {
+                            "PropertyString": "+5-15% to Lightning Skill Damage",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "-5-10% to Enemy Lightning Resistance",
+                            "Index": 1
+                        }
+                    ]
+                }
+            },
+            {
+                "group-properties": {
+                    "Magnetic-Affix2": [
+                        {
+                            "PropertyString": "+14-25% Chance Items Roll Magic or Better",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "+20-55% Extra Gold from Monsters",
+                            "Index": 1
+                        }
+                    ]
+                }
+            },
+            {
+                "group-properties": {
+                    "Magnetic-Affix3": [
+                        {
+                            "PropertyString": "+10-65 to Life",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "+10-75 to Mana",
+                            "Index": 1
+                        }
+                    ]
+                }
+            },
+            {
+                "group-properties": {
+                    "Magnetic-Affix4": [
+                        {
+                            "PropertyString": "+5-10% Faster Run/Walk Speed",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "+12-24% Faster Hit Recovery",
+                            "Index": 1
+                        },
+                        {
+                            "PropertyString": "+3-8 to all Attributes",
+                            "Index": 2
+                        }
+                    ]
+                }
+            },
+            {
+                "group-properties": {
+                    "Magnetic-Affix6": [
+                        {
+                            "PropertyString": "Magic Damage Reduced By 5-10",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "Physical Damage Reduced By 5-10",
+                            "Index": 1
+                        }
+                    ]
+                }
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Grand Charm",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Crafted Sunder Charm",
+        "Vanilla": "N",
+        "Name": "Renewed Rotting Fissure",
+        "Index": "Crafted Rotting Fissure",
+        "Enabled": false,
+        "Rarity": 1,
+        "ItemLevel": 69,
+        "RequiredLevel": 75,
+        "Code": "cs2",
+        "Properties": [
+            {
+                "PropertyString": "Monster Poison Immunity is Sundered",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-90 to -70% Poison Resistance",
+                "Index": 1
+            },
+            {
+                "group-properties": {
+                    "Virulent-Affix1": [
+                        {
+                            "PropertyString": "+5-15% to Poison Skill Damage",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "-5-10% to Enemy Poison Resistance",
+                            "Index": 1
+                        }
+                    ]
+                }
+            },
+            {
+                "group-properties": {
+                    "Virulent-Affix2": [
+                        {
+                            "PropertyString": "+14-25% Chance Items Roll Magic or Better",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "+20-55% Extra Gold from Monsters",
+                            "Index": 1
+                        }
+                    ]
+                }
+            },
+            {
+                "group-properties": {
+                    "Virulent-Affix3": [
+                        {
+                            "PropertyString": "+10-65 to Life",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "+10-75 to Mana",
+                            "Index": 1
+                        }
+                    ]
+                }
+            },
+            {
+                "group-properties": {
+                    "Virulent-Affix4": [
+                        {
+                            "PropertyString": "+5-10% Faster Run/Walk Speed",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "+12-24% Faster Hit Recovery",
+                            "Index": 1
+                        },
+                        {
+                            "PropertyString": "+3-8 to all Attributes",
+                            "Index": 2
+                        }
+                    ]
+                }
+            },
+            {
+                "group-properties": {
+                    "Virulent-Affix6": [
+                        {
+                            "PropertyString": "Magic Damage Reduced By 5-10",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "Physical Damage Reduced By 5-10",
+                            "Index": 1
+                        }
+                    ]
+                }
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Grand Charm",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Crafted Sunder Charm",
+        "Vanilla": "N",
+        "Name": "Renewed Bone Break",
+        "Index": "Crafted Bone Break",
+        "Enabled": false,
+        "Rarity": 1,
+        "ItemLevel": 69,
+        "RequiredLevel": 75,
+        "Code": "cs2",
+        "Properties": [
+            {
+                "PropertyString": "Monster Physical Immunity is Sundered",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-20 to -10% Physical Damage Reduction",
+                "Index": 1
+            },
+            {
+                "group-properties": {
+                    "Breaching-Affix1": [
+                        {
+                            "PropertyString": "+75-100% Enhanced Weapon Damage",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "-5-10% to Enemy Physical Damage Resistance",
+                            "Index": 1
+                        }
+                    ]
+                }
+            },
+            {
+                "group-properties": {
+                    "Breaching-Affix2": [
+                        {
+                            "PropertyString": "+14-25% Chance Items Roll Magic or Better",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "+20-55% Extra Gold from Monsters",
+                            "Index": 1
+                        }
+                    ]
+                }
+            },
+            {
+                "group-properties": {
+                    "Breaching-Affix3": [
+                        {
+                            "PropertyString": "+10-65 to Life",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "+10-75 to Mana",
+                            "Index": 1
+                        }
+                    ]
+                }
+            },
+            {
+                "group-properties": {
+                    "Breaching-Affix4": [
+                        {
+                            "PropertyString": "+5-10% Faster Run/Walk Speed",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "+12-24% Faster Hit Recovery",
+                            "Index": 1
+                        },
+                        {
+                            "PropertyString": "+3-8 to all Attributes",
+                            "Index": 2
+                        }
+                    ]
+                }
+            },
+            {
+                "group-properties": {
+                    "Breaching-Affix6": [
+                        {
+                            "PropertyString": "Magic Damage Reduced By 5-10",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "Physical Damage Reduced By 5-10",
+                            "Index": 1
+                        }
+                    ]
+                }
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Grand Charm",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Crafted Sunder Charm",
+        "Vanilla": "N",
+        "Name": "Renewed Black Cleft",
+        "Index": "Crafted Black Cleft",
+        "Enabled": false,
+        "Rarity": 1,
+        "ItemLevel": 69,
+        "RequiredLevel": 75,
+        "Code": "cs2",
+        "Properties": [
+            {
+                "PropertyString": "Monster Magic Immunity is Sundered",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-65 to -45% Magic Resistance",
+                "Index": 1
+            },
+            {
+                "group-properties": {
+                    "Mystical-Affix1": [
+                        {
+                            "PropertyString": "+10-15% to Magic Skill Damage",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "-5-10% to Enemy Magic Resistance",
+                            "Index": 1
+                        }
+                    ]
+                }
+            },
+            {
+                "group-properties": {
+                    "Mystical-Affix2": [
+                        {
+                            "PropertyString": "+14-25% Chance Items Roll Magic or Better",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "+20-55% Extra Gold from Monsters",
+                            "Index": 1
+                        }
+                    ]
+                }
+            },
+            {
+                "group-properties": {
+                    "Mystical-Affix3": [
+                        {
+                            "PropertyString": "+10-65 to Life",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "+10-75 to Mana",
+                            "Index": 1
+                        }
+                    ]
+                }
+            },
+            {
+                "group-properties": {
+                    "Mystical-Affix4": [
+                        {
+                            "PropertyString": "+5-10% Faster Run/Walk Speed",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "+12-24% Faster Hit Recovery",
+                            "Index": 1
+                        },
+                        {
+                            "PropertyString": "+3-8 to all Attributes",
+                            "Index": 2
+                        }
+                    ]
+                }
+            },
+            {
+                "group-properties": {
+                    "Mystical-Affix6": [
+                        {
+                            "PropertyString": "Magic Damage Reduced By 5-10",
+                            "Index": 0
+                        },
+                        {
+                            "PropertyString": "Physical Damage Reduced By 5-10",
+                            "Index": 1
+                        }
+                    ]
+                }
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Grand Charm",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
         "Type": "Axe",
         "Vanilla": "N",
         "Name": "Beholder",
@@ -63541,210 +65407,6 @@
         "Equipment": {
             "EquipmentType": 2,
             "Name": "Small Charm",
-            "RequiredStrength": null,
-            "RequiredDexterity": null,
-            "Durability": 0,
-            "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Grand Charm",
-        "Vanilla": "Y",
-        "Name": "Cold Rupture",
-        "Index": "Cold Rupture",
-        "Enabled": false,
-        "Rarity": 1,
-        "ItemLevel": 69,
-        "RequiredLevel": 75,
-        "Code": "cm3",
-        "Properties": [
-            {
-                "PropertyString": "Charm Weight: 3",
-                "Index": 2
-            },
-            {
-                "PropertyString": "Monster Cold Immunity is Sundered",
-                "Index": 0
-            },
-            {
-                "PropertyString": "-50% Cold Resistance",
-                "Index": 1
-            }
-        ],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "EquipmentType": 2,
-            "Name": "Grand Charm",
-            "RequiredStrength": null,
-            "RequiredDexterity": null,
-            "Durability": 0,
-            "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Grand Charm",
-        "Vanilla": "Y",
-        "Name": "Flame Rift",
-        "Index": "Flame Rift",
-        "Enabled": false,
-        "Rarity": 1,
-        "ItemLevel": 69,
-        "RequiredLevel": 75,
-        "Code": "cm3",
-        "Properties": [
-            {
-                "PropertyString": "Charm Weight: 3",
-                "Index": 2
-            },
-            {
-                "PropertyString": "Monster Fire Immunity is Sundered",
-                "Index": 0
-            },
-            {
-                "PropertyString": "-50% Fire Resistance",
-                "Index": 1
-            }
-        ],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "EquipmentType": 2,
-            "Name": "Grand Charm",
-            "RequiredStrength": null,
-            "RequiredDexterity": null,
-            "Durability": 0,
-            "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Grand Charm",
-        "Vanilla": "Y",
-        "Name": "Crack of the Heavens",
-        "Index": "Crack of the Heavens",
-        "Enabled": false,
-        "Rarity": 1,
-        "ItemLevel": 69,
-        "RequiredLevel": 75,
-        "Code": "cm3",
-        "Properties": [
-            {
-                "PropertyString": "Charm Weight: 3",
-                "Index": 2
-            },
-            {
-                "PropertyString": "Monster Lightning Immunity is Sundered",
-                "Index": 0
-            },
-            {
-                "PropertyString": "-50% Lightning Resistance",
-                "Index": 1
-            }
-        ],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "EquipmentType": 2,
-            "Name": "Grand Charm",
-            "RequiredStrength": null,
-            "RequiredDexterity": null,
-            "Durability": 0,
-            "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Grand Charm",
-        "Vanilla": "Y",
-        "Name": "Rotting Fissure",
-        "Index": "Rotting Fissure",
-        "Enabled": false,
-        "Rarity": 1,
-        "ItemLevel": 69,
-        "RequiredLevel": 75,
-        "Code": "cm3",
-        "Properties": [
-            {
-                "PropertyString": "Charm Weight: 3",
-                "Index": 2
-            },
-            {
-                "PropertyString": "Monster Poison Immunity is Sundered",
-                "Index": 0
-            },
-            {
-                "PropertyString": "-50% Poison Resistance",
-                "Index": 1
-            }
-        ],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "EquipmentType": 2,
-            "Name": "Grand Charm",
-            "RequiredStrength": null,
-            "RequiredDexterity": null,
-            "Durability": 0,
-            "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Grand Charm",
-        "Vanilla": "Y",
-        "Name": "Bone Break",
-        "Index": "Bone Break",
-        "Enabled": false,
-        "Rarity": 1,
-        "ItemLevel": 69,
-        "RequiredLevel": 75,
-        "Code": "cm3",
-        "Properties": [
-            {
-                "PropertyString": "Charm Weight: 3",
-                "Index": 2
-            },
-            {
-                "PropertyString": "Monster Physical Immunity is Sundered",
-                "Index": 0
-            },
-            {
-                "PropertyString": "-10% Physical Damage Reduction",
-                "Index": 1
-            }
-        ],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "EquipmentType": 2,
-            "Name": "Grand Charm",
-            "RequiredStrength": null,
-            "RequiredDexterity": null,
-            "Durability": 0,
-            "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Grand Charm",
-        "Vanilla": "Y",
-        "Name": "Black Cleft",
-        "Index": "Black Cleft",
-        "Enabled": false,
-        "Rarity": 1,
-        "ItemLevel": 69,
-        "RequiredLevel": 75,
-        "Code": "cm3",
-        "Properties": [
-            {
-                "PropertyString": "Charm Weight: 3",
-                "Index": 2
-            },
-            {
-                "PropertyString": "Monster Magic Immunity is Sundered",
-                "Index": 0
-            },
-            {
-                "PropertyString": "-30% Magic Resistance",
-                "Index": 1
-            }
-        ],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "EquipmentType": 2,
-            "Name": "Grand Charm",
             "RequiredStrength": null,
             "RequiredDexterity": null,
             "Durability": 0,
@@ -64998,6 +66660,68 @@
             "RequiredDexterity": "110",
             "Durability": 250,
             "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "Ars Dul'Mephistos",
+        "Index": "Ars Dul'Mephistos",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 85,
+        "RequiredLevel": 78,
+        "Code": "wac",
+        "Properties": [
+            {
+                "PropertyString": "15% Chance to cast level 28 Blizzard when struck",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+2 to Warlock Skill Levels",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+70-115% Enhanced Weapon Damage",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+20-30% Faster Cast Rate",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+30% Faster Hit Recovery",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+50-70% Bonus to Attack Rating",
+                "Index": 5
+            },
+            {
+                "PropertyString": "-10-20% to Enemy Magic Resistance",
+                "Index": 7
+            },
+            {
+                "PropertyString": "+140-170% Enhanced Defense",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+10-25% Chance Items Roll Magic or Better",
+                "Index": 8
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "340-383",
+            "Block": 5,
+            "EquipmentType": 0,
+            "Name": "Occult Tome [E]",
+            "RequiredStrength": "82",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
         }
     },
     {
@@ -66311,6 +68035,68 @@
             "RequiredDexterity": "75",
             "Durability": 250,
             "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "Ars Al'Diabolos",
+        "Index": "Ars Al'Diablolos",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 85,
+        "RequiredLevel": 80,
+        "Code": "waf",
+        "Properties": [
+            {
+                "PropertyString": "15% Chance to cast level 1 Terror when struck",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+2 to Chaos Skills (Warlock Only)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+25% Faster Cast Rate",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+15-25% to Fire Skill Damage",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+3-5 to Apocalypse (Warlock Only)",
+                "Index": 8
+            },
+            {
+                "PropertyString": "+170-200% Enhanced Defense",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+20-30% Fire Resistance",
+                "Index": 7
+            },
+            {
+                "PropertyString": "+5-10 to Mana after each Kill",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+5-10 to Light Radius",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "402-447",
+            "Block": 12,
+            "EquipmentType": 0,
+            "Name": "Blasphemous Grimoire [E]",
+            "RequiredStrength": "106",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
         }
     },
     {

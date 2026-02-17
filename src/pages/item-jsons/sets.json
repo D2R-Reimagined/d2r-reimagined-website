@@ -2970,6 +2970,15 @@
         "Vanilla": "Y"
     },
     {
+        "Index": "Expansion",
+        "Name": "",
+        "SetItems": [],
+        "PartialProperties": [],
+        "FullProperties": [],
+        "Level": 1,
+        "Vanilla": "N"
+    },
+    {
         "Index": "Natalya's Odium",
         "Name": "Natalya's Odium",
         "SetItems": [
@@ -6961,6 +6970,680 @@
         ],
         "Level": 1,
         "Vanilla": "Y"
+    },
+    {
+        "Index": "Warlord's Glory",
+        "Name": "Warlord's Glory",
+        "SetItems": [
+            {
+                "Type": "Gloves",
+                "Set": "Warlord's Glory",
+                "SetPropertiesString": [
+                    "+20% Increased Attack Speed (2 Items)"
+                ],
+                "Name": "Warlord's Conquest",
+                "Index": "Warlord's Conquest",
+                "Enabled": false,
+                "Rarity": 7,
+                "ItemLevel": 100,
+                "RequiredLevel": 1,
+                "Code": "hgl",
+                "Properties": [
+                    {
+                        "PropertyString": "+45 to Attack Rating",
+                        "Index": 1
+                    },
+                    {
+                        "PropertyString": "+15 to Strength",
+                        "Index": 0
+                    }
+                ],
+                "DamageArmorEnhanced": false,
+                "Equipment": {
+                    "DamageString": null,
+                    "DamageStringPrefix": null,
+                    "ArmorString": "12-15",
+                    "Block": null,
+                    "EquipmentType": 0,
+                    "Name": "Gauntlets [N]",
+                    "RequiredStrength": "60",
+                    "RequiredDexterity": "0",
+                    "Durability": 24,
+                    "RequiredClass": ""
+                }
+            },
+            {
+                "Type": "Helm",
+                "Set": "Warlord's Glory",
+                "SetPropertiesString": [
+                    "+ to Attack Rating (2 Items)",
+                    "+2 Defense (Per Character Level) (2 Items)"
+                ],
+                "Name": "Warlord's Lust",
+                "Index": "Warlord's Lust",
+                "Enabled": false,
+                "Rarity": 7,
+                "ItemLevel": 100,
+                "RequiredLevel": 1,
+                "Code": "ghm",
+                "Properties": [
+                    {
+                        "PropertyString": "+15 Defense",
+                        "Index": 1
+                    },
+                    {
+                        "PropertyString": "+30 to Life",
+                        "Index": 0
+                    }
+                ],
+                "DamageArmorEnhanced": true,
+                "Equipment": {
+                    "DamageString": null,
+                    "DamageStringPrefix": null,
+                    "ArmorString": "45-50",
+                    "Block": null,
+                    "EquipmentType": 0,
+                    "Name": "Great Helm [N]",
+                    "RequiredStrength": "63",
+                    "RequiredDexterity": "0",
+                    "Durability": 40,
+                    "RequiredClass": ""
+                }
+            },
+            {
+                "Type": "Body Armor",
+                "Set": "Warlord's Glory",
+                "SetPropertiesString": [
+                    "+20 to Mana (2 Items)"
+                ],
+                "Name": "Warlord's Mantle",
+                "Index": "Warlord's Mantle",
+                "Enabled": false,
+                "Rarity": 7,
+                "ItemLevel": 100,
+                "RequiredLevel": 1,
+                "Code": "ful",
+                "Properties": [
+                    {
+                        "PropertyString": "+25% Enhanced Defense",
+                        "Index": 0
+                    },
+                    {
+                        "PropertyString": "+30% Cold Resistance",
+                        "Index": 1
+                    }
+                ],
+                "DamageArmorEnhanced": true,
+                "Equipment": {
+                    "DamageString": null,
+                    "DamageStringPrefix": null,
+                    "ArmorString": "202",
+                    "Block": null,
+                    "EquipmentType": 0,
+                    "Name": "Full Plate Mail [N]",
+                    "RequiredStrength": "80",
+                    "RequiredDexterity": "0",
+                    "Durability": 70,
+                    "RequiredClass": ""
+                }
+            },
+            {
+                "Type": "Boots",
+                "Set": "Warlord's Glory",
+                "SetPropertiesString": [
+                    "+75% Chance Items Roll Magic or Better (2 Items)"
+                ],
+                "Name": "Warlord's Crushers",
+                "Index": "Warlord's Crushers",
+                "Enabled": false,
+                "Rarity": 7,
+                "ItemLevel": 100,
+                "RequiredLevel": 1,
+                "Code": "hbt",
+                "Properties": [
+                    {
+                        "PropertyString": "+20% Faster Run/Walk Speed",
+                        "Index": 0
+                    },
+                    {
+                        "PropertyString": "+20% Fire Resistance",
+                        "Index": 1
+                    }
+                ],
+                "DamageArmorEnhanced": false,
+                "Equipment": {
+                    "DamageString": "10 to 20",
+                    "DamageStringPrefix": "Kick Damage",
+                    "ArmorString": "12-15",
+                    "Block": null,
+                    "EquipmentType": 0,
+                    "Name": "Greaves [N]",
+                    "RequiredStrength": "70",
+                    "RequiredDexterity": "0",
+                    "Durability": 24,
+                    "RequiredClass": ""
+                }
+            },
+            {
+                "Type": "Belt",
+                "Set": "Warlord's Glory",
+                "SetPropertiesString": [
+                    "+8 to Attack Rating (Per Character Level) (2 Items)"
+                ],
+                "Name": "Warlord's Authority",
+                "Index": "Warlord's Authority",
+                "Enabled": false,
+                "Rarity": 7,
+                "ItemLevel": 100,
+                "RequiredLevel": 1,
+                "Code": "hbl",
+                "Properties": [
+                    {
+                        "PropertyString": "+25 to Life",
+                        "Index": 1
+                    },
+                    {
+                        "PropertyString": "+20% Lightning Resistance",
+                        "Index": 0
+                    }
+                ],
+                "DamageArmorEnhanced": false,
+                "Equipment": {
+                    "DamageString": null,
+                    "DamageStringPrefix": null,
+                    "ArmorString": "8-11",
+                    "Block": null,
+                    "EquipmentType": 0,
+                    "Name": "Plated Belt [N]",
+                    "RequiredStrength": "60",
+                    "RequiredDexterity": "0",
+                    "Durability": 24,
+                    "RequiredClass": ""
+                }
+            }
+        ],
+        "PartialProperties": [
+            {
+                "PropertyString": "+15% Life stolen per hit",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+150 Defense",
+                "Index": 2
+            }
+        ],
+        "FullProperties": [
+            {
+                "PropertyString": "Level 10 Meditation Aura When Equipped",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+1 to All Skills",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20 to Mana",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+15% Fire Resistance",
+                "Index": 3
+            },
+            {
+                "PropertyString": "Physical Damage Reduced By 9",
+                "Index": 2
+            }
+        ],
+        "Level": 1,
+        "Vanilla": "N"
+    },
+    {
+        "Index": "Bane's Garments",
+        "Name": "Bane's Garments",
+        "SetItems": [
+            {
+                "Type": "Knife",
+                "Set": "Bane's Garments",
+                "SetPropertiesString": [
+                    "+30% Deadly Strike (3 Items)",
+                    "+3 to Mana after each Kill (2 Items)"
+                ],
+                "Name": "Bane's Oathmaker",
+                "Index": "Bane's Oathmaker",
+                "Enabled": true,
+                "Rarity": 7,
+                "ItemLevel": 7,
+                "RequiredLevel": 8,
+                "Code": "kri",
+                "Properties": [
+                    {
+                        "PropertyString": "+20% Faster Run/Walk Speed",
+                        "Index": 0
+                    },
+                    {
+                        "PropertyString": "+1 to Maximum Weapon Damage (Per Character Level)",
+                        "Index": 1
+                    }
+                ],
+                "DamageArmorEnhanced": true,
+                "Equipment": {
+                    "DamageTypes": [
+                        {
+                            "Type": 3,
+                            "DamageString": "2 to (19-111)"
+                        }
+                    ],
+                    "Speed": -20,
+                    "EquipmentType": 1,
+                    "Name": "Kris [N]",
+                    "RequiredStrength": "0",
+                    "RequiredDexterity": "45",
+                    "Durability": 250,
+                    "RequiredClass": ""
+                }
+            },
+            {
+                "Type": "Body Armor",
+                "Set": "Bane's Garments",
+                "SetPropertiesString": [
+                    "+25% Faster Hit Recovery (2 Items)",
+                    "+8 to Attack Rating (Per Character Level) (3 Items)"
+                ],
+                "Name": "Bane's Wraithskin",
+                "Index": "Bane's Wraithskin",
+                "Enabled": true,
+                "Rarity": 7,
+                "ItemLevel": 7,
+                "RequiredLevel": 8,
+                "Code": "hla",
+                "Properties": [
+                    {
+                        "PropertyString": "+50 Defense",
+                        "Index": 0
+                    },
+                    {
+                        "PropertyString": "+30% Magic Resistance",
+                        "Index": 1
+                    }
+                ],
+                "DamageArmorEnhanced": true,
+                "Equipment": {
+                    "DamageString": null,
+                    "DamageStringPrefix": null,
+                    "ArmorString": "71-74",
+                    "Block": null,
+                    "EquipmentType": 0,
+                    "Name": "Hard Leather Armor [N]",
+                    "RequiredStrength": "20",
+                    "RequiredDexterity": "0",
+                    "Durability": 28,
+                    "RequiredClass": ""
+                }
+            },
+            {
+                "Type": "Belt",
+                "Set": "Bane's Garments",
+                "SetPropertiesString": [
+                    "+15 to Energy (3 Items)"
+                ],
+                "Name": "Bane's Authority",
+                "Index": "Bane's Authority",
+                "Enabled": true,
+                "Rarity": 7,
+                "ItemLevel": 7,
+                "RequiredLevel": 8,
+                "Code": "vbl",
+                "Properties": [
+                    {
+                        "PropertyString": "+10% Faster Cast Rate",
+                        "Index": 0
+                    },
+                    {
+                        "PropertyString": "+20 to Life",
+                        "Index": 1
+                    }
+                ],
+                "DamageArmorEnhanced": false,
+                "Equipment": {
+                    "DamageString": null,
+                    "DamageStringPrefix": null,
+                    "ArmorString": "3",
+                    "Block": null,
+                    "EquipmentType": 0,
+                    "Name": "Light Belt [N]",
+                    "RequiredStrength": "0",
+                    "RequiredDexterity": "0",
+                    "Durability": 14,
+                    "RequiredClass": ""
+                }
+            }
+        ],
+        "PartialProperties": [
+            {
+                "PropertyString": "+80% Enhanced Weapon Damage",
+                "Index": 0
+            }
+        ],
+        "FullProperties": [
+            {
+                "PropertyString": "+1 to All Skills",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+25% Faster Cast Rate",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+15 to Dexterity",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+40% Chance Items Roll Magic or Better",
+                "Index": 3
+            }
+        ],
+        "Level": 1,
+        "Vanilla": "N"
+    },
+    {
+        "Index": "Horazon's Splendor",
+        "Name": "Horazon's Splendor",
+        "SetItems": [
+            {
+                "Type": "Helm",
+                "Set": "Horazon's Splendor",
+                "SetPropertiesString": [
+                    "+15 to Strength (4 Items)",
+                    "+5% Increased Maximum Life (2 Items)"
+                ],
+                "Name": "Horazon's Countenance",
+                "Index": "Horazon's Countenance",
+                "Enabled": true,
+                "Rarity": 7,
+                "ItemLevel": 40,
+                "RequiredLevel": 62,
+                "Code": "usk",
+                "Properties": [
+                    {
+                        "PropertyString": "+1 to Warlock Skill Levels",
+                        "Index": 1
+                    },
+                    {
+                        "PropertyString": "+1% Bonus to Attack Rating (Per Character Level)",
+                        "Index": 0
+                    },
+                    {
+                        "PropertyString": "+10-20 to Strength",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "Magic Damage Reduced By 7-10",
+                        "Index": 3
+                    }
+                ],
+                "DamageArmorEnhanced": false,
+                "Equipment": {
+                    "DamageString": null,
+                    "DamageStringPrefix": null,
+                    "ArmorString": "101-154",
+                    "Block": null,
+                    "EquipmentType": 0,
+                    "Name": "Demonhead [E]",
+                    "RequiredStrength": "102",
+                    "RequiredDexterity": "0",
+                    "Durability": 20,
+                    "RequiredClass": ""
+                }
+            },
+            {
+                "Type": "Body Armor",
+                "Set": "Horazon's Splendor",
+                "SetPropertiesString": [
+                    "+15 to Vitality (4 Items)",
+                    "+25% Poison Resistance (2 Items)",
+                    "+15% Physical Damage Reduction (6 Items)"
+                ],
+                "Name": "Horazon's Dominion",
+                "Index": "Horazon's Dominion",
+                "Enabled": true,
+                "Rarity": 7,
+                "ItemLevel": 40,
+                "RequiredLevel": 55,
+                "Code": "xpl",
+                "Properties": [
+                    {
+                        "PropertyString": "+2 to Demon Skills (Warlock Only)",
+                        "Index": 0
+                    },
+                    {
+                        "PropertyString": "+75-100% Enhanced Defense",
+                        "Index": 1
+                    },
+                    {
+                        "PropertyString": "+75-100 to Mana",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "+15-25% Cold Resistance",
+                        "Index": 3
+                    },
+                    {
+                        "PropertyString": "+15-25% Lightning Resistance",
+                        "Index": 5
+                    },
+                    {
+                        "PropertyString": "+15-25% Fire Resistance",
+                        "Index": 4
+                    }
+                ],
+                "DamageArmorEnhanced": true,
+                "Equipment": {
+                    "DamageString": null,
+                    "DamageStringPrefix": null,
+                    "ArmorString": "427-488",
+                    "Block": null,
+                    "EquipmentType": 0,
+                    "Name": "Russet Armor [X]",
+                    "RequiredStrength": "97",
+                    "RequiredDexterity": "0",
+                    "Durability": 30,
+                    "RequiredClass": ""
+                }
+            },
+            {
+                "Type": "Gloves",
+                "Set": "Horazon's Splendor",
+                "SetPropertiesString": [
+                    "+30% Increased Attack Speed (2 Items)",
+                    "+7% Mana stolen per hit (3 Items)",
+                    "+7% Life stolen per hit (4 Items)"
+                ],
+                "Name": "Horazon's Hold",
+                "Index": "Horazon's Hold",
+                "Enabled": true,
+                "Rarity": 7,
+                "ItemLevel": 40,
+                "RequiredLevel": 48,
+                "Code": "xlg",
+                "Properties": [
+                    {
+                        "PropertyString": "+95-150 to Attack Rating",
+                        "Index": 1
+                    },
+                    {
+                        "PropertyString": "Adds 140-270 Weapon Fire Damage",
+                        "Index": 3
+                    },
+                    {
+                        "PropertyString": "+10% Chance of Crushing Blow",
+                        "Index": 0
+                    },
+                    {
+                        "PropertyString": "+10-15 to Dexterity",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "+30-40 to Life",
+                        "Index": 4
+                    }
+                ],
+                "DamageArmorEnhanced": false,
+                "Equipment": {
+                    "DamageString": null,
+                    "DamageStringPrefix": null,
+                    "ArmorString": "28-35",
+                    "Block": null,
+                    "EquipmentType": 0,
+                    "Name": "Demonhide Gloves [X]",
+                    "RequiredStrength": "20",
+                    "RequiredDexterity": "0",
+                    "Durability": 12,
+                    "RequiredClass": ""
+                }
+            },
+            {
+                "Type": "Boots",
+                "Set": "Horazon's Splendor",
+                "SetPropertiesString": [
+                    "+10% Faster Run/Walk Speed (2 Items)"
+                ],
+                "Name": "Horazon's Legacy",
+                "Index": "Horazon's Legacy",
+                "Enabled": true,
+                "Rarity": 7,
+                "ItemLevel": 40,
+                "RequiredLevel": 67,
+                "Code": "utb",
+                "Properties": [
+                    {
+                        "PropertyString": "+30% Faster Run/Walk Speed",
+                        "Index": 0
+                    },
+                    {
+                        "PropertyString": "+10-15 to Strength",
+                        "Index": 1
+                    },
+                    {
+                        "PropertyString": "+10-15 to Dexterity",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "+20-30% Magic Resistance",
+                        "Index": 3
+                    },
+                    {
+                        "PropertyString": "Cannot Be Frozen",
+                        "Index": 4
+                    },
+                    {
+                        "PropertyString": "Requirements Reduced By -30%",
+                        "Index": 5
+                    }
+                ],
+                "DamageArmorEnhanced": false,
+                "Equipment": {
+                    "DamageString": "50 to 145",
+                    "DamageStringPrefix": "Kick Damage",
+                    "ArmorString": "59-68",
+                    "Block": null,
+                    "EquipmentType": 0,
+                    "Name": "Mirrored Boots [E]",
+                    "RequiredStrength": "114",
+                    "RequiredDexterity": "0",
+                    "Durability": 18,
+                    "RequiredClass": ""
+                }
+            },
+            {
+                "Type": "Grimoire",
+                "Set": "Horazon's Splendor",
+                "SetPropertiesString": [
+                    "-25% to Enemy Fire Resistance (3 Items)",
+                    "+15 to Energy (4 Items)",
+                    "Poison Length Reduced by 75% (2 Items)"
+                ],
+                "Name": "Horazon's Secrets",
+                "Index": "Horazon's Secrets",
+                "Enabled": true,
+                "Rarity": 7,
+                "ItemLevel": 40,
+                "RequiredLevel": 57,
+                "Code": "wad",
+                "Properties": [
+                    {
+                        "PropertyString": "+2 to Eldritch Skills (Warlock Only)",
+                        "Index": 0
+                    },
+                    {
+                        "PropertyString": "+30% Faster Hit Recovery",
+                        "Index": 1
+                    },
+                    {
+                        "PropertyString": "20% Increased Chance of Blocking",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "+20-30 to Vitality",
+                        "Index": 3
+                    },
+                    {
+                        "PropertyString": "+30-50 to Life",
+                        "Index": 4
+                    }
+                ],
+                "DamageArmorEnhanced": false,
+                "Equipment": {
+                    "DamageString": null,
+                    "DamageStringPrefix": null,
+                    "ArmorString": "98-142",
+                    "Block": 8,
+                    "EquipmentType": 0,
+                    "Name": "Occult Codex [E]",
+                    "RequiredStrength": "91",
+                    "RequiredDexterity": "0",
+                    "Durability": 20,
+                    "RequiredClass": "Warlock"
+                }
+            }
+        ],
+        "PartialProperties": [
+            {
+                "PropertyString": "+20 to Dexterity",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+30 to Energy",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+300 Defense",
+                "Index": 4
+            }
+        ],
+        "FullProperties": [
+            {
+                "PropertyString": "+3 to Warlock Skill Levels",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+30 to Enchant (oskill)",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+350% Enhanced Weapon Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+50% to All Resistances",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+100% Chance Items Roll Magic or Better",
+                "Index": 3
+            }
+        ],
+        "Level": 1,
+        "Vanilla": "N"
     },
     {
         "Index": "Midnight Calling",

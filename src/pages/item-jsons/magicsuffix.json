@@ -16599,5 +16599,182 @@
         ],
         "ETypes": [],
         "PType": "Suffix"
+    },
+    {
+        "Name": "of Miasma Bolt",
+        "Level": 7,
+        "MaxLevel": 0,
+        "RequiredLevel": 7,
+        "Group": 44,
+        "ClassSpecific": "",
+        "Class": "Warlock",
+        "ClassLevelReq": 1,
+        "Properties": [
+            {
+                "PropertyString": "Level -10 Miasma Bolt (-60 Charges)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Polearm",
+            "Knife",
+            "Voodoo Heads"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Miasma Bolt",
+        "Level": 14,
+        "MaxLevel": 0,
+        "RequiredLevel": 14,
+        "Group": 44,
+        "ClassSpecific": "",
+        "Class": "Warlock",
+        "ClassLevelReq": 1,
+        "Properties": [
+            {
+                "PropertyString": "Level -6 Miasma Bolt (-20 Charges)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Sword"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Lethargy",
+        "Level": 12,
+        "MaxLevel": 0,
+        "RequiredLevel": 12,
+        "Group": 44,
+        "ClassSpecific": "",
+        "Class": "Warlock",
+        "ClassLevelReq": 6,
+        "Properties": [
+            {
+                "PropertyString": "Level -8 Sigil Lethargy (-60 Charges)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Polearm",
+            "Knife",
+            "Voodoo Heads"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Lethargy",
+        "Level": 24,
+        "MaxLevel": 0,
+        "RequiredLevel": 24,
+        "Group": 44,
+        "ClassSpecific": "",
+        "Class": "Warlock",
+        "ClassLevelReq": 6,
+        "Properties": [
+            {
+                "PropertyString": "Level -5 Sigil Lethargy (-20 Charges)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Ring",
+            "Circlet"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Rancor",
+        "Level": 18,
+        "MaxLevel": 0,
+        "RequiredLevel": 18,
+        "Group": 44,
+        "ClassSpecific": "",
+        "Class": "Warlock",
+        "ClassLevelReq": 12,
+        "Properties": [
+            {
+                "PropertyString": "Level -7 Sigil Rancor (-60 Charges)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Polearm",
+            "Knife",
+            "Voodoo Heads"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Rancor",
+        "Level": 36,
+        "MaxLevel": 0,
+        "RequiredLevel": 36,
+        "Group": 44,
+        "ClassSpecific": "",
+        "Class": "Warlock",
+        "ClassLevelReq": 12,
+        "Properties": [
+            {
+                "PropertyString": "Level -4 Sigil Rancor (-20 Charges)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Any Shield"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Apocalypse",
+        "Level": 36,
+        "MaxLevel": 0,
+        "RequiredLevel": 36,
+        "Group": 44,
+        "ClassSpecific": "",
+        "Class": "Warlock",
+        "ClassLevelReq": 30,
+        "Properties": [
+            {
+                "PropertyString": "Level -3 Apocalypse (-60 Charges)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Staff",
+            "Knife",
+            "Voodoo Heads"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Apocalypse",
+        "Level": 72,
+        "MaxLevel": 0,
+        "RequiredLevel": 72,
+        "Group": 44,
+        "ClassSpecific": "",
+        "Class": "Warlock",
+        "ClassLevelReq": 30,
+        "Properties": [
+            {
+                "PropertyString": "Level -1 Apocalypse (-20 Charges)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Gloves"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
     }
 ]

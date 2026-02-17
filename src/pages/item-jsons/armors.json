@@ -7327,5 +7327,1460 @@
         "UltraCode": "nef",
         "AutoPrefix": "305",
         "RequiredClass": "Necromancer"
+    },
+    {
+        "DamageString": null,
+        "DamageStringPrefix": null,
+        "ArmorString": "2-5",
+        "Block": 3,
+        "StrBonus": 0,
+        "DexBonus": 0,
+        "GemSockets": "(1+): 2",
+        "AutoMagicGroups": [
+            {
+                "Name": "of Ember",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "+3 to Weapon Minimum Fire Damage",
+                    "+8 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Shadows",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "Adds 3-5 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Cinders",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "+16 to Weapon Maximum Fire Damage",
+                    "+5 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Darkness",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "Adds 6-10 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Flames",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "+18 to Weapon Maximum Fire Damage",
+                    "+8 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Despair",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "Adds 11-20 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Inferno",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "+16 to Weapon Minimum Fire Damage",
+                    "+32 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Nightmares",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "Adds 21-30 Weapon Magic Damage"
+                ]
+            }
+        ],
+        "EquipmentType": 0,
+        "Name": "Old Book [N]",
+        "Code": "wa1",
+        "BaseRequiredLevel": 3,
+        "RequiredStrength": "12",
+        "RequiredDexterity": "0",
+        "Durability": 20,
+        "ItemLevel": 4,
+        "Type": {
+            "Name": "Grimoire",
+            "Index": "Grimoire",
+            "Class": "war"
+        },
+        "NormCode": "wa1",
+        "UberCode": "wa6",
+        "UltraCode": "wab",
+        "AutoPrefix": "306",
+        "RequiredClass": "Warlock"
+    },
+    {
+        "DamageString": null,
+        "DamageStringPrefix": null,
+        "ArmorString": "4-8",
+        "Block": 5,
+        "StrBonus": 0,
+        "DexBonus": 0,
+        "GemSockets": "(1+): 2",
+        "AutoMagicGroups": [
+            {
+                "Name": "of Ember",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "+3 to Weapon Minimum Fire Damage",
+                    "+8 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Shadows",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "Adds 3-5 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Cinders",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "+16 to Weapon Maximum Fire Damage",
+                    "+5 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Darkness",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "Adds 6-10 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Flames",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "+18 to Weapon Maximum Fire Damage",
+                    "+8 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Despair",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "Adds 11-20 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Inferno",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "+16 to Weapon Minimum Fire Damage",
+                    "+32 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Nightmares",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "Adds 21-30 Weapon Magic Damage"
+                ]
+            }
+        ],
+        "EquipmentType": 0,
+        "Name": "Tome [N]",
+        "Code": "wa2",
+        "BaseRequiredLevel": 6,
+        "RequiredStrength": "14",
+        "RequiredDexterity": "0",
+        "Durability": 20,
+        "ItemLevel": 8,
+        "Type": {
+            "Name": "Grimoire",
+            "Index": "Grimoire",
+            "Class": "war"
+        },
+        "NormCode": "wa2",
+        "UberCode": "wa7",
+        "UltraCode": "wac",
+        "AutoPrefix": "306",
+        "RequiredClass": "Warlock"
+    },
+    {
+        "DamageString": null,
+        "DamageStringPrefix": null,
+        "ArmorString": "6-10",
+        "Block": 8,
+        "StrBonus": 0,
+        "DexBonus": 0,
+        "GemSockets": "(1+): 2",
+        "AutoMagicGroups": [
+            {
+                "Name": "of Ember",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "+3 to Weapon Minimum Fire Damage",
+                    "+8 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Shadows",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "Adds 3-5 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Cinders",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "+16 to Weapon Maximum Fire Damage",
+                    "+5 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Darkness",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "Adds 6-10 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Flames",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "+18 to Weapon Maximum Fire Damage",
+                    "+8 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Despair",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "Adds 11-20 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Inferno",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "+16 to Weapon Minimum Fire Damage",
+                    "+32 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Nightmares",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "Adds 21-30 Weapon Magic Damage"
+                ]
+            }
+        ],
+        "EquipmentType": 0,
+        "Name": "Codex [N]",
+        "Code": "wa3",
+        "BaseRequiredLevel": 12,
+        "RequiredStrength": "18",
+        "RequiredDexterity": "0",
+        "Durability": 20,
+        "ItemLevel": 16,
+        "Type": {
+            "Name": "Grimoire",
+            "Index": "Grimoire",
+            "Class": "war"
+        },
+        "NormCode": "wa3",
+        "UberCode": "wa8",
+        "UltraCode": "wad",
+        "AutoPrefix": "306",
+        "RequiredClass": "Warlock"
+    },
+    {
+        "DamageString": null,
+        "DamageStringPrefix": null,
+        "ArmorString": "10-16",
+        "Block": 10,
+        "StrBonus": 0,
+        "DexBonus": 0,
+        "GemSockets": "(1+): 2",
+        "AutoMagicGroups": [
+            {
+                "Name": "of Ember",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "+3 to Weapon Minimum Fire Damage",
+                    "+8 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Shadows",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "Adds 3-5 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Cinders",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "+16 to Weapon Maximum Fire Damage",
+                    "+5 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Darkness",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "Adds 6-10 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Flames",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "+18 to Weapon Maximum Fire Damage",
+                    "+8 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Despair",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "Adds 11-20 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Inferno",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "+16 to Weapon Minimum Fire Damage",
+                    "+32 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Nightmares",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "Adds 21-30 Weapon Magic Damage"
+                ]
+            }
+        ],
+        "EquipmentType": 0,
+        "Name": "Compendium [N]",
+        "Code": "wa4",
+        "BaseRequiredLevel": 15,
+        "RequiredStrength": "20",
+        "RequiredDexterity": "0",
+        "Durability": 20,
+        "ItemLevel": 20,
+        "Type": {
+            "Name": "Grimoire",
+            "Index": "Grimoire",
+            "Class": "war"
+        },
+        "NormCode": "wa4",
+        "UberCode": "wa9",
+        "UltraCode": "wae",
+        "AutoPrefix": "306",
+        "RequiredClass": "Warlock"
+    },
+    {
+        "DamageString": null,
+        "DamageStringPrefix": null,
+        "ArmorString": "15-20",
+        "Block": 12,
+        "StrBonus": 0,
+        "DexBonus": 0,
+        "GemSockets": "(1+): 2",
+        "AutoMagicGroups": [
+            {
+                "Name": "of Ember",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "+3 to Weapon Minimum Fire Damage",
+                    "+8 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Shadows",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "Adds 3-5 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Cinders",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "+16 to Weapon Maximum Fire Damage",
+                    "+5 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Darkness",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "Adds 6-10 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Flames",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "+18 to Weapon Maximum Fire Damage",
+                    "+8 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Despair",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "Adds 11-20 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Inferno",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "+16 to Weapon Minimum Fire Damage",
+                    "+32 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Nightmares",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "Adds 21-30 Weapon Magic Damage"
+                ]
+            }
+        ],
+        "EquipmentType": 0,
+        "Name": "Grimoire [N]",
+        "Code": "wa5",
+        "BaseRequiredLevel": 18,
+        "RequiredStrength": "25",
+        "RequiredDexterity": "0",
+        "Durability": 20,
+        "ItemLevel": 24,
+        "Type": {
+            "Name": "Grimoire",
+            "Index": "Grimoire",
+            "Class": "war"
+        },
+        "NormCode": "wa5",
+        "UberCode": "waa",
+        "UltraCode": "waf",
+        "AutoPrefix": "306",
+        "RequiredClass": "Warlock"
+    },
+    {
+        "DamageString": null,
+        "DamageStringPrefix": null,
+        "ArmorString": "38-48",
+        "Block": 3,
+        "StrBonus": 0,
+        "DexBonus": 0,
+        "GemSockets": "(1+): 2",
+        "AutoMagicGroups": [
+            {
+                "Name": "of Ember",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "+3 to Weapon Minimum Fire Damage",
+                    "+8 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Shadows",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "Adds 3-5 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Cinders",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "+16 to Weapon Maximum Fire Damage",
+                    "+5 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Darkness",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "Adds 6-10 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Flames",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "+18 to Weapon Maximum Fire Damage",
+                    "+8 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Despair",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "Adds 11-20 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Inferno",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "+16 to Weapon Minimum Fire Damage",
+                    "+32 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Nightmares",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "Adds 21-30 Weapon Magic Damage"
+                ]
+            }
+        ],
+        "EquipmentType": 0,
+        "Name": "Burnt Text [X]",
+        "Code": "wa6",
+        "BaseRequiredLevel": 24,
+        "RequiredStrength": "38",
+        "RequiredDexterity": "0",
+        "Durability": 20,
+        "ItemLevel": 33,
+        "Type": {
+            "Name": "Grimoire",
+            "Index": "Grimoire",
+            "Class": "war"
+        },
+        "NormCode": "wa1",
+        "UberCode": "wa6",
+        "UltraCode": "wab",
+        "AutoPrefix": "306",
+        "RequiredClass": "Warlock"
+    },
+    {
+        "DamageString": null,
+        "DamageStringPrefix": null,
+        "ArmorString": "41-52",
+        "Block": 5,
+        "StrBonus": 0,
+        "DexBonus": 0,
+        "GemSockets": "(1+): 2",
+        "AutoMagicGroups": [
+            {
+                "Name": "of Ember",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "+3 to Weapon Minimum Fire Damage",
+                    "+8 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Shadows",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "Adds 3-5 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Cinders",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "+16 to Weapon Maximum Fire Damage",
+                    "+5 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Darkness",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "Adds 6-10 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Flames",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "+18 to Weapon Maximum Fire Damage",
+                    "+8 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Despair",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "Adds 11-20 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Inferno",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "+16 to Weapon Minimum Fire Damage",
+                    "+32 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Nightmares",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "Adds 21-30 Weapon Magic Damage"
+                ]
+            }
+        ],
+        "EquipmentType": 0,
+        "Name": "Dark Tome [X]",
+        "Code": "wa7",
+        "BaseRequiredLevel": 29,
+        "RequiredStrength": "41",
+        "RequiredDexterity": "0",
+        "Durability": 20,
+        "ItemLevel": 39,
+        "Type": {
+            "Name": "Grimoire",
+            "Index": "Grimoire",
+            "Class": "war"
+        },
+        "NormCode": "wa2",
+        "UberCode": "wa7",
+        "UltraCode": "wac",
+        "AutoPrefix": "306",
+        "RequiredClass": "Warlock"
+    },
+    {
+        "DamageString": null,
+        "DamageStringPrefix": null,
+        "ArmorString": "44-55",
+        "Block": 8,
+        "StrBonus": 0,
+        "DexBonus": 0,
+        "GemSockets": "(1+): 2",
+        "AutoMagicGroups": [
+            {
+                "Name": "of Ember",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "+3 to Weapon Minimum Fire Damage",
+                    "+8 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Shadows",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "Adds 3-5 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Cinders",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "+16 to Weapon Maximum Fire Damage",
+                    "+5 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Darkness",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "Adds 6-10 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Flames",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "+18 to Weapon Maximum Fire Damage",
+                    "+8 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Despair",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "Adds 11-20 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Inferno",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "+16 to Weapon Minimum Fire Damage",
+                    "+32 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Nightmares",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "Adds 21-30 Weapon Magic Damage"
+                ]
+            }
+        ],
+        "EquipmentType": 0,
+        "Name": "Dark Codex [X]",
+        "Code": "wa8",
+        "BaseRequiredLevel": 33,
+        "RequiredStrength": "47",
+        "RequiredDexterity": "0",
+        "Durability": 20,
+        "ItemLevel": 45,
+        "Type": {
+            "Name": "Grimoire",
+            "Index": "Grimoire",
+            "Class": "war"
+        },
+        "NormCode": "wa3",
+        "UberCode": "wa8",
+        "UltraCode": "wad",
+        "AutoPrefix": "306",
+        "RequiredClass": "Warlock"
+    },
+    {
+        "DamageString": null,
+        "DamageStringPrefix": null,
+        "ArmorString": "50-64",
+        "Block": 10,
+        "StrBonus": 0,
+        "DexBonus": 0,
+        "GemSockets": "(1-25): 2 - (26+): 3",
+        "AutoMagicGroups": [
+            {
+                "Name": "of Ember",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "+3 to Weapon Minimum Fire Damage",
+                    "+8 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Shadows",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "Adds 3-5 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Cinders",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "+16 to Weapon Maximum Fire Damage",
+                    "+5 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Darkness",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "Adds 6-10 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Flames",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "+18 to Weapon Maximum Fire Damage",
+                    "+8 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Despair",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "Adds 11-20 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Inferno",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "+16 to Weapon Minimum Fire Damage",
+                    "+32 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Nightmares",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "Adds 21-30 Weapon Magic Damage"
+                ]
+            }
+        ],
+        "EquipmentType": 0,
+        "Name": "Possessed Compendium [X]",
+        "Code": "wa9",
+        "BaseRequiredLevel": 36,
+        "RequiredStrength": "50",
+        "RequiredDexterity": "0",
+        "Durability": 20,
+        "ItemLevel": 49,
+        "Type": {
+            "Name": "Grimoire",
+            "Index": "Grimoire",
+            "Class": "war"
+        },
+        "NormCode": "wa4",
+        "UberCode": "wa9",
+        "UltraCode": "wae",
+        "AutoPrefix": "306",
+        "RequiredClass": "Warlock"
+    },
+    {
+        "DamageString": null,
+        "DamageStringPrefix": null,
+        "ArmorString": "58-70",
+        "Block": 12,
+        "StrBonus": 0,
+        "DexBonus": 0,
+        "GemSockets": "(1-25): 2 - (26+): 3",
+        "AutoMagicGroups": [
+            {
+                "Name": "of Ember",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "+3 to Weapon Minimum Fire Damage",
+                    "+8 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Shadows",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "Adds 3-5 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Cinders",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "+16 to Weapon Maximum Fire Damage",
+                    "+5 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Darkness",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "Adds 6-10 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Flames",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "+18 to Weapon Maximum Fire Damage",
+                    "+8 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Despair",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "Adds 11-20 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Inferno",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "+16 to Weapon Minimum Fire Damage",
+                    "+32 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Nightmares",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "Adds 21-30 Weapon Magic Damage"
+                ]
+            }
+        ],
+        "EquipmentType": 0,
+        "Name": "Possessed Grimoire [X]",
+        "Code": "waa",
+        "BaseRequiredLevel": 40,
+        "RequiredStrength": "58",
+        "RequiredDexterity": "0",
+        "Durability": 20,
+        "ItemLevel": 54,
+        "Type": {
+            "Name": "Grimoire",
+            "Index": "Grimoire",
+            "Class": "war"
+        },
+        "NormCode": "wa5",
+        "UberCode": "waa",
+        "UltraCode": "waf",
+        "AutoPrefix": "306",
+        "RequiredClass": "Warlock"
+    },
+    {
+        "DamageString": null,
+        "DamageStringPrefix": null,
+        "ArmorString": "95-139",
+        "Block": 3,
+        "StrBonus": 0,
+        "DexBonus": 0,
+        "GemSockets": "(1-25): 2 - (26+): 3",
+        "AutoMagicGroups": [
+            {
+                "Name": "of Ember",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "+3 to Weapon Minimum Fire Damage",
+                    "+8 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Shadows",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "Adds 3-5 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Cinders",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "+16 to Weapon Maximum Fire Damage",
+                    "+5 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Darkness",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "Adds 6-10 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Flames",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "+18 to Weapon Maximum Fire Damage",
+                    "+8 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Despair",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "Adds 11-20 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Inferno",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "+16 to Weapon Minimum Fire Damage",
+                    "+32 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Nightmares",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "Adds 21-30 Weapon Magic Damage"
+                ]
+            }
+        ],
+        "EquipmentType": 0,
+        "Name": "Forgotten Volume [E]",
+        "Code": "wab",
+        "BaseRequiredLevel": 44,
+        "RequiredStrength": "77",
+        "RequiredDexterity": "0",
+        "Durability": 20,
+        "ItemLevel": 59,
+        "Type": {
+            "Name": "Grimoire",
+            "Index": "Grimoire",
+            "Class": "war"
+        },
+        "NormCode": "wa1",
+        "UberCode": "wa6",
+        "UltraCode": "wab",
+        "AutoPrefix": "306",
+        "RequiredClass": "Warlock"
+    },
+    {
+        "DamageString": null,
+        "DamageStringPrefix": null,
+        "ArmorString": "96-141",
+        "Block": 5,
+        "StrBonus": 0,
+        "DexBonus": 0,
+        "GemSockets": "(1-25): 2 - (26+): 3",
+        "AutoMagicGroups": [
+            {
+                "Name": "of Ember",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "+3 to Weapon Minimum Fire Damage",
+                    "+8 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Shadows",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "Adds 3-5 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Cinders",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "+16 to Weapon Maximum Fire Damage",
+                    "+5 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Darkness",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "Adds 6-10 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Flames",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "+18 to Weapon Maximum Fire Damage",
+                    "+8 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Despair",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "Adds 11-20 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Inferno",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "+16 to Weapon Minimum Fire Damage",
+                    "+32 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Nightmares",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "Adds 21-30 Weapon Magic Damage"
+                ]
+            }
+        ],
+        "EquipmentType": 0,
+        "Name": "Occult Tome [E]",
+        "Code": "wac",
+        "BaseRequiredLevel": 49,
+        "RequiredStrength": "82",
+        "RequiredDexterity": "0",
+        "Durability": 20,
+        "ItemLevel": 67,
+        "Type": {
+            "Name": "Grimoire",
+            "Index": "Grimoire",
+            "Class": "war"
+        },
+        "NormCode": "wa2",
+        "UberCode": "wa7",
+        "UltraCode": "wac",
+        "AutoPrefix": "306",
+        "RequiredClass": "Warlock"
+    },
+    {
+        "DamageString": null,
+        "DamageStringPrefix": null,
+        "ArmorString": "98-142",
+        "Block": 8,
+        "StrBonus": 0,
+        "DexBonus": 0,
+        "GemSockets": "(1-25): 2 - (26+): 3",
+        "AutoMagicGroups": [
+            {
+                "Name": "of Ember",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "+3 to Weapon Minimum Fire Damage",
+                    "+8 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Shadows",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "Adds 3-5 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Cinders",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "+16 to Weapon Maximum Fire Damage",
+                    "+5 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Darkness",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "Adds 6-10 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Flames",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "+18 to Weapon Maximum Fire Damage",
+                    "+8 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Despair",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "Adds 11-20 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Inferno",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "+16 to Weapon Minimum Fire Damage",
+                    "+32 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Nightmares",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "Adds 21-30 Weapon Magic Damage"
+                ]
+            }
+        ],
+        "EquipmentType": 0,
+        "Name": "Occult Codex [E]",
+        "Code": "wad",
+        "BaseRequiredLevel": 50,
+        "RequiredStrength": "91",
+        "RequiredDexterity": "0",
+        "Durability": 20,
+        "ItemLevel": 66,
+        "Type": {
+            "Name": "Grimoire",
+            "Index": "Grimoire",
+            "Class": "war"
+        },
+        "NormCode": "wa3",
+        "UberCode": "wa8",
+        "UltraCode": "wad",
+        "AutoPrefix": "306",
+        "RequiredClass": "Warlock"
+    },
+    {
+        "DamageString": null,
+        "DamageStringPrefix": null,
+        "ArmorString": "100-146",
+        "Block": 10,
+        "StrBonus": 0,
+        "DexBonus": 0,
+        "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
+        "AutoMagicGroups": [
+            {
+                "Name": "of Ember",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "+3 to Weapon Minimum Fire Damage",
+                    "+8 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Shadows",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "Adds 3-5 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Cinders",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "+16 to Weapon Maximum Fire Damage",
+                    "+5 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Darkness",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "Adds 6-10 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Flames",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "+18 to Weapon Maximum Fire Damage",
+                    "+8 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Despair",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "Adds 11-20 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Inferno",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "+16 to Weapon Minimum Fire Damage",
+                    "+32 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Nightmares",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "Adds 21-30 Weapon Magic Damage"
+                ]
+            }
+        ],
+        "EquipmentType": 0,
+        "Name": "Blasphemous Compendium [E]",
+        "Code": "wae",
+        "BaseRequiredLevel": 60,
+        "RequiredStrength": "95",
+        "RequiredDexterity": "0",
+        "Durability": 20,
+        "ItemLevel": 81,
+        "Type": {
+            "Name": "Grimoire",
+            "Index": "Grimoire",
+            "Class": "war"
+        },
+        "NormCode": "wa4",
+        "UberCode": "wa9",
+        "UltraCode": "wae",
+        "AutoPrefix": "306",
+        "RequiredClass": "Warlock"
+    },
+    {
+        "DamageString": null,
+        "DamageStringPrefix": null,
+        "ArmorString": "103-148",
+        "Block": 12,
+        "StrBonus": 0,
+        "DexBonus": 0,
+        "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
+        "AutoMagicGroups": [
+            {
+                "Name": "of Ember",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "+3 to Weapon Minimum Fire Damage",
+                    "+8 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Shadows",
+                "Level": 1,
+                "RequiredLevel": 3,
+                "PropertyStrings": [
+                    "Adds 3-5 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Cinders",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "+16 to Weapon Maximum Fire Damage",
+                    "+5 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Darkness",
+                "Level": 15,
+                "RequiredLevel": 11,
+                "PropertyStrings": [
+                    "Adds 6-10 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Flames",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "+18 to Weapon Maximum Fire Damage",
+                    "+8 to Weapon Minimum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Despair",
+                "Level": 25,
+                "RequiredLevel": 18,
+                "PropertyStrings": [
+                    "Adds 11-20 Weapon Magic Damage"
+                ]
+            },
+            {
+                "Name": "of Inferno",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "+16 to Weapon Minimum Fire Damage",
+                    "+32 to Weapon Maximum Fire Damage"
+                ]
+            },
+            {
+                "Name": "of Nightmares",
+                "Level": 33,
+                "RequiredLevel": 25,
+                "PropertyStrings": [
+                    "Adds 21-30 Weapon Magic Damage"
+                ]
+            }
+        ],
+        "EquipmentType": 0,
+        "Name": "Blasphemous Grimoire [E]",
+        "Code": "waf",
+        "BaseRequiredLevel": 65,
+        "RequiredStrength": "106",
+        "RequiredDexterity": "0",
+        "Durability": 20,
+        "ItemLevel": 85,
+        "Type": {
+            "Name": "Grimoire",
+            "Index": "Grimoire",
+            "Class": "war"
+        },
+        "NormCode": "wa5",
+        "UberCode": "waa",
+        "UltraCode": "waf",
+        "AutoPrefix": "306",
+        "RequiredClass": "Warlock"
     }
 ]
