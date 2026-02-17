@@ -7,23 +7,27 @@
                 "Type": "Shield",
                 "Set": "Civerb's Vestments",
                 "SetPropertiesString": [
-                    "+21-22 to Mana (Civerb's Icon)",
+                    "+25-50% Faster Run/Walk Speed (Civerb's Icon)",
                     "+25-26% Poison Resistance (Civerb's Cudgel)"
                 ],
                 "Name": "Civerb's Ward",
                 "Index": "Civerb's Ward",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 13,
+                "ItemLevel": 1,
                 "RequiredLevel": 9,
                 "Code": "lrg",
                 "Properties": [
+                    {
+                        "PropertyString": "+15% Faster Block Rate",
+                        "Index": 2
+                    },
                     {
                         "PropertyString": "15% Increased Chance of Blocking",
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+15 Defense",
+                        "PropertyString": "+25 Defense",
                         "Index": 0
                     }
                 ],
@@ -31,7 +35,7 @@
                 "Equipment": {
                     "DamageString": "2 to 4",
                     "DamageStringPrefix": "Smite Damage",
-                    "ArmorString": "27-29",
+                    "ArmorString": "37-39",
                     "Block": 12,
                     "EquipmentType": 0,
                     "Name": "Large Shield [N]",
@@ -45,20 +49,24 @@
                 "Type": "Amulet",
                 "Set": "Civerb's Vestments",
                 "SetPropertiesString": [
-                    "+25 Defense (3 Items)",
+                    "+50 Defense (3 Items)",
                     "+25% Cold Resistance (2 Items)"
                 ],
                 "Name": "Civerb's Icon",
                 "Index": "Civerb's Icon",
                 "Enabled": true,
-                "Rarity": 7,
-                "ItemLevel": 13,
+                "Rarity": 3,
+                "ItemLevel": 1,
                 "RequiredLevel": 9,
                 "Code": "amu",
                 "Properties": [
                     {
-                        "PropertyString": "Replenish Life +4",
+                        "PropertyString": "Replenish Life +1 (Per Character Level)",
                         "Index": 1
+                    },
+                    {
+                        "PropertyString": "+2 to Mana (Per Character Level)",
+                        "Index": 2
                     },
                     {
                         "PropertyString": "+40% Mana Regeneration",
@@ -78,25 +86,24 @@
             {
                 "Type": "Scepter",
                 "Set": "Civerb's Vestments",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "+30% Increased Attack Speed (3 Items)",
+                    "+1.5 to Maximum Weapon Damage (Per Character Level) (2 Items)"
+                ],
                 "Name": "Civerb's Cudgel",
                 "Index": "Civerb's Cudgel",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 13,
+                "ItemLevel": 1,
                 "RequiredLevel": 9,
                 "Code": "gsc",
                 "Properties": [
                     {
-                        "PropertyString": "+17-23 to Maximum Weapon Damage",
+                        "PropertyString": "+20-35 to Maximum Weapon Damage",
                         "Index": 1
                     },
                     {
                         "PropertyString": "+75 to Attack Rating",
-                        "Index": 0
-                    },
-                    {
-                        "PropertyString": "+1 to Maximum Weapon Damage (Per Character Level)",
                         "Index": 0
                     }
                 ],
@@ -105,7 +112,7 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "8 to (35-41)"
+                            "DamageString": "8 to (38-53)"
                         }
                     ],
                     "Speed": 10,
@@ -126,7 +133,7 @@
         ],
         "FullProperties": [
             {
-                "PropertyString": "+25% Bonus to Attack Rating",
+                "PropertyString": "+100 to Attack Rating",
                 "Index": 3
             },
             {
@@ -134,11 +141,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+50 Defense",
+                "PropertyString": "+100 Defense",
                 "Index": 4
             },
             {
-                "PropertyString": "+15 to Strength",
+                "PropertyString": "+25 to Strength",
                 "Index": 0
             },
             {
@@ -163,7 +170,7 @@
                 "Index": "Hsarus' Iron Heel",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 4,
+                "ItemLevel": 1,
                 "RequiredLevel": 3,
                 "Code": "mbt",
                 "Properties": [
@@ -194,22 +201,27 @@
                 "Type": "Shield",
                 "Set": "Hsarus' Defense",
                 "SetPropertiesString": [
-                    "+2.5 Defense (Per Character Level) (2 Items)"
+                    "+2.5 Defense (Per Character Level) (2 Items)",
+                    "Attacker Takes Damage of 25 (3 Items)"
                 ],
                 "Name": "Hsarus' Iron Fist",
                 "Index": "Hsarus' Iron Fist",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 4,
+                "ItemLevel": 1,
                 "RequiredLevel": 3,
                 "Code": "buc",
                 "Properties": [
+                    {
+                        "PropertyString": "+25% Enhanced Weapon Damage",
+                        "Index": 2
+                    },
                     {
                         "PropertyString": "+10 to Strength",
                         "Index": 1
                     },
                     {
-                        "PropertyString": "Physical Damage Reduced By 2",
+                        "PropertyString": "+10% Physical Damage Reduction",
                         "Index": 0
                     }
                 ],
@@ -231,19 +243,24 @@
                 "Type": "Belt",
                 "Set": "Hsarus' Defense",
                 "SetPropertiesString": [
-                    "+2.5 Defense (Per Character Level) (2 Items)"
+                    "+2.5 Defense (Per Character Level) (2 Items)",
+                    "Attacker Takes Damage of 25 (3 Items)"
                 ],
                 "Name": "Hsarus' Iron Stay",
                 "Index": "Hsarus' Iron Stay",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 4,
+                "ItemLevel": 1,
                 "RequiredLevel": 3,
                 "Code": "mbl",
                 "Properties": [
                     {
                         "PropertyString": "+20 to Life",
                         "Index": 1
+                    },
+                    {
+                        "PropertyString": "+20 to Mana",
+                        "Index": 2
                     },
                     {
                         "PropertyString": "+20% Cold Resistance",
@@ -267,13 +284,13 @@
         ],
         "PartialProperties": [
             {
-                "PropertyString": "Attacker Takes Damage of 5",
+                "PropertyString": "Attacker Takes Damage of 25",
                 "Index": 0
             }
         ],
         "FullProperties": [
             {
-                "PropertyString": "+5 to Maximum Weapon Damage",
+                "PropertyString": "+15 to Maximum Weapon Damage",
                 "Index": 0
             },
             {
@@ -283,6 +300,10 @@
             {
                 "PropertyString": "Cannot Be Frozen",
                 "Index": 1
+            },
+            {
+                "PropertyString": "Attacker Takes Damage of 100",
+                "Index": 3
             }
         ],
         "Level": 1,
@@ -302,7 +323,7 @@
                 "Index": "Cleglaw's Tooth",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 6,
+                "ItemLevel": 1,
                 "RequiredLevel": 4,
                 "Code": "lsd",
                 "Properties": [
@@ -342,7 +363,7 @@
                 "Index": "Cleglaw's Claw",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 6,
+                "ItemLevel": 1,
                 "RequiredLevel": 4,
                 "Code": "sml",
                 "Properties": [
@@ -379,7 +400,7 @@
                 "Index": "Cleglaw's Pincers",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 6,
+                "ItemLevel": 1,
                 "RequiredLevel": 4,
                 "Code": "mgl",
                 "Properties": [
@@ -447,8 +468,8 @@
                 "Name": "Iratha's Collar",
                 "Index": "Iratha's Collar",
                 "Enabled": true,
-                "Rarity": 7,
-                "ItemLevel": 21,
+                "Rarity": 3,
+                "ItemLevel": 10,
                 "RequiredLevel": 15,
                 "Code": "amu",
                 "Properties": [
@@ -481,7 +502,7 @@
                 "Index": "Iratha's Cuff",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 21,
+                "ItemLevel": 10,
                 "RequiredLevel": 15,
                 "Code": "tgl",
                 "Properties": [
@@ -518,7 +539,7 @@
                 "Index": "Iratha's Coil",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 21,
+                "ItemLevel": 10,
                 "RequiredLevel": 15,
                 "Code": "crn",
                 "Properties": [
@@ -555,7 +576,7 @@
                 "Index": "Iratha's Cord",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 21,
+                "ItemLevel": 10,
                 "RequiredLevel": 15,
                 "Code": "tbl",
                 "Properties": [
@@ -634,13 +655,14 @@
                 "Type": "Sword",
                 "Set": "Isenhart's Armory",
                 "SetPropertiesString": [
-                    "+5 to Attack Rating (Per Character Level) (2 Items)"
+                    "+5 to Attack Rating (Per Character Level) (2 Items)",
+                    "Adds 10-30 Weapon Magic Damage (3 Items)"
                 ],
                 "Name": "Isenhart's Lightbrand",
                 "Index": "Isenhart's Lightbrand",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 11,
+                "ItemLevel": 1,
                 "RequiredLevel": 8,
                 "Code": "bsd",
                 "Properties": [
@@ -649,8 +671,12 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+10 to Minimum Weapon Damage",
+                        "PropertyString": "+10-20 to Minimum Weapon Damage",
                         "Index": 0
+                    },
+                    {
+                        "PropertyString": "+20-40 to Maximum Weapon Damage",
+                        "Index": 2
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -658,7 +684,7 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "17 to 18"
+                            "DamageString": "(17-27) to (34-54)"
                         }
                     ],
                     "Speed": 0,
@@ -674,13 +700,14 @@
                 "Type": "Shield",
                 "Set": "Isenhart's Armory",
                 "SetPropertiesString": [
-                    "+8% to All Resistances (2 Items)"
+                    "Adds 1-30 Weapon Lightning Damage (3 Items)",
+                    "+20% to All Resistances (2 Items)"
                 ],
                 "Name": "Isenhart's Parry",
                 "Index": "Isenhart's Parry",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 11,
+                "ItemLevel": 1,
                 "RequiredLevel": 8,
                 "Code": "gts",
                 "Properties": [
@@ -689,8 +716,12 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "Attacker Takes Lightning Damage of 4",
+                        "PropertyString": "Attacker Takes Lightning Damage of 30",
                         "Index": 1
+                    },
+                    {
+                        "PropertyString": "Attacker Takes Damage of 30",
+                        "Index": 2
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -717,7 +748,7 @@
                 "Index": "Isenhart's Case",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 11,
+                "ItemLevel": 1,
                 "RequiredLevel": 8,
                 "Code": "brs",
                 "Properties": [
@@ -726,7 +757,11 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "Magic Damage Reduced By 2",
+                        "PropertyString": "+10% Magic Resistance",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "Magic Damage Reduced By 5",
                         "Index": 1
                     }
                 ],
@@ -748,22 +783,27 @@
                 "Type": "Helm",
                 "Set": "Isenhart's Armory",
                 "SetPropertiesString": [
-                    "+8% to All Resistances (2 Items)"
+                    "+25% Enhanced Weapon Damage (3 Items)",
+                    "+15% to All Resistances (2 Items)"
                 ],
                 "Name": "Isenhart's Horns",
                 "Index": "Isenhart's Horns",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 11,
+                "ItemLevel": 1,
                 "RequiredLevel": 8,
                 "Code": "fhl",
                 "Properties": [
                     {
-                        "PropertyString": "+6 to Dexterity",
+                        "PropertyString": "+25% Enhanced Weapon Damage",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "+10-15 to Dexterity",
                         "Index": 0
                     },
                     {
-                        "PropertyString": "Physical Damage Reduced By 2",
+                        "PropertyString": "Physical Damage Reduced By 5",
                         "Index": 1
                     }
                 ],
@@ -802,7 +842,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+35% Bonus to Attack Rating",
+                "PropertyString": "+100 to Attack Rating",
                 "Index": 2
             },
             {
@@ -810,7 +850,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+10% to All Resistances",
+                "PropertyString": "+30% to All Resistances",
                 "Index": 1
             }
         ],
@@ -825,22 +865,27 @@
                 "Type": "Bow",
                 "Set": "Vidala's Rig",
                 "SetPropertiesString": [
-                    "+8 to Attack Rating (Per Character Level) (2 Items)"
+                    "+8 to Attack Rating (Per Character Level) (2 Items)",
+                    "+1 to Weapon Maximum Lightning Damage (Per Character Level) (3 Items)"
                 ],
                 "Name": "Vidala's Barb",
                 "Index": "Vidala's Barb",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 19,
+                "ItemLevel": 10,
                 "RequiredLevel": 14,
                 "Code": "lbb",
                 "Properties": [
+                    {
+                        "PropertyString": "+25% Increased Attack Speed",
+                        "Index": 2
+                    },
                     {
                         "PropertyString": "+1 to Weapon Minimum Lightning Damage",
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+20 to Weapon Maximum Lightning Damage",
+                        "PropertyString": "+20-40 to Weapon Maximum Lightning Damage",
                         "Index": 1
                     }
                 ],
@@ -865,18 +910,23 @@
                 "Type": "Boots",
                 "Set": "Vidala's Rig",
                 "SetPropertiesString": [
-                    "+8% to All Resistances (2 Items)"
+                    "+15% Faster Run/Walk Speed (3 Items)",
+                    "+10% to All Resistances (2 Items)"
                 ],
                 "Name": "Vidala's Fetlock",
                 "Index": "Vidala's Fetlock",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 19,
+                "ItemLevel": 10,
                 "RequiredLevel": 14,
                 "Code": "tbt",
                 "Properties": [
                     {
                         "PropertyString": "+30% Faster Run/Walk Speed",
+                        "Index": 0
+                    },
+                    {
+                        "PropertyString": "Adds 10-20 Weapon Fire Damage",
                         "Index": 1
                     }
                 ],
@@ -905,16 +955,20 @@
                 "Index": "Vidala's Ambush",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 19,
+                "ItemLevel": 10,
                 "RequiredLevel": 14,
                 "Code": "lea",
                 "Properties": [
+                    {
+                        "PropertyString": "Prevent Monster Heal",
+                        "Index": 2
+                    },
                     {
                         "PropertyString": "+50 Defense",
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+11 to Dexterity",
+                        "PropertyString": "+10-15 to Dexterity",
                         "Index": 1
                     }
                 ],
@@ -936,18 +990,23 @@
                 "Type": "Amulet",
                 "Set": "Vidala's Rig",
                 "SetPropertiesString": [
+                    "+50% Extra Gold from Monsters (3 Items)",
                     "+50% Chance Items Roll Magic or Better (2 Items)"
                 ],
                 "Name": "Vidala's Snare",
                 "Index": "Vidala's Snare",
                 "Enabled": true,
-                "Rarity": 7,
-                "ItemLevel": 19,
+                "Rarity": 3,
+                "ItemLevel": 10,
                 "RequiredLevel": 14,
                 "Code": "amu",
                 "Properties": [
                     {
-                        "PropertyString": "+15 to Life",
+                        "PropertyString": "Freezes target +1",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "+15-30 to Life",
                         "Index": 0
                     },
                     {
@@ -1016,7 +1075,7 @@
                 "Index": "Milabrega's Orb",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 23,
+                "ItemLevel": 12,
                 "RequiredLevel": 17,
                 "Code": "kit",
                 "Properties": [
@@ -1051,7 +1110,7 @@
                 "Index": "Milabrega's Rod",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 23,
+                "ItemLevel": 12,
                 "RequiredLevel": 17,
                 "Code": "wsp",
                 "Properties": [
@@ -1095,7 +1154,7 @@
                 "Index": "Milabrega's Diadem",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 23,
+                "ItemLevel": 12,
                 "RequiredLevel": 17,
                 "Code": "crn",
                 "Properties": [
@@ -1132,7 +1191,7 @@
                 "Index": "Milabrega's Robe",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 23,
+                "ItemLevel": 12,
                 "RequiredLevel": 17,
                 "Code": "aar",
                 "Properties": [
@@ -1214,7 +1273,7 @@
                 "Index": "Cathan's Rule",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 15,
+                "ItemLevel": 1,
                 "RequiredLevel": 11,
                 "Code": "bst",
                 "Properties": [
@@ -1255,7 +1314,7 @@
                 "Index": "Cathan's Mesh",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 15,
+                "ItemLevel": 1,
                 "RequiredLevel": 11,
                 "Code": "chn",
                 "Properties": [
@@ -1292,7 +1351,7 @@
                 "Index": "Cathan's Visage",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 15,
+                "ItemLevel": 1,
                 "RequiredLevel": 11,
                 "Code": "msk",
                 "Properties": [
@@ -1329,8 +1388,8 @@
                 "Name": "Cathan's Sigil",
                 "Index": "Cathan's Sigil",
                 "Enabled": true,
-                "Rarity": 7,
-                "ItemLevel": 15,
+                "Rarity": 3,
+                "ItemLevel": 1,
                 "RequiredLevel": 11,
                 "Code": "amu",
                 "Properties": [
@@ -1362,8 +1421,8 @@
                 "Name": "Cathan's Seal",
                 "Index": "Cathan's Seal",
                 "Enabled": true,
-                "Rarity": 7,
-                "ItemLevel": 15,
+                "Rarity": 3,
+                "ItemLevel": 1,
                 "RequiredLevel": 11,
                 "Code": "rin",
                 "Properties": [
@@ -1441,7 +1500,7 @@
                 "Index": "Tancred's Crowbill",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 27,
+                "ItemLevel": 12,
                 "RequiredLevel": 20,
                 "Code": "mpi",
                 "Properties": [
@@ -1481,7 +1540,7 @@
                 "Index": "Tancred's Spine",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 27,
+                "ItemLevel": 12,
                 "RequiredLevel": 20,
                 "Code": "ful",
                 "Properties": [
@@ -1519,7 +1578,7 @@
                 "Index": "Tancred's Hobnails",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 27,
+                "ItemLevel": 12,
                 "RequiredLevel": 20,
                 "Code": "lbt",
                 "Properties": [
@@ -1556,8 +1615,8 @@
                 "Name": "Tancred's Weird",
                 "Index": "Tancred's Weird",
                 "Enabled": true,
-                "Rarity": 7,
-                "ItemLevel": 27,
+                "Rarity": 3,
+                "ItemLevel": 12,
                 "RequiredLevel": 20,
                 "Code": "amu",
                 "Properties": [
@@ -1590,7 +1649,7 @@
                 "Index": "Tancred's Skull",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 27,
+                "ItemLevel": 12,
                 "RequiredLevel": 20,
                 "Code": "bhm",
                 "Properties": [
@@ -1663,7 +1722,7 @@
                 "Index": "Sigon's Gage",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 9,
+                "ItemLevel": 1,
                 "RequiredLevel": 6,
                 "Code": "hgl",
                 "Properties": [
@@ -1700,7 +1759,7 @@
                 "Index": "Sigon's Visor",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 9,
+                "ItemLevel": 1,
                 "RequiredLevel": 6,
                 "Code": "ghm",
                 "Properties": [
@@ -1737,7 +1796,7 @@
                 "Index": "Sigon's Shelter",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 9,
+                "ItemLevel": 1,
                 "RequiredLevel": 6,
                 "Code": "gth",
                 "Properties": [
@@ -1775,7 +1834,7 @@
                 "Index": "Sigon's Sabot",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 9,
+                "ItemLevel": 1,
                 "RequiredLevel": 6,
                 "Code": "hbt",
                 "Properties": [
@@ -1812,7 +1871,7 @@
                 "Index": "Sigon's Wrap",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 9,
+                "ItemLevel": 1,
                 "RequiredLevel": 6,
                 "Code": "hbl",
                 "Properties": [
@@ -1847,7 +1906,7 @@
                 "Index": "Sigon's Guard",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 9,
+                "ItemLevel": 1,
                 "RequiredLevel": 6,
                 "Code": "tow",
                 "Properties": [
@@ -1924,7 +1983,7 @@
                 "Index": "Infernal Cranium",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 7,
+                "ItemLevel": 1,
                 "RequiredLevel": 5,
                 "Code": "cap",
                 "Properties": [
@@ -1961,7 +2020,7 @@
                 "Index": "Infernal Torch",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 7,
+                "ItemLevel": 1,
                 "RequiredLevel": 5,
                 "Code": "gwn",
                 "Properties": [
@@ -2002,7 +2061,7 @@
                 "Index": "Infernal Sign",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 7,
+                "ItemLevel": 1,
                 "RequiredLevel": 5,
                 "Code": "tbl",
                 "Properties": [
@@ -2083,7 +2142,7 @@
                 "Index": "Berserker's Headgear",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 5,
+                "ItemLevel": 1,
                 "RequiredLevel": 3,
                 "Code": "hlm",
                 "Properties": [
@@ -2120,7 +2179,7 @@
                 "Index": "Berserker's Hauberk",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 5,
+                "ItemLevel": 1,
                 "RequiredLevel": 3,
                 "Code": "spl",
                 "Properties": [
@@ -2157,7 +2216,7 @@
                 "Index": "Berserker's Hatchet",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 5,
+                "ItemLevel": 1,
                 "RequiredLevel": 3,
                 "Code": "2ax",
                 "Properties": [
@@ -2225,7 +2284,7 @@
                 "Index": "Death's Hand",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 8,
+                "ItemLevel": 1,
                 "RequiredLevel": 6,
                 "Code": "lgl",
                 "Properties": [
@@ -2262,7 +2321,7 @@
                 "Index": "Death's Guard",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 8,
+                "ItemLevel": 1,
                 "RequiredLevel": 6,
                 "Code": "lbl",
                 "Properties": [
@@ -2299,7 +2358,7 @@
                 "Index": "Death's Touch",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 8,
+                "ItemLevel": 1,
                 "RequiredLevel": 6,
                 "Code": "wsd",
                 "Properties": [
@@ -2368,7 +2427,7 @@
                 "Index": "Angelic Sickle",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 17,
+                "ItemLevel": 1,
                 "RequiredLevel": 12,
                 "Code": "sbr",
                 "Properties": [
@@ -2409,7 +2468,7 @@
                 "Index": "Angelic Mantle",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 17,
+                "ItemLevel": 1,
                 "RequiredLevel": 12,
                 "Code": "rng",
                 "Properties": [
@@ -2447,7 +2506,7 @@
                 "Index": "Angelic Halo",
                 "Enabled": true,
                 "Rarity": 3,
-                "ItemLevel": 17,
+                "ItemLevel": 1,
                 "RequiredLevel": 12,
                 "Code": "rin",
                 "Properties": [
@@ -2480,8 +2539,8 @@
                 "Name": "Angelic Wings",
                 "Index": "Angelic Wings",
                 "Enabled": true,
-                "Rarity": 7,
-                "ItemLevel": 17,
+                "Rarity": 3,
+                "ItemLevel": 1,
                 "RequiredLevel": 12,
                 "Code": "amu",
                 "Properties": [
@@ -2551,7 +2610,7 @@
                 "Index": "Arctic Horn",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 3,
+                "ItemLevel": 1,
                 "RequiredLevel": 2,
                 "Code": "swb",
                 "Properties": [
@@ -2592,7 +2651,7 @@
                 "Index": "Arctic Furs",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 3,
+                "ItemLevel": 1,
                 "RequiredLevel": 2,
                 "Code": "qui",
                 "Properties": [
@@ -2630,7 +2689,7 @@
                 "Index": "Arctic Binding",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 3,
+                "ItemLevel": 1,
                 "RequiredLevel": 2,
                 "Code": "vbl",
                 "Properties": [
@@ -2668,7 +2727,7 @@
                 "Index": "Arctic Mitts",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 3,
+                "ItemLevel": 1,
                 "RequiredLevel": 2,
                 "Code": "tgl",
                 "Properties": [
@@ -2733,8 +2792,8 @@
                 "Name": "Arcanna's Sign",
                 "Index": "Arcanna's Sign",
                 "Enabled": true,
-                "Rarity": 1,
-                "ItemLevel": 20,
+                "Rarity": 3,
+                "ItemLevel": 12,
                 "RequiredLevel": 15,
                 "Code": "amu",
                 "Properties": [
@@ -2768,7 +2827,7 @@
                 "Index": "Arcanna's Deathwand",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 20,
+                "ItemLevel": 12,
                 "RequiredLevel": 15,
                 "Code": "wst",
                 "Properties": [
@@ -2809,7 +2868,7 @@
                 "Index": "Arcanna's Head",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 20,
+                "ItemLevel": 12,
                 "RequiredLevel": 15,
                 "Code": "skp",
                 "Properties": [
@@ -2847,7 +2906,7 @@
                 "Index": "Arcanna's Flesh",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 20,
+                "ItemLevel": 12,
                 "RequiredLevel": 15,
                 "Code": "ltp",
                 "Properties": [
@@ -2917,12 +2976,14 @@
             {
                 "Type": "Helm",
                 "Set": "Natalya's Odium",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "Adds 25-50 Weapon Damage (4 Items)"
+                ],
                 "Name": "Natalya's Totem",
                 "Index": "Natalya's Totem",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 22,
+                "ItemLevel": 40,
                 "RequiredLevel": 59,
                 "Code": "xh9",
                 "Properties": [
@@ -2943,7 +3004,7 @@
                         "Index": 3
                     },
                     {
-                        "PropertyString": "Magic Damage Reduced By 3",
+                        "PropertyString": "Magic Damage Reduced By 5-10",
                         "Index": 4
                     }
                 ],
@@ -2964,12 +3025,16 @@
             {
                 "Type": "Hand to Hand",
                 "Set": "Natalya's Odium",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "+50 to Minimum Weapon Damage (2 Items)",
+                    "+100 to Maximum Weapon Damage (3 Items)",
+                    "+25% Deadly Strike (4 Items)"
+                ],
                 "Name": "Natalya's Mark",
                 "Index": "Natalya's Mark",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 22,
+                "ItemLevel": 60,
                 "RequiredLevel": 79,
                 "Code": "7qr",
                 "Properties": [
@@ -2978,8 +3043,12 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+200% Enhanced Weapon Damage",
+                        "PropertyString": "+250-350% Enhanced Weapon Damage",
                         "Index": 1
+                    },
+                    {
+                        "PropertyString": "+50-100 to Maximum Weapon Damage",
+                        "Index": 3
                     },
                     {
                         "PropertyString": "Ignore Target's Defense",
@@ -2987,19 +3056,11 @@
                     },
                     {
                         "PropertyString": "+200% Damage to Demons",
-                        "Index": 6
-                    },
-                    {
-                        "PropertyString": "+200% Damage to Undead",
                         "Index": 5
                     },
                     {
-                        "PropertyString": "Adds 12-17 Weapon Fire Damage",
+                        "PropertyString": "+200% Damage to Undead",
                         "Index": 4
-                    },
-                    {
-                        "PropertyString": "Adds 50 Weapon Cold Damage",
-                        "Index": 3
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -3007,7 +3068,7 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "120 to 153"
+                            "DamageString": "(140-180) to (228-329)"
                         }
                     ],
                     "Speed": 0,
@@ -3022,37 +3083,40 @@
             {
                 "Type": "Body Armor",
                 "Set": "Natalya's Odium",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "+1 to Max Shadow Masters (3 Items)",
+                    "+2 to Max Shadow Masters (4 Items)"
+                ],
                 "Name": "Natalya's Shadow",
                 "Index": "Natalya's Shadow",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 22,
+                "ItemLevel": 60,
                 "RequiredLevel": 73,
                 "Code": "ucl",
                 "Properties": [
                     {
-                        "PropertyString": "+2 to Shadow Disciplines (Assassin Only)",
+                        "PropertyString": "+2-3 to Shadow Disciplines (Assassin Only)",
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+150-225 Defense",
+                        "PropertyString": "+200-300 Defense",
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+1 to Life (Per Character Level)",
+                        "PropertyString": "+1.5 to Life (Per Character Level)",
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+25% Poison Resistance",
+                        "PropertyString": "+50% Poison Resistance",
                         "Index": 4
                     },
                     {
-                        "PropertyString": "Poison Length Reduced by 75%",
+                        "PropertyString": "Poison Length Reduced by 50%",
                         "Index": 3
                     },
                     {
-                        "PropertyString": "Socketed (1-3)",
+                        "PropertyString": "Socketed (2-4)",
                         "Index": 5
                     }
                 ],
@@ -3060,7 +3124,7 @@
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "540-721",
+                    "ArmorString": "590-796",
                     "Block": null,
                     "EquipmentType": 0,
                     "Name": "Loricated Mail [E]",
@@ -3073,26 +3137,33 @@
             {
                 "Type": "Boots",
                 "Set": "Natalya's Odium",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "+10% to All Resistances (2 Items)",
+                    "+10% to All Resistances (4 Items)"
+                ],
                 "Name": "Natalya's Soul",
                 "Index": "Natalya's Soul",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 22,
+                "ItemLevel": 17,
                 "RequiredLevel": 25,
                 "Code": "xmb",
                 "Properties": [
                     {
-                        "PropertyString": "+40% Faster Run/Walk Speed",
+                        "PropertyString": "+1 to Shadow Disciplines (Assassin Only)",
+                        "Index": 3
+                    },
+                    {
+                        "PropertyString": "+30-40% Faster Run/Walk Speed",
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+75-125 Defense",
-                        "Index": 0
+                        "PropertyString": "+20% Chance of Open Wounds",
+                        "Index": 2
                     },
                     {
-                        "PropertyString": "Heal Stamina Plus 0.25% (Per Character Level)",
-                        "Index": 2
+                        "PropertyString": "+100-150 Defense",
+                        "Index": 0
                     },
                     {
                         "PropertyString": "+15-25% Cold Resistance",
@@ -3107,13 +3178,13 @@
                 "Equipment": {
                     "DamageString": "23 to 52",
                     "DamageStringPrefix": "Kick Damage",
-                    "ArmorString": "112-169",
+                    "ArmorString": "137-194",
                     "Block": null,
                     "EquipmentType": 0,
                     "Name": "Mesh Boots [X]",
                     "RequiredStrength": "65",
                     "RequiredDexterity": "0",
-                    "Durability": 66,
+                    "Durability": 16,
                     "RequiredClass": ""
                 }
             }
@@ -3146,7 +3217,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+150 Defense",
+                "PropertyString": "+200 Defense",
                 "Index": 2
             },
             {
@@ -3451,7 +3522,10 @@
             {
                 "Type": "Primal Helm",
                 "Set": "Immortal King",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "+2 to Barbarian Skill Levels (4 Items)",
+                    "+15% Faster Hit Recovery (2 Items)"
+                ],
                 "Name": "Immortal King's Will",
                 "Index": "Immortal King's Will",
                 "Enabled": true,
@@ -3463,6 +3537,10 @@
                     {
                         "PropertyString": "+2 to Warcries (Barbarian Only)",
                         "Index": 2
+                    },
+                    {
+                        "PropertyString": "+2 Random Barbarian Skill",
+                        "Index": 5
                     },
                     {
                         "PropertyString": "+125 Defense",
@@ -3479,10 +3557,6 @@
                     {
                         "PropertyString": "+4 to Light Radius",
                         "Index": 3
-                    },
-                    {
-                        "PropertyString": "Socketed (2)",
-                        "Index": 5
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -3518,7 +3592,7 @@
                 "Code": "uar",
                 "Properties": [
                     {
-                        "PropertyString": "5% Chance to cast level 5 Enchant when struck",
+                        "PropertyString": "10% Chance to cast level 1 Empowering Flame when struck",
                         "Index": 1
                     },
                     {
@@ -3566,6 +3640,14 @@
                 "RequiredLevel": 29,
                 "Code": "zhb",
                 "Properties": [
+                    {
+                        "PropertyString": "Adds 10-20 Weapon Damage",
+                        "Index": 4
+                    },
+                    {
+                        "PropertyString": "+2 Random Barbarian Skill",
+                        "Index": 5
+                    },
                     {
                         "PropertyString": "+36 Defense",
                         "Index": 0
@@ -3616,8 +3698,12 @@
                 "Code": "xhg",
                 "Properties": [
                     {
-                        "PropertyString": "12% Chance to cast level 4 Charged Bolt when struck",
+                        "PropertyString": "20% Chance to cast level 3 Storm Shard when struck",
                         "Index": 3
+                    },
+                    {
+                        "PropertyString": "+2 Random Barbarian Skill",
+                        "Index": 4
                     },
                     {
                         "PropertyString": "+65 Defense",
@@ -3672,6 +3758,10 @@
                         "Index": 2
                     },
                     {
+                        "PropertyString": "+2 Random Barbarian Skill",
+                        "Index": 4
+                    },
+                    {
                         "PropertyString": "+75 Defense",
                         "Index": 0
                     },
@@ -3698,11 +3788,11 @@
                 "Type": "Hammer",
                 "Set": "Immortal King",
                 "SetPropertiesString": [
-                    "Adds 250-361 Weapon Magic Damage (6 Items)",
-                    "Adds 211-397 Weapon Fire Damage (2 Items)",
-                    "Adds 7-477 Weapon Lightning Damage (3 Items)",
-                    "Adds 127-364 Weapon Cold Damage (4 Items)",
-                    "Adds 205 Weapon Poison Damage over 6 seconds (5 Items)"
+                    "Adds 50-100 Weapon Damage (6 Items)",
+                    "Adds 250-500 Weapon Magic Damage (5 Items)",
+                    "Adds 250-500 Weapon Fire Damage (2 Items)",
+                    "Adds 10-700 Weapon Lightning Damage (3 Items)",
+                    "Adds 250-500 Weapon Cold Damage (4 Items)"
                 ],
                 "Name": "Immortal King's Stone Crusher",
                 "Index": "Immortal King's Stone Crusher",
@@ -3713,15 +3803,11 @@
                 "Code": "7m7",
                 "Properties": [
                     {
-                        "PropertyString": "Indestructible",
-                        "Index": 0
-                    },
-                    {
                         "PropertyString": "+40% Increased Attack Speed",
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+200% Enhanced Weapon Damage",
+                        "PropertyString": "+200-300% Enhanced Weapon Damage",
                         "Index": 5
                     },
                     {
@@ -3733,12 +3819,12 @@
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+35-40% Chance of Crushing Blow",
+                        "PropertyString": "+15-25% Chance of Crushing Blow",
                         "Index": 4
                     },
                     {
-                        "PropertyString": "Socketed (2)",
-                        "Index": 6
+                        "PropertyString": "Ethereal (Cannot be Repaired)",
+                        "Index": 0
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -3746,7 +3832,7 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "231 to 318"
+                            "DamageString": "(345-460) to (477-636)"
                         }
                     ],
                     "Speed": 10,
@@ -3754,7 +3840,7 @@
                     "Name": "Ogre Maul [E]",
                     "RequiredStrength": "225",
                     "RequiredDexterity": "0",
-                    "Durability": 0,
+                    "Durability": 250,
                     "RequiredClass": ""
                 }
             }
@@ -3779,8 +3865,16 @@
         ],
         "FullProperties": [
             {
+                "PropertyString": "10% Chance to cast level 1 Kings Charisma on striking",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+3 to Barbarian Skill Levels",
                 "Index": 1
+            },
+            {
+                "PropertyString": "+1 to Kings Trinity (oskill)",
+                "Index": 6
             },
             {
                 "PropertyString": "+150 to Life",
@@ -3806,8 +3900,8 @@
                 "Type": "Belt",
                 "Set": "Tal Rasha's Wrappings",
                 "SetPropertiesString": [
-                    "+10% Faster Cast Rate (3 Items)",
-                    "+60 Defense (2 Items)"
+                    "+15% Faster Cast Rate (3 Items)",
+                    "+100 Defense (2 Items)"
                 ],
                 "Name": "Tal Rasha's Fine-Spun Cloth",
                 "Index": "Tal Rasha's Fine-Spun Cloth",
@@ -3818,11 +3912,15 @@
                 "Code": "zmb",
                 "Properties": [
                     {
-                        "PropertyString": "+20 to Dexterity",
+                        "PropertyString": "+2 Random Sorceress Skill",
+                        "Index": 5
+                    },
+                    {
+                        "PropertyString": "+30 to Dexterity",
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+30 to Mana",
+                        "PropertyString": "+50 to Mana",
                         "Index": 1
                     },
                     {
@@ -3830,7 +3928,7 @@
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+10-15% Chance Items Roll Magic or Better",
+                        "PropertyString": "+30-40% Chance Items Roll Magic or Better",
                         "Index": 4
                     },
                     {
@@ -3856,7 +3954,8 @@
                 "Type": "Amulet",
                 "Set": "Tal Rasha's Wrappings",
                 "SetPropertiesString": [
-                    "+10% Faster Cast Rate (4 Items)"
+                    "+15% Faster Cast Rate (2 Items)",
+                    "+25% Chance Items Roll Magic or Better (4 Items)"
                 ],
                 "Name": "Tal Rasha's Adjudication",
                 "Index": "Tal Rasha's Adjudication",
@@ -3875,11 +3974,15 @@
                         "Index": 3
                     },
                     {
+                        "PropertyString": "+2 Random Sorceress Skill",
+                        "Index": 5
+                    },
+                    {
                         "PropertyString": "+50 to Life",
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+42 to Mana",
+                        "PropertyString": "+50 to Mana",
                         "Index": 4
                     },
                     {
@@ -3902,9 +4005,8 @@
                 "Set": "Tal Rasha's Wrappings",
                 "SetPropertiesString": [
                     "+1 to Sorceress Skill Levels (2 Items)",
-                    "-15% to Enemy Fire Resistance (3 Items)",
-                    "-15% to Enemy Lightning Resistance (4 Items)",
-                    "+15% to Cold Skill Damage (5 Items)"
+                    "+1 to Sorceress Skill Levels (3 Items)",
+                    "-20% to All Enemy Elemental Resistances (5 Items)"
                 ],
                 "Name": "Tal Rasha's Lidless Eye",
                 "Index": "Tal Rasha's Lidless Eye",
@@ -3915,23 +4017,23 @@
                 "Code": "oba",
                 "Properties": [
                     {
-                        "PropertyString": "+20% Faster Cast Rate",
+                        "PropertyString": "+25% Faster Cast Rate",
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+1-2 to Fire Mastery (Sorceress Only)",
+                        "PropertyString": "+2-5 to Fire Mastery (Sorceress Only)",
                         "Index": 4
                     },
                     {
-                        "PropertyString": "+1-2 to Lightning Mastery (Sorceress Only)",
+                        "PropertyString": "+2-5 to Lightning Mastery (Sorceress Only)",
                         "Index": 5
                     },
                     {
-                        "PropertyString": "+1-2 to Cold Mastery (Sorceress Only)",
+                        "PropertyString": "+2-5 to Cold Mastery (Sorceress Only)",
                         "Index": 6
                     },
                     {
-                        "PropertyString": "+10 to Energy",
+                        "PropertyString": "+20 to Energy",
                         "Index": 2
                     },
                     {
@@ -3964,7 +4066,8 @@
                 "Type": "Body Armor",
                 "Set": "Tal Rasha's Wrappings",
                 "SetPropertiesString": [
-                    "+10% Faster Cast Rate (2 Items)"
+                    "+15% Faster Cast Rate (2 Items)",
+                    "+50 to Life (4 Items)"
                 ],
                 "Name": "Tal Rasha's Guardianship",
                 "Index": "Tal Rasha's Guardianship",
@@ -3995,7 +4098,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+88% Chance Items Roll Magic or Better",
+                        "PropertyString": "+80-100% Chance Items Roll Magic or Better",
                         "Index": 2
                     },
                     {
@@ -4020,7 +4123,10 @@
             {
                 "Type": "Helm",
                 "Set": "Tal Rasha's Wrappings",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "+10% Faster Hit Recovery (2 Items)",
+                    "+10% Faster Hit Recovery (4 Items)"
+                ],
                 "Name": "Tal Rasha's Horadric Crest",
                 "Index": "Tal Rasha's Horadric Crest",
                 "Enabled": true,
@@ -4036,6 +4142,10 @@
                     {
                         "PropertyString": "+10% Life stolen per hit",
                         "Index": 4
+                    },
+                    {
+                        "PropertyString": "+3 Random Sorceress Skill",
+                        "Index": 6
                     },
                     {
                         "PropertyString": "+45 Defense",
@@ -4071,11 +4181,11 @@
         ],
         "PartialProperties": [
             {
-                "PropertyString": "Replenish Life +10",
+                "PropertyString": "Replenish Life +30",
                 "Index": 0
             },
             {
-                "PropertyString": "+65% Chance Items Roll Magic or Better",
+                "PropertyString": "+100% Chance Items Roll Magic or Better",
                 "Index": 2
             },
             {
@@ -4089,12 +4199,16 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+150 Defense",
-                "Index": 2
+                "PropertyString": "+20% to All Elemental Skill Damage",
+                "Index": 4
             },
             {
-                "PropertyString": "+50 Defense vs. Missile",
-                "Index": 4
+                "PropertyString": "-10% to All Enemy Elemental Resistances",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+200 Defense",
+                "Index": 2
             },
             {
                 "PropertyString": "+150 to Life",
@@ -4356,13 +4470,16 @@
             {
                 "Type": "Helm",
                 "Set": "Trang-Oul's Avatar",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "+10% Faster Cast Rate (2 Items)",
+                    "+10% to Fire Skill Damage (3 Items)"
+                ],
                 "Name": "Trang-Oul's Guise",
                 "Index": "Trang-Oul's Guise",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 32,
-                "RequiredLevel": 65,
+                "ItemLevel": 70,
+                "RequiredLevel": 80,
                 "Code": "uh9",
                 "Properties": [
                     {
@@ -4370,27 +4487,27 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+80-100 Defense",
+                        "PropertyString": "+3 to Fire Golem (Necromancer Only)",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "+100-150 Defense",
                         "Index": 0
                     },
                     {
-                        "PropertyString": "Replenish Life +5",
+                        "PropertyString": "Replenish Life +30",
                         "Index": 4
                     },
                     {
                         "PropertyString": "+150 to Mana",
                         "Index": 3
-                    },
-                    {
-                        "PropertyString": "Attacker Takes Damage of 20",
-                        "Index": 2
                     }
                 ],
                 "DamageArmorEnhanced": true,
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "180-257",
+                    "ArmorString": "200-307",
                     "Block": null,
                     "EquipmentType": 0,
                     "Name": "Bone Visage [E]",
@@ -4424,7 +4541,7 @@
                         "Index": 4
                     },
                     {
-                        "PropertyString": "+150% Enhanced Defense",
+                        "PropertyString": "+150-300% Enhanced Defense",
                         "Index": 5
                     },
                     {
@@ -4444,7 +4561,7 @@
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "857",
+                    "ArmorString": "857-1372",
                     "Block": null,
                     "EquipmentType": 0,
                     "Name": "Chaos Armor [X]",
@@ -4458,8 +4575,8 @@
                 "Type": "Voodoo Heads",
                 "Set": "Trang-Oul's Avatar",
                 "SetPropertiesString": [
-                    "-25% to Enemy Poison Resistance (3 Items)",
-                    "Replenish Life +15 (4 Items)"
+                    "-25% to Enemy Fire Resistance (3 Items)",
+                    "Replenish Life +30 (4 Items)"
                 ],
                 "Name": "Trang-Oul's Wing",
                 "Index": "Trang-Oul's Wing",
@@ -4470,7 +4587,7 @@
                 "Code": "ne9",
                 "Properties": [
                     {
-                        "PropertyString": "+2 to Poison and Bone Skills (Necromancer Only)",
+                        "PropertyString": "+2 to Summoning Skills (Necromancer Only)",
                         "Index": 6
                     },
                     {
@@ -4515,7 +4632,10 @@
             {
                 "Type": "Gloves",
                 "Set": "Trang-Oul's Avatar",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "+15% Faster Cast Rate (3 Items)",
+                    "+10% to All Resistances (2 Items)"
+                ],
                 "Name": "Trang-Oul's Claws",
                 "Index": "Trang-Oul's Claws",
                 "Enabled": true,
@@ -4529,11 +4649,11 @@
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+20% Faster Cast Rate",
+                        "PropertyString": "+20-30% Faster Cast Rate",
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+30 Defense",
+                        "PropertyString": "+50-100 Defense",
                         "Index": 0
                     },
                     {
@@ -4541,7 +4661,7 @@
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+25% to Poison Skill Damage",
+                        "PropertyString": "+25% Fire Resistance",
                         "Index": 4
                     }
                 ],
@@ -4549,7 +4669,7 @@
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "67-74",
+                    "ArmorString": "87-144",
                     "Block": null,
                     "EquipmentType": 0,
                     "Name": "Heavy Bracers [X]",
@@ -4563,46 +4683,51 @@
                 "Type": "Belt",
                 "Set": "Trang-Oul's Avatar",
                 "SetPropertiesString": [
-                    "+40% Cold Resistance (3 Items)"
+                    "+40% Cold Resistance (3 Items)",
+                    "+20% Lightning Resistance (2 Items)"
                 ],
                 "Name": "Trang-Oul's Girth",
                 "Index": "Trang-Oul's Girth",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 32,
-                "RequiredLevel": 62,
+                "ItemLevel": 60,
+                "RequiredLevel": 70,
                 "Code": "utc",
                 "Properties": [
                     {
-                        "PropertyString": "+75-100 Defense",
-                        "Index": 0
-                    },
-                    {
-                        "PropertyString": "+66 to Life",
-                        "Index": 3
-                    },
-                    {
-                        "PropertyString": "Replenish Life +5",
-                        "Index": 2
-                    },
-                    {
-                        "PropertyString": "+25-50 to Mana",
+                        "PropertyString": "+1 to Summoning Skills (Necromancer Only)",
                         "Index": 6
                     },
                     {
+                        "PropertyString": "+100-150 Defense",
+                        "Index": 0
+                    },
+                    {
+                        "PropertyString": "+50-100 to Life",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "Replenish Life +20-30",
+                        "Index": 1
+                    },
+                    {
+                        "PropertyString": "+50-100 to Mana",
+                        "Index": 5
+                    },
+                    {
                         "PropertyString": "Cannot Be Frozen",
-                        "Index": 4
+                        "Index": 3
                     },
                     {
                         "PropertyString": "Requirements Reduced By -40%",
-                        "Index": 5
+                        "Index": 4
                     }
                 ],
                 "DamageArmorEnhanced": true,
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "134-166",
+                    "ArmorString": "159-216",
                     "Block": null,
                     "EquipmentType": 0,
                     "Name": "Troll Belt [E]",
@@ -4615,53 +4740,53 @@
         ],
         "PartialProperties": [
             {
-                "PropertyString": "+15% Mana Regeneration",
+                "PropertyString": "+25% Mana Regeneration",
                 "Index": 0
             },
             {
-                "PropertyString": "+18 to Fire Ball (oskill)",
+                "PropertyString": "+15 to Trang-Ouls Hellflare (oskill)",
                 "Index": 1
             },
             {
-                "PropertyString": "+15% Mana Regeneration",
+                "PropertyString": "+25% Mana Regeneration",
                 "Index": 2
             },
             {
-                "PropertyString": "+13 to Fire Wall (oskill)",
+                "PropertyString": "+15 to Trang-Ouls Burning Shroud (oskill)",
                 "Index": 3
             },
             {
-                "PropertyString": "+15% Mana Regeneration",
+                "PropertyString": "+25% Mana Regeneration",
                 "Index": 4
             },
             {
-                "PropertyString": "+10 to Meteor (oskill)",
+                "PropertyString": "+15 to Trang-Ouls Doomfall (oskill)",
                 "Index": 5
             }
         ],
         "FullProperties": [
             {
-                "PropertyString": "+3 to Necromancer Skill Levels",
+                "PropertyString": "+3 to Max Fire Golems",
+                "Index": 7
+            },
+            {
+                "PropertyString": "+3 to All Skills",
                 "Index": 1
             },
             {
-                "PropertyString": "+3 to Fire Mastery (oskill)",
+                "PropertyString": "+50% to Fire Skill Damage",
                 "Index": 6
-            },
-            {
-                "PropertyString": "+20% Life stolen per hit",
-                "Index": 7
             },
             {
                 "PropertyString": "+200 Defense",
                 "Index": 3
             },
             {
-                "PropertyString": "+100 to Mana",
+                "PropertyString": "+200 to Mana",
                 "Index": 2
             },
             {
-                "PropertyString": "+15% Mana Regeneration",
+                "PropertyString": "+100% Mana Regeneration",
                 "Index": 5
             },
             {
@@ -4718,7 +4843,7 @@
                     "EquipmentType": 0,
                     "Name": "Diadem [E]",
                     "RequiredStrength": "0",
-                    "RequiredDexterity": "0",
+                    "RequiredDexterity": "80",
                     "Durability": 20,
                     "RequiredClass": ""
                 }
@@ -4972,7 +5097,7 @@
                 "Name": "Telling of Beads",
                 "Index": "Telling of Beads",
                 "Enabled": true,
-                "Rarity": 1,
+                "Rarity": 2,
                 "ItemLevel": 39,
                 "RequiredLevel": 30,
                 "Code": "amu",
@@ -5476,7 +5601,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+35% Chance of Crushing Blow",
+                        "PropertyString": "+15% Chance of Crushing Blow",
                         "Index": 2
                     },
                     {
@@ -6101,25 +6226,27 @@
             {
                 "Type": "Sword",
                 "Set": "Bul-Kathos' Children",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "10% Chance to cast level 5 Amplify Damage on striking (2 Items)"
+                ],
                 "Name": "Bul-Kathos' Sacred Charge",
                 "Index": "Bul-Kathos' Sacred Charge",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 50,
-                "RequiredLevel": 63,
+                "ItemLevel": 60,
+                "RequiredLevel": 75,
                 "Code": "7gd",
                 "Properties": [
                     {
-                        "PropertyString": "+20% Increased Attack Speed",
-                        "Index": 2
-                    },
-                    {
-                        "PropertyString": "+200% Enhanced Weapon Damage",
+                        "PropertyString": "15% Chance to cast level 5 Dust Devils on striking",
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+35% Chance of Crushing Blow",
+                        "PropertyString": "+20-30% Increased Attack Speed",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "+250-350% Enhanced Weapon Damage",
                         "Index": 0
                     },
                     {
@@ -6132,11 +6259,11 @@
                     "DamageTypes": [
                         {
                             "Type": 0,
-                            "DamageString": "75 to 195"
+                            "DamageString": "(87-112) to (227-292)"
                         },
                         {
                             "Type": 1,
-                            "DamageString": "174 to 345"
+                            "DamageString": "(203-261) to (402-517)"
                         }
                     ],
                     "Speed": 5,
@@ -6151,34 +6278,32 @@
             {
                 "Type": "Sword",
                 "Set": "Bul-Kathos' Children",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "10% Chance to cast level 5 Amplify Damage on striking (2 Items)"
+                ],
                 "Name": "Bul-Kathos' Tribal Guardian",
                 "Index": "Bul-Kathos' Tribal Guardian",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 50,
+                "ItemLevel": 60,
                 "RequiredLevel": 66,
                 "Code": "7wd",
                 "Properties": [
                     {
-                        "PropertyString": "+20% Increased Attack Speed",
-                        "Index": 2
-                    },
-                    {
-                        "PropertyString": "+200% Enhanced Weapon Damage",
-                        "Index": 4
-                    },
-                    {
-                        "PropertyString": "Adds 50 Weapon Poison Damage over 2 seconds",
-                        "Index": 1
-                    },
-                    {
-                        "PropertyString": "+20 to Strength",
+                        "PropertyString": "15% Chance to cast level 3 Blightburst on striking",
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+50% Fire Resistance",
+                        "PropertyString": "+20-30% Increased Attack Speed",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "+250-350% Enhanced Weapon Damage",
                         "Index": 0
+                    },
+                    {
+                        "PropertyString": "+20 to all Attributes",
+                        "Index": 1
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -6186,7 +6311,7 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "120 to 150"
+                            "DamageString": "(140-180) to (175-225)"
                         }
                     ],
                     "Speed": 0,
@@ -6206,32 +6331,32 @@
                 "Index": 1
             },
             {
+                "PropertyString": "Adds 150-250 Weapon Damage",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+200 to Attack Rating",
                 "Index": 2
             },
             {
-                "PropertyString": "+200% Damage to Demons",
+                "PropertyString": "+300% Damage to Demons",
                 "Index": 5
             },
             {
-                "PropertyString": "+200% Damage to Undead",
+                "PropertyString": "+300% Damage to Undead",
                 "Index": 4
-            },
-            {
-                "PropertyString": "Adds 200 Weapon Fire Damage",
-                "Index": 0
             },
             {
                 "PropertyString": "+10% Life stolen per hit",
                 "Index": 6
             },
             {
-                "PropertyString": "+20% Deadly Strike",
-                "Index": 7
+                "PropertyString": "+25% Chance of Crushing Blow",
+                "Index": 3
             },
             {
-                "PropertyString": "+200 Defense",
-                "Index": 3
+                "PropertyString": "+25% Deadly Strike",
+                "Index": 7
             }
         ],
         "Level": 1,
@@ -6573,7 +6698,7 @@
                     "EquipmentType": 0,
                     "Name": "Circlet [N]",
                     "RequiredStrength": "0",
-                    "RequiredDexterity": "0",
+                    "RequiredDexterity": "40",
                     "Durability": 35,
                     "RequiredClass": ""
                 }
@@ -6934,7 +7059,7 @@
                 "Rarity": 7,
                 "ItemLevel": 10,
                 "RequiredLevel": 5,
-                "Code": "cap",
+                "Code": "skp",
                 "Properties": [
                     {
                         "PropertyString": "+1 to Assassin Skill Levels",
@@ -6953,13 +7078,13 @@
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "18-30",
+                    "ArmorString": "23-36",
                     "Block": null,
                     "EquipmentType": 0,
-                    "Name": "Cap [N]",
-                    "RequiredStrength": "0",
+                    "Name": "Skull Cap [N]",
+                    "RequiredStrength": "15",
                     "RequiredDexterity": "0",
-                    "Durability": 12,
+                    "Durability": 18,
                     "RequiredClass": ""
                 }
             },
@@ -7047,7 +7172,7 @@
                 "Name": "Peace Ring",
                 "Index": "Peace Ring",
                 "Enabled": true,
-                "Rarity": 5,
+                "Rarity": 3,
                 "ItemLevel": 12,
                 "RequiredLevel": 12,
                 "Code": "rin",
@@ -7656,7 +7781,7 @@
                 "Name": "Sheena's Choker",
                 "Index": "Sheena's Choker",
                 "Enabled": true,
-                "Rarity": 5,
+                "Rarity": 3,
                 "ItemLevel": 12,
                 "RequiredLevel": 12,
                 "Code": "amu",
@@ -8423,7 +8548,7 @@
                     "EquipmentType": 0,
                     "Name": "Circlet [N]",
                     "RequiredStrength": "0",
-                    "RequiredDexterity": "0",
+                    "RequiredDexterity": "40",
                     "Durability": 35,
                     "RequiredClass": ""
                 }
@@ -8475,7 +8600,7 @@
                 "Name": "Ruby Ring",
                 "Index": "Ruby Ring",
                 "Enabled": true,
-                "Rarity": 4,
+                "Rarity": 3,
                 "ItemLevel": 22,
                 "RequiredLevel": 22,
                 "Code": "rin",
@@ -8508,7 +8633,7 @@
                 "Name": "Diamond Necklace",
                 "Index": "Diamond Necklace",
                 "Enabled": true,
-                "Rarity": 4,
+                "Rarity": 3,
                 "ItemLevel": 22,
                 "RequiredLevel": 22,
                 "Code": "amu",
@@ -9132,13 +9257,13 @@
                 "Type": "Amulet",
                 "Set": "Insight of Brother Laz",
                 "SetPropertiesString": [
-                    "9% Chance to cast level 2 Mind Blast when struck (3 Items)",
+                    "13% Chance to cast level 20 Bone Spirit when struck (3 Items)",
                     "+25 to Mana (2 Items)"
                 ],
                 "Name": "Brother Laz' Holy Symbol",
                 "Index": "Brother Laz' Holy Symbol",
                 "Enabled": true,
-                "Rarity": 5,
+                "Rarity": 3,
                 "ItemLevel": 30,
                 "RequiredLevel": 40,
                 "Code": "amu",
@@ -9402,7 +9527,7 @@
                 "Name": "Vampire's Crusade",
                 "Index": "Vampire's Crusade",
                 "Enabled": true,
-                "Rarity": 5,
+                "Rarity": 3,
                 "ItemLevel": 30,
                 "RequiredLevel": 39,
                 "Code": "rin",
@@ -10127,7 +10252,7 @@
                     "EquipmentType": 0,
                     "Name": "Coronet [N]",
                     "RequiredStrength": "0",
-                    "RequiredDexterity": "0",
+                    "RequiredDexterity": "50",
                     "Durability": 30,
                     "RequiredClass": ""
                 }
@@ -10139,7 +10264,7 @@
                 "Name": "Warder's Bond",
                 "Index": "Warder's Bond",
                 "Enabled": true,
-                "Rarity": 5,
+                "Rarity": 3,
                 "ItemLevel": 35,
                 "RequiredLevel": 38,
                 "Code": "rin",
@@ -10186,19 +10311,19 @@
                 "Code": "xmg",
                 "Properties": [
                     {
-                        "PropertyString": "+30-40% Cold Resistance",
+                        "PropertyString": "+20-30% Cold Resistance",
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+30-40% Lightning Resistance",
+                        "PropertyString": "+20-30% Lightning Resistance",
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+30-40% Fire Resistance",
+                        "PropertyString": "+20-30% Fire Resistance",
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+30-40% Poison Resistance",
+                        "PropertyString": "+20-30% Poison Resistance",
                         "Index": 2
                     }
                 ],
@@ -10546,29 +10671,32 @@
             {
                 "Type": "Body Armor",
                 "Set": "JBouley's Scion",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "+100% Enhanced Weapon Damage (3 Items)",
+                    "Adds 25-50 Weapon Damage (4 Items)"
+                ],
                 "Name": "Shadow Ninja",
                 "Index": "Shadow Ninja",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 35,
+                "ItemLevel": 25,
                 "RequiredLevel": 35,
                 "Code": "xtu",
                 "Properties": [
                     {
-                        "PropertyString": "+1 to Dodge (oskill)",
-                        "Index": 1
-                    },
-                    {
-                        "PropertyString": "+1 to Evade (oskill)",
+                        "PropertyString": "15% Chance to cast level 5 Dim Vision on striking",
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+1 to Avoid (oskill)",
+                        "PropertyString": "+20% Faster Run/Walk Speed",
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+300-400 Defense",
+                        "PropertyString": "+100-200% Enhanced Defense",
+                        "Index": 1
+                    },
+                    {
+                        "PropertyString": "+200-400 Defense",
                         "Index": 0
                     }
                 ],
@@ -10576,7 +10704,7 @@
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "438-553",
+                    "ArmorString": "508-862",
                     "Block": null,
                     "EquipmentType": 0,
                     "Name": "Trellised Armor [X]",
@@ -10590,7 +10718,7 @@
                 "Type": "Gloves",
                 "Set": "JBouley's Scion",
                 "SetPropertiesString": [
-                    "+15% to All Resistances (3 Items)"
+                    "+25% to All Resistances (3 Items)"
                 ],
                 "Name": "Night's Caress",
                 "Index": "Night's Caress",
@@ -10601,15 +10729,15 @@
                 "Code": "xlg",
                 "Properties": [
                     {
-                        "PropertyString": "+2 to Martial Arts (Assassin Only)",
-                        "Index": 2
-                    },
-                    {
                         "PropertyString": "+20% Increased Attack Speed",
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+1.5 Defense (Per Character Level)",
+                        "PropertyString": "+1 to Maximum Weapon Damage (Per Character Level)",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "+2 Defense (Per Character Level)",
                         "Index": 0
                     }
                 ],
@@ -10617,7 +10745,7 @@
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "(76-178)-(83-185)",
+                    "ArmorString": "(92-228)-(99-235)",
                     "Block": null,
                     "EquipmentType": 0,
                     "Name": "Demonhide Gloves [X]",
@@ -10628,78 +10756,76 @@
                 }
             },
             {
-                "Type": "Hand to Hand",
+                "Type": "Shield",
                 "Set": "JBouley's Scion",
                 "SetPropertiesString": [
-                    "+8% Mana stolen per hit (4 Items)",
-                    "+8% Life stolen per hit (3 Items)"
+                    "Adds 25-50 Weapon Magic Damage (2 Items)",
+                    "+5% Mana stolen per hit (4 Items)",
+                    "+5% Life stolen per hit (3 Items)"
                 ],
                 "Name": "Mystic Blades",
                 "Index": "Mystic Blades",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 35,
-                "RequiredLevel": 40,
-                "Code": "9qr",
+                "ItemLevel": 25,
+                "RequiredLevel": 35,
+                "Code": "xpk",
                 "Properties": [
                     {
-                        "PropertyString": "+20% Increased Attack Speed",
+                        "PropertyString": "+25% Increased Attack Speed",
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+160-190% Enhanced Weapon Damage",
+                        "PropertyString": "+50% Enhanced Weapon Damage",
                         "Index": 0
                     },
                     {
-                        "PropertyString": "Socketed (1)",
+                        "PropertyString": "+30% Faster Block Rate",
                         "Index": 2
                     }
                 ],
-                "DamageArmorEnhanced": true,
+                "DamageArmorEnhanced": false,
                 "Equipment": {
-                    "DamageTypes": [
-                        {
-                            "Type": 3,
-                            "DamageString": "(49-55) to (104-116)"
-                        }
-                    ],
-                    "Speed": 0,
-                    "EquipmentType": 1,
-                    "Name": "Scissors Quhab [X]",
-                    "RequiredStrength": "82",
-                    "RequiredDexterity": "82",
-                    "Durability": 250,
+                    "DamageString": "18 to 35",
+                    "DamageStringPrefix": "Smite Damage",
+                    "ArmorString": "58-78",
+                    "Block": 17,
+                    "EquipmentType": 0,
+                    "Name": "Barbed Shield [X]",
+                    "RequiredStrength": "65",
+                    "RequiredDexterity": "0",
+                    "Durability": 55,
                     "RequiredClass": ""
                 }
             },
             {
-                "Type": "Belt",
+                "Type": "Helm",
                 "Set": "JBouley's Scion",
                 "SetPropertiesString": [
-                    "Slows Target by 15% (2 Items)"
+                    "+10% Physical Damage Reduction (2 Items)"
                 ],
                 "Name": "Fade to Black",
                 "Index": "Fade to Black",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 35,
-                "RequiredLevel": 38,
-                "Code": "ztb",
+                "ItemLevel": 17,
+                "RequiredLevel": 25,
+                "Code": "xkp",
                 "Properties": [
                     {
-                        "PropertyString": "+80% Enhanced Defense",
+                        "PropertyString": "+1.5 Defense (Per Character Level)",
                         "Index": 4
                     },
                     {
-                        "PropertyString": "+25 to Life",
+                        "PropertyString": "+1.5 to Life (Per Character Level)",
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+25 to Mana",
+                        "PropertyString": "+1.5 to Mana (Per Character Level)",
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+15% to All Resistances",
+                        "PropertyString": "+20% to All Resistances",
                         "Index": 1
                     },
                     {
@@ -10711,11 +10837,11 @@
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "77",
+                    "ArmorString": "(89-202)-(99-212)",
                     "Block": null,
                     "EquipmentType": 0,
-                    "Name": "Battle Belt [X]",
-                    "RequiredStrength": "88",
+                    "Name": "Sallet [X]",
+                    "RequiredStrength": "43",
                     "RequiredDexterity": "0",
                     "Durability": 18,
                     "RequiredClass": ""
@@ -10724,34 +10850,38 @@
         ],
         "PartialProperties": [
             {
-                "PropertyString": "+33% Deadly Strike",
+                "PropertyString": "+0.38% Deadly Strike (Per Character Level)",
                 "Index": 0
             },
             {
-                "PropertyString": "+20% Increased Attack Speed",
+                "PropertyString": "+30% Increased Attack Speed",
                 "Index": 2
+            },
+            {
+                "PropertyString": "+30% Faster Run/Walk Speed",
+                "Index": 3
             }
         ],
         "FullProperties": [
             {
-                "PropertyString": "+2 to Assassin Skill Levels",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+100% Chance of Open Wounds",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+40% to All Resistances",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+3% to Experience Gained",
+                "PropertyString": "+50% Chance of Open Wounds",
                 "Index": 2
             },
             {
-                "PropertyString": "+50% Chance Items Roll Magic or Better",
+                "PropertyString": "+40% to All Resistances",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+10% to Experience Gained",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+100% Extra Gold from Monsters",
                 "Index": 4
+            },
+            {
+                "PropertyString": "+100% Chance Items Roll Magic or Better",
+                "Index": 3
             }
         ],
         "Level": 1,
@@ -10804,8 +10934,8 @@
                 "Type": "Ring",
                 "Set": "Forsaken Divinity",
                 "SetPropertiesString": [],
-                "Name": "Tyrial's Grief",
-                "Index": "Tyrial's Grief",
+                "Name": "Tyrael's Grief",
+                "Index": "Tyrael's Grief",
                 "Enabled": true,
                 "Rarity": 3,
                 "ItemLevel": 45,
@@ -10846,7 +10976,7 @@
                 "Name": "Redemption Denied",
                 "Index": "Redemption Denied",
                 "Enabled": true,
-                "Rarity": 3,
+                "Rarity": 1,
                 "ItemLevel": 45,
                 "RequiredLevel": 45,
                 "Code": "amu",
@@ -11359,10 +11489,6 @@
                     {
                         "PropertyString": "+180-240% Enhanced Weapon Damage",
                         "Index": 0
-                    },
-                    {
-                        "PropertyString": "Knockback",
-                        "Index": 2
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -12236,12 +12362,12 @@
                 "Index": "Spin's Enigma",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 60,
-                "RequiredLevel": 59,
+                "ItemLevel": 50,
+                "RequiredLevel": 52,
                 "Code": "ci2",
                 "Properties": [
                     {
-                        "PropertyString": "+1 to All Skills",
+                        "PropertyString": "+1-2 to All Skills",
                         "Index": 0
                     }
                 ],
@@ -12254,7 +12380,7 @@
                     "EquipmentType": 0,
                     "Name": "Tiara [X]",
                     "RequiredStrength": "0",
-                    "RequiredDexterity": "0",
+                    "RequiredDexterity": "60",
                     "Durability": 25,
                     "RequiredClass": ""
                 }
@@ -12274,8 +12400,8 @@
                 "Index": "Spin's Paradox",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 60,
-                "RequiredLevel": 68,
+                "ItemLevel": 50,
+                "RequiredLevel": 51,
                 "Code": "ula",
                 "Properties": [
                     {
@@ -12312,8 +12438,8 @@
                 "Index": "Spin's Mystery",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 60,
-                "RequiredLevel": 63,
+                "ItemLevel": 40,
+                "RequiredLevel": 46,
                 "Code": "ulc",
                 "Properties": [
                     {
@@ -12350,8 +12476,8 @@
                 "Index": "Spin's Conundrum",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 60,
-                "RequiredLevel": 84,
+                "ItemLevel": 50,
+                "RequiredLevel": 59,
                 "Code": "uow",
                 "Properties": [
                     {
@@ -12388,8 +12514,8 @@
                 "Index": "Spin's Perplexing Puzzle",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 60,
-                "RequiredLevel": 70,
+                "ItemLevel": 40,
+                "RequiredLevel": 50,
                 "Code": "obc",
                 "Properties": [
                     {
@@ -12645,7 +12771,7 @@
                 }
             },
             {
-                "Type": "Pelt",
+                "Type": "Helm",
                 "Set": "Darkmage's Astral Projection",
                 "SetPropertiesString": [
                     "+2 to Druid Skill Levels (3 Items)",
@@ -12658,7 +12784,7 @@
                 "Rarity": 7,
                 "ItemLevel": 60,
                 "RequiredLevel": 80,
-                "Code": "dre",
+                "Code": "uap",
                 "Properties": [
                     {
                         "PropertyString": "Indestructible",
@@ -12681,14 +12807,14 @@
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "675-745",
+                    "ArmorString": "614-678",
                     "Block": null,
                     "EquipmentType": 0,
-                    "Name": "Sky Spirit [E]",
-                    "RequiredStrength": "113",
+                    "Name": "Shako [E]",
+                    "RequiredStrength": "50",
                     "RequiredDexterity": "0",
                     "Durability": 0,
-                    "RequiredClass": "Druid"
+                    "RequiredClass": ""
                 }
             }
         ],
@@ -13005,7 +13131,7 @@
                 "Name": "Soulstone of Power",
                 "Index": "Soulstone of Power",
                 "Enabled": true,
-                "Rarity": 2,
+                "Rarity": 1,
                 "ItemLevel": 85,
                 "RequiredLevel": 81,
                 "Code": "amu",
@@ -13426,7 +13552,7 @@
                 "Name": "Chiad's Halo",
                 "Index": "Chiad's Halo",
                 "Enabled": true,
-                "Rarity": 2,
+                "Rarity": 1,
                 "ItemLevel": 60,
                 "RequiredLevel": 71,
                 "Code": "rin",
@@ -13551,7 +13677,10 @@
             {
                 "Type": "Axe",
                 "Set": "Myhrginoc's Warbreeder",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "Adds 50-100 Weapon Damage (4 Items)",
+                    "+5% Life stolen per hit (2 Items)"
+                ],
                 "Name": "Myhrginoc's Headhunter",
                 "Index": "Myhrginoc's Headhunter",
                 "Enabled": true,
@@ -13573,12 +13702,12 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "Prevent Monster Heal",
-                        "Index": 4
+                        "PropertyString": "+35% Chance of Open Wounds",
+                        "Index": 3
                     },
                     {
-                        "PropertyString": "Knockback",
-                        "Index": 3
+                        "PropertyString": "+100% Extra Gold from Monsters",
+                        "Index": 4
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -13601,7 +13730,10 @@
             {
                 "Type": "Body Armor",
                 "Set": "Myhrginoc's Warbreeder",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "+10% Magic Resistance (4 Items)",
+                    "+10% to All Resistances (2 Items)"
+                ],
                 "Name": "Myhrginoc's Black Rain",
                 "Index": "Myhrginoc's Black Rain",
                 "Enabled": true,
@@ -13615,7 +13747,11 @@
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+170-200% Enhanced Defense",
+                        "PropertyString": "+100% Enhanced Weapon Damage",
+                        "Index": 4
+                    },
+                    {
+                        "PropertyString": "+200-300% Enhanced Defense",
                         "Index": 0
                     },
                     {
@@ -13625,17 +13761,13 @@
                     {
                         "PropertyString": "+15-25% Physical Damage Reduction",
                         "Index": 1
-                    },
-                    {
-                        "PropertyString": "Socketed (2)",
-                        "Index": 4
                     }
                 ],
                 "DamageArmorEnhanced": true,
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "1506-1674",
+                    "ArmorString": "1674-2232",
                     "Block": null,
                     "EquipmentType": 0,
                     "Name": "Shadow Plate [E]",
@@ -13648,7 +13780,10 @@
             {
                 "Type": "Helm",
                 "Set": "Myhrginoc's Warbreeder",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "+15% Increased Attack Speed (3 Items)",
+                    "+25% Faster Cast Rate (2 Items)"
+                ],
                 "Name": "Myhrginoc's Crimson Crusader",
                 "Index": "Myhrginoc's Crimson Crusader",
                 "Enabled": true,
@@ -13658,7 +13793,7 @@
                 "Code": "ulm",
                 "Properties": [
                     {
-                        "PropertyString": "12% Chance to cast level 4 War Cry when struck",
+                        "PropertyString": "12% Chance to cast level 30 War Cry when struck",
                         "Index": 3
                     },
                     {
@@ -13692,8 +13827,9 @@
                 "Type": "Gloves",
                 "Set": "Myhrginoc's Warbreeder",
                 "SetPropertiesString": [
-                    "+22% Chance of Crushing Blow (2 Items)",
-                    "+16% Deadly Strike (3 Items)"
+                    "+5 to Melee Mastery (oskill) (3 Items)",
+                    "+15% Chance of Crushing Blow (2 Items)",
+                    "+15% Deadly Strike (4 Items)"
                 ],
                 "Name": "Myhrginoc's Deathmonger",
                 "Index": "Myhrginoc's Deathmonger",
@@ -13704,27 +13840,31 @@
                 "Code": "uhg",
                 "Properties": [
                     {
-                        "PropertyString": "+10 to Melee Mastery (oskill)",
-                        "Index": 2
-                    },
-                    {
-                        "PropertyString": "+15% Increased Attack Speed",
+                        "PropertyString": "+20-30% Increased Attack Speed",
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+30-40% Enhanced Weapon Damage",
+                        "PropertyString": "+50% Enhanced Weapon Damage",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "+25% Chance of Open Wounds",
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+100-130% Enhanced Defense",
+                        "PropertyString": "+150-200% Enhanced Defense",
                         "Index": 0
+                    },
+                    {
+                        "PropertyString": "+50% Chance Items Roll Magic or Better",
+                        "Index": 4
                     }
                 ],
                 "DamageArmorEnhanced": true,
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "144-165",
+                    "ArmorString": "180-216",
                     "Block": null,
                     "EquipmentType": 0,
                     "Name": "Ogre Gauntlets [E]",
@@ -13959,7 +14099,7 @@
         ],
         "PartialProperties": [
             {
-                "PropertyString": "Drain Life -3",
+                "PropertyString": "Drain Life -2 (Per Character Level)",
                 "Index": 0
             },
             {
@@ -14006,7 +14146,7 @@
                 "Name": "Eternal Sleep",
                 "Index": "Eternal Sleep",
                 "Enabled": true,
-                "Rarity": 2,
+                "Rarity": 1,
                 "ItemLevel": 60,
                 "RequiredLevel": 80,
                 "Code": "amu",
@@ -14355,7 +14495,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 300-500 Weapon Fire Damage",
+                "PropertyString": "Adds 200-500 Weapon Fire Damage",
                 "Index": 4
             },
             {
@@ -14468,7 +14608,7 @@
                 "Type": "Bow",
                 "Set": "Blood Raven's Despair",
                 "SetPropertiesString": [
-                    "+10 to Immolation Arrow (oskill) (2 Items)"
+                    "+10 to Meteoric Arrow (oskill) (2 Items)"
                 ],
                 "Name": "Blood Raven's Redemption",
                 "Index": "Blood Raven's Redemption",
@@ -14483,7 +14623,7 @@
                         "Index": 4
                     },
                     {
-                        "PropertyString": "+10-12 to Ice Arrow (oskill)",
+                        "PropertyString": "+10-12 to Glacial Orb Arrow (oskill)",
                         "Index": 3
                     },
                     {
@@ -14559,9 +14699,9 @@
                 "Index": "Char's Grimace of Death",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 35,
-                "RequiredLevel": 62,
-                "Code": "xh9",
+                "ItemLevel": 50,
+                "RequiredLevel": 55,
+                "Code": "usk",
                 "Properties": [
                     {
                         "PropertyString": "+113% Enhanced Defense",
@@ -14584,13 +14724,13 @@
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "268",
+                    "ArmorString": "330",
                     "Block": null,
                     "EquipmentType": 0,
-                    "Name": "Grim Helm [X]",
-                    "RequiredStrength": "58",
+                    "Name": "Demonhead [E]",
+                    "RequiredStrength": "102",
                     "RequiredDexterity": "0",
-                    "Durability": 40,
+                    "Durability": 20,
                     "RequiredClass": ""
                 }
             },
@@ -14675,7 +14815,7 @@
                 "Type": "Scepter",
                 "Set": "Narrow Path Between Light and Darkness",
                 "SetPropertiesString": [
-                    "+13-16 to Merc Static Field (oskill) (3 Items)",
+                    "+13-16 to Static Field (oskill) (3 Items)",
                     "Adds 1-50 Weapon Lightning Damage (2 Items)",
                     "+15% Fire Resistance (4 Items)"
                 ],
@@ -14737,7 +14877,7 @@
                 "Rarity": 7,
                 "ItemLevel": 60,
                 "RequiredLevel": 65,
-                "Code": "uui",
+                "Code": "utu",
                 "Properties": [
                     {
                         "PropertyString": "+65-110% Enhanced Defense",
@@ -14760,13 +14900,13 @@
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "772-982",
+                    "ArmorString": "795-1012",
                     "Block": null,
                     "EquipmentType": 0,
-                    "Name": "Dusk Shroud [E]",
-                    "RequiredStrength": "77",
+                    "Name": "Wire Fleece [E]",
+                    "RequiredStrength": "111",
                     "RequiredDexterity": "0",
-                    "Durability": 20,
+                    "Durability": 32,
                     "RequiredClass": ""
                 }
             }
@@ -14968,7 +15108,7 @@
                 "Name": "Kingpin's Signet",
                 "Index": "Kingpin's Signet",
                 "Enabled": true,
-                "Rarity": 4,
+                "Rarity": 3,
                 "ItemLevel": 7,
                 "RequiredLevel": 7,
                 "Code": "rin",
@@ -15110,25 +15250,25 @@
         ],
         "PartialProperties": [
             {
-                "PropertyString": "+25% Chance Items Roll Magic or Better",
+                "PropertyString": "+100% Chance Items Roll Magic or Better",
                 "Index": 0
             },
             {
-                "PropertyString": "+25% Chance Items Roll Magic or Better",
+                "PropertyString": "+100% Chance Items Roll Magic or Better",
                 "Index": 2
             },
             {
-                "PropertyString": "+25% Chance Items Roll Magic or Better",
+                "PropertyString": "+100% Chance Items Roll Magic or Better",
                 "Index": 4
             },
             {
-                "PropertyString": "+25% Chance Items Roll Magic or Better",
+                "PropertyString": "+100% Chance Items Roll Magic or Better",
                 "Index": 6
             }
         ],
         "FullProperties": [
             {
-                "PropertyString": "+1 to All Skills",
+                "PropertyString": "+3 to All Skills",
                 "Index": 1
             },
             {
@@ -15136,7 +15276,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+200% Chance Items Roll Magic or Better",
+                "PropertyString": "+300% Chance Items Roll Magic or Better",
                 "Index": 0
             }
         ],
@@ -15148,7 +15288,7 @@
         "Name": "Yohann's Savant",
         "SetItems": [
             {
-                "Type": "Helm",
+                "Type": "Circlet",
                 "Set": "Yohann's Savant",
                 "SetPropertiesString": [],
                 "Name": "Wiseman's Cap",
@@ -15156,8 +15296,8 @@
                 "Enabled": true,
                 "Rarity": 7,
                 "ItemLevel": 25,
-                "RequiredLevel": 28,
-                "Code": "crn",
+                "RequiredLevel": 39,
+                "Code": "ci1",
                 "Properties": [
                     {
                         "PropertyString": "+1 to Sorceress Skill Levels",
@@ -15180,13 +15320,13 @@
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "25-45",
+                    "ArmorString": "30-40",
                     "Block": null,
                     "EquipmentType": 0,
-                    "Name": "Crown [N]",
-                    "RequiredStrength": "55",
-                    "RequiredDexterity": "0",
-                    "Durability": 50,
+                    "Name": "Coronet [N]",
+                    "RequiredStrength": "0",
+                    "RequiredDexterity": "50",
+                    "Durability": 30,
                     "RequiredClass": ""
                 }
             },
@@ -15374,8 +15514,7 @@
                 "Set": "Zhoulomcrist's Dread",
                 "SetPropertiesString": [
                     "+1 to Warmth (oskill) (4 Items)",
-                    "+1 to Warmth (oskill) (5 Items)",
-                    "Adds 25-35 Weapon Cold Damage (3 Items)"
+                    "Adds 50-100 Weapon Cold Damage (3 Items)"
                 ],
                 "Name": "Unholy Desires",
                 "Index": "Unholy Desires",
@@ -15386,15 +15525,15 @@
                 "Code": "xap",
                 "Properties": [
                     {
-                        "PropertyString": "+15% Faster Cast Rate",
+                        "PropertyString": "+25% Faster Cast Rate",
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+35-50 to Mana",
+                        "PropertyString": "+50 to Mana",
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+12-15% Damage Taken Goes To Mana",
+                        "PropertyString": "+15% Damage Taken Goes To Mana",
                         "Index": 2
                     }
                 ],
@@ -15416,35 +15555,33 @@
                 "Type": "Axe",
                 "Set": "Zhoulomcrist's Dread",
                 "SetPropertiesString": [
-                    "20% Chance to cast level 15 Life Tap when you Kill an Enemy (4 Items)"
+                    "10% Chance to cast level 5 Burst of Speed when you Kill an Enemy (4 Items)",
+                    "Adds 100-200 Weapon Damage (5 Items)",
+                    "Adds 100-200 Weapon Fire Damage (3 Items)"
                 ],
                 "Name": "Darkest Wishes",
                 "Index": "Darkest Wishes",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 60,
-                "RequiredLevel": 70,
+                "ItemLevel": 50,
+                "RequiredLevel": 60,
                 "Code": "72a",
                 "Properties": [
                     {
                         "PropertyString": "+8 to Zeal (oskill)",
-                        "Index": 3
+                        "Index": 2
                     },
                     {
                         "PropertyString": "+20% Increased Attack Speed",
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+220-260% Enhanced Weapon Damage",
+                        "PropertyString": "+300-330% Enhanced Weapon Damage",
                         "Index": 0
                     },
                     {
-                        "PropertyString": "Knockback",
-                        "Index": 2
-                    },
-                    {
                         "PropertyString": "Level 15 Clay Golem (65 Charges)",
-                        "Index": 4
+                        "Index": 3
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -15452,7 +15589,7 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(105-118) to (211-237)"
+                            "DamageString": "(132-141) to (264-283)"
                         }
                     ],
                     "Speed": 10,
@@ -15468,6 +15605,7 @@
                 "Type": "Body Armor",
                 "Set": "Zhoulomcrist's Dread",
                 "SetPropertiesString": [
+                    "+25% Increased Attack Speed (2 Items)",
                     "Physical Damage Reduced By 20 (3 Items)",
                     "Magic Damage Reduced By 25 (4 Items)"
                 ],
@@ -15476,7 +15614,7 @@
                 "Enabled": true,
                 "Rarity": 7,
                 "ItemLevel": 60,
-                "RequiredLevel": 74,
+                "RequiredLevel": 65,
                 "Code": "utp",
                 "Properties": [
                     {
@@ -15488,11 +15626,11 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+175-195% Enhanced Defense",
+                        "PropertyString": "+200-300% Enhanced Defense",
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+1-5% to Experience Gained",
+                        "PropertyString": "+5-10% to Experience Gained",
                         "Index": 1
                     }
                 ],
@@ -15500,7 +15638,7 @@
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "1443-1548",
+                    "ArmorString": "1575-2100",
                     "Block": null,
                     "EquipmentType": 0,
                     "Name": "Archon Plate [E]",
@@ -15514,7 +15652,9 @@
                 "Type": "Ring",
                 "Set": "Zhoulomcrist's Dread",
                 "SetPropertiesString": [
-                    "Freezes target +2 (4 Items)"
+                    "Adds 100-150 Weapon Fire Damage (3 Items)",
+                    "Adds 10-300 Weapon Lightning Damage (4 Items)",
+                    "Adds 50-100 Weapon Cold Damage (2 Items)"
                 ],
                 "Name": "Draven Coil",
                 "Index": "Draven Coil",
@@ -15525,11 +15665,11 @@
                 "Code": "rin",
                 "Properties": [
                     {
-                        "PropertyString": "+10% Faster Cast Rate",
+                        "PropertyString": "+10-15% Faster Cast Rate",
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+10-20% Bonus to Attack Rating",
+                        "PropertyString": "+50-100 to Attack Rating",
                         "Index": 3
                     },
                     {
@@ -15554,7 +15694,7 @@
         ],
         "PartialProperties": [
             {
-                "PropertyString": "Replenish Life +5",
+                "PropertyString": "Replenish Life +30",
                 "Index": 0
             },
             {
@@ -16105,7 +16245,7 @@
                 "Name": "Legacy in Blood",
                 "Index": "Legacy in Blood",
                 "Enabled": true,
-                "Rarity": 4,
+                "Rarity": 2,
                 "ItemLevel": 33,
                 "RequiredLevel": 35,
                 "Code": "amu",
@@ -17078,7 +17218,7 @@
                 "Name": "Ter'Angreal Ring",
                 "Index": "Ter'Angreal Ring",
                 "Enabled": true,
-                "Rarity": 3,
+                "Rarity": 1,
                 "ItemLevel": 60,
                 "RequiredLevel": 67,
                 "Code": "rin",
@@ -17631,7 +17771,7 @@
                 "Name": "Dominion's Thesis",
                 "Index": "Dominion's Thesis",
                 "Enabled": true,
-                "Rarity": 3,
+                "Rarity": 2,
                 "ItemLevel": 50,
                 "RequiredLevel": 50,
                 "Code": "amu",
@@ -18873,6 +19013,10 @@
                 "Code": "xul",
                 "Properties": [
                     {
+                        "PropertyString": "+50% Enhanced Weapon Damage",
+                        "Index": 5
+                    },
+                    {
                         "PropertyString": "Hit Blinds Target +3",
                         "Index": 2
                     },
@@ -18910,7 +19054,10 @@
             {
                 "Type": "Spear",
                 "Set": "Servitude or Rebellion",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "Adds 50-150 Weapon Damage (2 Items)",
+                    "+25% Deadly Strike (3 Items)"
+                ],
                 "Name": "Bound by Honor",
                 "Index": "Bound by Honor",
                 "Enabled": true,
@@ -18920,19 +19067,19 @@
                 "Code": "7tr",
                 "Properties": [
                     {
-                        "PropertyString": "+5-9 to Melee Mastery (oskill)",
+                        "PropertyString": "+5 to Melee Mastery (oskill)",
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+30% Increased Attack Speed",
+                        "PropertyString": "+20% Increased Attack Speed",
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+240-270% Enhanced Weapon Damage",
+                        "PropertyString": "+250-300% Enhanced Weapon Damage",
                         "Index": 0
                     },
                     {
-                        "PropertyString": "Adds 50-200 Weapon Damage",
+                        "PropertyString": "Adds 50-100 Weapon Damage",
                         "Index": 1
                     },
                     {
@@ -18945,7 +19092,7 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "(148-157) to (689-732)"
+                            "DamageString": "(151-166) to (604-676)"
                         }
                     ],
                     "Speed": 0,
@@ -18961,7 +19108,7 @@
                 "Type": "Belt",
                 "Set": "Servitude or Rebellion",
                 "SetPropertiesString": [
-                    "Replenish Life +3-5 (2 Items)"
+                    "Adds 25-50 Weapon Damage (2 Items)"
                 ],
                 "Name": "Equilibrium",
                 "Index": "Equilibrium",
@@ -19350,7 +19497,7 @@
                 }
             },
             {
-                "Type": "Helm",
+                "Type": "Circlet",
                 "Set": "Warlock's Exploration",
                 "SetPropertiesString": [
                     "+150 Defense (5 Items)",
@@ -19362,9 +19509,9 @@
                 "Index": "Lilarcor Cap",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 30,
-                "RequiredLevel": 38,
-                "Code": "xap",
+                "ItemLevel": 50,
+                "RequiredLevel": 64,
+                "Code": "ci3",
                 "Properties": [
                     {
                         "PropertyString": "+2 to All Skills",
@@ -19379,13 +19526,13 @@
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "94-108",
+                    "ArmorString": "106-122",
                     "Block": null,
                     "EquipmentType": 0,
-                    "Name": "War Hat [X]",
-                    "RequiredStrength": "20",
-                    "RequiredDexterity": "0",
-                    "Durability": 12,
+                    "Name": "Diadem [E]",
+                    "RequiredStrength": "0",
+                    "RequiredDexterity": "80",
+                    "Durability": 20,
                     "RequiredClass": ""
                 }
             },
@@ -19656,7 +19803,7 @@
                 "Name": "Holy Ring of Amaunator",
                 "Index": "Holy Ring of Amaunator",
                 "Enabled": true,
-                "Rarity": 5,
+                "Rarity": 3,
                 "ItemLevel": 30,
                 "RequiredLevel": 33,
                 "Code": "rin",
@@ -19822,7 +19969,9 @@
             {
                 "Type": "Body Armor",
                 "Set": "Tika's Request",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "+100% Enhanced Weapon Damage (3 Items)"
+                ],
                 "Name": "Frostwyrm Hide",
                 "Index": "Frostwyrm Hide",
                 "Enabled": true,
@@ -19870,7 +20019,7 @@
                 "Type": "Axe",
                 "Set": "Tika's Request",
                 "SetPropertiesString": [
-                    "+2.5 to Maximum Weapon Damage (Per Character Level) (4 Items)"
+                    "+3 to Maximum Weapon Damage (Per Character Level) (4 Items)"
                 ],
                 "Name": "Hallowed Redeemer",
                 "Index": "Hallowed Redeemer",
@@ -19922,7 +20071,7 @@
                 "Type": "Helm",
                 "Set": "Tika's Request",
                 "SetPropertiesString": [
-                    "+25% Chance Items Roll Magic or Better (3 Items)"
+                    "+50% Chance Items Roll Magic or Better (3 Items)"
                 ],
                 "Name": "Draconian Mask",
                 "Index": "Draconian Mask",
@@ -19970,7 +20119,9 @@
             {
                 "Type": "Belt",
                 "Set": "Tika's Request",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "+3 to Melee Mastery (oskill) (3 Items)"
+                ],
                 "Name": "Girdle of Kitthix",
                 "Index": "Girdle of Kitthix",
                 "Enabled": true,
@@ -19980,24 +20131,20 @@
                 "Code": "uhc",
                 "Properties": [
                     {
-                        "PropertyString": "+3-5 to Melee Mastery (oskill)",
+                        "PropertyString": "+50% Enhanced Weapon Damage",
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+25-35% Enhanced Weapon Damage",
-                        "Index": 1
-                    },
-                    {
                         "PropertyString": "+35 to Strength",
-                        "Index": 3
-                    },
-                    {
-                        "PropertyString": "+10-20% Physical Damage Reduction",
                         "Index": 2
                     },
                     {
+                        "PropertyString": "+10-20% Physical Damage Reduction",
+                        "Index": 1
+                    },
+                    {
                         "PropertyString": "Requirements Reduced By -20%",
-                        "Index": 4
+                        "Index": 3
                     }
                 ],
                 "DamageArmorEnhanced": false,
@@ -20018,7 +20165,8 @@
                 "Type": "Gloves",
                 "Set": "Tika's Request",
                 "SetPropertiesString": [
-                    "+45 to Life (4 Items)"
+                    "+3 to Melee Mastery (oskill) (2 Items)",
+                    "+100 to Life (4 Items)"
                 ],
                 "Name": "Gauntlets of Quietus",
                 "Index": "Gauntlets of Quietus",
@@ -20029,24 +20177,24 @@
                 "Code": "xtg",
                 "Properties": [
                     {
-                        "PropertyString": "12% Chance to cast level 3 Glacial Spike on striking",
-                        "Index": 2
-                    },
-                    {
-                        "PropertyString": "+1-3 to Melee Mastery (oskill)",
+                        "PropertyString": "12% Chance to cast level 30 Glacial Spike on striking",
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+15% Increased Attack Speed",
-                        "Index": 3
+                        "PropertyString": "+25% Increased Attack Speed",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "Adds 10-20 Weapon Damage",
+                        "Index": 4
                     },
                     {
                         "PropertyString": "+250% Enhanced Defense",
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+10-15 to Dexterity",
-                        "Index": 4
+                        "PropertyString": "+20-25 to Dexterity",
+                        "Index": 3
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -20084,12 +20232,12 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20% Lightning Damage Absorbed",
-                "Index": 4
+                "PropertyString": "Adds 1-300 Weapon Lightning Damage",
+                "Index": 3
             },
             {
-                "PropertyString": "Attacker Takes Lightning Damage of 100",
-                "Index": 3
+                "PropertyString": "+20% Lightning Damage Absorbed",
+                "Index": 4
             },
             {
                 "PropertyString": "+50% Chance Items Roll Magic or Better",
@@ -20110,7 +20258,9 @@
             {
                 "Type": "Body Armor",
                 "Set": "Corthala Family Heirlooms",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "Adds 50 Weapon Damage (3 Items)"
+                ],
                 "Name": "Sir Tylan's Sylvan Mail",
                 "Index": "Sir Tylan's Sylvan Mail",
                 "Enabled": true,
@@ -20132,7 +20282,7 @@
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+10-20% to All Resistances",
+                        "PropertyString": "+15-25% to All Resistances",
                         "Index": 1
                     }
                 ],
@@ -20155,8 +20305,9 @@
                 "Set": "Corthala Family Heirlooms",
                 "SetPropertiesString": [
                     "+10 to Magic Arrow (oskill) (3 Items)",
-                    "+6 to Guided Arrow (oskill) (4 Items)",
-                    "Adds 20-100 Weapon Damage (5 Items)"
+                    "+10 to Guided Arrow (oskill) (4 Items)",
+                    "Adds 25-50 Weapon Damage (2 Items)",
+                    "Adds 200 Weapon Magic Damage (5 Items)"
                 ],
                 "Name": "Prince Karnd's Abomination",
                 "Index": "Prince Karnd's Abomination",
@@ -20167,19 +20318,19 @@
                 "Code": "6rx",
                 "Properties": [
                     {
-                        "PropertyString": "+60% Increased Attack Speed",
+                        "PropertyString": "+40-60% Increased Attack Speed",
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+200-240% Enhanced Weapon Damage",
+                        "PropertyString": "+299-344% Enhanced Weapon Damage",
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+40% Piercing Attack",
+                        "PropertyString": "+20-40% Piercing Attack",
                         "Index": 3
                     },
                     {
-                        "PropertyString": "Adds 30-60 Weapon Damage",
+                        "PropertyString": "Adds 50-100 Weapon Damage",
                         "Index": 1
                     },
                     {
@@ -20192,7 +20343,7 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "(108-118) to (180-196)"
+                            "DamageString": "(185-200) to (311-335)"
                         }
                     ],
                     "Speed": -60,
@@ -20207,17 +20358,20 @@
             {
                 "Type": "Helm",
                 "Set": "Corthala Family Heirlooms",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "+20% Increased Attack Speed (2 Items)",
+                    "Adds 50 Weapon Magic Damage (4 Items)"
+                ],
                 "Name": "Yavin's Infernal Visage",
                 "Index": "Yavin's Infernal Visage",
                 "Enabled": true,
                 "Rarity": 7,
                 "ItemLevel": 60,
                 "RequiredLevel": 81,
-                "Code": "uh9",
+                "Code": "uhl",
                 "Properties": [
                     {
-                        "PropertyString": "Adds 15-30 Weapon Damage",
+                        "PropertyString": "Adds 50-100 Weapon Magic Damage",
                         "Index": 2
                     },
                     {
@@ -20229,7 +20383,7 @@
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+10-20% to All Resistances",
+                        "PropertyString": "+20-30% to All Resistances",
                         "Index": 1
                     }
                 ],
@@ -20237,13 +20391,13 @@
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "300-457",
+                    "ArmorString": "310-454",
                     "Block": null,
                     "EquipmentType": 0,
-                    "Name": "Bone Visage [E]",
-                    "RequiredStrength": "106",
+                    "Name": "Giant Conch [E]",
+                    "RequiredStrength": "142",
                     "RequiredDexterity": "0",
-                    "Durability": 40,
+                    "Durability": 30,
                     "RequiredClass": ""
                 }
             },
@@ -20251,7 +20405,8 @@
                 "Type": "Gloves",
                 "Set": "Corthala Family Heirlooms",
                 "SetPropertiesString": [
-                    "+20% Increased Attack Speed (3 Items)"
+                    "+20% Increased Attack Speed (3 Items)",
+                    "+5% Life stolen per hit (2 Items)"
                 ],
                 "Name": "Prince Gwar's Bracers",
                 "Index": "Prince Gwar's Bracers",
@@ -20296,7 +20451,8 @@
                 "Type": "Boots",
                 "Set": "Corthala Family Heirlooms",
                 "SetPropertiesString": [
-                    "+30% Faster Run/Walk Speed (4 Items)"
+                    "+30% Faster Run/Walk Speed (3 Items)",
+                    "Adds 50 Weapon Magic Damage (4 Items)"
                 ],
                 "Name": "Lady Daan's Celeritous Jambeau",
                 "Index": "Lady Daan's Celeritous Jambeau",
@@ -20307,15 +20463,19 @@
                 "Code": "xmb",
                 "Properties": [
                     {
-                        "PropertyString": "+10% Increased Attack Speed",
+                        "PropertyString": "+15% Faster Run/Walk Speed",
+                        "Index": 4
+                    },
+                    {
+                        "PropertyString": "+15% Increased Attack Speed",
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+20-30 to Maximum Weapon Damage",
+                        "PropertyString": "+30-50 to Maximum Weapon Damage",
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+1.75 Defense (Per Character Level)",
+                        "PropertyString": "+2 Defense (Per Character Level)",
                         "Index": 0
                     },
                     {
@@ -20327,7 +20487,7 @@
                 "Equipment": {
                     "DamageString": "23 to 52",
                     "DamageStringPrefix": "Kick Damage",
-                    "ArmorString": "(135-212)-(142-219)",
+                    "ArmorString": "(149-237)-(156-244)",
                     "Block": null,
                     "EquipmentType": 0,
                     "Name": "Mesh Boots [X]",
@@ -20340,12 +20500,16 @@
         ],
         "PartialProperties": [
             {
-                "PropertyString": "+15% Faster Hit Recovery",
+                "PropertyString": "+35% Faster Hit Recovery",
                 "Index": 0
             },
             {
-                "PropertyString": "+25% Faster Hit Recovery",
+                "PropertyString": "+25% Increased Attack Speed",
                 "Index": 2
+            },
+            {
+                "PropertyString": "+20% to All Resistances",
+                "Index": 4
             }
         ],
         "FullProperties": [
@@ -20354,16 +20518,16 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+8 to Dodge (oskill)",
-                "Index": 2
-            },
-            {
                 "PropertyString": "+20% Increased Attack Speed",
                 "Index": 3
             },
             {
-                "PropertyString": "+0.75% Deadly Strike (Per Character Level)",
+                "PropertyString": "+35% Chance of Crushing Blow",
                 "Index": 4
+            },
+            {
+                "PropertyString": "+50% Chance of Open Wounds",
+                "Index": 2
             },
             {
                 "PropertyString": "+40% to All Resistances",
@@ -20438,7 +20602,7 @@
                 "Properties": [
                     {
                         "PropertyString": "+1-3 to Berserk (oskill)",
-                        "Index": 3
+                        "Index": 2
                     },
                     {
                         "PropertyString": "+20% Increased Attack Speed",
@@ -20449,12 +20613,8 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "Knockback",
-                        "Index": 2
-                    },
-                    {
                         "PropertyString": "+35-45% Cold Resistance",
-                        "Index": 4
+                        "Index": 3
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -20640,40 +20800,39 @@
         "Vanilla": "N"
     },
     {
-        "Index": "Lord Sith's Province",
-        "Name": "Lord Sith's Province",
+        "Index": "Stormsigil Vestments",
+        "Name": "Stormsigil Vestments",
         "SetItems": [
             {
                 "Type": "Body Armor",
-                "Set": "Lord Sith's Province",
-                "SetPropertiesString": [],
+                "Set": "Stormsigil Vestments",
+                "SetPropertiesString": [
+                    "+25% Lightning Resistance (3 Items)",
+                    "+15% Physical Damage Reduction (4 Items)"
+                ],
                 "Name": "Ebony Plate of Evil",
                 "Index": "Ebony Plate of Evil",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 60,
-                "RequiredLevel": 76,
+                "ItemLevel": 50,
+                "RequiredLevel": 56,
                 "Code": "urs",
                 "Properties": [
                     {
-                        "PropertyString": "+1-3 to Poison and Bone Skills (Necromancer Only)",
+                        "PropertyString": "+2 to Lightning Skills",
                         "Index": 2
                     },
                     {
                         "PropertyString": "+30% Faster Hit Recovery",
+                        "Index": 1
+                    },
+                    {
+                        "PropertyString": "-10-15% to Enemy Lightning Resistance",
                         "Index": 3
                     },
                     {
                         "PropertyString": "+600-800 Defense",
                         "Index": 0
-                    },
-                    {
-                        "PropertyString": "Level 30 Life Tap (12 Charges)",
-                        "Index": 4
-                    },
-                    {
-                        "PropertyString": "Requirements Reduced By -35%",
-                        "Index": 1
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -20684,7 +20843,7 @@
                     "Block": null,
                     "EquipmentType": 0,
                     "Name": "Great Hauberk [E]",
-                    "RequiredStrength": "76",
+                    "RequiredStrength": "118",
                     "RequiredDexterity": "0",
                     "Durability": 50,
                     "RequiredClass": ""
@@ -20692,39 +20851,42 @@
             },
             {
                 "Type": "Shield",
-                "Set": "Lord Sith's Province",
-                "SetPropertiesString": [],
+                "Set": "Stormsigil Vestments",
+                "SetPropertiesString": [
+                    "-10% to Enemy Lightning Resistance (4 Items)",
+                    "+10% to All Resistances (2 Items)"
+                ],
                 "Name": "Deflector of Light",
                 "Index": "Deflector of Light",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 30,
-                "RequiredLevel": 49,
+                "ItemLevel": 25,
+                "RequiredLevel": 30,
                 "Code": "xts",
                 "Properties": [
                     {
-                        "PropertyString": "+4-6% Life stolen per hit",
-                        "Index": 3
+                        "PropertyString": "+30% Increased Attack Speed",
+                        "Index": 5
                     },
                     {
-                        "PropertyString": "Freezes target +4",
-                        "Index": 4
+                        "PropertyString": "+30% Faster Cast Rate",
+                        "Index": 2
                     },
                     {
                         "PropertyString": "+120-140% Enhanced Defense",
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+15% Physical Damage Reduction",
+                        "PropertyString": "+50-100 to Life",
+                        "Index": 3
+                    },
+                    {
+                        "PropertyString": "+50% Lightning Resistance",
+                        "Index": 4
+                    },
+                    {
+                        "PropertyString": "+10% Physical Damage Reduction",
                         "Index": 1
-                    },
-                    {
-                        "PropertyString": "Half Freeze Duration",
-                        "Index": 5
-                    },
-                    {
-                        "PropertyString": "Requirements Reduced By -50%",
-                        "Index": 2
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -20735,75 +20897,75 @@
                     "Block": 16,
                     "EquipmentType": 0,
                     "Name": "Ancient Shield [X]",
-                    "RequiredStrength": "55",
+                    "RequiredStrength": "110",
                     "RequiredDexterity": "0",
                     "Durability": 80,
                     "RequiredClass": ""
                 }
             },
             {
-                "Type": "Helm",
-                "Set": "Lord Sith's Province",
-                "SetPropertiesString": [],
+                "Type": "Circlet",
+                "Set": "Stormsigil Vestments",
+                "SetPropertiesString": [
+                    "+20% Faster Hit Recovery (3 Items)",
+                    "+10 to Mana after each Kill (2 Items)"
+                ],
                 "Name": "Dark Cataclysm",
                 "Index": "Dark Cataclysm",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 60,
-                "RequiredLevel": 80,
-                "Code": "urn",
+                "ItemLevel": 40,
+                "RequiredLevel": 52,
+                "Code": "ci2",
                 "Properties": [
                     {
-                        "PropertyString": "+1 to All Skills",
+                        "PropertyString": "+2 to Lightning Skills",
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+2 to Evade (oskill)",
-                        "Index": 4
+                        "PropertyString": "+15% Faster Cast Rate",
+                        "Index": 1
                     },
                     {
                         "PropertyString": "+135-175% Enhanced Defense",
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+35 to Mana",
+                        "PropertyString": "+50-100 to Mana",
                         "Index": 2
-                    },
-                    {
-                        "PropertyString": "Requirements Reduced By -60%",
-                        "Index": 1
                     }
                 ],
                 "DamageArmorEnhanced": true,
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "390-456",
+                    "ArmorString": "119-140",
                     "Block": null,
                     "EquipmentType": 0,
-                    "Name": "Corona [E]",
-                    "RequiredStrength": "69",
-                    "RequiredDexterity": "0",
-                    "Durability": 50,
+                    "Name": "Tiara [X]",
+                    "RequiredStrength": "0",
+                    "RequiredDexterity": "60",
+                    "Durability": 25,
                     "RequiredClass": ""
                 }
             },
             {
-                "Type": "Wand",
-                "Set": "Lord Sith's Province",
+                "Type": "Gloves",
+                "Set": "Stormsigil Vestments",
                 "SetPropertiesString": [
-                    "Adds 80-180 Weapon Damage (4 Items)"
+                    "+20% to Lightning Skill Damage (4 Items)",
+                    "+10 Life after each Kill (2 Items)"
                 ],
-                "Name": "Malignant Rod",
-                "Index": "Malignant Rod",
+                "Name": "Stormtwist Grasp",
+                "Index": "Stormtwist Grasp",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 30,
-                "RequiredLevel": 40,
-                "Code": "9bw",
+                "ItemLevel": 25,
+                "RequiredLevel": 30,
+                "Code": "xvg",
                 "Properties": [
                     {
-                        "PropertyString": "+1 to All Skills",
+                        "PropertyString": "+20% Increased Attack Speed",
                         "Index": 0
                     },
                     {
@@ -20811,53 +20973,54 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+0.75 to Mana (Per Character Level)",
+                        "PropertyString": "+10-15% to Lightning Skill Damage",
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+45% Mana Regeneration",
+                        "PropertyString": "+50% Mana Regeneration",
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+1% to Experience Gained",
+                        "PropertyString": "+5% to Experience Gained",
                         "Index": 4
                     }
                 ],
                 "DamageArmorEnhanced": false,
                 "Equipment": {
-                    "DamageTypes": [
-                        {
-                            "Type": 3,
-                            "DamageString": "10 to 22"
-                        }
-                    ],
-                    "Speed": -20,
-                    "EquipmentType": 1,
-                    "Name": "Tomb Wand [X]",
-                    "RequiredStrength": "25",
+                    "DamageString": null,
+                    "DamageStringPrefix": null,
+                    "ArmorString": "33-39",
+                    "Block": null,
+                    "EquipmentType": 0,
+                    "Name": "Sharkskin Gloves [X]",
+                    "RequiredStrength": "20",
                     "RequiredDexterity": "0",
-                    "Durability": 250,
+                    "Durability": 14,
                     "RequiredClass": ""
                 }
             }
         ],
         "PartialProperties": [
             {
-                "PropertyString": "+1 to All Skills",
+                "PropertyString": "+10 to Mana after each Kill",
                 "Index": 0
             },
             {
-                "PropertyString": "+50 to Life",
+                "PropertyString": "+100% Mana Regeneration",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+200 to Mana",
                 "Index": 2
             }
         ],
         "FullProperties": [
             {
-                "PropertyString": "100% Chance to cast level 9 Charged Bolt when struck",
-                "Index": 5
+                "PropertyString": "50% Chance to cast level 30 Charged Bolt when struck",
+                "Index": 3
             },
             {
-                "PropertyString": "+1 to All Skills",
+                "PropertyString": "+5 to Lightning Skills",
                 "Index": 4
             },
             {
@@ -20869,11 +21032,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+5 to Mana after each Kill",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+75% Chance Items Roll Magic or Better",
+                "PropertyString": "+100% Chance Items Roll Magic or Better",
                 "Index": 0
             }
         ],
@@ -21495,6 +21654,10 @@
                         "Index": 4
                     },
                     {
+                        "PropertyString": "+50-100% Enhanced Weapon Damage",
+                        "Index": 5
+                    },
+                    {
                         "PropertyString": "-50% Lightning Resistance",
                         "Index": 2
                     },
@@ -21503,11 +21666,11 @@
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+25% Physical Damage Reduction",
+                        "PropertyString": "+15-20% Physical Damage Reduction",
                         "Index": 0
                     },
                     {
-                        "PropertyString": "Physical Damage Reduced By 35-50",
+                        "PropertyString": "Physical Damage Reduced By 20-30",
                         "Index": 1
                     }
                 ],
@@ -21529,8 +21692,8 @@
                 "Type": "Polearm",
                 "Set": "Terror of the Deep",
                 "SetPropertiesString": [
-                    "+45% Increased Attack Speed (4 Items)",
-                    "Adds 50-250 Weapon Damage (3 Items)"
+                    "+45% Increased Attack Speed (2 Items)",
+                    "Adds 150-300 Weapon Damage (3 Items)"
                 ],
                 "Name": "Feeding Frenzy",
                 "Index": "Feeding Frenzy",
@@ -21541,12 +21704,12 @@
                 "Code": "7wc",
                 "Properties": [
                     {
-                        "PropertyString": "+3 to Barbarian Skill Levels",
-                        "Index": 4
+                        "PropertyString": "+300-350% Enhanced Weapon Damage",
+                        "Index": 0
                     },
                     {
-                        "PropertyString": "+220-290% Enhanced Weapon Damage",
-                        "Index": 0
+                        "PropertyString": "+100-200 to Maximum Weapon Damage",
+                        "Index": 1
                     },
                     {
                         "PropertyString": "+6% Mana stolen per hit",
@@ -21555,10 +21718,6 @@
                     {
                         "PropertyString": "+6% Life stolen per hit",
                         "Index": 2
-                    },
-                    {
-                        "PropertyString": "Requirements Reduced By -25%",
-                        "Index": 1
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -21566,14 +21725,14 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "(128-156) to (364-444)"
+                            "DamageString": "(160-180) to (556-713)"
                         }
                     ],
                     "Speed": -10,
                     "EquipmentType": 1,
                     "Name": "Giant Thresher [E]",
-                    "RequiredStrength": "141",
-                    "RequiredDexterity": "105",
+                    "RequiredStrength": "188",
+                    "RequiredDexterity": "140",
                     "Durability": 250,
                     "RequiredClass": ""
                 }
@@ -21581,7 +21740,9 @@
             {
                 "Type": "Belt",
                 "Set": "Terror of the Deep",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "+25% to All Resistances (3 Items)"
+                ],
                 "Name": "Mako's Quickness",
                 "Index": "Mako's Quickness",
                 "Enabled": true,
@@ -21591,11 +21752,7 @@
                 "Code": "zvb",
                 "Properties": [
                     {
-                        "PropertyString": "+4-8 to Avoid (oskill)",
-                        "Index": 4
-                    },
-                    {
-                        "PropertyString": "+15% Faster Run/Walk Speed",
+                        "PropertyString": "+25% Faster Run/Walk Speed",
                         "Index": 1
                     },
                     {
@@ -21609,6 +21766,10 @@
                     {
                         "PropertyString": "+25 to Dexterity",
                         "Index": 3
+                    },
+                    {
+                        "PropertyString": "+20% Cold Resistance",
+                        "Index": 4
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -21628,7 +21789,10 @@
             {
                 "Type": "Boots",
                 "Set": "Terror of the Deep",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "+15% Faster Run/Walk Speed (2 Items)",
+                    "+25% to All Resistances (4 Items)"
+                ],
                 "Name": "Hammerhead's Persistence",
                 "Index": "Hammerhead's Persistence",
                 "Enabled": true,
@@ -21638,15 +21802,15 @@
                 "Code": "xvb",
                 "Properties": [
                     {
-                        "PropertyString": "+15-25% Chance of Crushing Blow",
+                        "PropertyString": "+15% Deadly Strike",
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+100% Enhanced Defense",
+                        "PropertyString": "+150-200% Enhanced Defense",
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+60-90 to Life",
+                        "PropertyString": "+50-100 to Life",
                         "Index": 4
                     },
                     {
@@ -21658,7 +21822,7 @@
                 "Equipment": {
                     "DamageString": "28 to 50",
                     "DamageStringPrefix": "Kick Damage",
-                    "ArmorString": "80",
+                    "ArmorString": "100-120",
                     "Block": null,
                     "EquipmentType": 0,
                     "Name": "Sharkskin Boots [X]",
@@ -21671,34 +21835,34 @@
         ],
         "PartialProperties": [
             {
-                "PropertyString": "Half Freeze Duration",
+                "PropertyString": "+25% Deadly Strike",
                 "Index": 0
             },
             {
-                "PropertyString": "+25% Deadly Strike",
+                "PropertyString": "+20% Increased Attack Speed",
                 "Index": 2
             }
         ],
         "FullProperties": [
             {
-                "PropertyString": "15% Chance to cast level 18 Shock Wave on striking",
-                "Index": 4
-            },
-            {
                 "PropertyString": "+2 to All Skills",
                 "Index": 0
             },
             {
-                "PropertyString": "+150% Enhanced Weapon Damage",
+                "PropertyString": "+300% Enhanced Weapon Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "Adds 25-50 Weapon Damage",
+                "PropertyString": "Adds 50-100 Weapon Damage",
                 "Index": 3
             },
             {
-                "PropertyString": "+66% Chance of Crushing Blow",
+                "PropertyString": "+25% Chance of Crushing Blow",
                 "Index": 1
+            },
+            {
+                "PropertyString": "+50% Chance of Open Wounds",
+                "Index": 4
             }
         ],
         "Level": 1,
@@ -21969,7 +22133,7 @@
                 "Name": "Seraphim",
                 "Index": "Seraphim",
                 "Enabled": true,
-                "Rarity": 5,
+                "Rarity": 1,
                 "ItemLevel": 49,
                 "RequiredLevel": 49,
                 "Code": "rin",
@@ -22058,7 +22222,7 @@
                 "Code": "uul",
                 "Properties": [
                     {
-                        "PropertyString": "20% Chance to cast level 8 Cloak Of Shadows when struck",
+                        "PropertyString": "20% Chance to cast level 8 Dim Vision when struck",
                         "Index": 0
                     },
                     {
@@ -22097,7 +22261,7 @@
                 "Name": "Diablo's Soulstone Ring",
                 "Index": "Diablo's Soulstone Ring",
                 "Enabled": true,
-                "Rarity": 3,
+                "Rarity": 1,
                 "ItemLevel": 77,
                 "RequiredLevel": 77,
                 "Code": "rin",
@@ -22140,7 +22304,7 @@
                 "Name": "Baal's Cryptic Amulet",
                 "Index": "Baal's Cryptic Amulet",
                 "Enabled": true,
-                "Rarity": 3,
+                "Rarity": 1,
                 "ItemLevel": 74,
                 "RequiredLevel": 74,
                 "Code": "amu",
@@ -22347,7 +22511,7 @@
                 "Name": "Temptation's Death",
                 "Index": "Temptation's Death",
                 "Enabled": true,
-                "Rarity": 1,
+                "Rarity": 3,
                 "ItemLevel": 45,
                 "RequiredLevel": 45,
                 "Code": "amu",
@@ -23440,6 +23604,199 @@
             {
                 "PropertyString": "+25% to All Resistances",
                 "Index": 4
+            }
+        ],
+        "Level": 1,
+        "Vanilla": "N"
+    },
+    {
+        "Index": "Deus et Diabolus",
+        "Name": "Deus et Diabolus",
+        "SetItems": [
+            {
+                "Type": "Belt",
+                "Set": "Deus et Diabolus",
+                "SetPropertiesString": [
+                    "+15% Faster Cast Rate (3 Items)",
+                    "+3 to War Cry (Barbarian Only) (2 Items)"
+                ],
+                "Name": "Shackles of the Veiled Belt",
+                "Index": "Shackles of the Veiled Belt",
+                "Enabled": true,
+                "Rarity": 7,
+                "ItemLevel": 80,
+                "RequiredLevel": 80,
+                "Code": "uvc",
+                "Properties": [
+                    {
+                        "PropertyString": "+1 to All Skills",
+                        "Index": 0
+                    },
+                    {
+                        "PropertyString": "+20% Faster Hit Recovery",
+                        "Index": 1
+                    },
+                    {
+                        "PropertyString": "Replenish Life +30",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "+30% Fire Resistance",
+                        "Index": 3
+                    },
+                    {
+                        "PropertyString": "+15% Damage Taken Goes To Mana",
+                        "Index": 4
+                    }
+                ],
+                "DamageArmorEnhanced": false,
+                "Equipment": {
+                    "DamageString": null,
+                    "DamageStringPrefix": null,
+                    "ArmorString": "56-63",
+                    "Block": null,
+                    "EquipmentType": 0,
+                    "Name": "Vampirefang Belt [E]",
+                    "RequiredStrength": "50",
+                    "RequiredDexterity": "0",
+                    "Durability": 14,
+                    "RequiredClass": ""
+                }
+            },
+            {
+                "Type": "Gloves",
+                "Set": "Deus et Diabolus",
+                "SetPropertiesString": [
+                    "+15% Faster Cast Rate (2 Items)"
+                ],
+                "Name": "Grasp of Lament",
+                "Index": "Grasp of Lament",
+                "Enabled": true,
+                "Rarity": 7,
+                "ItemLevel": 70,
+                "RequiredLevel": 76,
+                "Code": "xlg",
+                "Properties": [
+                    {
+                        "PropertyString": "+10-15% Faster Cast Rate",
+                        "Index": 1
+                    },
+                    {
+                        "PropertyString": "+2 to War Cry (Barbarian Only)",
+                        "Index": 0
+                    },
+                    {
+                        "PropertyString": "+100% Enhanced Defense",
+                        "Index": 3
+                    },
+                    {
+                        "PropertyString": "+15-30% Mana Regeneration",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "+35% Cold Resistance",
+                        "Index": 5
+                    },
+                    {
+                        "PropertyString": "+25% Chance Items Roll Magic or Better",
+                        "Index": 4
+                    }
+                ],
+                "DamageArmorEnhanced": true,
+                "Equipment": {
+                    "DamageString": null,
+                    "DamageStringPrefix": null,
+                    "ArmorString": "72",
+                    "Block": null,
+                    "EquipmentType": 0,
+                    "Name": "Demonhide Gloves [X]",
+                    "RequiredStrength": "20",
+                    "RequiredDexterity": "0",
+                    "Durability": 12,
+                    "RequiredClass": ""
+                }
+            },
+            {
+                "Type": "Boots",
+                "Set": "Deus et Diabolus",
+                "SetPropertiesString": [
+                    "+15% Faster Run/Walk Speed (2 Items)",
+                    "+50% Chance Items Roll Magic or Better (3 Items)"
+                ],
+                "Name": "Steps Etched in Ash",
+                "Index": "Steps Etched in Ash",
+                "Enabled": true,
+                "Rarity": 7,
+                "ItemLevel": 70,
+                "RequiredLevel": 78,
+                "Code": "umb",
+                "Properties": [
+                    {
+                        "PropertyString": "100% Chance to cast level 20 Blaze when struck",
+                        "Index": 6
+                    },
+                    {
+                        "PropertyString": "+5 to Find Item (oskill)",
+                        "Index": 1
+                    },
+                    {
+                        "PropertyString": "+20% Faster Run/Walk Speed",
+                        "Index": 0
+                    },
+                    {
+                        "PropertyString": "+20% Lightning Resistance",
+                        "Index": 4
+                    },
+                    {
+                        "PropertyString": "+20% Fire Resistance",
+                        "Index": 5
+                    },
+                    {
+                        "PropertyString": "+75% Extra Gold from Monsters",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "+40% Chance Items Roll Magic or Better",
+                        "Index": 3
+                    }
+                ],
+                "DamageArmorEnhanced": false,
+                "Equipment": {
+                    "DamageString": "69 to 118",
+                    "DamageStringPrefix": "Kick Damage",
+                    "ArmorString": "59-67",
+                    "Block": null,
+                    "EquipmentType": 0,
+                    "Name": "Boneweave Boots [E]",
+                    "RequiredStrength": "118",
+                    "RequiredDexterity": "0",
+                    "Durability": 16,
+                    "RequiredClass": ""
+                }
+            }
+        ],
+        "PartialProperties": [
+            {
+                "PropertyString": "+2 to War Cry (Barbarian Only)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+10% Fire Damage Absorbed",
+                "Index": 1
+            }
+        ],
+        "FullProperties": [
+            {
+                "PropertyString": "+3 to All Skills",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+100% Mana Regeneration",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+15% Physical Damage Reduction",
+                "Index": 1
             }
         ],
         "Level": 1,

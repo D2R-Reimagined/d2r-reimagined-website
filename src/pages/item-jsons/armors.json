@@ -617,7 +617,7 @@
         "NormCode": "buc",
         "UberCode": "xuc",
         "UltraCode": "uuc",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -3661,7 +3661,7 @@
         "Code": "ci0",
         "BaseRequiredLevel": 16,
         "RequiredStrength": "0",
-        "RequiredDexterity": "0",
+        "RequiredDexterity": "40",
         "Durability": 35,
         "ItemLevel": 24,
         "Type": {
@@ -3688,7 +3688,7 @@
         "Code": "ci1",
         "BaseRequiredLevel": 39,
         "RequiredStrength": "0",
-        "RequiredDexterity": "0",
+        "RequiredDexterity": "50",
         "Durability": 30,
         "ItemLevel": 52,
         "Type": {
@@ -3715,7 +3715,7 @@
         "Code": "ci2",
         "BaseRequiredLevel": 52,
         "RequiredStrength": "0",
-        "RequiredDexterity": "0",
+        "RequiredDexterity": "60",
         "Durability": 25,
         "ItemLevel": 70,
         "Type": {
@@ -3742,7 +3742,7 @@
         "Code": "ci3",
         "BaseRequiredLevel": 64,
         "RequiredStrength": "0",
-        "RequiredDexterity": "0",
+        "RequiredDexterity": "80",
         "Durability": 20,
         "ItemLevel": 85,
         "Type": {
