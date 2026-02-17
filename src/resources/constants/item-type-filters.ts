@@ -43,7 +43,9 @@ export const ITEM_TYPES: ReadonlyArray<IItemTypeNode> = [
     { name: 'Small Charm', code: 'scha', parents: ['Charm'] },
     { name: 'Large Charm', code: 'mcha', parents: ['Charm'] },
     { name: 'Grand Charm', code: 'lcha', parents: ['Charm'] },
+    { name: 'Crafted Sunder Charm', code: 'csch', parents: ['Charm'] },
     { name: 'Jewel', code: 'jewl', parents: ['Socket Filler'] },
+    { name: 'Colossal Jewel', code: 'cjwl', parents: ['Jewel'] },
     { name: 'Rune', code: 'rune', parents: ['Socket Filler'] },
     { name: 'Gem', code: 'gem', parents: ['Socket Filler'] },
 
@@ -81,6 +83,7 @@ export const ITEM_TYPES: ReadonlyArray<IItemTypeNode> = [
     { name: 'Sorceress Item', code: 'sorc', parents: ['Class Specific'] },
     { name: 'Assassin Item', code: 'assn', parents: ['Class Specific'] },
     { name: 'Druid Item', code: 'drui', parents: ['Class Specific'] },
+    { name: 'Warlock Item', code: 'warl', parents: ['Class Specific'] },
 
     // Class-specific weapons
     { name: 'Amazon Bow', code: 'abow', parents: ['Amazon Item', 'Bow', 'Missile Weapon', 'Weapon'] },
@@ -94,6 +97,7 @@ export const ITEM_TYPES: ReadonlyArray<IItemTypeNode> = [
     { name: 'Pelt', code: 'pelt', parents: ['Druid Item', 'Helm'] },
     { name: 'Voodoo Heads', code: 'head', parents: ['Necromancer Item', 'Any Shield'] },
     { name: 'Auric Shields', code: 'ashd', parents: ['Paladin Item', 'Any Shield'] },
+    { name: 'Grimoire', code: 'grim', parents: ['Warlock Item', 'Any Shield'] },
 
     // Miscellaneous consumables and scrolls
     { name: 'Gold', code: 'gold', parents: ['Miscellaneous'] },
@@ -246,7 +250,7 @@ export interface IFilterOption {
 }
 
 // Class aggregate bases; only show when the aggregate itself exists in page data.
-const CLASS_AGGREGATE_BASES = new Set<string>(['Amazon Item', 'Barbarian Item', 'Necromancer Item', 'Paladin Item', 'Sorceress Item', 'Assassin Item', 'Druid Item']);
+const CLASS_AGGREGATE_BASES = new Set<string>(['Amazon Item', 'Barbarian Item', 'Necromancer Item', 'Paladin Item', 'Sorceress Item', 'Assassin Item', 'Druid Item', 'Warlock Item']);
 
 // Build an IFilterOption from an ItemType name and optional extra parents
 export function makeTypeOption(
@@ -354,6 +358,7 @@ export const ANCESTOR_ONLY_WHEN_EXACT_OFF: string[] = [
     'necromancer-shield',
     'paladin-shield',
     'sorceress-orb',
+    'warlock-grimoire',
     'helm',
 ];
 
@@ -456,9 +461,11 @@ export const type_filtering_options: ReadonlyArray<IFilterOption> = [
     makeTypeOption('Ring', 'Ring'),
     makeTypeOption('Amulet', 'Amulet'),
     makeTypeOption('Jewel', 'Jewel'),
+    makeTypeOption('Colossal Jewel', 'Colossal Jewel'),
     makeTypeOption('Small Charm', 'Small Charm'),
     makeTypeOption('Large Charm', 'Large Charm'),
     makeTypeOption('Grand Charm', 'Grand Charm'),
+    makeTypeOption('Crafted Sunder Charm', 'Crafted Sunder Charm'),
     // Weapon bases
     makeTypeOption('Axe', 'Axe'),
     makeTypeOption('Mace', 'Mace'),
@@ -489,6 +496,6 @@ export const type_filtering_options: ReadonlyArray<IFilterOption> = [
     makeTypeOption('Necromancer Shield', 'Voodoo Heads', [], true, 'necromancer-shield'),
     makeTypeOption('Paladin Shield', 'Auric Shields', [], true, 'paladin-shield'),
     makeTypeOption('Sorceress Orb', 'Orb', [], true, 'sorceress-orb'),
-
+    makeTypeOption('Warlock Grimoire', 'Grimoire', [], true, 'warlock-grimoire'),
 ];
 

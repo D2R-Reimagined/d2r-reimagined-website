@@ -12619,9 +12619,8 @@
             }
         ],
         "Types": [
-            "Spear",
             "Amazon Spear",
-            "Gloves"
+            "Amazon Javelin"
         ],
         "ETypes": [],
         "PType": "Prefix"
@@ -12642,9 +12641,8 @@
             }
         ],
         "Types": [
-            "Gloves",
-            "Spear",
-            "Amazon Spear"
+            "Amazon Spear",
+            "Amazon Javelin"
         ],
         "ETypes": [],
         "PType": "Prefix"
@@ -12752,7 +12750,7 @@
         "ClassLevelReq": 12,
         "Properties": [
             {
-                "PropertyString": "Level 1 Power Strike (300 Charges)",
+                "PropertyString": "Level 1 Toxic Whirl (300 Charges)",
                 "Index": 0
             }
         ],
@@ -12775,7 +12773,7 @@
         "ClassLevelReq": 12,
         "Properties": [
             {
-                "PropertyString": "Level 13 Power Strike (300 Charges)",
+                "PropertyString": "Level 13 Toxic Whirl (300 Charges)",
                 "Index": 0
             }
         ],
@@ -13028,7 +13026,7 @@
         "ClassLevelReq": 18,
         "Properties": [
             {
-                "PropertyString": "Level 1 Ice Arrow (300 Charges)",
+                "PropertyString": "Level 1 Freezing Arrow (300 Charges)",
                 "Index": 0
             }
         ],
@@ -13051,7 +13049,7 @@
         "ClassLevelReq": 18,
         "Properties": [
             {
-                "PropertyString": "Level 20 Ice Arrow (300 Charges)",
+                "PropertyString": "Level 20 Freezing Arrow (300 Charges)",
                 "Index": 0
             }
         ],
@@ -13212,7 +13210,7 @@
         "ClassLevelReq": 24,
         "Properties": [
             {
-                "PropertyString": "Level 2 Immolation Arrow (300 Charges)",
+                "PropertyString": "Level 2 Meteoric Arrow (300 Charges)",
                 "Index": 0
             }
         ],
@@ -13235,7 +13233,7 @@
         "ClassLevelReq": 24,
         "Properties": [
             {
-                "PropertyString": "Level 21 Immolation Arrow (300 Charges)",
+                "PropertyString": "Level 21 Meteoric Arrow (300 Charges)",
                 "Index": 0
             }
         ],
@@ -13304,7 +13302,7 @@
         "ClassLevelReq": 30,
         "Properties": [
             {
-                "PropertyString": "Level 3 Freezing Arrow (300 Charges)",
+                "PropertyString": "Level 3 Glacial Orb Arrow (300 Charges)",
                 "Index": 0
             }
         ],
@@ -13327,7 +13325,7 @@
         "ClassLevelReq": 30,
         "Properties": [
             {
-                "PropertyString": "Level 22 Freezing Arrow (300 Charges)",
+                "PropertyString": "Level 22 Glacial Orb Arrow (300 Charges)",
                 "Index": 0
             }
         ],
@@ -15138,7 +15136,7 @@
         "ClassLevelReq": 18,
         "Properties": [
             {
-                "PropertyString": "Level 1 Confuse (35 Charges)",
+                "PropertyString": "Level 1 Corpse Field (35 Charges)",
                 "Index": 0
             }
         ],
@@ -15162,7 +15160,7 @@
         "ClassLevelReq": 18,
         "Properties": [
             {
-                "PropertyString": "Level 17 Confuse (35 Charges)",
+                "PropertyString": "Level 17 Corpse Field (35 Charges)",
                 "Index": 0
             }
         ],
@@ -17074,7 +17072,7 @@
         "ClassLevelReq": 1,
         "Properties": [
             {
-                "PropertyString": "Level 1 Psychic Hammer (150 Charges)",
+                "PropertyString": "Level 1 Ice Barrage (150 Charges)",
                 "Index": 0
             }
         ],
@@ -17096,7 +17094,7 @@
         "ClassLevelReq": 1,
         "Properties": [
             {
-                "PropertyString": "Level 10 Psychic Hammer (150 Charges)",
+                "PropertyString": "Level 10 Ice Barrage (150 Charges)",
                 "Index": 0
             }
         ],
@@ -17294,7 +17292,7 @@
         "ClassLevelReq": 18,
         "Properties": [
             {
-                "PropertyString": "Level 1 Cloak of Shadows (55 Charges)",
+                "PropertyString": "Level 1 Snowlash Sentry (55 Charges)",
                 "Index": 0
             }
         ],
@@ -17316,7 +17314,7 @@
         "ClassLevelReq": 18,
         "Properties": [
             {
-                "PropertyString": "Level 15 Cloak of Shadows (55 Charges)",
+                "PropertyString": "Level 15 Snowlash Sentry (55 Charges)",
                 "Index": 0
             }
         ],
@@ -17494,7 +17492,7 @@
         "ClassLevelReq": 24,
         "Properties": [
             {
-                "PropertyString": "Level 2 Inferno Sentry (150 Charges)",
+                "PropertyString": "Level 2 Flameburst Sentry (150 Charges)",
                 "Index": 0
             }
         ],
@@ -17516,7 +17514,7 @@
         "ClassLevelReq": 24,
         "Properties": [
             {
-                "PropertyString": "Level 10 Inferno Sentry (150 Charges)",
+                "PropertyString": "Level 10 Flameburst Sentry (150 Charges)",
                 "Index": 0
             }
         ],
@@ -17538,7 +17536,7 @@
         "ClassLevelReq": 24,
         "Properties": [
             {
-                "PropertyString": "Level 2 Mind Blast (55 Charges)",
+                "PropertyString": "Level 2 Glacial Vortex Sentry (55 Charges)",
                 "Index": 0
             }
         ],
@@ -17560,7 +17558,7 @@
         "ClassLevelReq": 24,
         "Properties": [
             {
-                "PropertyString": "Level 22 Mind Blast (55 Charges)",
+                "PropertyString": "Level 22 Glacial Vortex Sentry (55 Charges)",
                 "Index": 0
             }
         ],
@@ -19443,7 +19441,7 @@
         "PType": "Prefix"
     },
     {
-        "Name": "Cold",
+        "Name": "Ice",
         "Level": 14,
         "MaxLevel": 70,
         "RequiredLevel": 10,
@@ -21341,7 +21339,7 @@
     {
         "Name": "Jagged",
         "Level": 20,
-        "MaxLevel": 50,
+        "MaxLevel": 60,
         "RequiredLevel": 10,
         "Group": 104,
         "ClassSpecific": "",
@@ -21370,7 +21368,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+15-20% Enhanced Weapon Damage",
+                "PropertyString": "+10-15% Enhanced Weapon Damage",
                 "Index": 0
             }
         ],
@@ -21384,14 +21382,14 @@
         "Name": "Serrated",
         "Level": 81,
         "MaxLevel": 0,
-        "RequiredLevel": 75,
+        "RequiredLevel": 81,
         "Group": 104,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+30-45% Enhanced Weapon Damage",
+                "PropertyString": "+20-25% Enhanced Weapon Damage",
                 "Index": 0
             }
         ],
@@ -21404,7 +21402,7 @@
     {
         "Name": "Bronze",
         "Level": 1,
-        "MaxLevel": 20,
+        "MaxLevel": 60,
         "RequiredLevel": 1,
         "Group": 110,
         "ClassSpecific": "",
@@ -21425,7 +21423,7 @@
     {
         "Name": "Bronze",
         "Level": 7,
-        "MaxLevel": 40,
+        "MaxLevel": 60,
         "RequiredLevel": 5,
         "Group": 110,
         "ClassSpecific": "",
@@ -21446,7 +21444,7 @@
     {
         "Name": "Bronze",
         "Level": 13,
-        "MaxLevel": 50,
+        "MaxLevel": 60,
         "RequiredLevel": 10,
         "Group": 110,
         "ClassSpecific": "",
@@ -21467,7 +21465,7 @@
     {
         "Name": "Iron",
         "Level": 19,
-        "MaxLevel": 75,
+        "MaxLevel": 81,
         "RequiredLevel": 15,
         "Group": 110,
         "ClassSpecific": "",
@@ -21488,7 +21486,7 @@
     {
         "Name": "Iron",
         "Level": 25,
-        "MaxLevel": 0,
+        "MaxLevel": 81,
         "RequiredLevel": 20,
         "Group": 110,
         "ClassSpecific": "",
@@ -21550,9 +21548,9 @@
     },
     {
         "Name": "Steel",
-        "Level": 45,
+        "Level": 61,
         "MaxLevel": 0,
-        "RequiredLevel": 40,
+        "RequiredLevel": 61,
         "Group": 110,
         "ClassSpecific": "",
         "Class": "",
@@ -21571,9 +21569,9 @@
     },
     {
         "Name": "Steel",
-        "Level": 65,
+        "Level": 81,
         "MaxLevel": 0,
-        "RequiredLevel": 60,
+        "RequiredLevel": 81,
         "Group": 110,
         "ClassSpecific": "",
         "Class": "",
@@ -21593,9 +21591,9 @@
     {
         "Name": "Fine",
         "Level": 15,
-        "MaxLevel": 50,
-        "RequiredLevel": 10,
-        "Group": 111,
+        "MaxLevel": 60,
+        "RequiredLevel": 15,
+        "Group": 110,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -21617,10 +21615,10 @@
     },
     {
         "Name": "Fine",
-        "Level": 25,
-        "MaxLevel": 80,
-        "RequiredLevel": 20,
-        "Group": 111,
+        "Level": 35,
+        "MaxLevel": 0,
+        "RequiredLevel": 35,
+        "Group": 110,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -21642,10 +21640,10 @@
     },
     {
         "Name": "Sharp",
-        "Level": 55,
+        "Level": 61,
         "MaxLevel": 0,
-        "RequiredLevel": 50,
-        "Group": 111,
+        "RequiredLevel": 61,
+        "Group": 110,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -21668,7 +21666,7 @@
     {
         "Name": "Red",
         "Level": 4,
-        "MaxLevel": 20,
+        "MaxLevel": 60,
         "RequiredLevel": 3,
         "Group": 103,
         "ClassSpecific": "",
@@ -21689,7 +21687,7 @@
     {
         "Name": "Red",
         "Level": 16,
-        "MaxLevel": 40,
+        "MaxLevel": 60,
         "RequiredLevel": 12,
         "Group": 103,
         "ClassSpecific": "",
@@ -21710,7 +21708,7 @@
     {
         "Name": "Sanguinary",
         "Level": 28,
-        "MaxLevel": 0,
+        "MaxLevel": 81,
         "RequiredLevel": 21,
         "Group": 103,
         "ClassSpecific": "",
@@ -21773,9 +21771,9 @@
     {
         "Name": "Jagged",
         "Level": 3,
-        "MaxLevel": 35,
+        "MaxLevel": 60,
         "RequiredLevel": 2,
-        "Group": 104,
+        "Group": 103,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -21794,9 +21792,9 @@
     {
         "Name": "Jagged",
         "Level": 10,
-        "MaxLevel": 55,
+        "MaxLevel": 60,
         "RequiredLevel": 7,
-        "Group": 104,
+        "Group": 103,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -21815,9 +21813,9 @@
     {
         "Name": "Jagged",
         "Level": 17,
-        "MaxLevel": 75,
+        "MaxLevel": 81,
         "RequiredLevel": 12,
-        "Group": 104,
+        "Group": 103,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -21838,7 +21836,7 @@
         "Level": 25,
         "MaxLevel": 0,
         "RequiredLevel": 18,
-        "Group": 104,
+        "Group": 103,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -21859,7 +21857,7 @@
         "Level": 32,
         "MaxLevel": 0,
         "RequiredLevel": 24,
-        "Group": 104,
+        "Group": 103,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -21880,7 +21878,7 @@
         "Level": 39,
         "MaxLevel": 0,
         "RequiredLevel": 31,
-        "Group": 104,
+        "Group": 103,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -21901,7 +21899,7 @@
         "Level": 47,
         "MaxLevel": 0,
         "RequiredLevel": 39,
-        "Group": 104,
+        "Group": 103,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -21920,7 +21918,7 @@
     {
         "Name": "Red",
         "Level": 29,
-        "MaxLevel": 0,
+        "MaxLevel": 60,
         "RequiredLevel": 26,
         "Group": 103,
         "ClassSpecific": "",
@@ -21944,9 +21942,9 @@
     },
     {
         "Name": "Sanguinary",
-        "Level": 59,
+        "Level": 60,
         "MaxLevel": 0,
-        "RequiredLevel": 52,
+        "RequiredLevel": 60,
         "Group": 103,
         "ClassSpecific": "",
         "Class": "",
@@ -21995,7 +21993,7 @@
     {
         "Name": "Stout",
         "Level": 1,
-        "MaxLevel": 40,
+        "MaxLevel": 30,
         "RequiredLevel": 1,
         "Group": 101,
         "ClassSpecific": "",
@@ -22020,7 +22018,7 @@
     {
         "Name": "Stout",
         "Level": 7,
-        "MaxLevel": 50,
+        "MaxLevel": 40,
         "RequiredLevel": 5,
         "Group": 101,
         "ClassSpecific": "",
@@ -22045,7 +22043,7 @@
     {
         "Name": "Stout",
         "Level": 12,
-        "MaxLevel": 55,
+        "MaxLevel": 50,
         "RequiredLevel": 9,
         "Group": 101,
         "ClassSpecific": "",
@@ -22070,7 +22068,7 @@
     {
         "Name": "Burly",
         "Level": 17,
-        "MaxLevel": 70,
+        "MaxLevel": 60,
         "RequiredLevel": 12,
         "Group": 101,
         "ClassSpecific": "",
@@ -22095,7 +22093,7 @@
     {
         "Name": "Burly",
         "Level": 22,
-        "MaxLevel": 75,
+        "MaxLevel": 81,
         "RequiredLevel": 16,
         "Group": 101,
         "ClassSpecific": "",
@@ -22120,7 +22118,7 @@
     {
         "Name": "Burly",
         "Level": 27,
-        "MaxLevel": 80,
+        "MaxLevel": 81,
         "RequiredLevel": 20,
         "Group": 101,
         "ClassSpecific": "",
@@ -22305,14 +22303,6 @@
             {
                 "PropertyString": "+1 to Bow and Crossbow Skills (Amazon Only)",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+5-10 to Dexterity",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+5-10 to Vitality",
-                "Index": 2
             }
         ],
         "Types": [
@@ -22334,14 +22324,6 @@
             {
                 "PropertyString": "+1 to Passive and Magic Skills (Amazon Only)",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+5-10 to Dexterity",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+5-10 to Vitality",
-                "Index": 2
             }
         ],
         "Types": [
@@ -22363,14 +22345,6 @@
             {
                 "PropertyString": "+1 to Javelin and Spear Skills (Amazon Only)",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+5-10 to Dexterity",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+5-10 to Vitality",
-                "Index": 2
             }
         ],
         "Types": [
@@ -22392,14 +22366,6 @@
             {
                 "PropertyString": "+1 to Fire Skills (Sorceress Only)",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+5-10 to Vitality",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+5-10 to Energy",
-                "Index": 2
             }
         ],
         "Types": [
@@ -22421,14 +22387,6 @@
             {
                 "PropertyString": "+1 to Lightning Skills (Sorceress Only)",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+5-10 to Vitality",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+5-10 to Energy",
-                "Index": 2
             }
         ],
         "Types": [
@@ -22450,14 +22408,6 @@
             {
                 "PropertyString": "+1 to Cold Skills (Sorceress Only)",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+5-10 to Vitality",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+5-10 to Energy",
-                "Index": 2
             }
         ],
         "Types": [
@@ -22479,14 +22429,6 @@
             {
                 "PropertyString": "+1 to Curses (Necromancer Only)",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+5-10 to Vitality",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+5-10 to Energy",
-                "Index": 2
             }
         ],
         "Types": [
@@ -22508,14 +22450,6 @@
             {
                 "PropertyString": "+1 to Poison and Bone Skills (Necromancer Only)",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+5-10 to Vitality",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+5-10 to Energy",
-                "Index": 2
             }
         ],
         "Types": [
@@ -22537,14 +22471,6 @@
             {
                 "PropertyString": "+1 to Summoning Skills (Necromancer Only)",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+5-10 to Vitality",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+5-10 to Energy",
-                "Index": 2
             }
         ],
         "Types": [
@@ -22566,14 +22492,6 @@
             {
                 "PropertyString": "+1 to Combat Skills (Paladin Only)",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+5-10 to Strength",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+5-10 to Vitality",
-                "Index": 2
             }
         ],
         "Types": [
@@ -22595,14 +22513,6 @@
             {
                 "PropertyString": "+1 to Offensive Auras (Paladin Only)",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+5-10 to Strength",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+5-10 to Vitality",
-                "Index": 2
             }
         ],
         "Types": [
@@ -22624,14 +22534,6 @@
             {
                 "PropertyString": "+1 to Defensive Auras (Paladin Only)",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+5-10 to Strength",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+5-10 to Vitality",
-                "Index": 2
             }
         ],
         "Types": [
@@ -22653,14 +22555,6 @@
             {
                 "PropertyString": "+1 to Combat Skills (Barbarian Only)",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+5-10 to Strength",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+5-10 to Vitality",
-                "Index": 2
             }
         ],
         "Types": [
@@ -22682,14 +22576,6 @@
             {
                 "PropertyString": "+1 to Masteries & Throwing Skills (Barbarian Only)",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+5-10 to Strength",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+5-10 to Vitality",
-                "Index": 2
             }
         ],
         "Types": [
@@ -22711,14 +22597,6 @@
             {
                 "PropertyString": "+1 to Warcries (Barbarian Only)",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+5-10 to Strength",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+5-10 to Vitality",
-                "Index": 2
             }
         ],
         "Types": [
@@ -22740,14 +22618,6 @@
             {
                 "PropertyString": "+1 to Summoning Skills (Druid Only)",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+5-10 to Dexterity",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+5-10 to Vitality",
-                "Index": 2
             }
         ],
         "Types": [
@@ -22769,14 +22639,6 @@
             {
                 "PropertyString": "+1 to Shape Shifting Skills (Druid Only)",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+5-10 to Dexterity",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+5-10 to Vitality",
-                "Index": 2
             }
         ],
         "Types": [
@@ -22798,14 +22660,6 @@
             {
                 "PropertyString": "+1 to Elemental Skills (Druid Only)",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+5-10 to Dexterity",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+5-10 to Vitality",
-                "Index": 2
             }
         ],
         "Types": [
@@ -22827,14 +22681,6 @@
             {
                 "PropertyString": "+1 to Traps (Assassin Only)",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+5-10 to Dexterity",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+5-10 to Vitality",
-                "Index": 2
             }
         ],
         "Types": [
@@ -22856,14 +22702,6 @@
             {
                 "PropertyString": "+1 to Shadow Disciplines (Assassin Only)",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+5-10 to Dexterity",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+5-10 to Vitality",
-                "Index": 2
             }
         ],
         "Types": [
@@ -22885,14 +22723,6 @@
             {
                 "PropertyString": "+1 to Martial Arts (Assassin Only)",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+5-10 to Dexterity",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+5-10 to Vitality",
-                "Index": 2
             }
         ],
         "Types": [
@@ -22903,17 +22733,21 @@
     },
     {
         "Name": "Snowy",
-        "Level": 9,
-        "MaxLevel": 20,
-        "RequiredLevel": 6,
+        "Level": 5,
+        "MaxLevel": 60,
+        "RequiredLevel": 5,
         "Group": 137,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Adds 2-5 Weapon Cold Damage",
+                "PropertyString": "+2-4 to Weapon Minimum Cold Damage",
                 "Index": 0
+            },
+            {
+                "PropertyString": "+4-5 to Weapon Maximum Cold Damage",
+                "Index": 1
             }
         ],
         "Types": [
@@ -22924,17 +22758,21 @@
     },
     {
         "Name": "Shivering",
-        "Level": 15,
-        "MaxLevel": 0,
-        "RequiredLevel": 11,
+        "Level": 35,
+        "MaxLevel": 60,
+        "RequiredLevel": 35,
         "Group": 137,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Adds 4-8 Weapon Cold Damage",
+                "PropertyString": "+4-6 to Weapon Minimum Cold Damage",
                 "Index": 0
+            },
+            {
+                "PropertyString": "+6-8 to Weapon Maximum Cold Damage",
+                "Index": 1
             }
         ],
         "Types": [
@@ -22945,17 +22783,21 @@
     },
     {
         "Name": "Boreal",
-        "Level": 30,
+        "Level": 61,
         "MaxLevel": 0,
-        "RequiredLevel": 22,
+        "RequiredLevel": 61,
         "Group": 137,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Adds 6-15 Weapon Cold Damage",
+                "PropertyString": "+6-8 to Weapon Minimum Cold Damage",
                 "Index": 0
+            },
+            {
+                "PropertyString": "+10-15 to Weapon Maximum Cold Damage",
+                "Index": 1
             }
         ],
         "Types": [
@@ -22966,17 +22808,21 @@
     },
     {
         "Name": "Boreal",
-        "Level": 30,
+        "Level": 80,
         "MaxLevel": 0,
-        "RequiredLevel": 22,
+        "RequiredLevel": 80,
         "Group": 137,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Adds 8-18 Weapon Cold Damage",
+                "PropertyString": "+8-10 to Weapon Minimum Cold Damage",
                 "Index": 0
+            },
+            {
+                "PropertyString": "+12-18 to Weapon Maximum Cold Damage",
+                "Index": 1
             }
         ],
         "Types": [
@@ -22987,17 +22833,21 @@
     },
     {
         "Name": "Boreal",
-        "Level": 30,
+        "Level": 81,
         "MaxLevel": 0,
-        "RequiredLevel": 22,
+        "RequiredLevel": 81,
         "Group": 137,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Adds 12-25 Weapon Cold Damage",
+                "PropertyString": "+12-14 to Weapon Minimum Cold Damage",
                 "Index": 0
+            },
+            {
+                "PropertyString": "+20-25 to Weapon Maximum Cold Damage",
+                "Index": 1
             }
         ],
         "Types": [
@@ -23009,9 +22859,9 @@
     {
         "Name": "Fiery",
         "Level": 5,
-        "MaxLevel": 20,
-        "RequiredLevel": 3,
-        "Group": 138,
+        "MaxLevel": 60,
+        "RequiredLevel": 5,
+        "Group": 137,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -23033,10 +22883,10 @@
     },
     {
         "Name": "Smoldering",
-        "Level": 15,
-        "MaxLevel": 0,
-        "RequiredLevel": 11,
-        "Group": 138,
+        "Level": 35,
+        "MaxLevel": 60,
+        "RequiredLevel": 35,
+        "Group": 137,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -23058,10 +22908,10 @@
     },
     {
         "Name": "Smoking",
-        "Level": 28,
+        "Level": 61,
         "MaxLevel": 0,
-        "RequiredLevel": 21,
-        "Group": 138,
+        "RequiredLevel": 61,
+        "Group": 137,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -23083,10 +22933,10 @@
     },
     {
         "Name": "Flaming",
-        "Level": 43,
+        "Level": 81,
         "MaxLevel": 0,
-        "RequiredLevel": 35,
-        "Group": 138,
+        "RequiredLevel": 81,
+        "Group": 137,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -23108,10 +22958,10 @@
     },
     {
         "Name": "Static",
-        "Level": 7,
-        "MaxLevel": 20,
+        "Level": 5,
+        "MaxLevel": 60,
         "RequiredLevel": 5,
-        "Group": 139,
+        "Group": 137,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -23133,10 +22983,10 @@
     },
     {
         "Name": "Glowing",
-        "Level": 14,
-        "MaxLevel": 0,
-        "RequiredLevel": 10,
-        "Group": 139,
+        "Level": 35,
+        "MaxLevel": 60,
+        "RequiredLevel": 35,
+        "Group": 137,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -23158,10 +23008,10 @@
     },
     {
         "Name": "Arcing",
-        "Level": 29,
+        "Level": 61,
         "MaxLevel": 0,
-        "RequiredLevel": 21,
-        "Group": 139,
+        "RequiredLevel": 61,
+        "Group": 137,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -23183,10 +23033,10 @@
     },
     {
         "Name": "Shocking",
-        "Level": 44,
+        "Level": 81,
         "MaxLevel": 0,
-        "RequiredLevel": 36,
-        "Group": 139,
+        "RequiredLevel": 81,
+        "Group": 137,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -23208,10 +23058,10 @@
     },
     {
         "Name": "Septic",
-        "Level": 10,
-        "MaxLevel": 20,
-        "RequiredLevel": 1,
-        "Group": 140,
+        "Level": 15,
+        "MaxLevel": 60,
+        "RequiredLevel": 15,
+        "Group": 137,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -23229,10 +23079,10 @@
     },
     {
         "Name": "Foul",
-        "Level": 25,
+        "Level": 35,
         "MaxLevel": 0,
-        "RequiredLevel": 9,
-        "Group": 140,
+        "RequiredLevel": 35,
+        "Group": 137,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -23250,10 +23100,10 @@
     },
     {
         "Name": "Toxic",
-        "Level": 40,
+        "Level": 61,
         "MaxLevel": 0,
-        "RequiredLevel": 20,
-        "Group": 140,
+        "RequiredLevel": 61,
+        "Group": 137,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -23271,10 +23121,10 @@
     },
     {
         "Name": "Pestilent",
-        "Level": 55,
+        "Level": 81,
         "MaxLevel": 0,
-        "RequiredLevel": 34,
-        "Group": 140,
+        "RequiredLevel": 81,
+        "Group": 137,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -23293,9 +23143,38 @@
     {
         "Name": "Avatar's",
         "Level": 45,
-        "MaxLevel": 40,
+        "MaxLevel": 0,
         "RequiredLevel": 45,
-        "Group": 141,
+        "Group": 137,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "Adds 5-10 Weapon Fire Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Adds 5-10 Weapon Lightning Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "Adds 5-10 Weapon Cold Damage",
+                "Index": 2
+            }
+        ],
+        "Types": [
+            "Grand Charm"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Avatar's",
+        "Level": 65,
+        "MaxLevel": 0,
+        "RequiredLevel": 65,
+        "Group": 137,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
@@ -23321,53 +23200,24 @@
     },
     {
         "Name": "Avatar's",
-        "Level": 65,
-        "MaxLevel": 0,
-        "RequiredLevel": 65,
-        "Group": 141,
-        "ClassSpecific": "",
-        "Class": "",
-        "ClassLevelReq": 0,
-        "Properties": [
-            {
-                "PropertyString": "Adds 20-40 Weapon Fire Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Adds 20-40 Weapon Lightning Damage",
-                "Index": 1
-            },
-            {
-                "PropertyString": "Adds 20-40 Weapon Cold Damage",
-                "Index": 2
-            }
-        ],
-        "Types": [
-            "Grand Charm"
-        ],
-        "ETypes": [],
-        "PType": "Prefix"
-    },
-    {
-        "Name": "Avatar's",
         "Level": 85,
         "MaxLevel": 0,
         "RequiredLevel": 85,
-        "Group": 141,
+        "Group": 137,
         "ClassSpecific": "",
         "Class": "",
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Adds 40-60 Weapon Fire Damage",
+                "PropertyString": "Adds 20-30 Weapon Fire Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 40-60 Weapon Lightning Damage",
+                "PropertyString": "Adds 20-30 Weapon Lightning Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 40-60 Weapon Cold Damage",
+                "PropertyString": "Adds 20-30 Weapon Cold Damage",
                 "Index": 2
             }
         ],
@@ -23380,7 +23230,7 @@
     {
         "Name": "Azure",
         "Level": 10,
-        "MaxLevel": 55,
+        "MaxLevel": 61,
         "RequiredLevel": 10,
         "Group": 117,
         "ClassSpecific": "",
@@ -23388,12 +23238,8 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Adds 10-15 Weapon Cold Damage",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+7-15% Cold Resistance",
-                "Index": 1
+                "Index": 0
             }
         ],
         "Types": [
@@ -23405,7 +23251,7 @@
     {
         "Name": "Lapis",
         "Level": 25,
-        "MaxLevel": 0,
+        "MaxLevel": 81,
         "RequiredLevel": 20,
         "Group": 117,
         "ClassSpecific": "",
@@ -23413,12 +23259,8 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Adds 15-20 Weapon Cold Damage",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+16-20% Cold Resistance",
-                "Index": 1
+                "Index": 0
             }
         ],
         "Types": [
@@ -23438,12 +23280,8 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Adds 20-25 Weapon Cold Damage",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+21-25% Cold Resistance",
-                "Index": 1
+                "Index": 0
             }
         ],
         "Types": [
@@ -23463,12 +23301,8 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Adds 25-30 Weapon Cold Damage",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+26-30% Cold Resistance",
-                "Index": 1
+                "Index": 0
             }
         ],
         "Types": [
@@ -23480,7 +23314,7 @@
     {
         "Name": "Crimson",
         "Level": 10,
-        "MaxLevel": 55,
+        "MaxLevel": 61,
         "RequiredLevel": 10,
         "Group": 118,
         "ClassSpecific": "",
@@ -23488,12 +23322,8 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Adds 10-15 Weapon Fire Damage",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+7-15% Fire Resistance",
-                "Index": 1
+                "Index": 0
             }
         ],
         "Types": [
@@ -23505,7 +23335,7 @@
     {
         "Name": "Russet",
         "Level": 25,
-        "MaxLevel": 0,
+        "MaxLevel": 81,
         "RequiredLevel": 20,
         "Group": 118,
         "ClassSpecific": "",
@@ -23513,12 +23343,8 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Adds 15-20 Weapon Fire Damage",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+16-20% Fire Resistance",
-                "Index": 1
+                "Index": 0
             }
         ],
         "Types": [
@@ -23538,12 +23364,8 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Adds 20-25 Weapon Fire Damage",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+21-25% Fire Resistance",
-                "Index": 1
+                "Index": 0
             }
         ],
         "Types": [
@@ -23563,12 +23385,8 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Adds 25-30 Weapon Fire Damage",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+26-30% Fire Resistance",
-                "Index": 1
+                "Index": 0
             }
         ],
         "Types": [
@@ -23580,7 +23398,7 @@
     {
         "Name": "Tangerine",
         "Level": 10,
-        "MaxLevel": 55,
+        "MaxLevel": 61,
         "RequiredLevel": 10,
         "Group": 119,
         "ClassSpecific": "",
@@ -23588,12 +23406,8 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Adds 10-15 Weapon Lightning Damage",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+7-15% Lightning Resistance",
-                "Index": 1
+                "Index": 0
             }
         ],
         "Types": [
@@ -23605,7 +23419,7 @@
     {
         "Name": "Ocher",
         "Level": 25,
-        "MaxLevel": 0,
+        "MaxLevel": 81,
         "RequiredLevel": 20,
         "Group": 119,
         "ClassSpecific": "",
@@ -23613,12 +23427,8 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Adds 15-20 Weapon Lightning Damage",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+16-20% Lightning Resistance",
-                "Index": 1
+                "Index": 0
             }
         ],
         "Types": [
@@ -23638,12 +23448,8 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Adds 20-25 Weapon Lightning Damage",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+21-25% Lightning Resistance",
-                "Index": 1
+                "Index": 0
             }
         ],
         "Types": [
@@ -23663,12 +23469,8 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Adds 25-30 Weapon Lightning Damage",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+26-30% Lightning Resistance",
-                "Index": 1
+                "Index": 0
             }
         ],
         "Types": [
@@ -23680,7 +23482,7 @@
     {
         "Name": "Beryl",
         "Level": 10,
-        "MaxLevel": 55,
+        "MaxLevel": 61,
         "RequiredLevel": 10,
         "Group": 120,
         "ClassSpecific": "",
@@ -23688,12 +23490,8 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Adds 15 Weapon Poison Damage over 3 seconds",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+7-15% Poison Resistance",
-                "Index": 1
+                "Index": 0
             }
         ],
         "Types": [
@@ -23705,7 +23503,7 @@
     {
         "Name": "Viridian",
         "Level": 25,
-        "MaxLevel": 0,
+        "MaxLevel": 81,
         "RequiredLevel": 20,
         "Group": 120,
         "ClassSpecific": "",
@@ -23713,12 +23511,8 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Adds 22 Weapon Poison Damage over 3 seconds",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+16-20% Poison Resistance",
-                "Index": 1
+                "Index": 0
             }
         ],
         "Types": [
@@ -23738,12 +23532,8 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Adds 30 Weapon Poison Damage over 3 seconds",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+21-25% Poison Resistance",
-                "Index": 1
+                "Index": 0
             }
         ],
         "Types": [
@@ -23763,12 +23553,8 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Adds 37 Weapon Poison Damage over 3 seconds",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+26-30% Poison Resistance",
-                "Index": 1
+                "Index": 0
             }
         ],
         "Types": [
@@ -23780,7 +23566,7 @@
     {
         "Name": "Shimmering",
         "Level": 25,
-        "MaxLevel": 55,
+        "MaxLevel": 81,
         "RequiredLevel": 20,
         "Group": 116,
         "ClassSpecific": "",
@@ -23788,20 +23574,8 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Adds 10-15 Weapon Fire Damage",
+                "PropertyString": "+3-5% to All Resistances",
                 "Index": 0
-            },
-            {
-                "PropertyString": "Adds 10-15 Weapon Lightning Damage",
-                "Index": 1
-            },
-            {
-                "PropertyString": "Adds 10-15 Weapon Cold Damage",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+3-6% to All Resistances",
-                "Index": 3
             }
         ],
         "Types": [
@@ -23821,20 +23595,8 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Adds 15-20 Weapon Fire Damage",
+                "PropertyString": "+5-8% to All Resistances",
                 "Index": 0
-            },
-            {
-                "PropertyString": "Adds 15-20 Weapon Lightning Damage",
-                "Index": 1
-            },
-            {
-                "PropertyString": "Adds 15-20 Weapon Cold Damage",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+8-12% to All Resistances",
-                "Index": 3
             }
         ],
         "Types": [
@@ -23854,20 +23616,8 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Adds 20-25 Weapon Fire Damage",
+                "PropertyString": "+8-10% to All Resistances",
                 "Index": 0
-            },
-            {
-                "PropertyString": "Adds 20-25 Weapon Lightning Damage",
-                "Index": 1
-            },
-            {
-                "PropertyString": "Adds 20-25 Weapon Cold Damage",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+13-15% to All Resistances",
-                "Index": 3
             }
         ],
         "Types": [
@@ -23879,7 +23629,7 @@
     {
         "Name": "Lizard's",
         "Level": 1,
-        "MaxLevel": 20,
+        "MaxLevel": 60,
         "RequiredLevel": 1,
         "Group": 115,
         "ClassSpecific": "",
@@ -23889,10 +23639,6 @@
             {
                 "PropertyString": "+3-7 to Mana",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+5% Mana Regeneration",
-                "Index": 1
             }
         ],
         "Types": [
@@ -23904,7 +23650,7 @@
     {
         "Name": "Lizard's",
         "Level": 7,
-        "MaxLevel": 35,
+        "MaxLevel": 60,
         "RequiredLevel": 5,
         "Group": 115,
         "ClassSpecific": "",
@@ -23914,10 +23660,6 @@
             {
                 "PropertyString": "+8-13 to Mana",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+5% Mana Regeneration",
-                "Index": 1
             }
         ],
         "Types": [
@@ -23929,7 +23671,7 @@
     {
         "Name": "Lizard's",
         "Level": 15,
-        "MaxLevel": 45,
+        "MaxLevel": 60,
         "RequiredLevel": 10,
         "Group": 115,
         "ClassSpecific": "",
@@ -23939,10 +23681,6 @@
             {
                 "PropertyString": "+14-20 to Mana",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+5% Mana Regeneration",
-                "Index": 1
             }
         ],
         "Types": [
@@ -23954,7 +23692,7 @@
     {
         "Name": "Snake's",
         "Level": 24,
-        "MaxLevel": 60,
+        "MaxLevel": 81,
         "RequiredLevel": 20,
         "Group": 115,
         "ClassSpecific": "",
@@ -23964,10 +23702,6 @@
             {
                 "PropertyString": "+21-26 to Mana",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+7% Mana Regeneration",
-                "Index": 1
             }
         ],
         "Types": [
@@ -23979,7 +23713,7 @@
     {
         "Name": "Snake's",
         "Level": 31,
-        "MaxLevel": 70,
+        "MaxLevel": 81,
         "RequiredLevel": 30,
         "Group": 115,
         "ClassSpecific": "",
@@ -23989,10 +23723,6 @@
             {
                 "PropertyString": "+27-33 to Mana",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+7% Mana Regeneration",
-                "Index": 1
             }
         ],
         "Types": [
@@ -24004,7 +23734,7 @@
     {
         "Name": "Snake's",
         "Level": 40,
-        "MaxLevel": 80,
+        "MaxLevel": 0,
         "RequiredLevel": 40,
         "Group": 115,
         "ClassSpecific": "",
@@ -24014,10 +23744,6 @@
             {
                 "PropertyString": "+34-39 to Mana",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+7% Mana Regeneration",
-                "Index": 1
             }
         ],
         "Types": [
@@ -24028,9 +23754,9 @@
     },
     {
         "Name": "Serpent's",
-        "Level": 48,
+        "Level": 61,
         "MaxLevel": 0,
-        "RequiredLevel": 50,
+        "RequiredLevel": 61,
         "Group": 115,
         "ClassSpecific": "",
         "Class": "",
@@ -24039,35 +23765,6 @@
             {
                 "PropertyString": "+40-46 to Mana",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+10% Mana Regeneration",
-                "Index": 1
-            }
-        ],
-        "Types": [
-            "Grand Charm"
-        ],
-        "ETypes": [],
-        "PType": "Prefix"
-    },
-    {
-        "Name": "Serpent's",
-        "Level": 60,
-        "MaxLevel": 0,
-        "RequiredLevel": 65,
-        "Group": 115,
-        "ClassSpecific": "",
-        "Class": "",
-        "ClassLevelReq": 0,
-        "Properties": [
-            {
-                "PropertyString": "+47-52 to Mana",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+10% Mana Regeneration",
-                "Index": 1
             }
         ],
         "Types": [
@@ -24080,6 +23777,27 @@
         "Name": "Serpent's",
         "Level": 81,
         "MaxLevel": 0,
+        "RequiredLevel": 81,
+        "Group": 115,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+47-52 to Mana",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Grand Charm"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Serpent's",
+        "Level": 85,
+        "MaxLevel": 0,
         "RequiredLevel": 85,
         "Group": 115,
         "ClassSpecific": "",
@@ -24089,10 +23807,6 @@
             {
                 "PropertyString": "+53-59 to Mana",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+10% Mana Regeneration",
-                "Index": 1
             }
         ],
         "Types": [
@@ -24104,7 +23818,7 @@
     {
         "Name": "Lucky",
         "Level": 21,
-        "MaxLevel": 50,
+        "MaxLevel": 61,
         "RequiredLevel": 10,
         "Group": 114,
         "ClassSpecific": "",
@@ -24129,7 +23843,7 @@
     {
         "Name": "Lucky",
         "Level": 38,
-        "MaxLevel": 0,
+        "MaxLevel": 81,
         "RequiredLevel": 35,
         "Group": 114,
         "ClassSpecific": "",
@@ -24172,6 +23886,403 @@
         ],
         "Types": [
             "Grand Charm"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Shimmering",
+        "Level": 81,
+        "MaxLevel": 0,
+        "RequiredLevel": 81,
+        "Group": 116,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+10-12% to All Resistances",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Grand Charm"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Chaotic",
+        "Level": 50,
+        "MaxLevel": 0,
+        "RequiredLevel": 42,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+1 to Chaos Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Grand Charm"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Sullied",
+        "Level": 50,
+        "MaxLevel": 0,
+        "RequiredLevel": 42,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+1 to Eldritch Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Grand Charm"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Fiendish",
+        "Level": 50,
+        "MaxLevel": 0,
+        "RequiredLevel": 42,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+1 to Demon Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Grand Charm"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Chaotic",
+        "Level": 20,
+        "MaxLevel": 0,
+        "RequiredLevel": 15,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+1 to Chaos Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Knife",
+            "Grimoire",
+            "Amulet",
+            "Circlet"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Erratic",
+        "Level": 40,
+        "MaxLevel": 0,
+        "RequiredLevel": 30,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+2 to Chaos Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Knife",
+            "Grimoire",
+            "Amulet",
+            "Circlet"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Torrid",
+        "Level": 60,
+        "MaxLevel": 0,
+        "RequiredLevel": 45,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+3 to Chaos Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Knife",
+            "Grimoire",
+            "Amulet",
+            "Circlet"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Sullied",
+        "Level": 20,
+        "MaxLevel": 0,
+        "RequiredLevel": 15,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+1 to Eldritch Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Knife",
+            "Grimoire",
+            "Amulet",
+            "Sword",
+            "Circlet"
+        ],
+        "ETypes": [
+            "Throwing Knife"
+        ],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Tainted",
+        "Level": 40,
+        "MaxLevel": 0,
+        "RequiredLevel": 30,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+2 to Eldritch Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Knife",
+            "Grimoire",
+            "Amulet",
+            "Sword",
+            "Circlet"
+        ],
+        "ETypes": [
+            "Throwing Knife"
+        ],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Forbidden",
+        "Level": 60,
+        "MaxLevel": 0,
+        "RequiredLevel": 45,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+3 to Eldritch Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Knife",
+            "Grimoire",
+            "Amulet",
+            "Sword",
+            "Circlet"
+        ],
+        "ETypes": [
+            "Throwing Knife"
+        ],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Fiendish",
+        "Level": 20,
+        "MaxLevel": 0,
+        "RequiredLevel": 15,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+1 to Demon Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Knife",
+            "Grimoire",
+            "Amulet",
+            "Circlet"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Dreadful",
+        "Level": 40,
+        "MaxLevel": 0,
+        "RequiredLevel": 30,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+2 to Demon Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Knife",
+            "Grimoire",
+            "Amulet",
+            "Circlet"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Malevolent",
+        "Level": 60,
+        "MaxLevel": 0,
+        "RequiredLevel": 45,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+3 to Demon Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Knife",
+            "Grimoire",
+            "Amulet",
+            "Circlet"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Devil's",
+        "Level": 36,
+        "MaxLevel": 0,
+        "RequiredLevel": 27,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+1 to Warlock Skill Levels",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Amulet",
+            "Circlet"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Arch-Devil's",
+        "Level": 90,
+        "MaxLevel": 0,
+        "RequiredLevel": 67,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+2 to Warlock Skill Levels",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Amulet",
+            "Circlet"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Devil's",
+        "Level": 30,
+        "MaxLevel": 0,
+        "RequiredLevel": 22,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+1 to Warlock Skill Levels",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Knife",
+            "Grimoire"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Arch-Devil's",
+        "Level": 50,
+        "MaxLevel": 0,
+        "RequiredLevel": 42,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+2 to Warlock Skill Levels",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Knife",
+            "Grimoire"
         ],
         "ETypes": [],
         "PType": "Prefix"

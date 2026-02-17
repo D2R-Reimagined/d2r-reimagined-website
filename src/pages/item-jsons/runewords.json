@@ -182,7 +182,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Level 13 Cloak of Shadows (9 Charges)",
+                "PropertyString": "Level 10 Inner Sight (10 Charges)",
                 "Index": 3
             }
         ],
@@ -241,12 +241,12 @@
         ],
         "Vanilla": "Y",
         "Name": "Steel",
-        "Index": "Steel",
+        "Index": "Steel1",
         "Enabled": true,
         "Rarity": 0,
         "ItemLevel": 13,
         "RequiredLevel": 13,
-        "Code": "Steel",
+        "Code": "Steel1",
         "Properties": [
             {
                 "PropertyString": "+25% Increased Attack Speed",
@@ -257,11 +257,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+3 to Minimum Weapon Damage",
+                "PropertyString": "+6 to Minimum Weapon Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "+3 to Maximum Weapon Damage",
+                "PropertyString": "+9 to Maximum Weapon Damage",
                 "Index": 2
             },
             {
@@ -399,6 +399,10 @@
                 "Index": 3
             },
             {
+                "PropertyString": "+1 to Warp (oskill)",
+                "Index": 2
+            },
+            {
                 "PropertyString": "+100% Faster Run/Walk Speed",
                 "Index": 1
             },
@@ -425,10 +429,6 @@
             {
                 "PropertyString": "+1 to Light Radius",
                 "Index": 0
-            },
-            {
-                "PropertyString": "Level 1 Teleport (5 Charges)",
-                "Index": 2
             }
         ],
         "DamageArmorEnhanced": false,
@@ -573,7 +573,7 @@
         "Code": "Malice",
         "Properties": [
             {
-                "PropertyString": "+33% Enhanced Weapon Damage",
+                "PropertyString": "+50% Enhanced Weapon Damage",
                 "Index": 3
             },
             {
@@ -587,6 +587,10 @@
             {
                 "PropertyString": "+50 to Attack Rating",
                 "Index": 1
+            },
+            {
+                "PropertyString": "+5% Life stolen per hit",
+                "Index": 6
             },
             {
                 "PropertyString": "+100% Chance of Open Wounds",
@@ -709,85 +713,6 @@
                 }
             },
             {
-                "Name": "Eld Rune",
-                "ItemLevel": 11,
-                "RequiredLevel": 11,
-                "Type": {
-                    "Name": "Rune",
-                    "Index": "Rune",
-                    "Class": ""
-                }
-            }
-        ],
-        "Types": [
-            {
-                "Name": "Spear",
-                "Index": "Spear",
-                "Class": ""
-            }
-        ],
-        "Vanilla": "N",
-        "Name": "Jealousy",
-        "Index": "Jealousy",
-        "Enabled": true,
-        "Rarity": 0,
-        "ItemLevel": 17,
-        "RequiredLevel": 17,
-        "Code": "Jealousy",
-        "Properties": [
-            {
-                "PropertyString": "+3 to Jab (oskill)",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+3 to Melee Mastery (oskill)",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+20% Increased Attack Speed",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+122% Enhanced Weapon Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+75% Damage to Undead",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+50 to Attack Rating against Undead",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Adds 76 Weapon Poison Damage over 5 seconds",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+7% Mana stolen per hit",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+7% Life stolen per hit",
-                "Index": 1
-            }
-        ],
-        "DamageArmorEnhanced": false,
-        "Equipment": null
-    },
-    {
-        "Runes": [
-            {
-                "Name": "Tal Rune",
-                "ItemLevel": 17,
-                "RequiredLevel": 17,
-                "Type": {
-                    "Name": "Rune",
-                    "Index": "Rune",
-                    "Class": ""
-                }
-            },
-            {
                 "Name": "Eth Rune",
                 "ItemLevel": 15,
                 "RequiredLevel": 15,
@@ -849,6 +774,85 @@
     {
         "Runes": [
             {
+                "Name": "Tal Rune",
+                "ItemLevel": 17,
+                "RequiredLevel": 17,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Eld Rune",
+                "ItemLevel": 11,
+                "RequiredLevel": 11,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            }
+        ],
+        "Types": [
+            {
+                "Name": "Spear",
+                "Index": "Spear",
+                "Class": ""
+            }
+        ],
+        "Vanilla": "N",
+        "Name": "Jealousy",
+        "Index": "Jealousy",
+        "Enabled": true,
+        "Rarity": 0,
+        "ItemLevel": 17,
+        "RequiredLevel": 18,
+        "Code": "Jealousy",
+        "Properties": [
+            {
+                "PropertyString": "+3 to Impale (oskill)",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+3 to Melee Mastery (oskill)",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+20% Increased Attack Speed",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+122% Enhanced Weapon Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+75% Damage to Undead",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+50 to Attack Rating against Undead",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Adds 76 Weapon Poison Damage over 5 seconds",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+7% Mana stolen per hit",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+7% Life stolen per hit",
+                "Index": 1
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": null
+    },
+    {
+        "Runes": [
+            {
                 "Name": "Nef Rune",
                 "ItemLevel": 13,
                 "RequiredLevel": 13,
@@ -900,7 +904,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+5 to Ice Arrow (oskill)",
+                "PropertyString": "+5 to Freezing Arrow (oskill)",
                 "Index": 4
             },
             {
@@ -1428,7 +1432,7 @@
         "Code": "Zephyr",
         "Properties": [
             {
-                "PropertyString": "7% Chance to cast level 1 Twister when struck",
+                "PropertyString": "13% Chance to cast level 1 Dust Devils on striking",
                 "Index": 4
             },
             {
@@ -1440,7 +1444,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+33% Enhanced Weapon Damage",
+                "PropertyString": "+100% Enhanced Weapon Damage",
                 "Index": 2
             },
             {
@@ -2145,7 +2149,7 @@
         "Code": "Lightning",
         "Properties": [
             {
-                "PropertyString": "15% Chance to cast level 9 Lightning on striking",
+                "PropertyString": "15% Chance to cast level 1 Arc on striking",
                 "Index": 3
             },
             {
@@ -2379,12 +2383,12 @@
         ],
         "Vanilla": "Y",
         "Name": "Spirit",
-        "Index": "Spirit",
+        "Index": "Spirit1",
         "Enabled": true,
         "Rarity": 0,
         "ItemLevel": 25,
         "RequiredLevel": 25,
-        "Code": "Spirit",
+        "Code": "Spirit1",
         "Properties": [
             {
                 "PropertyString": "+2 to All Skills",
@@ -2395,7 +2399,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+55% Faster Hit Recovery",
+                "PropertyString": "+15-25% Faster Hit Recovery",
                 "Index": 0
             },
             {
@@ -2407,7 +2411,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+89-112 to Mana",
+                "PropertyString": "+45-73 to Mana",
                 "Index": 1
             },
             {
@@ -2490,7 +2494,7 @@
         "Code": "Strength",
         "Properties": [
             {
-                "PropertyString": "+35% Enhanced Weapon Damage",
+                "PropertyString": "+80% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
@@ -2498,7 +2502,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+25% Chance of Crushing Blow",
+                "PropertyString": "+10% Chance of Crushing Blow",
                 "Index": 3
             },
             {
@@ -2571,7 +2575,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "3% Chance to cast level 1 Howl when struck",
+                "PropertyString": "25% Chance to cast level 1 Howl when struck",
                 "Index": 1
             },
             {
@@ -2859,7 +2863,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+25% Deadly Strike",
+                "PropertyString": "+15% Deadly Strike",
                 "Index": 4
             },
             {
@@ -3351,13 +3355,13 @@
             }
         ],
         "Vanilla": "N",
-        "Name": "Void",
-        "Index": "Void",
+        "Name": "Empower",
+        "Index": "Empower",
         "Enabled": true,
         "Rarity": 0,
         "ItemLevel": 27,
         "RequiredLevel": 27,
-        "Code": "Void",
+        "Code": "Empower",
         "Properties": [
             {
                 "PropertyString": "+1 to Barbarian Skill Levels",
@@ -3393,6 +3397,87 @@
             },
             {
                 "PropertyString": "Attacker Takes Damage of 14",
+                "Index": 0
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": null
+    },
+    {
+        "Runes": [
+            {
+                "Name": "Hel Rune",
+                "ItemLevel": 33,
+                "RequiredLevel": 0,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Shael Rune",
+                "ItemLevel": 29,
+                "RequiredLevel": 29,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Ral Rune",
+                "ItemLevel": 19,
+                "RequiredLevel": 19,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            }
+        ],
+        "Types": [
+            {
+                "Name": "Body Armor",
+                "Index": "Body Armor",
+                "Class": ""
+            }
+        ],
+        "Vanilla": "N",
+        "Name": "Authority",
+        "Index": "Authority",
+        "Enabled": true,
+        "Rarity": 0,
+        "ItemLevel": 33,
+        "RequiredLevel": 29,
+        "Code": "Authority",
+        "Properties": [
+            {
+                "PropertyString": "2% Chance to cast level 10 Psychic Ward when struck",
+                "Index": 0
+            },
+            {
+                "PropertyString": "10% Chance to cast level 15 Miasma Chains on striking",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+2 to Warlock Skill Levels",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+40-60% Enhanced Weapon Damage",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+20% Faster Hit Recovery",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+30% Fire Resistance",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Requirements Reduced By -15%",
                 "Index": 0
             }
         ],
@@ -3852,11 +3937,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+66% Chance of Crushing Blow",
+                "PropertyString": "+10% Chance of Crushing Blow",
                 "Index": 5
             },
             {
-                "PropertyString": "+34% Deadly Strike",
+                "PropertyString": "+15% Deadly Strike",
                 "Index": 6
             },
             {
@@ -3864,7 +3949,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "-3% to Experience Gained",
+                "PropertyString": "+3% to Experience Gained",
                 "Index": 1
             },
             {
@@ -4046,7 +4131,7 @@
         "Code": "Beauty",
         "Properties": [
             {
-                "PropertyString": "+3 to Bow and Crossbow Skills (Amazon Only)",
+                "PropertyString": "+2-3 to Bow and Crossbow Skills (Amazon Only)",
                 "Index": 0
             },
             {
@@ -4070,7 +4155,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Slows Target by 15%",
+                "PropertyString": "Slows Target by 10%",
                 "Index": 3
             },
             {
@@ -4145,7 +4230,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+6 to Fist of the Heavens (Paladin Only)",
+                "PropertyString": "+3 to Fist of the Heavens (Paladin Only)",
                 "Index": 5
             },
             {
@@ -4293,7 +4378,7 @@
         "Code": "Vengeance",
         "Properties": [
             {
-                "PropertyString": "100% Chance to cast level 55 Poison Nova when you Die",
+                "PropertyString": "100% Chance to cast level 25 Blightburst when you Die",
                 "Index": 1
             },
             {
@@ -4370,12 +4455,12 @@
         ],
         "Vanilla": "N",
         "Name": "Dread",
-        "Index": "Dread",
+        "Index": "Dread1",
         "Enabled": true,
         "Rarity": 0,
         "ItemLevel": 31,
         "RequiredLevel": 32,
-        "Code": "Dread",
+        "Code": "Dread1",
         "Properties": [
             {
                 "PropertyString": "13% Chance to cast level 13 Charged Bolt on striking",
@@ -4469,19 +4554,19 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+5% Life stolen per hit",
+                "PropertyString": "+10% Life stolen per hit",
                 "Index": 5
             },
             {
-                "PropertyString": "Drain Life -1",
+                "PropertyString": "Drain Life -20",
                 "Index": 6
             },
             {
-                "PropertyString": "+20% Magic Resistance",
+                "PropertyString": "+10-15% Magic Resistance",
                 "Index": 4
             },
             {
-                "PropertyString": "+20% to All Resistances",
+                "PropertyString": "+10-15% to All Resistances",
                 "Index": 3
             },
             {
@@ -4556,19 +4641,19 @@
         ],
         "Vanilla": "Y",
         "Name": "Black",
-        "Index": "Black",
+        "Index": "Black1",
         "Enabled": true,
         "Rarity": 0,
         "ItemLevel": 35,
         "RequiredLevel": 35,
-        "Code": "Black",
+        "Code": "Black1",
         "Properties": [
             {
-                "PropertyString": "+15% Increased Attack Speed",
+                "PropertyString": "+20-30% Increased Attack Speed",
                 "Index": 2
             },
             {
-                "PropertyString": "+120% Enhanced Weapon Damage",
+                "PropertyString": "+120-150% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
@@ -4580,7 +4665,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+40% Chance of Crushing Blow",
+                "PropertyString": "+10% Chance of Crushing Blow",
                 "Index": 0
             },
             {
@@ -4596,7 +4681,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Level 4 Corpse Explosion (12 Charges)",
+                "PropertyString": "Level 30 Corpse Explosion (50 Charges)",
                 "Index": 5
             }
         ],
@@ -5143,15 +5228,15 @@
         ],
         "Vanilla": "N",
         "Name": "Red",
-        "Index": "Red",
+        "Index": "Red1",
         "Enabled": true,
         "Rarity": 0,
         "ItemLevel": 35,
         "RequiredLevel": 35,
-        "Code": "Red",
+        "Code": "Red1",
         "Properties": [
             {
-                "PropertyString": "8% Chance to cast level 4 Meteor on striking",
+                "PropertyString": "12% Chance to cast level 10 Meteor on striking",
                 "Index": 6
             },
             {
@@ -5476,7 +5561,7 @@
         "Code": "Madness",
         "Properties": [
             {
-                "PropertyString": "9% Chance to cast level 5 Confuse when struck",
+                "PropertyString": "9% Chance to cast level 5 Attract when struck",
                 "Index": 0
             },
             {
@@ -6028,14 +6113,14 @@
                 "Class": ""
             }
         ],
-        "Vanilla": "N",
-        "Name": "Hustle",
-        "Index": "Hustle (Torso)",
+        "Vanilla": "Y",
+        "Name": "Hysteria",
+        "Index": "Hysteria",
         "Enabled": true,
         "Rarity": 0,
         "ItemLevel": 39,
         "RequiredLevel": 39,
-        "Code": "Hustle (Torso)",
+        "Code": "Hysteria",
         "Properties": [
             {
                 "PropertyString": "+6 to Evade (oskill)",
@@ -6109,14 +6194,14 @@
                 "Class": ""
             }
         ],
-        "Vanilla": "N",
-        "Name": "Hustle",
-        "Index": "Hustle (Weapon)",
+        "Vanilla": "Y",
+        "Name": "Mania",
+        "Index": "Mania",
         "Enabled": true,
         "Rarity": 0,
         "ItemLevel": 39,
         "RequiredLevel": 39,
-        "Code": "Hustle (Weapon)",
+        "Code": "Mania",
         "Properties": [
             {
                 "PropertyString": "5% Chance to cast level 1 Burst of Speed on striking",
@@ -6657,7 +6742,7 @@
         "Code": "Lionheart",
         "Properties": [
             {
-                "PropertyString": "+20% Enhanced Weapon Damage",
+                "PropertyString": "+50% Enhanced Weapon Damage",
                 "Index": 3
             },
             {
@@ -6771,7 +6856,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+370% Enhanced Weapon Damage",
+                "PropertyString": "+200-250% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -6791,7 +6876,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+40% Chance of Crushing Blow",
+                "PropertyString": "+10% Chance of Crushing Blow",
                 "Index": 1
             },
             {
@@ -6902,7 +6987,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+3 to Combat Skills (Barbarian Only)",
+                "PropertyString": "+2-3 to Combat Skills (Barbarian Only)",
                 "Index": 0
             },
             {
@@ -6910,7 +6995,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+300-350% Enhanced Weapon Damage",
+                "PropertyString": "+300% Enhanced Weapon Damage",
                 "Index": 3
             },
             {
@@ -7178,7 +7263,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Level 3 Heart of Wolverine (12 Charges)",
+                "PropertyString": "Level 3 HoW (12 Charges)",
                 "Index": 5
             }
         ],
@@ -7291,9 +7376,9 @@
                 }
             },
             {
-                "Name": "Thul Rune",
-                "ItemLevel": 23,
-                "RequiredLevel": 23,
+                "Name": "Ort Rune",
+                "ItemLevel": 21,
+                "RequiredLevel": 21,
                 "Type": {
                     "Name": "Rune",
                     "Index": "Rune",
@@ -7318,23 +7403,19 @@
         "Code": "Tempest",
         "Properties": [
             {
-                "PropertyString": "+3 to Traps (Assassin Only)",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+2 to Assassin Skill Levels",
+                "PropertyString": "+1-2 to Traps (Assassin Only)",
                 "Index": 4
             },
             {
                 "PropertyString": "+140-190% Enhanced Weapon Damage",
-                "Index": 6
+                "Index": 5
             },
             {
                 "PropertyString": "Adds 100-200 Weapon Fire Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 1-300 Weapon Lightning Damage",
+                "PropertyString": "Adds 2-350 Weapon Lightning Damage",
                 "Index": 2
             },
             {
@@ -7342,11 +7423,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 3-14 Weapon Cold Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+20-30% to Lightning Skill Damage",
+                "PropertyString": "+10-15% to Lightning Skill Damage",
                 "Index": 3
             },
             {
@@ -7392,8 +7469,8 @@
         ],
         "Types": [
             {
-                "Name": "Any Armor",
-                "Index": "Any Armor",
+                "Name": "Body Armor",
+                "Index": "Body Armor",
                 "Class": ""
             }
         ],
@@ -7636,6 +7713,152 @@
     {
         "Runes": [
             {
+                "Name": "Lem Rune",
+                "ItemLevel": 43,
+                "RequiredLevel": 43,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Thul Rune",
+                "ItemLevel": 23,
+                "RequiredLevel": 23,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            }
+        ],
+        "Types": [
+            {
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
+                "Class": "ass"
+            }
+        ],
+        "Vanilla": "N",
+        "Name": "Rimewind",
+        "Index": "Rimewind",
+        "Enabled": true,
+        "Rarity": 0,
+        "ItemLevel": 43,
+        "RequiredLevel": 43,
+        "Code": "Rimewind",
+        "Properties": [
+            {
+                "PropertyString": "+1-2 to Traps (Assassin Only)",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+140-190% Enhanced Weapon Damage",
+                "Index": 5
+            },
+            {
+                "PropertyString": "Adds 100-200 Weapon Fire Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "Adds 1-300 Weapon Lightning Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "Adds 30-70 Weapon Cold Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Adds 3-14 Weapon Cold Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+10-15% to Cold Skill Damage",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+75% Extra Gold from Monsters",
+                "Index": 0
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": null
+    },
+    {
+        "Runes": [
+            {
+                "Name": "Lem Rune",
+                "ItemLevel": 43,
+                "RequiredLevel": 43,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Ral Rune",
+                "ItemLevel": 19,
+                "RequiredLevel": 19,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            }
+        ],
+        "Types": [
+            {
+                "Name": "Hand to Hand",
+                "Index": "Hand to Hand",
+                "Class": "ass"
+            }
+        ],
+        "Vanilla": "N",
+        "Name": "Wildfire",
+        "Index": "Wildfire",
+        "Enabled": true,
+        "Rarity": 0,
+        "ItemLevel": 43,
+        "RequiredLevel": 43,
+        "Code": "Wildfire",
+        "Properties": [
+            {
+                "PropertyString": "+1-2 to Traps (Assassin Only)",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+140-190% Enhanced Weapon Damage",
+                "Index": 5
+            },
+            {
+                "PropertyString": "Adds 105-230 Weapon Fire Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "Adds 1-300 Weapon Lightning Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "Adds 30-70 Weapon Cold Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+10-15% to Fire Skill Damage",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+75% Extra Gold from Monsters",
+                "Index": 0
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": null
+    },
+    {
+        "Runes": [
+            {
                 "Name": "Pul Rune",
                 "ItemLevel": 45,
                 "RequiredLevel": 45,
@@ -7695,10 +7918,6 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Fires Explosive Arrows or Bolts",
-                "Index": 6
-            },
-            {
                 "PropertyString": "+50 to Attack Rating",
                 "Index": 1
             },
@@ -7711,7 +7930,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+30% Deadly Strike",
+                "PropertyString": "+15-20% to Fire Skill Damage",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+15% Deadly Strike",
                 "Index": 5
             },
             {
@@ -7786,15 +8009,15 @@
         ],
         "Vanilla": "N",
         "Name": "Shadow",
-        "Index": "Shadow",
+        "Index": "Shadow1",
         "Enabled": true,
         "Rarity": 0,
         "ItemLevel": 45,
         "RequiredLevel": 45,
-        "Code": "Shadow",
+        "Code": "Shadow1",
         "Properties": [
             {
-                "PropertyString": "25% Chance to cast level 12 Cloak Of Shadows when struck",
+                "PropertyString": "25% Chance to cast level 12 Dim Vision when struck",
                 "Index": 4
             },
             {
@@ -8172,11 +8395,11 @@
         "Code": "Enlightenment",
         "Properties": [
             {
-                "PropertyString": "5% Chance to cast level 15 Fire Ball on striking",
+                "PropertyString": "15% Chance to cast level 15 Fire Ball on striking",
                 "Index": 0
             },
             {
-                "PropertyString": "5% Chance to cast level 15 Blaze when struck",
+                "PropertyString": "10% Chance to cast level 15 Blaze when struck",
                 "Index": 1
             },
             {
@@ -8457,7 +8680,7 @@
         "Code": "Duress",
         "Properties": [
             {
-                "PropertyString": "+10-20% Enhanced Weapon Damage",
+                "PropertyString": "+30-50% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
@@ -8469,7 +8692,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+15% Chance of Crushing Blow",
+                "PropertyString": "+10% Chance of Crushing Blow",
                 "Index": 3
             },
             {
@@ -8546,6 +8769,10 @@
                 "Index": 2
             },
             {
+                "PropertyString": "12% Chance to cast level 1 Blightburst when struck",
+                "Index": 4
+            },
+            {
                 "PropertyString": "+10% Faster Hit Recovery",
                 "Index": 3
             },
@@ -8564,10 +8791,6 @@
             {
                 "PropertyString": "Half Freeze Duration",
                 "Index": 6
-            },
-            {
-                "PropertyString": "+5% Damage Taken Goes To Mana",
-                "Index": 4
             },
             {
                 "PropertyString": "-3 to Light Radius",
@@ -8627,11 +8850,11 @@
         "Code": "Judgement",
         "Properties": [
             {
-                "PropertyString": "2% Chance to cast level 35 Holy Shield when struck",
+                "PropertyString": "11% Chance to cast level 35 Fist Of The Heavens when struck",
                 "Index": 4
             },
             {
-                "PropertyString": "50% Chance to cast level 5 Decrepify when struck",
+                "PropertyString": "25% Chance to cast level 5 Decrepify when struck",
                 "Index": 5
             },
             {
@@ -8914,12 +9137,12 @@
         ],
         "Vanilla": "Y",
         "Name": "Stone",
-        "Index": "Stone",
+        "Index": "Stone1",
         "Enabled": true,
         "Rarity": 0,
         "ItemLevel": 47,
         "RequiredLevel": 47,
-        "Code": "Stone",
+        "Code": "Stone1",
         "Properties": [
             {
                 "PropertyString": "+60% Faster Hit Recovery",
@@ -9003,12 +9226,12 @@
         ],
         "Vanilla": "Y",
         "Name": "Bone",
-        "Index": "Bone",
+        "Index": "Bone1",
         "Enabled": true,
         "Rarity": 0,
         "ItemLevel": 47,
         "RequiredLevel": 47,
-        "Code": "Bone",
+        "Code": "Bone1",
         "Properties": [
             {
                 "PropertyString": "15% Chance to cast level 10 Bone Spear on striking",
@@ -9642,7 +9865,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+210-340% Enhanced Weapon Damage",
+                "PropertyString": "+200-230% Enhanced Weapon Damage",
                 "Index": 3
             },
             {
@@ -9666,7 +9889,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Level 16 Heart of Wolverine (20 Charges)",
+                "PropertyString": "Level 16 HoW (20 Charges)",
                 "Index": 5
             },
             {
@@ -9802,7 +10025,7 @@
         "Code": "Rain",
         "Properties": [
             {
-                "PropertyString": "5% Chance to cast level 15 Twister on striking",
+                "PropertyString": "11% Chance to cast level 15 Twister on striking",
                 "Index": 0
             },
             {
@@ -10154,7 +10377,7 @@
         "Code": "Delirium",
         "Properties": [
             {
-                "PropertyString": "11% Chance to cast level 18 Confuse on striking",
+                "PropertyString": "11% Chance to cast level 18 Attract on striking",
                 "Index": 0
             },
             {
@@ -10162,7 +10385,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "6% Chance to cast level 14 Mind Blast when struck",
+                "PropertyString": "12% Chance to cast level 35 Bone Spirit when struck",
                 "Index": 4
             },
             {
@@ -10388,6 +10611,91 @@
     {
         "Runes": [
             {
+                "Name": "Ist Rune",
+                "ItemLevel": 51,
+                "RequiredLevel": 51,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Ral Rune",
+                "ItemLevel": 19,
+                "RequiredLevel": 19,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Io Rune",
+                "ItemLevel": 35,
+                "RequiredLevel": 35,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            }
+        ],
+        "Types": [
+            {
+                "Name": "Helm",
+                "Index": "Helm",
+                "Class": ""
+            }
+        ],
+        "Vanilla": "N",
+        "Name": "Coven",
+        "Index": "Runeword180",
+        "Enabled": true,
+        "Rarity": 0,
+        "ItemLevel": 51,
+        "RequiredLevel": 51,
+        "Code": "Runeword180",
+        "Properties": [
+            {
+                "PropertyString": "5% Chance to cast level 10 Sigil Lethargy when struck",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+1 to All Skills",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+20% Faster Cast Rate",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+30-50% Enhanced Defense",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+10 to Vitality",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+30% Fire Resistance",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+1-5 Life after each Kill",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+26-40% Chance Items Roll Magic or Better",
+                "Index": 4
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": null
+    },
+    {
+        "Runes": [
+            {
                 "Name": "Gul Rune",
                 "ItemLevel": 53,
                 "RequiredLevel": 53,
@@ -10587,7 +10895,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+33% Chance of Crushing Blow",
+                "PropertyString": "+10-15% Chance of Crushing Blow",
                 "Index": 3
             },
             {
@@ -10760,12 +11068,12 @@
         ],
         "Vanilla": "Y",
         "Name": "Rift",
-        "Index": "Rift",
+        "Index": "Rift1",
         "Enabled": true,
         "Rarity": 0,
         "ItemLevel": 53,
         "RequiredLevel": 53,
-        "Code": "Rift",
+        "Code": "Rift1",
         "Properties": [
             {
                 "PropertyString": "20% Chance to cast level 16 Tornado on striking",
@@ -10972,7 +11280,7 @@
         "Code": "Principle",
         "Properties": [
             {
-                "PropertyString": "100% Chance to cast level 5 Holy Bolt on striking",
+                "PropertyString": "15% Chance to cast level 15 Holy Bolt on striking",
                 "Index": 0
             },
             {
@@ -10998,6 +11306,100 @@
             {
                 "PropertyString": "+5 Life after each Kill",
                 "Index": 0
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": null
+    },
+    {
+        "Runes": [
+            {
+                "Name": "Dol Rune",
+                "ItemLevel": 31,
+                "RequiredLevel": 31,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Gul Rune",
+                "ItemLevel": 53,
+                "RequiredLevel": 53,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            }
+        ],
+        "Types": [
+            {
+                "Name": "Grimoire",
+                "Index": "Grimoire",
+                "Class": "war"
+            },
+            {
+                "Name": "Any Shield",
+                "Index": "Any Shield",
+                "Class": ""
+            },
+            {
+                "Name": "Voodoo Heads",
+                "Index": "Voodoo Heads",
+                "Class": "nec"
+            },
+            {
+                "Name": "Auric Shields",
+                "Index": "Auric Shields",
+                "Class": "pal"
+            }
+        ],
+        "Vanilla": "N",
+        "Name": "Vigilance",
+        "Index": "Runeword181",
+        "Enabled": true,
+        "Rarity": 0,
+        "ItemLevel": 53,
+        "RequiredLevel": 53,
+        "Code": "Runeword181",
+        "Properties": [
+            {
+                "PropertyString": "5% Chance to cast level 10 Ring Of Fire when struck",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+10% Faster Run/Walk Speed",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+30% Faster Block Rate",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+75-100% Enhanced Defense",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+20-40 to Life",
+                "Index": 3
+            },
+            {
+                "PropertyString": "Replenish Life +7",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20-40 to Mana",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+5% to Maximum Poison Resistance",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+25-35% to All Resistances",
+                "Index": 5
             }
         ],
         "DamageArmorEnhanced": false,
@@ -11070,12 +11472,12 @@
         ],
         "Vanilla": "Y",
         "Name": "Death",
-        "Index": "Death",
+        "Index": "Death1",
         "Enabled": true,
         "Rarity": 0,
         "ItemLevel": 55,
         "RequiredLevel": 55,
-        "Code": "Death",
+        "Code": "Death1",
         "Properties": [
             {
                 "PropertyString": "100% Chance to cast level 44 Chain Lightning when you Die",
@@ -11090,7 +11492,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+300-385% Enhanced Weapon Damage",
+                "PropertyString": "+220-270% Enhanced Weapon Damage",
                 "Index": 3
             },
             {
@@ -11110,11 +11512,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+50% Chance of Crushing Blow",
+                "PropertyString": "+10-15% Chance of Crushing Blow",
                 "Index": 4
             },
             {
-                "PropertyString": "+0.5% Deadly Strike (Per Character Level)",
+                "PropertyString": "+0.25% Deadly Strike (Per Character Level)",
                 "Index": 5
             },
             {
@@ -11807,11 +12209,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 to Warmth (oskill)",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+50% Faster Cast Rate",
+                "PropertyString": "+30-50% Faster Cast Rate",
                 "Index": 1
             },
             {
@@ -11824,19 +12222,15 @@
             },
             {
                 "PropertyString": "+100 to Mana",
-                "Index": 6
-            },
-            {
-                "PropertyString": "+20% Increased Maximum Mana",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+75% Mana Regeneration",
                 "Index": 3
             },
             {
-                "PropertyString": "+5-10% to Experience Gained",
-                "Index": 5
+                "PropertyString": "+50% Mana Regeneration",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+10% Magic Resistance",
+                "Index": 4
             }
         ],
         "DamageArmorEnhanced": false,
@@ -12017,12 +12411,8 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+20% to Lightning Skill Damage",
+                "PropertyString": "+10% to All Elemental Skill Damage",
                 "Index": 4
-            },
-            {
-                "PropertyString": "+20% to Fire Skill Damage",
-                "Index": 5
             },
             {
                 "PropertyString": "+200-250% Enhanced Defense",
@@ -12038,7 +12428,7 @@
             },
             {
                 "PropertyString": "+30% to All Resistances",
-                "Index": 6
+                "Index": 5
             }
         ],
         "DamageArmorEnhanced": false,
@@ -12203,19 +12593,19 @@
         ],
         "Vanilla": "Y",
         "Name": "Chaos",
-        "Index": "Chaos",
+        "Index": "Chaos1",
         "Enabled": true,
         "Rarity": 0,
         "ItemLevel": 57,
         "RequiredLevel": 57,
-        "Code": "Chaos",
+        "Code": "Chaos1",
         "Properties": [
             {
-                "PropertyString": "9% Chance to cast level 11 Frozen Orb on striking",
+                "PropertyString": "11% Chance to cast level 5 Comet on striking",
                 "Index": 5
             },
             {
-                "PropertyString": "11% Chance to cast level 9 Charged Bolt on striking",
+                "PropertyString": "11% Chance to cast level 5 Storm Shard on striking",
                 "Index": 6
             },
             {
@@ -12227,7 +12617,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+290-340% Enhanced Weapon Damage",
+                "PropertyString": "+260-300% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
@@ -12360,6 +12750,91 @@
     {
         "Runes": [
             {
+                "Name": "Amn Rune",
+                "ItemLevel": 25,
+                "RequiredLevel": 25,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Shael Rune",
+                "ItemLevel": 29,
+                "RequiredLevel": 29,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Ohm Rune",
+                "ItemLevel": 57,
+                "RequiredLevel": 57,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            }
+        ],
+        "Types": [
+            {
+                "Name": "Knife",
+                "Index": "Knife",
+                "Class": ""
+            }
+        ],
+        "Vanilla": "N",
+        "Name": "Ritual",
+        "Index": "Runeword182",
+        "Enabled": true,
+        "Rarity": 0,
+        "ItemLevel": 57,
+        "RequiredLevel": 57,
+        "Code": "Runeword182",
+        "Properties": [
+            {
+                "PropertyString": "13% Chance to cast level 1 Sigil Death when struck",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+40% Increased Attack Speed",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+250-320% Enhanced Weapon Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+200-260% Bonus to Attack Rating",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+150-250% Damage to Demons",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+7% Life stolen per hit",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Slain Monsters Rest in Peace",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+3-5 Life after each Kill",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": null
+    },
+    {
+        "Runes": [
+            {
                 "Name": "El Rune",
                 "ItemLevel": 11,
                 "RequiredLevel": 11,
@@ -12431,7 +12906,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+300% Enhanced Weapon Damage",
+                "PropertyString": "+200-300% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
@@ -12765,15 +13240,15 @@
         ],
         "Vanilla": "N",
         "Name": "Night",
-        "Index": "Night",
+        "Index": "Night1",
         "Enabled": true,
         "Rarity": 0,
         "ItemLevel": 59,
         "RequiredLevel": 59,
-        "Code": "Night",
+        "Code": "Night1",
         "Properties": [
             {
-                "PropertyString": "+10-20 to Maximum Weapon Damage",
+                "PropertyString": "Adds 25-75 Weapon Damage",
                 "Index": 4
             },
             {
@@ -12868,12 +13343,12 @@
         ],
         "Vanilla": "Y",
         "Name": "Bramble",
-        "Index": "Bramble",
+        "Index": "Bramble1",
         "Enabled": true,
         "Rarity": 0,
         "ItemLevel": 61,
         "RequiredLevel": 61,
-        "Code": "Bramble",
+        "Code": "Bramble1",
         "Properties": [
             {
                 "PropertyString": "Level 15-21 Thorns Aura When Equipped",
@@ -12970,12 +13445,12 @@
         ],
         "Vanilla": "Y",
         "Name": "Dragon",
-        "Index": "Dragon",
+        "Index": "Dragon1",
         "Enabled": true,
         "Rarity": 0,
         "ItemLevel": 61,
         "RequiredLevel": 61,
-        "Code": "Dragon",
+        "Code": "Dragon1",
         "Properties": [
             {
                 "PropertyString": "20% Chance to cast level 18 Venom when struck",
@@ -13228,7 +13703,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+300-350% Enhanced Weapon Damage",
+                "PropertyString": "+245-275% Enhanced Weapon Damage",
                 "Index": 2
             },
             {
@@ -13323,7 +13798,7 @@
         "Code": "Siren's Song",
         "Properties": [
             {
-                "PropertyString": "44% Chance to cast level 3 Confuse when struck",
+                "PropertyString": "44% Chance to cast level 3 Attract when struck",
                 "Index": 5
             },
             {
@@ -13432,7 +13907,7 @@
         "Code": "Tradition",
         "Properties": [
             {
-                "PropertyString": "+3 to Amazon Skill Levels",
+                "PropertyString": "+2-3 to Amazon Skill Levels",
                 "Index": 0
             },
             {
@@ -13440,7 +13915,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+375-450% Enhanced Weapon Damage",
+                "PropertyString": "+290-330% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
@@ -13456,11 +13931,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "-25% to Enemy Lightning Resistance",
+                "PropertyString": "-15-20% to Enemy Lightning Resistance",
                 "Index": 5
             },
             {
-                "PropertyString": "+25% to Lightning Skill Damage",
+                "PropertyString": "+20-25% to Lightning Skill Damage",
                 "Index": 6
             },
             {
@@ -13511,15 +13986,15 @@
         ],
         "Vanilla": "Y",
         "Name": "Wind",
-        "Index": "Wind",
+        "Index": "Wind1",
         "Enabled": true,
         "Rarity": 0,
         "ItemLevel": 61,
         "RequiredLevel": 61,
-        "Code": "Wind",
+        "Code": "Wind1",
         "Properties": [
             {
-                "PropertyString": "10% Chance to cast level 9 Tornado on striking",
+                "PropertyString": "10% Chance to cast level 30 Tornado on striking",
                 "Index": 4
             },
             {
@@ -13612,7 +14087,7 @@
         "Code": "Trust",
         "Properties": [
             {
-                "PropertyString": "100% Chance to cast level 57 Nova when you Die",
+                "PropertyString": "100% Chance to cast level 50 Hailstorm when you Die",
                 "Index": 6
             },
             {
@@ -13737,12 +14212,12 @@
         ],
         "Vanilla": "Y",
         "Name": "Beast",
-        "Index": "Beast",
+        "Index": "Beast1",
         "Enabled": true,
         "Rarity": 0,
         "ItemLevel": 63,
         "RequiredLevel": 63,
-        "Code": "Beast",
+        "Code": "Beast1",
         "Properties": [
             {
                 "PropertyString": "Level 9 Fanaticism Aura When Equipped",
@@ -13765,7 +14240,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+20% Chance of Crushing Blow",
+                "PropertyString": "+10% Chance of Crushing Blow",
                 "Index": 0
             },
             {
@@ -14060,7 +14535,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20% Chance of Crushing Blow",
+                "PropertyString": "+10% Chance of Crushing Blow",
                 "Index": 0
             },
             {
@@ -14180,7 +14655,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+40% Chance of Crushing Blow",
+                "PropertyString": "+20% Chance of Crushing Blow",
                 "Index": 0
             },
             {
@@ -14442,12 +14917,12 @@
         ],
         "Vanilla": "Y",
         "Name": "Wrath",
-        "Index": "Wrath",
+        "Index": "Wrath1",
         "Enabled": true,
         "Rarity": 0,
         "ItemLevel": 63,
         "RequiredLevel": 63,
-        "Code": "Wrath",
+        "Code": "Wrath1",
         "Properties": [
             {
                 "PropertyString": "5% Chance to cast level 10 Life Tap on striking",
@@ -14478,7 +14953,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+20% Chance of Crushing Blow",
+                "PropertyString": "+10% Chance of Crushing Blow",
                 "Index": 0
             },
             {
@@ -14557,15 +15032,15 @@
         "Code": "Brand",
         "Properties": [
             {
-                "PropertyString": "35% Chance to cast level 14 Amplify Damage when struck",
+                "PropertyString": "10% Chance to cast level 10 Amplify Damage on striking",
                 "Index": 0
             },
             {
-                "PropertyString": "100% Chance to cast level 18 Bone Spear on striking",
+                "PropertyString": "15% Chance to cast level 5 Spine Piercer on striking",
                 "Index": 1
             },
             {
-                "PropertyString": "+260-340% Enhanced Weapon Damage",
+                "PropertyString": "+260-300% Enhanced Weapon Damage",
                 "Index": 3
             },
             {
@@ -14674,11 +15149,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+25% Increased Maximum Life",
+                "PropertyString": "+15% Increased Maximum Life",
                 "Index": 6
             },
             {
-                "PropertyString": "+50% Increased Maximum Mana",
+                "PropertyString": "+30% Increased Maximum Mana",
                 "Index": 5
             },
             {
@@ -14768,23 +15243,23 @@
         "Code": "Destruction",
         "Properties": [
             {
-                "PropertyString": "23% Chance to cast level 12 Volcano on striking",
+                "PropertyString": "10% Chance to cast level 30 Volcano on striking",
                 "Index": 0
             },
             {
-                "PropertyString": "5% Chance to cast level 23 Molten Boulder on striking",
+                "PropertyString": "10% Chance to cast level 30 Molten Boulder on striking",
                 "Index": 1
             },
             {
-                "PropertyString": "100% Chance to cast level 45 Meteor when you Die",
+                "PropertyString": "100% Chance to cast level 50 Starfall when you Die",
                 "Index": 2
             },
             {
-                "PropertyString": "15% Chance to cast level 22 Nova on attack",
+                "PropertyString": "10% Chance to cast level 10 Storm Pulse on striking",
                 "Index": 3
             },
             {
-                "PropertyString": "+350% Enhanced Weapon Damage",
+                "PropertyString": "+300-325% Enhanced Weapon Damage",
                 "Index": 4
             },
             {
@@ -14800,7 +15275,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20% Chance of Crushing Blow",
+                "PropertyString": "+10% Chance of Crushing Blow",
                 "Index": 0
             },
             {
@@ -14870,7 +15345,7 @@
         "Code": "Dream",
         "Properties": [
             {
-                "PropertyString": "10% Chance to cast level 15 Confuse when struck",
+                "PropertyString": "10% Chance to cast level 15 Attract when struck",
                 "Index": 0
             },
             {
@@ -15086,7 +15561,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+330% Enhanced Weapon Damage",
+                "PropertyString": "+300% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -15204,7 +15679,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+320-370% Enhanced Weapon Damage",
+                "PropertyString": "+270-310% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -15305,7 +15780,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+209% Enhanced Weapon Damage",
+                "PropertyString": "+209-259% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -15325,11 +15800,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+33% Deadly Strike",
+                "PropertyString": "+25% Deadly Strike",
                 "Index": 5
             },
             {
-                "PropertyString": "+66% Chance of Open Wounds",
+                "PropertyString": "+30% Chance of Open Wounds",
                 "Index": 3
             },
             {
@@ -15404,11 +15879,11 @@
         "Code": "Ice",
         "Properties": [
             {
-                "PropertyString": "100% Chance to cast level 40 Blizzard when you Level-Up",
+                "PropertyString": "100% Chance to cast level 20 Hailstorm when you Level-Up",
                 "Index": 0
             },
             {
-                "PropertyString": "25% Chance to cast level 22 Frost Nova on striking",
+                "PropertyString": "15% Chance to cast level 15 Winters Pulse on striking",
                 "Index": 1
             },
             {
@@ -15528,7 +16003,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+350-400% Enhanced Weapon Damage",
+                "PropertyString": "+200-300% Enhanced Weapon Damage",
                 "Index": 3
             },
             {
@@ -15736,15 +16211,15 @@
         ],
         "Vanilla": "N",
         "Name": "Storm",
-        "Index": "Storm",
+        "Index": "Storm1",
         "Enabled": true,
         "Rarity": 0,
         "ItemLevel": 65,
         "RequiredLevel": 65,
-        "Code": "Storm",
+        "Code": "Storm1",
         "Properties": [
             {
-                "PropertyString": "16% Chance to cast level 21 Lightning on striking",
+                "PropertyString": "16% Chance to cast level 8 Arc on striking",
                 "Index": 2
             },
             {
@@ -15756,7 +16231,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+383% Enhanced Weapon Damage",
+                "PropertyString": "+300% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -15833,12 +16308,12 @@
         ],
         "Vanilla": "N",
         "Name": "Blood",
-        "Index": "Blood",
+        "Index": "Blood1",
         "Enabled": true,
         "Rarity": 0,
         "ItemLevel": 49,
         "RequiredLevel": 67,
-        "Code": "Blood",
+        "Code": "Blood1",
         "Properties": [
             {
                 "PropertyString": "+2 to All Skills",
@@ -15954,12 +16429,12 @@
         ],
         "Vanilla": "Y",
         "Name": "Doom",
-        "Index": "Doom",
+        "Index": "Doom1",
         "Enabled": true,
         "Rarity": 0,
         "ItemLevel": 67,
         "RequiredLevel": 67,
-        "Code": "Doom",
+        "Code": "Doom1",
         "Properties": [
             {
                 "PropertyString": "5% Chance to cast level 18 Cyclone Armor when struck",
@@ -15986,7 +16461,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "-40-60% to Enemy Cold Resistance",
+                "PropertyString": "-30-40% to Enemy Cold Resistance",
                 "Index": 4
             },
             {
@@ -16095,15 +16570,15 @@
         ],
         "Vanilla": "Y",
         "Name": "Doom",
-        "Index": "Doom",
+        "Index": "Doom1",
         "Enabled": true,
         "Rarity": 0,
         "ItemLevel": 67,
         "RequiredLevel": 67,
-        "Code": "Doom",
+        "Code": "Doom1",
         "Properties": [
             {
-                "PropertyString": "5% Chance to cast level 18 Volcano on striking",
+                "PropertyString": "9% Chance to cast level 20 Volcano on striking",
                 "Index": 6
             },
             {
@@ -16119,11 +16594,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+330-370% Enhanced Weapon Damage",
+                "PropertyString": "+300-330% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "-40-60% to Enemy Cold Resistance",
+                "PropertyString": "-20-30% to Enemy Cold Resistance",
                 "Index": 4
             },
             {
@@ -16220,19 +16695,19 @@
         "Code": "Elation",
         "Properties": [
             {
-                "PropertyString": "100% Chance to cast level 8 Nova on striking",
+                "PropertyString": "15% Chance to cast level 20 Storm Pulse on striking",
                 "Index": 2
             },
             {
-                "PropertyString": "100% Chance to cast level 60 Nova when you Die",
-                "Index": 4
+                "PropertyString": "+2 to Bow and Crossbow Skills (Amazon Only)",
+                "Index": 6
             },
             {
                 "PropertyString": "+20% Increased Attack Speed",
                 "Index": 0
             },
             {
-                "PropertyString": "+40-75 to Minimum Weapon Damage",
+                "PropertyString": "+50-100 to Minimum Weapon Damage",
                 "Index": 0
             },
             {
@@ -16248,12 +16723,12 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20-25% to Cold Skill Damage",
-                "Index": 5
+                "PropertyString": "+10-15% to Cold Skill Damage",
+                "Index": 4
             },
             {
-                "PropertyString": "+20-25% to Fire Skill Damage",
-                "Index": 6
+                "PropertyString": "+10-15% to Fire Skill Damage",
+                "Index": 5
             },
             {
                 "PropertyString": "Prevent Monster Heal",
@@ -16335,7 +16810,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "100% Chance to cast level 48 Meteor when you Die",
+                "PropertyString": "100% Chance to cast level 20 Starfall when you Die",
                 "Index": 4
             },
             {
@@ -16347,7 +16822,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+280-330% Enhanced Weapon Damage",
+                "PropertyString": "+280-300% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
@@ -16486,7 +16961,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "20% Chance to cast level 20 Charged Bolt on attack",
+                "PropertyString": "15% Chance to cast level 20 Storm Shard on striking",
                 "Index": 2
             },
             {
@@ -16494,7 +16969,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+350-400% Enhanced Weapon Damage",
+                "PropertyString": "+300-325% Enhanced Weapon Damage",
                 "Index": 4
             },
             {
@@ -16510,7 +16985,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20% Chance of Crushing Blow",
+                "PropertyString": "+10% Chance of Crushing Blow",
                 "Index": 0
             },
             {
@@ -16587,11 +17062,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+5 to Shape Shifting Skills (Druid Only)",
+                "PropertyString": "+3-5 to Shape Shifting Skills (Druid Only)",
                 "Index": 2
             },
             {
-                "PropertyString": "+25% Chance of Crushing Blow",
+                "PropertyString": "+15% Chance of Crushing Blow",
                 "Index": 5
             },
             {
@@ -16700,7 +17175,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+325-375% Enhanced Weapon Damage",
+                "PropertyString": "+300-325% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
@@ -16890,12 +17365,12 @@
         ],
         "Vanilla": "Y",
         "Name": "Plague",
-        "Index": "Plague",
+        "Index": "Plague1",
         "Enabled": true,
         "Rarity": 0,
         "ItemLevel": 67,
         "RequiredLevel": 67,
-        "Code": "Plague",
+        "Code": "Plague1",
         "Properties": [
             {
                 "PropertyString": "20% Chance to cast level 12 Lower Resist when struck",
@@ -16926,7 +17401,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+0.38% Deadly Strike (Per Character Level)",
+                "PropertyString": "+0.25% Deadly Strike (Per Character Level)",
                 "Index": 4
             },
             {
@@ -17182,7 +17657,7 @@
         "Code": "Wings of Hope",
         "Properties": [
             {
-                "PropertyString": "25% Chance to cast level 35 Bone Spear on striking",
+                "PropertyString": "15% Chance to cast level 5 Spine Piercer on striking",
                 "Index": 4
             },
             {
@@ -17362,6 +17837,10 @@
         "Code": "Breath of the Dying",
         "Properties": [
             {
+                "PropertyString": "25% Chance to cast level 5 Blightburst when you Kill an Enemy",
+                "Index": 6
+            },
+            {
                 "PropertyString": "Indestructible",
                 "Index": 0
             },
@@ -17370,7 +17849,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+350-400% Enhanced Weapon Damage",
+                "PropertyString": "+285-325% Enhanced Weapon Damage",
                 "Index": 4
             },
             {
@@ -17475,7 +17954,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 75-150 Weapon Damage",
+                "PropertyString": "Adds 100-150 Weapon Damage",
                 "Index": 2
             },
             {
@@ -17947,6 +18426,95 @@
     {
         "Runes": [
             {
+                "Name": "Thul Rune",
+                "ItemLevel": 23,
+                "RequiredLevel": 23,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Zod Rune",
+                "ItemLevel": 69,
+                "RequiredLevel": 69,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Ist Rune",
+                "ItemLevel": 51,
+                "RequiredLevel": 51,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            }
+        ],
+        "Types": [
+            {
+                "Name": "Knife",
+                "Index": "Knife",
+                "Class": ""
+            }
+        ],
+        "Vanilla": "N",
+        "Name": "Void",
+        "Index": "Void",
+        "Enabled": true,
+        "Rarity": 0,
+        "ItemLevel": 69,
+        "RequiredLevel": 69,
+        "Code": "Void",
+        "Properties": [
+            {
+                "PropertyString": "Indestructible",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+2 to All Skills",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+1-3 to Abyss (oskill)",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+40% Faster Cast Rate",
+                "Index": 1
+            },
+            {
+                "PropertyString": "Adds 3-14 Weapon Cold Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+10-15% to Magic Skill Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+8-12 to all Attributes",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+30% Chance Items Roll Magic or Better",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Level 4 Decrepify (35 Charges)",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": null
+    },
+    {
+        "Runes": [
+            {
                 "Name": "Fal Rune",
                 "ItemLevel": 41,
                 "RequiredLevel": 41,
@@ -18014,11 +18582,11 @@
         "Code": "Praise",
         "Properties": [
             {
-                "PropertyString": "100% Chance to cast level 47 Frozen Orb when you Die",
+                "PropertyString": "10% Chance to cast level 50 Frozen Orb when struck",
                 "Index": 3
             },
             {
-                "PropertyString": "100% Chance to cast level 10 Glacial Spike when struck",
+                "PropertyString": "15% Chance to cast level 30 Winters Pulse when struck",
                 "Index": 4
             },
             {
@@ -18026,7 +18594,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+330-400% Enhanced Weapon Damage",
+                "PropertyString": "+260-280% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
@@ -18602,7 +19170,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+40% Chance of Crushing Blow",
+                "PropertyString": "+20% Chance of Crushing Blow",
                 "Index": 0
             },
             {
@@ -18709,7 +19277,7 @@
         "Code": "Morning Dew",
         "Properties": [
             {
-                "PropertyString": "100% Chance to cast level 20 Static Field when you Kill an Enemy",
+                "PropertyString": "10% Chance to cast level 20 Static Field when you Kill an Enemy",
                 "Index": 5
             },
             {
@@ -18717,11 +19285,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+3 to Druid Skill Levels",
+                "PropertyString": "+2-3 to Druid Skill Levels",
                 "Index": 3
             },
             {
-                "PropertyString": "+20 to Melee Mastery (oskill)",
+                "PropertyString": "+3-5 to Melee Mastery (oskill)",
                 "Index": 4
             },
             {
@@ -18729,7 +19297,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+300-360% Enhanced Weapon Damage",
+                "PropertyString": "+300-325% Enhanced Weapon Damage",
                 "Index": 2
             },
             {
@@ -18737,7 +19305,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20% Chance of Crushing Blow",
+                "PropertyString": "+10% Chance of Crushing Blow",
                 "Index": 0
             },
             {
@@ -18844,11 +19412,11 @@
         "Code": "Armageddon",
         "Properties": [
             {
-                "PropertyString": "40% Chance to cast level 20 Blizzard on striking",
+                "PropertyString": "15% Chance to cast level 20 Blizzard on striking",
                 "Index": 3
             },
             {
-                "PropertyString": "40% Chance to cast level 20 Chain Lightning when struck",
+                "PropertyString": "15% Chance to cast level 20 Armageddon on striking",
                 "Index": 4
             },
             {
@@ -18856,7 +19424,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+275-350% Enhanced Weapon Damage",
+                "PropertyString": "+275-300% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
@@ -18884,7 +19452,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20% Chance of Crushing Blow",
+                "PropertyString": "+10% Chance of Crushing Blow",
                 "Index": 0
             },
             {
@@ -18902,99 +19470,6 @@
             {
                 "PropertyString": "Requirements Reduced By -20%",
                 "Index": 0
-            }
-        ],
-        "DamageArmorEnhanced": false,
-        "Equipment": null
-    },
-    {
-        "Runes": [
-            {
-                "Name": "Cham Rune",
-                "ItemLevel": 67,
-                "RequiredLevel": 67,
-                "Type": {
-                    "Name": "Rune",
-                    "Index": "Rune",
-                    "Class": ""
-                }
-            },
-            {
-                "Name": "Zod Rune",
-                "ItemLevel": 69,
-                "RequiredLevel": 69,
-                "Type": {
-                    "Name": "Rune",
-                    "Index": "Rune",
-                    "Class": ""
-                }
-            },
-            {
-                "Name": "Ber Rune",
-                "ItemLevel": 63,
-                "RequiredLevel": 63,
-                "Type": {
-                    "Name": "Rune",
-                    "Index": "Rune",
-                    "Class": ""
-                }
-            }
-        ],
-        "Types": [
-            {
-                "Name": "Helm",
-                "Index": "Helm",
-                "Class": ""
-            }
-        ],
-        "Vanilla": "N",
-        "Name": "Authority",
-        "Index": "Authority",
-        "Enabled": true,
-        "Rarity": 0,
-        "ItemLevel": 69,
-        "RequiredLevel": 81,
-        "Code": "Authority",
-        "Properties": [
-            {
-                "PropertyString": "16% Chance to cast level 9 Weaken on striking",
-                "Index": 4
-            },
-            {
-                "PropertyString": "Indestructible",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+2 to All Skills",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+25% Deadly Strike",
-                "Index": 6
-            },
-            {
-                "PropertyString": "Slows Target by 20%",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+160-200% Enhanced Defense",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+8% Physical Damage Reduction",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Cannot Be Frozen",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+1.5% Chance Items Roll Magic or Better (Per Character Level)",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+12 to Required Level",
-                "Index": 1
             }
         ],
         "DamageArmorEnhanced": false,
@@ -19144,6 +19619,95 @@
                 }
             },
             {
+                "Name": "Zod Rune",
+                "ItemLevel": 69,
+                "RequiredLevel": 69,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Ber Rune",
+                "ItemLevel": 63,
+                "RequiredLevel": 63,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            }
+        ],
+        "Types": [
+            {
+                "Name": "Helm",
+                "Index": "Helm",
+                "Class": ""
+            }
+        ],
+        "Vanilla": "N",
+        "Name": "Glammer",
+        "Index": "Glammer",
+        "Enabled": true,
+        "Rarity": 0,
+        "ItemLevel": 69,
+        "RequiredLevel": 81,
+        "Code": "Glammer",
+        "Properties": [
+            {
+                "PropertyString": "16% Chance to cast level 9 Weaken on striking",
+                "Index": 4
+            },
+            {
+                "PropertyString": "Indestructible",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+2 to All Skills",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+25% Deadly Strike",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+160-200% Enhanced Defense",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+8% Physical Damage Reduction",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Cannot Be Frozen",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+1.5% Chance Items Roll Magic or Better (Per Character Level)",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+12 to Required Level",
+                "Index": 1
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": null
+    },
+    {
+        "Runes": [
+            {
+                "Name": "Cham Rune",
+                "ItemLevel": 67,
+                "RequiredLevel": 67,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
                 "Name": "Vex Rune",
                 "ItemLevel": 55,
                 "RequiredLevel": 55,
@@ -19213,11 +19777,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+350-400% Enhanced Weapon Damage",
+                "PropertyString": "+285-325% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+3 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+2 to Maximum Weapon Damage (Per Character Level)",
                 "Index": 2
             },
             {
@@ -19229,7 +19793,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+35% Chance of Crushing Blow",
+                "PropertyString": "+20% Chance of Crushing Blow",
                 "Index": 6
             },
             {
@@ -19529,7 +20093,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "Adds 35-140 Weapon Damage",
+                "PropertyString": "Adds 40-100 Weapon Damage",
                 "Index": 1
             },
             {
