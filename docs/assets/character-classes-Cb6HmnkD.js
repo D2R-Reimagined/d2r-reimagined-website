@@ -6,7 +6,8 @@ const character_class_options = [
   { value: "Druid", label: "Druid" },
   { value: "Necromancer", label: "Necromancer" },
   { value: "Paladin", label: "Paladin" },
-  { value: "Sorceress", label: "Sorceress" }
+  { value: "Sorceress", label: "Sorceress" },
+  { value: "Warlock", label: "Warlock" }
 ];
 export {
   character_class_options as c
