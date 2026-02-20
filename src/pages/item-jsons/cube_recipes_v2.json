@@ -8504,7 +8504,7 @@
         ],
         "Properties": [
           {
-            "PropertyString": "+56-58 to Passive and Magic Skills (Amazon Only)",
+            "PropertyString": "+1 Random Skill Tab (Warlock Only)",
             "ModChance": 100,
             "Index": 0
           },
@@ -9032,7 +9032,7 @@
         ],
         "Properties": [
           {
-            "PropertyString": "+56-58 to Passive and Magic Skills (Amazon Only)",
+            "PropertyString": "+1 Random Skill Tab (Warlock Only)",
             "ModChance": 100,
             "Index": 0
           },
@@ -16476,7 +16476,7 @@
         ],
         "Properties": [
           {
-            "PropertyString": "+56-58 to Passive and Magic Skills (Amazon Only)",
+            "PropertyString": "+1 Random Skill Tab (Warlock Only)",
             "ModChance": 100,
             "Index": 0
           }
@@ -44125,7 +44125,7 @@
     ]
   },
   {
-    "Index": 15423,
+    "Index": 15425,
     "Class": "",
     "NumInputs": 2,
     "ResolvedInputsCount": 2,
@@ -44138,88 +44138,6 @@
           "Not a Runeword"
         ],
         "RawToken": "\"helm,low,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (1)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15424,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Normal Quality",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"helm,nor,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (1)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15425,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [
-          "High Quality (Superior)",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"helm,hiq,nru\""
       },
       {
         "Name": "Jewel",
@@ -44257,9 +44175,10 @@
         "Name": "Helm",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Normal Quality",
+          "Not a Runeword"
         ],
-        "RawToken": "\"helm,mag\""
+        "RawToken": "\"helm,nor,nru\""
       },
       {
         "Name": "Jewel",
@@ -44297,17 +44216,18 @@
         "Name": "Helm",
         "Quantity": 1,
         "Qualifiers": [
-          "Rare Item"
+          "High Quality (Superior)",
+          "Not a Runeword"
         ],
-        "RawToken": "\"helm,rar\""
+        "RawToken": "\"helm,hiq,nru\""
       },
       {
         "Name": "Jewel",
         "Quantity": 1,
         "Qualifiers": [
-          "Rare Item"
+          "Magic Item"
         ],
-        "RawToken": "\"jew,rar\""
+        "RawToken": "\"jew,mag\""
       }
     ],
     "Outputs": {
@@ -44337,17 +44257,17 @@
         "Name": "Helm",
         "Quantity": 1,
         "Qualifiers": [
-          "Crafted Item"
+          "Magic Item"
         ],
-        "RawToken": "\"helm,crf\""
+        "RawToken": "\"helm,mag\""
       },
       {
         "Name": "Jewel",
         "Quantity": 1,
         "Qualifiers": [
-          "Unique Item"
+          "Magic Item"
         ],
-        "RawToken": "\"jew,uni\""
+        "RawToken": "\"jew,mag\""
       }
     ],
     "Outputs": {
@@ -44377,9 +44297,9 @@
         "Name": "Helm",
         "Quantity": 1,
         "Qualifiers": [
-          "Set Item"
+          "Rare Item"
         ],
-        "RawToken": "\"helm,set\""
+        "RawToken": "\"helm,rar\""
       },
       {
         "Name": "Jewel",
@@ -44417,6 +44337,86 @@
         "Name": "Helm",
         "Quantity": 1,
         "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"helm,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15431,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"helm,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15432,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
           "Unique Item"
         ],
         "RawToken": "\"helm,uni\""
@@ -44448,7 +44448,7 @@
     ]
   },
   {
-    "Index": 15431,
+    "Index": 15433,
     "Class": "",
     "NumInputs": 3,
     "ResolvedInputsCount": 3,
@@ -44461,88 +44461,6 @@
           "Not a Runeword"
         ],
         "RawToken": "\"helm,low,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 2,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag,qty=2\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (2)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15432,
-    "Class": "",
-    "NumInputs": 3,
-    "ResolvedInputsCount": 3,
-    "Inputs": [
-      {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Normal Quality",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"helm,nor,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 2,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag,qty=2\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (2)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15433,
-    "Class": "",
-    "NumInputs": 3,
-    "ResolvedInputsCount": 3,
-    "Inputs": [
-      {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [
-          "High Quality (Superior)",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"helm,hiq,nru\""
       },
       {
         "Name": "Jewel",
@@ -44580,9 +44498,10 @@
         "Name": "Helm",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Normal Quality",
+          "Not a Runeword"
         ],
-        "RawToken": "\"helm,mag\""
+        "RawToken": "\"helm,nor,nru\""
       },
       {
         "Name": "Jewel",
@@ -44620,17 +44539,18 @@
         "Name": "Helm",
         "Quantity": 1,
         "Qualifiers": [
-          "Rare Item"
+          "High Quality (Superior)",
+          "Not a Runeword"
         ],
-        "RawToken": "\"helm,rar\""
+        "RawToken": "\"helm,hiq,nru\""
       },
       {
         "Name": "Jewel",
         "Quantity": 2,
         "Qualifiers": [
-          "Rare Item"
+          "Magic Item"
         ],
-        "RawToken": "\"jew,rar,qty=2\""
+        "RawToken": "\"jew,mag,qty=2\""
       }
     ],
     "Outputs": {
@@ -44660,17 +44580,17 @@
         "Name": "Helm",
         "Quantity": 1,
         "Qualifiers": [
-          "Crafted Item"
+          "Magic Item"
         ],
-        "RawToken": "\"helm,crf\""
+        "RawToken": "\"helm,mag\""
       },
       {
         "Name": "Jewel",
         "Quantity": 2,
         "Qualifiers": [
-          "Unique Item"
+          "Magic Item"
         ],
-        "RawToken": "\"jew,uni,qty=2\""
+        "RawToken": "\"jew,mag,qty=2\""
       }
     ],
     "Outputs": {
@@ -44700,9 +44620,9 @@
         "Name": "Helm",
         "Quantity": 1,
         "Qualifiers": [
-          "Set Item"
+          "Rare Item"
         ],
-        "RawToken": "\"helm,set\""
+        "RawToken": "\"helm,rar\""
       },
       {
         "Name": "Jewel",
@@ -44740,6 +44660,86 @@
         "Name": "Helm",
         "Quantity": 1,
         "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"helm,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15439,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"helm,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15440,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
           "Unique Item"
         ],
         "RawToken": "\"helm,uni\""
@@ -44771,7 +44771,7 @@
     ]
   },
   {
-    "Index": 15439,
+    "Index": 15441,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -44784,88 +44784,6 @@
           "Not a Runeword"
         ],
         "RawToken": "\"helm,low,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 3,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag,qty=3\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (3)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15440,
-    "Class": "",
-    "NumInputs": 4,
-    "ResolvedInputsCount": 4,
-    "Inputs": [
-      {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Normal Quality",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"helm,nor,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 3,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag,qty=3\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (3)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15441,
-    "Class": "",
-    "NumInputs": 4,
-    "ResolvedInputsCount": 4,
-    "Inputs": [
-      {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [
-          "High Quality (Superior)",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"helm,hiq,nru\""
       },
       {
         "Name": "Jewel",
@@ -44903,6 +44821,88 @@
         "Name": "Helm",
         "Quantity": 1,
         "Qualifiers": [
+          "Normal Quality",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"helm,nor,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15443,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"helm,hiq,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15444,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
           "Magic Item"
         ],
         "RawToken": "\"helm,mag\""
@@ -44934,7 +44934,7 @@
     ]
   },
   {
-    "Index": 15443,
+    "Index": 15445,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -44974,7 +44974,7 @@
     ]
   },
   {
-    "Index": 15444,
+    "Index": 15446,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -45014,7 +45014,7 @@
     ]
   },
   {
-    "Index": 15445,
+    "Index": 15447,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -45054,7 +45054,7 @@
     ]
   },
   {
-    "Index": 15446,
+    "Index": 15448,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -45094,7 +45094,7 @@
     ]
   },
   {
-    "Index": 15447,
+    "Index": 15449,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -45135,7 +45135,7 @@
     ]
   },
   {
-    "Index": 15448,
+    "Index": 15450,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -45176,7 +45176,7 @@
     ]
   },
   {
-    "Index": 15449,
+    "Index": 15451,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -45217,7 +45217,7 @@
     ]
   },
   {
-    "Index": 15450,
+    "Index": 15452,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -45257,7 +45257,7 @@
     ]
   },
   {
-    "Index": 15451,
+    "Index": 15453,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -45297,7 +45297,7 @@
     ]
   },
   {
-    "Index": 15452,
+    "Index": 15454,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -45337,7 +45337,7 @@
     ]
   },
   {
-    "Index": 15453,
+    "Index": 15455,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -45377,7 +45377,7 @@
     ]
   },
   {
-    "Index": 15454,
+    "Index": 15456,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -45417,7 +45417,7 @@
     ]
   },
   {
-    "Index": 15455,
+    "Index": 15457,
     "Class": "",
     "NumInputs": 2,
     "ResolvedInputsCount": 2,
@@ -45430,88 +45430,6 @@
           "Not a Runeword"
         ],
         "RawToken": "\"tors,low,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (1)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15456,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Normal Quality",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"tors,nor,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (1)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15457,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [
-          "High Quality (Superior)",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"tors,hiq,nru\""
       },
       {
         "Name": "Jewel",
@@ -45549,9 +45467,10 @@
         "Name": "Body Armor",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Normal Quality",
+          "Not a Runeword"
         ],
-        "RawToken": "\"tors,mag\""
+        "RawToken": "\"tors,nor,nru\""
       },
       {
         "Name": "Jewel",
@@ -45589,17 +45508,18 @@
         "Name": "Body Armor",
         "Quantity": 1,
         "Qualifiers": [
-          "Rare Item"
+          "High Quality (Superior)",
+          "Not a Runeword"
         ],
-        "RawToken": "\"tors,rar\""
+        "RawToken": "\"tors,hiq,nru\""
       },
       {
         "Name": "Jewel",
         "Quantity": 1,
         "Qualifiers": [
-          "Rare Item"
+          "Magic Item"
         ],
-        "RawToken": "\"jew,rar\""
+        "RawToken": "\"jew,mag\""
       }
     ],
     "Outputs": {
@@ -45629,17 +45549,17 @@
         "Name": "Body Armor",
         "Quantity": 1,
         "Qualifiers": [
-          "Crafted Item"
+          "Magic Item"
         ],
-        "RawToken": "\"tors,crf\""
+        "RawToken": "\"tors,mag\""
       },
       {
         "Name": "Jewel",
         "Quantity": 1,
         "Qualifiers": [
-          "Unique Item"
+          "Magic Item"
         ],
-        "RawToken": "\"jew,uni\""
+        "RawToken": "\"jew,mag\""
       }
     ],
     "Outputs": {
@@ -45669,9 +45589,9 @@
         "Name": "Body Armor",
         "Quantity": 1,
         "Qualifiers": [
-          "Set Item"
+          "Rare Item"
         ],
-        "RawToken": "\"tors,set\""
+        "RawToken": "\"tors,rar\""
       },
       {
         "Name": "Jewel",
@@ -45709,6 +45629,86 @@
         "Name": "Body Armor",
         "Quantity": 1,
         "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"tors,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15463,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"tors,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15464,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
           "Unique Item"
         ],
         "RawToken": "\"tors,uni\""
@@ -45740,7 +45740,7 @@
     ]
   },
   {
-    "Index": 15463,
+    "Index": 15465,
     "Class": "",
     "NumInputs": 3,
     "ResolvedInputsCount": 3,
@@ -45753,88 +45753,6 @@
           "Not a Runeword"
         ],
         "RawToken": "\"tors,low,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 2,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag,qty=2\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (2)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15464,
-    "Class": "",
-    "NumInputs": 3,
-    "ResolvedInputsCount": 3,
-    "Inputs": [
-      {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Normal Quality",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"tors,nor,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 2,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag,qty=2\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (2)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15465,
-    "Class": "",
-    "NumInputs": 3,
-    "ResolvedInputsCount": 3,
-    "Inputs": [
-      {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [
-          "High Quality (Superior)",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"tors,hiq,nru\""
       },
       {
         "Name": "Jewel",
@@ -45872,9 +45790,10 @@
         "Name": "Body Armor",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Normal Quality",
+          "Not a Runeword"
         ],
-        "RawToken": "\"tors,mag\""
+        "RawToken": "\"tors,nor,nru\""
       },
       {
         "Name": "Jewel",
@@ -45912,17 +45831,18 @@
         "Name": "Body Armor",
         "Quantity": 1,
         "Qualifiers": [
-          "Rare Item"
+          "High Quality (Superior)",
+          "Not a Runeword"
         ],
-        "RawToken": "\"tors,rar\""
+        "RawToken": "\"tors,hiq,nru\""
       },
       {
         "Name": "Jewel",
         "Quantity": 2,
         "Qualifiers": [
-          "Rare Item"
+          "Magic Item"
         ],
-        "RawToken": "\"jew,rar,qty=2\""
+        "RawToken": "\"jew,mag,qty=2\""
       }
     ],
     "Outputs": {
@@ -45952,17 +45872,17 @@
         "Name": "Body Armor",
         "Quantity": 1,
         "Qualifiers": [
-          "Crafted Item"
+          "Magic Item"
         ],
-        "RawToken": "\"tors,crf\""
+        "RawToken": "\"tors,mag\""
       },
       {
         "Name": "Jewel",
         "Quantity": 2,
         "Qualifiers": [
-          "Unique Item"
+          "Magic Item"
         ],
-        "RawToken": "\"jew,uni,qty=2\""
+        "RawToken": "\"jew,mag,qty=2\""
       }
     ],
     "Outputs": {
@@ -45992,9 +45912,9 @@
         "Name": "Body Armor",
         "Quantity": 1,
         "Qualifiers": [
-          "Set Item"
+          "Rare Item"
         ],
-        "RawToken": "\"tors,set\""
+        "RawToken": "\"tors,rar\""
       },
       {
         "Name": "Jewel",
@@ -46032,6 +45952,86 @@
         "Name": "Body Armor",
         "Quantity": 1,
         "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"tors,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15471,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"tors,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15472,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
           "Unique Item"
         ],
         "RawToken": "\"tors,uni\""
@@ -46063,7 +46063,7 @@
     ]
   },
   {
-    "Index": 15471,
+    "Index": 15473,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -46076,88 +46076,6 @@
           "Not a Runeword"
         ],
         "RawToken": "\"tors,low,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 3,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag,qty=3\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (3)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15472,
-    "Class": "",
-    "NumInputs": 4,
-    "ResolvedInputsCount": 4,
-    "Inputs": [
-      {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Normal Quality",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"tors,nor,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 3,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag,qty=3\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (3)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15473,
-    "Class": "",
-    "NumInputs": 4,
-    "ResolvedInputsCount": 4,
-    "Inputs": [
-      {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [
-          "High Quality (Superior)",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"tors,hiq,nru\""
       },
       {
         "Name": "Jewel",
@@ -46195,6 +46113,88 @@
         "Name": "Body Armor",
         "Quantity": 1,
         "Qualifiers": [
+          "Normal Quality",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"tors,nor,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15475,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"tors,hiq,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15476,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
           "Magic Item"
         ],
         "RawToken": "\"tors,mag\""
@@ -46226,7 +46226,7 @@
     ]
   },
   {
-    "Index": 15475,
+    "Index": 15477,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -46266,7 +46266,7 @@
     ]
   },
   {
-    "Index": 15476,
+    "Index": 15478,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -46306,7 +46306,7 @@
     ]
   },
   {
-    "Index": 15477,
+    "Index": 15479,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -46346,7 +46346,7 @@
     ]
   },
   {
-    "Index": 15478,
+    "Index": 15480,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -46386,7 +46386,7 @@
     ]
   },
   {
-    "Index": 15479,
+    "Index": 15481,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -46427,7 +46427,7 @@
     ]
   },
   {
-    "Index": 15480,
+    "Index": 15482,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -46468,7 +46468,7 @@
     ]
   },
   {
-    "Index": 15481,
+    "Index": 15483,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -46509,7 +46509,7 @@
     ]
   },
   {
-    "Index": 15482,
+    "Index": 15484,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -46549,7 +46549,7 @@
     ]
   },
   {
-    "Index": 15483,
+    "Index": 15485,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -46589,7 +46589,7 @@
     ]
   },
   {
-    "Index": 15484,
+    "Index": 15486,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -46629,7 +46629,7 @@
     ]
   },
   {
-    "Index": 15485,
+    "Index": 15487,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -46669,7 +46669,7 @@
     ]
   },
   {
-    "Index": 15486,
+    "Index": 15488,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -46709,7 +46709,7 @@
     ]
   },
   {
-    "Index": 15503,
+    "Index": 15505,
     "Class": "",
     "NumInputs": 2,
     "ResolvedInputsCount": 2,
@@ -46722,88 +46722,6 @@
           "Not a Runeword"
         ],
         "RawToken": "\"shld,low,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (1)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15504,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Normal Quality",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"shld,nor,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (1)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15505,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [
-          "High Quality (Superior)",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"shld,hiq,nru\""
       },
       {
         "Name": "Jewel",
@@ -46841,9 +46759,10 @@
         "Name": "Any Shield",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Normal Quality",
+          "Not a Runeword"
         ],
-        "RawToken": "\"shld,mag\""
+        "RawToken": "\"shld,nor,nru\""
       },
       {
         "Name": "Jewel",
@@ -46881,17 +46800,18 @@
         "Name": "Any Shield",
         "Quantity": 1,
         "Qualifiers": [
-          "Rare Item"
+          "High Quality (Superior)",
+          "Not a Runeword"
         ],
-        "RawToken": "\"shld,rar\""
+        "RawToken": "\"shld,hiq,nru\""
       },
       {
         "Name": "Jewel",
         "Quantity": 1,
         "Qualifiers": [
-          "Rare Item"
+          "Magic Item"
         ],
-        "RawToken": "\"jew,rar\""
+        "RawToken": "\"jew,mag\""
       }
     ],
     "Outputs": {
@@ -46921,17 +46841,17 @@
         "Name": "Any Shield",
         "Quantity": 1,
         "Qualifiers": [
-          "Crafted Item"
+          "Magic Item"
         ],
-        "RawToken": "\"shld,crf\""
+        "RawToken": "\"shld,mag\""
       },
       {
         "Name": "Jewel",
         "Quantity": 1,
         "Qualifiers": [
-          "Unique Item"
+          "Magic Item"
         ],
-        "RawToken": "\"jew,uni\""
+        "RawToken": "\"jew,mag\""
       }
     ],
     "Outputs": {
@@ -46961,9 +46881,9 @@
         "Name": "Any Shield",
         "Quantity": 1,
         "Qualifiers": [
-          "Set Item"
+          "Rare Item"
         ],
-        "RawToken": "\"shld,set\""
+        "RawToken": "\"shld,rar\""
       },
       {
         "Name": "Jewel",
@@ -47001,6 +46921,86 @@
         "Name": "Any Shield",
         "Quantity": 1,
         "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"shld,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15511,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"shld,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15512,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
           "Unique Item"
         ],
         "RawToken": "\"shld,uni\""
@@ -47032,7 +47032,7 @@
     ]
   },
   {
-    "Index": 15511,
+    "Index": 15513,
     "Class": "",
     "NumInputs": 3,
     "ResolvedInputsCount": 3,
@@ -47045,88 +47045,6 @@
           "Not a Runeword"
         ],
         "RawToken": "\"shld,low,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 2,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag,qty=2\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (2)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15512,
-    "Class": "",
-    "NumInputs": 3,
-    "ResolvedInputsCount": 3,
-    "Inputs": [
-      {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Normal Quality",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"shld,nor,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 2,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag,qty=2\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (2)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15513,
-    "Class": "",
-    "NumInputs": 3,
-    "ResolvedInputsCount": 3,
-    "Inputs": [
-      {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [
-          "High Quality (Superior)",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"shld,hiq,nru\""
       },
       {
         "Name": "Jewel",
@@ -47164,9 +47082,10 @@
         "Name": "Any Shield",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Normal Quality",
+          "Not a Runeword"
         ],
-        "RawToken": "\"shld,mag\""
+        "RawToken": "\"shld,nor,nru\""
       },
       {
         "Name": "Jewel",
@@ -47204,17 +47123,18 @@
         "Name": "Any Shield",
         "Quantity": 1,
         "Qualifiers": [
-          "Rare Item"
+          "High Quality (Superior)",
+          "Not a Runeword"
         ],
-        "RawToken": "\"shld,rar\""
+        "RawToken": "\"shld,hiq,nru\""
       },
       {
         "Name": "Jewel",
         "Quantity": 2,
         "Qualifiers": [
-          "Rare Item"
+          "Magic Item"
         ],
-        "RawToken": "\"jew,rar,qty=2\""
+        "RawToken": "\"jew,mag,qty=2\""
       }
     ],
     "Outputs": {
@@ -47244,17 +47164,17 @@
         "Name": "Any Shield",
         "Quantity": 1,
         "Qualifiers": [
-          "Crafted Item"
+          "Magic Item"
         ],
-        "RawToken": "\"shld,crf\""
+        "RawToken": "\"shld,mag\""
       },
       {
         "Name": "Jewel",
         "Quantity": 2,
         "Qualifiers": [
-          "Unique Item"
+          "Magic Item"
         ],
-        "RawToken": "\"jew,uni,qty=2\""
+        "RawToken": "\"jew,mag,qty=2\""
       }
     ],
     "Outputs": {
@@ -47284,9 +47204,9 @@
         "Name": "Any Shield",
         "Quantity": 1,
         "Qualifiers": [
-          "Set Item"
+          "Rare Item"
         ],
-        "RawToken": "\"shld,set\""
+        "RawToken": "\"shld,rar\""
       },
       {
         "Name": "Jewel",
@@ -47324,6 +47244,86 @@
         "Name": "Any Shield",
         "Quantity": 1,
         "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"shld,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15519,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"shld,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15520,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
           "Unique Item"
         ],
         "RawToken": "\"shld,uni\""
@@ -47355,7 +47355,7 @@
     ]
   },
   {
-    "Index": 15519,
+    "Index": 15521,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -47368,88 +47368,6 @@
           "Not a Runeword"
         ],
         "RawToken": "\"shld,low,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 3,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag,qty=3\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (3)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15520,
-    "Class": "",
-    "NumInputs": 4,
-    "ResolvedInputsCount": 4,
-    "Inputs": [
-      {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Normal Quality",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"shld,nor,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 3,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag,qty=3\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (3)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15521,
-    "Class": "",
-    "NumInputs": 4,
-    "ResolvedInputsCount": 4,
-    "Inputs": [
-      {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [
-          "High Quality (Superior)",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"shld,hiq,nru\""
       },
       {
         "Name": "Jewel",
@@ -47487,6 +47405,88 @@
         "Name": "Any Shield",
         "Quantity": 1,
         "Qualifiers": [
+          "Normal Quality",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"shld,nor,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15523,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"shld,hiq,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15524,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
           "Magic Item"
         ],
         "RawToken": "\"shld,mag\""
@@ -47518,7 +47518,7 @@
     ]
   },
   {
-    "Index": 15523,
+    "Index": 15525,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -47558,7 +47558,7 @@
     ]
   },
   {
-    "Index": 15524,
+    "Index": 15526,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -47598,7 +47598,7 @@
     ]
   },
   {
-    "Index": 15525,
+    "Index": 15527,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -47638,7 +47638,7 @@
     ]
   },
   {
-    "Index": 15526,
+    "Index": 15528,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -47678,7 +47678,7 @@
     ]
   },
   {
-    "Index": 15527,
+    "Index": 15529,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -47719,7 +47719,7 @@
     ]
   },
   {
-    "Index": 15528,
+    "Index": 15530,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -47760,7 +47760,7 @@
     ]
   },
   {
-    "Index": 15529,
+    "Index": 15531,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -47801,7 +47801,7 @@
     ]
   },
   {
-    "Index": 15530,
+    "Index": 15532,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -47841,7 +47841,7 @@
     ]
   },
   {
-    "Index": 15531,
+    "Index": 15533,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -47881,7 +47881,7 @@
     ]
   },
   {
-    "Index": 15532,
+    "Index": 15534,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -47921,7 +47921,7 @@
     ]
   },
   {
-    "Index": 15533,
+    "Index": 15535,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -47961,7 +47961,7 @@
     ]
   },
   {
-    "Index": 15534,
+    "Index": 15536,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -48001,7 +48001,7 @@
     ]
   },
   {
-    "Index": 15535,
+    "Index": 15537,
     "Class": "",
     "NumInputs": 2,
     "ResolvedInputsCount": 2,
@@ -48014,88 +48014,6 @@
           "Not a Runeword"
         ],
         "RawToken": "\"weap,low,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (1)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15536,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Normal Quality",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"weap,nor,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (1)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15537,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "High Quality (Superior)",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"weap,hiq,nru\""
       },
       {
         "Name": "Jewel",
@@ -48133,9 +48051,10 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Normal Quality",
+          "Not a Runeword"
         ],
-        "RawToken": "\"weap,mag\""
+        "RawToken": "\"weap,nor,nru\""
       },
       {
         "Name": "Jewel",
@@ -48173,17 +48092,18 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Rare Item"
+          "High Quality (Superior)",
+          "Not a Runeword"
         ],
-        "RawToken": "\"weap,rar\""
+        "RawToken": "\"weap,hiq,nru\""
       },
       {
         "Name": "Jewel",
         "Quantity": 1,
         "Qualifiers": [
-          "Rare Item"
+          "Magic Item"
         ],
-        "RawToken": "\"jew,rar\""
+        "RawToken": "\"jew,mag\""
       }
     ],
     "Outputs": {
@@ -48213,17 +48133,17 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Crafted Item"
+          "Magic Item"
         ],
-        "RawToken": "\"weap,crf\""
+        "RawToken": "\"weap,mag\""
       },
       {
         "Name": "Jewel",
         "Quantity": 1,
         "Qualifiers": [
-          "Unique Item"
+          "Magic Item"
         ],
-        "RawToken": "\"jew,uni\""
+        "RawToken": "\"jew,mag\""
       }
     ],
     "Outputs": {
@@ -48253,9 +48173,9 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Set Item"
+          "Rare Item"
         ],
-        "RawToken": "\"weap,set\""
+        "RawToken": "\"weap,rar\""
       },
       {
         "Name": "Jewel",
@@ -48293,6 +48213,86 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"weap,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15543,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"weap,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15544,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
           "Unique Item"
         ],
         "RawToken": "\"weap,uni\""
@@ -48324,7 +48324,7 @@
     ]
   },
   {
-    "Index": 15543,
+    "Index": 15545,
     "Class": "",
     "NumInputs": 3,
     "ResolvedInputsCount": 3,
@@ -48337,88 +48337,6 @@
           "Not a Runeword"
         ],
         "RawToken": "\"weap,low,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 2,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag,qty=2\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (2)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15544,
-    "Class": "",
-    "NumInputs": 3,
-    "ResolvedInputsCount": 3,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Normal Quality",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"weap,nor,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 2,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag,qty=2\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (2)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15545,
-    "Class": "",
-    "NumInputs": 3,
-    "ResolvedInputsCount": 3,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "High Quality (Superior)",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"weap,hiq,nru\""
       },
       {
         "Name": "Jewel",
@@ -48456,9 +48374,10 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Normal Quality",
+          "Not a Runeword"
         ],
-        "RawToken": "\"weap,mag\""
+        "RawToken": "\"weap,nor,nru\""
       },
       {
         "Name": "Jewel",
@@ -48496,17 +48415,18 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Rare Item"
+          "High Quality (Superior)",
+          "Not a Runeword"
         ],
-        "RawToken": "\"weap,rar\""
+        "RawToken": "\"weap,hiq,nru\""
       },
       {
         "Name": "Jewel",
         "Quantity": 2,
         "Qualifiers": [
-          "Rare Item"
+          "Magic Item"
         ],
-        "RawToken": "\"jew,rar,qty=2\""
+        "RawToken": "\"jew,mag,qty=2\""
       }
     ],
     "Outputs": {
@@ -48536,17 +48456,17 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Crafted Item"
+          "Magic Item"
         ],
-        "RawToken": "\"weap,crf\""
+        "RawToken": "\"weap,mag\""
       },
       {
         "Name": "Jewel",
         "Quantity": 2,
         "Qualifiers": [
-          "Unique Item"
+          "Magic Item"
         ],
-        "RawToken": "\"jew,uni,qty=2\""
+        "RawToken": "\"jew,mag,qty=2\""
       }
     ],
     "Outputs": {
@@ -48576,9 +48496,9 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Set Item"
+          "Rare Item"
         ],
-        "RawToken": "\"weap,set\""
+        "RawToken": "\"weap,rar\""
       },
       {
         "Name": "Jewel",
@@ -48616,6 +48536,86 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"weap,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15551,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"weap,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15552,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
           "Unique Item"
         ],
         "RawToken": "\"weap,uni\""
@@ -48647,7 +48647,7 @@
     ]
   },
   {
-    "Index": 15551,
+    "Index": 15553,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -48660,88 +48660,6 @@
           "Not a Runeword"
         ],
         "RawToken": "\"weap,low,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 3,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag,qty=3\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (3)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15552,
-    "Class": "",
-    "NumInputs": 4,
-    "ResolvedInputsCount": 4,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Normal Quality",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"weap,nor,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 3,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag,qty=3\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (3)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15553,
-    "Class": "",
-    "NumInputs": 4,
-    "ResolvedInputsCount": 4,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "High Quality (Superior)",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"weap,hiq,nru\""
       },
       {
         "Name": "Jewel",
@@ -48779,9 +48697,10 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Normal Quality",
+          "Not a Runeword"
         ],
-        "RawToken": "\"weap,mag\""
+        "RawToken": "\"weap,nor,nru\""
       },
       {
         "Name": "Jewel",
@@ -48819,17 +48738,18 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Rare Item"
+          "High Quality (Superior)",
+          "Not a Runeword"
         ],
-        "RawToken": "\"weap,rar\""
+        "RawToken": "\"weap,hiq,nru\""
       },
       {
         "Name": "Jewel",
         "Quantity": 3,
         "Qualifiers": [
-          "Rare Item"
+          "Magic Item"
         ],
-        "RawToken": "\"jew,rar,qty=3\""
+        "RawToken": "\"jew,mag,qty=3\""
       }
     ],
     "Outputs": {
@@ -48859,17 +48779,17 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Crafted Item"
+          "Magic Item"
         ],
-        "RawToken": "\"weap,crf\""
+        "RawToken": "\"weap,mag\""
       },
       {
         "Name": "Jewel",
         "Quantity": 3,
         "Qualifiers": [
-          "Unique Item"
+          "Magic Item"
         ],
-        "RawToken": "\"jew,uni,qty=3\""
+        "RawToken": "\"jew,mag,qty=3\""
       }
     ],
     "Outputs": {
@@ -48899,9 +48819,9 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Set Item"
+          "Rare Item"
         ],
-        "RawToken": "\"weap,set\""
+        "RawToken": "\"weap,rar\""
       },
       {
         "Name": "Jewel",
@@ -48939,6 +48859,86 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"weap,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15559,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"weap,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15560,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
           "Unique Item"
         ],
         "RawToken": "\"weap,uni\""
@@ -48970,7 +48970,7 @@
     ]
   },
   {
-    "Index": 15559,
+    "Index": 15561,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -48983,88 +48983,6 @@
           "Not a Runeword"
         ],
         "RawToken": "\"weap,low,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 4,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag,qty=4\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (4)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15560,
-    "Class": "",
-    "NumInputs": 5,
-    "ResolvedInputsCount": 5,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Normal Quality",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"weap,nor,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 4,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag,qty=4\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (4)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15561,
-    "Class": "",
-    "NumInputs": 5,
-    "ResolvedInputsCount": 5,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "High Quality (Superior)",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"weap,hiq,nru\""
       },
       {
         "Name": "Jewel",
@@ -49102,9 +49020,10 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Normal Quality",
+          "Not a Runeword"
         ],
-        "RawToken": "\"weap,mag\""
+        "RawToken": "\"weap,nor,nru\""
       },
       {
         "Name": "Jewel",
@@ -49142,17 +49061,18 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Rare Item"
+          "High Quality (Superior)",
+          "Not a Runeword"
         ],
-        "RawToken": "\"weap,rar\""
+        "RawToken": "\"weap,hiq,nru\""
       },
       {
         "Name": "Jewel",
         "Quantity": 4,
         "Qualifiers": [
-          "Rare Item"
+          "Magic Item"
         ],
-        "RawToken": "\"jew,rar,qty=4\""
+        "RawToken": "\"jew,mag,qty=4\""
       }
     ],
     "Outputs": {
@@ -49182,17 +49102,17 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Crafted Item"
+          "Magic Item"
         ],
-        "RawToken": "\"weap,crf\""
+        "RawToken": "\"weap,mag\""
       },
       {
         "Name": "Jewel",
         "Quantity": 4,
         "Qualifiers": [
-          "Unique Item"
+          "Magic Item"
         ],
-        "RawToken": "\"jew,uni,qty=4\""
+        "RawToken": "\"jew,mag,qty=4\""
       }
     ],
     "Outputs": {
@@ -49222,9 +49142,9 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Set Item"
+          "Rare Item"
         ],
-        "RawToken": "\"weap,set\""
+        "RawToken": "\"weap,rar\""
       },
       {
         "Name": "Jewel",
@@ -49262,6 +49182,86 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
+          "Crafted Item"
+        ],
+        "RawToken": "\"weap,crf\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15567,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"weap,set\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15568,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
           "Unique Item"
         ],
         "RawToken": "\"weap,uni\""
@@ -49293,7 +49293,7 @@
     ]
   },
   {
-    "Index": 15567,
+    "Index": 15569,
     "Class": "",
     "NumInputs": 6,
     "ResolvedInputsCount": 6,
@@ -49334,7 +49334,7 @@
     ]
   },
   {
-    "Index": 15568,
+    "Index": 15570,
     "Class": "",
     "NumInputs": 6,
     "ResolvedInputsCount": 6,
@@ -49375,7 +49375,7 @@
     ]
   },
   {
-    "Index": 15569,
+    "Index": 15571,
     "Class": "",
     "NumInputs": 6,
     "ResolvedInputsCount": 6,
@@ -49416,7 +49416,7 @@
     ]
   },
   {
-    "Index": 15570,
+    "Index": 15572,
     "Class": "",
     "NumInputs": 6,
     "ResolvedInputsCount": 6,
@@ -49456,7 +49456,7 @@
     ]
   },
   {
-    "Index": 15571,
+    "Index": 15573,
     "Class": "",
     "NumInputs": 6,
     "ResolvedInputsCount": 6,
@@ -49496,7 +49496,7 @@
     ]
   },
   {
-    "Index": 15572,
+    "Index": 15574,
     "Class": "",
     "NumInputs": 6,
     "ResolvedInputsCount": 6,
@@ -49536,7 +49536,7 @@
     ]
   },
   {
-    "Index": 15573,
+    "Index": 15575,
     "Class": "",
     "NumInputs": 6,
     "ResolvedInputsCount": 6,
@@ -49576,7 +49576,7 @@
     ]
   },
   {
-    "Index": 15574,
+    "Index": 15576,
     "Class": "",
     "NumInputs": 6,
     "ResolvedInputsCount": 6,
@@ -49616,7 +49616,7 @@
     ]
   },
   {
-    "Index": 15575,
+    "Index": 15577,
     "Class": "",
     "NumInputs": 7,
     "ResolvedInputsCount": 7,
@@ -49657,7 +49657,7 @@
     ]
   },
   {
-    "Index": 15576,
+    "Index": 15578,
     "Class": "",
     "NumInputs": 7,
     "ResolvedInputsCount": 7,
@@ -49698,7 +49698,7 @@
     ]
   },
   {
-    "Index": 15577,
+    "Index": 15579,
     "Class": "",
     "NumInputs": 7,
     "ResolvedInputsCount": 7,
@@ -49739,7 +49739,7 @@
     ]
   },
   {
-    "Index": 15578,
+    "Index": 15580,
     "Class": "",
     "NumInputs": 7,
     "ResolvedInputsCount": 7,
@@ -49779,7 +49779,7 @@
     ]
   },
   {
-    "Index": 15579,
+    "Index": 15581,
     "Class": "",
     "NumInputs": 7,
     "ResolvedInputsCount": 7,
@@ -49819,7 +49819,7 @@
     ]
   },
   {
-    "Index": 15580,
+    "Index": 15582,
     "Class": "",
     "NumInputs": 7,
     "ResolvedInputsCount": 7,
@@ -49859,7 +49859,7 @@
     ]
   },
   {
-    "Index": 15581,
+    "Index": 15583,
     "Class": "",
     "NumInputs": 7,
     "ResolvedInputsCount": 7,
@@ -49899,7 +49899,7 @@
     ]
   },
   {
-    "Index": 15582,
+    "Index": 15584,
     "Class": "",
     "NumInputs": 7,
     "ResolvedInputsCount": 7,
