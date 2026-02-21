@@ -1336,6 +1336,52 @@
         }
     },
     {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "The Ossuary Almanac",
+        "Index": "The Ossuary Almanac",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 3,
+        "RequiredLevel": 5,
+        "Code": "wa1",
+        "Properties": [
+            {
+                "PropertyString": "+10-20% Faster Cast Rate",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+5-10% to Magic Skill Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+2-3 to Miasma Bolt (Warlock Only)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+2-3 to Summon Goatman (Warlock Only)",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+50% Enhanced Defense",
+                "Index": 4
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "9",
+            "Block": 3,
+            "EquipmentType": 0,
+            "Name": "Old Book [N]",
+            "RequiredStrength": "12",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
+        }
+    },
+    {
         "Type": "Axe",
         "Vanilla": "N",
         "Name": "Gangrene Reaper",
@@ -2954,6 +3000,10 @@
                 "Index": 5
             },
             {
+                "PropertyString": "+10% to Magic Skill Damage",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+1-3 to Skeleton Mastery (Necromancer Only)",
                 "Index": 1
             },
@@ -2962,19 +3012,15 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+1 Defense (Per Character Level)",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+25-35% Cold Resistance",
                 "Index": 3
             }
         ],
-        "DamageArmorEnhanced": true,
+        "DamageArmorEnhanced": false,
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "(10-102)-(13-105)",
+            "ArmorString": "2-5",
             "Block": 3,
             "EquipmentType": 0,
             "Name": "Preserved Head [N]",
@@ -4290,6 +4336,56 @@
         }
     },
     {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "Book of the Swift Apostle",
+        "Index": "Book of the Swift Apostle",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 3,
+        "RequiredLevel": 10,
+        "Code": "wa1",
+        "Properties": [
+            {
+                "PropertyString": "+1 to Warlock Skill Levels",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+10% Increased Attack Speed",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+10% Faster Cast Rate",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+10-15 Defense",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+10% to All Resistances",
+                "Index": 3
+            },
+            {
+                "PropertyString": "Socketed (2)",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "12-20",
+            "Block": 3,
+            "EquipmentType": 0,
+            "Name": "Old Book [N]",
+            "RequiredStrength": "12",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
+        }
+    },
+    {
         "Type": "Knife",
         "Vanilla": "Y",
         "Name": "The Diggler",
@@ -4708,6 +4804,60 @@
             "RequiredDexterity": null,
             "Durability": 0,
             "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "The Branded Tome",
+        "Index": "The Branded Tome",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 6,
+        "RequiredLevel": 11,
+        "Code": "wa2",
+        "Properties": [
+            {
+                "PropertyString": "+1 to Warlock Skill Levels",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+15-20% Faster Run/Walk Speed",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+10-15% Faster Hit Recovery",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+2-4 to Demonic Mastery (Warlock Only)",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+25 Defense",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+20 to Life",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+20 to Mana",
+                "Index": 3
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "29-33",
+            "Block": 5,
+            "EquipmentType": 0,
+            "Name": "Tome [N]",
+            "RequiredStrength": "14",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
         }
     },
     {
@@ -7097,6 +7247,56 @@
             "RequiredDexterity": "0",
             "Durability": 20,
             "RequiredClass": "Druid"
+        }
+    },
+    {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "Tome of the Horazon Warrior",
+        "Index": "Tome of the Horazon Warrior",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 6,
+        "RequiredLevel": 14,
+        "Code": "wa2",
+        "Properties": [
+            {
+                "PropertyString": "Adds 5-10 Weapon Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+3-5% Life stolen per hit",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+1-2 to Levitate (Warlock Only)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+1-2 to Cleave (Warlock Only)",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+80-120% Enhanced Defense",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+20-30 to Life",
+                "Index": 4
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "16-19",
+            "Block": 5,
+            "EquipmentType": 0,
+            "Name": "Tome [N]",
+            "RequiredStrength": "14",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
         }
     },
     {
@@ -10108,6 +10308,60 @@
             "RequiredDexterity": "0",
             "Durability": 70,
             "RequiredClass": "Barbarian"
+        }
+    },
+    {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "Compendium of Gheed",
+        "Index": "Compendium of Gheed",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 15,
+        "RequiredLevel": 17,
+        "Code": "wa4",
+        "Properties": [
+            {
+                "PropertyString": "+1 to Warlock Skill Levels",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20-30% Faster Run/Walk Speed",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+50 Defense",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+10-20% to All Resistances",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+5% to Experience Gained",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+50% Extra Gold from Monsters",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+50% Chance Items Roll Magic or Better",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "60-66",
+            "Block": 10,
+            "EquipmentType": 0,
+            "Name": "Compendium [N]",
+            "RequiredStrength": "20",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
         }
     },
     {
@@ -13219,6 +13473,56 @@
         }
     },
     {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "Grimoire of Unholy Machinations",
+        "Index": "Grimoire of Unholy Machinations",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 18,
+        "RequiredLevel": 20,
+        "Code": "wa5",
+        "Properties": [
+            {
+                "PropertyString": "+1 to Warlock Skill Levels",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+5 to Raise Skeletal Mage (oskill)",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+5 to Raise Skeleton (oskill)",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+1 to Corpse Field (oskill)",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+44-66% Enhanced Defense",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+20-30% to All Resistances",
+                "Index": 4
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "30-34",
+            "Block": 12,
+            "EquipmentType": 0,
+            "Name": "Grimoire [N]",
+            "RequiredStrength": "25",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
+        }
+    },
+    {
         "Type": "Axe",
         "Vanilla": "Y",
         "Name": "Skull Splitter",
@@ -16075,6 +16379,114 @@
         }
     },
     {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "The Vizjerei Codex",
+        "Index": "The Vizjerei Codex",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 12,
+        "RequiredLevel": 24,
+        "Code": "wa3",
+        "Properties": [
+            {
+                "PropertyString": "+2-3 to Energy Shield (oskill)",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+10-15% Faster Hit Recovery",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+2-3 to Psychic Ward (Warlock Only)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+50-100% Enhanced Defense",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+50-100 to Mana",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+15-20% to All Resistances",
+                "Index": 3
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "16-22",
+            "Block": 8,
+            "EquipmentType": 0,
+            "Name": "Codex [N]",
+            "RequiredStrength": "18",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
+        }
+    },
+    {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "Compendium of Piercing Oaths",
+        "Index": "Compendium of Piercing Oaths",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 15,
+        "RequiredLevel": 24,
+        "Code": "wa4",
+        "Properties": [
+            {
+                "PropertyString": "+15-20% Increased Attack Speed",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+10% to Magic Skill Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+2-3 to Blade Warp (Warlock Only)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+2-3 to Echoing Strike (Warlock Only)",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+66-122% Enhanced Defense",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+3-5 Life after each Kill",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+3-5 to Mana after each Kill",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+5% to Experience Gained",
+                "Index": 7
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "28-37",
+            "Block": 10,
+            "EquipmentType": 0,
+            "Name": "Compendium [N]",
+            "RequiredStrength": "20",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
+        }
+    },
+    {
         "Type": "Axe",
         "Vanilla": "Y",
         "Name": "Brainhew",
@@ -17625,6 +18037,60 @@
         }
     },
     {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "The Arreat Codex",
+        "Index": "The Arreat Codex",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 17,
+        "RequiredLevel": 25,
+        "Code": "wa3",
+        "Properties": [
+            {
+                "PropertyString": "+2 to Carnage (oskill)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+15% Increased Attack Speed",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+25-50% Enhanced Weapon Damage",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+15% Faster Hit Recovery",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+25-50 Defense",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+10-15% to All Resistances",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+2-3 Life after each Kill",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "31-60",
+            "Block": 8,
+            "EquipmentType": 0,
+            "Name": "Codex [N]",
+            "RequiredStrength": "18",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
+        }
+    },
+    {
         "Type": "Sword",
         "Vanilla": "Y",
         "Name": "Blacktongue",
@@ -19138,6 +19604,56 @@
             "RequiredDexterity": null,
             "Durability": 0,
             "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "Grimoire of the Riven Blade",
+        "Index": "Grimoire of the Riven Blade",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 18,
+        "RequiredLevel": 27,
+        "Code": "wa5",
+        "Properties": [
+            {
+                "PropertyString": "Level 3-5 Might Aura When Equipped",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+1 to Warlock Skill Levels",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+2-3 to Summon Goatman (Warlock Only)",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+2-3 to Blood Oath (Warlock Only)",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+50-100 Defense",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+10-15% to All Resistances",
+                "Index": 4
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "65-120",
+            "Block": 12,
+            "EquipmentType": 0,
+            "Name": "Grimoire [N]",
+            "RequiredStrength": "25",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
         }
     },
     {
@@ -28729,6 +29245,60 @@
         }
     },
     {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "Text of the Infernal Vanguard",
+        "Index": "Text of the Infernal Vanguard",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 24,
+        "RequiredLevel": 35,
+        "Code": "wa6",
+        "Properties": [
+            {
+                "PropertyString": "+2-3 to Demon Skills (Warlock Only)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+5 to Fire Golem (oskill)",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+5 to Golem Mastery (oskill)",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+10-20% Faster Cast Rate",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+10-15% to Fire Skill Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+99% Enhanced Defense",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+50-80% Fire Resistance",
+                "Index": 3
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "97",
+            "Block": 3,
+            "EquipmentType": 0,
+            "Name": "Burnt Text [X]",
+            "RequiredStrength": "38",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
+        }
+    },
+    {
         "Type": "Axe",
         "Vanilla": "Y",
         "Name": "Coldkill",
@@ -30758,6 +31328,64 @@
             "RequiredDexterity": "57",
             "Durability": 250,
             "RequiredClass": "Assassin"
+        }
+    },
+    {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "The Hellforged War Tome",
+        "Index": "The Hellforged War Tome",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 29,
+        "RequiredLevel": 37,
+        "Code": "wa7",
+        "Properties": [
+            {
+                "PropertyString": "+1 to Eldritch Skills (Warlock Only)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+15-20% Increased Attack Speed",
+                "Index": 4
+            },
+            {
+                "PropertyString": "Adds 15-20 Weapon Damage",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+5% Mana stolen per hit",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+5% Life stolen per hit",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+2-3 to Echoing Strike (Warlock Only)",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+2-3 to Mirrored Blades (Warlock Only)",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+40-80 Defense",
+                "Index": 7
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "81-132",
+            "Block": 5,
+            "EquipmentType": 0,
+            "Name": "Dark Tome [X]",
+            "RequiredStrength": "41",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
         }
     },
     {
@@ -38442,6 +39070,60 @@
         }
     },
     {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "The Sealed Tome of Caldeum",
+        "Index": "The Sealed Tome of Caldeum",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 29,
+        "RequiredLevel": 44,
+        "Code": "wa7",
+        "Properties": [
+            {
+                "PropertyString": "+2-3 to Warlock Skill Levels",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+15-20% Increased Attack Speed",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+15-20% Faster Cast Rate",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+10-15% to Magic Skill Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+3-5 to Hex Purge (Warlock Only)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+150-200% Enhanced Defense",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+15-20% to All Resistances",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "132-159",
+            "Block": 5,
+            "EquipmentType": 0,
+            "Name": "Dark Tome [X]",
+            "RequiredStrength": "41",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
+        }
+    },
+    {
         "Type": "Gloves",
         "Vanilla": "Y",
         "Name": "Frostburn",
@@ -40449,6 +41131,60 @@
             "RequiredDexterity": null,
             "Durability": 0,
             "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "Codex of Sundered Flesh",
+        "Index": "Codex of Sundered Flesh",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 33,
+        "RequiredLevel": 45,
+        "Code": "wa8",
+        "Properties": [
+            {
+                "PropertyString": "Level 5 Meditation Aura When Equipped",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+1 to Warlock Skill Levels",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+25% Faster Cast Rate",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+3-4 to Sigil Rancor (Warlock Only)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+3-4 to Hex Bane (Warlock Only)",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+30% to All Resistances",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+30% Chance Items Roll Magic or Better",
+                "Index": 6
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "44-55",
+            "Block": 8,
+            "EquipmentType": 0,
+            "Name": "Dark Codex [X]",
+            "RequiredStrength": "47",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
         }
     },
     {
@@ -44503,7 +45239,7 @@
         "Index": "Sling",
         "Enabled": true,
         "Rarity": 1,
-        "ItemLevel": 58,
+        "ItemLevel": 50,
         "RequiredLevel": 50,
         "Code": "rin",
         "Properties": [
@@ -44549,7 +45285,7 @@
         "Index": "Opalvein",
         "Enabled": true,
         "Rarity": 1,
-        "ItemLevel": 58,
+        "ItemLevel": 50,
         "RequiredLevel": 50,
         "Code": "rin",
         "Properties": [
@@ -44621,7 +45357,7 @@
         "Index": "Unique Warlock Helm",
         "Enabled": true,
         "Rarity": 2,
-        "ItemLevel": 55,
+        "ItemLevel": 50,
         "RequiredLevel": 50,
         "Code": "xsk",
         "Properties": [
@@ -46362,6 +47098,56 @@
         }
     },
     {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "Grimoire of the Severed Will",
+        "Index": "Grimoire of the Severed Will",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 40,
+        "RequiredLevel": 50,
+        "Code": "waa",
+        "Properties": [
+            {
+                "PropertyString": "+2-3 to Warlock Skill Levels",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+2-3 to Weaken (oskill)",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+20-30% Faster Cast Rate",
+                "Index": 4
+            },
+            {
+                "PropertyString": "-10% to Enemy Magic Resistance",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+10% to Magic Skill Damage",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+100-120% Enhanced Defense",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "142-156",
+            "Block": 12,
+            "EquipmentType": 0,
+            "Name": "Possessed Grimoire [X]",
+            "RequiredStrength": "58",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
+        }
+    },
+    {
         "Type": "Body Armor",
         "Vanilla": "Y",
         "Name": "Atma's Wail",
@@ -46750,13 +47536,13 @@
         "Name": "Measured Wrath",
         "Index": "Measured Wrath",
         "Enabled": true,
-        "Rarity": 3,
-        "ItemLevel": 58,
+        "Rarity": 2,
+        "ItemLevel": 50,
         "RequiredLevel": 52,
         "Code": "wa6",
         "Properties": [
             {
-                "PropertyString": "5% Chance to cast level 25 Ring Of Fire when struck",
+                "PropertyString": "10% Chance to cast level 25 Ring Of Fire when struck",
                 "Index": 1
             },
             {
@@ -47674,7 +48460,7 @@
         "Index": "Entropy Locket",
         "Enabled": true,
         "Rarity": 1,
-        "ItemLevel": 60,
+        "ItemLevel": 50,
         "RequiredLevel": 54,
         "Code": "amu",
         "Properties": [
@@ -48390,6 +49176,10 @@
                 "Index": 2
             },
             {
+                "PropertyString": "+10-15% to Magic Skill Damage",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+3-5 to Holy Bolt (Paladin Only)",
                 "Index": 7
             },
@@ -48404,10 +49194,6 @@
             {
                 "PropertyString": "+15% Mana Regeneration",
                 "Index": 4
-            },
-            {
-                "PropertyString": "+4 to Light Radius",
-                "Index": 5
             }
         ],
         "DamageArmorEnhanced": true,
@@ -48461,6 +49247,10 @@
             {
                 "PropertyString": "+100% Damage to Undead",
                 "Index": 2
+            },
+            {
+                "PropertyString": "+15-20% to Magic Skill Damage",
+                "Index": 7
             },
             {
                 "PropertyString": "Drain Life -50",
@@ -48864,12 +49654,12 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 Random Paladin Skill",
-                "Index": 1
+                "PropertyString": "-15-125% to Enemy Magic Resistance",
+                "Index": 2
             },
             {
-                "PropertyString": "+3 Random Paladin Skill",
-                "Index": 2
+                "PropertyString": "+2 Random Paladin Skill",
+                "Index": 1
             },
             {
                 "PropertyString": "+20% to All Resistances",
@@ -50111,14 +50901,18 @@
         "Properties": [
             {
                 "PropertyString": "Charm Weight: 2",
-                "Index": 4
+                "Index": 5
             },
             {
-                "PropertyString": "+1 to All Skills",
+                "PropertyString": "+1-2 to All Skills",
                 "Index": 0
             },
             {
-                "PropertyString": "Drain Life -4 (Per Character Level)",
+                "PropertyString": "+10% Increased Maximum Life",
+                "Index": 4
+            },
+            {
+                "PropertyString": "Drain Life -3 (Per Character Level)",
                 "Index": 3
             },
             {
@@ -50138,6 +50932,110 @@
             "RequiredDexterity": null,
             "Durability": 0,
             "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "The Bloodletter\u2019s Codex",
+        "Index": "The Bloodletters Codex",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 45,
+        "RequiredLevel": 55,
+        "Code": "wa8",
+        "Properties": [
+            {
+                "PropertyString": "8% Chance to cast level 5 Amplify Damage on striking",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+1 to Warlock Skill Levels",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20-30% Increased Attack Speed",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+100% Enhanced Weapon Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+3-4 to Cleave (Warlock Only)",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+10% to All Resistances",
+                "Index": 5
+            },
+            {
+                "PropertyString": "Socketed (2)",
+                "Index": 6
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "44-55",
+            "Block": 8,
+            "EquipmentType": 0,
+            "Name": "Dark Codex [X]",
+            "RequiredStrength": "47",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
+        }
+    },
+    {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "The True Names of the Pit",
+        "Index": "The True Names of the Pit",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 40,
+        "RequiredLevel": 55,
+        "Code": "wa9",
+        "Properties": [
+            {
+                "PropertyString": "+1-2 to Chaos Skills (Warlock Only)",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+1 to Warlock Skill Levels",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+2-3 to Fanaticism (oskill)",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+120-150% Enhanced Defense",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+10-20% to All Resistances",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+5% to Experience Gained",
+                "Index": 2
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "143-162",
+            "Block": 10,
+            "EquipmentType": 0,
+            "Name": "Possessed Compendium [X]",
+            "RequiredStrength": "50",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
         }
     },
     {
@@ -53579,6 +54477,68 @@
         }
     },
     {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "The Bloodsigil Testament",
+        "Index": "The Bloodsigil Testament",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 50,
+        "RequiredLevel": 60,
+        "Code": "wa9",
+        "Properties": [
+            {
+                "PropertyString": "+1 to Warlock Skill Levels",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-15-20% to Enemy Fire Resistance",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+2-4 to Death Mark (Warlock Only)",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+2-4 to Blood Boil (Warlock Only)",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+2-4 to Demonic Mastery (Warlock Only)",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+75-100 Defense",
+                "Index": 7
+            },
+            {
+                "PropertyString": "+10-15% to All Resistances",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+10% Physical Damage Reduction",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+5% to Experience Gained",
+                "Index": 8
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "125-164",
+            "Block": 10,
+            "EquipmentType": 0,
+            "Name": "Possessed Compendium [X]",
+            "RequiredStrength": "50",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
+        }
+    },
+    {
         "Type": "Shield",
         "Vanilla": "Y",
         "Name": "Blackoak Shield",
@@ -53980,6 +54940,64 @@
             "RequiredDexterity": "112",
             "Durability": 250,
             "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "Grimoire of the Obsidian Curse",
+        "Index": "Grimoire of the Obsidian Curse",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 45,
+        "RequiredLevel": 61,
+        "Code": "waa",
+        "Properties": [
+            {
+                "PropertyString": "10% Chance to cast level 5 Lower Resist when struck",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+2-3 to Warlock Skill Levels",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+15-25% to Fire Skill Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+111-222% Enhanced Defense",
+                "Index": 7
+            },
+            {
+                "PropertyString": "+35-75 to Life",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+35-75 to Mana",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+50% Extra Gold from Monsters",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+50% Chance Items Roll Magic or Better",
+                "Index": 6
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "149-228",
+            "Block": 12,
+            "EquipmentType": 0,
+            "Name": "Possessed Grimoire [X]",
+            "RequiredStrength": "58",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
         }
     },
     {
@@ -57125,7 +58143,7 @@
         "Index": "Wraithstep",
         "Enabled": true,
         "Rarity": 2,
-        "ItemLevel": 73,
+        "ItemLevel": 60,
         "RequiredLevel": 67,
         "Code": "utb",
         "Properties": [
@@ -57181,7 +58199,7 @@
         "Index": "Bloodpact Shard",
         "Enabled": true,
         "Rarity": 2,
-        "ItemLevel": 73,
+        "ItemLevel": 60,
         "RequiredLevel": 67,
         "Code": "7di",
         "Properties": [
@@ -57946,6 +58964,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "-20-25% to Enemy Magic Resistance",
+                "Index": 7
+            },
+            {
                 "PropertyString": "+2-4 to Holy Shield (Paladin Only)",
                 "Index": 2
             },
@@ -58666,6 +59688,56 @@
             "RequiredDexterity": "0",
             "Durability": 28,
             "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "Tome of the Pitborn Host",
+        "Index": "Tome of the Pitborn Host",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 60,
+        "RequiredLevel": 69,
+        "Code": "wac",
+        "Properties": [
+            {
+                "PropertyString": "9% Chance to cast level 10 Amplify Damage when struck",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+1 to Chaos Skills (Warlock Only)",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+1 to Warlock Skill Levels",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20-30% Faster Cast Rate",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+10% Increased Maximum Life",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+30% to All Resistances",
+                "Index": 3
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "96-141",
+            "Block": 5,
+            "EquipmentType": 0,
+            "Name": "Occult Tome [E]",
+            "RequiredStrength": "82",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
         }
     },
     {
@@ -59454,12 +60526,12 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+3 Random Necromancer Skill",
-                "Index": 6
+                "PropertyString": "+10-15% to Magic Skill Damage",
+                "Index": 7
             },
             {
                 "PropertyString": "+3 Random Necromancer Skill",
-                "Index": 7
+                "Index": 6
             },
             {
                 "PropertyString": "+125% Extra Gold from Monsters",
@@ -60029,7 +61101,7 @@
         "Properties": [
             {
                 "PropertyString": "+1 Holy Bolt Projectiles",
-                "Index": 9
+                "Index": 8
             },
             {
                 "PropertyString": "5% Chance to cast level 10 Battle Orders when struck",
@@ -60056,7 +61128,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2.38 Defense (Per Character Level)",
+                "PropertyString": "+10-15% to Magic Skill Damage",
                 "Index": 1
             },
             {
@@ -60064,11 +61136,11 @@
                 "Index": 2
             }
         ],
-        "DamageArmorEnhanced": true,
+        "DamageArmorEnhanced": false,
         "Equipment": {
             "DamageString": "5 to 87",
             "DamageStringPrefix": "Smite Damage",
-            "ArmorString": "(348-419)-(391-462)",
+            "ArmorString": "182-225",
             "Block": 19,
             "EquipmentType": 0,
             "Name": "Vortex Shield [E]",
@@ -60418,6 +61490,60 @@
         }
     },
     {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "The Black Oath Ledger",
+        "Index": "The Black Oath Ledger",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 60,
+        "RequiredLevel": 70,
+        "Code": "wab",
+        "Properties": [
+            {
+                "PropertyString": "+2-3 to Warlock Skill Levels",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+15-25% to Magic Skill Damage",
+                "Index": 3
+            },
+            {
+                "PropertyString": "-10-20% to Enemy Magic Resistance",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+3-4 to Abyss (Warlock Only)",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+3-4 to Enhanced Entropy (Warlock Only)",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+150-200% Enhanced Defense",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+25-35% to All Resistances",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "350-420",
+            "Block": 3,
+            "EquipmentType": 0,
+            "Name": "Forgotten Volume [E]",
+            "RequiredStrength": "77",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
+        }
+    },
+    {
         "Type": "Sword",
         "Vanilla": "Y",
         "Name": "Flamebellow",
@@ -60489,7 +61615,7 @@
         "Index": "Gheed's Wager",
         "Enabled": true,
         "Rarity": 1,
-        "ItemLevel": 79,
+        "ItemLevel": 70,
         "RequiredLevel": 71,
         "Code": "utc",
         "Properties": [
@@ -61135,8 +62261,8 @@
         "Name": "Ars Tor'Baalos",
         "Index": "Ars Tor'Baalos",
         "Enabled": true,
-        "Rarity": 1,
-        "ItemLevel": 85,
+        "Rarity": 2,
+        "ItemLevel": 70,
         "RequiredLevel": 73,
         "Code": "wae",
         "Properties": [
@@ -63018,186 +64144,6 @@
         }
     },
     {
-        "Type": "Grand Charm",
-        "Vanilla": "Y",
-        "Name": "Cold Rupture",
-        "Index": "Cold Rupture",
-        "Enabled": false,
-        "Rarity": 1,
-        "ItemLevel": 69,
-        "RequiredLevel": 75,
-        "Code": "cm3",
-        "Properties": [
-            {
-                "PropertyString": "Monster Cold Immunity is Sundered",
-                "Index": 0
-            },
-            {
-                "PropertyString": "-90 to -70% Cold Resistance",
-                "Index": 1
-            }
-        ],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "EquipmentType": 2,
-            "Name": "Grand Charm",
-            "RequiredStrength": null,
-            "RequiredDexterity": null,
-            "Durability": 0,
-            "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Grand Charm",
-        "Vanilla": "Y",
-        "Name": "Flame Rift",
-        "Index": "Flame Rift",
-        "Enabled": false,
-        "Rarity": 1,
-        "ItemLevel": 69,
-        "RequiredLevel": 75,
-        "Code": "cm3",
-        "Properties": [
-            {
-                "PropertyString": "Monster Fire Immunity is Sundered",
-                "Index": 0
-            },
-            {
-                "PropertyString": "-90 to -70% Fire Resistance",
-                "Index": 1
-            }
-        ],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "EquipmentType": 2,
-            "Name": "Grand Charm",
-            "RequiredStrength": null,
-            "RequiredDexterity": null,
-            "Durability": 0,
-            "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Grand Charm",
-        "Vanilla": "Y",
-        "Name": "Crack of the Heavens",
-        "Index": "Crack of the Heavens",
-        "Enabled": false,
-        "Rarity": 1,
-        "ItemLevel": 69,
-        "RequiredLevel": 75,
-        "Code": "cm3",
-        "Properties": [
-            {
-                "PropertyString": "Monster Lightning Immunity is Sundered",
-                "Index": 0
-            },
-            {
-                "PropertyString": "-90 to -70% Lightning Resistance",
-                "Index": 1
-            }
-        ],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "EquipmentType": 2,
-            "Name": "Grand Charm",
-            "RequiredStrength": null,
-            "RequiredDexterity": null,
-            "Durability": 0,
-            "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Grand Charm",
-        "Vanilla": "Y",
-        "Name": "Rotting Fissure",
-        "Index": "Rotting Fissure",
-        "Enabled": false,
-        "Rarity": 1,
-        "ItemLevel": 69,
-        "RequiredLevel": 75,
-        "Code": "cm3",
-        "Properties": [
-            {
-                "PropertyString": "Monster Poison Immunity is Sundered",
-                "Index": 0
-            },
-            {
-                "PropertyString": "-90 to -70% Poison Resistance",
-                "Index": 1
-            }
-        ],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "EquipmentType": 2,
-            "Name": "Grand Charm",
-            "RequiredStrength": null,
-            "RequiredDexterity": null,
-            "Durability": 0,
-            "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Grand Charm",
-        "Vanilla": "Y",
-        "Name": "Bone Break",
-        "Index": "Bone Break",
-        "Enabled": false,
-        "Rarity": 1,
-        "ItemLevel": 69,
-        "RequiredLevel": 75,
-        "Code": "cm3",
-        "Properties": [
-            {
-                "PropertyString": "Monster Physical Immunity is Sundered",
-                "Index": 0
-            },
-            {
-                "PropertyString": "-20 to -10% Physical Damage Reduction",
-                "Index": 1
-            }
-        ],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "EquipmentType": 2,
-            "Name": "Grand Charm",
-            "RequiredStrength": null,
-            "RequiredDexterity": null,
-            "Durability": 0,
-            "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Grand Charm",
-        "Vanilla": "Y",
-        "Name": "Black Cleft",
-        "Index": "Black Cleft",
-        "Enabled": false,
-        "Rarity": 1,
-        "ItemLevel": 69,
-        "RequiredLevel": 75,
-        "Code": "cm3",
-        "Properties": [
-            {
-                "PropertyString": "Monster Magic Immunity is Sundered",
-                "Index": 0
-            },
-            {
-                "PropertyString": "-65 to -45% Magic Resistance",
-                "Index": 1
-            }
-        ],
-        "DamageArmorEnhanced": false,
-        "Equipment": {
-            "EquipmentType": 2,
-            "Name": "Grand Charm",
-            "RequiredStrength": null,
-            "RequiredDexterity": null,
-            "Durability": 0,
-            "RequiredClass": ""
-        }
-    },
-    {
         "Type": "Colossal Jewel",
         "Vanilla": "N",
         "Name": "Defender's Bile",
@@ -63209,7 +64155,7 @@
         "Code": "cjw",
         "Properties": [
             {
-                "PropertyString": "1% Chance to cast level 25 Bone Armor when struck",
+                "PropertyString": "5% Chance to cast level 40 Venom when struck",
                 "Index": 0
             },
             {
@@ -63217,11 +64163,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+5-10% to Poison Skill Damage",
+                "PropertyString": "+20-25% to Poison Skill Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "-5-10% to Enemy Poison Resistance",
+                "PropertyString": "-10-15% to Enemy Poison Resistance",
                 "Index": 3
             },
             {
@@ -63229,11 +64175,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+25-50% Extra Gold from Monsters",
+                "PropertyString": "+30-50% Extra Gold from Monsters",
                 "Index": 6
             },
             {
-                "PropertyString": "+15-35% Chance Items Roll Magic or Better",
+                "PropertyString": "+30-50% Chance Items Roll Magic or Better",
                 "Index": 5
             }
         ],
@@ -63259,19 +64205,19 @@
         "Code": "cjw",
         "Properties": [
             {
-                "PropertyString": "1% Chance to cast level 25 Cyclone Armor when struck",
+                "PropertyString": "5% Chance to cast level 40 Static Field when struck",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 1-75 Weapon Lightning Damage",
+                "PropertyString": "Adds 1-300 Weapon Lightning Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "+5-10% to Lightning Skill Damage",
+                "PropertyString": "+20-25% to Lightning Skill Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "-5-10% to Enemy Lightning Resistance",
+                "PropertyString": "-10-15% to Enemy Lightning Resistance",
                 "Index": 3
             },
             {
@@ -63279,11 +64225,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+25-50% Extra Gold from Monsters",
+                "PropertyString": "+30-50% Extra Gold from Monsters",
                 "Index": 6
             },
             {
-                "PropertyString": "+15-35% Chance Items Roll Magic or Better",
+                "PropertyString": "+30-50% Chance Items Roll Magic or Better",
                 "Index": 5
             }
         ],
@@ -63309,19 +64255,19 @@
         "Code": "cjw",
         "Properties": [
             {
-                "PropertyString": "1% Chance to cast level 25 Frozen Armor when struck",
+                "PropertyString": "5% Chance to cast level 40 Madawcs Fury when struck",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 10-30 Weapon Cold Damage",
+                "PropertyString": "Adds 50-200 Weapon Cold Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "+5-10% to Cold Skill Damage",
+                "PropertyString": "+20-25% to Cold Skill Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "-5-10% to Enemy Cold Resistance",
+                "PropertyString": "-10-15% to Enemy Cold Resistance",
                 "Index": 3
             },
             {
@@ -63329,11 +64275,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+25-50% Extra Gold from Monsters",
+                "PropertyString": "+30-50% Extra Gold from Monsters",
                 "Index": 6
             },
             {
-                "PropertyString": "+15-35% Chance Items Roll Magic or Better",
+                "PropertyString": "+30-50% Chance Items Roll Magic or Better",
                 "Index": 5
             }
         ],
@@ -63359,19 +64305,19 @@
         "Code": "cjw",
         "Properties": [
             {
-                "PropertyString": "1% Chance to cast level 25 Blaze when struck",
+                "PropertyString": "5% Chance to cast level 40 Enchant when struck",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 20-60 Weapon Fire Damage",
+                "PropertyString": "Adds 100-250 Weapon Fire Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "+5-10% to Fire Skill Damage",
+                "PropertyString": "+20-25% to Fire Skill Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "-5-10% to Enemy Fire Resistance",
+                "PropertyString": "-10-15% to Enemy Fire Resistance",
                 "Index": 3
             },
             {
@@ -63379,11 +64325,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+25-50% Extra Gold from Monsters",
+                "PropertyString": "+30-50% Extra Gold from Monsters",
                 "Index": 6
             },
             {
-                "PropertyString": "+15-35% Chance Items Roll Magic or Better",
+                "PropertyString": "+30-50% Chance Items Roll Magic or Better",
                 "Index": 5
             }
         ],
@@ -63409,19 +64355,19 @@
         "Code": "cjw",
         "Properties": [
             {
-                "PropertyString": "1% Chance to cast level 15 Fade when struck",
+                "PropertyString": "5% Chance to cast level 40 Battle Orders when struck",
                 "Index": 0
             },
             {
-                "PropertyString": "+30-50% Enhanced Weapon Damage",
+                "PropertyString": "+100-150% Enhanced Weapon Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "Adds 10-30 Weapon Damage",
+                "PropertyString": "Adds 25-50 Weapon Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "-5-10% to Enemy Physical Damage Resistance",
+                "PropertyString": "-10-15% to Enemy Physical Damage Resistance",
                 "Index": 3
             },
             {
@@ -63429,11 +64375,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+25-50% Extra Gold from Monsters",
+                "PropertyString": "+30-50% Extra Gold from Monsters",
                 "Index": 6
             },
             {
-                "PropertyString": "+15-35% Chance Items Roll Magic or Better",
+                "PropertyString": "+30-50% Chance Items Roll Magic or Better",
                 "Index": 5
             }
         ],
@@ -63459,19 +64405,19 @@
         "Code": "cjw",
         "Properties": [
             {
-                "PropertyString": "1% Chance to cast level 25 Psychic Ward when struck",
+                "PropertyString": "5% Chance to cast level 40 Hex Bane when struck",
                 "Index": 0
             },
             {
-                "PropertyString": "Adds 15-35 Weapon Magic Damage",
+                "PropertyString": "Adds 40-80 Weapon Magic Damage",
                 "Index": 2
             },
             {
-                "PropertyString": "+5-10% to Magic Skill Damage",
+                "PropertyString": "+20-25% to Magic Skill Damage",
                 "Index": 1
             },
             {
-                "PropertyString": "-5-10% to Enemy Magic Resistance",
+                "PropertyString": "-10-15% to Enemy Magic Resistance",
                 "Index": 3
             },
             {
@@ -63479,11 +64425,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+25-50% Extra Gold from Monsters",
+                "PropertyString": "+30-50% Extra Gold from Monsters",
                 "Index": 6
             },
             {
-                "PropertyString": "+15-35% Chance Items Roll Magic or Better",
+                "PropertyString": "+30-50% Chance Items Roll Magic or Better",
                 "Index": 5
             }
         ],
@@ -63506,21 +64452,25 @@
         "Rarity": 2,
         "ItemLevel": 69,
         "RequiredLevel": 75,
-        "Code": "cm3",
+        "Code": "cs1",
         "Properties": [
+            {
+                "PropertyString": "Charm Weight: 3",
+                "Index": 2
+            },
             {
                 "PropertyString": "Monster Cold Immunity is Sundered",
                 "Index": 0
             },
             {
-                "PropertyString": "-90% Cold Resistance",
+                "PropertyString": "-90 to -70% Cold Resistance",
                 "Index": 1
             }
         ],
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Grand Charm",
+            "Name": "Latent Sunder Charm",
             "RequiredStrength": null,
             "RequiredDexterity": null,
             "Durability": 0,
@@ -63536,21 +64486,25 @@
         "Rarity": 2,
         "ItemLevel": 69,
         "RequiredLevel": 75,
-        "Code": "cm3",
+        "Code": "cs1",
         "Properties": [
+            {
+                "PropertyString": "Charm Weight: 3",
+                "Index": 2
+            },
             {
                 "PropertyString": "Monster Fire Immunity is Sundered",
                 "Index": 0
             },
             {
-                "PropertyString": "-90% Fire Resistance",
+                "PropertyString": "-90 to -70% Fire Resistance",
                 "Index": 1
             }
         ],
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Grand Charm",
+            "Name": "Latent Sunder Charm",
             "RequiredStrength": null,
             "RequiredDexterity": null,
             "Durability": 0,
@@ -63566,21 +64520,25 @@
         "Rarity": 2,
         "ItemLevel": 69,
         "RequiredLevel": 75,
-        "Code": "cm3",
+        "Code": "cs1",
         "Properties": [
+            {
+                "PropertyString": "Charm Weight: 3",
+                "Index": 2
+            },
             {
                 "PropertyString": "Monster Lightning Immunity is Sundered",
                 "Index": 0
             },
             {
-                "PropertyString": "-90% Lightning Resistance",
+                "PropertyString": "-90 to -70% Lightning Resistance",
                 "Index": 1
             }
         ],
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Grand Charm",
+            "Name": "Latent Sunder Charm",
             "RequiredStrength": null,
             "RequiredDexterity": null,
             "Durability": 0,
@@ -63596,21 +64554,25 @@
         "Rarity": 2,
         "ItemLevel": 69,
         "RequiredLevel": 75,
-        "Code": "cm3",
+        "Code": "cs1",
         "Properties": [
+            {
+                "PropertyString": "Charm Weight: 3",
+                "Index": 2
+            },
             {
                 "PropertyString": "Monster Poison Immunity is Sundered",
                 "Index": 0
             },
             {
-                "PropertyString": "-90% Poison Resistance",
+                "PropertyString": "-90 to -70% Poison Resistance",
                 "Index": 1
             }
         ],
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Grand Charm",
+            "Name": "Latent Sunder Charm",
             "RequiredStrength": null,
             "RequiredDexterity": null,
             "Durability": 0,
@@ -63626,21 +64588,25 @@
         "Rarity": 2,
         "ItemLevel": 69,
         "RequiredLevel": 75,
-        "Code": "cm3",
+        "Code": "cs1",
         "Properties": [
+            {
+                "PropertyString": "Charm Weight: 3",
+                "Index": 2
+            },
             {
                 "PropertyString": "Monster Physical Immunity is Sundered",
                 "Index": 0
             },
             {
-                "PropertyString": "-20% Physical Damage Reduction",
+                "PropertyString": "-20 to -10% Physical Damage Reduction",
                 "Index": 1
             }
         ],
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Grand Charm",
+            "Name": "Latent Sunder Charm",
             "RequiredStrength": null,
             "RequiredDexterity": null,
             "Durability": 0,
@@ -63656,21 +64622,25 @@
         "Rarity": 2,
         "ItemLevel": 69,
         "RequiredLevel": 75,
-        "Code": "cm3",
+        "Code": "cs1",
         "Properties": [
+            {
+                "PropertyString": "Charm Weight: 3",
+                "Index": 2
+            },
             {
                 "PropertyString": "Monster Magic Immunity is Sundered",
                 "Index": 0
             },
             {
-                "PropertyString": "-65% Magic Resistance",
+                "PropertyString": "-65 to -45% Magic Resistance",
                 "Index": 1
             }
         ],
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Grand Charm",
+            "Name": "Latent Sunder Charm",
             "RequiredStrength": null,
             "RequiredDexterity": null,
             "Durability": 0,
@@ -63688,6 +64658,10 @@
         "RequiredLevel": 75,
         "Code": "cs2",
         "Properties": [
+            {
+                "PropertyString": "Charm Weight: 3",
+                "Index": 7
+            },
             {
                 "PropertyString": "Monster Cold Immunity is Sundered",
                 "Index": 0
@@ -63793,6 +64767,10 @@
         "Code": "cs2",
         "Properties": [
             {
+                "PropertyString": "Charm Weight: 3",
+                "Index": 7
+            },
+            {
                 "PropertyString": "Monster Fire Immunity is Sundered",
                 "Index": 0
             },
@@ -63896,6 +64874,10 @@
         "RequiredLevel": 75,
         "Code": "cs2",
         "Properties": [
+            {
+                "PropertyString": "Charm Weight: 3",
+                "Index": 7
+            },
             {
                 "PropertyString": "Monster Lightning Immunity is Sundered",
                 "Index": 0
@@ -64001,6 +64983,10 @@
         "Code": "cs2",
         "Properties": [
             {
+                "PropertyString": "Charm Weight: 3",
+                "Index": 7
+            },
+            {
                 "PropertyString": "Monster Poison Immunity is Sundered",
                 "Index": 0
             },
@@ -64105,6 +65091,10 @@
         "Code": "cs2",
         "Properties": [
             {
+                "PropertyString": "Charm Weight: 3",
+                "Index": 7
+            },
+            {
                 "PropertyString": "Monster Physical Immunity is Sundered",
                 "Index": 0
             },
@@ -64208,6 +65198,10 @@
         "RequiredLevel": 75,
         "Code": "cs2",
         "Properties": [
+            {
+                "PropertyString": "Charm Weight: 3",
+                "Index": 7
+            },
             {
                 "PropertyString": "Monster Magic Immunity is Sundered",
                 "Index": 0
@@ -65158,16 +66152,16 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+15-20% to Magic Skill Damage",
+                "Index": 3
+            },
+            {
                 "PropertyString": "+3 Random Necromancer Skill",
                 "Index": 5
             },
             {
                 "PropertyString": "+150-200 Defense",
                 "Index": 4
-            },
-            {
-                "PropertyString": "+10 to Energy",
-                "Index": 3
             },
             {
                 "PropertyString": "+20-30% to All Resistances",
@@ -65826,63 +66820,6 @@
             "Name": "Shillelagh [E]",
             "RequiredStrength": "52",
             "RequiredDexterity": "27",
-            "Durability": 250,
-            "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Hand to Hand",
-        "Vanilla": "N",
-        "Name": "Nightwrath",
-        "Index": "Nightwrath",
-        "Enabled": true,
-        "Rarity": 1,
-        "ItemLevel": 60,
-        "RequiredLevel": 76,
-        "Code": "7xf",
-        "Properties": [
-            {
-                "PropertyString": "+1 to Assassin Skill Levels",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+250-300% Enhanced Weapon Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "15-25% Increased Chance of Blocking",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+1.5 to Maximum Weapon Damage (Per Character Level)",
-                "Index": 1
-            },
-            {
-                "PropertyString": "Adds 100-200 Weapon Cold Damage",
-                "Index": 3
-            },
-            {
-                "PropertyString": "Hit Blinds Target +1",
-                "Index": 6
-            },
-            {
-                "PropertyString": "You feel incorporeal...",
-                "Index": 5
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageTypes": [
-                {
-                    "Type": 3,
-                    "DamageString": "(154-176) to (299-362)"
-                }
-            ],
-            "Speed": 10,
-            "EquipmentType": 1,
-            "Name": "War Fist [E]",
-            "RequiredStrength": "108",
-            "RequiredDexterity": "108",
             "Durability": 250,
             "RequiredClass": ""
         }
@@ -66669,12 +67606,12 @@
         "Index": "Ars Dul'Mephistos",
         "Enabled": true,
         "Rarity": 1,
-        "ItemLevel": 85,
+        "ItemLevel": 70,
         "RequiredLevel": 78,
         "Code": "wac",
         "Properties": [
             {
-                "PropertyString": "15% Chance to cast level 28 Blizzard when struck",
+                "PropertyString": "15% Chance to cast level 8 Hailstorm when struck",
                 "Index": 1
             },
             {
@@ -67061,6 +67998,60 @@
             "RequiredDexterity": null,
             "Durability": 0,
             "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "Scripture of the IronBound",
+        "Index": "Scripture of the IronBound",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 70,
+        "RequiredLevel": 78,
+        "Code": "wab",
+        "Properties": [
+            {
+                "PropertyString": "+1 to Chaos Skills (Warlock Only)",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+2 to Warlock Skill Levels",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+10 to Iron Golem (oskill)",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+150-180% Enhanced Defense",
+                "Index": 6
+            },
+            {
+                "PropertyString": "-10% Increased Maximum Life",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+20-30% to All Resistances",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+10% Physical Damage Reduction",
+                "Index": 3
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "350-392",
+            "Block": 3,
+            "EquipmentType": 0,
+            "Name": "Forgotten Volume [E]",
+            "RequiredStrength": "77",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
         }
     },
     {
@@ -68008,16 +68999,16 @@
                 "Index": 0
             },
             {
+                "PropertyString": "-20-25% to Enemy Magic Resistance",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+20% Deadly Strike",
                 "Index": 2
             },
             {
                 "PropertyString": "Prevent Monster Heal",
                 "Index": 4
-            },
-            {
-                "PropertyString": "Socketed (3)",
-                "Index": 5
             }
         ],
         "DamageArmorEnhanced": true,
@@ -68043,13 +69034,13 @@
         "Name": "Ars Al'Diabolos",
         "Index": "Ars Al'Diablolos",
         "Enabled": true,
-        "Rarity": 1,
-        "ItemLevel": 85,
+        "Rarity": 2,
+        "ItemLevel": 80,
         "RequiredLevel": 80,
         "Code": "waf",
         "Properties": [
             {
-                "PropertyString": "15% Chance to cast level 1 Terror when struck",
+                "PropertyString": "15% Chance to cast level 30 Storm Pulse when struck",
                 "Index": 1
             },
             {
@@ -70556,6 +71547,10 @@
                 "Index": 2
             },
             {
+                "PropertyString": "-15-20% to Enemy Magic Resistance",
+                "Index": 7
+            },
+            {
                 "PropertyString": "+2-3 to Holy Bolt (Paladin Only)",
                 "Index": 5
             },
@@ -71308,6 +72303,59 @@
         }
     },
     {
+        "Type": "Hand to Hand",
+        "Vanilla": "N",
+        "Name": "Nightwrath",
+        "Index": "Nightwrath",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 75,
+        "RequiredLevel": 82,
+        "Code": "7xf",
+        "Properties": [
+            {
+                "PropertyString": "+1-3 to Traps (Assassin Only)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+5 to Bone Armor (oskill)",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+15-20% Increased Attack Speed",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+15-20% to Magic Skill Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "-10-15% to Enemy Magic Resistance",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+3-5 to Death Sentry (Assassin Only)",
+                "Index": 1
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "DamageTypes": [
+                {
+                    "Type": 3,
+                    "DamageString": "44 to 53"
+                }
+            ],
+            "Speed": 10,
+            "EquipmentType": 1,
+            "Name": "War Fist [E]",
+            "RequiredStrength": "108",
+            "RequiredDexterity": "108",
+            "Durability": 250,
+            "RequiredClass": ""
+        }
+    },
+    {
         "Type": "Ring",
         "Vanilla": "N",
         "Name": "Faerie Ring",
@@ -71492,6 +72540,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+10-15% to Magic Skill Damage",
+                "Index": 7
+            },
+            {
                 "PropertyString": "+3-5 to Teeth (Necromancer Only)",
                 "Index": 3
             },
@@ -71506,10 +72558,6 @@
             {
                 "PropertyString": "+3-5 to Bone Spirit (Necromancer Only)",
                 "Index": 6
-            },
-            {
-                "PropertyString": "+3-5 to Bone Wall (Necromancer Only)",
-                "Index": 7
             }
         ],
         "DamageArmorEnhanced": false,
@@ -71749,6 +72797,118 @@
             "RequiredDexterity": "118",
             "Durability": 250,
             "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "Codex of the Crimson Pyre",
+        "Index": "Codex of the Crimson Pyre",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 75,
+        "RequiredLevel": 83,
+        "Code": "wad",
+        "Properties": [
+            {
+                "PropertyString": "+2-3 to Lower Resist (oskill)",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+20-30% Faster Cast Rate",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+20-30% to Fire Skill Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "-10-15% to Enemy Fire Resistance",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+2-3 to Sigil Death (Warlock Only)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+150-200 Defense",
+                "Index": 7
+            },
+            {
+                "PropertyString": "+30% to All Resistances",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+50% Chance Items Roll Magic or Better",
+                "Index": 6
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "248-342",
+            "Block": 8,
+            "EquipmentType": 0,
+            "Name": "Occult Codex [E]",
+            "RequiredStrength": "91",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
+        }
+    },
+    {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "The Rendfather\u2019s Codex",
+        "Index": "The Rendfathers Codex",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 75,
+        "RequiredLevel": 83,
+        "Code": "wad",
+        "Properties": [
+            {
+                "PropertyString": "+2 to Eldritch Skills (Warlock Only)",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+2-3 to Amplify Damage (oskill)",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+30-50% Increased Attack Speed",
+                "Index": 4
+            },
+            {
+                "PropertyString": "Adds 30-50 Weapon Damage",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+5-10% Life stolen per hit",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+2-3 to Mirrored Blades (Warlock Only)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+50-100 Defense",
+                "Index": 6
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "148-242",
+            "Block": 8,
+            "EquipmentType": 0,
+            "Name": "Occult Codex [E]",
+            "RequiredStrength": "91",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
         }
     },
     {
@@ -73231,12 +74391,16 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+3-5 to Strafe (Amazon Only)",
-                "Index": 4
+                "PropertyString": "-15-20% to Enemy Magic Resistance",
+                "Index": 3
             },
             {
-                "PropertyString": "+30 to Vitality",
-                "Index": 3
+                "PropertyString": "+20-25% to Magic Skill Damage",
+                "Index": 7
+            },
+            {
+                "PropertyString": "+3-5 to Strafe (Amazon Only)",
+                "Index": 4
             }
         ],
         "DamageArmorEnhanced": true,
@@ -75948,7 +77112,7 @@
         "Code": "6hb",
         "Properties": [
             {
-                "PropertyString": "+301-391% Enhanced Weapon Damage",
+                "PropertyString": "+301-399% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
@@ -75956,7 +77120,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+20-30% to Cold Skill Damage",
+                "PropertyString": "+25-40% to Cold Skill Damage",
                 "Index": 2
             },
             {
@@ -75964,7 +77128,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+3-5 to Freezing Arrow (Amazon Only)",
+                "PropertyString": "+3-5 to Glacial Orb Arrow (Amazon Only)",
                 "Index": 4
             },
             {
@@ -75981,7 +77145,7 @@
             "DamageTypes": [
                 {
                     "Type": 1,
-                    "DamageString": "(84-103) to (364-501)"
+                    "DamageString": "(84-104) to (364-504)"
                 }
             ],
             "Speed": -10,
@@ -76255,6 +77419,122 @@
             "RequiredDexterity": null,
             "Durability": 0,
             "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "The Seventh Pact",
+        "Index": "The Seventh Pact",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 85,
+        "RequiredLevel": 90,
+        "Code": "wae",
+        "Properties": [
+            {
+                "PropertyString": "+2 to Chaos Skills (Warlock Only)",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+2-3 to Warlock Skill Levels",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+2-3 to Death Mark (Warlock Only)",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+2-3 to Blood Boil (Warlock Only)",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+2-3 to Demonic Mastery (Warlock Only)",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+200-250% Enhanced Defense",
+                "Index": 7
+            },
+            {
+                "PropertyString": "-10% Increased Maximum Life",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+35-50% to All Resistances",
+                "Index": 8
+            },
+            {
+                "PropertyString": "+10% to Experience Gained",
+                "Index": 6
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "441-514",
+            "Block": 10,
+            "EquipmentType": 0,
+            "Name": "Blasphemous Compendium [E]",
+            "RequiredStrength": "95",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
+        }
+    },
+    {
+        "Type": "Grimoire",
+        "Vanilla": "N",
+        "Name": "The Hellbound Lexicon",
+        "Index": "The Hellbound Lexicon",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 85,
+        "RequiredLevel": 90,
+        "Code": "waf",
+        "Properties": [
+            {
+                "PropertyString": "+2-3 to Warlock Skill Levels",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+5 to Conviction (oskill)",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+25-35% to Fire Skill Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "-15-20% to Enemy Fire Resistance",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+3-4 to Apocalypse (Warlock Only)",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+169-269% Enhanced Defense",
+                "Index": 5
+            },
+            {
+                "PropertyString": "Requirements Increased By 50%",
+                "Index": 6
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "400-549",
+            "Block": 12,
+            "EquipmentType": 0,
+            "Name": "Blasphemous Grimoire [E]",
+            "RequiredStrength": "159",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Warlock"
         }
     },
     {

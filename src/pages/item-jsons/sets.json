@@ -20102,17 +20102,20 @@
             {
                 "Type": "Body Armor",
                 "Set": "Warlock's Exploration",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "+2 to Demon Skills (Warlock Only) (2 Items)",
+                    "-10% to Enemy Magic Resistance (4 Items)"
+                ],
                 "Name": "Incarnadine Elven Plate",
                 "Index": "Incarnadine Elven Plate",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 30,
-                "RequiredLevel": 59,
+                "ItemLevel": 40,
+                "RequiredLevel": 55,
                 "Code": "xtp",
                 "Properties": [
                     {
-                        "PropertyString": "+3-4 to All Skills",
+                        "PropertyString": "+2 to Warlock Skill Levels",
                         "Index": 0
                     },
                     {
@@ -20139,60 +20142,65 @@
                 }
             },
             {
-                "Type": "Staff",
+                "Type": "Grimoire",
                 "Set": "Warlock's Exploration",
                 "SetPropertiesString": [
-                    "+20% Faster Cast Rate (3 Items)",
-                    "+2% to Experience Gained (4 Items)"
+                    "+2 to Eldritch Skills (Warlock Only) (5 Items)",
+                    "+20% Faster Cast Rate (3 Items)"
                 ],
-                "Name": "Staff of Elemental Mastery",
-                "Index": "Staff of Elemental Mastery",
+                "Name": "Tome of the Abyss",
+                "Index": "Tome of the Abyss",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 30,
-                "RequiredLevel": 36,
-                "Code": "8ss",
+                "ItemLevel": 50,
+                "RequiredLevel": 60,
+                "Code": "wac",
                 "Properties": [
                     {
-                        "PropertyString": "+2 to All Skills",
+                        "PropertyString": "+1 to Warlock Skill Levels",
+                        "Index": 3
+                    },
+                    {
+                        "PropertyString": "-10% to Enemy Magic Resistance",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "+3-4 to Abyss (Warlock Only)",
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+35% Increased Maximum Mana",
+                        "PropertyString": "+30% Increased Maximum Mana",
                         "Index": 1
                     }
                 ],
                 "DamageArmorEnhanced": false,
                 "Equipment": {
-                    "DamageTypes": [
-                        {
-                            "Type": 1,
-                            "DamageString": "6 to 21"
-                        }
-                    ],
-                    "Speed": -10,
-                    "EquipmentType": 1,
-                    "Name": "Jo Staff [X]",
-                    "RequiredStrength": "25",
+                    "DamageString": null,
+                    "DamageStringPrefix": null,
+                    "ArmorString": "96-141",
+                    "Block": 5,
+                    "EquipmentType": 0,
+                    "Name": "Occult Tome [E]",
+                    "RequiredStrength": "82",
                     "RequiredDexterity": "0",
-                    "Durability": 250,
-                    "RequiredClass": ""
+                    "Durability": 20,
+                    "RequiredClass": "Warlock"
                 }
             },
             {
                 "Type": "Circlet",
                 "Set": "Warlock's Exploration",
                 "SetPropertiesString": [
+                    "+2 to Warlock Skill Levels (4 Items)",
                     "+150 Defense (5 Items)",
-                    "+40% Increased Maximum Life (4 Items)",
-                    "+2 to all Attributes (3 Items)",
+                    "+10 to all Attributes (3 Items)",
                     "+50% Chance Items Roll Magic or Better (2 Items)"
                 ],
-                "Name": "Lilarcor Cap",
-                "Index": "Lilarcor Cap",
+                "Name": "Lilarcor's Crown",
+                "Index": "Lilarcors Crown",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 50,
+                "ItemLevel": 60,
                 "RequiredLevel": 64,
                 "Code": "ci3",
                 "Properties": [
@@ -20201,15 +20209,19 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+75-100% Enhanced Defense",
+                        "PropertyString": "+100-150% Enhanced Defense",
                         "Index": 1
+                    },
+                    {
+                        "PropertyString": "+15-20% to All Resistances",
+                        "Index": 2
                     }
                 ],
                 "DamageArmorEnhanced": true,
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "106-122",
+                    "ArmorString": "122-152",
                     "Block": null,
                     "EquipmentType": 0,
                     "Name": "Diadem [E]",
@@ -20222,18 +20234,26 @@
             {
                 "Type": "Gloves",
                 "Set": "Warlock's Exploration",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "+15% Faster Cast Rate (2 Items)",
+                    "-10% to Enemy Magic Resistance (3 Items)",
+                    "+50 to Life (5 Items)"
+                ],
                 "Name": "Teleomortis' Gloves",
                 "Index": "Teleomortis' Gloves",
                 "Enabled": true,
                 "Rarity": 7,
                 "ItemLevel": 60,
-                "RequiredLevel": 71,
+                "RequiredLevel": 75,
                 "Code": "ulg",
                 "Properties": [
                     {
-                        "PropertyString": "+2 to All Skills",
+                        "PropertyString": "+1 to Warlock Skill Levels",
                         "Index": 0
+                    },
+                    {
+                        "PropertyString": "+10% to Magic Skill Damage",
+                        "Index": 2
                     },
                     {
                         "PropertyString": "+150-200 Defense",
@@ -20257,7 +20277,11 @@
             {
                 "Type": "Belt",
                 "Set": "Warlock's Exploration",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "+2 to Chaos Skills (Warlock Only) (4 Items)",
+                    "+15% Faster Hit Recovery (3 Items)",
+                    "+15% to All Resistances (2 Items)"
+                ],
                 "Name": "Citadel Belt",
                 "Index": "Citadel Belt",
                 "Enabled": true,
@@ -20292,37 +20316,41 @@
         ],
         "PartialProperties": [
             {
-                "PropertyString": "+25% to All Resistances",
+                "PropertyString": "+15% to Magic Skill Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "+25% to All Resistances",
+                "PropertyString": "+2 to Warlock Skill Levels",
                 "Index": 2
             },
             {
-                "PropertyString": "+25% Physical Damage Reduction",
+                "PropertyString": "-15% to Enemy Magic Resistance",
                 "Index": 4
             }
         ],
         "FullProperties": [
             {
-                "PropertyString": "+4 to All Skills",
+                "PropertyString": "+2 to Warlock Skill Levels",
                 "Index": 0
+            },
+            {
+                "PropertyString": "+5 to Weaken (oskill)",
+                "Index": 5
             },
             {
                 "PropertyString": "+50% to All Resistances",
                 "Index": 2
             },
             {
-                "PropertyString": "+20 Life after each Kill",
+                "PropertyString": "+10 Life after each Kill",
                 "Index": 3
             },
             {
-                "PropertyString": "+5 to Mana after each Kill",
+                "PropertyString": "+10 to Mana after each Kill",
                 "Index": 4
             },
             {
-                "PropertyString": "+75% Chance Items Roll Magic or Better",
+                "PropertyString": "+100% Chance Items Roll Magic or Better",
                 "Index": 1
             }
         ],
@@ -23874,7 +23902,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+ to Minimum Weapon Damage",
+                        "PropertyString": "+1 to Minimum Weapon Damage (Per Character Level)",
                         "Index": 0
                     },
                     {
@@ -23903,7 +23931,7 @@
                 "Type": "Auric Shields",
                 "Set": "Tools of Vindication",
                 "SetPropertiesString": [
-                    "+ to Minimum Weapon Damage (3 Items)",
+                    "+1 to Minimum Weapon Damage (Per Character Level) (3 Items)",
                     "+30% Cold Resistance (2 Items)",
                     "+15% Physical Damage Reduction (3 Items)"
                 ],
@@ -23950,7 +23978,7 @@
                 "Type": "Belt",
                 "Set": "Tools of Vindication",
                 "SetPropertiesString": [
-                    "+ to Minimum Weapon Damage (2 Items)",
+                    "+1 to Minimum Weapon Damage (Per Character Level) (2 Items)",
                     "+30% Lightning Resistance (3 Items)",
                     "+30% Fire Resistance (2 Items)"
                 ],

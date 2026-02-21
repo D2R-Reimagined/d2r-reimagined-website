@@ -5013,7 +5013,7 @@
         "RequiredStrength": "44",
         "RequiredDexterity": "0",
         "Durability": 20,
-        "ItemLevel": 35,
+        "ItemLevel": 26,
         "Type": {
             "Name": "Pelt",
             "Index": "Pelt",
@@ -7413,7 +7413,7 @@
         "RequiredStrength": "12",
         "RequiredDexterity": "0",
         "Durability": 20,
-        "ItemLevel": 4,
+        "ItemLevel": 3,
         "Type": {
             "Name": "Grimoire",
             "Index": "Grimoire",
@@ -7510,7 +7510,7 @@
         "RequiredStrength": "14",
         "RequiredDexterity": "0",
         "Durability": 20,
-        "ItemLevel": 8,
+        "ItemLevel": 6,
         "Type": {
             "Name": "Grimoire",
             "Index": "Grimoire",
@@ -7607,7 +7607,7 @@
         "RequiredStrength": "18",
         "RequiredDexterity": "0",
         "Durability": 20,
-        "ItemLevel": 16,
+        "ItemLevel": 12,
         "Type": {
             "Name": "Grimoire",
             "Index": "Grimoire",
@@ -7704,7 +7704,7 @@
         "RequiredStrength": "20",
         "RequiredDexterity": "0",
         "Durability": 20,
-        "ItemLevel": 20,
+        "ItemLevel": 15,
         "Type": {
             "Name": "Grimoire",
             "Index": "Grimoire",
@@ -7801,7 +7801,7 @@
         "RequiredStrength": "25",
         "RequiredDexterity": "0",
         "Durability": 20,
-        "ItemLevel": 24,
+        "ItemLevel": 18,
         "Type": {
             "Name": "Grimoire",
             "Index": "Grimoire",
@@ -7898,7 +7898,7 @@
         "RequiredStrength": "38",
         "RequiredDexterity": "0",
         "Durability": 20,
-        "ItemLevel": 33,
+        "ItemLevel": 24,
         "Type": {
             "Name": "Grimoire",
             "Index": "Grimoire",
@@ -7995,7 +7995,7 @@
         "RequiredStrength": "41",
         "RequiredDexterity": "0",
         "Durability": 20,
-        "ItemLevel": 39,
+        "ItemLevel": 29,
         "Type": {
             "Name": "Grimoire",
             "Index": "Grimoire",
@@ -8092,7 +8092,7 @@
         "RequiredStrength": "47",
         "RequiredDexterity": "0",
         "Durability": 20,
-        "ItemLevel": 45,
+        "ItemLevel": 33,
         "Type": {
             "Name": "Grimoire",
             "Index": "Grimoire",
@@ -8189,7 +8189,7 @@
         "RequiredStrength": "50",
         "RequiredDexterity": "0",
         "Durability": 20,
-        "ItemLevel": 49,
+        "ItemLevel": 36,
         "Type": {
             "Name": "Grimoire",
             "Index": "Grimoire",
@@ -8286,7 +8286,7 @@
         "RequiredStrength": "58",
         "RequiredDexterity": "0",
         "Durability": 20,
-        "ItemLevel": 54,
+        "ItemLevel": 40,
         "Type": {
             "Name": "Grimoire",
             "Index": "Grimoire",
