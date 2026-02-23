@@ -349,6 +349,7 @@ export function getDescendantBaseNames(baseTypeName: string): string[] {
 
 export const ANCESTOR_ONLY_WHEN_EXACT_OFF: string[] = [
     'circlet',
+    'colossal-jewel',
     'barbarian-helm',
     'druid-helm',
     'amazon-bow',
@@ -461,7 +462,7 @@ export const type_filtering_options: ReadonlyArray<IFilterOption> = [
     makeTypeOption('Ring', 'Ring'),
     makeTypeOption('Amulet', 'Amulet'),
     makeTypeOption('Jewel', 'Jewel'),
-    makeTypeOption('Colossal Jewel', 'Colossal Jewel'),
+    makeTypeOption('Colossal Jewel', 'Colossal Jewel', [], true, 'colossal-jewel'),
     makeTypeOption('Small Charm', 'Small Charm'),
     makeTypeOption('Large Charm', 'Large Charm'),
     makeTypeOption('Grand Charm', 'Grand Charm'),
