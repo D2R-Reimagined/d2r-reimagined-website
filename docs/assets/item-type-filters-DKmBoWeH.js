@@ -245,6 +245,7 @@ function getDescendantBaseNames(baseTypeName) {
 }
 const ANCESTOR_ONLY_WHEN_EXACT_OFF = [
   "circlet",
+  "colossal-jewel",
   "barbarian-helm",
   "druid-helm",
   "amazon-bow",
@@ -325,7 +326,7 @@ const type_filtering_options = [
   makeTypeOption("Ring", "Ring"),
   makeTypeOption("Amulet", "Amulet"),
   makeTypeOption("Jewel", "Jewel"),
-  makeTypeOption("Colossal Jewel", "Colossal Jewel"),
+  makeTypeOption("Colossal Jewel", "Colossal Jewel", [], true, "colossal-jewel"),
   makeTypeOption("Small Charm", "Small Charm"),
   makeTypeOption("Large Charm", "Large Charm"),
   makeTypeOption("Grand Charm", "Grand Charm"),
