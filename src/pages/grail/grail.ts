@@ -78,6 +78,13 @@ interface IRunewordData {
     Vanilla?: string | number | boolean;
 }
 
+interface IGrailImportExportPayload {
+    version: number;
+    uniques?: string[] | Record<string, boolean>;
+    sets?: string[] | Record<string, boolean>;
+    runewords?: string[] | Record<string, boolean>;
+}
+
 export class Grail {
     // Data sources
     uniques: IUniqueItem[] = uniquesJson as unknown as IUniqueItem[];
@@ -129,6 +136,9 @@ export class Grail {
     setItemFoundCount: number = 0; // number of found set ITEMS
     setItemTotalCount: number = 0; // total set ITEMS
     setItemsDisplayedCount: number = 0; // displayed set ITEMS under current filters
+    showImportExportPopup: boolean = false;
+    exportDataString: string = '';
+    importDataString: string = '';
 
     // Debouncers to keep UI interactions (like checkbox clicks) snappy
     private _debouncedSaveFound!: IDebouncedFunction;
@@ -778,6 +788,185 @@ export class Grail {
             /* ignore */
         }
         return {};
+    }
+
+    private normalizeFoundMap(
+        input: unknown,
+    ): Record<string, boolean> {
+        if (!input || typeof input !== 'object') return {};
+        const result: Record<string, boolean> = {};
+        for (const [k, v] of Object.entries(input as Record<string, unknown>)) {
+            result[k] = Boolean(v);
+        }
+        return result;
+    }
+
+    private enabledKeysFromMap(map: Record<string, boolean>): string[] {
+        const out: string[] = [];
+        for (const [k, v] of Object.entries(map)) {
+            if (v) out.push(k);
+        }
+        return out;
+    }
+
+    private mapFromEnabledInput(
+        input: string[] | Record<string, boolean> | undefined,
+    ): Record<string, boolean> {
+        if (!input) return {};
+        if (Array.isArray(input)) {
+            const out: Record<string, boolean> = {};
+            for (const key of input) {
+                const k = String(key || '').trim();
+                if (k) out[k] = true;
+            }
+            return out;
+        }
+        const normalized = this.normalizeFoundMap(input);
+        const out: Record<string, boolean> = {};
+        for (const [k, v] of Object.entries(normalized)) {
+            if (v) out[k] = true;
+        }
+        return out;
+    }
+
+    private utf8ToBase64(value: string): string {
+        const bytes = new TextEncoder().encode(value);
+        let binary = '';
+        for (const b of bytes) binary += String.fromCharCode(b);
+        return btoa(binary);
+    }
+
+    private base64ToUtf8(value: string): string {
+        const binary = atob(value);
+        const bytes = new Uint8Array(binary.length);
+        for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+        return new TextDecoder().decode(bytes);
+    }
+
+    private mergeFoundMaps(
+        current: Record<string, boolean>,
+        incoming: Record<string, boolean>,
+    ): Record<string, boolean> {
+        const merged = { ...current };
+        for (const [k, v] of Object.entries(incoming)) {
+            if (v) merged[k] = true;
+        }
+        return merged;
+    }
+
+    private createExportString(): string {
+        const uniques = this.enabledKeysFromMap(this.normalizeFoundMap(this.foundUniques));
+        const sets = this.enabledKeysFromMap(this.normalizeFoundMap(this.foundSets));
+        const runewords = this.enabledKeysFromMap(this.normalizeFoundMap(this.foundRunewords));
+        const payload: IGrailImportExportPayload = { version: 2 };
+        if (uniques.length > 0) payload.uniques = uniques;
+        if (sets.length > 0) payload.sets = sets;
+        if (runewords.length > 0) payload.runewords = runewords;
+        return this.utf8ToBase64(JSON.stringify(payload));
+    }
+
+    openImportExportPopup(): void {
+        this.exportDataString = this.createExportString();
+        this.importDataString = '';
+        this.showImportExportPopup = true;
+    }
+
+    closeImportExportPopup(): void {
+        this.showImportExportPopup = false;
+    }
+
+    refreshExportData(): void {
+        this.exportDataString = this.createExportString();
+    }
+
+    copyExportData(): void {
+        if (!this.exportDataString) {
+            this.exportDataString = this.createExportString();
+        }
+
+        const encoded = this.exportDataString;
+        const clipboard = navigator?.clipboard;
+        if (clipboard?.writeText) {
+            void clipboard
+                .writeText(encoded)
+                .then(() => {
+                    alert('Grail export copied to your clipboard.');
+                })
+                .catch(() => {
+                    prompt('Copy your Grail export string:', encoded);
+                });
+            return;
+        }
+
+        prompt('Copy your Grail export string:', encoded);
+    }
+
+    private parseImportPayload(
+        encoded: string,
+    ): IGrailImportExportPayload | null {
+        if (!encoded || !encoded.trim()) return null;
+
+        try {
+            const decoded = this.base64ToUtf8(encoded.trim());
+            const parsed = JSON.parse(decoded) as unknown;
+            const parsedObj = parsed as Partial<IGrailImportExportPayload>;
+            return {
+                version: Number(parsedObj.version || 1),
+                uniques: this.mapFromEnabledInput(parsedObj.uniques),
+                sets: this.mapFromEnabledInput(parsedObj.sets),
+                runewords: this.mapFromEnabledInput(parsedObj.runewords),
+            };
+        } catch {
+            alert('Invalid import string. Please check the base64 data and try again.');
+            return null;
+        }
+    }
+
+    importReplace(): void {
+        const payload = this.parseImportPayload(this.importDataString);
+        if (!payload) return;
+
+        const shouldReplace = confirm(
+            'Replace current Grail progress with imported data? This cannot be undone.',
+        );
+        if (!shouldReplace) return;
+
+        this.foundUniques = this.mapFromEnabledInput(payload.uniques);
+        this.foundSets = this.mapFromEnabledInput(payload.sets);
+        this.foundRunewords = this.mapFromEnabledInput(payload.runewords);
+
+        this.saveFoundItems();
+        this.updateList();
+        this.exportDataString = this.createExportString();
+        alert('Import complete. Grail progress was replaced.');
+    }
+
+    importMerge(): void {
+        const payload = this.parseImportPayload(this.importDataString);
+        if (!payload) return;
+
+        const shouldMerge = confirm(
+            'Merge imported Grail data into current progress?',
+        );
+        if (!shouldMerge) return;
+
+        this.foundUniques = this.mergeFoundMaps(
+            this.foundUniques,
+            this.mapFromEnabledInput(payload.uniques),
+        );
+        this.foundSets = this.mergeFoundMaps(
+            this.foundSets,
+            this.mapFromEnabledInput(payload.sets),
+        );
+        this.foundRunewords = this.mergeFoundMaps(
+            this.foundRunewords,
+            this.mapFromEnabledInput(payload.runewords),
+        );
+
+        this.saveFoundItems();
+        this.updateList();
+        this.exportDataString = this.createExportString();
+        alert('Import complete. Grail progress was merged.');
     }
 
     loadFoundItems(): void {
