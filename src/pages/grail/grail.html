@@ -54,7 +54,51 @@
                 </button>
             </div>
         </div>
+        <div class="w-full lg:w-85" data-help-text="Open a popup to export or import Grail progress as base64.">
+            <div class="flex items-stretch">
+                <div class="relative flex-1">
+                    <button id="importexportgraildata" type="button" click.trigger="openImportExportPopup()" class="button-base">
+                        Import/Export Grail Data
+                    </button>
+                </div>
+                <button type="button" class="m-info-button" aria-expanded="false" data-info-for="importexportgraildata">
+                    <span class="mso">info</span>
+                    <span class="sr-only">More info about Import/Export Grail Data</span>
+                </button>
+            </div>
+        </div>
     </div>
+
+    <template if.bind="showImportExportPopup">
+        <div class="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4">
+            <div class="w-full max-w-3xl bg-slate-900 border border-slate-600 rounded-md p-4">
+                <div class="flex items-center justify-between mb-3">
+                    <div class="text-lg unique-text">Import/Export Grail Data</div>
+                    <button type="button" class="button-base px-4 py-2 w-auto" click.trigger="closeImportExportPopup()">Close</button>
+                </div>
+
+                <div class="mb-4">
+                    <div class="rarity-text mb-2">Export (Base64)</div>
+                    <textarea class="select-base w-full min-h-30 font-mono text-xs" readonly value.bind="exportDataString"></textarea>
+                    <div class="flex gap-2 mt-2">
+                        <button type="button" class="button-base" click.trigger="refreshExportData()">Refresh Export</button>
+                        <button type="button" class="button-base" click.trigger="copyExportData()">Copy Export String</button>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="rarity-text mb-2">Import (Base64)</div>
+                    <textarea class="select-base w-full min-h-30 font-mono text-xs"
+                              value.bind="importDataString"
+                              placeholder="Paste base64 Grail data here"></textarea>
+                    <div class="flex gap-2 mt-2">
+                        <button type="button" class="button-base" click.trigger="importMerge()">Merge</button>
+                        <button type="button" class="button-base" click.trigger="importReplace()">Replace</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
 
     <search-area>
         <div class="w-full m-auto px-5 py-2">
