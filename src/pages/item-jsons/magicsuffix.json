@@ -16776,5 +16776,26 @@
         ],
         "ETypes": [],
         "PType": "Suffix"
+    },
+    {
+        "Name": "of Mastery",
+        "Level": 65,
+        "MaxLevel": 0,
+        "RequiredLevel": 81,
+        "Group": 83,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "-3-5% to Enemy Magic Resistance",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Large Charm"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
     }
 ]

@@ -3443,7 +3443,7 @@
                 "Class": ""
             }
         ],
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Authority",
         "Index": "Authority",
         "Enabled": true,
@@ -10648,7 +10648,7 @@
                 "Class": ""
             }
         ],
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Coven",
         "Index": "Runeword180",
         "Enabled": true,
@@ -11356,7 +11356,7 @@
                 "Class": "pal"
             }
         ],
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Vigilance",
         "Index": "Runeword181",
         "Enabled": true,
@@ -12787,7 +12787,7 @@
                 "Class": ""
             }
         ],
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Ritual",
         "Index": "Runeword182",
         "Enabled": true,
@@ -18463,7 +18463,7 @@
                 "Class": ""
             }
         ],
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Void",
         "Index": "Void",
         "Enabled": true,

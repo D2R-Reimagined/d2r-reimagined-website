@@ -24286,5 +24286,251 @@
         ],
         "ETypes": [],
         "PType": "Prefix"
+    },
+    {
+        "Name": "Apprentice",
+        "Level": 25,
+        "MaxLevel": 0,
+        "RequiredLevel": 20,
+        "Group": 213,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+1 Random Warlock Skill",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+2-3 to Strength",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+2-3 to Energy",
+                "Index": 2
+            }
+        ],
+        "Types": [
+            "Large Charm"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Adept",
+        "Level": 55,
+        "MaxLevel": 0,
+        "RequiredLevel": 50,
+        "Group": 213,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+2 Random Warlock Skill",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+4-6 to Strength",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+4-6 to Energy",
+                "Index": 2
+            }
+        ],
+        "Types": [
+            "Large Charm"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Shadowed",
+        "Level": 81,
+        "MaxLevel": 0,
+        "RequiredLevel": 80,
+        "Group": 213,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+3 Random Warlock Skill",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+8-10 to Strength",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+8-10 to Energy",
+                "Index": 2
+            }
+        ],
+        "Types": [
+            "Large Charm"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Devil's",
+        "Level": 50,
+        "MaxLevel": 0,
+        "RequiredLevel": 42,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+1 to Demon Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Gloves"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Devil's",
+        "Level": 50,
+        "MaxLevel": 0,
+        "RequiredLevel": 42,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+1 to Eldritch Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Gloves"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Devil's",
+        "Level": 50,
+        "MaxLevel": 0,
+        "RequiredLevel": 42,
+        "Group": 125,
+        "ClassSpecific": "Warlock",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+1 to Chaos Skills (Warlock Only)",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Gloves"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Devil's",
+        "Level": 35,
+        "MaxLevel": 0,
+        "RequiredLevel": 30,
+        "Group": 201,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+2 Random Warlock Skill",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Amulet",
+            "Circlet",
+            "Belt",
+            "Ring"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Devil's",
+        "Level": 55,
+        "MaxLevel": 0,
+        "RequiredLevel": 50,
+        "Group": 201,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+3 Random Warlock Skill",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Amulet",
+            "Circlet",
+            "Belt",
+            "Ring"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Devil's",
+        "Level": 75,
+        "MaxLevel": 0,
+        "RequiredLevel": 65,
+        "Group": 201,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+4 Random Warlock Skill",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Amulet",
+            "Circlet",
+            "Belt",
+            "Ring"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Devil's",
+        "Level": 85,
+        "MaxLevel": 0,
+        "RequiredLevel": 75,
+        "Group": 201,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+5 Random Warlock Skill",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Amulet",
+            "Circlet",
+            "Belt",
+            "Ring"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
     }
 ]

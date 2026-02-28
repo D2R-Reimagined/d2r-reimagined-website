@@ -7195,7 +7195,7 @@
             }
         ],
         "Level": 1,
-        "Vanilla": "N"
+        "Vanilla": "Y"
     },
     {
         "Index": "Bane's Garments",
@@ -7343,7 +7343,7 @@
             }
         ],
         "Level": 1,
-        "Vanilla": "N"
+        "Vanilla": "Y"
     },
     {
         "Index": "Horazon's Splendor",
@@ -7643,7 +7643,7 @@
             }
         ],
         "Level": 1,
-        "Vanilla": "N"
+        "Vanilla": "Y"
     },
     {
         "Index": "Midnight Calling",
@@ -20191,7 +20191,7 @@
                 "Type": "Circlet",
                 "Set": "Warlock's Exploration",
                 "SetPropertiesString": [
-                    "+2 to Warlock Skill Levels (4 Items)",
+                    "+1 to Warlock Skill Levels (4 Items)",
                     "+150 Defense (5 Items)",
                     "+10 to all Attributes (3 Items)",
                     "+50% Chance Items Roll Magic or Better (2 Items)"
@@ -20320,7 +20320,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Warlock Skill Levels",
+                "PropertyString": "+1 to Warlock Skill Levels",
                 "Index": 2
             },
             {

@@ -1454,6 +1454,10 @@
                 "Index": 0
             },
             {
+                "PropertyString": "-5-10% to Enemy Physical Damage Resistance",
+                "Index": 5
+            },
+            {
                 "PropertyString": "Prevent Monster Heal",
                 "Index": 4
             },
@@ -4409,6 +4413,10 @@
                 "Index": 5
             },
             {
+                "PropertyString": "-5% to Enemy Physical Damage Resistance",
+                "Index": 6
+            },
+            {
                 "PropertyString": "+10 to Dexterity",
                 "Index": 0
             },
@@ -4834,7 +4842,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+25 Defense",
+                "PropertyString": "+15-25 Defense",
                 "Index": 6
             },
             {
@@ -4850,7 +4858,7 @@
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "29-33",
+            "ArmorString": "19-33",
             "Block": 5,
             "EquipmentType": 0,
             "Name": "Tome [N]",
@@ -7384,6 +7392,10 @@
                 "Index": 6
             },
             {
+                "PropertyString": "-5% to Enemy Physical Damage Resistance",
+                "Index": 7
+            },
+            {
                 "PropertyString": "+25% Chance of Open Wounds",
                 "Index": 2
             },
@@ -9027,7 +9039,7 @@
         "Code": "axf",
         "Properties": [
             {
-                "PropertyString": "+1-2 to Martial Arts (Assassin Only)",
+                "PropertyString": "+1 to Martial Arts (Assassin Only)",
                 "Index": 2
             },
             {
@@ -12403,7 +12415,7 @@
         "Properties": [
             {
                 "PropertyString": "8% Chance to cast level 2 Weaken on striking",
-                "Index": 3
+                "Index": 2
             },
             {
                 "PropertyString": "+125-175% Enhanced Weapon Damage",
@@ -12411,19 +12423,19 @@
             },
             {
                 "PropertyString": "10-15% Increased Chance of Blocking",
+                "Index": 4
+            },
+            {
+                "PropertyString": "-5-8% to Enemy Physical Damage Resistance",
                 "Index": 5
             },
             {
                 "PropertyString": "Hit Blinds Target +2",
-                "Index": 2
-            },
-            {
-                "PropertyString": "Knockback",
                 "Index": 1
             },
             {
                 "PropertyString": "+15-25% to All Resistances",
-                "Index": 4
+                "Index": 3
             }
         ],
         "DamageArmorEnhanced": true,
@@ -13550,6 +13562,10 @@
                 "Index": 2
             },
             {
+                "PropertyString": "-15% to Enemy Physical Damage Resistance",
+                "Index": 7
+            },
+            {
                 "PropertyString": "+15% Chance of Open Wounds",
                 "Index": 6
             },
@@ -13609,6 +13625,10 @@
             {
                 "PropertyString": "+5% Mana stolen per hit",
                 "Index": 4
+            },
+            {
+                "PropertyString": "-5-8% to Enemy Physical Damage Resistance",
+                "Index": 7
             },
             {
                 "PropertyString": "Slows Target by 10%",
@@ -15166,6 +15186,10 @@
                 "Index": 0
             },
             {
+                "PropertyString": "-5% to Enemy Physical Damage Resistance",
+                "Index": 6
+            },
+            {
                 "PropertyString": "+40% Deadly Strike",
                 "Index": 1
             },
@@ -16440,8 +16464,12 @@
         "Code": "wa4",
         "Properties": [
             {
-                "PropertyString": "+15-20% Increased Attack Speed",
+                "PropertyString": "+10-15% Increased Attack Speed",
                 "Index": 3
+            },
+            {
+                "PropertyString": "+10-15% Faster Cast Rate",
+                "Index": 4
             },
             {
                 "PropertyString": "+10% to Magic Skill Damage",
@@ -16458,10 +16486,6 @@
             {
                 "PropertyString": "+66-122% Enhanced Defense",
                 "Index": 6
-            },
-            {
-                "PropertyString": "+3-5 Life after each Kill",
-                "Index": 4
             },
             {
                 "PropertyString": "+3-5 to Mana after each Kill",
@@ -16604,11 +16628,15 @@
         "Code": "pax",
         "Properties": [
             {
+                "PropertyString": "8% Chance to cast level 5 Battle Orders on striking",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+30% Increased Attack Speed",
                 "Index": 0
             },
             {
-                "PropertyString": "+50-70% Enhanced Weapon Damage",
+                "PropertyString": "+80-100% Enhanced Weapon Damage",
                 "Index": 2
             },
             {
@@ -16629,7 +16657,7 @@
             "DamageTypes": [
                 {
                     "Type": 1,
-                    "DamageString": "(27-30) to (58-66)"
+                    "DamageString": "(32-36) to (70-78)"
                 }
             ],
             "Speed": 10,
@@ -18963,6 +18991,10 @@
             {
                 "PropertyString": "Ignore Target's Defense",
                 "Index": 1
+            },
+            {
+                "PropertyString": "-15% to Enemy Physical Damage Resistance",
+                "Index": 7
             },
             {
                 "PropertyString": "+35% Deadly Strike",
@@ -21504,6 +21536,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "-5% to Enemy Physical Damage Resistance",
+                "Index": 6
+            },
+            {
                 "PropertyString": "+3-5 to Holy Fire (Paladin Only)",
                 "Index": 3
             },
@@ -21567,6 +21603,10 @@
             {
                 "PropertyString": "Ignore Target's Defense",
                 "Index": 3
+            },
+            {
+                "PropertyString": "-5% to Enemy Physical Damage Resistance",
+                "Index": 7
             }
         ],
         "DamageArmorEnhanced": true,
@@ -22565,6 +22605,10 @@
             {
                 "PropertyString": "Adds 10-20 Weapon Fire Damage",
                 "Index": 6
+            },
+            {
+                "PropertyString": "-5% to Enemy Physical Damage Resistance",
+                "Index": 7
             },
             {
                 "PropertyString": "+33% Cold Resistance",
@@ -25202,6 +25246,10 @@
             {
                 "PropertyString": "+8% Life stolen per hit",
                 "Index": 1
+            },
+            {
+                "PropertyString": "-10% to Enemy Physical Damage Resistance",
+                "Index": 8
             },
             {
                 "PropertyString": "Prevent Monster Heal",
@@ -29256,7 +29304,7 @@
         "Code": "wa6",
         "Properties": [
             {
-                "PropertyString": "+2-3 to Demon Skills (Warlock Only)",
+                "PropertyString": "+2-3 to Chaos Skills (Warlock Only)",
                 "Index": 0
             },
             {
@@ -31346,8 +31394,12 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+15-20% Increased Attack Speed",
+                "PropertyString": "+10-15% Increased Attack Speed",
                 "Index": 4
+            },
+            {
+                "PropertyString": "+10-15% Faster Cast Rate",
+                "Index": 5
             },
             {
                 "PropertyString": "Adds 15-20 Weapon Damage",
@@ -31356,10 +31408,6 @@
             {
                 "PropertyString": "+5% Mana stolen per hit",
                 "Index": 6
-            },
-            {
-                "PropertyString": "+5% Life stolen per hit",
-                "Index": 5
             },
             {
                 "PropertyString": "+2-3 to Echoing Strike (Warlock Only)",
@@ -35156,6 +35204,10 @@
                 "Index": 2
             },
             {
+                "PropertyString": "-10% to Enemy Physical Damage Resistance",
+                "Index": 6
+            },
+            {
                 "PropertyString": "+25% Chance of Open Wounds",
                 "Index": 3
             },
@@ -36161,6 +36213,10 @@
             {
                 "PropertyString": "+160-200% Enhanced Weapon Damage",
                 "Index": 4
+            },
+            {
+                "PropertyString": "-5-10% to Enemy Physical Damage Resistance",
+                "Index": 6
             },
             {
                 "PropertyString": "Slows Target by 10-15%",
@@ -45234,7 +45290,7 @@
     },
     {
         "Type": "Ring",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Sling",
         "Index": "Sling",
         "Enabled": true,
@@ -45280,7 +45336,7 @@
     },
     {
         "Type": "Ring",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Opalvein",
         "Index": "Opalvein",
         "Enabled": true,
@@ -45352,7 +45408,7 @@
     },
     {
         "Type": "Helm",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Hellwarden's Will",
         "Index": "Unique Warlock Helm",
         "Enabled": true,
@@ -47109,11 +47165,11 @@
         "Code": "waa",
         "Properties": [
             {
-                "PropertyString": "+2-3 to Warlock Skill Levels",
+                "PropertyString": "+1 to Warlock Skill Levels",
                 "Index": 0
             },
             {
-                "PropertyString": "+2-3 to Weaken (oskill)",
+                "PropertyString": "+1 to Weaken (oskill)",
                 "Index": 1
             },
             {
@@ -47532,7 +47588,7 @@
     },
     {
         "Type": "Grimoire",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Measured Wrath",
         "Index": "Measured Wrath",
         "Enabled": true,
@@ -47963,6 +48019,10 @@
             {
                 "PropertyString": "+10% Mana stolen per hit",
                 "Index": 2
+            },
+            {
+                "PropertyString": "-5-10% to Enemy Physical Damage Resistance",
+                "Index": 8
             },
             {
                 "PropertyString": "+35-50 Defense",
@@ -48455,7 +48515,7 @@
     },
     {
         "Type": "Amulet",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Entropy Locket",
         "Index": "Entropy Locket",
         "Enabled": true,
@@ -48465,7 +48525,7 @@
         "Code": "amu",
         "Properties": [
             {
-                "PropertyString": "4% Chance to cast level 19 Miasma Chains on striking",
+                "PropertyString": "9% Chance to cast level 25 Miasma Chains on striking",
                 "Index": 0
             },
             {
@@ -49513,6 +49573,67 @@
         }
     },
     {
+        "Type": "Sword",
+        "Vanilla": "N",
+        "Name": "Black Razor",
+        "Index": "Black Razor",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 40,
+        "RequiredLevel": 55,
+        "Code": "9fb",
+        "Properties": [
+            {
+                "PropertyString": "+3 to Carnage (oskill)",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+200-260% Enhanced Weapon Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Adds 50-75 Weapon Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+50-100 to Attack Rating",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+10% Life stolen per hit",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+20% Deadly Strike",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+20% Chance of Open Wounds",
+                "Index": 3
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageTypes": [
+                {
+                    "Type": 0,
+                    "DamageString": "(107-118) to (180-201)"
+                },
+                {
+                    "Type": 1,
+                    "DamageString": "(137-154) to (237-269)"
+                }
+            ],
+            "Speed": -10,
+            "EquipmentType": 1,
+            "Name": "Zweihander [X]",
+            "RequiredStrength": "125",
+            "RequiredDexterity": "94",
+            "Durability": 250,
+            "RequiredClass": ""
+        }
+    },
+    {
         "Type": "Hammer",
         "Vanilla": "N",
         "Name": "Burning Desire",
@@ -49654,7 +49775,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "-15-125% to Enemy Magic Resistance",
+                "PropertyString": "-10-15% to Enemy Magic Resistance",
                 "Index": 2
             },
             {
@@ -51000,7 +51121,7 @@
         "Code": "wa9",
         "Properties": [
             {
-                "PropertyString": "+1-2 to Chaos Skills (Warlock Only)",
+                "PropertyString": "+1-2 to Demon Skills (Warlock Only)",
                 "Index": 1
             },
             {
@@ -51747,6 +51868,10 @@
             {
                 "PropertyString": "+8% Life stolen per hit",
                 "Index": 2
+            },
+            {
+                "PropertyString": "-5-10% to Enemy Physical Damage Resistance",
+                "Index": 7
             },
             {
                 "PropertyString": "+10% Chance of Crushing Blow",
@@ -53253,6 +53378,10 @@
                 "Index": 3
             },
             {
+                "PropertyString": "-5% to Enemy Physical Damage Resistance",
+                "Index": 9
+            },
+            {
                 "PropertyString": "+20 to Strength",
                 "Index": 4
             },
@@ -54665,6 +54794,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "-15% to Enemy Physical Damage Resistance",
+                "Index": 5
+            },
+            {
                 "PropertyString": "+25-50% Chance of Open Wounds",
                 "Index": 4
             },
@@ -54696,7 +54829,7 @@
     },
     {
         "Type": "Sword",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Dreadfang",
         "Index": "Dreadfang",
         "Enabled": true,
@@ -54755,67 +54888,6 @@
             "Name": "Legend Sword [E]",
             "RequiredStrength": "117",
             "RequiredDexterity": "67",
-            "Durability": 250,
-            "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Sword",
-        "Vanilla": "N",
-        "Name": "Black Razor",
-        "Index": "Black Razor",
-        "Enabled": true,
-        "Rarity": 1,
-        "ItemLevel": 40,
-        "RequiredLevel": 61,
-        "Code": "9fb",
-        "Properties": [
-            {
-                "PropertyString": "+2 to Barbarian Skill Levels",
-                "Index": 6
-            },
-            {
-                "PropertyString": "+200-260% Enhanced Weapon Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Adds 50-75 Weapon Damage",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+50-100 to Attack Rating",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+12% Life stolen per hit",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+20% Deadly Strike",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+50% Chance of Open Wounds",
-                "Index": 3
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageTypes": [
-                {
-                    "Type": 0,
-                    "DamageString": "(107-118) to (180-201)"
-                },
-                {
-                    "Type": 1,
-                    "DamageString": "(137-154) to (237-269)"
-                }
-            ],
-            "Speed": -10,
-            "EquipmentType": 1,
-            "Name": "Zweihander [X]",
-            "RequiredStrength": "125",
-            "RequiredDexterity": "94",
             "Durability": 250,
             "RequiredClass": ""
         }
@@ -55347,6 +55419,10 @@
                 "Index": 1
             },
             {
+                "PropertyString": "-10% to Enemy Physical Damage Resistance",
+                "Index": 6
+            },
+            {
                 "PropertyString": "+20-50% Chance Items Roll Magic or Better",
                 "Index": 4
             }
@@ -55444,6 +55520,14 @@
             {
                 "PropertyString": "+230-280% Enhanced Weapon Damage",
                 "Index": 0
+            },
+            {
+                "PropertyString": "-5-10% to Enemy Physical Damage Resistance",
+                "Index": 5
+            },
+            {
+                "PropertyString": "-5-10% to Enemy Cold Resistance",
+                "Index": 6
             },
             {
                 "PropertyString": "Slows Target by 15%",
@@ -55665,6 +55749,10 @@
             {
                 "PropertyString": "+5-8% Life stolen per hit",
                 "Index": 6
+            },
+            {
+                "PropertyString": "-10-15% to Enemy Physical Damage Resistance",
+                "Index": 7
             },
             {
                 "PropertyString": "Prevent Monster Heal",
@@ -57454,56 +57542,6 @@
         }
     },
     {
-        "Type": "Voodoo Heads",
-        "Vanilla": "N",
-        "Name": "Prayer for the Dying",
-        "Index": "Prayer for the Dying",
-        "Enabled": true,
-        "Rarity": 1,
-        "ItemLevel": 60,
-        "RequiredLevel": 65,
-        "Code": "nee",
-        "Properties": [
-            {
-                "PropertyString": "Level 10-15 Prayer Aura When Equipped",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+3 to Necromancer Skill Levels",
-                "Index": 3
-            },
-            {
-                "PropertyString": "30-50% Increased Chance of Blocking",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+150-200% Enhanced Defense",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+10% to Experience Gained",
-                "Index": 2
-            },
-            {
-                "PropertyString": "Socketed (2)",
-                "Index": 5
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageString": null,
-            "DamageStringPrefix": null,
-            "ArmorString": "367-441",
-            "Block": 10,
-            "EquipmentType": 0,
-            "Name": "Succubus Skull [E]",
-            "RequiredStrength": "95",
-            "RequiredDexterity": "0",
-            "Durability": 20,
-            "RequiredClass": "Necromancer"
-        }
-    },
-    {
         "Type": "Auric Shields",
         "Vanilla": "N",
         "Name": "Grand Inquisitor",
@@ -57892,60 +57930,6 @@
         }
     },
     {
-        "Type": "Voodoo Heads",
-        "Vanilla": "N",
-        "Name": "Basilisk's Kiss",
-        "Index": "Basilisk's Kiss",
-        "Enabled": true,
-        "Rarity": 1,
-        "ItemLevel": 58,
-        "RequiredLevel": 66,
-        "Code": "ned",
-        "Properties": [
-            {
-                "PropertyString": "25% Chance to cast level 5 Decrepify when struck",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+2-3 to Necromancer Skill Levels",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+30% Faster Cast Rate",
-                "Index": 6
-            },
-            {
-                "PropertyString": "+30-40% Faster Block Rate",
-                "Index": 2
-            },
-            {
-                "PropertyString": "25-35% Increased Chance of Blocking",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+200-300% Enhanced Defense",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+20-30% Physical Damage Reduction",
-                "Index": 3
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageString": null,
-            "DamageStringPrefix": null,
-            "ArmorString": "429-572",
-            "Block": 8,
-            "EquipmentType": 0,
-            "Name": "Overseer Skull [E]",
-            "RequiredStrength": "91",
-            "RequiredDexterity": "0",
-            "Durability": 20,
-            "RequiredClass": "Necromancer"
-        }
-    },
-    {
         "Type": "Amulet",
         "Vanilla": "Y",
         "Name": "Mara's Kaleidoscope",
@@ -58138,7 +58122,7 @@
     },
     {
         "Type": "Boots",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Wraithstep",
         "Index": "Wraithstep",
         "Enabled": true,
@@ -58194,7 +58178,7 @@
     },
     {
         "Type": "Knife",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Bloodpact Shard",
         "Index": "Bloodpact Shard",
         "Enabled": true,
@@ -58224,7 +58208,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Slows Target by 25%",
+                "PropertyString": "Slows Target by 10%",
                 "Index": 7
             },
             {
@@ -59706,7 +59690,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+1 to Chaos Skills (Warlock Only)",
+                "PropertyString": "+1 to Demon Skills (Warlock Only)",
                 "Index": 1
             },
             {
@@ -59766,6 +59750,10 @@
             {
                 "PropertyString": "Adds 20-240 Weapon Fire Damage",
                 "Index": 6
+            },
+            {
+                "PropertyString": "-15% to Enemy Physical Damage Resistance",
+                "Index": 9
             },
             {
                 "PropertyString": "+15 to Strength",
@@ -61505,12 +61493,8 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+15-25% to Magic Skill Damage",
-                "Index": 3
-            },
-            {
                 "PropertyString": "-10-20% to Enemy Magic Resistance",
-                "Index": 4
+                "Index": 3
             },
             {
                 "PropertyString": "+3-4 to Abyss (Warlock Only)",
@@ -61522,11 +61506,11 @@
             },
             {
                 "PropertyString": "+150-200% Enhanced Defense",
-                "Index": 6
+                "Index": 5
             },
             {
                 "PropertyString": "+25-35% to All Resistances",
-                "Index": 5
+                "Index": 4
             }
         ],
         "DamageArmorEnhanced": true,
@@ -61610,7 +61594,7 @@
     },
     {
         "Type": "Belt",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Gheed's Wager",
         "Index": "Gheed's Wager",
         "Enabled": true,
@@ -61705,64 +61689,6 @@
             "RequiredDexterity": "83",
             "Durability": 250,
             "RequiredClass": ""
-        }
-    },
-    {
-        "Type": "Voodoo Heads",
-        "Vanilla": "N",
-        "Name": "Nihlathak's Spirit",
-        "Index": "Nihlathak's Spirit",
-        "Enabled": true,
-        "Rarity": 1,
-        "ItemLevel": 62,
-        "RequiredLevel": 71,
-        "Code": "ned",
-        "Properties": [
-            {
-                "PropertyString": "+1 to Warp (oskill)",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+20% Faster Run/Walk Speed",
-                "Index": 3
-            },
-            {
-                "PropertyString": "+5 to Corpse Explosion (Necromancer Only)",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+1-3 to Revive (Necromancer Only)",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+1.5 Defense (Per Character Level)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+1.5 to Mana (Per Character Level)",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+25-35% to All Resistances",
-                "Index": 7
-            },
-            {
-                "PropertyString": "Physical Damage Reduced By 15",
-                "Index": 6
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageString": null,
-            "DamageStringPrefix": null,
-            "ArmorString": "(204-248)-(248-292)",
-            "Block": 8,
-            "EquipmentType": 0,
-            "Name": "Overseer Skull [E]",
-            "RequiredStrength": "91",
-            "RequiredDexterity": "0",
-            "Durability": 20,
-            "RequiredClass": "Necromancer"
         }
     },
     {
@@ -62257,7 +62183,7 @@
     },
     {
         "Type": "Grimoire",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Ars Tor'Baalos",
         "Index": "Ars Tor'Baalos",
         "Enabled": true,
@@ -64145,7 +64071,7 @@
     },
     {
         "Type": "Colossal Jewel",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Defender's Bile",
         "Index": "Defender's Bile",
         "Enabled": false,
@@ -64195,7 +64121,7 @@
     },
     {
         "Type": "Colossal Jewel",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Guardian's Thunder",
         "Index": "Guardian's Thunder",
         "Enabled": false,
@@ -64245,7 +64171,7 @@
     },
     {
         "Type": "Colossal Jewel",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Protector's Frost",
         "Index": "Protector's Frost",
         "Enabled": false,
@@ -64295,7 +64221,7 @@
     },
     {
         "Type": "Colossal Jewel",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Defender's Fire",
         "Index": "Defender's Fire",
         "Enabled": false,
@@ -64345,7 +64271,7 @@
     },
     {
         "Type": "Colossal Jewel",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Protector's Stone",
         "Index": "Protector's Stone",
         "Enabled": false,
@@ -64395,7 +64321,7 @@
     },
     {
         "Type": "Colossal Jewel",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Guardian's Light",
         "Index": "Guardian's Light",
         "Enabled": false,
@@ -64445,7 +64371,7 @@
     },
     {
         "Type": "Grand Charm",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Latent Cold Rupture",
         "Index": "PreCrafted Cold Rupture",
         "Enabled": true,
@@ -64479,7 +64405,7 @@
     },
     {
         "Type": "Grand Charm",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Latent Flame Rift",
         "Index": "PreCrafted Flame Rift",
         "Enabled": true,
@@ -64513,7 +64439,7 @@
     },
     {
         "Type": "Grand Charm",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Latent Crack of the Heavens",
         "Index": "PreCrafted Crack of the Heavens",
         "Enabled": true,
@@ -64547,7 +64473,7 @@
     },
     {
         "Type": "Grand Charm",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Latent Rotting Fissure",
         "Index": "PreCrafted Rotting Fissure",
         "Enabled": true,
@@ -64581,7 +64507,7 @@
     },
     {
         "Type": "Grand Charm",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Latent Bone Break",
         "Index": "PreCrafted Bone Break",
         "Enabled": true,
@@ -64615,7 +64541,7 @@
     },
     {
         "Type": "Grand Charm",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Latent Black Cleft",
         "Index": "PreCrafted Black Cleft",
         "Enabled": true,
@@ -64649,7 +64575,7 @@
     },
     {
         "Type": "Crafted Sunder Charm",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Renewed Cold Rupture",
         "Index": "Crafted Cold Rupture",
         "Enabled": false,
@@ -64757,7 +64683,7 @@
     },
     {
         "Type": "Crafted Sunder Charm",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Renewed Flame Rift",
         "Index": "Crafted Flame Rift",
         "Enabled": false,
@@ -64865,7 +64791,7 @@
     },
     {
         "Type": "Crafted Sunder Charm",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Renewed Crack of the Heavens",
         "Index": "Crafted Crack of the Heavens",
         "Enabled": false,
@@ -64973,7 +64899,7 @@
     },
     {
         "Type": "Crafted Sunder Charm",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Renewed Rotting Fissure",
         "Index": "Crafted Rotting Fissure",
         "Enabled": false,
@@ -65081,7 +65007,7 @@
     },
     {
         "Type": "Crafted Sunder Charm",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Renewed Bone Break",
         "Index": "Crafted Bone Break",
         "Enabled": false,
@@ -65189,7 +65115,7 @@
     },
     {
         "Type": "Crafted Sunder Charm",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Renewed Black Cleft",
         "Index": "Crafted Black Cleft",
         "Enabled": false,
@@ -66177,6 +66103,114 @@
             "EquipmentType": 0,
             "Name": "Hellspawn Skull [E]",
             "RequiredStrength": "82",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Necromancer"
+        }
+    },
+    {
+        "Type": "Voodoo Heads",
+        "Vanilla": "N",
+        "Name": "Jondar's Horde",
+        "Index": "Jondars Horde",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 70,
+        "RequiredLevel": 75,
+        "Code": "ned",
+        "Properties": [
+            {
+                "PropertyString": "+6 to Max Skeleton Warriors",
+                "Index": 3
+            },
+            {
+                "PropertyString": "-6 to Max Skeletal Mages",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+2-3 to Summoning Skills (Necromancer Only)",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+2-3 to Necromancer Skill Levels",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+5 to Concentration (oskill)",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+150-200% Enhanced Defense",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Requirements Increased By 50%",
+                "Index": 6
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "357-429",
+            "Block": 8,
+            "EquipmentType": 0,
+            "Name": "Overseer Skull [E]",
+            "RequiredStrength": "136",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Necromancer"
+        }
+    },
+    {
+        "Type": "Voodoo Heads",
+        "Vanilla": "N",
+        "Name": "Mehtan's Choice",
+        "Index": "Mehtans Choice",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 70,
+        "RequiredLevel": 75,
+        "Code": "nee",
+        "Properties": [
+            {
+                "PropertyString": "+6 to Max Skeletal Mages",
+                "Index": 3
+            },
+            {
+                "PropertyString": "-6 to Max Skeleton Warriors",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+2-3 to Summoning Skills (Necromancer Only)",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+2-3 to Necromancer Skill Levels",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+5 to Conviction (oskill)",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+150-200% Enhanced Defense",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Requirements Increased By 50%",
+                "Index": 6
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "367-441",
+            "Block": 10,
+            "EquipmentType": 0,
+            "Name": "Succubus Skull [E]",
+            "RequiredStrength": "142",
             "RequiredDexterity": "0",
             "Durability": 20,
             "RequiredClass": "Necromancer"
@@ -67178,6 +67212,10 @@
                 "Index": 7
             },
             {
+                "PropertyString": "-5-10% to Enemy Physical Damage Resistance",
+                "Index": 9
+            },
+            {
                 "PropertyString": "+35 to Energy",
                 "Index": 6
             }
@@ -67601,7 +67639,7 @@
     },
     {
         "Type": "Grimoire",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Ars Dul'Mephistos",
         "Index": "Ars Dul'Mephistos",
         "Enabled": true,
@@ -68012,7 +68050,7 @@
         "Code": "wab",
         "Properties": [
             {
-                "PropertyString": "+1 to Chaos Skills (Warlock Only)",
+                "PropertyString": "+1 to Demon Skills (Warlock Only)",
                 "Index": 1
             },
             {
@@ -69030,7 +69068,7 @@
     },
     {
         "Type": "Grimoire",
-        "Vanilla": "N",
+        "Vanilla": "Y",
         "Name": "Ars Al'Diabolos",
         "Index": "Ars Al'Diablolos",
         "Enabled": true,
@@ -69173,6 +69211,10 @@
             {
                 "PropertyString": "+5-10% Life stolen per hit",
                 "Index": 4
+            },
+            {
+                "PropertyString": "-10-15% to Enemy Physical Damage Resistance",
+                "Index": 6
             },
             {
                 "PropertyString": "+30% Deadly Strike",
@@ -72058,6 +72100,10 @@
                 "Index": 4
             },
             {
+                "PropertyString": "-10% to Enemy Physical Damage Resistance",
+                "Index": 6
+            },
+            {
                 "PropertyString": "+15% Chance of Crushing Blow",
                 "Index": 5
             }
@@ -72705,7 +72751,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "-25-30% to Enemy Cold Resistance",
+                "PropertyString": "-15-20% to Enemy Cold Resistance",
                 "Index": 2
             },
             {
@@ -72881,7 +72927,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Adds 30-50 Weapon Damage",
+                "PropertyString": "Adds 50-80 Weapon Damage",
                 "Index": 3
             },
             {
@@ -73488,7 +73534,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+25-30% to Fire Skill Damage",
+                "PropertyString": "+15-20% to Fire Skill Damage",
                 "Index": 3
             },
             {
@@ -75101,11 +75147,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+10-20% to Lightning Skill Damage",
+                "PropertyString": "+15-20% to Lightning Skill Damage",
                 "Index": 3
             },
             {
-                "PropertyString": "-10-20% to Enemy Lightning Resistance",
+                "PropertyString": "-10-15% to Enemy Lightning Resistance",
                 "Index": 4
             },
             {
@@ -75668,6 +75714,52 @@
         "Equipment": {
             "EquipmentType": 2,
             "Name": "Magic Bolts",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Amulet",
+        "Vanilla": "N",
+        "Name": "The Thief's Choker",
+        "Index": "The Thief's Choker",
+        "Enabled": true,
+        "Rarity": 2,
+        "ItemLevel": 80,
+        "RequiredLevel": 85,
+        "Code": "amu",
+        "Properties": [
+            {
+                "PropertyString": "+1 to Max Traps",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+1-2 to Traps (Assassin Only)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+15-20% Increased Attack Speed",
+                "Index": 1
+            },
+            {
+                "PropertyString": "-5-10% to All Enemy Elemental Resistances",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+10-20% to Dexterity",
+                "Index": 2
+            },
+            {
+                "PropertyString": "-20 to -30% to All Resistances",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Amulet",
             "RequiredStrength": null,
             "RequiredDexterity": null,
             "Durability": 0,
@@ -76704,6 +76796,60 @@
         }
     },
     {
+        "Type": "Voodoo Heads",
+        "Vanilla": "N",
+        "Name": "Rathmas's Desire",
+        "Index": "Rathmas Desire",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 83,
+        "RequiredLevel": 87,
+        "Code": "ned",
+        "Properties": [
+            {
+                "PropertyString": "+2-3 to Max Skeleton Warriors",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+2-3 to Max Skeletal Mages",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+2-3 to Necromancer Skill Levels",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+3 Random Necromancer Skill",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+200-300% Enhanced Defense",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-10% Increased Maximum Life",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+20-30% to All Resistances",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageString": null,
+            "DamageStringPrefix": null,
+            "ArmorString": "429-572",
+            "Block": 8,
+            "EquipmentType": 0,
+            "Name": "Overseer Skull [E]",
+            "RequiredStrength": "91",
+            "RequiredDexterity": "0",
+            "Durability": 20,
+            "RequiredClass": "Necromancer"
+        }
+    },
+    {
         "Type": "Primal Helm",
         "Vanilla": "N",
         "Name": "Conscience of the King",
@@ -76872,6 +77018,75 @@
             "Name": "Runic Talons [E]",
             "RequiredStrength": "115",
             "RequiredDexterity": "115",
+            "Durability": 250,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Sword",
+        "Vanilla": "N",
+        "Name": "Harrogath's Last Stand",
+        "Index": "Harrogaths Last Stand",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 85,
+        "RequiredLevel": 88,
+        "Code": "7fb",
+        "Properties": [
+            {
+                "PropertyString": "15% Chance to cast level 10 Burst of Speed when you Kill an Enemy",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+10 to Carnage (oskill)",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+5 to Melee Mastery (oskill)",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+30-50% Increased Attack Speed",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+300-400% Enhanced Weapon Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+150-250 to Minimum Weapon Damage",
+                "Index": 7
+            },
+            {
+                "PropertyString": "+2 to Maximum Weapon Damage (Per Character Level)",
+                "Index": 3
+            },
+            {
+                "PropertyString": "-15-25% to Enemy Physical Damage Resistance",
+                "Index": 2
+            },
+            {
+                "PropertyString": "Requirements Increased By 50%",
+                "Index": 8
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageTypes": [
+                {
+                    "Type": 0,
+                    "DamageString": "(254-380) to (456-550)"
+                },
+                {
+                    "Type": 1,
+                    "DamageString": "(394-555) to (660-805)"
+                }
+            ],
+            "Speed": 10,
+            "EquipmentType": 1,
+            "Name": "Colossus Sword [E]",
+            "RequiredStrength": "273",
+            "RequiredDexterity": "142",
             "Durability": 250,
             "RequiredClass": ""
         }
@@ -77433,7 +77648,7 @@
         "Code": "wae",
         "Properties": [
             {
-                "PropertyString": "+2 to Chaos Skills (Warlock Only)",
+                "PropertyString": "+2 to Demon Skills (Warlock Only)",
                 "Index": 1
             },
             {
