@@ -206,7 +206,10 @@ export class Runewords {
         }
     }
 
-    // Build options and hydrate filters from URL before controls render
+    /**
+     * Aurelia lifecycle hook.
+     * Builds filter options from dataset contents and hydrates initial state from URL params.
+     */
     binding() {
         this.hydrateRuneCatalog();
         const urlParams = new URLSearchParams(window.location.search);
@@ -287,13 +290,20 @@ export class Runewords {
         this.hydrateSelectedRunesFromSearch();
     }
 
+    /**
+     * Aurelia lifecycle hook.
+     * Sets up debounced filtering once the view is attached, then performs first render.
+     */
     attached() {
         this._debouncedSearchItem = debounce(() => this.updateList(), 350);
         this.updateList();
         this.updateUrl();
     }
 
-    // Push current filters to URL
+    /**
+     * Writes the current filter state back into query params.
+     * Keeps links/share/bookmarks in sync with UI state.
+     */
     private updateUrl() {
         syncParamsToUrl({
             search: this.search,
@@ -305,24 +315,40 @@ export class Runewords {
         }, false);
     }
 
+    /**
+     * Reacts to rune search changes.
+     * Triggers debounced filtering and URL sync.
+     */
     @watch('searchRunes')
     handleSearchRunesChanged() {
         if (this._debouncedSearchItem) this._debouncedSearchItem();
         this.updateUrl();
     }
 
+    /**
+     * Reacts to free-text search changes.
+     * Triggers debounced filtering and URL sync.
+     */
     @watch('search')
     handleSearchChanged() {
         if (this._debouncedSearchItem) this._debouncedSearchItem();
         this.updateUrl();
     }
 
+    /**
+     * Reacts to item-type filter changes.
+     * Triggers debounced filtering and URL sync.
+     */
     @watch('selectedType')
     selectedTypeChanged() {
         if (this._debouncedSearchItem) this._debouncedSearchItem();
         this.updateUrl();
     }
 
+    /**
+     * Reacts to rune-count changes and normalizes select values to numbers.
+     * Triggers debounced filtering and URL sync.
+     */
     @watch('selectedAmount')
     selectedAmountChanged() {
         // Coerce from string to number when coming from <select>
@@ -340,18 +366,30 @@ export class Runewords {
         this.updateUrl();
     }
 
+    /**
+     * Reacts to exact-type toggle changes.
+     * Triggers debounced filtering and URL sync.
+     */
     @watch('exclusiveType')
     handleExclusiveTypeChanged() {
         if (this._debouncedSearchItem) this._debouncedSearchItem();
         this.updateUrl();
     }
 
+    /**
+     * Reacts to hide-vanilla toggle changes.
+     * Triggers debounced filtering and URL sync.
+     */
     @watch('hideVanilla')
     handleHideVanillaChanged() {
         if (this._debouncedSearchItem) this._debouncedSearchItem();
         this.updateUrl();
     }
 
+    /**
+     * Normalizes rune names for matching.
+     * Example: "El Rune" -> "el".
+     */
     normalizeRuneName(name: string): string {
         // Remove " Rune" suffix and optional "(n)" rank, then normalize spaces.
         return name
@@ -361,6 +399,10 @@ export class Runewords {
             .toLowerCase();
     }
 
+    /**
+     * Main filtering pipeline.
+     * Applies type, socket count, text, rune, and vanilla filters in sequence.
+     */
     updateList() {
         let filteringRunewords: IRunewordData[] = this.runewords;
 
@@ -495,7 +537,9 @@ export class Runewords {
         this.filteredRunewords = found;
     }
 
-    // Reset all filters and refresh URL/list
+    /**
+     * Clears all active filters and refreshes both result list and URL state.
+     */
     resetFilters() {
         this.search = '';
         this.searchRunes = '';
