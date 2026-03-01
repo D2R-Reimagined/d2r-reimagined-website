@@ -1,5 +1,6 @@
-import { bindable, watch } from 'aurelia';
+import { bindable, inject, watch } from 'aurelia';
 
+import { Configs } from '../../configs';
 import {
     buildOptionsForPresentTypes,
     character_class_options,
@@ -20,6 +21,7 @@ import json from '../item-jsons/sets.json';
 
 import { ISetData } from './set-types';
 
+@inject(Configs)
 export class Sets {
     sets: ISetData[] = json;
     @bindable search: string;
@@ -35,6 +37,12 @@ export class Sets {
 
     // Centralized type options, narrowed to types present in data
     types: ReadonlyArray<IFilterOption> = type_filtering_options.slice();
+
+    selectedLanguageType: string;
+
+    constructor(private readonly configs: Configs) {
+        this.selectedLanguageType = this.configs.language;
+    }
 
     // Build options and hydrate from URL BEFORE controls render
     binding(): void {
@@ -139,6 +147,14 @@ export class Sets {
         this.updateUrl();
     }
 
+    @watch((page: Sets) => page.configs.language)
+    handleLanguageChanged() {
+        if (this._debouncedSearchItem) this._debouncedSearchItem();
+        this.selectedLanguageType = this.configs.language;
+        this.updateList();
+        this.updateUrl();
+    }
+
     updateList(): void {
         try {
             const searchTokens = tokenizeSearch(this.search);
@@ -169,7 +185,7 @@ export class Sets {
             const matchesSearch = (set: ISetData) => {
                 if (!searchTokens.length) return true;
                 const hayParts: string[] = [];
-                if (set.Name) hayParts.push(String(set.Name));
+                if (set.Name) hayParts.push(String(set.Names[this.configs.language] || set.Name));
                 const allProps = set.AllProperties ?? [
                     ...(set.FullProperties || []),
                     ...(set.PartialProperties || []),
@@ -177,8 +193,8 @@ export class Sets {
                 for (const p of allProps || [])
                     hayParts.push(String(p?.PropertyString || ''));
                 for (const si of set.SetItems ?? []) {
-                    hayParts.push(String(si?.Name || ''));
-                    hayParts.push(String(si?.Equipment?.Name || ''));
+                    hayParts.push(String(si?.Names[this.configs.language] || si?.Name || ''));
+                    hayParts.push(String(si?.Equipment?.Names[this.configs.language] || si?.Equipment?.Name || ''));
                     for (const p of si?.Properties || [])
                         hayParts.push(String(p?.PropertyString || ''));
                     for (const s of si?.SetPropertiesString || [])

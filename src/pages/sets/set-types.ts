@@ -7,6 +7,7 @@ export interface IProperty {
 
 export interface IEquipment {
     Name: string;
+    Names: Record<string, string>
     DamageString?: string;
     ArmorString?: string;
     EquipmentType?: number;
@@ -22,6 +23,7 @@ export interface ISetItem {
     Set: string;
     SetPropertiesString?: string[];
     Name: string;
+    Names: Record<string, string>
     Index: string;
     Enabled: boolean;
     Rarity: number;
@@ -37,6 +39,7 @@ export interface ISetItem {
 export interface ISetData {
     Index: string;
     Name: string;
+    Names: Record<string, string>
     SetItems: ISetItem[];
     FullProperties: IProperty[];
     PartialProperties: IProperty[];
