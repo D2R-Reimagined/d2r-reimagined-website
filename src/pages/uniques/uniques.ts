@@ -1,5 +1,6 @@
-import { bindable, watch } from 'aurelia';
+import { bindable, inject, watch } from 'aurelia';
 
+import { Configs } from '../../configs';
 import {
     buildOptionsForPresentTypes,
     character_class_options,
@@ -40,6 +41,7 @@ interface IUniqueProperty {
 
 interface IUniqueEquipment {
     Name?: string;
+    Names?: Record<string, string>;
     RequiredClass?: string;
     RequiredStrength?: string;
     RequiredDexterity?: string;
@@ -52,6 +54,7 @@ interface IUniqueEquipment {
 interface IUniqueItem {
     Index?: string;
     Name?: string;
+    Names?: Record<string, string>;
     Type?: string;
     Equipment?: IUniqueEquipment;
     Properties?: IUniqueProperty[];
@@ -60,6 +63,7 @@ interface IUniqueItem {
     RequiredLevel?: number;
 }
 
+@inject(Configs)
 export class Uniques {
     allUniques: IUniqueItem[] = json as unknown as IUniqueItem[];
     uniques: IUniqueItem[] = [];
@@ -87,6 +91,12 @@ export class Uniques {
 
 
     classes = character_class_options;
+
+    selectedLanguageType: string;
+
+    constructor(private readonly configs: Configs) {
+        this.selectedLanguageType = this.configs.language;
+    }
 
     // Hydrate state from URL and build type options BEFORE the controls render
     binding() {
@@ -211,6 +221,14 @@ export class Uniques {
         if (this._debouncedSearchItem) this._debouncedSearchItem();
     }
 
+    @watch((page: Uniques) => page.configs.language)
+    handleLanguageChanged() {
+        if (this._debouncedSearchItem) this._debouncedSearchItem();
+        this.selectedLanguageType = this.configs.language;
+        this.updateList();
+        this.updateUrl();
+    }
+
     // Helper method to update URL with current search parameters
     private updateUrl() {
         syncParamsToUrl({
@@ -242,7 +260,10 @@ export class Uniques {
         }
 
         this.uniques = this.allUniques.filter((unique: IUniqueItem) => {
-            const name = unique?.Name || '';
+            const engName = unique?.Name || '';
+            if (engName.toLowerCase().includes('grabber')) return false;
+
+            const name = unique?.Names[this.configs.language] || unique?.Name || '';
             if (name.toLowerCase().includes('grabber')) return false;
 
             // 1. Vanilla filter
@@ -332,7 +353,9 @@ export class Uniques {
         // Extract unique Equipment.Name values
         const uniqueEquipmentNames = new Set<string>();
         filteredUniques.forEach((unique) => {
-            if (unique.Equipment && unique.Equipment.Name) {
+            if (unique.Equipment && unique.Equipment.Names[this.configs.language]) {
+                uniqueEquipmentNames.add(unique.Equipment.Names[this.configs.language]);
+            } else if (unique.Equipment && unique.Equipment.Name) {
                 uniqueEquipmentNames.add(unique.Equipment.Name);
             }
         });
