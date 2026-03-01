@@ -1,5 +1,6 @@
-import { bindable, watch } from 'aurelia';
+import { bindable, inject, watch } from 'aurelia';
 
+import { Configs } from '../../configs';
 import {
     buildOptionsForPresentTypes,
     character_class_options,
@@ -25,17 +26,20 @@ interface IUniqueProperty {
 
 interface IUniqueEquipment {
     Name?: string;
+    Names?: Record<string, string>;
     RequiredClass?: string;
 }
 
 interface IUniqueItem {
     Name?: string;
+    Names?: Record<string, string>;
     Type?: string;
     Equipment?: IUniqueEquipment;
     Properties?: IUniqueProperty[];
     Vanilla?: string | number | boolean;
 }
 
+@inject(Configs)
 export class Uniques {
     uniques: IUniqueItem[] = json as unknown as IUniqueItem[];
 
@@ -56,6 +60,12 @@ export class Uniques {
     private _debouncedUpdateUrl!: IDebouncedFunction;
 
     classes = character_class_options;
+
+    selectedLanguageType: string;
+
+    constructor(private readonly configs: Configs) {
+        this.selectedLanguageType = this.configs.language;
+    }
 
     // Hydrate state from URL and build type options BEFORE the controls render
     binding() {
@@ -144,6 +154,14 @@ export class Uniques {
         if (this._debouncedSearchItem) this._debouncedSearchItem();
     }
 
+    @watch((page: Uniques) => page.configs.language)
+    handleLanguageChanged() {
+        if (this._debouncedSearchItem) this._debouncedSearchItem();
+        this.selectedLanguageType = this.configs.language;
+        this.updateList();
+        this.updateUrl();
+    }
+
     // Helper method to update URL with current search parameters
     private updateUrl() {
         syncParamsToUrl({
@@ -176,11 +194,11 @@ export class Uniques {
         const isMatchingSearch = (unique: IUniqueItem) => {
             if (!searchTokens.length) return true;
             const hay = [
-                String(unique?.Name || ''),
+                String(unique?.Names[this.configs.language] || unique?.Name || ''),
                 ...(Array.isArray(unique?.Properties)
                     ? unique.Properties.map((p) => String(p?.PropertyString || ''))
                     : []),
-                String(unique?.Equipment?.Name || ''),
+                String(unique?.Equipment?.Names[this.configs.language] || unique?.Equipment?.Name || ''),
             ]
                 .filter(Boolean)
                 .join(' ')
