@@ -1,5 +1,6 @@
-import { bindable, watch } from 'aurelia';
+import { bindable, inject, watch } from 'aurelia';
 
+import { Configs } from '../../configs';
 import {
     ANCESTOR_ONLY_WHEN_EXACT_OFF,
     buildOptionsForPresentTypes,
@@ -31,6 +32,7 @@ interface IPropertyGroupEntry {
 // We only type the fields we read to avoid over-constraining the data.
 interface IAffixItem {
     Name?: string;
+    Names?: Record<string, string>;
     PType: PType;
     Index?: number;
     Group?: number;
@@ -45,6 +47,7 @@ interface IAffixItem {
     }>;
 }
 
+@inject(Configs)
 export class Affixes {
     // Data
     allAffixes: IAffixItem[] = [];
@@ -91,6 +94,12 @@ export class Affixes {
     // Note: bound via <moo-text-field>, which provides string values. Accept string as well.
     @bindable minRequiredLevel: number | string | undefined;
     @bindable maxRequiredLevel: number | string | undefined;
+
+    selectedLanguageType: string;
+
+    constructor(private readonly configs: Configs) {
+        this.selectedLanguageType = this.configs.language;
+    }
 
     binding() {
         // Read search query parameters from URL before the first render
@@ -302,6 +311,14 @@ export class Affixes {
         this.updateUrl();
     }
 
+    @watch((page: Affixes) => page.configs.language)
+    handleLanguageChanged() {
+        if (this._debouncedFilter) this._debouncedFilter();
+        this.selectedLanguageType = this.configs.language;
+        this.applyFilters();
+        this.updateUrl();
+    }
+
     applyFilters() {
         const tokens = tokenizeSearch(this.search);
         const hasQuery = tokens.length > 0;
@@ -402,7 +419,7 @@ export class Affixes {
                 });
 
                 const hay = [
-                    String(a?.Name || ''),
+                    String(a?.Names[this.configs.language] || a?.Name || ''),
                     ...(a?.Properties || []).map((p) =>
                         p && p.PropertyString ? String(p.PropertyString) : '',
                     ),

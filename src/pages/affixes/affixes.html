@@ -124,7 +124,7 @@
         <div class="card-box card-vis" repeat.for="affix of filteredAffixes">
 
                 <div class="flex justify-between items-center">
-                    <div class="text-lg prop-text mt-1 ml-1">${affix.Name}</div>
+                    <div class="text-lg prop-text mt-1 ml-1">${affix.Names[selectedLanguageType] || affix.Name}</div>
                     <div class="text-lg type-text mt-1 mr-1">${affix.PType}</div>
                 </div>
 
