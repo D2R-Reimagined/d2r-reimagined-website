@@ -1,6 +1,18 @@
 export type Language =
     'enUS'
+    | 'deDE'
+    | 'enUS'
+    | 'esES'
+    | 'esMX'
+    | 'frFR'
+    | 'itIT'
+    | 'jaJP'
     | 'koKR'
+    | 'plPL'
+    | 'ptBR'
+    | 'ruRU'
+    | 'zhCN'
+    | 'zhTW'
 ;
 
 export class Configs {
