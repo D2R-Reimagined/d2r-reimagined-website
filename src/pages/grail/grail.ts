@@ -1,5 +1,6 @@
-import { bindable, watch } from 'aurelia';
+import { bindable, inject, watch } from 'aurelia';
 
+import { Configs } from '../../configs';
 import {
     buildOptionsForPresentTypes,
     character_class_options,
@@ -48,6 +49,7 @@ interface IProperty {
 
 interface IEquipment {
     Name?: string;
+    Names?: Record<string, string>;
     Type?: string;
     ArmorString?: string;
     DamageTypes?: IDamageType[];
@@ -60,6 +62,7 @@ interface IEquipment {
 interface IUniqueItem {
     Index?: string;
     Name: string;
+    Names: Record<string, string>;
     Class?: string;
     Rarity?: string;
     RequiredLevel?: number;
@@ -85,16 +88,19 @@ interface IRunewordType {
 
 interface IRunewordRune {
     Name: string;
+    Names: Record<string, string>;
 }
 
 interface IRunewordData {
     Name: string;
+    Names: Record<string, string>;
     Types?: IRunewordType[];
     Runes?: IRunewordRune[];
     Properties?: IRunewordProperty[];
     Vanilla?: string | number | boolean;
 }
 
+@inject(Configs)
 export class Grail {
     // Data sources
     uniques: IUniqueItem[] = uniquesJson as unknown as IUniqueItem[];
@@ -179,6 +185,12 @@ export class Grail {
     private _runewordTypeBases = new Map<IRunewordData, string[]>();
     // Cache for which base types have descendants in the dataset
     private _baseHasDescendantsInRunewords = new Set<string>();
+
+    selectedLanguageType: string;
+
+    constructor(private readonly configs: Configs) {
+        this.selectedLanguageType = this.configs.language;
+    }
 
     binding(): void {
         // Flatten sets to item list for filtering
@@ -426,6 +438,14 @@ export class Grail {
             for (const name of set) this.equipmentNames.push({ id: name, name });
         }
 
+        this.updateList();
+        this.updateUrl();
+    }
+
+    @watch((page: Grail) => page.configs.language)
+    handleLanguageChanged() {
+        if (this._debouncedApplyFilters) this._debouncedApplyFilters();
+        this.selectedLanguageType = this.configs.language;
         this.updateList();
         this.updateUrl();
     }
@@ -688,7 +708,9 @@ export class Grail {
     private buildSearchableStringForUnique(u: IUniqueItem): string {
         const parts: Array<string | undefined | null> = [
             u?.Name,
+            u?.Names[this.configs.language],
             u?.Equipment?.Name,
+            u?.Equipment?.Names[this.configs.language],
             u?.Equipment?.RequiredClass,
         ];
         // Properties
@@ -712,8 +734,11 @@ export class Grail {
     private buildSearchableStringForSetItem(it: ISetItem): string {
         const parts: Array<string | undefined | null> = [
             it?.Name,
+            it?.Names[this.configs.language],
             it?.Set,
+            it?.SetNames[this.configs.language],
             it?.Equipment?.Name,
+            it?.Equipment?.Names[this.configs.language],
         ];
         if (Array.isArray(it?.Properties)) {
             for (const p of it.Properties) {
@@ -737,7 +762,10 @@ export class Grail {
     }
 
     private buildSearchableStringForRuneword(rw: IRunewordData): string {
-        const parts: Array<string | undefined | null> = [rw?.Name];
+        const parts: Array<string | undefined | null> = [
+            rw?.Name,
+            rw?.Names[this.configs.language],
+        ];
         if (Array.isArray(rw?.Properties)) {
             for (const p of rw.Properties) {
                 if (p?.PropertyString) parts.push(String(p.PropertyString));
@@ -759,7 +787,10 @@ export class Grail {
         }
         if (Array.isArray(rw?.Runes)) {
             for (const r of rw.Runes) {
-                if (r?.Name) parts.push(String(r.Name));
+                if (r?.Name) {
+                    parts.push(String(r.Name));
+                    parts.push(r.Names[this.configs.language]);
+                }
             }
         }
         return this.buildSearchableString(parts);

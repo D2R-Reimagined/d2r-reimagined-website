@@ -239,7 +239,7 @@
 
                 <div class="mb-1">
                     <div class="text-xl unique-text ${foundUniques[unique.Name] ? 'found' : ''}">
-                        ${unique.Name}
+                        ${unique.Names[selectedLanguageType] || unique.Name}
                     </div>
                     <div class="text-base rarity-text" if.bind="unique.Rarity">
                         Rarity: ${unique.Rarity}
@@ -251,7 +251,7 @@
 
                 <div class="mb-1">
                     <div class="text-base type-text" if.bind="unique.Equipment.Name">
-                        ${unique.Equipment.Name}
+                        ${unique.Equipment.Names[selectedLanguageType] || unique.Equipment.Name}
                     </div>
                     <div class="text-base type-text" if.bind="unique.Equipment.ArmorString">
                         Defense: ${unique.Equipment.ArmorString}
@@ -334,10 +334,10 @@
 
                 <div class="mb-1">
                     <div class="text-xl set-text-light ${foundSets[getSetItemKey(setItem)] ? 'found' : ''}">
-                        ${setItem.Name}
+                        ${setItem.Names[selectedLanguageType] || setItem.Name}
                     </div>
                     <div class="text-base set-text  opacity-90 ${foundSets[getSetItemKey(setItem)] ? 'found' : ''}">
-                        (${setItem.Set})
+                        (${setItem.SetNames[selectedLanguageType] || setItem.Set})
                     </div>
                     <div class="text-base rarity-text" if.bind="setItem.Rarity">
                         Rarity: ${setItem.Rarity}
@@ -349,7 +349,7 @@
 
                 <div class="mb-1">
                     <div class="text-base type-text" if.bind="setItem.Equipment.Name">
-                        ${setItem.Equipment.Name}
+                        ${setItem.Equipment.Names[selectedLanguageType] || setItem.Equipment.Name}
                     </div>
                     <div class="text-base type-text" if.bind="setItem.Equipment.ArmorString">
                         Defense: ${setItem.Equipment.ArmorString}
@@ -435,7 +435,7 @@
 
                 <div class="mb-1">
                     <div class="text-xl unique-text mb-1 ${foundRunewords[runeword.Name] ? 'found' : ''}">
-                        ${runeword.Name}
+                        ${runeword.Names[selectedLanguageType] || runeword.Name}
                     </div>
                     <div class="text-base rarity-text" if.bind="runeword.Vanilla">
                         ${runeword.Vanilla === 'Y' ? 'Vanilla' : 'Mod'}
@@ -450,7 +450,7 @@
 
                 <div class="text-base type-text">
                     <span repeat.for="rune of runeword.Runes">
-                        ${rune.Name} ${$index + 1 !== runeword.Runes.length ? ' + ' : ''}
+                        ${rune.Names[selectedLanguageType] || rune.Name} ${$index + 1 !== runeword.Runes.length ? ' + ' : ''}
                     </span>
                 </div>
 

@@ -27,6 +27,7 @@ export interface IEquipment {
 export interface ISetItem {
     Type: string;
     Set: string;
+    SetNames: Record<string, string>;
     SetPropertiesString?: string[];
     Name: string;
     Names: Record<string, string>
