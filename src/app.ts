@@ -1,4 +1,7 @@
+import { resolve } from 'aurelia';
 import { route } from '@aurelia/router';
+
+import { Configs } from './configs';
 
 @route({
     title: 'D2R Reimagined',
@@ -78,6 +81,8 @@ export class App {
 
     // Global document click handler to close popovers/menus when clicking outside
     private _onDocClick?: (ev: MouseEvent) => void;
+
+    private readonly configs = resolve(Configs);
 
     attached() {
         this.loadFont();
@@ -236,6 +241,7 @@ export class App {
         const selectedLanguage =
       window.localStorage.getItem('language') || 'enUS';
         this.selectedLanguageType = selectedLanguage;
+        this.configs.updateLanguage(selectedLanguage);
         if (selectedLanguage) {
             const allClasses = this.languages.map((language) => language.class);
             document.body.classList.remove(...allClasses);
