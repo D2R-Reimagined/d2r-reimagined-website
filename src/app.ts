@@ -57,8 +57,19 @@ export class App {
 
     // TODO fill data using json or preset with their language
     languages: Language[] = [
-        { class: 'language-enUS', type: 'enUS', name: 'English (US)' },
+        { class: 'language-deDE', type: 'deDE', name: 'Deutsch' },
+        { class: 'language-enUS', type: 'enUS', name: 'English' },
+        { class: 'language-esES', type: 'esES', name: 'Español (España)' },
+        { class: 'language-esMX', type: 'esMX', name: 'Español (México)' },
+        { class: 'language-frFR', type: 'frFR', name: 'Français' },
+        { class: 'language-itIT', type: 'itIT', name: 'Italiano' },
+        { class: 'language-jaJP', type: 'jaJP', name: '日本語' },
         { class: 'language-koKR', type: 'koKR', name: '한국어' },
+        { class: 'language-plPL', type: 'plPL', name: 'Polski' },
+        { class: 'language-ptBR', type: 'ptBR', name: 'Português (Brasil)' },
+        { class: 'language-ruRU', type: 'ruRU', name: 'Русский' },
+        { class: 'language-zhCN', type: 'zhCN', name: '简体中文' },
+        { class: 'language-zhTW', type: 'zhTW', name: '繁體中文' },
     ];
 
     // UI state for back-to-top visibility
