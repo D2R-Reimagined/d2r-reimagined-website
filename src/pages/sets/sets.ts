@@ -1,5 +1,6 @@
-import { bindable, watch } from 'aurelia';
+import { bindable, inject, watch } from 'aurelia';
 
+import { Configs } from '../../configs';
 import {
     buildOptionsForPresentTypes,
     character_class_options,
@@ -32,6 +33,7 @@ import json from '../item-jsons/sets.json';
 
 import { ISetData } from './set-types';
 
+@inject(Configs)
 export class Sets {
     allSets: ISetData[] = json as unknown as ISetData[];
     sets: ISetData[] = [];
@@ -191,6 +193,14 @@ export class Sets {
         if (this._debouncedSearchItem) this._debouncedSearchItem();
     }
 
+    @watch((page: Sets) => page.configs.language)
+    handleLanguageChanged() {
+        if (this._debouncedSearchItem) this._debouncedSearchItem();
+        this.selectedLanguageType = this.configs.language;
+        this.updateList();
+        this.updateUrl();
+    }
+
     updateList(): void {
         try {
             const searchTokens = tokenizeSearch(this.search);
@@ -285,6 +295,7 @@ export class Sets {
     private buildSearchableStringForSet(set: ISetData): string {
         const parts: string[] = [];
         if (set.Name) parts.push(String(set.Name));
+        if (set.Names[this.configs.language]) parts.push(String(set.Names[this.configs.language]));
         const allProps = set.AllProperties ?? [
             ...(set.FullProperties || []),
             ...(set.PartialProperties || []),
@@ -301,7 +312,9 @@ export class Sets {
         }
         for (const si of set.SetItems ?? []) {
             parts.push(String(si?.Name || ''));
+            if (si?.Names[this.configs.language]) parts.push(String(si?.Names[this.configs.language]));
             parts.push(String(si?.Equipment?.Name || ''));
+            if (si?.Equipment?.Names[this.configs.language]) parts.push(String(si?.Equipment?.Names[this.configs.language]));
             for (const p of si?.Properties || []) {
                 if (p.PropertyString) parts.push(p.PropertyString);
                 if (p['group-properties']) {
@@ -353,7 +366,8 @@ export class Sets {
                     if (!allowed.has(base)) continue;
                 }
                 const name = si.Equipment?.Name;
-                if (name) names.add(name);
+                if (si.Equipment?.Names[this.configs.language]) names.add(si.Equipment?.Names[this.configs.language]);
+                else if (name) names.add(name);
             }
         }
         const options: Array<{ value: string | undefined; label: string }> = [
