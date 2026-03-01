@@ -1,5 +1,6 @@
-import { bindable, watch } from 'aurelia';
+import { bindable, inject, watch } from 'aurelia';
 
+import { Configs } from '../../configs';
 import {
     ANCESTOR_ONLY_WHEN_EXACT_OFF,
     getChainForTypeNameReadonly,
@@ -26,16 +27,19 @@ interface IRunewordType {
 
 interface IRunewordRune {
     Name: string;
+    Names: Record<string, string>;
 }
 
 interface IRunewordData {
     Name: string;
+    Names: Record<string, string>;
     Types?: IRunewordType[];
     Runes: IRunewordRune[];
     Properties?: IRunewordProperty[];
     Vanilla?: string | number | boolean;
 }
 
+@inject(Configs)
 export class Runewords {
     allRunewords: IRunewordData[] = json as unknown as IRunewordData[];
     filteredRunewords: IRunewordData[] = [];
@@ -57,6 +61,12 @@ export class Runewords {
     ];
 
     selectedAmount: number | undefined;
+
+    selectedLanguageType: string;
+
+    constructor(private readonly configs: Configs) {
+        this.selectedLanguageType = this.configs.language;
+    }
 
     // Build options and hydrate filters from URL before controls render
     binding() {
@@ -213,6 +223,14 @@ export class Runewords {
         this.updateUrl();
     }
 
+    @watch((page: Runewords) => page.configs.language)
+    handleLanguageChanged() {
+        if (this._debouncedSearchItem) this._debouncedSearchItem();
+        this.selectedLanguageType = this.configs.language;
+        this.updateList();
+        this.updateUrl();
+    }
+
     normalizeRuneName(name: string): string {
         // Remove " Rune" suffix and trim any extra spaces
         return name
@@ -308,9 +326,10 @@ export class Runewords {
 
             // 5. Rune search
             if (runeGroups.length > 0) {
-                const runewordRuneNames = (rw.Runes ?? []).map((rune) =>
-                    this.normalizeRuneName(String(rune.Name)),
-                );
+                const runewordRuneNames = (rw.Runes ?? []).map((rune) => {
+                    return rune.Names[this.configs.language]
+                        ?? this.normalizeRuneName(String(rune.Name))
+                });
                 const hasRuneMatch = runeGroups.every((orGroup) =>
                     orGroup.some((token) => runewordRuneNames.includes(token)),
                 );
@@ -323,7 +342,7 @@ export class Runewords {
 
     private buildSearchableStringForRuneword(rw: IRunewordData): string {
         const parts: string[] = [
-            String(rw.Name || ''),
+            String(rw.Names[this.configs.language] || rw.Name || ''),
             ...(rw.Properties || []).flatMap((p: IRunewordProperty) => {
                 const res = [p?.PropertyString || ''];
                 if (p['group-properties']) {

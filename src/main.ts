@@ -1,6 +1,7 @@
 import Aurelia from 'aurelia';
 import { RouterConfiguration } from '@aurelia/router';
 
+import { Configs } from './configs';
 import * as Elements from './resources/elements/index.js';
 import * as Resources from './resources/index.js';
 import { cleanCurrentUrl } from './utilities/url-sanitize.js';
@@ -492,5 +493,6 @@ void Aurelia.register(
 )
     .register(Resources)
     .register(Elements)
+    .register(Configs)
     .app(App)
     .start();
