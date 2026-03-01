@@ -39,10 +39,20 @@ export class Runewords {
     @bindable searchRunes: string;
     @bindable exclusiveType: boolean = false;
     @bindable hideVanilla: boolean = false;
+    @bindable runeQuery: string = '';
 
     private _debouncedSearchItem!: IDebouncedFunction;
+    private runeDisplayByKey: Map<string, string> = new Map<string, string>();
+    private readonly runeOrder: ReadonlyMap<string, number> = new Map<string, number>([
+        ['el', 1], ['eld', 2], ['tir', 3], ['nef', 4], ['eth', 5], ['ith', 6], ['tal', 7], ['ral', 8],
+        ['ort', 9], ['thul', 10], ['amn', 11], ['sol', 12], ['shael', 13], ['dol', 14], ['hel', 15],
+        ['io', 16], ['lum', 17], ['ko', 18], ['fal', 19], ['lem', 20], ['pul', 21], ['um', 22],
+        ['mal', 23], ['ist', 24], ['gul', 25], ['vex', 26], ['ohm', 27], ['lo', 28], ['sur', 29],
+        ['ber', 30], ['jah', 31], ['cham', 32], ['zod', 33],
+    ]);
 
     filteredRunewords: IRunewordData[] = [];
+    selectedRunes: string[] = [];
 
     // Centralized options, narrowed at runtime to types present in data
     types: ReadonlyArray<IFilterOption> = type_filtering_options.slice();
@@ -61,8 +71,144 @@ export class Runewords {
 
     selectedAmount: number | undefined;
 
+    get runeOptions(): string[] {
+        const query = this.normalizeRuneName(this.runeQuery || '');
+        const selected = new Set(
+            this.selectedRunes.map((r) => this.normalizeRuneName(r)),
+        );
+
+        return Array.from(this.runeDisplayByKey.entries())
+            .filter(([key, label]) => {
+                if (selected.has(key)) return false;
+                if (!query) return true;
+                return key.includes(query) || label.toLowerCase().includes(query);
+            })
+            .map(([, label]) => label)
+            .slice(0, 50);
+    }
+
+    private hydrateRuneCatalog() {
+        const catalog = new Map<string, string>();
+        for (const rw of this.runewords || []) {
+            for (const rune of rw?.Runes || []) {
+                const baseLabel = String(rune?.Name || '')
+                    .replace(/ rune$/i, '')
+                    .trim();
+                const key = this.normalizeRuneName(baseLabel);
+                if (!key) continue;
+                const rank = this.runeOrder.get(key);
+                const display = rank ? `${baseLabel} (${rank})` : baseLabel;
+                if (!catalog.has(key)) catalog.set(key, display);
+            }
+        }
+
+        this.runeDisplayByKey = new Map(
+            Array.from(catalog.entries()).sort(([aKey, aLabel], [bKey, bLabel]) => {
+                const aOrder = this.runeOrder.get(aKey) ?? Number.MAX_SAFE_INTEGER;
+                const bOrder = this.runeOrder.get(bKey) ?? Number.MAX_SAFE_INTEGER;
+                if (aOrder !== bOrder) return aOrder - bOrder;
+                return aLabel.localeCompare(bLabel);
+            }),
+        );
+    }
+
+    private syncRuneSearchFromSelections() {
+        this.searchRunes = this.selectedRunes.join(' + ');
+    }
+
+    private hydrateSelectedRunesFromSearch() {
+        const raw = (this.searchRunes || '').trim();
+        if (!raw) return;
+
+        const tokens = raw
+            .split(/[,\|\+\s]+/g)
+            .map((t) => this.normalizeRuneName(t))
+            .filter(Boolean);
+
+        const picked: string[] = [];
+        const seen = new Set<string>();
+
+        for (const key of tokens) {
+            if (seen.has(key)) continue;
+            const display = this.runeDisplayByKey.get(key);
+            if (!display) continue;
+            seen.add(key);
+            picked.push(display);
+        }
+
+        this.selectedRunes = picked;
+        if (!this.selectedRunes.length) this.runeQuery = raw;
+    }
+
+    addRuneSelection(rawInput: string) {
+        const text = String(rawInput || '').trim();
+        if (!text) return;
+
+        const parts = text
+            .split(/[,\|\+\s]+/g)
+            .map((p) => this.normalizeRuneName(p))
+            .filter(Boolean);
+
+        if (!parts.length) return;
+
+        const selectedKeys = new Set(
+            this.selectedRunes.map((r) => this.normalizeRuneName(r)),
+        );
+
+        for (const part of parts) {
+            if (selectedKeys.has(part)) continue;
+
+            let key = part;
+            if (!this.runeDisplayByKey.has(key)) {
+                const fuzzyMatches = Array.from(this.runeDisplayByKey.keys()).filter((k) =>
+                    k.includes(part),
+                );
+                if (fuzzyMatches.length !== 1) continue;
+                key = fuzzyMatches[0];
+            }
+
+            const display = this.runeDisplayByKey.get(key);
+            if (!display) continue;
+
+            selectedKeys.add(key);
+            this.selectedRunes.push(display);
+        }
+
+        this.runeQuery = '';
+        this.syncRuneSearchFromSelections();
+    }
+
+    removeRuneSelection(rune: string) {
+        const keyToRemove = this.normalizeRuneName(rune);
+        this.selectedRunes = this.selectedRunes.filter(
+            (r) => this.normalizeRuneName(r) !== keyToRemove,
+        );
+        this.syncRuneSearchFromSelections();
+    }
+
+    clearRuneSelections() {
+        this.selectedRunes = [];
+        this.syncRuneSearchFromSelections();
+    }
+
+    handleRuneInputKeydown(event: KeyboardEvent) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            this.addRuneSelection(this.runeQuery);
+            return;
+        }
+
+        if (event.key === 'Backspace' && !String(this.runeQuery || '').trim()) {
+            const last = this.selectedRunes[this.selectedRunes.length - 1];
+            if (!last) return;
+            event.preventDefault();
+            this.removeRuneSelection(last);
+        }
+    }
+
     // Build options and hydrate filters from URL before controls render
     binding() {
+        this.hydrateRuneCatalog();
         const urlParams = new URLSearchParams(window.location.search);
 
         // Collect EXPLICIT base type names present in data (Runewords-only behavior)
@@ -137,6 +283,8 @@ export class Runewords {
         if (exactParam && !isBlankOrInvalid(exactParam)) {
             this.exclusiveType = exactParam === 'true';
         }
+
+        this.hydrateSelectedRunesFromSearch();
     }
 
     attached() {
@@ -205,9 +353,10 @@ export class Runewords {
     }
 
     normalizeRuneName(name: string): string {
-        // Remove " Rune" suffix and trim any extra spaces
+        // Remove " Rune" suffix and optional "(n)" rank, then normalize spaces.
         return name
             .replace(/ rune$/i, '')
+            .replace(/\(\s*\d+\s*\)/g, '')
             .trim()
             .toLowerCase();
     }
@@ -282,8 +431,22 @@ export class Runewords {
             });
         }
 
-        // Rune search filter (AND-of-OR groups)
-        if (this.searchRunes) {
+        // Rune selection filter (AND across selected rune chips)
+        if (this.selectedRunes.length) {
+            const selectedRuneTokens = this.selectedRunes.map((r) =>
+                this.normalizeRuneName(r),
+            );
+
+            found = found.filter((runeword) => {
+                const runewordRuneNames = (runeword.Runes ?? []).map((rune) =>
+                    this.normalizeRuneName(String(rune.Name)),
+                );
+                return selectedRuneTokens.every((token) =>
+                    runewordRuneNames.includes(token),
+                );
+            });
+        } else if (this.searchRunes) {
+            // Backward-compatible parser for old URL params that used custom AND/OR syntax.
             // Normalize operators:
             // - Space and '+' are AND (become spaces)
             // - ',' and '|' are OR (become '|')
@@ -336,6 +499,8 @@ export class Runewords {
     resetFilters() {
         this.search = '';
         this.searchRunes = '';
+        this.runeQuery = '';
+        this.selectedRunes = [];
         this.selectedType = '';
         this.selectedAmount = undefined;
         this.exclusiveType = false;

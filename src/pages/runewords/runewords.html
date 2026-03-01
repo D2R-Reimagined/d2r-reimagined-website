@@ -81,14 +81,52 @@
                     </div>
                 </div>
 
-                <div class="w-full lg:w-60"
-                     data-help-text="Search for specific Runes. Uses (space) and + as AND. Uses , and | as OR. ex: El Eld|Hel Zod returns only Breath of the Dying and Starlight.">
+                <div class="w-full lg:w-60 lg:min-w-60 lg:max-w-60"
+                     data-help-text="Search and select one or more runes. Selected runes are shown as chips and can be removed with (x). A runeword must contain all selected runes.">
                     <div class="flex items-stretch">
-                        <div class="trailing-icon flex-1" data-icon="search">
-                            <input id="runesearch" type="text" class="select-base peer pr-12 w-full"
-                                   value.bind="searchRunes"
-                                   placeholder=" "/>
-                            <label for="runesearch" class="floating-label">Runes Only...</label>
+                        <div class="relative flex-1 min-w-0">
+                            <div class="select-base w-full min-h-[42px] h-auto flex flex-wrap items-center gap-1 py-1">
+                                <span
+                                    repeat.for="rune of selectedRunes"
+                                    class="group inline-flex shrink-0 items-center gap-1 rounded-lg border border-gray-600 bg-gray-900 px-2 py-0.5 text-base type-text"
+                                >
+                                    <span>${rune}</span>
+                                    <button
+                                        type="button"
+                                        click.trigger="removeRuneSelection(rune)"
+                                        title.bind="'Remove ' + rune"
+                                        class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-red-500/15 border border-red-300/40 text-red-200 text-[13px] leading-none font-bold shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05)] transition-all duration-150 group-hover:bg-red-500/30 group-hover:border-red-200/70 group-hover:text-red-100 group-hover:-translate-y-px"
+                                        aria-label.bind="'Remove ' + rune"
+                                    >×</button>
+                                </span>
+
+                                <input
+                                    id="runesearch"
+                                    type="text"
+                                    class="flex-1 min-w-[120px] bg-transparent border-0 outline-none ring-0 px-1 py-1 text-base type-text placeholder:text-gray-400"
+                                    value.bind="runeQuery"
+                                    change.trigger="addRuneSelection(runeQuery)"
+                                    keydown.trigger="handleRuneInputKeydown($event)"
+                                    list="rune-options"
+                                    autocomplete="off"
+                                    placeholder="Runes Only..."
+                                    aria-label="Runes Only"
+                                />
+
+                                <button
+                                    if.bind="selectedRunes.length >= 2"
+                                    type="button"
+                                    class="shrink-0 ml-auto inline-flex items-center rounded-lg border border-red-500/60 bg-red-500/10 px-2 py-0.5 text-base text-red-200 hover:bg-red-500/20 hover:border-red-400"
+                                    click.trigger="clearRuneSelections()"
+                                    title="Clear all selected runes"
+                                >
+                                    Clear
+                                </button>
+                            </div>
+
+                            <datalist id="rune-options">
+                                <option repeat.for="rune of runeOptions" value.bind="rune"></option>
+                            </datalist>
                         </div>
 
                         <!-- Mobile only info button -->
