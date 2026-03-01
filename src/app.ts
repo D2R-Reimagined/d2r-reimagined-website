@@ -52,6 +52,12 @@ export class App {
         { class: 'font-neutral', name: 'Neutral' },
     ];
 
+    // TODO fill data using json or preset with their language
+    languages: Language[] = [
+        { class: 'language-enUS', type: 'enUS', name: 'English (US)' },
+        { class: 'language-koKR', type: 'koKR', name: '한국어' },
+    ];
+
     // UI state for back-to-top visibility
     showBackToTop = false;
 
@@ -60,6 +66,10 @@ export class App {
 
     // Selected font (class) reflected to bindings for labels/tooltips
     selectedFontClass: string = 'font-resurrected';
+
+    // initial language variables
+    languageMenuOpen = false;
+    selectedLanguageType: string = 'enUS';
 
     // Internals for back-to-top monitoring
     private _bt_lastScrollEl?: HTMLElement;
@@ -71,6 +81,7 @@ export class App {
 
     attached() {
         this.loadFont();
+        this.loadLanguage();
         this.bindBackToTopMonitoring();
         // Initial computation
         this.updateBackToTopVisibility();
@@ -89,6 +100,18 @@ export class App {
                 );
                 if (!clickInsideMenu) {
                     this.closeFontMenu();
+                }
+            }
+
+            if (this.languageMenuOpen) {
+                const menuHost = document.querySelector('nav .language-menu');
+                const clickInsideMenu = !!(
+                    target &&
+          menuHost &&
+          menuHost.contains(target)
+                );
+                if (!clickInsideMenu) {
+                    this.closeLanguageMenu();
                 }
             }
 
@@ -112,6 +135,11 @@ export class App {
     handleFontSelected(font: Font) {
         window.localStorage.setItem('font', font.class);
         this.loadFont();
+    }
+
+    handleLanguageSelected(language: Language) {
+        window.localStorage.setItem('language', language.type);
+        this.loadLanguage();
     }
 
     detached() {
@@ -140,6 +168,20 @@ export class App {
 
     toggleFontMenu() {
         this.fontMenuOpen = !this.fontMenuOpen;
+    }
+
+    selectLanguage(language: Language) {
+        this.handleLanguageSelected(language);
+        this.closeLanguageMenu();
+        this.closeMobileMenu();
+    }
+
+    closeLanguageMenu() {
+        this.languageMenuOpen = false;
+    }
+
+    toggleLanguageMenu() {
+        this.languageMenuOpen = !this.languageMenuOpen;
     }
 
     /**
@@ -188,6 +230,18 @@ export class App {
             document.body.classList.remove(...allClasses);
             document.body.classList.add(selectedFont);
         }
+    }
+
+    loadLanguage() {
+        const selectedLanguage =
+      window.localStorage.getItem('language') || 'enUS';
+        this.selectedLanguageType = selectedLanguage;
+        if (selectedLanguage) {
+            const allClasses = this.languages.map((language) => language.class);
+            document.body.classList.remove(...allClasses);
+            document.body.classList.add(selectedLanguage);
+        }
+        // TODO loaded json datas
     }
 
     /**
@@ -377,4 +431,10 @@ export class App {
 type Font = {
   class: string;
   name: string;
+};
+
+type Language = {
+  class: string;
+  name: string;
+  type: string;
 };

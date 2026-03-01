@@ -7,7 +7,7 @@
   <meta name="description" content="D2R Reimagined Mod Project">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <base href="/">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_upward,check,delete,info,menu,open_in_new,reset_settings,search,type_specimen" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_upward,check,delete,info,language,menu,open_in_new,reset_settings,search,type_specimen" />
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="shortcut icon" href="/favicon.ico" />
@@ -20,20 +20,35 @@
   <script>
     (function () {
       try {
-        var allowed = ['font-classic', 'font-resurrected', 'font-neutral'];
-        var stored = localStorage.getItem('font');
-        var cssClass = allowed.indexOf(stored) !== -1 ? stored : 'font-resurrected';
+        var fontAllowed = ['font-classic', 'font-resurrected', 'font-neutral'];
+        var languageAllowed = ['enUS', 'koKR'];
+        var storedFont = localStorage.getItem('font');
+        var storedLanguage = localStorage.getItem('language');
+        var fontCssClass = fontAllowed.indexOf(storedFont) !== -1 ? storedFont : 'font-resurrected';
+        var languageType = languageAllowed.indexOf(storedLanguage) !== -1 ? storedLanguage : 'enUS';
 
-        function apply(cls) {
+        function applyFont(cls) {
           var b = document.body;
           if (!b) return false;
-          for (var i = 0; i < allowed.length; i++) b.classList.remove(allowed[i]);
+          for (var i = 0; i < fontAllowed.length; i++) b.classList.remove(fontAllowed[i]);
           b.classList.add(cls);
           return true;
         }
 
-        if (!apply(cssClass)) {
-          document.addEventListener('DOMContentLoaded', function () { apply(cssClass); });
+        function applyLanguage(cls) {
+          var b = document.body;
+          if (!b) return false;
+          for (var i = 0; i < languageAllowed.length; i++) b.classList.remove(`language-${languageAllowed[i]}`);
+          b.classList.add(cls);
+          return true;
+        }
+
+        if (!applyFont(cssClass)) {
+          document.addEventListener('DOMContentLoaded', function () { applyFont(fontCssClass); });
+        }
+
+        if (!applyLanguage(cssClass)) {
+          document.addEventListener('DOMContentLoaded', function () { applyLanguage(languageType); });
         }
       } catch (e) { /* no-op */ }
     })();
