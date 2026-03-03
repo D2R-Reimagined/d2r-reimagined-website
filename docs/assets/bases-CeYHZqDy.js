@@ -1,5 +1,5 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-DZD7prVN.js";
-import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, g as getChainForTypeNameReadonly, t as type_filtering_options } from "./item-type-filters-DKmBoWeH.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-BDZA0m0X.js";
+import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, g as getChainForTypeNameReadonly, t as type_filtering_options } from "./item-type-filters-PXYqowtv.js";
 import { g as getDamageTypeString } from "./damage-types-Du-j2Hbt.js";
 import { p as prependTypeResetOption, t as tokenizeSearch } from "./filter-helpers-C07hLFTd.js";
 const name = "bases";

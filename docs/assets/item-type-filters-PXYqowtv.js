@@ -339,6 +339,7 @@ const type_filtering_options = [
   makeTypeOption("Knife", "Knife"),
   makeTypeOption("Spear", "Spear"),
   makeTypeOption("Polearm", "Polearm"),
+  makeTypeOption("Scepter", "Scepter"),
   makeTypeOption("Staff", "Staff"),
   makeTypeOption("Wand", "Wand"),
   makeTypeOption("Bow", "Bow"),
