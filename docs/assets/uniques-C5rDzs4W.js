@@ -1,4 +1,4 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-BDZA0m0X.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-Cohone7I.js";
 import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options, g as getChainForTypeNameReadonly } from "./item-type-filters-PXYqowtv.js";
 import { c as character_class_options } from "./character-classes-Cb6HmnkD.js";
 import { g as getDamageTypeString } from "./damage-types-Du-j2Hbt.js";
