@@ -1,5 +1,6 @@
-import { bindable, watch } from 'aurelia';
+import { bindable, inject, watch } from 'aurelia';
 
+import { Configs } from '../../configs';
 import {
     ANCESTOR_ONLY_WHEN_EXACT_OFF,
     getChainForTypeNameReadonly,
@@ -22,16 +23,19 @@ interface IRunewordType {
 
 interface IRunewordRune {
     Name: string;
+    Names: Record<string, string>;
 }
 
 interface IRunewordData {
     Name: string;
+    Names: Record<string, string>;
     Types?: IRunewordType[];
     Runes: IRunewordRune[];
     Properties?: IRunewordProperty[];
     Vanilla?: string | number | boolean;
 }
 
+@inject(Configs)
 export class Runewords {
     runewords: IRunewordData[] = json as unknown as IRunewordData[];
 
@@ -60,6 +64,12 @@ export class Runewords {
     ];
 
     selectedAmount: number | undefined;
+
+    selectedLanguageType: string;
+
+    constructor(private readonly configs: Configs) {
+        this.selectedLanguageType = this.configs.language;
+    }
 
     // Build options and hydrate filters from URL before controls render
     binding() {
@@ -204,6 +214,14 @@ export class Runewords {
         this.updateUrl();
     }
 
+    @watch((page: Runewords) => page.configs.language)
+    handleLanguageChanged() {
+        if (this._debouncedSearchItem) this._debouncedSearchItem();
+        this.selectedLanguageType = this.configs.language;
+        this.updateList();
+        this.updateUrl();
+    }
+
     normalizeRuneName(name: string): string {
         // Remove " Rune" suffix and trim any extra spaces
         return name
@@ -265,7 +283,7 @@ export class Runewords {
         if (searchTokens.length) {
             found = found.filter((runeword) => {
                 const hay = [
-                    String(runeword.Name || ''),
+                    String(runeword.Names[this.configs.language] || runeword.Name || ''),
                     ...(runeword.Properties || []).map((p: IRunewordProperty) =>
                         String(p?.PropertyString || ''),
                     ),
@@ -310,9 +328,11 @@ export class Runewords {
 
             if (groups.length) {
                 found = found.filter((runeword) => {
-                    const runewordRuneNames = (runeword.Runes ?? []).map((rune) =>
-                        this.normalizeRuneName(String(rune.Name)),
-                    );
+                    const runewordRuneNames = (runeword.Runes ?? []).map((rune) => {
+                        return rune.Names[this.configs.language]
+                            ?? this.normalizeRuneName(String(rune.Name))
+                        ;
+                    });
                     // For each AND group, at least one OR token must be present in the runeword
                     return groups.every((orGroup) =>
                         orGroup.some((token) => runewordRuneNames.includes(token)),

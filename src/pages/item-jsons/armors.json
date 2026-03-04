@@ -1,4 +1,4 @@
-﻿[
+[
     {
         "DamageString": null,
         "DamageStringPrefix": null,
@@ -24,7 +24,22 @@
         "UberCode": "xap",
         "UltraCode": "uap",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Cap [N]",
+            "zhTW": "便帽",
+            "deDE": "[fs]Kappe",
+            "esES": "[ms]Gorro",
+            "frFR": "[fs]Coiffe",
+            "itIT": "[ms]Cappello",
+            "koKR": "캡¹",
+            "plPL": "[ms]Kaptur",
+            "esMX": "[ms]Gorro",
+            "jaJP": "キャップ",
+            "ptBR": "[ms]Barrete",
+            "ruRU": "[ms]наголовник",
+            "zhCN": "软帽"
+        }
     },
     {
         "DamageString": null,
@@ -51,7 +66,22 @@
         "UberCode": "xkp",
         "UltraCode": "ukp",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Skull Cap [N]",
+            "zhTW": "顱帽",
+            "deDE": "[ms]Eisenhut",
+            "esES": "[ms]Capacete",
+            "frFR": "[fs]Cervellière",
+            "itIT": "[fs]Calotta",
+            "koKR": "스컬 캡¹",
+            "plPL": "[ms]Szyszak",
+            "esMX": "[ms]Casquete",
+            "jaJP": "スカル・キャップ",
+            "ptBR": "[ms]Barrete da Caveira",
+            "ruRU": "[ms]легкий шлем",
+            "zhCN": "骷髅帽"
+        }
     },
     {
         "DamageString": null,
@@ -78,7 +108,22 @@
         "UberCode": "xlm",
         "UltraCode": "ulm",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Helm [N]",
+            "zhTW": "頭盔",
+            "deDE": "[ms]Helm",
+            "esES": "[ms]Yelmo",
+            "frFR": "[ms]Heaume",
+            "itIT": "[ms]Elmo",
+            "koKR": "헬름¹",
+            "plPL": "[ms]Hełm",
+            "esMX": "[ms]Yelmo",
+            "jaJP": "ヘルム",
+            "ptBR": "[ms]Elmo",
+            "ruRU": "[ms]шлем",
+            "zhCN": "头盔"
+        }
     },
     {
         "DamageString": null,
@@ -105,7 +150,22 @@
         "UberCode": "xhl",
         "UltraCode": "uhl",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Full Helm [N]",
+            "zhTW": "全罩盔",
+            "deDE": "[ms]Vollhelm",
+            "esES": "[ms]Yelmo completo",
+            "frFR": "[ms]Heaume complet",
+            "itIT": "[ms]Elmo Pieno",
+            "koKR": "풀 헬름¹",
+            "plPL": "[ms]Zamknięty Hełm",
+            "esMX": "[ms]Yelmo completo",
+            "jaJP": "フル・ヘルム",
+            "ptBR": "[ms]Elmo Integral",
+            "ruRU": "[ms]полный шлем",
+            "zhCN": "全护盔"
+        }
     },
     {
         "DamageString": null,
@@ -132,7 +192,22 @@
         "UberCode": "xhm",
         "UltraCode": "uhm",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Great Helm [N]",
+            "zhTW": "重盔",
+            "deDE": "[ms]Großhelm",
+            "esES": "[ms]Gran yelmo",
+            "frFR": "[ms]Grand heaume",
+            "itIT": "[ms]Grande Elmo",
+            "koKR": "그레이트 헬름¹",
+            "plPL": "[ms]Wielki Hełm",
+            "esMX": "[ms]Gran yelmo",
+            "jaJP": "グレート・ヘルム",
+            "ptBR": "[ms]Grande Elmo",
+            "ruRU": "[ms]большой шлем",
+            "zhCN": "重盔"
+        }
     },
     {
         "DamageString": null,
@@ -159,7 +234,22 @@
         "UberCode": "xrn",
         "UltraCode": "urn",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Crown [N]",
+            "zhTW": "王冠",
+            "deDE": "[fs]Krone",
+            "esES": "[fs]Corona",
+            "frFR": "[fs]Couronne",
+            "itIT": "[fs]Corona",
+            "koKR": "크라운¹",
+            "plPL": "[fs]Korona",
+            "esMX": "[fs]Corona",
+            "jaJP": "冠",
+            "ptBR": "[fs]Coroa",
+            "ruRU": "[fs]корона",
+            "zhCN": "王冠"
+        }
     },
     {
         "DamageString": null,
@@ -186,7 +276,22 @@
         "UberCode": "xsk",
         "UltraCode": "usk",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Mask [N]",
+            "zhTW": "面具",
+            "deDE": "[fs]Maske",
+            "esES": "[fs]Máscara",
+            "frFR": "[ms]Masque",
+            "itIT": "[fs]Maschera",
+            "koKR": "마스크¹",
+            "plPL": "[fs]Maska",
+            "esMX": "[fs]Máscara",
+            "jaJP": "仮面",
+            "ptBR": "[fs]Máscara",
+            "ruRU": "[fs]маска",
+            "zhCN": "覆面甲"
+        }
     },
     {
         "DamageString": null,
@@ -213,7 +318,22 @@
         "UberCode": "xui",
         "UltraCode": "uui",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Quilted Armor [N]",
+            "zhTW": "棉布甲",
+            "deDE": "[fs]leichte Rüstung",
+            "esES": "[fs]Armadura acolchada",
+            "frFR": "[fs]Armure matelassée",
+            "itIT": "[fs]Corazza Imbottita",
+            "koKR": "퀼티드 아머¹",
+            "plPL": "[fs]Pikowana Zbroja",
+            "esMX": "[fs]Armadura acolchonada",
+            "jaJP": "キルテッド・アーマー",
+            "ptBR": "[fs]Armadura Acolchoada",
+            "ruRU": "[ms]стеганый доспех",
+            "zhCN": "内衬甲"
+        }
     },
     {
         "DamageString": null,
@@ -240,7 +360,22 @@
         "UberCode": "xea",
         "UltraCode": "uea",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Leather Armor [N]",
+            "zhTW": "皮革甲",
+            "deDE": "[fs]Lederrüstung",
+            "esES": "[fs]Armadura de cuero",
+            "frFR": "[fs]Armure de cuir",
+            "itIT": "[fs]Corazza di Cuoio",
+            "koKR": "레더 아머¹",
+            "plPL": "[fs]Skórzana Zbroja",
+            "esMX": "[fs]Armadura de cuero",
+            "jaJP": "レザーアーマー",
+            "ptBR": "[fs]Armadura de Couro",
+            "ruRU": "[ms]кожаный доспех",
+            "zhCN": "皮甲"
+        }
     },
     {
         "DamageString": null,
@@ -267,7 +402,22 @@
         "UberCode": "xla",
         "UltraCode": "ula",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Hard Leather Armor [N]",
+            "zhTW": "硬皮甲",
+            "deDE": "[ns]gehärtetes Leder",
+            "esES": "[fs]Armadura de cuero duro",
+            "frFR": "[fs]Armure de cuir bouilli",
+            "itIT": "[fs]Corazza di Cuoio Trattato",
+            "koKR": "하드 레더 아머¹",
+            "plPL": "[fs]Ciężka Skórzana Zbroja",
+            "esMX": "[fs]Armadura de cuero endurecido",
+            "jaJP": "ハードレザーアーマー",
+            "ptBR": "[fs]Armadura de Couro Rígido",
+            "ruRU": "[ms]плотный кожаный доспех",
+            "zhCN": "硬皮甲"
+        }
     },
     {
         "DamageString": null,
@@ -294,7 +444,22 @@
         "UberCode": "xtu",
         "UltraCode": "utu",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Studded Leather [N]",
+            "zhTW": "鑲釘皮甲",
+            "deDE": "[ns]beschlagenes Leder",
+            "esES": "[ms]Cuero tachonado",
+            "frFR": "[fs]Armure en cuir clouté",
+            "itIT": "[ms]Cuoio Borchiato",
+            "koKR": "스터디드 레더¹",
+            "plPL": "[fs]Ćwiekowana Zbroja",
+            "esMX": "[fs]Armadura de cuero tachonado",
+            "jaJP": "スタデッド・レザーアーマー",
+            "ptBR": "[ms]Couro Cravejado",
+            "ruRU": "[ms]клепаный кожаный доспех",
+            "zhCN": "钉皮甲"
+        }
     },
     {
         "DamageString": null,
@@ -321,7 +486,22 @@
         "UberCode": "xng",
         "UltraCode": "ung",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Ring Mail [N]",
+            "zhTW": "環甲",
+            "deDE": "[ms]Ringpanzer",
+            "esES": "[fs]Cota de anillos",
+            "frFR": "[fs]Cotte de mailles",
+            "itIT": "[fs]Corazza di Maglia",
+            "koKR": "링 메일¹",
+            "plPL": "[fs]Pierścieniowa Zbroja",
+            "esMX": "[fs]Armadura con anillas",
+            "jaJP": "リング・メイル",
+            "ptBR": "[fs]Malha Anelada",
+            "ruRU": "[ms]кольчатый доспех",
+            "zhCN": "环甲"
+        }
     },
     {
         "DamageString": null,
@@ -348,7 +528,22 @@
         "UberCode": "xcl",
         "UltraCode": "ucl",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Scale Mail [N]",
+            "zhTW": "鱗甲",
+            "deDE": "[ms]Schuppenpanzer",
+            "esES": "[fs]Cota de escamas",
+            "frFR": "[fs]Armure en écaille",
+            "itIT": "[fs]Corazza a Scaglie",
+            "koKR": "스케일 메일¹",
+            "plPL": "[fs]Zbroja Łuskowa",
+            "esMX": "[fs]Cota de escamas",
+            "jaJP": "スケイル・メイル",
+            "ptBR": "[fs]Malha Escamada",
+            "ruRU": "[ms]чешуйчатый доспех",
+            "zhCN": "鱼鳞甲"
+        }
     },
     {
         "DamageString": null,
@@ -375,7 +570,22 @@
         "UberCode": "xhn",
         "UltraCode": "uhn",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Chain Mail [N]",
+            "zhTW": "鎖鍊甲",
+            "deDE": "[ms]Kettenpanzer",
+            "esES": "[fs]Cota de malla",
+            "frFR": "[fs]Tunique de mailles",
+            "itIT": "[fs]Cotta di Maglia",
+            "koKR": "체인 메일¹",
+            "plPL": "[fs]Kolczuga",
+            "esMX": "[fs]Cota de malla",
+            "jaJP": "チェイン・メイル",
+            "ptBR": "[fs]Cota de Malha",
+            "ruRU": "[ms]кольчужный доспех",
+            "zhCN": "锁链甲"
+        }
     },
     {
         "DamageString": null,
@@ -402,7 +612,22 @@
         "UberCode": "xrs",
         "UltraCode": "urs",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Breast Plate [N]",
+            "zhTW": "胸鎧",
+            "deDE": "[ms]Brustpanzer",
+            "esES": "[fs]Coraza blindada",
+            "frFR": "[fs]Cuirasse",
+            "itIT": "[ms]Pettorale Corazzato",
+            "koKR": "브레스트 플레이트¹",
+            "plPL": "[ms]Napierśnik",
+            "esMX": "[ms]Peto",
+            "jaJP": "胸当て",
+            "ptBR": "[fs]Placa Peitoral",
+            "ruRU": "[fs]кираса",
+            "zhCN": "胸片甲"
+        }
     },
     {
         "DamageString": null,
@@ -429,7 +654,22 @@
         "UberCode": "xpl",
         "UltraCode": "upl",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Splint Mail [N]",
+            "zhTW": "板甲",
+            "deDE": "[fs]Bänderrüstung",
+            "esES": "[fs]Cota de láminas",
+            "frFR": "[fs]Brigandine",
+            "itIT": "[fs]Corazza a Stecche",
+            "koKR": "스플린트 메일¹",
+            "plPL": "[fs]Karacenowa Zbroja",
+            "esMX": "[fs]Cota de pletinas",
+            "jaJP": "スプリント・メイル",
+            "ptBR": "[fs]Armadura Escamada",
+            "ruRU": "[ms]пластинчатый доспех",
+            "zhCN": "板条甲"
+        }
     },
     {
         "DamageString": null,
@@ -456,7 +696,22 @@
         "UberCode": "xlt",
         "UltraCode": "ult",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Plate Mail [N]",
+            "zhTW": "鎧甲",
+            "deDE": "[ms]Plattenharnisch",
+            "esES": "[fs]Cota de placas",
+            "frFR": "[ms]Harnois en plaques",
+            "itIT": "[fs]Maglia Rinforzata",
+            "koKR": "플레이트 메일¹",
+            "plPL": "[fs]Zbroja Płytowa",
+            "esMX": "[fs]Cota de placas",
+            "jaJP": "プレート・メイル",
+            "ptBR": "[fs]Armadura de Placas",
+            "ruRU": "[ms]латный доспех",
+            "zhCN": "板链甲"
+        }
     },
     {
         "DamageString": null,
@@ -483,7 +738,22 @@
         "UberCode": "xld",
         "UltraCode": "uld",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Field Plate [N]",
+            "zhTW": "野戰鎧甲",
+            "deDE": "[ms]Feldharnisch",
+            "esES": "[fs]Coraza de campaña",
+            "frFR": "[ms]Harnois de guerre",
+            "itIT": "[fs]Corazza a Lastre",
+            "koKR": "필드 플레이트¹",
+            "plPL": "[fs]Zbroja Polowa",
+            "esMX": "[fs]Coraza de campaña",
+            "jaJP": "フィールド・プレート",
+            "ptBR": "[fs]Armadura de Campo",
+            "ruRU": "[ms]полевой латный доспех",
+            "zhCN": "全身板甲"
+        }
     },
     {
         "DamageString": null,
@@ -510,7 +780,22 @@
         "UberCode": "xth",
         "UltraCode": "uth",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Gothic Plate [N]",
+            "zhTW": "哥德鎧甲",
+            "deDE": "[ms]Prunkharnisch",
+            "esES": "[fs]Coraza gótica",
+            "frFR": "[ms]Harnois gothique",
+            "itIT": "[fs]Corazza Gotica",
+            "koKR": "고딕 플레이트¹",
+            "plPL": "[fs]Gotycka Zbroja Płytowa",
+            "esMX": "[fs]Coraza gótica",
+            "jaJP": "ゴシック・プレート",
+            "ptBR": "[fs]Armadura Gótica",
+            "ruRU": "[ms]готический доспех",
+            "zhCN": "哥特甲"
+        }
     },
     {
         "DamageString": null,
@@ -537,7 +822,22 @@
         "UberCode": "xul",
         "UltraCode": "uul",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Full Plate Mail [N]",
+            "zhTW": "全身鎧甲",
+            "deDE": "[ms]voller Harnisch",
+            "esES": "[fs]Cota de placas completa",
+            "frFR": "[ms]Harnois complet",
+            "itIT": "[fs]Corazza di Maglia Completa",
+            "koKR": "풀 플레이트 메일¹",
+            "plPL": "[fs]Pełna Zbroja Płytowa",
+            "esMX": "[fs]Cota de placas completa",
+            "jaJP": "フルプレート・メイル",
+            "ptBR": "[fs]Armadura de Placas Integral",
+            "ruRU": "[ms]полный латный доспех",
+            "zhCN": "全身板链甲"
+        }
     },
     {
         "DamageString": null,
@@ -564,7 +864,22 @@
         "UberCode": "xar",
         "UltraCode": "uar",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Ancient Armor [N]",
+            "zhTW": "上古鎧甲",
+            "deDE": "[fs]alte Rüstung",
+            "esES": "[fs]Armadura antigua",
+            "frFR": "[fs]Armure ancienne",
+            "itIT": "[fs]Corazza Antica",
+            "koKR": "에인션트 아머¹",
+            "plPL": "[fs]Prastara Zbroja",
+            "esMX": "[fs]Armadura antigua",
+            "jaJP": "エンシェント・アーマー",
+            "ptBR": "[fs]Armadura Ancestral",
+            "ruRU": "[ms]древний доспех",
+            "zhCN": "古代甲"
+        }
     },
     {
         "DamageString": null,
@@ -591,7 +906,22 @@
         "UberCode": "xtp",
         "UltraCode": "utp",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Light Plate [N]",
+            "zhTW": "輕型鎧甲",
+            "deDE": "[fs]leichte Plattenrüstung",
+            "esES": "[fs]Coraza ligera",
+            "frFR": "[ms]Harnois léger",
+            "itIT": "[fs]Corazza di Piastre Leggera",
+            "koKR": "라이트 플레이트¹",
+            "plPL": "[fs]Lekka Zbroja Płytowa",
+            "esMX": "[fs]Coraza ligera",
+            "jaJP": "ライトプレート",
+            "ptBR": "[fs]Armadura Leve",
+            "ruRU": "[ms]легкий латный доспех",
+            "zhCN": "轻板甲"
+        }
     },
     {
         "DamageString": "1 to 3",
@@ -618,7 +948,22 @@
         "UberCode": "xuc",
         "UltraCode": "uuc",
         "AutoPrefix": "312",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Buckler [N]",
+            "zhTW": "小圓盾",
+            "deDE": "[ms]Beschützer",
+            "esES": "[ms]Broquel",
+            "frFR": "[ms]Écu",
+            "itIT": "[ms]Brocchiere",
+            "koKR": "버클러¹",
+            "plPL": "[ms]Puklerz",
+            "esMX": "[ms]Broquel",
+            "jaJP": "バックラー",
+            "ptBR": "[ms]Broquel",
+            "ruRU": "[ms]баклер",
+            "zhCN": "小圆盾"
+        }
     },
     {
         "DamageString": "2 to 3",
@@ -645,7 +990,22 @@
         "UberCode": "xml",
         "UltraCode": "uml",
         "AutoPrefix": "312",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Small Shield [N]",
+            "zhTW": "小型盾",
+            "deDE": "[ms]kleiner Schild",
+            "esES": "[ms]Escudo pequeño",
+            "frFR": "[ms]Petit bouclier",
+            "itIT": "[ms]Scudo Piccolo",
+            "koKR": "스몰 쉴드¹",
+            "plPL": "[fs]Mała Tarcza",
+            "esMX": "[ms]Escudo pequeño",
+            "jaJP": "小盾",
+            "ptBR": "[ms]Escudo Pequeno",
+            "ruRU": "[ms]маленький щит",
+            "zhCN": "小盾"
+        }
     },
     {
         "DamageString": "2 to 4",
@@ -672,7 +1032,22 @@
         "UberCode": "xrg",
         "UltraCode": "urg",
         "AutoPrefix": "312",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Large Shield [N]",
+            "zhTW": "大型盾",
+            "deDE": "[ms]großer Schild",
+            "esES": "[ms]Escudo grande",
+            "frFR": "[ms]Grand bouclier",
+            "itIT": "[ms]Scudo Grande",
+            "koKR": "라지 쉴드¹",
+            "plPL": "[fs]Duża Tarcza",
+            "esMX": "[ms]Escudo grande",
+            "jaJP": "大盾",
+            "ptBR": "[ms]Escudo Grande",
+            "ruRU": "[ms]большой щит",
+            "zhCN": "大盾"
+        }
     },
     {
         "DamageString": "2 to 5",
@@ -699,7 +1074,22 @@
         "UberCode": "xit",
         "UltraCode": "uit",
         "AutoPrefix": "312",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Kite Shield [N]",
+            "zhTW": "鳶盾",
+            "deDE": "[ms]eckiger Schild",
+            "esES": "[ms]Escudo de lágrima",
+            "frFR": "[ms]Grand écu",
+            "itIT": "[ms]Scudo a Losanga",
+            "koKR": "카이트 쉴드¹",
+            "plPL": "[fs]Trójkątna Tarcza",
+            "esMX": "[ms]Escudo de lágrima",
+            "jaJP": "カイト・シールド",
+            "ptBR": "[ms]Escudo Reforçado",
+            "ruRU": "[ms]каплевидный щит",
+            "zhCN": "鸢盾"
+        }
     },
     {
         "DamageString": "1 to 5",
@@ -726,7 +1116,22 @@
         "UberCode": "xow",
         "UltraCode": "uow",
         "AutoPrefix": "312",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Tower Shield [N]",
+            "zhTW": "塔盾",
+            "deDE": "[ms]hoher Schild",
+            "esES": "[fs]Tarja",
+            "frFR": "[ms]Bouclier rectangulaire",
+            "itIT": "[ms]Scudo a Torre",
+            "koKR": "타워 쉴드¹",
+            "plPL": "[fs]Ciężka Tarcza",
+            "esMX": "[ms]Escudo torre",
+            "jaJP": "タワー・シールド",
+            "ptBR": "[ms]Escudo Torre",
+            "ruRU": "[ms]осадный щит",
+            "zhCN": "塔盾"
+        }
     },
     {
         "DamageString": "2 to 6",
@@ -753,7 +1158,22 @@
         "UberCode": "xts",
         "UltraCode": "uts",
         "AutoPrefix": "312",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Gothic Shield [N]",
+            "zhTW": "哥德盾",
+            "deDE": "[ms]Prunkschild",
+            "esES": "[ms]Escudo gótico",
+            "frFR": "[ms]Bouclier gothique",
+            "itIT": "[ms]Scudo Gotico",
+            "koKR": "고딕 쉴드¹",
+            "plPL": "[fs]Gotycka Tarcza",
+            "esMX": "[ms]Escudo gótico",
+            "jaJP": "ゴシック・シールド",
+            "ptBR": "[ms]Escudo Gótico",
+            "ruRU": "[ms]готический щит",
+            "zhCN": "哥特盾"
+        }
     },
     {
         "DamageString": null,
@@ -780,7 +1200,22 @@
         "UberCode": "xlg",
         "UltraCode": "ulg",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Leather Gloves [N]",
+            "zhTW": "皮革手套",
+            "deDE": "[pl]Lederhandschuhe",
+            "esES": "[mp]Guantes de cuero",
+            "frFR": "[mp]Gants en cuir",
+            "itIT": "[mp]Guanti di Pelle",
+            "koKR": "레더 글러브¹",
+            "plPL": "[nl]Skórzane Rękawice",
+            "esMX": "[mp]Guantes de cuero",
+            "jaJP": "レザーグローブ",
+            "ptBR": "[fp]Luvas de Couro",
+            "ruRU": "[pl]кожаные перчатки",
+            "zhCN": "皮手套"
+        }
     },
     {
         "DamageString": null,
@@ -807,7 +1242,22 @@
         "UberCode": "xvg",
         "UltraCode": "uvg",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Heavy Gloves [N]",
+            "zhTW": "厚皮手套",
+            "deDE": "[pl]schwere Handschuhe",
+            "esES": "[mp]Guantes pesados",
+            "frFR": "[mp]Gants lourds",
+            "itIT": "[mp]Guanti Pesanti",
+            "koKR": "헤비 글러브¹",
+            "plPL": "[nl]Ciężkie Rękawice",
+            "esMX": "[mp]Guantes pesados",
+            "jaJP": "ヘビーグローブ",
+            "ptBR": "[fp]Luvas Pesadas",
+            "ruRU": "[pl]тяжелые перчатки",
+            "zhCN": "重手套"
+        }
     },
     {
         "DamageString": null,
@@ -834,7 +1284,22 @@
         "UberCode": "xmg",
         "UltraCode": "umg",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Chain Gloves [N]",
+            "zhTW": "鍊甲手套",
+            "deDE": "[pl]Kettenhandschuhe",
+            "esES": "[mp]Guantes de malla",
+            "frFR": "[mp]Gants en anneaux",
+            "itIT": "[mp]Guanti di Maglia",
+            "koKR": "체인 글러브¹",
+            "plPL": "[nl]Kolcze Rękawice",
+            "esMX": "[mp]Guantes de malla",
+            "jaJP": "チェイン・グローブ",
+            "ptBR": "[fp]Luvas Encadeadas",
+            "ruRU": "[pl]кольчужные перчатки",
+            "zhCN": "链甲手套"
+        }
     },
     {
         "DamageString": null,
@@ -861,7 +1326,22 @@
         "UberCode": "xtg",
         "UltraCode": "utg",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Light Gauntlets [N]",
+            "zhTW": "輕型護手",
+            "deDE": "[pl]leichte Panzerhandschuhe",
+            "esES": "[mp]Guanteletes ligeros",
+            "frFR": "[mp]Gantelets légers",
+            "itIT": "[mp]Guanti d'Arme Leggeri",
+            "koKR": "라이트 건틀릿¹",
+            "plPL": "[nl]Lekkie Rękawice",
+            "esMX": "[mp]Guanteletes ligeros",
+            "jaJP": "ライト・ガントレット",
+            "ptBR": "[fp]Manoplas Leves",
+            "ruRU": "[pl]легкие рукавицы",
+            "zhCN": "轻护手"
+        }
     },
     {
         "DamageString": null,
@@ -888,7 +1368,22 @@
         "UberCode": "xhg",
         "UltraCode": "uhg",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Gauntlets [N]",
+            "zhTW": "鋼鐵護手",
+            "deDE": "[pl]Panzerhandschuhe",
+            "esES": "[mp]Guanteletes",
+            "frFR": "[mp]Gantelets",
+            "itIT": "[mp]Guanti d'Arme",
+            "koKR": "건틀릿¹",
+            "plPL": "[nl]Rękawice",
+            "esMX": "[mp]Guanteletes",
+            "jaJP": "ガントレット",
+            "ptBR": "[fp]Manoplas",
+            "ruRU": "[pl]рукавицы",
+            "zhCN": "护手"
+        }
     },
     {
         "DamageString": "3 to 8",
@@ -915,7 +1410,22 @@
         "UberCode": "xlb",
         "UltraCode": "ulb",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Boots [N]",
+            "zhTW": "皮靴",
+            "deDE": "[pl]Stiefel",
+            "esES": "[fp]Botas",
+            "frFR": "[fp]Bottes",
+            "itIT": "[mp]Stivali",
+            "koKR": "부츠¹",
+            "plPL": "[nl]Buty",
+            "esMX": "[fp]Botas",
+            "jaJP": "ブーツ",
+            "ptBR": "[fp]Botas",
+            "ruRU": "[pl]сапоги",
+            "zhCN": "短靴"
+        }
     },
     {
         "DamageString": "4 to 10",
@@ -942,7 +1452,22 @@
         "UberCode": "xvb",
         "UltraCode": "uvb",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Heavy Boots [N]",
+            "zhTW": "重靴",
+            "deDE": "[pl]schwere Stiefel",
+            "esES": "[fp]Botas pesadas",
+            "frFR": "[fp]Bottes lourdes",
+            "itIT": "[mp]Stivali Pesanti",
+            "koKR": "헤비 부츠¹",
+            "plPL": "[nl]Ciężkie Buty",
+            "esMX": "[fp]Botas pesadas",
+            "jaJP": "ヘビーブーツ",
+            "ptBR": "[fp]Botas Pesadas",
+            "ruRU": "[pl]тяжелые сапоги",
+            "zhCN": "重靴"
+        }
     },
     {
         "DamageString": "6 to 12",
@@ -969,7 +1494,22 @@
         "UberCode": "xmb",
         "UltraCode": "umb",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Chain Boots [N]",
+            "zhTW": "鎖鍊靴",
+            "deDE": "[pl]Kettenstiefel",
+            "esES": "[fp]Botas de malla",
+            "frFR": "[fp]Bottes en anneaux",
+            "itIT": "[mp]Stivali di Maglia",
+            "koKR": "체인 부츠¹",
+            "plPL": "[nl]Kolcze Buty",
+            "esMX": "[fp]Botas de malla",
+            "jaJP": "チェイン・ブーツ",
+            "ptBR": "[fp]Botas Encadeadas",
+            "ruRU": "[pl]кольчужные сапоги",
+            "zhCN": "锁链靴"
+        }
     },
     {
         "DamageString": "8 to 16",
@@ -996,7 +1536,22 @@
         "UberCode": "xtb",
         "UltraCode": "utb",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Light Plated Boots [N]",
+            "zhTW": "輕鎧靴",
+            "deDE": "[pl]leichte Plattenstiefel",
+            "esES": "[fp]Botas de placas ligeras",
+            "frFR": "[fp]Bottes en plaques légères",
+            "itIT": "[mp]Stivali di Piastre",
+            "koKR": "라이트 플레이트 부츠¹",
+            "plPL": "[nl]Lekkie Płytowe Buty",
+            "esMX": "[fp]Botas laminadas ligeras",
+            "jaJP": "ライトプレート・ブーツ",
+            "ptBR": "[fp]Botas de Placas Leves",
+            "ruRU": "[pl]легкие латные сапоги",
+            "zhCN": "轻板甲靴"
+        }
     },
     {
         "DamageString": "10 to 20",
@@ -1023,7 +1578,22 @@
         "UberCode": "xhb",
         "UltraCode": "uhb",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Greaves [N]",
+            "zhTW": "護脛",
+            "deDE": "[pl]Beinschienen",
+            "esES": "[fp]Grebas",
+            "frFR": "[fp]Grèves",
+            "itIT": "[mp]Schinieri",
+            "koKR": "그리브¹",
+            "plPL": "[nl]Nagolenice",
+            "esMX": "[fp]Grebas",
+            "jaJP": "グリーヴ",
+            "ptBR": "[fp]Grevas",
+            "ruRU": "[pl]наголенники",
+            "zhCN": "护胫靴"
+        }
     },
     {
         "DamageString": null,
@@ -1050,7 +1620,22 @@
         "UberCode": "zlb",
         "UltraCode": "ulc",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Sash [N]",
+            "zhTW": "束帶",
+            "deDE": "[fs]Schärpe",
+            "esES": "[ms]Fajín",
+            "frFR": "[ms]Ceinturon",
+            "itIT": "[fs]Fascia",
+            "koKR": "새시¹",
+            "plPL": "[fs]Szarfa",
+            "esMX": "[ms]Cincho",
+            "jaJP": "サッシュ",
+            "ptBR": "[fs]Faixa",
+            "ruRU": "[ms]кушак",
+            "zhCN": "腰带"
+        }
     },
     {
         "DamageString": null,
@@ -1077,7 +1662,22 @@
         "UberCode": "zvb",
         "UltraCode": "uvc",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Light Belt [N]",
+            "zhTW": "輕腰帶",
+            "deDE": "[ms]leichter Gürtel",
+            "esES": "[ms]Cinturón ligero",
+            "frFR": "[fs]Fine ceinture",
+            "itIT": "[fs]Cintura Leggera",
+            "koKR": "라이트 벨트¹",
+            "plPL": "[ms]Lekki Pas",
+            "esMX": "[ms]Cinturón ligero",
+            "jaJP": "ライト・ベルト",
+            "ptBR": "[ms]Cinto Leve",
+            "ruRU": "[ms]легкий пояс",
+            "zhCN": "轻腰带"
+        }
     },
     {
         "DamageString": null,
@@ -1104,7 +1704,22 @@
         "UberCode": "zmb",
         "UltraCode": "umc",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Belt [N]",
+            "zhTW": "腰帶",
+            "deDE": "[ms]Gürtel",
+            "esES": "[ms]Cinturón",
+            "frFR": "[fs]Ceinture",
+            "itIT": "[fs]Cintura",
+            "koKR": "벨트¹",
+            "plPL": "[ms]Pas",
+            "esMX": "[ms]Cinturón",
+            "jaJP": "ベルト",
+            "ptBR": "[ms]Cinto",
+            "ruRU": "[ms]пояс",
+            "zhCN": "腰带"
+        }
     },
     {
         "DamageString": null,
@@ -1131,7 +1746,22 @@
         "UberCode": "ztb",
         "UltraCode": "utc",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Heavy Belt [N]",
+            "zhTW": "厚腰帶",
+            "deDE": "[ms]schwerer Gürtel",
+            "esES": "[ms]Cinturón pesado",
+            "frFR": "[fs]Ceinture lourde",
+            "itIT": "[fs]Cintura Pesante",
+            "koKR": "헤비 벨트¹",
+            "plPL": "[ms]Ciężki Pas",
+            "esMX": "[ms]Cinturón pesado",
+            "jaJP": "ヘビーベルト",
+            "ptBR": "[ms]Cinto Pesado",
+            "ruRU": "[ms]тяжелый пояс",
+            "zhCN": "重腰带"
+        }
     },
     {
         "DamageString": null,
@@ -1158,7 +1788,22 @@
         "UberCode": "zhb",
         "UltraCode": "uhc",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Plated Belt [N]",
+            "zhTW": "鎧甲腰帶",
+            "deDE": "[ms]Plattengürtel",
+            "esES": "[ms]Cinturón de placas",
+            "frFR": "[fs]Ceinture en plaques",
+            "itIT": "[fs]Cintura di Piastre",
+            "koKR": "플레이트 벨트¹",
+            "plPL": "[ms]Płytowy Pas",
+            "esMX": "[ms]Cinturón laminado",
+            "jaJP": "プレート・ベルト",
+            "ptBR": "[ms]Cinto de Placas",
+            "ruRU": "[ms]латный пояс",
+            "zhCN": "板甲腰带"
+        }
     },
     {
         "DamageString": null,
@@ -1185,7 +1830,22 @@
         "UberCode": "xh9",
         "UltraCode": "uh9",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Bone Helm [N]",
+            "zhTW": "骸骨頭盔",
+            "deDE": "[ms]Knochenhelm",
+            "esES": "[ms]Yelmo de hueso",
+            "frFR": "[ms]Heaume en os",
+            "itIT": "[ms]Elmo d'Ossa",
+            "koKR": "본 헬름¹",
+            "plPL": "[ms]Kościany Hełm",
+            "esMX": "[ms]Yelmo óseo",
+            "jaJP": "ボーン・ヘルム",
+            "ptBR": "[ms]Elmo Ósseo",
+            "ruRU": "[ms]костяной шлем",
+            "zhCN": "骨盔"
+        }
     },
     {
         "DamageString": "3 to 6",
@@ -1212,7 +1872,22 @@
         "UberCode": "xsh",
         "UltraCode": "ush",
         "AutoPrefix": "312",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Bone Shield [N]",
+            "zhTW": "骨盾",
+            "deDE": "[ms]Knochenschild",
+            "esES": "[ms]Escudo de hueso",
+            "frFR": "[ms]Bouclier en os",
+            "itIT": "[ms]Scudo d'Ossa",
+            "koKR": "본 쉴드¹",
+            "plPL": "[fs]Kościana Tarcza",
+            "esMX": "[ms]Escudo óseo",
+            "jaJP": "ボーン・シールド",
+            "ptBR": "[ms]Escudo Ósseo",
+            "ruRU": "[ms]костяной щит",
+            "zhCN": "骨盾"
+        }
     },
     {
         "DamageString": "5 to 9",
@@ -1239,7 +1914,22 @@
         "UberCode": "xpk",
         "UltraCode": "upk",
         "AutoPrefix": "312",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Spiked Shield [N]",
+            "zhTW": "尖刺盾",
+            "deDE": "[ms]Dornenschild",
+            "esES": "[ms]Escudo con pinchos",
+            "frFR": "[ms]Bouclier à pointes",
+            "itIT": "[ms]Scudo Puntuto",
+            "koKR": "스파이크 쉴드¹",
+            "plPL": "[fs]Kolczasta Tarcza",
+            "esMX": "[ms]Escudo de púas",
+            "jaJP": "スパイク・シールド",
+            "ptBR": "[ms]Escudo com Espetos",
+            "ruRU": "[ms]шипастый щит",
+            "zhCN": "尖刺盾"
+        }
     },
     {
         "DamageString": null,
@@ -1266,7 +1956,22 @@
         "UberCode": "xap",
         "UltraCode": "uap",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "War Hat [X]",
+            "zhTW": "戰帽",
+            "deDE": "[ms]Kriegshut",
+            "esES": "[fs]Cofia de guerra",
+            "frFR": "[ms]Chapeau de guerre",
+            "itIT": "[ms]Cappuccio da Guerra",
+            "koKR": "워 햇²",
+            "plPL": "[ms]Bojowy Kaptur",
+            "esMX": "[ms]Gorro de guerra",
+            "jaJP": "ウォーハット",
+            "ptBR": "[ms]Chapéu Bélico",
+            "ruRU": "[ms]воинский наголовник",
+            "zhCN": "战争帽"
+        }
     },
     {
         "DamageString": null,
@@ -1293,7 +1998,22 @@
         "UberCode": "xkp",
         "UltraCode": "ukp",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Sallet [X]",
+            "zhTW": "便盔",
+            "deDE": "[ms]Schaller",
+            "esES": "[fs]Celada",
+            "frFR": "[fs]Salade",
+            "itIT": "[fs]Celata",
+            "koKR": "샐릿²",
+            "plPL": "[fs]Salada",
+            "esMX": "[fs]Celada",
+            "jaJP": "サレット",
+            "ptBR": "[fs]Celada",
+            "ruRU": "[ms]кабассет",
+            "zhCN": "轻盔"
+        }
     },
     {
         "DamageString": null,
@@ -1320,7 +2040,22 @@
         "UberCode": "xlm",
         "UltraCode": "ulm",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Casque [X]",
+            "zhTW": "兜盔",
+            "deDE": "[ms]Spitzhelm",
+            "esES": "[ms]Morrión",
+            "frFR": "[ms]Casque",
+            "itIT": "[ms]Casco",
+            "koKR": "캐스크²",
+            "plPL": "[ms]Kask",
+            "esMX": "[fs]Barbuta",
+            "jaJP": "カスク",
+            "ptBR": "[ms]Casquete",
+            "ruRU": "[fs]каска",
+            "zhCN": "护鼻盔"
+        }
     },
     {
         "DamageString": null,
@@ -1347,7 +2082,22 @@
         "UberCode": "xhl",
         "UltraCode": "uhl",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Basinet [X]",
+            "zhTW": "輕盔",
+            "deDE": "[ms]Kesselhelm",
+            "esES": "[ms]Bacinete",
+            "frFR": "[ms]Bassinet",
+            "itIT": "[ms]Bacinetto",
+            "koKR": "배서넷²",
+            "plPL": "[ms]Basinet",
+            "esMX": "[ms]Bacinete",
+            "jaJP": "バシネット",
+            "ptBR": "[ms]Bacinete",
+            "ruRU": "[ms]стальной шлем",
+            "zhCN": "喙面盔"
+        }
     },
     {
         "DamageString": null,
@@ -1374,7 +2124,22 @@
         "UberCode": "xhm",
         "UltraCode": "uhm",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Winged Helm [X]",
+            "zhTW": "翼盔",
+            "deDE": "Flügelhelm",
+            "esES": "[ms]Yelmo alado",
+            "frFR": "[ms]Heaume ailé",
+            "itIT": "[ms]Elmo Alato",
+            "koKR": "윙드 헬름²",
+            "plPL": "[ms]Uskrzydlony Hełm",
+            "esMX": "[ms]Yelmo alado",
+            "jaJP": "ウィングド・ヘルム",
+            "ptBR": "[ms]Elmo Alado",
+            "ruRU": "[ms]крылатый шлем",
+            "zhCN": "翼盔"
+        }
     },
     {
         "DamageString": null,
@@ -1401,7 +2166,22 @@
         "UberCode": "xrn",
         "UltraCode": "urn",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Grand Crown [X]",
+            "zhTW": "莊嚴王冠",
+            "deDE": "[fs]große Krone",
+            "esES": "[fs]Gran corona",
+            "frFR": "[fs]Couronne d’apparat",
+            "itIT": "[fs]Grande Corona",
+            "koKR": "그랜드 크라운²",
+            "plPL": "[fs]Wielka Korona",
+            "esMX": "[fs]Corona grandiosa",
+            "jaJP": "グランド・クラウン",
+            "ptBR": "[fs]Grande Coroa",
+            "ruRU": "[fs]большая корона",
+            "zhCN": "宝冠盔"
+        }
     },
     {
         "DamageString": null,
@@ -1428,7 +2208,22 @@
         "UberCode": "xsk",
         "UltraCode": "usk",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Death Mask [X]",
+            "zhTW": "死亡面具",
+            "deDE": "[fs]Totenmaske",
+            "esES": "[fs]Máscara de la muerte",
+            "frFR": "[ms]Masque funéraire",
+            "itIT": "[fs]Maschera della Morte",
+            "koKR": "데스 마스크²",
+            "plPL": "[fs]Pośmiertna Maska",
+            "esMX": "[fs]Máscara de la muerte",
+            "jaJP": "デスマスク",
+            "ptBR": "[fs]Máscara Mortuária",
+            "ruRU": "[fs]посмертная маска",
+            "zhCN": "死者面甲"
+        }
     },
     {
         "DamageString": null,
@@ -1455,7 +2250,22 @@
         "UberCode": "xui",
         "UltraCode": "uui",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Ghost Armor [X]",
+            "zhTW": "鬼魂戰衣",
+            "deDE": "[fs]Geisterrüstung",
+            "esES": "[fs]Armadura fantasmal",
+            "frFR": "[fs]Armure fantôme",
+            "itIT": "[fs]Corazza Fantasma",
+            "koKR": "고스트 아머²",
+            "plPL": "[fs]Upiorna Zbroja",
+            "esMX": "[fs]Armadura fantasmal",
+            "jaJP": "ゴースト・アーマー",
+            "ptBR": "[fs]Armadura Fantasma",
+            "ruRU": "[ms]призрачный доспех",
+            "zhCN": "幽灵甲"
+        }
     },
     {
         "DamageString": null,
@@ -1482,7 +2292,22 @@
         "UberCode": "xea",
         "UltraCode": "uea",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Serpentskin Armor [X]",
+            "zhTW": "海蛇皮甲",
+            "deDE": "[fs]Schlangenlederrüstung",
+            "esES": "[fs]Armadura de piel de serpiente",
+            "frFR": "[fs]Armure en peau de serpent",
+            "itIT": "[fs]Corazza di Pelle di Serpente",
+            "koKR": "서펀트스킨 아머²",
+            "plPL": "[fs]Wężowa Zbroja",
+            "esMX": "[fs]Armadura de piel de serpiente",
+            "jaJP": "蛇革アーマー",
+            "ptBR": "[fs]Armadura de Couro de Serpente",
+            "ruRU": "[ms]змеиный доспех",
+            "zhCN": "蛇皮甲"
+        }
     },
     {
         "DamageString": null,
@@ -1509,7 +2334,22 @@
         "UberCode": "xla",
         "UltraCode": "ula",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Demonhide Armor [X]",
+            "zhTW": "魔皮護甲",
+            "deDE": "[fs]Dämonenlederrüstung",
+            "esES": "[fs]Armadura de cuero de demonio",
+            "frFR": "[fs]Armure en cuir de démon",
+            "itIT": "[fs]Corazza di Pelle Demoniaca",
+            "koKR": "데몬하이드 아머²",
+            "plPL": "[fs]Demoniczna Zbroja",
+            "esMX": "[fs]Armadura de cuero de demonio",
+            "jaJP": "魔獣革アーマー",
+            "ptBR": "[fs]Armadura de Couro de Demônio",
+            "ruRU": "[ms]демонический кожаный доспех",
+            "zhCN": "恶魔皮甲"
+        }
     },
     {
         "DamageString": null,
@@ -1536,7 +2376,22 @@
         "UberCode": "xtu",
         "UltraCode": "utu",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Trellised Armor [X]",
+            "zhTW": "格網護甲",
+            "deDE": "[fs]Bänderrüstung",
+            "esES": "[fs]Armadura enrejada",
+            "frFR": "[fs]Armure treillissée",
+            "itIT": "[fs]Corazza Intrecciata",
+            "koKR": "트렐리스드 아머²",
+            "plPL": "[fs]Zbroja Pojedynkowa",
+            "esMX": "[fs]Armadura remachada",
+            "jaJP": "トレリスド・アーマー",
+            "ptBR": "[fs]Armadura Trançada",
+            "ruRU": "[ms]сетчатый доспех",
+            "zhCN": "镶片铠甲"
+        }
     },
     {
         "DamageString": null,
@@ -1563,7 +2418,22 @@
         "UberCode": "xng",
         "UltraCode": "ung",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Linked Mail [X]",
+            "zhTW": "鍊扣戰甲",
+            "deDE": "[ns]Verbundkettenhemd",
+            "esES": "[fs]Cota eslabonada",
+            "frFR": "[fs]Cotte de mailles liée",
+            "itIT": "[fs]Maglia ad Anelli",
+            "koKR": "링크드 메일²",
+            "plPL": "[fs]Koszulka Kolcza",
+            "esMX": "[fs]Cota anillada",
+            "jaJP": "リンクド・メイル",
+            "ptBR": "[fs]Malha Articulada",
+            "ruRU": "[fs]клепаная кольчуга",
+            "zhCN": "锁环甲"
+        }
     },
     {
         "DamageString": null,
@@ -1590,7 +2460,22 @@
         "UberCode": "xcl",
         "UltraCode": "ucl",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Tigulated Mail [X]",
+            "zhTW": "鎖鱗戰甲",
+            "deDE": "[ns]Komplettpanzerhemd",
+            "esES": "[fs]Cota articulada",
+            "frFR": "[fs]Cotte de mailles tigulée",
+            "itIT": "[fp]Scaglie Rinforzate",
+            "koKR": "티귤레이티드 메일²",
+            "plPL": "[fs]Wzmocniona Kolczuga",
+            "esMX": "[fs]Cota de láminas",
+            "jaJP": "ティギュレイテッド・メイル",
+            "ptBR": "[fs]Malha Grumosa",
+            "ruRU": "[ms]черепичный доспех",
+            "zhCN": "固片锁甲"
+        }
     },
     {
         "DamageString": null,
@@ -1617,7 +2502,22 @@
         "UberCode": "xhn",
         "UltraCode": "uhn",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Mesh Armor [X]",
+            "zhTW": "鐵網戰甲",
+            "deDE": "[fs]Kettenrüstung",
+            "esES": "[fs]Armadura mallada",
+            "frFR": "[fs]Armure maillée",
+            "itIT": "[fs]Corazza di Maglia",
+            "koKR": "메쉬 아머²",
+            "plPL": "[fs]Kolcza Zbroja",
+            "esMX": "[fs]Armadura mallada",
+            "jaJP": "メッシュ・アーマー",
+            "ptBR": "[fs]Armadura de Malha",
+            "ruRU": "[ms]сетчатый доспех",
+            "zhCN": "札甲"
+        }
     },
     {
         "DamageString": null,
@@ -1644,7 +2544,22 @@
         "UberCode": "xrs",
         "UltraCode": "urs",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Cuirass [X]",
+            "zhTW": "護胸甲",
+            "deDE": "[ms]Harnisch",
+            "esES": "[ms]Peto",
+            "frFR": "[fs]Cuirasse",
+            "itIT": "[fs]Corazza Rinforzata",
+            "koKR": "퀴래스²",
+            "plPL": "[ms]Kirys",
+            "esMX": "[fs]Coraza",
+            "jaJP": "キュイラス",
+            "ptBR": "[fs]Couraça",
+            "ruRU": "[fs]кираса",
+            "zhCN": "重装胸甲"
+        }
     },
     {
         "DamageString": null,
@@ -1671,7 +2586,22 @@
         "UberCode": "xpl",
         "UltraCode": "upl",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Russet Armor [X]",
+            "zhTW": "赤褐戰甲",
+            "deDE": "[fs]Eisenrüstung",
+            "esES": "[fs]Armadura rojiza",
+            "frFR": "[fs]Armure rousse",
+            "itIT": "[fs]Corazza Lamellare",
+            "koKR": "러셋 아머²",
+            "plPL": "[fs]Brunatna Zbroja",
+            "esMX": "[fs]Armadura cobriza",
+            "jaJP": "ラセット・アーマー",
+            "ptBR": "[fs]Armadura Avermelhada",
+            "ruRU": "[ms]терракотовый доспех",
+            "zhCN": "褐锈甲"
+        }
     },
     {
         "DamageString": null,
@@ -1698,7 +2628,22 @@
         "UberCode": "xlt",
         "UltraCode": "ult",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Templar Coat [X]",
+            "zhTW": "聖堂騎士戰甲",
+            "deDE": "[ms]Templermantel",
+            "esES": "[fs]Cota templaria",
+            "frFR": "[fs]Cotte de templier",
+            "itIT": "[fs]Veste dei Templari",
+            "koKR": "템플러 코트²",
+            "plPL": "[fs]Templariańska Zbroja",
+            "esMX": "[fs]Cota templaria",
+            "jaJP": "テンペラー・コート",
+            "ptBR": "[fs]Cota Templária",
+            "ruRU": "[ms]тамплиерский мундир",
+            "zhCN": "圣殿骑士铠"
+        }
     },
     {
         "DamageString": null,
@@ -1725,7 +2670,22 @@
         "UberCode": "xld",
         "UltraCode": "uld",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Sharktooth Armor [X]",
+            "zhTW": "鯊齒戰甲",
+            "deDE": "[fs]Haizahnrüstung",
+            "esES": "[fs]Armadura de dientes de tiburón",
+            "frFR": "[fs]Armure en dents de requin",
+            "itIT": "[fs]Corazza di Denti di Squalo",
+            "koKR": "샤크투스 아머²",
+            "plPL": "[fs]Rekinia Zbroja",
+            "esMX": "[fs]Armadura de diente de tiburón",
+            "jaJP": "シャークトゥース・アーマー",
+            "ptBR": "[fs]Armadura de Dente de Tubarão",
+            "ruRU": "[ms]акулий доспех",
+            "zhCN": "鲨齿战甲"
+        }
     },
     {
         "DamageString": null,
@@ -1752,7 +2712,22 @@
         "UberCode": "xth",
         "UltraCode": "uth",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Embossed Plate [X]",
+            "zhTW": "雕紋戰甲",
+            "deDE": "[fs]gravierte Plattenrüstung",
+            "esES": "[fs]Coraza repujada",
+            "frFR": "[ms]Harnois estampé",
+            "itIT": "[fp]Piastre Goffrate",
+            "koKR": "임바스트 플레이트²",
+            "plPL": "[fs]Tłoczona Zbroja Płytowa",
+            "esMX": "[fs]Coraza repujada",
+            "jaJP": "エンボス・プレート",
+            "ptBR": "[fs]Armadura em Relevo",
+            "ruRU": "[ms]гравированный доспех",
+            "zhCN": "浮雕纹甲"
+        }
     },
     {
         "DamageString": null,
@@ -1779,7 +2754,22 @@
         "UberCode": "xul",
         "UltraCode": "uul",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Chaos Armor [X]",
+            "zhTW": "混沌戰甲",
+            "deDE": "[fs]Chaosrüstung",
+            "esES": "[fs]Armadura del caos",
+            "frFR": "[fs]Armure de chaos",
+            "itIT": "[fs]Corazza del Caos",
+            "koKR": "카오스 아머²",
+            "plPL": "[fs]Chaotyczna Zbroja",
+            "esMX": "[fs]Armadura del caos",
+            "jaJP": "カオス・アーマー",
+            "ptBR": "[fs]Armadura do Caos",
+            "ruRU": "[ms]хаотический доспех",
+            "zhCN": "混沌护甲"
+        }
     },
     {
         "DamageString": null,
@@ -1806,7 +2796,22 @@
         "UberCode": "xar",
         "UltraCode": "uar",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Ornate Plate [X]",
+            "zhTW": "華麗戰甲",
+            "deDE": "[fs]verzierte Plattenrüstung",
+            "esES": "[fs]Coraza ornada",
+            "frFR": "[ms]Harnois orné",
+            "itIT": "[fp]Piastre Ornate",
+            "koKR": "오네이트 플레이트²",
+            "plPL": "[fs]Zdobiona Zbroja Płytowa",
+            "esMX": "[fs]Coraza ornamentada",
+            "jaJP": "オーネイト・プレート",
+            "ptBR": "[fs]Armadura Ornamentada",
+            "ruRU": "[ms]изукрашенный доспех",
+            "zhCN": "花纹战甲"
+        }
     },
     {
         "DamageString": null,
@@ -1833,7 +2838,22 @@
         "UberCode": "xtp",
         "UltraCode": "utp",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Mage Plate [X]",
+            "zhTW": "法師鎧甲",
+            "deDE": "[fs]Magierplattenrüstung",
+            "esES": "[fs]Coraza de mago",
+            "frFR": "[fs]Harnois de mage",
+            "itIT": "[fp]Piastre del Mago",
+            "koKR": "메이지 플레이트²",
+            "plPL": "[fs]Zbroja Maga",
+            "esMX": "[fs]Coraza de mago",
+            "jaJP": "メイジ・プレート",
+            "ptBR": "[fs]Armadura de Mago",
+            "ruRU": "[ms]магический доспех",
+            "zhCN": "法师铠"
+        }
     },
     {
         "DamageString": "8 to 12",
@@ -1860,7 +2880,22 @@
         "UberCode": "xuc",
         "UltraCode": "uuc",
         "AutoPrefix": "312",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Defender [X]",
+            "zhTW": "防禦盾",
+            "deDE": "[ms]Verteidiger",
+            "esES": "[ms]Defensor",
+            "frFR": "[ms]Défenseur",
+            "itIT": "[ms]Difensore",
+            "koKR": "디펜더²",
+            "plPL": "[ms]Obrońca",
+            "esMX": "[ms]Defensor",
+            "jaJP": "ディフェンダー",
+            "ptBR": "[ms]Defensor",
+            "ruRU": "[ms]защитник",
+            "zhCN": "防卫盾"
+        }
     },
     {
         "DamageString": "7 to 14",
@@ -1887,7 +2922,22 @@
         "UberCode": "xml",
         "UltraCode": "uml",
         "AutoPrefix": "312",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Round Shield [X]",
+            "zhTW": "圓型盾",
+            "deDE": "[ms]Rundschild",
+            "esES": "[ms]Escudo redondo",
+            "frFR": "[ms]Bouclier rond",
+            "itIT": "[ms]Scudo Rotondo",
+            "koKR": "라운드 쉴드²",
+            "plPL": "[fs]Okrągła Tarcza",
+            "esMX": "[ms]Escudo redondo",
+            "jaJP": "ラウンド・シールド",
+            "ptBR": "[ms]Escudo Redondo",
+            "ruRU": "[ms]круглый щит",
+            "zhCN": "圆盾"
+        }
     },
     {
         "DamageString": "11 to 15",
@@ -1914,7 +2964,22 @@
         "UberCode": "xrg",
         "UltraCode": "urg",
         "AutoPrefix": "312",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Scutum [X]",
+            "zhTW": "大圓盾",
+            "deDE": "[ms]Scutum",
+            "esES": "[ms]Scutum",
+            "frFR": "[ms]Scutum",
+            "itIT": "[ms]Scutum",
+            "koKR": "스큐텀²",
+            "plPL": "[nl]Scutum",
+            "esMX": "[ms]Scutum",
+            "jaJP": "スクトゥム",
+            "ptBR": "[ms]Scutum",
+            "ruRU": "[ms]скутум",
+            "zhCN": "椭圆盾"
+        }
     },
     {
         "DamageString": "15 to 24",
@@ -1941,7 +3006,22 @@
         "UberCode": "xit",
         "UltraCode": "uit",
         "AutoPrefix": "312",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Dragon Shield [X]",
+            "zhTW": "龍盾",
+            "deDE": "[ms]Drachenschild",
+            "esES": "[ms]Escudo de dragón",
+            "frFR": "[ms]Bouclier de dragon",
+            "itIT": "[ms]Scudo del Drago",
+            "koKR": "드래곤 쉴드²",
+            "plPL": "[fs]Smocza Tarcza",
+            "esMX": "[ms]Escudo de dragón",
+            "jaJP": "ドラゴン・シールド",
+            "ptBR": "[ms]Escudo Dracônico",
+            "ruRU": "[ms]драконий щит",
+            "zhCN": "龙盾"
+        }
     },
     {
         "DamageString": "10 to 17",
@@ -1968,7 +3048,22 @@
         "UberCode": "xow",
         "UltraCode": "uow",
         "AutoPrefix": "312",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Pavise [X]",
+            "zhTW": "大盾",
+            "deDE": "[ms]Pavese",
+            "esES": "[ms]Pavés",
+            "frFR": "[ms]Pavois",
+            "itIT": "[ms]Pavese",
+            "koKR": "파비스²",
+            "plPL": "[ms]Pawęż",
+            "esMX": "[ms]Pavés",
+            "jaJP": "パヴィース",
+            "ptBR": "[ms]Pavis",
+            "ruRU": "[fs]павеза",
+            "zhCN": "巨盾"
+        }
     },
     {
         "DamageString": "12 to 16",
@@ -1995,7 +3090,22 @@
         "UberCode": "xts",
         "UltraCode": "uts",
         "AutoPrefix": "312",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Ancient Shield [X]",
+            "zhTW": "上古盾",
+            "deDE": "[ms]alter Schild",
+            "esES": "[ms]Escudo antiguo",
+            "frFR": "[ms]Bouclier ancien",
+            "itIT": "[ms]Scudo Antico",
+            "koKR": "에인션트 쉴드²",
+            "plPL": "[fs]Prastara Tarcza",
+            "esMX": "[ms]Escudo antiguo",
+            "jaJP": "エンシェント・シールド",
+            "ptBR": "[ms]Escudo Ancestral",
+            "ruRU": "[ms]древний щит",
+            "zhCN": "古代盾"
+        }
     },
     {
         "DamageString": null,
@@ -2022,7 +3132,22 @@
         "UberCode": "xlg",
         "UltraCode": "ulg",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Demonhide Gloves [X]",
+            "zhTW": "魔皮手套",
+            "deDE": "[pl]Dämonenlederhandschuhe",
+            "esES": "[mp]Guantes de cuero de demonio",
+            "frFR": "[mp]Gants en cuir de démon",
+            "itIT": "[mp]Guanti di Pelle Demoniaca",
+            "koKR": "데몬하이드 글러브²",
+            "plPL": "[nl]Demoniczne Rękawice",
+            "esMX": "[mp]Guantes de cuero de demonio",
+            "jaJP": "魔獣革グローブ",
+            "ptBR": "[fp]Luvas de Couro de Demônio",
+            "ruRU": "[pl]демонические кожаные перчатки",
+            "zhCN": "恶魔皮手套"
+        }
     },
     {
         "DamageString": null,
@@ -2049,7 +3174,22 @@
         "UberCode": "xvg",
         "UltraCode": "uvg",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Sharkskin Gloves [X]",
+            "zhTW": "鯊皮手套",
+            "deDE": "[pl]Hailederhandschuhe",
+            "esES": "[mp]Guantes de piel de tiburón",
+            "frFR": "[mp]Gants en peau de requin",
+            "itIT": "[mp]Guanti di Pelle di Squalo",
+            "koKR": "샤크스킨 글러브²",
+            "plPL": "[nl]Rekinie Rękawice",
+            "esMX": "[mp]Guantes de piel de tiburón",
+            "jaJP": "鮫革グローブ",
+            "ptBR": "[fp]Luvas de Couro de Tubarão",
+            "ruRU": "[pl]акульи перчатки",
+            "zhCN": "鲨鱼皮手套"
+        }
     },
     {
         "DamageString": null,
@@ -2076,7 +3216,22 @@
         "UberCode": "xmg",
         "UltraCode": "umg",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Heavy Bracers [X]",
+            "zhTW": "重型護腕",
+            "deDE": "[pl]schwere Armschienen",
+            "esES": "[mp]Brazales pesados",
+            "frFR": "[mp]Manchons lourds",
+            "itIT": "[mp]Bracciali Pesanti",
+            "koKR": "헤비 브레이서²",
+            "plPL": "[nl]Ciężkie Karwasze",
+            "esMX": "[mp]Brazales pesados",
+            "jaJP": "ヘビーブレイサー",
+            "ptBR": "[fp]Braçadeiras Pesadas",
+            "ruRU": "[pl]тяжелые наручи",
+            "zhCN": "铁皮手套"
+        }
     },
     {
         "DamageString": null,
@@ -2103,7 +3258,22 @@
         "UberCode": "xtg",
         "UltraCode": "utg",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Battle Gauntlets [X]",
+            "zhTW": "戰鬥護手",
+            "deDE": "[pl]Kampfpanzerhandschuhe",
+            "esES": "[mp]Guanteletes de batalla",
+            "frFR": "[mp]Gantelets de bataille",
+            "itIT": "[mp]Guanti d'Arme da Battaglia",
+            "koKR": "배틀 건틀릿²",
+            "plPL": "[nl]Bitewne Rękawice",
+            "esMX": "[mp]Guanteletes de batalla",
+            "jaJP": "バトル・ガントレット",
+            "ptBR": "[fp]Manoplas de Batalha",
+            "ruRU": "[pl]боевые рукавицы",
+            "zhCN": "战斗护手"
+        }
     },
     {
         "DamageString": null,
@@ -2130,7 +3300,22 @@
         "UberCode": "xhg",
         "UltraCode": "uhg",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "War Gauntlets [X]",
+            "zhTW": "征戰護手",
+            "deDE": "Kriegspanzerhandschuhe",
+            "esES": "[mp]Guanteletes de guerra",
+            "frFR": "[mp]Gantelets de guerre",
+            "itIT": "[mp]Guanti d'Arme da Guerra",
+            "koKR": "워 건틀릿²",
+            "plPL": "[nl]Bojowe Rękawice",
+            "esMX": "[mp]Guanteletes de guerra",
+            "jaJP": "ウォー・ガントレット",
+            "ptBR": "[fp]Manoplas Bélicas",
+            "ruRU": "[pl]воинские рукавицы",
+            "zhCN": "战争护手"
+        }
     },
     {
         "DamageString": "26 to 46",
@@ -2157,7 +3342,22 @@
         "UberCode": "xlb",
         "UltraCode": "ulb",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Demonhide Boots [X]",
+            "zhTW": "魔皮長靴",
+            "deDE": "[pl]Dämonenlederstiefel",
+            "esES": "[fp]Botas de cuero de demonio",
+            "frFR": "[fp]Bottes en cuir de démon",
+            "itIT": "[mp]Stivali di Pelle Demoniaca",
+            "koKR": "데몬하이드 부츠²",
+            "plPL": "[nl]Demoniczne Buty",
+            "esMX": "[fp]Botas de cuero de demonio",
+            "jaJP": "魔獣革ブーツ",
+            "ptBR": "[fp]Botas de Couro de Demônio",
+            "ruRU": "[pl]демонические кожаные сапоги",
+            "zhCN": "恶魔皮靴"
+        }
     },
     {
         "DamageString": "28 to 50",
@@ -2184,7 +3384,22 @@
         "UberCode": "xvb",
         "UltraCode": "uvb",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Sharkskin Boots [X]",
+            "zhTW": "鯊皮靴",
+            "deDE": "[pl]Hailederstiefel",
+            "esES": "[fp]Botas de piel de tiburón",
+            "frFR": "[fp]Bottes en peau de requin",
+            "itIT": "[mp]Stivali di Pelle di Squalo",
+            "koKR": "샤크스킨 부츠²",
+            "plPL": "[nl]Rekinie Buty",
+            "esMX": "[fp]Botas de piel de tiburón",
+            "jaJP": "鮫革ブーツ",
+            "ptBR": "[fp]Botas de Couro de Tubarão",
+            "ruRU": "[pl]акульи сапоги",
+            "zhCN": "鲨鱼皮靴"
+        }
     },
     {
         "DamageString": "23 to 52",
@@ -2211,7 +3426,22 @@
         "UberCode": "xmb",
         "UltraCode": "umb",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Mesh Boots [X]",
+            "zhTW": "鐵網靴",
+            "deDE": "[pl]Ringstiefel",
+            "esES": "[fp]Botas malladas",
+            "frFR": "[fp]Bottes maillées",
+            "itIT": "[mp]Stivali di Maglia",
+            "koKR": "메쉬 부츠²",
+            "plPL": "[nl]Kolcze Buty",
+            "esMX": "[fp]Botas malladas",
+            "jaJP": "メッシュ・ブーツ",
+            "ptBR": "[fp]Botas de Malha",
+            "ruRU": "[pl]сетчатые сапоги",
+            "zhCN": "网纹靴"
+        }
     },
     {
         "DamageString": "37 to 64",
@@ -2238,7 +3468,22 @@
         "UberCode": "xtb",
         "UltraCode": "utb",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Battle Boots [X]",
+            "zhTW": "戰鬥靴",
+            "deDE": "[pl]Kampfstiefel",
+            "esES": "[fp]Botas de batalla",
+            "frFR": "[fp]Bottes de bataille",
+            "itIT": "[mp]Stivali da Battaglia",
+            "koKR": "배틀 부츠²",
+            "plPL": "[nl]Bitewne Buty",
+            "esMX": "[fp]Botas de batalla",
+            "jaJP": "バトル・ブーツ",
+            "ptBR": "[fp]Botas de Batalha",
+            "ruRU": "[pl]боевые сапоги",
+            "zhCN": "战靴"
+        }
     },
     {
         "DamageString": "39 to 80",
@@ -2265,7 +3510,22 @@
         "UberCode": "xhb",
         "UltraCode": "uhb",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "War Boots [X]",
+            "zhTW": "征戰靴",
+            "deDE": "[pl]Kriegsstiefel",
+            "esES": "[fp]Botas de guerra",
+            "frFR": "[fp]Bottes de guerre",
+            "itIT": "[mp]Stivali da Guerra",
+            "koKR": "워 부츠²",
+            "plPL": "[nl]Bojowe Buty",
+            "esMX": "[fp]Botas de guerra",
+            "jaJP": "ウォーブーツ",
+            "ptBR": "[fp]Botas Bélicas",
+            "ruRU": "[pl]воинские сапоги",
+            "zhCN": "战争靴"
+        }
     },
     {
         "DamageString": null,
@@ -2292,7 +3552,22 @@
         "UberCode": "zlb",
         "UltraCode": "ulc",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Demonhide Sash [X]",
+            "zhTW": "魔皮束帶",
+            "deDE": "[fs]Dämonenlederschärpe",
+            "esES": "[ms]Fajín de cuero de demonio",
+            "frFR": "[fs]Écharpe en cuir de démon",
+            "itIT": "[fs]Fascia di Pelle Demoniaca",
+            "koKR": "데몬하이드 새시²",
+            "plPL": "[ms]Demoniczny Pas",
+            "esMX": "[ms]Cincho de cuero de demonio",
+            "jaJP": "魔獣革サッシュ",
+            "ptBR": "[fs]Faixa de Couro de Demônio",
+            "ruRU": "[ms]демонический кожаный кушак",
+            "zhCN": "恶魔皮带"
+        }
     },
     {
         "DamageString": null,
@@ -2319,7 +3594,22 @@
         "UberCode": "zvb",
         "UltraCode": "uvc",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Sharkskin Belt [X]",
+            "zhTW": "鯊皮腰帶",
+            "deDE": "[ms]Hailedergürtel",
+            "esES": "[ms]Cinturón de piel de tiburón",
+            "frFR": "[fs]Ceinture en peau de requin",
+            "itIT": "[fs]Cintura di Pelle di Squalo",
+            "koKR": "샤크스킨 벨트²",
+            "plPL": "[ms]Rekini Pas",
+            "esMX": "[ms]Cinturón de piel de tiburón",
+            "jaJP": "鮫革ベルト",
+            "ptBR": "[ms]Cinto de Couro de Tubarão",
+            "ruRU": "[ms]акулий пояс",
+            "zhCN": "鲨鱼皮带"
+        }
     },
     {
         "DamageString": null,
@@ -2346,7 +3636,22 @@
         "UberCode": "zmb",
         "UltraCode": "umc",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Mesh Belt [X]",
+            "zhTW": "鐵網腰帶",
+            "deDE": "[ms]Kettengürtel",
+            "esES": "[ms]Cinturón mallado",
+            "frFR": "[fs]Ceinture maillée",
+            "itIT": "[fs]Cintura di Maglia",
+            "koKR": "메쉬 벨트²",
+            "plPL": "[ms]Kolczy Pas",
+            "esMX": "[ms]Cinturón mallado",
+            "jaJP": "メッシュ・ベルト",
+            "ptBR": "[ms]Cinto de Malha",
+            "ruRU": "[ms]сетчатый пояс",
+            "zhCN": "网纹腰带"
+        }
     },
     {
         "DamageString": null,
@@ -2373,7 +3678,22 @@
         "UberCode": "ztb",
         "UltraCode": "utc",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Battle Belt [X]",
+            "zhTW": "戰鬥腰帶",
+            "deDE": "[ms]Kampfgürtel",
+            "esES": "[ms]Cinturón de batalla",
+            "frFR": "[fs]Ceinture de bataille",
+            "itIT": "[fs]Cintura da Battaglia",
+            "koKR": "배틀 벨트²",
+            "plPL": "[ms]Bitewny Pas",
+            "esMX": "[ms]Cinturón de batalla",
+            "jaJP": "バトル・ベルト",
+            "ptBR": "[ms]Cinto de Batalha",
+            "ruRU": "[ms]боевой пояс",
+            "zhCN": "战斗腰带"
+        }
     },
     {
         "DamageString": null,
@@ -2400,7 +3720,22 @@
         "UberCode": "zhb",
         "UltraCode": "uhc",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "War Belt [X]",
+            "zhTW": "征戰腰帶",
+            "deDE": "[ms]Kriegsgürtel",
+            "esES": "[ms]Cinturón de guerra",
+            "frFR": "[fs]Ceinture de guerre",
+            "itIT": "[fs]Cintura da Guerra",
+            "koKR": "워 벨트²",
+            "plPL": "[ms]Bojowy Pas",
+            "esMX": "[ms]Cinturón de guerra",
+            "jaJP": "ウォーベルト",
+            "ptBR": "[ms]Cinto Bélico",
+            "ruRU": "[ms]воинский пояс",
+            "zhCN": "战争腰带"
+        }
     },
     {
         "DamageString": null,
@@ -2427,7 +3762,22 @@
         "UberCode": "xh9",
         "UltraCode": "uh9",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Grim Helm [X]",
+            "zhTW": "陰森頭盔",
+            "deDE": "[ms]Kampfhelm",
+            "esES": "[ms]Yelmo lúgubre",
+            "frFR": "[ms]Heaume macabre",
+            "itIT": "[ms]Elmo dell'Orrore",
+            "koKR": "그림 헬름²",
+            "plPL": "[ms]Złowrogi Hełm",
+            "esMX": "[ms]Yelmo lúgubre",
+            "jaJP": "グリム・ヘルム",
+            "ptBR": "[ms]Elmo Sinistro",
+            "ruRU": "[ms]жуткий шлем",
+            "zhCN": "恐怖头盔"
+        }
     },
     {
         "DamageString": "14 to 20",
@@ -2454,7 +3804,22 @@
         "UberCode": "xsh",
         "UltraCode": "ush",
         "AutoPrefix": "312",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Grim Shield [X]",
+            "zhTW": "陰森盾牌",
+            "deDE": "[ms]Kampfschild",
+            "esES": "[ms]Escudo lúgubre",
+            "frFR": "[ms]Bouclier macabre",
+            "itIT": "[ms]Scudo dell'Orrore",
+            "koKR": "그림 쉴드²",
+            "plPL": "[fs]Złowroga Tarcza",
+            "esMX": "[ms]Escudo lúgubre",
+            "jaJP": "グリム・シールド",
+            "ptBR": "[ms]Escudo Sinistro",
+            "ruRU": "[ms]жуткий щит",
+            "zhCN": "恐怖大盾"
+        }
     },
     {
         "DamageString": "18 to 35",
@@ -2481,7 +3846,22 @@
         "UberCode": "xpk",
         "UltraCode": "upk",
         "AutoPrefix": "312",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Barbed Shield [X]",
+            "zhTW": "倒刺盾",
+            "deDE": "[ms]Stachelschild",
+            "esES": "[ms]Escudo con púas",
+            "frFR": "[ms]Bouclier barbelé",
+            "itIT": "[ms]Scudo Dentato",
+            "koKR": "바브드 쉴드²",
+            "plPL": "[fs]Ciernista Tarcza",
+            "esMX": "[ms]Escudo con púas",
+            "jaJP": "バーブド・シールド",
+            "ptBR": "[ms]Escudo Farpado",
+            "ruRU": "[ms]колючий щит",
+            "zhCN": "尖刃盾"
+        }
     },
     {
         "DamageString": null,
@@ -2508,7 +3888,22 @@
         "UberCode": "dr6",
         "UltraCode": "drb",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": "Druid",
+        "Names": {
+            "enUS": "Wolf Head [N]",
+            "zhTW": "狼頭獸帽",
+            "deDE": "[ms]Wolfskopf",
+            "esES": "[fs]Cabeza de lobo",
+            "frFR": "[fs]Tête de loup",
+            "itIT": "[fs]Testa di Lupo",
+            "koKR": "울프 헤드¹",
+            "plPL": "[fs]Wilcza Głowa",
+            "esMX": "[fs]Cabeza de lobo",
+            "jaJP": "ウルフ・ヘッド",
+            "ptBR": "[fs]Cabeça de Lobo",
+            "ruRU": "[fs]волчья голова",
+            "zhCN": "狼头"
+        }
     },
     {
         "DamageString": null,
@@ -2535,7 +3930,22 @@
         "UberCode": "dr7",
         "UltraCode": "drc",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": "Druid",
+        "Names": {
+            "enUS": "Hawk Helm [N]",
+            "zhTW": "飛鷹頭盔",
+            "deDE": "[ms]Falkenhelm",
+            "esES": "[ms]Yelmo del gerifalte",
+            "frFR": "[ms]Casque de faucon",
+            "itIT": "[ms]Elmo del Falco",
+            "koKR": "호크 헬름¹",
+            "plPL": "[ms]Jastrzębi Hełm",
+            "esMX": "[ms]Yelmo de halcón",
+            "jaJP": "ホーク・ヘルム",
+            "ptBR": "[ms]Elmo Falcônico",
+            "ruRU": "[ms]ястребиный шлем",
+            "zhCN": "鹰盔"
+        }
     },
     {
         "DamageString": null,
@@ -2562,7 +3972,22 @@
         "UberCode": "dr8",
         "UltraCode": "drd",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": "Druid",
+        "Names": {
+            "enUS": "Antlers [N]",
+            "zhTW": "巨角獸帽",
+            "deDE": "[ns]Geweih",
+            "esES": "[fs]Cornamenta",
+            "frFR": "[mp]Andouillers",
+            "itIT": "[fp]Corna",
+            "koKR": "앤틀러스¹",
+            "plPL": "[nl]Poroże",
+            "esMX": "[fs]Cornamenta",
+            "jaJP": "アントラー",
+            "ptBR": "[fs]Galhada",
+            "ruRU": "[pl]бараньи рога",
+            "zhCN": "鹿角盔"
+        }
     },
     {
         "DamageString": null,
@@ -2589,7 +4014,22 @@
         "UberCode": "dr9",
         "UltraCode": "dre",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": "Druid",
+        "Names": {
+            "enUS": "Falcon Mask [N]",
+            "zhTW": "獵鷹面具",
+            "deDE": "[fs]Falkenmaske",
+            "esES": "[fs]Máscara del halcón",
+            "frFR": "[ms]Masque de faucon",
+            "itIT": "[fs]Maschera del Falcone",
+            "koKR": "팔콘 마스크¹",
+            "plPL": "[fs]Sokola Maska",
+            "esMX": "[fs]Máscara de halcón",
+            "jaJP": "ファルコン・マスク",
+            "ptBR": "[fs]Máscara Falcônica",
+            "ruRU": "[fs]соколиная маска",
+            "zhCN": "鹰隼面甲"
+        }
     },
     {
         "DamageString": null,
@@ -2616,7 +4056,22 @@
         "UberCode": "dra",
         "UltraCode": "drf",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": "Druid",
+        "Names": {
+            "enUS": "Spirit Mask [N]",
+            "zhTW": "靈狼面具",
+            "deDE": "[fs]Geistermaske",
+            "esES": "[fs]Máscara espiritual",
+            "frFR": "[ms]Masque d’esprit",
+            "itIT": "[fs]Maschera dello Spirito",
+            "koKR": "스피리트 마스크¹",
+            "plPL": "[fs]Duchowa Maska",
+            "esMX": "[fs]Máscara espiritual",
+            "jaJP": "スピリット・マスク",
+            "ptBR": "[fs]Máscara Espiritual",
+            "ruRU": "[fs]духовная маска",
+            "zhCN": "狼灵面具"
+        }
     },
     {
         "DamageString": null,
@@ -2643,7 +4098,22 @@
         "UberCode": "ba6",
         "UltraCode": "bab",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": "Barbarian",
+        "Names": {
+            "enUS": "Jawbone Cap [N]",
+            "zhTW": "顎骨帽",
+            "deDE": "[ms]Kieferknochenhut",
+            "esES": "[ms]Casco de mandíbula",
+            "frFR": "[ms]Casque macabre",
+            "itIT": "[ms]Copricapo d'Ossa",
+            "koKR": "조우본 캡¹",
+            "plPL": "[ms]Szczękowy Kaptur",
+            "esMX": "[ms]Capacete con mandíbula",
+            "jaJP": "ジョーボーン・キャップ",
+            "ptBR": "[ms]Barrete Mandibular",
+            "ruRU": "[ms]наголовник с челюстью",
+            "zhCN": "颚骨帽"
+        }
     },
     {
         "DamageString": null,
@@ -2670,7 +4140,22 @@
         "UberCode": "ba7",
         "UltraCode": "bac",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": "Barbarian",
+        "Names": {
+            "enUS": "Fanged Helm [N]",
+            "zhTW": "尖牙頭盔",
+            "deDE": "[ms]Stoßzahnhelm",
+            "esES": "[ms]Yelmo canino",
+            "frFR": "[ms]Casque ailé",
+            "itIT": "[ms]Elmo Zannuto",
+            "koKR": "팽드 헬름¹",
+            "plPL": "[ms]Zębaty Hełm",
+            "esMX": "[ms]Yelmo dentado",
+            "jaJP": "ファングド・ヘルム",
+            "ptBR": "[ms]Elmo Dentado",
+            "ruRU": "[ms]клыкастый шлем",
+            "zhCN": "牙骨盔"
+        }
     },
     {
         "DamageString": null,
@@ -2697,7 +4182,22 @@
         "UberCode": "ba8",
         "UltraCode": "bad",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": "Barbarian",
+        "Names": {
+            "enUS": "Horned Helm [N]",
+            "zhTW": "尖角頭盔",
+            "deDE": "[ms]Gehörnter Helm",
+            "esES": "[ms]Yelmo enastado",
+            "frFR": "[ms]Casque à cornes",
+            "itIT": "[ms]Elmo Cornuto",
+            "koKR": "혼드 헬름¹",
+            "plPL": "[ms]Rogaty Hełm",
+            "esMX": "[ms]Yelmo astado",
+            "jaJP": "ホーンド・ヘルム",
+            "ptBR": "[ms]Elmo Galhado",
+            "ruRU": "[ms]рогатый шлем",
+            "zhCN": "长角盔"
+        }
     },
     {
         "DamageString": null,
@@ -2724,7 +4224,22 @@
         "UberCode": "ba9",
         "UltraCode": "bae",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": "Barbarian",
+        "Names": {
+            "enUS": "Assault Helmet [N]",
+            "zhTW": "突擊頭盔",
+            "deDE": "[ms]Angriffshelm",
+            "esES": "[ms]Casco de asalto",
+            "frFR": "[ms]Casque de combat",
+            "itIT": "[ms]Elmetto d'Assalto",
+            "koKR": "어썰트 헬멧¹",
+            "plPL": "[ms]Szturmowy Hełm",
+            "esMX": "[ms]Casco de asalto",
+            "jaJP": "アサルト・ヘルメット",
+            "ptBR": "[ms]Capacete de Assalto",
+            "ruRU": "[ms]штурмовой шлем",
+            "zhCN": "强攻盔"
+        }
     },
     {
         "DamageString": null,
@@ -2751,7 +4266,22 @@
         "UberCode": "baa",
         "UltraCode": "baf",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": "Barbarian",
+        "Names": {
+            "enUS": "Avenger Guard [N]",
+            "zhTW": "復仇者護盔",
+            "deDE": "[ms]Rächender Wächter",
+            "esES": "[fs]Protección vengadora",
+            "frFR": "[ms]Casque vengeur",
+            "itIT": "[fs]Guardia Vendicatrice",
+            "koKR": "어벤저 가드¹",
+            "plPL": "[fs]Mścicielska Garda",
+            "esMX": "[fs]Guardia del vengador",
+            "jaJP": "アベンジャー・ガード",
+            "ptBR": "[fs]Proteção Vingadora",
+            "ruRU": "[ms]героический шлем",
+            "zhCN": "复仇者头盔"
+        }
     },
     {
         "DamageString": "2 to 6",
@@ -2865,7 +4395,22 @@
         "UberCode": "pa6",
         "UltraCode": "pab",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": "Paladin",
+        "Names": {
+            "enUS": "Targe [N]",
+            "zhTW": "小盾",
+            "deDE": "[fs]Targe",
+            "esES": "[fs]Adarga",
+            "frFR": "[fs]Targe",
+            "itIT": "[fs]Targa",
+            "koKR": "타아지¹",
+            "plPL": "[fs]Tarża",
+            "esMX": "[fs]Adarga",
+            "jaJP": "タージ",
+            "ptBR": "[fs]Targa",
+            "ruRU": "[ms]тарджет",
+            "zhCN": "小盾"
+        }
     },
     {
         "DamageString": "2 to 8",
@@ -2979,7 +4524,22 @@
         "UberCode": "pa7",
         "UltraCode": "pac",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": "Paladin",
+        "Names": {
+            "enUS": "Rondache [N]",
+            "zhTW": "輕圓盾",
+            "deDE": "[fs]Rondache",
+            "esES": "[fs]Rodela",
+            "frFR": "[fs]Rondache",
+            "itIT": "[fs]Rondaccia",
+            "koKR": "론다쉬¹",
+            "plPL": "[fs]Rodela",
+            "esMX": "[fs]Rodela",
+            "jaJP": "ロンダッシュ",
+            "ptBR": "[ms]Rondache",
+            "ruRU": "[ms]рондаш",
+            "zhCN": "轻圆盾"
+        }
     },
     {
         "DamageString": "3 to 9",
@@ -3093,7 +4653,22 @@
         "UberCode": "pa8",
         "UltraCode": "pad",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": "Paladin",
+        "Names": {
+            "enUS": "Heraldic Shield [N]",
+            "zhTW": "紋章盾",
+            "deDE": "[ms]Wappenschild",
+            "esES": "[ms]Escudo heráldico",
+            "frFR": "[ms]Bouclier héraldique",
+            "itIT": "[ms]Scudo Araldico",
+            "koKR": "헤럴딕 쉴드¹",
+            "plPL": "[fs]Heraldyczna Tarcza",
+            "esMX": "[ms]Escudo heráldico",
+            "jaJP": "ヘラルディック・シールド",
+            "ptBR": "[ms]Escudo Heráldico",
+            "ruRU": "[ms]геральдический щит",
+            "zhCN": "纹章盾"
+        }
     },
     {
         "DamageString": "4 to 10",
@@ -3207,7 +4782,22 @@
         "UberCode": "pa9",
         "UltraCode": "pae",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": "Paladin",
+        "Names": {
+            "enUS": "Aerin Shield [N]",
+            "zhTW": "艾文之盾",
+            "deDE": "[ms]Aerins Schild",
+            "esES": "[ms]Escudo aerin",
+            "frFR": "[ms]Bouclier d’Aerin",
+            "itIT": "[ms]Scudo di Aerin",
+            "koKR": "에어린 쉴드¹",
+            "plPL": "[fs]Aerinowa Tarcza",
+            "esMX": "[ms]Escudo de Aerin",
+            "jaJP": "エアリン・シールド",
+            "ptBR": "[ms]Escudo Aerin",
+            "ruRU": "[ms]Эринов щит",
+            "zhCN": "艾琳盾"
+        }
     },
     {
         "DamageString": "4 to 12",
@@ -3321,7 +4911,22 @@
         "UberCode": "paa",
         "UltraCode": "paf",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": "Paladin",
+        "Names": {
+            "enUS": "Crown Shield [N]",
+            "zhTW": "冠冕之盾",
+            "deDE": "[ms]Kronenschild",
+            "esES": "[ms]Escudo de la corona",
+            "frFR": "[ms]Bouclier de la couronne",
+            "itIT": "[ms]Scudo Coronato",
+            "koKR": "크라운 쉴드¹",
+            "plPL": "[fs]Koronowa Tarcza",
+            "esMX": "[ms]Escudo coronado",
+            "jaJP": "クラウン・シールド",
+            "ptBR": "[ms]Escudo da Coroa",
+            "ruRU": "[ms]королевский щит",
+            "zhCN": "王冠盾"
+        }
     },
     {
         "DamageString": null,
@@ -3386,7 +4991,22 @@
         "UberCode": "ne6",
         "UltraCode": "neb",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": "Necromancer",
+        "Names": {
+            "enUS": "Preserved Head [N]",
+            "zhTW": "防腐頭顱",
+            "deDE": "[ms]Konservierter Kopf",
+            "esES": "[fs]Cabeza preservada",
+            "frFR": "[fs]Tête préservée",
+            "itIT": "[fs]Testa Mummificata",
+            "koKR": "프리저브드 헤드¹",
+            "plPL": "[fs]Spreparowana Głowa",
+            "esMX": "[fs]Cabeza preservada",
+            "jaJP": "プリザーブド・ヘッド",
+            "ptBR": "[fs]Cabeça Preservada",
+            "ruRU": "[fs]забальзамированная голова",
+            "zhCN": "保存完好的头骨"
+        }
     },
     {
         "DamageString": null,
@@ -3451,7 +5071,22 @@
         "UberCode": "ne7",
         "UltraCode": "neg",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": "Necromancer",
+        "Names": {
+            "enUS": "Zombie Head [N]",
+            "zhTW": "殭屍頭顱",
+            "deDE": "[ms]Zombiekopf",
+            "esES": "[fs]Cabeza de zombi",
+            "frFR": "[fs]Tête de zombie",
+            "itIT": "[fs]Testa di Zombi",
+            "koKR": "좀비 헤드¹",
+            "plPL": "[fs]Trupia Głowa",
+            "esMX": "[fs]Cabeza de zombi",
+            "jaJP": "ゾンビ・ヘッド",
+            "ptBR": "[fs]Cabeça Zumbi",
+            "ruRU": "[fs]голова зомби",
+            "zhCN": "僵尸头骨"
+        }
     },
     {
         "DamageString": null,
@@ -3516,7 +5151,22 @@
         "UberCode": "ne8",
         "UltraCode": "ned",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": "Necromancer",
+        "Names": {
+            "enUS": "Unraveller Head [N]",
+            "zhTW": "解繃者頭顱",
+            "deDE": "[ms]Zersetzerkopf",
+            "esES": "[fs]Cabeza de desenredador",
+            "frFR": "[fs]Tête décomposée",
+            "itIT": "[fs]Testa di Celato",
+            "koKR": "언레이블러 헤드¹",
+            "plPL": "[fs]Szkieletowa Głowa",
+            "esMX": "[fs]Cabeza de desenredador",
+            "jaJP": "アンラヴェラー・ヘッド",
+            "ptBR": "[fs]Cabeça de Desfiador",
+            "ruRU": "[fs]голова развоплотителя",
+            "zhCN": "剖尸者头骨"
+        }
     },
     {
         "DamageString": null,
@@ -3581,7 +5231,22 @@
         "UberCode": "ne9",
         "UltraCode": "nee",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": "Necromancer",
+        "Names": {
+            "enUS": "Gargoyle Head [N]",
+            "zhTW": "石像鬼頭顱",
+            "deDE": "[ms]Gargoylekopf",
+            "esES": "[fs]Cabeza de gárgola",
+            "frFR": "[fs]Tête de gargouille",
+            "itIT": "[fs]Testa di Gargoyle",
+            "koKR": "가고일 헤드¹",
+            "plPL": "[fs]Gargulcowa Głowa",
+            "esMX": "[fs]Cabeza de gárgola",
+            "jaJP": "ガーゴイル・ヘッド",
+            "ptBR": "[fs]Cabeça de Gárgula",
+            "ruRU": "[fs]голова горгульи",
+            "zhCN": "石像鬼头骨"
+        }
     },
     {
         "DamageString": null,
@@ -3646,7 +5311,22 @@
         "UberCode": "nea",
         "UltraCode": "nef",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": "Necromancer",
+        "Names": {
+            "enUS": "Demon Head [N]",
+            "zhTW": "惡魔頭顱",
+            "deDE": "[ms]Dämonenkopf",
+            "esES": "[fs]Cabeza de demonio",
+            "frFR": "[fs]Tête de démon",
+            "itIT": "[fs]Testa di Demone",
+            "koKR": "데몬 헤드¹",
+            "plPL": "[fs]Demoniczna Głowa",
+            "esMX": "[fs]Cabeza de demonio",
+            "jaJP": "デーモン・ヘッド",
+            "ptBR": "[fs]Cabeça de Demônio",
+            "ruRU": "[fs]голова демона",
+            "zhCN": "恶魔头骨"
+        }
     },
     {
         "DamageString": null,
@@ -3673,7 +5353,22 @@
         "UberCode": "ci2",
         "UltraCode": "ci3",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Circlet [N]",
+            "zhTW": "頭環",
+            "deDE": "[ms]Reif",
+            "esES": "[fs]Aureola",
+            "frFR": "[ms]Bandeau",
+            "itIT": "[ms]Cerchietto",
+            "koKR": "써클릿¹",
+            "plPL": "[fs]Obręcz",
+            "esMX": "[fs]Diadema",
+            "jaJP": "サークレット",
+            "ptBR": "[ms]Diadema",
+            "ruRU": "[ms]венец",
+            "zhCN": "头环"
+        }
     },
     {
         "DamageString": null,
@@ -3700,7 +5395,22 @@
         "UberCode": "ci2",
         "UltraCode": "ci3",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Coronet [N]",
+            "zhTW": "寶冠",
+            "deDE": "[ns]Krönchen",
+            "esES": "[fs]Coronilla",
+            "frFR": "[ms]Tortil",
+            "itIT": "[fs]Corona Ferrata",
+            "koKR": "코로니트¹",
+            "plPL": "[fs]Koronetka",
+            "esMX": "[fs]Coronilla",
+            "jaJP": "コロネット",
+            "ptBR": "[fs]Coronilha",
+            "ruRU": "[ms]головной обруч",
+            "zhCN": "头冠"
+        }
     },
     {
         "DamageString": null,
@@ -3727,7 +5437,22 @@
         "UberCode": "ci2",
         "UltraCode": "ci3",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Tiara [X]",
+            "zhTW": "頭冠",
+            "deDE": "[fs]Tiara",
+            "esES": "[fs]Tiara",
+            "frFR": "[fs]Tiare",
+            "itIT": "[fs]Tiara",
+            "koKR": "티아라²",
+            "plPL": "[fs]Tiara",
+            "esMX": "[fs]Tiara",
+            "jaJP": "ティアラ",
+            "ptBR": "[fs]Tiara",
+            "ruRU": "[fs]тиара",
+            "zhCN": "冠冕"
+        }
     },
     {
         "DamageString": null,
@@ -3754,7 +5479,22 @@
         "UberCode": "ci2",
         "UltraCode": "ci3",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Diadem [E]",
+            "zhTW": "權冠",
+            "deDE": "[ns]Diadem",
+            "esES": "[fs]Diadema",
+            "frFR": "[ms]Diadème",
+            "itIT": "[ms]Diadema",
+            "koKR": "다이어뎀³",
+            "plPL": "[ms]Diadem",
+            "esMX": "[ms]Cintillo",
+            "jaJP": "ダイアデム",
+            "ptBR": "[fs]Argola",
+            "ruRU": "[fs]диадема",
+            "zhCN": "权冠"
+        }
     },
     {
         "DamageString": null,
@@ -3781,7 +5521,22 @@
         "UberCode": "xap",
         "UltraCode": "uap",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Shako [E]",
+            "zhTW": "軍帽",
+            "deDE": "[ms]Tschako",
+            "esES": "[ms]Chacó",
+            "frFR": "[ms]Shako",
+            "itIT": "[ms]Sciaccò",
+            "koKR": "샤코³",
+            "plPL": "[nl]Czako",
+            "esMX": "[ms]Chacó",
+            "jaJP": "シャコー",
+            "ptBR": "[ms]Shako",
+            "ruRU": "[ns]шако",
+            "zhCN": "军帽"
+        }
     },
     {
         "DamageString": null,
@@ -3808,7 +5563,22 @@
         "UberCode": "xkp",
         "UltraCode": "ukp",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Hydraskull [E]",
+            "zhTW": "多頭蛇顱盔",
+            "deDE": "[ms]Hydraschädel",
+            "esES": "[ms]Cráneo de hidra",
+            "frFR": "[ms]Crâne d’hydre",
+            "itIT": "[ms]Teschio d'Idra",
+            "koKR": "히드라스컬³",
+            "plPL": "[fs]Hydrza Czaszka",
+            "esMX": "[ms]Cráneo de hidra",
+            "jaJP": "ヒュドラスカル",
+            "ptBR": "[ms]Crânio de Hidra",
+            "ruRU": "[ms]череп гидры",
+            "zhCN": "多头蛇颅"
+        }
     },
     {
         "DamageString": null,
@@ -3835,7 +5605,22 @@
         "UberCode": "xlm",
         "UltraCode": "ulm",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Armet [E]",
+            "zhTW": "覆頰盔",
+            "deDE": "[ns]Armet",
+            "esES": "[ms]Almete",
+            "frFR": "[ms]Armet",
+            "itIT": "[ms]Elmo Rinforzato",
+            "koKR": "아메트³",
+            "plPL": "[ms]Armet",
+            "esMX": "[ms]Almete",
+            "jaJP": "アーメット",
+            "ptBR": "[ms]Armet",
+            "ruRU": "[ms]армет",
+            "zhCN": "武装盔"
+        }
     },
     {
         "DamageString": null,
@@ -3862,7 +5647,22 @@
         "UberCode": "xhl",
         "UltraCode": "uhl",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Giant Conch [E]",
+            "zhTW": "巨螺盔",
+            "deDE": "[fs]Riesenmuschel",
+            "esES": "[fs]Valva gigante",
+            "frFR": "[fs]Conque géante",
+            "itIT": "[fs]Conchiglia Gigante",
+            "koKR": "자이언트 칸크³",
+            "plPL": "[fs]Barbuta",
+            "esMX": "[fs]Caracola gigante",
+            "jaJP": "ジャイアント・コンク",
+            "ptBR": "[fs]Concha Gigante",
+            "ruRU": "[ms]большой полукруглый шлем",
+            "zhCN": "巨贝盔"
+        }
     },
     {
         "DamageString": null,
@@ -3889,7 +5689,22 @@
         "UberCode": "xhm",
         "UltraCode": "uhm",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Spired Helm [E]",
+            "zhTW": "巨角頭盔",
+            "deDE": "[ms]Spitzhelm",
+            "esES": "[ms]Yelmo de agujas",
+            "frFR": "[ms]Morion",
+            "itIT": "[ms]Elmo Cuspidale",
+            "koKR": "스파이어드 헬름³",
+            "plPL": "[ms]Iglicowy Hełm",
+            "esMX": "[ms]Yelmo encumbrado",
+            "jaJP": "スパード・ヘルム",
+            "ptBR": "[ms]Elmo com Chifres",
+            "ruRU": "[ms]гнуторогий шлем",
+            "zhCN": "塔盔"
+        }
     },
     {
         "DamageString": null,
@@ -3916,7 +5731,22 @@
         "UberCode": "xrn",
         "UltraCode": "urn",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Corona [E]",
+            "zhTW": "日冕之冠",
+            "deDE": "[fs]Korona",
+            "esES": "[fs]Corona",
+            "frFR": "[ms]Fronteau",
+            "itIT": "[fs]Corona d'Arme",
+            "koKR": "코로나³",
+            "plPL": "[fs]Zdobiona Korona",
+            "esMX": "[fs]Gran corona",
+            "jaJP": "輪冠",
+            "ptBR": "[fs]Corona",
+            "ruRU": "[fs]богатая корона",
+            "zhCN": "宝冠"
+        }
     },
     {
         "DamageString": null,
@@ -3943,7 +5773,22 @@
         "UberCode": "xsk",
         "UltraCode": "usk",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Demonhead [E]",
+            "zhTW": "惡魔頭骨",
+            "deDE": "[ms]Dämonenschädel",
+            "esES": "[fs]Faz del demonio",
+            "frFR": "[fs]Tête de démon",
+            "itIT": "[fs]Testa Demoniaca",
+            "koKR": "데몬헤드³",
+            "plPL": "[fs]Demoniczna Maska",
+            "esMX": "[fs]Cabeza demoníaca",
+            "jaJP": "デーモンヘッド",
+            "ptBR": "[fs]Cabeça Demoníaca",
+            "ruRU": "[fs]демонская голова",
+            "zhCN": "恶魔面甲"
+        }
     },
     {
         "DamageString": null,
@@ -3970,7 +5815,22 @@
         "UberCode": "xui",
         "UltraCode": "uui",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Dusk Shroud [E]",
+            "zhTW": "灰暮罩衣",
+            "deDE": "[ms]Dämmerschleier",
+            "esES": "[fs]Mortaja del crepúsculo",
+            "frFR": "[ms]Linceul crépusculaire",
+            "itIT": "[ms]Sudario del Crepuscolo",
+            "koKR": "더스크 슈라우드³",
+            "plPL": "[ms]Wieczorny Całun",
+            "esMX": "[ms]Embozo crepuscular",
+            "jaJP": "ダスク・シュラウド",
+            "ptBR": "[fs]Mortalha Crepuscular",
+            "ruRU": "[fs]сумеречная пелена",
+            "zhCN": "灰幕寿衣"
+        }
     },
     {
         "DamageString": null,
@@ -3997,7 +5857,22 @@
         "UberCode": "xea",
         "UltraCode": "uea",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Wyrmhide [E]",
+            "zhTW": "龍皮甲",
+            "deDE": "[ns]Wyrmleder",
+            "esES": "[ms]Cuero de vermis",
+            "frFR": "[fs]Peau de wyrm",
+            "itIT": "[ms]Cuoio di Dragone",
+            "koKR": "웜하이드³",
+            "plPL": "[fs]Gadzia Skóra",
+            "esMX": "[ms]Pellejo de vermis",
+            "jaJP": "ウィルムハイド",
+            "ptBR": "[ms]Couro de Serpe",
+            "ruRU": "[fs]змеиная кожа",
+            "zhCN": "龙皮甲"
+        }
     },
     {
         "DamageString": null,
@@ -4024,7 +5899,22 @@
         "UberCode": "xla",
         "UltraCode": "ula",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Scarab Husk [E]",
+            "zhTW": "聖甲蟲殼皮甲",
+            "deDE": "[fs]Skarabäusschale",
+            "esES": "[mp]Élitros de alfazaque",
+            "frFR": "[fs]Carapace de scarabée",
+            "itIT": "[ms]Guscio di Scarabeo",
+            "koKR": "스캐럽 허스크³",
+            "plPL": "[fs]Skarabeuszowa Łupina",
+            "esMX": "[fs]Cáscara de escarabajo",
+            "jaJP": "スカラベ・ハスク",
+            "ptBR": "[fs]Casca de Escaravelho",
+            "ruRU": "[ms]панцирь скарабея",
+            "zhCN": "圣甲虫壳"
+        }
     },
     {
         "DamageString": null,
@@ -4051,7 +5941,22 @@
         "UberCode": "xtu",
         "UltraCode": "utu",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Wire Fleece [E]",
+            "zhTW": "鋼線毛皮甲",
+            "deDE": "[ns]Drahtvlies",
+            "esES": "[fs]Lana de alambre",
+            "frFR": "[fs]Toison métallique",
+            "itIT": "[ms]Vello Metallico",
+            "koKR": "와이어 플리스³",
+            "plPL": "[nl]Druciane Runo",
+            "esMX": "[ms]Vellón hilado",
+            "jaJP": "ワイヤー・フリース",
+            "ptBR": "[fs]Trama Interligada",
+            "ruRU": "[fs]плетеная безрукавка",
+            "zhCN": "羊绒皮甲"
+        }
     },
     {
         "DamageString": null,
@@ -4078,7 +5983,22 @@
         "UberCode": "xng",
         "UltraCode": "ung",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Diamond Mail [E]",
+            "zhTW": "鑽石鎖甲",
+            "deDE": "[ns]Diamantpanzerhemd",
+            "esES": "[fs]Cota de diamante",
+            "frFR": "[fs]Cotte de mailles diamantine",
+            "itIT": "[fs]Maglia di Diamante",
+            "koKR": "다이아몬드 메일³",
+            "plPL": "[fs]Diamentowa Kolczuga",
+            "esMX": "[fs]Cota diamantina",
+            "jaJP": "ダイヤモンド・メイル",
+            "ptBR": "[fs]Malha Diamante",
+            "ruRU": "[fs]алмазная кольчуга",
+            "zhCN": "钻石甲"
+        }
     },
     {
         "DamageString": null,
@@ -4105,7 +6025,22 @@
         "UberCode": "xcl",
         "UltraCode": "ucl",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Loricated Mail [E]",
+            "zhTW": "綴鱗戰甲",
+            "deDE": "[ns]Kürasspanzerhemd",
+            "esES": "[fs]Cota lorigada",
+            "frFR": "[fs]Lorica de mailles",
+            "itIT": "[fs]Maglia di Loricato",
+            "koKR": "로러케이티드 메일³",
+            "plPL": "[fs]Pancerna Zbroja",
+            "esMX": "[fs]Cota de loriga",
+            "jaJP": "ロリケイテッド・メイル",
+            "ptBR": "[fs]Malha Revestida",
+            "ruRU": "[ms]панцирный доспех",
+            "zhCN": "覆铁甲"
+        }
     },
     {
         "DamageString": null,
@@ -4132,7 +6067,22 @@
         "UberCode": "xhn",
         "UltraCode": "uhn",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Boneweave [E]",
+            "zhTW": "骸骨網甲",
+            "deDE": "[ns]Knochengespinst",
+            "esES": "[ms]Malla de hueso",
+            "frFR": "[fs]Armure en plaques d’os",
+            "itIT": "[fs]Corazza di Fibra Ossea",
+            "koKR": "본위브³",
+            "plPL": "[ms]Kościak",
+            "esMX": "[ms]Tramóseo",
+            "jaJP": "ボーンウィーブ",
+            "ptBR": "[fs]Osteotrama",
+            "ruRU": "[fs]плетеная кость",
+            "zhCN": "骨织甲"
+        }
     },
     {
         "DamageString": null,
@@ -4159,7 +6109,22 @@
         "UberCode": "xrs",
         "UltraCode": "urs",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Great Hauberk [E]",
+            "zhTW": "鱗鎧胸甲",
+            "deDE": "[fs]Große Halsberge",
+            "esES": "[fs]Gran loriga",
+            "frFR": "[ms]Grand haubert",
+            "itIT": "[ms]Grande Usbergo",
+            "koKR": "그레이트 허버크³",
+            "plPL": "[ms]Wielki Haubert",
+            "esMX": "[ms]Gran hauberto",
+            "jaJP": "グレート・ホーバーク",
+            "ptBR": "[fs]Grande Cota de Malha",
+            "ruRU": "[ms]тяжелый панцирь",
+            "zhCN": "大半身甲"
+        }
     },
     {
         "DamageString": null,
@@ -4186,7 +6151,22 @@
         "UberCode": "xpl",
         "UltraCode": "upl",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Balrog Skin [E]",
+            "zhTW": "炎魔皮板甲",
+            "deDE": "[ns]Balrogleder",
+            "esES": "[fs]Piel de Balrog",
+            "frFR": "[fs]Peau de Balrog",
+            "itIT": "[fs]Pelle di Balrog",
+            "koKR": "발록 스킨³",
+            "plPL": "[fs]Balrogowa Skóra",
+            "esMX": "[fs]Piel de balrog",
+            "jaJP": "バルログ・スキン",
+            "ptBR": "[fs]Pele de Balrog",
+            "ruRU": "[fs]Балрогова шкура",
+            "zhCN": "炎魔皮"
+        }
     },
     {
         "DamageString": null,
@@ -4213,7 +6193,22 @@
         "UberCode": "xlt",
         "UltraCode": "ult",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Hellforge Plate [E]",
+            "zhTW": "地獄鍛甲",
+            "deDE": "[fs]Höllenschmiedenplattenrüstung",
+            "esES": "[fs]Coraza de la Fragua del Infierno",
+            "frFR": "[ms]Harnois des Enfers",
+            "itIT": "[fs]Corazza Infernale",
+            "koKR": "헬포지 플레이트³",
+            "plPL": "[fs]Piekielna Zbroja Płytowa",
+            "esMX": "[fs]Cota de la Forja Infernal",
+            "jaJP": "ヘルフォージ・プレート",
+            "ptBR": "[fs]Armadura da Forja Infernal",
+            "ruRU": "[pl]латы из Адской кузни",
+            "zhCN": "地狱铸甲"
+        }
     },
     {
         "DamageString": null,
@@ -4240,7 +6235,22 @@
         "UberCode": "xld",
         "UltraCode": "uld",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Kraken Shell [E]",
+            "zhTW": "海怪之殼",
+            "deDE": "[fs]Krakenschale",
+            "esES": "[fs]Concha de kraken",
+            "frFR": "[fs]Carapace de kraken",
+            "itIT": "[ms]Guscio di Kraken",
+            "koKR": "크라켄 쉘³",
+            "plPL": "[fs]Krakenia Skorupa",
+            "esMX": "[ms]Cascarón del kraken",
+            "jaJP": "クラーケン・シェル",
+            "ptBR": "[ms]Casco do Kraken",
+            "ruRU": "[fs]раковина кракена",
+            "zhCN": "深海巨妖之壳"
+        }
     },
     {
         "DamageString": null,
@@ -4267,7 +6277,22 @@
         "UberCode": "xth",
         "UltraCode": "uth",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Lacquered Plate [E]",
+            "zhTW": "漆護鎧甲",
+            "deDE": "[fs]Lackierte Plattenrüstung",
+            "esES": "[fs]Coraza lacada",
+            "frFR": "[ms]Harnois laqué",
+            "itIT": "[fs]Corazza Laccata",
+            "koKR": "래커드 플레이트³",
+            "plPL": "[fs]Pancerna Płytówka",
+            "esMX": "[fs]Cota laqueada",
+            "jaJP": "ラッカード・プレート",
+            "ptBR": "[fs]Armadura Laqueada",
+            "ruRU": "[ms]лакированный доспех",
+            "zhCN": "漆甲"
+        }
     },
     {
         "DamageString": null,
@@ -4294,7 +6319,22 @@
         "UberCode": "xul",
         "UltraCode": "uul",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Shadow Plate [E]",
+            "zhTW": "暗影鎧甲",
+            "deDE": "[fs]Schattenplattenrüstung",
+            "esES": "[fs]Coraza sombría",
+            "frFR": "[ms]Harnois d’ombre",
+            "itIT": "[fs]Corazza d'Ombra",
+            "koKR": "쉐도우 플레이트³",
+            "plPL": "[fs]Mroczna Zbroja Płytowa",
+            "esMX": "[fs]Cota de las sombras",
+            "jaJP": "シャドウ・プレート",
+            "ptBR": "[fs]Armadura Sombria",
+            "ruRU": "[ms]сумрачный доспех",
+            "zhCN": "暗影板甲"
+        }
     },
     {
         "DamageString": null,
@@ -4321,7 +6361,22 @@
         "UberCode": "xar",
         "UltraCode": "uar",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Sacred Armor [E]",
+            "zhTW": "神聖戰甲",
+            "deDE": "[fs]Heilige Rüstung",
+            "esES": "[fs]Armadura sacra",
+            "frFR": "[fs]Armure sacrée",
+            "itIT": "[fs]Corazza Sacra",
+            "koKR": "세이크리드 아머³",
+            "plPL": "[ms]Święty Pancerz",
+            "esMX": "[fs]Armadura sagrada",
+            "jaJP": "セイクレッド・アーマー",
+            "ptBR": "[fs]Armadura Sagrada",
+            "ruRU": "[ms]священный доспех",
+            "zhCN": "神圣铠甲"
+        }
     },
     {
         "DamageString": null,
@@ -4348,7 +6403,22 @@
         "UberCode": "xtp",
         "UltraCode": "utp",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Archon Plate [E]",
+            "zhTW": "統御者鎧甲",
+            "deDE": "[fs]Archonplattenrüstung",
+            "esES": "[fs]Coraza de arconte",
+            "frFR": "[ms]Harnois d’Archonte",
+            "itIT": "[fs]Corazza dell'Arconte",
+            "koKR": "아콘 플레이트³",
+            "plPL": "[fs]Archoncka Zbroja Płytowa",
+            "esMX": "[fs]Cota de Arconte",
+            "jaJP": "アルコン・プレート",
+            "ptBR": "[fs]Armadura do Arconte",
+            "ruRU": "[fs]архонтова броня",
+            "zhCN": "统治者板甲"
+        }
     },
     {
         "DamageString": "16 to 30",
@@ -4375,7 +6445,22 @@
         "UberCode": "xuc",
         "UltraCode": "uuc",
         "AutoPrefix": "312",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Heater [E]",
+            "zhTW": "斗盾",
+            "deDE": "[ms]Manesseschild",
+            "esES": "[ms]Calentador",
+            "frFR": "[ms]Écu incandescent",
+            "itIT": "[ms]Scudo Gobbo",
+            "koKR": "히터³",
+            "plPL": "[ms]Kałkan",
+            "esMX": "[ms]Brasero",
+            "jaJP": "ヒーター",
+            "ptBR": "[ms]Aquecedor",
+            "ruRU": "[ms]клиновидный щит",
+            "zhCN": "斗盾"
+        }
     },
     {
         "DamageString": "17 to 29",
@@ -4402,7 +6487,22 @@
         "UberCode": "xml",
         "UltraCode": "uml",
         "AutoPrefix": "312",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Luna [E]",
+            "zhTW": "圓月盾",
+            "deDE": "[fs]Luna",
+            "esES": "[fs]Luna",
+            "frFR": "[fs]Lune",
+            "itIT": "[fs]Luna",
+            "koKR": "루나³",
+            "plPL": "[fs]Luna",
+            "esMX": "[fs]Luna",
+            "jaJP": "ルナ",
+            "ptBR": "[fs]Luna",
+            "ruRU": "[fs]луна",
+            "zhCN": "月神盾"
+        }
     },
     {
         "DamageString": "14 to 32",
@@ -4429,7 +6529,22 @@
         "UberCode": "xrg",
         "UltraCode": "urg",
         "AutoPrefix": "312",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Hyperion [E]",
+            "zhTW": "亥伯龍盾",
+            "deDE": "[ms]Hyperion",
+            "esES": "[ms]Hiperión",
+            "frFR": "[ms]Hypérion",
+            "itIT": "[ms]Iperione",
+            "koKR": "하이페리온³",
+            "plPL": "[ms]Hyperion",
+            "esMX": "[ms]Hiperión",
+            "jaJP": "ハイペリオン",
+            "ptBR": "[ms]Hipérion",
+            "ruRU": "[ms]гиперион",
+            "zhCN": "亥伯龙盾"
+        }
     },
     {
         "DamageString": "12 to 34",
@@ -4456,7 +6571,22 @@
         "UberCode": "xit",
         "UltraCode": "uit",
         "AutoPrefix": "312",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Monarch [E]",
+            "zhTW": "君主盾",
+            "deDE": "[ms]Monarch",
+            "esES": "[ms]Monarca",
+            "frFR": "[ms]Bouclier de monarque",
+            "itIT": "[ms]Monarca",
+            "koKR": "모너크³",
+            "plPL": "[ms]Monarcha",
+            "esMX": "[ms]Monarca",
+            "jaJP": "モナーク",
+            "ptBR": "[ms]Monarca",
+            "ruRU": "[ms]монарх",
+            "zhCN": "统治者大盾"
+        }
     },
     {
         "DamageString": "18 to 28",
@@ -4483,7 +6613,22 @@
         "UberCode": "xow",
         "UltraCode": "uow",
         "AutoPrefix": "312",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Aegis [E]",
+            "zhTW": "禦塔盾",
+            "deDE": "[fs]Ägis",
+            "esES": "[fs]Égida",
+            "frFR": "[fs]Égide",
+            "itIT": "[fs]Egida",
+            "koKR": "이지스³",
+            "plPL": "[fs]Egida",
+            "esMX": "[fs]Égida",
+            "jaJP": "アイギス",
+            "ptBR": "[fs]Égide",
+            "ruRU": "[fs]эгида",
+            "zhCN": "圣盾"
+        }
     },
     {
         "DamageString": "11 to 35",
@@ -4510,7 +6655,22 @@
         "UberCode": "xts",
         "UltraCode": "uts",
         "AutoPrefix": "312",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Ward [E]",
+            "zhTW": "庇護盾",
+            "deDE": "[ms]Schutz",
+            "esES": "[fs]Custodia",
+            "frFR": "[fs]Parade",
+            "itIT": "[fs]Difesa",
+            "koKR": "워드³",
+            "plPL": "[fs]Straż",
+            "esMX": "[fs]Guarda",
+            "jaJP": "ウォード",
+            "ptBR": "[fs]Proteção",
+            "ruRU": "[ms]охранитель",
+            "zhCN": "守护之盾"
+        }
     },
     {
         "DamageString": null,
@@ -4537,7 +6697,22 @@
         "UberCode": "xlg",
         "UltraCode": "ulg",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Bramble Mitts [E]",
+            "zhTW": "荊棘手套",
+            "deDE": "[pl]Dornenhandschuhe",
+            "esES": "[mp]Mitones de zarza",
+            "frFR": "[mp]Gants de ronce",
+            "itIT": "[mp]Guanti di Rovo",
+            "koKR": "브램블 미트³",
+            "plPL": "[nl]Kolczaste Rękawiczki",
+            "esMX": "[mp]Mitones punzantes",
+            "jaJP": "ブランブル・ミット",
+            "ptBR": "[fp]Luvas Sarçosas",
+            "ruRU": "[pl]колючие рукавицы",
+            "zhCN": "防刺手套"
+        }
     },
     {
         "DamageString": null,
@@ -4564,7 +6739,22 @@
         "UberCode": "xvg",
         "UltraCode": "uvg",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Vampirebone Gloves [E]",
+            "zhTW": "吸血鬼骸骨手套",
+            "deDE": "[pl]Vampirknochenhandschuhe",
+            "esES": "[mp]Guantes de hueso de vampiro",
+            "frFR": "[mp]Gants vampiriques",
+            "itIT": "[mp]Guanti d'Ossa di Vampiro",
+            "koKR": "뱀파이어본 글러브³",
+            "plPL": "[nl]Wampirze Rękawice",
+            "esMX": "[mp]Guantes de hueso de vampiro",
+            "jaJP": "ヴァンパイアボーン・グローブ",
+            "ptBR": "[fp]Luvas Vampíricas",
+            "ruRU": "[pl]вампирьи перчатки",
+            "zhCN": "吸血鬼骨手套"
+        }
     },
     {
         "DamageString": null,
@@ -4591,7 +6781,22 @@
         "UberCode": "xmg",
         "UltraCode": "umg",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Vambraces [E]",
+            "zhTW": "護臂",
+            "deDE": "[pl]Vampirschienen",
+            "esES": "[mp]Avambrazos",
+            "frFR": "[mp]Protège-bras",
+            "itIT": "[mp]Avambracci",
+            "koKR": "뱀브레이스³",
+            "plPL": "[nl]Wampiręcze",
+            "esMX": "[mp]Avambrazos",
+            "jaJP": "ヴァンブレイス",
+            "ptBR": "[mp]Avambraços",
+            "ruRU": "[pl]латные щитки",
+            "zhCN": "护臂手甲"
+        }
     },
     {
         "DamageString": null,
@@ -4618,7 +6823,22 @@
         "UberCode": "xtg",
         "UltraCode": "utg",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Crusader Gauntlets [E]",
+            "zhTW": "聖教軍護手",
+            "deDE": "[pl]Kreuzritterhandschuhe",
+            "esES": "[mp]Guanteletes de cruzada",
+            "frFR": "[mp]Gantelets de croisé",
+            "itIT": "[mp]Guanti d'Arme del Crociato",
+            "koKR": "크루세이더 건틀릿³",
+            "plPL": "[nl]Krzyżowe Rękawice",
+            "esMX": "[mp]Guanteletes de cruzado",
+            "jaJP": "クルセイダー・ガントレット",
+            "ptBR": "[fp]Manoplas do Cruzado",
+            "ruRU": "[pl]рыцарские перчатки",
+            "zhCN": "圣教军护手"
+        }
     },
     {
         "DamageString": null,
@@ -4645,7 +6865,22 @@
         "UberCode": "xhg",
         "UltraCode": "uhg",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Ogre Gauntlets [E]",
+            "zhTW": "巨魔護手",
+            "deDE": "[pl]Ogerhandschuhe",
+            "esES": "[mp]Guanteletes de ogro",
+            "frFR": "[mp]Gantelets ogres",
+            "itIT": "[mp]Guanti d'Arme dell'Ogre",
+            "koKR": "오우거 건틀릿³",
+            "plPL": "[nl]Ogrze Rękawice",
+            "esMX": "[mp]Guanteletes de ogro",
+            "jaJP": "オーガ・ガントレット",
+            "ptBR": "[fp]Manoplas Ogras",
+            "ruRU": "[pl]устрашающие рукавицы",
+            "zhCN": "食人魔护手"
+        }
     },
     {
         "DamageString": "65 to 100",
@@ -4672,7 +6907,22 @@
         "UberCode": "xlb",
         "UltraCode": "ulb",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Wyrmhide Boots [E]",
+            "zhTW": "龍皮靴",
+            "deDE": "[pl]Wyrmlederstiefel",
+            "esES": "[fp]Botas de cuero de vermis",
+            "frFR": "[fp]Bottes en peau de wyrm",
+            "itIT": "[mp]Stivali di Cuoio di Dragone",
+            "koKR": "웜하이드 부츠³",
+            "plPL": "[nl]Gadzie Buty",
+            "esMX": "[fp]Botas de pellejo de vermis",
+            "jaJP": "ウィルムハイド・ブーツ",
+            "ptBR": "[fp]Botas de Couro de Serpe",
+            "ruRU": "[pl]змеиные сапоги",
+            "zhCN": "飞龙皮靴"
+        }
     },
     {
         "DamageString": "60 to 110",
@@ -4699,7 +6949,22 @@
         "UberCode": "xvb",
         "UltraCode": "uvb",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Scarabshell Boots [E]",
+            "zhTW": "聖甲蟲殼皮靴",
+            "deDE": "[pl]Skarabäusschalenstiefel",
+            "esES": "[fp]Botas de élitro de alfazaque",
+            "frFR": "[fp]Bottes caparaçonnées",
+            "itIT": "[mp]Stivali di Gusci di Scarabeo",
+            "koKR": "스캐럽쉘 부츠³",
+            "plPL": "[nl]Skarabeuszowe Buty",
+            "esMX": "[fp]Botas de cascarón de escarabajo",
+            "jaJP": "スカラベシェル・ブーツ",
+            "ptBR": "[fp]Botas de Casco de Escaravelho",
+            "ruRU": "[pl]скарабеевы сапоги",
+            "zhCN": "圣甲虫壳靴"
+        }
     },
     {
         "DamageString": "69 to 118",
@@ -4726,7 +6991,22 @@
         "UberCode": "xmb",
         "UltraCode": "umb",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Boneweave Boots [E]",
+            "zhTW": "骸骨網靴",
+            "deDE": "[pl]Knochengespinststiefel",
+            "esES": "[fp]Botas de hueso",
+            "frFR": "[fp]Bottes en plaques d’os",
+            "itIT": "[mp]Stivali di Fibra Ossea",
+            "koKR": "본위브 부츠³",
+            "plPL": "[nl]Kościane Buty",
+            "esMX": "[fp]Botas tramóseas",
+            "jaJP": "ボーンウィーブ・ブーツ",
+            "ptBR": "[fp]Botas de Osteotrama",
+            "ruRU": "[pl]латно-костяные сапоги",
+            "zhCN": "骸骨链靴"
+        }
     },
     {
         "DamageString": "50 to 145",
@@ -4753,7 +7033,22 @@
         "UberCode": "xtb",
         "UltraCode": "utb",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Mirrored Boots [E]",
+            "zhTW": "幻鏡戰靴",
+            "deDE": "[pl]Verspiegelte Stiefel",
+            "esES": "[fp]Botas de espejo",
+            "frFR": "[fp]Bottes resplendissantes",
+            "itIT": "[mp]Stivali Riflessi",
+            "koKR": "미러드 부츠³",
+            "plPL": "[nl]Lustrzane Buty",
+            "esMX": "[fp]Botas espejadas",
+            "jaJP": "ミラード・ブーツ",
+            "ptBR": "[fp]Botas Espelhadas",
+            "ruRU": "[pl]зеркальные сапоги",
+            "zhCN": "镜化靴"
+        }
     },
     {
         "DamageString": "83 to 149",
@@ -4780,7 +7075,22 @@
         "UberCode": "xhb",
         "UltraCode": "uhb",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Myrmidon Greaves [E]",
+            "zhTW": "勇士護脛",
+            "deDE": "[fs]Myrmidonbeinschienen",
+            "esES": "[fp]Grebas de mirmidón",
+            "frFR": "[fp]Grèves de myrmidon",
+            "itIT": "[mp]Schinieri del Mirmidone",
+            "koKR": "뮈르미돈 그리브³",
+            "plPL": "[nl]Myrmidiońskie Nagolenice",
+            "esMX": "[fp]Grebas de mirmidón",
+            "jaJP": "ミュルミドーン・グリーヴ",
+            "ptBR": "[fp]Grevas Mirmídones",
+            "ruRU": "[pl]мирмидонские наголенники",
+            "zhCN": "侍从护胫"
+        }
     },
     {
         "DamageString": null,
@@ -4807,7 +7117,22 @@
         "UberCode": "zlb",
         "UltraCode": "ulc",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Spiderweb Sash [E]",
+            "zhTW": "蛛網束帶",
+            "deDE": "[fs]Spinnennetzschärpe",
+            "esES": "[ms]Fajín de tela de araña",
+            "frFR": "[fs]Ceinture en toile d’araignée",
+            "itIT": "[fs]Fascia di Ragnatela",
+            "koKR": "스파이더웹 새시³",
+            "plPL": "[fs]Pajęcza Szarfa",
+            "esMX": "[ms]Cincho de telaraña",
+            "jaJP": "スパイダーウェブ・サッシュ",
+            "ptBR": "[fs]Faixa de Teia",
+            "ruRU": "[ms]паутинный кушак",
+            "zhCN": "蛛网饰带"
+        }
     },
     {
         "DamageString": null,
@@ -4834,7 +7159,22 @@
         "UberCode": "zvb",
         "UltraCode": "uvc",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Vampirefang Belt [E]",
+            "zhTW": "吸血鬼牙腰帶",
+            "deDE": "[ms]Vampirzahngürtel",
+            "esES": "[ms]Cinturón de colmillo de vampiro",
+            "frFR": "[fs]Ceinture à crocs de vampire",
+            "itIT": "[fs]Cintura di Denti di Vampiro",
+            "koKR": "뱀파이어팽 벨트³",
+            "plPL": "[ms]Wampirzy Pas",
+            "esMX": "[ms]Cinturón de comillo de vampiro",
+            "jaJP": "ヴァンパイアファング・ベルト",
+            "ptBR": "[ms]Cinto de Presa Vampírica",
+            "ruRU": "[ms]вампирский пояс",
+            "zhCN": "吸血鬼牙腰带"
+        }
     },
     {
         "DamageString": null,
@@ -4861,7 +7201,22 @@
         "UberCode": "zmb",
         "UltraCode": "umc",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Mithril Coil [E]",
+            "zhTW": "秘銀腰帶",
+            "deDE": "[fs]Mithrilrolle",
+            "esES": "[fs]Rosca de mithril",
+            "frFR": "[fs]Ceinture de mithril",
+            "itIT": "[fs]Spira di Mithril",
+            "koKR": "미스릴 코일³",
+            "plPL": "[fs]Mithrilowy Pas",
+            "esMX": "[ms]Rizo de mithril",
+            "jaJP": "ミスリル・コイル",
+            "ptBR": "[ms]Cinto de Mithril",
+            "ruRU": "[fs]мифриловая опояска",
+            "zhCN": "秘银腰带"
+        }
     },
     {
         "DamageString": null,
@@ -4888,7 +7243,22 @@
         "UberCode": "ztb",
         "UltraCode": "utc",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Troll Belt [E]",
+            "zhTW": "食人妖腰帶",
+            "deDE": "[ms]Trollgürtel",
+            "esES": "[ms]Cinturón de trol",
+            "frFR": "[fs]Ceinture trolle",
+            "itIT": "[fs]Cintura di Troll",
+            "koKR": "트롤 벨트³",
+            "plPL": "[ms]Trolowy Pas",
+            "esMX": "[ms]Cinturón de trol",
+            "jaJP": "トロール・ベルト",
+            "ptBR": "[ms]Cinto Trólico",
+            "ruRU": "[ms]троллий пояс",
+            "zhCN": "巨魔腰带"
+        }
     },
     {
         "DamageString": null,
@@ -4915,7 +7285,22 @@
         "UberCode": "zhb",
         "UltraCode": "uhc",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Colossus Girdle [E]",
+            "zhTW": "巨神腰帶",
+            "deDE": "[ms]Kolossgurt",
+            "esES": "[fs]Faja del coloso",
+            "frFR": "[ms]Ceinturon de colosse",
+            "itIT": "[fs]Cintola del Colosso",
+            "koKR": "콜로서스 거들³",
+            "plPL": "[ms]Kolosalny Pas",
+            "esMX": "[fs]Faja colosal",
+            "jaJP": "コロッサス・ガードル",
+            "ptBR": "[ms]Cinturão Colossal",
+            "ruRU": "[ms]массивный ремень",
+            "zhCN": "巨型护腰"
+        }
     },
     {
         "DamageString": null,
@@ -4942,7 +7327,22 @@
         "UberCode": "xh9",
         "UltraCode": "uh9",
         "AutoPrefix": "",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Bone Visage [E]",
+            "zhTW": "骸骨面罩",
+            "deDE": "[fs]Knochenfratze",
+            "esES": "[ms]Semblante de hueso",
+            "frFR": "[ms]Casque en os",
+            "itIT": "[ms]Volto d'Ossa",
+            "koKR": "본 비지즈³",
+            "plPL": "[nl]Kościane Oblicze",
+            "esMX": "[ms]Semblante óseo",
+            "jaJP": "ボーン・ビセッジ",
+            "ptBR": "[ms]Semblante Ósseo",
+            "ruRU": "[fs]костяная личина",
+            "zhCN": "白骨面甲"
+        }
     },
     {
         "DamageString": "24 to 38",
@@ -4969,7 +7369,22 @@
         "UberCode": "xsh",
         "UltraCode": "ush",
         "AutoPrefix": "312",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Troll Nest [E]",
+            "zhTW": "食人妖骨盾",
+            "deDE": "[ns]Trollnest",
+            "esES": "[ms]Nido de troles",
+            "frFR": "[ms]Repaire troll",
+            "itIT": "[ms]Cumulo di Troll",
+            "koKR": "트롤 네스트³",
+            "plPL": "[nl]Trolowe Gniazdo",
+            "esMX": "[ms]Nido de trol",
+            "jaJP": "トロール・ネスト",
+            "ptBR": "[ms]Ninho Trólico",
+            "ruRU": "[ns]троллье гнездо",
+            "zhCN": "巨魔巢"
+        }
     },
     {
         "DamageString": "26 to 40",
@@ -4996,7 +7411,22 @@
         "UberCode": "xpk",
         "UltraCode": "upk",
         "AutoPrefix": "312",
-        "RequiredClass": ""
+        "RequiredClass": "",
+        "Names": {
+            "enUS": "Blade Barrier [E]",
+            "zhTW": "刀刃刺盾",
+            "deDE": "[fs]Klingenbarriere",
+            "esES": "[fs]Barrera tajante",
+            "frFR": "[fs]Barrière de lames",
+            "itIT": "[fs]Barriera di Lame",
+            "koKR": "블레이드 배리어³",
+            "plPL": "[fs]Tnąca Bariera",
+            "esMX": "[fs]Barrera de filos",
+            "jaJP": "ブレイド・バリア",
+            "ptBR": "[fs]Barreira de Lâminas",
+            "ruRU": "[fs]клинковая ограда",
+            "zhCN": "剑刃屏障"
+        }
     },
     {
         "DamageString": null,
@@ -5023,7 +7453,22 @@
         "UberCode": "dr6",
         "UltraCode": "drb",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": "Druid",
+        "Names": {
+            "enUS": "Alpha Helm [X]",
+            "zhTW": "猛狼頭盔",
+            "deDE": "[ms]Alphahelm",
+            "esES": "[ms]Yelmo alfa",
+            "frFR": "[ms]Heaume alpha",
+            "itIT": "[ms]Elmo Alfa",
+            "koKR": "알파 헬름²",
+            "plPL": "[ms]Hełm Alfy",
+            "esMX": "[ms]Yelmo alfa",
+            "jaJP": "アルファ・ヘルム",
+            "ptBR": "[ms]Elmo Alfa",
+            "ruRU": "[ms]волчий шлем",
+            "zhCN": "头狼盔"
+        }
     },
     {
         "DamageString": null,
@@ -5050,7 +7495,22 @@
         "UberCode": "dr7",
         "UltraCode": "drc",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": "Druid",
+        "Names": {
+            "enUS": "Griffon Headdress [X]",
+            "zhTW": "獅鷲獸頭飾",
+            "deDE": "[ms]Greifenkopfschmuck",
+            "esES": "[ms]Tocado de grifo",
+            "frFR": "[fs]Coiffe du griffon",
+            "itIT": "[ms]Copricapo del Grifone",
+            "koKR": "그리폰 헤드레스²",
+            "plPL": "[ms]Gryfi Pióropusz",
+            "esMX": "[ms]Tocado de grifo",
+            "jaJP": "グリフォン・ヘッドドレス",
+            "ptBR": "[ms]Quepe de Grifo",
+            "ruRU": "[ms]грифоний головной убор",
+            "zhCN": "狮鹫头饰"
+        }
     },
     {
         "DamageString": null,
@@ -5077,7 +7537,22 @@
         "UberCode": "dr8",
         "UltraCode": "drd",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": "Druid",
+        "Names": {
+            "enUS": "Hunter's Guise [X]",
+            "zhTW": "獵人面罩",
+            "deDE": "[fs]Jägerverkleidung",
+            "esES": "[ms]Aspecto del cazador",
+            "frFR": "[ms]Masque de chasseur",
+            "itIT": "[fs]Guisa del Cacciatore",
+            "koKR": "헌터스 가이즈²",
+            "plPL": "[nl]Łowieckie Przebranie",
+            "esMX": "[fs]Guisa de cazador",
+            "jaJP": "ハンターズ・ガイズ",
+            "ptBR": "[ms]Disfarce do Caçador",
+            "ruRU": "[fs]охотничья личина",
+            "zhCN": "猎人伪装"
+        }
     },
     {
         "DamageString": null,
@@ -5104,7 +7579,22 @@
         "UberCode": "dr9",
         "UltraCode": "dre",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": "Druid",
+        "Names": {
+            "enUS": "Sacred Feathers [X]",
+            "zhTW": "聖羽頭飾",
+            "deDE": "[pl]Heilige Federn",
+            "esES": "[fp]Plumas sacras",
+            "frFR": "[fp]Plumes sacrées",
+            "itIT": "[fp]Sacre Piume",
+            "koKR": "세이크리드 페더스²",
+            "plPL": "[nl]Święte Pióra",
+            "esMX": "[fp]Plumas sagradas",
+            "jaJP": "セイクレッド・フェザー",
+            "ptBR": "[fp]Plumas Sagradas",
+            "ruRU": "[pl]священные перья",
+            "zhCN": "圣羽盔"
+        }
     },
     {
         "DamageString": null,
@@ -5131,7 +7621,22 @@
         "UberCode": "dra",
         "UltraCode": "drf",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": "Druid",
+        "Names": {
+            "enUS": "Totemic Mask [X]",
+            "zhTW": "圖騰面具",
+            "deDE": "[fs]Totemmaske",
+            "esES": "[fs]Máscara totémica",
+            "frFR": "[ms]Masque totémique",
+            "itIT": "[fs]Maschera Totemica",
+            "koKR": "토테믹 마스크²",
+            "plPL": "[fs]Totemiczna Maska",
+            "esMX": "[fs]Máscara totémica",
+            "jaJP": "トーテミック・マスク",
+            "ptBR": "[fs]Máscara Totêmica",
+            "ruRU": "[fs]тотемная маска",
+            "zhCN": "图腾面具"
+        }
     },
     {
         "DamageString": null,
@@ -5158,7 +7663,22 @@
         "UberCode": "ba6",
         "UltraCode": "bab",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": "Barbarian",
+        "Names": {
+            "enUS": "Jawbone Visor [X]",
+            "zhTW": "顎骨面甲",
+            "deDE": "[ns]Kieferknochenvisier",
+            "esES": "[fs]Visera de mandíbula",
+            "frFR": "[fs]Visière macabre",
+            "itIT": "[fs]Visiera d'Ossa",
+            "koKR": "조우본 바이저²",
+            "plPL": "[fs]Szczękowa Przyłbica",
+            "esMX": "[ms]Visor con mandíbula",
+            "jaJP": "ジョーボーン・バイザー",
+            "ptBR": "[fs]Viseira Mandibular",
+            "ruRU": "[ms]щиток с челюстью",
+            "zhCN": "颚骨面甲"
+        }
     },
     {
         "DamageString": null,
@@ -5185,7 +7705,22 @@
         "UberCode": "ba7",
         "UltraCode": "bac",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": "Barbarian",
+        "Names": {
+            "enUS": "Lion Helm [X]",
+            "zhTW": "獅牙頭盔",
+            "deDE": "[ms]Löwenhelm",
+            "esES": "[ms]Yelmo del león",
+            "frFR": "[ms]Heaume du lion",
+            "itIT": "[ms]Elmo del Leone",
+            "koKR": "라이온 헬름²",
+            "plPL": "[ms]Lwi Hełm",
+            "esMX": "[ms]Yelmo de león",
+            "jaJP": "ライオン・ヘルム",
+            "ptBR": "[ms]Elmo Leonino",
+            "ruRU": "[ms]львиный шлем",
+            "zhCN": "狮盔"
+        }
     },
     {
         "DamageString": null,
@@ -5212,7 +7747,22 @@
         "UberCode": "ba8",
         "UltraCode": "bad",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": "Barbarian",
+        "Names": {
+            "enUS": "Rage Mask [X]",
+            "zhTW": "狂怒面具",
+            "deDE": "[fs]Wutmaske",
+            "esES": "[fs]Máscara de la cólera",
+            "frFR": "[ms]Masque rageur",
+            "itIT": "[fs]Maschera della Furia",
+            "koKR": "레이지 마스크²",
+            "plPL": "[fs]Oszalała Maska",
+            "esMX": "[fs]Máscara iracunda",
+            "jaJP": "レイジ・マスク",
+            "ptBR": "[fs]Máscara Furiosa",
+            "ruRU": "[fs]яростная маска",
+            "zhCN": "盛怒面甲"
+        }
     },
     {
         "DamageString": null,
@@ -5239,7 +7789,22 @@
         "UberCode": "ba9",
         "UltraCode": "bae",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": "Barbarian",
+        "Names": {
+            "enUS": "Savage Helmet [X]",
+            "zhTW": "凶蠻頭盔",
+            "deDE": "[ms]Wildenhelm",
+            "esES": "[ms]Casco salvaje",
+            "frFR": "[ms]Cabasset sauvage",
+            "itIT": "[ms]Elmo Selvaggio",
+            "koKR": "세비지 헬멧²",
+            "plPL": "[ms]Dziki Hełm",
+            "esMX": "[ms]Casco salvaje",
+            "jaJP": "サベッジ・ヘルメット",
+            "ptBR": "[ms]Capacete Selvagem",
+            "ruRU": "[ms]дикий шлем",
+            "zhCN": "野蛮头盔"
+        }
     },
     {
         "DamageString": null,
@@ -5266,7 +7831,22 @@
         "UberCode": "baa",
         "UltraCode": "baf",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": "Barbarian",
+        "Names": {
+            "enUS": "Slayer Guard [X]",
+            "zhTW": "殺手護盔",
+            "deDE": "[ms]Schlächterschutz",
+            "esES": "[fs]Protección exterminadora",
+            "frFR": "[ms]Broquel féroce",
+            "itIT": "[fs]Guardia Massacratrice",
+            "koKR": "슬레이어 가드²",
+            "plPL": "[fs]Zabójcza Straż",
+            "esMX": "[fs]Guardia del exterminador",
+            "jaJP": "スレイヤー・ガード",
+            "ptBR": "[fs]Proteção Homicida",
+            "ruRU": "[ms]экзекуторский убор",
+            "zhCN": "杀戮者头盔"
+        }
     },
     {
         "DamageString": "12 to 16",
@@ -5380,7 +7960,22 @@
         "UberCode": "pa6",
         "UltraCode": "pab",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": "Paladin",
+        "Names": {
+            "enUS": "Akaran Targe [X]",
+            "zhTW": "阿卡拉圓盾",
+            "deDE": "Akarantarge",
+            "esES": "[fs]Adarga de Akaran",
+            "frFR": "[fs]Targe d’Akaran",
+            "itIT": "[fs]Targa di Akarat",
+            "koKR": "아카란 타아지²",
+            "plPL": "[fs]Akarańska Tarża",
+            "esMX": "[fs]Adarga de Akara",
+            "jaJP": "アカラン・タージ",
+            "ptBR": "[fs]Targa de Akaran",
+            "ruRU": "[ms]акаранский тарджет",
+            "zhCN": "阿卡兰小盾"
+        }
     },
     {
         "DamageString": "15 to 20",
@@ -5494,7 +8089,22 @@
         "UberCode": "pa7",
         "UltraCode": "pac",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": "Paladin",
+        "Names": {
+            "enUS": "Akaran Rondache [X]",
+            "zhTW": "阿卡拉輕圓盾",
+            "deDE": "[fs]Akaranrondache",
+            "esES": "[fs]Rodela de Akaran",
+            "frFR": "[fs]Rondache d’Akaran",
+            "itIT": "[fs]Rondaccia di Akarat",
+            "koKR": "아카란 론다쉬²",
+            "plPL": "[fs]Akarańska Rodela",
+            "esMX": "[fs]Rodela de Akara",
+            "jaJP": "アカラン・ロンダッシュ",
+            "ptBR": "[ms]Rondache de Akaran",
+            "ruRU": "[ms]акаранский рондаш",
+            "zhCN": "阿卡兰轻圆盾"
+        }
     },
     {
         "DamageString": "18 to 24",
@@ -5608,7 +8218,22 @@
         "UberCode": "pa8",
         "UltraCode": "pad",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": "Paladin",
+        "Names": {
+            "enUS": "Protector Shield [X]",
+            "zhTW": "守護之盾",
+            "deDE": "[ms]Schutzschild",
+            "esES": "[ms]Escudo protector",
+            "frFR": "[ms]Bouclier protecteur",
+            "itIT": "[ms]Scudo Protettore",
+            "koKR": "프로텍터 쉴드²",
+            "plPL": "[fs]Ochronna Tarcza",
+            "esMX": "[ms]Escudo protector",
+            "jaJP": "プロテクター・シールド",
+            "ptBR": "[ms]Escudo Protetor",
+            "ruRU": "[ms]покровительский щит",
+            "zhCN": "保卫者之盾"
+        }
     },
     {
         "DamageString": "20 to 28",
@@ -5722,7 +8347,22 @@
         "UberCode": "pa9",
         "UltraCode": "pae",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": "Paladin",
+        "Names": {
+            "enUS": "Gilded Shield [X]",
+            "zhTW": "金紋盾",
+            "deDE": "[ms]Vergoldeter Schild",
+            "esES": "[ms]Escudo dorado",
+            "frFR": "[ms]Bouclier doré",
+            "itIT": "[ms]Scudo Dorato",
+            "koKR": "길디드 쉴드²",
+            "plPL": "[fs]Pozłacana Tarcza",
+            "esMX": "[ms]Escudo dorado",
+            "jaJP": "ギルデッド・シールド",
+            "ptBR": "[ms]Escudo Dourado",
+            "ruRU": "[ms]золоченый щит",
+            "zhCN": "镀金盾"
+        }
     },
     {
         "DamageString": "24 to 32",
@@ -5836,7 +8476,22 @@
         "UberCode": "paa",
         "UltraCode": "paf",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": "Paladin",
+        "Names": {
+            "enUS": "Royal Shield [X]",
+            "zhTW": "皇家盾",
+            "deDE": "[ms]Königlicher Schild",
+            "esES": "[ms]Escudo real",
+            "frFR": "[ms]Bouclier royal",
+            "itIT": "[ms]Scudo Reale",
+            "koKR": "로얄 쉴드²",
+            "plPL": "[fs]Królewska Tarcza",
+            "esMX": "[ms]Escudo real",
+            "jaJP": "ロイヤル・シールド",
+            "ptBR": "[ms]Escudo Régio",
+            "ruRU": "[ms]монарший щит",
+            "zhCN": "皇家盾"
+        }
     },
     {
         "DamageString": null,
@@ -5901,7 +8556,22 @@
         "UberCode": "ne6",
         "UltraCode": "neb",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": "Necromancer",
+        "Names": {
+            "enUS": "Mummified Trophy [X]",
+            "zhTW": "木乃伊首級",
+            "deDE": "[fs]Mumifizierte Trophäe",
+            "esES": "[ms]Trofeo momificado",
+            "frFR": "[ms]Trophée momifié",
+            "itIT": "[ms]Trofeo Mummificato",
+            "koKR": "머미파이드 트로피²",
+            "plPL": "[nl]Zmumifikowane Trofeum",
+            "esMX": "[ms]Trofeo momificado",
+            "jaJP": "マミファイド・トロフィー",
+            "ptBR": "[ms]Troféu Mumificado",
+            "ruRU": "[ms]засушенный трофей",
+            "zhCN": "木乃伊法器"
+        }
     },
     {
         "DamageString": null,
@@ -5966,7 +8636,22 @@
         "UberCode": "ne7",
         "UltraCode": "neg",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": "Necromancer",
+        "Names": {
+            "enUS": "Fetish Trophy [X]",
+            "zhTW": "鬼娃首級",
+            "deDE": "[fs]Fetischtrophäe",
+            "esES": "[ms]Trofeo de fetiche",
+            "frFR": "[ms]Trophée fétiche",
+            "itIT": "[ms]Trofeo del Feticcio",
+            "koKR": "페티쉬 트로피²",
+            "plPL": "[nl]Fetyszowe Trofeum",
+            "esMX": "[ms]Trofeo de fetiche",
+            "jaJP": "フェティッシュ・トロフィー",
+            "ptBR": "[ms]Troféu Carranco",
+            "ruRU": "[ms]трофей-фетиш",
+            "zhCN": "鬼娃法器"
+        }
     },
     {
         "DamageString": null,
@@ -6031,7 +8716,22 @@
         "UberCode": "ne8",
         "UltraCode": "ned",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": "Necromancer",
+        "Names": {
+            "enUS": "Sexton Trophy [X]",
+            "zhTW": "司事首級",
+            "deDE": "[fs]Sextontrophäe",
+            "esES": "[ms]Trofeo de sacristán",
+            "frFR": "[ms]Trophée de sacristain",
+            "itIT": "[ms]Trofeo del Necroforo",
+            "koKR": "섹스턴 트로피²",
+            "plPL": "[nl]Kapłańskie Trofeum",
+            "esMX": "[ms]Trofeo de sacristán",
+            "jaJP": "セクストン・トロフィー",
+            "ptBR": "[ms]Troféu Sexton",
+            "ruRU": "[ms]алтарный трофей",
+            "zhCN": "司事法器"
+        }
     },
     {
         "DamageString": null,
@@ -6096,7 +8796,22 @@
         "UberCode": "ne9",
         "UltraCode": "nee",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": "Necromancer",
+        "Names": {
+            "enUS": "Cantor Trophy [X]",
+            "zhTW": "領唱者首級",
+            "deDE": "[fs]Kantortrophäe",
+            "esES": "[ms]Trofeo de cantor",
+            "frFR": "[ms]Trophée de chantre",
+            "itIT": "[ms]Trofeo del Cantore",
+            "koKR": "캔터 트로피²",
+            "plPL": "[nl]Kantorskie Trofeum",
+            "esMX": "[ms]Trofeo de capiscol",
+            "jaJP": "キャンター・トロフィー",
+            "ptBR": "[ms]Troféu Cantor",
+            "ruRU": "[ms]хоровой трофей",
+            "zhCN": "领唱者法器"
+        }
     },
     {
         "DamageString": null,
@@ -6161,7 +8876,22 @@
         "UberCode": "nea",
         "UltraCode": "nef",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": "Necromancer",
+        "Names": {
+            "enUS": "Hierophant Trophy [X]",
+            "zhTW": "祭司首級",
+            "deDE": "Hierophanttrophäe",
+            "esES": "[ms]Trofeo de hierofante",
+            "frFR": "[ms]Trophée de hiérophante",
+            "itIT": "[ms]Trofeo dello Ierofante",
+            "koKR": "하이어러팬트 트로피²",
+            "plPL": "[nl]Hierofanckie Trofeum",
+            "esMX": "[ms]Trofeo de hierofante",
+            "jaJP": "ハイエロファント・トロフィー",
+            "ptBR": "[ms]Troféu Hierofante",
+            "ruRU": "[ms]жреческий трофей",
+            "zhCN": "圣师法器"
+        }
     },
     {
         "DamageString": null,
@@ -6188,7 +8918,22 @@
         "UberCode": "dr6",
         "UltraCode": "drb",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": "Druid",
+        "Names": {
+            "enUS": "Blood Spirit [E]",
+            "zhTW": "血系靈獸帽",
+            "deDE": "[ms]Blutgeist",
+            "esES": "[ms]Espíritu de la sangre",
+            "frFR": "[ms]Esprit du sang",
+            "itIT": "[ms]Spirito del Sangue",
+            "koKR": "블러드 스피리트³",
+            "plPL": "[ms]Krwawy Duch",
+            "esMX": "[ms]Espíritu de sangre",
+            "jaJP": "ブラッド・スピリット",
+            "ptBR": "[ms]Espírito Sanguíneo",
+            "ruRU": "[ms]кровавый дух",
+            "zhCN": "鲜血之灵"
+        }
     },
     {
         "DamageString": null,
@@ -6215,7 +8960,22 @@
         "UberCode": "dr7",
         "UltraCode": "drc",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": "Druid",
+        "Names": {
+            "enUS": "Sun Spirit [E]",
+            "zhTW": "日陽靈獸帽",
+            "deDE": "[ms]Sonnengeist",
+            "esES": "[ms]Espíritu del sol",
+            "frFR": "[ms]Esprit du soleil",
+            "itIT": "[ms]Spirito del Sole",
+            "koKR": "선 스피리트³",
+            "plPL": "[ms]Słoneczny Duch",
+            "esMX": "[ms]Espíritu de sol",
+            "jaJP": "サン・スピリット",
+            "ptBR": "[ms]Espírito Solar",
+            "ruRU": "[ms]солнечный дух",
+            "zhCN": "太阳之灵"
+        }
     },
     {
         "DamageString": null,
@@ -6242,7 +9002,22 @@
         "UberCode": "dr8",
         "UltraCode": "drd",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": "Druid",
+        "Names": {
+            "enUS": "Earth Spirit [E]",
+            "zhTW": "地土靈獸帽",
+            "deDE": "[ms]Erdgeist",
+            "esES": "[ms]Espíritu de la tierra",
+            "frFR": "[ms]Esprit de la terre",
+            "itIT": "[ms]Spirito della Terra",
+            "koKR": "어스 스피리트³",
+            "plPL": "[ms]Ziemny Duch",
+            "esMX": "[ms]Espíritu de tierra",
+            "jaJP": "アース・スピリット",
+            "ptBR": "[ms]Espírito Terrestre",
+            "ruRU": "[ms]земной дух",
+            "zhCN": "大地之灵"
+        }
     },
     {
         "DamageString": null,
@@ -6269,7 +9044,22 @@
         "UberCode": "dr9",
         "UltraCode": "dre",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": "Druid",
+        "Names": {
+            "enUS": "Sky Spirit [E]",
+            "zhTW": "天翔靈獸帽",
+            "deDE": "[ms]Himmelsgeist",
+            "esES": "[ms]Espíritu del cielo",
+            "frFR": "[ms]Esprit des Cieux",
+            "itIT": "[ms]Spirito del Cielo",
+            "koKR": "스카이 스피리트³",
+            "plPL": "[ms]Podniebny Duch",
+            "esMX": "[ms]Espíritu de cielo",
+            "jaJP": "スカイ・スピリット",
+            "ptBR": "[ms]Espírito Celeste",
+            "ruRU": "[ms]воздушный дух",
+            "zhCN": "天空之灵"
+        }
     },
     {
         "DamageString": null,
@@ -6296,7 +9086,22 @@
         "UberCode": "dra",
         "UltraCode": "drf",
         "AutoPrefix": "",
-        "RequiredClass": "Druid"
+        "RequiredClass": "Druid",
+        "Names": {
+            "enUS": "Dream Spirit [E]",
+            "zhTW": "幽夢靈獸帽",
+            "deDE": "[ms]Traumgeist",
+            "esES": "[ms]Espíritu del sueño",
+            "frFR": "[ms]Esprit du rêve",
+            "itIT": "[ms]Spirito del Sogno",
+            "koKR": "드림 스피리트³",
+            "plPL": "[ms]Senny Duch",
+            "esMX": "[ms]Espíritu de sueño",
+            "jaJP": "ドリーム・スピリット",
+            "ptBR": "[ms]Espírito Onírico",
+            "ruRU": "[ms]иллюзорный дух",
+            "zhCN": "梦境之灵"
+        }
     },
     {
         "DamageString": null,
@@ -6323,7 +9128,22 @@
         "UberCode": "ba6",
         "UltraCode": "bab",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": "Barbarian",
+        "Names": {
+            "enUS": "Carnage Helm [E]",
+            "zhTW": "屠殺頭盔",
+            "deDE": "[ms]Gemetzelhelm",
+            "esES": "[ms]Yelmo de carnicería",
+            "frFR": "[ms]Heaume de carnage",
+            "itIT": "[ms]Elmo della Carneficina",
+            "koKR": "카니지 헬름³",
+            "plPL": "[ms]Rzeźniczy Hełm",
+            "esMX": "[ms]Yelmo del desmembrador",
+            "jaJP": "カーネッジ・ヘルム",
+            "ptBR": "[ms]Elmo da Carnificina",
+            "ruRU": "[ms]мясницкий шлем",
+            "zhCN": "屠戮盔"
+        }
     },
     {
         "DamageString": null,
@@ -6350,7 +9170,22 @@
         "UberCode": "ba7",
         "UltraCode": "bac",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": "Barbarian",
+        "Names": {
+            "enUS": "Fury Visor [E]",
+            "zhTW": "暴怒面甲",
+            "deDE": "[ns]Wutvisier",
+            "esES": "[fs]Visera de furia",
+            "frFR": "[fs]Visière de fureur",
+            "itIT": "[ms]Visiera della Furia",
+            "koKR": "퓨리 바이저³",
+            "plPL": "[fs]Gniewna Przyłbica",
+            "esMX": "[ms]Visor de furia",
+            "jaJP": "フューリー・バイザー",
+            "ptBR": "[fs]Viseira Furiosa",
+            "ruRU": "[ms]яростный щиток",
+            "zhCN": "怒火面甲"
+        }
     },
     {
         "DamageString": null,
@@ -6377,7 +9212,22 @@
         "UberCode": "ba8",
         "UltraCode": "bad",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": "Barbarian",
+        "Names": {
+            "enUS": "Destroyer Helm [E]",
+            "zhTW": "毀滅者頭盔",
+            "deDE": "[ms]Zerstörerhelm",
+            "esES": "[ms]Yelmo destructor",
+            "frFR": "[ms]Heaume de destructeur",
+            "itIT": "[ms]Elmo Distruttore",
+            "koKR": "디스트로이어 헬름³",
+            "plPL": "[ms]Niszczycielski Hełm",
+            "esMX": "[ms]Yelmo del destructor",
+            "jaJP": "デストロイヤー・ヘルム",
+            "ptBR": "[ms]Elmo Destruidor",
+            "ruRU": "[ms]разрушительный шлем",
+            "zhCN": "毁灭者头盔"
+        }
     },
     {
         "DamageString": null,
@@ -6404,7 +9254,22 @@
         "UberCode": "ba9",
         "UltraCode": "bae",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": "Barbarian",
+        "Names": {
+            "enUS": "Conqueror Crown [E]",
+            "zhTW": "征服者盔冠",
+            "deDE": "Erobererkrone",
+            "esES": "[fs]Corona conquistadora",
+            "frFR": "[fs]Couronne de conquérant",
+            "itIT": "[fs]Corona del Conquistatore",
+            "koKR": "컨커러 크라운³",
+            "plPL": "[fs]Zdobywcza Korona",
+            "esMX": "[fs]Corona del conquistador",
+            "jaJP": "コンカラー・クラウン",
+            "ptBR": "[fs]Coroa do Conquistador",
+            "ruRU": "[fs]победоносная корона",
+            "zhCN": "征服者王冠"
+        }
     },
     {
         "DamageString": null,
@@ -6431,7 +9296,22 @@
         "UberCode": "baa",
         "UltraCode": "baf",
         "AutoPrefix": "",
-        "RequiredClass": "Barbarian"
+        "RequiredClass": "Barbarian",
+        "Names": {
+            "enUS": "Guardian Crown [E]",
+            "zhTW": "守護者盔冠",
+            "deDE": "[fs]Wächterkrone",
+            "esES": "[fs]Corona guardiana",
+            "frFR": "[fs]Couronne de gardien",
+            "itIT": "[fs]Corona del Guardiano",
+            "koKR": "가디언 크라운³",
+            "plPL": "[fs]Strażnicza Korona",
+            "esMX": "[fs]Corona del guardián",
+            "jaJP": "ガーディアン・クラウン",
+            "ptBR": "[fs]Coroa do Guardião",
+            "ruRU": "[fs]защитная корона",
+            "zhCN": "守护者王冠"
+        }
     },
     {
         "DamageString": "22 to 70",
@@ -6545,7 +9425,22 @@
         "UberCode": "pa6",
         "UltraCode": "pab",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": "Paladin",
+        "Names": {
+            "enUS": "Sacred Targe [E]",
+            "zhTW": "神聖小盾",
+            "deDE": "[fs]Heilige Targe",
+            "esES": "[fs]Adarga sacra",
+            "frFR": "[fs]Targe sacrée",
+            "itIT": "[fs]Targa Sacra",
+            "koKR": "세이크리드 타아지³",
+            "plPL": "[fs]Święta Tarża",
+            "esMX": "[fs]Adarga sagrada",
+            "jaJP": "セイクレッド・タージ",
+            "ptBR": "[fs]Targa Sagrada",
+            "ruRU": "[ms]священный тарджет",
+            "zhCN": "神圣小盾"
+        }
     },
     {
         "DamageString": "35 to 58",
@@ -6659,7 +9554,22 @@
         "UberCode": "pa7",
         "UltraCode": "pac",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": "Paladin",
+        "Names": {
+            "enUS": "Sacred Rondache [E]",
+            "zhTW": "神聖輕圓盾",
+            "deDE": "[fs]Heilige Rondache",
+            "esES": "[fs]Rodela sacra",
+            "frFR": "[fs]Rondache sacrée",
+            "itIT": "[fs]Rondaccia Sacra",
+            "koKR": "세이크리드 론다쉬³",
+            "plPL": "[fs]Święta Rodela",
+            "esMX": "[fs]Rodela sagrada",
+            "jaJP": "セイクレッド・ロンダッシュ",
+            "ptBR": "[ms]Rondache Sagrado",
+            "ruRU": "[ms]священный рондаш",
+            "zhCN": "神圣轻圆盾"
+        }
     },
     {
         "DamageString": "10 to 82",
@@ -6773,7 +9683,22 @@
         "UberCode": "pa8",
         "UltraCode": "pad",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": "Paladin",
+        "Names": {
+            "enUS": "Kurast Shield [E]",
+            "zhTW": "庫拉斯特盾",
+            "deDE": "Kurastschild",
+            "esES": "Escudo de Kurast",
+            "frFR": "Bouclier de Kurast",
+            "itIT": "Scudo di Kurast",
+            "koKR": "쿠라스트 쉴드³",
+            "plPL": "[fs]Kurastowa Tarcza",
+            "esMX": "[ms]Escudo de Kurast",
+            "jaJP": "クラスト・シールド",
+            "ptBR": "[ms]Escudo de Kurast",
+            "ruRU": "Щит Кураста",
+            "zhCN": "库拉斯特盾"
+        }
     },
     {
         "DamageString": "46",
@@ -6887,7 +9812,22 @@
         "UberCode": "pa9",
         "UltraCode": "pae",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": "Paladin",
+        "Names": {
+            "enUS": "Zakarum Shield [E]",
+            "zhTW": "撒卡蘭姆盾",
+            "deDE": "[ms]Zakarumschild",
+            "esES": "[ms]Escudo de Zakarum",
+            "frFR": "[ms]Bouclier de Zakarum",
+            "itIT": "[ms]Scudo di Zakarum",
+            "koKR": "자카룸 쉴드³",
+            "plPL": "[fs]Zakarumicka Tarcza",
+            "esMX": "[ms]Escudo de Zakarum",
+            "jaJP": "ザカラム・シールド",
+            "ptBR": "[ms]Escudo Zakarum",
+            "ruRU": "[ms]закарумский щит",
+            "zhCN": "萨卡兰姆盾"
+        }
     },
     {
         "DamageString": "5 to 87",
@@ -7001,7 +9941,22 @@
         "UberCode": "paa",
         "UltraCode": "paf",
         "AutoPrefix": "304",
-        "RequiredClass": "Paladin"
+        "RequiredClass": "Paladin",
+        "Names": {
+            "enUS": "Vortex Shield [E]",
+            "zhTW": "渦旋盾",
+            "deDE": "[ms]Wirbelschild",
+            "esES": "[ms]Escudo vórtice",
+            "frFR": "[ms]Bouclier du vortex",
+            "itIT": "[ms]Scudo del Vortice",
+            "koKR": "볼텍스 쉴드³",
+            "plPL": "[fs]Wirotarcza",
+            "esMX": "[ms]Escudo de vórtice",
+            "jaJP": "ボルテックス・シールド",
+            "ptBR": "[ms]Escudo do Vórtice",
+            "ruRU": "[ms]ураганный щит",
+            "zhCN": "漩涡盾"
+        }
     },
     {
         "DamageString": null,
@@ -7066,7 +10021,22 @@
         "UberCode": "ne6",
         "UltraCode": "neb",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": "Necromancer",
+        "Names": {
+            "enUS": "Minion Skull [E]",
+            "zhTW": "僕從顱骨",
+            "deDE": "[ms]Dienerschädel",
+            "esES": "[ms]Cráneo de esbirro",
+            "frFR": "[ms]Crâne de serviteur",
+            "itIT": "[ms]Teschio di Servitore",
+            "koKR": "미니언 스컬³",
+            "plPL": "[fs]Czaszka Sługi",
+            "esMX": "[ms]Cráneo de esbirro",
+            "jaJP": "ミニオン・スカル",
+            "ptBR": "[fs]Caveira de Lacaio",
+            "ruRU": "[ms]прислужничий череп",
+            "zhCN": "爪牙颅骨"
+        }
     },
     {
         "DamageString": null,
@@ -7131,7 +10101,22 @@
         "UberCode": "ne7",
         "UltraCode": "neg",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": "Necromancer",
+        "Names": {
+            "enUS": "Hellspawn Skull [E]",
+            "zhTW": "地獄爪牙顱骨",
+            "deDE": "[ms]Höllenbrutschädel",
+            "esES": "[ms]Cráneo del averno",
+            "frFR": "[ms]Crâne de l’engeance infernale",
+            "itIT": "[ms]Teschio di Creatura Infernale",
+            "koKR": "헬스폰 스컬³",
+            "plPL": "[fs]Czaszka Pomiotu Piekieł",
+            "esMX": "[ms]Cráneo de engendro infernal",
+            "jaJP": "ヘルスポーン・スカル",
+            "ptBR": "[fs]Caveira de Cria Infernal",
+            "ruRU": "[ms]череп отродья Тьмы",
+            "zhCN": "地狱魔颅骨"
+        }
     },
     {
         "DamageString": null,
@@ -7196,7 +10181,22 @@
         "UberCode": "ne8",
         "UltraCode": "ned",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": "Necromancer",
+        "Names": {
+            "enUS": "Overseer Skull [E]",
+            "zhTW": "督軍顱骨",
+            "deDE": "[ms]Aufseherschädel",
+            "esES": "[ms]Cráneo de supervisor",
+            "frFR": "[ms]Crâne de prophète",
+            "itIT": "[ms]Teschio di Sovrintendente",
+            "koKR": "오버시어 스컬³",
+            "plPL": "[fs]Nadzorcza Czaszka",
+            "esMX": "[ms]Cráneo de mayoral",
+            "jaJP": "オーバーシアー・スカル",
+            "ptBR": "[fs]Caveira de Capataz",
+            "ruRU": "[ms]надзирательский череп",
+            "zhCN": "督军颅骨"
+        }
     },
     {
         "DamageString": null,
@@ -7261,7 +10261,22 @@
         "UberCode": "ne9",
         "UltraCode": "nee",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": "Necromancer",
+        "Names": {
+            "enUS": "Succubus Skull [E]",
+            "zhTW": "魅魔顱骨",
+            "deDE": "Sukkubusschädel",
+            "esES": "[ms]Cráneo de súcubo",
+            "frFR": "[ms]Crâne de succube",
+            "itIT": "[ms]Teschio di Succube",
+            "koKR": "써큐버스 스컬³",
+            "plPL": "[fs]Sukkubia Czaszka",
+            "esMX": "[ms]Cráneo de súcubo",
+            "jaJP": "サキュバス・スカル",
+            "ptBR": "[fs]Caveira de Súcubo",
+            "ruRU": "[ms]суккубский череп",
+            "zhCN": "魅魔颅骨"
+        }
     },
     {
         "DamageString": null,
@@ -7326,7 +10341,22 @@
         "UberCode": "nea",
         "UltraCode": "nef",
         "AutoPrefix": "305",
-        "RequiredClass": "Necromancer"
+        "RequiredClass": "Necromancer",
+        "Names": {
+            "enUS": "Bloodlord Skull [E]",
+            "zhTW": "鮮血之王顱骨",
+            "deDE": "[ms]Blutlordschädel",
+            "esES": "[ms]Cráneo de señor de la sangre",
+            "frFR": "[ms]Crâne de seigneur de sang",
+            "itIT": "[ms]Teschio di Signore del Sangue",
+            "koKR": "블러드로드 스컬³",
+            "plPL": "[fs]Demoniczna Czaszka",
+            "esMX": "[ms]Cráneo de señor sangriento",
+            "jaJP": "ブラッドロード・スカル",
+            "ptBR": "[fs]Caveira de Senhor Sangrento",
+            "ruRU": "[ms]владыческий череп",
+            "zhCN": "血王颅骨"
+        }
     },
     {
         "DamageString": null,
@@ -7423,7 +10453,22 @@
         "UberCode": "wa6",
         "UltraCode": "wab",
         "AutoPrefix": "306",
-        "RequiredClass": "Warlock"
+        "RequiredClass": "Warlock",
+        "Names": {
+            "enUS": "Old Book [N]",
+            "zhTW": "舊書",
+            "deDE": "[ns]Altes Buch",
+            "esES": "[ms]Libro viejo",
+            "frFR": "Livre ancien",
+            "itIT": "Vecchio Libro",
+            "koKR": "오래된 책¹",
+            "plPL": "Stara księga",
+            "esMX": "Libro viejo",
+            "jaJP": "古い本",
+            "ptBR": "Livro Antigo",
+            "ruRU": "[fs]старая книга",
+            "zhCN": "古书"
+        }
     },
     {
         "DamageString": null,
@@ -7520,7 +10565,22 @@
         "UberCode": "wa7",
         "UltraCode": "wac",
         "AutoPrefix": "306",
-        "RequiredClass": "Warlock"
+        "RequiredClass": "Warlock",
+        "Names": {
+            "enUS": "Tome [N]",
+            "zhTW": "秘典",
+            "deDE": "[ms]Foliant",
+            "esES": "[ms]Volumen",
+            "frFR": "Tome",
+            "itIT": "Tomo",
+            "koKR": "고서¹",
+            "plPL": "Tom",
+            "esMX": "Tomo",
+            "jaJP": "書物",
+            "ptBR": "Tomo",
+            "ruRU": "[ms]фолиант",
+            "zhCN": "典籍"
+        }
     },
     {
         "DamageString": null,
@@ -7617,7 +10677,22 @@
         "UberCode": "wa8",
         "UltraCode": "wad",
         "AutoPrefix": "306",
-        "RequiredClass": "Warlock"
+        "RequiredClass": "Warlock",
+        "Names": {
+            "enUS": "Codex [N]",
+            "zhTW": "寶典",
+            "deDE": "[ms]Kodex",
+            "esES": "[ms]Códice",
+            "frFR": "Codex",
+            "itIT": "Codex",
+            "koKR": "고문서¹",
+            "plPL": "Kodeks",
+            "esMX": "Códice",
+            "jaJP": "古写本",
+            "ptBR": "Códice",
+            "ruRU": "[ms]кодекс",
+            "zhCN": "法典"
+        }
     },
     {
         "DamageString": null,
@@ -7714,7 +10789,22 @@
         "UberCode": "wa9",
         "UltraCode": "wae",
         "AutoPrefix": "306",
-        "RequiredClass": "Warlock"
+        "RequiredClass": "Warlock",
+        "Names": {
+            "enUS": "Compendium [N]",
+            "zhTW": "綱要",
+            "deDE": "[ns]Kompendium",
+            "esES": "[ms]Compendio",
+            "frFR": "Compendium",
+            "itIT": "Compendio",
+            "koKR": "전서¹",
+            "plPL": "Kompendium",
+            "esMX": "Compendio",
+            "jaJP": "抄録",
+            "ptBR": "Compêndio",
+            "ruRU": "[ms]компендиум",
+            "zhCN": "纲要"
+        }
     },
     {
         "DamageString": null,
@@ -7811,7 +10901,22 @@
         "UberCode": "waa",
         "UltraCode": "waf",
         "AutoPrefix": "306",
-        "RequiredClass": "Warlock"
+        "RequiredClass": "Warlock",
+        "Names": {
+            "enUS": "Grimoire [N]",
+            "zhTW": "魔典",
+            "deDE": "[ns]Grimoire",
+            "esES": "[ms]Grimorio",
+            "frFR": "Grimoire",
+            "itIT": "Grimorio",
+            "koKR": "마법서¹",
+            "plPL": "Grymuar",
+            "esMX": "Grimorio",
+            "jaJP": "グリモア",
+            "ptBR": "Grimório",
+            "ruRU": "[ms]гримуар",
+            "zhCN": "魔典"
+        }
     },
     {
         "DamageString": null,
@@ -7908,7 +11013,22 @@
         "UberCode": "wa6",
         "UltraCode": "wab",
         "AutoPrefix": "306",
-        "RequiredClass": "Warlock"
+        "RequiredClass": "Warlock",
+        "Names": {
+            "enUS": "Burnt Text [X]",
+            "zhTW": "焦灼書冊",
+            "deDE": "[ms]Verbrannter Text",
+            "esES": "[ms]Texto quemado",
+            "frFR": "Texte brûlé",
+            "itIT": "Testo Bruciato",
+            "koKR": "불탄 문헌²",
+            "plPL": "Spalony tekst",
+            "esMX": "Texto quemado",
+            "jaJP": "焼けた書",
+            "ptBR": "Texto Queimado",
+            "ruRU": "[ms]обгорелый текст",
+            "zhCN": "焦黑文本"
+        }
     },
     {
         "DamageString": null,
@@ -8005,7 +11125,22 @@
         "UberCode": "wa7",
         "UltraCode": "wac",
         "AutoPrefix": "306",
-        "RequiredClass": "Warlock"
+        "RequiredClass": "Warlock",
+        "Names": {
+            "enUS": "Dark Tome [X]",
+            "zhTW": "黑暗秘典",
+            "deDE": "[ms]Dunkler Foliant",
+            "esES": "[ms]Volumen oscuro",
+            "frFR": "Tome noir",
+            "itIT": "Tomo Oscuro",
+            "koKR": "어두운 고서²",
+            "plPL": "Mroczny tom",
+            "esMX": "Tomo oscuro",
+            "jaJP": "闇の書物",
+            "ptBR": "Tomo Antigo",
+            "ruRU": "[ms]темный фолиант",
+            "zhCN": "黑暗典籍"
+        }
     },
     {
         "DamageString": null,
@@ -8102,7 +11237,22 @@
         "UberCode": "wa8",
         "UltraCode": "wad",
         "AutoPrefix": "306",
-        "RequiredClass": "Warlock"
+        "RequiredClass": "Warlock",
+        "Names": {
+            "enUS": "Dark Codex [X]",
+            "zhTW": "黑暗寶典",
+            "deDE": "[ms]Dunkler Kodex",
+            "esES": "[ms]Códice oscuro",
+            "frFR": "Codex noir",
+            "itIT": "Codex Oscuro",
+            "koKR": "어두운 고문서²",
+            "plPL": "Mroczny kodeks",
+            "esMX": "Códice oscuro",
+            "jaJP": "闇の古写本",
+            "ptBR": "Códice Sombrio",
+            "ruRU": "[ms]темный кодекс",
+            "zhCN": "黑暗法典"
+        }
     },
     {
         "DamageString": null,
@@ -8199,7 +11349,22 @@
         "UberCode": "wa9",
         "UltraCode": "wae",
         "AutoPrefix": "306",
-        "RequiredClass": "Warlock"
+        "RequiredClass": "Warlock",
+        "Names": {
+            "enUS": "Possessed Compendium [X]",
+            "zhTW": "著魔綱要",
+            "deDE": "[ns]Besessenes Kompendium",
+            "esES": "[ms]Compendio poseído",
+            "frFR": "Compendium possédé",
+            "itIT": "Compendio Posseduto",
+            "koKR": "빙의된 전서²",
+            "plPL": "Opętane kompendium",
+            "esMX": "Compendio poseído",
+            "jaJP": "依代の抄録",
+            "ptBR": "Compêndio Possuído",
+            "ruRU": "[ms]одержимый компендиум",
+            "zhCN": "魔附纲要"
+        }
     },
     {
         "DamageString": null,
@@ -8296,7 +11461,22 @@
         "UberCode": "waa",
         "UltraCode": "waf",
         "AutoPrefix": "306",
-        "RequiredClass": "Warlock"
+        "RequiredClass": "Warlock",
+        "Names": {
+            "enUS": "Possessed Grimoire [X]",
+            "zhTW": "著魔魔典",
+            "deDE": "[ns]Besessenes Grimoire",
+            "esES": "[ms]Grimorio poseído",
+            "frFR": "Grimoire possédé",
+            "itIT": "Grimorio Posseduto",
+            "koKR": "빙의된 마법서²",
+            "plPL": "Opętany grymuar",
+            "esMX": "Grimorio poseído",
+            "jaJP": "依代のグリモア",
+            "ptBR": "Grimório Possuído",
+            "ruRU": "[ms]одержимый гримуар",
+            "zhCN": "魔附魔典"
+        }
     },
     {
         "DamageString": null,
@@ -8393,7 +11573,22 @@
         "UberCode": "wa6",
         "UltraCode": "wab",
         "AutoPrefix": "306",
-        "RequiredClass": "Warlock"
+        "RequiredClass": "Warlock",
+        "Names": {
+            "enUS": "Forgotten Volume [E]",
+            "zhTW": "被遺忘的書冊",
+            "deDE": "[ms]Vergessener Band",
+            "esES": "[ms]Volumen olvidado",
+            "frFR": "Ouvrage oublié",
+            "itIT": "Volume Dimenticato",
+            "koKR": "잊힌 책자³",
+            "plPL": "Zapomniany tom",
+            "esMX": "Volumen olvidado",
+            "jaJP": "忘れ去られし巻",
+            "ptBR": "Volume Esquecido",
+            "ruRU": "[ms]забытый том",
+            "zhCN": "遗世卷册"
+        }
     },
     {
         "DamageString": null,
@@ -8490,7 +11685,22 @@
         "UberCode": "wa7",
         "UltraCode": "wac",
         "AutoPrefix": "306",
-        "RequiredClass": "Warlock"
+        "RequiredClass": "Warlock",
+        "Names": {
+            "enUS": "Occult Tome [E]",
+            "zhTW": "神秘秘典",
+            "deDE": "[ms]Okkulter Foliant",
+            "esES": "[ms]Tomo esotérico",
+            "frFR": "Tome occulte",
+            "itIT": "Tomo Occulto",
+            "koKR": "비술 고서³",
+            "plPL": "Księga okultystyczna",
+            "esMX": "Tomo oculto",
+            "jaJP": "神秘の書物",
+            "ptBR": "Tomo Oculto",
+            "ruRU": "[ms]оккультный фолиант",
+            "zhCN": "神秘典籍"
+        }
     },
     {
         "DamageString": null,
@@ -8587,7 +11797,22 @@
         "UberCode": "wa8",
         "UltraCode": "wad",
         "AutoPrefix": "306",
-        "RequiredClass": "Warlock"
+        "RequiredClass": "Warlock",
+        "Names": {
+            "enUS": "Occult Codex [E]",
+            "zhTW": "神秘寶典",
+            "deDE": "[ms]Okkulter Kodex",
+            "esES": "[ms]Códice esotérico",
+            "frFR": "Codex occulte",
+            "itIT": "Codex Occulto",
+            "koKR": "비술 고문서³",
+            "plPL": "Kodeks okultystyczny",
+            "esMX": "Códice oculto",
+            "jaJP": "神秘の古写本",
+            "ptBR": "Códice Oculto",
+            "ruRU": "[ms]оккультный кодекс",
+            "zhCN": "神秘法典"
+        }
     },
     {
         "DamageString": null,
@@ -8684,7 +11909,22 @@
         "UberCode": "wa9",
         "UltraCode": "wae",
         "AutoPrefix": "306",
-        "RequiredClass": "Warlock"
+        "RequiredClass": "Warlock",
+        "Names": {
+            "enUS": "Blasphemous Compendium [E]",
+            "zhTW": "褻瀆綱要",
+            "deDE": "[ns]Blasphemisches Kompendium",
+            "esES": "[ms]Compendio blasfemo",
+            "frFR": "Compendium blasphématoire",
+            "itIT": "Compendio Blasfemo",
+            "koKR": "신성모독 전서³",
+            "plPL": "Bluźniercze kompendium",
+            "esMX": "Compendio blasfemo",
+            "jaJP": "邪教の抄録",
+            "ptBR": "Compêndio Blasfemo",
+            "ruRU": "[ms]кощунственный компендиум",
+            "zhCN": "亵渎纲要"
+        }
     },
     {
         "DamageString": null,
@@ -8781,6 +12021,21 @@
         "UberCode": "waa",
         "UltraCode": "waf",
         "AutoPrefix": "306",
-        "RequiredClass": "Warlock"
+        "RequiredClass": "Warlock",
+        "Names": {
+            "enUS": "Blasphemous Grimoire [E]",
+            "zhTW": "褻瀆魔典",
+            "deDE": "[ns]Blasphemisches Grimoire",
+            "esES": "[ms]Grimorio blasfemo",
+            "frFR": "Grimoire blasphématoire",
+            "itIT": "Grimorio Blasfemo",
+            "koKR": "신성모독 마법서³",
+            "plPL": "Bluźnierczy grymuar",
+            "esMX": "Grimorio blasfemo",
+            "jaJP": "邪教のグリモア",
+            "ptBR": "Grimório Blasfemo",
+            "ruRU": "[ms]кощунственный гримуар",
+            "zhCN": "亵渎魔典"
+        }
     }
 ]

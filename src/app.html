@@ -41,6 +41,41 @@
                 </div>
             </div>
 
+            <!-- Language locale selection dropdown -->
+            <div class="flex items-center relative language-menu px-4">
+                <button type="button"
+                        class="text-2xl link-text inline-flex items-center cursor-pointer select-none"
+                        data-help-text="Select a language for viewing the site."
+                        data-tooltip-placement="bottom"
+                        aria-label="Choose language"
+                        aria-haspopup="true"
+                        aria-expanded.bind="languageMenuOpen.toString()"
+                        click.trigger="toggleLanguageMenu()"
+                        keydown.trigger="event.key === 'Escape' && closeLanguageMenu()">
+                    <span class="sr-only">Select Language</span>
+                    <span class="mso">language</span>
+                </button>
+                <!-- Dropdown panel -->
+                <div if.bind="languageMenuOpen"
+                     class="fixed right-5 top-15.75 min-w-70 z-30 bg-gray-800 border border-gray-600 rounded-b-lg shadow-md overflow-hidden"
+                     role="menu"
+                     keydown.trigger="event.key === 'Escape' && closeLanguageMenu()">
+                    <ul class="py-1">
+                        <li repeat.for="language of languages">
+                            <button type="button"
+                                    class="w-full text-left p-4 text-lg link-text flex items-center justify-between"
+                                    role="menuitem"
+                                    title.bind="'Preview ' + language.name"
+                                    click.trigger="selectLanguage(language, $event)">
+                                <span class.bind="language.class">${language.name}</span>
+                                <span if.bind="language.type === selectedLanguageType"
+                                      class="mso ml-2">check</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
             <button type="button"
                     class="flex items-center px-2 text-2xl link-text lg:hidden"
                     aria-controls="navbar-sticky" aria-expanded="false"

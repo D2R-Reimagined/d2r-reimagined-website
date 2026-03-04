@@ -118,7 +118,7 @@
 
             <div class="mb-1">
                 <div class="text-xl set-text-light">
-                    ${set.Name}
+                    ${set.Names[selectedLanguageType] || set.Name}
                 </div>
                 <div class="text-base rarity-text">
                     ${set.Vanilla === 'Y' ? 'Vanilla' : 'Mod'}
@@ -140,7 +140,7 @@
                 <div class="mt-2 mb-1">
                     <div class="text-base set-text-light"
                          if.bind="!hideVanilla || (set.Vanilla || '').toUpperCase() !== 'Y'">
-                        ${setItem.Name}
+                        ${setItem.Names[selectedLanguageType] || setItem.Name}
                     </div>
                     <div class="text-base rarity-text" if.bind="setItem.Rarity">
                         Rarity: ${setItem.Rarity}
@@ -149,7 +149,7 @@
 
                 <div class="mb-1">
                     <div class="text-base type-text" if.bind="setItem.Equipment.Name">
-                        ${setItem.Equipment.Name}
+                        ${setItem.Equipment.Names[selectedLanguageType] || setItem.Equipment.Name}
                     </div>
                     <div class="text-base type-text" if.bind="setItem.Equipment.ArmorString">
                         Defense: ${setItem.Equipment.ArmorString}

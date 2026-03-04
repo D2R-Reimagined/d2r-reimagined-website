@@ -111,7 +111,7 @@
 
                 <div class="mb-1">
                     <div class="text-xl unique-text">
-                        ${unique.Name}
+                        ${unique.Names[selectedLanguageType] || unique.Name}
                     </div>
                     <div class="text-base rarity-text" if.bind="unique.Rarity">
                         Rarity: ${unique.Rarity}
@@ -123,7 +123,7 @@
 
                 <div class="mb-1">
                     <div class="text-base type-text" if.bind="unique.Equipment.Name">
-                        ${unique.Equipment.Name}
+                        ${unique.Equipment.Names[selectedLanguageType] || unique.Equipment.Name}
                     </div>
                     <div class="text-base type-text" if.bind="unique.Equipment.ArmorString">
                         Defense: ${unique.Equipment.ArmorString}

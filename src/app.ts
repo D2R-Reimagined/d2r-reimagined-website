@@ -1,4 +1,7 @@
+import { resolve } from 'aurelia';
 import { route } from '@aurelia/router';
+
+import { Configs } from './configs';
 
 @route({
     title: 'D2R Reimagined',
@@ -52,6 +55,23 @@ export class App {
         { class: 'font-neutral', name: 'Neutral' },
     ];
 
+    // TODO fill data using json or preset with their language
+    languages: Language[] = [
+        { class: 'language-deDE', type: 'deDE', name: 'Deutsch' },
+        { class: 'language-enUS', type: 'enUS', name: 'English' },
+        { class: 'language-esES', type: 'esES', name: 'Español (España)' },
+        { class: 'language-esMX', type: 'esMX', name: 'Español (México)' },
+        { class: 'language-frFR', type: 'frFR', name: 'Français' },
+        { class: 'language-itIT', type: 'itIT', name: 'Italiano' },
+        { class: 'language-jaJP', type: 'jaJP', name: '日本語' },
+        { class: 'language-koKR', type: 'koKR', name: '한국어' },
+        { class: 'language-plPL', type: 'plPL', name: 'Polski' },
+        { class: 'language-ptBR', type: 'ptBR', name: 'Português (Brasil)' },
+        { class: 'language-ruRU', type: 'ruRU', name: 'Русский' },
+        { class: 'language-zhCN', type: 'zhCN', name: '简体中文' },
+        { class: 'language-zhTW', type: 'zhTW', name: '繁體中文' },
+    ];
+
     // UI state for back-to-top visibility
     showBackToTop = false;
 
@@ -61,6 +81,10 @@ export class App {
     // Selected font (class) reflected to bindings for labels/tooltips
     selectedFontClass: string = 'font-resurrected';
 
+    // initial language variables
+    languageMenuOpen = false;
+    selectedLanguageType: string = 'enUS';
+
     // Internals for back-to-top monitoring
     private _bt_lastScrollEl?: HTMLElement;
     private _bt_bound = false;
@@ -69,8 +93,11 @@ export class App {
     // Global document click handler to close popovers/menus when clicking outside
     private _onDocClick?: (ev: MouseEvent) => void;
 
+    private readonly configs = resolve(Configs);
+
     attached() {
         this.loadFont();
+        this.loadLanguage();
         this.bindBackToTopMonitoring();
         // Initial computation
         this.updateBackToTopVisibility();
@@ -89,6 +116,18 @@ export class App {
                 );
                 if (!clickInsideMenu) {
                     this.closeFontMenu();
+                }
+            }
+
+            if (this.languageMenuOpen) {
+                const menuHost = document.querySelector('nav .language-menu');
+                const clickInsideMenu = !!(
+                    target &&
+          menuHost &&
+          menuHost.contains(target)
+                );
+                if (!clickInsideMenu) {
+                    this.closeLanguageMenu();
                 }
             }
 
@@ -112,6 +151,11 @@ export class App {
     handleFontSelected(font: Font) {
         window.localStorage.setItem('font', font.class);
         this.loadFont();
+    }
+
+    handleLanguageSelected(language: Language) {
+        window.localStorage.setItem('language', language.type);
+        this.loadLanguage();
     }
 
     detached() {
@@ -140,6 +184,20 @@ export class App {
 
     toggleFontMenu() {
         this.fontMenuOpen = !this.fontMenuOpen;
+    }
+
+    selectLanguage(language: Language) {
+        this.handleLanguageSelected(language);
+        this.closeLanguageMenu();
+        this.closeMobileMenu();
+    }
+
+    closeLanguageMenu() {
+        this.languageMenuOpen = false;
+    }
+
+    toggleLanguageMenu() {
+        this.languageMenuOpen = !this.languageMenuOpen;
     }
 
     /**
@@ -188,6 +246,19 @@ export class App {
             document.body.classList.remove(...allClasses);
             document.body.classList.add(selectedFont);
         }
+    }
+
+    loadLanguage() {
+        const selectedLanguage =
+      window.localStorage.getItem('language') || 'enUS';
+        this.selectedLanguageType = selectedLanguage;
+        this.configs.updateLanguage(selectedLanguage);
+        if (selectedLanguage) {
+            const allClasses = this.languages.map((language) => language.class);
+            document.body.classList.remove(...allClasses);
+            document.body.classList.add(selectedLanguage);
+        }
+        // TODO loaded json datas
     }
 
     /**
@@ -377,4 +448,10 @@ export class App {
 type Font = {
   class: string;
   name: string;
+};
+
+type Language = {
+  class: string;
+  name: string;
+  type: string;
 };
