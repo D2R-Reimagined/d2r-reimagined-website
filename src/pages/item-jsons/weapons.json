@@ -26,7 +26,7 @@
         "NormCode": "hax",
         "UberCode": "9ha",
         "UltraCode": "7ha",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -176,7 +176,7 @@
         "NormCode": "lax",
         "UberCode": "9la",
         "UltraCode": "7la",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -326,7 +326,7 @@
         "NormCode": "wnd",
         "UberCode": "9wn",
         "UltraCode": "7wn",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -446,7 +446,7 @@
         "NormCode": "clb",
         "UberCode": "9cl",
         "UltraCode": "7cl",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -476,7 +476,7 @@
         "NormCode": "scp",
         "UberCode": "9sc",
         "UltraCode": "7sc",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -566,7 +566,7 @@
         "NormCode": "spc",
         "UberCode": "9sp",
         "UltraCode": "7sp",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -776,7 +776,7 @@
         "NormCode": "ssd",
         "UberCode": "9ss",
         "UltraCode": "7ss",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -806,7 +806,7 @@
         "NormCode": "scm",
         "UberCode": "9sm",
         "UltraCode": "7sm",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -1220,7 +1220,7 @@
         "NormCode": "dgr",
         "UberCode": "9dg",
         "UltraCode": "7dg",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -1327,7 +1327,7 @@
         "Speed": 0,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1+): 1",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -1371,7 +1371,7 @@
         "Speed": 10,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1+): 1",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -1415,7 +1415,7 @@
         "Speed": -20,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1+): 1",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -1459,7 +1459,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1-25): 1 - (26+): 2",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -1503,7 +1503,17 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1+): 2",
+        "AutoMagicGroups": [
+            {
+                "Name": "Replinish Quant",
+                "Level": 1,
+                "RequiredLevel": 1,
+                "PropertyStrings": [
+                    "Replenishes quantity"
+                ]
+            }
+        ],
         "EquipmentType": 1,
         "Name": "Javelin [N]",
         "Code": "jav",
@@ -1520,7 +1530,7 @@
         "NormCode": "jav",
         "UberCode": "9ja",
         "UltraCode": "7ja",
-        "AutoPrefix": "319",
+        "AutoPrefix": "317",
         "RequiredClass": ""
     },
     {
@@ -1537,7 +1547,7 @@
         "Speed": 0,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1+): 2",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -1581,7 +1591,7 @@
         "Speed": 10,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1+): 2",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -1625,7 +1635,7 @@
         "Speed": 20,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1+): 2",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -1669,7 +1679,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1+): 2",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -1726,7 +1736,7 @@
         "NormCode": "spr",
         "UberCode": "9sr",
         "UltraCode": "7sr",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -1876,7 +1886,7 @@
         "NormCode": "bar",
         "UberCode": "9b7",
         "UltraCode": "7o7",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -2056,7 +2066,7 @@
         "NormCode": "sst",
         "UberCode": "8ss",
         "UltraCode": "6ss",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -2206,7 +2216,7 @@
         "NormCode": "sbw",
         "UberCode": "8sb",
         "UltraCode": "6sb",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -2236,7 +2246,7 @@
         "NormCode": "hbw",
         "UberCode": "8hb",
         "UltraCode": "6hb",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -2423,7 +2433,7 @@
         "DamageTypes": [
             {
                 "Type": 1,
-                "DamageString": "6 to 9"
+                "DamageString": "8 to 12"
             }
         ],
         "Speed": -10,
@@ -2446,14 +2456,14 @@
         "NormCode": "lxb",
         "UberCode": "8lx",
         "UltraCode": "6lx",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
         "DamageTypes": [
             {
                 "Type": 1,
-                "DamageString": "9 to 16"
+                "DamageString": "12 to 21"
             }
         ],
         "Speed": 0,
@@ -2483,7 +2493,7 @@
         "DamageTypes": [
             {
                 "Type": 1,
-                "DamageString": "14 to 26"
+                "DamageString": "18 to 34"
             }
         ],
         "Speed": 10,
@@ -2513,7 +2523,7 @@
         "DamageTypes": [
             {
                 "Type": 1,
-                "DamageString": "6 to 12"
+                "DamageString": "8 to 14"
             }
         ],
         "Speed": -40,
@@ -2716,7 +2726,7 @@
         "NormCode": "opl",
         "UberCode": "",
         "UltraCode": "",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -2746,7 +2756,7 @@
         "NormCode": "d33",
         "UberCode": "",
         "UltraCode": "",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -2776,7 +2786,7 @@
         "NormCode": "g33",
         "UberCode": "",
         "UltraCode": "",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -2806,7 +2816,7 @@
         "NormCode": "leg",
         "UberCode": "",
         "UltraCode": "",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -2836,7 +2846,7 @@
         "NormCode": "hdm",
         "UberCode": "",
         "UltraCode": "",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -2866,7 +2876,7 @@
         "NormCode": "hfh",
         "UberCode": "",
         "UltraCode": "",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -2896,7 +2906,7 @@
         "NormCode": "hst",
         "UberCode": "",
         "UltraCode": "",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -2926,7 +2936,7 @@
         "NormCode": "msf",
         "UberCode": "",
         "UltraCode": "",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -4257,7 +4267,7 @@
         "Speed": 0,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1-25): 1 - (26+): 2",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -4301,7 +4311,7 @@
         "Speed": 10,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1-25): 1 - (26+): 2",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -4345,7 +4355,7 @@
         "Speed": -20,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1-25): 1 - (26+): 2",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -4389,7 +4399,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1-25): 1 - (26+): 2",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -4433,7 +4443,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1+): 2",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -4477,7 +4487,7 @@
         "Speed": 0,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1+): 2",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -4521,7 +4531,7 @@
         "Speed": 10,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1+): 2",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -4565,7 +4575,7 @@
         "Speed": 20,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1+): 2",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -4609,7 +4619,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1+): 2",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -5363,7 +5373,7 @@
         "DamageTypes": [
             {
                 "Type": 1,
-                "DamageString": "14 to 27"
+                "DamageString": "18 to 36"
             }
         ],
         "Speed": -10,
@@ -5393,7 +5403,7 @@
         "DamageTypes": [
             {
                 "Type": 1,
-                "DamageString": "20 to 42"
+                "DamageString": "26 to 56"
             }
         ],
         "Speed": 0,
@@ -5423,7 +5433,7 @@
         "DamageTypes": [
             {
                 "Type": 1,
-                "DamageString": "33 to 55"
+                "DamageString": "44 to 74"
             }
         ],
         "Speed": 10,
@@ -5453,7 +5463,7 @@
         "DamageTypes": [
             {
                 "Type": 1,
-                "DamageString": "14 to 32"
+                "DamageString": "18 to 42"
             }
         ],
         "Speed": -60,
@@ -5506,7 +5516,7 @@
         "NormCode": "fla",
         "UberCode": "",
         "UltraCode": "",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -5536,7 +5546,7 @@
         "NormCode": "fla",
         "UberCode": "",
         "UltraCode": "",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": ""
     },
     {
@@ -5566,7 +5576,7 @@
         "NormCode": "ktr",
         "UberCode": "9ar",
         "UltraCode": "7ar",
-        "AutoPrefix": "316",
+        "AutoPrefix": "312",
         "RequiredClass": "Assassin"
     },
     {
@@ -7373,7 +7383,7 @@
         "Speed": -20,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "(1+): 1",
+        "GemSockets": "(1+): 2",
         "EquipmentType": 1,
         "Name": "Bone Knife [E]",
         "Code": "7dg",
@@ -7403,7 +7413,7 @@
         "Speed": 0,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "(1+): 1",
+        "GemSockets": "(1+): 2",
         "EquipmentType": 1,
         "Name": "Mithril Point [E]",
         "Code": "7di",
@@ -7497,7 +7507,7 @@
         "Speed": 0,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1-25): 1 - (26+): 2",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -7541,7 +7551,7 @@
         "Speed": 10,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1-25): 1 - (26+): 2",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -7585,7 +7595,7 @@
         "Speed": -20,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1-25): 1 - (26+): 2",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -7629,7 +7639,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1-25): 1 - (26-40): 2 - (41+): 3",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -7673,7 +7683,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1-40): 2 - (41+): 3",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -7717,7 +7727,7 @@
         "Speed": 0,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1-40): 2 - (41+): 3",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -7761,7 +7771,7 @@
         "Speed": 10,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1-40): 2 - (41+): 3",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -7805,7 +7815,7 @@
         "Speed": 20,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1-40): 2 - (41+): 3",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -7849,7 +7859,7 @@
         "Speed": -10,
         "StrBonus": 75,
         "DexBonus": 75,
-        "GemSockets": "0",
+        "GemSockets": "(1-40): 2 - (41+): 3",
         "AutoMagicGroups": [
             {
                 "Name": "Replinish Quant",
@@ -8603,7 +8613,7 @@
         "DamageTypes": [
             {
                 "Type": 1,
-                "DamageString": "28 to 73"
+                "DamageString": "38 to 97"
             }
         ],
         "Speed": -10,
@@ -8633,7 +8643,7 @@
         "DamageTypes": [
             {
                 "Type": 1,
-                "DamageString": "25 to 87"
+                "DamageString": "33 to 115"
             }
         ],
         "Speed": 0,
@@ -8663,7 +8673,7 @@
         "DamageTypes": [
             {
                 "Type": 1,
-                "DamageString": "32 to 91"
+                "DamageString": "44 to 122"
             }
         ],
         "Speed": 10,
@@ -8693,7 +8703,7 @@
         "DamageTypes": [
             {
                 "Type": 1,
-                "DamageString": "26 to 40"
+                "DamageString": "34 to 53"
             }
         ],
         "Speed": -60,
@@ -9637,7 +9647,7 @@
         "Speed": -10,
         "StrBonus": 80,
         "DexBonus": 50,
-        "GemSockets": "0",
+        "GemSockets": "(1+): 2",
         "AutoMagicGroups": [
             {
                 "Name": "A Jav 1",
@@ -10604,7 +10614,7 @@
         "Speed": -10,
         "StrBonus": 80,
         "DexBonus": 50,
-        "GemSockets": "0",
+        "GemSockets": "(1+): 2",
         "AutoMagicGroups": [
             {
                 "Name": "A Jav 1",
@@ -11571,7 +11581,7 @@
         "Speed": -10,
         "StrBonus": 80,
         "DexBonus": 50,
-        "GemSockets": "0",
+        "GemSockets": "(1-40): 2 - (41+): 3",
         "AutoMagicGroups": [
             {
                 "Name": "A Jav 1",

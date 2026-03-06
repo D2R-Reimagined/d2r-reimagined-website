@@ -9,4 +9,5 @@ export const character_class_options: LabeledStringOption[] = [
     { value: 'Necromancer', label: 'Necromancer' },
     { value: 'Paladin', label: 'Paladin' },
     { value: 'Sorceress', label: 'Sorceress' },
+    { value: 'Warlock', label: 'Warlock' },
 ];
