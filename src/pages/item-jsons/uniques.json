@@ -64181,7 +64181,7 @@
         "Code": "cjw",
         "Properties": [
             {
-                "PropertyString": "5% Chance to cast level 40 Madawcs Fury when struck",
+                "PropertyString": "5% Chance to cast level 40 Korlics Fury when struck",
                 "Index": 0
             },
             {
@@ -67020,7 +67020,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+2-3 to Madawcs Fury (Barbarian Only)",
+                "PropertyString": "+2-3 to Korlics Fury (Barbarian Only)",
                 "Index": 6
             },
             {
@@ -75767,6 +75767,83 @@
         }
     },
     {
+        "Type": "Sword",
+        "Vanilla": "N",
+        "Name": "El'Druin",
+        "Index": "El Druin",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 80,
+        "RequiredLevel": 85,
+        "Code": "7gs",
+        "Properties": [
+            {
+                "PropertyString": "10% Chance to cast level 30 Fist Of The Heavens on striking",
+                "Index": 4
+            },
+            {
+                "PropertyString": "Indestructible",
+                "Index": 10
+            },
+            {
+                "PropertyString": "+1-3 to All Skills",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+10-30 to Fist of the Heavens (oskill)",
+                "Index": 7
+            },
+            {
+                "PropertyString": "+30-50% Increased Attack Speed",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+250-350% Enhanced Weapon Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+150-300 to Minimum Weapon Damage",
+                "Index": 8
+            },
+            {
+                "PropertyString": "+2 to Maximum Weapon Damage (Per Character Level)",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+100-300% Damage to Demons",
+                "Index": 9
+            },
+            {
+                "PropertyString": "Adds 63-500 Weapon Lightning Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+10-20% to Lightning Skill Damage",
+                "Index": 6
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageTypes": [
+                {
+                    "Type": 0,
+                    "DamageString": "(202-367) to (432-537)"
+                },
+                {
+                    "Type": 1,
+                    "DamageString": "(342-547) to (583-731)"
+                }
+            ],
+            "Speed": 0,
+            "EquipmentType": 1,
+            "Name": "Balrog Blade [E]",
+            "RequiredStrength": "185",
+            "RequiredDexterity": "87",
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
         "Type": "Scepter",
         "Vanilla": "N",
         "Name": "Wrath of the Seraphim",
@@ -77023,75 +77100,6 @@
         }
     },
     {
-        "Type": "Sword",
-        "Vanilla": "N",
-        "Name": "Harrogath's Last Stand",
-        "Index": "Harrogaths Last Stand",
-        "Enabled": true,
-        "Rarity": 1,
-        "ItemLevel": 85,
-        "RequiredLevel": 88,
-        "Code": "7fb",
-        "Properties": [
-            {
-                "PropertyString": "15% Chance to cast level 10 Burst of Speed when you Kill an Enemy",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+10 to Carnage (oskill)",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+5 to Melee Mastery (oskill)",
-                "Index": 6
-            },
-            {
-                "PropertyString": "+30-50% Increased Attack Speed",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+300-400% Enhanced Weapon Damage",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+150-250 to Minimum Weapon Damage",
-                "Index": 7
-            },
-            {
-                "PropertyString": "+2 to Maximum Weapon Damage (Per Character Level)",
-                "Index": 3
-            },
-            {
-                "PropertyString": "-15-25% to Enemy Physical Damage Resistance",
-                "Index": 2
-            },
-            {
-                "PropertyString": "Requirements Increased By 50%",
-                "Index": 8
-            }
-        ],
-        "DamageArmorEnhanced": true,
-        "Equipment": {
-            "DamageTypes": [
-                {
-                    "Type": 0,
-                    "DamageString": "(254-380) to (456-550)"
-                },
-                {
-                    "Type": 1,
-                    "DamageString": "(394-555) to (660-805)"
-                }
-            ],
-            "Speed": 10,
-            "EquipmentType": 1,
-            "Name": "Colossus Sword [E]",
-            "RequiredStrength": "273",
-            "RequiredDexterity": "142",
-            "Durability": 250,
-            "RequiredClass": ""
-        }
-    },
-    {
         "Type": "Bow",
         "Vanilla": "N",
         "Name": "Freedom's Flight",
@@ -77750,6 +77758,71 @@
             "RequiredDexterity": "0",
             "Durability": 20,
             "RequiredClass": "Warlock"
+        }
+    },
+    {
+        "Type": "Sword",
+        "Vanilla": "N",
+        "Name": "Harrogath's Last Stand",
+        "Index": "Harrogaths Last Stand",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 85,
+        "RequiredLevel": 92,
+        "Code": "7fb",
+        "Properties": [
+            {
+                "PropertyString": "5% Chance to cast level 10 Burst of Speed when you Kill an Enemy",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+10 to Carnage (oskill)",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+30-50% Increased Attack Speed",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+300-400% Enhanced Weapon Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+150-200 to Minimum Weapon Damage",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+1.75 to Maximum Weapon Damage (Per Character Level)",
+                "Index": 3
+            },
+            {
+                "PropertyString": "-15-25% to Enemy Physical Damage Resistance",
+                "Index": 2
+            },
+            {
+                "PropertyString": "Requirements Increased By 50%",
+                "Index": 7
+            }
+        ],
+        "DamageArmorEnhanced": true,
+        "Equipment": {
+            "DamageTypes": [
+                {
+                    "Type": 0,
+                    "DamageString": "(254-330) to (441-525)"
+                },
+                {
+                    "Type": 1,
+                    "DamageString": "(394-505) to (645-780)"
+                }
+            ],
+            "Speed": 10,
+            "EquipmentType": 1,
+            "Name": "Colossus Sword [E]",
+            "RequiredStrength": "273",
+            "RequiredDexterity": "142",
+            "Durability": 250,
+            "RequiredClass": ""
         }
     },
     {
