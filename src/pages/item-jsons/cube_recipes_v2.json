@@ -18226,7 +18226,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Uber Ancient Material"
+    ]
   },
   {
     "Index": 507,
@@ -18261,7 +18263,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Uber Ancient Material"
+    ]
   },
   {
     "Index": 508,
@@ -18296,7 +18300,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Uber Ancient Material"
+    ]
   },
   {
     "Index": 509,
@@ -18331,7 +18337,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Uber Ancient Material"
+    ]
   },
   {
     "Index": 510,
@@ -18366,7 +18374,9 @@
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Uber Ancient Material"
+    ]
   },
   {
     "Index": 511,
@@ -18375,7 +18385,7 @@
     "ResolvedInputsCount": 2,
     "Inputs": [
       {
-        "Name": "Uber Ancient Summon Material Act 1",
+        "Name": "Talic's Anguish",
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "ua1"
@@ -18389,13 +18399,15 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Uber Ancient Summon Material Act 2",
+        "Name": "Korlic's Pain",
         "Quantity": 1,
         "Qualifiers": [],
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Uber Ancient Material"
+    ]
   },
   {
     "Index": 512,
@@ -18404,7 +18416,7 @@
     "ResolvedInputsCount": 2,
     "Inputs": [
       {
-        "Name": "Uber Ancient Summon Material Act 1",
+        "Name": "Talic's Anguish",
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "ua1"
@@ -18418,13 +18430,15 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Uber Ancient Summon Material Act 3",
+        "Name": "Madawc's Ire",
         "Quantity": 1,
         "Qualifiers": [],
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Uber Ancient Material"
+    ]
   },
   {
     "Index": 513,
@@ -18433,7 +18447,7 @@
     "ResolvedInputsCount": 2,
     "Inputs": [
       {
-        "Name": "Uber Ancient Summon Material Act 1",
+        "Name": "Talic's Anguish",
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "ua1"
@@ -18447,13 +18461,15 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Uber Ancient Summon Material Act 4",
+        "Name": "Bul-Kathos' Nightmare",
         "Quantity": 1,
         "Qualifiers": [],
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Uber Ancient Material"
+    ]
   },
   {
     "Index": 514,
@@ -18462,7 +18478,7 @@
     "ResolvedInputsCount": 2,
     "Inputs": [
       {
-        "Name": "Uber Ancient Summon Material Act 1",
+        "Name": "Talic's Anguish",
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "ua1"
@@ -18476,13 +18492,15 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Uber Ancient Summon Material Act5",
+        "Name": "Worusk's End",
         "Quantity": 1,
         "Qualifiers": [],
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Uber Ancient Material"
+    ]
   },
   {
     "Index": 515,
@@ -18491,7 +18509,7 @@
     "ResolvedInputsCount": 2,
     "Inputs": [
       {
-        "Name": "Uber Ancient Summon Material Act 2",
+        "Name": "Korlic's Pain",
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "ua2"
@@ -18505,13 +18523,15 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Uber Ancient Summon Material Act 1",
+        "Name": "Talic's Anguish",
         "Quantity": 1,
         "Qualifiers": [],
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Uber Ancient Material"
+    ]
   },
   {
     "Index": 516,
@@ -18520,7 +18540,7 @@
     "ResolvedInputsCount": 2,
     "Inputs": [
       {
-        "Name": "Uber Ancient Summon Material Act 2",
+        "Name": "Korlic's Pain",
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "ua2"
@@ -18534,13 +18554,15 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Uber Ancient Summon Material Act 3",
+        "Name": "Madawc's Ire",
         "Quantity": 1,
         "Qualifiers": [],
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Uber Ancient Material"
+    ]
   },
   {
     "Index": 517,
@@ -18549,7 +18571,7 @@
     "ResolvedInputsCount": 2,
     "Inputs": [
       {
-        "Name": "Uber Ancient Summon Material Act 2",
+        "Name": "Korlic's Pain",
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "ua2"
@@ -18563,13 +18585,15 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Uber Ancient Summon Material Act 4",
+        "Name": "Bul-Kathos' Nightmare",
         "Quantity": 1,
         "Qualifiers": [],
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Uber Ancient Material"
+    ]
   },
   {
     "Index": 518,
@@ -18578,7 +18602,7 @@
     "ResolvedInputsCount": 2,
     "Inputs": [
       {
-        "Name": "Uber Ancient Summon Material Act 2",
+        "Name": "Korlic's Pain",
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "ua2"
@@ -18592,13 +18616,15 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Uber Ancient Summon Material Act5",
+        "Name": "Worusk's End",
         "Quantity": 1,
         "Qualifiers": [],
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Uber Ancient Material"
+    ]
   },
   {
     "Index": 519,
@@ -18607,7 +18633,7 @@
     "ResolvedInputsCount": 2,
     "Inputs": [
       {
-        "Name": "Uber Ancient Summon Material Act 3",
+        "Name": "Madawc's Ire",
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "ua3"
@@ -18621,13 +18647,15 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Uber Ancient Summon Material Act 1",
+        "Name": "Talic's Anguish",
         "Quantity": 1,
         "Qualifiers": [],
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Uber Ancient Material"
+    ]
   },
   {
     "Index": 520,
@@ -18636,7 +18664,7 @@
     "ResolvedInputsCount": 2,
     "Inputs": [
       {
-        "Name": "Uber Ancient Summon Material Act 3",
+        "Name": "Madawc's Ire",
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "ua3"
@@ -18650,13 +18678,15 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Uber Ancient Summon Material Act 2",
+        "Name": "Korlic's Pain",
         "Quantity": 1,
         "Qualifiers": [],
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Uber Ancient Material"
+    ]
   },
   {
     "Index": 521,
@@ -18665,7 +18695,7 @@
     "ResolvedInputsCount": 2,
     "Inputs": [
       {
-        "Name": "Uber Ancient Summon Material Act 3",
+        "Name": "Madawc's Ire",
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "ua3"
@@ -18679,13 +18709,15 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Uber Ancient Summon Material Act 4",
+        "Name": "Bul-Kathos' Nightmare",
         "Quantity": 1,
         "Qualifiers": [],
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Uber Ancient Material"
+    ]
   },
   {
     "Index": 522,
@@ -18694,7 +18726,7 @@
     "ResolvedInputsCount": 2,
     "Inputs": [
       {
-        "Name": "Uber Ancient Summon Material Act 3",
+        "Name": "Madawc's Ire",
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "ua3"
@@ -18708,13 +18740,15 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Uber Ancient Summon Material Act5",
+        "Name": "Worusk's End",
         "Quantity": 1,
         "Qualifiers": [],
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Uber Ancient Material"
+    ]
   },
   {
     "Index": 523,
@@ -18723,7 +18757,7 @@
     "ResolvedInputsCount": 2,
     "Inputs": [
       {
-        "Name": "Uber Ancient Summon Material Act 4",
+        "Name": "Bul-Kathos' Nightmare",
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "ua4"
@@ -18737,13 +18771,15 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Uber Ancient Summon Material Act 1",
+        "Name": "Talic's Anguish",
         "Quantity": 1,
         "Qualifiers": [],
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Uber Ancient Material"
+    ]
   },
   {
     "Index": 524,
@@ -18752,7 +18788,7 @@
     "ResolvedInputsCount": 2,
     "Inputs": [
       {
-        "Name": "Uber Ancient Summon Material Act 4",
+        "Name": "Bul-Kathos' Nightmare",
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "ua4"
@@ -18766,13 +18802,15 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Uber Ancient Summon Material Act 2",
+        "Name": "Korlic's Pain",
         "Quantity": 1,
         "Qualifiers": [],
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Uber Ancient Material"
+    ]
   },
   {
     "Index": 525,
@@ -18781,7 +18819,7 @@
     "ResolvedInputsCount": 2,
     "Inputs": [
       {
-        "Name": "Uber Ancient Summon Material Act 4",
+        "Name": "Bul-Kathos' Nightmare",
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "ua4"
@@ -18795,13 +18833,15 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Uber Ancient Summon Material Act 3",
+        "Name": "Madawc's Ire",
         "Quantity": 1,
         "Qualifiers": [],
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Uber Ancient Material"
+    ]
   },
   {
     "Index": 526,
@@ -18810,7 +18850,7 @@
     "ResolvedInputsCount": 2,
     "Inputs": [
       {
-        "Name": "Uber Ancient Summon Material Act 4",
+        "Name": "Bul-Kathos' Nightmare",
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "ua4"
@@ -18824,13 +18864,15 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Uber Ancient Summon Material Act5",
+        "Name": "Worusk's End",
         "Quantity": 1,
         "Qualifiers": [],
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Uber Ancient Material"
+    ]
   },
   {
     "Index": 527,
@@ -18839,7 +18881,7 @@
     "ResolvedInputsCount": 2,
     "Inputs": [
       {
-        "Name": "Uber Ancient Summon Material Act5",
+        "Name": "Worusk's End",
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "ua5"
@@ -18853,13 +18895,15 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Uber Ancient Summon Material Act 1",
+        "Name": "Talic's Anguish",
         "Quantity": 1,
         "Qualifiers": [],
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Uber Ancient Material"
+    ]
   },
   {
     "Index": 528,
@@ -18868,7 +18912,7 @@
     "ResolvedInputsCount": 2,
     "Inputs": [
       {
-        "Name": "Uber Ancient Summon Material Act5",
+        "Name": "Worusk's End",
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "ua5"
@@ -18882,13 +18926,15 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Uber Ancient Summon Material Act 2",
+        "Name": "Korlic's Pain",
         "Quantity": 1,
         "Qualifiers": [],
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Uber Ancient Material"
+    ]
   },
   {
     "Index": 529,
@@ -18897,7 +18943,7 @@
     "ResolvedInputsCount": 2,
     "Inputs": [
       {
-        "Name": "Uber Ancient Summon Material Act5",
+        "Name": "Worusk's End",
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "ua5"
@@ -18911,13 +18957,15 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Uber Ancient Summon Material Act 3",
+        "Name": "Madawc's Ire",
         "Quantity": 1,
         "Qualifiers": [],
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Uber Ancient Material"
+    ]
   },
   {
     "Index": 530,
@@ -18926,7 +18974,7 @@
     "ResolvedInputsCount": 2,
     "Inputs": [
       {
-        "Name": "Uber Ancient Summon Material Act5",
+        "Name": "Worusk's End",
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "ua5"
@@ -18940,13 +18988,15 @@
     ],
     "Outputs": {
       "A": {
-        "Name": "Uber Ancient Summon Material Act 4",
+        "Name": "Bul-Kathos' Nightmare",
         "Quantity": 1,
         "Qualifiers": [],
         "Properties": []
       }
     },
-    "Notes": []
+    "Notes": [
+      "Reroll Uber Ancient Material"
+    ]
   },
   {
     "Index": 531,
@@ -23463,31 +23513,31 @@
     "ResolvedInputsCount": 5,
     "Inputs": [
       {
-        "Name": "Uber Ancient Summon Material Act 1",
+        "Name": "Talic's Anguish",
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "ua1"
       },
       {
-        "Name": "Uber Ancient Summon Material Act 2",
+        "Name": "Korlic's Pain",
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "ua2"
       },
       {
-        "Name": "Uber Ancient Summon Material Act 3",
+        "Name": "Madawc's Ire",
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "ua3"
       },
       {
-        "Name": "Uber Ancient Summon Material Act 4",
+        "Name": "Bul-Kathos' Nightmare",
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "ua4"
       },
       {
-        "Name": "Uber Ancient Summon Material Act5",
+        "Name": "Worusk's End",
         "Quantity": 1,
         "Qualifiers": [],
         "RawToken": "ua5"
