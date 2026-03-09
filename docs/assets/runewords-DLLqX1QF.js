@@ -1,8 +1,8 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-Cohone7I.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-D0w4x9hv.js";
 import { g as getChainForTypeNameReadonly, t as type_filtering_options, A as ANCESTOR_ONLY_WHEN_EXACT_OFF } from "./item-type-filters-PXYqowtv.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
 import { p as prependTypeResetOption, t as tokenizeSearch } from "./filter-helpers-C07hLFTd.js";
-import { r as runewordsJson } from "./runewords-DxRxcu64.js";
+import { r as runewordsJson } from "./runewords-gnjMNtLE.js";
 const name = "runewords";
 const template = `<template>
     <h3 class="text-lg type-text text-center mx-auto my-4">
