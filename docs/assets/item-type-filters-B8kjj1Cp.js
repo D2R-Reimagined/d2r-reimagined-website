@@ -313,6 +313,7 @@ const type_filtering_options = [
   makeTypeOption("Any Weapon", "Weapon", [], false, "any-weapon"),
   makeTypeOption("Melee Weapon", "Melee Weapon", [], false, "melee-weapon"),
   makeTypeOption("Missile Weapon", "Missile Weapon", [], false, "missile-weapon"),
+  makeTypeOption("Thrown Weapon", "Thrown Weapon", [], false, "thrown-weapon"),
   // Armor subtypes
   makeTypeOption("Body Armor", "Body Armor"),
   makeTypeOption("Gloves", "Gloves"),
@@ -345,8 +346,8 @@ const type_filtering_options = [
   makeTypeOption("Bow", "Bow"),
   makeTypeOption("Crossbow", "Crossbow"),
   makeTypeOption("Javelin", "Javelin"),
-  makeTypeOption("Throwing Knife", "Throwing Knife"),
-  makeTypeOption("Throwing Axe", "Throwing Axe"),
+  makeTypeOption("Throwing Knife", "Throwing Knife", [], true),
+  makeTypeOption("Throwing Axe", "Throwing Axe", [], true),
   // Quivers and Bolts: base on the non-magic types and include their descendants (magic quivers)
   makeTypeOption("Bow Quiver", "Bow Quiver"),
   makeTypeOption("Crossbow Bolts", "Crossbow Bolts"),

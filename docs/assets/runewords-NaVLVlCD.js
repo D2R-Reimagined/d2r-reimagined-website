@@ -1,5 +1,5 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-D_mfiXtK.js";
-import { g as getChainForTypeNameReadonly, t as type_filtering_options, A as ANCESTOR_ONLY_WHEN_EXACT_OFF } from "./item-type-filters-PXYqowtv.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-CaeD2wg0.js";
+import { g as getChainForTypeNameReadonly, t as type_filtering_options, A as ANCESTOR_ONLY_WHEN_EXACT_OFF } from "./item-type-filters-B8kjj1Cp.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
 import { p as prependTypeResetOption, t as tokenizeSearch } from "./filter-helpers-C07hLFTd.js";
 import { r as runewordsJson } from "./runewords-gnjMNtLE.js";
@@ -178,8 +178,28 @@ const template = `<template>
                 Required Level: \${runeword.RequiredLevel > 0? runeword.RequiredLevel: 1}
             </div>
 
-            <div class="text-base prop-text" repeat.for="property of runeword.Properties">
-                \${property.PropertyString}
+            <div class="text-base prop-text" repeat.for="property of runeword.Properties | sortProperties">
+                <div if.bind="property.PropertyString">
+                    \${property.PropertyString}
+                </div>
+                <div if.bind="property['group-properties']">
+                    <div repeat.for="[groupName, pool] of property['group-properties'] | entries">
+                        <div if.bind="property.pickmode == 0 || (pool[0] && pool[0].PickMode == 0)">
+                            <div repeat.for="affix of pool" if.bind="affix.PropertyString">
+                                \${affix.PropertyString}
+                            </div>
+                        </div>
+                        <div if.bind="property.pickmode != 0 && (!pool[0] || pool[0].PickMode != 0)" class="border px-2 border-gray-600 rounded m-2">
+                            <div class="set-text text-center p-1 border-b border-gray-600">
+                                \${formatGroupName(groupName)}
+                            </div>
+                            <div repeat.for="affixData of pool" if.bind="affixData.PropertyString" class="flex justify-between p-1 border-b border-gray-700 last:border-0">
+                                <span class="prop-text">\${affixData | chance:pool}%</span>
+                                <span class="text-right">\${affixData.PropertyString}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -294,7 +314,7 @@ class Runewords {
     this.types = type_filtering_options.filter((opt) => {
       if (!opt.value || opt.value.length === 0) return true;
       const base = opt.value[0];
-      if (opt.id === "any-armor" || opt.id === "any-weapon" || opt.id === "melee-weapon" || opt.id === "missile-weapon" || opt.id === "any-helm" || opt.id === "any-shield") {
+      if (opt.id === "any-armor" || opt.id === "any-weapon" || opt.id === "melee-weapon" || opt.id === "missile-weapon" || opt.id === "thrown-weapon" || opt.id === "any-helm" || opt.id === "any-shield") {
         return opt.value.some((v) => presentExplicitBases.has(v));
       }
       return presentExplicitBases.has(base);
@@ -378,6 +398,9 @@ class Runewords {
   normalizeRuneName(name2) {
     return name2.replace(/ rune$/i, "").trim().toLowerCase();
   }
+  formatGroupName(name2) {
+    return name2.replace(/-/g, " ").replace(/([a-z])([0-9])/g, "$1 $2");
+  }
   updateList() {
     let filteringRunewords = this.runewords;
     if (this.selectedType) {
@@ -418,9 +441,17 @@ class Runewords {
       found = found.filter((runeword) => {
         const hay = [
           String(runeword.Name || ""),
-          ...(runeword.Properties || []).map(
-            (p) => String(p?.PropertyString || "")
-          ),
+          ...(runeword.Properties || []).flatMap((p) => {
+            const res = [p?.PropertyString || ""];
+            if (p["group-properties"]) {
+              Object.values(p["group-properties"]).forEach((pool) => {
+                pool.forEach((affix) => {
+                  if (affix.PropertyString) res.push(affix.PropertyString);
+                });
+              });
+            }
+            return res;
+          }),
           ...(runeword.Types || []).map(
             (t) => String(t?.Name || "")
           )
