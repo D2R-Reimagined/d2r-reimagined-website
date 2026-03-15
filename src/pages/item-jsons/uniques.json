@@ -45369,28 +45369,37 @@
                 "group-properties": {
                     "magdam-rand": [
                         {
+                            "PickMode": "1"
+                        },
+                        {
                             "PropertyString": "+3-5% to Magic Skill Damage",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "+20-40% Enhanced Weapon Damage",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "+3-5% to Fire Skill Damage",
-                            "Index": 2
+                            "Index": 2,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "+3-5% to Cold Skill Damage",
-                            "Index": 3
+                            "Index": 3,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "+3-5% to Lightning Skill Damage",
-                            "Index": 4
+                            "Index": 4,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "+3-5% to Poison Skill Damage",
-                            "Index": 5
+                            "Index": 5,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -58155,6 +58164,9 @@
                 "group-properties": {
                     "skilltab-war": [
                         {
+                            "PickMode": "1"
+                        },
+                        {
                             "PropertyString": "+1 Random Skill Tab (Warlock Only)",
                             "Index": 0
                         }
@@ -64600,12 +64612,17 @@
                 "group-properties": {
                     "Gelid-Affix1": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "+5-15% to Cold Skill Damage",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "-5-10% to Enemy Cold Resistance",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -64614,12 +64631,17 @@
                 "group-properties": {
                     "Gelid-Affix2": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "+14-25% Chance Items Roll Magic or Better",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "+20-55% Extra Gold from Monsters",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -64628,12 +64650,17 @@
                 "group-properties": {
                     "Gelid-Affix3": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "+10-65 to Life",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "+10-75 to Mana",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -64642,16 +64669,22 @@
                 "group-properties": {
                     "Gelid-Affix4": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "+5-10% Faster Run/Walk Speed",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "+12-24% Faster Hit Recovery",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 3
                         },
                         {
                             "PropertyString": "+3-8 to all Attributes",
-                            "Index": 2
+                            "Index": 2,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -64660,12 +64693,17 @@
                 "group-properties": {
                     "Gelid-Affix6": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "Magic Damage Reduced By 5-10",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "Physical Damage Reduced By 5-10",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -64708,12 +64746,17 @@
                 "group-properties": {
                     "Incendiary-Affix1": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "+5-15% to Fire Skill Damage",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "-5-10% to Enemy Fire Resistance",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -64722,12 +64765,17 @@
                 "group-properties": {
                     "Incendiary-Affix2": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "+14-25% Chance Items Roll Magic or Better",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "+20-55% Extra Gold from Monsters",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -64736,12 +64784,17 @@
                 "group-properties": {
                     "Incendiary-Affix3": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "+10-65 to Life",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "+10-75 to Mana",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -64750,16 +64803,22 @@
                 "group-properties": {
                     "Incendiary-Affix4": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "+5-10% Faster Run/Walk Speed",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "+12-24% Faster Hit Recovery",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 3
                         },
                         {
                             "PropertyString": "+3-8 to all Attributes",
-                            "Index": 2
+                            "Index": 2,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -64768,12 +64827,17 @@
                 "group-properties": {
                     "Incendiary-Affix6": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "Magic Damage Reduced By 5-10",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "Physical Damage Reduced By 5-10",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -64816,12 +64880,17 @@
                 "group-properties": {
                     "Magnetic-Affix1": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "+5-15% to Lightning Skill Damage",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "-5-10% to Enemy Lightning Resistance",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -64830,12 +64899,17 @@
                 "group-properties": {
                     "Magnetic-Affix2": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "+14-25% Chance Items Roll Magic or Better",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "+20-55% Extra Gold from Monsters",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -64844,12 +64918,17 @@
                 "group-properties": {
                     "Magnetic-Affix3": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "+10-65 to Life",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "+10-75 to Mana",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -64858,16 +64937,22 @@
                 "group-properties": {
                     "Magnetic-Affix4": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "+5-10% Faster Run/Walk Speed",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "+12-24% Faster Hit Recovery",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 3
                         },
                         {
                             "PropertyString": "+3-8 to all Attributes",
-                            "Index": 2
+                            "Index": 2,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -64876,12 +64961,17 @@
                 "group-properties": {
                     "Magnetic-Affix6": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "Magic Damage Reduced By 5-10",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "Physical Damage Reduced By 5-10",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -64924,12 +65014,17 @@
                 "group-properties": {
                     "Virulent-Affix1": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "+5-15% to Poison Skill Damage",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "-5-10% to Enemy Poison Resistance",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -64938,12 +65033,17 @@
                 "group-properties": {
                     "Virulent-Affix2": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "+14-25% Chance Items Roll Magic or Better",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "+20-55% Extra Gold from Monsters",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -64952,12 +65052,17 @@
                 "group-properties": {
                     "Virulent-Affix3": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "+10-65 to Life",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "+10-75 to Mana",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -64966,16 +65071,22 @@
                 "group-properties": {
                     "Virulent-Affix4": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "+5-10% Faster Run/Walk Speed",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "+12-24% Faster Hit Recovery",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 3
                         },
                         {
                             "PropertyString": "+3-8 to all Attributes",
-                            "Index": 2
+                            "Index": 2,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -64984,12 +65095,17 @@
                 "group-properties": {
                     "Virulent-Affix6": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "Magic Damage Reduced By 5-10",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "Physical Damage Reduced By 5-10",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -65032,12 +65148,17 @@
                 "group-properties": {
                     "Breaching-Affix1": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "+75-100% Enhanced Weapon Damage",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "-5-10% to Enemy Physical Damage Resistance",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -65046,12 +65167,17 @@
                 "group-properties": {
                     "Breaching-Affix2": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "+14-25% Chance Items Roll Magic or Better",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "+20-55% Extra Gold from Monsters",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -65060,12 +65186,17 @@
                 "group-properties": {
                     "Breaching-Affix3": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "+10-65 to Life",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "+10-75 to Mana",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -65074,16 +65205,22 @@
                 "group-properties": {
                     "Breaching-Affix4": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "+5-10% Faster Run/Walk Speed",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "+12-24% Faster Hit Recovery",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 3
                         },
                         {
                             "PropertyString": "+3-8 to all Attributes",
-                            "Index": 2
+                            "Index": 2,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -65092,12 +65229,17 @@
                 "group-properties": {
                     "Breaching-Affix6": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "Magic Damage Reduced By 5-10",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "Physical Damage Reduced By 5-10",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -65140,12 +65282,17 @@
                 "group-properties": {
                     "Mystical-Affix1": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "+10-15% to Magic Skill Damage",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "-5-10% to Enemy Magic Resistance",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -65154,12 +65301,17 @@
                 "group-properties": {
                     "Mystical-Affix2": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "+14-25% Chance Items Roll Magic or Better",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "+20-55% Extra Gold from Monsters",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -65168,12 +65320,17 @@
                 "group-properties": {
                     "Mystical-Affix3": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "+10-65 to Life",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "+10-75 to Mana",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -65182,16 +65339,22 @@
                 "group-properties": {
                     "Mystical-Affix4": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "+5-10% Faster Run/Walk Speed",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "+12-24% Faster Hit Recovery",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 3
                         },
                         {
                             "PropertyString": "+3-8 to all Attributes",
-                            "Index": 2
+                            "Index": 2,
+                            "Chance": 1
                         }
                     ]
                 }
@@ -65200,12 +65363,17 @@
                 "group-properties": {
                     "Mystical-Affix6": [
                         {
+                            "PickMode": "2"
+                        },
+                        {
                             "PropertyString": "Magic Damage Reduced By 5-10",
-                            "Index": 0
+                            "Index": 0,
+                            "Chance": 1
                         },
                         {
                             "PropertyString": "Physical Damage Reduced By 5-10",
-                            "Index": 1
+                            "Index": 1,
+                            "Chance": 1
                         }
                     ]
                 }

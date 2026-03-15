@@ -16497,20 +16497,20 @@
                 }
             },
             {
-                "Type": "Helm",
+                "Type": "Belt",
                 "Set": "The Warlord of Blood",
                 "SetPropertiesString": [
                     "Adds 25-200 Weapon Lightning Damage (6 Items)",
                     "-15% to Enemy Lightning Resistance (4 Items)",
                     "+33% Lightning Resistance (3 Items)"
                 ],
-                "Name": "Bloody Visage Helm",
-                "Index": "Bloody Visage Helm",
+                "Name": "Vengeance Unleashed",
+                "Index": "Vengeance Unleashed",
                 "Enabled": true,
                 "Rarity": 7,
                 "ItemLevel": 45,
                 "RequiredLevel": 45,
-                "Code": "xhm",
+                "Code": "zhb",
                 "Properties": [
                     {
                         "PropertyString": "Knockback",
@@ -16533,31 +16533,31 @@
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "217-267",
+                    "ArmorString": "116-143",
                     "Block": null,
                     "EquipmentType": 0,
-                    "Name": "Winged Helm [X]",
-                    "RequiredStrength": "115",
+                    "Name": "War Belt [X]",
+                    "RequiredStrength": "110",
                     "RequiredDexterity": "0",
-                    "Durability": 40,
+                    "Durability": 24,
                     "RequiredClass": ""
                 }
             },
             {
-                "Type": "Belt",
+                "Type": "Helm",
                 "Set": "The Warlord of Blood",
                 "SetPropertiesString": [
                     "Adds 100-150 Weapon Fire Damage (6 Items)",
                     "-15% to Enemy Fire Resistance (4 Items)",
                     "+33% Fire Resistance (3 Items)"
                 ],
-                "Name": "Vengeance Unleashed",
-                "Index": "Vengeance Unleashed",
+                "Name": "Bloody Visage Helm",
+                "Index": "Bloody Visage Helm",
                 "Enabled": true,
                 "Rarity": 7,
                 "ItemLevel": 45,
                 "RequiredLevel": 47,
-                "Code": "zhb",
+                "Code": "xhm",
                 "Properties": [
                     {
                         "PropertyString": "+180-200% Enhanced Defense",
@@ -16584,13 +16584,13 @@
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "148-159",
+                    "ArmorString": "277-297",
                     "Block": null,
                     "EquipmentType": 0,
-                    "Name": "War Belt [X]",
-                    "RequiredStrength": "110",
+                    "Name": "Winged Helm [X]",
+                    "RequiredStrength": "115",
                     "RequiredDexterity": "0",
-                    "Durability": 24,
+                    "Durability": 40,
                     "RequiredClass": ""
                 }
             },

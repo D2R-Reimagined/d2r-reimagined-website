@@ -14,6 +14,10 @@ import json from '../item-jsons/runewords.json';
 // Minimal types used by the Runewords page (only fields actually read)
 interface IRunewordProperty {
     PropertyString?: string;
+    'group-properties'?: Record<string, IRunewordProperty[]>;
+    pickmode?: number;
+    Index?: number;
+    Chance?: number;
 }
 
 interface IRunewordType {
@@ -93,6 +97,7 @@ export class Runewords {
                 opt.id === 'any-weapon' ||
                 opt.id === 'melee-weapon' ||
                 opt.id === 'missile-weapon' ||
+                opt.id === 'thrown-weapon' ||
                 opt.id === 'any-helm' ||
                 opt.id === 'any-shield'
             ) {
@@ -212,6 +217,10 @@ export class Runewords {
             .toLowerCase();
     }
 
+    formatGroupName(name: string) {
+        return name.replace(/-/g, ' ').replace(/([a-z])([0-9])/g, '$1 $2');
+    }
+
     updateList() {
         let filteringRunewords: IRunewordData[] = this.runewords;
 
@@ -266,9 +275,17 @@ export class Runewords {
             found = found.filter((runeword) => {
                 const hay = [
                     String(runeword.Name || ''),
-                    ...(runeword.Properties || []).map((p: IRunewordProperty) =>
-                        String(p?.PropertyString || ''),
-                    ),
+                    ...(runeword.Properties || []).flatMap((p: IRunewordProperty) => {
+                        const res = [p?.PropertyString || ''];
+                        if (p['group-properties']) {
+                            Object.values(p['group-properties']).forEach(pool => {
+                                pool.forEach(affix => {
+                                    if (affix.PropertyString) res.push(affix.PropertyString);
+                                });
+                            });
+                        }
+                        return res;
+                    }),
                     ...(runeword.Types || []).map((t: IRunewordType) =>
                         String(t?.Name || ''),
                     ),

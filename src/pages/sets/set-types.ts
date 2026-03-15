@@ -2,7 +2,10 @@
 
 export interface IProperty {
     PropertyString?: string;
-    Index: number;
+    'group-properties'?: Record<string, IProperty[]>;
+    pickmode?: number;
+    Index?: number;
+    Chance?: number;
 }
 
 export interface IEquipment {

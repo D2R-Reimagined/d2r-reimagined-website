@@ -32,11 +32,17 @@ interface IPropertyGroupEntry {
 interface IAffixItem {
     Name?: string;
     PType: PType;
+    Index?: number;
     Group?: number;
     Types?: Array<string | number>;
     ETypes?: Array<string | number>;
     RequiredLevel?: number | string;
-    Properties?: Array<{ PropertyString?: string }>;
+    Properties?: Array<{
+        PropertyString?: string;
+        'group-properties'?: Record<string, any[]>;
+        pickmode?: number;
+        Chance?: number;
+    }>;
 }
 
 export class Affixes {
@@ -131,17 +137,18 @@ export class Affixes {
         if (this.maxRequiredLevel === undefined) this.maxRequiredLevel = '';
 
         // Normalize prefix/suffix arrays, ensure PType set explicitly (source JSON already has it, but keep consistent)
-        const normalized = (arr: ReadonlyArray<IAffixItem>, pType: PType) =>
-            arr.map((a) => ({
+        const normalized = (arr: ReadonlyArray<IAffixItem>, pType: PType, baseIndex: number) =>
+            arr.map((a, i) => ({
                 ...a,
                 PType: pType,
+                Index: baseIndex + i,
             }));
 
         const prefixList = (prefixes as unknown as IAffixItem[]) || [];
         const suffixList = (suffixes as unknown as IAffixItem[]) || [];
         this.allAffixes = [
-            ...normalized(prefixList, 'Prefix'),
-            ...normalized(suffixList, 'Suffix'),
+            ...normalized(prefixList, 'Prefix', 0),
+            ...normalized(suffixList, 'Suffix', prefixList.length),
         ];
 
         // Build the set of base type names present across all affixes (Types only)
@@ -380,13 +387,26 @@ export class Affixes {
             if (typeof minOpt === 'number' && rl < minOpt) return false;
             if (typeof maxOpt === 'number' && rl > maxOpt) return false;
 
-            // Text search (tokenized AND; search across Name, Properties, and Types only). ETypes are excluded.
+    // Text search (tokenized AND; search across Name, Properties, and Types only). ETypes are excluded.
             if (hasQuery) {
+                const groupStrings: string[] = [];
+                (a?.Properties || []).forEach((p) => {
+                    if (p['group-properties']) {
+                        Object.values(p['group-properties']).forEach((pool) => {
+                            pool.forEach((affix: any) => {
+                                if (affix.PropertyString)
+                                    groupStrings.push(affix.PropertyString);
+                            });
+                        });
+                    }
+                });
+
                 const hay = [
                     String(a?.Name || ''),
                     ...(a?.Properties || []).map((p) =>
                         p && p.PropertyString ? String(p.PropertyString) : '',
                     ),
+                    ...groupStrings,
                     ...(a?.Types || []).map((t) => (t != null ? String(t) : '')),
                 ]
                     .filter(Boolean)
@@ -398,6 +418,10 @@ export class Affixes {
 
             return true;
         });
+    }
+
+    formatGroupName(name: string) {
+        return name.replace(/-/g, ' ').replace(/([a-z])([0-9])/g, '$1 $2');
     }
 
     // Reset all filters to defaults and refresh URL/list
