@@ -95,8 +95,30 @@
                 <div class="text-base type-text">
                     ${blk.lineOne}
                 </div>
-                <div repeat.for="prop of blk.properties" class="text-base prop-text">
-                    ${prop}
+                <div repeat.for="prop of blk.properties | sortProperties" class="text-base prop-text">
+                    <div if.bind="prop.PropertyString">
+                        ${prop.PropertyString}
+                        <span class="text-xs text-gray-400 ml-1" if.bind="prop.ModChance && prop.ModChance < 100">(${prop.ModChance}% chance)</span>
+                    </div>
+                    <div if.bind="prop['group-properties']">
+                        <div repeat.for="[groupName, pool] of prop['group-properties'] | entries">
+                            <div if.bind="prop.pickmode == 0 || (pool[0] && pool[0].PickMode == 0)">
+                                <div repeat.for="affix of pool" if.bind="affix.PropertyString">
+                                    ${affix.PropertyString}
+                                    <span class="text-xs text-gray-400 ml-1" if.bind="affix.ModChance && affix.ModChance < 100">(${affix.ModChance}%)</span>
+                                </div>
+                            </div>
+                            <div if.bind="prop.pickmode != 0 && (!pool[0] || pool[0].PickMode != 0)" class="border px-2 border-gray-600 rounded m-2">
+                                <div class="set-text text-center p-1 border-b border-gray-600">
+                                    ${formatGroupName(groupName)}
+                                </div>
+                                <div repeat.for="affixData of pool" if.bind="affixData.PropertyString" class="flex justify-between p-1 border-b border-gray-700 last:border-0">
+                                    <span class="prop-text">${affixData | chance:pool}%</span>
+                                    <span class="text-right">${affixData.PropertyString}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div if.bind="blk.chanceText" class="text-base requirement-text">
                     ${blk.chanceText}

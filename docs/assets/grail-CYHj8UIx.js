@@ -1,12 +1,12 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-Cohone7I.js";
-import { g as getChainForTypeNameReadonly, r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options } from "./item-type-filters-PXYqowtv.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-he2Z9BNF.js";
+import { g as getChainForTypeNameReadonly, r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options } from "./item-type-filters-B8kjj1Cp.js";
 import { c as character_class_options } from "./character-classes-Cb6HmnkD.js";
 import { g as getDamageTypeString } from "./damage-types-Du-j2Hbt.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
 import { p as prependTypeResetOption, t as tokenizeSearch, i as isVanillaItem } from "./filter-helpers-C07hLFTd.js";
-import { r as runewordsJson } from "./runewords-DxRxcu64.js";
-import { s as setsJson } from "./sets-C2WEGCfe.js";
-import { u as uniquesJson } from "./uniques-Ca3X1KWA.js";
+import { r as runewordsJson } from "./runewords-gnjMNtLE.js";
+import { s as setsJson } from "./sets-D_OU-sd1.js";
+import { u as uniquesJson } from "./uniques-DtqT_d4i.js";
 const name = "grail";
 const template = `<template>
     <h3 class="text-lg type-text text-center items-center mx-auto my-4">
@@ -238,10 +238,10 @@ const template = `<template>
                          if.bind="unique.Equipment.RequiredClass && unique.Equipment.RequiredClass.length">
                         (\${unique.Equipment.RequiredClass} Only)
                     </div>
-                    <div class="text-base requirement-text" if.bind="unique.Equipment.RequiredDexterity > 0">
+                    <div class="text-base requirement-text" if.bind="unique.Equipment.RequiredDexterity && unique.Equipment.RequiredDexterity !== '0' && unique.Equipment.RequiredDexterity !== 0">
                         Required Dexterity: \${unique.Equipment.RequiredDexterity}
                     </div>
-                    <div class="text-base requirement-text" if.bind="unique.Equipment.RequiredStrength > 0">
+                    <div class="text-base requirement-text" if.bind="unique.Equipment.RequiredStrength && unique.Equipment.RequiredStrength !== '0' && unique.Equipment.RequiredStrength !== 0">
                         Required Strength: \${unique.Equipment.RequiredStrength}
                     </div>
                     <div class="text-base requirement-text">
@@ -250,8 +250,28 @@ const template = `<template>
                 </div>
 
                 <div>
-                    <div class="text-base prop-text" repeat.for="property of unique.Properties">
-                        \${property.PropertyString}
+                    <div class="text-base prop-text" repeat.for="property of unique.Properties | sortProperties">
+                        <div if.bind="property.PropertyString">
+                            \${property.PropertyString}
+                        </div>
+                        <div if.bind="property['group-properties']">
+                            <div repeat.for="[groupName, pool] of property['group-properties'] | entries">
+                                <div if.bind="property.pickmode == 0 || (pool[0] && pool[0].PickMode == 0)">
+                                    <div repeat.for="affixData of pool" if.bind="affixData.PropertyString">
+                                        \${affixData.PropertyString}
+                                    </div>
+                                </div>
+                                <div if.bind="property.pickmode != 0 && (!pool[0] || pool[0].PickMode != 0)" class="border px-2 border-gray-600 rounded m-2">
+                                    <div class="set-text text-center p-1 border-b border-gray-600">
+                                        \${formatGroupName(groupName)}
+                                    </div>
+                                    <div repeat.for="affixData of pool" if.bind="affixData.PropertyString" class="flex justify-between p-1 border-b border-gray-700 last:border-0">
+                                        <span class="prop-text">\${affixData | chance:pool}%</span>
+                                        <span class="text-right">\${affixData.PropertyString}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -311,10 +331,10 @@ const template = `<template>
                          if.bind="setItem.Equipment.RequiredClass && setItem.Equipment.RequiredClass.length">
                         (\${setItem.Equipment.RequiredClass} Only)
                     </div>
-                    <div class="text-base requirement-text" if.bind="setItem.Equipment.RequiredDexterity > 0">
+                    <div class="text-base requirement-text" if.bind="setItem.Equipment.RequiredDexterity && setItem.Equipment.RequiredDexterity !== '0' && setItem.Equipment.RequiredDexterity !== 0">
                         Required Dexterity: \${setItem.Equipment.RequiredDexterity}
                     </div>
-                    <div class="text-base requirement-text" if.bind="setItem.Equipment.RequiredStrength > 0">
+                    <div class="text-base requirement-text" if.bind="setItem.Equipment.RequiredStrength && setItem.Equipment.RequiredStrength !== '0' && setItem.Equipment.RequiredStrength !== 0">
                         Required Strength: \${setItem.Equipment.RequiredStrength}
                     </div>
                     <div class="text-base requirement-text">
@@ -323,8 +343,28 @@ const template = `<template>
                 </div>
 
                 <div>
-                    <div class="text-base prop-text" repeat.for="property of setItem.Properties">
-                        \${property.PropertyString}
+                    <div class="text-base prop-text" repeat.for="property of setItem.Properties | sortProperties">
+                        <div if.bind="property.PropertyString">
+                            \${property.PropertyString}
+                        </div>
+                        <div if.bind="property['group-properties']">
+                            <div repeat.for="[groupName, pool] of property['group-properties'] | entries">
+                                <div if.bind="property.pickmode == 0 || (pool[0] && pool[0].PickMode == 0)">
+                                    <div repeat.for="affixData of pool" if.bind="affixData.PropertyString">
+                                        \${affixData.PropertyString}
+                                    </div>
+                                </div>
+                                <div if.bind="property.pickmode != 0 && (!pool[0] || pool[0].PickMode != 0)" class="border px-2 border-gray-600 rounded m-2">
+                                    <div class="set-text text-center p-1 border-b border-gray-600">
+                                        \${formatGroupName(groupName)}
+                                    </div>
+                                    <div repeat.for="affixData of pool" if.bind="affixData.PropertyString" class="flex justify-between p-1 border-b border-gray-700 last:border-0">
+                                        <span class="prop-text">\${affixData | chance:pool}%</span>
+                                        <span class="text-right">\${affixData.PropertyString}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="text-base set-text" repeat.for="setProperty of setItem.SetPropertiesString">
@@ -373,8 +413,28 @@ const template = `<template>
                 </div>
 
                 <div>
-                    <div class="text-base prop-text" repeat.for="property of runeword.Properties">
-                        \${property.PropertyString}
+                    <div class="text-base prop-text" repeat.for="property of runeword.Properties | sortProperties">
+                        <div if.bind="property.PropertyString">
+                            \${property.PropertyString}
+                        </div>
+                        <div if.bind="property['group-properties']">
+                            <div repeat.for="[groupName, pool] of property['group-properties'] | entries">
+                                <div if.bind="property.pickmode == 0 || (pool[0] && pool[0].PickMode == 0)">
+                                    <div repeat.for="affixData of pool" if.bind="affixData.PropertyString">
+                                        \${affixData.PropertyString}
+                                    </div>
+                                </div>
+                                <div if.bind="property.pickmode != 0 && (!pool[0] || pool[0].PickMode != 0)" class="border px-2 border-gray-600 rounded m-2">
+                                    <div class="set-text text-center p-1 border-b border-gray-600">
+                                        \${formatGroupName(groupName)}
+                                    </div>
+                                    <div repeat.for="affixData of pool" if.bind="affixData.PropertyString" class="flex justify-between p-1 border-b border-gray-700 last:border-0">
+                                        <span class="prop-text">\${affixData | chance:pool}%</span>
+                                        <span class="text-right">\${affixData.PropertyString}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -860,6 +920,13 @@ class Grail {
     if (Array.isArray(u?.Properties)) {
       for (const p of u.Properties) {
         if (p?.PropertyString) parts.push(String(p.PropertyString));
+        if (p["group-properties"]) {
+          Object.values(p["group-properties"]).forEach((pool) => {
+            pool.forEach((affix) => {
+              if (affix.PropertyString) parts.push(String(affix.PropertyString));
+            });
+          });
+        }
       }
     }
     parts.push(this.searchStringFromTypeChain(u?.Type));
@@ -874,6 +941,13 @@ class Grail {
     if (Array.isArray(it?.Properties)) {
       for (const p of it.Properties) {
         if (p?.PropertyString) parts.push(String(p.PropertyString));
+        if (p["group-properties"]) {
+          Object.values(p["group-properties"]).forEach((pool) => {
+            pool.forEach((affix) => {
+              if (affix.PropertyString) parts.push(String(affix.PropertyString));
+            });
+          });
+        }
       }
     }
     if (Array.isArray(it?.SetPropertiesString)) {
@@ -889,6 +963,13 @@ class Grail {
     if (Array.isArray(rw?.Properties)) {
       for (const p of rw.Properties) {
         if (p?.PropertyString) parts.push(String(p.PropertyString));
+        if (p["group-properties"]) {
+          Object.values(p["group-properties"]).forEach((pool) => {
+            pool.forEach((affix) => {
+              if (affix.PropertyString) parts.push(String(affix.PropertyString));
+            });
+          });
+        }
       }
     }
     if (Array.isArray(rw?.Types)) {
@@ -1091,6 +1172,9 @@ class Grail {
     } catch {
       this.setItemFoundCount = 0;
     }
+  }
+  formatGroupName(name2) {
+    return name2.replace(/-/g, " ").replace(/([a-z])([0-9])/g, "$1 $2");
   }
 }
 _init = __decoratorStart();

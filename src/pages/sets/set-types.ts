@@ -2,7 +2,10 @@
 
 export interface IProperty {
     PropertyString?: string;
-    Index: number;
+    'group-properties'?: Record<string, IProperty[]>;
+    pickmode?: number;
+    Index?: number;
+    Chance?: number;
 }
 
 export interface IEquipment {
@@ -11,8 +14,8 @@ export interface IEquipment {
     DamageTypes?: { Type: number, DamageString: string }[];
     ArmorString?: string;
     EquipmentType?: number;
-    RequiredStrength?: number;
-    RequiredDexterity?: number;
+    RequiredStrength?: string;
+    RequiredDexterity?: string;
     Durability?: number;
     ItemLevel?: number;
     RequiredClass?: string; // present in some data and used in grail filters

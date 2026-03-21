@@ -169,11 +169,11 @@
                             (${item.RequiredClass} Only)
                         </div>
                         <div class="text-base requirement-text"
-                             if.bind="item.RequiredDexterity && item.RequiredDexterity > 0">
+                             if.bind="item.RequiredDexterity && item.RequiredDexterity !== '0' && item.RequiredDexterity !== 0">
                             ${item.RequiredDexterity} Dexterity Required
                         </div>
                         <div class="text-base requirement-text"
-                             if.bind="item.RequiredStrength && item.RequiredStrength > 0">
+                             if.bind="item.RequiredStrength && item.RequiredStrength !== '0' && item.RequiredStrength !== 0">
                             ${item.RequiredStrength} Strength Required
                         </div>
                         <div class="text-base requirement-text">Required Level:

@@ -11285,7 +11285,7 @@
         "PType": "Suffix"
     },
     {
-        "Name": "of Madawcs Fury",
+        "Name": "of Korlic's Fury",
         "Level": 24,
         "MaxLevel": 50,
         "RequiredLevel": 25,
@@ -11295,7 +11295,7 @@
         "ClassLevelReq": 24,
         "Properties": [
             {
-                "PropertyString": "4% Chance to cast level 2 Madawcs Fury when struck",
+                "PropertyString": "4% Chance to cast level 2 Korlics Fury when struck",
                 "Index": 0
             }
         ],
@@ -11308,7 +11308,7 @@
         "PType": "Suffix"
     },
     {
-        "Name": "of Madawcs Fury",
+        "Name": "of Korlic's Fury",
         "Level": 50,
         "MaxLevel": 0,
         "RequiredLevel": 55,
@@ -11318,7 +11318,7 @@
         "ClassLevelReq": 24,
         "Properties": [
             {
-                "PropertyString": "8% Chance to cast level 15 Madawcs Fury when struck",
+                "PropertyString": "8% Chance to cast level 15 Korlics Fury when struck",
                 "Index": 0
             }
         ],

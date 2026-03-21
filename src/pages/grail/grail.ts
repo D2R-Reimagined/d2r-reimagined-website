@@ -43,7 +43,12 @@ interface IDamageType {
 }
 
 interface IProperty {
-    PropertyString: string;
+    PropertyString?: string;
+    'group-properties'?: Record<string, IProperty[]>;
+    pickmode?: number;
+    Index?: number;
+    Chance?: number;
+    ModChance?: number;
 }
 
 interface IEquipment {
@@ -51,13 +56,14 @@ interface IEquipment {
     Type?: string;
     ArmorString?: string;
     DamageTypes?: IDamageType[];
-    RequiredStrength?: number;
-    RequiredDexterity?: number;
+    RequiredStrength?: string;
+    RequiredDexterity?: string;
     Durability?: number;
     RequiredClass?: string;
 }
 
 interface IUniqueItem {
+    Index?: string;
     Name: string;
     Class?: string;
     Rarity?: string;
@@ -71,6 +77,11 @@ interface IUniqueItem {
 // Minimal runeword types (only fields used on the page)
 interface IRunewordProperty {
     PropertyString?: string;
+    'group-properties'?: Record<string, IRunewordProperty[]>;
+    pickmode?: number;
+    Index?: number;
+    Chance?: number;
+    ModChance?: number;
 }
 
 interface IRunewordType {
@@ -703,6 +714,13 @@ export class Grail {
         if (Array.isArray(u?.Properties)) {
             for (const p of u.Properties) {
                 if (p?.PropertyString) parts.push(String(p.PropertyString));
+                if (p['group-properties']) {
+                    Object.values(p['group-properties']).forEach((pool) => {
+                        pool.forEach((affix) => {
+                            if (affix.PropertyString) parts.push(String(affix.PropertyString));
+                        });
+                    });
+                }
             }
         }
         // Type chain
@@ -719,6 +737,13 @@ export class Grail {
         if (Array.isArray(it?.Properties)) {
             for (const p of it.Properties) {
                 if (p?.PropertyString) parts.push(String(p.PropertyString));
+                if (p['group-properties']) {
+                    Object.values(p['group-properties']).forEach((pool) => {
+                        pool.forEach((affix) => {
+                            if (affix.PropertyString) parts.push(String(affix.PropertyString));
+                        });
+                    });
+                }
             }
         }
         if (Array.isArray(it?.SetPropertiesString)) {
@@ -735,6 +760,13 @@ export class Grail {
         if (Array.isArray(rw?.Properties)) {
             for (const p of rw.Properties) {
                 if (p?.PropertyString) parts.push(String(p.PropertyString));
+                if (p['group-properties']) {
+                    Object.values(p['group-properties']).forEach((pool) => {
+                        pool.forEach((affix) => {
+                            if (affix.PropertyString) parts.push(String(affix.PropertyString));
+                        });
+                    });
+                }
             }
         }
         if (Array.isArray(rw?.Types)) {
@@ -981,5 +1013,9 @@ export class Grail {
             this.setItemFoundCount = 0;
         }
         // setItemsDisplayedCount is updated inside updateList() for sets; when not on sets, leave as-is
+    }
+
+    formatGroupName(name: string) {
+        return name.replace(/-/g, ' ').replace(/([a-z])([0-9])/g, '$1 $2');
     }
 }

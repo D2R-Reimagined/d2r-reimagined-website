@@ -11,7 +11,6 @@ import {
 } from '../../resources/constants';
 import {
     getDamageTypeString as getDamageTypeStringUtil,
-    IUniqueItem,
     parseDamageProperty,
 } from '../../utilities/damage-types';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
@@ -30,7 +29,38 @@ import {
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 import json from '../item-jsons/uniques.json';
 
+import { IDamageType } from '../../utilities/damage-types';
+
 // Minimal shapes for uniques JSON used by this page. Only type what we read.
+interface IUniqueProperty {
+    PropertyString?: string;
+    'group-properties'?: Record<string, IUniqueProperty[]>;
+    pickmode?: number;
+    Index?: number;
+    Chance?: number;
+}
+
+interface IUniqueEquipment {
+    Name?: string;
+    RequiredClass?: string;
+    RequiredStrength?: string;
+    RequiredDexterity?: string;
+    DamageTypes?: IDamageType[];
+    ArmorString?: string;
+    Block?: number;
+    Durability?: number;
+}
+
+interface IUniqueItem {
+    Index?: string;
+    Name?: string;
+    Type?: string;
+    Equipment?: IUniqueEquipment;
+    Properties?: IUniqueProperty[];
+    Vanilla?: string | number | boolean;
+    Rarity?: string;
+    RequiredLevel?: number;
+}
 
 export class Uniques {
     uniques: IUniqueItem[] = json as unknown as IUniqueItem[];
@@ -198,19 +228,32 @@ export class Uniques {
         };
         const isMatchingSearch = (unique: IUniqueItem) => {
             if (!searchTokens.length) return true;
+
+            const groupStrings: string[] = [];
+            if (Array.isArray(unique?.Properties)) {
+                unique.Properties.forEach((p) => {
+                    if (p['group-properties']) {
+                        Object.values(p['group-properties']).forEach((pool) => {
+                            pool.forEach((affix) => {
+                                if (affix.PropertyString) groupStrings.push(affix.PropertyString);
+                            });
+                        });
+                    }
+                });
+            }
+
             const hay = [
                 String(unique?.Name || ''),
                 ...(Array.isArray(unique?.Properties)
                     ? unique.Properties.map((p) => String(p?.PropertyString || ''))
                     : []),
+                ...groupStrings,
                 String(unique?.Equipment?.Name || ''),
             ]
                 .filter(Boolean)
                 .join(' ')
                 .toLowerCase();
-            return searchTokens.some((group) =>
-                group.every((t) => hay.includes(t)),
-            );
+            return searchTokens.some((group) => group.every((t) => hay.includes(t)));
         };
         const isMatchingType = (unique: IUniqueItem) => {
             if (!allowedTypeSet) return true;
@@ -293,6 +336,10 @@ export class Uniques {
             });
 
         return equipmentNameOptions;
+    }
+
+    formatGroupName(name: string) {
+        return name.replace(/-/g, ' ').replace(/([a-z])([0-9])/g, '$1 $2');
     }
 
     // Reset all filters to their default values and refresh

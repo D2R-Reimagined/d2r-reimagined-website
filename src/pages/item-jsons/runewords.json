@@ -784,6 +784,85 @@
                 }
             },
             {
+                "Name": "Tir Rune",
+                "ItemLevel": 13,
+                "RequiredLevel": 13,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            }
+        ],
+        "Types": [
+            {
+                "Name": "Grimoire",
+                "Index": "Grimoire",
+                "Class": "war"
+            }
+        ],
+        "Vanilla": "N",
+        "Name": "Umbral",
+        "Index": "Umbral",
+        "Enabled": true,
+        "Rarity": 0,
+        "ItemLevel": 17,
+        "RequiredLevel": 17,
+        "Code": "Umbral",
+        "Properties": [
+            {
+                "PropertyString": "+1 to Warlock Skill Levels",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20% Faster Run/Walk Speed",
+                "Index": 6
+            },
+            {
+                "PropertyString": "+20% Faster Cast Rate",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+15% Faster Hit Recovery",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+100-150% Enhanced Defense",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+50-100 to Mana",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+35% Poison Resistance",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+2 to Mana after each Kill",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-4 to Light Radius",
+                "Index": 2
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": null
+    },
+    {
+        "Runes": [
+            {
+                "Name": "Tal Rune",
+                "ItemLevel": 17,
+                "RequiredLevel": 17,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
                 "Name": "Eld Rune",
                 "ItemLevel": 11,
                 "RequiredLevel": 11,
@@ -9573,6 +9652,81 @@
     {
         "Runes": [
             {
+                "Name": "Sol Rune",
+                "ItemLevel": 27,
+                "RequiredLevel": 27,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Um Rune",
+                "ItemLevel": 47,
+                "RequiredLevel": 47,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            }
+        ],
+        "Types": [
+            {
+                "Name": "Grimoire",
+                "Index": "Grimoire",
+                "Class": "war"
+            }
+        ],
+        "Vanilla": "N",
+        "Name": "Demonspine",
+        "Index": "Demonspine",
+        "Enabled": true,
+        "Rarity": 0,
+        "ItemLevel": 47,
+        "RequiredLevel": 47,
+        "Code": "Demonspine",
+        "Properties": [
+            {
+                "PropertyString": "10% Chance to cast level 30 Hex Purge on striking",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+1 to Warlock Skill Levels",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20-25% Increased Attack Speed",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+50-100% Enhanced Weapon Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+50-100% Damage to Demons",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+100-200 Defense",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+22% to All Resistances",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Physical Damage Reduced By 7",
+                "Index": 0
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": null
+    },
+    {
+        "Runes": [
+            {
                 "Name": "Um Rune",
                 "ItemLevel": 47,
                 "RequiredLevel": 47,
@@ -17770,6 +17924,202 @@
                 }
             },
             {
+                "Name": "Jah Rune",
+                "ItemLevel": 65,
+                "RequiredLevel": 65,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Cham Rune",
+                "ItemLevel": 67,
+                "RequiredLevel": 67,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            }
+        ],
+        "Types": [
+            {
+                "Name": "Grimoire",
+                "Index": "Grimoire",
+                "Class": "war"
+            }
+        ],
+        "Vanilla": "N",
+        "Name": "Infernum",
+        "Index": "Infernum",
+        "Enabled": true,
+        "Rarity": 0,
+        "ItemLevel": 67,
+        "RequiredLevel": 67,
+        "Code": "Infernum",
+        "Properties": [
+            {
+                "PropertyString": "7% Chance to cast level 40 Apocalypse on striking",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+2-3 to Fire Skills",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+1 to Warlock Skill Levels",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+30-40% Increased Attack Speed",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+15-20% to Fire Skill Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "-10% to Enemy Fire Resistance",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+50 to Life",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+5% to Maximum Fire Resistance",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20-30% to All Resistances",
+                "Index": 6
+            },
+            {
+                "PropertyString": "Cannot Be Frozen",
+                "Index": 0
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": null
+    },
+    {
+        "Runes": [
+            {
+                "Name": "Ist Rune",
+                "ItemLevel": 51,
+                "RequiredLevel": 51,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Cham Rune",
+                "ItemLevel": 67,
+                "RequiredLevel": 67,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Ber Rune",
+                "ItemLevel": 63,
+                "RequiredLevel": 63,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Um Rune",
+                "ItemLevel": 47,
+                "RequiredLevel": 47,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            }
+        ],
+        "Types": [
+            {
+                "Name": "Grimoire",
+                "Index": "Grimoire",
+                "Class": "war"
+            }
+        ],
+        "Vanilla": "N",
+        "Name": "Ruin",
+        "Index": "Ruin",
+        "Enabled": true,
+        "Rarity": 0,
+        "ItemLevel": 67,
+        "RequiredLevel": 67,
+        "Code": "Ruin",
+        "Properties": [
+            {
+                "PropertyString": "10% Chance to cast level 40 Miasma Chains on striking",
+                "Index": 4
+            },
+            {
+                "PropertyString": "Level 5-15 Sanctuary Aura When Equipped",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+2-3 to Chaos Skills (Warlock Only)",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+1 to Warlock Skill Levels",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+25-35% Increased Attack Speed",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+15-20% to Magic Skill Damage",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+22% to All Resistances",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+8% Physical Damage Reduction",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Cannot Be Frozen",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+25% Chance Items Roll Magic or Better",
+                "Index": 0
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": null
+    },
+    {
+        "Runes": [
+            {
+                "Name": "Vex Rune",
+                "ItemLevel": 55,
+                "RequiredLevel": 55,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
                 "Name": "Hel Rune",
                 "ItemLevel": 33,
                 "RequiredLevel": 0,
@@ -19416,7 +19766,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "15% Chance to cast level 20 Armageddon on striking",
+                "PropertyString": "15% Chance to cast level 20 Apocalypse on striking",
                 "Index": 4
             },
             {

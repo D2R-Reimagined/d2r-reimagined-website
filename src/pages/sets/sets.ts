@@ -211,13 +211,29 @@ export class Sets {
                     ...(set.FullProperties || []),
                     ...(set.PartialProperties || []),
                 ];
-                for (const p of allProps || [])
-                    hayParts.push(String(p?.PropertyString || ''));
+                for (const p of allProps || []) {
+                    if (p.PropertyString) hayParts.push(p.PropertyString);
+                    if (p['group-properties']) {
+                        Object.values(p['group-properties']).forEach((pool) => {
+                            pool.forEach((affix) => {
+                                if (affix.PropertyString) hayParts.push(affix.PropertyString);
+                            });
+                        });
+                    }
+                }
                 for (const si of set.SetItems ?? []) {
                     hayParts.push(String(si?.Name || ''));
                     hayParts.push(String(si?.Equipment?.Name || ''));
-                    for (const p of si?.Properties || [])
-                        hayParts.push(String(p?.PropertyString || ''));
+                    for (const p of si?.Properties || []) {
+                        if (p.PropertyString) hayParts.push(p.PropertyString);
+                        if (p['group-properties']) {
+                            Object.values(p['group-properties']).forEach((pool) => {
+                                pool.forEach((affix) => {
+                                    if (affix.PropertyString) hayParts.push(affix.PropertyString);
+                                });
+                            });
+                        }
+                    }
                     for (const s of si?.SetPropertiesString || [])
                         hayParts.push(String(s || ''));
                 }
@@ -317,6 +333,10 @@ export class Sets {
 
     getDamageTypeString = getDamageTypeStringUtil;
     parseDamageProperty = parseDamageProperty;
+
+    formatGroupName(name: string) {
+        return name.replace(/-/g, ' ').replace(/([a-z])([0-9])/g, '$1 $2');
+    }
 
     // Partial set bonus count display by index 0-1 = 2, 2-3 = 3, 4-5 = 4, 6+ = 5
     getItemCount(indexPassed: number): number {

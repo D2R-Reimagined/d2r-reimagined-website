@@ -1,5 +1,5 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-Cohone7I.js";
-import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, g as getChainForTypeNameReadonly, t as type_filtering_options } from "./item-type-filters-PXYqowtv.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-he2Z9BNF.js";
+import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, g as getChainForTypeNameReadonly, t as type_filtering_options } from "./item-type-filters-B8kjj1Cp.js";
 import { g as getDamageTypeString } from "./damage-types-Du-j2Hbt.js";
 import { p as prependTypeResetOption, t as tokenizeSearch } from "./filter-helpers-C07hLFTd.js";
 const name = "bases";
@@ -174,11 +174,11 @@ const template = `\uFEFF<template>
                             (\${item.RequiredClass} Only)
                         </div>
                         <div class="text-base requirement-text"
-                             if.bind="item.RequiredDexterity && item.RequiredDexterity > 0">
+                             if.bind="item.RequiredDexterity && item.RequiredDexterity !== '0' && item.RequiredDexterity !== 0">
                             \${item.RequiredDexterity} Dexterity Required
                         </div>
                         <div class="text-base requirement-text"
-                             if.bind="item.RequiredStrength && item.RequiredStrength > 0">
+                             if.bind="item.RequiredStrength && item.RequiredStrength !== '0' && item.RequiredStrength !== 0">
                             \${item.RequiredStrength} Strength Required
                         </div>
                         <div class="text-base requirement-text">Required Level:

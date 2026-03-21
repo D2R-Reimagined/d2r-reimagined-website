@@ -172,8 +172,28 @@
                 Required Level: ${runeword.RequiredLevel > 0? runeword.RequiredLevel: 1}
             </div>
 
-            <div class="text-base prop-text" repeat.for="property of runeword.Properties">
-                ${property.PropertyString}
+            <div class="text-base prop-text" repeat.for="property of runeword.Properties | sortProperties">
+                <div if.bind="property.PropertyString">
+                    ${property.PropertyString}
+                </div>
+                <div if.bind="property['group-properties']">
+                    <div repeat.for="[groupName, pool] of property['group-properties'] | entries">
+                        <div if.bind="property.pickmode == 0 || (pool[0] && pool[0].PickMode == 0)">
+                            <div repeat.for="affix of pool" if.bind="affix.PropertyString">
+                                ${affix.PropertyString}
+                            </div>
+                        </div>
+                        <div if.bind="property.pickmode != 0 && (!pool[0] || pool[0].PickMode != 0)" class="border px-2 border-gray-600 rounded m-2">
+                            <div class="set-text text-center p-1 border-b border-gray-600">
+                                ${formatGroupName(groupName)}
+                            </div>
+                            <div repeat.for="affixData of pool" if.bind="affixData.PropertyString" class="flex justify-between p-1 border-b border-gray-700 last:border-0">
+                                <span class="prop-text">${affixData | chance:pool}%</span>
+                                <span class="text-right">${affixData.PropertyString}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>

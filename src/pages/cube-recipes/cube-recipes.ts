@@ -13,7 +13,9 @@ type V2Input = {
 };
 
 type V2Property = {
-    PropertyString: string;
+    PropertyString?: string;
+    'group-properties'?: Record<string, V2Property[]>;
+    pickmode?: number;
     ModChance?: number;
     Index?: number;
 };
@@ -43,7 +45,7 @@ type OutputBlock = {
     title: string; // e.g., "Return Updated Item" or "1x Amulet"
     lineOne: string; // "1x Name, Qualifier1, Qualifier2" (or just title if none)
     modifiers: string[]; // qualifiers as individual entries
-    properties: string[]; // properties as individual entries, in source order
+    properties: V2Property[]; // properties as individual entries, in source order
     // Optional chance text rendered under properties for certain recipes
     chanceText?: string;
 };
@@ -138,13 +140,21 @@ function mapV2ToDisplay(recipes: V2Recipe[]): DisplayRecipe[] {
                     ? `${out.Name ?? ''}`.trim()
                     : toQtyName(out.Quantity, out.Name);
                 const qStr = joinQualifiers(out.Qualifiers);
-                const props = (out.Properties ?? [])
-                    .map((p) => p.PropertyString)
+                const props = out.Properties ?? [];
+                const propsStrings = props
+                    .map((p) => {
+                        if (p.PropertyString) return p.PropertyString;
+                        if (p['group-properties']) {
+                            return Object.keys(p['group-properties']).join(', ');
+                        }
+                        return '';
+                    })
                     .filter(Boolean);
+
                 const withQual = qStr ? `${base}, ${qStr}` : base;
                 // Append properties after a comma without an extra parentheses wrapper
-                const withProps = props.length
-                    ? `${withQual}, ${props.join('; ')}`
+                const withProps = propsStrings.length
+                    ? `${withQual}, ${propsStrings.join('; ')}`
                     : withQual;
                 outputsArr.push(withProps);
 
@@ -180,6 +190,11 @@ function mapV2ToDisplay(recipes: V2Recipe[]): DisplayRecipe[] {
 export class CubeRecipes {
     private allRecipes: DisplayRecipe[] = mapV2ToDisplay(v2json as V2Recipe[]);
     recipes: DisplayRecipe[] = [...this.allRecipes];
+
+    formatGroupName(name: string) {
+        return name.replace(/-/g, ' ').replace(/([a-z])([0-9])/g, '$1 $2');
+    }
+
     @bindable search: string;
 
     // Filters and options
@@ -306,8 +321,24 @@ export class CubeRecipes {
                 if (!notes.includes(selectedNote)) continue;
             }
 
-            // Text search (tokenized AND across inputs, outputs, and description)
+            // Text search (tokenized AND across inputs, outputs, description, and group properties)
             if (tokens.length) {
+                const groupStrings: string[] = [];
+                if (recipe._raw?.Outputs) {
+                    Object.values(recipe._raw.Outputs).forEach((o) => {
+                        (o.Properties || []).forEach((p) => {
+                            if (p['group-properties']) {
+                                Object.values(p['group-properties']).forEach((pool) => {
+                                    pool.forEach((affix) => {
+                                        if (affix.PropertyString)
+                                            groupStrings.push(affix.PropertyString);
+                                    });
+                                });
+                            }
+                        });
+                    });
+                }
+
                 const desc = (recipe.Description || '').toLowerCase();
                 const inp = [recipe.Input || '', ...(recipe.Inputs || [])]
                     .join(' ')
@@ -315,10 +346,11 @@ export class CubeRecipes {
                 const out = [recipe.Output || '', ...(recipe.Outputs || [])]
                     .join(' ')
                     .toLowerCase();
-                const haystack = [inp, out, desc].filter(Boolean).join(' ');
-                if (
-                    !tokens.some((group) => group.every((t) => haystack.includes(t)))
-                )
+                const haystack = [inp, out, desc, ...groupStrings]
+                    .filter(Boolean)
+                    .join(' ')
+                    .toLowerCase();
+                if (!tokens.some((group) => group.every((t) => haystack.includes(t))))
                     continue;
             }
 

@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-D0Wf2oft.js","assets/debounce-DlM2vs2L.js","assets/filter-helpers-C07hLFTd.js","assets/uniques-C5rDzs4W.js","assets/item-type-filters-PXYqowtv.js","assets/character-classes-Cb6HmnkD.js","assets/damage-types-Du-j2Hbt.js","assets/uniques-Ca3X1KWA.js","assets/sets-RjZCReSS.js","assets/sets-C2WEGCfe.js","assets/runewords-Nk2FjKza.js","assets/runewords-DxRxcu64.js","assets/grail-RKNWZZYH.js","assets/bases-C_J3xouz.js","assets/affixes-Cqtuz40E.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-BigQFK59.js","assets/debounce-DlM2vs2L.js","assets/filter-helpers-C07hLFTd.js","assets/uniques-rKBTs96W.js","assets/item-type-filters-B8kjj1Cp.js","assets/character-classes-Cb6HmnkD.js","assets/damage-types-Du-j2Hbt.js","assets/uniques-DtqT_d4i.js","assets/sets-CDDF_WXZ.js","assets/sets-D_OU-sd1.js","assets/runewords-CJg7m8Xd.js","assets/runewords-gnjMNtLE.js","assets/grail-CYHj8UIx.js","assets/bases-D3w1ljnN.js","assets/affixes-B8B1DT68.js"])))=>i.map(i=>d[i]);
 (function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) return;
@@ -1615,7 +1615,7 @@ function __esDecorate(ctor, descriptorIn, decorators, contextIn, initializers, e
   if (target) Object.defineProperty(target, contextIn.name, descriptor);
   done = true;
 }
-function __runInitializers$3(thisArg, initializers, value) {
+function __runInitializers$6(thisArg, initializers, value) {
   var useValue = arguments.length > 2;
   for (var i = 0; i < initializers.length; i++) {
     value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
@@ -1823,7 +1823,7 @@ let DefaultLogger = (() => {
   return _a2 = class DefaultLogger {
     /* eslint-disable default-param-last */
     constructor(config = resolve(ILogConfig), factory = resolve(ILogEventFactory), sinks = resolve(all(ISink)), scope = resolve(optional(ILogScopes)) ?? [], parent = null) {
-      this.scope = (__runInitializers$3(this, _instanceExtraInitializers), scope);
+      this.scope = (__runInitializers$6(this, _instanceExtraInitializers), scope);
       this._scopedLoggers = createLookup$1();
       let traceSinks;
       let debugSinks;
@@ -25587,82 +25587,82 @@ const __au2ViewDef$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defi
   register: register$1,
   template: template$1
 }, Symbol.toStringTag, { value: "Module" }));
-var __create$2 = Object.create;
-var __defProp$2 = Object.defineProperty;
-var __getOwnPropDesc$2 = Object.getOwnPropertyDescriptor;
-var __knownSymbol$2 = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : Symbol.for("Symbol." + name2);
-var __typeError$2 = (msg) => {
+var __create$5 = Object.create;
+var __defProp$5 = Object.defineProperty;
+var __getOwnPropDesc$5 = Object.getOwnPropertyDescriptor;
+var __knownSymbol$5 = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : Symbol.for("Symbol." + name2);
+var __typeError$5 = (msg) => {
   throw TypeError(msg);
 };
-var __defNormalProp$2 = (obj, key, value) => key in obj ? __defProp$2(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __name$2 = (target, value) => __defProp$2(target, "name", { value, configurable: true });
-var __decoratorStart$2 = (base) => [, , , __create$2(null)];
-var __decoratorStrings$2 = ["class", "method", "getter", "setter", "accessor", "field", "value", "get", "set"];
-var __expectFn$2 = (fn2) => fn2 !== void 0 && typeof fn2 !== "function" ? __typeError$2("Function expected") : fn2;
-var __decoratorContext$2 = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings$2[kind], name: name2, metadata, addInitializer: (fn2) => done._ ? __typeError$2("Already initialized") : fns.push(__expectFn$2(fn2 || null)) });
-var __decoratorMetadata$2 = (array, target) => __defNormalProp$2(target, __knownSymbol$2("metadata"), array[3]);
-var __runInitializers$2 = (array, flags, self, value) => {
+var __defNormalProp$5 = (obj, key, value) => key in obj ? __defProp$5(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __name$5 = (target, value) => __defProp$5(target, "name", { value, configurable: true });
+var __decoratorStart$5 = (base) => [, , , __create$5(null)];
+var __decoratorStrings$5 = ["class", "method", "getter", "setter", "accessor", "field", "value", "get", "set"];
+var __expectFn$5 = (fn2) => fn2 !== void 0 && typeof fn2 !== "function" ? __typeError$5("Function expected") : fn2;
+var __decoratorContext$5 = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings$5[kind], name: name2, metadata, addInitializer: (fn2) => done._ ? __typeError$5("Already initialized") : fns.push(__expectFn$5(fn2 || null)) });
+var __decoratorMetadata$5 = (array, target) => __defNormalProp$5(target, __knownSymbol$5("metadata"), array[3]);
+var __runInitializers$5 = (array, flags, self, value) => {
   for (var i = 0, fns = array[flags >> 1], n = fns && fns.length; i < n; i++) fns[i].call(self);
   return value;
 };
-var __decorateElement$2 = (array, flags, name2, decorators, target, extra) => {
+var __decorateElement$5 = (array, flags, name2, decorators, target, extra) => {
   var it, done, ctx, k = flags & 7, p = false;
   var j = 0;
   var extraInitializers = array[j] || (array[j] = []);
-  var desc = k && (target = target.prototype, k < 5 && (k > 3 || !p) && __getOwnPropDesc$2(target, name2));
-  __name$2(target, name2);
+  var desc = k && (target = target.prototype, k < 5 && (k > 3 || !p) && __getOwnPropDesc$5(target, name2));
+  __name$5(target, name2);
   for (var i = decorators.length - 1; i >= 0; i--) {
-    ctx = __decoratorContext$2(k, name2, done = {}, array[3], extraInitializers);
+    ctx = __decoratorContext$5(k, name2, done = {}, array[3], extraInitializers);
     it = (0, decorators[i])(target, ctx), done._ = 1;
-    __expectFn$2(it) && (target = it);
+    __expectFn$5(it) && (target = it);
   }
-  return __decoratorMetadata$2(array, target), desc && __defProp$2(target, name2, desc), p ? k ^ 4 ? extra : desc : target;
+  return __decoratorMetadata$5(array, target), desc && __defProp$5(target, name2, desc), p ? k ^ 4 ? extra : desc : target;
 };
-var _SearchArea_decorators, _init$2;
+var _SearchArea_decorators, _init$5;
 _SearchArea_decorators = [customElement(__au2ViewDef$1)];
 class SearchArea {
 }
-_init$2 = __decoratorStart$2();
-SearchArea = __decorateElement$2(_init$2, 0, "SearchArea", _SearchArea_decorators, SearchArea);
-__runInitializers$2(_init$2, 1, SearchArea);
+_init$5 = __decoratorStart$5();
+SearchArea = __decorateElement$5(_init$5, 0, "SearchArea", _SearchArea_decorators, SearchArea);
+__runInitializers$5(_init$5, 1, SearchArea);
 const Elements = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   get SearchArea() {
     return SearchArea;
   }
 }, Symbol.toStringTag, { value: "Module" }));
-var __create$1 = Object.create;
-var __defProp$1 = Object.defineProperty;
-var __getOwnPropDesc$1 = Object.getOwnPropertyDescriptor;
-var __knownSymbol$1 = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : Symbol.for("Symbol." + name2);
-var __typeError$1 = (msg) => {
+var __create$4 = Object.create;
+var __defProp$4 = Object.defineProperty;
+var __getOwnPropDesc$4 = Object.getOwnPropertyDescriptor;
+var __knownSymbol$4 = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : Symbol.for("Symbol." + name2);
+var __typeError$4 = (msg) => {
   throw TypeError(msg);
 };
-var __defNormalProp$1 = (obj, key, value) => key in obj ? __defProp$1(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __name$1 = (target, value) => __defProp$1(target, "name", { value, configurable: true });
-var __decoratorStart$1 = (base) => [, , , __create$1(null)];
-var __decoratorStrings$1 = ["class", "method", "getter", "setter", "accessor", "field", "value", "get", "set"];
-var __expectFn$1 = (fn2) => fn2 !== void 0 && typeof fn2 !== "function" ? __typeError$1("Function expected") : fn2;
-var __decoratorContext$1 = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings$1[kind], name: name2, metadata, addInitializer: (fn2) => done._ ? __typeError$1("Already initialized") : fns.push(__expectFn$1(fn2 || null)) });
-var __decoratorMetadata$1 = (array, target) => __defNormalProp$1(target, __knownSymbol$1("metadata"), array[3]);
-var __runInitializers$1 = (array, flags, self, value) => {
+var __defNormalProp$4 = (obj, key, value) => key in obj ? __defProp$4(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __name$4 = (target, value) => __defProp$4(target, "name", { value, configurable: true });
+var __decoratorStart$4 = (base) => [, , , __create$4(null)];
+var __decoratorStrings$4 = ["class", "method", "getter", "setter", "accessor", "field", "value", "get", "set"];
+var __expectFn$4 = (fn2) => fn2 !== void 0 && typeof fn2 !== "function" ? __typeError$4("Function expected") : fn2;
+var __decoratorContext$4 = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings$4[kind], name: name2, metadata, addInitializer: (fn2) => done._ ? __typeError$4("Already initialized") : fns.push(__expectFn$4(fn2 || null)) });
+var __decoratorMetadata$4 = (array, target) => __defNormalProp$4(target, __knownSymbol$4("metadata"), array[3]);
+var __runInitializers$4 = (array, flags, self, value) => {
   for (var i = 0, fns = array[flags >> 1], n = fns && fns.length; i < n; i++) fns[i].call(self);
   return value;
 };
-var __decorateElement$1 = (array, flags, name2, decorators, target, extra) => {
+var __decorateElement$4 = (array, flags, name2, decorators, target, extra) => {
   var it, done, ctx, k = flags & 7, p = false;
   var j = 0;
   var extraInitializers = array[j] || (array[j] = []);
-  var desc = k && (target = target.prototype, k < 5 && (k > 3 || !p) && __getOwnPropDesc$1(target, name2));
-  __name$1(target, name2);
+  var desc = k && (target = target.prototype, k < 5 && (k > 3 || !p) && __getOwnPropDesc$4(target, name2));
+  __name$4(target, name2);
   for (var i = decorators.length - 1; i >= 0; i--) {
-    ctx = __decoratorContext$1(k, name2, done = {}, array[3], extraInitializers);
+    ctx = __decoratorContext$4(k, name2, done = {}, array[3], extraInitializers);
     it = (0, decorators[i])(target, ctx), done._ = 1;
-    __expectFn$1(it) && (target = it);
+    __expectFn$4(it) && (target = it);
   }
-  return __decoratorMetadata$1(array, target), desc && __defProp$1(target, name2, desc), p ? k ^ 4 ? extra : desc : target;
+  return __decoratorMetadata$4(array, target), desc && __defProp$4(target, name2, desc), p ? k ^ 4 ? extra : desc : target;
 };
-var _RuneNameValueConverter_decorators, _init$1;
+var _RuneNameValueConverter_decorators, _init$4;
 _RuneNameValueConverter_decorators = [valueConverter("runeName")];
 class RuneNameValueConverter {
   toView(value) {
@@ -25740,13 +25740,169 @@ class RuneNameValueConverter {
     return value;
   }
 }
+_init$4 = __decoratorStart$4();
+RuneNameValueConverter = __decorateElement$4(_init$4, 0, "RuneNameValueConverter", _RuneNameValueConverter_decorators, RuneNameValueConverter);
+__runInitializers$4(_init$4, 1, RuneNameValueConverter);
+var __create$3 = Object.create;
+var __defProp$3 = Object.defineProperty;
+var __getOwnPropDesc$3 = Object.getOwnPropertyDescriptor;
+var __knownSymbol$3 = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : Symbol.for("Symbol." + name2);
+var __typeError$3 = (msg) => {
+  throw TypeError(msg);
+};
+var __defNormalProp$3 = (obj, key, value) => key in obj ? __defProp$3(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __name$3 = (target, value) => __defProp$3(target, "name", { value, configurable: true });
+var __decoratorStart$3 = (base) => [, , , __create$3(null)];
+var __decoratorStrings$3 = ["class", "method", "getter", "setter", "accessor", "field", "value", "get", "set"];
+var __expectFn$3 = (fn2) => fn2 !== void 0 && typeof fn2 !== "function" ? __typeError$3("Function expected") : fn2;
+var __decoratorContext$3 = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings$3[kind], name: name2, metadata, addInitializer: (fn2) => done._ ? __typeError$3("Already initialized") : fns.push(__expectFn$3(fn2 || null)) });
+var __decoratorMetadata$3 = (array, target) => __defNormalProp$3(target, __knownSymbol$3("metadata"), array[3]);
+var __runInitializers$3 = (array, flags, self, value) => {
+  for (var i = 0, fns = array[flags >> 1], n = fns && fns.length; i < n; i++) fns[i].call(self);
+  return value;
+};
+var __decorateElement$3 = (array, flags, name2, decorators, target, extra) => {
+  var it, done, ctx, k = flags & 7, p = false;
+  var j = 0;
+  var extraInitializers = array[j] || (array[j] = []);
+  var desc = k && (target = target.prototype, k < 5 && (k > 3 || !p) && __getOwnPropDesc$3(target, name2));
+  __name$3(target, name2);
+  for (var i = decorators.length - 1; i >= 0; i--) {
+    ctx = __decoratorContext$3(k, name2, done = {}, array[3], extraInitializers);
+    it = (0, decorators[i])(target, ctx), done._ = 1;
+    __expectFn$3(it) && (target = it);
+  }
+  return __decoratorMetadata$3(array, target), desc && __defProp$3(target, name2, desc), p ? k ^ 4 ? extra : desc : target;
+};
+var _EntriesValueConverter_decorators, _init$3;
+_EntriesValueConverter_decorators = [valueConverter("entries")];
+class EntriesValueConverter {
+  toView(obj) {
+    if (!obj) return [];
+    return Object.entries(obj);
+  }
+}
+_init$3 = __decoratorStart$3();
+EntriesValueConverter = __decorateElement$3(_init$3, 0, "EntriesValueConverter", _EntriesValueConverter_decorators, EntriesValueConverter);
+__runInitializers$3(_init$3, 1, EntriesValueConverter);
+var __create$2 = Object.create;
+var __defProp$2 = Object.defineProperty;
+var __getOwnPropDesc$2 = Object.getOwnPropertyDescriptor;
+var __knownSymbol$2 = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : Symbol.for("Symbol." + name2);
+var __typeError$2 = (msg) => {
+  throw TypeError(msg);
+};
+var __defNormalProp$2 = (obj, key, value) => key in obj ? __defProp$2(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __name$2 = (target, value) => __defProp$2(target, "name", { value, configurable: true });
+var __decoratorStart$2 = (base) => [, , , __create$2(null)];
+var __decoratorStrings$2 = ["class", "method", "getter", "setter", "accessor", "field", "value", "get", "set"];
+var __expectFn$2 = (fn2) => fn2 !== void 0 && typeof fn2 !== "function" ? __typeError$2("Function expected") : fn2;
+var __decoratorContext$2 = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings$2[kind], name: name2, metadata, addInitializer: (fn2) => done._ ? __typeError$2("Already initialized") : fns.push(__expectFn$2(fn2 || null)) });
+var __decoratorMetadata$2 = (array, target) => __defNormalProp$2(target, __knownSymbol$2("metadata"), array[3]);
+var __runInitializers$2 = (array, flags, self, value) => {
+  for (var i = 0, fns = array[flags >> 1], n = fns && fns.length; i < n; i++) fns[i].call(self);
+  return value;
+};
+var __decorateElement$2 = (array, flags, name2, decorators, target, extra) => {
+  var it, done, ctx, k = flags & 7, p = false;
+  var j = 0;
+  var extraInitializers = array[j] || (array[j] = []);
+  var desc = k && (target = target.prototype, k < 5 && (k > 3 || !p) && __getOwnPropDesc$2(target, name2));
+  __name$2(target, name2);
+  for (var i = decorators.length - 1; i >= 0; i--) {
+    ctx = __decoratorContext$2(k, name2, done = {}, array[3], extraInitializers);
+    it = (0, decorators[i])(target, ctx), done._ = 1;
+    __expectFn$2(it) && (target = it);
+  }
+  return __decoratorMetadata$2(array, target), desc && __defProp$2(target, name2, desc), p ? k ^ 4 ? extra : desc : target;
+};
+var _ChanceValueConverter_decorators, _init$2;
+_ChanceValueConverter_decorators = [valueConverter("chance")];
+class ChanceValueConverter {
+  toView(affix, pool) {
+    if (!pool || pool.length === 0) return 0;
+    const propertyPool = pool.filter((item) => item.PropertyString);
+    if (propertyPool.length === 0) return 0;
+    const totalChance = propertyPool.reduce((sum, item) => sum + (item.Chance || item.ModChance || 1), 0);
+    const specificChance = affix.Chance || affix.ModChance || 1;
+    const chancePercent = specificChance / totalChance * 100;
+    return Number.isInteger(chancePercent) ? chancePercent : chancePercent.toFixed(1);
+  }
+}
+_init$2 = __decoratorStart$2();
+ChanceValueConverter = __decorateElement$2(_init$2, 0, "ChanceValueConverter", _ChanceValueConverter_decorators, ChanceValueConverter);
+__runInitializers$2(_init$2, 1, ChanceValueConverter);
+var __create$1 = Object.create;
+var __defProp$1 = Object.defineProperty;
+var __getOwnPropDesc$1 = Object.getOwnPropertyDescriptor;
+var __knownSymbol$1 = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : Symbol.for("Symbol." + name2);
+var __typeError$1 = (msg) => {
+  throw TypeError(msg);
+};
+var __defNormalProp$1 = (obj, key, value) => key in obj ? __defProp$1(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __name$1 = (target, value) => __defProp$1(target, "name", { value, configurable: true });
+var __decoratorStart$1 = (base) => [, , , __create$1(null)];
+var __decoratorStrings$1 = ["class", "method", "getter", "setter", "accessor", "field", "value", "get", "set"];
+var __expectFn$1 = (fn2) => fn2 !== void 0 && typeof fn2 !== "function" ? __typeError$1("Function expected") : fn2;
+var __decoratorContext$1 = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings$1[kind], name: name2, metadata, addInitializer: (fn2) => done._ ? __typeError$1("Already initialized") : fns.push(__expectFn$1(fn2 || null)) });
+var __decoratorMetadata$1 = (array, target) => __defNormalProp$1(target, __knownSymbol$1("metadata"), array[3]);
+var __runInitializers$1 = (array, flags, self, value) => {
+  for (var i = 0, fns = array[flags >> 1], n = fns && fns.length; i < n; i++) fns[i].call(self);
+  return value;
+};
+var __decorateElement$1 = (array, flags, name2, decorators, target, extra) => {
+  var it, done, ctx, k = flags & 7, p = false;
+  var j = 0;
+  var extraInitializers = array[j] || (array[j] = []);
+  var desc = k && (target = target.prototype, k < 5 && (k > 3 || !p) && __getOwnPropDesc$1(target, name2));
+  __name$1(target, name2);
+  for (var i = decorators.length - 1; i >= 0; i--) {
+    ctx = __decoratorContext$1(k, name2, done = {}, array[3], extraInitializers);
+    it = (0, decorators[i])(target, ctx), done._ = 1;
+    __expectFn$1(it) && (target = it);
+  }
+  return __decoratorMetadata$1(array, target), desc && __defProp$1(target, name2, desc), p ? k ^ 4 ? extra : desc : target;
+};
+var _SortPropertiesValueConverter_decorators, _init$1;
+_SortPropertiesValueConverter_decorators = [valueConverter("sortProperties")];
+class SortPropertiesValueConverter {
+  toView(properties) {
+    if (!properties || !Array.isArray(properties)) return properties;
+    return [...properties].sort((a, b) => {
+      const getPriority = (p) => {
+        if (p["group-properties"]) {
+          const pools = Object.values(p["group-properties"]);
+          if (pools.length > 0) {
+            const pool = pools[0];
+            const pickMode = p.pickmode ?? (pool[0] ? pool[0].PickMode : void 0);
+            if (pickMode == 0) {
+              return 0;
+            }
+            return 1;
+          }
+        }
+        return 0;
+      };
+      return getPriority(a) - getPriority(b);
+    });
+  }
+}
 _init$1 = __decoratorStart$1();
-RuneNameValueConverter = __decorateElement$1(_init$1, 0, "RuneNameValueConverter", _RuneNameValueConverter_decorators, RuneNameValueConverter);
-__runInitializers$1(_init$1, 1, RuneNameValueConverter);
+SortPropertiesValueConverter = __decorateElement$1(_init$1, 0, "SortPropertiesValueConverter", _SortPropertiesValueConverter_decorators, SortPropertiesValueConverter);
+__runInitializers$1(_init$1, 1, SortPropertiesValueConverter);
 const Resources = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
+  get ChanceValueConverter() {
+    return ChanceValueConverter;
+  },
+  get EntriesValueConverter() {
+    return EntriesValueConverter;
+  },
   get RuneNameValueConverter() {
     return RuneNameValueConverter;
+  },
+  get SortPropertiesValueConverter() {
+    return SortPropertiesValueConverter;
   }
 }, Symbol.toStringTag, { value: "Module" }));
 function isBlankOrInvalid(v) {
@@ -26032,42 +26188,42 @@ _App_decorators = [customElement(__au2ViewDef), route({
   routes: [
     {
       path: "",
-      component: __vitePreload(() => import("./home-J5rKuXZB.js"), true ? [] : void 0),
+      component: __vitePreload(() => import("./home-BTnVU3Ft.js"), true ? [] : void 0),
       title: "Home"
     },
     {
       path: "cube-recipes",
-      component: __vitePreload(() => import("./cube-recipes-D0Wf2oft.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
+      component: __vitePreload(() => import("./cube-recipes-BigQFK59.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
       title: "Cube Recipes"
     },
     {
       path: "uniques",
-      component: __vitePreload(() => import("./uniques-C5rDzs4W.js"), true ? __vite__mapDeps([3,4,5,6,1,2,7]) : void 0),
+      component: __vitePreload(() => import("./uniques-rKBTs96W.js"), true ? __vite__mapDeps([3,4,5,6,1,2,7]) : void 0),
       title: "Uniques"
     },
     {
       path: "sets",
-      component: __vitePreload(() => import("./sets-RjZCReSS.js"), true ? __vite__mapDeps([8,4,5,6,1,2,9]) : void 0),
+      component: __vitePreload(() => import("./sets-CDDF_WXZ.js"), true ? __vite__mapDeps([8,4,5,6,1,2,9]) : void 0),
       title: "Sets"
     },
     {
       path: "runewords",
-      component: __vitePreload(() => import("./runewords-Nk2FjKza.js"), true ? __vite__mapDeps([10,4,1,2,11]) : void 0),
+      component: __vitePreload(() => import("./runewords-CJg7m8Xd.js"), true ? __vite__mapDeps([10,4,1,2,11]) : void 0),
       title: "Runewords"
     },
     {
       path: "grail",
-      component: __vitePreload(() => import("./grail-RKNWZZYH.js"), true ? __vite__mapDeps([12,4,5,6,1,2,11,9,7]) : void 0),
+      component: __vitePreload(() => import("./grail-CYHj8UIx.js"), true ? __vite__mapDeps([12,4,5,6,1,2,11,9,7]) : void 0),
       title: "Holy Grail"
     },
     {
       path: "bases",
-      component: __vitePreload(() => import("./bases-C_J3xouz.js"), true ? __vite__mapDeps([13,4,6,2]) : void 0),
+      component: __vitePreload(() => import("./bases-D3w1ljnN.js"), true ? __vite__mapDeps([13,4,6,2]) : void 0),
       title: "Bases"
     },
     {
       path: "affixes",
-      component: __vitePreload(() => import("./affixes-Cqtuz40E.js"), true ? __vite__mapDeps([14,4,1,2]) : void 0),
+      component: __vitePreload(() => import("./affixes-B8B1DT68.js"), true ? __vite__mapDeps([14,4,1,2]) : void 0),
       title: "Affixes"
     }
   ]
