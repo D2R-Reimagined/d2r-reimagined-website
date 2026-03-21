@@ -1,4 +1,4 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-CeyU2yDT.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-he2Z9BNF.js";
 import { g as getChainForTypeNameReadonly, r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options } from "./item-type-filters-B8kjj1Cp.js";
 import { c as character_class_options } from "./character-classes-Cb6HmnkD.js";
 import { g as getDamageTypeString } from "./damage-types-Du-j2Hbt.js";
@@ -6,7 +6,7 @@ import { d as debounce } from "./debounce-DlM2vs2L.js";
 import { p as prependTypeResetOption, t as tokenizeSearch, i as isVanillaItem } from "./filter-helpers-C07hLFTd.js";
 import { r as runewordsJson } from "./runewords-gnjMNtLE.js";
 import { s as setsJson } from "./sets-D_OU-sd1.js";
-import { u as uniquesJson } from "./uniques-CCWBy1tN.js";
+import { u as uniquesJson } from "./uniques-DtqT_d4i.js";
 const name = "grail";
 const template = `<template>
     <h3 class="text-lg type-text text-center items-center mx-auto my-4">
@@ -238,10 +238,10 @@ const template = `<template>
                          if.bind="unique.Equipment.RequiredClass && unique.Equipment.RequiredClass.length">
                         (\${unique.Equipment.RequiredClass} Only)
                     </div>
-                    <div class="text-base requirement-text" if.bind="unique.Equipment.RequiredDexterity > 0">
+                    <div class="text-base requirement-text" if.bind="unique.Equipment.RequiredDexterity && unique.Equipment.RequiredDexterity !== '0' && unique.Equipment.RequiredDexterity !== 0">
                         Required Dexterity: \${unique.Equipment.RequiredDexterity}
                     </div>
-                    <div class="text-base requirement-text" if.bind="unique.Equipment.RequiredStrength > 0">
+                    <div class="text-base requirement-text" if.bind="unique.Equipment.RequiredStrength && unique.Equipment.RequiredStrength !== '0' && unique.Equipment.RequiredStrength !== 0">
                         Required Strength: \${unique.Equipment.RequiredStrength}
                     </div>
                     <div class="text-base requirement-text">
@@ -331,10 +331,10 @@ const template = `<template>
                          if.bind="setItem.Equipment.RequiredClass && setItem.Equipment.RequiredClass.length">
                         (\${setItem.Equipment.RequiredClass} Only)
                     </div>
-                    <div class="text-base requirement-text" if.bind="setItem.Equipment.RequiredDexterity > 0">
+                    <div class="text-base requirement-text" if.bind="setItem.Equipment.RequiredDexterity && setItem.Equipment.RequiredDexterity !== '0' && setItem.Equipment.RequiredDexterity !== 0">
                         Required Dexterity: \${setItem.Equipment.RequiredDexterity}
                     </div>
-                    <div class="text-base requirement-text" if.bind="setItem.Equipment.RequiredStrength > 0">
+                    <div class="text-base requirement-text" if.bind="setItem.Equipment.RequiredStrength && setItem.Equipment.RequiredStrength !== '0' && setItem.Equipment.RequiredStrength !== 0">
                         Required Strength: \${setItem.Equipment.RequiredStrength}
                     </div>
                     <div class="text-base requirement-text">

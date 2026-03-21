@@ -1,12 +1,198 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-CeyU2yDT.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-he2Z9BNF.js";
 import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options, g as getChainForTypeNameReadonly } from "./item-type-filters-B8kjj1Cp.js";
 import { c as character_class_options } from "./character-classes-Cb6HmnkD.js";
 import { g as getDamageTypeString } from "./damage-types-Du-j2Hbt.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
 import { p as prependTypeResetOption, t as tokenizeSearch, i as isVanillaItem } from "./filter-helpers-C07hLFTd.js";
-import { u as uniquesJson } from "./uniques-CCWBy1tN.js";
+import { u as uniquesJson } from "./uniques-DtqT_d4i.js";
 const name = "uniques";
-const template = '<template>\n    <h3 class="text-lg type-text text-center mx-auto my-4">\n        <span class="rarity-text">${uniques.length}</span> Uniques Found\n    </h3>\n\n    <search-area>\n        <div class="w-full m-auto px-5 py-2">\n            <div class="flex flex-wrap justify-center items-start gap-2">\n\n                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Filter by character class.">\n                    <div class="flex items-stretch">\n                        <div class="relative flex-1">\n                            <select id="ficlass" class="select-base peer" value.bind="selectedClass">\n                                <option repeat.for="opt of classes" value.bind="opt.value">${opt.label}</option>\n                            </select>\n                            <label for="ficlass" class="floating-label">Select Class</label>\n                        </div>\n                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="ficlass">\n                            <span class="mso">info</span>\n                            <span class="sr-only">More info about Class filter</span>\n                        </button>\n                    </div>\n                </div>\n\n                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Filter by base item type, only includes class specific variants on generic types.">\n                    <div class="flex items-stretch">\n                        <div class="relative flex-1">\n                            <select id="itype" class="select-base peer" value.bind="selectedType">\n                                <option repeat.for="opt of types"\n                                        value.bind="opt.id">${opt.label}\n                                </option>\n                            </select>\n                            <label for="itype" class="floating-label">Select Item Type</label>\n                        </div>\n                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="itype">\n                            <span class="mso">info</span>\n                            <span class="sr-only">More info about Item Type filter</span>\n                        </button>\n                    </div>\n                </div>\n\n                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Filter to a specific equipment for the selected item type, disabled if one isn\'t selected.">\n                    <div class="flex items-stretch">\n                        <div class="relative flex-1">\n                            <select id="eqsel" class="select-base peer" value.bind="selectedEquipmentName"\n                                    disabled.bind="!selectedType">\n                                <option repeat.for="opt of equipmentNames" value.bind="opt.value">${opt.label}</option>\n                            </select>\n                            <label for="eqsel" class="floating-label">Select Equipment</label>\n                        </div>\n                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="eqsel">\n                            <span class="mso">info</span>\n                            <span class="sr-only">More info about Equipment filter</span>\n                        </button>\n                    </div>\n                </div>\n\n                <div class="w-full lg:w-60" data-help-text="Search across all fields. Attempts exact match. Seperate with \'+\' for AND match. Seperate with \',\' or \'|\' for OR match. ex. \'fire skill damage+enemy fire\' finds items with only both tokens. \'fire skill damage,enemy fire\' finds items with either token.">\n                    <div class="flex items-stretch">\n                        <div class="trailing-icon flex-1" data-icon="search">\n                            <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search" placeholder=" "/>\n                            <label for="inputsearch" class="floating-label">Search...</label>\n                        </div>\n                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="inputsearch">\n                            <span class="mso">info</span>\n                            <span class="sr-only">More info about Search</span>\n                        </button>\n                    </div>\n                </div>\n\n                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Filter toggle to hide Vanilla items.">\n                    <div class="flex items-stretch">\n                        <div class="relative flex-1">\n                            <button\n                                    id="hidevanillabutton"\n                                    type="button"\n                                    class="vanilla-button flex-row-reverse"\n                                    aria-pressed.bind="hideVanilla"\n                                    click.trigger="hideVanilla = !hideVanilla">\n                                <span class="vanilla-indicator"></span>\n                                Hide Vanilla\n                            </button>\n                        </div>\n                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="hidevanillabutton">\n                            <span class="mso">info</span>\n                            <span class="sr-only">More info about the Hide Vanilla button</span>\n                        </button>\n                    </div>\n                </div>\n\n                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Reset all filters to default.">\n                    <div class="flex items-stretch">\n                        <div class="relative flex-1">\n                            <button id="resetfilters" class="button-base" type="button" click.trigger="resetFilters()">\n                                Reset Filters\n                            </button>\n                        </div>\n                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="resetfilters">\n                            <span class="mso">info</span>\n                            <span class="sr-only">More info about Reset Filters</span>\n                        </button>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </search-area>\n\n    <div class="card-container">\n        <div class="card-box card-vis" repeat.for="unique of uniques">\n\n                <div class="mb-1">\n                    <div class="text-xl unique-text">\n                        ${unique.Name}\n                    </div>\n                    <div class="text-base rarity-text" if.bind="unique.Rarity">\n                        Rarity: ${unique.Rarity}\n                    </div>\n                    <div class="text-base rarity-text" if.bind="unique.Vanilla">\n                        ${unique.Vanilla === \'Y\' ? \'Vanilla\' : \'Mod\'}\n                    </div>\n                </div>\n\n                <div class="mb-1">\n                    <div class="text-base type-text" if.bind="unique.Equipment.Name">\n                        ${unique.Equipment.Name}\n                    </div>\n                    <div class="text-base type-text" if.bind="unique.Equipment.ArmorString">\n                        Defense: ${unique.Equipment.ArmorString}\n                    </div>\n                    <div class="text-base type-text"\n                         if.bind="unique.Equipment.Block !== null && unique.Equipment.Block !== undefined && unique.Equipment.Block > 0">\n                        Block: ${unique.Equipment.Block}%\n                    </div>\n                    <div class="text-base type-text" if.bind="unique.Equipment.DamageTypes"\n                         repeat.for="damage of unique.Equipment.DamageTypes">\n                        ${getDamageTypeString(damage.Type)} ${damage.DamageString}\n                    </div>\n                    <div class="text-base type-text" if.bind="unique.Equipment.Durability > 0">\n                        Durability: ${unique.Equipment.Durability}\n                    </div>\n                </div>\n\n                <div class="mb-1">\n                    <div class="text-base requirement-text"\n                         if.bind="unique.Equipment.RequiredClass && unique.Equipment.RequiredClass.length">\n                        (${unique.Equipment.RequiredClass} Only)\n                    </div>\n                    <div class="text-base requirement-text" if.bind="unique.Equipment.RequiredDexterity > 0">\n                        Required Dexterity: ${unique.Equipment.RequiredDexterity}\n                    </div>\n                    <div class="text-base requirement-text" if.bind="unique.Equipment.RequiredStrength > 0">\n                        Required Strength: ${unique.Equipment.RequiredStrength}\n                    </div>\n                    <div class="text-base requirement-text">\n                        Required Level: ${unique.RequiredLevel > 0? unique.RequiredLevel: 1}\n                    </div>\n                </div>\n\n                <div class="text-base prop-text" repeat.for="property of unique.Properties | sortProperties">\n                    <div if.bind="property.PropertyString">\n                        ${property.PropertyString}\n                    </div>\n                    <div if.bind="property[\'group-properties\']">\n                        <div repeat.for="[groupName, pool] of property[\'group-properties\'] | entries">\n                            <div if.bind="property.pickmode == 0 || (pool[0] && pool[0].PickMode == 0)">\n                                <div repeat.for="affix of pool" if.bind="affix.PropertyString">\n                                    ${affix.PropertyString}\n                                </div>\n                            </div>\n                            <div if.bind="property.pickmode != 0 && (!pool[0] || pool[0].PickMode != 0)" class="border px-2 border-gray-600 rounded m-2">\n                                <div class="set-text text-center p-1 border-b border-gray-600">\n                                    ${formatGroupName(groupName)}\n                                </div>\n                                <div repeat.for="affixData of pool" if.bind="affixData.PropertyString" class="flex justify-between p-1 border-b border-gray-700 last:border-0">\n                                    <span class="prop-text">${affixData | chance:pool}%</span>\n                                    <span class="text-right">${affixData.PropertyString}</span>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n                </div>\n            </div>\n</template>\n';
+const template = `<template>
+    <h3 class="text-lg type-text text-center mx-auto my-4">
+        <span class="rarity-text">\${uniques.length}</span> Uniques Found
+    </h3>
+
+    <search-area>
+        <div class="w-full m-auto px-5 py-2">
+            <div class="flex flex-wrap justify-center items-start gap-2">
+
+                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Filter by character class.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <select id="ficlass" class="select-base peer" value.bind="selectedClass">
+                                <option repeat.for="opt of classes" value.bind="opt.value">\${opt.label}</option>
+                            </select>
+                            <label for="ficlass" class="floating-label">Select Class</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="ficlass">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Class filter</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Filter by base item type, only includes class specific variants on generic types.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <select id="itype" class="select-base peer" value.bind="selectedType">
+                                <option repeat.for="opt of types"
+                                        value.bind="opt.id">\${opt.label}
+                                </option>
+                            </select>
+                            <label for="itype" class="floating-label">Select Item Type</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="itype">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Item Type filter</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Filter to a specific equipment for the selected item type, disabled if one isn't selected.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <select id="eqsel" class="select-base peer" value.bind="selectedEquipmentName"
+                                    disabled.bind="!selectedType">
+                                <option repeat.for="opt of equipmentNames" value.bind="opt.value">\${opt.label}</option>
+                            </select>
+                            <label for="eqsel" class="floating-label">Select Equipment</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="eqsel">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Equipment filter</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-60" data-help-text="Search across all fields. Attempts exact match. Seperate with '+' for AND match. Seperate with ',' or '|' for OR match. ex. 'fire skill damage+enemy fire' finds items with only both tokens. 'fire skill damage,enemy fire' finds items with either token.">
+                    <div class="flex items-stretch">
+                        <div class="trailing-icon flex-1" data-icon="search">
+                            <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search" placeholder=" "/>
+                            <label for="inputsearch" class="floating-label">Search...</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="inputsearch">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Search</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Filter toggle to hide Vanilla items.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <button
+                                    id="hidevanillabutton"
+                                    type="button"
+                                    class="vanilla-button flex-row-reverse"
+                                    aria-pressed.bind="hideVanilla"
+                                    click.trigger="hideVanilla = !hideVanilla">
+                                <span class="vanilla-indicator"></span>
+                                Hide Vanilla
+                            </button>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="hidevanillabutton">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about the Hide Vanilla button</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Reset all filters to default.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <button id="resetfilters" class="button-base" type="button" click.trigger="resetFilters()">
+                                Reset Filters
+                            </button>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="resetfilters">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Reset Filters</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </search-area>
+
+    <div class="card-container">
+        <div class="card-box card-vis" repeat.for="unique of uniques">
+
+                <div class="mb-1">
+                    <div class="text-xl unique-text">
+                        \${unique.Name}
+                    </div>
+                    <div class="text-base rarity-text" if.bind="unique.Rarity">
+                        Rarity: \${unique.Rarity}
+                    </div>
+                    <div class="text-base rarity-text" if.bind="unique.Vanilla">
+                        \${unique.Vanilla === 'Y' ? 'Vanilla' : 'Mod'}
+                    </div>
+                </div>
+
+                <div class="mb-1">
+                    <div class="text-base type-text" if.bind="unique.Equipment.Name">
+                        \${unique.Equipment.Name}
+                    </div>
+                    <div class="text-base type-text" if.bind="unique.Equipment.ArmorString">
+                        Defense: \${unique.Equipment.ArmorString}
+                    </div>
+                    <div class="text-base type-text"
+                         if.bind="unique.Equipment.Block !== null && unique.Equipment.Block !== undefined && unique.Equipment.Block > 0">
+                        Block: \${unique.Equipment.Block}%
+                    </div>
+                    <div class="text-base type-text" if.bind="unique.Equipment.DamageTypes"
+                         repeat.for="damage of unique.Equipment.DamageTypes">
+                        \${getDamageTypeString(damage.Type)} \${damage.DamageString}
+                    </div>
+                    <div class="text-base type-text" if.bind="unique.Equipment.Durability > 0">
+                        Durability: \${unique.Equipment.Durability}
+                    </div>
+                </div>
+
+                <div class="mb-1">
+                    <div class="text-base requirement-text"
+                         if.bind="unique.Equipment.RequiredClass && unique.Equipment.RequiredClass.length">
+                        (\${unique.Equipment.RequiredClass} Only)
+                    </div>
+                    <div class="text-base requirement-text" if.bind="unique.Equipment.RequiredDexterity && unique.Equipment.RequiredDexterity !== '0' && unique.Equipment.RequiredDexterity !== 0">
+                        Required Dexterity: \${unique.Equipment.RequiredDexterity}
+                    </div>
+                    <div class="text-base requirement-text" if.bind="unique.Equipment.RequiredStrength && unique.Equipment.RequiredStrength !== '0' && unique.Equipment.RequiredStrength !== 0">
+                        Required Strength: \${unique.Equipment.RequiredStrength}
+                    </div>
+                    <div class="text-base requirement-text">
+                        Required Level: \${unique.RequiredLevel > 0? unique.RequiredLevel: 1}
+                    </div>
+                </div>
+
+                <div class="text-base prop-text" repeat.for="property of unique.Properties | sortProperties">
+                    <div if.bind="property.PropertyString">
+                        \${property.PropertyString}
+                    </div>
+                    <div if.bind="property['group-properties']">
+                        <div repeat.for="[groupName, pool] of property['group-properties'] | entries">
+                            <div if.bind="property.pickmode == 0 || (pool[0] && pool[0].PickMode == 0)">
+                                <div repeat.for="affix of pool" if.bind="affix.PropertyString">
+                                    \${affix.PropertyString}
+                                </div>
+                            </div>
+                            <div if.bind="property.pickmode != 0 && (!pool[0] || pool[0].PickMode != 0)" class="border px-2 border-gray-600 rounded m-2">
+                                <div class="set-text text-center p-1 border-b border-gray-600">
+                                    \${formatGroupName(groupName)}
+                                </div>
+                                <div repeat.for="affixData of pool" if.bind="affixData.PropertyString" class="flex justify-between p-1 border-b border-gray-700 last:border-0">
+                                    <span class="prop-text">\${affixData | chance:pool}%</span>
+                                    <span class="text-right">\${affixData.PropertyString}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+</template>
+`;
 const dependencies = [];
 const bindables = {};
 let _e;
