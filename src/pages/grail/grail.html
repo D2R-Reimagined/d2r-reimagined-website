@@ -275,10 +275,10 @@
                          if.bind="unique.Equipment.RequiredClass && unique.Equipment.RequiredClass.length">
                         (${unique.Equipment.RequiredClass} Only)
                     </div>
-                    <div class="text-base requirement-text" if.bind="unique.Equipment.RequiredDexterity | notZero">
+                    <div class="text-base requirement-text" if.bind="unique.Equipment.RequiredDexterity && unique.Equipment.RequiredDexterity !== '0' && unique.Equipment.RequiredDexterity !== 0">
                         Required Dexterity: ${unique.Equipment.RequiredDexterity}
                     </div>
-                    <div class="text-base requirement-text" if.bind="unique.Equipment.RequiredStrength | notZero">
+                    <div class="text-base requirement-text" if.bind="unique.Equipment.RequiredStrength && unique.Equipment.RequiredStrength !== '0' && unique.Equipment.RequiredStrength !== 0">
                         Required Strength: ${unique.Equipment.RequiredStrength}
                     </div>
                     <div class="text-base requirement-text">
@@ -378,10 +378,10 @@
                          if.bind="setItem.Equipment.RequiredClass && setItem.Equipment.RequiredClass.length">
                         (${setItem.Equipment.RequiredClass} Only)
                     </div>
-                    <div class="text-base requirement-text" if.bind="setItem.Equipment.RequiredDexterity | notZero">
+                    <div class="text-base requirement-text" if.bind="setItem.Equipment.RequiredDexterity && setItem.Equipment.RequiredDexterity !== '0' && setItem.Equipment.RequiredDexterity !== 0">
                         Required Dexterity: ${setItem.Equipment.RequiredDexterity}
                     </div>
-                    <div class="text-base requirement-text" if.bind="setItem.Equipment.RequiredStrength | notZero">
+                    <div class="text-base requirement-text" if.bind="setItem.Equipment.RequiredStrength && setItem.Equipment.RequiredStrength !== '0' && setItem.Equipment.RequiredStrength !== 0">
                         Required Strength: ${setItem.Equipment.RequiredStrength}
                     </div>
                     <div class="text-base requirement-text">
