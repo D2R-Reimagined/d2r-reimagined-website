@@ -13,8 +13,8 @@ export interface IEquipment {
     DamageString?: string;
     ArmorString?: string;
     EquipmentType?: number;
-    RequiredStrength?: number;
-    RequiredDexterity?: number;
+    RequiredStrength?: string;
+    RequiredDexterity?: string;
     Durability?: number;
     ItemLevel?: number;
     RequiredClass?: string; // present in some data and used in grail filters

@@ -21,8 +21,8 @@ interface IBaseItem {
     Type?: { Name?: string; Index?: string; Class?: string } | null;
     GemSockets?: number | string | null;
     BaseRequiredLevel?: number;
-    RequiredStrength?: number;
-    RequiredDexterity?: number;
+    RequiredStrength?: string;
+    RequiredDexterity?: string;
     Durability?: number;
     StrBonus?: number;
     DexBonus?: number;

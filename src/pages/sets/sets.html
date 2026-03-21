@@ -172,10 +172,10 @@
                          if.bind="setItem.Equipment.RequiredClass && setItem.Equipment.RequiredClass.length">
                         (${setItem.Equipment.RequiredClass} Only)
                     </div>
-                    <div class="text-base requirement-text" if.bind="setItem.Equipment.RequiredDexterity > 0">
+                    <div class="text-base requirement-text" if.bind="setItem.Equipment.RequiredDexterity && setItem.Equipment.RequiredDexterity !== '0' && setItem.Equipment.RequiredDexterity !== 0">
                         ${setItem.Equipment.RequiredDexterity} Dexterity Required
                     </div>
-                    <div class="text-base requirement-text" if.bind="setItem.Equipment.RequiredStrength > 0">
+                    <div class="text-base requirement-text" if.bind="setItem.Equipment.RequiredStrength && setItem.Equipment.RequiredStrength !== '0' && setItem.Equipment.RequiredStrength !== 0">
                         ${setItem.Equipment.RequiredStrength} Strength Required
                     </div>
                     <div class="text-base requirement-text">

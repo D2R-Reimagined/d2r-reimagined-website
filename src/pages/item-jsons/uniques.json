@@ -57718,7 +57718,7 @@
             "Block": null,
             "EquipmentType": 0,
             "Name": "Totemic Mask [X]",
-            "RequiredStrength": "97 to 130",
+            "RequiredStrength": "97-130",
             "RequiredDexterity": "0",
             "Durability": 20,
             "RequiredClass": "Druid"
@@ -66120,7 +66120,7 @@
             "Block": null,
             "EquipmentType": 0,
             "Name": "Armet [E]",
-            "RequiredStrength": "163 to 190",
+            "RequiredStrength": "163-190",
             "RequiredDexterity": "0",
             "Durability": 24,
             "RequiredClass": ""
@@ -70968,8 +70968,8 @@
             "Speed": 5,
             "EquipmentType": 1,
             "Name": "Colossus Blade [E]",
-            "RequiredStrength": "236 to 283",
-            "RequiredDexterity": "137 to 165",
+            "RequiredStrength": "236-283",
+            "RequiredDexterity": "137-165",
             "Durability": 0,
             "RequiredClass": ""
         }
@@ -71563,7 +71563,7 @@
             "Block": null,
             "EquipmentType": 0,
             "Name": "Mithril Coil [E]",
-            "RequiredStrength": "159 to 185",
+            "RequiredStrength": "159-185",
             "RequiredDexterity": "0",
             "Durability": 16,
             "RequiredClass": ""
@@ -75119,7 +75119,7 @@
             "Block": null,
             "EquipmentType": 0,
             "Name": "Spired Helm [E]",
-            "RequiredStrength": "288 to 384",
+            "RequiredStrength": "288-384",
             "RequiredDexterity": "0",
             "Durability": 40,
             "RequiredClass": ""
@@ -75285,7 +75285,7 @@
             "Block": null,
             "EquipmentType": 0,
             "Name": "Colossus Girdle [E]",
-            "RequiredStrength": "222 to 259",
+            "RequiredStrength": "222-259",
             "RequiredDexterity": "0",
             "Durability": 24,
             "RequiredClass": ""
@@ -76866,8 +76866,8 @@
             "Speed": 0,
             "EquipmentType": 1,
             "Name": "Great Poleaxe [E]",
-            "RequiredStrength": "223 to 268",
-            "RequiredDexterity": "123 to 148",
+            "RequiredStrength": "223-268",
+            "RequiredDexterity": "123-148",
             "Durability": 250,
             "RequiredClass": ""
         }
@@ -77600,7 +77600,7 @@
             "Block": null,
             "EquipmentType": 0,
             "Name": "Bone Visage [E]",
-            "RequiredStrength": "106 to 265",
+            "RequiredStrength": "106-265",
             "RequiredDexterity": "0",
             "Durability": 40,
             "RequiredClass": ""

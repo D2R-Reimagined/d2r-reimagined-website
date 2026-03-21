@@ -45,8 +45,8 @@ interface IEquipment {
     Type?: string;
     ArmorString?: string;
     DamageTypes?: IDamageType[];
-    RequiredStrength?: number;
-    RequiredDexterity?: number;
+    RequiredStrength?: string;
+    RequiredDexterity?: string;
     Durability?: number;
     RequiredClass?: string;
 }

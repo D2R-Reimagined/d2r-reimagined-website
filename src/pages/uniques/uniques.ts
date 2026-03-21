@@ -30,6 +30,8 @@ interface IUniqueProperty {
 interface IUniqueEquipment {
     Name?: string;
     RequiredClass?: string;
+    RequiredStrength?: string;
+    RequiredDexterity?: string;
 }
 
 interface IUniqueItem {
