@@ -4,17 +4,28 @@ import {
     buildOptionsForPresentTypes,
     character_class_options,
     getChainForTypeNameReadonly,
+    getTypeChain,
     IFilterOption,
     resolveBaseTypeName,
     type_filtering_options,
 } from '../../resources/constants';
-import { getDamageTypeString as getDamageTypeStringUtil } from '../../utilities/damage-types';
+import {
+    getDamageTypeString as getDamageTypeStringUtil,
+    IDamageType,
+} from '../../utilities/damage-types';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
 import {
     isVanillaItem,
     prependTypeResetOption,
     tokenizeSearch,
 } from '../../utilities/filter-helpers';
+import {
+    getSortKeyFromDamageType as getSortKeyFromDamageTypeUtil,
+    sortItemsByWeaponDamage,
+    toggleWeaponSort,
+    WeaponSortMode,
+    weaponSortOptions,
+} from '../../utilities/item-sorting';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 import json from '../item-jsons/uniques.json';
 
@@ -32,6 +43,10 @@ interface IUniqueEquipment {
     RequiredClass?: string;
     RequiredStrength?: string;
     RequiredDexterity?: string;
+    DamageTypes?: IDamageType[];
+    ArmorString?: string;
+    Block?: number;
+    Durability?: number;
 }
 
 interface IUniqueItem {
@@ -41,10 +56,14 @@ interface IUniqueItem {
     Equipment?: IUniqueEquipment;
     Properties?: IUniqueProperty[];
     Vanilla?: string | number | boolean;
+    Rarity?: string;
+    RequiredLevel?: number;
 }
 
 export class Uniques {
-    uniques: IUniqueItem[] = json as unknown as IUniqueItem[];
+    allUniques: IUniqueItem[] = json as unknown as IUniqueItem[];
+    uniques: IUniqueItem[] = [];
+    private _searchStrings = new Map<IUniqueItem, string>();
 
     @bindable search: string;
     @bindable selectedClass: string | undefined;
@@ -53,6 +72,9 @@ export class Uniques {
     // Selected type value from dropdown: base token (scalar)
     @bindable selectedType: string = '';
     @bindable selectedEquipmentName: string | undefined;
+    // Current possible sorting modes
+    // TODO: Specific non-physical damage sorting in the future? (e.g.: fire damage)
+    @bindable weaponSortMode: WeaponSortMode = 'none';
 
     equipmentNames: Array<{ value: string | undefined; label: string }> = [];
 
@@ -62,11 +84,18 @@ export class Uniques {
     private _debouncedSearchItem!: IDebouncedFunction;
     private _debouncedUpdateUrl!: IDebouncedFunction;
 
+
+
     classes = character_class_options;
 
     // Hydrate state from URL and build type options BEFORE the controls render
     binding() {
         const urlParams = new URLSearchParams(window.location.search);
+
+        // Pre-calculate searchable strings
+        this.allUniques.forEach(u => {
+            this._searchStrings.set(u, this.buildSearchableStringForUnique(u));
+        });
 
         const searchParam = urlParams.get('search');
         if (searchParam && !isBlankOrInvalid(searchParam)) {
@@ -122,8 +151,34 @@ export class Uniques {
         this.updateUrl();
     }
 
+    detached() {
+        if (this._debouncedSearchItem) {
+            this._debouncedSearchItem.cancel();
+        }
+        if (this._debouncedUpdateUrl) {
+            this._debouncedUpdateUrl.cancel();
+        }
+    }
+
+    // Check if selected type is a weapon type
+    get isWeaponType(): boolean {
+        if (!this.selectedType) return false;
+        const opt = this.types.find((o) => o.id === this.selectedType);
+        if (!opt || !opt.value) return false;
+
+        // Check if 'Weapon' is in the values (works for aggregates and non-exact types)
+        if (opt.value.includes('Weapon')) return true;
+
+        // For exact types, we need to check their ancestors in the type graph
+        return opt.value.some(typeName => {
+            const chain = getTypeChain(typeName);
+            return chain.includes('Weapon');
+        });
+    }
+
     @watch('selectedClass')
     @watch('hideVanilla')
+    @watch('weaponSortMode')
     handleFilterChanged() {
         this.updateList();
         if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
@@ -135,12 +190,17 @@ export class Uniques {
         if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
     }
 
+    weaponSortOptions = weaponSortOptions;
+
     @watch('selectedType')
     handleTypeChanged() {
         // Update equipment names when type changes
         this.equipmentNames = this.getUniqueEquipmentNames();
         // Reset selected equipment name when type changes
         this.selectedEquipmentName = undefined;
+
+        // Reset sorting mode when type changes to non-weapon type
+        if (!this.isWeaponType) this.weaponSortMode = 'none';
 
         if (this._debouncedSearchItem) this._debouncedSearchItem();
         if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
@@ -167,65 +227,13 @@ export class Uniques {
         const selectedClassLower = (this.selectedClass || '').toLowerCase();
 
         // Build an allowed set from the selected base + its descendants (aggregates) + ancestors
-        const allowedTypeSet: Set<string> | null = ((): Set<string> | null => {
-            if (!this.selectedType) return null;
+        let allowedTypeSet: Set<string> | undefined;
+        if (this.selectedType) {
             const opt = this.types.find((o) => o.id === this.selectedType);
-            return opt && opt.value ? new Set<string>(opt.value) : null;
-        })();
+            if (opt && opt.value) allowedTypeSet = new Set<string>(opt.value);
+        }
 
-        const isMatchingClass = (unique: IUniqueItem) => {
-            if (!selectedClassLower) return true;
-            const req = unique?.Equipment?.RequiredClass
-                ? String(unique.Equipment.RequiredClass).toLowerCase()
-                : '';
-            return req.includes(selectedClassLower);
-        };
-        const isMatchingSearch = (unique: IUniqueItem) => {
-            if (!searchTokens.length) return true;
-
-            const groupStrings: string[] = [];
-            if (Array.isArray(unique?.Properties)) {
-                unique.Properties.forEach((p) => {
-                    if (p['group-properties']) {
-                        Object.values(p['group-properties']).forEach((pool) => {
-                            pool.forEach((affix) => {
-                                if (affix.PropertyString) groupStrings.push(affix.PropertyString);
-                            });
-                        });
-                    }
-                });
-            }
-
-            const hay = [
-                String(unique?.Name || ''),
-                ...(Array.isArray(unique?.Properties)
-                    ? unique.Properties.map((p) => String(p?.PropertyString || ''))
-                    : []),
-                ...groupStrings,
-                String(unique?.Equipment?.Name || ''),
-            ]
-                .filter(Boolean)
-                .join(' ')
-                .toLowerCase();
-            return searchTokens.some((group) => group.every((t) => hay.includes(t)));
-        };
-        const isMatchingType = (unique: IUniqueItem) => {
-            if (!allowedTypeSet) return true;
-            const base =
-                getChainForTypeNameReadonly(unique?.Type ?? '')[0] || (unique?.Type ?? '');
-            return allowedTypeSet.has(base);
-        };
-        const isMatchingEquipmentName = (unique: IUniqueItem) => {
-            return (
-                !this.selectedEquipmentName ||
-                String(unique?.Equipment?.Name || '') === this.selectedEquipmentName
-            );
-        };
-        const isMatchingVanilla = (unique: IUniqueItem) => {
-            return !this.hideVanilla || !isVanillaItem(unique?.Vanilla);
-        };
-
-        // Update the equipment names list if a type is selected
+        // Update the equipment names list if a type is selected and it was empty or just the placeholder
         if (
             this.selectedType &&
             (!this.equipmentNames || this.equipmentNames.length <= 1)
@@ -233,29 +241,86 @@ export class Uniques {
             this.equipmentNames = this.getUniqueEquipmentNames();
         }
 
-        this.uniques = (json as unknown as IUniqueItem[]).filter(
-            (unique: IUniqueItem) =>
-                !String(unique?.Name || '')
-                    .toLowerCase()
-                    .includes('grabber') &&
-                isMatchingSearch(unique) &&
-                isMatchingClass(unique) &&
-                isMatchingType(unique) &&
-                isMatchingEquipmentName(unique) &&
-                isMatchingVanilla(unique),
-        );
+        this.uniques = this.allUniques.filter((unique: IUniqueItem) => {
+            const name = unique?.Name || '';
+            if (name.toLowerCase().includes('grabber')) return false;
+
+            // 1. Vanilla filter
+            if (this.hideVanilla && isVanillaItem(unique?.Vanilla)) return false;
+
+            // 2. Class filter
+            if (selectedClassLower) {
+                const req = unique?.Equipment?.RequiredClass
+                    ? String(unique.Equipment.RequiredClass).toLowerCase()
+                    : '';
+                if (!req.includes(selectedClassLower)) return false;
+            }
+
+            // 3. Type filter
+            if (allowedTypeSet) {
+                const base =
+          getChainForTypeNameReadonly(unique?.Type ?? '')[0] || (unique?.Type ?? '');
+                if (!allowedTypeSet.has(base)) return false;
+            }
+
+            // 4. Equipment Name filter
+            if (
+                this.selectedEquipmentName &&
+        String(unique?.Equipment?.Name || '') !== this.selectedEquipmentName
+            ) {
+                return false;
+            }
+
+            // 5. Search filter
+            if (searchTokens.length > 0) {
+                const hay = this._searchStrings.get(unique) || '';
+                if (!searchTokens.some((group) => group.every((t) => hay.includes(t)))) {
+                    return false;
+                }
+            }
+
+            return true;
+        });
+
+        // Main sorting logic:
+        if (this.isWeaponType && this.weaponSortMode !== 'none') {
+            this.uniques = sortItemsByWeaponDamage(this.uniques, this.weaponSortMode);
+        }
+    }
+
+    private buildSearchableStringForUnique(unique: IUniqueItem): string {
+        const parts: string[] = [
+            String(unique?.Name || ''),
+            String(unique?.Equipment?.Name || ''),
+        ];
+
+        if (Array.isArray(unique?.Properties)) {
+            unique.Properties.forEach((p) => {
+                if (p.PropertyString) parts.push(p.PropertyString);
+                if (p['group-properties']) {
+                    Object.values(p['group-properties']).forEach((pool) => {
+                        pool.forEach((affix) => {
+                            if (affix.PropertyString) parts.push(affix.PropertyString);
+                        });
+                    });
+                }
+            });
+        }
+
+        return parts.filter(Boolean).join(' ').toLowerCase();
     }
 
     getDamageTypeString = getDamageTypeStringUtil;
 
     getUniqueEquipmentNames() {
         // Filter uniques based on the selected base (include descendants + ancestors)
-        const allowedTypeSet: Set<string> | null = ((): Set<string> | null => {
-            if (!this.selectedType) return null;
+        let allowedTypeSet: Set<string> | undefined;
+        if (this.selectedType) {
             const opt = this.types.find((o) => o.id === this.selectedType);
-            return opt && opt.value ? new Set<string>(opt.value) : null;
-        })();
-        const filteredUniques = (json as unknown as IUniqueItem[]).filter(
+            if (opt && opt.value) allowedTypeSet = new Set<string>(opt.value);
+        }
+
+        const filteredUniques = this.allUniques.filter(
             (unique: IUniqueItem) => {
                 if (!allowedTypeSet) return true;
                 const base =
@@ -298,8 +363,22 @@ export class Uniques {
         this.selectedType = '';
         this.selectedEquipmentName = undefined;
         this.equipmentNames = [{ value: '', label: '-' }];
+        this.weaponSortMode = 'none';
 
         this.updateList();
         this.updateUrl();
+    }
+
+    // Reset only the weapon sorting mode
+    resetSort() {
+        this.weaponSortMode = 'none';
+    }
+
+    toggleSort(type: string) {
+        this.weaponSortMode = toggleWeaponSort(this.weaponSortMode, type);
+    }
+
+    getSortKeyFromDamageType(type: number): string | null {
+        return getSortKeyFromDamageTypeUtil(type);
     }
 }

@@ -4,17 +4,28 @@ import {
     buildOptionsForPresentTypes,
     character_class_options,
     getChainForTypeNameReadonly,
+    getTypeChain,
     IFilterOption,
     resolveBaseTypeName,
     type_filtering_options,
 } from '../../resources/constants';
-import { getDamageTypeString as getDamageTypeStringUtil } from '../../utilities/damage-types';
+import {
+    getDamageTypeString as getDamageTypeStringUtil,
+    IDamageType,
+} from '../../utilities/damage-types';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
 import {
     isVanillaItem,
     prependTypeResetOption,
     tokenizeSearch,
 } from '../../utilities/filter-helpers';
+import {
+    getSortKeyFromDamageType as getSortKeyFromDamageTypeUtil,
+    sortItemsByWeaponDamage,
+    toggleWeaponSort,
+    WeaponSortMode,
+    weaponSortOptions,
+} from '../../utilities/item-sorting';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 import runewordsJson from '../item-jsons/runewords.json';
 import setsJson from '../item-jsons/sets.json';
@@ -24,11 +35,6 @@ import type { ISetData, ISetItem } from '../sets/set-types';
 interface ISelectOption {
     id: string;
     name: string;
-}
-
-interface IDamageType {
-    Type: number;
-    DamageString: string;
 }
 
 interface IProperty {
@@ -120,6 +126,25 @@ export class Grail {
     @bindable selectedEquipmentName: string | undefined;
     // When true, hide items where Vanilla === 'Y'
     @bindable hideVanilla: boolean = false;
+    @bindable weaponSortMode: WeaponSortMode = 'none';
+
+    // Helper to check if current type is weapon
+    get isWeaponType(): boolean {
+        if (!this.selectedTypeBase) return false;
+        const opt = this.types.find((o) => o.id === this.selectedTypeBase);
+        if (!opt || !opt.value) return false;
+
+        // Check if 'Weapon' is in the values (works for aggregates and non-exact types)
+        if (opt.value.includes('Weapon')) return true;
+
+        // For exact types, we need to check their ancestors in the type graph
+        return opt.value.some(typeName => {
+            const chain = getTypeChain(typeName);
+            return chain.includes('Weapon');
+        });
+    }
+
+    weaponSortOptions = weaponSortOptions;
 
     // Centralized options list (rebuilt per category based on data present)
     types: ReadonlyArray<IFilterOption> = type_filtering_options.slice();
@@ -149,6 +174,11 @@ export class Grail {
     private _uniqueSearchString = new Map<string, string>();
     private _setItemSearchString = new Map<string, string>();
     private _runewordSearchString = new Map<string, string>();
+
+    // Cache to avoid repeated chain lookups for runewords
+    private _runewordTypeBases = new Map<IRunewordData, string[]>();
+    // Cache for which base types have descendants in the dataset
+    private _baseHasDescendantsInRunewords = new Set<string>();
 
     binding(): void {
         // Flatten sets to item list for filtering
@@ -239,6 +269,8 @@ export class Grail {
 
     // When navigating away, clear Grail-related params from the URL so returning starts empty
     detached(): void {
+        if (this._debouncedApplyFilters) this._debouncedApplyFilters.cancel();
+        if (this._debouncedSaveFound) this._debouncedSaveFound.cancel();
         try {
             const url = new URL(window.location.href);
             // Only remove Grail-scoped parameters; do not touch global filters used by other pages
@@ -450,6 +482,10 @@ export class Grail {
                 /* ignore */
             }
         }
+
+        // Reset sorting mode when type changes to non-weapon type
+        if (!this.isWeaponType) this.weaponSortMode = 'none';
+
         if (this._debouncedApplyFilters) this._debouncedApplyFilters();
     }
 
@@ -469,12 +505,28 @@ export class Grail {
         // Visibility toggles
         this.showFoundItems = false;
         this.hideVanilla = false;
+        this.weaponSortMode = 'none';
 
         // Rebuild options list for the current category and refresh
         this.rebuildTypeOptions();
         this.updateList();
         this.updateTotalCount();
         this.updateUrl();
+    }
+
+    // Reset only the weapon sorting mode
+    resetSort() {
+        this.weaponSortMode = 'none';
+        if (this._debouncedApplyFilters) this._debouncedApplyFilters();
+    }
+
+    toggleSort(type: string) {
+        this.weaponSortMode = toggleWeaponSort(this.weaponSortMode, type);
+        if (this._debouncedApplyFilters) this._debouncedApplyFilters();
+    }
+
+    getSortKeyFromDamageType(type: number): string | null {
+        return getSortKeyFromDamageTypeUtil(type);
     }
 
     updateList() {
@@ -522,6 +574,9 @@ export class Grail {
                 );
             });
             this.filteredUniques = result;
+            if (this.isWeaponType && this.weaponSortMode !== 'none') {
+                this.filteredUniques = sortItemsByWeaponDamage(this.filteredUniques, this.weaponSortMode);
+            }
             this.displayedCount = this.filteredUniques.length;
         } else if (this.selectedCategory === 'sets') {
             const result = this.allSetItems.filter((item) => {
@@ -548,6 +603,9 @@ export class Grail {
                 return okClass && okType && okEquip && okVanilla && okSearch && okFound;
             });
             this.filteredSetItems = result;
+            if (this.isWeaponType && this.weaponSortMode !== 'none') {
+                this.filteredSetItems = sortItemsByWeaponDamage(this.filteredSetItems, this.weaponSortMode);
+            }
             // Items displayed (original display)
             this.setItemsDisplayedCount = this.filteredSetItems.length;
             // Count unique sets among displayed items
@@ -565,43 +623,22 @@ export class Grail {
                 if (selectedBase) {
                     const selectedChain = getChainForTypeNameReadonly(selectedBase);
                     const selectedChainSet = new Set<string>(selectedChain);
-
-                    let hasDescendantInData = false;
-                    if (!this.exclusiveType) {
-                        try {
-                            outer: for (const rw of this.runewords) {
-                                const types = Array.isArray(rw?.Types) ? rw.Types : [];
-                                for (let i = 0; i < types.length; i++) {
-                                    const raw =
-                                        types[i]?.Name != null ? String(types[i].Name) : '';
-                                    const chain = getChainForTypeNameReadonly(raw);
-                                    if (!chain || chain.length === 0) continue;
-                                    const base = chain[0];
-                                    if (
-                                        base !== selectedBase &&
-                                        chain.indexOf(selectedBase) !== -1
-                                    ) {
-                                        hasDescendantInData = true;
-                                        break outer;
-                                    }
-                                }
-                            }
-                        } catch {
-                            hasDescendantInData = false;
-                        }
-                    }
+                    const hasDescendantInDataset = this._baseHasDescendantsInRunewords.has(selectedBase);
 
                     list = list.filter((rw: IRunewordData) => {
-                        const types = Array.isArray(rw.Types) ? rw.Types : [];
-                        for (let i = 0; i < types.length; i++) {
-                            const raw = types[i]?.Name != null ? String(types[i].Name) : '';
-                            const chain = getChainForTypeNameReadonly(raw);
-                            if (!chain || chain.length === 0) continue;
-                            const itemBase = chain[0];
+                        const bases = this._runewordTypeBases.get(rw) || [];
+                        for (const itemBase of bases) {
                             if (this.exclusiveType) {
                                 if (itemBase === selectedBase) return true;
-                            } else if (hasDescendantInData) {
-                                if (chain.indexOf(selectedBase) !== -1) return true;
+                            } else if (hasDescendantInDataset) {
+                                // Full semantics with descendant matching: 
+                                // if we have descendants, we check the item type's full chain.
+                                // We can use the original logic for this case as it's less frequent
+                                const types = rw.Types || [];
+                                for (const t of types) {
+                                    const chain = getChainForTypeNameReadonly(t?.Name ?? '');
+                                    if (chain.includes(selectedBase)) return true;
+                                }
                             } else {
                                 if (selectedChainSet.has(itemBase)) return true;
                             }
@@ -732,33 +769,48 @@ export class Grail {
         this._uniqueSearchString.clear();
         this._setItemSearchString.clear();
         this._runewordSearchString.clear();
+        this._runewordTypeBases.clear();
+        this._baseHasDescendantsInRunewords.clear();
 
+        // Pass 1: Uniques
         try {
             for (const u of this.uniques) {
                 const key = this.getUniqueKey(u);
                 this._uniqueSearchString.set(key, this.buildSearchableStringForUnique(u));
             }
-        } catch {
-            /* ignore */
-        }
+        } catch { /* ignore */ }
 
+        // Pass 2: Set items
         try {
             for (const it of this.allSetItems) {
                 const key = this.getSetItemKey(it);
                 this._setItemSearchString.set(key, this.buildSearchableStringForSetItem(it));
             }
-        } catch {
-            /* ignore */
-        }
+        } catch { /* ignore */ }
 
+        // Pass 3: Runewords (and collect type info)
         try {
             for (const rw of this.runewords) {
                 const key = this.getRunewordKey(rw);
                 this._runewordSearchString.set(key, this.buildSearchableStringForRuneword(rw));
+
+                const bases: string[] = [];
+                const types = Array.isArray(rw.Types) ? rw.Types : [];
+                for (const t of types) {
+                    const raw = t?.Name != null ? String(t.Name) : '';
+                    const chain = getChainForTypeNameReadonly(raw);
+                    if (chain && chain.length) {
+                        const base = chain[0];
+                        bases.push(base);
+                        // If chain has more than 1 element, it means it's a descendant of those parents
+                        for (let i = 1; i < chain.length; i++) {
+                            this._baseHasDescendantsInRunewords.add(chain[i]);
+                        }
+                    }
+                }
+                this._runewordTypeBases.set(rw, bases);
             }
-        } catch {
-            /* ignore */
-        }
+        } catch { /* ignore */ }
     }
 
     // Checks that the search query matches the item's searchable string.
@@ -906,7 +958,6 @@ export class Grail {
 
     getDamageTypeString = getDamageTypeStringUtil;
 
-    // Helpers for keys and equipment name list
     private getUniqueKey(u: IUniqueItem): string {
         return String(u?.Name || '');
     }

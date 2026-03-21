@@ -37,16 +37,9 @@ interface IRunewordData {
 }
 
 export class Runewords {
-    runewords: IRunewordData[] = json as unknown as IRunewordData[];
-
-    @bindable search: string;
-    @bindable searchRunes: string;
-    @bindable exclusiveType: boolean = false;
-    @bindable hideVanilla: boolean = false;
-
-    private _debouncedSearchItem!: IDebouncedFunction;
-
+    allRunewords: IRunewordData[] = json as unknown as IRunewordData[];
     filteredRunewords: IRunewordData[] = [];
+    private _searchStrings = new Map<IRunewordData, string>();
 
     // Centralized options, narrowed at runtime to types present in data
     types: ReadonlyArray<IFilterOption> = type_filtering_options.slice();
@@ -69,10 +62,15 @@ export class Runewords {
     binding() {
         const urlParams = new URLSearchParams(window.location.search);
 
+        // Pre-calculate searchable strings
+        this.allRunewords.forEach(rw => {
+            this._searchStrings.set(rw, this.buildSearchableStringForRuneword(rw));
+        });
+
         // Collect EXPLICIT base type names present in data (Runewords-only behavior)
         const presentExplicitBases = new Set<string>();
         try {
-            for (const rw of this.runewords || []) {
+            for (const rw of this.allRunewords || []) {
                 const types = Array.isArray(rw?.Types) ? rw.Types : [];
                 for (const t of types) {
                     const chain = getChainForTypeNameReadonly(t?.Name ?? '');
@@ -150,6 +148,12 @@ export class Runewords {
         this.updateUrl();
     }
 
+    detached() {
+        if (this._debouncedSearchItem) {
+            this._debouncedSearchItem.cancel();
+        }
+    }
+
     // Push current filters to URL
     private updateUrl() {
         syncParamsToUrl({
@@ -222,100 +226,34 @@ export class Runewords {
     }
 
     updateList() {
-        let filteringRunewords: IRunewordData[] = this.runewords;
+        const searchTokens = tokenizeSearch(this.search);
 
-        // Type filtering
+        // Type filtering setup
+        let selectedSet: Set<string> | undefined;
+        let selectedBase: string | undefined;
         if (this.selectedType) {
             const opt = this.types.find((o) => o.id === this.selectedType);
             if (opt && opt.value && opt.value.length > 0) {
-                const selectedBase = opt.value[0];
-                let selectedSet: Set<string>;
-
+                selectedBase = opt.value[0];
                 if (!this.exclusiveType && opt.id && ANCESTOR_ONLY_WHEN_EXACT_OFF.includes(opt.id)) {
                     selectedSet = new Set(getChainForTypeNameReadonly(selectedBase));
                 } else {
                     selectedSet = new Set<string>(opt.value);
                 }
-
-                filteringRunewords = filteringRunewords.filter((rw) => {
-                    const types = Array.isArray(rw.Types) ? rw.Types : [];
-                    for (let i = 0; i < types.length; i++) {
-                        const raw = types[i]?.Name != null ? String(types[i].Name) : '';
-                        const chain = getChainForTypeNameReadonly(raw);
-                        if (!chain || chain.length === 0) continue;
-                        const itemBase = chain[0];
-
-                        if (this.exclusiveType) {
-                            // Exact: compare only the base of the item type
-                            if (itemBase === selectedBase) return true;
-                        } else {
-                            // Full semantics: match if the item base is in the selected option's value set
-                            // (which includes ancestors and descendants for non-exact options)
-                            if (selectedSet.has(itemBase)) return true;
-                        }
-                    }
-                    return false;
-                });
             }
         }
 
-        // Socket count filter
-        if (this.selectedAmount) {
-            filteringRunewords = filteringRunewords.filter(
-                (x) => (x.Runes?.length ?? 0) === this.selectedAmount,
-            );
-        }
-
-        // Apply text + rune filters
-        let found = filteringRunewords;
-
-        // Text search (tokenized AND across name, properties, types)
-        const searchTokens = tokenizeSearch(this.search);
-        if (searchTokens.length) {
-            found = found.filter((runeword) => {
-                const hay = [
-                    String(runeword.Name || ''),
-                    ...(runeword.Properties || []).flatMap((p: IRunewordProperty) => {
-                        const res = [p?.PropertyString || ''];
-                        if (p['group-properties']) {
-                            Object.values(p['group-properties']).forEach(pool => {
-                                pool.forEach(affix => {
-                                    if (affix.PropertyString) res.push(affix.PropertyString);
-                                });
-                            });
-                        }
-                        return res;
-                    }),
-                    ...(runeword.Types || []).map((t: IRunewordType) =>
-                        String(t?.Name || ''),
-                    ),
-                ]
-                    .filter(Boolean)
-                    .join(' ')
-                    .toLowerCase();
-                return searchTokens.some((group) =>
-                    group.every((t) => hay.includes(t)),
-                );
-            });
-        }
-
-        // Rune search filter (AND-of-OR groups)
+        // Rune search filter setup
+        let runeGroups: string[][] = [];
         if (this.searchRunes) {
-            // Normalize operators:
-            // - Space and '+' are AND (become spaces)
-            // - ',' and '|' are OR (become '|')
-            // Also normalize remaining whitespace to single spaces.
             const normalized = (this.searchRunes || '')
                 .trim()
                 .toLowerCase()
-                // Treat ',' and '|' as OR
                 .replace(/\s*[,|]\s*/g, '|')
-                // Treat '+' and whitespace as AND (space)
                 .replace(/\s*\+\s*/g, ' ')
                 .replace(/\s+/g, ' ');
 
-            // Split into AND groups by spaces; within each group, tokens separated by '|' are OR options.
-            const groups: string[][] = normalized
+            runeGroups = normalized
                 .split(' ')
                 .map((group) =>
                     group
@@ -324,29 +262,82 @@ export class Runewords {
                         .filter(Boolean),
                 )
                 .filter((g) => g.length > 0);
+        }
 
-            if (groups.length) {
-                found = found.filter((runeword) => {
-                    const runewordRuneNames = (runeword.Runes ?? []).map((rune) =>
-                        this.normalizeRuneName(String(rune.Name)),
-                    );
-                    // For each AND group, at least one OR token must be present in the runeword
-                    return groups.every((orGroup) =>
-                        orGroup.some((token) => runewordRuneNames.includes(token)),
-                    );
-                });
+        this.filteredRunewords = this.allRunewords.filter((rw) => {
+            // 1. Vanilla filter
+            if (this.hideVanilla && String(rw?.Vanilla || '').toUpperCase() === 'Y') {
+                return false;
             }
-        }
 
-        // Hide Vanilla filter
-        if (this.hideVanilla) {
-            found = found.filter(
-                (rw) => String(rw?.Vanilla || '').toUpperCase() !== 'Y',
-            );
-        }
+            // 2. Socket count filter
+            if (this.selectedAmount && (rw.Runes?.length ?? 0) !== this.selectedAmount) {
+                return false;
+            }
 
-        // Set the filtered runewords at the end
-        this.filteredRunewords = found;
+            // 3. Type filtering
+            if (selectedBase) {
+                const types = Array.isArray(rw.Types) ? rw.Types : [];
+                let hasTypeMatch = false;
+                for (let i = 0; i < types.length; i++) {
+                    const raw = types[i]?.Name != null ? String(types[i].Name) : '';
+                    const chain = getChainForTypeNameReadonly(raw);
+                    if (!chain || chain.length === 0) continue;
+                    const itemBase = chain[0];
+
+                    if (this.exclusiveType) {
+                        if (itemBase === selectedBase) {
+                            hasTypeMatch = true;
+                            break;
+                        }
+                    } else if (selectedSet && selectedSet.has(itemBase)) {
+                        hasTypeMatch = true;
+                        break;
+                    }
+                }
+                if (!hasTypeMatch) return false;
+            }
+
+            // 4. Text search
+            if (searchTokens.length > 0) {
+                const hay = this._searchStrings.get(rw) || '';
+                if (!searchTokens.some((group) => group.every((t) => hay.includes(t)))) {
+                    return false;
+                }
+            }
+
+            // 5. Rune search
+            if (runeGroups.length > 0) {
+                const runewordRuneNames = (rw.Runes ?? []).map((rune) =>
+                    this.normalizeRuneName(String(rune.Name)),
+                );
+                const hasRuneMatch = runeGroups.every((orGroup) =>
+                    orGroup.some((token) => runewordRuneNames.includes(token)),
+                );
+                if (!hasRuneMatch) return false;
+            }
+
+            return true;
+        });
+    }
+
+    private buildSearchableStringForRuneword(rw: IRunewordData): string {
+        const parts: string[] = [
+            String(rw.Name || ''),
+            ...(rw.Properties || []).flatMap((p: IRunewordProperty) => {
+                const res = [p?.PropertyString || ''];
+                if (p['group-properties']) {
+                    Object.values(p['group-properties']).forEach(pool => {
+                        pool.forEach(affix => {
+                            if (affix.PropertyString) res.push(affix.PropertyString);
+                        });
+                    });
+                }
+                return res;
+            }),
+            ...(rw.Types || []).map((t: IRunewordType) => String(t?.Name || '')),
+        ];
+        return parts.filter(Boolean).join(' ').toLowerCase();
     }
 
     // Reset all filters and refresh URL/list
