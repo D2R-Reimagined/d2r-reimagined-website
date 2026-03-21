@@ -1,5 +1,5 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-he2Z9BNF.js";
-import { g as getChainForTypeNameReadonly, t as type_filtering_options, A as ANCESTOR_ONLY_WHEN_EXACT_OFF } from "./item-type-filters-B8kjj1Cp.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement } from "./index-C9pSXVjY.js";
+import { a as getChainForTypeNameReadonly, t as type_filtering_options, A as ANCESTOR_ONLY_WHEN_EXACT_OFF } from "./item-type-filters-CmW1RKqb.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
 import { p as prependTypeResetOption, t as tokenizeSearch } from "./filter-helpers-C07hLFTd.js";
 import { r as runewordsJson } from "./runewords-gnjMNtLE.js";
@@ -272,18 +272,14 @@ var __privateIn = (member, obj) => Object(obj) !== obj ? __typeError('Cannot use
 var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
 var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "access private method"), method);
-var _handleHideVanillaChanged_dec, _handleExclusiveTypeChanged_dec, _selectedAmountChanged_dec, _selectedTypeChanged_dec, _handleSearchChanged_dec, _handleSearchRunesChanged_dec, _hideVanilla_dec, _exclusiveType_dec, _searchRunes_dec, _search_dec, _Runewords_decorators, _init;
-_Runewords_decorators = [customElement(__au2ViewDef)], _search_dec = [bindable], _searchRunes_dec = [bindable], _exclusiveType_dec = [bindable], _hideVanilla_dec = [bindable], _handleSearchRunesChanged_dec = [watch("searchRunes")], _handleSearchChanged_dec = [watch("search")], _selectedTypeChanged_dec = [watch("selectedType")], _selectedAmountChanged_dec = [watch("selectedAmount")], _handleExclusiveTypeChanged_dec = [watch("exclusiveType")], _handleHideVanillaChanged_dec = [watch("hideVanilla")];
+var _handleHideVanillaChanged_dec, _handleExclusiveTypeChanged_dec, _selectedAmountChanged_dec, _selectedTypeChanged_dec, _handleSearchChanged_dec, _handleSearchRunesChanged_dec, _Runewords_decorators, _init;
+_Runewords_decorators = [customElement(__au2ViewDef)], _handleSearchRunesChanged_dec = [watch("searchRunes")], _handleSearchChanged_dec = [watch("search")], _selectedTypeChanged_dec = [watch("selectedType")], _selectedAmountChanged_dec = [watch("selectedAmount")], _handleExclusiveTypeChanged_dec = [watch("exclusiveType")], _handleHideVanillaChanged_dec = [watch("hideVanilla")];
 class Runewords {
   constructor() {
     __runInitializers(_init, 5, this);
-    __publicField(this, "runewords", runewordsJson);
-    __publicField(this, "search", __runInitializers(_init, 8, this)), __runInitializers(_init, 11, this);
-    __publicField(this, "searchRunes", __runInitializers(_init, 12, this)), __runInitializers(_init, 15, this);
-    __publicField(this, "exclusiveType", __runInitializers(_init, 16, this, false)), __runInitializers(_init, 19, this);
-    __publicField(this, "hideVanilla", __runInitializers(_init, 20, this, false)), __runInitializers(_init, 23, this);
-    __publicField(this, "_debouncedSearchItem");
+    __publicField(this, "allRunewords", runewordsJson);
     __publicField(this, "filteredRunewords", []);
+    __publicField(this, "_searchStrings", /* @__PURE__ */ new Map());
     __publicField(this, "types", type_filtering_options.slice());
     __publicField(this, "selectedType", "");
     __publicField(this, "amounts", [
@@ -299,9 +295,12 @@ class Runewords {
   // Build options and hydrate filters from URL before controls render
   binding() {
     const urlParams = new URLSearchParams(window.location.search);
+    this.allRunewords.forEach((rw) => {
+      this._searchStrings.set(rw, this.buildSearchableStringForRuneword(rw));
+    });
     const presentExplicitBases = /* @__PURE__ */ new Set();
     try {
-      for (const rw of this.runewords || []) {
+      for (const rw of this.allRunewords || []) {
         const types = Array.isArray(rw?.Types) ? rw.Types : [];
         for (const t of types) {
           const chain = getChainForTypeNameReadonly(t?.Name ?? "");
@@ -349,6 +348,11 @@ class Runewords {
     this._debouncedSearchItem = debounce(() => this.updateList(), 350);
     this.updateList();
     this.updateUrl();
+  }
+  detached() {
+    if (this._debouncedSearchItem) {
+      this._debouncedSearchItem.cancel();
+    }
   }
   // Push current filters to URL
   updateUrl() {
@@ -402,87 +406,89 @@ class Runewords {
     return name2.replace(/-/g, " ").replace(/([a-z])([0-9])/g, "$1 $2");
   }
   updateList() {
-    let filteringRunewords = this.runewords;
+    const searchTokens = tokenizeSearch(this.search);
+    let selectedSet;
+    let selectedBase;
     if (this.selectedType) {
       const opt = this.types.find((o) => o.id === this.selectedType);
       if (opt && opt.value && opt.value.length > 0) {
-        const selectedBase = opt.value[0];
-        let selectedSet;
+        selectedBase = opt.value[0];
         if (!this.exclusiveType && opt.id && ANCESTOR_ONLY_WHEN_EXACT_OFF.includes(opt.id)) {
           selectedSet = new Set(getChainForTypeNameReadonly(selectedBase));
         } else {
           selectedSet = new Set(opt.value);
         }
-        filteringRunewords = filteringRunewords.filter((rw) => {
-          const types = Array.isArray(rw.Types) ? rw.Types : [];
-          for (let i = 0; i < types.length; i++) {
-            const raw = types[i]?.Name != null ? String(types[i].Name) : "";
-            const chain = getChainForTypeNameReadonly(raw);
-            if (!chain || chain.length === 0) continue;
-            const itemBase = chain[0];
-            if (this.exclusiveType) {
-              if (itemBase === selectedBase) return true;
-            } else {
-              if (selectedSet.has(itemBase)) return true;
-            }
-          }
-          return false;
-        });
       }
     }
-    if (this.selectedAmount) {
-      filteringRunewords = filteringRunewords.filter(
-        (x) => (x.Runes?.length ?? 0) === this.selectedAmount
-      );
-    }
-    let found = filteringRunewords;
-    const searchTokens = tokenizeSearch(this.search);
-    if (searchTokens.length) {
-      found = found.filter((runeword) => {
-        const hay = [
-          String(runeword.Name || ""),
-          ...(runeword.Properties || []).flatMap((p) => {
-            const res = [p?.PropertyString || ""];
-            if (p["group-properties"]) {
-              Object.values(p["group-properties"]).forEach((pool) => {
-                pool.forEach((affix) => {
-                  if (affix.PropertyString) res.push(affix.PropertyString);
-                });
-              });
-            }
-            return res;
-          }),
-          ...(runeword.Types || []).map(
-            (t) => String(t?.Name || "")
-          )
-        ].filter(Boolean).join(" ").toLowerCase();
-        return searchTokens.some(
-          (group) => group.every((t) => hay.includes(t))
-        );
-      });
-    }
+    let runeGroups = [];
     if (this.searchRunes) {
       const normalized = (this.searchRunes || "").trim().toLowerCase().replace(/\s*[,|]\s*/g, "|").replace(/\s*\+\s*/g, " ").replace(/\s+/g, " ");
-      const groups = normalized.split(" ").map(
+      runeGroups = normalized.split(" ").map(
         (group) => group.split("|").map((tok) => this.normalizeRuneName(tok)).filter(Boolean)
       ).filter((g) => g.length > 0);
-      if (groups.length) {
-        found = found.filter((runeword) => {
-          const runewordRuneNames = (runeword.Runes ?? []).map(
-            (rune) => this.normalizeRuneName(String(rune.Name))
-          );
-          return groups.every(
-            (orGroup) => orGroup.some((token) => runewordRuneNames.includes(token))
-          );
-        });
+    }
+    this.filteredRunewords = this.allRunewords.filter((rw) => {
+      if (this.hideVanilla && String(rw?.Vanilla || "").toUpperCase() === "Y") {
+        return false;
       }
-    }
-    if (this.hideVanilla) {
-      found = found.filter(
-        (rw) => String(rw?.Vanilla || "").toUpperCase() !== "Y"
-      );
-    }
-    this.filteredRunewords = found;
+      if (this.selectedAmount && (rw.Runes?.length ?? 0) !== this.selectedAmount) {
+        return false;
+      }
+      if (selectedBase) {
+        const types = Array.isArray(rw.Types) ? rw.Types : [];
+        let hasTypeMatch = false;
+        for (let i = 0; i < types.length; i++) {
+          const raw = types[i]?.Name != null ? String(types[i].Name) : "";
+          const chain = getChainForTypeNameReadonly(raw);
+          if (!chain || chain.length === 0) continue;
+          const itemBase = chain[0];
+          if (this.exclusiveType) {
+            if (itemBase === selectedBase) {
+              hasTypeMatch = true;
+              break;
+            }
+          } else if (selectedSet && selectedSet.has(itemBase)) {
+            hasTypeMatch = true;
+            break;
+          }
+        }
+        if (!hasTypeMatch) return false;
+      }
+      if (searchTokens.length > 0) {
+        const hay = this._searchStrings.get(rw) || "";
+        if (!searchTokens.some((group) => group.every((t) => hay.includes(t)))) {
+          return false;
+        }
+      }
+      if (runeGroups.length > 0) {
+        const runewordRuneNames = (rw.Runes ?? []).map(
+          (rune) => this.normalizeRuneName(String(rune.Name))
+        );
+        const hasRuneMatch = runeGroups.every(
+          (orGroup) => orGroup.some((token) => runewordRuneNames.includes(token))
+        );
+        if (!hasRuneMatch) return false;
+      }
+      return true;
+    });
+  }
+  buildSearchableStringForRuneword(rw) {
+    const parts = [
+      String(rw.Name || ""),
+      ...(rw.Properties || []).flatMap((p) => {
+        const res = [p?.PropertyString || ""];
+        if (p["group-properties"]) {
+          Object.values(p["group-properties"]).forEach((pool) => {
+            pool.forEach((affix) => {
+              if (affix.PropertyString) res.push(affix.PropertyString);
+            });
+          });
+        }
+        return res;
+      }),
+      ...(rw.Types || []).map((t) => String(t?.Name || ""))
+    ];
+    return parts.filter(Boolean).join(" ").toLowerCase();
   }
   // Reset all filters and refresh URL/list
   resetFilters() {
@@ -504,10 +510,6 @@ __decorateElement(_init, 1, "selectedTypeChanged", _selectedTypeChanged_dec, Run
 __decorateElement(_init, 1, "selectedAmountChanged", _selectedAmountChanged_dec, Runewords);
 __decorateElement(_init, 1, "handleExclusiveTypeChanged", _handleExclusiveTypeChanged_dec, Runewords);
 __decorateElement(_init, 1, "handleHideVanillaChanged", _handleHideVanillaChanged_dec, Runewords);
-__decorateElement(_init, 5, "search", _search_dec, Runewords);
-__decorateElement(_init, 5, "searchRunes", _searchRunes_dec, Runewords);
-__decorateElement(_init, 5, "exclusiveType", _exclusiveType_dec, Runewords);
-__decorateElement(_init, 5, "hideVanilla", _hideVanilla_dec, Runewords);
 Runewords = __decorateElement(_init, 0, "Runewords", _Runewords_decorators, Runewords);
 __runInitializers(_init, 1, Runewords);
 export {

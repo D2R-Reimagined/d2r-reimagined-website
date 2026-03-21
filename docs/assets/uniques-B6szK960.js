@@ -1,13 +1,17 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-he2Z9BNF.js";
-import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options, g as getChainForTypeNameReadonly } from "./item-type-filters-B8kjj1Cp.js";
-import { c as character_class_options } from "./character-classes-Cb6HmnkD.js";
-import { g as getDamageTypeString } from "./damage-types-Du-j2Hbt.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-C9pSXVjY.js";
+import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options, g as getTypeChain, a as getChainForTypeNameReadonly } from "./item-type-filters-CmW1RKqb.js";
+import { s as sortItemsByWeaponDamage, t as toggleWeaponSort, g as getSortKeyFromDamageType, c as character_class_options, w as weaponSortOptions } from "./item-sorting-CN1-l_qa.js";
+import { g as getDamageTypeString } from "./damage-types-BlYhXdWN.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
 import { p as prependTypeResetOption, t as tokenizeSearch, i as isVanillaItem } from "./filter-helpers-C07hLFTd.js";
-import { u as uniquesJson } from "./uniques-DtqT_d4i.js";
+import { u as uniquesJson } from "./uniques-BWb0Qc_o.js";
 const name = "uniques";
 const template = `<template>
-    <h3 class="text-lg type-text text-center mx-auto my-4">
+    <h3 class="text-lg type-text text-center my-4">
+        <span class="rarity-text">[N]</span> = Normal <span class="rarity-text">[X]</span> = Exceptional <span
+            class="rarity-text">[E]</span> = Elite
+    </h3>
+    <h3 class="text-lg type-text text-center mx-auto mb-4">
         <span class="rarity-text">\${uniques.length}</span> Uniques Found
     </h3>
 
@@ -114,6 +118,48 @@ const template = `<template>
         </div>
     </search-area>
 
+    <!-- weapon-sort-area -->
+    <div if.bind="isWeaponType">
+        <div class="w-full m-auto px-5 py-5 pb-2 border-b border-gray-600">
+            <h4 class="text-lg type-text text-center mb-2">Sort by Average Weapon Damage:</h4>
+            <div class="flex flex-wrap justify-center items-start gap-2">
+
+                <div repeat.for="opt of weaponSortOptions" class="w-full lg:w-auto lg:min-w-45" data-help-text.bind="opt.help">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <button id.bind="opt.id" class="vanilla-button flex-row-reverse" type="button" click.trigger="toggleSort(opt.type)"
+                                    aria-pressed.bind="weaponSortMode.includes(opt.type)">
+                                <span class="mso \${weaponSortMode.includes(opt.type) ? 'set-text-light' : ''}">
+                                    \${weaponSortMode === 'avg-' + opt.type + '-ascending' ? 'arrow_upward' : (weaponSortMode === 'avg-' + opt.type + '-descending' ? 'arrow_downward' : 'unknown_med')}
+                                </span>
+                                \${opt.label}
+                            </button>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for.bind="opt.id">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about \${opt.label} sorting</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Reset weapon sorting.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <button id="resetsort" class="button-base" type="button" click.trigger="resetSort()">
+                                Reset Sort
+                            </button>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="resetsort">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Reset Sort</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <div class="card-container">
         <div class="card-box card-vis" repeat.for="unique of uniques">
 
@@ -140,9 +186,14 @@ const template = `<template>
                          if.bind="unique.Equipment.Block !== null && unique.Equipment.Block !== undefined && unique.Equipment.Block > 0">
                         Block: \${unique.Equipment.Block}%
                     </div>
-                    <div class="text-base type-text" if.bind="unique.Equipment.DamageTypes"
-                         repeat.for="damage of unique.Equipment.DamageTypes">
-                        \${getDamageTypeString(damage.Type)} \${damage.DamageString}
+                    <div class="text-base type-text flex items-center justify-center gap-1"
+                         repeat.for="damage of unique.Equipment.DamageTypes"
+                         click.trigger="getSortKeyFromDamageType(damage.Type) ? toggleSort(getSortKeyFromDamageType(damage.Type)) : null"
+                         class.bind="getSortKeyFromDamageType(damage.Type) ? 'clickable' : ''">
+                        <span>\${getDamageTypeString(damage.Type)} \${damage.DamageString}<span class="set-text" if.bind="damage.AverageDamage"> <\${damage.AverageDamage}></span></span>
+                        <span class="mso set-text-light" if.bind="getSortKeyFromDamageType(damage.Type) && weaponSortMode.includes(getSortKeyFromDamageType(damage.Type))">
+                            \${weaponSortMode.includes('ascending') ? 'arrow_upward' : 'arrow_downward'}
+                        </span>
                     </div>
                     <div class="text-base type-text" if.bind="unique.Equipment.Durability > 0">
                         Durability: \${unique.Equipment.Durability}
@@ -167,7 +218,7 @@ const template = `<template>
 
                 <div class="text-base prop-text" repeat.for="property of unique.Properties | sortProperties">
                     <div if.bind="property.PropertyString">
-                        \${property.PropertyString}
+                        <span>\${property.PropertyString}</span>
                     </div>
                     <div if.bind="property['group-properties']">
                         <div repeat.for="[groupName, pool] of property['group-properties'] | entries">
@@ -188,7 +239,6 @@ const template = `<template>
                         </div>
                     </div>
                 </div>
-
                 </div>
             </div>
 </template>
@@ -259,27 +309,34 @@ var __privateIn = (member, obj) => Object(obj) !== obj ? __typeError('Cannot use
 var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
 var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "access private method"), method);
-var _handleEquipmentNameChanged_dec, _handleTypeChanged_dec, _handleSearchChanged_dec, _handleFilterChanged_dec, _selectedEquipmentName_dec, _selectedType_dec, _hideVanilla_dec, _selectedClass_dec, _search_dec, _Uniques_decorators, _init;
-_Uniques_decorators = [customElement(__au2ViewDef)], _search_dec = [bindable], _selectedClass_dec = [bindable], _hideVanilla_dec = [bindable], _selectedType_dec = [bindable], _selectedEquipmentName_dec = [bindable], _handleFilterChanged_dec = [watch("selectedClass"), watch("hideVanilla")], _handleSearchChanged_dec = [watch("search")], _handleTypeChanged_dec = [watch("selectedType")], _handleEquipmentNameChanged_dec = [watch("selectedEquipmentName")];
+var _handleEquipmentNameChanged_dec, _handleTypeChanged_dec, _handleSearchChanged_dec, _handleFilterChanged_dec, _weaponSortMode_dec, _selectedEquipmentName_dec, _selectedType_dec, _hideVanilla_dec, _selectedClass_dec, _search_dec, _Uniques_decorators, _init;
+_Uniques_decorators = [customElement(__au2ViewDef)], _search_dec = [bindable], _selectedClass_dec = [bindable], _hideVanilla_dec = [bindable], _selectedType_dec = [bindable], _selectedEquipmentName_dec = [bindable], _weaponSortMode_dec = [bindable], _handleFilterChanged_dec = [watch("selectedClass"), watch("hideVanilla"), watch("weaponSortMode")], _handleSearchChanged_dec = [watch("search")], _handleTypeChanged_dec = [watch("selectedType")], _handleEquipmentNameChanged_dec = [watch("selectedEquipmentName")];
 class Uniques {
   constructor() {
     __runInitializers(_init, 5, this);
-    __publicField(this, "uniques", uniquesJson);
+    __publicField(this, "allUniques", uniquesJson);
+    __publicField(this, "uniques", []);
+    __publicField(this, "_searchStrings", /* @__PURE__ */ new Map());
     __publicField(this, "search", __runInitializers(_init, 8, this)), __runInitializers(_init, 11, this);
     __publicField(this, "selectedClass", __runInitializers(_init, 12, this)), __runInitializers(_init, 15, this);
     __publicField(this, "hideVanilla", __runInitializers(_init, 16, this, false)), __runInitializers(_init, 19, this);
     __publicField(this, "selectedType", __runInitializers(_init, 20, this, "")), __runInitializers(_init, 23, this);
     __publicField(this, "selectedEquipmentName", __runInitializers(_init, 24, this)), __runInitializers(_init, 27, this);
+    __publicField(this, "weaponSortMode", __runInitializers(_init, 28, this, "none")), __runInitializers(_init, 31, this);
     __publicField(this, "equipmentNames", []);
     __publicField(this, "types", type_filtering_options.slice());
     __publicField(this, "_debouncedSearchItem");
     __publicField(this, "_debouncedUpdateUrl");
     __publicField(this, "classes", character_class_options);
+    __publicField(this, "weaponSortOptions", weaponSortOptions);
     __publicField(this, "getDamageTypeString", getDamageTypeString);
   }
   // Hydrate state from URL and build type options BEFORE the controls render
   binding() {
     const urlParams = new URLSearchParams(window.location.search);
+    this.allUniques.forEach((u) => {
+      this._searchStrings.set(u, this.buildSearchableStringForUnique(u));
+    });
     const searchParam = urlParams.get("search");
     if (searchParam && !isBlankOrInvalid(searchParam)) {
       this.search = searchParam;
@@ -319,6 +376,25 @@ class Uniques {
     this.updateList();
     this.updateUrl();
   }
+  detached() {
+    if (this._debouncedSearchItem) {
+      this._debouncedSearchItem.cancel();
+    }
+    if (this._debouncedUpdateUrl) {
+      this._debouncedUpdateUrl.cancel();
+    }
+  }
+  // Check if selected type is a weapon type
+  get isWeaponType() {
+    if (!this.selectedType) return false;
+    const opt = this.types.find((o) => o.id === this.selectedType);
+    if (!opt || !opt.value) return false;
+    if (opt.value.includes("Weapon")) return true;
+    return opt.value.some((typeName) => {
+      const chain = getTypeChain(typeName);
+      return chain.includes("Weapon");
+    });
+  }
   handleFilterChanged() {
     this.updateList();
     if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
@@ -330,6 +406,7 @@ class Uniques {
   handleTypeChanged() {
     this.equipmentNames = this.getUniqueEquipmentNames();
     this.selectedEquipmentName = void 0;
+    if (!this.isWeaponType) this.weaponSortMode = "none";
     if (this._debouncedSearchItem) this._debouncedSearchItem();
     if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
   }
@@ -349,63 +426,67 @@ class Uniques {
   updateList() {
     const searchTokens = tokenizeSearch(this.search);
     const selectedClassLower = (this.selectedClass || "").toLowerCase();
-    const allowedTypeSet = (() => {
-      if (!this.selectedType) return null;
+    let allowedTypeSet;
+    if (this.selectedType) {
       const opt = this.types.find((o) => o.id === this.selectedType);
-      return opt && opt.value ? new Set(opt.value) : null;
-    })();
-    const isMatchingClass = (unique) => {
-      if (!selectedClassLower) return true;
-      const req = unique?.Equipment?.RequiredClass ? String(unique.Equipment.RequiredClass).toLowerCase() : "";
-      return req.includes(selectedClassLower);
-    };
-    const isMatchingSearch = (unique) => {
-      if (!searchTokens.length) return true;
-      const groupStrings = [];
-      if (Array.isArray(unique?.Properties)) {
-        unique.Properties.forEach((p) => {
-          if (p["group-properties"]) {
-            Object.values(p["group-properties"]).forEach((pool) => {
-              pool.forEach((affix) => {
-                if (affix.PropertyString) groupStrings.push(affix.PropertyString);
-              });
-            });
-          }
-        });
-      }
-      const hay = [
-        String(unique?.Name || ""),
-        ...Array.isArray(unique?.Properties) ? unique.Properties.map((p) => String(p?.PropertyString || "")) : [],
-        ...groupStrings,
-        String(unique?.Equipment?.Name || "")
-      ].filter(Boolean).join(" ").toLowerCase();
-      return searchTokens.some((group) => group.every((t) => hay.includes(t)));
-    };
-    const isMatchingType = (unique) => {
-      if (!allowedTypeSet) return true;
-      const base = getChainForTypeNameReadonly(unique?.Type ?? "")[0] || (unique?.Type ?? "");
-      return allowedTypeSet.has(base);
-    };
-    const isMatchingEquipmentName = (unique) => {
-      return !this.selectedEquipmentName || String(unique?.Equipment?.Name || "") === this.selectedEquipmentName;
-    };
-    const isMatchingVanilla = (unique) => {
-      return !this.hideVanilla || !isVanillaItem(unique?.Vanilla);
-    };
+      if (opt && opt.value) allowedTypeSet = new Set(opt.value);
+    }
     if (this.selectedType && (!this.equipmentNames || this.equipmentNames.length <= 1)) {
       this.equipmentNames = this.getUniqueEquipmentNames();
     }
-    this.uniques = uniquesJson.filter(
-      (unique) => !String(unique?.Name || "").toLowerCase().includes("grabber") && isMatchingSearch(unique) && isMatchingClass(unique) && isMatchingType(unique) && isMatchingEquipmentName(unique) && isMatchingVanilla(unique)
-    );
+    this.uniques = this.allUniques.filter((unique) => {
+      const name2 = unique?.Name || "";
+      if (name2.toLowerCase().includes("grabber")) return false;
+      if (this.hideVanilla && isVanillaItem(unique?.Vanilla)) return false;
+      if (selectedClassLower) {
+        const req = unique?.Equipment?.RequiredClass ? String(unique.Equipment.RequiredClass).toLowerCase() : "";
+        if (!req.includes(selectedClassLower)) return false;
+      }
+      if (allowedTypeSet) {
+        const base = getChainForTypeNameReadonly(unique?.Type ?? "")[0] || (unique?.Type ?? "");
+        if (!allowedTypeSet.has(base)) return false;
+      }
+      if (this.selectedEquipmentName && String(unique?.Equipment?.Name || "") !== this.selectedEquipmentName) {
+        return false;
+      }
+      if (searchTokens.length > 0) {
+        const hay = this._searchStrings.get(unique) || "";
+        if (!searchTokens.some((group) => group.every((t) => hay.includes(t)))) {
+          return false;
+        }
+      }
+      return true;
+    });
+    if (this.isWeaponType && this.weaponSortMode !== "none") {
+      this.uniques = sortItemsByWeaponDamage(this.uniques, this.weaponSortMode);
+    }
+  }
+  buildSearchableStringForUnique(unique) {
+    const parts = [
+      String(unique?.Name || ""),
+      String(unique?.Equipment?.Name || "")
+    ];
+    if (Array.isArray(unique?.Properties)) {
+      unique.Properties.forEach((p) => {
+        if (p.PropertyString) parts.push(p.PropertyString);
+        if (p["group-properties"]) {
+          Object.values(p["group-properties"]).forEach((pool) => {
+            pool.forEach((affix) => {
+              if (affix.PropertyString) parts.push(affix.PropertyString);
+            });
+          });
+        }
+      });
+    }
+    return parts.filter(Boolean).join(" ").toLowerCase();
   }
   getUniqueEquipmentNames() {
-    const allowedTypeSet = (() => {
-      if (!this.selectedType) return null;
+    let allowedTypeSet;
+    if (this.selectedType) {
       const opt = this.types.find((o) => o.id === this.selectedType);
-      return opt && opt.value ? new Set(opt.value) : null;
-    })();
-    const filteredUniques = uniquesJson.filter(
+      if (opt && opt.value) allowedTypeSet = new Set(opt.value);
+    }
+    const filteredUniques = this.allUniques.filter(
       (unique) => {
         if (!allowedTypeSet) return true;
         const base = getChainForTypeNameReadonly(unique?.Type ?? "")[0] || (unique?.Type ?? "");
@@ -435,8 +516,19 @@ class Uniques {
     this.selectedType = "";
     this.selectedEquipmentName = void 0;
     this.equipmentNames = [{ value: "", label: "-" }];
+    this.weaponSortMode = "none";
     this.updateList();
     this.updateUrl();
+  }
+  // Reset only the weapon sorting mode
+  resetSort() {
+    this.weaponSortMode = "none";
+  }
+  toggleSort(type) {
+    this.weaponSortMode = toggleWeaponSort(this.weaponSortMode, type);
+  }
+  getSortKeyFromDamageType(type) {
+    return getSortKeyFromDamageType(type);
   }
 }
 _init = __decoratorStart();
@@ -449,6 +541,7 @@ __decorateElement(_init, 5, "selectedClass", _selectedClass_dec, Uniques);
 __decorateElement(_init, 5, "hideVanilla", _hideVanilla_dec, Uniques);
 __decorateElement(_init, 5, "selectedType", _selectedType_dec, Uniques);
 __decorateElement(_init, 5, "selectedEquipmentName", _selectedEquipmentName_dec, Uniques);
+__decorateElement(_init, 5, "weaponSortMode", _weaponSortMode_dec, Uniques);
 Uniques = __decorateElement(_init, 0, "Uniques", _Uniques_decorators, Uniques);
 __runInitializers(_init, 1, Uniques);
 export {

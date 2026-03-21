@@ -1,15 +1,19 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-he2Z9BNF.js";
-import { g as getChainForTypeNameReadonly, r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options } from "./item-type-filters-B8kjj1Cp.js";
-import { c as character_class_options } from "./character-classes-Cb6HmnkD.js";
-import { g as getDamageTypeString } from "./damage-types-Du-j2Hbt.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-C9pSXVjY.js";
+import { g as getTypeChain, a as getChainForTypeNameReadonly, r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options } from "./item-type-filters-CmW1RKqb.js";
+import { t as toggleWeaponSort, g as getSortKeyFromDamageType, s as sortItemsByWeaponDamage, c as character_class_options, w as weaponSortOptions } from "./item-sorting-CN1-l_qa.js";
+import { g as getDamageTypeString } from "./damage-types-BlYhXdWN.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
 import { p as prependTypeResetOption, t as tokenizeSearch, i as isVanillaItem } from "./filter-helpers-C07hLFTd.js";
 import { r as runewordsJson } from "./runewords-gnjMNtLE.js";
-import { s as setsJson } from "./sets-D_OU-sd1.js";
-import { u as uniquesJson } from "./uniques-DtqT_d4i.js";
+import { s as setsJson } from "./sets-BPM6FxId.js";
+import { u as uniquesJson } from "./uniques-BWb0Qc_o.js";
 const name = "grail";
 const template = `<template>
-    <h3 class="text-lg type-text text-center items-center mx-auto my-4">
+    <h3 class="text-lg type-text text-center my-4">
+        <span class="rarity-text">[N]</span> = Normal <span class="rarity-text">[X]</span> = Exceptional <span
+            class="rarity-text">[E]</span> = Elite
+    </h3>
+    <h3 class="text-lg type-text text-center items-center mx-auto mb-4">
         <span class="unique-text">- Holy Grail Tracker -</span>
         <template if.bind="selectedCategory === 'sets'">
             <div>
@@ -186,6 +190,48 @@ const template = `<template>
         </div>
     </search-area>
 
+    <!-- weapon-sort-area -->
+    <div if.bind="isWeaponType && selectedCategory !== 'runewords'">
+        <div class="w-full m-auto px-5 py-5 pb-2 border-b border-gray-600">
+            <h4 class="text-lg type-text text-center mb-2">Sort by Average Weapon Damage:</h4>
+            <div class="flex flex-wrap justify-center items-start gap-2">
+
+                <div repeat.for="opt of weaponSortOptions" class="w-full lg:w-auto lg:min-w-45" data-help-text.bind="opt.help">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <button id.bind="opt.id" class="vanilla-button flex-row-reverse" type="button" click.trigger="toggleSort(opt.type)"
+                                    aria-pressed.bind="weaponSortMode.includes(opt.type)">
+                                <span class="mso \${weaponSortMode.includes(opt.type) ? 'set-text-light' : ''}">
+                                    \${weaponSortMode === 'avg-' + opt.type + '-ascending' ? 'arrow_upward' : (weaponSortMode === 'avg-' + opt.type + '-descending' ? 'arrow_downward' : 'unknown_med')}
+                                </span>
+                                \${opt.label}
+                            </button>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for.bind="opt.id">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about \${opt.label} sorting</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Reset weapon sorting.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <button id="resetsort" class="button-base" type="button" click.trigger="resetSort()">
+                                Reset Sort
+                            </button>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="resetsort">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Reset Sort</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <div class="card-container">
         <div class="card-box card-vis" repeat.for="unique of filteredUniques"
              if.bind="selectedCategory === 'uniques'">
@@ -224,9 +270,14 @@ const template = `<template>
                          if.bind="unique.Equipment.Block !== null && unique.Equipment.Block !== undefined && unique.Equipment.Block > 0">
                         Block: \${unique.Equipment.Block}%
                     </div>
-                    <div class="text-base type-text" if.bind="unique.Equipment.DamageTypes"
-                         repeat.for="damage of unique.Equipment.DamageTypes">
-                        \${getDamageTypeString(damage.Type)} \${damage.DamageString}
+                    <div class="text-base type-text flex items-center justify-center gap-1" if.bind="unique.Equipment.DamageTypes"
+                         repeat.for="damage of unique.Equipment.DamageTypes"
+                         click.trigger="getSortKeyFromDamageType(damage.Type) ? toggleSort(getSortKeyFromDamageType(damage.Type)) : null"
+                         class.bind="getSortKeyFromDamageType(damage.Type) ? 'clickable' : ''">
+                        <span>\${getDamageTypeString(damage.Type)} \${damage.DamageString}<span class="set-text" if.bind="damage.AverageDamage"> <\${damage.AverageDamage}></span></span>
+                        <span class="mso set-text-light" if.bind="getSortKeyFromDamageType(damage.Type) && weaponSortMode.includes(getSortKeyFromDamageType(damage.Type))">
+                            \${weaponSortMode.includes('ascending') ? 'arrow_upward' : 'arrow_downward'}
+                        </span>
                     </div>
                     <div class="text-base type-text" if.bind="unique.Equipment.Durability > 0">
                         Durability: \${unique.Equipment.Durability}
@@ -252,7 +303,7 @@ const template = `<template>
                 <div>
                     <div class="text-base prop-text" repeat.for="property of unique.Properties | sortProperties">
                         <div if.bind="property.PropertyString">
-                            \${property.PropertyString}
+                            <span>\${property.PropertyString}</span>
                         </div>
                         <div if.bind="property['group-properties']">
                             <div repeat.for="[groupName, pool] of property['group-properties'] | entries">
@@ -317,9 +368,14 @@ const template = `<template>
                          if.bind="setItem.Equipment.Block !== null && setItem.Equipment.Block !== undefined && setItem.Equipment.Block > 0">
                         Block: \${setItem.Equipment.Block}%
                     </div>
-                    <div class="text-base type-text" if.bind="setItem.Equipment.DamageTypes"
-                         repeat.for="damage of setItem.Equipment.DamageTypes">
-                        \${getDamageTypeString(damage.Type)} \${damage.DamageString}
+                    <div class="text-base type-text flex items-center justify-center gap-1" if.bind="setItem.Equipment.DamageTypes"
+                         repeat.for="damage of setItem.Equipment.DamageTypes"
+                         click.trigger="getSortKeyFromDamageType(damage.Type) ? toggleSort(getSortKeyFromDamageType(damage.Type)) : null"
+                         class.bind="getSortKeyFromDamageType(damage.Type) ? 'clickable' : ''">
+                        <span>\${getDamageTypeString(damage.Type)} \${damage.DamageString}<span class="set-text" if.bind="damage.AverageDamage"> <\${damage.AverageDamage}></span></span>
+                        <span class="mso set-text-light" if.bind="getSortKeyFromDamageType(damage.Type) && weaponSortMode.includes(getSortKeyFromDamageType(damage.Type))">
+                            \${weaponSortMode.includes('ascending') ? 'arrow_upward' : 'arrow_downward'}
+                        </span>
                     </div>
                     <div class="text-base type-text" if.bind="setItem.Equipment.Durability > 0">
                         Durability: \${setItem.Equipment.Durability}
@@ -345,7 +401,7 @@ const template = `<template>
                 <div>
                     <div class="text-base prop-text" repeat.for="property of setItem.Properties | sortProperties">
                         <div if.bind="property.PropertyString">
-                            \${property.PropertyString}
+                            <span>\${property.PropertyString}</span>
                         </div>
                         <div if.bind="property['group-properties']">
                             <div repeat.for="[groupName, pool] of property['group-properties'] | entries">
@@ -508,8 +564,8 @@ var __privateIn = (member, obj) => Object(obj) !== obj ? __typeError('Cannot use
 var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
 var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "access private method"), method);
-var _selectedTypeChanged_dec, _foundRunewords_dec, _foundSets_dec, _foundUniques_dec, _showFoundItems_dec, _exclusiveType_dec, _hideVanilla_dec, _selectedEquipmentName_dec, _selectedType_dec, _selectedTypeBase_dec, _selectedClass_dec, _search_dec, _selectedCategory_dec, _Grail_decorators, _init;
-_Grail_decorators = [customElement(__au2ViewDef)], _selectedCategory_dec = [bindable], _search_dec = [bindable], _selectedClass_dec = [bindable], _selectedTypeBase_dec = [bindable], _selectedType_dec = [bindable], _selectedEquipmentName_dec = [bindable], _hideVanilla_dec = [bindable], _exclusiveType_dec = [bindable], _showFoundItems_dec = [bindable], _foundUniques_dec = [bindable], _foundSets_dec = [bindable], _foundRunewords_dec = [bindable], _selectedTypeChanged_dec = [watch("selectedType")];
+var _selectedTypeChanged_dec, _foundRunewords_dec, _foundSets_dec, _foundUniques_dec, _showFoundItems_dec, _exclusiveType_dec, _weaponSortMode_dec, _hideVanilla_dec, _selectedEquipmentName_dec, _selectedType_dec, _selectedTypeBase_dec, _selectedClass_dec, _search_dec, _selectedCategory_dec, _Grail_decorators, _init;
+_Grail_decorators = [customElement(__au2ViewDef)], _selectedCategory_dec = [bindable], _search_dec = [bindable], _selectedClass_dec = [bindable], _selectedTypeBase_dec = [bindable], _selectedType_dec = [bindable], _selectedEquipmentName_dec = [bindable], _hideVanilla_dec = [bindable], _weaponSortMode_dec = [bindable], _exclusiveType_dec = [bindable], _showFoundItems_dec = [bindable], _foundUniques_dec = [bindable], _foundSets_dec = [bindable], _foundRunewords_dec = [bindable], _selectedTypeChanged_dec = [watch("selectedType")];
 class Grail {
   constructor() {
     __runInitializers(_init, 5, this);
@@ -533,12 +589,14 @@ class Grail {
     __publicField(this, "selectedType", __runInitializers(_init, 24, this)), __runInitializers(_init, 27, this);
     __publicField(this, "selectedEquipmentName", __runInitializers(_init, 28, this)), __runInitializers(_init, 31, this);
     __publicField(this, "hideVanilla", __runInitializers(_init, 32, this, false)), __runInitializers(_init, 35, this);
+    __publicField(this, "weaponSortMode", __runInitializers(_init, 36, this, "none")), __runInitializers(_init, 39, this);
+    __publicField(this, "weaponSortOptions", weaponSortOptions);
     __publicField(this, "types", type_filtering_options.slice());
-    __publicField(this, "exclusiveType", __runInitializers(_init, 36, this, false)), __runInitializers(_init, 39, this);
-    __publicField(this, "showFoundItems", __runInitializers(_init, 40, this, false)), __runInitializers(_init, 43, this);
-    __publicField(this, "foundUniques", __runInitializers(_init, 44, this, {})), __runInitializers(_init, 47, this);
-    __publicField(this, "foundSets", __runInitializers(_init, 48, this, {})), __runInitializers(_init, 51, this);
-    __publicField(this, "foundRunewords", __runInitializers(_init, 52, this, {})), __runInitializers(_init, 55, this);
+    __publicField(this, "exclusiveType", __runInitializers(_init, 40, this, false)), __runInitializers(_init, 43, this);
+    __publicField(this, "showFoundItems", __runInitializers(_init, 44, this, false)), __runInitializers(_init, 47, this);
+    __publicField(this, "foundUniques", __runInitializers(_init, 48, this, {})), __runInitializers(_init, 51, this);
+    __publicField(this, "foundSets", __runInitializers(_init, 52, this, {})), __runInitializers(_init, 55, this);
+    __publicField(this, "foundRunewords", __runInitializers(_init, 56, this, {})), __runInitializers(_init, 59, this);
     __publicField(this, "foundCount", 0);
     __publicField(this, "totalCount", 0);
     __publicField(this, "displayedCount", 0);
@@ -550,7 +608,20 @@ class Grail {
     __publicField(this, "_uniqueSearchString", /* @__PURE__ */ new Map());
     __publicField(this, "_setItemSearchString", /* @__PURE__ */ new Map());
     __publicField(this, "_runewordSearchString", /* @__PURE__ */ new Map());
+    __publicField(this, "_runewordTypeBases", /* @__PURE__ */ new Map());
+    __publicField(this, "_baseHasDescendantsInRunewords", /* @__PURE__ */ new Set());
     __publicField(this, "getDamageTypeString", getDamageTypeString);
+  }
+  // Helper to check if current type is weapon
+  get isWeaponType() {
+    if (!this.selectedTypeBase) return false;
+    const opt = this.types.find((o) => o.id === this.selectedTypeBase);
+    if (!opt || !opt.value) return false;
+    if (opt.value.includes("Weapon")) return true;
+    return opt.value.some((typeName) => {
+      const chain = getTypeChain(typeName);
+      return chain.includes("Weapon");
+    });
   }
   binding() {
     try {
@@ -611,6 +682,8 @@ class Grail {
   }
   // When navigating away, clear Grail-related params from the URL so returning starts empty
   detached() {
+    if (this._debouncedApplyFilters) this._debouncedApplyFilters.cancel();
+    if (this._debouncedSaveFound) this._debouncedSaveFound.cancel();
     try {
       const url = new URL(window.location.href);
       url.searchParams.delete("g-category");
@@ -775,6 +848,7 @@ class Grail {
       } catch {
       }
     }
+    if (!this.isWeaponType) this.weaponSortMode = "none";
     if (this._debouncedApplyFilters) this._debouncedApplyFilters();
   }
   selectedEquipmentNameChanged() {
@@ -790,10 +864,23 @@ class Grail {
     this.equipmentNames = [{ id: "", name: "-" }];
     this.showFoundItems = false;
     this.hideVanilla = false;
+    this.weaponSortMode = "none";
     this.rebuildTypeOptions();
     this.updateList();
     this.updateTotalCount();
     this.updateUrl();
+  }
+  // Reset only the weapon sorting mode
+  resetSort() {
+    this.weaponSortMode = "none";
+    if (this._debouncedApplyFilters) this._debouncedApplyFilters();
+  }
+  toggleSort(type) {
+    this.weaponSortMode = toggleWeaponSort(this.weaponSortMode, type);
+    if (this._debouncedApplyFilters) this._debouncedApplyFilters();
+  }
+  getSortKeyFromDamageType(type) {
+    return getSortKeyFromDamageType(type);
   }
   updateList() {
     const searchTokens = tokenizeSearch(this.search);
@@ -816,6 +903,9 @@ class Grail {
         return okClass && okType && okEquip && okVanilla && okSearch && notGrabber && okFound;
       });
       this.filteredUniques = result;
+      if (this.isWeaponType && this.weaponSortMode !== "none") {
+        this.filteredUniques = sortItemsByWeaponDamage(this.filteredUniques, this.weaponSortMode);
+      }
       this.displayedCount = this.filteredUniques.length;
     } else if (this.selectedCategory === "sets") {
       const result = this.allSetItems.filter((item) => {
@@ -834,6 +924,9 @@ class Grail {
         return okClass && okType && okEquip && okVanilla && okSearch && okFound;
       });
       this.filteredSetItems = result;
+      if (this.isWeaponType && this.weaponSortMode !== "none") {
+        this.filteredSetItems = sortItemsByWeaponDamage(this.filteredSetItems, this.weaponSortMode);
+      }
       this.setItemsDisplayedCount = this.filteredSetItems.length;
       const displayedSets = /* @__PURE__ */ new Set();
       for (const it of this.filteredSetItems) {
@@ -847,37 +940,18 @@ class Grail {
         if (selectedBase) {
           const selectedChain = getChainForTypeNameReadonly(selectedBase);
           const selectedChainSet = new Set(selectedChain);
-          let hasDescendantInData = false;
-          if (!this.exclusiveType) {
-            try {
-              outer: for (const rw of this.runewords) {
-                const types = Array.isArray(rw?.Types) ? rw.Types : [];
-                for (let i = 0; i < types.length; i++) {
-                  const raw = types[i]?.Name != null ? String(types[i].Name) : "";
-                  const chain = getChainForTypeNameReadonly(raw);
-                  if (!chain || chain.length === 0) continue;
-                  const base = chain[0];
-                  if (base !== selectedBase && chain.indexOf(selectedBase) !== -1) {
-                    hasDescendantInData = true;
-                    break outer;
-                  }
-                }
-              }
-            } catch {
-              hasDescendantInData = false;
-            }
-          }
+          const hasDescendantInDataset = this._baseHasDescendantsInRunewords.has(selectedBase);
           list = list.filter((rw) => {
-            const types = Array.isArray(rw.Types) ? rw.Types : [];
-            for (let i = 0; i < types.length; i++) {
-              const raw = types[i]?.Name != null ? String(types[i].Name) : "";
-              const chain = getChainForTypeNameReadonly(raw);
-              if (!chain || chain.length === 0) continue;
-              const itemBase = chain[0];
+            const bases = this._runewordTypeBases.get(rw) || [];
+            for (const itemBase of bases) {
               if (this.exclusiveType) {
                 if (itemBase === selectedBase) return true;
-              } else if (hasDescendantInData) {
-                if (chain.indexOf(selectedBase) !== -1) return true;
+              } else if (hasDescendantInDataset) {
+                const types = rw.Types || [];
+                for (const t of types) {
+                  const chain = getChainForTypeNameReadonly(t?.Name ?? "");
+                  if (chain.includes(selectedBase)) return true;
+                }
               } else {
                 if (selectedChainSet.has(itemBase)) return true;
               }
@@ -990,6 +1064,8 @@ class Grail {
     this._uniqueSearchString.clear();
     this._setItemSearchString.clear();
     this._runewordSearchString.clear();
+    this._runewordTypeBases.clear();
+    this._baseHasDescendantsInRunewords.clear();
     try {
       for (const u of this.uniques) {
         const key = this.getUniqueKey(u);
@@ -1008,6 +1084,20 @@ class Grail {
       for (const rw of this.runewords) {
         const key = this.getRunewordKey(rw);
         this._runewordSearchString.set(key, this.buildSearchableStringForRuneword(rw));
+        const bases = [];
+        const types = Array.isArray(rw.Types) ? rw.Types : [];
+        for (const t of types) {
+          const raw = t?.Name != null ? String(t.Name) : "";
+          const chain = getChainForTypeNameReadonly(raw);
+          if (chain && chain.length) {
+            const base = chain[0];
+            bases.push(base);
+            for (let i = 1; i < chain.length; i++) {
+              this._baseHasDescendantsInRunewords.add(chain[i]);
+            }
+          }
+        }
+        this._runewordTypeBases.set(rw, bases);
       }
     } catch {
     }
@@ -1126,7 +1216,6 @@ class Grail {
       this.updateList();
     }
   }
-  // Helpers for keys and equipment name list
   getUniqueKey(u) {
     return String(u?.Name || "");
   }
@@ -1186,6 +1275,7 @@ __decorateElement(_init, 5, "selectedTypeBase", _selectedTypeBase_dec, Grail);
 __decorateElement(_init, 5, "selectedType", _selectedType_dec, Grail);
 __decorateElement(_init, 5, "selectedEquipmentName", _selectedEquipmentName_dec, Grail);
 __decorateElement(_init, 5, "hideVanilla", _hideVanilla_dec, Grail);
+__decorateElement(_init, 5, "weaponSortMode", _weaponSortMode_dec, Grail);
 __decorateElement(_init, 5, "exclusiveType", _exclusiveType_dec, Grail);
 __decorateElement(_init, 5, "showFoundItems", _showFoundItems_dec, Grail);
 __decorateElement(_init, 5, "foundUniques", _foundUniques_dec, Grail);

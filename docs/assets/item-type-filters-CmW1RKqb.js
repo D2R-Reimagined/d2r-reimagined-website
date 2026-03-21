@@ -367,8 +367,9 @@ const type_filtering_options = [
 ];
 export {
   ANCESTOR_ONLY_WHEN_EXACT_OFF as A,
+  getChainForTypeNameReadonly as a,
   buildOptionsForPresentTypes as b,
-  getChainForTypeNameReadonly as g,
+  getTypeChain as g,
   resolveBaseTypeName as r,
   type_filtering_options as t
 };
