@@ -260,7 +260,7 @@
                          repeat.for="damage of unique.Equipment.DamageTypes"
                          click.trigger="getSortKeyFromDamageType(damage.Type) ? toggleSort(getSortKeyFromDamageType(damage.Type)) : null"
                          class.bind="getSortKeyFromDamageType(damage.Type) ? 'clickable' : ''">
-                        <span>${getDamageTypeString(damage.Type)} ${damage.DamageString}</span>
+                        <span>${getDamageTypeString(damage.Type)} ${damage.DamageString}<span class="set-text" if.bind="damage.AverageDamage"> <${damage.AverageDamage}></span></span>
                         <span class="mso set-text-light" if.bind="getSortKeyFromDamageType(damage.Type) && weaponSortMode.includes(getSortKeyFromDamageType(damage.Type))">
                             ${weaponSortMode.includes('ascending') ? 'arrow_upward' : 'arrow_downward'}
                         </span>
@@ -288,13 +288,8 @@
 
                 <div>
                     <div class="text-base prop-text" repeat.for="property of unique.Properties | sortProperties">
-                        <div if.bind="property.PropertyString"
-                             class="flex items-center justify-center gap-1 ${parseDamageProperty(property.PropertyString) ? 'clickable' : ''}"
-                             click.trigger="parseDamageProperty(property.PropertyString) ? toggleSort('non-phys') : null">
+                        <div if.bind="property.PropertyString">
                             <span>${property.PropertyString}</span>
-                            <span class="mso set-text-light" if.bind="parseDamageProperty(property.PropertyString) && weaponSortMode.includes('non-phys')">
-                                ${weaponSortMode.includes('ascending') ? 'arrow_upward' : 'arrow_downward'}
-                            </span>
                         </div>
                         <div if.bind="property['group-properties']">
                             <div repeat.for="[groupName, pool] of property['group-properties'] | entries">
@@ -363,7 +358,7 @@
                          repeat.for="damage of setItem.Equipment.DamageTypes"
                          click.trigger="getSortKeyFromDamageType(damage.Type) ? toggleSort(getSortKeyFromDamageType(damage.Type)) : null"
                          class.bind="getSortKeyFromDamageType(damage.Type) ? 'clickable' : ''">
-                        <span>${getDamageTypeString(damage.Type)} ${damage.DamageString}</span>
+                        <span>${getDamageTypeString(damage.Type)} ${damage.DamageString}<span class="set-text" if.bind="damage.AverageDamage"> <${damage.AverageDamage}></span></span>
                         <span class="mso set-text-light" if.bind="getSortKeyFromDamageType(damage.Type) && weaponSortMode.includes(getSortKeyFromDamageType(damage.Type))">
                             ${weaponSortMode.includes('ascending') ? 'arrow_upward' : 'arrow_downward'}
                         </span>
@@ -391,13 +386,8 @@
 
                 <div>
                     <div class="text-base prop-text" repeat.for="property of setItem.Properties | sortProperties">
-                        <div if.bind="property.PropertyString"
-                             class="flex items-center justify-center gap-1 ${parseDamageProperty(property.PropertyString) ? 'clickable' : ''}"
-                             click.trigger="parseDamageProperty(property.PropertyString) ? toggleSort('non-phys') : null">
+                        <div if.bind="property.PropertyString">
                             <span>${property.PropertyString}</span>
-                            <span class="mso set-text-light" if.bind="parseDamageProperty(property.PropertyString) && weaponSortMode.includes('non-phys')">
-                                ${weaponSortMode.includes('ascending') ? 'arrow_upward' : 'arrow_downward'}
-                            </span>
                         </div>
                         <div if.bind="property['group-properties']">
                             <div repeat.for="[groupName, pool] of property['group-properties'] | entries">

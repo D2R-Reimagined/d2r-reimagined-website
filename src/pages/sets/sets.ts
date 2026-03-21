@@ -11,10 +11,9 @@ import {
 } from '../../resources/constants';
 import {
     getDamageTypeString as getDamageTypeStringUtil,
-    getWeaponNonPhysDamValueFromProperties,
+    getWeaponNonPhysDamValue,
     getWeaponPhysDamValue,
     IUniqueItem,
-    parseDamageProperty,
 } from '../../utilities/damage-types';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
 import {
@@ -34,7 +33,9 @@ import json from '../item-jsons/sets.json';
 import { ISetData } from './set-types';
 
 export class Sets {
-    sets: ISetData[] = json;
+    allSets: ISetData[] = json as unknown as ISetData[];
+    sets: ISetData[] = [];
+    private _searchStrings = new Map<ISetData, string>();
     @bindable search: string;
     @bindable selectedClass: string | undefined;
     // Selected type: base token (scalar)
@@ -75,6 +76,11 @@ export class Sets {
     // Build options and hydrate from URL BEFORE controls render
     binding(): void {
         const urlParams = new URLSearchParams(window.location.search);
+
+        // Pre-calculate searchable strings
+        this.allSets.forEach(s => {
+            this._searchStrings.set(s, this.buildSearchableStringForSet(s));
+        });
 
         const searchParam = urlParams.get('search');
         if (searchParam && !isBlankOrInvalid(searchParam)) {
@@ -127,6 +133,15 @@ export class Sets {
         }
         this.updateList();
         this.updateUrl();
+    }
+
+    detached() {
+        if (this._debouncedSearchItem) {
+            this._debouncedSearchItem.cancel();
+        }
+        if (this._debouncedUpdateUrl) {
+            this._debouncedUpdateUrl.cancel();
+        }
     }
 
     // Types provided via shared preset (this.types)
@@ -182,124 +197,55 @@ export class Sets {
             const classText = this.selectedClass?.toLowerCase();
 
             // Build an allowed set from selected base + descendants + ancestors
-            const allowedTypeSet: Set<string> | null = ((): Set<string> | null => {
-                if (!this.selectedType) return null;
+            let allowedTypeSet: Set<string> | undefined;
+            if (this.selectedType) {
                 const opt = this.types.find((o) => o.id === this.selectedType);
-                return opt && opt.value ? new Set<string>(opt.value) : null;
-            })();
-
-            const matchesType = (set: ISetData) => {
-                if (!allowedTypeSet) return true;
-                return (set.SetItems ?? []).some((si) => {
-                    const base = getChainForTypeNameReadonly(si?.Type ?? '')[0] || (si?.Type ?? '');
-                    return allowedTypeSet.has(base);
-                });
-            };
-
-            const matchesEquipment = (set: ISetData) => {
-                if (!this.selectedEquipmentName) return true;
-                return (set.SetItems ?? []).some(
-                    (si) => si.Equipment?.Name === this.selectedEquipmentName,
-                );
-            };
-
-            const matchesSearch = (set: ISetData) => {
-                if (!searchTokens.length) return true;
-                const hayParts: string[] = [];
-                if (set.Name) hayParts.push(String(set.Name));
-                const allProps = set.AllProperties ?? [
-                    ...(set.FullProperties || []),
-                    ...(set.PartialProperties || []),
-                ];
-                for (const p of allProps || []) {
-                    if (p.PropertyString) hayParts.push(p.PropertyString);
-                    if (p['group-properties']) {
-                        Object.values(p['group-properties']).forEach((pool) => {
-                            pool.forEach((affix) => {
-                                if (affix.PropertyString) hayParts.push(affix.PropertyString);
-                            });
-                        });
-                    }
-                }
-                for (const si of set.SetItems ?? []) {
-                    hayParts.push(String(si?.Name || ''));
-                    hayParts.push(String(si?.Equipment?.Name || ''));
-                    for (const p of si?.Properties || []) {
-                        if (p.PropertyString) hayParts.push(p.PropertyString);
-                        if (p['group-properties']) {
-                            Object.values(p['group-properties']).forEach((pool) => {
-                                pool.forEach((affix) => {
-                                    if (affix.PropertyString) hayParts.push(affix.PropertyString);
-                                });
-                            });
-                        }
-                    }
-                    for (const s of si?.SetPropertiesString || [])
-                        hayParts.push(String(s || ''));
-                }
-                const hay = hayParts.filter(Boolean).join(' ').toLowerCase();
-                return searchTokens.some((group) =>
-                    group.every((t) => hay.includes(t)),
-                );
-            };
-
-            const matchesVanilla = (set: ISetData) => {
-                return !this.hideVanilla || !isVanillaItem(set?.Vanilla);
-            };
-
-            const matchesClass = (set: ISetData) => {
-                if (!classText) return true;
-                const allProps = set.AllProperties ?? [
-                    ...(set.FullProperties || []),
-                    ...(set.PartialProperties || []),
-                ];
-                if (
-                    allProps?.some((p) =>
-                        p.PropertyString?.toLowerCase()?.includes(classText),
-                    )
-                )
-                    return true;
-                for (const si of set.SetItems ?? []) {
-                    if (si.Name?.toLowerCase().includes(classText)) return true;
-                    if (si.Equipment?.Name?.toLowerCase().includes(classText))
-                        return true;
-                    if (
-                        si.Properties?.some((p) =>
-                            p.PropertyString?.toLowerCase()?.includes(classText),
-                        )
-                    )
-                        return true;
-                    if (
-                        si.SetPropertiesString?.some((s) =>
-                            s?.toLowerCase()?.includes(classText),
-                        )
-                    )
-                        return true;
-                }
-                return false;
-            };
-
-            // If no filters at all (including hideVanilla), show all
-            // Important: do NOT early-return when hideVanilla is true, so the vanilla filter can take effect
-            if (
-                !this.search &&
-                !this.selectedClass &&
-                !this.selectedType &&
-                !this.selectedEquipmentName &&
-                !this.hideVanilla
-            ) {
-                this.sets = json;
-                return;
+                if (opt && opt.value) allowedTypeSet = new Set<string>(opt.value);
             }
 
-            this.sets = json.filter(
-                (set) =>
-                    matchesType(set) &&
-                    matchesEquipment(set) &&
-                    matchesSearch(set) &&
-                    matchesClass(set) &&
-                    matchesVanilla(set),
-            );
+            // Update equipment names if needed
+            if (
+                this.selectedType &&
+        (!this.equipmentNames || this.equipmentNames.length <= 1)
+            ) {
+                this.equipmentNames = this.getSetEquipmentNames();
+            }
+
+            this.sets = this.allSets.filter((set: ISetData) => {
+                // 1. Vanilla filter
+                if (this.hideVanilla && isVanillaItem(set?.Vanilla)) return false;
+
+                // 2. Type filter
+                if (allowedTypeSet) {
+                    const hasMatch = (set.SetItems ?? []).some((si) => {
+                        const base = getChainForTypeNameReadonly(si?.Type ?? '')[0] || (si?.Type ?? '');
+                        return allowedTypeSet!.has(base);
+                    });
+                    if (!hasMatch) return false;
+                }
+
+                // 3. Equipment name filter
+                if (this.selectedEquipmentName) {
+                    const hasMatch = (set.SetItems ?? []).some(
+                        (si) => si.Equipment?.Name === this.selectedEquipmentName,
+                    );
+                    if (!hasMatch) return false;
+                }
+
+                const hay = this._searchStrings.get(set) || '';
+
+                // 4. Class filter (Check if the class name appears in any property or item name)
+                if (classText && !hay.includes(classText)) return false;
+
+                // 5. Search filter
+                if (searchTokens.length > 0) {
+                    if (!searchTokens.some((group) => group.every((t) => hay.includes(t)))) {
+                        return false;
+                    }
+                }
+
+                return true;
+            });
 
             // Main sorting logic:
             if (this.isWeaponType && this.weaponSortMode !== 'none') {
@@ -308,12 +254,16 @@ export class Sets {
                 this.sets = this.sets.slice().sort((a, b) => {
                     const getBestDam = (set: ISetData) => {
                         let maxV = 0;
-                        for (const item of set.SetItems) {
+                        for (const item of set.SetItems || []) {
                             let v = 0;
-                            if (mode.includes('1h-phys')) v = getWeaponPhysDamValue(item as unknown as IUniqueItem, [3, 0]);
-                            else if (mode.includes('2h-phys')) v = getWeaponPhysDamValue(item as unknown as IUniqueItem, 1);
-                            else if (mode.includes('throw-phys')) v = getWeaponPhysDamValue(item as unknown as IUniqueItem, 2);
-                            else if (mode.includes('non-phys')) v = getWeaponNonPhysDamValueFromProperties(item as unknown as IUniqueItem);
+                            if (mode.includes('1h-phys'))
+                                v = getWeaponPhysDamValue(item as unknown as IUniqueItem, [3, 0]);
+                            else if (mode.includes('2h-phys'))
+                                v = getWeaponPhysDamValue(item as unknown as IUniqueItem, 1);
+                            else if (mode.includes('throw-phys'))
+                                v = getWeaponPhysDamValue(item as unknown as IUniqueItem, 2);
+                            else if (mode.includes('non-phys'))
+                                v = getWeaponNonPhysDamValue(item as unknown as IUniqueItem);
                             if (v > maxV) maxV = v;
                         }
                         return maxV;
@@ -327,12 +277,49 @@ export class Sets {
                 });
             }
         } catch (e) {
-            // ignore
+            console.error(e);
+            this.sets = this.allSets;
         }
     }
 
+    private buildSearchableStringForSet(set: ISetData): string {
+        const parts: string[] = [];
+        if (set.Name) parts.push(String(set.Name));
+        const allProps = set.AllProperties ?? [
+            ...(set.FullProperties || []),
+            ...(set.PartialProperties || []),
+        ];
+        for (const p of allProps || []) {
+            if (p.PropertyString) parts.push(p.PropertyString);
+            if (p['group-properties']) {
+                Object.values(p['group-properties']).forEach((pool) => {
+                    pool.forEach((affix) => {
+                        if (affix.PropertyString) parts.push(affix.PropertyString);
+                    });
+                });
+            }
+        }
+        for (const si of set.SetItems ?? []) {
+            parts.push(String(si?.Name || ''));
+            parts.push(String(si?.Equipment?.Name || ''));
+            for (const p of si?.Properties || []) {
+                if (p.PropertyString) parts.push(p.PropertyString);
+                if (p['group-properties']) {
+                    Object.values(p['group-properties']).forEach((pool) => {
+                        pool.forEach((affix) => {
+                            if (affix.PropertyString) parts.push(affix.PropertyString);
+                        });
+                    });
+                }
+            }
+            for (const s of si?.SetPropertiesString || []) {
+                if (s) parts.push(String(s));
+            }
+        }
+        return parts.filter(Boolean).join(' ').toLowerCase();
+    }
+
     getDamageTypeString = getDamageTypeStringUtil;
-    parseDamageProperty = parseDamageProperty;
 
     formatGroupName(name: string) {
         return name.replace(/-/g, ' ').replace(/([a-z])([0-9])/g, '$1 $2');

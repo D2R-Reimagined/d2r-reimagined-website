@@ -7,7 +7,10 @@ import {
     resolveBaseTypeName,
     type_filtering_options,
 } from '../../resources/constants';
-import { getDamageTypeString as getDamageTypeStringUtil } from '../../utilities/damage-types';
+import {
+    getDamageTypeString as getDamageTypeStringUtil,
+    IDamageType,
+} from '../../utilities/damage-types';
 import { prependTypeResetOption, tokenizeSearch } from '../../utilities/filter-helpers';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 import armorsJson from '../item-jsons/armors.json';
@@ -44,7 +47,7 @@ interface IBaseItem {
     DamageStringPrefix?: string | null;
     Block?: number | null;
     // weapon-only
-    DamageTypes?: { Type: number; DamageString: string }[];
+    DamageTypes?: IDamageType[];
     Speed?: number | null;
 }
 
@@ -81,6 +84,11 @@ export class Bases {
 
     types: ReadonlyArray<IFilterOption> = type_filtering_options.slice();
 
+    private _tierMap = new Map<IBaseItem, 'Normal' | 'Exceptional' | 'Elite' | undefined>();
+    private _searchMap = new Map<IBaseItem, string>();
+    private _familyMap = new Map<string, IBaseItem[]>();
+    private _allBases: IBaseItem[] = [];
+
     itemsArmor: IBaseItem[] = (Array.isArray(armorsJson) ? (armorsJson as unknown as IBaseItem[]) : []).map((it, __index) => ({
         ...it, __kind: 'armor' as const, __index,
     }));
@@ -91,6 +99,31 @@ export class Bases {
 
     // Build type options and hydrate from URL
     binding() {
+        // Prepare base collections
+        this._allBases = [...this.itemsArmor, ...this.itemsWeapon];
+
+        // 1. Build family map for tier calculation
+        this._familyMap.clear();
+        for (const i of this._allBases) {
+            const key = `${i.NormCode || ''}|${i.UberCode || ''}|${i.UltraCode || ''}`;
+            if (key.replace(/\|/g, '').length > 0) {
+                let list = this._familyMap.get(key);
+                if (!list) {
+                    list = [];
+                    this._familyMap.set(key, list);
+                }
+                list.push(i);
+            }
+        }
+
+        // 2. Pre-calculate tiers and searchable strings
+        this._tierMap.clear();
+        this._searchMap.clear();
+        for (const i of this._allBases) {
+            this._tierMap.set(i, this.calculateTier(i));
+            this._searchMap.set(i, this.buildSearchString(i));
+        }
+
         // Default category based on the path if a query is absent (supports /armors and /weapons routes)
         const path = window.location.pathname.toLowerCase();
         const urlParams = new URLSearchParams(window.location.search);
@@ -223,122 +256,113 @@ export class Bases {
         return [...this.itemsArmor, ...this.itemsWeapon];
     }
 
-    // Grouping, search, type/tier/socket all mirror existing logic
     get filteredAndGrouped() {
         const searchTokens = tokenizeSearch(this.search);
         const typeFilter = this.selectedType;
         const tierFilter = this.selectedTier;
         const sockets = this.selectedSockets;
 
-        // Search
-        const matchesSearch = (i: IBaseItem) => {
-            if (!searchTokens.length) return true;
-            const hay = [
-                i.Name,
-                i.Type?.Name,
-                i.NormCode ?? '',
-                i.UberCode ?? '',
-                i.UltraCode ?? '',
-            ]
-                .filter(Boolean)
-                .join(' ')
-                .toLowerCase();
-            return searchTokens.some((group) =>
+        const all = this.allItems || [];
+
+        // 1. Primary matches by search
+        const primary: IBaseItem[] = [];
+        const codeSet = new Set<string>();
+
+        for (const i of all) {
+            const hay = this._searchMap.get(i) || '';
+            const matches = !searchTokens.length || searchTokens.some((group) =>
                 group.every((t) => hay.includes(t)),
             );
-        };
-
-        const primary = (this.allItems || []).filter(matchesSearch);
-
-        // Include associated by code family
-        const codeSet = new Set<string>();
-        for (const i of primary) {
-            if (i.NormCode) codeSet.add(i.NormCode.toLowerCase());
-            if (i.UberCode) codeSet.add(i.UberCode.toLowerCase());
-            if (i.UltraCode) codeSet.add(i.UltraCode.toLowerCase());
+            if (matches) {
+                primary.push(i);
+                if (i.NormCode) codeSet.add(i.NormCode.toLowerCase());
+                if (i.UberCode) codeSet.add(i.UberCode.toLowerCase());
+                if (i.UltraCode) codeSet.add(i.UltraCode.toLowerCase());
+            }
         }
-        const associated = (this.allItems || []).filter((i) => {
-            const codes = [i.NormCode, i.UberCode, i.UltraCode]
-                .filter(Boolean)
-                .map((c) => String(c).toLowerCase());
-            return codes.some((c) => codeSet.has(c));
-        });
-        const combinedSet = new Set<IBaseItem>([...primary, ...associated]);
 
-        // Precompute the allowed type set (base + descendants + ancestors)
-        const allowedTypeSet: Set<string> | null = (() => {
-            if (!typeFilter) return null;
+        // 2. Include associated by code family
+        const combinedSet = new Set<IBaseItem>(primary);
+        if (codeSet.size > 0) {
+            for (const i of all) {
+                if (combinedSet.has(i)) continue;
+                if (
+                    (i.NormCode && codeSet.has(i.NormCode.toLowerCase())) ||
+          (i.UberCode && codeSet.has(i.UberCode.toLowerCase())) ||
+          (i.UltraCode && codeSet.has(i.UltraCode.toLowerCase()))
+                ) {
+                    combinedSet.add(i);
+                }
+            }
+        }
+
+        // 3. Precompute the allowed type set
+        let allowedTypeSet: Set<string> | undefined;
+        if (typeFilter) {
             const opt = this.types.find((o) => o.id === typeFilter);
-            return opt && opt.value ? new Set<string>(opt.value) : null;
-        })();
+            if (opt && opt.value) allowedTypeSet = new Set<string>(opt.value);
+        }
 
-        const filtered = Array.from(combinedSet).filter((i) => {
-            const byType =
-                !allowedTypeSet ||
-                (() => {
-                    const base =
-                        getChainForTypeNameReadonly(i?.Type?.Name ?? '')[0] ||
-                        (i?.Type?.Name ?? '');
-                    return allowedTypeSet.has(base);
-                })();
-            if (!byType) return false;
-
-            const byTier = !tierFilter || this.getTier(i) === tierFilter;
-            if (!byTier) return false;
-
-            if (!sockets) return true;
-            const gs = i.GemSockets;
-            if (typeof gs === 'number') return gs === sockets;
-            if (typeof gs === 'string') {
-                const re = new RegExp(`:\\s*${sockets}(?!\\d)`);
-                return re.test(gs);
+        // 4. Final filter pass
+        const filtered: IBaseItem[] = [];
+        for (const i of combinedSet) {
+            // Type filter
+            if (allowedTypeSet) {
+                const base = getChainForTypeNameReadonly(i?.Type?.Name ?? '')[0] || (i?.Type?.Name ?? '');
+                if (!allowedTypeSet.has(base)) continue;
             }
-            return false;
-        });
 
-        // Group by Type.Name, then cluster into code families
-        const typeMap = new Map<string, IBaseItem[]>();
-        filtered.forEach((i) => {
+            // Tier filter
+            if (tierFilter && this._tierMap.get(i) !== tierFilter) continue;
+
+            // Socket filter
+            if (sockets) {
+                const gs = i.GemSockets;
+                let match = false;
+                if (typeof gs === 'number') match = (gs === sockets);
+                else if (typeof gs === 'string') {
+                    // Reuse simple regex or string check
+                    match = gs.includes(`: ${sockets}`) || gs.includes(`:${sockets}`);
+                }
+                if (!match) continue;
+            }
+
+            filtered.push(i);
+        }
+
+        // 5. Group by Type.Name, then cluster into code families
+        const typeMap = new Map<string, Map<string, IBaseItem[]>>();
+        for (const i of filtered) {
             const t = i?.Type?.Name || 'Other';
-            let list = typeMap.get(t);
-            if (!list) {
-                list = [];
-                typeMap.set(t, list);
+            let familyMap = typeMap.get(t);
+            if (!familyMap) {
+                familyMap = new Map<string, IBaseItem[]>();
+                typeMap.set(t, familyMap);
             }
-            list.push(i);
-        });
+            const fKey = `${i.NormCode || ''}|${i.UberCode || ''}|${i.UltraCode || ''}`;
+            let members = familyMap.get(fKey);
+            if (!members) {
+                members = [];
+                familyMap.set(fKey, members);
+            }
+            members.push(i);
+        }
 
-        const tierOrder = new Map<string, number>([
-            ['Normal', 0],
-            ['Exceptional', 1],
-            ['Elite', 2],
-        ]);
+        const tierOrder = { 'Normal': 0, 'Exceptional': 1, 'Elite': 2 };
 
         const groups = Array.from(typeMap.entries())
-            .map(([typeName, items]) => {
-                const familyMap = new Map<string, IBaseItem[]>();
-                for (const it of items) {
-                    const key = `${it.NormCode || ''}|${it.UberCode || ''}|${it.UltraCode || ''}`;
-                    let list = familyMap.get(key);
-                    if (!list) {
-                        list = [];
-                        familyMap.set(key, list);
-                    }
-                    list.push(it);
-                }
+            .map(([typeName, familyMap]) => {
                 const families = Array.from(familyMap.entries())
                     .map(([familyKey, members]) => {
                         members.sort((a, b) => {
-                            const ta = this.getTier(a) ?? '';
-                            const tb = this.getTier(b) ?? '';
-                            const oa = tierOrder.get(ta) ?? 99;
-                            const ob = tierOrder.get(tb) ?? 99;
+                            const oa = tierOrder[this._tierMap.get(a) || ''] ?? 99;
+                            const ob = tierOrder[this._tierMap.get(b) || ''] ?? 99;
                             if (oa !== ob) return oa - ob;
                             return (a.__index ?? 0) - (b.__index ?? 0);
                         });
                         const minIndex = members.reduce(
-                            (min, it) => Math.min(min, it.__index ?? Number.MAX_SAFE_INTEGER),
-                            Number.MAX_SAFE_INTEGER,
+                            (min, it) => Math.min(min, it.__index ?? 999999),
+                            999999,
                         );
                         return { familyKey, items: members, minIndex };
                     })
@@ -369,10 +393,8 @@ export class Bases {
         return '';
     }
 
-    getTier(i: IBaseItem): 'Normal' | 'Exceptional' | 'Elite' | undefined {
+    private calculateTier(i: IBaseItem): 'Normal' | 'Exceptional' | 'Elite' | undefined {
         const name: string = i?.Name ?? '';
-        // Valid in this use
-        // noinspection RegExpSingleCharAlternation,RegExpRedundantEscape
         const m = name.match(/\[(N|X|E)\]/i);
         if (m) {
             const ch = m[1].toUpperCase();
@@ -380,26 +402,32 @@ export class Bases {
             if (ch === 'X') return 'Exceptional';
             if (ch === 'E') return 'Elite';
         }
-        const famKey = [i.NormCode || '', i.UberCode || '', i.UltraCode || ''].join(
-            '|',
-        );
-        if (!famKey.trim()) return undefined;
-        const family = (this.allItems || []).filter(
-            (x) =>
-                x.NormCode === i.NormCode &&
-                x.UberCode === i.UberCode &&
-                x.UltraCode === i.UltraCode,
-        );
-        if (family.length >= 3) {
+        const famKey = `${i.NormCode || ''}|${i.UberCode || ''}|${i.UltraCode || ''}`;
+        if (famKey.replace(/\|/g, '').length === 0) return undefined;
+        const family = this._familyMap.get(famKey);
+        if (family && family.length >= 3) {
             const sorted = family
                 .slice()
                 .sort((a, b) => (a.__index ?? 0) - (b.__index ?? 0));
-            const pos = sorted.findIndex((x) => x === i);
+            const pos = sorted.indexOf(i);
             if (pos === 0) return 'Normal';
             if (pos === 1) return 'Exceptional';
             if (pos === 2) return 'Elite';
         }
         return undefined;
+    }
+
+    private buildSearchString(i: IBaseItem): string {
+        return [
+            i.Name,
+            i.Type?.Name,
+            i.NormCode ?? '',
+            i.UberCode ?? '',
+            i.UltraCode ?? '',
+        ]
+            .filter(Boolean)
+            .join(' ')
+            .toLowerCase();
     }
 
     groupedProperties(item: IBaseItem) {

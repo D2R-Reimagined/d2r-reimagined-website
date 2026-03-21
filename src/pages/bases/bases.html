@@ -154,7 +154,7 @@
                         <!-- Weapon-only UI -->
                         <div class="text-base type-text"
                              if.bind="item.__kind === 'weapon' && item.DamageTypes && item.DamageTypes.length">
-                            <div repeat.for="d of item.DamageTypes">${getDamageTypeString(d.Type)} ${d.DamageString}
+                            <div repeat.for="d of item.DamageTypes">${getDamageTypeString(d.Type)} ${d.DamageString}<span class="set-text" if.bind="d.AverageDamage"> <${d.AverageDamage}></span>
                             </div>
                         </div>
 

@@ -1,5 +1,7 @@
 // Type definitions for set data
 
+import { IDamageType } from '../../utilities/damage-types';
+
 export interface IProperty {
     PropertyString?: string;
     'group-properties'?: Record<string, IProperty[]>;
@@ -11,7 +13,7 @@ export interface IProperty {
 export interface IEquipment {
     Name: string;
     DamageString?: string;
-    DamageTypes?: { Type: number, DamageString: string }[];
+    DamageTypes?: IDamageType[];
     ArmorString?: string;
     EquipmentType?: number;
     RequiredStrength?: string;

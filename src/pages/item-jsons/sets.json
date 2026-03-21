@@ -112,7 +112,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "8 to (38-53)"
+                            "DamageString": "8 to (38-53)",
+                            "AverageDamage": 30.5
                         }
                     ],
                     "Speed": 10,
@@ -341,7 +342,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "3 to 19"
+                            "DamageString": "3 to 19",
+                            "AverageDamage": 11.0
                         }
                     ],
                     "Speed": -10,
@@ -684,7 +686,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(17-27) to (34-54)"
+                            "DamageString": "(17-27) to (34-54)",
+                            "AverageDamage": 35.5
                         }
                     ],
                     "Speed": 0,
@@ -894,7 +897,13 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "3 to 18"
+                            "DamageString": "3 to 18",
+                            "AverageDamage": 10.5
+                        },
+                        {
+                            "Type": 4,
+                            "DamageString": "1 to 40",
+                            "AverageDamage": 20.5
                         }
                     ],
                     "Speed": 10,
@@ -1132,7 +1141,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "15 to 25"
+                            "DamageString": "15 to 25",
+                            "AverageDamage": 20.0
                         }
                     ],
                     "Speed": -10,
@@ -1291,7 +1301,13 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "6 to 13"
+                            "DamageString": "6 to 13",
+                            "AverageDamage": 9.5
+                        },
+                        {
+                            "Type": 4,
+                            "DamageString": "0 to 10",
+                            "AverageDamage": 5.0
                         }
                     ],
                     "Speed": 0,
@@ -1518,7 +1534,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "12 to 19"
+                            "DamageString": "12 to 19",
+                            "AverageDamage": 15.5
                         }
                     ],
                     "Speed": -10,
@@ -2038,7 +2055,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "13 to 14"
+                            "DamageString": "13 to 14",
+                            "AverageDamage": 13.5
                         }
                     ],
                     "Speed": 0,
@@ -2234,7 +2252,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "5 to 13"
+                            "DamageString": "5 to 13",
+                            "AverageDamage": 9.0
                         }
                     ],
                     "Speed": 10,
@@ -2376,7 +2395,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "10 to 25"
+                            "DamageString": "10 to 25",
+                            "AverageDamage": 17.5
                         }
                     ],
                     "Speed": 0,
@@ -2445,7 +2465,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "3 to 8"
+                            "DamageString": "3 to 8",
+                            "AverageDamage": 5.5
                         }
                     ],
                     "Speed": -10,
@@ -2628,7 +2649,8 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "9 to 21"
+                            "DamageString": "9 to 21",
+                            "AverageDamage": 15.0
                         }
                     ],
                     "Speed": 0,
@@ -2845,7 +2867,8 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "12 to 28"
+                            "DamageString": "12 to 28",
+                            "AverageDamage": 20.0
                         }
                     ],
                     "Speed": 20,
@@ -3068,7 +3091,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(140-180) to (228-329)"
+                            "DamageString": "(140-180) to (228-329)",
+                            "AverageDamage": 234.5
                         }
                     ],
                     "Speed": 0,
@@ -3404,7 +3428,13 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "60 to 93"
+                            "DamageString": "60 to 93",
+                            "AverageDamage": 76.5
+                        },
+                        {
+                            "Type": 4,
+                            "DamageString": "50 to 75",
+                            "AverageDamage": 62.5
                         }
                     ],
                     "Speed": 10,
@@ -3832,7 +3862,8 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "(345-460) to (477-636)"
+                            "DamageString": "(345-460) to (477-636)",
+                            "AverageDamage": 490.5
                         }
                     ],
                     "Speed": 10,
@@ -4050,7 +4081,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "18 to 42"
+                            "DamageString": "18 to 42",
+                            "AverageDamage": 30.0
                         }
                     ],
                     "Speed": 10,
@@ -4368,7 +4400,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(111-125) to (129-146)"
+                            "DamageString": "(111-125) to (129-146)",
+                            "AverageDamage": 128.5
                         }
                     ],
                     "Speed": -10,
@@ -5038,7 +5071,8 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "40 to 207"
+                            "DamageString": "40 to 207",
+                            "AverageDamage": 123.5
                         }
                     ],
                     "Speed": 10,
@@ -5375,7 +5409,13 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "41 to (151-199)"
+                            "DamageString": "41 to (151-199)",
+                            "AverageDamage": 120.0
+                        },
+                        {
+                            "Type": 4,
+                            "DamageString": "20 to 30",
+                            "AverageDamage": 25.0
                         }
                     ],
                     "Speed": 0,
@@ -5987,7 +6027,13 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "42 to 159"
+                            "DamageString": "42 to 159",
+                            "AverageDamage": 100.5
+                        },
+                        {
+                            "Type": 4,
+                            "DamageString": "5 to 25",
+                            "AverageDamage": 15.0
                         }
                     ],
                     "Speed": 0,
@@ -6081,7 +6127,13 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "12 to 192"
+                            "DamageString": "12 to 192",
+                            "AverageDamage": 102.0
+                        },
+                        {
+                            "Type": 4,
+                            "DamageString": "25 to 35",
+                            "AverageDamage": 30.0
                         }
                     ],
                     "Speed": -10,
@@ -6259,11 +6311,13 @@
                     "DamageTypes": [
                         {
                             "Type": 0,
-                            "DamageString": "(87-112) to (227-292)"
+                            "DamageString": "(87-112) to (227-292)",
+                            "AverageDamage": 189.5
                         },
                         {
                             "Type": 1,
-                            "DamageString": "(203-261) to (402-517)"
+                            "DamageString": "(203-261) to (402-517)",
+                            "AverageDamage": 360.0
                         }
                     ],
                     "Speed": 5,
@@ -6311,7 +6365,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(140-180) to (175-225)"
+                            "DamageString": "(140-180) to (175-225)",
+                            "AverageDamage": 182.5
                         }
                     ],
                     "Speed": 0,
@@ -6593,7 +6648,13 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "200 to 232"
+                            "DamageString": "200 to 232",
+                            "AverageDamage": 216.0
+                        },
+                        {
+                            "Type": 4,
+                            "DamageString": "6 to 45",
+                            "AverageDamage": 25.5
                         }
                     ],
                     "Speed": 0,
@@ -6918,7 +6979,13 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "5 to 12"
+                            "DamageString": "5 to 12",
+                            "AverageDamage": 8.5
+                        },
+                        {
+                            "Type": 4,
+                            "DamageString": "25 to 75",
+                            "AverageDamage": 50.0
                         }
                     ],
                     "Speed": -20,
@@ -7221,7 +7288,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "2 to (19-111)"
+                            "DamageString": "2 to (19-111)",
+                            "AverageDamage": 56.5
                         }
                     ],
                     "Speed": -20,
@@ -7668,7 +7736,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "4 to 33"
+                            "DamageString": "4 to 33",
+                            "AverageDamage": 18.5
                         }
                     ],
                     "Speed": 10,
@@ -7898,7 +7967,8 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "(72-90) to (103-129)"
+                            "DamageString": "(72-90) to (103-129)",
+                            "AverageDamage": 100.5
                         }
                     ],
                     "Speed": 10,
@@ -8086,7 +8156,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "3 to 7"
+                            "DamageString": "3 to 7",
+                            "AverageDamage": 5.0
                         }
                     ],
                     "Speed": -20,
@@ -8239,7 +8310,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "3 to 8"
+                            "DamageString": "3 to 8",
+                            "AverageDamage": 5.5
                         }
                     ],
                     "Speed": -10,
@@ -8434,7 +8506,8 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "22 to 42"
+                            "DamageString": "22 to 42",
+                            "AverageDamage": 32.0
                         }
                     ],
                     "Speed": 0,
@@ -8690,7 +8763,8 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "(29-33) to (132-151)"
+                            "DamageString": "(29-33) to (132-151)",
+                            "AverageDamage": 90.0
                         }
                     ],
                     "Speed": 20,
@@ -8840,7 +8914,13 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(10-13) to (19-24)"
+                            "DamageString": "(10-13) to (19-24)",
+                            "AverageDamage": 17.0
+                        },
+                        {
+                            "Type": 4,
+                            "DamageString": "10 to 20",
+                            "AverageDamage": 15.0
                         }
                     ],
                     "Speed": 0,
@@ -10006,7 +10086,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(53-57) to (102-109)"
+                            "DamageString": "(53-57) to (102-109)",
+                            "AverageDamage": 81.0
                         }
                     ],
                     "Speed": 0,
@@ -10477,11 +10558,13 @@
                     "DamageTypes": [
                         {
                             "Type": 0,
-                            "DamageString": "(76-96) to (128-160)"
+                            "DamageString": "(76-96) to (128-160)",
+                            "AverageDamage": 118.0
                         },
                         {
                             "Type": 1,
-                            "DamageString": "(150-188) to (256-320)"
+                            "DamageString": "(150-188) to (256-320)",
+                            "AverageDamage": 235.0
                         }
                     ],
                     "Speed": 10,
@@ -10696,7 +10779,8 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "(137-159) to (202-234)"
+                            "DamageString": "(137-159) to (202-234)",
+                            "AverageDamage": 185.5
                         }
                     ],
                     "Speed": 10,
@@ -11049,7 +11133,8 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "(51-58) to (110-127)"
+                            "DamageString": "(51-58) to (110-127)",
+                            "AverageDamage": 89.0
                         }
                     ],
                     "Speed": 10,
@@ -11143,7 +11228,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "11 to 29"
+                            "DamageString": "11 to 29",
+                            "AverageDamage": 20.0
                         }
                     ],
                     "Speed": 0,
@@ -11839,7 +11925,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(61-71) to (143-163)"
+                            "DamageString": "(61-71) to (143-163)",
+                            "AverageDamage": 112.0
                         }
                     ],
                     "Speed": 0,
@@ -12007,7 +12094,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "41 to 88"
+                            "DamageString": "41 to 88",
+                            "AverageDamage": 64.5
                         }
                     ],
                     "Speed": -20,
@@ -12170,7 +12258,8 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "(95-115) to (210-255)"
+                            "DamageString": "(95-115) to (210-255)",
+                            "AverageDamage": 175.0
                         }
                     ],
                     "Speed": 10,
@@ -12545,11 +12634,13 @@
                     "DamageTypes": [
                         {
                             "Type": 0,
-                            "DamageString": "(147-171) to (362-416)"
+                            "DamageString": "(147-171) to (362-416)",
+                            "AverageDamage": 281.5
                         },
                         {
                             "Type": 1,
-                            "DamageString": "(288-359) to (449-532)"
+                            "DamageString": "(288-359) to (449-532)",
+                            "AverageDamage": 410.0
                         }
                     ],
                     "Speed": -10,
@@ -12598,11 +12689,13 @@
                     "DamageTypes": [
                         {
                             "Type": 0,
-                            "DamageString": "(45-60) to (450-600)"
+                            "DamageString": "(45-60) to (450-600)",
+                            "AverageDamage": 322.5
                         },
                         {
                             "Type": 1,
-                            "DamageString": "(165-220) to (579-772)"
+                            "DamageString": "(165-220) to (579-772)",
+                            "AverageDamage": 468.5
                         }
                     ],
                     "Speed": 0,
@@ -12968,7 +13061,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(184-220) to (292-336)"
+                            "DamageString": "(184-220) to (292-336)",
+                            "AverageDamage": 260.0
                         }
                     ],
                     "Speed": 10,
@@ -13202,7 +13296,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "18 to 50"
+                            "DamageString": "18 to 50",
+                            "AverageDamage": 34.0
                         }
                     ],
                     "Speed": -10,
@@ -13432,7 +13527,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(204-243) to (252-300)"
+                            "DamageString": "(204-243) to (252-300)",
+                            "AverageDamage": 252.0
                         }
                     ],
                     "Speed": 10,
@@ -13565,7 +13661,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(72-96) to (132-176)"
+                            "DamageString": "(72-96) to (132-176)",
+                            "AverageDamage": 124.0
                         }
                     ],
                     "Speed": -30,
@@ -14108,11 +14205,13 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(131-140) to (242-259)"
+                            "DamageString": "(131-140) to (242-259)",
+                            "AverageDamage": 195.0
                         },
                         {
                             "Type": 2,
-                            "DamageString": "(147-157) to (281-301)"
+                            "DamageString": "(147-157) to (281-301)",
+                            "AverageDamage": 224.0
                         }
                     ],
                     "Speed": -10,
@@ -14389,7 +14488,8 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "(224-247) to (537-619)"
+                            "DamageString": "(224-247) to (537-619)",
+                            "AverageDamage": 421.5
                         }
                     ],
                     "Speed": -10,
@@ -14625,7 +14725,8 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "(60-72) to (705-846)"
+                            "DamageString": "(60-72) to (705-846)",
+                            "AverageDamage": 453.0
                         }
                     ],
                     "Speed": -10,
@@ -14982,7 +15083,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(84-85) to (256-280)"
+                            "DamageString": "(84-85) to (256-280)",
+                            "AverageDamage": 182.0
                         }
                     ],
                     "Speed": -10,
@@ -15099,7 +15201,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(99-124) to (112-140)"
+                            "DamageString": "(99-124) to (112-140)",
+                            "AverageDamage": 119.5
                         }
                     ],
                     "Speed": -30,
@@ -15318,7 +15421,8 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "(80-130) to (277-386)"
+                            "DamageString": "(80-130) to (277-386)",
+                            "AverageDamage": 233.0
                         }
                     ],
                     "Speed": 0,
@@ -15527,7 +15631,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(70-84) to (91-109)"
+                            "DamageString": "(70-84) to (91-109)",
+                            "AverageDamage": 89.5
                         }
                     ],
                     "Speed": 0,
@@ -15909,7 +16014,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(25-35) to (56-77)"
+                            "DamageString": "(25-35) to (56-77)",
+                            "AverageDamage": 51.0
                         }
                     ],
                     "Speed": 20,
@@ -16131,7 +16237,8 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "(64-68) to (151-161)"
+                            "DamageString": "(64-68) to (151-161)",
+                            "AverageDamage": 112.5
                         }
                     ],
                     "Speed": 0,
@@ -16263,7 +16370,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(132-141) to (264-283)"
+                            "DamageString": "(132-141) to (264-283)",
+                            "AverageDamage": 207.5
                         }
                     ],
                     "Speed": 10,
@@ -16854,7 +16962,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "8 to 24"
+                            "DamageString": "8 to 24",
+                            "AverageDamage": 16.0
                         }
                     ],
                     "Speed": 10,
@@ -17305,7 +17414,13 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(35-48) to (99-135)"
+                            "DamageString": "(35-48) to (99-135)",
+                            "AverageDamage": 85.0
+                        },
+                        {
+                            "Type": 4,
+                            "DamageString": "150 to 250",
+                            "AverageDamage": 200.0
                         }
                     ],
                     "Speed": 0,
@@ -17524,7 +17639,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "15 to 23"
+                            "DamageString": "15 to 23",
+                            "AverageDamage": 19.0
                         }
                     ],
                     "Speed": 0,
@@ -17701,7 +17817,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(137-162) to (167-198)"
+                            "DamageString": "(137-162) to (167-198)",
+                            "AverageDamage": 167.5
                         }
                     ],
                     "Speed": 20,
@@ -17871,7 +17988,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(48-63) to (135-175)"
+                            "DamageString": "(48-63) to (135-175)",
+                            "AverageDamage": 111.5
                         }
                     ],
                     "Speed": 0,
@@ -18171,11 +18289,13 @@
                     "DamageTypes": [
                         {
                             "Type": 0,
-                            "DamageString": "(39-52) to (90-120)"
+                            "DamageString": "(39-52) to (90-120)",
+                            "AverageDamage": 79.5
                         },
                         {
                             "Type": 1,
-                            "DamageString": "(78-104) to (183-244)"
+                            "DamageString": "(78-104) to (183-244)",
+                            "AverageDamage": 161.0
                         }
                     ],
                     "Speed": 10,
@@ -18341,7 +18461,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(118-131) to (236-259)"
+                            "DamageString": "(118-131) to (236-259)",
+                            "AverageDamage": 188.5
                         }
                     ],
                     "Speed": -20,
@@ -18611,7 +18732,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(30-35) to (126-147)"
+                            "DamageString": "(30-35) to (126-147)",
+                            "AverageDamage": 88.5
                         }
                     ],
                     "Speed": -10,
@@ -18874,7 +18996,8 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "(28-32) to (117-134)"
+                            "DamageString": "(28-32) to (117-134)",
+                            "AverageDamage": 81.0
                         }
                     ],
                     "Speed": 10,
@@ -19048,7 +19171,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(73-80) to (156-171)"
+                            "DamageString": "(73-80) to (156-171)",
+                            "AverageDamage": 122.0
                         }
                     ],
                     "Speed": -20,
@@ -19270,11 +19394,13 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(81-108) to (105-140)"
+                            "DamageString": "(81-108) to (105-140)",
+                            "AverageDamage": 110.5
                         },
                         {
                             "Type": 2,
-                            "DamageString": "(69-92) to (117-156)"
+                            "DamageString": "(69-92) to (117-156)",
+                            "AverageDamage": 112.5
                         }
                     ],
                     "Speed": -20,
@@ -19487,11 +19613,13 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(132-142) to (357-376)"
+                            "DamageString": "(132-142) to (357-376)",
+                            "AverageDamage": 254.0
                         },
                         {
                             "Type": 2,
-                            "DamageString": "(150-162) to (355-373)"
+                            "DamageString": "(150-162) to (355-373)",
+                            "AverageDamage": 261.5
                         }
                     ],
                     "Speed": 10,
@@ -19766,7 +19894,8 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "(151-166) to (604-676)"
+                            "DamageString": "(151-166) to (604-676)",
+                            "AverageDamage": 413.5
                         }
                     ],
                     "Speed": 0,
@@ -19925,7 +20054,8 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "(89-103) to (664-836)"
+                            "DamageString": "(89-103) to (664-836)",
+                            "AverageDamage": 462.5
                         }
                     ],
                     "Speed": 0,
@@ -20435,7 +20565,13 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(38-42) to (125-138)"
+                            "DamageString": "(38-42) to (125-138)",
+                            "AverageDamage": 88.0
+                        },
+                        {
+                            "Type": 4,
+                            "DamageString": "25 to 100",
+                            "AverageDamage": 62.5
                         }
                     ],
                     "Speed": 10,
@@ -20757,7 +20893,8 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "(241-279) to (429-495)"
+                            "DamageString": "(241-279) to (429-495)",
+                            "AverageDamage": 368.0
                         }
                     ],
                     "Speed": 0,
@@ -21045,7 +21182,8 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "(185-200) to (311-335)"
+                            "DamageString": "(185-200) to (311-335)",
+                            "AverageDamage": 260.0
                         }
                     ],
                     "Speed": -60,
@@ -21324,7 +21462,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(115-133) to (141-163)"
+                            "DamageString": "(115-133) to (141-163)",
+                            "AverageDamage": 139.0
                         }
                     ],
                     "Speed": -10,
@@ -21832,7 +21971,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "81 to 185"
+                            "DamageString": "81 to 185",
+                            "AverageDamage": 133.0
                         }
                     ],
                     "Speed": -30,
@@ -22287,7 +22427,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(48-51) to (114-121)"
+                            "DamageString": "(48-51) to (114-121)",
+                            "AverageDamage": 84.5
                         }
                     ],
                     "Speed": -10,
@@ -22427,7 +22568,8 @@
                     "DamageTypes": [
                         {
                             "Type": 1,
-                            "DamageString": "(160-180) to (556-713)"
+                            "DamageString": "(160-180) to (556-713)",
+                            "AverageDamage": 436.5
                         }
                     ],
                     "Speed": -10,
@@ -22669,11 +22811,13 @@
                     "DamageTypes": [
                         {
                             "Type": 0,
-                            "DamageString": "(50-56) to (144-160)"
+                            "DamageString": "(50-56) to (144-160)",
+                            "AverageDamage": 105.0
                         },
                         {
                             "Type": 1,
-                            "DamageString": "(140-156) to (216-240)"
+                            "DamageString": "(140-156) to (216-240)",
+                            "AverageDamage": 190.0
                         }
                     ],
                     "Speed": 10,
@@ -23079,11 +23223,13 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(37-44) to (101-119)"
+                            "DamageString": "(37-44) to (101-119)",
+                            "AverageDamage": 78.0
                         },
                         {
                             "Type": 2,
-                            "DamageString": "(52-61) to (156-183)"
+                            "DamageString": "(52-61) to (156-183)",
+                            "AverageDamage": 117.5
                         }
                     ],
                     "Speed": -10,
@@ -23458,7 +23604,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "22 to 28"
+                            "DamageString": "22 to 28",
+                            "AverageDamage": 25.0
                         }
                     ],
                     "Speed": 0,
@@ -23755,7 +23902,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "19 to 36"
+                            "DamageString": "19 to 36",
+                            "AverageDamage": 27.5
                         }
                     ],
                     "Speed": -10,
@@ -23906,7 +24054,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(39-119) to (49-129)"
+                            "DamageString": "(39-119) to (49-129)",
+                            "AverageDamage": 84.0
                         }
                     ],
                     "Speed": 20,

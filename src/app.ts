@@ -65,6 +65,7 @@ export class App {
     private _bt_lastScrollEl?: HTMLElement;
     private _bt_bound = false;
     private _bt_ticking = false;
+    private _bt_mo?: MutationObserver;
 
     // Global document click handler to close popovers/menus when clicking outside
     private _onDocClick?: (ev: MouseEvent) => void;
@@ -115,11 +116,24 @@ export class App {
     }
 
     detached() {
-    // Clean up the global click listener
+        // Clean up the global click listener
         if (this._onDocClick) {
             document.removeEventListener('click', this._onDocClick, true);
             this._onDocClick = undefined;
         }
+
+        // Clean up back-to-top monitoring
+        window.removeEventListener('scroll', this.onAnyScroll);
+        window.removeEventListener('resize', this.onAnyScroll);
+        if (this._bt_lastScrollEl) {
+            this._bt_lastScrollEl.removeEventListener('scroll', this.onAnyScroll);
+            this._bt_lastScrollEl = undefined;
+        }
+        if (this._bt_mo) {
+            this._bt_mo.disconnect();
+            this._bt_mo = undefined;
+        }
+        this._bt_bound = false;
     }
 
     /**
@@ -347,7 +361,7 @@ export class App {
         const viewportEl = document.querySelector('au-viewport');
         const observeTarget = viewportEl ? viewportEl.parentElement : document.body;
         if (observeTarget) {
-            const mo = new MutationObserver(() => {
+            this._bt_mo = new MutationObserver(() => {
                 const current = this.getScrollContainer();
                 const currentEl =
           current && current instanceof HTMLElement ? current : undefined;
@@ -365,7 +379,7 @@ export class App {
                 }
                 this.onAnyScroll();
             });
-            mo.observe(observeTarget, {
+            this._bt_mo.observe(observeTarget, {
                 attributes: true,
                 childList: true,
                 subtree: true,

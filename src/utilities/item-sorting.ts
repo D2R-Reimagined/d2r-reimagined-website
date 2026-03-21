@@ -1,5 +1,5 @@
 ﻿import {
-    getWeaponNonPhysDamValueFromProperties,
+    getWeaponNonPhysDamValue,
     getWeaponPhysDamValue,
     IUniqueItem,
 } from './damage-types';
@@ -33,8 +33,8 @@ export function sortItemsByWeaponDamage<T>(items: T[], mode: WeaponSortMode): T[
             vA = getWeaponPhysDamValue(a as unknown as IUniqueItem, 2);
             vB = getWeaponPhysDamValue(b as unknown as IUniqueItem, 2);
         } else if (mode.includes('non-phys')) {
-            vA = getWeaponNonPhysDamValueFromProperties(a as unknown as IUniqueItem);
-            vB = getWeaponNonPhysDamValueFromProperties(b as unknown as IUniqueItem);
+            vA = getWeaponNonPhysDamValue(a as unknown as IUniqueItem);
+            vB = getWeaponNonPhysDamValue(b as unknown as IUniqueItem);
         }
 
         if (vA === 0 && vB !== 0) return 1;
@@ -44,6 +44,9 @@ export function sortItemsByWeaponDamage<T>(items: T[], mode: WeaponSortMode): T[
 }
 
 export function toggleWeaponSort(currentMode: WeaponSortMode, type: string): WeaponSortMode {
+    if (typeof window !== 'undefined' && window.getSelection()?.toString().trim()) {
+        return currentMode;
+    }
     const desc = `avg-${type}-descending` as WeaponSortMode;
     const asc = `avg-${type}-ascending` as WeaponSortMode;
     return currentMode === desc ? asc : (currentMode === asc ? 'none' : desc);
@@ -53,5 +56,6 @@ export function getSortKeyFromDamageType(type: number): string | null {
     if (type === 0 || type === 3) return '1h-phys';
     if (type === 1) return '2h-phys';
     if (type === 2) return 'throw-phys';
+    if (type === 4) return 'non-phys';
     return null;
 }
