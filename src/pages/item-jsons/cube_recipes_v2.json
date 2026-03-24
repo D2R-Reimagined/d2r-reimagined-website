@@ -19682,12 +19682,12 @@
     "ResolvedInputsCount": 6,
     "Inputs": [
       {
-        "Name": "Boots",
+        "Name": "Any Armor",
         "Quantity": 5,
         "Qualifiers": [
           "Set Item"
         ],
-        "RawToken": "\"boot,set,qty=5\""
+        "RawToken": "\"armo,set,qty=5\""
       },
       {
         "Name": "Tome of Identify",
@@ -19721,12 +19721,20 @@
     "ResolvedInputsCount": 6,
     "Inputs": [
       {
-        "Name": "Boots",
-        "Quantity": 5,
+        "Name": "Any Armor",
+        "Quantity": 4,
         "Qualifiers": [
-          "Unique Item"
+          "Set Item"
         ],
-        "RawToken": "\"boot,uni,qty=5\""
+        "RawToken": "\"armo,set,qty=4\""
+      },
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"weap,set\""
       },
       {
         "Name": "Tome of Identify",
@@ -19760,12 +19768,20 @@
     "ResolvedInputsCount": 6,
     "Inputs": [
       {
-        "Name": "Belt",
-        "Quantity": 5,
+        "Name": "Any Armor",
+        "Quantity": 3,
         "Qualifiers": [
           "Set Item"
         ],
-        "RawToken": "\"belt,set,qty=5\""
+        "RawToken": "\"armo,set,qty=3\""
+      },
+      {
+        "Name": "Weapon",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"weap,set,qty=2\""
       },
       {
         "Name": "Tome of Identify",
@@ -19799,12 +19815,20 @@
     "ResolvedInputsCount": 6,
     "Inputs": [
       {
-        "Name": "Belt",
-        "Quantity": 5,
+        "Name": "Any Armor",
+        "Quantity": 2,
         "Qualifiers": [
-          "Unique Item"
+          "Set Item"
         ],
-        "RawToken": "\"belt,uni,qty=5\""
+        "RawToken": "\"armo,set,qty=2\""
+      },
+      {
+        "Name": "Weapon",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"weap,set,qty=3\""
       },
       {
         "Name": "Tome of Identify",
@@ -19838,12 +19862,20 @@
     "ResolvedInputsCount": 6,
     "Inputs": [
       {
-        "Name": "Gloves",
-        "Quantity": 5,
+        "Name": "Any Armor",
+        "Quantity": 1,
         "Qualifiers": [
           "Set Item"
         ],
-        "RawToken": "\"glov,set,qty=5\""
+        "RawToken": "\"armo,set\""
+      },
+      {
+        "Name": "Weapon",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Set Item"
+        ],
+        "RawToken": "\"weap,set,qty=4\""
       },
       {
         "Name": "Tome of Identify",
@@ -19872,279 +19904,6 @@
   },
   {
     "Index": 552,
-    "Class": "",
-    "NumInputs": 6,
-    "ResolvedInputsCount": 6,
-    "Inputs": [
-      {
-        "Name": "Gloves",
-        "Quantity": 5,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"glov,uni,qty=5\""
-      },
-      {
-        "Name": "Tome of Identify",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ibk"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Gem Cluster",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Tome of Identify",
-        "Quantity": 100,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": [
-      "Recycle Recipe"
-    ]
-  },
-  {
-    "Index": 553,
-    "Class": "",
-    "NumInputs": 6,
-    "ResolvedInputsCount": 6,
-    "Inputs": [
-      {
-        "Name": "Helm",
-        "Quantity": 5,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"helm,set,qty=5\""
-      },
-      {
-        "Name": "Tome of Identify",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ibk"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Gem Cluster",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Tome of Identify",
-        "Quantity": 100,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": [
-      "Recycle Recipe"
-    ]
-  },
-  {
-    "Index": 554,
-    "Class": "",
-    "NumInputs": 6,
-    "ResolvedInputsCount": 6,
-    "Inputs": [
-      {
-        "Name": "Helm",
-        "Quantity": 5,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"helm,uni,qty=5\""
-      },
-      {
-        "Name": "Tome of Identify",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ibk"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Gem Cluster",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Tome of Identify",
-        "Quantity": 100,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": [
-      "Recycle Recipe"
-    ]
-  },
-  {
-    "Index": 555,
-    "Class": "",
-    "NumInputs": 6,
-    "ResolvedInputsCount": 6,
-    "Inputs": [
-      {
-        "Name": "Any Shield",
-        "Quantity": 5,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"shld,set,qty=5\""
-      },
-      {
-        "Name": "Tome of Identify",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ibk"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Gem Cluster",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Tome of Identify",
-        "Quantity": 100,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": [
-      "Recycle Recipe"
-    ]
-  },
-  {
-    "Index": 556,
-    "Class": "",
-    "NumInputs": 6,
-    "ResolvedInputsCount": 6,
-    "Inputs": [
-      {
-        "Name": "Any Shield",
-        "Quantity": 5,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"shld,uni,qty=5\""
-      },
-      {
-        "Name": "Tome of Identify",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ibk"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Gem Cluster",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Tome of Identify",
-        "Quantity": 100,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": [
-      "Recycle Recipe"
-    ]
-  },
-  {
-    "Index": 557,
-    "Class": "",
-    "NumInputs": 6,
-    "ResolvedInputsCount": 6,
-    "Inputs": [
-      {
-        "Name": "Body Armor",
-        "Quantity": 5,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"tors,set,qty=5\""
-      },
-      {
-        "Name": "Tome of Identify",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ibk"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Gem Cluster",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Tome of Identify",
-        "Quantity": 100,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": [
-      "Recycle Recipe"
-    ]
-  },
-  {
-    "Index": 558,
-    "Class": "",
-    "NumInputs": 6,
-    "ResolvedInputsCount": 6,
-    "Inputs": [
-      {
-        "Name": "Body Armor",
-        "Quantity": 5,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"tors,uni,qty=5\""
-      },
-      {
-        "Name": "Tome of Identify",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ibk"
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Gem Cluster",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": []
-      },
-      "B": {
-        "Name": "Tome of Identify",
-        "Quantity": 100,
-        "Qualifiers": [],
-        "Properties": []
-      }
-    },
-    "Notes": [
-      "Recycle Recipe"
-    ]
-  },
-  {
-    "Index": 559,
     "Class": "",
     "NumInputs": 6,
     "ResolvedInputsCount": 6,
@@ -20183,7 +19942,234 @@
     ]
   },
   {
-    "Index": 560,
+    "Index": 553,
+    "Class": "",
+    "NumInputs": 6,
+    "ResolvedInputsCount": 6,
+    "Inputs": [
+      {
+        "Name": "Any Armor",
+        "Quantity": 5,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"armo,uni,qty=5\""
+      },
+      {
+        "Name": "Tome of Identify",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "ibk"
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Gem Cluster",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": []
+      },
+      "B": {
+        "Name": "Tome of Identify",
+        "Quantity": 100,
+        "Qualifiers": [],
+        "Properties": []
+      }
+    },
+    "Notes": [
+      "Recycle Recipe"
+    ]
+  },
+  {
+    "Index": 554,
+    "Class": "",
+    "NumInputs": 6,
+    "ResolvedInputsCount": 6,
+    "Inputs": [
+      {
+        "Name": "Any Armor",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"armo,uni,qty=4\""
+      },
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"weap,uni\""
+      },
+      {
+        "Name": "Tome of Identify",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "ibk"
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Gem Cluster",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": []
+      },
+      "B": {
+        "Name": "Tome of Identify",
+        "Quantity": 100,
+        "Qualifiers": [],
+        "Properties": []
+      }
+    },
+    "Notes": [
+      "Recycle Recipe"
+    ]
+  },
+  {
+    "Index": 555,
+    "Class": "",
+    "NumInputs": 6,
+    "ResolvedInputsCount": 6,
+    "Inputs": [
+      {
+        "Name": "Any Armor",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"armo,uni,qty=3\""
+      },
+      {
+        "Name": "Weapon",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"weap,uni,qty=2\""
+      },
+      {
+        "Name": "Tome of Identify",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "ibk"
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Gem Cluster",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": []
+      },
+      "B": {
+        "Name": "Tome of Identify",
+        "Quantity": 100,
+        "Qualifiers": [],
+        "Properties": []
+      }
+    },
+    "Notes": [
+      "Recycle Recipe"
+    ]
+  },
+  {
+    "Index": 556,
+    "Class": "",
+    "NumInputs": 6,
+    "ResolvedInputsCount": 6,
+    "Inputs": [
+      {
+        "Name": "Any Armor",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"armo,uni,qty=2\""
+      },
+      {
+        "Name": "Weapon",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"weap,uni,qty=3\""
+      },
+      {
+        "Name": "Tome of Identify",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "ibk"
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Gem Cluster",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": []
+      },
+      "B": {
+        "Name": "Tome of Identify",
+        "Quantity": 100,
+        "Qualifiers": [],
+        "Properties": []
+      }
+    },
+    "Notes": [
+      "Recycle Recipe"
+    ]
+  },
+  {
+    "Index": 557,
+    "Class": "",
+    "NumInputs": 6,
+    "ResolvedInputsCount": 6,
+    "Inputs": [
+      {
+        "Name": "Any Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"armo,uni\""
+      },
+      {
+        "Name": "Weapon",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"weap,uni,qty=4\""
+      },
+      {
+        "Name": "Tome of Identify",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "ibk"
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Gem Cluster",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": []
+      },
+      "B": {
+        "Name": "Tome of Identify",
+        "Quantity": 100,
+        "Qualifiers": [],
+        "Properties": []
+      }
+    },
+    "Notes": [
+      "Recycle Recipe"
+    ]
+  },
+  {
+    "Index": 558,
     "Class": "",
     "NumInputs": 6,
     "ResolvedInputsCount": 6,
@@ -20222,7 +20208,7 @@
     ]
   },
   {
-    "Index": 561,
+    "Index": 559,
     "Op": 15,
     "Param": 386,
     "Value": 3,
@@ -20272,7 +20258,7 @@
     ]
   },
   {
-    "Index": 562,
+    "Index": 560,
     "Op": 15,
     "Param": 386,
     "Value": 20,
@@ -20322,7 +20308,7 @@
     ]
   },
   {
-    "Index": 563,
+    "Index": 561,
     "Op": 15,
     "Param": 386,
     "Value": 50,
@@ -20372,7 +20358,7 @@
     ]
   },
   {
-    "Index": 564,
+    "Index": 562,
     "Op": 15,
     "Param": 386,
     "Value": 50,
@@ -20422,7 +20408,7 @@
     ]
   },
   {
-    "Index": 565,
+    "Index": 563,
     "Op": 15,
     "Param": 386,
     "Value": 3,
@@ -20472,7 +20458,7 @@
     ]
   },
   {
-    "Index": 566,
+    "Index": 564,
     "Op": 15,
     "Param": 386,
     "Value": 20,
@@ -20522,7 +20508,7 @@
     ]
   },
   {
-    "Index": 567,
+    "Index": 565,
     "Op": 15,
     "Param": 386,
     "Value": 50,
@@ -20572,7 +20558,7 @@
     ]
   },
   {
-    "Index": 568,
+    "Index": 566,
     "Op": 15,
     "Param": 386,
     "Value": 50,
@@ -20622,7 +20608,7 @@
     ]
   },
   {
-    "Index": 569,
+    "Index": 567,
     "Op": 15,
     "Param": 386,
     "Value": 3,
@@ -20672,7 +20658,7 @@
     ]
   },
   {
-    "Index": 570,
+    "Index": 568,
     "Op": 15,
     "Param": 386,
     "Value": 3,
@@ -20722,7 +20708,7 @@
     ]
   },
   {
-    "Index": 571,
+    "Index": 569,
     "Op": 15,
     "Param": 386,
     "Value": 3,
@@ -20772,7 +20758,7 @@
     ]
   },
   {
-    "Index": 572,
+    "Index": 570,
     "Op": 15,
     "Param": 386,
     "Value": 3,
@@ -20822,7 +20808,7 @@
     ]
   },
   {
-    "Index": 573,
+    "Index": 571,
     "Op": 15,
     "Param": 386,
     "Value": 10,
@@ -20872,7 +20858,7 @@
     ]
   },
   {
-    "Index": 574,
+    "Index": 572,
     "Op": 15,
     "Param": 386,
     "Value": 50,
@@ -20922,7 +20908,7 @@
     ]
   },
   {
-    "Index": 575,
+    "Index": 573,
     "Class": "",
     "NumInputs": 3,
     "ResolvedInputsCount": 3,
@@ -20951,7 +20937,7 @@
     ]
   },
   {
-    "Index": 576,
+    "Index": 574,
     "Class": "",
     "NumInputs": 3,
     "ResolvedInputsCount": 3,
@@ -20980,7 +20966,7 @@
     ]
   },
   {
-    "Index": 577,
+    "Index": 575,
     "Class": "",
     "NumInputs": 3,
     "ResolvedInputsCount": 3,
@@ -21009,7 +20995,7 @@
     ]
   },
   {
-    "Index": 578,
+    "Index": 576,
     "Class": "",
     "NumInputs": 3,
     "ResolvedInputsCount": 3,
@@ -21038,7 +21024,7 @@
     ]
   },
   {
-    "Index": 579,
+    "Index": 577,
     "Class": "",
     "NumInputs": 3,
     "ResolvedInputsCount": 3,
@@ -21067,7 +21053,7 @@
     ]
   },
   {
-    "Index": 580,
+    "Index": 578,
     "Class": "",
     "NumInputs": 3,
     "ResolvedInputsCount": 3,
@@ -21096,7 +21082,7 @@
     ]
   },
   {
-    "Index": 581,
+    "Index": 579,
     "Class": "",
     "NumInputs": 3,
     "ResolvedInputsCount": 3,
@@ -21125,7 +21111,7 @@
     ]
   },
   {
-    "Index": 582,
+    "Index": 580,
     "Class": "",
     "NumInputs": 3,
     "ResolvedInputsCount": 3,
@@ -21154,7 +21140,7 @@
     ]
   },
   {
-    "Index": 583,
+    "Index": 581,
     "Class": "",
     "NumInputs": 9,
     "ResolvedInputsCount": 9,
@@ -21183,7 +21169,7 @@
     ]
   },
   {
-    "Index": 584,
+    "Index": 582,
     "Class": "",
     "NumInputs": 6,
     "ResolvedInputsCount": 6,
@@ -21212,7 +21198,7 @@
     ]
   },
   {
-    "Index": 585,
+    "Index": 583,
     "Op": 15,
     "Param": 386,
     "Value": 1,
@@ -21258,7 +21244,7 @@
     ]
   },
   {
-    "Index": 586,
+    "Index": 584,
     "Op": 15,
     "Param": 386,
     "Value": 1,
@@ -21310,7 +21296,7 @@
     ]
   },
   {
-    "Index": 587,
+    "Index": 585,
     "Op": 15,
     "Param": 386,
     "Value": 1,
@@ -21362,7 +21348,7 @@
     ]
   },
   {
-    "Index": 588,
+    "Index": 586,
     "Op": 15,
     "Param": 386,
     "Value": 2,
@@ -21422,7 +21408,7 @@
     ]
   },
   {
-    "Index": 589,
+    "Index": 587,
     "Op": 15,
     "Param": 386,
     "Value": 3,
@@ -21482,7 +21468,7 @@
     ]
   },
   {
-    "Index": 590,
+    "Index": 588,
     "Op": 15,
     "Param": 386,
     "Value": 4,
@@ -21548,7 +21534,7 @@
     ]
   },
   {
-    "Index": 591,
+    "Index": 589,
     "Op": 15,
     "Param": 386,
     "Value": 5,
@@ -21614,7 +21600,7 @@
     ]
   },
   {
-    "Index": 592,
+    "Index": 590,
     "Op": 15,
     "Param": 386,
     "Value": 10,
@@ -21688,7 +21674,7 @@
     ]
   },
   {
-    "Index": 593,
+    "Index": 591,
     "Op": 18,
     "Param": 420,
     "Value": 0,
@@ -21745,7 +21731,7 @@
     ]
   },
   {
-    "Index": 594,
+    "Index": 592,
     "Op": 18,
     "Param": 420,
     "Value": 1,
@@ -21802,7 +21788,7 @@
     ]
   },
   {
-    "Index": 595,
+    "Index": 593,
     "Op": 18,
     "Param": 420,
     "Value": 2,
@@ -21859,7 +21845,7 @@
     ]
   },
   {
-    "Index": 596,
+    "Index": 594,
     "Op": 18,
     "Param": 420,
     "Value": 3,
@@ -21916,7 +21902,7 @@
     ]
   },
   {
-    "Index": 597,
+    "Index": 595,
     "Op": 18,
     "Param": 420,
     "Value": 4,
@@ -21978,7 +21964,7 @@
     ]
   },
   {
-    "Index": 598,
+    "Index": 596,
     "Op": 18,
     "Param": 420,
     "Value": 5,
@@ -22035,7 +22021,7 @@
     ]
   },
   {
-    "Index": 599,
+    "Index": 597,
     "Op": 18,
     "Param": 420,
     "Value": 6,
@@ -22092,7 +22078,7 @@
     ]
   },
   {
-    "Index": 600,
+    "Index": 598,
     "Op": 18,
     "Param": 420,
     "Value": 7,
@@ -22149,7 +22135,7 @@
     ]
   },
   {
-    "Index": 601,
+    "Index": 599,
     "Op": 18,
     "Param": 420,
     "Value": 8,
@@ -22206,7 +22192,7 @@
     ]
   },
   {
-    "Index": 602,
+    "Index": 600,
     "Op": 18,
     "Param": 420,
     "Value": 9,
@@ -22246,7 +22232,7 @@
     ]
   },
   {
-    "Index": 603,
+    "Index": 601,
     "Op": 18,
     "Param": 419,
     "Value": 0,
@@ -22304,7 +22290,7 @@
     ]
   },
   {
-    "Index": 604,
+    "Index": 602,
     "Op": 18,
     "Param": 419,
     "Value": 1,
@@ -22360,7 +22346,7 @@
     ]
   },
   {
-    "Index": 605,
+    "Index": 603,
     "Op": 18,
     "Param": 419,
     "Value": 2,
@@ -22416,7 +22402,7 @@
     ]
   },
   {
-    "Index": 606,
+    "Index": 604,
     "Op": 18,
     "Param": 419,
     "Value": 3,
@@ -22472,7 +22458,7 @@
     ]
   },
   {
-    "Index": 607,
+    "Index": 605,
     "Op": 18,
     "Param": 419,
     "Value": 4,
@@ -22528,7 +22514,7 @@
     ]
   },
   {
-    "Index": 608,
+    "Index": 606,
     "Op": 18,
     "Param": 419,
     "Value": 5,
@@ -22562,7 +22548,7 @@
     ]
   },
   {
-    "Index": 609,
+    "Index": 607,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -22611,7 +22597,7 @@
     ]
   },
   {
-    "Index": 610,
+    "Index": 608,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -22660,7 +22646,7 @@
     ]
   },
   {
-    "Index": 611,
+    "Index": 609,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -22709,7 +22695,7 @@
     ]
   },
   {
-    "Index": 612,
+    "Index": 610,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -22758,7 +22744,7 @@
     ]
   },
   {
-    "Index": 613,
+    "Index": 611,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -22807,7 +22793,7 @@
     ]
   },
   {
-    "Index": 614,
+    "Index": 612,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -22856,7 +22842,7 @@
     ]
   },
   {
-    "Index": 615,
+    "Index": 613,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -22905,7 +22891,7 @@
     ]
   },
   {
-    "Index": 616,
+    "Index": 614,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -22954,7 +22940,7 @@
     ]
   },
   {
-    "Index": 617,
+    "Index": 615,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -23003,7 +22989,7 @@
     ]
   },
   {
-    "Index": 618,
+    "Index": 616,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -23052,7 +23038,7 @@
     ]
   },
   {
-    "Index": 619,
+    "Index": 617,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -23101,7 +23087,7 @@
     ]
   },
   {
-    "Index": 620,
+    "Index": 618,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -23150,7 +23136,7 @@
     ]
   },
   {
-    "Index": 621,
+    "Index": 619,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -23193,7 +23179,7 @@
     ]
   },
   {
-    "Index": 622,
+    "Index": 620,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -23236,7 +23222,7 @@
     ]
   },
   {
-    "Index": 623,
+    "Index": 621,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -23279,7 +23265,7 @@
     ]
   },
   {
-    "Index": 624,
+    "Index": 622,
     "Class": "",
     "NumInputs": 2,
     "ResolvedInputsCount": 2,
@@ -23318,7 +23304,7 @@
     ]
   },
   {
-    "Index": 625,
+    "Index": 623,
     "Class": "",
     "NumInputs": 3,
     "ResolvedInputsCount": 3,
@@ -23360,7 +23346,7 @@
     ]
   },
   {
-    "Index": 626,
+    "Index": 624,
     "Class": "",
     "NumInputs": 3,
     "ResolvedInputsCount": 3,
@@ -23402,7 +23388,7 @@
     ]
   },
   {
-    "Index": 627,
+    "Index": 625,
     "Op": 28,
     "Class": "",
     "NumInputs": 1,
@@ -23434,7 +23420,7 @@
     ]
   },
   {
-    "Index": 628,
+    "Index": 626,
     "Op": 28,
     "Class": "",
     "NumInputs": 2,
@@ -23466,7 +23452,7 @@
     ]
   },
   {
-    "Index": 629,
+    "Index": 627,
     "Op": 28,
     "Class": "",
     "NumInputs": 3,
@@ -23504,7 +23490,7 @@
     ]
   },
   {
-    "Index": 630,
+    "Index": 628,
     "Op": 28,
     "Class": "",
     "NumInputs": 3,
@@ -23542,7 +23528,7 @@
     ]
   },
   {
-    "Index": 631,
+    "Index": 629,
     "Op": 28,
     "Class": "",
     "NumInputs": 5,
@@ -23592,7 +23578,7 @@
     "Notes": []
   },
   {
-    "Index": 636,
+    "Index": 634,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -23642,7 +23628,7 @@
     ]
   },
   {
-    "Index": 637,
+    "Index": 635,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -23692,7 +23678,7 @@
     ]
   },
   {
-    "Index": 638,
+    "Index": 636,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -23742,7 +23728,7 @@
     ]
   },
   {
-    "Index": 639,
+    "Index": 637,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -23792,7 +23778,7 @@
     ]
   },
   {
-    "Index": 640,
+    "Index": 638,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -23842,7 +23828,7 @@
     ]
   },
   {
-    "Index": 641,
+    "Index": 639,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -23892,7 +23878,7 @@
     ]
   },
   {
-    "Index": 642,
+    "Index": 640,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -23943,7 +23929,7 @@
     ]
   },
   {
-    "Index": 643,
+    "Index": 641,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -23994,7 +23980,7 @@
     ]
   },
   {
-    "Index": 644,
+    "Index": 642,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -24045,7 +24031,7 @@
     ]
   },
   {
-    "Index": 645,
+    "Index": 643,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -24096,7 +24082,7 @@
     ]
   },
   {
-    "Index": 646,
+    "Index": 644,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -24155,7 +24141,7 @@
     ]
   },
   {
-    "Index": 647,
+    "Index": 645,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -24208,7 +24194,7 @@
     ]
   },
   {
-    "Index": 648,
+    "Index": 646,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -24261,7 +24247,7 @@
     ]
   },
   {
-    "Index": 649,
+    "Index": 647,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -24314,7 +24300,7 @@
     ]
   },
   {
-    "Index": 650,
+    "Index": 648,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -24367,7 +24353,7 @@
     ]
   },
   {
-    "Index": 651,
+    "Index": 649,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -24420,7 +24406,7 @@
     ]
   },
   {
-    "Index": 652,
+    "Index": 650,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -24473,7 +24459,7 @@
     ]
   },
   {
-    "Index": 653,
+    "Index": 651,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -24526,7 +24512,7 @@
     ]
   },
   {
-    "Index": 654,
+    "Index": 652,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -24579,7 +24565,7 @@
     ]
   },
   {
-    "Index": 655,
+    "Index": 653,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -24643,7 +24629,7 @@
     ]
   },
   {
-    "Index": 656,
+    "Index": 654,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -24707,7 +24693,7 @@
     ]
   },
   {
-    "Index": 657,
+    "Index": 655,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -24771,7 +24757,7 @@
     ]
   },
   {
-    "Index": 658,
+    "Index": 656,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -24835,7 +24821,7 @@
     ]
   },
   {
-    "Index": 659,
+    "Index": 657,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -24899,7 +24885,7 @@
     ]
   },
   {
-    "Index": 660,
+    "Index": 658,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -24963,7 +24949,7 @@
     ]
   },
   {
-    "Index": 661,
+    "Index": 659,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -25022,7 +25008,7 @@
     ]
   },
   {
-    "Index": 662,
+    "Index": 660,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -25075,7 +25061,7 @@
     ]
   },
   {
-    "Index": 663,
+    "Index": 661,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -25128,7 +25114,7 @@
     ]
   },
   {
-    "Index": 664,
+    "Index": 662,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -25181,7 +25167,7 @@
     ]
   },
   {
-    "Index": 665,
+    "Index": 663,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -25234,7 +25220,7 @@
     ]
   },
   {
-    "Index": 666,
+    "Index": 664,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -25287,7 +25273,7 @@
     ]
   },
   {
-    "Index": 667,
+    "Index": 665,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -25340,7 +25326,7 @@
     ]
   },
   {
-    "Index": 668,
+    "Index": 666,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -25393,7 +25379,7 @@
     ]
   },
   {
-    "Index": 669,
+    "Index": 667,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -25446,7 +25432,7 @@
     ]
   },
   {
-    "Index": 670,
+    "Index": 668,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -25504,7 +25490,7 @@
     ]
   },
   {
-    "Index": 671,
+    "Index": 669,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -25562,7 +25548,7 @@
     ]
   },
   {
-    "Index": 672,
+    "Index": 670,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -25620,7 +25606,7 @@
     ]
   },
   {
-    "Index": 673,
+    "Index": 671,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -25671,7 +25657,7 @@
     ]
   },
   {
-    "Index": 674,
+    "Index": 672,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -25722,7 +25708,7 @@
     ]
   },
   {
-    "Index": 675,
+    "Index": 673,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -25773,7 +25759,7 @@
     ]
   },
   {
-    "Index": 676,
+    "Index": 674,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -25824,7 +25810,7 @@
     ]
   },
   {
-    "Index": 677,
+    "Index": 675,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -25894,7 +25880,7 @@
     ]
   },
   {
-    "Index": 678,
+    "Index": 676,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -25964,7 +25950,7 @@
     ]
   },
   {
-    "Index": 679,
+    "Index": 677,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -26029,7 +26015,7 @@
     ]
   },
   {
-    "Index": 680,
+    "Index": 678,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -26094,7 +26080,7 @@
     ]
   },
   {
-    "Index": 681,
+    "Index": 679,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -26159,7 +26145,7 @@
     ]
   },
   {
-    "Index": 682,
+    "Index": 680,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -26229,7 +26215,7 @@
     ]
   },
   {
-    "Index": 683,
+    "Index": 681,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -26294,7 +26280,7 @@
     ]
   },
   {
-    "Index": 684,
+    "Index": 682,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -26359,7 +26345,7 @@
     ]
   },
   {
-    "Index": 685,
+    "Index": 683,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -26424,7 +26410,7 @@
     ]
   },
   {
-    "Index": 686,
+    "Index": 684,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -26489,7 +26475,7 @@
     ]
   },
   {
-    "Index": 687,
+    "Index": 685,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -26554,7 +26540,7 @@
     ]
   },
   {
-    "Index": 688,
+    "Index": 686,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -26619,7 +26605,7 @@
     ]
   },
   {
-    "Index": 689,
+    "Index": 687,
     "Op": 16,
     "Param": 392,
     "Value": 1,
@@ -26684,7 +26670,7 @@
     ]
   },
   {
-    "Index": 690,
+    "Index": 688,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -26742,7 +26728,7 @@
     ]
   },
   {
-    "Index": 691,
+    "Index": 689,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -26800,7 +26786,7 @@
     ]
   },
   {
-    "Index": 692,
+    "Index": 690,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -26858,7 +26844,7 @@
     ]
   },
   {
-    "Index": 693,
+    "Index": 691,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -26916,7 +26902,7 @@
     ]
   },
   {
-    "Index": 694,
+    "Index": 692,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -26974,7 +26960,7 @@
     ]
   },
   {
-    "Index": 695,
+    "Index": 693,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -27032,7 +27018,7 @@
     ]
   },
   {
-    "Index": 696,
+    "Index": 694,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -27085,7 +27071,7 @@
     ]
   },
   {
-    "Index": 697,
+    "Index": 695,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -27138,7 +27124,7 @@
     ]
   },
   {
-    "Index": 698,
+    "Index": 696,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -27191,7 +27177,7 @@
     ]
   },
   {
-    "Index": 699,
+    "Index": 697,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -27244,7 +27230,7 @@
     ]
   },
   {
-    "Index": 700,
+    "Index": 698,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -27314,7 +27300,7 @@
     ]
   },
   {
-    "Index": 701,
+    "Index": 699,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -27379,7 +27365,7 @@
     ]
   },
   {
-    "Index": 702,
+    "Index": 700,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -27449,7 +27435,7 @@
     ]
   },
   {
-    "Index": 703,
+    "Index": 701,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -27514,7 +27500,7 @@
     ]
   },
   {
-    "Index": 704,
+    "Index": 702,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -27584,7 +27570,7 @@
     ]
   },
   {
-    "Index": 705,
+    "Index": 703,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -27654,7 +27640,7 @@
     ]
   },
   {
-    "Index": 706,
+    "Index": 704,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -27724,7 +27710,7 @@
     ]
   },
   {
-    "Index": 707,
+    "Index": 705,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -27789,7 +27775,7 @@
     ]
   },
   {
-    "Index": 708,
+    "Index": 706,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -27854,7 +27840,7 @@
     ]
   },
   {
-    "Index": 709,
+    "Index": 707,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -27919,7 +27905,7 @@
     ]
   },
   {
-    "Index": 710,
+    "Index": 708,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -27984,7 +27970,7 @@
     ]
   },
   {
-    "Index": 711,
+    "Index": 709,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -28054,7 +28040,7 @@
     ]
   },
   {
-    "Index": 712,
+    "Index": 710,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -28119,7 +28105,7 @@
     ]
   },
   {
-    "Index": 713,
+    "Index": 711,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -28184,7 +28170,7 @@
     ]
   },
   {
-    "Index": 714,
+    "Index": 712,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -28249,7 +28235,7 @@
     ]
   },
   {
-    "Index": 715,
+    "Index": 713,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -28319,7 +28305,7 @@
     ]
   },
   {
-    "Index": 716,
+    "Index": 714,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -28389,7 +28375,7 @@
     ]
   },
   {
-    "Index": 717,
+    "Index": 715,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -28464,7 +28450,7 @@
     ]
   },
   {
-    "Index": 718,
+    "Index": 716,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -28522,7 +28508,7 @@
     ]
   },
   {
-    "Index": 719,
+    "Index": 717,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -28580,7 +28566,7 @@
     ]
   },
   {
-    "Index": 720,
+    "Index": 718,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -28638,7 +28624,7 @@
     ]
   },
   {
-    "Index": 721,
+    "Index": 719,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -28696,7 +28682,7 @@
     ]
   },
   {
-    "Index": 722,
+    "Index": 720,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -28754,7 +28740,7 @@
     ]
   },
   {
-    "Index": 723,
+    "Index": 721,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -28812,7 +28798,7 @@
     ]
   },
   {
-    "Index": 724,
+    "Index": 722,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -28865,7 +28851,7 @@
     ]
   },
   {
-    "Index": 725,
+    "Index": 723,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -28918,7 +28904,7 @@
     ]
   },
   {
-    "Index": 726,
+    "Index": 724,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -28971,7 +28957,7 @@
     ]
   },
   {
-    "Index": 727,
+    "Index": 725,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -29024,7 +29010,7 @@
     ]
   },
   {
-    "Index": 728,
+    "Index": 726,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -29077,7 +29063,7 @@
     ]
   },
   {
-    "Index": 729,
+    "Index": 727,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -29147,7 +29133,7 @@
     ]
   },
   {
-    "Index": 730,
+    "Index": 728,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -29212,7 +29198,7 @@
     ]
   },
   {
-    "Index": 731,
+    "Index": 729,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -29277,7 +29263,7 @@
     ]
   },
   {
-    "Index": 732,
+    "Index": 730,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -29347,7 +29333,7 @@
     ]
   },
   {
-    "Index": 733,
+    "Index": 731,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -29412,7 +29398,7 @@
     ]
   },
   {
-    "Index": 734,
+    "Index": 732,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -29482,7 +29468,7 @@
     ]
   },
   {
-    "Index": 735,
+    "Index": 733,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -29552,7 +29538,7 @@
     ]
   },
   {
-    "Index": 736,
+    "Index": 734,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -29622,7 +29608,7 @@
     ]
   },
   {
-    "Index": 737,
+    "Index": 735,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -29687,7 +29673,7 @@
     ]
   },
   {
-    "Index": 738,
+    "Index": 736,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -29752,7 +29738,7 @@
     ]
   },
   {
-    "Index": 739,
+    "Index": 737,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -29817,7 +29803,7 @@
     ]
   },
   {
-    "Index": 740,
+    "Index": 738,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -29882,7 +29868,7 @@
     ]
   },
   {
-    "Index": 741,
+    "Index": 739,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -29952,7 +29938,7 @@
     ]
   },
   {
-    "Index": 742,
+    "Index": 740,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -30017,7 +30003,7 @@
     ]
   },
   {
-    "Index": 743,
+    "Index": 741,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -30082,7 +30068,7 @@
     ]
   },
   {
-    "Index": 744,
+    "Index": 742,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -30147,7 +30133,7 @@
     ]
   },
   {
-    "Index": 745,
+    "Index": 743,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -30222,7 +30208,7 @@
     ]
   },
   {
-    "Index": 746,
+    "Index": 744,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -30292,7 +30278,7 @@
     ]
   },
   {
-    "Index": 747,
+    "Index": 745,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -30362,7 +30348,7 @@
     ]
   },
   {
-    "Index": 748,
+    "Index": 746,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -30420,7 +30406,7 @@
     ]
   },
   {
-    "Index": 749,
+    "Index": 747,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -30478,7 +30464,7 @@
     ]
   },
   {
-    "Index": 750,
+    "Index": 748,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -30536,7 +30522,7 @@
     ]
   },
   {
-    "Index": 751,
+    "Index": 749,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -30594,7 +30580,7 @@
     ]
   },
   {
-    "Index": 752,
+    "Index": 750,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -30652,7 +30638,7 @@
     ]
   },
   {
-    "Index": 753,
+    "Index": 751,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -30710,7 +30696,7 @@
     ]
   },
   {
-    "Index": 754,
+    "Index": 752,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -30763,7 +30749,7 @@
     ]
   },
   {
-    "Index": 755,
+    "Index": 753,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -30816,7 +30802,7 @@
     ]
   },
   {
-    "Index": 756,
+    "Index": 754,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -30869,7 +30855,7 @@
     ]
   },
   {
-    "Index": 757,
+    "Index": 755,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -30922,7 +30908,7 @@
     ]
   },
   {
-    "Index": 758,
+    "Index": 756,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -30992,7 +30978,7 @@
     ]
   },
   {
-    "Index": 759,
+    "Index": 757,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -31057,7 +31043,7 @@
     ]
   },
   {
-    "Index": 760,
+    "Index": 758,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -31122,7 +31108,7 @@
     ]
   },
   {
-    "Index": 761,
+    "Index": 759,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -31187,7 +31173,7 @@
     ]
   },
   {
-    "Index": 762,
+    "Index": 760,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -31257,7 +31243,7 @@
     ]
   },
   {
-    "Index": 763,
+    "Index": 761,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -31322,7 +31308,7 @@
     ]
   },
   {
-    "Index": 764,
+    "Index": 762,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -31392,7 +31378,7 @@
     ]
   },
   {
-    "Index": 765,
+    "Index": 763,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -31462,7 +31448,7 @@
     ]
   },
   {
-    "Index": 766,
+    "Index": 764,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -31532,7 +31518,7 @@
     ]
   },
   {
-    "Index": 767,
+    "Index": 765,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -31597,7 +31583,7 @@
     ]
   },
   {
-    "Index": 768,
+    "Index": 766,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -31662,7 +31648,7 @@
     ]
   },
   {
-    "Index": 769,
+    "Index": 767,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -31727,7 +31713,7 @@
     ]
   },
   {
-    "Index": 770,
+    "Index": 768,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -31797,7 +31783,7 @@
     ]
   },
   {
-    "Index": 771,
+    "Index": 769,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -31862,7 +31848,7 @@
     ]
   },
   {
-    "Index": 772,
+    "Index": 770,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -31927,7 +31913,7 @@
     ]
   },
   {
-    "Index": 773,
+    "Index": 771,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -31992,7 +31978,7 @@
     ]
   },
   {
-    "Index": 774,
+    "Index": 772,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -32057,7 +32043,7 @@
     ]
   },
   {
-    "Index": 775,
+    "Index": 773,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -32122,7 +32108,7 @@
     ]
   },
   {
-    "Index": 776,
+    "Index": 774,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -32187,7 +32173,7 @@
     ]
   },
   {
-    "Index": 777,
+    "Index": 775,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -32252,7 +32238,7 @@
     ]
   },
   {
-    "Index": 778,
+    "Index": 776,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -32317,7 +32303,7 @@
     ]
   },
   {
-    "Index": 779,
+    "Index": 777,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -32375,7 +32361,7 @@
     ]
   },
   {
-    "Index": 780,
+    "Index": 778,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -32433,7 +32419,7 @@
     ]
   },
   {
-    "Index": 781,
+    "Index": 779,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -32491,7 +32477,7 @@
     ]
   },
   {
-    "Index": 782,
+    "Index": 780,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -32549,7 +32535,7 @@
     ]
   },
   {
-    "Index": 783,
+    "Index": 781,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -32607,7 +32593,7 @@
     ]
   },
   {
-    "Index": 784,
+    "Index": 782,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -32665,7 +32651,7 @@
     ]
   },
   {
-    "Index": 785,
+    "Index": 783,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -32718,7 +32704,7 @@
     ]
   },
   {
-    "Index": 786,
+    "Index": 784,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -32771,7 +32757,7 @@
     ]
   },
   {
-    "Index": 787,
+    "Index": 785,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -32824,7 +32810,7 @@
     ]
   },
   {
-    "Index": 788,
+    "Index": 786,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -32877,7 +32863,7 @@
     ]
   },
   {
-    "Index": 789,
+    "Index": 787,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -32947,7 +32933,7 @@
     ]
   },
   {
-    "Index": 790,
+    "Index": 788,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -33012,7 +32998,7 @@
     ]
   },
   {
-    "Index": 791,
+    "Index": 789,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -33077,7 +33063,7 @@
     ]
   },
   {
-    "Index": 792,
+    "Index": 790,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -33147,7 +33133,7 @@
     ]
   },
   {
-    "Index": 793,
+    "Index": 791,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -33212,7 +33198,7 @@
     ]
   },
   {
-    "Index": 794,
+    "Index": 792,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -33282,7 +33268,7 @@
     ]
   },
   {
-    "Index": 795,
+    "Index": 793,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -33352,7 +33338,7 @@
     ]
   },
   {
-    "Index": 796,
+    "Index": 794,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -33422,7 +33408,7 @@
     ]
   },
   {
-    "Index": 797,
+    "Index": 795,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -33487,7 +33473,7 @@
     ]
   },
   {
-    "Index": 798,
+    "Index": 796,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -33552,7 +33538,7 @@
     ]
   },
   {
-    "Index": 799,
+    "Index": 797,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -33617,7 +33603,7 @@
     ]
   },
   {
-    "Index": 800,
+    "Index": 798,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -33687,7 +33673,7 @@
     ]
   },
   {
-    "Index": 801,
+    "Index": 799,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -33752,7 +33738,7 @@
     ]
   },
   {
-    "Index": 802,
+    "Index": 800,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -33817,7 +33803,7 @@
     ]
   },
   {
-    "Index": 803,
+    "Index": 801,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -33882,7 +33868,7 @@
     ]
   },
   {
-    "Index": 804,
+    "Index": 802,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -33947,7 +33933,7 @@
     ]
   },
   {
-    "Index": 805,
+    "Index": 803,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -34012,7 +33998,7 @@
     ]
   },
   {
-    "Index": 806,
+    "Index": 804,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -34077,7 +34063,7 @@
     ]
   },
   {
-    "Index": 807,
+    "Index": 805,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -34142,7 +34128,7 @@
     ]
   },
   {
-    "Index": 808,
+    "Index": 806,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -34207,7 +34193,7 @@
     ]
   },
   {
-    "Index": 809,
+    "Index": 807,
     "Op": 16,
     "Param": 393,
     "Value": 2,
@@ -34272,7 +34258,7 @@
     ]
   },
   {
-    "Index": 810,
+    "Index": 808,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -34330,7 +34316,7 @@
     ]
   },
   {
-    "Index": 811,
+    "Index": 809,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -34388,7 +34374,7 @@
     ]
   },
   {
-    "Index": 812,
+    "Index": 810,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -34446,7 +34432,7 @@
     ]
   },
   {
-    "Index": 813,
+    "Index": 811,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -34504,7 +34490,7 @@
     ]
   },
   {
-    "Index": 814,
+    "Index": 812,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -34562,7 +34548,7 @@
     ]
   },
   {
-    "Index": 815,
+    "Index": 813,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -34620,7 +34606,7 @@
     ]
   },
   {
-    "Index": 816,
+    "Index": 814,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -34673,7 +34659,7 @@
     ]
   },
   {
-    "Index": 817,
+    "Index": 815,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -34726,7 +34712,7 @@
     ]
   },
   {
-    "Index": 818,
+    "Index": 816,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -34779,7 +34765,7 @@
     ]
   },
   {
-    "Index": 819,
+    "Index": 817,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -34832,7 +34818,7 @@
     ]
   },
   {
-    "Index": 820,
+    "Index": 818,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -34902,7 +34888,7 @@
     ]
   },
   {
-    "Index": 821,
+    "Index": 819,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -34967,7 +34953,7 @@
     ]
   },
   {
-    "Index": 822,
+    "Index": 820,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -35032,7 +35018,7 @@
     ]
   },
   {
-    "Index": 823,
+    "Index": 821,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -35097,7 +35083,7 @@
     ]
   },
   {
-    "Index": 824,
+    "Index": 822,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -35162,7 +35148,7 @@
     ]
   },
   {
-    "Index": 825,
+    "Index": 823,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -35227,7 +35213,7 @@
     ]
   },
   {
-    "Index": 826,
+    "Index": 824,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -35297,7 +35283,7 @@
     ]
   },
   {
-    "Index": 827,
+    "Index": 825,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -35362,7 +35348,7 @@
     ]
   },
   {
-    "Index": 828,
+    "Index": 826,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -35432,7 +35418,7 @@
     ]
   },
   {
-    "Index": 829,
+    "Index": 827,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -35502,7 +35488,7 @@
     ]
   },
   {
-    "Index": 830,
+    "Index": 828,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -35572,7 +35558,7 @@
     ]
   },
   {
-    "Index": 831,
+    "Index": 829,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -35637,7 +35623,7 @@
     ]
   },
   {
-    "Index": 832,
+    "Index": 830,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -35702,7 +35688,7 @@
     ]
   },
   {
-    "Index": 833,
+    "Index": 831,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -35767,7 +35753,7 @@
     ]
   },
   {
-    "Index": 834,
+    "Index": 832,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -35837,7 +35823,7 @@
     ]
   },
   {
-    "Index": 835,
+    "Index": 833,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -35902,7 +35888,7 @@
     ]
   },
   {
-    "Index": 836,
+    "Index": 834,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -35967,7 +35953,7 @@
     ]
   },
   {
-    "Index": 837,
+    "Index": 835,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -36032,7 +36018,7 @@
     ]
   },
   {
-    "Index": 838,
+    "Index": 836,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -36102,7 +36088,7 @@
     ]
   },
   {
-    "Index": 839,
+    "Index": 837,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -36160,7 +36146,7 @@
     ]
   },
   {
-    "Index": 840,
+    "Index": 838,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -36218,7 +36204,7 @@
     ]
   },
   {
-    "Index": 841,
+    "Index": 839,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -36276,7 +36262,7 @@
     ]
   },
   {
-    "Index": 842,
+    "Index": 840,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -36334,7 +36320,7 @@
     ]
   },
   {
-    "Index": 843,
+    "Index": 841,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -36392,7 +36378,7 @@
     ]
   },
   {
-    "Index": 844,
+    "Index": 842,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -36450,7 +36436,7 @@
     ]
   },
   {
-    "Index": 845,
+    "Index": 843,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -36503,7 +36489,7 @@
     ]
   },
   {
-    "Index": 846,
+    "Index": 844,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -36556,7 +36542,7 @@
     ]
   },
   {
-    "Index": 847,
+    "Index": 845,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -36609,7 +36595,7 @@
     ]
   },
   {
-    "Index": 848,
+    "Index": 846,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -36662,7 +36648,7 @@
     ]
   },
   {
-    "Index": 849,
+    "Index": 847,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -36732,7 +36718,7 @@
     ]
   },
   {
-    "Index": 850,
+    "Index": 848,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -36797,7 +36783,7 @@
     ]
   },
   {
-    "Index": 851,
+    "Index": 849,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -36862,7 +36848,7 @@
     ]
   },
   {
-    "Index": 852,
+    "Index": 850,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -36932,7 +36918,7 @@
     ]
   },
   {
-    "Index": 853,
+    "Index": 851,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -36997,7 +36983,7 @@
     ]
   },
   {
-    "Index": 854,
+    "Index": 852,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -37067,7 +37053,7 @@
     ]
   },
   {
-    "Index": 855,
+    "Index": 853,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -37137,7 +37123,7 @@
     ]
   },
   {
-    "Index": 856,
+    "Index": 854,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -37207,7 +37193,7 @@
     ]
   },
   {
-    "Index": 857,
+    "Index": 855,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -37272,7 +37258,7 @@
     ]
   },
   {
-    "Index": 858,
+    "Index": 856,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -37337,7 +37323,7 @@
     ]
   },
   {
-    "Index": 859,
+    "Index": 857,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -37402,7 +37388,7 @@
     ]
   },
   {
-    "Index": 860,
+    "Index": 858,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -37472,7 +37458,7 @@
     ]
   },
   {
-    "Index": 861,
+    "Index": 859,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -37537,7 +37523,7 @@
     ]
   },
   {
-    "Index": 862,
+    "Index": 860,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -37602,7 +37588,7 @@
     ]
   },
   {
-    "Index": 863,
+    "Index": 861,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -37667,7 +37653,7 @@
     ]
   },
   {
-    "Index": 864,
+    "Index": 862,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -37732,7 +37718,7 @@
     ]
   },
   {
-    "Index": 865,
+    "Index": 863,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -37797,7 +37783,7 @@
     ]
   },
   {
-    "Index": 866,
+    "Index": 864,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -37862,7 +37848,7 @@
     ]
   },
   {
-    "Index": 867,
+    "Index": 865,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -37927,7 +37913,7 @@
     ]
   },
   {
-    "Index": 868,
+    "Index": 866,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -37997,7 +37983,7 @@
     ]
   },
   {
-    "Index": 869,
+    "Index": 867,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -38055,7 +38041,7 @@
     ]
   },
   {
-    "Index": 870,
+    "Index": 868,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -38108,7 +38094,7 @@
     ]
   },
   {
-    "Index": 871,
+    "Index": 869,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -38161,7 +38147,7 @@
     ]
   },
   {
-    "Index": 872,
+    "Index": 870,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -38214,7 +38200,7 @@
     ]
   },
   {
-    "Index": 873,
+    "Index": 871,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -38272,7 +38258,7 @@
     ]
   },
   {
-    "Index": 874,
+    "Index": 872,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -38325,7 +38311,7 @@
     ]
   },
   {
-    "Index": 875,
+    "Index": 873,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -38378,7 +38364,7 @@
     ]
   },
   {
-    "Index": 876,
+    "Index": 874,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -38431,7 +38417,7 @@
     ]
   },
   {
-    "Index": 877,
+    "Index": 875,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -38489,7 +38475,7 @@
     ]
   },
   {
-    "Index": 878,
+    "Index": 876,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -38554,7 +38540,7 @@
     ]
   },
   {
-    "Index": 879,
+    "Index": 877,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -38619,7 +38605,7 @@
     ]
   },
   {
-    "Index": 880,
+    "Index": 878,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -38684,7 +38670,7 @@
     ]
   },
   {
-    "Index": 881,
+    "Index": 879,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -38749,7 +38735,7 @@
     ]
   },
   {
-    "Index": 882,
+    "Index": 880,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -38819,7 +38805,7 @@
     ]
   },
   {
-    "Index": 883,
+    "Index": 881,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -38884,7 +38870,7 @@
     ]
   },
   {
-    "Index": 884,
+    "Index": 882,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -38949,7 +38935,7 @@
     ]
   },
   {
-    "Index": 885,
+    "Index": 883,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -39019,7 +39005,7 @@
     ]
   },
   {
-    "Index": 886,
+    "Index": 884,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -39089,7 +39075,7 @@
     ]
   },
   {
-    "Index": 887,
+    "Index": 885,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -39159,7 +39145,7 @@
     ]
   },
   {
-    "Index": 888,
+    "Index": 886,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -39232,7 +39218,7 @@
     ]
   },
   {
-    "Index": 889,
+    "Index": 887,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -39302,7 +39288,7 @@
     ]
   },
   {
-    "Index": 890,
+    "Index": 888,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -39383,7 +39369,7 @@
     ]
   },
   {
-    "Index": 891,
+    "Index": 889,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -39459,7 +39445,7 @@
     ]
   },
   {
-    "Index": 892,
+    "Index": 890,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -39535,7 +39521,7 @@
     ]
   },
   {
-    "Index": 893,
+    "Index": 891,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -39611,7 +39597,7 @@
     ]
   },
   {
-    "Index": 894,
+    "Index": 892,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -39687,7 +39673,7 @@
     ]
   },
   {
-    "Index": 895,
+    "Index": 893,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -39763,7 +39749,7 @@
     ]
   },
   {
-    "Index": 896,
+    "Index": 894,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -39821,7 +39807,7 @@
     ]
   },
   {
-    "Index": 897,
+    "Index": 895,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -39874,7 +39860,7 @@
     ]
   },
   {
-    "Index": 898,
+    "Index": 896,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -39927,7 +39913,7 @@
     ]
   },
   {
-    "Index": 899,
+    "Index": 897,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -39980,7 +39966,7 @@
     ]
   },
   {
-    "Index": 900,
+    "Index": 898,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -40038,7 +40024,7 @@
     ]
   },
   {
-    "Index": 901,
+    "Index": 899,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -40091,7 +40077,7 @@
     ]
   },
   {
-    "Index": 902,
+    "Index": 900,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -40144,7 +40130,7 @@
     ]
   },
   {
-    "Index": 903,
+    "Index": 901,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -40197,7 +40183,7 @@
     ]
   },
   {
-    "Index": 904,
+    "Index": 902,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -40255,7 +40241,7 @@
     ]
   },
   {
-    "Index": 905,
+    "Index": 903,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -40320,7 +40306,7 @@
     ]
   },
   {
-    "Index": 906,
+    "Index": 904,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -40385,7 +40371,7 @@
     ]
   },
   {
-    "Index": 907,
+    "Index": 905,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -40450,7 +40436,7 @@
     ]
   },
   {
-    "Index": 908,
+    "Index": 906,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -40515,7 +40501,7 @@
     ]
   },
   {
-    "Index": 909,
+    "Index": 907,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -40585,7 +40571,7 @@
     ]
   },
   {
-    "Index": 910,
+    "Index": 908,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -40650,7 +40636,7 @@
     ]
   },
   {
-    "Index": 911,
+    "Index": 909,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -40715,7 +40701,7 @@
     ]
   },
   {
-    "Index": 912,
+    "Index": 910,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -40785,7 +40771,7 @@
     ]
   },
   {
-    "Index": 913,
+    "Index": 911,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -40855,7 +40841,7 @@
     ]
   },
   {
-    "Index": 914,
+    "Index": 912,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -40925,7 +40911,7 @@
     ]
   },
   {
-    "Index": 915,
+    "Index": 913,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -40998,7 +40984,7 @@
     ]
   },
   {
-    "Index": 916,
+    "Index": 914,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -41068,7 +41054,7 @@
     ]
   },
   {
-    "Index": 917,
+    "Index": 915,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -41149,7 +41135,7 @@
     ]
   },
   {
-    "Index": 918,
+    "Index": 916,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -41214,6 +41200,158 @@
           },
           {
             "PropertyString": "-2% to Enemy Fire Resistance",
+            "ModChance": 100,
+            "Index": 2
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Item Enchantment Recipe"
+    ]
+  },
+  {
+    "Index": 917,
+    "Op": 16,
+    "Param": 395,
+    "Value": 9,
+    "Class": "",
+    "NumInputs": 6,
+    "ResolvedInputsCount": 6,
+    "Inputs": [
+      {
+        "Name": "Spears and Polearms",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "sppl"
+      },
+      {
+        "Name": "Orb of Infusion",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "ooi"
+      },
+      {
+        "Name": "Orb of Conversion",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "ooc"
+      },
+      {
+        "Name": "Sapphire",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "gms"
+      },
+      {
+        "Name": "Zod Rune",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "r33"
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Enchantments: 1 / 10",
+            "ModChance": 100,
+            "Index": 0
+          },
+          {
+            "PropertyString": "+2% to Cold Skill Damage",
+            "ModChance": 100,
+            "Index": 1
+          },
+          {
+            "PropertyString": "-2% to Enemy Cold Resistance",
+            "ModChance": 100,
+            "Index": 2
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Item Enchantment Recipe"
+    ]
+  },
+  {
+    "Index": 918,
+    "Op": 16,
+    "Param": 395,
+    "Value": 9,
+    "Class": "",
+    "NumInputs": 6,
+    "ResolvedInputsCount": 6,
+    "Inputs": [
+      {
+        "Name": "Spears and Polearms",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "sppl"
+      },
+      {
+        "Name": "Orb of Infusion",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "ooi"
+      },
+      {
+        "Name": "Orb of Conversion",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "ooc"
+      },
+      {
+        "Name": "Topaz",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "gmt"
+      },
+      {
+        "Name": "Zod Rune",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "r33"
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Unique Item"
+        ],
+        "RawToken": "\"jew,uni\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Enchantments: 1 / 10",
+            "ModChance": 100,
+            "Index": 0
+          },
+          {
+            "PropertyString": "+2% to Lightning Skill Damage",
+            "ModChance": 100,
+            "Index": 1
+          },
+          {
+            "PropertyString": "-2% to Enemy Lightning Resistance",
             "ModChance": 100,
             "Index": 2
           }
@@ -41252,10 +41390,10 @@
         "RawToken": "ooc"
       },
       {
-        "Name": "Sapphire",
+        "Name": "Emerald",
         "Quantity": 1,
         "Qualifiers": [],
-        "RawToken": "gms"
+        "RawToken": "gme"
       },
       {
         "Name": "Zod Rune",
@@ -41284,12 +41422,12 @@
             "Index": 0
           },
           {
-            "PropertyString": "+2% to Cold Skill Damage",
+            "PropertyString": "+2% to Poison Skill Damage",
             "ModChance": 100,
             "Index": 1
           },
           {
-            "PropertyString": "-2% to Enemy Cold Resistance",
+            "PropertyString": "-2% to Enemy Poison Resistance",
             "ModChance": 100,
             "Index": 2
           }
@@ -41328,158 +41466,6 @@
         "RawToken": "ooc"
       },
       {
-        "Name": "Topaz",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "gmt"
-      },
-      {
-        "Name": "Zod Rune",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "r33"
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"jew,uni\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Enchantments: 1 / 10",
-            "ModChance": 100,
-            "Index": 0
-          },
-          {
-            "PropertyString": "+2% to Lightning Skill Damage",
-            "ModChance": 100,
-            "Index": 1
-          },
-          {
-            "PropertyString": "-2% to Enemy Lightning Resistance",
-            "ModChance": 100,
-            "Index": 2
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Item Enchantment Recipe"
-    ]
-  },
-  {
-    "Index": 921,
-    "Op": 16,
-    "Param": 395,
-    "Value": 9,
-    "Class": "",
-    "NumInputs": 6,
-    "ResolvedInputsCount": 6,
-    "Inputs": [
-      {
-        "Name": "Spears and Polearms",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "sppl"
-      },
-      {
-        "Name": "Orb of Infusion",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ooi"
-      },
-      {
-        "Name": "Orb of Conversion",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ooc"
-      },
-      {
-        "Name": "Emerald",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "gme"
-      },
-      {
-        "Name": "Zod Rune",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "r33"
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"jew,uni\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Enchantments: 1 / 10",
-            "ModChance": 100,
-            "Index": 0
-          },
-          {
-            "PropertyString": "+2% to Poison Skill Damage",
-            "ModChance": 100,
-            "Index": 1
-          },
-          {
-            "PropertyString": "-2% to Enemy Poison Resistance",
-            "ModChance": 100,
-            "Index": 2
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Item Enchantment Recipe"
-    ]
-  },
-  {
-    "Index": 922,
-    "Op": 16,
-    "Param": 395,
-    "Value": 9,
-    "Class": "",
-    "NumInputs": 6,
-    "ResolvedInputsCount": 6,
-    "Inputs": [
-      {
-        "Name": "Spears and Polearms",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "sppl"
-      },
-      {
-        "Name": "Orb of Infusion",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ooi"
-      },
-      {
-        "Name": "Orb of Conversion",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ooc"
-      },
-      {
         "Name": "Chaos Onyx",
         "Quantity": 1,
         "Qualifiers": [],
@@ -41529,7 +41515,7 @@
     ]
   },
   {
-    "Index": 923,
+    "Index": 921,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -41587,7 +41573,7 @@
     ]
   },
   {
-    "Index": 924,
+    "Index": 922,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -41640,7 +41626,7 @@
     ]
   },
   {
-    "Index": 925,
+    "Index": 923,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -41693,7 +41679,7 @@
     ]
   },
   {
-    "Index": 926,
+    "Index": 924,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -41746,7 +41732,7 @@
     ]
   },
   {
-    "Index": 927,
+    "Index": 925,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -41804,7 +41790,7 @@
     ]
   },
   {
-    "Index": 928,
+    "Index": 926,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -41857,7 +41843,7 @@
     ]
   },
   {
-    "Index": 929,
+    "Index": 927,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -41910,7 +41896,7 @@
     ]
   },
   {
-    "Index": 930,
+    "Index": 928,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -41963,7 +41949,7 @@
     ]
   },
   {
-    "Index": 931,
+    "Index": 929,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -42021,7 +42007,7 @@
     ]
   },
   {
-    "Index": 932,
+    "Index": 930,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -42086,7 +42072,7 @@
     ]
   },
   {
-    "Index": 933,
+    "Index": 931,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -42151,7 +42137,7 @@
     ]
   },
   {
-    "Index": 934,
+    "Index": 932,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -42216,7 +42202,7 @@
     ]
   },
   {
-    "Index": 935,
+    "Index": 933,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -42270,6 +42256,141 @@
           },
           {
             "PropertyString": "+150 to Attack Rating",
+            "ModChance": 100,
+            "Index": 1
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Item Enchantment Recipe"
+    ]
+  },
+  {
+    "Index": 934,
+    "Op": 16,
+    "Param": 395,
+    "Value": 9,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Missile Weapon",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "miss"
+      },
+      {
+        "Name": "Orb of Infusion",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "ooi"
+      },
+      {
+        "Name": "Amethyst",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "gmm"
+      },
+      {
+        "Name": "Fal Rune",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "r19"
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Enchantments: 1 / 10",
+            "ModChance": 100,
+            "Index": 0
+          },
+          {
+            "PropertyString": "+15% Enhanced Weapon Damage",
+            "ModChance": 100,
+            "Index": 1
+          },
+          {
+            "PropertyString": "+15 to Attack Rating",
+            "ModChance": 100,
+            "Index": 2
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Item Enchantment Recipe"
+    ]
+  },
+  {
+    "Index": 935,
+    "Op": 16,
+    "Param": 395,
+    "Value": 9,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Missile Weapon",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "miss"
+      },
+      {
+        "Name": "Orb of Infusion",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "ooi"
+      },
+      {
+        "Name": "Sapphire",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "gms"
+      },
+      {
+        "Name": "Mal Rune",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "RawToken": "r23"
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Rare Item"
+        ],
+        "RawToken": "\"jew,rar\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Enchantments: 1 / 10",
+            "ModChance": 100,
+            "Index": 0
+          },
+          {
+            "PropertyString": "+15% Faster Cast Rate",
             "ModChance": 100,
             "Index": 1
           }
@@ -42308,141 +42429,6 @@
         "RawToken": "gmm"
       },
       {
-        "Name": "Fal Rune",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "r19"
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Enchantments: 1 / 10",
-            "ModChance": 100,
-            "Index": 0
-          },
-          {
-            "PropertyString": "+15% Enhanced Weapon Damage",
-            "ModChance": 100,
-            "Index": 1
-          },
-          {
-            "PropertyString": "+15 to Attack Rating",
-            "ModChance": 100,
-            "Index": 2
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Item Enchantment Recipe"
-    ]
-  },
-  {
-    "Index": 937,
-    "Op": 16,
-    "Param": 395,
-    "Value": 9,
-    "Class": "",
-    "NumInputs": 5,
-    "ResolvedInputsCount": 5,
-    "Inputs": [
-      {
-        "Name": "Missile Weapon",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "miss"
-      },
-      {
-        "Name": "Orb of Infusion",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ooi"
-      },
-      {
-        "Name": "Sapphire",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "gms"
-      },
-      {
-        "Name": "Mal Rune",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "r23"
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"jew,rar\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Enchantments: 1 / 10",
-            "ModChance": 100,
-            "Index": 0
-          },
-          {
-            "PropertyString": "+15% Faster Cast Rate",
-            "ModChance": 100,
-            "Index": 1
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Item Enchantment Recipe"
-    ]
-  },
-  {
-    "Index": 938,
-    "Op": 16,
-    "Param": 395,
-    "Value": 9,
-    "Class": "",
-    "NumInputs": 5,
-    "ResolvedInputsCount": 5,
-    "Inputs": [
-      {
-        "Name": "Missile Weapon",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "miss"
-      },
-      {
-        "Name": "Orb of Infusion",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "ooi"
-      },
-      {
-        "Name": "Amethyst",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "RawToken": "gmm"
-      },
-      {
         "Name": "Mal Rune",
         "Quantity": 1,
         "Qualifiers": [],
@@ -42481,7 +42467,7 @@
     ]
   },
   {
-    "Index": 939,
+    "Index": 937,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -42551,7 +42537,7 @@
     ]
   },
   {
-    "Index": 940,
+    "Index": 938,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -42621,7 +42607,7 @@
     ]
   },
   {
-    "Index": 941,
+    "Index": 939,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -42691,7 +42677,7 @@
     ]
   },
   {
-    "Index": 942,
+    "Index": 940,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -42764,7 +42750,7 @@
     ]
   },
   {
-    "Index": 943,
+    "Index": 941,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -42834,7 +42820,7 @@
     ]
   },
   {
-    "Index": 944,
+    "Index": 942,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -42915,7 +42901,7 @@
     ]
   },
   {
-    "Index": 945,
+    "Index": 943,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -42991,7 +42977,7 @@
     ]
   },
   {
-    "Index": 946,
+    "Index": 944,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -43067,7 +43053,7 @@
     ]
   },
   {
-    "Index": 947,
+    "Index": 945,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -43143,7 +43129,7 @@
     ]
   },
   {
-    "Index": 948,
+    "Index": 946,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -43219,7 +43205,7 @@
     ]
   },
   {
-    "Index": 949,
+    "Index": 947,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -43295,7 +43281,7 @@
     ]
   },
   {
-    "Index": 950,
+    "Index": 948,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -43353,7 +43339,7 @@
     ]
   },
   {
-    "Index": 951,
+    "Index": 949,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -43406,7 +43392,7 @@
     ]
   },
   {
-    "Index": 952,
+    "Index": 950,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -43459,7 +43445,7 @@
     ]
   },
   {
-    "Index": 953,
+    "Index": 951,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -43512,7 +43498,7 @@
     ]
   },
   {
-    "Index": 954,
+    "Index": 952,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -43570,7 +43556,7 @@
     ]
   },
   {
-    "Index": 955,
+    "Index": 953,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -43623,7 +43609,7 @@
     ]
   },
   {
-    "Index": 956,
+    "Index": 954,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -43676,7 +43662,7 @@
     ]
   },
   {
-    "Index": 957,
+    "Index": 955,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -43729,7 +43715,7 @@
     ]
   },
   {
-    "Index": 958,
+    "Index": 956,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -43787,7 +43773,7 @@
     ]
   },
   {
-    "Index": 959,
+    "Index": 957,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -43852,7 +43838,7 @@
     ]
   },
   {
-    "Index": 960,
+    "Index": 958,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -43917,7 +43903,7 @@
     ]
   },
   {
-    "Index": 961,
+    "Index": 959,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -43982,7 +43968,7 @@
     ]
   },
   {
-    "Index": 962,
+    "Index": 960,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -44047,7 +44033,7 @@
     ]
   },
   {
-    "Index": 963,
+    "Index": 961,
     "Op": 16,
     "Param": 395,
     "Value": 9,
@@ -44117,7 +44103,7 @@
     ]
   },
   {
-    "Index": 964,
+    "Index": 962,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -44182,7 +44168,7 @@
     ]
   },
   {
-    "Index": 965,
+    "Index": 963,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -44247,7 +44233,7 @@
     ]
   },
   {
-    "Index": 966,
+    "Index": 964,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -44317,7 +44303,7 @@
     ]
   },
   {
-    "Index": 967,
+    "Index": 965,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -44387,7 +44373,7 @@
     ]
   },
   {
-    "Index": 968,
+    "Index": 966,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -44457,7 +44443,7 @@
     ]
   },
   {
-    "Index": 969,
+    "Index": 967,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -44530,7 +44516,7 @@
     ]
   },
   {
-    "Index": 970,
+    "Index": 968,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -44600,7 +44586,7 @@
     ]
   },
   {
-    "Index": 971,
+    "Index": 969,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -44681,7 +44667,7 @@
     ]
   },
   {
-    "Index": 972,
+    "Index": 970,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -44757,7 +44743,7 @@
     ]
   },
   {
-    "Index": 973,
+    "Index": 971,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -44833,7 +44819,7 @@
     ]
   },
   {
-    "Index": 974,
+    "Index": 972,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -44909,7 +44895,7 @@
     ]
   },
   {
-    "Index": 975,
+    "Index": 973,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -44985,7 +44971,7 @@
     ]
   },
   {
-    "Index": 976,
+    "Index": 974,
     "Op": 16,
     "Param": 394,
     "Value": 4,
@@ -45061,7 +45047,7 @@
     ]
   },
   {
-    "Index": 15653,
+    "Index": 15651,
     "Class": "",
     "NumInputs": 2,
     "ResolvedInputsCount": 2,
@@ -45074,6 +45060,88 @@
           "Not a Runeword"
         ],
         "RawToken": "\"helm,low,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15652,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"helm,nor,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15653,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"helm,hiq,nru\""
       },
       {
         "Name": "Jewel",
@@ -45111,10 +45179,9 @@
         "Name": "Helm",
         "Quantity": 1,
         "Qualifiers": [
-          "Normal Quality",
-          "Not a Runeword"
+          "Magic Item"
         ],
-        "RawToken": "\"helm,nor,nru\""
+        "RawToken": "\"helm,mag\""
       },
       {
         "Name": "Jewel",
@@ -45152,18 +45219,17 @@
         "Name": "Helm",
         "Quantity": 1,
         "Qualifiers": [
-          "High Quality (Superior)",
-          "Not a Runeword"
+          "Rare Item"
         ],
-        "RawToken": "\"helm,hiq,nru\""
+        "RawToken": "\"helm,rar\""
       },
       {
         "Name": "Jewel",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Rare Item"
         ],
-        "RawToken": "\"jew,mag\""
+        "RawToken": "\"jew,rar\""
       }
     ],
     "Outputs": {
@@ -45193,17 +45259,17 @@
         "Name": "Helm",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Crafted Item"
         ],
-        "RawToken": "\"helm,mag\""
+        "RawToken": "\"helm,crf\""
       },
       {
         "Name": "Jewel",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Unique Item"
         ],
-        "RawToken": "\"jew,mag\""
+        "RawToken": "\"jew,uni\""
       }
     ],
     "Outputs": {
@@ -45233,9 +45299,9 @@
         "Name": "Helm",
         "Quantity": 1,
         "Qualifiers": [
-          "Rare Item"
+          "Set Item"
         ],
-        "RawToken": "\"helm,rar\""
+        "RawToken": "\"helm,set\""
       },
       {
         "Name": "Jewel",
@@ -45273,86 +45339,6 @@
         "Name": "Helm",
         "Quantity": 1,
         "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"helm,crf\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"jew,uni\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (1)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15659,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"helm,set\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"jew,rar\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (1)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15660,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [
           "Unique Item"
         ],
         "RawToken": "\"helm,uni\""
@@ -45384,7 +45370,7 @@
     ]
   },
   {
-    "Index": 15661,
+    "Index": 15659,
     "Class": "",
     "NumInputs": 3,
     "ResolvedInputsCount": 3,
@@ -45397,6 +45383,88 @@
           "Not a Runeword"
         ],
         "RawToken": "\"helm,low,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15660,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"helm,nor,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15661,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"helm,hiq,nru\""
       },
       {
         "Name": "Jewel",
@@ -45434,10 +45502,9 @@
         "Name": "Helm",
         "Quantity": 1,
         "Qualifiers": [
-          "Normal Quality",
-          "Not a Runeword"
+          "Magic Item"
         ],
-        "RawToken": "\"helm,nor,nru\""
+        "RawToken": "\"helm,mag\""
       },
       {
         "Name": "Jewel",
@@ -45475,18 +45542,17 @@
         "Name": "Helm",
         "Quantity": 1,
         "Qualifiers": [
-          "High Quality (Superior)",
-          "Not a Runeword"
+          "Rare Item"
         ],
-        "RawToken": "\"helm,hiq,nru\""
+        "RawToken": "\"helm,rar\""
       },
       {
         "Name": "Jewel",
         "Quantity": 2,
         "Qualifiers": [
-          "Magic Item"
+          "Rare Item"
         ],
-        "RawToken": "\"jew,mag,qty=2\""
+        "RawToken": "\"jew,rar,qty=2\""
       }
     ],
     "Outputs": {
@@ -45516,17 +45582,17 @@
         "Name": "Helm",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Crafted Item"
         ],
-        "RawToken": "\"helm,mag\""
+        "RawToken": "\"helm,crf\""
       },
       {
         "Name": "Jewel",
         "Quantity": 2,
         "Qualifiers": [
-          "Magic Item"
+          "Unique Item"
         ],
-        "RawToken": "\"jew,mag,qty=2\""
+        "RawToken": "\"jew,uni,qty=2\""
       }
     ],
     "Outputs": {
@@ -45556,9 +45622,9 @@
         "Name": "Helm",
         "Quantity": 1,
         "Qualifiers": [
-          "Rare Item"
+          "Set Item"
         ],
-        "RawToken": "\"helm,rar\""
+        "RawToken": "\"helm,set\""
       },
       {
         "Name": "Jewel",
@@ -45596,86 +45662,6 @@
         "Name": "Helm",
         "Quantity": 1,
         "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"helm,crf\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 2,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"jew,uni,qty=2\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (2)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15667,
-    "Class": "",
-    "NumInputs": 3,
-    "ResolvedInputsCount": 3,
-    "Inputs": [
-      {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"helm,set\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 2,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"jew,rar,qty=2\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (2)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15668,
-    "Class": "",
-    "NumInputs": 3,
-    "ResolvedInputsCount": 3,
-    "Inputs": [
-      {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [
           "Unique Item"
         ],
         "RawToken": "\"helm,uni\""
@@ -45707,7 +45693,7 @@
     ]
   },
   {
-    "Index": 15669,
+    "Index": 15667,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -45720,6 +45706,88 @@
           "Not a Runeword"
         ],
         "RawToken": "\"helm,low,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15668,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"helm,nor,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15669,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Helm",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"helm,hiq,nru\""
       },
       {
         "Name": "Jewel",
@@ -45757,88 +45825,6 @@
         "Name": "Helm",
         "Quantity": 1,
         "Qualifiers": [
-          "Normal Quality",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"helm,nor,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 3,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag,qty=3\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (3)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15671,
-    "Class": "",
-    "NumInputs": 4,
-    "ResolvedInputsCount": 4,
-    "Inputs": [
-      {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [
-          "High Quality (Superior)",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"helm,hiq,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 3,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag,qty=3\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (3)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15672,
-    "Class": "",
-    "NumInputs": 4,
-    "ResolvedInputsCount": 4,
-    "Inputs": [
-      {
-        "Name": "Helm",
-        "Quantity": 1,
-        "Qualifiers": [
           "Magic Item"
         ],
         "RawToken": "\"helm,mag\""
@@ -45870,7 +45856,7 @@
     ]
   },
   {
-    "Index": 15673,
+    "Index": 15671,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -45910,7 +45896,7 @@
     ]
   },
   {
-    "Index": 15674,
+    "Index": 15672,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -45950,7 +45936,7 @@
     ]
   },
   {
-    "Index": 15675,
+    "Index": 15673,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -45990,7 +45976,7 @@
     ]
   },
   {
-    "Index": 15676,
+    "Index": 15674,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -46030,7 +46016,7 @@
     ]
   },
   {
-    "Index": 15677,
+    "Index": 15675,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -46071,7 +46057,7 @@
     ]
   },
   {
-    "Index": 15678,
+    "Index": 15676,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -46112,7 +46098,7 @@
     ]
   },
   {
-    "Index": 15679,
+    "Index": 15677,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -46153,7 +46139,7 @@
     ]
   },
   {
-    "Index": 15680,
+    "Index": 15678,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -46193,7 +46179,7 @@
     ]
   },
   {
-    "Index": 15681,
+    "Index": 15679,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -46233,7 +46219,7 @@
     ]
   },
   {
-    "Index": 15682,
+    "Index": 15680,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -46273,7 +46259,7 @@
     ]
   },
   {
-    "Index": 15683,
+    "Index": 15681,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -46313,7 +46299,7 @@
     ]
   },
   {
-    "Index": 15684,
+    "Index": 15682,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -46353,7 +46339,7 @@
     ]
   },
   {
-    "Index": 15685,
+    "Index": 15683,
     "Class": "",
     "NumInputs": 2,
     "ResolvedInputsCount": 2,
@@ -46366,6 +46352,88 @@
           "Not a Runeword"
         ],
         "RawToken": "\"tors,low,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15684,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"tors,nor,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15685,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"tors,hiq,nru\""
       },
       {
         "Name": "Jewel",
@@ -46403,10 +46471,9 @@
         "Name": "Body Armor",
         "Quantity": 1,
         "Qualifiers": [
-          "Normal Quality",
-          "Not a Runeword"
+          "Magic Item"
         ],
-        "RawToken": "\"tors,nor,nru\""
+        "RawToken": "\"tors,mag\""
       },
       {
         "Name": "Jewel",
@@ -46444,18 +46511,17 @@
         "Name": "Body Armor",
         "Quantity": 1,
         "Qualifiers": [
-          "High Quality (Superior)",
-          "Not a Runeword"
+          "Rare Item"
         ],
-        "RawToken": "\"tors,hiq,nru\""
+        "RawToken": "\"tors,rar\""
       },
       {
         "Name": "Jewel",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Rare Item"
         ],
-        "RawToken": "\"jew,mag\""
+        "RawToken": "\"jew,rar\""
       }
     ],
     "Outputs": {
@@ -46485,17 +46551,17 @@
         "Name": "Body Armor",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Crafted Item"
         ],
-        "RawToken": "\"tors,mag\""
+        "RawToken": "\"tors,crf\""
       },
       {
         "Name": "Jewel",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Unique Item"
         ],
-        "RawToken": "\"jew,mag\""
+        "RawToken": "\"jew,uni\""
       }
     ],
     "Outputs": {
@@ -46525,9 +46591,9 @@
         "Name": "Body Armor",
         "Quantity": 1,
         "Qualifiers": [
-          "Rare Item"
+          "Set Item"
         ],
-        "RawToken": "\"tors,rar\""
+        "RawToken": "\"tors,set\""
       },
       {
         "Name": "Jewel",
@@ -46565,86 +46631,6 @@
         "Name": "Body Armor",
         "Quantity": 1,
         "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"tors,crf\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"jew,uni\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (1)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15691,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"tors,set\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"jew,rar\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (1)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15692,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [
           "Unique Item"
         ],
         "RawToken": "\"tors,uni\""
@@ -46676,7 +46662,7 @@
     ]
   },
   {
-    "Index": 15693,
+    "Index": 15691,
     "Class": "",
     "NumInputs": 3,
     "ResolvedInputsCount": 3,
@@ -46689,6 +46675,88 @@
           "Not a Runeword"
         ],
         "RawToken": "\"tors,low,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15692,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"tors,nor,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15693,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"tors,hiq,nru\""
       },
       {
         "Name": "Jewel",
@@ -46726,10 +46794,9 @@
         "Name": "Body Armor",
         "Quantity": 1,
         "Qualifiers": [
-          "Normal Quality",
-          "Not a Runeword"
+          "Magic Item"
         ],
-        "RawToken": "\"tors,nor,nru\""
+        "RawToken": "\"tors,mag\""
       },
       {
         "Name": "Jewel",
@@ -46767,18 +46834,17 @@
         "Name": "Body Armor",
         "Quantity": 1,
         "Qualifiers": [
-          "High Quality (Superior)",
-          "Not a Runeword"
+          "Rare Item"
         ],
-        "RawToken": "\"tors,hiq,nru\""
+        "RawToken": "\"tors,rar\""
       },
       {
         "Name": "Jewel",
         "Quantity": 2,
         "Qualifiers": [
-          "Magic Item"
+          "Rare Item"
         ],
-        "RawToken": "\"jew,mag,qty=2\""
+        "RawToken": "\"jew,rar,qty=2\""
       }
     ],
     "Outputs": {
@@ -46808,17 +46874,17 @@
         "Name": "Body Armor",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Crafted Item"
         ],
-        "RawToken": "\"tors,mag\""
+        "RawToken": "\"tors,crf\""
       },
       {
         "Name": "Jewel",
         "Quantity": 2,
         "Qualifiers": [
-          "Magic Item"
+          "Unique Item"
         ],
-        "RawToken": "\"jew,mag,qty=2\""
+        "RawToken": "\"jew,uni,qty=2\""
       }
     ],
     "Outputs": {
@@ -46848,9 +46914,9 @@
         "Name": "Body Armor",
         "Quantity": 1,
         "Qualifiers": [
-          "Rare Item"
+          "Set Item"
         ],
-        "RawToken": "\"tors,rar\""
+        "RawToken": "\"tors,set\""
       },
       {
         "Name": "Jewel",
@@ -46888,86 +46954,6 @@
         "Name": "Body Armor",
         "Quantity": 1,
         "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"tors,crf\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 2,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"jew,uni,qty=2\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (2)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15699,
-    "Class": "",
-    "NumInputs": 3,
-    "ResolvedInputsCount": 3,
-    "Inputs": [
-      {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"tors,set\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 2,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"jew,rar,qty=2\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (2)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15700,
-    "Class": "",
-    "NumInputs": 3,
-    "ResolvedInputsCount": 3,
-    "Inputs": [
-      {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [
           "Unique Item"
         ],
         "RawToken": "\"tors,uni\""
@@ -46999,7 +46985,7 @@
     ]
   },
   {
-    "Index": 15701,
+    "Index": 15699,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -47012,6 +46998,88 @@
           "Not a Runeword"
         ],
         "RawToken": "\"tors,low,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15700,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"tors,nor,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15701,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Body Armor",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"tors,hiq,nru\""
       },
       {
         "Name": "Jewel",
@@ -47049,88 +47117,6 @@
         "Name": "Body Armor",
         "Quantity": 1,
         "Qualifiers": [
-          "Normal Quality",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"tors,nor,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 3,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag,qty=3\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (3)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15703,
-    "Class": "",
-    "NumInputs": 4,
-    "ResolvedInputsCount": 4,
-    "Inputs": [
-      {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [
-          "High Quality (Superior)",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"tors,hiq,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 3,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag,qty=3\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (3)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15704,
-    "Class": "",
-    "NumInputs": 4,
-    "ResolvedInputsCount": 4,
-    "Inputs": [
-      {
-        "Name": "Body Armor",
-        "Quantity": 1,
-        "Qualifiers": [
           "Magic Item"
         ],
         "RawToken": "\"tors,mag\""
@@ -47162,7 +47148,7 @@
     ]
   },
   {
-    "Index": 15705,
+    "Index": 15703,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -47202,7 +47188,7 @@
     ]
   },
   {
-    "Index": 15706,
+    "Index": 15704,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -47242,7 +47228,7 @@
     ]
   },
   {
-    "Index": 15707,
+    "Index": 15705,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -47282,7 +47268,7 @@
     ]
   },
   {
-    "Index": 15708,
+    "Index": 15706,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -47322,7 +47308,7 @@
     ]
   },
   {
-    "Index": 15709,
+    "Index": 15707,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -47363,7 +47349,7 @@
     ]
   },
   {
-    "Index": 15710,
+    "Index": 15708,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -47404,7 +47390,7 @@
     ]
   },
   {
-    "Index": 15711,
+    "Index": 15709,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -47445,7 +47431,7 @@
     ]
   },
   {
-    "Index": 15712,
+    "Index": 15710,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -47485,7 +47471,7 @@
     ]
   },
   {
-    "Index": 15713,
+    "Index": 15711,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -47525,7 +47511,7 @@
     ]
   },
   {
-    "Index": 15714,
+    "Index": 15712,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -47565,7 +47551,7 @@
     ]
   },
   {
-    "Index": 15715,
+    "Index": 15713,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -47605,7 +47591,7 @@
     ]
   },
   {
-    "Index": 15716,
+    "Index": 15714,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -47645,7 +47631,7 @@
     ]
   },
   {
-    "Index": 15733,
+    "Index": 15731,
     "Class": "",
     "NumInputs": 2,
     "ResolvedInputsCount": 2,
@@ -47658,6 +47644,88 @@
           "Not a Runeword"
         ],
         "RawToken": "\"shld,low,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15732,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"shld,nor,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15733,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"shld,hiq,nru\""
       },
       {
         "Name": "Jewel",
@@ -47695,10 +47763,9 @@
         "Name": "Any Shield",
         "Quantity": 1,
         "Qualifiers": [
-          "Normal Quality",
-          "Not a Runeword"
+          "Magic Item"
         ],
-        "RawToken": "\"shld,nor,nru\""
+        "RawToken": "\"shld,mag\""
       },
       {
         "Name": "Jewel",
@@ -47736,18 +47803,17 @@
         "Name": "Any Shield",
         "Quantity": 1,
         "Qualifiers": [
-          "High Quality (Superior)",
-          "Not a Runeword"
+          "Rare Item"
         ],
-        "RawToken": "\"shld,hiq,nru\""
+        "RawToken": "\"shld,rar\""
       },
       {
         "Name": "Jewel",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Rare Item"
         ],
-        "RawToken": "\"jew,mag\""
+        "RawToken": "\"jew,rar\""
       }
     ],
     "Outputs": {
@@ -47777,17 +47843,17 @@
         "Name": "Any Shield",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Crafted Item"
         ],
-        "RawToken": "\"shld,mag\""
+        "RawToken": "\"shld,crf\""
       },
       {
         "Name": "Jewel",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Unique Item"
         ],
-        "RawToken": "\"jew,mag\""
+        "RawToken": "\"jew,uni\""
       }
     ],
     "Outputs": {
@@ -47817,9 +47883,9 @@
         "Name": "Any Shield",
         "Quantity": 1,
         "Qualifiers": [
-          "Rare Item"
+          "Set Item"
         ],
-        "RawToken": "\"shld,rar\""
+        "RawToken": "\"shld,set\""
       },
       {
         "Name": "Jewel",
@@ -47857,86 +47923,6 @@
         "Name": "Any Shield",
         "Quantity": 1,
         "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"shld,crf\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"jew,uni\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (1)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15739,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"shld,set\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"jew,rar\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (1)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15740,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [
           "Unique Item"
         ],
         "RawToken": "\"shld,uni\""
@@ -47968,7 +47954,7 @@
     ]
   },
   {
-    "Index": 15741,
+    "Index": 15739,
     "Class": "",
     "NumInputs": 3,
     "ResolvedInputsCount": 3,
@@ -47981,6 +47967,88 @@
           "Not a Runeword"
         ],
         "RawToken": "\"shld,low,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15740,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"shld,nor,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15741,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"shld,hiq,nru\""
       },
       {
         "Name": "Jewel",
@@ -48018,10 +48086,9 @@
         "Name": "Any Shield",
         "Quantity": 1,
         "Qualifiers": [
-          "Normal Quality",
-          "Not a Runeword"
+          "Magic Item"
         ],
-        "RawToken": "\"shld,nor,nru\""
+        "RawToken": "\"shld,mag\""
       },
       {
         "Name": "Jewel",
@@ -48059,18 +48126,17 @@
         "Name": "Any Shield",
         "Quantity": 1,
         "Qualifiers": [
-          "High Quality (Superior)",
-          "Not a Runeword"
+          "Rare Item"
         ],
-        "RawToken": "\"shld,hiq,nru\""
+        "RawToken": "\"shld,rar\""
       },
       {
         "Name": "Jewel",
         "Quantity": 2,
         "Qualifiers": [
-          "Magic Item"
+          "Rare Item"
         ],
-        "RawToken": "\"jew,mag,qty=2\""
+        "RawToken": "\"jew,rar,qty=2\""
       }
     ],
     "Outputs": {
@@ -48100,17 +48166,17 @@
         "Name": "Any Shield",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Crafted Item"
         ],
-        "RawToken": "\"shld,mag\""
+        "RawToken": "\"shld,crf\""
       },
       {
         "Name": "Jewel",
         "Quantity": 2,
         "Qualifiers": [
-          "Magic Item"
+          "Unique Item"
         ],
-        "RawToken": "\"jew,mag,qty=2\""
+        "RawToken": "\"jew,uni,qty=2\""
       }
     ],
     "Outputs": {
@@ -48140,9 +48206,9 @@
         "Name": "Any Shield",
         "Quantity": 1,
         "Qualifiers": [
-          "Rare Item"
+          "Set Item"
         ],
-        "RawToken": "\"shld,rar\""
+        "RawToken": "\"shld,set\""
       },
       {
         "Name": "Jewel",
@@ -48180,86 +48246,6 @@
         "Name": "Any Shield",
         "Quantity": 1,
         "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"shld,crf\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 2,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"jew,uni,qty=2\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (2)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15747,
-    "Class": "",
-    "NumInputs": 3,
-    "ResolvedInputsCount": 3,
-    "Inputs": [
-      {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"shld,set\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 2,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"jew,rar,qty=2\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (2)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15748,
-    "Class": "",
-    "NumInputs": 3,
-    "ResolvedInputsCount": 3,
-    "Inputs": [
-      {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [
           "Unique Item"
         ],
         "RawToken": "\"shld,uni\""
@@ -48291,7 +48277,7 @@
     ]
   },
   {
-    "Index": 15749,
+    "Index": 15747,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -48304,6 +48290,88 @@
           "Not a Runeword"
         ],
         "RawToken": "\"shld,low,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15748,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"shld,nor,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15749,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Any Shield",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"shld,hiq,nru\""
       },
       {
         "Name": "Jewel",
@@ -48341,88 +48409,6 @@
         "Name": "Any Shield",
         "Quantity": 1,
         "Qualifiers": [
-          "Normal Quality",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"shld,nor,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 3,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag,qty=3\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (3)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15751,
-    "Class": "",
-    "NumInputs": 4,
-    "ResolvedInputsCount": 4,
-    "Inputs": [
-      {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [
-          "High Quality (Superior)",
-          "Not a Runeword"
-        ],
-        "RawToken": "\"shld,hiq,nru\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 3,
-        "Qualifiers": [
-          "Magic Item"
-        ],
-        "RawToken": "\"jew,mag,qty=3\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (3)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15752,
-    "Class": "",
-    "NumInputs": 4,
-    "ResolvedInputsCount": 4,
-    "Inputs": [
-      {
-        "Name": "Any Shield",
-        "Quantity": 1,
-        "Qualifiers": [
           "Magic Item"
         ],
         "RawToken": "\"shld,mag\""
@@ -48454,7 +48440,7 @@
     ]
   },
   {
-    "Index": 15753,
+    "Index": 15751,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -48494,7 +48480,7 @@
     ]
   },
   {
-    "Index": 15754,
+    "Index": 15752,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -48534,7 +48520,7 @@
     ]
   },
   {
-    "Index": 15755,
+    "Index": 15753,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -48574,7 +48560,7 @@
     ]
   },
   {
-    "Index": 15756,
+    "Index": 15754,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -48614,7 +48600,7 @@
     ]
   },
   {
-    "Index": 15757,
+    "Index": 15755,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -48655,7 +48641,7 @@
     ]
   },
   {
-    "Index": 15758,
+    "Index": 15756,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -48696,7 +48682,7 @@
     ]
   },
   {
-    "Index": 15759,
+    "Index": 15757,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -48737,7 +48723,7 @@
     ]
   },
   {
-    "Index": 15760,
+    "Index": 15758,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -48777,7 +48763,7 @@
     ]
   },
   {
-    "Index": 15761,
+    "Index": 15759,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -48817,7 +48803,7 @@
     ]
   },
   {
-    "Index": 15762,
+    "Index": 15760,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -48857,7 +48843,7 @@
     ]
   },
   {
-    "Index": 15763,
+    "Index": 15761,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -48897,7 +48883,7 @@
     ]
   },
   {
-    "Index": 15764,
+    "Index": 15762,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -48937,7 +48923,7 @@
     ]
   },
   {
-    "Index": 15765,
+    "Index": 15763,
     "Class": "",
     "NumInputs": 2,
     "ResolvedInputsCount": 2,
@@ -48950,6 +48936,88 @@
           "Not a Runeword"
         ],
         "RawToken": "\"weap,low,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15764,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"weap,nor,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (1)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15765,
+    "Class": "",
+    "NumInputs": 2,
+    "ResolvedInputsCount": 2,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"weap,hiq,nru\""
       },
       {
         "Name": "Jewel",
@@ -48987,10 +49055,9 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Normal Quality",
-          "Not a Runeword"
+          "Magic Item"
         ],
-        "RawToken": "\"weap,nor,nru\""
+        "RawToken": "\"weap,mag\""
       },
       {
         "Name": "Jewel",
@@ -49028,18 +49095,17 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "High Quality (Superior)",
-          "Not a Runeword"
+          "Rare Item"
         ],
-        "RawToken": "\"weap,hiq,nru\""
+        "RawToken": "\"weap,rar\""
       },
       {
         "Name": "Jewel",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Rare Item"
         ],
-        "RawToken": "\"jew,mag\""
+        "RawToken": "\"jew,rar\""
       }
     ],
     "Outputs": {
@@ -49069,17 +49135,17 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Crafted Item"
         ],
-        "RawToken": "\"weap,mag\""
+        "RawToken": "\"weap,crf\""
       },
       {
         "Name": "Jewel",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Unique Item"
         ],
-        "RawToken": "\"jew,mag\""
+        "RawToken": "\"jew,uni\""
       }
     ],
     "Outputs": {
@@ -49109,9 +49175,9 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Rare Item"
+          "Set Item"
         ],
-        "RawToken": "\"weap,rar\""
+        "RawToken": "\"weap,set\""
       },
       {
         "Name": "Jewel",
@@ -49149,86 +49215,6 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"weap,crf\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"jew,uni\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (1)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15771,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"weap,set\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"jew,rar\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (1)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15772,
-    "Class": "",
-    "NumInputs": 2,
-    "ResolvedInputsCount": 2,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
           "Unique Item"
         ],
         "RawToken": "\"weap,uni\""
@@ -49260,7 +49246,7 @@
     ]
   },
   {
-    "Index": 15773,
+    "Index": 15771,
     "Class": "",
     "NumInputs": 3,
     "ResolvedInputsCount": 3,
@@ -49273,6 +49259,88 @@
           "Not a Runeword"
         ],
         "RawToken": "\"weap,low,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15772,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"weap,nor,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 2,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=2\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (2)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15773,
+    "Class": "",
+    "NumInputs": 3,
+    "ResolvedInputsCount": 3,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"weap,hiq,nru\""
       },
       {
         "Name": "Jewel",
@@ -49310,10 +49378,9 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Normal Quality",
-          "Not a Runeword"
+          "Magic Item"
         ],
-        "RawToken": "\"weap,nor,nru\""
+        "RawToken": "\"weap,mag\""
       },
       {
         "Name": "Jewel",
@@ -49351,18 +49418,17 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "High Quality (Superior)",
-          "Not a Runeword"
+          "Rare Item"
         ],
-        "RawToken": "\"weap,hiq,nru\""
+        "RawToken": "\"weap,rar\""
       },
       {
         "Name": "Jewel",
         "Quantity": 2,
         "Qualifiers": [
-          "Magic Item"
+          "Rare Item"
         ],
-        "RawToken": "\"jew,mag,qty=2\""
+        "RawToken": "\"jew,rar,qty=2\""
       }
     ],
     "Outputs": {
@@ -49392,17 +49458,17 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Crafted Item"
         ],
-        "RawToken": "\"weap,mag\""
+        "RawToken": "\"weap,crf\""
       },
       {
         "Name": "Jewel",
         "Quantity": 2,
         "Qualifiers": [
-          "Magic Item"
+          "Unique Item"
         ],
-        "RawToken": "\"jew,mag,qty=2\""
+        "RawToken": "\"jew,uni,qty=2\""
       }
     ],
     "Outputs": {
@@ -49432,9 +49498,9 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Rare Item"
+          "Set Item"
         ],
-        "RawToken": "\"weap,rar\""
+        "RawToken": "\"weap,set\""
       },
       {
         "Name": "Jewel",
@@ -49472,86 +49538,6 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"weap,crf\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 2,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"jew,uni,qty=2\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (2)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15779,
-    "Class": "",
-    "NumInputs": 3,
-    "ResolvedInputsCount": 3,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"weap,set\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 2,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"jew,rar,qty=2\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (2)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15780,
-    "Class": "",
-    "NumInputs": 3,
-    "ResolvedInputsCount": 3,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
           "Unique Item"
         ],
         "RawToken": "\"weap,uni\""
@@ -49583,7 +49569,7 @@
     ]
   },
   {
-    "Index": 15781,
+    "Index": 15779,
     "Class": "",
     "NumInputs": 4,
     "ResolvedInputsCount": 4,
@@ -49596,6 +49582,88 @@
           "Not a Runeword"
         ],
         "RawToken": "\"weap,low,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15780,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"weap,nor,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 3,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=3\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (3)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15781,
+    "Class": "",
+    "NumInputs": 4,
+    "ResolvedInputsCount": 4,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"weap,hiq,nru\""
       },
       {
         "Name": "Jewel",
@@ -49633,10 +49701,9 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Normal Quality",
-          "Not a Runeword"
+          "Magic Item"
         ],
-        "RawToken": "\"weap,nor,nru\""
+        "RawToken": "\"weap,mag\""
       },
       {
         "Name": "Jewel",
@@ -49674,18 +49741,17 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "High Quality (Superior)",
-          "Not a Runeword"
+          "Rare Item"
         ],
-        "RawToken": "\"weap,hiq,nru\""
+        "RawToken": "\"weap,rar\""
       },
       {
         "Name": "Jewel",
         "Quantity": 3,
         "Qualifiers": [
-          "Magic Item"
+          "Rare Item"
         ],
-        "RawToken": "\"jew,mag,qty=3\""
+        "RawToken": "\"jew,rar,qty=3\""
       }
     ],
     "Outputs": {
@@ -49715,17 +49781,17 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Crafted Item"
         ],
-        "RawToken": "\"weap,mag\""
+        "RawToken": "\"weap,crf\""
       },
       {
         "Name": "Jewel",
         "Quantity": 3,
         "Qualifiers": [
-          "Magic Item"
+          "Unique Item"
         ],
-        "RawToken": "\"jew,mag,qty=3\""
+        "RawToken": "\"jew,uni,qty=3\""
       }
     ],
     "Outputs": {
@@ -49755,9 +49821,9 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Rare Item"
+          "Set Item"
         ],
-        "RawToken": "\"weap,rar\""
+        "RawToken": "\"weap,set\""
       },
       {
         "Name": "Jewel",
@@ -49795,86 +49861,6 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"weap,crf\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 3,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"jew,uni,qty=3\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (3)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15787,
-    "Class": "",
-    "NumInputs": 4,
-    "ResolvedInputsCount": 4,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"weap,set\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 3,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"jew,rar,qty=3\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (3)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15788,
-    "Class": "",
-    "NumInputs": 4,
-    "ResolvedInputsCount": 4,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
           "Unique Item"
         ],
         "RawToken": "\"weap,uni\""
@@ -49906,7 +49892,7 @@
     ]
   },
   {
-    "Index": 15789,
+    "Index": 15787,
     "Class": "",
     "NumInputs": 5,
     "ResolvedInputsCount": 5,
@@ -49919,6 +49905,88 @@
           "Not a Runeword"
         ],
         "RawToken": "\"weap,low,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15788,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "Normal Quality",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"weap,nor,nru\""
+      },
+      {
+        "Name": "Jewel",
+        "Quantity": 4,
+        "Qualifiers": [
+          "Magic Item"
+        ],
+        "RawToken": "\"jew,mag,qty=4\""
+      }
+    ],
+    "Outputs": {
+      "A": {
+        "Name": "Return Updated Item",
+        "Quantity": 1,
+        "Qualifiers": [],
+        "Properties": [
+          {
+            "PropertyString": "Socketed (4)",
+            "Index": 0
+          }
+        ]
+      }
+    },
+    "Notes": [
+      "Socket Punch Recipe"
+    ]
+  },
+  {
+    "Index": 15789,
+    "Class": "",
+    "NumInputs": 5,
+    "ResolvedInputsCount": 5,
+    "Inputs": [
+      {
+        "Name": "Weapon",
+        "Quantity": 1,
+        "Qualifiers": [
+          "High Quality (Superior)",
+          "Not a Runeword"
+        ],
+        "RawToken": "\"weap,hiq,nru\""
       },
       {
         "Name": "Jewel",
@@ -49956,10 +50024,9 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Normal Quality",
-          "Not a Runeword"
+          "Magic Item"
         ],
-        "RawToken": "\"weap,nor,nru\""
+        "RawToken": "\"weap,mag\""
       },
       {
         "Name": "Jewel",
@@ -49997,18 +50064,17 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "High Quality (Superior)",
-          "Not a Runeword"
+          "Rare Item"
         ],
-        "RawToken": "\"weap,hiq,nru\""
+        "RawToken": "\"weap,rar\""
       },
       {
         "Name": "Jewel",
         "Quantity": 4,
         "Qualifiers": [
-          "Magic Item"
+          "Rare Item"
         ],
-        "RawToken": "\"jew,mag,qty=4\""
+        "RawToken": "\"jew,rar,qty=4\""
       }
     ],
     "Outputs": {
@@ -50038,17 +50104,17 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Magic Item"
+          "Crafted Item"
         ],
-        "RawToken": "\"weap,mag\""
+        "RawToken": "\"weap,crf\""
       },
       {
         "Name": "Jewel",
         "Quantity": 4,
         "Qualifiers": [
-          "Magic Item"
+          "Unique Item"
         ],
-        "RawToken": "\"jew,mag,qty=4\""
+        "RawToken": "\"jew,uni,qty=4\""
       }
     ],
     "Outputs": {
@@ -50078,9 +50144,9 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Rare Item"
+          "Set Item"
         ],
-        "RawToken": "\"weap,rar\""
+        "RawToken": "\"weap,set\""
       },
       {
         "Name": "Jewel",
@@ -50118,86 +50184,6 @@
         "Name": "Weapon",
         "Quantity": 1,
         "Qualifiers": [
-          "Crafted Item"
-        ],
-        "RawToken": "\"weap,crf\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 4,
-        "Qualifiers": [
-          "Unique Item"
-        ],
-        "RawToken": "\"jew,uni,qty=4\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (4)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15795,
-    "Class": "",
-    "NumInputs": 5,
-    "ResolvedInputsCount": 5,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
-          "Set Item"
-        ],
-        "RawToken": "\"weap,set\""
-      },
-      {
-        "Name": "Jewel",
-        "Quantity": 4,
-        "Qualifiers": [
-          "Rare Item"
-        ],
-        "RawToken": "\"jew,rar,qty=4\""
-      }
-    ],
-    "Outputs": {
-      "A": {
-        "Name": "Return Updated Item",
-        "Quantity": 1,
-        "Qualifiers": [],
-        "Properties": [
-          {
-            "PropertyString": "Socketed (4)",
-            "Index": 0
-          }
-        ]
-      }
-    },
-    "Notes": [
-      "Socket Punch Recipe"
-    ]
-  },
-  {
-    "Index": 15796,
-    "Class": "",
-    "NumInputs": 5,
-    "ResolvedInputsCount": 5,
-    "Inputs": [
-      {
-        "Name": "Weapon",
-        "Quantity": 1,
-        "Qualifiers": [
           "Unique Item"
         ],
         "RawToken": "\"weap,uni\""
@@ -50229,7 +50215,7 @@
     ]
   },
   {
-    "Index": 15797,
+    "Index": 15795,
     "Class": "",
     "NumInputs": 6,
     "ResolvedInputsCount": 6,
@@ -50270,7 +50256,7 @@
     ]
   },
   {
-    "Index": 15798,
+    "Index": 15796,
     "Class": "",
     "NumInputs": 6,
     "ResolvedInputsCount": 6,
@@ -50311,7 +50297,7 @@
     ]
   },
   {
-    "Index": 15799,
+    "Index": 15797,
     "Class": "",
     "NumInputs": 6,
     "ResolvedInputsCount": 6,
@@ -50352,7 +50338,7 @@
     ]
   },
   {
-    "Index": 15800,
+    "Index": 15798,
     "Class": "",
     "NumInputs": 6,
     "ResolvedInputsCount": 6,
@@ -50392,7 +50378,7 @@
     ]
   },
   {
-    "Index": 15801,
+    "Index": 15799,
     "Class": "",
     "NumInputs": 6,
     "ResolvedInputsCount": 6,
@@ -50432,7 +50418,7 @@
     ]
   },
   {
-    "Index": 15802,
+    "Index": 15800,
     "Class": "",
     "NumInputs": 6,
     "ResolvedInputsCount": 6,
@@ -50472,7 +50458,7 @@
     ]
   },
   {
-    "Index": 15803,
+    "Index": 15801,
     "Class": "",
     "NumInputs": 6,
     "ResolvedInputsCount": 6,
@@ -50512,7 +50498,7 @@
     ]
   },
   {
-    "Index": 15804,
+    "Index": 15802,
     "Class": "",
     "NumInputs": 6,
     "ResolvedInputsCount": 6,
@@ -50552,7 +50538,7 @@
     ]
   },
   {
-    "Index": 15805,
+    "Index": 15803,
     "Class": "",
     "NumInputs": 7,
     "ResolvedInputsCount": 7,
@@ -50593,7 +50579,7 @@
     ]
   },
   {
-    "Index": 15806,
+    "Index": 15804,
     "Class": "",
     "NumInputs": 7,
     "ResolvedInputsCount": 7,
@@ -50634,7 +50620,7 @@
     ]
   },
   {
-    "Index": 15807,
+    "Index": 15805,
     "Class": "",
     "NumInputs": 7,
     "ResolvedInputsCount": 7,
@@ -50675,7 +50661,7 @@
     ]
   },
   {
-    "Index": 15808,
+    "Index": 15806,
     "Class": "",
     "NumInputs": 7,
     "ResolvedInputsCount": 7,
@@ -50715,7 +50701,7 @@
     ]
   },
   {
-    "Index": 15809,
+    "Index": 15807,
     "Class": "",
     "NumInputs": 7,
     "ResolvedInputsCount": 7,
@@ -50755,7 +50741,7 @@
     ]
   },
   {
-    "Index": 15810,
+    "Index": 15808,
     "Class": "",
     "NumInputs": 7,
     "ResolvedInputsCount": 7,
@@ -50795,7 +50781,7 @@
     ]
   },
   {
-    "Index": 15811,
+    "Index": 15809,
     "Class": "",
     "NumInputs": 7,
     "ResolvedInputsCount": 7,
@@ -50835,7 +50821,7 @@
     ]
   },
   {
-    "Index": 15812,
+    "Index": 15810,
     "Class": "",
     "NumInputs": 7,
     "ResolvedInputsCount": 7,

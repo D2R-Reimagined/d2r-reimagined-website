@@ -59077,7 +59077,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Requirements Increased By 50-100%",
+                "PropertyString": "Requirements Increased By 100%",
                 "Index": 7
             }
         ],
@@ -59089,7 +59089,7 @@
             "Block": null,
             "EquipmentType": 0,
             "Name": "Totemic Mask [X]",
-            "RequiredStrength": "97-130",
+            "RequiredStrength": "130",
             "RequiredDexterity": "0",
             "Durability": 20,
             "RequiredClass": "Druid"
@@ -66130,7 +66130,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "-90 to -70% Cold Resistance",
+                "PropertyString": "-70% Cold Resistance",
                 "Index": 1
             },
             {
@@ -66264,7 +66264,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "-90 to -70% Fire Resistance",
+                "PropertyString": "-70% Fire Resistance",
                 "Index": 1
             },
             {
@@ -66398,7 +66398,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "-90 to -70% Lightning Resistance",
+                "PropertyString": "-70% Lightning Resistance",
                 "Index": 1
             },
             {
@@ -66532,7 +66532,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "-90 to -70% Poison Resistance",
+                "PropertyString": "-70% Poison Resistance",
                 "Index": 1
             },
             {
@@ -66666,7 +66666,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "-20 to -10% Physical Damage Reduction",
+                "PropertyString": "-10% Physical Damage Reduction",
                 "Index": 1
             },
             {
@@ -66800,7 +66800,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "-65 to -45% Magic Resistance",
+                "PropertyString": "-45% Magic Resistance",
                 "Index": 1
             },
             {
@@ -72573,7 +72573,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+150-300 to Minimum Weapon Damage",
+                "PropertyString": "+150-255 to Minimum Weapon Damage",
                 "Index": 5
             },
             {
@@ -72606,12 +72606,12 @@
             "DamageTypes": [
                 {
                     "Type": 0,
-                    "DamageString": "(187-337) to (735-885)",
+                    "DamageString": "(187-292) to (735-885)",
                     "AverageDamage": 536.0
                 },
                 {
                     "Type": 1,
-                    "DamageString": "(237-387) to (1053-1260)",
+                    "DamageString": "(237-342) to (1053-1260)",
                     "AverageDamage": 748.5
                 }
             ],
@@ -75459,12 +75459,20 @@
                 "Index": 3
             },
             {
-                "PropertyString": "30% Increased Chance of Blocking",
+                "PropertyString": "+30% Faster Hit Recovery",
+                "Index": 5
+            },
+            {
+                "PropertyString": "20-30% Increased Chance of Blocking",
                 "Index": 4
             },
             {
                 "PropertyString": "+150-200% Enhanced Defense",
                 "Index": 0
+            },
+            {
+                "PropertyString": "+500 Defense",
+                "Index": 6
             },
             {
                 "PropertyString": "Physical Damage Reduced By 15-20",
@@ -75473,13 +75481,17 @@
             {
                 "PropertyString": "Magic Damage Reduced By 15-20",
                 "Index": 1
+            },
+            {
+                "PropertyString": "Cannot Be Frozen",
+                "Index": 7
             }
         ],
         "DamageArmorEnhanced": true,
         "Equipment": {
             "DamageString": null,
             "DamageStringPrefix": null,
-            "ArmorString": "1205-1446",
+            "ArmorString": "1705-1946",
             "Block": null,
             "EquipmentType": 0,
             "Name": "Wire Fleece [E]",
@@ -77259,14 +77271,6 @@
             {
                 "PropertyString": "+1 to All Skills",
                 "Index": 0
-            },
-            {
-                "PropertyString": "+25 to Life",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+25 to Mana",
-                "Index": 2
             }
         ],
         "DamageArmorEnhanced": false,
@@ -77725,7 +77729,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+150-300 to Minimum Weapon Damage",
+                "PropertyString": "+150-255 to Minimum Weapon Damage",
                 "Index": 8
             },
             {
@@ -77750,12 +77754,12 @@
             "DamageTypes": [
                 {
                     "Type": 0,
-                    "DamageString": "(202-367) to (432-537)",
+                    "DamageString": "(202-322) to (432-537)",
                     "AverageDamage": 369.5
                 },
                 {
                     "Type": 1,
-                    "DamageString": "(342-547) to (583-731)",
+                    "DamageString": "(342-502) to (583-731)",
                     "AverageDamage": 536.5
                 },
                 {
