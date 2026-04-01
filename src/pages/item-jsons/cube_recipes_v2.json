@@ -9174,7 +9174,7 @@
             "Index": 1
           },
           {
-            "PropertyString": "+0.12% Chance of Crushing Blow (Per Character Level)",
+            "PropertyString": "+0.12% Chance of Crushing Blow (Based on Character Level)",
             "ModChance": 100,
             "Index": 2
           }
@@ -14149,12 +14149,12 @@
         ],
         "Properties": [
           {
-            "PropertyString": "+1 to Maximum Weapon Damage (Per Character Level)",
+            "PropertyString": "+1 to Maximum Weapon Damage (Based on Character Level)",
             "ModChance": 100,
             "Index": 0
           },
           {
-            "PropertyString": "+1 to Minimum Weapon Damage (Per Character Level)",
+            "PropertyString": "+1 to Minimum Weapon Damage (Based on Character Level)",
             "ModChance": 100,
             "Index": 1
           },

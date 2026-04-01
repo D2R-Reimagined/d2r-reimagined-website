@@ -61,11 +61,11 @@
                 "Code": "amu",
                 "Properties": [
                     {
-                        "PropertyString": "Replenish Life +1 (Per Character Level)",
+                        "PropertyString": "Replenish Life +1 (Based on Character Level)",
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+2 to Mana (Per Character Level)",
+                        "PropertyString": "+2 to Mana (Based on Character Level)",
                         "Index": 2
                     },
                     {
@@ -88,7 +88,7 @@
                 "Set": "Civerb's Vestments",
                 "SetPropertiesString": [
                     "+30% Increased Attack Speed (3 Items)",
-                    "+1.5 to Maximum Weapon Damage (Per Character Level) (2 Items)"
+                    "+1.5 to Maximum Weapon Damage (Based on Character Level) (2 Items)"
                 ],
                 "Name": "Civerb's Cudgel",
                 "Index": "Civerb's Cudgel",
@@ -165,7 +165,7 @@
                 "Type": "Boots",
                 "Set": "Hsarus' Defense",
                 "SetPropertiesString": [
-                    "+10 to Attack Rating (Per Character Level) (2 Items)"
+                    "+10 to Attack Rating (Based on Character Level) (2 Items)"
                 ],
                 "Name": "Hsarus' Iron Heel",
                 "Index": "Hsarus' Iron Heel",
@@ -202,7 +202,7 @@
                 "Type": "Shield",
                 "Set": "Hsarus' Defense",
                 "SetPropertiesString": [
-                    "+2.5 Defense (Per Character Level) (2 Items)",
+                    "+2.5 Defense (Based on Character Level) (2 Items)",
                     "Attacker Takes Damage of 25 (3 Items)"
                 ],
                 "Name": "Hsarus' Iron Fist",
@@ -244,7 +244,7 @@
                 "Type": "Belt",
                 "Set": "Hsarus' Defense",
                 "SetPropertiesString": [
-                    "+2.5 Defense (Per Character Level) (2 Items)",
+                    "+2.5 Defense (Based on Character Level) (2 Items)",
                     "Attacker Takes Damage of 25 (3 Items)"
                 ],
                 "Name": "Hsarus' Iron Stay",
@@ -318,7 +318,7 @@
                 "Type": "Sword",
                 "Set": "Cleglaw's Brace",
                 "SetPropertiesString": [
-                    "+1.25 to Maximum Weapon Damage (Per Character Level) (2 Items)"
+                    "+1.25 to Maximum Weapon Damage (Based on Character Level) (2 Items)"
                 ],
                 "Name": "Cleglaw's Tooth",
                 "Index": "Cleglaw's Tooth",
@@ -396,7 +396,7 @@
                 "Type": "Gloves",
                 "Set": "Cleglaw's Brace",
                 "SetPropertiesString": [
-                    "+10 to Attack Rating (Per Character Level) (2 Items)"
+                    "+10 to Attack Rating (Based on Character Level) (2 Items)"
                 ],
                 "Name": "Cleglaw's Pincers",
                 "Index": "Cleglaw's Pincers",
@@ -535,7 +535,7 @@
                 "Type": "Helm",
                 "Set": "Iratha's Finery",
                 "SetPropertiesString": [
-                    "+2 Defense (Per Character Level) (2 Items)"
+                    "+2 Defense (Based on Character Level) (2 Items)"
                 ],
                 "Name": "Iratha's Coil",
                 "Index": "Iratha's Coil",
@@ -657,7 +657,7 @@
                 "Type": "Sword",
                 "Set": "Isenhart's Armory",
                 "SetPropertiesString": [
-                    "+5 to Attack Rating (Per Character Level) (2 Items)",
+                    "+5 to Attack Rating (Based on Character Level) (2 Items)",
                     "Adds 10-30 Weapon Magic Damage (3 Items)"
                 ],
                 "Name": "Isenhart's Lightbrand",
@@ -745,7 +745,7 @@
                 "Type": "Body Armor",
                 "Set": "Isenhart's Armory",
                 "SetPropertiesString": [
-                    "+2 Defense (Per Character Level) (2 Items)"
+                    "+2 Defense (Based on Character Level) (2 Items)"
                 ],
                 "Name": "Isenhart's Case",
                 "Index": "Isenhart's Case",
@@ -868,8 +868,8 @@
                 "Type": "Bow",
                 "Set": "Vidala's Rig",
                 "SetPropertiesString": [
-                    "+8 to Attack Rating (Per Character Level) (2 Items)",
-                    "+1 to Weapon Maximum Lightning Damage (Per Character Level) (3 Items)"
+                    "+8 to Attack Rating (Based on Character Level) (2 Items)",
+                    "+1 to Weapon Maximum Lightning Damage (Based on Character Level) (3 Items)"
                 ],
                 "Name": "Vidala's Barb",
                 "Index": "Vidala's Barb",
@@ -957,7 +957,7 @@
                 "Type": "Body Armor",
                 "Set": "Vidala's Rig",
                 "SetPropertiesString": [
-                    "+2.5 Defense (Per Character Level) (3 Items)",
+                    "+2.5 Defense (Based on Character Level) (3 Items)",
                     "+24% Fire Resistance (2 Items)"
                 ],
                 "Name": "Vidala's Ambush",
@@ -1054,7 +1054,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+1.5 to Weapon Maximum Cold Damage (Per Character Level)",
+                "PropertyString": "+1.5 to Weapon Maximum Cold Damage (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -1235,7 +1235,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Weapon Maximum Lightning Damage (Per Character Level)",
+                "PropertyString": "+2 to Weapon Maximum Lightning Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -1361,7 +1361,7 @@
                 "Type": "Helm",
                 "Set": "Cathan's Traps",
                 "SetPropertiesString": [
-                    "+2 Defense (Per Character Level) (2 Items)"
+                    "+2 Defense (Based on Character Level) (2 Items)"
                 ],
                 "Name": "Cathan's Visage",
                 "Index": "Cathan's Visage",
@@ -1551,7 +1551,7 @@
                 "Type": "Body Armor",
                 "Set": "Tancred's Battlegear",
                 "SetPropertiesString": [
-                    "+2 Defense (Per Character Level) (2 Items)"
+                    "+2 Defense (Based on Character Level) (2 Items)"
                 ],
                 "Name": "Tancred's Spine",
                 "Index": "Tancred's Spine",
@@ -1770,7 +1770,7 @@
                 "Type": "Helm",
                 "Set": "Sigon's Complete Steel",
                 "SetPropertiesString": [
-                    "+8 to Attack Rating (Per Character Level) (2 Items)"
+                    "+8 to Attack Rating (Based on Character Level) (2 Items)"
                 ],
                 "Name": "Sigon's Visor",
                 "Index": "Sigon's Visor",
@@ -1882,7 +1882,7 @@
                 "Type": "Belt",
                 "Set": "Sigon's Complete Steel",
                 "SetPropertiesString": [
-                    "+2 Defense (Per Character Level) (2 Items)"
+                    "+2 Defense (Based on Character Level) (2 Items)"
                 ],
                 "Name": "Sigon's Wrap",
                 "Index": "Sigon's Wrap",
@@ -1994,7 +1994,7 @@
                 "Type": "Helm",
                 "Set": "Infernal Tools",
                 "SetPropertiesString": [
-                    "+2 Defense (Per Character Level) (2 Items)"
+                    "+2 Defense (Based on Character Level) (2 Items)"
                 ],
                 "Name": "Infernal Cranium",
                 "Index": "Infernal Cranium",
@@ -2031,7 +2031,7 @@
                 "Type": "Wand",
                 "Set": "Infernal Tools",
                 "SetPropertiesString": [
-                    "+10 to Attack Rating (Per Character Level) (2 Items)"
+                    "+10 to Attack Rating (Based on Character Level) (2 Items)"
                 ],
                 "Name": "Infernal Torch",
                 "Index": "Infernal Torch",
@@ -2154,7 +2154,7 @@
                 "Type": "Helm",
                 "Set": "Berserker's Arsenal",
                 "SetPropertiesString": [
-                    "+8 to Attack Rating (Per Character Level) (2 Items)"
+                    "+8 to Attack Rating (Based on Character Level) (2 Items)"
                 ],
                 "Name": "Berserker's Headgear",
                 "Index": "Berserker's Headgear",
@@ -2191,7 +2191,7 @@
                 "Type": "Body Armor",
                 "Set": "Berserker's Arsenal",
                 "SetPropertiesString": [
-                    "+3 Defense (Per Character Level) (2 Items)"
+                    "+3 Defense (Based on Character Level) (2 Items)"
                 ],
                 "Name": "Berserker's Hauberk",
                 "Index": "Berserker's Hauberk",
@@ -2520,7 +2520,7 @@
                 "Type": "Ring",
                 "Set": "Angelic Raiment",
                 "SetPropertiesString": [
-                    "+12 to Attack Rating (Per Character Level) (2 Items)",
+                    "+12 to Attack Rating (Based on Character Level) (2 Items)",
                     "+50% Chance Items Roll Magic or Better (3 Items)"
                 ],
                 "Name": "Angelic Halo",
@@ -2624,7 +2624,7 @@
                 "Type": "Bow",
                 "Set": "Arctic Gear",
                 "SetPropertiesString": [
-                    "+8 to Attack Rating (Per Character Level) (2 Items)",
+                    "+8 to Attack Rating (Based on Character Level) (2 Items)",
                     "Adds 20-30 Weapon Cold Damage (3 Items)"
                 ],
                 "Name": "Arctic Horn",
@@ -2666,7 +2666,7 @@
                 "Type": "Body Armor",
                 "Set": "Arctic Gear",
                 "SetPropertiesString": [
-                    "+3 Defense (Per Character Level) (2 Items)",
+                    "+3 Defense (Based on Character Level) (2 Items)",
                     "+15% Cold Resistance (3 Items)"
                 ],
                 "Name": "Arctic Furs",
@@ -2789,7 +2789,7 @@
         ],
         "FullProperties": [
             {
-                "PropertyString": "+2 to Weapon Maximum Cold Damage (Per Character Level)",
+                "PropertyString": "+2 to Weapon Maximum Cold Damage (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -2884,7 +2884,7 @@
                 "Type": "Helm",
                 "Set": "Arcanna's Tricks",
                 "SetPropertiesString": [
-                    "+3 Defense (Per Character Level) (2 Items)",
+                    "+3 Defense (Based on Character Level) (2 Items)",
                     "+15% Lightning Resistance (3 Items)"
                 ],
                 "Name": "Arcanna's Head",
@@ -3128,7 +3128,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+1.5 to Life (Per Character Level)",
+                        "PropertyString": "+1.5 to Life (Based on Character Level)",
                         "Index": 1
                     },
                     {
@@ -3896,7 +3896,7 @@
         ],
         "FullProperties": [
             {
-                "PropertyString": "10% Chance to cast level 1 Kings Charisma on striking",
+                "PropertyString": "10% Chance to cast level 1 King's Charisma on striking",
                 "Index": 5
             },
             {
@@ -3904,7 +3904,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+1 to Kings Trinity (oskill)",
+                "PropertyString": "+1 to King's Trinity (oskill)",
                 "Index": 6
             },
             {
@@ -4281,7 +4281,7 @@
                         "Index": 5
                     },
                     {
-                        "PropertyString": "Absorbs 0.25 Cold Damage (Per Character Level)",
+                        "PropertyString": "Absorbs 0.25 Cold Damage (Based on Character Level)",
                         "Index": 1
                     },
                     {
@@ -4777,7 +4777,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+15 to Trang-Ouls Hellflare (oskill)",
+                "PropertyString": "+15 to Trang-Oul's Hellflare (oskill)",
                 "Index": 1
             },
             {
@@ -4785,7 +4785,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+15 to Trang-Ouls Burning Shroud (oskill)",
+                "PropertyString": "+15 to Trang-Oul's Burning Shroud (oskill)",
                 "Index": 3
             },
             {
@@ -4793,7 +4793,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+15 to Trang-Ouls Doomfall (oskill)",
+                "PropertyString": "+15 to Trang-Oul's Doomfall (oskill)",
                 "Index": 5
             }
         ],
@@ -4904,7 +4904,7 @@
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+4 Defense (Per Character Level)",
+                        "PropertyString": "+4 Defense (Based on Character Level)",
                         "Index": 4
                     },
                     {
@@ -5396,7 +5396,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+1.5 to Maximum Weapon Damage (Per Character Level)",
+                        "PropertyString": "+1.5 to Maximum Weapon Damage (Based on Character Level)",
                         "Index": 0
                     },
                     {
@@ -5591,7 +5591,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+3 to Weapon Maximum Fire Damage (Per Character Level)",
+                "PropertyString": "+3 to Weapon Maximum Fire Damage (Based on Character Level)",
                 "Index": 3
             }
         ],
@@ -5963,7 +5963,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+1.5 Defense (Per Character Level)",
+                        "PropertyString": "+1.5 Defense (Based on Character Level)",
                         "Index": 2
                     },
                     {
@@ -6771,7 +6771,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1.5% Chance Items Roll Magic or Better (Per Character Level)",
+                "PropertyString": "+1.5% Chance Items Roll Magic or Better (Based on Character Level)",
                 "Index": 1
             }
         ],
@@ -6829,7 +6829,7 @@
                 "Code": "cap",
                 "Properties": [
                     {
-                        "PropertyString": "+1 Defense (Per Character Level)",
+                        "PropertyString": "+1 Defense (Based on Character Level)",
                         "Index": 2
                     },
                     {
@@ -7075,7 +7075,7 @@
                 "Set": "Warlord's Glory",
                 "SetPropertiesString": [
                     "+ to Attack Rating (2 Items)",
-                    "+2 Defense (Per Character Level) (2 Items)"
+                    "+2 Defense (Based on Character Level) (2 Items)"
                 ],
                 "Name": "Warlord's Lust",
                 "Index": "Warlord's Lust",
@@ -7186,7 +7186,7 @@
                 "Type": "Belt",
                 "Set": "Warlord's Glory",
                 "SetPropertiesString": [
-                    "+8 to Attack Rating (Per Character Level) (2 Items)"
+                    "+8 to Attack Rating (Based on Character Level) (2 Items)"
                 ],
                 "Name": "Warlord's Authority",
                 "Index": "Warlord's Authority",
@@ -7279,7 +7279,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+1 to Maximum Weapon Damage (Per Character Level)",
+                        "PropertyString": "+1 to Maximum Weapon Damage (Based on Character Level)",
                         "Index": 1
                     }
                 ],
@@ -7306,7 +7306,7 @@
                 "Set": "Bane's Garments",
                 "SetPropertiesString": [
                     "+25% Faster Hit Recovery (2 Items)",
-                    "+8 to Attack Rating (Per Character Level) (3 Items)"
+                    "+8 to Attack Rating (Based on Character Level) (3 Items)"
                 ],
                 "Name": "Bane's Wraithskin",
                 "Index": "Bane's Wraithskin",
@@ -7428,7 +7428,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+1% Bonus to Attack Rating (Per Character Level)",
+                        "PropertyString": "+1% Bonus to Attack Rating (Based on Character Level)",
                         "Index": 0
                     },
                     {
@@ -8327,7 +8327,7 @@
                 "Type": "Body Armor",
                 "Set": "Corgina's Element",
                 "SetPropertiesString": [
-                    "+1 to Mana (Per Character Level) (3 Items)",
+                    "+1 to Mana (Based on Character Level) (3 Items)",
                     "+10% Damage Taken Goes To Mana (2 Items)"
                 ],
                 "Name": "Corgina's Plate",
@@ -9989,7 +9989,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+1 Defense (Per Character Level)",
+                        "PropertyString": "+1 Defense (Based on Character Level)",
                         "Index": 3
                     }
                 ],
@@ -10054,7 +10054,7 @@
                 "Set": "Insight of Brother Laz",
                 "SetPropertiesString": [
                     "12% Chance to cast level 1 Fire Wall on striking (3 Items)",
-                    "+1 to Maximum Weapon Damage (Per Character Level) (4 Items)"
+                    "+1 to Maximum Weapon Damage (Based on Character Level) (4 Items)"
                 ],
                 "Name": "Wrath of Brother Laz",
                 "Index": "Wrath of Brother Laz",
@@ -10212,7 +10212,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+4 Defense (Per Character Level)",
+                        "PropertyString": "+4 Defense (Based on Character Level)",
                         "Index": 0
                     },
                     {
@@ -10253,7 +10253,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+2 Defense (Per Character Level)",
+                        "PropertyString": "+2 Defense (Based on Character Level)",
                         "Index": 1
                     },
                     {
@@ -10292,7 +10292,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+1 to Mana (Per Character Level)",
+                        "PropertyString": "+1 to Mana (Based on Character Level)",
                         "Index": 2
                     },
                     {
@@ -10333,7 +10333,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+1 Defense (Per Character Level)",
+                        "PropertyString": "+1 Defense (Based on Character Level)",
                         "Index": 0
                     },
                     {
@@ -10661,7 +10661,7 @@
                 "Type": "Body Armor",
                 "Set": "Red Havoc's Challenge",
                 "SetPropertiesString": [
-                    "+1 to Maximum Weapon Damage (Per Character Level) (3 Items)"
+                    "+1 to Maximum Weapon Damage (Based on Character Level) (3 Items)"
                 ],
                 "Name": "Cry of the Wolf",
                 "Index": "Cry of the Wolf",
@@ -10676,7 +10676,7 @@
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+2% Enhanced Defense (Per Character Level)",
+                        "PropertyString": "+2% Enhanced Defense (Based on Character Level)",
                         "Index": 1
                     },
                     {
@@ -10946,7 +10946,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+1 to Life (Per Character Level)",
+                        "PropertyString": "+1 to Life (Based on Character Level)",
                         "Index": 2
                     },
                     {
@@ -11493,11 +11493,11 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+1 to Maximum Weapon Damage (Per Character Level)",
+                        "PropertyString": "+1 to Maximum Weapon Damage (Based on Character Level)",
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+2 Defense (Per Character Level)",
+                        "PropertyString": "+2 Defense (Based on Character Level)",
                         "Index": 0
                     }
                 ],
@@ -11573,15 +11573,15 @@
                 "Code": "xkp",
                 "Properties": [
                     {
-                        "PropertyString": "+1.5 Defense (Per Character Level)",
+                        "PropertyString": "+1.5 Defense (Based on Character Level)",
                         "Index": 4
                     },
                     {
-                        "PropertyString": "+1.5 to Life (Per Character Level)",
+                        "PropertyString": "+1.5 to Life (Based on Character Level)",
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+1.5 to Mana (Per Character Level)",
+                        "PropertyString": "+1.5 to Mana (Based on Character Level)",
                         "Index": 3
                     },
                     {
@@ -11610,7 +11610,7 @@
         ],
         "PartialProperties": [
             {
-                "PropertyString": "+0.38% Deadly Strike (Per Character Level)",
+                "PropertyString": "+0.38% Deadly Strike (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -12003,7 +12003,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+2 Defense (Per Character Level)",
+                        "PropertyString": "+2 Defense (Based on Character Level)",
                         "Index": 1
                     }
                 ],
@@ -12408,7 +12408,7 @@
                 "Code": "xcl",
                 "Properties": [
                     {
-                        "PropertyString": "+4 Defense (Per Character Level)",
+                        "PropertyString": "+4 Defense (Based on Character Level)",
                         "Index": 0
                     },
                     {
@@ -12621,7 +12621,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "Attacker Takes Damage of 2 (Per Character Level)",
+                        "PropertyString": "Attacker Takes Damage of 2 (Based on Character Level)",
                         "Index": 2
                     },
                     {
@@ -12676,7 +12676,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+3 to Maximum Weapon Damage (Per Character Level)",
+                        "PropertyString": "+3 to Maximum Weapon Damage (Based on Character Level)",
                         "Index": 1
                     },
                     {
@@ -12758,7 +12758,7 @@
                 "Set": "Onyx's Primal Rage",
                 "SetPropertiesString": [
                     "+20% Increased Attack Speed (3 Items)",
-                    "+16 to Attack Rating (Per Character Level) (4 Items)",
+                    "+16 to Attack Rating (Based on Character Level) (4 Items)",
                     "+3% to Experience Gained (2 Items)"
                 ],
                 "Name": "Onyx's Celestial Rage",
@@ -12951,7 +12951,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+4 Defense (Per Character Level)",
+                        "PropertyString": "+4 Defense (Based on Character Level)",
                         "Index": 0
                     },
                     {
@@ -13118,9 +13118,9 @@
                 "Type": "Circlet",
                 "Set": "The Mysterious Spin",
                 "SetPropertiesString": [
-                    "+1.5 Defense (Per Character Level) (3 Items)",
-                    "+1.25 to Life (Per Character Level) (5 Items)",
-                    "+1 to Mana (Per Character Level) (5 Items)",
+                    "+1.5 Defense (Based on Character Level) (3 Items)",
+                    "+1.25 to Life (Based on Character Level) (5 Items)",
+                    "+1 to Mana (Based on Character Level) (5 Items)",
                     "+15% to All Resistances (2 Items)",
                     "+15% to All Resistances (3 Items)",
                     "+100% Extra Gold from Monsters (4 Items)",
@@ -13765,7 +13765,7 @@
                 "Type": "Boots",
                 "Set": "Phrozen Heart's Mysticism",
                 "SetPropertiesString": [
-                    "+3 to Dodge (oskill) (2 Items)",
+                    "+3 to Dodge & Avoid (oskill) (2 Items)",
                     "+3 to Evade (oskill) (3 Items)",
                     "+3 to Teleport (oskill) (4 Items)",
                     "+15 Kick Damage (5 Items)"
@@ -14055,7 +14055,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+0.75 to Energy (Per Character Level)",
+                        "PropertyString": "+0.75 to Energy (Based on Character Level)",
                         "Index": 1
                     }
                 ],
@@ -14471,7 +14471,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+2.25 to Maximum Weapon Damage (Per Character Level)",
+                        "PropertyString": "+2.25 to Maximum Weapon Damage (Based on Character Level)",
                         "Index": 1
                     },
                     {
@@ -14571,7 +14571,7 @@
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+2 Defense (Per Character Level)",
+                        "PropertyString": "+2 Defense (Based on Character Level)",
                         "Index": 0
                     },
                     {
@@ -14692,8 +14692,8 @@
                 "Type": "Polearm",
                 "Set": "Nefarious Ways",
                 "SetPropertiesString": [
-                    "+4% Extra Gold from Monsters (Per Character Level) (3 Items)",
-                    "+2% Chance Items Roll Magic or Better (Per Character Level) (2 Items)"
+                    "+4% Extra Gold from Monsters (Based on Character Level) (3 Items)",
+                    "+2% Chance Items Roll Magic or Better (Based on Character Level) (2 Items)"
                 ],
                 "Name": "Sin and Greed",
                 "Index": "Sin and Greed",
@@ -14874,7 +14874,7 @@
         ],
         "PartialProperties": [
             {
-                "PropertyString": "Drain Life -2 (Per Character Level)",
+                "PropertyString": "Drain Life -2 (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -14974,7 +14974,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+2 Defense (Per Character Level)",
+                        "PropertyString": "+2 Defense (Based on Character Level)",
                         "Index": 1
                     },
                     {
@@ -15177,7 +15177,7 @@
                 "Type": "Sword",
                 "Set": "The Darkest Weaves",
                 "SetPropertiesString": [
-                    "+1 to Maximum Weapon Damage (Per Character Level) (2 Items)"
+                    "+1 to Maximum Weapon Damage (Based on Character Level) (2 Items)"
                 ],
                 "Name": "Soulreaver",
                 "Index": "Soulreaver",
@@ -15855,7 +15855,7 @@
                         "Index": 4
                     },
                     {
-                        "PropertyString": "+1.25% Chance Items Roll Magic or Better (Per Character Level)",
+                        "PropertyString": "+1.25% Chance Items Roll Magic or Better (Based on Character Level)",
                         "Index": 1
                     },
                     {
@@ -15936,11 +15936,11 @@
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+1.5 to Life (Per Character Level)",
+                        "PropertyString": "+1.5 to Life (Based on Character Level)",
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+1.5 to Mana (Per Character Level)",
+                        "PropertyString": "+1.5 to Mana (Based on Character Level)",
                         "Index": 1
                     },
                     {
@@ -15997,11 +15997,11 @@
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+2.5% Extra Gold from Monsters (Per Character Level)",
+                        "PropertyString": "+2.5% Extra Gold from Monsters (Based on Character Level)",
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+1% Chance Items Roll Magic or Better (Per Character Level)",
+                        "PropertyString": "+1% Chance Items Roll Magic or Better (Based on Character Level)",
                         "Index": 2
                     },
                     {
@@ -16562,7 +16562,7 @@
                     "+313 Defense (6 Items)",
                     "+10% Magic Resistance (4 Items)",
                     "+10% to All Resistances (2 Items)",
-                    "Attacker Takes Damage of 1.5 (Per Character Level) (5 Items)"
+                    "Attacker Takes Damage of 1.5 (Based on Character Level) (5 Items)"
                 ],
                 "Name": "Hell's Torment Greaves",
                 "Index": "Hell's Torment Greaves",
@@ -16846,7 +16846,7 @@
                 "Type": "Belt",
                 "Set": "Darque Necromancy",
                 "SetPropertiesString": [
-                    "+1 to Mana (Per Character Level) (5 Items)"
+                    "+1 to Mana (Based on Character Level) (5 Items)"
                 ],
                 "Name": "Dying Curses",
                 "Index": "Dying Curses",
@@ -17457,7 +17457,7 @@
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+2 Defense (Per Character Level)",
+                        "PropertyString": "+2 Defense (Based on Character Level)",
                         "Index": 0
                     },
                     {
@@ -17743,7 +17743,7 @@
                 "Type": "Body Armor",
                 "Set": "Cedric's Jinx",
                 "SetPropertiesString": [
-                    "+5 Defense (Per Character Level) (3 Items)"
+                    "+5 Defense (Based on Character Level) (3 Items)"
                 ],
                 "Name": "Call of Gylandra",
                 "Index": "Call of Gylandra",
@@ -17855,7 +17855,7 @@
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+1.62 Defense (Per Character Level)",
+                        "PropertyString": "+1.62 Defense (Based on Character Level)",
                         "Index": 0
                     }
                 ],
@@ -18132,8 +18132,8 @@
                 "Set": "Dragon Reborn",
                 "SetPropertiesString": [
                     "+30% Faster Run/Walk Speed (3 Items)",
-                    "+1 to Life (Per Character Level) (6 Items)",
-                    "+0.62 to Mana (Per Character Level) (5 Items)",
+                    "+1 to Life (Based on Character Level) (6 Items)",
+                    "+0.62 to Mana (Based on Character Level) (5 Items)",
                     "+15% to All Resistances (4 Items)",
                     "+25% Chance Items Roll Magic or Better (2 Items)"
                 ],
@@ -18205,7 +18205,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+3.12% Extra Gold from Monsters (Per Character Level)",
+                "PropertyString": "+3.12% Extra Gold from Monsters (Based on Character Level)",
                 "Index": 0
             }
         ],
@@ -18401,11 +18401,11 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+1.25 to Life (Per Character Level)",
+                        "PropertyString": "+1.25 to Life (Based on Character Level)",
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+0.75 to Mana (Per Character Level)",
+                        "PropertyString": "+0.75 to Mana (Based on Character Level)",
                         "Index": 3
                     }
                 ],
@@ -18537,7 +18537,7 @@
                 "Code": "umc",
                 "Properties": [
                     {
-                        "PropertyString": "+1.62 Defense (Per Character Level)",
+                        "PropertyString": "+1.62 Defense (Based on Character Level)",
                         "Index": 0
                     },
                     {
@@ -18635,7 +18635,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+1.5% Chance Items Roll Magic or Better (Per Character Level)",
+                "PropertyString": "+1.5% Chance Items Roll Magic or Better (Based on Character Level)",
                 "Index": 1
             }
         ],
@@ -18815,7 +18815,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+1.75 Defense (Per Character Level)",
+                        "PropertyString": "+1.75 Defense (Based on Character Level)",
                         "Index": 0
                     },
                     {
@@ -18905,11 +18905,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+5% Extra Gold from Monsters (Per Character Level)",
+                "PropertyString": "+5% Extra Gold from Monsters (Based on Character Level)",
                 "Index": 2
             },
             {
-                "PropertyString": "+2.5% Chance Items Roll Magic or Better (Per Character Level)",
+                "PropertyString": "+2.5% Chance Items Roll Magic or Better (Based on Character Level)",
                 "Index": 1
             }
         ],
@@ -18968,7 +18968,7 @@
                 "Set": "Alyssa's Archery",
                 "SetPropertiesString": [
                     "+50 to Minimum Weapon Damage (3 Items)",
-                    "+2 to Maximum Weapon Damage (Per Character Level) (2 Items)"
+                    "+2 to Maximum Weapon Damage (Based on Character Level) (2 Items)"
                 ],
                 "Name": "Alyssa's Leafblighter",
                 "Index": "Alyssa's Leafblighter",
@@ -19327,7 +19327,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+3 Defense (Per Character Level)",
+                        "PropertyString": "+3 Defense (Based on Character Level)",
                         "Index": 1
                     },
                     {
@@ -19699,7 +19699,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+1 to Mana (Per Character Level)",
+                        "PropertyString": "+1 to Mana (Based on Character Level)",
                         "Index": 1
                     },
                     {
@@ -19823,7 +19823,7 @@
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+3 Defense (Per Character Level)",
+                        "PropertyString": "+3 Defense (Based on Character Level)",
                         "Index": 0
                     },
                     {
@@ -19922,7 +19922,7 @@
                 "Code": "zmb",
                 "Properties": [
                     {
-                        "PropertyString": "+1.5 Defense (Per Character Level)",
+                        "PropertyString": "+1.5 Defense (Based on Character Level)",
                         "Index": 0
                     },
                     {
@@ -20663,7 +20663,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "Attacker Takes Damage of 1 (Per Character Level)",
+                        "PropertyString": "Attacker Takes Damage of 1 (Based on Character Level)",
                         "Index": 4
                     }
                 ],
@@ -20700,7 +20700,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+1 Defense (Per Character Level)",
+                        "PropertyString": "+1 Defense (Based on Character Level)",
                         "Index": 0
                     }
                 ],
@@ -20831,7 +20831,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+0.5 to Dexterity (Per Character Level)",
+                        "PropertyString": "+0.5 to Dexterity (Based on Character Level)",
                         "Index": 4
                     },
                     {
@@ -20857,7 +20857,7 @@
                 "Type": "Axe",
                 "Set": "Tika's Request",
                 "SetPropertiesString": [
-                    "+3 to Maximum Weapon Damage (Per Character Level) (4 Items)"
+                    "+3 to Maximum Weapon Damage (Based on Character Level) (4 Items)"
                 ],
                 "Name": "Hallowed Redeemer",
                 "Index": "Hallowed Redeemer",
@@ -20933,7 +20933,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+1 Defense (Per Character Level)",
+                        "PropertyString": "+1 Defense (Based on Character Level)",
                         "Index": 1
                     },
                     {
@@ -21083,7 +21083,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+1.5% Chance Items Roll Magic or Better (Per Character Level)",
+                "PropertyString": "+1.5% Chance Items Roll Magic or Better (Based on Character Level)",
                 "Index": 2
             }
         ],
@@ -21265,7 +21265,7 @@
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+2 Defense (Per Character Level)",
+                        "PropertyString": "+2 Defense (Based on Character Level)",
                         "Index": 0
                     },
                     {
@@ -21315,7 +21315,7 @@
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+2 Defense (Per Character Level)",
+                        "PropertyString": "+2 Defense (Based on Character Level)",
                         "Index": 0
                     },
                     {
@@ -21625,11 +21625,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+3 to Life (Per Character Level)",
+                "PropertyString": "+3 to Life (Based on Character Level)",
                 "Index": 1
             },
             {
-                "PropertyString": "+1.5 to Mana (Per Character Level)",
+                "PropertyString": "+1.5 to Mana (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -21909,7 +21909,7 @@
                         "Index": 4
                     },
                     {
-                        "PropertyString": "+1.25% Chance Items Roll Magic or Better (Per Character Level)",
+                        "PropertyString": "+1.25% Chance Items Roll Magic or Better (Based on Character Level)",
                         "Index": 2
                     },
                     {
@@ -22745,7 +22745,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+1.12% Chance Items Roll Magic or Better (Per Character Level)",
+                        "PropertyString": "+1.12% Chance Items Roll Magic or Better (Based on Character Level)",
                         "Index": 3
                     },
                     {
@@ -22946,7 +22946,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+0.5 to Energy (Per Character Level)",
+                        "PropertyString": "+0.5 to Energy (Based on Character Level)",
                         "Index": 4
                     },
                     {
@@ -24041,7 +24041,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+1 to Minimum Weapon Damage (Per Character Level)",
+                        "PropertyString": "+1 to Minimum Weapon Damage (Based on Character Level)",
                         "Index": 0
                     },
                     {
@@ -24071,7 +24071,7 @@
                 "Type": "Auric Shields",
                 "Set": "Tools of Vindication",
                 "SetPropertiesString": [
-                    "+1 to Minimum Weapon Damage (Per Character Level) (3 Items)",
+                    "+1 to Minimum Weapon Damage (Based on Character Level) (3 Items)",
                     "+30% Cold Resistance (2 Items)",
                     "+15% Physical Damage Reduction (3 Items)"
                 ],
@@ -24118,7 +24118,7 @@
                 "Type": "Belt",
                 "Set": "Tools of Vindication",
                 "SetPropertiesString": [
-                    "+1 to Minimum Weapon Damage (Per Character Level) (2 Items)",
+                    "+1 to Minimum Weapon Damage (Based on Character Level) (2 Items)",
                     "+30% Lightning Resistance (3 Items)",
                     "+30% Fire Resistance (2 Items)"
                 ],
@@ -24241,7 +24241,7 @@
                 "Code": "ulg",
                 "Properties": [
                     {
-                        "PropertyString": "+2-5 to Polar Claws (oskill)",
+                        "PropertyString": "+2-5 to Arctic Claws (oskill)",
                         "Index": 0
                     },
                     {
@@ -24423,7 +24423,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+10 to Polar Claws (oskill)",
+                "PropertyString": "+10 to Arctic Claws (oskill)",
                 "Index": 3
             },
             {
@@ -24441,7 +24441,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+10 to Polar Claws (oskill)",
+                "PropertyString": "+10 to Arctic Claws (oskill)",
                 "Index": 3
             },
             {

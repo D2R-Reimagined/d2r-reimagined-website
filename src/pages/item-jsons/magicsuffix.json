@@ -4333,7 +4333,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+0.5% Cold Resistance (Per Character Level)",
+                "PropertyString": "+0.5% Cold Resistance (Based on Character Level)",
                 "Index": 0
             }
         ],
@@ -4356,7 +4356,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+0.75% Cold Resistance (Per Character Level)",
+                "PropertyString": "+0.75% Cold Resistance (Based on Character Level)",
                 "Index": 0
             }
         ],
@@ -4379,7 +4379,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+0.5% Fire Resistance (Per Character Level)",
+                "PropertyString": "+0.5% Fire Resistance (Based on Character Level)",
                 "Index": 0
             }
         ],
@@ -4402,7 +4402,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+0.75% Fire Resistance (Per Character Level)",
+                "PropertyString": "+0.75% Fire Resistance (Based on Character Level)",
                 "Index": 0
             }
         ],
@@ -4425,7 +4425,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+0.5% Lightning Resistance (Per Character Level)",
+                "PropertyString": "+0.5% Lightning Resistance (Based on Character Level)",
                 "Index": 0
             }
         ],
@@ -4448,7 +4448,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+0.75% Lightning Resistance (Per Character Level)",
+                "PropertyString": "+0.75% Lightning Resistance (Based on Character Level)",
                 "Index": 0
             }
         ],
@@ -4471,7 +4471,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+0.5% Poison Resistance (Per Character Level)",
+                "PropertyString": "+0.5% Poison Resistance (Based on Character Level)",
                 "Index": 0
             }
         ],
@@ -4494,7 +4494,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+0.75% Poison Resistance (Per Character Level)",
+                "PropertyString": "+0.75% Poison Resistance (Based on Character Level)",
                 "Index": 0
             }
         ],
@@ -4517,15 +4517,15 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+0.25% Cold Resistance (Per Character Level)",
+                "PropertyString": "+0.25% Cold Resistance (Based on Character Level)",
                 "Index": 0
             },
             {
-                "PropertyString": "+0.25% Lightning Resistance (Per Character Level)",
+                "PropertyString": "+0.25% Lightning Resistance (Based on Character Level)",
                 "Index": 1
             },
             {
-                "PropertyString": "+0.25% Fire Resistance (Per Character Level)",
+                "PropertyString": "+0.25% Fire Resistance (Based on Character Level)",
                 "Index": 2
             }
         ],
@@ -4547,15 +4547,15 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+0.5% Cold Resistance (Per Character Level)",
+                "PropertyString": "+0.5% Cold Resistance (Based on Character Level)",
                 "Index": 0
             },
             {
-                "PropertyString": "+0.5% Lightning Resistance (Per Character Level)",
+                "PropertyString": "+0.5% Lightning Resistance (Based on Character Level)",
                 "Index": 1
             },
             {
-                "PropertyString": "+0.5% Fire Resistance (Per Character Level)",
+                "PropertyString": "+0.5% Fire Resistance (Based on Character Level)",
                 "Index": 2
             }
         ],
@@ -4577,15 +4577,15 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+0.62% Cold Resistance (Per Character Level)",
+                "PropertyString": "+0.62% Cold Resistance (Based on Character Level)",
                 "Index": 0
             },
             {
-                "PropertyString": "+0.62% Lightning Resistance (Per Character Level)",
+                "PropertyString": "+0.62% Lightning Resistance (Based on Character Level)",
                 "Index": 1
             },
             {
-                "PropertyString": "+0.62% Fire Resistance (Per Character Level)",
+                "PropertyString": "+0.62% Fire Resistance (Based on Character Level)",
                 "Index": 2
             }
         ],
@@ -6132,7 +6132,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+0.38 to Dexterity (Per Character Level)",
+                "PropertyString": "+0.38 to Dexterity (Based on Character Level)",
                 "Index": 0
             }
         ],
@@ -6154,7 +6154,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+0.38 to Strength (Per Character Level)",
+                "PropertyString": "+0.38 to Strength (Based on Character Level)",
                 "Index": 0
             }
         ],
@@ -6176,11 +6176,11 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+0.38 to Strength (Per Character Level)",
+                "PropertyString": "+0.38 to Strength (Based on Character Level)",
                 "Index": 0
             },
             {
-                "PropertyString": "+0.38 to Dexterity (Per Character Level)",
+                "PropertyString": "+0.38 to Dexterity (Based on Character Level)",
                 "Index": 1
             }
         ],
@@ -6804,11 +6804,11 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+0.5 to Life (Per Character Level)",
+                "PropertyString": "+0.5 to Life (Based on Character Level)",
                 "Index": 0
             },
             {
-                "PropertyString": "+0.25 to Mana (Per Character Level)",
+                "PropertyString": "+0.25 to Mana (Based on Character Level)",
                 "Index": 1
             }
         ],
@@ -6830,11 +6830,11 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+0.5 to Life (Per Character Level)",
+                "PropertyString": "+0.5 to Life (Based on Character Level)",
                 "Index": 0
             },
             {
-                "PropertyString": "+0.25 to Mana (Per Character Level)",
+                "PropertyString": "+0.25 to Mana (Based on Character Level)",
                 "Index": 1
             }
         ],
@@ -6856,7 +6856,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+0.75 to Life (Per Character Level)",
+                "PropertyString": "+0.75 to Life (Based on Character Level)",
                 "Index": 0
             }
         ],
@@ -6880,7 +6880,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+0.75 to Mana (Per Character Level)",
+                "PropertyString": "+0.75 to Mana (Based on Character Level)",
                 "Index": 0
             }
         ],
@@ -7640,7 +7640,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Attacker Takes Damage of 1 (Per Character Level)",
+                "PropertyString": "Attacker Takes Damage of 1 (Based on Character Level)",
                 "Index": 0
             }
         ],
@@ -7662,7 +7662,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "Attacker Takes Damage of 1.5 (Per Character Level)",
+                "PropertyString": "Attacker Takes Damage of 1.5 (Based on Character Level)",
                 "Index": 0
             }
         ],
@@ -10895,7 +10895,7 @@
         "ClassLevelReq": 30,
         "Properties": [
             {
-                "PropertyString": "4% Chance to cast level 3 Fist Of The Heavens when struck",
+                "PropertyString": "4% Chance to cast level 3 Fist of the Heavens when struck",
                 "Index": 0
             }
         ],
@@ -10918,7 +10918,7 @@
         "ClassLevelReq": 30,
         "Properties": [
             {
-                "PropertyString": "7% Chance to cast level 14 Fist Of The Heavens when struck",
+                "PropertyString": "7% Chance to cast level 14 Fist of the Heavens when struck",
                 "Index": 0
             }
         ],
@@ -11161,7 +11161,7 @@
         "ClassLevelReq": 24,
         "Properties": [
             {
-                "PropertyString": "4% Chance to cast level 2 Korlics Fury when struck",
+                "PropertyString": "4% Chance to cast level 2 Korlic's Fury when struck",
                 "Index": 0
             }
         ],
@@ -11184,7 +11184,7 @@
         "ClassLevelReq": 24,
         "Properties": [
             {
-                "PropertyString": "8% Chance to cast level 15 Korlics Fury when struck",
+                "PropertyString": "8% Chance to cast level 15 Korlic's Fury when struck",
                 "Index": 0
             }
         ],
@@ -11379,7 +11379,7 @@
         "ClassLevelReq": 12,
         "Properties": [
             {
-                "PropertyString": "5% Chance to cast level 1 Eruption when struck",
+                "PropertyString": "5% Chance to cast level 1 Fissure when struck",
                 "Index": 0
             }
         ],
@@ -11400,7 +11400,7 @@
         "ClassLevelReq": 12,
         "Properties": [
             {
-                "PropertyString": "8% Chance to cast level 15 Eruption when struck",
+                "PropertyString": "8% Chance to cast level 15 Fissure when struck",
                 "Index": 0
             }
         ],
@@ -13040,7 +13040,7 @@
         "ClassLevelReq": 12,
         "Properties": [
             {
-                "PropertyString": "5% Chance to cast level 21 Eruption on striking",
+                "PropertyString": "5% Chance to cast level 21 Fissure on striking",
                 "Index": 0
             }
         ],
@@ -16410,7 +16410,7 @@
         "ClassLevelReq": 6,
         "Properties": [
             {
-                "PropertyString": "Level -8 Sigil Lethargy (-60 Charges)",
+                "PropertyString": "Level -8 Sigil: Lethargy (-60 Charges)",
                 "Index": 0
             }
         ],
@@ -16433,7 +16433,7 @@
         "ClassLevelReq": 6,
         "Properties": [
             {
-                "PropertyString": "Level -5 Sigil Lethargy (-20 Charges)",
+                "PropertyString": "Level -5 Sigil: Lethargy (-20 Charges)",
                 "Index": 0
             }
         ],
@@ -16455,7 +16455,7 @@
         "ClassLevelReq": 12,
         "Properties": [
             {
-                "PropertyString": "Level -7 Sigil Rancor (-60 Charges)",
+                "PropertyString": "Level -7 Sigil: Rancor (-60 Charges)",
                 "Index": 0
             }
         ],
@@ -16478,7 +16478,7 @@
         "ClassLevelReq": 12,
         "Properties": [
             {
-                "PropertyString": "Level -4 Sigil Rancor (-20 Charges)",
+                "PropertyString": "Level -4 Sigil: Rancor (-20 Charges)",
                 "Index": 0
             }
         ],

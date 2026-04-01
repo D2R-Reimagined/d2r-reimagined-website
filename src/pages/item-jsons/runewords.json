@@ -324,7 +324,7 @@
         "Code": "Scout",
         "Properties": [
             {
-                "PropertyString": "+1 to Dodge (oskill)",
+                "PropertyString": "+1 to Dodge & Avoid (oskill)",
                 "Index": 4
             },
             {
@@ -411,7 +411,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Drain Life -7.5 (Per Character Level)",
+                "PropertyString": "Drain Life -7.5 (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -1074,7 +1074,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+2 Defense (Per Character Level)",
+                "PropertyString": "+2 Defense (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -1608,7 +1608,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1.5 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1.5 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -1873,7 +1873,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+2 to Mana (Per Character Level)",
+                "PropertyString": "+2 to Mana (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -3305,7 +3305,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1.5 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1.5 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -3536,7 +3536,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "10% Chance to cast level 15 Miasma Chains on striking",
+                "PropertyString": "10% Chance to cast level 15 Miasma Chain on striking",
                 "Index": 1
             },
             {
@@ -4558,11 +4558,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+0.5 to Strength (Per Character Level)",
+                "PropertyString": "+0.5 to Strength (Based on Character Level)",
                 "Index": 5
             },
             {
-                "PropertyString": "+0.5 to Dexterity (Per Character Level)",
+                "PropertyString": "+0.5 to Dexterity (Based on Character Level)",
                 "Index": 6
             },
             {
@@ -5216,7 +5216,7 @@
         "Code": "Holy Tears",
         "Properties": [
             {
-                "PropertyString": "16% Chance to cast level 9 Fist Of The Heavens on striking",
+                "PropertyString": "16% Chance to cast level 9 Fist of the Heavens on striking",
                 "Index": 1
             },
             {
@@ -5757,7 +5757,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 4
             },
             {
@@ -6384,7 +6384,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+3 to Dodge (Amazon Only)",
+                "PropertyString": "+3 to Dodge & Avoid (Amazon Only)",
                 "Index": 3
             },
             {
@@ -6477,7 +6477,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+3 to Poison Dagger (Necromancer Only)",
+                "PropertyString": "+3 to Poison Strike (Necromancer Only)",
                 "Index": 1
             },
             {
@@ -6540,7 +6540,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+0.75 to Strength (Per Character Level)",
+                "PropertyString": "+0.75 to Strength (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -6548,23 +6548,23 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+0.75 to Dexterity (Per Character Level)",
+                "PropertyString": "+0.75 to Dexterity (Based on Character Level)",
                 "Index": 3
             },
             {
-                "PropertyString": "+0.75 to Vitality (Per Character Level)",
+                "PropertyString": "+0.75 to Vitality (Based on Character Level)",
                 "Index": 4
             },
             {
-                "PropertyString": "+0.75 to Energy (Per Character Level)",
+                "PropertyString": "+0.75 to Energy (Based on Character Level)",
                 "Index": 5
             },
             {
-                "PropertyString": "+2% Extra Gold from Monsters (Per Character Level)",
+                "PropertyString": "+2% Extra Gold from Monsters (Based on Character Level)",
                 "Index": 1
             },
             {
-                "PropertyString": "+1.5% Chance Items Roll Magic or Better (Per Character Level)",
+                "PropertyString": "+1.5% Chance Items Roll Magic or Better (Based on Character Level)",
                 "Index": 0
             }
         ],
@@ -7342,7 +7342,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "Level 3 HoW (12 Charges)",
+                "PropertyString": "Level 3 Heart of Wolverine (12 Charges)",
                 "Index": 5
             }
         ],
@@ -7423,7 +7423,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+1 to Mana (Per Character Level)",
+                "PropertyString": "+1 to Mana (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -8571,7 +8571,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+2% Chance Items Roll Magic or Better (Per Character Level)",
+                "PropertyString": "+2% Chance Items Roll Magic or Better (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -8929,7 +8929,7 @@
         "Code": "Judgement",
         "Properties": [
             {
-                "PropertyString": "11% Chance to cast level 35 Fist Of The Heavens when struck",
+                "PropertyString": "11% Chance to cast level 35 Fist of the Heavens when struck",
                 "Index": 4
             },
             {
@@ -9050,7 +9050,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1.5 to Life (Per Character Level)",
+                "PropertyString": "+1.5 to Life (Based on Character Level)",
                 "Index": 4
             },
             {
@@ -9689,7 +9689,7 @@
         "Code": "Demonspine",
         "Properties": [
             {
-                "PropertyString": "10% Chance to cast level 30 Hex Purge on striking",
+                "PropertyString": "10% Chance to cast level 30 Hex: Purge on striking",
                 "Index": 4
             },
             {
@@ -9801,7 +9801,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1 to Mana (Per Character Level)",
+                "PropertyString": "+1 to Mana (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -10043,7 +10043,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Level 16 HoW (20 Charges)",
+                "PropertyString": "Level 16 Heart of Wolverine (20 Charges)",
                 "Index": 5
             },
             {
@@ -10359,7 +10359,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+1.5 Defense (Per Character Level)",
+                "PropertyString": "+1.5 Defense (Based on Character Level)",
                 "Index": 3
             },
             {
@@ -10371,7 +10371,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1% Chance Items Roll Magic or Better (Per Character Level)",
+                "PropertyString": "+1% Chance Items Roll Magic or Better (Based on Character Level)",
                 "Index": 5
             }
         ],
@@ -10543,7 +10543,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "1% Chance to cast level 50 Delerium Change when struck",
+                "PropertyString": "1% Chance to cast level 50 Delirium when struck",
                 "Index": 5
             },
             {
@@ -10812,7 +10812,7 @@
         "Code": "Runeword180",
         "Properties": [
             {
-                "PropertyString": "5% Chance to cast level 10 Sigil Lethargy when struck",
+                "PropertyString": "5% Chance to cast level 10 Sigil: Lethargy when struck",
                 "Index": 0
             },
             {
@@ -11520,7 +11520,7 @@
         "Code": "Runeword181",
         "Properties": [
             {
-                "PropertyString": "5% Chance to cast level 10 Ring Of Fire when struck",
+                "PropertyString": "5% Chance to cast level 10 Ring of Fire when struck",
                 "Index": 0
             },
             {
@@ -11670,7 +11670,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+0.25% Deadly Strike (Per Character Level)",
+                "PropertyString": "+0.25% Deadly Strike (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -11743,7 +11743,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "8% Chance to cast level 13 Eruption on striking",
+                "PropertyString": "8% Chance to cast level 13 Fissure on striking",
                 "Index": 1
             },
             {
@@ -12065,7 +12065,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+2 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -12488,7 +12488,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1.5 to Life (Per Character Level)",
+                "PropertyString": "+1.5 to Life (Based on Character Level)",
                 "Index": 6
             },
             {
@@ -12951,7 +12951,7 @@
         "Code": "Runeword182",
         "Properties": [
             {
-                "PropertyString": "13% Chance to cast level 1 Sigil Death when struck",
+                "PropertyString": "13% Chance to cast level 1 Sigil: Death when struck",
                 "Index": 0
             },
             {
@@ -13072,7 +13072,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+1 - 1.5 to Life (Per Character Level)",
+                "PropertyString": "+1 - 1.5 to Life (Based on Character Level)",
                 "Index": 3
             },
             {
@@ -13321,7 +13321,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1.88% Damage to Demons (Per Character Level)",
+                "PropertyString": "+1.88% Damage to Demons (Based on Character Level)",
                 "Index": 4
             },
             {
@@ -13627,7 +13627,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+0.38 to Strength (Per Character Level)",
+                "PropertyString": "+0.38 to Strength (Based on Character Level)",
                 "Index": 4
             },
             {
@@ -13968,7 +13968,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Defense (Per Character Level)",
+                "PropertyString": "+1 Defense (Based on Character Level)",
                 "Index": 6
             },
             {
@@ -14477,7 +14477,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+2 to Poison Dagger (Necromancer Only)",
+                "PropertyString": "+2 to Poison Strike (Necromancer Only)",
                 "Index": 3
             },
             {
@@ -14817,7 +14817,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+0.5 to Vitality (Per Character Level)",
+                "PropertyString": "+0.5 to Vitality (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -15515,7 +15515,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+0.62 to Mana (Per Character Level)",
+                "PropertyString": "+0.62 to Mana (Based on Character Level)",
                 "Index": 4
             },
             {
@@ -15620,7 +15620,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+0.75 to Strength (Per Character Level)",
+                "PropertyString": "+0.75 to Strength (Based on Character Level)",
                 "Index": 3
             },
             {
@@ -15640,7 +15640,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1% Chance Items Roll Magic or Better (Per Character Level)",
+                "PropertyString": "+1% Chance Items Roll Magic or Better (Based on Character Level)",
                 "Index": 5
             }
         ],
@@ -16037,7 +16037,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "15% Chance to cast level 15 Winters Pulse on striking",
+                "PropertyString": "15% Chance to cast level 15 Winter's Pulse on striking",
                 "Index": 1
             },
             {
@@ -16073,7 +16073,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+3.12% Extra Gold from Monsters (Per Character Level)",
+                "PropertyString": "+3.12% Extra Gold from Monsters (Based on Character Level)",
                 "Index": 6
             }
         ],
@@ -16865,7 +16865,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2.25 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+2.25 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -17208,11 +17208,11 @@
         "Code": "Metamorphosis",
         "Properties": [
             {
-                "PropertyString": "100% Chance to cast level 1 Mark Of The Bear on striking",
+                "PropertyString": "100% Chance to cast level 1 Mark of the Bear on striking",
                 "Index": 0
             },
             {
-                "PropertyString": "100% Chance to cast level 1 Mark Of The Wolf on striking",
+                "PropertyString": "100% Chance to cast level 1 Mark of the Wolf on striking",
                 "Index": 1
             },
             {
@@ -17555,7 +17555,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+0.25% Deadly Strike (Per Character Level)",
+                "PropertyString": "+0.25% Deadly Strike (Based on Character Level)",
                 "Index": 4
             },
             {
@@ -17647,7 +17647,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+1% Damage to Demons (Per Character Level)",
+                "PropertyString": "+1% Damage to Demons (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -17675,7 +17675,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+1.88% Extra Gold from Monsters (Per Character Level)",
+                "PropertyString": "+1.88% Extra Gold from Monsters (Based on Character Level)",
                 "Index": 6
             }
         ],
@@ -18064,7 +18064,7 @@
         "Code": "Ruin",
         "Properties": [
             {
-                "PropertyString": "10% Chance to cast level 40 Miasma Chains on striking",
+                "PropertyString": "10% Chance to cast level 40 Miasma Chain on striking",
                 "Index": 4
             },
             {
@@ -18328,7 +18328,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+1% Chance Items Roll Magic or Better (Per Character Level)",
+                "PropertyString": "+1% Chance Items Roll Magic or Better (Based on Character Level)",
                 "Index": 5
             }
         ],
@@ -18647,7 +18647,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+4 Defense (Per Character Level)",
+                "PropertyString": "+4 Defense (Based on Character Level)",
                 "Index": 6
             },
             {
@@ -18936,7 +18936,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "15% Chance to cast level 30 Winters Pulse when struck",
+                "PropertyString": "15% Chance to cast level 30 Winter's Pulse when struck",
                 "Index": 4
             },
             {
@@ -19266,7 +19266,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+3 Defense (Per Character Level)",
+                "PropertyString": "+3 Defense (Based on Character Level)",
                 "Index": 6
             },
             {
@@ -19381,7 +19381,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+2.5 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+2.5 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -19516,7 +19516,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+3.12 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+3.12 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -19536,7 +19536,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+1% Chance Items Roll Magic or Better (Per Character Level)",
+                "PropertyString": "+1% Chance Items Roll Magic or Better (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -19913,7 +19913,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2.5 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+2.5 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -20034,7 +20034,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1.5% Chance Items Roll Magic or Better (Per Character Level)",
+                "PropertyString": "+1.5% Chance Items Roll Magic or Better (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -20131,7 +20131,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+2 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 2
             },
             {

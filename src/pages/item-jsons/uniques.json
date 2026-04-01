@@ -3884,7 +3884,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+0.5% Chance of Open Wounds (Per Character Level)",
+                "PropertyString": "+0.5% Chance of Open Wounds (Based on Character Level)",
                 "Index": 2
             }
         ],
@@ -6921,7 +6921,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+1-3 to Poison Dagger (Necromancer Only)",
+                "PropertyString": "+1-3 to Poison Strike (Necromancer Only)",
                 "Index": 5
             }
         ],
@@ -7459,7 +7459,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1-2 to Levitate (Warlock Only)",
+                "PropertyString": "+1-2 to Levitation Mastery (Warlock Only)",
                 "Index": 0
             },
             {
@@ -8433,7 +8433,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+1 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -9118,7 +9118,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1 to Energy (Per Character Level)",
+                "PropertyString": "+1 to Energy (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -9912,7 +9912,7 @@
         "Code": "lrg",
         "Properties": [
             {
-                "PropertyString": "+1 to Poison Dagger (oskill)",
+                "PropertyString": "+1 to Poison Strike (oskill)",
                 "Index": 6
             },
             {
@@ -10354,7 +10354,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+0.5% Deadly Strike (Per Character Level)",
+                "PropertyString": "+0.5% Deadly Strike (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -11014,7 +11014,7 @@
         "Code": "kri",
         "Properties": [
             {
-                "PropertyString": "+1-5 to Poison Dagger (oskill)",
+                "PropertyString": "+1-5 to Poison Strike (oskill)",
                 "Index": 4
             },
             {
@@ -11653,7 +11653,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+2-3 to Poison Dagger (Necromancer Only)",
+                "PropertyString": "+2-3 to Poison Strike (Necromancer Only)",
                 "Index": 5
             },
             {
@@ -15279,7 +15279,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Attacker Takes Damage of 2 (Per Character Level)",
+                "PropertyString": "Attacker Takes Damage of 2 (Based on Character Level)",
                 "Index": 1
             }
         ],
@@ -16111,7 +16111,7 @@
         "Code": "mbt",
         "Properties": [
             {
-                "PropertyString": "+1 to Dodge (oskill)",
+                "PropertyString": "+1 to Dodge & Avoid (oskill)",
                 "Index": 3
             },
             {
@@ -18036,7 +18036,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+0.25% Chance of Crushing Blow (Per Character Level)",
+                "PropertyString": "+0.25% Chance of Crushing Blow (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -18369,7 +18369,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1% Cold Resistance (Per Character Level)",
+                "PropertyString": "+1% Cold Resistance (Based on Character Level)",
                 "Index": 6
             },
             {
@@ -19629,7 +19629,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1.12 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1.12 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -22215,11 +22215,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1 to Life (Per Character Level)",
+                "PropertyString": "+1 to Life (Based on Character Level)",
                 "Index": 6
             },
             {
-                "PropertyString": "+1 to Mana (Per Character Level)",
+                "PropertyString": "+1 to Mana (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -22261,7 +22261,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "10% Chance to cast level 15 Eruption on striking",
+                "PropertyString": "10% Chance to cast level 15 Fissure on striking",
                 "Index": 2
             },
             {
@@ -22327,7 +22327,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+0.62% Fire Resistance (Per Character Level)",
+                "PropertyString": "+0.62% Fire Resistance (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -22852,7 +22852,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Defense (Per Character Level)",
+                "PropertyString": "+1 Defense (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -23077,11 +23077,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+2.5% Extra Gold from Monsters (Per Character Level)",
+                "PropertyString": "+2.5% Extra Gold from Monsters (Based on Character Level)",
                 "Index": 1
             },
             {
-                "PropertyString": "+1% Chance Items Roll Magic or Better (Per Character Level)",
+                "PropertyString": "+1% Chance Items Roll Magic or Better (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -23169,7 +23169,7 @@
         "Code": "mpi",
         "Properties": [
             {
-                "PropertyString": "12% Chance to cast level 15 Eruption on striking",
+                "PropertyString": "12% Chance to cast level 15 Fissure on striking",
                 "Index": 2
             },
             {
@@ -23423,7 +23423,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+1 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -23539,7 +23539,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+0.25% Deadly Strike (Per Character Level)",
+                "PropertyString": "+0.25% Deadly Strike (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -24885,7 +24885,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+0.75 to Strength (Per Character Level)",
+                "PropertyString": "+0.75 to Strength (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -24989,7 +24989,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+0.38% Deadly Strike (Per Character Level)",
+                "PropertyString": "+0.38% Deadly Strike (Based on Character Level)",
                 "Index": 7
             },
             {
@@ -25568,7 +25568,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -25689,23 +25689,23 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Defense (Per Character Level)",
+                "PropertyString": "+1 Defense (Based on Character Level)",
                 "Index": 1
             },
             {
-                "PropertyString": "+0.38 to Strength (Per Character Level)",
+                "PropertyString": "+0.38 to Strength (Based on Character Level)",
                 "Index": 2
             },
             {
-                "PropertyString": "+0.38 to Dexterity (Per Character Level)",
+                "PropertyString": "+0.38 to Dexterity (Based on Character Level)",
                 "Index": 3
             },
             {
-                "PropertyString": "+0.38 to Vitality (Per Character Level)",
+                "PropertyString": "+0.38 to Vitality (Based on Character Level)",
                 "Index": 4
             },
             {
-                "PropertyString": "+0.38 to Energy (Per Character Level)",
+                "PropertyString": "+0.38 to Energy (Based on Character Level)",
                 "Index": 5
             }
         ],
@@ -26050,7 +26050,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "Attacker Takes Damage of 1 (Per Character Level)",
+                "PropertyString": "Attacker Takes Damage of 1 (Based on Character Level)",
                 "Index": 0
             }
         ],
@@ -26150,11 +26150,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+0.25% Chance of Crushing Blow (Per Character Level)",
+                "PropertyString": "+0.25% Chance of Crushing Blow (Based on Character Level)",
                 "Index": 2
             },
             {
-                "PropertyString": "+0.38% Chance of Open Wounds (Per Character Level)",
+                "PropertyString": "+0.38% Chance of Open Wounds (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -26528,7 +26528,7 @@
         "Code": "tsp",
         "Properties": [
             {
-                "PropertyString": "8% Chance to cast level 1 Winters Pulse on striking",
+                "PropertyString": "8% Chance to cast level 1 Winter's Pulse on striking",
                 "Index": 3
             },
             {
@@ -26745,27 +26745,27 @@
         "Code": "hbl",
         "Properties": [
             {
-                "PropertyString": "+0.25 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+0.25 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 3
             },
             {
-                "PropertyString": "+1.25 Defense (Per Character Level)",
+                "PropertyString": "+1.25 Defense (Based on Character Level)",
                 "Index": 0
             },
             {
-                "PropertyString": "+0.5 to Strength (Per Character Level)",
+                "PropertyString": "+0.5 to Strength (Based on Character Level)",
                 "Index": 1
             },
             {
-                "PropertyString": "+1 to Life (Per Character Level)",
+                "PropertyString": "+1 to Life (Based on Character Level)",
                 "Index": 2
             },
             {
-                "PropertyString": "+0.5% Cold Resistance (Per Character Level)",
+                "PropertyString": "+0.5% Cold Resistance (Based on Character Level)",
                 "Index": 4
             },
             {
-                "PropertyString": "+0.5% Fire Resistance (Per Character Level)",
+                "PropertyString": "+0.5% Fire Resistance (Based on Character Level)",
                 "Index": 5
             }
         ],
@@ -27079,7 +27079,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+1.25 to Life (Per Character Level)",
+                "PropertyString": "+1.25 to Life (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -27183,7 +27183,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+3 Defense (Per Character Level)",
+                "PropertyString": "+3 Defense (Based on Character Level)",
                 "Index": 4
             },
             {
@@ -27303,7 +27303,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1% Chance Items Roll Magic or Better (Per Character Level)",
+                "PropertyString": "+1% Chance Items Roll Magic or Better (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -27685,7 +27685,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1.12 to Life (Per Character Level)",
+                "PropertyString": "+1.12 to Life (Based on Character Level)",
                 "Index": 7
             },
             {
@@ -27814,7 +27814,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+1% Chance Items Roll Magic or Better (Per Character Level)",
+                "PropertyString": "+1% Chance Items Roll Magic or Better (Based on Character Level)",
                 "Index": 2
             }
         ],
@@ -28019,7 +28019,7 @@
         "Code": "xea",
         "Properties": [
             {
-                "PropertyString": "+3% Damage to Undead (Per Character Level)",
+                "PropertyString": "+3% Damage to Undead (Based on Character Level)",
                 "Index": 6
             },
             {
@@ -28027,7 +28027,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1.25 Defense (Per Character Level)",
+                "PropertyString": "+1.25 Defense (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -28347,7 +28347,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+0.5 to Vitality (Per Character Level)",
+                "PropertyString": "+0.5 to Vitality (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -28409,7 +28409,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1.25 to Life (Per Character Level)",
+                "PropertyString": "+1.25 to Life (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -28417,7 +28417,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+1.25 to Mana (Per Character Level)",
+                "PropertyString": "+1.25 to Mana (Based on Character Level)",
                 "Index": 2
             }
         ],
@@ -28626,7 +28626,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+1.25 to Life (Per Character Level)",
+                "PropertyString": "+1.25 to Life (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -29354,7 +29354,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+0.5 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+0.5 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -29509,7 +29509,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1.25 Defense (Per Character Level)",
+                "PropertyString": "+1.25 Defense (Based on Character Level)",
                 "Index": 3
             },
             {
@@ -29572,7 +29572,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+0.75 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+0.75 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -29868,7 +29868,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -29942,7 +29942,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+1% Chance Items Roll Magic or Better (Per Character Level)",
+                "PropertyString": "+1% Chance Items Roll Magic or Better (Based on Character Level)",
                 "Index": 3
             }
         ],
@@ -30179,7 +30179,7 @@
                 "Index": 9
             },
             {
-                "PropertyString": "+1.25 to Mana (Per Character Level)",
+                "PropertyString": "+1.25 to Mana (Based on Character Level)",
                 "Index": 2
             }
         ],
@@ -30292,7 +30292,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+5 to Attack Rating (Per Character Level)",
+                "PropertyString": "+5 to Attack Rating (Based on Character Level)",
                 "Index": 7
             },
             {
@@ -30343,11 +30343,11 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+2% Damage to Undead (Per Character Level)",
+                "PropertyString": "+2% Damage to Undead (Based on Character Level)",
                 "Index": 1
             },
             {
-                "PropertyString": "+8 to Attack Rating against Undead (Per Character Level)",
+                "PropertyString": "+8 to Attack Rating against Undead (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -30513,7 +30513,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1.5 to Mana (Per Character Level)",
+                "PropertyString": "+1.5 to Mana (Based on Character Level)",
                 "Index": 1
             }
         ],
@@ -30841,7 +30841,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+0.75 Defense (Per Character Level)",
+                "PropertyString": "+0.75 Defense (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -31401,7 +31401,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1.25 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1.25 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -31514,7 +31514,7 @@
         "Code": "8hb",
         "Properties": [
             {
-                "PropertyString": "10% Chance to cast level 2 Winters Pulse on striking",
+                "PropertyString": "10% Chance to cast level 2 Winter's Pulse on striking",
                 "Index": 3
             },
             {
@@ -32352,7 +32352,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+2 Defense (Per Character Level)",
+                "PropertyString": "+2 Defense (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -32691,7 +32691,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1.12% Enhanced Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1.12% Enhanced Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -33246,11 +33246,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+1 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 3
             },
             {
-                "PropertyString": "+0.38% Deadly Strike (Per Character Level)",
+                "PropertyString": "+0.38% Deadly Strike (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -33312,7 +33312,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1.5% Damage to Demons (Per Character Level)",
+                "PropertyString": "+1.5% Damage to Demons (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -33486,11 +33486,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+0.5 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+0.5 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
-                "PropertyString": "+4% Damage to Undead (Per Character Level)",
+                "PropertyString": "+4% Damage to Undead (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -33590,7 +33590,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 4
             },
             {
@@ -33644,7 +33644,7 @@
         "Code": "9tr",
         "Properties": [
             {
-                "PropertyString": "15% Chance to cast level 3 Winters Pulse on striking",
+                "PropertyString": "15% Chance to cast level 3 Winter's Pulse on striking",
                 "Index": 1
             },
             {
@@ -34039,7 +34039,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+1.5 Defense (Per Character Level)",
+                "PropertyString": "+1.5 Defense (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -34205,7 +34205,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+0.75 to Mana (Per Character Level)",
+                "PropertyString": "+0.75 to Mana (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -34255,19 +34255,19 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+0.38 to Strength (Per Character Level)",
+                "PropertyString": "+0.38 to Strength (Based on Character Level)",
                 "Index": 3
             },
             {
-                "PropertyString": "+0.38 to Dexterity (Per Character Level)",
+                "PropertyString": "+0.38 to Dexterity (Based on Character Level)",
                 "Index": 4
             },
             {
-                "PropertyString": "+0.5 to Vitality (Per Character Level)",
+                "PropertyString": "+0.5 to Vitality (Based on Character Level)",
                 "Index": 1
             },
             {
-                "PropertyString": "+0.5 to Energy (Per Character Level)",
+                "PropertyString": "+0.5 to Energy (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -34337,7 +34337,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+1 to Life (Per Character Level)",
+                "PropertyString": "+1 to Life (Based on Character Level)",
                 "Index": 6
             },
             {
@@ -34433,7 +34433,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+2% Enhanced Defense (Per Character Level)",
+                "PropertyString": "+2% Enhanced Defense (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -34730,7 +34730,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1.5 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1.5 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -34738,7 +34738,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+0.38 to Dexterity (Per Character Level)",
+                "PropertyString": "+0.38 to Dexterity (Based on Character Level)",
                 "Index": 7
             },
             {
@@ -36036,7 +36036,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1% Lightning Resistance (Per Character Level)",
+                "PropertyString": "+1% Lightning Resistance (Based on Character Level)",
                 "Index": 4
             },
             {
@@ -36153,7 +36153,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+2% Chance Items Roll Magic or Better (Per Character Level)",
+                "PropertyString": "+2% Chance Items Roll Magic or Better (Based on Character Level)",
                 "Index": 3
             }
         ],
@@ -36257,7 +36257,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2.5 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+2.5 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 3
             },
             {
@@ -36416,7 +36416,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1.25 Defense (Per Character Level)",
+                "PropertyString": "+1.25 Defense (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -36424,7 +36424,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 to Life (Per Character Level)",
+                "PropertyString": "+1 to Life (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -36832,7 +36832,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1.25 Defense (Per Character Level)",
+                "PropertyString": "+1.25 Defense (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -36840,7 +36840,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+0.75% Lightning Resistance (Per Character Level)",
+                "PropertyString": "+0.75% Lightning Resistance (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -36902,7 +36902,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+2 Defense (Per Character Level)",
+                "PropertyString": "+2 Defense (Based on Character Level)",
                 "Index": 0
             }
         ],
@@ -36944,7 +36944,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 Kick Damage (Per Character Level)",
+                "PropertyString": "+1 Kick Damage (Based on Character Level)",
                 "Index": 6
             },
             {
@@ -37010,11 +37010,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+2.5% Damage to Undead (Per Character Level)",
+                "PropertyString": "+2.5% Damage to Undead (Based on Character Level)",
                 "Index": 1
             },
             {
-                "PropertyString": "+5 to Attack Rating against Undead (Per Character Level)",
+                "PropertyString": "+5 to Attack Rating against Undead (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -37190,7 +37190,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+1.25 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1.25 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 4
             },
             {
@@ -37248,7 +37248,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+1 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 4
             },
             {
@@ -37256,7 +37256,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+1 to Life (Per Character Level)",
+                "PropertyString": "+1 to Life (Based on Character Level)",
                 "Index": 3
             }
         ],
@@ -37302,7 +37302,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+1.25% Chance Items Roll Magic or Better (Per Character Level)",
+                "PropertyString": "+1.25% Chance Items Roll Magic or Better (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -37912,7 +37912,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1.5% Damage to Demons (Per Character Level)",
+                "PropertyString": "+1.5% Damage to Demons (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -38098,7 +38098,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+0.25% Deadly Strike (Per Character Level)",
+                "PropertyString": "+0.25% Deadly Strike (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -38260,15 +38260,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+0.5 to Life (Per Character Level)",
+                "PropertyString": "+0.5 to Life (Based on Character Level)",
                 "Index": 5
             },
             {
-                "PropertyString": "+0.5% Cold Resistance (Per Character Level)",
+                "PropertyString": "+0.5% Cold Resistance (Based on Character Level)",
                 "Index": 4
             },
             {
-                "PropertyString": "+0.5% Fire Resistance (Per Character Level)",
+                "PropertyString": "+0.5% Fire Resistance (Based on Character Level)",
                 "Index": 6
             }
         ],
@@ -38368,7 +38368,7 @@
         "Code": "9wh",
         "Properties": [
             {
-                "PropertyString": "10% Chance to cast level 15 Eruption on striking",
+                "PropertyString": "10% Chance to cast level 15 Fissure on striking",
                 "Index": 0
             },
             {
@@ -38630,7 +38630,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -38680,11 +38680,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1 to Life (Per Character Level)",
+                "PropertyString": "+1 to Life (Based on Character Level)",
                 "Index": 2
             },
             {
-                "PropertyString": "+1 to Mana (Per Character Level)",
+                "PropertyString": "+1 to Mana (Based on Character Level)",
                 "Index": 1
             }
         ],
@@ -38738,7 +38738,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1.62 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1.62 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -38804,7 +38804,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+0.75 to Mana (Per Character Level)",
+                "PropertyString": "+0.75 to Mana (Based on Character Level)",
                 "Index": 6
             }
         ],
@@ -39012,7 +39012,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+0.62 to Dexterity (Per Character Level)",
+                "PropertyString": "+0.62 to Dexterity (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -39062,7 +39062,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+2 Defense (Per Character Level)",
+                "PropertyString": "+2 Defense (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -39329,11 +39329,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+7.5% Damage to Undead (Per Character Level)",
+                "PropertyString": "+7.5% Damage to Undead (Based on Character Level)",
                 "Index": 1
             },
             {
-                "PropertyString": "+10 to Attack Rating against Undead (Per Character Level)",
+                "PropertyString": "+10 to Attack Rating against Undead (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -39543,7 +39543,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -39954,7 +39954,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 to Life (Per Character Level)",
+                "PropertyString": "+1 to Life (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -40128,7 +40128,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+3-5 to Hex Purge (Warlock Only)",
+                "PropertyString": "+3-5 to Hex: Purge (Warlock Only)",
                 "Index": 0
             },
             {
@@ -40442,7 +40442,7 @@
         "Code": "9b9",
         "Properties": [
             {
-                "PropertyString": "15% Chance to cast level 20 Fist Of The Heavens on striking",
+                "PropertyString": "15% Chance to cast level 20 Fist of the Heavens on striking",
                 "Index": 0
             },
             {
@@ -40654,7 +40654,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+2.5 to Attack Rating against Demons (Per Character Level)",
+                "PropertyString": "+2.5 to Attack Rating against Demons (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -41454,7 +41454,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+6 Defense (Per Character Level)",
+                "PropertyString": "+6 Defense (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -41740,7 +41740,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+0.88% Cold Resistance (Per Character Level)",
+                "PropertyString": "+0.88% Cold Resistance (Based on Character Level)",
                 "Index": 6
             }
         ],
@@ -42103,7 +42103,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Attacker Takes Damage of 2 (Per Character Level)",
+                "PropertyString": "Attacker Takes Damage of 2 (Based on Character Level)",
                 "Index": 6
             }
         ],
@@ -42207,11 +42207,11 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+2% Extra Gold from Monsters (Per Character Level)",
+                "PropertyString": "+2% Extra Gold from Monsters (Based on Character Level)",
                 "Index": 2
             },
             {
-                "PropertyString": "+1.5% Chance Items Roll Magic or Better (Per Character Level)",
+                "PropertyString": "+1.5% Chance Items Roll Magic or Better (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -42253,11 +42253,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+3-4 to Sigil Rancor (Warlock Only)",
+                "PropertyString": "+3-4 to Sigil: Rancor (Warlock Only)",
                 "Index": 0
             },
             {
-                "PropertyString": "+3-4 to Hex Bane (Warlock Only)",
+                "PropertyString": "+3-4 to Hex: Bane (Warlock Only)",
                 "Index": 1
             },
             {
@@ -42846,7 +42846,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+1.25 Defense (Per Character Level)",
+                "PropertyString": "+1.25 Defense (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -42962,11 +42962,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+2% Extra Gold from Monsters (Per Character Level)",
+                "PropertyString": "+2% Extra Gold from Monsters (Based on Character Level)",
                 "Index": 2
             },
             {
-                "PropertyString": "+0.75% Chance Items Roll Magic or Better (Per Character Level)",
+                "PropertyString": "+0.75% Chance Items Roll Magic or Better (Based on Character Level)",
                 "Index": 3
             }
         ],
@@ -43250,7 +43250,7 @@
         "Code": "zhb",
         "Properties": [
             {
-                "PropertyString": "15% Chance to cast level 25 Fist Of The Heavens when struck",
+                "PropertyString": "15% Chance to cast level 25 Fist of the Heavens when struck",
                 "Index": 0
             },
             {
@@ -43595,7 +43595,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+3% Extra Gold from Monsters (Per Character Level)",
+                "PropertyString": "+3% Extra Gold from Monsters (Based on Character Level)",
                 "Index": 7
             },
             {
@@ -43877,7 +43877,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+0.75 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+0.75 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -43990,7 +43990,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+0.25 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+0.25 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -44223,7 +44223,7 @@
                 "Index": 8
             },
             {
-                "PropertyString": "+5 Defense (Per Character Level)",
+                "PropertyString": "+5 Defense (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -45585,7 +45585,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1% Enhanced Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1% Enhanced Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -46083,11 +46083,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1.5 to Life (Per Character Level)",
+                "PropertyString": "+1.5 to Life (Based on Character Level)",
                 "Index": 4
             },
             {
-                "PropertyString": "+1.5 to Mana (Per Character Level)",
+                "PropertyString": "+1.5 to Mana (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -46429,7 +46429,7 @@
         "Code": "rin",
         "Properties": [
             {
-                "PropertyString": "+1 to Townportal O Skill (oskill)",
+                "PropertyString": "+1 to Town Portal (oskill)",
                 "Index": 0
             },
             {
@@ -46688,7 +46688,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+0.5 to Strength (Per Character Level)",
+                "PropertyString": "+0.5 to Strength (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -47049,7 +47049,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+1.5 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1.5 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -47169,7 +47169,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+1.25% Chance Items Roll Magic or Better (Per Character Level)",
+                "PropertyString": "+1.25% Chance Items Roll Magic or Better (Based on Character Level)",
                 "Index": 7
             }
         ],
@@ -47269,7 +47269,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+3 Defense (Per Character Level)",
+                "PropertyString": "+3 Defense (Based on Character Level)",
                 "Index": 6
             },
             {
@@ -47852,7 +47852,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1.5% Enhanced Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1.5% Enhanced Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -47914,7 +47914,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+3 to Mana (Per Character Level)",
+                "PropertyString": "+3 to Mana (Based on Character Level)",
                 "Index": 3
             },
             {
@@ -47988,7 +47988,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1 to Mana (Per Character Level)",
+                "PropertyString": "+1 to Mana (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -48392,7 +48392,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+2 Defense (Per Character Level)",
+                "PropertyString": "+2 Defense (Based on Character Level)",
                 "Index": 4
             },
             {
@@ -48771,7 +48771,7 @@
         "Code": "wa6",
         "Properties": [
             {
-                "PropertyString": "10% Chance to cast level 25 Ring Of Fire when struck",
+                "PropertyString": "10% Chance to cast level 25 Ring of Fire when struck",
                 "Index": 1
             },
             {
@@ -49044,7 +49044,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+0.5 to Vitality (Per Character Level)",
+                "PropertyString": "+0.5 to Vitality (Based on Character Level)",
                 "Index": 6
             }
         ],
@@ -49443,7 +49443,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -49663,7 +49663,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+2.5 Defense (Per Character Level)",
+                "PropertyString": "+2.5 Defense (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -49713,7 +49713,7 @@
         "Code": "amu",
         "Properties": [
             {
-                "PropertyString": "9% Chance to cast level 25 Miasma Chains on striking",
+                "PropertyString": "9% Chance to cast level 25 Miasma Chain on striking",
                 "Index": 0
             },
             {
@@ -50136,7 +50136,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+0.5 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+0.5 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -50308,7 +50308,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+0.5 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+0.5 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -50320,7 +50320,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+0.5 to Vitality (Per Character Level)",
+                "PropertyString": "+0.5 to Vitality (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -50416,7 +50416,7 @@
         "Code": "9ws",
         "Properties": [
             {
-                "PropertyString": "10% Chance to cast level 30 Fist Of The Heavens on striking",
+                "PropertyString": "10% Chance to cast level 30 Fist of the Heavens on striking",
                 "Index": 9
             },
             {
@@ -50486,7 +50486,7 @@
         "Code": "8lw",
         "Properties": [
             {
-                "PropertyString": "10% Chance to cast level 25 Fist Of The Heavens on striking",
+                "PropertyString": "10% Chance to cast level 25 Fist of the Heavens on striking",
                 "Index": 4
             },
             {
@@ -51082,11 +51082,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+5 Defense (Per Character Level)",
+                "PropertyString": "+5 Defense (Based on Character Level)",
                 "Index": 5
             },
             {
-                "PropertyString": "+2 to Strength (Per Character Level)",
+                "PropertyString": "+2 to Strength (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -51098,7 +51098,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+1% Chance Items Roll Magic or Better (Per Character Level)",
+                "PropertyString": "+1% Chance Items Roll Magic or Better (Based on Character Level)",
                 "Index": 3
             }
         ],
@@ -51252,7 +51252,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+0.75 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+0.75 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -51541,7 +51541,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2.5 Defense (Per Character Level)",
+                "PropertyString": "+2.5 Defense (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -51803,7 +51803,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "Attacker Takes Damage of 2 (Per Character Level)",
+                "PropertyString": "Attacker Takes Damage of 2 (Based on Character Level)",
                 "Index": 3
             },
             {
@@ -51865,7 +51865,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+2 Defense (Per Character Level)",
+                "PropertyString": "+2 Defense (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -51907,7 +51907,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+1.5 Defense (Per Character Level)",
+                "PropertyString": "+1.5 Defense (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -52077,7 +52077,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+1.75 Defense (Per Character Level)",
+                "PropertyString": "+1.75 Defense (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -52205,7 +52205,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+0.88 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+0.88 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 7
             },
             {
@@ -52267,7 +52267,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Drain Life -3 (Per Character Level)",
+                "PropertyString": "Drain Life -3 (Based on Character Level)",
                 "Index": 3
             },
             {
@@ -53317,7 +53317,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Attacker Takes Damage of 2 (Per Character Level)",
+                "PropertyString": "Attacker Takes Damage of 2 (Based on Character Level)",
                 "Index": 5
             }
         ],
@@ -53534,7 +53534,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+0.5 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+0.5 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 3
             },
             {
@@ -53542,7 +53542,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+0.5 to Life (Per Character Level)",
+                "PropertyString": "+0.5 to Life (Based on Character Level)",
                 "Index": 0
             }
         ],
@@ -53584,7 +53584,7 @@
                 "Index": 7
             },
             {
-                "PropertyString": "+1.5% Enhanced Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1.5% Enhanced Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -54018,7 +54018,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+1 to Strength (Per Character Level)",
+                "PropertyString": "+1 to Strength (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -54151,7 +54151,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+1 to Strength (Per Character Level)",
+                "PropertyString": "+1 to Strength (Based on Character Level)",
                 "Index": 7
             },
             {
@@ -54321,7 +54321,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 Defense (Per Character Level)",
+                "PropertyString": "+2 Defense (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -54641,7 +54641,7 @@
         "Code": "9mp",
         "Properties": [
             {
-                "PropertyString": "12% Chance to cast level 30 Eruption on striking",
+                "PropertyString": "12% Chance to cast level 30 Fissure on striking",
                 "Index": 1
             },
             {
@@ -54865,7 +54865,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+0.38% Deadly Strike (Per Character Level)",
+                "PropertyString": "+0.38% Deadly Strike (Based on Character Level)",
                 "Index": 3
             },
             {
@@ -54908,7 +54908,7 @@
         "Code": "9wh",
         "Properties": [
             {
-                "PropertyString": "15% Chance to cast level 30 Fist Of The Heavens on striking",
+                "PropertyString": "15% Chance to cast level 30 Fist of the Heavens on striking",
                 "Index": 7
             },
             {
@@ -54924,7 +54924,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+2.5 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+2.5 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -54986,7 +54986,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1.5 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1.5 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 6
             },
             {
@@ -55173,7 +55173,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+0.75 to Dexterity (Per Character Level)",
+                "PropertyString": "+0.75 to Dexterity (Based on Character Level)",
                 "Index": 6
             },
             {
@@ -55573,7 +55573,7 @@
         "Code": "xhb",
         "Properties": [
             {
-                "PropertyString": "+1 to Dodge (oskill)",
+                "PropertyString": "+1 to Dodge & Avoid (oskill)",
                 "Index": 2
             },
             {
@@ -55751,7 +55751,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+0.75 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+0.75 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -56002,15 +56002,15 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+0.5 to Dexterity (Per Character Level)",
+                "PropertyString": "+0.5 to Dexterity (Based on Character Level)",
                 "Index": 0
             },
             {
-                "PropertyString": "+1.25 to Life (Per Character Level)",
+                "PropertyString": "+1.25 to Life (Based on Character Level)",
                 "Index": 5
             },
             {
-                "PropertyString": "Absorbs 0.38 Cold Damage (Per Character Level)",
+                "PropertyString": "Absorbs 0.38 Cold Damage (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -56056,7 +56056,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+2 to Mana (Per Character Level)",
+                "PropertyString": "+2 to Mana (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -56422,11 +56422,11 @@
                 "Index": 8
             },
             {
-                "PropertyString": "+1.5 to Life (Per Character Level)",
+                "PropertyString": "+1.5 to Life (Based on Character Level)",
                 "Index": 1
             },
             {
-                "PropertyString": "+1.5 to Mana (Per Character Level)",
+                "PropertyString": "+1.5 to Mana (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -56793,11 +56793,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 to Life (Per Character Level)",
+                "PropertyString": "+1 to Life (Based on Character Level)",
                 "Index": 4
             },
             {
-                "PropertyString": "+1 to Mana (Per Character Level)",
+                "PropertyString": "+1 to Mana (Based on Character Level)",
                 "Index": 3
             },
             {
@@ -56968,7 +56968,7 @@
                 "Index": 7
             },
             {
-                "PropertyString": "+1 to Life (Per Character Level)",
+                "PropertyString": "+1 to Life (Based on Character Level)",
                 "Index": 3
             },
             {
@@ -57417,7 +57417,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "Absorbs 0.25 Fire Damage (Per Character Level)",
+                "PropertyString": "Absorbs 0.25 Fire Damage (Based on Character Level)",
                 "Index": 0
             }
         ],
@@ -57455,7 +57455,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+0.38% Deadly Strike (Per Character Level)",
+                "PropertyString": "+0.38% Deadly Strike (Based on Character Level)",
                 "Index": 4
             },
             {
@@ -57994,11 +57994,11 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+0.5 to Strength (Per Character Level)",
+                "PropertyString": "+0.5 to Strength (Based on Character Level)",
                 "Index": 5
             },
             {
-                "PropertyString": "+0.5 to Dexterity (Per Character Level)",
+                "PropertyString": "+0.5 to Dexterity (Based on Character Level)",
                 "Index": 6
             },
             {
@@ -58361,7 +58361,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+8 to Weapon Maximum Poison Damage (Per Character Level)",
+                "PropertyString": "+8 to Weapon Maximum Poison Damage (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -58508,7 +58508,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+0.88 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+0.88 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -59644,7 +59644,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+2 to Mana (Per Character Level)",
+                "PropertyString": "+2 to Mana (Based on Character Level)",
                 "Index": 3
             },
             {
@@ -59831,7 +59831,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+2 to Life (Per Character Level)",
+                "PropertyString": "+2 to Life (Based on Character Level)",
                 "Index": 3
             },
             {
@@ -59885,7 +59885,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+1.5% Chance Items Roll Magic or Better (Per Character Level)",
+                "PropertyString": "+1.5% Chance Items Roll Magic or Better (Based on Character Level)",
                 "Index": 2
             }
         ],
@@ -60731,7 +60731,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+2% Enhanced Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+2% Enhanced Maximum Weapon Damage (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -60739,7 +60739,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+6 to Attack Rating (Per Character Level)",
+                "PropertyString": "+6 to Attack Rating (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -61013,7 +61013,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+5 Defense (Per Character Level)",
+                "PropertyString": "+5 Defense (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -61159,7 +61159,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+2.5% Enhanced Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+2.5% Enhanced Maximum Weapon Damage (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -61900,7 +61900,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1% Enhanced Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1% Enhanced Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -62029,7 +62029,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+0.38% Deadly Strike (Per Character Level)",
+                "PropertyString": "+0.38% Deadly Strike (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -62160,7 +62160,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+2.62% Extra Gold from Monsters (Per Character Level)",
+                "PropertyString": "+2.62% Extra Gold from Monsters (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -62360,7 +62360,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+0.75 to Life (Per Character Level)",
+                "PropertyString": "+0.75 to Life (Based on Character Level)",
                 "Index": 2
             }
         ],
@@ -62572,7 +62572,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "25% Chance to cast level 20 Fist Of The Heavens when struck",
+                "PropertyString": "25% Chance to cast level 20 Fist of the Heavens when struck",
                 "Index": 6
             },
             {
@@ -62846,7 +62846,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+2 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+2 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 3
             },
             {
@@ -62892,7 +62892,7 @@
         "Code": "uvc",
         "Properties": [
             {
-                "PropertyString": "15% Chance to cast level 25 Fist Of The Heavens on striking",
+                "PropertyString": "15% Chance to cast level 25 Fist of the Heavens on striking",
                 "Index": 1
             },
             {
@@ -63142,7 +63142,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1.25 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1.25 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -63474,7 +63474,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+1% Chance Items Roll Magic or Better (Per Character Level)",
+                "PropertyString": "+1% Chance Items Roll Magic or Better (Based on Character Level)",
                 "Index": 6
             }
         ],
@@ -63624,7 +63624,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+3.75 Defense (Per Character Level)",
+                "PropertyString": "+3.75 Defense (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -63702,7 +63702,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+1.5 to Life (Per Character Level)",
+                "PropertyString": "+1.5 to Life (Based on Character Level)",
                 "Index": 7
             },
             {
@@ -63976,7 +63976,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+1.75% Enhanced Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1.75% Enhanced Maximum Weapon Damage (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -64096,7 +64096,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+3 to Mana (Per Character Level)",
+                "PropertyString": "+3 to Mana (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -64412,7 +64412,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1.5 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1.5 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -65718,7 +65718,7 @@
         "Code": "cjw",
         "Properties": [
             {
-                "PropertyString": "5% Chance to cast level 40 Korlics Fury when struck",
+                "PropertyString": "5% Chance to cast level 40 Korlic's Fury when struck",
                 "Index": 0
             },
             {
@@ -65868,7 +65868,7 @@
         "Code": "cjw",
         "Properties": [
             {
-                "PropertyString": "5% Chance to cast level 40 Hex Bane when struck",
+                "PropertyString": "5% Chance to cast level 40 Hex: Bane when struck",
                 "Index": 0
             },
             {
@@ -67000,11 +67000,11 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+0.25% Chance of Crushing Blow (Per Character Level)",
+                "PropertyString": "+0.25% Chance of Crushing Blow (Based on Character Level)",
                 "Index": 5
             },
             {
-                "PropertyString": "+0.25% Deadly Strike (Per Character Level)",
+                "PropertyString": "+0.25% Deadly Strike (Based on Character Level)",
                 "Index": 4
             },
             {
@@ -67192,7 +67192,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1.5% Enhanced Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1.5% Enhanced Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -67305,7 +67305,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Life (Per Character Level)",
+                "PropertyString": "+2 to Life (Based on Character Level)",
                 "Index": 4
             },
             {
@@ -67418,7 +67418,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+5 to Winters Gambit (oskill)",
+                "PropertyString": "+5 to Winter's Gambit (oskill)",
                 "Index": 8
             },
             {
@@ -68052,7 +68052,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1.5 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1.5 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 3
             },
             {
@@ -68106,7 +68106,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+0.25% Deadly Strike (Per Character Level)",
+                "PropertyString": "+0.25% Deadly Strike (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -68746,7 +68746,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+2-3 to Korlics Fury (Barbarian Only)",
+                "PropertyString": "+2-3 to Korlic's Fury (Barbarian Only)",
                 "Index": 6
             },
             {
@@ -68804,7 +68804,7 @@
                 "Index": 7
             },
             {
-                "PropertyString": "+2% Enhanced Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+2% Enhanced Maximum Weapon Damage (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -68858,7 +68858,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+0.75 to Vitality (Per Character Level)",
+                "PropertyString": "+0.75 to Vitality (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -69157,11 +69157,11 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+0.62 to Strength (Per Character Level)",
+                "PropertyString": "+0.62 to Strength (Based on Character Level)",
                 "Index": 6
             },
             {
-                "PropertyString": "+0.62 to Dexterity (Per Character Level)",
+                "PropertyString": "+0.62 to Dexterity (Based on Character Level)",
                 "Index": 7
             },
             {
@@ -69224,7 +69224,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+8 to Weapon Maximum Poison Damage (Per Character Level)",
+                "PropertyString": "+8 to Weapon Maximum Poison Damage (Based on Character Level)",
                 "Index": 7
             },
             {
@@ -69334,7 +69334,7 @@
         "Code": "7cs",
         "Properties": [
             {
-                "PropertyString": "15% Chance to cast level 20 Winters Pulse on striking",
+                "PropertyString": "15% Chance to cast level 20 Winter's Pulse on striking",
                 "Index": 4
             },
             {
@@ -69587,7 +69587,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+0.62 to Energy (Per Character Level)",
+                "PropertyString": "+0.62 to Energy (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -69695,7 +69695,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+0.25% Chance of Crushing Blow (Per Character Level)",
+                "PropertyString": "+0.25% Chance of Crushing Blow (Based on Character Level)",
                 "Index": 8
             },
             {
@@ -69923,7 +69923,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+0.62 to Vitality (Per Character Level)",
+                "PropertyString": "+0.62 to Vitality (Based on Character Level)",
                 "Index": 4
             },
             {
@@ -70175,7 +70175,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+2 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+2 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -70296,7 +70296,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+4-5 to Poison Dagger (Necromancer Only)",
+                "PropertyString": "+4-5 to Poison Strike (Necromancer Only)",
                 "Index": 5
             },
             {
@@ -70354,15 +70354,15 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+3% Enhanced Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+3% Enhanced Maximum Weapon Damage (Based on Character Level)",
                 "Index": 2
             },
             {
-                "PropertyString": "+0.5 to Strength (Per Character Level)",
+                "PropertyString": "+0.5 to Strength (Based on Character Level)",
                 "Index": 0
             },
             {
-                "PropertyString": "+0.5 to Vitality (Per Character Level)",
+                "PropertyString": "+0.5 to Vitality (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -70709,7 +70709,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "Attacker Takes Damage of 3 (Per Character Level)",
+                "PropertyString": "Attacker Takes Damage of 3 (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -70921,7 +70921,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+4.12% Enhanced Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+4.12% Enhanced Maximum Weapon Damage (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -71584,7 +71584,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+2 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -71868,7 +71868,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+2.5 Defense (Per Character Level)",
+                "PropertyString": "+2.5 Defense (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -72096,11 +72096,11 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+1 to Strength (Per Character Level)",
+                "PropertyString": "+1 to Strength (Based on Character Level)",
                 "Index": 3
             },
             {
-                "PropertyString": "+1 to Vitality (Per Character Level)",
+                "PropertyString": "+1 to Vitality (Based on Character Level)",
                 "Index": 4
             },
             {
@@ -72221,7 +72221,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+3 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+3 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -72263,7 +72263,7 @@
         "Code": "obb",
         "Properties": [
             {
-                "PropertyString": "50% Chance to cast level 1 Star Of Bethlehem when struck",
+                "PropertyString": "50% Chance to cast level 1 Star of Bethlehem when struck",
                 "Index": 0
             },
             {
@@ -72569,7 +72569,7 @@
                 "Index": 8
             },
             {
-                "PropertyString": "+4% Enhanced Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+4% Enhanced Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -72577,15 +72577,15 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+4 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+4 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 2
             },
             {
-                "PropertyString": "+8 to Attack Rating (Per Character Level)",
+                "PropertyString": "+8 to Attack Rating (Based on Character Level)",
                 "Index": 3
             },
             {
-                "PropertyString": "+0.38% Deadly Strike (Per Character Level)",
+                "PropertyString": "+0.38% Deadly Strike (Based on Character Level)",
                 "Index": 4
             },
             {
@@ -73120,7 +73120,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+0.5 to Mana (Per Character Level)",
+                "PropertyString": "+0.5 to Mana (Based on Character Level)",
                 "Index": 4
             },
             {
@@ -73328,7 +73328,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+2 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+2 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -73444,7 +73444,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+3 Defense (Per Character Level)",
+                "PropertyString": "+3 Defense (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -73498,7 +73498,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+0.5% Chance of Open Wounds (Per Character Level)",
+                "PropertyString": "+0.5% Chance of Open Wounds (Based on Character Level)",
                 "Index": 5
             },
             {
@@ -74176,7 +74176,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 Defense (Per Character Level)",
+                "PropertyString": "+2 Defense (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -74504,7 +74504,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1.25 Defense (Per Character Level)",
+                "PropertyString": "+1.25 Defense (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -74732,7 +74732,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+2-3 to Sigil Death (Warlock Only)",
+                "PropertyString": "+2-3 to Sigil: Death (Warlock Only)",
                 "Index": 0
             },
             {
@@ -74972,7 +74972,7 @@
         "Code": "7wa",
         "Properties": [
             {
-                "PropertyString": "15% Chance to cast level 30 Winters Pulse on striking",
+                "PropertyString": "15% Chance to cast level 30 Winter's Pulse on striking",
                 "Index": 3
             },
             {
@@ -75235,7 +75235,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1 to Strength (Per Character Level)",
+                "PropertyString": "+1 to Strength (Based on Character Level)",
                 "Index": 6
             },
             {
@@ -75417,7 +75417,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+2-4 to Wake of Fire Sentry (Assassin Only)",
+                "PropertyString": "+2-4 to Wake of Fire (Assassin Only)",
                 "Index": 1
             },
             {
@@ -75529,7 +75529,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+0.5 to Vitality (Per Character Level)",
+                "PropertyString": "+0.5 to Vitality (Based on Character Level)",
                 "Index": 4
             }
         ],
@@ -75575,11 +75575,11 @@
                 "Index": 7
             },
             {
-                "PropertyString": "+2 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+2 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 5
             },
             {
-                "PropertyString": "+8 to Attack Rating (Per Character Level)",
+                "PropertyString": "+8 to Attack Rating (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -75646,7 +75646,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+4 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+4 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 1
             },
             {
@@ -75867,7 +75867,7 @@
         "Code": "7gm",
         "Properties": [
             {
-                "PropertyString": "10% Chance to cast level 30 Eruption on striking",
+                "PropertyString": "10% Chance to cast level 30 Fissure on striking",
                 "Index": 1
             },
             {
@@ -76003,7 +76003,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+1.5 to Strength (Per Character Level)",
+                "PropertyString": "+1.5 to Strength (Based on Character Level)",
                 "Index": 4
             },
             {
@@ -76169,7 +76169,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+4 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+4 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 3
             },
             {
@@ -76535,7 +76535,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+2 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+2 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -76615,7 +76615,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1.5 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1.5 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -76969,15 +76969,15 @@
                 "Index": 2
             },
             {
-                "PropertyString": "Absorbs 0.25 Cold Damage (Per Character Level)",
+                "PropertyString": "Absorbs 0.25 Cold Damage (Based on Character Level)",
                 "Index": 5
             },
             {
-                "PropertyString": "Absorbs 0.25 Lightning Damage (Per Character Level)",
+                "PropertyString": "Absorbs 0.25 Lightning Damage (Based on Character Level)",
                 "Index": 4
             },
             {
-                "PropertyString": "Absorbs 0.25 Fire Damage (Per Character Level)",
+                "PropertyString": "Absorbs 0.25 Fire Damage (Based on Character Level)",
                 "Index": 3
             },
             {
@@ -77189,7 +77189,7 @@
                 "Index": 7
             },
             {
-                "PropertyString": "+2% Extra Gold from Monsters (Per Character Level)",
+                "PropertyString": "+2% Extra Gold from Monsters (Based on Character Level)",
                 "Index": 4
             },
             {
@@ -77705,7 +77705,7 @@
         "Code": "7gs",
         "Properties": [
             {
-                "PropertyString": "10% Chance to cast level 30 Fist Of The Heavens on striking",
+                "PropertyString": "10% Chance to cast level 30 Fist of the Heavens on striking",
                 "Index": 4
             },
             {
@@ -77733,7 +77733,7 @@
                 "Index": 8
             },
             {
-                "PropertyString": "+2 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+2 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 3
             },
             {
@@ -77801,7 +77801,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2% Enhanced Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+2% Enhanced Maximum Weapon Damage (Based on Character Level)",
                 "Index": 4
             },
             {
@@ -78105,7 +78105,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+2.5 Defense (Per Character Level)",
+                "PropertyString": "+2.5 Defense (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -78267,7 +78267,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+3-5 to Poison Dagger (Necromancer Only)",
+                "PropertyString": "+3-5 to Poison Strike (Necromancer Only)",
                 "Index": 4
             },
             {
@@ -78333,11 +78333,11 @@
                 "Index": 7
             },
             {
-                "PropertyString": "+1.5 to Life (Per Character Level)",
+                "PropertyString": "+1.5 to Life (Based on Character Level)",
                 "Index": 2
             },
             {
-                "PropertyString": "+1.5 to Mana (Per Character Level)",
+                "PropertyString": "+1.5 to Mana (Based on Character Level)",
                 "Index": 3
             }
         ],
@@ -78746,7 +78746,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+3 Defense (Per Character Level)",
+                "PropertyString": "+3 Defense (Based on Character Level)",
                 "Index": 0
             },
             {
@@ -78784,7 +78784,7 @@
         "Code": "amc",
         "Properties": [
             {
-                "PropertyString": "15% Chance to cast level 30 Winters Pulse on striking",
+                "PropertyString": "15% Chance to cast level 30 Winter's Pulse on striking",
                 "Index": 7
             },
             {
@@ -79145,7 +79145,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+6 to Weapon Maximum Fire Damage (Per Character Level)",
+                "PropertyString": "+6 to Weapon Maximum Fire Damage (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -79271,15 +79271,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+1.5% Enhanced Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1.5% Enhanced Maximum Weapon Damage (Based on Character Level)",
                 "Index": 3
             },
             {
-                "PropertyString": "+1.5 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1.5 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 5
             },
             {
-                "PropertyString": "+1 to Strength (Per Character Level)",
+                "PropertyString": "+1 to Strength (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -79333,7 +79333,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+3-5 to Dodge (Amazon Only)",
+                "PropertyString": "+3-5 to Dodge & Avoid (Amazon Only)",
                 "Index": 3
             },
             {
@@ -79515,7 +79515,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+2 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 2
             },
             {
@@ -79781,7 +79781,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+1.75 to Maximum Weapon Damage (Per Character Level)",
+                "PropertyString": "+1.75 to Maximum Weapon Damage (Based on Character Level)",
                 "Index": 3
             },
             {
