@@ -508,7 +508,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+15% Damage Taken Goes To Mana",
+                "PropertyString": "+15% Damage Taken Added To Mana",
                 "Index": 0
             },
             {
@@ -681,7 +681,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+15% Damage Taken Goes To Mana (Armor)",
+                "PropertyString": "+15% Damage Taken Added To Mana (Armor)",
                 "Index": 0
             },
             {
@@ -689,7 +689,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+15% Damage Taken Goes To Mana (Shield)",
+                "PropertyString": "+15% Damage Taken Added To Mana (Shield)",
                 "Index": 0
             },
             {
@@ -1290,7 +1290,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+10% Damage Taken Goes To Mana",
+                "PropertyString": "+10% Damage Taken Added To Mana",
                 "Index": 3
             }
         ],
@@ -1709,7 +1709,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+15% Damage Taken Goes To Mana",
+                "PropertyString": "+15% Damage Taken Added To Mana",
                 "Index": 0
             }
         ],
@@ -2331,7 +2331,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+15% Damage Taken Goes To Mana",
+                "PropertyString": "+15% Damage Taken Added To Mana",
                 "Index": 0
             }
         ],
@@ -3232,7 +3232,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+15% Damage Taken Goes To Mana",
+                "PropertyString": "+15% Damage Taken Added To Mana",
                 "Index": 0
             },
             {
@@ -4574,7 +4574,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+15% Damage Taken Goes To Mana",
+                "PropertyString": "+15% Damage Taken Added To Mana",
                 "Index": 0
             },
             {
@@ -8417,7 +8417,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+15% Damage Taken Goes To Mana",
+                "PropertyString": "+15% Damage Taken Added To Mana",
                 "Index": 0
             }
         ],
@@ -9813,7 +9813,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+15% Damage Taken Goes To Mana (Armor)",
+                "PropertyString": "+15% Damage Taken Added To Mana (Armor)",
                 "Index": 0
             },
             {
@@ -9829,7 +9829,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+15% Damage Taken Goes To Mana (Shield)",
+                "PropertyString": "+15% Damage Taken Added To Mana (Shield)",
                 "Index": 0
             },
             {
@@ -10203,7 +10203,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+15% Damage Taken Goes To Mana",
+                "PropertyString": "+15% Damage Taken Added To Mana",
                 "Index": 0
             }
         ],
@@ -11258,7 +11258,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+38% Damage Taken Goes To Mana",
+                "PropertyString": "+38% Damage Taken Added To Mana",
                 "Index": 5
             },
             {
@@ -11832,10 +11832,6 @@
         "Code": "Flickering Flame",
         "Properties": [
             {
-                "PropertyString": "Level 4-8 Resist Fire Aura When Equipped",
-                "Index": 1
-            },
-            {
                 "PropertyString": "+3 to Fire Skills",
                 "Index": 0
             },
@@ -11858,6 +11854,10 @@
             {
                 "PropertyString": "+5% to Maximum Fire Resistance",
                 "Index": 0
+            },
+            {
+                "PropertyString": "+40-50% Fire Resistance",
+                "Index": 1
             },
             {
                 "PropertyString": "Half Freeze Duration",
@@ -15636,7 +15636,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+15% Damage Taken Goes To Mana",
+                "PropertyString": "+15% Damage Taken Added To Mana",
                 "Index": 0
             },
             {
@@ -18766,7 +18766,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+20% Damage Taken Goes To Mana",
+                "PropertyString": "+20% Damage Taken Added To Mana",
                 "Index": 5
             }
         ],
@@ -20354,7 +20354,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+15% Damage Taken Goes To Mana",
+                "PropertyString": "+15% Damage Taken Added To Mana",
                 "Index": 0
             },
             {

@@ -10007,7 +10007,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+7-12% Damage Taken Goes To Mana",
+                "PropertyString": "+7-12% Damage Taken Added To Mana",
                 "Index": 0
             }
         ],
@@ -10031,7 +10031,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+7-12% Damage Taken Goes To Mana",
+                "PropertyString": "+7-12% Damage Taken Added To Mana",
                 "Index": 0
             }
         ],
@@ -22808,9 +22808,9 @@
     },
     {
         "Name": "Boreal",
-        "Level": 80,
+        "Level": 71,
         "MaxLevel": 0,
-        "RequiredLevel": 80,
+        "RequiredLevel": 71,
         "Group": 137,
         "ClassSpecific": "",
         "Class": "",

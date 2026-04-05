@@ -2009,7 +2009,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+20% Damage Taken Goes To Mana",
+                        "PropertyString": "+20% Damage Taken Added To Mana",
                         "Index": 1
                     }
                 ],
@@ -2566,7 +2566,7 @@
                 "Code": "amu",
                 "Properties": [
                     {
-                        "PropertyString": "+20% Damage Taken Goes To Mana",
+                        "PropertyString": "+20% Damage Taken Added To Mana",
                         "Index": 1
                     },
                     {
@@ -3483,7 +3483,7 @@
                         "Index": 6
                     },
                     {
-                        "PropertyString": "+10% Damage Taken Goes To Mana",
+                        "PropertyString": "+10% Damage Taken Added To Mana",
                         "Index": 3
                     }
                 ],
@@ -3955,7 +3955,7 @@
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+37% Damage Taken Goes To Mana",
+                        "PropertyString": "+37% Damage Taken Added To Mana",
                         "Index": 3
                     },
                     {
@@ -5967,7 +5967,7 @@
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+12% Damage Taken Goes To Mana",
+                        "PropertyString": "+12% Damage Taken Added To Mana",
                         "Index": 3
                     }
                 ],
@@ -6285,8 +6285,8 @@
                 "Index": "Bul-Kathos' Sacred Charge",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 60,
-                "RequiredLevel": 75,
+                "ItemLevel": 80,
+                "RequiredLevel": 85,
                 "Code": "7gd",
                 "Properties": [
                     {
@@ -6339,9 +6339,9 @@
                 "Index": "Bul-Kathos' Tribal Guardian",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 60,
-                "RequiredLevel": 66,
-                "Code": "7wd",
+                "ItemLevel": 80,
+                "RequiredLevel": 85,
+                "Code": "7fb",
                 "Properties": [
                     {
                         "PropertyString": "15% Chance to cast level 3 Blightburst on striking",
@@ -6364,16 +6364,21 @@
                 "Equipment": {
                     "DamageTypes": [
                         {
-                            "Type": 3,
-                            "DamageString": "(140-180) to (175-225)",
-                            "AverageDamage": 182.5
+                            "Type": 0,
+                            "DamageString": "(91-117) to (245-315)",
+                            "AverageDamage": 203.0
+                        },
+                        {
+                            "Type": 1,
+                            "DamageString": "(213-274) to (423-544)",
+                            "AverageDamage": 378.5
                         }
                     ],
-                    "Speed": 0,
+                    "Speed": 10,
                     "EquipmentType": 1,
-                    "Name": "Mythical Sword [E]",
-                    "RequiredStrength": "147",
-                    "RequiredDexterity": "124",
+                    "Name": "Colossus Sword [E]",
+                    "RequiredStrength": "182",
+                    "RequiredDexterity": "95",
                     "Durability": 250,
                     "RequiredClass": ""
                 }
@@ -6446,7 +6451,7 @@
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+35% Damage Taken Goes To Mana",
+                        "PropertyString": "+35% Damage Taken Added To Mana",
                         "Index": 2
                     }
                 ],
@@ -6695,7 +6700,7 @@
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+45% Damage Taken Goes To Mana",
+                        "PropertyString": "+45% Damage Taken Added To Mana",
                         "Index": 3
                     },
                     {
@@ -8328,7 +8333,7 @@
                 "Set": "Corgina's Element",
                 "SetPropertiesString": [
                     "+1 to Mana (Based on Character Level) (3 Items)",
-                    "+10% Damage Taken Goes To Mana (2 Items)"
+                    "+10% Damage Taken Added To Mana (2 Items)"
                 ],
                 "Name": "Corgina's Plate",
                 "Index": "Corgina's Plate",
@@ -10997,7 +11002,7 @@
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+22% Damage Taken Goes To Mana",
+                        "PropertyString": "+22% Damage Taken Added To Mana",
                         "Index": 2
                     }
                 ],
@@ -12339,7 +12344,7 @@
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+10% Damage Taken Goes To Mana",
+                        "PropertyString": "+10% Damage Taken Added To Mana",
                         "Index": 1
                     }
                 ],
@@ -12625,7 +12630,7 @@
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+10% Damage Taken Goes To Mana",
+                        "PropertyString": "+10% Damage Taken Added To Mana",
                         "Index": 3
                     }
                 ],
@@ -13939,7 +13944,7 @@
                 "Set": "Chaos Energy",
                 "SetPropertiesString": [
                     "+50 to Mana (2 Items)",
-                    "+22% Damage Taken Goes To Mana (5 Items)"
+                    "+22% Damage Taken Added To Mana (5 Items)"
                 ],
                 "Name": "Guiding Focus",
                 "Index": "Guiding Focus",
@@ -15318,7 +15323,7 @@
                         "Index": 2
                     },
                     {
-                        "PropertyString": "+15% Damage Taken Goes To Mana",
+                        "PropertyString": "+15% Damage Taken Added To Mana",
                         "Index": 3
                     }
                 ],
@@ -16314,7 +16319,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+15% Damage Taken Goes To Mana",
+                        "PropertyString": "+15% Damage Taken Added To Mana",
                         "Index": 2
                     }
                 ],
@@ -17335,43 +17340,42 @@
         "Vanilla": "N"
     },
     {
-        "Index": "Aragorn's Scorn",
-        "Name": "Aragorn's Scorn",
+        "Index": "Sines Psionics",
+        "Name": "Sines Psionics",
         "SetItems": [
             {
                 "Type": "Body Armor",
-                "Set": "Aragorn's Scorn",
-                "SetPropertiesString": [],
-                "Name": "Aragorn's Contempt",
-                "Index": "Aragorn's Contempt",
+                "Set": "Sines Psionics",
+                "SetPropertiesString": [
+                    "5% Chance to cast level 30 Frozen Armor when struck (3 Items)",
+                    "+10% Magic Resistance (2 Items)"
+                ],
+                "Name": "Momentum Theft",
+                "Index": "Momentum Theft",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 30,
-                "RequiredLevel": 33,
+                "ItemLevel": 50,
+                "RequiredLevel": 50,
                 "Code": "xui",
                 "Properties": [
                     {
-                        "PropertyString": "+100-120% Enhanced Defense",
+                        "PropertyString": "Level 5-10 Holy Freeze Aura When Equipped",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "+150-250% Enhanced Defense",
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+10% Magic Resistance",
-                        "Index": 3
-                    },
-                    {
-                        "PropertyString": "+25-35% Fire Resistance",
+                        "PropertyString": "Physical Damage Reduced By 10-20",
                         "Index": 1
-                    },
-                    {
-                        "PropertyString": "Physical Damage Reduced By 15-25",
-                        "Index": 2
                     }
                 ],
                 "DamageArmorEnhanced": true,
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "236-259",
+                    "ArmorString": "295-413",
                     "Block": null,
                     "EquipmentType": 0,
                     "Name": "Ghost Armor [X]",
@@ -17382,30 +17386,35 @@
                 }
             },
             {
-                "Type": "Axe",
-                "Set": "Aragorn's Scorn",
+                "Type": "Sword",
+                "Set": "Sines Psionics",
                 "SetPropertiesString": [
-                    "Adds 45-135 Weapon Damage (4 Items)",
-                    "+8-12 Life after each Kill (2 Items)"
+                    "5% Chance to cast level 10 Static Field on striking (3 Items)",
+                    "+30% Increased Attack Speed (2 Items)",
+                    "Adds 50-150 Weapon Damage (4 Items)"
                 ],
-                "Name": "Aragorn's Derision",
-                "Index": "Aragorn's Derision",
+                "Name": "Mindrazor",
+                "Index": "Mindrazor",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 30,
-                "RequiredLevel": 40,
-                "Code": "9wa",
+                "ItemLevel": 66,
+                "RequiredLevel": 70,
+                "Code": "7wd",
                 "Properties": [
                     {
-                        "PropertyString": "+120-200% Enhanced Weapon Damage",
+                        "PropertyString": "Level 5-10 Conviction Aura When Equipped",
+                        "Index": 3
+                    },
+                    {
+                        "PropertyString": "+200-300% Enhanced Weapon Damage",
                         "Index": 0
                     },
                     {
-                        "PropertyString": "Adds 150-250 Weapon Fire Damage",
+                        "PropertyString": "Adds 100-200 Weapon Magic Damage",
                         "Index": 1
                     },
                     {
-                        "PropertyString": "-15-20% to Enemy Fire Resistance",
+                        "PropertyString": "-10-15% to Enemy Physical Damage Resistance",
                         "Index": 2
                     }
                 ],
@@ -17414,99 +17423,106 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(35-48) to (99-135)",
-                            "AverageDamage": 85.0
+                            "DamageString": "(120-160) to (150-200)",
+                            "AverageDamage": 160.0
                         },
                         {
                             "Type": 4,
-                            "DamageString": "150 to 250",
-                            "AverageDamage": 200.0
+                            "DamageString": "100 to 200",
+                            "AverageDamage": 150.0
                         }
                     ],
                     "Speed": 0,
                     "EquipmentType": 1,
-                    "Name": "Naga [X]",
-                    "RequiredStrength": "121",
-                    "RequiredDexterity": "0",
+                    "Name": "Mythical Sword [E]",
+                    "RequiredStrength": "147",
+                    "RequiredDexterity": "124",
                     "Durability": 250,
                     "RequiredClass": ""
                 }
             },
             {
-                "Type": "Shield",
-                "Set": "Aragorn's Scorn",
-                "SetPropertiesString": [],
-                "Name": "Aragorn's Indignation",
-                "Index": "Aragorn's Indignation",
+                "Type": "Belt",
+                "Set": "Sines Psionics",
+                "SetPropertiesString": [
+                    "+1 to All Skills (2 Items)",
+                    "+25% to All Resistances (4 Items)",
+                    "+10% Physical Damage Reduction (3 Items)"
+                ],
+                "Name": "Cortex Wrap",
+                "Index": "Cortex Wrap",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 60,
-                "RequiredLevel": 62,
-                "Code": "uml",
+                "ItemLevel": 75,
+                "RequiredLevel": 75,
+                "Code": "umc",
                 "Properties": [
                     {
-                        "PropertyString": "+20% Faster Block Rate",
-                        "Index": 2
-                    },
-                    {
-                        "PropertyString": "20-30% Increased Chance of Blocking",
+                        "PropertyString": "+150-250% Enhanced Defense",
                         "Index": 1
-                    },
-                    {
-                        "PropertyString": "Prevent Monster Heal",
-                        "Index": 3
                     },
                     {
                         "PropertyString": "+2 Defense (Based on Character Level)",
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+25-35% Cold Resistance",
+                        "PropertyString": "+5-10% Cold Damage Absorbed",
                         "Index": 4
+                    },
+                    {
+                        "PropertyString": "+5-10% Lightning Damage Absorbed",
+                        "Index": 3
+                    },
+                    {
+                        "PropertyString": "+5-10% Fire Damage Absorbed",
+                        "Index": 2
                     }
                 ],
                 "DamageArmorEnhanced": true,
                 "Equipment": {
-                    "DamageString": "17 to 29",
-                    "DamageStringPrefix": "Smite Damage",
-                    "ArmorString": "(232-308)-(247-323)",
-                    "Block": 20,
+                    "DamageString": null,
+                    "DamageStringPrefix": null,
+                    "ArmorString": "(315-365)-(381-431)",
+                    "Block": null,
                     "EquipmentType": 0,
-                    "Name": "Luna [E]",
-                    "RequiredStrength": "100",
+                    "Name": "Mithril Coil [E]",
+                    "RequiredStrength": "106",
                     "RequiredDexterity": "0",
-                    "Durability": 84,
+                    "Durability": 16,
                     "RequiredClass": ""
                 }
             },
             {
                 "Type": "Boots",
-                "Set": "Aragorn's Scorn",
+                "Set": "Sines Psionics",
                 "SetPropertiesString": [
-                    "+25 to Dexterity (3 Items)"
+                    "+30% Cold Resistance (3 Items)",
+                    "+30% Lightning Resistance (4 Items)",
+                    "+30% Fire Resistance (3 Items)",
+                    "+30% Poison Resistance (2 Items)"
                 ],
-                "Name": "Aragorn's Disdain",
-                "Index": "Aragorn's Disdain",
+                "Name": "Phasewalker Boots",
+                "Index": "Phasewalker Boots",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 30,
-                "RequiredLevel": 43,
+                "ItemLevel": 40,
+                "RequiredLevel": 40,
                 "Code": "xhb",
                 "Properties": [
                     {
-                        "PropertyString": "+20% Faster Run/Walk Speed",
-                        "Index": 1
-                    },
-                    {
-                        "PropertyString": "+8-15 Kick Damage",
-                        "Index": 2
-                    },
-                    {
-                        "PropertyString": "+3-6% Mana stolen per hit",
+                        "PropertyString": "Level 3-5 Cleansing Aura When Equipped",
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+100-125% Enhanced Defense",
+                        "PropertyString": "+1 to Warp (oskill)",
+                        "Index": 2
+                    },
+                    {
+                        "PropertyString": "+20-30% Faster Run/Walk Speed",
+                        "Index": 1
+                    },
+                    {
+                        "PropertyString": "+100-200% Enhanced Defense",
                         "Index": 0
                     }
                 ],
@@ -17514,7 +17530,7 @@
                 "Equipment": {
                     "DamageString": "39 to 80",
                     "DamageStringPrefix": "Kick Damage",
-                    "ArmorString": "108-121",
+                    "ArmorString": "108-162",
                     "Block": null,
                     "EquipmentType": 0,
                     "Name": "War Boots [X]",
@@ -17527,30 +17543,38 @@
         ],
         "PartialProperties": [
             {
+                "PropertyString": "+20% Increased Attack Speed",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+1 to All Skills",
                 "Index": 2
             }
         ],
         "FullProperties": [
             {
-                "PropertyString": "25% Chance to cast level 2 Static Field when struck",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+1 to Howl (oskill)",
-                "Index": 3
-            },
-            {
                 "PropertyString": "+100% Enhanced Weapon Damage",
                 "Index": 0
             },
             {
-                "PropertyString": "Slows Target by 15%",
+                "PropertyString": "Slows Target by 10%",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+100 to Life",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+30% to All Resistances",
                 "Index": 4
             },
             {
-                "PropertyString": "+50% Chance Items Roll Magic or Better",
+                "PropertyString": "+10% Physical Damage Reduction",
                 "Index": 1
+            },
+            {
+                "PropertyString": "Cannot Be Frozen",
+                "Index": 5
             }
         ],
         "Level": 1,
@@ -19205,7 +19229,7 @@
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+15% Damage Taken Goes To Mana",
+                        "PropertyString": "+15% Damage Taken Added To Mana",
                         "Index": 1
                     }
                 ],
@@ -23202,6 +23226,10 @@
                         "Index": 0
                     },
                     {
+                        "PropertyString": "-10-15% to Enemy Lightning Resistance",
+                        "Index": 4
+                    },
+                    {
                         "PropertyString": "Knockback",
                         "Index": 3
                     },
@@ -23212,10 +23240,6 @@
                     {
                         "PropertyString": "Replenishes quantity",
                         "Index": 2
-                    },
-                    {
-                        "PropertyString": "Replenishes quantity",
-                        "Index": 4
                     }
                 ],
                 "DamageArmorEnhanced": true,
@@ -24184,34 +24208,32 @@
             {
                 "Type": "Pelt",
                 "Set": "Panda's Polar Adventure",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "Cannot Be Frozen (3 Items)"
+                ],
                 "Name": "Panda's Pelt",
                 "Index": "Panda's Pelt",
                 "Enabled": true,
                 "Rarity": 7,
                 "ItemLevel": 30,
-                "RequiredLevel": 55,
+                "RequiredLevel": 50,
                 "Code": "dr6",
                 "Properties": [
                     {
                         "PropertyString": "+2-3 to All Skills",
-                        "Index": 4
-                    },
-                    {
-                        "PropertyString": "+2-4 to Polar Bear (oskill)",
-                        "Index": 1
-                    },
-                    {
-                        "PropertyString": "+30% Faster Run/Walk Speed",
-                        "Index": 2
-                    },
-                    {
-                        "PropertyString": "+30% Faster Hit Recovery",
                         "Index": 3
                     },
                     {
-                        "PropertyString": "Cannot Be Frozen",
+                        "PropertyString": "+1 to Polar Bear (oskill)",
                         "Index": 0
+                    },
+                    {
+                        "PropertyString": "+30% Faster Run/Walk Speed",
+                        "Index": 1
+                    },
+                    {
+                        "PropertyString": "+30% Faster Hit Recovery",
+                        "Index": 2
                     }
                 ],
                 "DamageArmorEnhanced": false,
@@ -24231,21 +24253,24 @@
             {
                 "Type": "Gloves",
                 "Set": "Panda's Polar Adventure",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "+4 to Arctic Claws (oskill) (2 Items)",
+                    "+20% Increased Attack Speed (3 Items)"
+                ],
                 "Name": "Panda's Mittens",
                 "Index": "Panda's Mitts",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 25,
-                "RequiredLevel": 45,
-                "Code": "ulg",
+                "ItemLevel": 12,
+                "RequiredLevel": 12,
+                "Code": "lgl",
                 "Properties": [
                     {
-                        "PropertyString": "+2-5 to Arctic Claws (oskill)",
+                        "PropertyString": "+1 to Arctic Claws (oskill)",
                         "Index": 0
                     },
                     {
-                        "PropertyString": "+30% Increased Attack Speed",
+                        "PropertyString": "+10% Increased Attack Speed",
                         "Index": 2
                     },
                     {
@@ -24265,11 +24290,11 @@
                 "Equipment": {
                     "DamageString": null,
                     "DamageStringPrefix": null,
-                    "ArmorString": "54-62",
+                    "ArmorString": "2-3",
                     "Block": null,
                     "EquipmentType": 0,
-                    "Name": "Bramble Mitts [E]",
-                    "RequiredStrength": "50",
+                    "Name": "Leather Gloves [N]",
+                    "RequiredStrength": "0",
                     "RequiredDexterity": "0",
                     "Durability": 12,
                     "RequiredClass": ""
@@ -24325,25 +24350,23 @@
             {
                 "Type": "Belt",
                 "Set": "Panda's Polar Adventure",
-                "SetPropertiesString": [],
+                "SetPropertiesString": [
+                    "10% Chance to cast level 20 Tornado on striking (3 Items)"
+                ],
                 "Name": "Panda's Sash",
                 "Index": "Panda's Sash",
                 "Enabled": true,
                 "Rarity": 7,
-                "ItemLevel": 6,
-                "RequiredLevel": 12,
+                "ItemLevel": 25,
+                "RequiredLevel": 35,
                 "Code": "lbl",
                 "Properties": [
-                    {
-                        "PropertyString": "20% Chance to cast level 20 Tornado when struck",
-                        "Index": 3
-                    },
                     {
                         "PropertyString": "+10 to Vitality",
                         "Index": 1
                     },
                     {
-                        "PropertyString": "+100 to Life",
+                        "PropertyString": "+50 to Life",
                         "Index": 2
                     },
                     {
@@ -24496,7 +24519,7 @@
                         "Index": 3
                     },
                     {
-                        "PropertyString": "+15% Damage Taken Goes To Mana",
+                        "PropertyString": "+15% Damage Taken Added To Mana",
                         "Index": 4
                     }
                 ],

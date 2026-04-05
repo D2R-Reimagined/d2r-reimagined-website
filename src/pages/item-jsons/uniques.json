@@ -9882,7 +9882,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+10% Damage Taken Goes To Mana",
+                "PropertyString": "+10% Damage Taken Added To Mana",
                 "Index": 5
             }
         ],
@@ -12379,7 +12379,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+50% Damage Taken Goes To Mana",
+                "PropertyString": "+50% Damage Taken Added To Mana",
                 "Index": 1
             }
         ],
@@ -13566,7 +13566,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+10-15% Damage Taken Goes To Mana",
+                "PropertyString": "+10-15% Damage Taken Added To Mana",
                 "Index": 5
             }
         ],
@@ -14732,7 +14732,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+5-10% Damage Taken Goes To Mana",
+                "PropertyString": "+5-10% Damage Taken Added To Mana",
                 "Index": 6
             },
             {
@@ -17219,7 +17219,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+35% Damage Taken Goes To Mana",
+                "PropertyString": "+35% Damage Taken Added To Mana",
                 "Index": 3
             }
         ],
@@ -17944,7 +17944,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+10-15% Damage Taken Goes To Mana",
+                "PropertyString": "+10-15% Damage Taken Added To Mana",
                 "Index": 6
             }
         ],
@@ -19073,7 +19073,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+5-10% Damage Taken Goes To Mana",
+                "PropertyString": "+5-10% Damage Taken Added To Mana",
                 "Index": 1
             }
         ],
@@ -22818,7 +22818,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+10-15% Damage Taken Goes To Mana",
+                "PropertyString": "+10-15% Damage Taken Added To Mana",
                 "Index": 6
             }
         ],
@@ -28750,7 +28750,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+15% Damage Taken Goes To Mana",
+                "PropertyString": "+15% Damage Taken Added To Mana",
                 "Index": 2
             }
         ],
@@ -29454,7 +29454,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+25% Damage Taken Goes To Mana",
+                "PropertyString": "+25% Damage Taken Added To Mana",
                 "Index": 4
             },
             {
@@ -29772,7 +29772,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+10% Damage Taken Goes To Mana",
+                "PropertyString": "+10% Damage Taken Added To Mana",
                 "Index": 7
             }
         ],
@@ -30845,7 +30845,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+5-10% Damage Taken Goes To Mana",
+                "PropertyString": "+5-10% Damage Taken Added To Mana",
                 "Index": 6
             }
         ],
@@ -31915,7 +31915,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+10-15% Damage Taken Goes To Mana",
+                "PropertyString": "+10-15% Damage Taken Added To Mana",
                 "Index": 3
             }
         ],
@@ -33727,7 +33727,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+15% Damage Taken Goes To Mana",
+                "PropertyString": "+15% Damage Taken Added To Mana",
                 "Index": 4
             },
             {
@@ -34925,7 +34925,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+15-20% Damage Taken Goes To Mana",
+                "PropertyString": "+15-20% Damage Taken Added To Mana",
                 "Index": 7
             }
         ],
@@ -35923,7 +35923,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+20% Damage Taken Goes To Mana",
+                "PropertyString": "+20% Damage Taken Added To Mana",
                 "Index": 1
             },
             {
@@ -43952,7 +43952,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+8% Damage Taken Goes To Mana",
+                "PropertyString": "+8% Damage Taken Added To Mana",
                 "Index": 5
             },
             {
@@ -44239,7 +44239,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+30% Damage Taken Goes To Mana",
+                "PropertyString": "+30% Damage Taken Added To Mana",
                 "Index": 4
             },
             {
@@ -47107,7 +47107,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+15-25% Damage Taken Goes To Mana",
+                "PropertyString": "+15-25% Damage Taken Added To Mana",
                 "Index": 5
             }
         ],
@@ -50078,7 +50078,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+12% Damage Taken Goes To Mana",
+                "PropertyString": "+12% Damage Taken Added To Mana",
                 "Index": 5
             },
             {
@@ -50877,7 +50877,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+10% Damage Taken Goes To Mana",
+                "PropertyString": "+10% Damage Taken Added To Mana",
                 "Index": 6
             }
         ],
@@ -58249,7 +58249,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+50% Damage Taken Goes To Mana",
+                "PropertyString": "+50% Damage Taken Added To Mana",
                 "Index": 5
             }
         ],
@@ -58458,7 +58458,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+15% Piercing Attack",
+                "PropertyString": "+25% Piercing Attack",
                 "Index": 2
             },
             {
@@ -59019,7 +59019,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+10% Damage Taken Goes To Mana",
+                "PropertyString": "+10% Damage Taken Added To Mana",
                 "Index": 5
             }
         ],
@@ -60316,7 +60316,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+20% Damage Taken Goes To Mana",
+                "PropertyString": "+20% Damage Taken Added To Mana",
                 "Index": 6
             }
         ],
@@ -69304,7 +69304,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+15% Damage Taken Goes To Mana",
+                "PropertyString": "+15% Damage Taken Added To Mana",
                 "Index": 6
             }
         ],
@@ -69599,7 +69599,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+15% Damage Taken Goes To Mana",
+                "PropertyString": "+15% Damage Taken Added To Mana",
                 "Index": 5
             },
             {
@@ -70059,7 +70059,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+35% Damage Taken Goes To Mana",
+                "PropertyString": "+35% Damage Taken Added To Mana",
                 "Index": 2
             }
         ],
