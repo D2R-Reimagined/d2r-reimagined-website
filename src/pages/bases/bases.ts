@@ -348,7 +348,7 @@ export class Bases {
             members.push(i);
         }
 
-        const tierOrder = { 'Normal': 0, 'Exceptional': 1, 'Elite': 2 };
+        const tierOrder: Record<string, number> = { 'Normal': 0, 'Exceptional': 1, 'Elite': 2 };
 
         const groups = Array.from(typeMap.entries())
             .map(([typeName, familyMap]) => {

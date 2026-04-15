@@ -41,6 +41,13 @@ export class Runewords {
     filteredRunewords: IRunewordData[] = [];
     private _searchStrings = new Map<IRunewordData, string>();
 
+    @bindable search: string = '';
+    @bindable searchRunes: string = '';
+    @bindable exclusiveType: boolean = false;
+    @bindable hideVanilla: boolean = false;
+
+    private _debouncedSearchItem!: IDebouncedFunction;
+
     // Centralized options, narrowed at runtime to types present in data
     types: ReadonlyArray<IFilterOption> = type_filtering_options.slice();
 

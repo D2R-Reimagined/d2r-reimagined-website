@@ -1,16 +1,24 @@
-﻿export class SortPropertiesValueConverter {
-    toView(properties: any[]) {
+﻿interface ISortProperty {
+    PropertyString?: string;
+    pickmode?: number;
+    PickMode?: number;
+    'group-properties'?: Record<string, ISortProperty[]>;
+}
+
+export class SortPropertiesValueConverter {
+    toView(properties: ISortProperty[]) {
         if (!properties || !Array.isArray(properties)) return properties;
 
         return [...properties].sort((a, b) => {
-            const getPriority = (p: any) => {
+            const getPriority = (p: ISortProperty) => {
                 // If it's a group property
                 if (p['group-properties']) {
                     const pools = Object.values(p['group-properties']);
                     if (pools.length > 0) {
-                        const pool = pools[0] as any[];
+                        const pool = pools[0];
                         // Check if it's pickmode 0 (as number or string)
                         const pickMode = p.pickmode ?? (pool[0] ? pool[0].PickMode : undefined);
+                        // eslint-disable-next-line eqeqeq
                         if (pickMode == 0) {
                             return 0; // Pickmode 0 group (high priority)
                         }

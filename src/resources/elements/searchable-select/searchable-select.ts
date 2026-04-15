@@ -8,7 +8,7 @@ export interface ISelectOption {
 }
 
 export class SearchableSelect implements ICustomElementViewModel {
-    @bindable({ mode: BindingMode.twoWay }) value: any;
+    @bindable({ mode: BindingMode.twoWay }) value: string | number | undefined;
     @bindable options: ISelectOption[] = [];
     @bindable label: string = '';
     @bindable id: string = '';
@@ -54,14 +54,15 @@ export class SearchableSelect implements ICustomElementViewModel {
         }
     }
 
-    toggle(ev: Event) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    toggle(_ev: Event) {
         if (this.disabled) return;
         this.isOpen = !this.isOpen;
         this._syncTooltipDisabled();
         if (this.isOpen) {
             this.searchText = '';
             // Use a microtask so the DOM (if.bind) renders the input first
-            Promise.resolve().then(() => this.searchInput?.focus());
+            void Promise.resolve().then(() => this.searchInput?.focus());
         }
     }
 
@@ -81,7 +82,7 @@ export class SearchableSelect implements ICustomElementViewModel {
         ev.stopPropagation();
     }
 
-    getOptValue(opt: ISelectOption): any {
+    getOptValue(opt: ISelectOption): string | number | undefined {
         return opt.id !== undefined ? opt.id : opt.value;
     }
 
