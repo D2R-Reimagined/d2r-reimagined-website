@@ -470,6 +470,7 @@ export const type_filtering_options: ReadonlyArray<IFilterOption> = [
     makeTypeOption('Crafted Sunder Charm', 'Crafted Sunder Charm'),
     // Weapon bases
     makeTypeOption('Axe', 'Axe'),
+    makeTypeOption('Club', 'Club'),
     makeTypeOption('Mace', 'Mace'),
     makeTypeOption('Hammer', 'Hammer'),
     makeTypeOption('Sword', 'Sword'),
