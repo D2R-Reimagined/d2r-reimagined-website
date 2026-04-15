@@ -1326,6 +1326,8 @@ body {
     --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --color-lime-500: oklch(76.8% .233 130.85);
+    --color-slate-600: oklch(44.6% .043 257.281);
+    --color-slate-900: oklch(20.8% .042 265.755);
     --color-gray-950: oklch(13% .028 261.692);
     --spacing: .25rem;
     --breakpoint-sm: 40rem;
@@ -1334,6 +1336,7 @@ body {
     --breakpoint-xl: 80rem;
     --container-3xs: 16rem;
     --container-xl: 36rem;
+    --container-3xl: 48rem;
     --container-5xl: 64rem;
     --text-xs: .75rem;
     --text-xs--line-height: calc(1 / .75);
@@ -1346,6 +1349,7 @@ body {
     --text-2xl: 1.5rem;
     --text-2xl--line-height: calc(2 / 1.5);
     --radius-sm: .25rem;
+    --radius-md: .375rem;
     --radius-lg: .5rem;
     --ease-out: cubic-bezier(0, 0, .2, 1);
     --ease-in-out: cubic-bezier(.4, 0, .2, 1);
@@ -2168,6 +2172,10 @@ body {
     position: relative;
   }
 
+  .inset-0 {
+    inset: calc(var(--spacing) * 0);
+  }
+
   .top-0 {
     top: calc(var(--spacing) * 0);
   }
@@ -2565,6 +2573,10 @@ body {
     margin-bottom: calc(var(--spacing) * 2);
   }
 
+  .mb-3 {
+    margin-bottom: calc(var(--spacing) * 3);
+  }
+
   .mb-4 {
     margin-bottom: calc(var(--spacing) * 4);
   }
@@ -2793,6 +2805,10 @@ body {
     min-height: calc(var(--spacing) * 10);
   }
 
+  .min-h-30 {
+    min-height: calc(var(--spacing) * 30);
+  }
+
   .button-base {
     cursor: pointer;
     border-radius: var(--radius-lg);
@@ -2838,6 +2854,10 @@ body {
 
   .w-full {
     width: 100%;
+  }
+
+  .max-w-3xl {
+    max-width: var(--container-3xl);
   }
 
   .max-w-5xl {
@@ -2982,6 +3002,10 @@ body {
     border-radius: var(--radius-lg);
   }
 
+  .rounded-md {
+    border-radius: var(--radius-md);
+  }
+
   .rounded-sm {
     border-radius: var(--radius-sm);
   }
@@ -3014,6 +3038,10 @@ body {
     border-color: #374151;
   }
 
+  .border-slate-600 {
+    border-color: var(--color-slate-600);
+  }
+
   .border-white {
     border-color: #fff;
   }
@@ -3022,8 +3050,16 @@ body {
     background-color: #000;
   }
 
+  .bg-black\/70 {
+    background-color: oklab(0% none none / .7);
+  }
+
   .bg-gray-800 {
     background-color: #1f2937;
+  }
+
+  .bg-slate-900 {
+    background-color: var(--color-slate-900);
   }
 
   .bg-transparent {
@@ -3160,6 +3196,10 @@ body {
 
   .align-top {
     vertical-align: top;
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
   }
 
   .text-2xl {

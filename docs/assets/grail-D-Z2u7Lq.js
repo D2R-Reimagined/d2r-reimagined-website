@@ -1,4 +1,4 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-iOJIHdFG.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-By7kClSb.js";
 import { g as getTypeChain, a as getChainForTypeNameReadonly, r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options } from "./item-type-filters-BmbPxQoN.js";
 import { t as toggleWeaponSort, g as getSortKeyFromDamageType, s as sortItemsByWeaponDamage, c as character_class_options, w as weaponSortOptions } from "./item-sorting-CN1-l_qa.js";
 import { g as getDamageTypeString } from "./damage-types-BlYhXdWN.js";
@@ -68,7 +68,51 @@ const template = `<template>
                 </button>
             </div>
         </div>
+        <div class="w-full lg:w-85" data-help-text="Open a popup to export or import Grail progress as base64.">
+            <div class="flex items-stretch">
+                <div class="relative flex-1">
+                    <button id="importexportgraildata" type="button" click.trigger="openImportExportPopup()" class="button-base">
+                        Import/Export Grail Data
+                    </button>
+                </div>
+                <button type="button" class="m-info-button" aria-expanded="false" data-info-for="importexportgraildata">
+                    <span class="mso">info</span>
+                    <span class="sr-only">More info about Import/Export Grail Data</span>
+                </button>
+            </div>
+        </div>
     </div>
+
+    <template if.bind="showImportExportPopup">
+        <div class="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4">
+            <div class="w-full max-w-3xl bg-slate-900 border border-slate-600 rounded-md p-4">
+                <div class="flex items-center justify-between mb-3">
+                    <div class="text-lg unique-text">Import/Export Grail Data</div>
+                    <button type="button" class="button-base px-4 py-2 w-auto" click.trigger="closeImportExportPopup()">Close</button>
+                </div>
+
+                <div class="mb-4">
+                    <div class="rarity-text mb-2">Export (Base64)</div>
+                    <textarea class="select-base w-full min-h-30 font-mono text-xs" readonly value.bind="exportDataString"></textarea>
+                    <div class="flex gap-2 mt-2">
+                        <button type="button" class="button-base" click.trigger="refreshExportData()">Refresh Export</button>
+                        <button type="button" class="button-base" click.trigger="copyExportData()">Copy Export String</button>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="rarity-text mb-2">Import (Base64)</div>
+                    <textarea class="select-base w-full min-h-30 font-mono text-xs"
+                              value.bind="importDataString"
+                              placeholder="Paste base64 Grail data here"></textarea>
+                    <div class="flex gap-2 mt-2">
+                        <button type="button" class="button-base" click.trigger="importMerge()">Merge</button>
+                        <button type="button" class="button-base" click.trigger="importReplace()">Replace</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
 
     <search-area>
         <div class="w-full m-auto px-5 py-2">
@@ -497,7 +541,8 @@ const template = `<template>
             </div>
         </div>
     </div>
-</template>`;
+</template>
+`;
 const dependencies = [];
 const bindables = {};
 let _e;
@@ -603,6 +648,9 @@ class Grail {
     __publicField(this, "setItemFoundCount", 0);
     __publicField(this, "setItemTotalCount", 0);
     __publicField(this, "setItemsDisplayedCount", 0);
+    __publicField(this, "showImportExportPopup", false);
+    __publicField(this, "exportDataString", "");
+    __publicField(this, "importDataString", "");
     __publicField(this, "_debouncedSaveFound");
     __publicField(this, "_debouncedApplyFilters");
     __publicField(this, "_uniqueSearchString", /* @__PURE__ */ new Map());
@@ -1127,6 +1175,150 @@ class Grail {
     } catch {
     }
     return {};
+  }
+  normalizeFoundMap(input) {
+    if (!input || typeof input !== "object") return {};
+    const result = {};
+    for (const [k, v] of Object.entries(input)) {
+      result[k] = Boolean(v);
+    }
+    return result;
+  }
+  enabledKeysFromMap(map) {
+    const out = [];
+    for (const [k, v] of Object.entries(map)) {
+      if (v) out.push(k);
+    }
+    return out;
+  }
+  mapFromEnabledInput(input) {
+    if (!input) return {};
+    if (Array.isArray(input)) {
+      const out2 = {};
+      for (const key of input) {
+        const k = String(key || "").trim();
+        if (k) out2[k] = true;
+      }
+      return out2;
+    }
+    const normalized = this.normalizeFoundMap(input);
+    const out = {};
+    for (const [k, v] of Object.entries(normalized)) {
+      if (v) out[k] = true;
+    }
+    return out;
+  }
+  utf8ToBase64(value) {
+    const bytes = new TextEncoder().encode(value);
+    let binary = "";
+    for (const b of bytes) binary += String.fromCharCode(b);
+    return btoa(binary);
+  }
+  base64ToUtf8(value) {
+    const binary = atob(value);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+    return new TextDecoder().decode(bytes);
+  }
+  mergeFoundMaps(current, incoming) {
+    const merged = { ...current };
+    for (const [k, v] of Object.entries(incoming)) {
+      if (v) merged[k] = true;
+    }
+    return merged;
+  }
+  createExportString() {
+    const uniques = this.enabledKeysFromMap(this.normalizeFoundMap(this.foundUniques));
+    const sets = this.enabledKeysFromMap(this.normalizeFoundMap(this.foundSets));
+    const runewords = this.enabledKeysFromMap(this.normalizeFoundMap(this.foundRunewords));
+    const payload = { version: 2 };
+    if (uniques.length > 0) payload.uniques = uniques;
+    if (sets.length > 0) payload.sets = sets;
+    if (runewords.length > 0) payload.runewords = runewords;
+    return this.utf8ToBase64(JSON.stringify(payload));
+  }
+  openImportExportPopup() {
+    this.exportDataString = this.createExportString();
+    this.importDataString = "";
+    this.showImportExportPopup = true;
+  }
+  closeImportExportPopup() {
+    this.showImportExportPopup = false;
+  }
+  refreshExportData() {
+    this.exportDataString = this.createExportString();
+  }
+  copyExportData() {
+    if (!this.exportDataString) {
+      this.exportDataString = this.createExportString();
+    }
+    const encoded = this.exportDataString;
+    const clipboard = navigator?.clipboard;
+    if (clipboard?.writeText) {
+      void clipboard.writeText(encoded).then(() => {
+        alert("Grail export copied to your clipboard.");
+      }).catch(() => {
+        prompt("Copy your Grail export string:", encoded);
+      });
+      return;
+    }
+    prompt("Copy your Grail export string:", encoded);
+  }
+  parseImportPayload(encoded) {
+    if (!encoded || !encoded.trim()) return null;
+    try {
+      const decoded = this.base64ToUtf8(encoded.trim());
+      const parsed = JSON.parse(decoded);
+      const parsedObj = parsed;
+      return {
+        version: Number(parsedObj.version || 1),
+        uniques: this.mapFromEnabledInput(parsedObj.uniques),
+        sets: this.mapFromEnabledInput(parsedObj.sets),
+        runewords: this.mapFromEnabledInput(parsedObj.runewords)
+      };
+    } catch {
+      alert("Invalid import string. Please check the base64 data and try again.");
+      return null;
+    }
+  }
+  importReplace() {
+    const payload = this.parseImportPayload(this.importDataString);
+    if (!payload) return;
+    const shouldReplace = confirm(
+      "Replace current Grail progress with imported data? This cannot be undone."
+    );
+    if (!shouldReplace) return;
+    this.foundUniques = this.mapFromEnabledInput(payload.uniques);
+    this.foundSets = this.mapFromEnabledInput(payload.sets);
+    this.foundRunewords = this.mapFromEnabledInput(payload.runewords);
+    this.saveFoundItems();
+    this.updateList();
+    this.exportDataString = this.createExportString();
+    alert("Import complete. Grail progress was replaced.");
+  }
+  importMerge() {
+    const payload = this.parseImportPayload(this.importDataString);
+    if (!payload) return;
+    const shouldMerge = confirm(
+      "Merge imported Grail data into current progress?"
+    );
+    if (!shouldMerge) return;
+    this.foundUniques = this.mergeFoundMaps(
+      this.foundUniques,
+      this.mapFromEnabledInput(payload.uniques)
+    );
+    this.foundSets = this.mergeFoundMaps(
+      this.foundSets,
+      this.mapFromEnabledInput(payload.sets)
+    );
+    this.foundRunewords = this.mergeFoundMaps(
+      this.foundRunewords,
+      this.mapFromEnabledInput(payload.runewords)
+    );
+    this.saveFoundItems();
+    this.updateList();
+    this.exportDataString = this.createExportString();
+    alert("Import complete. Grail progress was merged.");
   }
   loadFoundItems() {
     const legacy = localStorage.getItem("d2r-grail-items");
