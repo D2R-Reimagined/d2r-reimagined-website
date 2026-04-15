@@ -330,6 +330,12 @@ export class Sets {
             for (const s of si?.SetPropertiesString || []) {
                 if (s) parts.push(String(s));
             }
+            if (Array.isArray(si?.Equipment?.DamageTypes)) {
+                for (const d of si.Equipment.DamageTypes) {
+                    parts.push(getDamageTypeStringUtil(d.Type));
+                    if (d.DamageString) parts.push(d.DamageString);
+                }
+            }
         }
         return parts.filter(Boolean).join(' ').toLowerCase();
     }

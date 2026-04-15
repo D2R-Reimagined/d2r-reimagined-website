@@ -731,6 +731,13 @@ export class Grail {
                 }
             }
         }
+        // Damage lines
+        if (Array.isArray(u?.Equipment?.DamageTypes)) {
+            for (const d of u.Equipment.DamageTypes) {
+                parts.push(getDamageTypeStringUtil(d.Type));
+                if (d.DamageString) parts.push(d.DamageString);
+            }
+        }
         // Type chain
         parts.push(this.searchStringFromTypeChain(u?.Type));
         return this.buildSearchableString(parts);
@@ -757,6 +764,13 @@ export class Grail {
         if (Array.isArray(it?.SetPropertiesString)) {
             for (const s of it.SetPropertiesString) {
                 if (s) parts.push(String(s));
+            }
+        }
+        // Damage lines
+        if (Array.isArray(it?.Equipment?.DamageTypes)) {
+            for (const d of it.Equipment.DamageTypes) {
+                parts.push(getDamageTypeStringUtil(d.Type));
+                if (d.DamageString) parts.push(d.DamageString);
             }
         }
         parts.push(this.searchStringFromTypeChain(it?.Type));

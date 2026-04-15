@@ -416,16 +416,26 @@ export class Bases {
     }
 
     private buildSearchString(i: IBaseItem): string {
-        return [
-            i.Name,
-            i.Type?.Name,
+        const parts: string[] = [
+            i.Name ?? '',
+            i.Type?.Name ?? '',
             i.NormCode ?? '',
             i.UberCode ?? '',
             i.UltraCode ?? '',
-        ]
-            .filter(Boolean)
-            .join(' ')
-            .toLowerCase();
+        ];
+        if (i.DamageString) {
+            if (i.DamageStringPrefix && String(i.DamageStringPrefix).trim() !== '') {
+                parts.push(i.DamageStringPrefix);
+            }
+            parts.push(i.DamageString);
+        }
+        if (Array.isArray(i.DamageTypes)) {
+            for (const d of i.DamageTypes) {
+                parts.push(getDamageTypeStringUtil(d.Type));
+                if (d.DamageString) parts.push(d.DamageString);
+            }
+        }
+        return parts.filter(Boolean).join(' ').toLowerCase();
     }
 
     groupedProperties(item: IBaseItem) {

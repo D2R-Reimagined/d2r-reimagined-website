@@ -320,6 +320,13 @@ export class Uniques {
             });
         }
 
+        if (Array.isArray(unique?.Equipment?.DamageTypes)) {
+            for (const d of unique.Equipment.DamageTypes) {
+                parts.push(getDamageTypeStringUtil(d.Type));
+                if (d.DamageString) parts.push(d.DamageString);
+            }
+        }
+
         return parts.filter(Boolean).join(' ').toLowerCase();
     }
 
