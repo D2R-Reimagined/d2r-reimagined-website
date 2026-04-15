@@ -11,7 +11,7 @@ import {
     getDamageTypeString as getDamageTypeStringUtil,
     IDamageType,
 } from '../../utilities/damage-types';
-import { prependTypeResetOption, tokenizeSearch } from '../../utilities/filter-helpers';
+import { matchesTokenGroups, prependTypeResetOption, tokenizeSearch } from '../../utilities/filter-helpers';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 import armorsJson from '../item-jsons/armors.json';
 import weaponsJson from '../item-jsons/weapons.json';
@@ -270,9 +270,7 @@ export class Bases {
 
         for (const i of all) {
             const hay = this._searchMap.get(i) || '';
-            const matches = !searchTokens.length || searchTokens.some((group) =>
-                group.every((t) => hay.includes(t)),
-            );
+            const matches = !searchTokens.length || matchesTokenGroups(hay, searchTokens);
             if (matches) {
                 primary.push(i);
                 if (i.NormCode) codeSet.add(i.NormCode.toLowerCase());

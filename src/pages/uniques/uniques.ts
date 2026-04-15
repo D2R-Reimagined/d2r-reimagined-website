@@ -16,6 +16,7 @@ import {
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
 import {
     isVanillaItem,
+    matchesTokenGroups,
     prependTypeResetOption,
     tokenizeSearch,
 } from '../../utilities/filter-helpers';
@@ -279,7 +280,7 @@ export class Uniques {
             // 5. Search filter
             if (searchTokens.length > 0) {
                 const hay = this._searchStrings.get(unique) || '';
-                if (!searchTokens.some((group) => group.every((t) => hay.includes(t)))) {
+                if (!matchesTokenGroups(hay, searchTokens)) {
                     return false;
                 }
             }

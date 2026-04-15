@@ -1,7 +1,7 @@
 import { bindable, watch } from 'aurelia';
 
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
-import { tokenizeSearch } from '../../utilities/filter-helpers';
+import { matchesTokenGroups, tokenizeSearch } from '../../utilities/filter-helpers';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 import v2json from '../item-jsons/cube_recipes_v2.json';
 
@@ -350,7 +350,7 @@ export class CubeRecipes {
                     .filter(Boolean)
                     .join(' ')
                     .toLowerCase();
-                if (!tokens.some((group) => group.every((t) => haystack.includes(t))))
+                if (!matchesTokenGroups(haystack, tokens))
                     continue;
             }
 

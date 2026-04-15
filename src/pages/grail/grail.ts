@@ -17,6 +17,7 @@ import { debounce, IDebouncedFunction } from '../../utilities/debounce';
 import {
     isVanillaItem,
     prependTypeResetOption,
+    type SearchToken,
     tokenizeSearch,
 } from '../../utilities/filter-helpers';
 import {
@@ -840,18 +841,18 @@ export class Grail {
     }
 
     // Checks that the search query matches the item's searchable string.
-    // queryGroups is an OR-list of AND-groups (string[][]).
+    // queryGroups is an OR-list of AND-groups (SearchToken[][]).
     // An item matches if at least one OR-group matches.
-    // An OR-group matches if all its AND-terms are present as substrings in the searchable string.
+    // An OR-group matches if all its non-negated terms are present and all negated terms are absent.
     private tokensPartiallyMatch(
         searchString: string | undefined,
-        queryGroups: string[][],
+        queryGroups: SearchToken[][],
     ): boolean {
         if (!queryGroups.length) return true;
         if (!searchString) return false;
 
         return queryGroups.some((group) => {
-            return group.every((term) => searchString.includes(term));
+            return group.every((t) => (t.negated ? !searchString.includes(t.term) : searchString.includes(t.term)));
         });
     }
 

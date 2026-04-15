@@ -18,6 +18,7 @@ import {
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
 import {
     isVanillaItem,
+    matchesTokenGroups,
     prependTypeResetOption,
     tokenizeSearch,
 } from '../../utilities/filter-helpers';
@@ -244,7 +245,7 @@ export class Sets {
 
                 // 5. Search filter
                 if (searchTokens.length > 0) {
-                    if (!searchTokens.some((group) => group.every((t) => hay.includes(t)))) {
+                    if (!matchesTokenGroups(hay, searchTokens)) {
                         return false;
                     }
                 }

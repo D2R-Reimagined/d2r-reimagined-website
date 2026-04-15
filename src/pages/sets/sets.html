@@ -63,7 +63,7 @@
                 </div>
 
                 <div class="w-full lg:w-60"
-                     data-help-text="Search across all fields, sets match as full set if one is found. Uses (space) as an 'AND' modifier. ex: Typing sorc skill mana will return items with only all 3 words.">
+                     data-help-text="Search across all fields, sets match as full set if one is found. Text is matched as a phrase. Use '+' to require multiple terms (AND). Use ',' or '|' for OR. Prefix with '-' or '!' to exclude a term or phrase. ex: 'sorc skill mana' finds the exact phrase. 'fire+cold' finds items with both. '-fire' excludes items containing fire. 'damage -fire' finds items with damage but not fire. 'fire skill damage -cold skill damage' finds fire skill damage but excludes cold skill damage.">
                     <div class="flex items-stretch">
                         <div class="trailing-icon flex-1" data-icon="search">
                             <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search"

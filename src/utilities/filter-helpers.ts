@@ -60,20 +60,53 @@ export function swapMinMax<T extends number | undefined>(
     return [min, max];
 }
 
-/** Tokenize a search string into OR groups (split by ',' or '|') of AND terms (split by '+'). */
-export function tokenizeSearch(input: string | undefined | null): string[][] {
+/** A single search token that may be negated (prefixed with '-' or '!'). */
+export interface SearchToken {
+    term: string;
+    negated: boolean;
+}
+
+/** Tokenize a search string into OR groups (split by ',' or '|') of AND terms (split by '+').
+ *  Within each '+'-delimited segment, phrases starting with '-' or '!' are negated.
+ *  A negation prefix applies to all following words until the next negation or end of segment.
+ *  Example: 'fire skill damage -cold skill damage' → phrase "fire skill damage" + negated "cold skill damage". */
+export function tokenizeSearch(input: string | undefined | null): SearchToken[][] {
     const raw = (input || '').trim().toLowerCase();
     if (!raw) return [];
     // Split by OR operators: ',' or '|'
     return raw
         .split(/[,|]/)
-        .map((group) =>
-            group
-                .split('+')
-                .map((s) => s.trim())
-                .filter(Boolean),
-        )
+        .map((group) => {
+            const tokens: SearchToken[] = [];
+            // Split by '+' for explicit AND
+            for (const segment of group.split('+')) {
+                // Split segment into phrase chunks at negation boundaries.
+                // A negation boundary is a '-' or '!' preceded by whitespace (or at start)
+                // followed by a non-space character.
+                const parts = segment.trim().split(/\s+(?=[-!]\S)/);
+                for (const part of parts) {
+                    const trimmed = part.trim();
+                    if (!trimmed) continue;
+                    // Check if this part starts with a negation prefix
+                    if (/^[-!]\S/.test(trimmed)) {
+                        const term = trimmed.slice(1).trim();
+                        if (term) tokens.push({ term, negated: true });
+                    } else {
+                        tokens.push({ term: trimmed, negated: false });
+                    }
+                }
+            }
+            return tokens;
+        })
         .filter((group) => group.length > 0);
+}
+
+/** Check whether a haystack string matches at least one OR-group of search tokens.
+ *  Each group is an AND-list: every non-negated token must be present and every negated token must be absent. */
+export function matchesTokenGroups(hay: string, groups: SearchToken[][]): boolean {
+    return groups.some((group) =>
+        group.every((t) => (t.negated ? !hay.includes(t.term) : hay.includes(t.term))),
+    );
 }
 
 /** Check if an item is 'vanilla' based on its Vanilla property (usually 'Y'). */

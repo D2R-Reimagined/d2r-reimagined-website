@@ -10,6 +10,7 @@ import {
 } from '../../resources/constants';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
 import {
+    matchesTokenGroups,
     prependTypeResetOption,
     swapMinMax,
     tokenizeSearch,
@@ -412,7 +413,7 @@ export class Affixes {
                     .filter(Boolean)
                     .join(' ')
                     .toLowerCase();
-                if (!tokens.some((group) => group.every((t) => hay.includes(t))))
+                if (!matchesTokenGroups(hay, tokens))
                     return false;
             }
 

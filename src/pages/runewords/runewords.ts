@@ -7,7 +7,7 @@ import {
     type_filtering_options,
 } from '../../resources/constants';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
-import { prependTypeResetOption, tokenizeSearch } from '../../utilities/filter-helpers';
+import { matchesTokenGroups, prependTypeResetOption, tokenizeSearch } from '../../utilities/filter-helpers';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 import json from '../item-jsons/runewords.json';
 
@@ -301,7 +301,7 @@ export class Runewords {
             // 4. Text search
             if (searchTokens.length > 0) {
                 const hay = this._searchStrings.get(rw) || '';
-                if (!searchTokens.some((group) => group.every((t) => hay.includes(t)))) {
+                if (!matchesTokenGroups(hay, searchTokens)) {
                     return false;
                 }
             }
