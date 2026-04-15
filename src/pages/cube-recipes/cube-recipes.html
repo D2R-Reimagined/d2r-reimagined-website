@@ -19,17 +19,21 @@
                     </button>
                 </searchable-select>
 
-                <searchable-select id="ficlass"
-                                   class="w-full lg:w-auto lg:min-w-60"
-                                   data-help-text="Filter recipes by character class. note: These are all the same for each class but grant class-specific skills on use."
-                                   value.bind="selectedClass"
-                                   options.bind="classOptions"
-                                   label="Select Class">
-                    <button au-slot="after" type="button" class="m-info-button" aria-expanded="false" data-info-for="ficlass">
-                        <span class="mso">info</span>
-                        <span class="sr-only">More info about Class filter</span>
-                    </button>
-                </searchable-select>
+                <div class="w-full lg:w-auto lg:min-w-60"
+                     data-help-text="Filter recipes by character class. note: These are all the same for each class but grant class-specific skills on use.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <select id="ficlass" class="select-base peer" value.bind="selectedClass">
+                                <option repeat.for="opt of classOptions" value.bind="opt.value">${opt.label}</option>
+                            </select>
+                            <label for="ficlass" class="floating-label">Select Class</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="ficlass">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Class filter</span>
+                        </button>
+                    </div>
+                </div>
 
                 <div class="w-full lg:w-60"
                      data-help-text="Search across all fields. Attempts exact match. Seperate with '+' for AND match. Seperate with ',' or '|' for OR match. ex. 'fire skill damage+enemy fire' finds items with only both tokens. 'fire skill damage,enemy fire' finds items with either token.">

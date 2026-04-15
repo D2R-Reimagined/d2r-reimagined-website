@@ -13,17 +13,20 @@
         <div class="w-full m-auto px-5 py-2">
             <div class="flex flex-wrap justify-center items-start gap-2">
 
-                <searchable-select id="ptype"
-                                   class="w-full lg:w-auto lg:min-w-60"
-                                   data-help-text="Choose between prefixes, suffixes, or both."
-                                   value.bind="selectedPType"
-                                   options.bind="pTypeOptions"
-                                   label="Select Affix Type">
-                    <button au-slot="after" type="button" class="m-info-button" aria-expanded="false" data-info-for="ptype">
-                        <span class="mso">info</span>
-                        <span class="sr-only">More info about Affix Type filter</span>
-                    </button>
-                </searchable-select>
+                <div class="w-full lg:w-auto lg:min-w-45" data-help-text="Choose between prefixes, suffixes, or both.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <select id="ptype" class="select-base peer" value.bind="selectedPType">
+                                <option repeat.for="opt of pTypeOptions" value.bind="opt.value"> ${opt.label}</option>
+                            </select>
+                            <label for="ptype" class="floating-label">Select Affix Type</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="ptype">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Affix Type filter</span>
+                        </button>
+                    </div>
+                </div>
 
                 <searchable-select id="desc"
                                    class="w-full lg:w-auto lg:min-w-60"
@@ -38,7 +41,7 @@
                 </searchable-select>
 
                 <searchable-select id="itype"
-                                   class="w-full lg:w-auto lg:min-w-60"
+                                   class="w-full lg:w-auto lg:min-w-75"
                                    data-help-text="Filter by base item type. Toggle ‘Exact’ to remove variants."
                                    value.bind="selectedType"
                                    options.bind="types"
@@ -74,20 +77,22 @@
                 </div>
 
                 <div class="w-full flex flex-nowrap gap-2 lg:w-auto lg:min-w-60" data-help-text="Filter by required level range. The min and max values will update each other if they overlap.">
-                    <searchable-select id="minrlvl"
-                                       value.bind="minRequiredLevel"
-                                       options.bind="rLevelOptions"
-                                       label="Min RLv">
-                    </searchable-select>
-                    <searchable-select id="maxrlvl"
-                                       value.bind="maxRequiredLevel"
-                                       options.bind="rLevelOptions"
-                                       label="Max RLv">
-                        <button au-slot="after" type="button" class="m-info-button ml-0!" aria-expanded="false" data-info-for="minrlvl">
-                            <span class="mso">info</span>
-                            <span class="sr-only">More info about Required Level filters</span>
-                        </button>
-                    </searchable-select>
+                    <div class="w-full relative">
+                        <select id="minrlvl" class="select-base peer" value.bind="minRequiredLevel">
+                            <option repeat.for="opt of rLevelOptions" value.bind="opt.value">${opt.label}</option>
+                        </select>
+                        <label for="minrlvl" class="floating-label">Min RLv</label>
+                    </div>
+                    <div class="w-full relative">
+                        <select id="maxrlvl" class="select-base peer" value.bind="maxRequiredLevel">
+                            <option repeat.for="opt of rLevelOptions" value.bind="opt.value">${opt.label}</option>
+                        </select>
+                        <label for="maxrlvl" class="floating-label">Max RLv</label>
+                    </div>
+                    <button type="button" class="m-info-button ml-0!" aria-expanded="false" data-info-for="minrlvl">
+                        <span class="mso">info</span>
+                        <span class="sr-only">More info about Required Level filters</span>
+                    </button>
                 </div>
 
                 <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Reset all filters to default.">

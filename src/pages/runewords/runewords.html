@@ -7,17 +7,20 @@
         <div class="w-full m-auto px-5 py-2">
             <div class="flex flex-wrap justify-center items-start gap-2">
 
-                <searchable-select id="runecount"
-                                   class="w-full lg:w-auto lg:min-w-40"
-                                   data-help-text="Filter by number of runes required. This amount is exact."
-                                   value.bind="selectedAmount"
-                                   options.bind="amounts"
-                                   label="Rune Count">
-                    <button au-slot="after" type="button" class="m-info-button" aria-expanded="false" data-info-for="runecount">
-                        <span class="mso">info</span>
-                        <span class="sr-only">More info about Item Type filter</span>
-                    </button>
-                </searchable-select>
+                <div class="w-full lg:w-auto lg:min-w-40" data-help-text="Filter by number of runes required. This amount is exact.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <select id="runecount" class="select-base peer" value.bind="selectedAmount">
+                                <option repeat.for="opt of amounts" value.bind="opt.value">${opt.label}</option>
+                            </select>
+                            <label for="runecount" class="floating-label">Rune Count</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="runecount">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Item Type filter</span>
+                        </button>
+                    </div>
+                </div>
 
                 <searchable-select id="itype"
                                    class="w-full lg:w-auto lg:min-w-70"

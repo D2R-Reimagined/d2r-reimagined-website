@@ -11,17 +11,20 @@
         <div class="w-full m-auto px-5 py-2">
             <div class="flex flex-wrap justify-center items-start gap-2">
 
-                <searchable-select id="ficlass"
-                                   class="w-full lg:w-auto lg:min-w-60"
-                                   data-help-text="Filter by character class."
-                                   value.bind="selectedClass"
-                                   options.bind="classes"
-                                   label="Select Class">
-                    <button au-slot="after" type="button" class="m-info-button" aria-expanded="false" data-info-for="ficlass">
-                        <span class="mso">info</span>
-                        <span class="sr-only">More info about Class filter</span>
-                    </button>
-                </searchable-select>
+                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Filter by character class.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <select id="ficlass" class="select-base peer" value.bind="selectedClass">
+                                <option repeat.for="opt of classes" value.bind="opt.value">${opt.label}</option>
+                            </select>
+                            <label for="ficlass" class="floating-label">Select Class</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="ficlass">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Class filter</span>
+                        </button>
+                    </div>
+                </div>
 
                 <searchable-select id="itype"
                                    class="w-full lg:w-auto lg:min-w-60"

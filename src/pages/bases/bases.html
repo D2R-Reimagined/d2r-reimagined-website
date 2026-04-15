@@ -12,30 +12,42 @@
             <div class="flex flex-wrap justify-center items-start gap-2">
 
                 <!-- Category selector: - (both), Armors, Weapons -->
-                <searchable-select id="category"
-                                   class="w-full lg:w-auto lg:min-w-60"
-                                   data-help-text="Choose between armors, weapons, or both."
-                                   value.bind="selectedCategory"
-                                   options.bind="categoryOptions"
-                                   label="Select Category"
-                                   change.trigger="handleCategoryChange()">
-                    <button au-slot="after" type="button" class="m-info-button" aria-expanded="false" data-info-for="category">
-                        <span class="mso">info</span>
-                        <span class="sr-only">More info about Category filter</span>
-                    </button>
-                </searchable-select>
+                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Choose between armors, weapons, or both.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <select id="category" class="select-base peer" value.bind="selectedCategory"
+                                    change.trigger="handleCategoryChange()">
+                                <option repeat.for="opt of categoryOptions" value.bind="opt.value">${opt.label}</option>
+                            </select>
+                            <label for="category" class="floating-label">Select Category</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="category">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Category filter</span>
+                        </button>
+                    </div>
+                </div>
 
-                <searchable-select id="sockets"
-                                   class="w-full lg:w-auto lg:min-w-60"
-                                   data-help-text="Filter by the max possible sockets on the base."
-                                   value.bind="selectedSockets"
-                                   options.bind="socketOptions"
-                                   label="Select Sockets">
-                    <button au-slot="after" type="button" class="m-info-button" aria-expanded="false" data-info-for="sockets">
-                        <span class="mso">info</span>
-                        <span class="sr-only">More info about Sockets filter</span>
-                    </button>
-                </searchable-select>
+                <div class="w-full lg:w-auto lg:min-w-60"
+                     data-help-text="Filter by the max possible sockets on the base.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <select id="sockets" class="select-base peer" value.bind="selectedSockets">
+                                <option repeat.for="opt of socketOptions" if.bind="opt.value === ''" value="">
+                                    ${opt.label}
+                                </option>
+                                <option repeat.for="opt of socketOptions" if.bind="opt.value !== ''"
+                                        model.bind="opt.value">${opt.label}
+                                </option>
+                            </select>
+                            <label for="sockets" class="floating-label">Select Sockets</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="sockets">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Sockets filter</span>
+                        </button>
+                    </div>
+                </div>
 
                 <searchable-select id="itype"
                                    class="w-full lg:w-auto lg:min-w-60"
@@ -49,17 +61,21 @@
                     </button>
                 </searchable-select>
 
-                <searchable-select id="tier"
-                                   class="w-full lg:w-auto lg:min-w-60"
-                                   data-help-text="Filter by the base tier. With none selected, the page defaults to sticking NXE of a base group with each other."
-                                   value.bind="selectedTier"
-                                   options.bind="tierOptions"
-                                   label="Select Tier">
-                    <button au-slot="after" type="button" class="m-info-button" aria-expanded="false" data-info-for="tier">
-                        <span class="mso">info</span>
-                        <span class="sr-only">More info about Tier filter</span>
-                    </button>
-                </searchable-select>
+                <div class="w-full lg:w-auto lg:min-w-60"
+                     data-help-text="Filter by the base tier. With none selected, the page defaults to sticking NXE of a base group with each other.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <select id="tier" class="select-base peer" value.bind="selectedTier">
+                                <option repeat.for="opt of tierOptions" value.bind="opt.value">${opt.label}</option>
+                            </select>
+                            <label for="tier" class="floating-label">Select Tier</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="tier">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Tier filter</span>
+                        </button>
+                    </div>
+                </div>
 
                 <div class="w-full lg:w-60"
                      data-help-text="Search across all fields. Attempts exact match. Seperate with '+' for AND match. Seperate with ',' or '|' for OR match. ex. 'fire skill damage+enemy fire' finds items with only both tokens. 'fire skill damage,enemy fire' finds items with either token.">

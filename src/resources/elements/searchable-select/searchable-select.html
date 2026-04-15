@@ -16,7 +16,7 @@
             <!-- Floating Label -->
             <label if.bind="label"
                    for.bind="id"
-                   class="floating-label ${disabled ? 'bg-gray-900 text-gray-500' : ''} ${ (isOpen || (value !== '' && value !== undefined)) ? 'bg-transparent top-1 -translate-y-2/5 scale-75' : '' }">
+                   class="floating-label ${disabled ? 'bg-transparent!' : ''} ${ (isOpen || (value !== '' && value !== undefined)) ? 'bg-transparent top-1 -translate-y-2/5 scale-75' : '' }">
                 ${label}
             </label>
         </div>

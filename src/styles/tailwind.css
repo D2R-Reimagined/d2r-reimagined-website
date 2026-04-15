@@ -169,7 +169,7 @@
     }
 
     .peer:disabled ~ .floating-label {
-        @apply bg-gray-900 text-gray-500;
+        @apply bg-transparent text-gray-500;
     }
 
     /* MSO Float compatibility */
