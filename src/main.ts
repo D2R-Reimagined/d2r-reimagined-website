@@ -163,21 +163,10 @@ const TooltipManager = (() => {
         ).toLowerCase();
         // Only accept safe values we use (top/bottom). Could be extended to left/right if desired.
         const allowed: Record<string, true> = { top: true, bottom: true };
-        // Default / fallback
-        let placement: 'top' | 'bottom' = allowed[overridePlacement]
+        // Default / fallback – always prefer 'top' so tooltips don't cover the search area.
+        const placement: 'top' | 'bottom' = allowed[overridePlacement]
             ? (overridePlacement as 'top' | 'bottom')
             : 'top';
-        try {
-            if (!allowed[overridePlacement]) {
-                const rect = trigger.getBoundingClientRect();
-                const vh = window.innerHeight || document.documentElement.clientHeight;
-                const spaceAbove = rect.top;
-                const spaceBelow = vh - rect.bottom;
-                placement = spaceAbove >= spaceBelow ? 'top' : 'bottom';
-            }
-        } catch {
-            /* default to top */
-        }
 
         // Resolve the required idle (no-move) delay before showing, in ms.
         const resolveIdleMs = (): number => {
