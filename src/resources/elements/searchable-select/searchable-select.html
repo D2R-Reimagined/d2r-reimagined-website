@@ -1,0 +1,58 @@
+﻿<template class="block relative searchable-select-container ${isOpen ? 'z-30' : 'z-0'}">
+    <div class="relative flex items-stretch">
+        <div class="relative flex-1">
+            <!-- The main "select" trigger button -->
+            <button type="button"
+                    id.bind="id"
+                    class="${exact ? 'select-base-exact' : 'select-base'} peer text-left flex items-center justify-between cursor-pointer ${disabled ? 'opacity-50 cursor-not-allowed' : ''} ${ (!disabled && value !== '' && value !== undefined) ? 'ring ring-gray-400' : '' }"
+                    click.trigger="toggle($event)"
+                    disabled.bind="disabled"
+                    aria-haspopup="listbox"
+                    aria-expanded.bind="isOpen.toString()">
+                <span class="truncate">${displayLabel || '&nbsp;'}</span>
+                <span class="mso ml-2 transition-transform ${isOpen ? 'rotate-180' : ''}">arrow_downward</span>
+            </button>
+
+            <!-- Floating Label -->
+            <label if.bind="label"
+                   for.bind="id"
+                   class="floating-label ${disabled ? 'bg-gray-900 text-gray-500' : ''} ${ (isOpen || (value !== '' && value !== undefined)) ? 'bg-transparent top-1 -translate-y-2/5 scale-75' : '' }">
+                ${label}
+            </label>
+        </div>
+        <au-slot name="after"></au-slot>
+    </div>
+
+    <!-- Dropdown Panel -->
+    <div if.bind="isOpen"
+         class="absolute z-50 w-full mt-1 bg-gray-800 border border-gray-600 rounded-lg shadow-xl overflow-hidden min-w-[200px]"
+         click.trigger="panelClick($event)">
+        <!-- Search Box -->
+        <div class="p-2 border-b border-gray-600 bg-gray-900">
+            <div class="relative">
+                <input type="text"
+                       value.bind="searchText"
+                       class="w-full bg-gray-800 border border-gray-600 text-base type-text px-3 py-1.5 rounded outline-none focus:ring-1 focus:ring-gray-400"
+                       placeholder="Search..."
+                       ref="searchInput"
+                       keydown.trigger="$event.key === 'Escape' && (isOpen = false)">
+                <span class="mso absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">search</span>
+            </div>
+        </div>
+
+        <!-- Options List -->
+        <ul class="max-h-60 overflow-y-auto py-1" role="listbox">
+            <li repeat.for="opt of filteredOptions"
+                class="px-3 py-2 cursor-pointer hover:bg-gray-700 type-text flex items-center justify-between ${String(getOptValue(opt)) === String(value) ? 'bg-gray-700' : ''}"
+                click.trigger="selectOption(opt, $event)"
+                role="option"
+                aria-selected.bind="(String(getOptValue(opt)) === String(value)).toString()">
+                <span>${getOptLabel(opt)}</span>
+                <span if.bind="String(getOptValue(opt)) === String(value)" class="mso text-lime-500">check</span>
+            </li>
+            <li if.bind="filteredOptions.length === 0" class="px-3 py-4 text-center text-gray-500 italic">
+                No results found
+            </li>
+        </ul>
+    </div>
+</template>

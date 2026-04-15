@@ -7,60 +7,42 @@
         <div class="w-full m-auto px-5 py-2">
             <div class="flex flex-wrap justify-center items-start gap-2">
 
-                <div class="w-full lg:w-auto lg:min-w-40"
-                     data-help-text="Filter by number of runes required. This amount is exact.">
-                    <div class="flex items-stretch">
-                        <div class="relative flex-1">
-                            <select id="runecount" class="select-base peer" value.bind="selectedAmount">
-                                <option repeat.for="opt of amounts" if.bind="opt.value === ''" value="">${opt.label}
-                                </option>
-                                <option repeat.for="opt of amounts" if.bind="opt.value !== ''" model.bind="opt.value">
-                                    ${opt.label}
-                                </option>
-                            </select>
-                            <label for="runecount" class="floating-label">Rune Count</label>
-                        </div>
-                        <!-- Mobile-only info button -->
-                        <button type="button"
-                                class="m-info-button"
-                                aria-expanded="false" data-info-for="runecount"
-                        >
-                            <span class="mso">info</span>
-                            <span class="sr-only">More info about Item Type filter</span>
-                        </button>
-                    </div>
-                </div>
+                <searchable-select id="runecount"
+                                   class="w-full lg:w-auto lg:min-w-40"
+                                   data-help-text="Filter by number of runes required. This amount is exact."
+                                   value.bind="selectedAmount"
+                                   options.bind="amounts"
+                                   label="Rune Count">
+                    <button au-slot="after" type="button" class="m-info-button" aria-expanded="false" data-info-for="runecount">
+                        <span class="mso">info</span>
+                        <span class="sr-only">More info about Item Type filter</span>
+                    </button>
+                </searchable-select>
 
-                <div class="w-full lg:w-auto lg:min-w-70 flex flex-nowrap items-stretch"
-                     data-help-text="Filter by base item type. Toggle ‘Exact’ to remove variants."
-                >
-                    <div class="relative flex-1">
-                        <select id="itype" class="select-base-exact peer" value.bind="selectedType">
-                            <option repeat.for="opt of types"
-                                    value.bind="opt.id">${opt.label}
-                            </option>
-                        </select>
-                        <label for="itype" class="floating-label">Select Item Type</label>
-                    </div>
-                    <div class="flex items-center">
-                        <button
-                                type="button"
+                <searchable-select id="itype"
+                                   class="w-full lg:w-auto lg:min-w-70"
+                                   data-help-text="Filter by base item type. Toggle ‘Exact’ to remove variants."
+                                   value.bind="selectedType"
+                                   options.bind="types"
+                                   label="Select Item Type"
+                                   exact.bind="true">
+                    <div au-slot="after" class="flex items-stretch">
+                        <button type="button"
                                 class="exact-button"
                                 aria-pressed.bind="exclusiveType"
                                 click.trigger="exclusiveType = !exclusiveType">
                             <span class="exact-indicator"></span>
                             Exact
                         </button>
+                        <!-- Mobile-only info button -->
+                        <button type="button"
+                                class="m-info-button"
+                                aria-expanded="false" data-info-for="itype">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Item Type filter</span>
+                        </button>
                     </div>
-                    <!-- Mobile-only info button -->
-                    <button type="button"
-                            class="m-info-button"
-                            aria-expanded="false" data-info-for="itype"
-                    >
-                        <span class="mso">info</span>
-                        <span class="sr-only">More info about Item Type filter</span>
-                    </button>
-                </div>
+                </searchable-select>
 
                 <div class="w-full lg:w-60"
                      data-help-text="Search across all fields. Attempts exact match. Seperate with '+' for AND match. Seperate with ',' or '|' for OR match. ex. 'fire skill damage+enemy fire' finds items with only both tokens. 'fire skill damage,enemy fire' finds items with either token.">
