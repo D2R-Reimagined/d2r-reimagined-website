@@ -21,26 +21,26 @@ export function sortItemsByWeaponDamage<T>(items: T[], mode: WeaponSortMode): T[
     if (mode === 'none') return items;
 
     const isAsc = mode.includes('ascending');
-    return items.slice().sort((a, b) => {
-        let vA = 0, vB = 0;
-        if (mode.includes('1h-phys')) {
-            vA = getWeaponPhysDamValue(a as unknown as IUniqueItem, [3, 0]);
-            vB = getWeaponPhysDamValue(b as unknown as IUniqueItem, [3, 0]);
-        } else if (mode.includes('2h-phys')) {
-            vA = getWeaponPhysDamValue(a as unknown as IUniqueItem, 1);
-            vB = getWeaponPhysDamValue(b as unknown as IUniqueItem, 1);
-        } else if (mode.includes('throw-phys')) {
-            vA = getWeaponPhysDamValue(a as unknown as IUniqueItem, 2);
-            vB = getWeaponPhysDamValue(b as unknown as IUniqueItem, 2);
-        } else if (mode.includes('non-phys')) {
-            vA = getWeaponNonPhysDamValue(a as unknown as IUniqueItem);
-            vB = getWeaponNonPhysDamValue(b as unknown as IUniqueItem);
-        }
 
-        if (vA === 0 && vB !== 0) return 1;
-        if (vA !== 0 && vB === 0) return -1;
-        return isAsc ? vA - vB : vB - vA;
+    // Precompute sort keys to avoid repeated DamageTypes lookups during comparisons
+    let getValue: (item: T) => number;
+    if (mode.includes('1h-phys')) {
+        getValue = (item) => getWeaponPhysDamValue(item as unknown as IUniqueItem, [3, 0]);
+    } else if (mode.includes('2h-phys')) {
+        getValue = (item) => getWeaponPhysDamValue(item as unknown as IUniqueItem, 1);
+    } else if (mode.includes('throw-phys')) {
+        getValue = (item) => getWeaponPhysDamValue(item as unknown as IUniqueItem, 2);
+    } else {
+        getValue = (item) => getWeaponNonPhysDamValue(item as unknown as IUniqueItem);
+    }
+
+    const decorated = items.map((item) => ({ item, val: getValue(item) }));
+    decorated.sort((a, b) => {
+        if (a.val === 0 && b.val !== 0) return 1;
+        if (a.val !== 0 && b.val === 0) return -1;
+        return isAsc ? a.val - b.val : b.val - a.val;
     });
+    return decorated.map((d) => d.item);
 }
 
 export function toggleWeaponSort(currentMode: WeaponSortMode, type: string): WeaponSortMode {

@@ -554,39 +554,34 @@ export class Grail {
                 : null;
 
         if (this.selectedCategory === 'uniques') {
+            const selectedClassLower = this.selectedClass ? String(this.selectedClass).toLowerCase() : '';
+            const hasSearch = searchTokens.length > 0;
+            const checkFound = this.showFoundItems;
+            const checkVanilla = this.hideVanilla;
+
             const result = this.uniques.filter((unique) => {
-                const okClass =
-                    !this.selectedClass ||
-                    String(unique?.Equipment?.RequiredClass || '')
-                        .toLowerCase()
-                        .includes(String(this.selectedClass).toLowerCase());
-                const okType =
-                    !selectedTypeSet ||
-                    selectedTypeSet.has(
-                        getChainForTypeNameReadonly(unique?.Type ?? '')[0] || (unique?.Type ?? ''),
-                    );
-                const okEquip =
-                    !this.selectedEquipmentName ||
-                    String(unique?.Equipment?.Name || '') === this.selectedEquipmentName;
-                const okVanilla = !this.hideVanilla || !isVanillaItem(unique?.Vanilla);
-                const okSearch = this.tokensPartiallyMatch(
-                    this._uniqueSearchString.get(this.getUniqueKey(unique)),
-                    searchTokens,
-                );
-                const notGrabber = !String(unique?.Name || '')
-                    .toLowerCase()
-                    .includes('grabber');
+                // Cheap checks first
+                if (String(unique?.Name || '').toLowerCase().includes('grabber')) return false;
+                if (checkVanilla && isVanillaItem(unique?.Vanilla)) return false;
+
+                if (selectedClassLower) {
+                    const req = String(unique?.Equipment?.RequiredClass || '').toLowerCase();
+                    if (!req.includes(selectedClassLower)) return false;
+                }
+                if (selectedTypeSet) {
+                    const base = getChainForTypeNameReadonly(unique?.Type ?? '')[0] || (unique?.Type ?? '');
+                    if (!selectedTypeSet.has(base)) return false;
+                }
+                if (this.selectedEquipmentName &&
+                    String(unique?.Equipment?.Name || '') !== this.selectedEquipmentName) return false;
+
                 const key = this.getUniqueKey(unique);
-                const okFound = !this.showFoundItems || !this.foundUniques[key];
-                return (
-                    okClass &&
-                    okType &&
-                    okEquip &&
-                    okVanilla &&
-                    okSearch &&
-                    notGrabber &&
-                    okFound
-                );
+                if (checkFound && this.foundUniques[key]) return false;
+
+                // Expensive search check last
+                if (hasSearch && !this.tokensPartiallyMatch(this._uniqueSearchString.get(key), searchTokens)) return false;
+
+                return true;
             });
             this.filteredUniques = result;
             // Hand filter (1H / 2H):
@@ -600,28 +595,31 @@ export class Grail {
             }
             this.displayedCount = this.filteredUniques.length;
         } else if (this.selectedCategory === 'sets') {
+            const selectedClassLower = this.selectedClass ? String(this.selectedClass).toLowerCase() : '';
+            const hasSearch = searchTokens.length > 0;
+            const checkFound = this.showFoundItems;
+            const checkVanilla = this.hideVanilla;
+
             const result = this.allSetItems.filter((item) => {
-                const okClass =
-                    !this.selectedClass ||
-                    String(item?.Equipment?.RequiredClass || '')
-                        .toLowerCase()
-                        .includes(String(this.selectedClass).toLowerCase());
-                const okType =
-                    !selectedTypeSet ||
-                    selectedTypeSet.has(
-                        getChainForTypeNameReadonly(item?.Type ?? '')[0] || (item?.Type ?? ''),
-                    );
-                const okEquip =
-                    !this.selectedEquipmentName ||
-                    String(item?.Equipment?.Name || '') === this.selectedEquipmentName;
-                const okVanilla = !this.hideVanilla || !isVanillaItem(item?.Vanilla);
-                const okSearch = this.tokensPartiallyMatch(
-                    this._setItemSearchString.get(this.getSetItemKey(item)),
-                    searchTokens,
-                );
+                if (checkVanilla && isVanillaItem(item?.Vanilla)) return false;
+
+                if (selectedClassLower) {
+                    const req = String(item?.Equipment?.RequiredClass || '').toLowerCase();
+                    if (!req.includes(selectedClassLower)) return false;
+                }
+                if (selectedTypeSet) {
+                    const base = getChainForTypeNameReadonly(item?.Type ?? '')[0] || (item?.Type ?? '');
+                    if (!selectedTypeSet.has(base)) return false;
+                }
+                if (this.selectedEquipmentName &&
+                    String(item?.Equipment?.Name || '') !== this.selectedEquipmentName) return false;
+
                 const key = this.getSetItemKey(item);
-                const okFound = !this.showFoundItems || !this.foundSets[key];
-                return okClass && okType && okEquip && okVanilla && okSearch && okFound;
+                if (checkFound && this.foundSets[key]) return false;
+
+                if (hasSearch && !this.tokensPartiallyMatch(this._setItemSearchString.get(key), searchTokens)) return false;
+
+                return true;
             });
             this.filteredSetItems = result;
             // Hand filter (1H / 2H):
