@@ -22,7 +22,11 @@ import {
     tokenizeSearch,
 } from '../../utilities/filter-helpers';
 import {
+    getHandFilterLabel,
     getSortKeyFromDamageType as getSortKeyFromDamageTypeUtil,
+    HandFilterMode,
+    passesHandFilter,
+    toggleHandFilter,
     toggleWeaponSort,
     WeaponSortMode,
     weaponSortOptions,
@@ -44,6 +48,7 @@ export class Sets {
     // When true, exclude items where Vanilla === 'Y'
     @bindable hideVanilla: boolean = false;
     @bindable weaponSortMode: WeaponSortMode = 'none';
+    @bindable handFilterMode: HandFilterMode = 'all';
 
     private _debouncedSearchItem!: IDebouncedFunction;
     private _debouncedUpdateUrl!: IDebouncedFunction;
@@ -247,6 +252,15 @@ export class Sets {
                 return true;
             });
 
+            // Hand filter (1H / 2H):
+            if (this.handFilterMode !== 'all') {
+                this.sets = this.sets.filter((set: ISetData) =>
+                    (set.SetItems ?? []).some((si) =>
+                        passesHandFilter(si?.Equipment?.DamageTypes, this.handFilterMode),
+                    ),
+                );
+            }
+
             // Main sorting logic:
             if (this.isWeaponType && this.weaponSortMode !== 'none') {
                 const isAsc = this.weaponSortMode.includes('ascending');
@@ -374,6 +388,7 @@ export class Sets {
         this.hideVanilla = false;
         this.equipmentNames = [{ value: '', label: '-' }];
         this.weaponSortMode = 'none';
+        this.handFilterMode = 'all';
 
         this.updateList();
         this.updateUrl();
@@ -382,6 +397,7 @@ export class Sets {
     // Reset only the weapon sorting mode
     resetSort() {
         this.weaponSortMode = 'none';
+        this.handFilterMode = 'all';
     }
 
     toggleSort(type: string) {
@@ -391,4 +407,11 @@ export class Sets {
     getSortKeyFromDamageType(type: number): string | null {
         return getSortKeyFromDamageTypeUtil(type);
     }
+
+    toggleHandFilter() {
+        this.handFilterMode = toggleHandFilter(this.handFilterMode);
+        this.updateList();
+    }
+
+    getHandFilterLabel = getHandFilterLabel;
 }

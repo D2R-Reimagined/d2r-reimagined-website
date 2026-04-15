@@ -20,8 +20,12 @@ import {
     tokenizeSearch,
 } from '../../utilities/filter-helpers';
 import {
+    getHandFilterLabel,
     getSortKeyFromDamageType as getSortKeyFromDamageTypeUtil,
+    HandFilterMode,
+    passesHandFilter,
     sortItemsByWeaponDamage,
+    toggleHandFilter,
     toggleWeaponSort,
     WeaponSortMode,
     weaponSortOptions,
@@ -127,6 +131,7 @@ export class Grail {
     // When true, hide items where Vanilla === 'Y'
     @bindable hideVanilla: boolean = false;
     @bindable weaponSortMode: WeaponSortMode = 'none';
+    @bindable handFilterMode: HandFilterMode = 'all';
 
     // Helper to check if current type is weapon
     get isWeaponType(): boolean {
@@ -506,6 +511,7 @@ export class Grail {
         this.showFoundItems = false;
         this.hideVanilla = false;
         this.weaponSortMode = 'none';
+        this.handFilterMode = 'all';
 
         // Rebuild options list for the current category and refresh
         this.rebuildTypeOptions();
@@ -517,6 +523,7 @@ export class Grail {
     // Reset only the weapon sorting mode
     resetSort() {
         this.weaponSortMode = 'none';
+        this.handFilterMode = 'all';
         if (this._debouncedApplyFilters) this._debouncedApplyFilters();
     }
 
@@ -528,6 +535,13 @@ export class Grail {
     getSortKeyFromDamageType(type: number): string | null {
         return getSortKeyFromDamageTypeUtil(type);
     }
+
+    toggleHandFilter() {
+        this.handFilterMode = toggleHandFilter(this.handFilterMode);
+        if (this._debouncedApplyFilters) this._debouncedApplyFilters();
+    }
+
+    getHandFilterLabel = getHandFilterLabel;
 
     updateList() {
         // Filter per category
@@ -574,6 +588,12 @@ export class Grail {
                 );
             });
             this.filteredUniques = result;
+            // Hand filter (1H / 2H):
+            if (this.handFilterMode !== 'all') {
+                this.filteredUniques = this.filteredUniques.filter((u) =>
+                    passesHandFilter(u?.Equipment?.DamageTypes, this.handFilterMode),
+                );
+            }
             if (this.isWeaponType && this.weaponSortMode !== 'none') {
                 this.filteredUniques = sortItemsByWeaponDamage(this.filteredUniques, this.weaponSortMode);
             }
@@ -603,6 +623,12 @@ export class Grail {
                 return okClass && okType && okEquip && okVanilla && okSearch && okFound;
             });
             this.filteredSetItems = result;
+            // Hand filter (1H / 2H):
+            if (this.handFilterMode !== 'all') {
+                this.filteredSetItems = this.filteredSetItems.filter((si) =>
+                    passesHandFilter(si?.Equipment?.DamageTypes, this.handFilterMode),
+                );
+            }
             if (this.isWeaponType && this.weaponSortMode !== 'none') {
                 this.filteredSetItems = sortItemsByWeaponDamage(this.filteredSetItems, this.weaponSortMode);
             }

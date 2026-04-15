@@ -59,3 +59,33 @@ export function getSortKeyFromDamageType(type: number): string | null {
     if (type === 4) return 'non-phys';
     return null;
 }
+
+// Hand filter: cycles All → 1H Only → 2H Only → All
+export type HandFilterMode = 'all' | '1h' | '2h';
+
+export function toggleHandFilter(current: HandFilterMode): HandFilterMode {
+    if (current === 'all') return '1h';
+    if (current === '1h') return '2h';
+    return 'all';
+}
+
+export function getHandFilterLabel(mode: HandFilterMode): string {
+    if (mode === '1h') return '1H Only';
+    if (mode === '2h') return '2H Only';
+    return 'All';
+}
+
+/**
+ * Returns true if the item should be kept based on the hand filter.
+ * Checks DamageTypes on the item (or item.Equipment for uniques).
+ * - '1h': keep only if it does NOT have 2H damage (Type 1)
+ * - '2h': keep only if it DOES have 2H damage (Type 1)
+ * - 'all': keep everything
+ */
+export function passesHandFilter(damageTypes: { Type: number }[] | undefined | null, mode: HandFilterMode): boolean {
+    if (mode === 'all') return true;
+    const has2H = Array.isArray(damageTypes) && damageTypes.some(d => d.Type === 1);
+    if (mode === '1h') return !has2H;
+    if (mode === '2h') return has2H;
+    return true;
+}

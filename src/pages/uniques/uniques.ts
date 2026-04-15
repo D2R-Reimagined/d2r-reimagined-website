@@ -20,8 +20,12 @@ import {
     tokenizeSearch,
 } from '../../utilities/filter-helpers';
 import {
+    getHandFilterLabel,
     getSortKeyFromDamageType as getSortKeyFromDamageTypeUtil,
+    HandFilterMode,
+    passesHandFilter,
     sortItemsByWeaponDamage,
+    toggleHandFilter,
     toggleWeaponSort,
     WeaponSortMode,
     weaponSortOptions,
@@ -75,6 +79,7 @@ export class Uniques {
     // Current possible sorting modes
     // TODO: Specific non-physical damage sorting in the future? (e.g.: fire damage)
     @bindable weaponSortMode: WeaponSortMode = 'none';
+    @bindable handFilterMode: HandFilterMode = 'all';
 
     equipmentNames: Array<{ value: string | undefined; label: string }> = [];
 
@@ -282,6 +287,13 @@ export class Uniques {
             return true;
         });
 
+        // Hand filter (1H / 2H):
+        if (this.handFilterMode !== 'all') {
+            this.uniques = this.uniques.filter((u) =>
+                passesHandFilter(u?.Equipment?.DamageTypes, this.handFilterMode),
+            );
+        }
+
         // Main sorting logic:
         if (this.isWeaponType && this.weaponSortMode !== 'none') {
             this.uniques = sortItemsByWeaponDamage(this.uniques, this.weaponSortMode);
@@ -372,6 +384,7 @@ export class Uniques {
     // Reset only the weapon sorting mode
     resetSort() {
         this.weaponSortMode = 'none';
+        this.handFilterMode = 'all';
     }
 
     toggleSort(type: string) {
@@ -381,4 +394,11 @@ export class Uniques {
     getSortKeyFromDamageType(type: number): string | null {
         return getSortKeyFromDamageTypeUtil(type);
     }
+
+    toggleHandFilter() {
+        this.handFilterMode = toggleHandFilter(this.handFilterMode);
+        this.updateList();
+    }
+
+    getHandFilterLabel = getHandFilterLabel;
 }
