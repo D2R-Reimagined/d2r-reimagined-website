@@ -35,7 +35,7 @@
                        class="w-full bg-gray-800 border border-gray-600 text-base type-text px-3 py-1.5 rounded outline-none focus:ring-1 focus:ring-gray-400"
                        placeholder="Search..."
                        ref="searchInput"
-                       keydown.trigger="$event.key === 'Escape' && (isOpen = false)">
+                       keydown.trigger="$event.key === 'Escape' && close()">
                 <span class="mso absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">search</span>
             </div>
         </div>

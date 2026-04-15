@@ -40,6 +40,7 @@ export class SearchableSelect implements ICustomElementViewModel {
         this._boundDocClick = (ev: MouseEvent) => {
             if (this.isOpen && !this.element.contains(ev.target as Node)) {
                 this.isOpen = false;
+                this._syncTooltipDisabled();
             }
         };
         // Bubble phase: internal clicks that stopPropagation won't reach here
@@ -56,6 +57,7 @@ export class SearchableSelect implements ICustomElementViewModel {
     toggle(ev: Event) {
         if (this.disabled) return;
         this.isOpen = !this.isOpen;
+        this._syncTooltipDisabled();
         if (this.isOpen) {
             this.searchText = '';
             // Use a microtask so the DOM (if.bind) renders the input first
@@ -67,6 +69,12 @@ export class SearchableSelect implements ICustomElementViewModel {
         ev.stopPropagation();
         this.value = this.getOptValue(opt);
         this.isOpen = false;
+        this._syncTooltipDisabled();
+    }
+
+    close() {
+        this.isOpen = false;
+        this._syncTooltipDisabled();
     }
 
     panelClick(ev: Event) {
@@ -79,5 +87,14 @@ export class SearchableSelect implements ICustomElementViewModel {
 
     getOptLabel(opt: ISelectOption): string {
         return opt.label ?? opt.name ?? '';
+    }
+
+    /** Suppress ancestor/self tooltips while the dropdown is open. */
+    private _syncTooltipDisabled() {
+        if (this.isOpen) {
+            this.element.setAttribute('data-tooltip-disabled', '');
+        } else {
+            this.element.removeAttribute('data-tooltip-disabled');
+        }
     }
 }

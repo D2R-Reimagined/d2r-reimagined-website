@@ -239,6 +239,7 @@ const TooltipManager = (() => {
 
     const onEnter: EventListener = () => {
         if (Date.now() < (rec.suppressedUntil || 0)) return;
+        if (trigger.closest('[data-tooltip-disabled]') || trigger.hasAttribute('data-tooltip-disabled')) return;
         clearIdle(rec);
         rec.idleTimer = window.setTimeout(() => {
             // Remove our hidden state before showing; if the show fails, restore it
@@ -253,6 +254,7 @@ const TooltipManager = (() => {
     };
     const onMove: EventListener = () => {
         if (Date.now() < (rec.suppressedUntil || 0)) return;
+        if (trigger.closest('[data-tooltip-disabled]') || trigger.hasAttribute('data-tooltip-disabled')) return;
         // Any cursor movement while hovering resets the idle timer until stable for idleMs
         clearIdle(rec);
         rec.idleTimer = window.setTimeout(() => {
