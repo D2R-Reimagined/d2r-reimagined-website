@@ -1,4 +1,4 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-By7kClSb.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-Ds3jpIkO.js";
 import { g as getTypeChain, a as getChainForTypeNameReadonly, r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options } from "./item-type-filters-BmbPxQoN.js";
 import { t as toggleWeaponSort, g as getSortKeyFromDamageType, s as sortItemsByWeaponDamage, c as character_class_options, w as weaponSortOptions } from "./item-sorting-CN1-l_qa.js";
 import { g as getDamageTypeString } from "./damage-types-BlYhXdWN.js";
@@ -53,6 +53,19 @@ const template = `<template>
                 </button>
             </div>
         </div>
+        <div class="w-full lg:w-85" data-help-text="Open a popup to export or import Grail progress as base64.">
+            <div class="flex items-stretch">
+                <div class="relative flex-1">
+                    <button id="importexportgraildata" type="button" click.trigger="openImportExportPopup()" class="button-base">
+                        Import/Export Grail Data
+                    </button>
+                </div>
+                <button type="button" class="m-info-button" aria-expanded="false" data-info-for="importexportgraildata">
+                    <span class="mso">info</span>
+                    <span class="sr-only">More info about Import/Export Grail Data</span>
+                </button>
+            </div>
+        </div>
         <div class="w-full lg:w-85" data-help-text="Filter toggle to hide items you've already found.">
             <div class="flex items-stretch">
                 <div class="relative flex-1">
@@ -65,19 +78,6 @@ const template = `<template>
                 <button type="button" class="m-info-button" aria-expanded="false" data-info-for="hidefounditems">
                     <span class="mso">info</span>
                     <span class="sr-only">More info about the Hide Found Items button</span>
-                </button>
-            </div>
-        </div>
-        <div class="w-full lg:w-85" data-help-text="Open a popup to export or import Grail progress as base64.">
-            <div class="flex items-stretch">
-                <div class="relative flex-1">
-                    <button id="importexportgraildata" type="button" click.trigger="openImportExportPopup()" class="button-base">
-                        Import/Export Grail Data
-                    </button>
-                </div>
-                <button type="button" class="m-info-button" aria-expanded="false" data-info-for="importexportgraildata">
-                    <span class="mso">info</span>
-                    <span class="sr-only">More info about Import/Export Grail Data</span>
                 </button>
             </div>
         </div>
