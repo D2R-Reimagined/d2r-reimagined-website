@@ -18,11 +18,15 @@ import {
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
 import {
     isVanillaItem,
+    matchesTokenGroups,
     prependTypeResetOption,
     tokenizeSearch,
 } from '../../utilities/filter-helpers';
 import {
+    handFilterOptions,
     getSortKeyFromDamageType as getSortKeyFromDamageTypeUtil,
+    HandFilterMode,
+    passesHandFilter,
     toggleWeaponSort,
     WeaponSortMode,
     weaponSortOptions,
@@ -44,6 +48,7 @@ export class Sets {
     // When true, exclude items where Vanilla === 'Y'
     @bindable hideVanilla: boolean = false;
     @bindable weaponSortMode: WeaponSortMode = 'none';
+    @bindable handFilterMode: HandFilterMode = '';
 
     private _debouncedSearchItem!: IDebouncedFunction;
     private _debouncedUpdateUrl!: IDebouncedFunction;
@@ -72,6 +77,7 @@ export class Sets {
     }
 
     weaponSortOptions = weaponSortOptions;
+    handFilterOptions = handFilterOptions;
 
     // Build options and hydrate from URL BEFORE controls render
     binding(): void {
@@ -168,6 +174,7 @@ export class Sets {
     @watch('selectedClass')
     @watch('hideVanilla')
     @watch('weaponSortMode')
+    @watch('handFilterMode')
     handleFilterChanged(): void {
         this.updateList();
         if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
@@ -239,7 +246,7 @@ export class Sets {
 
                 // 5. Search filter
                 if (searchTokens.length > 0) {
-                    if (!searchTokens.some((group) => group.every((t) => hay.includes(t)))) {
+                    if (!matchesTokenGroups(hay, searchTokens)) {
                         return false;
                     }
                 }
@@ -247,34 +254,42 @@ export class Sets {
                 return true;
             });
 
-            // Main sorting logic:
+            // Hand filter (1H / 2H):
+            if (this.handFilterMode) {
+                this.sets = this.sets.filter((set: ISetData) =>
+                    (set.SetItems ?? []).some((si) =>
+                        passesHandFilter(si?.Equipment?.DamageTypes, this.handFilterMode),
+                    ),
+                );
+            }
+
+            // Main sorting logic — precompute sort keys to avoid per-comparison work:
             if (this.isWeaponType && this.weaponSortMode !== 'none') {
                 const isAsc = this.weaponSortMode.includes('ascending');
                 const mode = this.weaponSortMode;
-                this.sets = this.sets.slice().sort((a, b) => {
-                    const getBestDam = (set: ISetData) => {
-                        let maxV = 0;
-                        for (const item of set.SetItems || []) {
-                            let v = 0;
-                            if (mode.includes('1h-phys'))
-                                v = getWeaponPhysDamValue(item as unknown as IUniqueItem, [3, 0]);
-                            else if (mode.includes('2h-phys'))
-                                v = getWeaponPhysDamValue(item as unknown as IUniqueItem, 1);
-                            else if (mode.includes('throw-phys'))
-                                v = getWeaponPhysDamValue(item as unknown as IUniqueItem, 2);
-                            else if (mode.includes('non-phys'))
-                                v = getWeaponNonPhysDamValue(item as unknown as IUniqueItem);
-                            if (v > maxV) maxV = v;
-                        }
-                        return maxV;
-                    };
-                    const vA = getBestDam(a);
-                    const vB = getBestDam(b);
-
-                    if (vA === 0 && vB !== 0) return 1;
-                    if (vA !== 0 && vB === 0) return -1;
-                    return isAsc ? vA - vB : vB - vA;
+                const getBestDam = (set: ISetData): number => {
+                    let maxV = 0;
+                    for (const item of set.SetItems || []) {
+                        let v = 0;
+                        if (mode.includes('1h-phys'))
+                            v = getWeaponPhysDamValue(item as unknown as IUniqueItem, [3, 0]);
+                        else if (mode.includes('2h-phys'))
+                            v = getWeaponPhysDamValue(item as unknown as IUniqueItem, 1);
+                        else if (mode.includes('throw-phys'))
+                            v = getWeaponPhysDamValue(item as unknown as IUniqueItem, 2);
+                        else if (mode.includes('non-phys'))
+                            v = getWeaponNonPhysDamValue(item as unknown as IUniqueItem);
+                        if (v > maxV) maxV = v;
+                    }
+                    return maxV;
+                };
+                const decorated = this.sets.map((set) => ({ set, val: getBestDam(set) }));
+                decorated.sort((a, b) => {
+                    if (a.val === 0 && b.val !== 0) return 1;
+                    if (a.val !== 0 && b.val === 0) return -1;
+                    return isAsc ? a.val - b.val : b.val - a.val;
                 });
+                this.sets = decorated.map((d) => d.set);
             }
         } catch (e) {
             // eslint-disable-next-line no-console
@@ -315,6 +330,12 @@ export class Sets {
             }
             for (const s of si?.SetPropertiesString || []) {
                 if (s) parts.push(String(s));
+            }
+            if (Array.isArray(si?.Equipment?.DamageTypes)) {
+                for (const d of si.Equipment.DamageTypes) {
+                    parts.push(getDamageTypeStringUtil(d.Type));
+                    if (d.DamageString) parts.push(d.DamageString);
+                }
             }
         }
         return parts.filter(Boolean).join(' ').toLowerCase();
@@ -375,6 +396,7 @@ export class Sets {
         this.hideVanilla = false;
         this.equipmentNames = [{ value: '', label: '-' }];
         this.weaponSortMode = 'none';
+        this.handFilterMode = '';
 
         this.updateList();
         this.updateUrl();
@@ -383,6 +405,7 @@ export class Sets {
     // Reset only the weapon sorting mode
     resetSort() {
         this.weaponSortMode = 'none';
+        this.handFilterMode = '';
     }
 
     toggleSort(type: string) {

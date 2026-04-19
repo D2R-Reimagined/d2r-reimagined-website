@@ -53,7 +53,7 @@
                 </searchable-select>
 
                 <div class="w-full lg:w-60"
-                     data-help-text="Search across all fields, sets match as full set if one is found. Uses (space) as an 'AND' modifier. ex: Typing sorc skill mana will return items with only all 3 words.">
+                     data-help-text="Search across all fields, sets match as full set if one is found. Text is matched as a phrase. Use '+' to require multiple terms (AND). Use ',' or '|' for OR. Prefix with '-' or '!' to exclude a term or phrase. ex: 'sorc skill mana' finds the exact phrase. 'fire+cold' finds items with both. '-fire' excludes items containing fire. 'damage -fire' finds items with damage but not fire. 'fire skill damage -cold skill damage' finds fire skill damage but excludes cold skill damage.">
                     <div class="flex items-stretch">
                         <div class="trailing-icon flex-1" data-icon="search">
                             <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search"
@@ -112,6 +112,21 @@
         <div class="w-full m-auto px-5 py-5 pb-2 border-b border-gray-600">
             <h4 class="text-lg type-text text-center mb-2">Sort by Average Weapon Damage:</h4>
             <div class="flex flex-wrap justify-center items-start gap-2">
+
+                <div class="w-full lg:w-auto lg:min-w-55" data-help-text="Filter weapon type: -, 1H Only, or 2H Only.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <select id="handfilter" class="select-base peer" value.bind="handFilterMode">
+                                <option repeat.for="opt of handFilterOptions" value.bind="opt.value">${opt.label}</option>
+                            </select>
+                            <label for="handfilter" class="floating-label">Weapon Type</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="handfilter">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Weapon Type filter</span>
+                        </button>
+                    </div>
+                </div>
 
                 <div repeat.for="opt of weaponSortOptions" class="w-full lg:w-auto lg:min-w-45" data-help-text.bind="opt.help">
                     <div class="flex items-stretch">

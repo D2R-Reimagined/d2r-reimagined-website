@@ -11,7 +11,7 @@ import {
     getDamageTypeString as getDamageTypeStringUtil,
     IDamageType,
 } from '../../utilities/damage-types';
-import { prependTypeResetOption, tokenizeSearch } from '../../utilities/filter-helpers';
+import { matchesTokenGroups, prependTypeResetOption, tokenizeSearch } from '../../utilities/filter-helpers';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 import armorsJson from '../item-jsons/armors.json';
 import weaponsJson from '../item-jsons/weapons.json';
@@ -270,9 +270,7 @@ export class Bases {
 
         for (const i of all) {
             const hay = this._searchMap.get(i) || '';
-            const matches = !searchTokens.length || searchTokens.some((group) =>
-                group.every((t) => hay.includes(t)),
-            );
+            const matches = !searchTokens.length || matchesTokenGroups(hay, searchTokens);
             if (matches) {
                 primary.push(i);
                 if (i.NormCode) codeSet.add(i.NormCode.toLowerCase());
@@ -418,16 +416,26 @@ export class Bases {
     }
 
     private buildSearchString(i: IBaseItem): string {
-        return [
-            i.Name,
-            i.Type?.Name,
+        const parts: string[] = [
+            i.Name ?? '',
+            i.Type?.Name ?? '',
             i.NormCode ?? '',
             i.UberCode ?? '',
             i.UltraCode ?? '',
-        ]
-            .filter(Boolean)
-            .join(' ')
-            .toLowerCase();
+        ];
+        if (i.DamageString) {
+            if (i.DamageStringPrefix && String(i.DamageStringPrefix).trim() !== '') {
+                parts.push(i.DamageStringPrefix);
+            }
+            parts.push(i.DamageString);
+        }
+        if (Array.isArray(i.DamageTypes)) {
+            for (const d of i.DamageTypes) {
+                parts.push(getDamageTypeStringUtil(d.Type));
+                if (d.DamageString) parts.push(d.DamageString);
+            }
+        }
+        return parts.filter(Boolean).join(' ').toLowerCase();
     }
 
     groupedProperties(item: IBaseItem) {

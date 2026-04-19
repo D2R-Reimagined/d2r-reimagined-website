@@ -16,11 +16,15 @@ import {
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
 import {
     isVanillaItem,
+    matchesTokenGroups,
     prependTypeResetOption,
     tokenizeSearch,
 } from '../../utilities/filter-helpers';
 import {
+    handFilterOptions,
     getSortKeyFromDamageType as getSortKeyFromDamageTypeUtil,
+    HandFilterMode,
+    passesHandFilter,
     sortItemsByWeaponDamage,
     toggleWeaponSort,
     WeaponSortMode,
@@ -75,6 +79,7 @@ export class Uniques {
     // Current possible sorting modes
     // TODO: Specific non-physical damage sorting in the future? (e.g.: fire damage)
     @bindable weaponSortMode: WeaponSortMode = 'none';
+    @bindable handFilterMode: HandFilterMode = '';
 
     equipmentNames: Array<{ value: string | undefined; label: string }> = [];
 
@@ -179,6 +184,7 @@ export class Uniques {
     @watch('selectedClass')
     @watch('hideVanilla')
     @watch('weaponSortMode')
+    @watch('handFilterMode')
     handleFilterChanged() {
         this.updateList();
         if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
@@ -191,6 +197,7 @@ export class Uniques {
     }
 
     weaponSortOptions = weaponSortOptions;
+    handFilterOptions = handFilterOptions;
 
     @watch('selectedType')
     handleTypeChanged() {
@@ -274,13 +281,20 @@ export class Uniques {
             // 5. Search filter
             if (searchTokens.length > 0) {
                 const hay = this._searchStrings.get(unique) || '';
-                if (!searchTokens.some((group) => group.every((t) => hay.includes(t)))) {
+                if (!matchesTokenGroups(hay, searchTokens)) {
                     return false;
                 }
             }
 
             return true;
         });
+
+        // Hand filter (1H / 2H):
+        if (this.handFilterMode) {
+            this.uniques = this.uniques.filter((u) =>
+                passesHandFilter(u?.Equipment?.DamageTypes, this.handFilterMode),
+            );
+        }
 
         // Main sorting logic:
         if (this.isWeaponType && this.weaponSortMode !== 'none') {
@@ -305,6 +319,13 @@ export class Uniques {
                     });
                 }
             });
+        }
+
+        if (Array.isArray(unique?.Equipment?.DamageTypes)) {
+            for (const d of unique.Equipment.DamageTypes) {
+                parts.push(getDamageTypeStringUtil(d.Type));
+                if (d.DamageString) parts.push(d.DamageString);
+            }
         }
 
         return parts.filter(Boolean).join(' ').toLowerCase();
@@ -364,6 +385,7 @@ export class Uniques {
         this.selectedEquipmentName = undefined;
         this.equipmentNames = [{ value: '', label: '-' }];
         this.weaponSortMode = 'none';
+        this.handFilterMode = '';
 
         this.updateList();
         this.updateUrl();
@@ -372,6 +394,7 @@ export class Uniques {
     // Reset only the weapon sorting mode
     resetSort() {
         this.weaponSortMode = 'none';
+        this.handFilterMode = '';
     }
 
     toggleSort(type: string) {
