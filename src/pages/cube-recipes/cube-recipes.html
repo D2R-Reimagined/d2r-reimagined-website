@@ -7,21 +7,17 @@
         <div class="w-full m-auto px-5 py-2">
             <div class="flex flex-wrap justify-center items-start gap-2">
 
-                <div class="w-full lg:w-auto lg:min-w-60"
-                     data-help-text="Filter recipes by type (reroll, upgrade, craft, etc.).">
-                    <div class="flex items-stretch">
-                        <div class="relative flex-1">
-                            <select id="notesel" class="select-base peer" value.bind="selectedNote">
-                                <option repeat.for="opt of noteOptions" value.bind="opt.value">${opt.label}</option>
-                            </select>
-                            <label for="notesel" class="floating-label">Select Recipe Type</label>
-                        </div>
-                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="notesel">
-                            <span class="mso">info</span>
-                            <span class="sr-only">More info about Recipe Type filter</span>
-                        </button>
-                    </div>
-                </div>
+                <searchable-select id="notesel"
+                                   class="w-full lg:w-auto lg:min-w-60"
+                                   data-help-text="Filter recipes by type (reroll, upgrade, craft, etc.)."
+                                   value.bind="selectedNote"
+                                   options.bind="noteOptions"
+                                   label="Select Recipe Type">
+                    <button au-slot="after" type="button" class="m-info-button" aria-expanded="false" data-info-for="notesel">
+                        <span class="mso">info</span>
+                        <span class="sr-only">More info about Recipe Type filter</span>
+                    </button>
+                </searchable-select>
 
                 <div class="w-full lg:w-auto lg:min-w-60"
                      data-help-text="Filter recipes by character class. note: These are all the same for each class but grant class-specific skills on use.">

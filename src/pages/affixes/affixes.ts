@@ -39,7 +39,7 @@ interface IAffixItem {
     RequiredLevel?: number | string;
     Properties?: Array<{
         PropertyString?: string;
-        'group-properties'?: Record<string, any[]>;
+        'group-properties'?: Record<string, Array<{ PropertyString?: string }>>;
         pickmode?: number;
         Chance?: number;
     }>;
@@ -387,15 +387,15 @@ export class Affixes {
             if (typeof minOpt === 'number' && rl < minOpt) return false;
             if (typeof maxOpt === 'number' && rl > maxOpt) return false;
 
-    // Text search (tokenized AND; search across Name, Properties, and Types only). ETypes are excluded.
+            // Text search (tokenized AND; search across Name, Properties, and Types only). ETypes are excluded.
             if (hasQuery) {
                 const groupStrings: string[] = [];
                 (a?.Properties || []).forEach((p) => {
                     if (p['group-properties']) {
                         Object.values(p['group-properties']).forEach((pool) => {
-                            pool.forEach((affix: any) => {
+                            pool.forEach((affix) => {
                                 if (affix.PropertyString)
-                                    groupStrings.push(affix.PropertyString);
+                                    groupStrings.push(String(affix.PropertyString));
                             });
                         });
                     }

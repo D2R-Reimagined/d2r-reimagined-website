@@ -27,40 +27,30 @@
                     </div>
                 </div>
 
-                <div class="w-full lg:w-auto lg:min-w-60"
-                     data-help-text="Filter by base item type, sets match as full set if one is found.">
-                    <div class="flex items-stretch">
-                        <div class="relative flex-1">
-                            <select id="itype" class="select-base peer" value.bind="selectedType">
-                                <option repeat.for="opt of types"
-                                        value.bind="opt.id">${opt.label}
-                                </option>
-                            </select>
-                            <label for="itype" class="floating-label">Select Item Type</label>
-                        </div>
-                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="itype">
-                            <span class="mso">info</span>
-                            <span class="sr-only">More info about Item Type filter</span>
-                        </button>
-                    </div>
-                </div>
+                <searchable-select id="itype"
+                                   class="w-full lg:w-auto lg:min-w-60"
+                                   data-help-text="Filter by base item type, sets match as full set if one is found."
+                                   value.bind="selectedType"
+                                   options.bind="types"
+                                   label="Select Item Type">
+                    <button au-slot="after" type="button" class="m-info-button" aria-expanded="false" data-info-for="itype">
+                        <span class="mso">info</span>
+                        <span class="sr-only">More info about Item Type filter</span>
+                    </button>
+                </searchable-select>
 
-                <div class="w-full lg:w-auto lg:min-w-60"
-                     data-help-text="Filter to a specific equipment for the selected type, disabled if one isn't selected.">
-                    <div class="flex items-stretch">
-                        <div class="relative flex-1">
-                            <select id="eqname" class="select-base peer" value.bind="selectedEquipmentName"
-                                    disabled.bind="!selectedType">
-                                <option repeat.for="opt of equipmentNames" value.bind="opt.value">${opt.label}</option>
-                            </select>
-                            <label for="eqname" class="floating-label">Select Equipment</label>
-                        </div>
-                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="eqname">
-                            <span class="mso">info</span>
-                            <span class="sr-only">More info about Equipment filter</span>
-                        </button>
-                    </div>
-                </div>
+                <searchable-select id="eqname"
+                                   class="w-full lg:w-auto lg:min-w-60"
+                                   data-help-text="Filter to a specific equipment for the selected type, disabled if one isn't selected."
+                                   value.bind="selectedEquipmentName"
+                                   options.bind="equipmentNames"
+                                   label="Select Equipment"
+                                   disabled.bind="!selectedType">
+                    <button au-slot="after" type="button" class="m-info-button" aria-expanded="false" data-info-for="eqname">
+                        <span class="mso">info</span>
+                        <span class="sr-only">More info about Equipment filter</span>
+                    </button>
+                </searchable-select>
 
                 <div class="w-full lg:w-60"
                      data-help-text="Search across all fields, sets match as full set if one is found. Uses (space) as an 'AND' modifier. ex: Typing sorc skill mana will return items with only all 3 words.">

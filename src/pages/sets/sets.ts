@@ -219,7 +219,7 @@ export class Sets {
                 if (allowedTypeSet) {
                     const hasMatch = (set.SetItems ?? []).some((si) => {
                         const base = getChainForTypeNameReadonly(si?.Type ?? '')[0] || (si?.Type ?? '');
-                        return allowedTypeSet!.has(base);
+                        return allowedTypeSet.has(base);
                     });
                     if (!hasMatch) return false;
                 }
@@ -277,6 +277,7 @@ export class Sets {
                 });
             }
         } catch (e) {
+            // eslint-disable-next-line no-console
             console.error(e);
             this.sets = this.allSets;
         }
