@@ -63,17 +63,11 @@ export function getSortKeyFromDamageType(type: number): string | null {
 // Hand filter: cycles All → 1H Only → 2H Only → All
 export type HandFilterMode = 'all' | '1h' | '2h';
 
-export function toggleHandFilter(current: HandFilterMode): HandFilterMode {
-    if (current === 'all') return '1h';
-    if (current === '1h') return '2h';
-    return 'all';
-}
-
-export function getHandFilterLabel(mode: HandFilterMode): string {
-    if (mode === '1h') return '1H Only';
-    if (mode === '2h') return '2H Only';
-    return 'All';
-}
+export const handFilterOptions: { value: HandFilterMode, label: string }[] = [
+    { value: 'all', label: 'All' },
+    { value: '1h', label: '1H Only' },
+    { value: '2h', label: '2H Only' },
+];
 
 /**
  * Returns true if the item should be kept based on the hand filter.

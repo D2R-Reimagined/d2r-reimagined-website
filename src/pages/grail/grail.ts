@@ -21,12 +21,11 @@ import {
     tokenizeSearch,
 } from '../../utilities/filter-helpers';
 import {
-    getHandFilterLabel,
+    handFilterOptions,
     getSortKeyFromDamageType as getSortKeyFromDamageTypeUtil,
     HandFilterMode,
     passesHandFilter,
     sortItemsByWeaponDamage,
-    toggleHandFilter,
     toggleWeaponSort,
     WeaponSortMode,
     weaponSortOptions,
@@ -151,6 +150,7 @@ export class Grail {
     }
 
     weaponSortOptions = weaponSortOptions;
+    handFilterOptions = handFilterOptions;
 
     // Centralized options list (rebuilt per category based on data present)
     types: ReadonlyArray<IFilterOption> = type_filtering_options.slice();
@@ -400,6 +400,8 @@ export class Grail {
     }
 
     @watch('selectedType')
+    @watch('weaponSortMode')
+    @watch('handFilterMode')
     selectedTypeChanged(): void {
         // Reset equipment selection
         this.selectedEquipmentName = undefined;
@@ -536,13 +538,6 @@ export class Grail {
     getSortKeyFromDamageType(type: number): string | null {
         return getSortKeyFromDamageTypeUtil(type);
     }
-
-    toggleHandFilter() {
-        this.handFilterMode = toggleHandFilter(this.handFilterMode);
-        if (this._debouncedApplyFilters) this._debouncedApplyFilters();
-    }
-
-    getHandFilterLabel = getHandFilterLabel;
 
     updateList() {
         // Filter per category

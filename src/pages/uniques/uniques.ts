@@ -21,12 +21,11 @@ import {
     tokenizeSearch,
 } from '../../utilities/filter-helpers';
 import {
-    getHandFilterLabel,
+    handFilterOptions,
     getSortKeyFromDamageType as getSortKeyFromDamageTypeUtil,
     HandFilterMode,
     passesHandFilter,
     sortItemsByWeaponDamage,
-    toggleHandFilter,
     toggleWeaponSort,
     WeaponSortMode,
     weaponSortOptions,
@@ -185,6 +184,7 @@ export class Uniques {
     @watch('selectedClass')
     @watch('hideVanilla')
     @watch('weaponSortMode')
+    @watch('handFilterMode')
     handleFilterChanged() {
         this.updateList();
         if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
@@ -197,6 +197,7 @@ export class Uniques {
     }
 
     weaponSortOptions = weaponSortOptions;
+    handFilterOptions = handFilterOptions;
 
     @watch('selectedType')
     handleTypeChanged() {
@@ -402,11 +403,4 @@ export class Uniques {
     getSortKeyFromDamageType(type: number): string | null {
         return getSortKeyFromDamageTypeUtil(type);
     }
-
-    toggleHandFilter() {
-        this.handFilterMode = toggleHandFilter(this.handFilterMode);
-        this.updateList();
-    }
-
-    getHandFilterLabel = getHandFilterLabel;
 }

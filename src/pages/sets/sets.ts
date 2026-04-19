@@ -23,11 +23,10 @@ import {
     tokenizeSearch,
 } from '../../utilities/filter-helpers';
 import {
-    getHandFilterLabel,
+    handFilterOptions,
     getSortKeyFromDamageType as getSortKeyFromDamageTypeUtil,
     HandFilterMode,
     passesHandFilter,
-    toggleHandFilter,
     toggleWeaponSort,
     WeaponSortMode,
     weaponSortOptions,
@@ -78,6 +77,7 @@ export class Sets {
     }
 
     weaponSortOptions = weaponSortOptions;
+    handFilterOptions = handFilterOptions;
 
     // Build options and hydrate from URL BEFORE controls render
     binding(): void {
@@ -174,6 +174,7 @@ export class Sets {
     @watch('selectedClass')
     @watch('hideVanilla')
     @watch('weaponSortMode')
+    @watch('handFilterMode')
     handleFilterChanged(): void {
         this.updateList();
         if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
@@ -413,11 +414,4 @@ export class Sets {
     getSortKeyFromDamageType(type: number): string | null {
         return getSortKeyFromDamageTypeUtil(type);
     }
-
-    toggleHandFilter() {
-        this.handFilterMode = toggleHandFilter(this.handFilterMode);
-        this.updateList();
-    }
-
-    getHandFilterLabel = getHandFilterLabel;
 }
