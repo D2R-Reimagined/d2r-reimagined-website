@@ -1,4 +1,4 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-Ds3jpIkO.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-CHmnhXzh.js";
 import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, a as getChainForTypeNameReadonly, t as type_filtering_options } from "./item-type-filters-BmbPxQoN.js";
 import { g as getDamageTypeString } from "./damage-types-BlYhXdWN.js";
 import { p as prependTypeResetOption, t as tokenizeSearch } from "./filter-helpers-C07hLFTd.js";
@@ -54,22 +54,17 @@ const template = `\uFEFF<template>
                     </div>
                 </div>
 
-                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Filter by the base item type.">
-                    <div class="flex items-stretch">
-                        <div class="relative flex-1">
-                            <select id="itype" class="select-base peer" value.bind="selectedType">
-                                <option repeat.for="opt of types"
-                                        value.bind="opt.id">\${opt.label}
-                                </option>
-                            </select>
-                            <label for="itype" class="floating-label">Select Item Type</label>
-                        </div>
-                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="itype">
-                            <span class="mso">info</span>
-                            <span class="sr-only">More info about Item Type filter</span>
-                        </button>
-                    </div>
-                </div>
+                <searchable-select id="itype"
+                                   class="w-full lg:w-auto lg:min-w-60"
+                                   data-help-text="Filter by the base item type."
+                                   value.bind="selectedType"
+                                   options.bind="types"
+                                   label="Select Item Type">
+                    <button au-slot="after" type="button" class="m-info-button" aria-expanded="false" data-info-for="itype">
+                        <span class="mso">info</span>
+                        <span class="sr-only">More info about Item Type filter</span>
+                    </button>
+                </searchable-select>
 
                 <div class="w-full lg:w-auto lg:min-w-60"
                      data-help-text="Filter by the base tier. With none selected, the page defaults to sticking NXE of a base group with each other.">

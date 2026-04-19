@@ -1,4 +1,4 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement } from "./index-Ds3jpIkO.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-CHmnhXzh.js";
 import { a as getChainForTypeNameReadonly, t as type_filtering_options, A as ANCESTOR_ONLY_WHEN_EXACT_OFF } from "./item-type-filters-BmbPxQoN.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
 import { p as prependTypeResetOption, t as tokenizeSearch } from "./filter-helpers-C07hLFTd.js";
@@ -13,60 +13,45 @@ const template = `<template>
         <div class="w-full m-auto px-5 py-2">
             <div class="flex flex-wrap justify-center items-start gap-2">
 
-                <div class="w-full lg:w-auto lg:min-w-40"
-                     data-help-text="Filter by number of runes required. This amount is exact.">
+                <div class="w-full lg:w-auto lg:min-w-40" data-help-text="Filter by number of runes required. This amount is exact.">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <select id="runecount" class="select-base peer" value.bind="selectedAmount">
-                                <option repeat.for="opt of amounts" if.bind="opt.value === ''" value="">\${opt.label}
-                                </option>
-                                <option repeat.for="opt of amounts" if.bind="opt.value !== ''" model.bind="opt.value">
-                                    \${opt.label}
-                                </option>
+                                <option repeat.for="opt of amounts" value.bind="opt.value">\${opt.label}</option>
                             </select>
                             <label for="runecount" class="floating-label">Rune Count</label>
                         </div>
-                        <!-- Mobile-only info button -->
-                        <button type="button"
-                                class="m-info-button"
-                                aria-expanded="false" data-info-for="runecount"
-                        >
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="runecount">
                             <span class="mso">info</span>
                             <span class="sr-only">More info about Item Type filter</span>
                         </button>
                     </div>
                 </div>
 
-                <div class="w-full lg:w-auto lg:min-w-70 flex flex-nowrap items-stretch"
-                     data-help-text="Filter by base item type. Toggle ‘Exact’ to remove variants."
-                >
-                    <div class="relative flex-1">
-                        <select id="itype" class="select-base-exact peer" value.bind="selectedType">
-                            <option repeat.for="opt of types"
-                                    value.bind="opt.id">\${opt.label}
-                            </option>
-                        </select>
-                        <label for="itype" class="floating-label">Select Item Type</label>
-                    </div>
-                    <div class="flex items-center">
-                        <button
-                                type="button"
+                <searchable-select id="itype"
+                                   class="w-full lg:w-auto lg:min-w-70"
+                                   data-help-text="Filter by base item type. Toggle ‘Exact’ to remove variants."
+                                   value.bind="selectedType"
+                                   options.bind="types"
+                                   label="Select Item Type"
+                                   exact.bind="true">
+                    <div au-slot="after" class="flex items-stretch">
+                        <button type="button"
                                 class="exact-button"
                                 aria-pressed.bind="exclusiveType"
                                 click.trigger="exclusiveType = !exclusiveType">
                             <span class="exact-indicator"></span>
                             Exact
                         </button>
+                        <!-- Mobile-only info button -->
+                        <button type="button"
+                                class="m-info-button"
+                                aria-expanded="false" data-info-for="itype">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Item Type filter</span>
+                        </button>
                     </div>
-                    <!-- Mobile-only info button -->
-                    <button type="button"
-                            class="m-info-button"
-                            aria-expanded="false" data-info-for="itype"
-                    >
-                        <span class="mso">info</span>
-                        <span class="sr-only">More info about Item Type filter</span>
-                    </button>
-                </div>
+                </searchable-select>
 
                 <div class="w-full lg:w-60"
                      data-help-text="Search across all fields. Attempts exact match. Seperate with '+' for AND match. Seperate with ',' or '|' for OR match. ex. 'fire skill damage+enemy fire' finds items with only both tokens. 'fire skill damage,enemy fire' finds items with either token.">
@@ -272,14 +257,19 @@ var __privateIn = (member, obj) => Object(obj) !== obj ? __typeError('Cannot use
 var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
 var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "access private method"), method);
-var _handleHideVanillaChanged_dec, _handleExclusiveTypeChanged_dec, _selectedAmountChanged_dec, _selectedTypeChanged_dec, _handleSearchChanged_dec, _handleSearchRunesChanged_dec, _Runewords_decorators, _init;
-_Runewords_decorators = [customElement(__au2ViewDef)], _handleSearchRunesChanged_dec = [watch("searchRunes")], _handleSearchChanged_dec = [watch("search")], _selectedTypeChanged_dec = [watch("selectedType")], _selectedAmountChanged_dec = [watch("selectedAmount")], _handleExclusiveTypeChanged_dec = [watch("exclusiveType")], _handleHideVanillaChanged_dec = [watch("hideVanilla")];
+var _handleHideVanillaChanged_dec, _handleExclusiveTypeChanged_dec, _selectedAmountChanged_dec, _selectedTypeChanged_dec, _handleSearchChanged_dec, _handleSearchRunesChanged_dec, _hideVanilla_dec, _exclusiveType_dec, _searchRunes_dec, _search_dec, _Runewords_decorators, _init;
+_Runewords_decorators = [customElement(__au2ViewDef)], _search_dec = [bindable], _searchRunes_dec = [bindable], _exclusiveType_dec = [bindable], _hideVanilla_dec = [bindable], _handleSearchRunesChanged_dec = [watch("searchRunes")], _handleSearchChanged_dec = [watch("search")], _selectedTypeChanged_dec = [watch("selectedType")], _selectedAmountChanged_dec = [watch("selectedAmount")], _handleExclusiveTypeChanged_dec = [watch("exclusiveType")], _handleHideVanillaChanged_dec = [watch("hideVanilla")];
 class Runewords {
   constructor() {
     __runInitializers(_init, 5, this);
     __publicField(this, "allRunewords", runewordsJson);
     __publicField(this, "filteredRunewords", []);
     __publicField(this, "_searchStrings", /* @__PURE__ */ new Map());
+    __publicField(this, "search", __runInitializers(_init, 8, this, "")), __runInitializers(_init, 11, this);
+    __publicField(this, "searchRunes", __runInitializers(_init, 12, this, "")), __runInitializers(_init, 15, this);
+    __publicField(this, "exclusiveType", __runInitializers(_init, 16, this, false)), __runInitializers(_init, 19, this);
+    __publicField(this, "hideVanilla", __runInitializers(_init, 20, this, false)), __runInitializers(_init, 23, this);
+    __publicField(this, "_debouncedSearchItem");
     __publicField(this, "types", type_filtering_options.slice());
     __publicField(this, "selectedType", "");
     __publicField(this, "amounts", [
@@ -510,6 +500,10 @@ __decorateElement(_init, 1, "selectedTypeChanged", _selectedTypeChanged_dec, Run
 __decorateElement(_init, 1, "selectedAmountChanged", _selectedAmountChanged_dec, Runewords);
 __decorateElement(_init, 1, "handleExclusiveTypeChanged", _handleExclusiveTypeChanged_dec, Runewords);
 __decorateElement(_init, 1, "handleHideVanillaChanged", _handleHideVanillaChanged_dec, Runewords);
+__decorateElement(_init, 5, "search", _search_dec, Runewords);
+__decorateElement(_init, 5, "searchRunes", _searchRunes_dec, Runewords);
+__decorateElement(_init, 5, "exclusiveType", _exclusiveType_dec, Runewords);
+__decorateElement(_init, 5, "hideVanilla", _hideVanilla_dec, Runewords);
 Runewords = __decorateElement(_init, 0, "Runewords", _Runewords_decorators, Runewords);
 __runInitializers(_init, 1, Runewords);
 export {

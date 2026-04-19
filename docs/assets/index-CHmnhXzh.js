@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-ClqXYpkW.js","assets/debounce-DlM2vs2L.js","assets/filter-helpers-C07hLFTd.js","assets/uniques-DtfDP8Da.js","assets/item-type-filters-BmbPxQoN.js","assets/item-sorting-CN1-l_qa.js","assets/damage-types-BlYhXdWN.js","assets/uniques-DJmOKAbF.js","assets/sets-D6MmHtBz.js","assets/sets-DSkRMyMn.js","assets/runewords-BqWUciCV.js","assets/runewords-BsHJoHBS.js","assets/grail-BX182kqd.js","assets/bases-BVo0GgMl.js","assets/affixes-uzJZVfsd.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-Q_y6_L-v.js","assets/debounce-DlM2vs2L.js","assets/filter-helpers-C07hLFTd.js","assets/uniques-LIvFR5xJ.js","assets/item-type-filters-BmbPxQoN.js","assets/item-sorting-CN1-l_qa.js","assets/damage-types-BlYhXdWN.js","assets/uniques-DJmOKAbF.js","assets/sets-C_E-Boi2.js","assets/sets-DSkRMyMn.js","assets/runewords-BuL7Z3Bb.js","assets/runewords-BsHJoHBS.js","assets/grail-B76I840w.js","assets/bases-B0CEpAge.js","assets/affixes-DjALJaY2.js"])))=>i.map(i=>d[i]);
 (function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) return;
@@ -1615,7 +1615,7 @@ function __esDecorate(ctor, descriptorIn, decorators, contextIn, initializers, e
   if (target) Object.defineProperty(target, contextIn.name, descriptor);
   done = true;
 }
-function __runInitializers$6(thisArg, initializers, value) {
+function __runInitializers$7(thisArg, initializers, value) {
   var useValue = arguments.length > 2;
   for (var i = 0; i < initializers.length; i++) {
     value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
@@ -1823,7 +1823,7 @@ let DefaultLogger = (() => {
   return _a2 = class DefaultLogger {
     /* eslint-disable default-param-last */
     constructor(config = resolve(ILogConfig), factory = resolve(ILogEventFactory), sinks = resolve(all(ISink)), scope = resolve(optional(ILogScopes)) ?? [], parent = null) {
-      this.scope = (__runInitializers$6(this, _instanceExtraInitializers), scope);
+      this.scope = (__runInitializers$7(this, _instanceExtraInitializers), scope);
       this._scopedLoggers = createLookup$1();
       let traceSinks;
       let debugSinks;
@@ -4322,7 +4322,7 @@ The ".call" binding command has been removed in v2. If you want to pass a callba
       return "";
   }
 }
-var _a$1, _b$1, _c$1, _d, _e$2;
+var _a$1, _b$1, _c$1, _d, _e$3;
 class CharSpec {
   constructor(chars, repeat, isSymbol2, isInverted) {
     this.chars = chars;
@@ -4804,8 +4804,8 @@ class AtPrefixedTriggerAttributePattern {
     return new AttrSyntax(rawName, rawValue, parts[0], "trigger", [parts[0], "trigger", ...parts.slice(1)]);
   }
 }
-_e$2 = Symbol.metadata;
-AtPrefixedTriggerAttributePattern[_e$2] = {
+_e$3 = Symbol.metadata;
+AtPrefixedTriggerAttributePattern[_e$3] = {
   [registrableMetadataKey]: /* @__PURE__ */ AttributePattern.create([
     { pattern: "@PART", symbols: "@" },
     { pattern: "@PART:PART", symbols: "@:" }
@@ -18332,7 +18332,7 @@ Switch.$au = {
   bindables: ["value"]
 };
 let caseId = 0;
-const bindables$2 = [
+const bindables$3 = [
   "value",
   {
     name: "fallThrough",
@@ -18438,7 +18438,7 @@ class Case {
   }
 }
 (() => {
-  defineAttribute({ name: "case", bindables: bindables$2, isTemplateController: true }, Case);
+  defineAttribute({ name: "case", bindables: bindables$3, isTemplateController: true }, Case);
 })();
 class DefaultCase extends Case {
   linkToSwitch($switch) {
@@ -18452,7 +18452,7 @@ class DefaultCase extends Case {
   }
 }
 (() => {
-  defineAttribute({ name: "default-case", bindables: bindables$2, isTemplateController: true }, DefaultCase);
+  defineAttribute({ name: "default-case", bindables: bindables$3, isTemplateController: true }, DefaultCase);
 })();
 var _a, _b, _c;
 class PromiseTemplateController {
@@ -25567,8 +25567,124 @@ const RouterConfiguration = {
     };
   }
 };
-const name$1 = "search-area";
-const template$1 = '<div class="static top-16 z-10 m-auto bg-black border-b border-gray-600 lg:sticky">\n    <au-slot></au-slot>\n</div>';
+const name$2 = "search-area";
+const template$2 = '<div class="static top-16 z-10 m-auto bg-black border-b border-gray-600 lg:sticky">\n    <au-slot></au-slot>\n</div>';
+const dependencies$2 = [];
+const bindables$2 = {};
+let _e$2;
+function register$2(container) {
+  if (!_e$2) {
+    _e$2 = CustomElement.define({ name: name$2, template: template$2, dependencies: dependencies$2, bindables: bindables$2 });
+  }
+  container.register(_e$2);
+}
+const __au2ViewDef$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  bindables: bindables$2,
+  default: template$2,
+  dependencies: dependencies$2,
+  name: name$2,
+  register: register$2,
+  template: template$2
+}, Symbol.toStringTag, { value: "Module" }));
+var __create$6 = Object.create;
+var __defProp$6 = Object.defineProperty;
+var __getOwnPropDesc$6 = Object.getOwnPropertyDescriptor;
+var __knownSymbol$6 = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : Symbol.for("Symbol." + name2);
+var __typeError$6 = (msg) => {
+  throw TypeError(msg);
+};
+var __defNormalProp$6 = (obj, key, value) => key in obj ? __defProp$6(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __name$6 = (target, value) => __defProp$6(target, "name", { value, configurable: true });
+var __decoratorStart$6 = (base) => [, , , __create$6(null)];
+var __decoratorStrings$6 = ["class", "method", "getter", "setter", "accessor", "field", "value", "get", "set"];
+var __expectFn$6 = (fn2) => fn2 !== void 0 && typeof fn2 !== "function" ? __typeError$6("Function expected") : fn2;
+var __decoratorContext$6 = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings$6[kind], name: name2, metadata, addInitializer: (fn2) => done._ ? __typeError$6("Already initialized") : fns.push(__expectFn$6(fn2 || null)) });
+var __decoratorMetadata$6 = (array, target) => __defNormalProp$6(target, __knownSymbol$6("metadata"), array[3]);
+var __runInitializers$6 = (array, flags, self, value) => {
+  for (var i = 0, fns = array[flags >> 1], n = fns && fns.length; i < n; i++) fns[i].call(self);
+  return value;
+};
+var __decorateElement$6 = (array, flags, name2, decorators, target, extra) => {
+  var it, done, ctx, k = flags & 7, p = false;
+  var j = 0;
+  var extraInitializers = array[j] || (array[j] = []);
+  var desc = k && (target = target.prototype, k < 5 && (k > 3 || !p) && __getOwnPropDesc$6(target, name2));
+  __name$6(target, name2);
+  for (var i = decorators.length - 1; i >= 0; i--) {
+    ctx = __decoratorContext$6(k, name2, done = {}, array[3], extraInitializers);
+    it = (0, decorators[i])(target, ctx), done._ = 1;
+    __expectFn$6(it) && (target = it);
+  }
+  return __decoratorMetadata$6(array, target), desc && __defProp$6(target, name2, desc), p ? k ^ 4 ? extra : desc : target;
+};
+var _SearchArea_decorators, _init$6;
+_SearchArea_decorators = [customElement(__au2ViewDef$2)];
+class SearchArea {
+}
+_init$6 = __decoratorStart$6();
+SearchArea = __decorateElement$6(_init$6, 0, "SearchArea", _SearchArea_decorators, SearchArea);
+__runInitializers$6(_init$6, 1, SearchArea);
+const name$1 = "searchable-select";
+const template$1 = `\uFEFF<template class="block relative searchable-select-container \${isOpen ? 'z-30' : 'z-0'}">
+    <div class="relative flex items-stretch">
+        <div class="relative flex-1">
+            <!-- The main "select" trigger button -->
+            <button type="button"
+                    id.bind="id"
+                    class="\${exact ? 'select-base-exact' : 'select-base'} peer text-left flex items-center justify-between cursor-pointer \${disabled ? 'opacity-50 cursor-not-allowed' : ''} \${ (!disabled && value !== '' && value !== undefined) ? 'ring ring-gray-400' : '' }"
+                    click.trigger="toggle($event)"
+                    disabled.bind="disabled"
+                    aria-haspopup="listbox"
+                    aria-expanded.bind="isOpen.toString()">
+                <span class="truncate">\${displayLabel || '&nbsp;'}</span>
+                <span class="mso ml-2 transition-transform \${isOpen ? 'rotate-180' : ''}">arrow_downward</span>
+            </button>
+
+            <!-- Floating Label -->
+            <label if.bind="label"
+                   for.bind="id"
+                   class="floating-label \${disabled ? 'bg-transparent!' : ''} \${ (isOpen || (value !== '' && value !== undefined)) ? 'bg-transparent top-1 -translate-y-2/5 scale-75' : '' }">
+                \${label}
+            </label>
+        </div>
+        <au-slot name="after"></au-slot>
+    </div>
+
+    <!-- Dropdown Panel -->
+    <div if.bind="isOpen"
+         class="absolute z-50 w-full mt-1 bg-gray-800 border border-gray-600 rounded-lg shadow-xl overflow-hidden min-w-[200px]"
+         click.trigger="panelClick($event)">
+        <!-- Search Box -->
+        <div class="p-2 border-b border-gray-600 bg-gray-900">
+            <div class="relative">
+                <input type="text"
+                       value.bind="searchText"
+                       class="w-full bg-gray-800 border border-gray-600 text-base type-text px-3 py-1.5 rounded outline-none focus:ring-1 focus:ring-gray-400"
+                       placeholder="Search..."
+                       ref="searchInput"
+                       keydown.trigger="$event.key === 'Escape' && close()">
+                <span class="mso absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">search</span>
+            </div>
+        </div>
+
+        <!-- Options List -->
+        <ul class="max-h-60 overflow-y-auto py-1" role="listbox">
+            <li repeat.for="opt of filteredOptions"
+                class="px-3 py-2 cursor-pointer hover:bg-gray-700 type-text flex items-center justify-between \${String(getOptValue(opt)) === String(value) ? 'bg-gray-700' : ''}"
+                click.trigger="selectOption(opt, $event)"
+                role="option"
+                aria-selected.bind="(String(getOptValue(opt)) === String(value)).toString()">
+                <span>\${getOptLabel(opt)}</span>
+                <span if.bind="String(getOptValue(opt)) === String(value)" class="mso text-lime-500">check</span>
+            </li>
+            <li if.bind="filteredOptions.length === 0" class="px-3 py-4 text-center text-gray-500 italic">
+                No results found
+            </li>
+        </ul>
+    </div>
+</template>
+`;
 const dependencies$1 = [];
 const bindables$1 = {};
 let _e$1;
@@ -25602,33 +25718,135 @@ var __expectFn$5 = (fn2) => fn2 !== void 0 && typeof fn2 !== "function" ? __type
 var __decoratorContext$5 = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings$5[kind], name: name2, metadata, addInitializer: (fn2) => done._ ? __typeError$5("Already initialized") : fns.push(__expectFn$5(fn2 || null)) });
 var __decoratorMetadata$5 = (array, target) => __defNormalProp$5(target, __knownSymbol$5("metadata"), array[3]);
 var __runInitializers$5 = (array, flags, self, value) => {
-  for (var i = 0, fns = array[flags >> 1], n = fns && fns.length; i < n; i++) fns[i].call(self);
+  for (var i = 0, fns = array[flags >> 1], n = fns && fns.length; i < n; i++) flags & 1 ? fns[i].call(self) : value = fns[i].call(self, value);
   return value;
 };
 var __decorateElement$5 = (array, flags, name2, decorators, target, extra) => {
-  var it, done, ctx, k = flags & 7, p = false;
-  var j = 0;
-  var extraInitializers = array[j] || (array[j] = []);
-  var desc = k && (target = target.prototype, k < 5 && (k > 3 || !p) && __getOwnPropDesc$5(target, name2));
-  __name$5(target, name2);
+  var fn2, it, done, ctx, access, k = flags & 7, s = !!(flags & 8), p = !!(flags & 16);
+  var j = k > 3 ? array.length + 1 : k ? s ? 1 : 2 : 0, key = __decoratorStrings$5[k + 5];
+  var initializers = k > 3 && (array[j - 1] = []), extraInitializers = array[j] || (array[j] = []);
+  var desc = k && (!p && !s && (target = target.prototype), k < 5 && (k > 3 || !p) && __getOwnPropDesc$5(k < 4 ? target : { get [name2]() {
+    return __privateGet(this, extra);
+  }, set [name2](x) {
+    return __privateSet(this, extra, x);
+  } }, name2));
+  k ? p && k < 4 && __name$5(extra, (k > 2 ? "set " : k > 1 ? "get " : "") + name2) : __name$5(target, name2);
   for (var i = decorators.length - 1; i >= 0; i--) {
     ctx = __decoratorContext$5(k, name2, done = {}, array[3], extraInitializers);
-    it = (0, decorators[i])(target, ctx), done._ = 1;
-    __expectFn$5(it) && (target = it);
+    if (k) {
+      ctx.static = s, ctx.private = p, access = ctx.access = { has: p ? (x) => __privateIn(target, x) : (x) => name2 in x };
+      if (k ^ 3) access.get = p ? (x) => (k ^ 1 ? __privateGet : __privateMethod)(x, target, k ^ 4 ? extra : desc.get) : (x) => x[name2];
+      if (k > 2) access.set = p ? (x, y3) => __privateSet(x, target, y3, k ^ 4 ? extra : desc.set) : (x, y3) => x[name2] = y3;
+    }
+    it = (0, decorators[i])(k ? k < 4 ? p ? extra : desc[key] : k > 4 ? void 0 : { get: desc.get, set: desc.set } : target, ctx), done._ = 1;
+    if (k ^ 4 || it === void 0) __expectFn$5(it) && (k > 4 ? initializers.unshift(it) : k ? p ? extra = it : desc[key] = it : target = it);
+    else if (typeof it !== "object" || it === null) __typeError$5("Object expected");
+    else __expectFn$5(fn2 = it.get) && (desc.get = fn2), __expectFn$5(fn2 = it.set) && (desc.set = fn2), __expectFn$5(fn2 = it.init) && initializers.unshift(fn2);
   }
-  return __decoratorMetadata$5(array, target), desc && __defProp$5(target, name2, desc), p ? k ^ 4 ? extra : desc : target;
+  return k || __decoratorMetadata$5(array, target), desc && __defProp$5(target, name2, desc), p ? k ^ 4 ? extra : desc : target;
 };
-var _SearchArea_decorators, _init$5;
-_SearchArea_decorators = [customElement(__au2ViewDef$1)];
-class SearchArea {
+var __publicField = (obj, key, value) => __defNormalProp$5(obj, typeof key !== "symbol" ? key + "" : key, value);
+var __accessCheck = (obj, member, msg) => member.has(obj) || __typeError$5("Cannot " + msg);
+var __privateIn = (member, obj) => Object(obj) !== obj ? __typeError$5('Cannot use the "in" operator on this value') : member.has(obj);
+var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
+var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
+var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "access private method"), method);
+var _exact_dec, _disabled_dec, _id_dec, _label_dec, _options_dec, _value_dec, _SearchableSelect_decorators, _init$5;
+_SearchableSelect_decorators = [customElement(__au2ViewDef$1)], _value_dec = [bindable({ mode: BindingMode.twoWay })], _options_dec = [bindable], _label_dec = [bindable], _id_dec = [bindable], _disabled_dec = [bindable], _exact_dec = [bindable];
+class SearchableSelect {
+  constructor() {
+    __publicField(this, "value", __runInitializers$5(_init$5, 8, this)), __runInitializers$5(_init$5, 11, this);
+    __publicField(this, "options", __runInitializers$5(_init$5, 12, this, [])), __runInitializers$5(_init$5, 15, this);
+    __publicField(this, "label", __runInitializers$5(_init$5, 16, this, "")), __runInitializers$5(_init$5, 19, this);
+    __publicField(this, "id", __runInitializers$5(_init$5, 20, this, "")), __runInitializers$5(_init$5, 23, this);
+    __publicField(this, "disabled", __runInitializers$5(_init$5, 24, this, false)), __runInitializers$5(_init$5, 27, this);
+    __publicField(this, "exact", __runInitializers$5(_init$5, 28, this, false)), __runInitializers$5(_init$5, 31, this);
+    __publicField(this, "searchText", "");
+    __publicField(this, "isOpen", false);
+    __publicField(this, "searchInput", null);
+    __publicField(this, "element", resolve(INode));
+    __publicField(this, "_boundDocClick", null);
+  }
+  get filteredOptions() {
+    if (!this.searchText) return this.options;
+    const search = this.searchText.toLowerCase();
+    return this.options.filter((opt) => this.getOptLabel(opt).toLowerCase().includes(search));
+  }
+  get selectedOption() {
+    return this.options.find((opt) => String(this.getOptValue(opt)) === String(this.value));
+  }
+  get displayLabel() {
+    return this.selectedOption ? this.getOptLabel(this.selectedOption) : "";
+  }
+  attached() {
+    this._boundDocClick = (ev) => {
+      if (this.isOpen && !this.element.contains(ev.target)) {
+        this.isOpen = false;
+        this._syncTooltipDisabled();
+      }
+    };
+    document.addEventListener("click", this._boundDocClick, false);
+  }
+  detaching() {
+    if (this._boundDocClick) {
+      document.removeEventListener("click", this._boundDocClick, false);
+      this._boundDocClick = null;
+    }
+  }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  toggle(_ev) {
+    if (this.disabled) return;
+    this.isOpen = !this.isOpen;
+    this._syncTooltipDisabled();
+    if (this.isOpen) {
+      this.searchText = "";
+      void Promise.resolve().then(() => this.searchInput?.focus());
+    }
+  }
+  selectOption(opt, ev) {
+    ev.stopPropagation();
+    this.value = this.getOptValue(opt);
+    this.isOpen = false;
+    this._syncTooltipDisabled();
+  }
+  close() {
+    this.isOpen = false;
+    this._syncTooltipDisabled();
+  }
+  panelClick(ev) {
+    ev.stopPropagation();
+  }
+  getOptValue(opt) {
+    return opt.id !== void 0 ? opt.id : opt.value;
+  }
+  getOptLabel(opt) {
+    return opt.label ?? opt.name ?? "";
+  }
+  /** Suppress ancestor/self tooltips while the dropdown is open. */
+  _syncTooltipDisabled() {
+    if (this.isOpen) {
+      this.element.setAttribute("data-tooltip-disabled", "");
+    } else {
+      this.element.removeAttribute("data-tooltip-disabled");
+    }
+  }
 }
 _init$5 = __decoratorStart$5();
-SearchArea = __decorateElement$5(_init$5, 0, "SearchArea", _SearchArea_decorators, SearchArea);
-__runInitializers$5(_init$5, 1, SearchArea);
+__decorateElement$5(_init$5, 5, "value", _value_dec, SearchableSelect);
+__decorateElement$5(_init$5, 5, "options", _options_dec, SearchableSelect);
+__decorateElement$5(_init$5, 5, "label", _label_dec, SearchableSelect);
+__decorateElement$5(_init$5, 5, "id", _id_dec, SearchableSelect);
+__decorateElement$5(_init$5, 5, "disabled", _disabled_dec, SearchableSelect);
+__decorateElement$5(_init$5, 5, "exact", _exact_dec, SearchableSelect);
+SearchableSelect = __decorateElement$5(_init$5, 0, "SearchableSelect", _SearchableSelect_decorators, SearchableSelect);
+__runInitializers$5(_init$5, 1, SearchableSelect);
 const Elements = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   get SearchArea() {
     return SearchArea;
+  },
+  get SearchableSelect() {
+    return SearchableSelect;
   }
 }, Symbol.toStringTag, { value: "Module" }));
 var __create$4 = Object.create;
@@ -26188,42 +26406,42 @@ _App_decorators = [customElement(__au2ViewDef), route({
   routes: [
     {
       path: "",
-      component: __vitePreload(() => import("./home-B4b_t3o8.js"), true ? [] : void 0),
+      component: __vitePreload(() => import("./home-BW0XTbR9.js"), true ? [] : void 0),
       title: "Home"
     },
     {
       path: "cube-recipes",
-      component: __vitePreload(() => import("./cube-recipes-ClqXYpkW.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
+      component: __vitePreload(() => import("./cube-recipes-Q_y6_L-v.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
       title: "Cube Recipes"
     },
     {
       path: "uniques",
-      component: __vitePreload(() => import("./uniques-DtfDP8Da.js"), true ? __vite__mapDeps([3,4,5,6,1,2,7]) : void 0),
+      component: __vitePreload(() => import("./uniques-LIvFR5xJ.js"), true ? __vite__mapDeps([3,4,5,6,1,2,7]) : void 0),
       title: "Uniques"
     },
     {
       path: "sets",
-      component: __vitePreload(() => import("./sets-D6MmHtBz.js"), true ? __vite__mapDeps([8,4,5,6,1,2,9]) : void 0),
+      component: __vitePreload(() => import("./sets-C_E-Boi2.js"), true ? __vite__mapDeps([8,4,5,6,1,2,9]) : void 0),
       title: "Sets"
     },
     {
       path: "runewords",
-      component: __vitePreload(() => import("./runewords-BqWUciCV.js"), true ? __vite__mapDeps([10,4,1,2,11]) : void 0),
+      component: __vitePreload(() => import("./runewords-BuL7Z3Bb.js"), true ? __vite__mapDeps([10,4,1,2,11]) : void 0),
       title: "Runewords"
     },
     {
       path: "grail",
-      component: __vitePreload(() => import("./grail-BX182kqd.js"), true ? __vite__mapDeps([12,4,5,6,1,2,11,9,7]) : void 0),
+      component: __vitePreload(() => import("./grail-B76I840w.js"), true ? __vite__mapDeps([12,4,5,6,1,2,11,9,7]) : void 0),
       title: "Holy Grail"
     },
     {
       path: "bases",
-      component: __vitePreload(() => import("./bases-BVo0GgMl.js"), true ? __vite__mapDeps([13,4,6,2]) : void 0),
+      component: __vitePreload(() => import("./bases-B0CEpAge.js"), true ? __vite__mapDeps([13,4,6,2]) : void 0),
       title: "Bases"
     },
     {
       path: "affixes",
-      component: __vitePreload(() => import("./affixes-uzJZVfsd.js"), true ? __vite__mapDeps([14,4,1,2]) : void 0),
+      component: __vitePreload(() => import("./affixes-DjALJaY2.js"), true ? __vite__mapDeps([14,4,1,2]) : void 0),
       title: "Affixes"
     }
   ]
@@ -33582,6 +33800,7 @@ const TooltipManager = (() => {
     };
     const onEnter = () => {
       if (Date.now() < (rec.suppressedUntil || 0)) return;
+      if (trigger.closest("[data-tooltip-disabled]") || trigger.hasAttribute("data-tooltip-disabled")) return;
       clearIdle(rec);
       rec.idleTimer = window.setTimeout(() => {
         target.classList.remove("tooltip-hidden");
@@ -33594,6 +33813,7 @@ const TooltipManager = (() => {
     };
     const onMove = () => {
       if (Date.now() < (rec.suppressedUntil || 0)) return;
+      if (trigger.closest("[data-tooltip-disabled]") || trigger.hasAttribute("data-tooltip-disabled")) return;
       clearIdle(rec);
       rec.idleTimer = window.setTimeout(() => {
         target.classList.remove("tooltip-hidden");

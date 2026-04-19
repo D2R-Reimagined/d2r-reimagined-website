@@ -1,4 +1,4 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-Ds3jpIkO.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-CHmnhXzh.js";
 import { g as getTypeChain, a as getChainForTypeNameReadonly, r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options } from "./item-type-filters-BmbPxQoN.js";
 import { t as toggleWeaponSort, g as getSortKeyFromDamageType, s as sortItemsByWeaponDamage, c as character_class_options, w as weaponSortOptions } from "./item-sorting-CN1-l_qa.js";
 import { g as getDamageTypeString } from "./damage-types-BlYhXdWN.js";
@@ -148,39 +148,30 @@ const template = `<template>
                     </div>
                 </div>
 
-                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Filter by base item type, looser than other pages due to Grail.">
-                    <div class="flex items-stretch">
-                        <div class="relative flex-1">
-                            <select id="itype" class="select-base peer" value.bind="selectedTypeBase">
-                                <option repeat.for="opt of types"
-                                        value.bind="opt.id">\${opt.label}
-                                </option>
-                            </select>
-                            <label for="itype" class="floating-label">Select Type</label>
-                        </div>
-                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="itype">
-                            <span class="mso">info</span>
-                            <span class="sr-only">More info about Type filter</span>
-                        </button>
-                    </div>
-                </div>
+                <searchable-select id="itype"
+                                   class="w-full lg:w-auto lg:min-w-60"
+                                   data-help-text="Filter by base item type, looser than other pages due to Grail."
+                                   value.bind="selectedTypeBase"
+                                   options.bind="types"
+                                   label="Select Type">
+                    <button au-slot="after" type="button" class="m-info-button" aria-expanded="false" data-info-for="itype">
+                        <span class="mso">info</span>
+                        <span class="sr-only">More info about Type filter</span>
+                    </button>
+                </searchable-select>
 
-                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Filter to a specific equipment for the selected item type, disabled if one isn't selected.">
-                    <div class="flex items-stretch">
-                        <div class="relative flex-1">
-                            <select id="eqsel" class="select-base peer"
-                                    value.bind="selectedEquipmentName"
-                                    disabled.bind="selectedCategory === 'runewords' || !selectedTypeBase">
-                                <option repeat.for="opt of equipmentNames" value.bind="opt.id">\${opt.name}</option>
-                            </select>
-                            <label for="eqsel" class="floating-label">Select Equipment</label>
-                        </div>
-                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="eqsel">
-                            <span class="mso">info</span>
-                            <span class="sr-only">More info about Equipment filter</span>
-                        </button>
-                    </div>
-                </div>
+                <searchable-select id="eqsel"
+                                   class="w-full lg:w-auto lg:min-w-60"
+                                   data-help-text="Filter to a specific equipment for the selected item type, disabled if one isn't selected."
+                                   value.bind="selectedEquipmentName"
+                                   options.bind="equipmentNames"
+                                   label="Select Equipment"
+                                   disabled.bind="selectedCategory === 'runewords' || !selectedTypeBase">
+                    <button au-slot="after" type="button" class="m-info-button" aria-expanded="false" data-info-for="eqsel">
+                        <span class="mso">info</span>
+                        <span class="sr-only">More info about Equipment filter</span>
+                    </button>
+                </searchable-select>
 
                 <div class="w-full lg:w-60" data-help-text="Search across all fields. Attempts exact match. Seperate with '+' for AND match. Seperate with ',' or '|' for OR match. ex. 'fire skill damage+enemy fire' finds items with only both tokens. 'fire skill damage,enemy fire' finds items with either token.">
                     <div class="flex items-stretch">

@@ -1,9 +1,175 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-Ds3jpIkO.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-CHmnhXzh.js";
 import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, A as ANCESTOR_ONLY_WHEN_EXACT_OFF, a as getChainForTypeNameReadonly, t as type_filtering_options } from "./item-type-filters-BmbPxQoN.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
 import { p as prependTypeResetOption, a as toOptionalNumber, t as tokenizeSearch, s as swapMinMax } from "./filter-helpers-C07hLFTd.js";
 const name = "affixes";
-const template = '<template>\n    <h3 class="text-lg type-text text-center mx-auto mt-4">\n        <span class="text-lg set-text">Green text </span>are included item types.\n    </h3>\n    <h3 class="text-lg type-text text-center mx-auto mb-4">\n        <span class="text-lg requirement-text">Red text </span>are excluded item types.\n    </h3>\n    <h3 class="text-lg type-text text-center mx-auto my-4">\n        <span class="rarity-text">${filteredAffixes.length}</span> Magic Affixes Found\n    </h3>\n\n    <search-area>\n        <div class="w-full m-auto px-5 py-2">\n            <div class="flex flex-wrap justify-center items-start gap-2">\n\n                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Choose between prefixes, suffixes, or both.">\n                    <div class="flex items-stretch">\n                        <div class="relative flex-1">\n                            <select id="ptype" class="select-base peer" value.bind="selectedPType">\n                                <option repeat.for="opt of pTypeOptions" value.bind="opt.value"> ${opt.label}</option>\n                            </select>\n                            <label for="ptype" class="floating-label">Select Affix Type</label>\n                        </div>\n                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="ptype">\n                            <span class="mso">info</span>\n                            <span class="sr-only">More info about Affix Type filter</span>\n                        </button>\n                    </div>\n                </div>\n\n                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Filter by property group (e.g., Damage, Defense, Utility). Note: Still WIP some may be incorrect.">\n                    <div class="flex items-stretch">\n                        <div class="relative flex-1">\n                            <select id="desc" class="select-base peer" value.bind="selectedGroupDescription">\n                                <option repeat.for="opt of groupOptions" value.bind="opt.value"> ${opt.label}</option>\n                            </select>\n                            <label for="desc" class="floating-label">\n                                Select Property Type</label>\n                        </div>\n                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="desc">\n                            <span class="mso">info</span>\n                            <span class="sr-only">More info about Property Type filter</span>\n                        </button>\n                    </div>\n                </div>\n\n                <div class="w-full lg:w-auto lg:min-w-60 flex flex-nowrap" data-help-text="Filter by base item type. Toggle ‘Exact’ to remove variants.">\n                    <div class="w-full relative">\n                        <select id="itype" class="select-base-exact peer" value.bind="selectedType">\n                            <option repeat.for="opt of types"\n                                    value.bind="opt.id">${opt.label}\n                            </option>\n                        </select>\n                        <label for="itype" class="floating-label">Select Item Type</label>\n                    </div>\n                    <div class="flex items-center">\n                        <button\n                                type="button"\n                                class="exact-button"\n                                aria-pressed.bind="exclusiveType"\n                                click.trigger="exclusiveType = !exclusiveType">\n                            <span class="exact-indicator"></span>\n                            Exact\n                        </button>\n                    </div>\n                    <button type="button" class="m-info-button" aria-expanded="false" data-info-for="itype">\n                        <span class="mso">info</span>\n                        <span class="sr-only">More info about Item Type filter</span>\n                    </button>\n                </div>\n\n                <div class="w-full lg:w-60" data-help-text="Search across all fields. Attempts exact match. Seperate with \'+\' for AND match. Seperate with \',\' or \'|\' for OR match. ex. \'fire skill damage+enemy fire\' finds items with only both tokens. \'fire skill damage,enemy fire\' finds items with either token.">\n                    <div class="flex items-stretch">\n                        <div class="trailing-icon flex-1" data-icon="search">\n                            <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search"\n                                   placeholder=" "/>\n                            <label for="inputsearch" class="floating-label">Search...</label>\n                        </div>\n                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="inputsearch">\n                            <span class="mso">info</span>\n                            <span class="sr-only">More info about Search</span>\n                        </button>\n                    </div>\n                </div>\n\n                <div class="w-full flex flex-nowrap gap-2 lg:w-auto lg:min-w-60" data-help-text="Filter by required level range. The min and max values will update each other if they overlap.">\n                    <div class="w-full relative">\n                        <select id="minrlvl" class="select-base peer" value.bind="minRequiredLevel">\n                            <option repeat.for="opt of rLevelOptions" value.bind="opt.value">${opt.label}</option>\n                        </select>\n                        <label for="minrlvl" class="floating-label">Min RLv</label>\n                    </div>\n                    <div class="w-full relative">\n                        <select id="maxrlvl" class="select-base peer" value.bind="maxRequiredLevel">\n                            <option repeat.for="opt of rLevelOptions" value.bind="opt.value">${opt.label}</option>\n                        </select>\n                        <label for="maxrlvl" class="floating-label">Max RLv</label>\n                    </div>\n                    <button type="button" class="m-info-button ml-0!" aria-expanded="false" data-info-for="minrlvl">\n                        <span class="mso">info</span>\n                        <span class="sr-only">More info about Required Level filters</span>\n                    </button>\n                </div>\n\n                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Reset all filters to default.">\n                    <div class="flex items-stretch">\n                        <div class="relative flex-1">\n                            <button id="filterreset" class="button-base" type="button" click.trigger="resetFilters()">\n                                Reset Filters\n                            </button>\n                        </div>\n                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="filterreset">\n                            <span class="mso">info</span>\n                            <span class="sr-only">More info about Reset Filters</span>\n                        </button>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </search-area>\n\n    <div class="card-container">\n        <div class="card-box card-vis" repeat.for="affix of filteredAffixes">\n\n                <div class="flex justify-between items-center">\n                    <div class="text-lg prop-text mt-1 ml-1">${affix.Name}</div>\n                    <div class="text-lg type-text mt-1 mr-1">${affix.PType}</div>\n                </div>\n\n                <div class="text-base requirement-text mb-1">\n                    Level ${affix.RequiredLevel >0? affix.RequiredLevel: 1} Required\n                </div>\n\n                <div class="text-base type-text mb-1" if.bind="affix.Level">\n                    Affix Level ${affix.Level}${affix.MaxLevel ? \'-\' + affix.MaxLevel : \'\'}\n                </div>\n\n                <div class="flex flex-wrap justify-center" if.bind="affix.Types && affix.Types.length">\n                    <span class="text-base set-text mx-1" repeat.for="t of affix.Types">${t}</span>\n                </div>\n\n                <div class="flex flex-wrap justify-center" if.bind="affix.ETypes && affix.ETypes.length">\n                    <span class="text-base requirement-text mx-1" repeat.for="et of affix.ETypes">${et}</span>\n                </div>\n\n                <div class="text-base prop-text my-1" repeat.for="prop of affix.Properties | sortProperties">\n                    <div if.bind="prop.PropertyString">\n                        ${prop.PropertyString}\n                    </div>\n                    <div if.bind="prop[\'group-properties\']">\n                        <div repeat.for="[groupName, pool] of prop[\'group-properties\'] | entries">\n                            <div if.bind="prop.pickmode == 0 || (pool[0] && pool[0].PickMode == 0)">\n                                <div repeat.for="affixData of pool" if.bind="affixData.PropertyString">\n                                    ${affixData.PropertyString}\n                                </div>\n                            </div>\n                            <div if.bind="prop.pickmode != 0 && (!pool[0] || pool[0].PickMode != 0)" class="border px-2 border-gray-600 rounded m-2">\n                                <div class="set-text text-center p-1 border-b border-gray-600">\n                                    ${formatGroupName(groupName)}\n                                </div>\n                                <div repeat.for="affixData of pool" if.bind="affixData.PropertyString" class="flex justify-between p-1 border-b border-gray-700 last:border-0">\n                                    <span class="prop-text">${affixData | chance:pool}%</span>\n                                    <span class="text-right">${affixData.PropertyString}</span>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n</template>\n';
+const template = `<template>
+    <h3 class="text-lg type-text text-center mx-auto mt-4">
+        <span class="text-lg set-text">Green text </span>are included item types.
+    </h3>
+    <h3 class="text-lg type-text text-center mx-auto mb-4">
+        <span class="text-lg requirement-text">Red text </span>are excluded item types.
+    </h3>
+    <h3 class="text-lg type-text text-center mx-auto my-4">
+        <span class="rarity-text">\${filteredAffixes.length}</span> Magic Affixes Found
+    </h3>
+
+    <search-area>
+        <div class="w-full m-auto px-5 py-2">
+            <div class="flex flex-wrap justify-center items-start gap-2">
+
+                <div class="w-full lg:w-auto lg:min-w-45" data-help-text="Choose between prefixes, suffixes, or both.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <select id="ptype" class="select-base peer" value.bind="selectedPType">
+                                <option repeat.for="opt of pTypeOptions" value.bind="opt.value"> \${opt.label}</option>
+                            </select>
+                            <label for="ptype" class="floating-label">Select Affix Type</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="ptype">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Affix Type filter</span>
+                        </button>
+                    </div>
+                </div>
+
+                <searchable-select id="desc"
+                                   class="w-full lg:w-auto lg:min-w-60"
+                                   data-help-text="Filter by property group (e.g., Damage, Defense, Utility). Note: Still WIP some may be incorrect."
+                                   value.bind="selectedGroupDescription"
+                                   options.bind="groupOptions"
+                                   label="Select Property Type">
+                    <button au-slot="after" type="button" class="m-info-button" aria-expanded="false" data-info-for="desc">
+                        <span class="mso">info</span>
+                        <span class="sr-only">More info about Property Type filter</span>
+                    </button>
+                </searchable-select>
+
+                <searchable-select id="itype"
+                                   class="w-full lg:w-auto lg:min-w-75"
+                                   data-help-text="Filter by base item type. Toggle ‘Exact’ to remove variants."
+                                   value.bind="selectedType"
+                                   options.bind="types"
+                                   label="Select Item Type"
+                                   exact.bind="true">
+                    <div au-slot="after" class="flex items-stretch">
+                        <button type="button"
+                                class="exact-button"
+                                aria-pressed.bind="exclusiveType"
+                                click.trigger="exclusiveType = !exclusiveType">
+                            <span class="exact-indicator"></span>
+                            Exact
+                        </button>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="itype">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Item Type filter</span>
+                        </button>
+                    </div>
+                </searchable-select>
+
+                <div class="w-full lg:w-60" data-help-text="Search across all fields. Attempts exact match. Seperate with '+' for AND match. Seperate with ',' or '|' for OR match. ex. 'fire skill damage+enemy fire' finds items with only both tokens. 'fire skill damage,enemy fire' finds items with either token.">
+                    <div class="flex items-stretch">
+                        <div class="trailing-icon flex-1" data-icon="search">
+                            <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search"
+                                   placeholder=" "/>
+                            <label for="inputsearch" class="floating-label">Search...</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="inputsearch">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Search</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="w-full flex flex-nowrap gap-2 lg:w-auto lg:min-w-60" data-help-text="Filter by required level range. The min and max values will update each other if they overlap.">
+                    <div class="w-full relative">
+                        <select id="minrlvl" class="select-base peer" value.bind="minRequiredLevel">
+                            <option repeat.for="opt of rLevelOptions" value.bind="opt.value">\${opt.label}</option>
+                        </select>
+                        <label for="minrlvl" class="floating-label">Min RLv</label>
+                    </div>
+                    <div class="w-full relative">
+                        <select id="maxrlvl" class="select-base peer" value.bind="maxRequiredLevel">
+                            <option repeat.for="opt of rLevelOptions" value.bind="opt.value">\${opt.label}</option>
+                        </select>
+                        <label for="maxrlvl" class="floating-label">Max RLv</label>
+                    </div>
+                    <button type="button" class="m-info-button ml-0!" aria-expanded="false" data-info-for="minrlvl">
+                        <span class="mso">info</span>
+                        <span class="sr-only">More info about Required Level filters</span>
+                    </button>
+                </div>
+
+                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Reset all filters to default.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <button id="filterreset" class="button-base" type="button" click.trigger="resetFilters()">
+                                Reset Filters
+                            </button>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="filterreset">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Reset Filters</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </search-area>
+
+    <div class="card-container">
+        <div class="card-box card-vis" repeat.for="affix of filteredAffixes">
+
+                <div class="flex justify-between items-center">
+                    <div class="text-lg prop-text mt-1 ml-1">\${affix.Name}</div>
+                    <div class="text-lg type-text mt-1 mr-1">\${affix.PType}</div>
+                </div>
+
+                <div class="text-base requirement-text mb-1">
+                    Level \${affix.RequiredLevel >0? affix.RequiredLevel: 1} Required
+                </div>
+
+                <div class="text-base type-text mb-1" if.bind="affix.Level">
+                    Affix Level \${affix.Level}\${affix.MaxLevel ? '-' + affix.MaxLevel : ''}
+                </div>
+
+                <div class="flex flex-wrap justify-center" if.bind="affix.Types && affix.Types.length">
+                    <span class="text-base set-text mx-1" repeat.for="t of affix.Types">\${t}</span>
+                </div>
+
+                <div class="flex flex-wrap justify-center" if.bind="affix.ETypes && affix.ETypes.length">
+                    <span class="text-base requirement-text mx-1" repeat.for="et of affix.ETypes">\${et}</span>
+                </div>
+
+                <div class="text-base prop-text my-1" repeat.for="prop of affix.Properties | sortProperties">
+                    <div if.bind="prop.PropertyString">
+                        \${prop.PropertyString}
+                    </div>
+                    <div if.bind="prop['group-properties']">
+                        <div repeat.for="[groupName, pool] of prop['group-properties'] | entries">
+                            <div if.bind="prop.pickmode == 0 || (pool[0] && pool[0].PickMode == 0)">
+                                <div repeat.for="affixData of pool" if.bind="affixData.PropertyString">
+                                    \${affixData.PropertyString}
+                                </div>
+                            </div>
+                            <div if.bind="prop.pickmode != 0 && (!pool[0] || pool[0].PickMode != 0)" class="border px-2 border-gray-600 rounded m-2">
+                                <div class="set-text text-center p-1 border-b border-gray-600">
+                                    \${formatGroupName(groupName)}
+                                </div>
+                                <div repeat.for="affixData of pool" if.bind="affixData.PropertyString" class="flex justify-between p-1 border-b border-gray-700 last:border-0">
+                                    <span class="prop-text">\${affixData | chance:pool}%</span>
+                                    <span class="text-right">\${affixData.PropertyString}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</template>
+`;
 const dependencies = [];
 const bindables = {};
 let _e;
@@ -323,7 +489,7 @@ class Affixes {
             Object.values(p["group-properties"]).forEach((pool) => {
               pool.forEach((affix) => {
                 if (affix.PropertyString)
-                  groupStrings.push(affix.PropertyString);
+                  groupStrings.push(String(affix.PropertyString));
               });
             });
           }
