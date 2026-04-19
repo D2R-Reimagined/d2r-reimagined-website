@@ -1,4 +1,4 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-9-Eqjwoy.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-CtbfNjaz.js";
 import { g as getTypeChain, r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options, a as getChainForTypeNameReadonly } from "./item-type-filters-BmbPxQoN.js";
 import { p as passesHandFilter, t as toggleWeaponSort, g as getSortKeyFromDamageType, c as character_class_options, w as weaponSortOptions, h as handFilterOptions } from "./item-sorting-Biaf6mJs.js";
 import { a as getWeaponPhysDamValue, b as getWeaponNonPhysDamValue, g as getDamageTypeString } from "./damage-types-BlYhXdWN.js";
@@ -121,7 +121,7 @@ const template = `<template>
             <h4 class="text-lg type-text text-center mb-2">Sort by Average Weapon Damage:</h4>
             <div class="flex flex-wrap justify-center items-start gap-2">
 
-                <div class="w-full lg:w-auto lg:min-w-55" data-help-text="Filter weapon type: -, 1H Only, or 2H Only.">
+                <div class="w-full lg:w-auto lg:min-w-55" data-help-text="Filter weapon type: All, 1H Only, or 2H Only.">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <select id="handfilter" class="select-base peer" value.bind="handFilterMode">

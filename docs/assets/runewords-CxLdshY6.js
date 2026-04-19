@@ -1,4 +1,4 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-9-Eqjwoy.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-CtbfNjaz.js";
 import { a as getChainForTypeNameReadonly, t as type_filtering_options, A as ANCESTOR_ONLY_WHEN_EXACT_OFF } from "./item-type-filters-BmbPxQoN.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
 import { p as prependTypeResetOption, t as tokenizeSearch, m as matchesTokenGroups } from "./filter-helpers-DL_Ti2wh.js";

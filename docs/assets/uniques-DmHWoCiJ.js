@@ -1,4 +1,4 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-9-Eqjwoy.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-CtbfNjaz.js";
 import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options, g as getTypeChain, a as getChainForTypeNameReadonly } from "./item-type-filters-BmbPxQoN.js";
 import { p as passesHandFilter, s as sortItemsByWeaponDamage, t as toggleWeaponSort, g as getSortKeyFromDamageType, c as character_class_options, w as weaponSortOptions, h as handFilterOptions } from "./item-sorting-Biaf6mJs.js";
 import { g as getDamageTypeString } from "./damage-types-BlYhXdWN.js";
@@ -122,7 +122,7 @@ const template = `<template>
                             <select id="handfilter" class="select-base peer" value.bind="handFilterMode">
                                 <option repeat.for="opt of handFilterOptions" value.bind="opt.value">\${opt.label}</option>
                             </select>
-                            <label for="handfilter" class="floating-label">Weapon Type</label>
+                            <label for="handfilter" class="floating-label">Select Weapon Type</label>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="handfilter">
                             <span class="mso">info</span>
