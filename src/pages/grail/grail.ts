@@ -131,7 +131,7 @@ export class Grail {
     // When true, hide items where Vanilla === 'Y'
     @bindable hideVanilla: boolean = false;
     @bindable weaponSortMode: WeaponSortMode = 'none';
-    @bindable handFilterMode: HandFilterMode = 'all';
+    @bindable handFilterMode: HandFilterMode = '';
 
     // Helper to check if current type is weapon
     get isWeaponType(): boolean {
@@ -514,7 +514,7 @@ export class Grail {
         this.showFoundItems = false;
         this.hideVanilla = false;
         this.weaponSortMode = 'none';
-        this.handFilterMode = 'all';
+        this.handFilterMode = '';
 
         // Rebuild options list for the current category and refresh
         this.rebuildTypeOptions();
@@ -526,7 +526,7 @@ export class Grail {
     // Reset only the weapon sorting mode
     resetSort() {
         this.weaponSortMode = 'none';
-        this.handFilterMode = 'all';
+        this.handFilterMode = '';
         if (this._debouncedApplyFilters) this._debouncedApplyFilters();
     }
 
@@ -580,7 +580,7 @@ export class Grail {
             });
             this.filteredUniques = result;
             // Hand filter (1H / 2H):
-            if (this.handFilterMode !== 'all') {
+            if (this.handFilterMode) {
                 this.filteredUniques = this.filteredUniques.filter((u) =>
                     passesHandFilter(u?.Equipment?.DamageTypes, this.handFilterMode),
                 );
@@ -618,7 +618,7 @@ export class Grail {
             });
             this.filteredSetItems = result;
             // Hand filter (1H / 2H):
-            if (this.handFilterMode !== 'all') {
+            if (this.handFilterMode) {
                 this.filteredSetItems = this.filteredSetItems.filter((si) =>
                     passesHandFilter(si?.Equipment?.DamageTypes, this.handFilterMode),
                 );

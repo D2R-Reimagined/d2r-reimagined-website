@@ -61,10 +61,10 @@ export function getSortKeyFromDamageType(type: number): string | null {
 }
 
 // Hand filter: cycles All → 1H Only → 2H Only → All
-export type HandFilterMode = 'all' | '1h' | '2h';
+export type HandFilterMode = '' | '1h' | '2h';
 
 export const handFilterOptions: { value: HandFilterMode, label: string }[] = [
-    { value: 'all', label: 'All' },
+    { value: '', label: '-' },
     { value: '1h', label: '1H Only' },
     { value: '2h', label: '2H Only' },
 ];
@@ -77,7 +77,7 @@ export const handFilterOptions: { value: HandFilterMode, label: string }[] = [
  * - 'all': keep everything
  */
 export function passesHandFilter(damageTypes: { Type: number }[] | undefined | null, mode: HandFilterMode): boolean {
-    if (mode === 'all') return true;
+    if (!mode) return true;
     const has2H = Array.isArray(damageTypes) && damageTypes.some(d => d.Type === 1);
     if (mode === '1h') return !has2H;
     if (mode === '2h') return has2H;

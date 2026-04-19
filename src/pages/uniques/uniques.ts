@@ -79,7 +79,7 @@ export class Uniques {
     // Current possible sorting modes
     // TODO: Specific non-physical damage sorting in the future? (e.g.: fire damage)
     @bindable weaponSortMode: WeaponSortMode = 'none';
-    @bindable handFilterMode: HandFilterMode = 'all';
+    @bindable handFilterMode: HandFilterMode = '';
 
     equipmentNames: Array<{ value: string | undefined; label: string }> = [];
 
@@ -290,7 +290,7 @@ export class Uniques {
         });
 
         // Hand filter (1H / 2H):
-        if (this.handFilterMode !== 'all') {
+        if (this.handFilterMode) {
             this.uniques = this.uniques.filter((u) =>
                 passesHandFilter(u?.Equipment?.DamageTypes, this.handFilterMode),
             );
@@ -385,6 +385,7 @@ export class Uniques {
         this.selectedEquipmentName = undefined;
         this.equipmentNames = [{ value: '', label: '-' }];
         this.weaponSortMode = 'none';
+        this.handFilterMode = '';
 
         this.updateList();
         this.updateUrl();
@@ -393,7 +394,7 @@ export class Uniques {
     // Reset only the weapon sorting mode
     resetSort() {
         this.weaponSortMode = 'none';
-        this.handFilterMode = 'all';
+        this.handFilterMode = '';
     }
 
     toggleSort(type: string) {
