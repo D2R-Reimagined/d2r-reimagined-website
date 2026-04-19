@@ -1,7 +1,7 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-CHmnhXzh.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-9-Eqjwoy.js";
 import { a as getChainForTypeNameReadonly, t as type_filtering_options, A as ANCESTOR_ONLY_WHEN_EXACT_OFF } from "./item-type-filters-BmbPxQoN.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
-import { p as prependTypeResetOption, t as tokenizeSearch } from "./filter-helpers-C07hLFTd.js";
+import { p as prependTypeResetOption, t as tokenizeSearch, m as matchesTokenGroups } from "./filter-helpers-DL_Ti2wh.js";
 import { r as runewordsJson } from "./runewords-BsHJoHBS.js";
 const name = "runewords";
 const template = `<template>
@@ -54,7 +54,7 @@ const template = `<template>
                 </searchable-select>
 
                 <div class="w-full lg:w-60"
-                     data-help-text="Search across all fields. Attempts exact match. Seperate with '+' for AND match. Seperate with ',' or '|' for OR match. ex. 'fire skill damage+enemy fire' finds items with only both tokens. 'fire skill damage,enemy fire' finds items with either token.">
+                     data-help-text="Search across all fields. Text is matched as a phrase. Use '+' to require multiple terms (AND). Use ',' or '|' for OR. Prefix with '-' or '!' to exclude a term or phrase. ex. 'fire skill damage' finds the exact phrase. 'fire+cold' finds items with both. 'fire,cold' finds items with either. '-fire' excludes items containing fire. 'damage -fire' finds items with damage but not fire. 'fire skill damage -cold skill damage' finds fire skill damage but excludes cold skill damage.">
                     <div class="flex items-stretch">
                         <div class="trailing-icon flex-1" data-icon="search">
                             <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search"
@@ -446,7 +446,7 @@ class Runewords {
       }
       if (searchTokens.length > 0) {
         const hay = this._searchStrings.get(rw) || "";
-        if (!searchTokens.some((group) => group.every((t) => hay.includes(t)))) {
+        if (!matchesTokenGroups(hay, searchTokens)) {
           return false;
         }
       }

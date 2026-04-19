@@ -19,25 +19,23 @@ const weaponSortOptions = [
 function sortItemsByWeaponDamage(items, mode) {
   if (mode === "none") return items;
   const isAsc = mode.includes("ascending");
-  return items.slice().sort((a, b) => {
-    let vA = 0, vB = 0;
-    if (mode.includes("1h-phys")) {
-      vA = getWeaponPhysDamValue(a, [3, 0]);
-      vB = getWeaponPhysDamValue(b, [3, 0]);
-    } else if (mode.includes("2h-phys")) {
-      vA = getWeaponPhysDamValue(a, 1);
-      vB = getWeaponPhysDamValue(b, 1);
-    } else if (mode.includes("throw-phys")) {
-      vA = getWeaponPhysDamValue(a, 2);
-      vB = getWeaponPhysDamValue(b, 2);
-    } else if (mode.includes("non-phys")) {
-      vA = getWeaponNonPhysDamValue(a);
-      vB = getWeaponNonPhysDamValue(b);
-    }
-    if (vA === 0 && vB !== 0) return 1;
-    if (vA !== 0 && vB === 0) return -1;
-    return isAsc ? vA - vB : vB - vA;
+  let getValue;
+  if (mode.includes("1h-phys")) {
+    getValue = (item) => getWeaponPhysDamValue(item, [3, 0]);
+  } else if (mode.includes("2h-phys")) {
+    getValue = (item) => getWeaponPhysDamValue(item, 1);
+  } else if (mode.includes("throw-phys")) {
+    getValue = (item) => getWeaponPhysDamValue(item, 2);
+  } else {
+    getValue = (item) => getWeaponNonPhysDamValue(item);
+  }
+  const decorated = items.map((item) => ({ item, val: getValue(item) }));
+  decorated.sort((a, b) => {
+    if (a.val === 0 && b.val !== 0) return 1;
+    if (a.val !== 0 && b.val === 0) return -1;
+    return isAsc ? a.val - b.val : b.val - a.val;
   });
+  return decorated.map((d) => d.item);
 }
 function toggleWeaponSort(currentMode, type) {
   if (typeof window !== "undefined" && window.getSelection()?.toString().trim()) {
@@ -54,9 +52,23 @@ function getSortKeyFromDamageType(type) {
   if (type === 4) return "non-phys";
   return null;
 }
+const handFilterOptions = [
+  { value: "", label: "-" },
+  { value: "1h", label: "1H Only" },
+  { value: "2h", label: "2H Only" }
+];
+function passesHandFilter(damageTypes, mode) {
+  if (!mode) return true;
+  const has2H = Array.isArray(damageTypes) && damageTypes.some((d) => d.Type === 1);
+  if (mode === "1h") return !has2H;
+  if (mode === "2h") return has2H;
+  return true;
+}
 export {
   character_class_options as c,
   getSortKeyFromDamageType as g,
+  handFilterOptions as h,
+  passesHandFilter as p,
   sortItemsByWeaponDamage as s,
   toggleWeaponSort as t,
   weaponSortOptions as w

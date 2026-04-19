@@ -1,9 +1,9 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-CHmnhXzh.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-9-Eqjwoy.js";
 import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, a as getChainForTypeNameReadonly, t as type_filtering_options } from "./item-type-filters-BmbPxQoN.js";
 import { g as getDamageTypeString } from "./damage-types-BlYhXdWN.js";
-import { p as prependTypeResetOption, t as tokenizeSearch } from "./filter-helpers-C07hLFTd.js";
+import { p as prependTypeResetOption, t as tokenizeSearch, m as matchesTokenGroups } from "./filter-helpers-DL_Ti2wh.js";
 const name = "bases";
-const template = `\uFEFF<template>
+const template = `<template>
     <h3 class="text-lg type-text text-center my-4">
         <span class="rarity-text">[N]</span> = Normal <span class="rarity-text">[X]</span> = Exceptional <span
             class="rarity-text">[E]</span> = Elite
@@ -83,7 +83,7 @@ const template = `\uFEFF<template>
                 </div>
 
                 <div class="w-full lg:w-60"
-                     data-help-text="Search across all fields. Attempts exact match. Seperate with '+' for AND match. Seperate with ',' or '|' for OR match. ex. 'fire skill damage+enemy fire' finds items with only both tokens. 'fire skill damage,enemy fire' finds items with either token.">
+                     data-help-text="Search across all fields. Text is matched as a phrase. Use '+' to require multiple terms (AND). Use ',' or '|' for OR. Prefix with '-' or '!' to exclude a term or phrase. ex. 'fire skill damage' finds the exact phrase. 'fire+cold' finds items with both. 'fire,cold' finds items with either. '-fire' excludes items containing fire. 'damage -fire' finds items with damage but not fire. 'fire skill damage -cold skill damage' finds fire skill damage but excludes cold skill damage.">
                     <div class="flex items-stretch">
                         <div class="trailing-icon flex-1" data-icon="search">
                             <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search"
@@ -458,9 +458,7 @@ class Bases {
     const codeSet = /* @__PURE__ */ new Set();
     for (const i of all) {
       const hay = this._searchMap.get(i) || "";
-      const matches = !searchTokens.length || searchTokens.some(
-        (group) => group.every((t) => hay.includes(t))
-      );
+      const matches = !searchTokens.length || matchesTokenGroups(hay, searchTokens);
       if (matches) {
         primary.push(i);
         if (i.NormCode) codeSet.add(i.NormCode.toLowerCase());
@@ -571,13 +569,26 @@ class Bases {
     return void 0;
   }
   buildSearchString(i) {
-    return [
-      i.Name,
-      i.Type?.Name,
+    const parts = [
+      i.Name ?? "",
+      i.Type?.Name ?? "",
       i.NormCode ?? "",
       i.UberCode ?? "",
       i.UltraCode ?? ""
-    ].filter(Boolean).join(" ").toLowerCase();
+    ];
+    if (i.DamageString) {
+      if (i.DamageStringPrefix && String(i.DamageStringPrefix).trim() !== "") {
+        parts.push(i.DamageStringPrefix);
+      }
+      parts.push(i.DamageString);
+    }
+    if (Array.isArray(i.DamageTypes)) {
+      for (const d of i.DamageTypes) {
+        parts.push(getDamageTypeString(d.Type));
+        if (d.DamageString) parts.push(d.DamageString);
+      }
+    }
+    return parts.filter(Boolean).join(" ").toLowerCase();
   }
   groupedProperties(item) {
     const raw = (item?.AutoMagicGroups || []).slice();

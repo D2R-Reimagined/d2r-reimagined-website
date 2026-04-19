@@ -1,9 +1,9 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-CHmnhXzh.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-9-Eqjwoy.js";
 import { g as getTypeChain, a as getChainForTypeNameReadonly, r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options } from "./item-type-filters-BmbPxQoN.js";
-import { t as toggleWeaponSort, g as getSortKeyFromDamageType, s as sortItemsByWeaponDamage, c as character_class_options, w as weaponSortOptions } from "./item-sorting-CN1-l_qa.js";
+import { t as toggleWeaponSort, g as getSortKeyFromDamageType, p as passesHandFilter, s as sortItemsByWeaponDamage, c as character_class_options, w as weaponSortOptions, h as handFilterOptions } from "./item-sorting-Biaf6mJs.js";
 import { g as getDamageTypeString } from "./damage-types-BlYhXdWN.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
-import { p as prependTypeResetOption, t as tokenizeSearch, i as isVanillaItem } from "./filter-helpers-C07hLFTd.js";
+import { p as prependTypeResetOption, t as tokenizeSearch, i as isVanillaItem } from "./filter-helpers-DL_Ti2wh.js";
 import { r as runewordsJson } from "./runewords-BsHJoHBS.js";
 import { s as setsJson } from "./sets-DSkRMyMn.js";
 import { u as uniquesJson } from "./uniques-DJmOKAbF.js";
@@ -173,7 +173,7 @@ const template = `<template>
                     </button>
                 </searchable-select>
 
-                <div class="w-full lg:w-60" data-help-text="Search across all fields. Attempts exact match. Seperate with '+' for AND match. Seperate with ',' or '|' for OR match. ex. 'fire skill damage+enemy fire' finds items with only both tokens. 'fire skill damage,enemy fire' finds items with either token.">
+                <div class="w-full lg:w-60" data-help-text="Search across all fields. Text is matched as a phrase. Use '+' to require multiple terms (AND). Use ',' or '|' for OR. Prefix with '-' or '!' to exclude a term or phrase. ex. 'fire skill damage' finds the exact phrase. 'fire+cold' finds items with both. 'fire,cold' finds items with either. '-fire' excludes items containing fire. 'damage -fire' finds items with damage but not fire. 'fire skill damage -cold skill damage' finds fire skill damage but excludes cold skill damage.">
                     <div class="flex items-stretch">
                         <div class="trailing-icon flex-1" data-icon="search">
                             <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search"
@@ -230,6 +230,21 @@ const template = `<template>
         <div class="w-full m-auto px-5 py-5 pb-2 border-b border-gray-600">
             <h4 class="text-lg type-text text-center mb-2">Sort by Average Weapon Damage:</h4>
             <div class="flex flex-wrap justify-center items-start gap-2">
+
+                <div class="w-full lg:w-auto lg:min-w-55" data-help-text="Filter weapon type: -, 1H Only, or 2H Only.">
+                    <div class="flex items-stretch">
+                        <div class="relative flex-1">
+                            <select id="handfilter" class="select-base peer" value.bind="handFilterMode">
+                                <option repeat.for="opt of handFilterOptions" value.bind="opt.value">\${opt.label}</option>
+                            </select>
+                            <label for="handfilter" class="floating-label">Select Weapon Type</label>
+                        </div>
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="handfilter">
+                            <span class="mso">info</span>
+                            <span class="sr-only">More info about Weapon Type filter</span>
+                        </button>
+                    </div>
+                </div>
 
                 <div repeat.for="opt of weaponSortOptions" class="w-full lg:w-auto lg:min-w-45" data-help-text.bind="opt.help">
                     <div class="flex items-stretch">
@@ -600,8 +615,8 @@ var __privateIn = (member, obj) => Object(obj) !== obj ? __typeError('Cannot use
 var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
 var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "access private method"), method);
-var _selectedTypeChanged_dec, _foundRunewords_dec, _foundSets_dec, _foundUniques_dec, _showFoundItems_dec, _exclusiveType_dec, _weaponSortMode_dec, _hideVanilla_dec, _selectedEquipmentName_dec, _selectedType_dec, _selectedTypeBase_dec, _selectedClass_dec, _search_dec, _selectedCategory_dec, _Grail_decorators, _init;
-_Grail_decorators = [customElement(__au2ViewDef)], _selectedCategory_dec = [bindable], _search_dec = [bindable], _selectedClass_dec = [bindable], _selectedTypeBase_dec = [bindable], _selectedType_dec = [bindable], _selectedEquipmentName_dec = [bindable], _hideVanilla_dec = [bindable], _weaponSortMode_dec = [bindable], _exclusiveType_dec = [bindable], _showFoundItems_dec = [bindable], _foundUniques_dec = [bindable], _foundSets_dec = [bindable], _foundRunewords_dec = [bindable], _selectedTypeChanged_dec = [watch("selectedType")];
+var _selectedTypeChanged_dec, _foundRunewords_dec, _foundSets_dec, _foundUniques_dec, _showFoundItems_dec, _exclusiveType_dec, _handFilterMode_dec, _weaponSortMode_dec, _hideVanilla_dec, _selectedEquipmentName_dec, _selectedType_dec, _selectedTypeBase_dec, _selectedClass_dec, _search_dec, _selectedCategory_dec, _Grail_decorators, _init;
+_Grail_decorators = [customElement(__au2ViewDef)], _selectedCategory_dec = [bindable], _search_dec = [bindable], _selectedClass_dec = [bindable], _selectedTypeBase_dec = [bindable], _selectedType_dec = [bindable], _selectedEquipmentName_dec = [bindable], _hideVanilla_dec = [bindable], _weaponSortMode_dec = [bindable], _handFilterMode_dec = [bindable], _exclusiveType_dec = [bindable], _showFoundItems_dec = [bindable], _foundUniques_dec = [bindable], _foundSets_dec = [bindable], _foundRunewords_dec = [bindable], _selectedTypeChanged_dec = [watch("selectedType"), watch("weaponSortMode"), watch("handFilterMode")];
 class Grail {
   constructor() {
     __runInitializers(_init, 5, this);
@@ -626,13 +641,15 @@ class Grail {
     __publicField(this, "selectedEquipmentName", __runInitializers(_init, 28, this)), __runInitializers(_init, 31, this);
     __publicField(this, "hideVanilla", __runInitializers(_init, 32, this, false)), __runInitializers(_init, 35, this);
     __publicField(this, "weaponSortMode", __runInitializers(_init, 36, this, "none")), __runInitializers(_init, 39, this);
+    __publicField(this, "handFilterMode", __runInitializers(_init, 40, this, "")), __runInitializers(_init, 43, this);
     __publicField(this, "weaponSortOptions", weaponSortOptions);
+    __publicField(this, "handFilterOptions", handFilterOptions);
     __publicField(this, "types", type_filtering_options.slice());
-    __publicField(this, "exclusiveType", __runInitializers(_init, 40, this, false)), __runInitializers(_init, 43, this);
-    __publicField(this, "showFoundItems", __runInitializers(_init, 44, this, false)), __runInitializers(_init, 47, this);
-    __publicField(this, "foundUniques", __runInitializers(_init, 48, this, {})), __runInitializers(_init, 51, this);
-    __publicField(this, "foundSets", __runInitializers(_init, 52, this, {})), __runInitializers(_init, 55, this);
-    __publicField(this, "foundRunewords", __runInitializers(_init, 56, this, {})), __runInitializers(_init, 59, this);
+    __publicField(this, "exclusiveType", __runInitializers(_init, 44, this, false)), __runInitializers(_init, 47, this);
+    __publicField(this, "showFoundItems", __runInitializers(_init, 48, this, false)), __runInitializers(_init, 51, this);
+    __publicField(this, "foundUniques", __runInitializers(_init, 52, this, {})), __runInitializers(_init, 55, this);
+    __publicField(this, "foundSets", __runInitializers(_init, 56, this, {})), __runInitializers(_init, 59, this);
+    __publicField(this, "foundRunewords", __runInitializers(_init, 60, this, {})), __runInitializers(_init, 63, this);
     __publicField(this, "foundCount", 0);
     __publicField(this, "totalCount", 0);
     __publicField(this, "displayedCount", 0);
@@ -904,6 +921,7 @@ class Grail {
     this.showFoundItems = false;
     this.hideVanilla = false;
     this.weaponSortMode = "none";
+    this.handFilterMode = "";
     this.rebuildTypeOptions();
     this.updateList();
     this.updateTotalCount();
@@ -912,6 +930,7 @@ class Grail {
   // Reset only the weapon sorting mode
   resetSort() {
     this.weaponSortMode = "none";
+    this.handFilterMode = "";
     if (this._debouncedApplyFilters) this._debouncedApplyFilters();
   }
   toggleSort(type) {
@@ -925,44 +944,64 @@ class Grail {
     const searchTokens = tokenizeSearch(this.search);
     const selectedTypeSet = this.selectedType && this.selectedType.length > 0 ? new Set(this.selectedType) : null;
     if (this.selectedCategory === "uniques") {
+      const selectedClassLower = this.selectedClass ? String(this.selectedClass).toLowerCase() : "";
+      const hasSearch = searchTokens.length > 0;
+      const checkFound = this.showFoundItems;
+      const checkVanilla = this.hideVanilla;
       const result = this.uniques.filter((unique) => {
-        const okClass = !this.selectedClass || String(unique?.Equipment?.RequiredClass || "").toLowerCase().includes(String(this.selectedClass).toLowerCase());
-        const okType = !selectedTypeSet || selectedTypeSet.has(
-          getChainForTypeNameReadonly(unique?.Type ?? "")[0] || (unique?.Type ?? "")
-        );
-        const okEquip = !this.selectedEquipmentName || String(unique?.Equipment?.Name || "") === this.selectedEquipmentName;
-        const okVanilla = !this.hideVanilla || !isVanillaItem(unique?.Vanilla);
-        const okSearch = this.tokensPartiallyMatch(
-          this._uniqueSearchString.get(this.getUniqueKey(unique)),
-          searchTokens
-        );
-        const notGrabber = !String(unique?.Name || "").toLowerCase().includes("grabber");
+        if (String(unique?.Name || "").toLowerCase().includes("grabber")) return false;
+        if (checkVanilla && isVanillaItem(unique?.Vanilla)) return false;
+        if (selectedClassLower) {
+          const req = String(unique?.Equipment?.RequiredClass || "").toLowerCase();
+          if (!req.includes(selectedClassLower)) return false;
+        }
+        if (selectedTypeSet) {
+          const base = getChainForTypeNameReadonly(unique?.Type ?? "")[0] || (unique?.Type ?? "");
+          if (!selectedTypeSet.has(base)) return false;
+        }
+        if (this.selectedEquipmentName && String(unique?.Equipment?.Name || "") !== this.selectedEquipmentName) return false;
         const key = this.getUniqueKey(unique);
-        const okFound = !this.showFoundItems || !this.foundUniques[key];
-        return okClass && okType && okEquip && okVanilla && okSearch && notGrabber && okFound;
+        if (checkFound && this.foundUniques[key]) return false;
+        if (hasSearch && !this.tokensPartiallyMatch(this._uniqueSearchString.get(key), searchTokens)) return false;
+        return true;
       });
       this.filteredUniques = result;
+      if (this.handFilterMode) {
+        this.filteredUniques = this.filteredUniques.filter(
+          (u) => passesHandFilter(u?.Equipment?.DamageTypes, this.handFilterMode)
+        );
+      }
       if (this.isWeaponType && this.weaponSortMode !== "none") {
         this.filteredUniques = sortItemsByWeaponDamage(this.filteredUniques, this.weaponSortMode);
       }
       this.displayedCount = this.filteredUniques.length;
     } else if (this.selectedCategory === "sets") {
+      const selectedClassLower = this.selectedClass ? String(this.selectedClass).toLowerCase() : "";
+      const hasSearch = searchTokens.length > 0;
+      const checkFound = this.showFoundItems;
+      const checkVanilla = this.hideVanilla;
       const result = this.allSetItems.filter((item) => {
-        const okClass = !this.selectedClass || String(item?.Equipment?.RequiredClass || "").toLowerCase().includes(String(this.selectedClass).toLowerCase());
-        const okType = !selectedTypeSet || selectedTypeSet.has(
-          getChainForTypeNameReadonly(item?.Type ?? "")[0] || (item?.Type ?? "")
-        );
-        const okEquip = !this.selectedEquipmentName || String(item?.Equipment?.Name || "") === this.selectedEquipmentName;
-        const okVanilla = !this.hideVanilla || !isVanillaItem(item?.Vanilla);
-        const okSearch = this.tokensPartiallyMatch(
-          this._setItemSearchString.get(this.getSetItemKey(item)),
-          searchTokens
-        );
+        if (checkVanilla && isVanillaItem(item?.Vanilla)) return false;
+        if (selectedClassLower) {
+          const req = String(item?.Equipment?.RequiredClass || "").toLowerCase();
+          if (!req.includes(selectedClassLower)) return false;
+        }
+        if (selectedTypeSet) {
+          const base = getChainForTypeNameReadonly(item?.Type ?? "")[0] || (item?.Type ?? "");
+          if (!selectedTypeSet.has(base)) return false;
+        }
+        if (this.selectedEquipmentName && String(item?.Equipment?.Name || "") !== this.selectedEquipmentName) return false;
         const key = this.getSetItemKey(item);
-        const okFound = !this.showFoundItems || !this.foundSets[key];
-        return okClass && okType && okEquip && okVanilla && okSearch && okFound;
+        if (checkFound && this.foundSets[key]) return false;
+        if (hasSearch && !this.tokensPartiallyMatch(this._setItemSearchString.get(key), searchTokens)) return false;
+        return true;
       });
       this.filteredSetItems = result;
+      if (this.handFilterMode) {
+        this.filteredSetItems = this.filteredSetItems.filter(
+          (si) => passesHandFilter(si?.Equipment?.DamageTypes, this.handFilterMode)
+        );
+      }
       if (this.isWeaponType && this.weaponSortMode !== "none") {
         this.filteredSetItems = sortItemsByWeaponDamage(this.filteredSetItems, this.weaponSortMode);
       }
@@ -1042,6 +1081,12 @@ class Grail {
         }
       }
     }
+    if (Array.isArray(u?.Equipment?.DamageTypes)) {
+      for (const d of u.Equipment.DamageTypes) {
+        parts.push(getDamageTypeString(d.Type));
+        if (d.DamageString) parts.push(d.DamageString);
+      }
+    }
     parts.push(this.searchStringFromTypeChain(u?.Type));
     return this.buildSearchableString(parts);
   }
@@ -1066,6 +1111,12 @@ class Grail {
     if (Array.isArray(it?.SetPropertiesString)) {
       for (const s of it.SetPropertiesString) {
         if (s) parts.push(String(s));
+      }
+    }
+    if (Array.isArray(it?.Equipment?.DamageTypes)) {
+      for (const d of it.Equipment.DamageTypes) {
+        parts.push(getDamageTypeString(d.Type));
+        if (d.DamageString) parts.push(d.DamageString);
       }
     }
     parts.push(this.searchStringFromTypeChain(it?.Type));
@@ -1142,14 +1193,14 @@ class Grail {
     }
   }
   // Checks that the search query matches the item's searchable string.
-  // queryGroups is an OR-list of AND-groups (string[][]).
+  // queryGroups is an OR-list of AND-groups (SearchToken[][]).
   // An item matches if at least one OR-group matches.
-  // An OR-group matches if all its AND-terms are present as substrings in the searchable string.
+  // An OR-group matches if all its non-negated terms are present and all negated terms are absent.
   tokensPartiallyMatch(searchString, queryGroups) {
     if (!queryGroups.length) return true;
     if (!searchString) return false;
     return queryGroups.some((group) => {
-      return group.every((term) => searchString.includes(term));
+      return group.every((t) => t.negated ? !searchString.includes(t.term) : searchString.includes(t.term));
     });
   }
   parseFoundMap(raw) {
@@ -1459,6 +1510,7 @@ __decorateElement(_init, 5, "selectedType", _selectedType_dec, Grail);
 __decorateElement(_init, 5, "selectedEquipmentName", _selectedEquipmentName_dec, Grail);
 __decorateElement(_init, 5, "hideVanilla", _hideVanilla_dec, Grail);
 __decorateElement(_init, 5, "weaponSortMode", _weaponSortMode_dec, Grail);
+__decorateElement(_init, 5, "handFilterMode", _handFilterMode_dec, Grail);
 __decorateElement(_init, 5, "exclusiveType", _exclusiveType_dec, Grail);
 __decorateElement(_init, 5, "showFoundItems", _showFoundItems_dec, Grail);
 __decorateElement(_init, 5, "foundUniques", _foundUniques_dec, Grail);

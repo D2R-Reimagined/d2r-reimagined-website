@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-Q_y6_L-v.js","assets/debounce-DlM2vs2L.js","assets/filter-helpers-C07hLFTd.js","assets/uniques-LIvFR5xJ.js","assets/item-type-filters-BmbPxQoN.js","assets/item-sorting-CN1-l_qa.js","assets/damage-types-BlYhXdWN.js","assets/uniques-DJmOKAbF.js","assets/sets-C_E-Boi2.js","assets/sets-DSkRMyMn.js","assets/runewords-BuL7Z3Bb.js","assets/runewords-BsHJoHBS.js","assets/grail-B76I840w.js","assets/bases-B0CEpAge.js","assets/affixes-DjALJaY2.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-BgyQHPfx.js","assets/debounce-DlM2vs2L.js","assets/filter-helpers-DL_Ti2wh.js","assets/uniques-CunX0frk.js","assets/item-type-filters-BmbPxQoN.js","assets/item-sorting-Biaf6mJs.js","assets/damage-types-BlYhXdWN.js","assets/uniques-DJmOKAbF.js","assets/sets-DJi-chjk.js","assets/sets-DSkRMyMn.js","assets/runewords-CXyRpAAk.js","assets/runewords-BsHJoHBS.js","assets/grail-CMt-NNgP.js","assets/bases-1Wdz9ajV.js","assets/affixes-8ZZdHgfb.js"])))=>i.map(i=>d[i]);
 (function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) return;
@@ -26406,42 +26406,42 @@ _App_decorators = [customElement(__au2ViewDef), route({
   routes: [
     {
       path: "",
-      component: __vitePreload(() => import("./home-BW0XTbR9.js"), true ? [] : void 0),
+      component: __vitePreload(() => import("./home-CKDzXIug.js"), true ? [] : void 0),
       title: "Home"
     },
     {
       path: "cube-recipes",
-      component: __vitePreload(() => import("./cube-recipes-Q_y6_L-v.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
+      component: __vitePreload(() => import("./cube-recipes-BgyQHPfx.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
       title: "Cube Recipes"
     },
     {
       path: "uniques",
-      component: __vitePreload(() => import("./uniques-LIvFR5xJ.js"), true ? __vite__mapDeps([3,4,5,6,1,2,7]) : void 0),
+      component: __vitePreload(() => import("./uniques-CunX0frk.js"), true ? __vite__mapDeps([3,4,5,6,1,2,7]) : void 0),
       title: "Uniques"
     },
     {
       path: "sets",
-      component: __vitePreload(() => import("./sets-C_E-Boi2.js"), true ? __vite__mapDeps([8,4,5,6,1,2,9]) : void 0),
+      component: __vitePreload(() => import("./sets-DJi-chjk.js"), true ? __vite__mapDeps([8,4,5,6,1,2,9]) : void 0),
       title: "Sets"
     },
     {
       path: "runewords",
-      component: __vitePreload(() => import("./runewords-BuL7Z3Bb.js"), true ? __vite__mapDeps([10,4,1,2,11]) : void 0),
+      component: __vitePreload(() => import("./runewords-CXyRpAAk.js"), true ? __vite__mapDeps([10,4,1,2,11]) : void 0),
       title: "Runewords"
     },
     {
       path: "grail",
-      component: __vitePreload(() => import("./grail-B76I840w.js"), true ? __vite__mapDeps([12,4,5,6,1,2,11,9,7]) : void 0),
+      component: __vitePreload(() => import("./grail-CMt-NNgP.js"), true ? __vite__mapDeps([12,4,5,6,1,2,11,9,7]) : void 0),
       title: "Holy Grail"
     },
     {
       path: "bases",
-      component: __vitePreload(() => import("./bases-B0CEpAge.js"), true ? __vite__mapDeps([13,4,6,2]) : void 0),
+      component: __vitePreload(() => import("./bases-1Wdz9ajV.js"), true ? __vite__mapDeps([13,4,6,2]) : void 0),
       title: "Bases"
     },
     {
       path: "affixes",
-      component: __vitePreload(() => import("./affixes-DjALJaY2.js"), true ? __vite__mapDeps([14,4,1,2]) : void 0),
+      component: __vitePreload(() => import("./affixes-8ZZdHgfb.js"), true ? __vite__mapDeps([14,4,1,2]) : void 0),
       title: "Affixes"
     }
   ]

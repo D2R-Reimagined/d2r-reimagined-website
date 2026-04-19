@@ -3554,6 +3554,10 @@ body {
       min-width: calc(var(--spacing) * 45);
     }
 
+    .lg\:min-w-55 {
+      min-width: calc(var(--spacing) * 55);
+    }
+
     .lg\:min-w-60 {
       min-width: calc(var(--spacing) * 60);
     }

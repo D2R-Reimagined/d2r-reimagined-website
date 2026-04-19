@@ -24,9 +24,28 @@ function swapMinMax(min, max) {
 function tokenizeSearch(input) {
   const raw = (input || "").trim().toLowerCase();
   if (!raw) return [];
-  return raw.split(/[,|]/).map(
-    (group) => group.split("+").map((s) => s.trim()).filter(Boolean)
-  ).filter((group) => group.length > 0);
+  return raw.split(/[,|]/).map((group) => {
+    const tokens = [];
+    for (const segment of group.split("+")) {
+      const parts = segment.trim().split(/\s+(?=[-!]\S)/);
+      for (const part of parts) {
+        const trimmed = part.trim();
+        if (!trimmed) continue;
+        if (/^[-!]\S/.test(trimmed)) {
+          const term = trimmed.slice(1).trim();
+          if (term) tokens.push({ term, negated: true });
+        } else {
+          tokens.push({ term: trimmed, negated: false });
+        }
+      }
+    }
+    return tokens;
+  }).filter((group) => group.length > 0);
+}
+function matchesTokenGroups(hay, groups) {
+  return groups.some(
+    (group) => group.every((t) => t.negated ? !hay.includes(t.term) : hay.includes(t.term))
+  );
 }
 function isVanillaItem(vanilla) {
   if (vanilla === void 0 || vanilla === null) return false;
@@ -36,6 +55,7 @@ function isVanillaItem(vanilla) {
 export {
   toOptionalNumber as a,
   isVanillaItem as i,
+  matchesTokenGroups as m,
   prependTypeResetOption as p,
   swapMinMax as s,
   tokenizeSearch as t

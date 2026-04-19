@@ -1,7 +1,7 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-CHmnhXzh.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-9-Eqjwoy.js";
 import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, A as ANCESTOR_ONLY_WHEN_EXACT_OFF, a as getChainForTypeNameReadonly, t as type_filtering_options } from "./item-type-filters-BmbPxQoN.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
-import { p as prependTypeResetOption, a as toOptionalNumber, t as tokenizeSearch, s as swapMinMax } from "./filter-helpers-C07hLFTd.js";
+import { p as prependTypeResetOption, a as toOptionalNumber, t as tokenizeSearch, s as swapMinMax, m as matchesTokenGroups } from "./filter-helpers-DL_Ti2wh.js";
 const name = "affixes";
 const template = `<template>
     <h3 class="text-lg type-text text-center mx-auto mt-4">
@@ -67,7 +67,7 @@ const template = `<template>
                     </div>
                 </searchable-select>
 
-                <div class="w-full lg:w-60" data-help-text="Search across all fields. Attempts exact match. Seperate with '+' for AND match. Seperate with ',' or '|' for OR match. ex. 'fire skill damage+enemy fire' finds items with only both tokens. 'fire skill damage,enemy fire' finds items with either token.">
+                <div class="w-full lg:w-60" data-help-text="Search across all fields. Text is matched as a phrase. Use '+' to require multiple terms (AND). Use ',' or '|' for OR. Prefix with '-' or '!' to exclude a term or phrase. ex. 'fire skill damage' finds the exact phrase. 'fire+cold' finds items with both. 'fire,cold' finds items with either. '-fire' excludes items containing fire. 'damage -fire' finds items with damage but not fire. 'fire skill damage -cold skill damage' finds fire skill damage but excludes cold skill damage.">
                     <div class="flex items-stretch">
                         <div class="trailing-icon flex-1" data-icon="search">
                             <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search"
@@ -502,7 +502,7 @@ class Affixes {
           ...groupStrings,
           ...(a?.Types || []).map((t) => t != null ? String(t) : "")
         ].filter(Boolean).join(" ").toLowerCase();
-        if (!tokens.some((group) => group.every((t) => hay.includes(t))))
+        if (!matchesTokenGroups(hay, tokens))
           return false;
       }
       return true;
