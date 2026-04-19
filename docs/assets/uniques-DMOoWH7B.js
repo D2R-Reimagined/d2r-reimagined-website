@@ -1,26 +1,25 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-CtbfNjaz.js";
-import { g as getTypeChain, r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options, a as getChainForTypeNameReadonly } from "./item-type-filters-BmbPxQoN.js";
-import { p as passesHandFilter, t as toggleWeaponSort, g as getSortKeyFromDamageType, c as character_class_options, w as weaponSortOptions, h as handFilterOptions } from "./item-sorting-Biaf6mJs.js";
-import { a as getWeaponPhysDamValue, b as getWeaponNonPhysDamValue, g as getDamageTypeString } from "./damage-types-BlYhXdWN.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-B8YbS_3X.js";
+import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options, g as getTypeChain, a as getChainForTypeNameReadonly } from "./item-type-filters-BmbPxQoN.js";
+import { p as passesHandFilter, s as sortItemsByWeaponDamage, t as toggleWeaponSort, g as getSortKeyFromDamageType, c as character_class_options, w as weaponSortOptions, h as handFilterOptions } from "./item-sorting-Biaf6mJs.js";
+import { g as getDamageTypeString } from "./damage-types-BlYhXdWN.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
 import { p as prependTypeResetOption, t as tokenizeSearch, i as isVanillaItem, m as matchesTokenGroups } from "./filter-helpers-DL_Ti2wh.js";
-import { s as setsJson } from "./sets-DSkRMyMn.js";
-const name = "sets";
+import { u as uniquesJson } from "./uniques-DJmOKAbF.js";
+const name = "uniques";
 const template = `<template>
     <h3 class="text-lg type-text text-center my-4">
         <span class="rarity-text">[N]</span> = Normal <span class="rarity-text">[X]</span> = Exceptional <span
             class="rarity-text">[E]</span> = Elite
     </h3>
-    <h3 class="type-text text-lg text-center mx-auto mb-4">
-        <span class="rarity-text">\${sets.length}</span> Sets Found
+    <h3 class="text-lg type-text text-center mx-auto mb-4">
+        <span class="rarity-text">\${uniques.length}</span> Uniques Found
     </h3>
 
     <search-area>
         <div class="w-full m-auto px-5 py-2">
             <div class="flex flex-wrap justify-center items-start gap-2">
 
-                <div class="w-full lg:w-auto lg:min-w-60"
-                     data-help-text="Filter by character class, sets match as full set if one is found.">
+                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Filter by character class.">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <select id="ficlass" class="select-base peer" value.bind="selectedClass">
@@ -37,7 +36,7 @@ const template = `<template>
 
                 <searchable-select id="itype"
                                    class="w-full lg:w-auto lg:min-w-60"
-                                   data-help-text="Filter by base item type, sets match as full set if one is found."
+                                   data-help-text="Filter by base item type, only includes class specific variants on generic types."
                                    value.bind="selectedType"
                                    options.bind="types"
                                    label="Select Item Type">
@@ -47,25 +46,23 @@ const template = `<template>
                     </button>
                 </searchable-select>
 
-                <searchable-select id="eqname"
+                <searchable-select id="eqsel"
                                    class="w-full lg:w-auto lg:min-w-60"
-                                   data-help-text="Filter to a specific equipment for the selected type, disabled if one isn't selected."
+                                   data-help-text="Filter to a specific equipment for the selected item type, disabled if one isn't selected."
                                    value.bind="selectedEquipmentName"
                                    options.bind="equipmentNames"
                                    label="Select Equipment"
                                    disabled.bind="!selectedType">
-                    <button au-slot="after" type="button" class="m-info-button" aria-expanded="false" data-info-for="eqname">
+                    <button au-slot="after" type="button" class="m-info-button" aria-expanded="false" data-info-for="eqsel">
                         <span class="mso">info</span>
                         <span class="sr-only">More info about Equipment filter</span>
                     </button>
                 </searchable-select>
 
-                <div class="w-full lg:w-60"
-                     data-help-text="Search across all fields, sets match as full set if one is found. Text is matched as a phrase. Use '+' to require multiple terms (AND). Use ',' or '|' for OR. Prefix with '-' or '!' to exclude a term or phrase. ex: 'sorc skill mana' finds the exact phrase. 'fire+cold' finds items with both. '-fire' excludes items containing fire. 'damage -fire' finds items with damage but not fire. 'fire skill damage -cold skill damage' finds fire skill damage but excludes cold skill damage.">
+                <div class="w-full lg:w-60" data-help-text="Search across all fields. Text is matched as a phrase. Use '+' to require multiple terms (AND). Use ',' or '|' for OR. Prefix with '-' or '!' to exclude a term or phrase. ex. 'fire skill damage' finds the exact phrase. 'fire+cold' finds items with both. 'fire,cold' finds items with either. '-fire' excludes items containing fire. 'damage -fire' finds items with damage but not fire. 'fire skill damage -cold skill damage' finds fire skill damage but excludes cold skill damage.">
                     <div class="flex items-stretch">
                         <div class="trailing-icon flex-1" data-icon="search">
-                            <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search"
-                                   placeholder=" "/>
+                            <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search" placeholder=" "/>
                             <label for="inputsearch" class="floating-label">Search...</label>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="inputsearch">
@@ -75,8 +72,7 @@ const template = `<template>
                     </div>
                 </div>
 
-                <div class="w-full lg:w-auto lg:min-w-35"
-                     data-help-text="Filter toggle to hide Vanilla items. Applies to the entire set.">
+                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Filter toggle to hide Vanilla items.">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <button
@@ -89,8 +85,7 @@ const template = `<template>
                                 Hide Vanilla
                             </button>
                         </div>
-                        <button type="button" class="m-info-button" aria-expanded="false"
-                                data-info-for="hidevanillabutton">
+                        <button type="button" class="m-info-button" aria-expanded="false" data-info-for="hidevanillabutton">
                             <span class="mso">info</span>
                             <span class="sr-only">More info about the Hide Vanilla button</span>
                         </button>
@@ -127,7 +122,7 @@ const template = `<template>
                             <select id="handfilter" class="select-base peer" value.bind="handFilterMode">
                                 <option repeat.for="opt of handFilterOptions" value.bind="opt.value">\${opt.label}</option>
                             </select>
-                            <label for="handfilter" class="floating-label">Weapon Type</label>
+                            <label for="handfilter" class="floating-label">Select Weapon Type</label>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="handfilter">
                             <span class="mso">info</span>
@@ -173,52 +168,33 @@ const template = `<template>
     </div>
 
     <div class="card-container">
-        <div class="card-box card-vis" repeat.for="set of sets">
+        <div class="card-box card-vis" repeat.for="unique of uniques">
 
-            <div class="mb-1">
-                <div class="text-xl set-text-light">
-                    \${set.Name}
-                </div>
-                <div class="text-base rarity-text">
-                    \${set.Vanilla === 'Y' ? 'Vanilla' : 'Mod'}
-                </div>
-            </div>
-
-            <div class="mb-1">
-                <div class="partial-sets text-base set-text" repeat.for="partial of set.PartialProperties">
-                    \${partial.PropertyString} (\${getItemCount(partial.Index)} Items)
-                </div>
-                <div class="partial-sets text-base set-text" repeat.for="full of set.FullProperties">
-                    \${full.PropertyString} (Full Set)
-                </div>
-            </div>
-
-            <div repeat.for="setItem of set.SetItems"
-                 if.bind="!hideVanilla || (set.Vanilla || '').toUpperCase() !== 'Y'">
-
-                <div class="mt-2 mb-1">
-                    <div class="text-base set-text-light"
-                         if.bind="!hideVanilla || (set.Vanilla || '').toUpperCase() !== 'Y'">
-                        \${setItem.Name}
+                <div class="mb-1">
+                    <div class="text-xl unique-text">
+                        \${unique.Name}
                     </div>
-                    <div class="text-base rarity-text" if.bind="setItem.Rarity">
-                        Rarity: \${setItem.Rarity}
+                    <div class="text-base rarity-text" if.bind="unique.Rarity">
+                        Rarity: \${unique.Rarity}
+                    </div>
+                    <div class="text-base rarity-text" if.bind="unique.Vanilla">
+                        \${unique.Vanilla === 'Y' ? 'Vanilla' : 'Mod'}
                     </div>
                 </div>
 
                 <div class="mb-1">
-                    <div class="text-base type-text" if.bind="setItem.Equipment.Name">
-                        \${setItem.Equipment.Name}
+                    <div class="text-base type-text" if.bind="unique.Equipment.Name">
+                        \${unique.Equipment.Name}
                     </div>
-                    <div class="text-base type-text" if.bind="setItem.Equipment.ArmorString">
-                        Defense: \${setItem.Equipment.ArmorString}
+                    <div class="text-base type-text" if.bind="unique.Equipment.ArmorString">
+                        Defense: \${unique.Equipment.ArmorString}
                     </div>
                     <div class="text-base type-text"
-                         if.bind="setItem.Equipment.Block !== null && setItem.Equipment.Block !== undefined && setItem.Equipment.Block > 0">
-                        Block: \${setItem.Equipment.Block}%
+                         if.bind="unique.Equipment.Block !== null && unique.Equipment.Block !== undefined && unique.Equipment.Block > 0">
+                        Block: \${unique.Equipment.Block}%
                     </div>
-                    <div class="text-base type-text flex items-center justify-center gap-1" if.bind="setItem.Equipment.DamageTypes"
-                         repeat.for="damage of setItem.Equipment.DamageTypes"
+                    <div class="text-base type-text flex items-center justify-center gap-1"
+                         repeat.for="damage of unique.Equipment.DamageTypes"
                          click.trigger="getSortKeyFromDamageType(damage.Type) ? toggleSort(getSortKeyFromDamageType(damage.Type)) : null"
                          class.bind="getSortKeyFromDamageType(damage.Type) ? 'clickable' : ''">
                         <span>\${getDamageTypeString(damage.Type)} \${damage.DamageString}<span class="set-text" if.bind="damage.AverageDamage"> <\${damage.AverageDamage}></span></span>
@@ -226,28 +202,28 @@ const template = `<template>
                             \${weaponSortMode.includes('ascending') ? 'arrow_upward' : 'arrow_downward'}
                         </span>
                     </div>
-                    <div class="text-base type-text" if.bind="setItem.Equipment.Durability > 0">
-                        Durability: \${setItem.Equipment.Durability}
+                    <div class="text-base type-text" if.bind="unique.Equipment.Durability > 0">
+                        Durability: \${unique.Equipment.Durability}
                     </div>
                 </div>
 
                 <div class="mb-1">
                     <div class="text-base requirement-text"
-                         if.bind="setItem.Equipment.RequiredClass && setItem.Equipment.RequiredClass.length">
-                        (\${setItem.Equipment.RequiredClass} Only)
+                         if.bind="unique.Equipment.RequiredClass && unique.Equipment.RequiredClass.length">
+                        (\${unique.Equipment.RequiredClass} Only)
                     </div>
-                    <div class="text-base requirement-text" if.bind="setItem.Equipment.RequiredDexterity && setItem.Equipment.RequiredDexterity !== '0' && setItem.Equipment.RequiredDexterity !== 0">
-                        \${setItem.Equipment.RequiredDexterity} Dexterity Required
+                    <div class="text-base requirement-text" if.bind="unique.Equipment.RequiredDexterity && unique.Equipment.RequiredDexterity !== '0' && unique.Equipment.RequiredDexterity !== 0">
+                        Required Dexterity: \${unique.Equipment.RequiredDexterity}
                     </div>
-                    <div class="text-base requirement-text" if.bind="setItem.Equipment.RequiredStrength && setItem.Equipment.RequiredStrength !== '0' && setItem.Equipment.RequiredStrength !== 0">
-                        \${setItem.Equipment.RequiredStrength} Strength Required
+                    <div class="text-base requirement-text" if.bind="unique.Equipment.RequiredStrength && unique.Equipment.RequiredStrength !== '0' && unique.Equipment.RequiredStrength !== 0">
+                        Required Strength: \${unique.Equipment.RequiredStrength}
                     </div>
                     <div class="text-base requirement-text">
-                        Level \${setItem.RequiredLevel > 0? setItem.RequiredLevel: 1} Required
+                        Required Level: \${unique.RequiredLevel > 0? unique.RequiredLevel: 1}
                     </div>
                 </div>
 
-                <div class="text-base prop-text" repeat.for="property of setItem.Properties | sortProperties">
+                <div class="text-base prop-text" repeat.for="property of unique.Properties | sortProperties">
                     <div if.bind="property.PropertyString">
                         <span>\${property.PropertyString}</span>
                     </div>
@@ -270,14 +246,8 @@ const template = `<template>
                         </div>
                     </div>
                 </div>
-                <div class="text-base set-text" repeat.for="setProperty of setItem.SetPropertiesString">
-                    \${setProperty}
                 </div>
-
             </div>
-
-        </div>
-    </div>
 </template>
 `;
 const dependencies = [];
@@ -346,46 +316,35 @@ var __privateIn = (member, obj) => Object(obj) !== obj ? __typeError('Cannot use
 var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
 var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "access private method"), method);
-var _handleEquipmentNameChanged_dec, _handleTypeChanged_dec, _handleFilterChanged_dec, _handleSearchChanged_dec, _handFilterMode_dec, _weaponSortMode_dec, _hideVanilla_dec, _selectedEquipmentName_dec, _selectedType_dec, _selectedClass_dec, _search_dec, _Sets_decorators, _init;
-_Sets_decorators = [customElement(__au2ViewDef)], _search_dec = [bindable], _selectedClass_dec = [bindable], _selectedType_dec = [bindable], _selectedEquipmentName_dec = [bindable], _hideVanilla_dec = [bindable], _weaponSortMode_dec = [bindable], _handFilterMode_dec = [bindable], _handleSearchChanged_dec = [watch("search")], _handleFilterChanged_dec = [watch("selectedClass"), watch("hideVanilla"), watch("weaponSortMode"), watch("handFilterMode")], _handleTypeChanged_dec = [watch("selectedType")], _handleEquipmentNameChanged_dec = [watch("selectedEquipmentName")];
-class Sets {
+var _handleEquipmentNameChanged_dec, _handleTypeChanged_dec, _handleSearchChanged_dec, _handleFilterChanged_dec, _handFilterMode_dec, _weaponSortMode_dec, _selectedEquipmentName_dec, _selectedType_dec, _hideVanilla_dec, _selectedClass_dec, _search_dec, _Uniques_decorators, _init;
+_Uniques_decorators = [customElement(__au2ViewDef)], _search_dec = [bindable], _selectedClass_dec = [bindable], _hideVanilla_dec = [bindable], _selectedType_dec = [bindable], _selectedEquipmentName_dec = [bindable], _weaponSortMode_dec = [bindable], _handFilterMode_dec = [bindable], _handleFilterChanged_dec = [watch("selectedClass"), watch("hideVanilla"), watch("weaponSortMode"), watch("handFilterMode")], _handleSearchChanged_dec = [watch("search")], _handleTypeChanged_dec = [watch("selectedType")], _handleEquipmentNameChanged_dec = [watch("selectedEquipmentName")];
+class Uniques {
   constructor() {
     __runInitializers(_init, 5, this);
-    __publicField(this, "allSets", setsJson);
-    __publicField(this, "sets", []);
+    __publicField(this, "allUniques", uniquesJson);
+    __publicField(this, "uniques", []);
     __publicField(this, "_searchStrings", /* @__PURE__ */ new Map());
     __publicField(this, "search", __runInitializers(_init, 8, this)), __runInitializers(_init, 11, this);
     __publicField(this, "selectedClass", __runInitializers(_init, 12, this)), __runInitializers(_init, 15, this);
-    __publicField(this, "selectedType", __runInitializers(_init, 16, this, "")), __runInitializers(_init, 19, this);
-    __publicField(this, "selectedEquipmentName", __runInitializers(_init, 20, this)), __runInitializers(_init, 23, this);
-    __publicField(this, "hideVanilla", __runInitializers(_init, 24, this, false)), __runInitializers(_init, 27, this);
+    __publicField(this, "hideVanilla", __runInitializers(_init, 16, this, false)), __runInitializers(_init, 19, this);
+    __publicField(this, "selectedType", __runInitializers(_init, 20, this, "")), __runInitializers(_init, 23, this);
+    __publicField(this, "selectedEquipmentName", __runInitializers(_init, 24, this)), __runInitializers(_init, 27, this);
     __publicField(this, "weaponSortMode", __runInitializers(_init, 28, this, "none")), __runInitializers(_init, 31, this);
     __publicField(this, "handFilterMode", __runInitializers(_init, 32, this, "")), __runInitializers(_init, 35, this);
-    __publicField(this, "_debouncedSearchItem");
-    __publicField(this, "_debouncedUpdateUrl");
     __publicField(this, "equipmentNames", []);
     __publicField(this, "types", type_filtering_options.slice());
+    __publicField(this, "_debouncedSearchItem");
+    __publicField(this, "_debouncedUpdateUrl");
     __publicField(this, "classes", character_class_options);
     __publicField(this, "weaponSortOptions", weaponSortOptions);
     __publicField(this, "handFilterOptions", handFilterOptions);
     __publicField(this, "getDamageTypeString", getDamageTypeString);
   }
-  // Check if selected type is a weapon type
-  get isWeaponType() {
-    if (!this.selectedType) return false;
-    const opt = this.types.find((o) => o.id === this.selectedType);
-    if (!opt || !opt.value) return false;
-    if (opt.value.includes("Weapon")) return true;
-    return opt.value.some((typeName) => {
-      const chain = getTypeChain(typeName);
-      return chain.includes("Weapon");
-    });
-  }
-  // Build options and hydrate from URL BEFORE controls render
+  // Hydrate state from URL and build type options BEFORE the controls render
   binding() {
     const urlParams = new URLSearchParams(window.location.search);
-    this.allSets.forEach((s) => {
-      this._searchStrings.set(s, this.buildSearchableStringForSet(s));
+    this.allUniques.forEach((u) => {
+      this._searchStrings.set(u, this.buildSearchableStringForUnique(u));
     });
     const searchParam = urlParams.get("search");
     if (searchParam && !isBlankOrInvalid(searchParam)) {
@@ -399,11 +358,9 @@ class Sets {
     if (hv === "true" || hv === "1") this.hideVanilla = true;
     try {
       const present = /* @__PURE__ */ new Set();
-      for (const set of setsJson || []) {
-        for (const item of set?.SetItems || []) {
-          const base = resolveBaseTypeName(item?.Type ?? "");
-          if (base) present.add(base);
-        }
+      for (const u of uniquesJson || []) {
+        const base = resolveBaseTypeName(u?.Type ?? "");
+        if (base) present.add(base);
       }
       this.types = buildOptionsForPresentTypes(type_filtering_options, present);
       this.types = prependTypeResetOption(this.types);
@@ -415,14 +372,15 @@ class Sets {
       this.selectedType = opt ? opt.id : "";
     }
     const eqParam = urlParams.get("equipment");
-    if (eqParam && !isBlankOrInvalid(eqParam))
+    if (eqParam && !isBlankOrInvalid(eqParam)) {
       this.selectedEquipmentName = eqParam;
+    }
   }
   attached() {
     this._debouncedSearchItem = debounce(() => this.updateList(), 350);
     this._debouncedUpdateUrl = debounce(() => this.updateUrl(), 150);
     if (this.selectedType) {
-      this.equipmentNames = this.getSetEquipmentNames();
+      this.equipmentNames = this.getUniqueEquipmentNames();
     }
     this.updateList();
     this.updateUrl();
@@ -435,29 +393,27 @@ class Sets {
       this._debouncedUpdateUrl.cancel();
     }
   }
-  // Types provided via shared preset (this.types)
-  // Push current filters to URL
-  updateUrl() {
-    syncParamsToUrl({
-      search: this.search,
-      selectedClass: this.selectedClass,
-      type: this.selectedType,
-      equipment: this.selectedEquipmentName,
-      hideVanilla: this.hideVanilla
-    }, false);
-  }
-  handleSearchChanged() {
-    if (this._debouncedSearchItem) {
-      this._debouncedSearchItem();
-    }
-    if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
+  // Check if selected type is a weapon type
+  get isWeaponType() {
+    if (!this.selectedType) return false;
+    const opt = this.types.find((o) => o.id === this.selectedType);
+    if (!opt || !opt.value) return false;
+    if (opt.value.includes("Weapon")) return true;
+    return opt.value.some((typeName) => {
+      const chain = getTypeChain(typeName);
+      return chain.includes("Weapon");
+    });
   }
   handleFilterChanged() {
     this.updateList();
     if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
   }
+  handleSearchChanged() {
+    if (this._debouncedSearchItem) this._debouncedSearchItem();
+    if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
+  }
   handleTypeChanged() {
-    this.equipmentNames = this.getSetEquipmentNames();
+    this.equipmentNames = this.getUniqueEquipmentNames();
     this.selectedEquipmentName = void 0;
     if (!this.isWeaponType) this.weaponSortMode = "none";
     if (this._debouncedSearchItem) this._debouncedSearchItem();
@@ -466,102 +422,66 @@ class Sets {
   handleEquipmentNameChanged() {
     if (this._debouncedSearchItem) this._debouncedSearchItem();
   }
+  // Helper method to update URL with current search parameters
+  updateUrl() {
+    syncParamsToUrl({
+      search: this.search,
+      selectedClass: this.selectedClass,
+      type: this.selectedType,
+      hideVanilla: this.hideVanilla,
+      equipment: this.selectedEquipmentName
+    }, false);
+  }
   updateList() {
-    try {
-      const searchTokens = tokenizeSearch(this.search);
-      const classText = this.selectedClass?.toLowerCase();
-      let allowedTypeSet;
-      if (this.selectedType) {
-        const opt = this.types.find((o) => o.id === this.selectedType);
-        if (opt && opt.value) allowedTypeSet = new Set(opt.value);
+    const searchTokens = tokenizeSearch(this.search);
+    const selectedClassLower = (this.selectedClass || "").toLowerCase();
+    let allowedTypeSet;
+    if (this.selectedType) {
+      const opt = this.types.find((o) => o.id === this.selectedType);
+      if (opt && opt.value) allowedTypeSet = new Set(opt.value);
+    }
+    if (this.selectedType && (!this.equipmentNames || this.equipmentNames.length <= 1)) {
+      this.equipmentNames = this.getUniqueEquipmentNames();
+    }
+    this.uniques = this.allUniques.filter((unique) => {
+      const name2 = unique?.Name || "";
+      if (name2.toLowerCase().includes("grabber")) return false;
+      if (this.hideVanilla && isVanillaItem(unique?.Vanilla)) return false;
+      if (selectedClassLower) {
+        const req = unique?.Equipment?.RequiredClass ? String(unique.Equipment.RequiredClass).toLowerCase() : "";
+        if (!req.includes(selectedClassLower)) return false;
       }
-      if (this.selectedType && (!this.equipmentNames || this.equipmentNames.length <= 1)) {
-        this.equipmentNames = this.getSetEquipmentNames();
+      if (allowedTypeSet) {
+        const base = getChainForTypeNameReadonly(unique?.Type ?? "")[0] || (unique?.Type ?? "");
+        if (!allowedTypeSet.has(base)) return false;
       }
-      this.sets = this.allSets.filter((set) => {
-        if (this.hideVanilla && isVanillaItem(set?.Vanilla)) return false;
-        if (allowedTypeSet) {
-          const hasMatch = (set.SetItems ?? []).some((si) => {
-            const base = getChainForTypeNameReadonly(si?.Type ?? "")[0] || (si?.Type ?? "");
-            return allowedTypeSet.has(base);
-          });
-          if (!hasMatch) return false;
+      if (this.selectedEquipmentName && String(unique?.Equipment?.Name || "") !== this.selectedEquipmentName) {
+        return false;
+      }
+      if (searchTokens.length > 0) {
+        const hay = this._searchStrings.get(unique) || "";
+        if (!matchesTokenGroups(hay, searchTokens)) {
+          return false;
         }
-        if (this.selectedEquipmentName) {
-          const hasMatch = (set.SetItems ?? []).some(
-            (si) => si.Equipment?.Name === this.selectedEquipmentName
-          );
-          if (!hasMatch) return false;
-        }
-        const hay = this._searchStrings.get(set) || "";
-        if (classText && !hay.includes(classText)) return false;
-        if (searchTokens.length > 0) {
-          if (!matchesTokenGroups(hay, searchTokens)) {
-            return false;
-          }
-        }
-        return true;
-      });
-      if (this.handFilterMode) {
-        this.sets = this.sets.filter(
-          (set) => (set.SetItems ?? []).some(
-            (si) => passesHandFilter(si?.Equipment?.DamageTypes, this.handFilterMode)
-          )
-        );
       }
-      if (this.isWeaponType && this.weaponSortMode !== "none") {
-        const isAsc = this.weaponSortMode.includes("ascending");
-        const mode = this.weaponSortMode;
-        const getBestDam = (set) => {
-          let maxV = 0;
-          for (const item of set.SetItems || []) {
-            let v = 0;
-            if (mode.includes("1h-phys"))
-              v = getWeaponPhysDamValue(item, [3, 0]);
-            else if (mode.includes("2h-phys"))
-              v = getWeaponPhysDamValue(item, 1);
-            else if (mode.includes("throw-phys"))
-              v = getWeaponPhysDamValue(item, 2);
-            else if (mode.includes("non-phys"))
-              v = getWeaponNonPhysDamValue(item);
-            if (v > maxV) maxV = v;
-          }
-          return maxV;
-        };
-        const decorated = this.sets.map((set) => ({ set, val: getBestDam(set) }));
-        decorated.sort((a, b) => {
-          if (a.val === 0 && b.val !== 0) return 1;
-          if (a.val !== 0 && b.val === 0) return -1;
-          return isAsc ? a.val - b.val : b.val - a.val;
-        });
-        this.sets = decorated.map((d) => d.set);
-      }
-    } catch (e) {
-      console.error(e);
-      this.sets = this.allSets;
+      return true;
+    });
+    if (this.handFilterMode) {
+      this.uniques = this.uniques.filter(
+        (u) => passesHandFilter(u?.Equipment?.DamageTypes, this.handFilterMode)
+      );
+    }
+    if (this.isWeaponType && this.weaponSortMode !== "none") {
+      this.uniques = sortItemsByWeaponDamage(this.uniques, this.weaponSortMode);
     }
   }
-  buildSearchableStringForSet(set) {
-    const parts = [];
-    if (set.Name) parts.push(String(set.Name));
-    const allProps = set.AllProperties ?? [
-      ...set.FullProperties || [],
-      ...set.PartialProperties || []
+  buildSearchableStringForUnique(unique) {
+    const parts = [
+      String(unique?.Name || ""),
+      String(unique?.Equipment?.Name || "")
     ];
-    for (const p of allProps || []) {
-      if (p.PropertyString) parts.push(p.PropertyString);
-      if (p["group-properties"]) {
-        Object.values(p["group-properties"]).forEach((pool) => {
-          pool.forEach((affix) => {
-            if (affix.PropertyString) parts.push(affix.PropertyString);
-          });
-        });
-      }
-    }
-    for (const si of set.SetItems ?? []) {
-      parts.push(String(si?.Name || ""));
-      parts.push(String(si?.Equipment?.Name || ""));
-      for (const p of si?.Properties || []) {
+    if (Array.isArray(unique?.Properties)) {
+      unique.Properties.forEach((p) => {
         if (p.PropertyString) parts.push(p.PropertyString);
         if (p["group-properties"]) {
           Object.values(p["group-properties"]).forEach((pool) => {
@@ -570,60 +490,51 @@ class Sets {
             });
           });
         }
-      }
-      for (const s of si?.SetPropertiesString || []) {
-        if (s) parts.push(String(s));
-      }
-      if (Array.isArray(si?.Equipment?.DamageTypes)) {
-        for (const d of si.Equipment.DamageTypes) {
-          parts.push(getDamageTypeString(d.Type));
-          if (d.DamageString) parts.push(d.DamageString);
-        }
+      });
+    }
+    if (Array.isArray(unique?.Equipment?.DamageTypes)) {
+      for (const d of unique.Equipment.DamageTypes) {
+        parts.push(getDamageTypeString(d.Type));
+        if (d.DamageString) parts.push(d.DamageString);
       }
     }
     return parts.filter(Boolean).join(" ").toLowerCase();
   }
+  getUniqueEquipmentNames() {
+    let allowedTypeSet;
+    if (this.selectedType) {
+      const opt = this.types.find((o) => o.id === this.selectedType);
+      if (opt && opt.value) allowedTypeSet = new Set(opt.value);
+    }
+    const filteredUniques = this.allUniques.filter(
+      (unique) => {
+        if (!allowedTypeSet) return true;
+        const base = getChainForTypeNameReadonly(unique?.Type ?? "")[0] || (unique?.Type ?? "");
+        return allowedTypeSet.has(base);
+      }
+    );
+    const uniqueEquipmentNames = /* @__PURE__ */ new Set();
+    filteredUniques.forEach((unique) => {
+      if (unique.Equipment && unique.Equipment.Name) {
+        uniqueEquipmentNames.add(unique.Equipment.Name);
+      }
+    });
+    const equipmentNameOptions = [{ value: "", label: "-" }];
+    Array.from(uniqueEquipmentNames).sort().forEach((name2) => {
+      equipmentNameOptions.push({ value: name2, label: name2 });
+    });
+    return equipmentNameOptions;
+  }
   formatGroupName(name2) {
     return name2.replace(/-/g, " ").replace(/([a-z])([0-9])/g, "$1 $2");
   }
-  // Partial set bonus count display by index 0-1 = 2, 2-3 = 3, 4-5 = 4, 6+ = 5
-  getItemCount(indexPassed) {
-    if (indexPassed < 2) return 2;
-    if (indexPassed < 4) return 3;
-    if (indexPassed < 6) return 4;
-    return 5;
-  }
-  // Build equipment names options for the selected type
-  getSetEquipmentNames() {
-    const names = /* @__PURE__ */ new Set();
-    const allowed = (() => {
-      if (!this.selectedType) return null;
-      const opt = this.types.find((o) => o.id === this.selectedType);
-      return opt && opt.value ? new Set(opt.value) : null;
-    })();
-    for (const set of setsJson || []) {
-      for (const si of set.SetItems ?? []) {
-        if (allowed) {
-          const base = getChainForTypeNameReadonly(si?.Type ?? "")[0] || (si?.Type ?? "");
-          if (!allowed.has(base)) continue;
-        }
-        const name2 = si.Equipment?.Name;
-        if (name2) names.add(name2);
-      }
-    }
-    const options = [
-      { value: "", label: "-" }
-    ];
-    Array.from(names).sort().forEach((n) => options.push({ value: n, label: n }));
-    return options;
-  }
-  // Reset all filters to defaults and refresh
+  // Reset all filters to their default values and refresh
   resetFilters() {
     this.search = "";
     this.selectedClass = void 0;
+    this.hideVanilla = false;
     this.selectedType = "";
     this.selectedEquipmentName = void 0;
-    this.hideVanilla = false;
     this.equipmentNames = [{ value: "", label: "-" }];
     this.weaponSortMode = "none";
     this.handFilterMode = "";
@@ -643,19 +554,19 @@ class Sets {
   }
 }
 _init = __decoratorStart();
-__decorateElement(_init, 1, "handleSearchChanged", _handleSearchChanged_dec, Sets);
-__decorateElement(_init, 1, "handleFilterChanged", _handleFilterChanged_dec, Sets);
-__decorateElement(_init, 1, "handleTypeChanged", _handleTypeChanged_dec, Sets);
-__decorateElement(_init, 1, "handleEquipmentNameChanged", _handleEquipmentNameChanged_dec, Sets);
-__decorateElement(_init, 5, "search", _search_dec, Sets);
-__decorateElement(_init, 5, "selectedClass", _selectedClass_dec, Sets);
-__decorateElement(_init, 5, "selectedType", _selectedType_dec, Sets);
-__decorateElement(_init, 5, "selectedEquipmentName", _selectedEquipmentName_dec, Sets);
-__decorateElement(_init, 5, "hideVanilla", _hideVanilla_dec, Sets);
-__decorateElement(_init, 5, "weaponSortMode", _weaponSortMode_dec, Sets);
-__decorateElement(_init, 5, "handFilterMode", _handFilterMode_dec, Sets);
-Sets = __decorateElement(_init, 0, "Sets", _Sets_decorators, Sets);
-__runInitializers(_init, 1, Sets);
+__decorateElement(_init, 1, "handleFilterChanged", _handleFilterChanged_dec, Uniques);
+__decorateElement(_init, 1, "handleSearchChanged", _handleSearchChanged_dec, Uniques);
+__decorateElement(_init, 1, "handleTypeChanged", _handleTypeChanged_dec, Uniques);
+__decorateElement(_init, 1, "handleEquipmentNameChanged", _handleEquipmentNameChanged_dec, Uniques);
+__decorateElement(_init, 5, "search", _search_dec, Uniques);
+__decorateElement(_init, 5, "selectedClass", _selectedClass_dec, Uniques);
+__decorateElement(_init, 5, "hideVanilla", _hideVanilla_dec, Uniques);
+__decorateElement(_init, 5, "selectedType", _selectedType_dec, Uniques);
+__decorateElement(_init, 5, "selectedEquipmentName", _selectedEquipmentName_dec, Uniques);
+__decorateElement(_init, 5, "weaponSortMode", _weaponSortMode_dec, Uniques);
+__decorateElement(_init, 5, "handFilterMode", _handFilterMode_dec, Uniques);
+Uniques = __decorateElement(_init, 0, "Uniques", _Uniques_decorators, Uniques);
+__runInitializers(_init, 1, Uniques);
 export {
-  Sets
+  Uniques
 };
