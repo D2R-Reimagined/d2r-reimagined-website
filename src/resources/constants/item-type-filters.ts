@@ -410,17 +410,17 @@ export function buildOptionsForPresentTypes(
         }
 
         // Triggers for inclusion:
-        // - Simple (no extras): include ONLY if the option's base itself is present in data (not just parents)
-        // - Aggregate (has extras): include it if the base is present OR any explicit extras are present (parents allowed via closure)
-        // - Class aggregates: include only when the aggregate itself is directly present
+        // - Simple: include if the option's base or any of its parents (ancestors) are present in data.
+        // - Aggregate (has extras): also include if any explicit extras (descendants) are present in data (closure).
+        // - Class aggregates: include only when the aggregate itself is directly present.
         let include: boolean;
         if (CLASS_AGGREGATE_BASES.has(base)) {
             include = presentBaseNames.has(base);
-        } else if (extras.length === 0) {
-            include = presentBaseNames.has(base);
         } else {
-            include = presentBaseNames.has(base);
-            if (!include) {
+            // Check if any part of the base chain is present in data (this type or its parents)
+            include = baseChain.some((b) => presentBaseNames.has(b));
+            if (!include && extras.length > 0) {
+                // Check if any explicit extra descendants are present (including THEIR parents)
                 for (let k = 0; k < extras.length; k++) {
                     if (presentClosure.has(extras[k])) {
                         include = true;
