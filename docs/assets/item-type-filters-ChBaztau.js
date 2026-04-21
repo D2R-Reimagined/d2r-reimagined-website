@@ -98,9 +98,9 @@ const ITEM_TYPES = [
   { name: "Key", code: "key", parents: ["Miscellaneous"] },
   { name: "Quest", code: "ques" },
   { name: "Bow Quiver", code: "bowq", parents: ["Missile", "Second Hand"] },
-  { name: "Crossbow Bolts", code: "xboq", parents: ["Missile", "Second Hand"] },
+  { name: "Crossbow Quiver", code: "xboq", parents: ["Missile", "Second Hand"] },
   { name: "Magic Bow Quiv", code: "mboq", parents: ["Bow Quiver"] },
-  { name: "Magic Xbow Quiv", code: "mxbq", parents: ["Crossbow Bolts"] }
+  { name: "Magic Xbow Quiv", code: "mxbq", parents: ["Crossbow Quiver"] }
 ];
 const ITEM_TYPE_BY_NAME = new Map(ITEM_TYPES.map((t) => [t.name, t]));
 new Map(ITEM_TYPES.map((t) => [t.code, t]));
@@ -351,7 +351,7 @@ const type_filtering_options = [
   makeTypeOption("Throwing Axe", "Throwing Axe", [], true),
   // Quivers and Bolts: base on the non-magic types and include their descendants (magic quivers)
   makeTypeOption("Bow Quiver", "Bow Quiver"),
-  makeTypeOption("Crossbow Bolts", "Crossbow Bolts"),
+  makeTypeOption("Crossbow Bolts", "Crossbow Quiver"),
   // Class Specific
   // Class-specific leaf types must match ONLY themselves by default on pages without an "Exact" toggle
   // (Bases, Uniques, Sets). Runewords inherits parents via its own filtering logic and parent selections.
