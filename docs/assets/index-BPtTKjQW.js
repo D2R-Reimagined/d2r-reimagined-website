@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-CT_jz93h.js","assets/debounce-DlM2vs2L.js","assets/filter-helpers-DL_Ti2wh.js","assets/uniques-DohwtH7G.js","assets/item-type-filters-D1_j0GR_.js","assets/item-sorting-Biaf6mJs.js","assets/damage-types-BlYhXdWN.js","assets/uniques-BHjt2FVf.js","assets/sets-CvzNWoiz.js","assets/sets-CR2XQF_A.js","assets/runewords-DY0umtPU.js","assets/runewords-DLCs8GbM.js","assets/grail-tpICg0w2.js","assets/bases-DkVX4NOQ.js","assets/affixes-HOmsl1gi.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-BWRkDcRq.js","assets/debounce-DlM2vs2L.js","assets/filter-helpers-DL_Ti2wh.js","assets/uniques-BTBfaDPk.js","assets/item-type-filters-D1_j0GR_.js","assets/item-sorting-Biaf6mJs.js","assets/damage-types-BlYhXdWN.js","assets/uniques-BHjt2FVf.js","assets/sets-Drmmig86.js","assets/sets-CR2XQF_A.js","assets/runewords-BlKPRyqM.js","assets/runewords-DLCs8GbM.js","assets/grail-C5kaXlTt.js","assets/bases-DpBS9JB9.js","assets/affixes-BY40xtwv.js"])))=>i.map(i=>d[i]);
 (function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) return;
@@ -26406,42 +26406,42 @@ _App_decorators = [customElement(__au2ViewDef), route({
   routes: [
     {
       path: "",
-      component: __vitePreload(() => import("./home-yUiz5nrZ.js"), true ? [] : void 0),
+      component: __vitePreload(() => import("./home-AxYcvOrN.js"), true ? [] : void 0),
       title: "Home"
     },
     {
       path: "cube-recipes",
-      component: __vitePreload(() => import("./cube-recipes-CT_jz93h.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
+      component: __vitePreload(() => import("./cube-recipes-BWRkDcRq.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
       title: "Cube Recipes"
     },
     {
       path: "uniques",
-      component: __vitePreload(() => import("./uniques-DohwtH7G.js"), true ? __vite__mapDeps([3,4,5,6,1,2,7]) : void 0),
+      component: __vitePreload(() => import("./uniques-BTBfaDPk.js"), true ? __vite__mapDeps([3,4,5,6,1,2,7]) : void 0),
       title: "Uniques"
     },
     {
       path: "sets",
-      component: __vitePreload(() => import("./sets-CvzNWoiz.js"), true ? __vite__mapDeps([8,4,5,6,1,2,9]) : void 0),
+      component: __vitePreload(() => import("./sets-Drmmig86.js"), true ? __vite__mapDeps([8,4,5,6,1,2,9]) : void 0),
       title: "Sets"
     },
     {
       path: "runewords",
-      component: __vitePreload(() => import("./runewords-DY0umtPU.js"), true ? __vite__mapDeps([10,4,1,2,11]) : void 0),
+      component: __vitePreload(() => import("./runewords-BlKPRyqM.js"), true ? __vite__mapDeps([10,4,1,2,11]) : void 0),
       title: "Runewords"
     },
     {
       path: "grail",
-      component: __vitePreload(() => import("./grail-tpICg0w2.js"), true ? __vite__mapDeps([12,4,5,6,1,2,11,9,7]) : void 0),
+      component: __vitePreload(() => import("./grail-C5kaXlTt.js"), true ? __vite__mapDeps([12,4,5,6,1,2,11,9,7]) : void 0),
       title: "Holy Grail"
     },
     {
       path: "bases",
-      component: __vitePreload(() => import("./bases-DkVX4NOQ.js"), true ? __vite__mapDeps([13,4,6,2]) : void 0),
+      component: __vitePreload(() => import("./bases-DpBS9JB9.js"), true ? __vite__mapDeps([13,4,6,2]) : void 0),
       title: "Bases"
     },
     {
       path: "affixes",
-      component: __vitePreload(() => import("./affixes-HOmsl1gi.js"), true ? __vite__mapDeps([14,4,1,2]) : void 0),
+      component: __vitePreload(() => import("./affixes-BY40xtwv.js"), true ? __vite__mapDeps([14,4,1,2]) : void 0),
       title: "Affixes"
     }
   ]
@@ -33725,8 +33725,9 @@ const TooltipManager = (() => {
   const lgMql = matchMedia("(min-width: 1024px)");
   let enabled = false;
   const instances2 = /* @__PURE__ */ new Map();
+  let activeRecord = null;
   let docClickHandler = null;
-  let observer = null;
+  let discoveryHandler = null;
   const setupTrigger = (trigger) => {
     if (!enabled) return;
     if (instances2.has(trigger)) return;
@@ -33785,7 +33786,9 @@ const TooltipManager = (() => {
     const rec = {
       tooltip: t,
       targetEl: target,
+      triggerEl: trigger,
       clickHide: () => {
+        if (activeRecord === rec) activeRecord = null;
         clearIdle(rec);
         try {
           t.hide();
@@ -33801,6 +33804,7 @@ const TooltipManager = (() => {
     const onEnter = () => {
       if (Date.now() < (rec.suppressedUntil || 0)) return;
       if (trigger.closest("[data-tooltip-disabled]") || trigger.hasAttribute("data-tooltip-disabled")) return;
+      activeRecord = rec;
       clearIdle(rec);
       rec.idleTimer = window.setTimeout(() => {
         target.classList.remove("tooltip-hidden");
@@ -33814,6 +33818,7 @@ const TooltipManager = (() => {
     const onMove = () => {
       if (Date.now() < (rec.suppressedUntil || 0)) return;
       if (trigger.closest("[data-tooltip-disabled]") || trigger.hasAttribute("data-tooltip-disabled")) return;
+      activeRecord = rec;
       clearIdle(rec);
       rec.idleTimer = window.setTimeout(() => {
         target.classList.remove("tooltip-hidden");
@@ -33825,6 +33830,7 @@ const TooltipManager = (() => {
       }, idleMs);
     };
     const onLeave = () => {
+      if (activeRecord === rec) activeRecord = null;
       clearIdle(rec);
       try {
         t.hide();
@@ -33842,54 +33848,36 @@ const TooltipManager = (() => {
     trigger.addEventListener("mousemove", onMove);
     trigger.addEventListener("mouseleave", onLeave);
     instances2.set(trigger, rec);
+    onEnter(new Event("mouseenter"));
   };
-  const initExisting = () => {
-    document.querySelectorAll(
-      "[data-tooltip-target], [data-help-text], [data-help-template]"
-    ).forEach(setupTrigger);
-  };
-  const attachObserver = () => {
-    if (observer) return;
-    observer = new MutationObserver((mutations) => {
-      for (const m3 of mutations) {
-        m3.addedNodes.forEach((node) => {
-          if (!(node instanceof HTMLElement)) return;
-          if (node.hasAttribute("data-tooltip-target") || node.hasAttribute("data-help-text") || node.hasAttribute("data-help-template"))
-            setupTrigger(node);
-          node.querySelectorAll?.(
-            "[data-tooltip-target], [data-help-text], [data-help-template]"
-          ).forEach((el) => {
-            if (el instanceof HTMLElement) setupTrigger(el);
-          });
-        });
+  const attachDiscoveryHandler = () => {
+    if (discoveryHandler) return;
+    discoveryHandler = (event) => {
+      const target = event.target;
+      const trigger = target?.closest?.(
+        "[data-tooltip-target], [data-help-text], [data-help-template]"
+      );
+      if (trigger && !instances2.has(trigger)) {
+        setupTrigger(trigger);
       }
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
+    };
+    document.addEventListener("mouseover", discoveryHandler, { capture: true, passive: true });
+    document.addEventListener("focusin", discoveryHandler, { capture: true, passive: true });
   };
-  const detachObserver = () => {
-    observer?.disconnect();
-    observer = null;
+  const detachDiscoveryHandler = () => {
+    if (!discoveryHandler) return;
+    document.removeEventListener("mouseover", discoveryHandler, true);
+    document.removeEventListener("focusin", discoveryHandler, true);
+    discoveryHandler = null;
   };
   const attachDocClickHandler = () => {
     if (docClickHandler) return;
     docClickHandler = (event) => {
+      if (!activeRecord) return;
       const target = event.target;
-      instances2.forEach((rec, trigger) => {
-        if (!trigger.contains(target)) {
-          try {
-            rec.tooltip.hide?.();
-            if (rec.idleTimer != null) {
-              clearTimeout(rec.idleTimer);
-              rec.idleTimer = null;
-            }
-          } catch {
-          } finally {
-            rec.targetEl.classList.add("tooltip-hidden");
-          }
-        } else {
-          rec.clickHide();
-        }
-      });
+      if (!activeRecord.triggerEl.contains(target) && !activeRecord.targetEl.contains(target)) {
+        activeRecord.clickHide();
+      }
     };
     document.addEventListener("click", docClickHandler, { capture: true });
   };
@@ -33901,9 +33889,8 @@ const TooltipManager = (() => {
   const enable = () => {
     if (enabled) return;
     enabled = true;
-    initExisting();
     attachDocClickHandler();
-    attachObserver();
+    attachDiscoveryHandler();
   };
   const disable = () => {
     if (!enabled) return;
@@ -33930,8 +33917,9 @@ const TooltipManager = (() => {
         }
     });
     instances2.clear();
+    activeRecord = null;
     detachDocClickHandler();
-    detachObserver();
+    detachDiscoveryHandler();
   };
   const hideInlinePanelsOnLg = () => {
     if (!lgMql.matches) return;
