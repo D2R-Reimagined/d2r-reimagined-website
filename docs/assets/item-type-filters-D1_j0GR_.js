@@ -283,11 +283,9 @@ function buildOptionsForPresentTypes(preset, presentBaseNames) {
     let include;
     if (CLASS_AGGREGATE_BASES.has(base)) {
       include = presentBaseNames.has(base);
-    } else if (extras.length === 0) {
-      include = presentBaseNames.has(base);
     } else {
-      include = presentBaseNames.has(base);
-      if (!include) {
+      include = baseChain.some((b) => presentBaseNames.has(b));
+      if (!include && extras.length > 0) {
         for (let k = 0; k < extras.length; k++) {
           if (presentClosure.has(extras[k])) {
             include = true;
