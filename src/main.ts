@@ -27,6 +27,7 @@ interface ITooltipLike {
 type TooltipRecord = {
     tooltip: ITooltipLike;
     targetEl: HTMLElement;
+    triggerEl: HTMLElement;
     clickHide: () => void;
     enter?: EventListener;
     leave?: EventListener;
@@ -125,8 +126,9 @@ const TooltipManager = (() => {
 
     let enabled = false;
     const instances = new Map<HTMLElement, TooltipRecord>();
+    let activeRecord: TooltipRecord | null = null;
     let docClickHandler: EventListener | null = null;
-    let observer: MutationObserver | null = null;
+    let discoveryHandler: EventListener | null = null;
 
     const setupTrigger = (trigger: HTMLElement) => {
         if (!enabled) return;
@@ -220,7 +222,9 @@ const TooltipManager = (() => {
     const rec: TooltipRecord = {
         tooltip: t,
         targetEl: target,
+        triggerEl: trigger,
         clickHide: () => {
+            if (activeRecord === rec) activeRecord = null;
             clearIdle(rec);
             try {
                 t.hide();
@@ -240,6 +244,7 @@ const TooltipManager = (() => {
     const onEnter: EventListener = () => {
         if (Date.now() < (rec.suppressedUntil || 0)) return;
         if (trigger.closest('[data-tooltip-disabled]') || trigger.hasAttribute('data-tooltip-disabled')) return;
+        activeRecord = rec;
         clearIdle(rec);
         rec.idleTimer = window.setTimeout(() => {
             // Remove our hidden state before showing; if the show fails, restore it
@@ -255,6 +260,7 @@ const TooltipManager = (() => {
     const onMove: EventListener = () => {
         if (Date.now() < (rec.suppressedUntil || 0)) return;
         if (trigger.closest('[data-tooltip-disabled]') || trigger.hasAttribute('data-tooltip-disabled')) return;
+        activeRecord = rec;
         // Any cursor movement while hovering resets the idle timer until stable for idleMs
         clearIdle(rec);
         rec.idleTimer = window.setTimeout(() => {
@@ -267,6 +273,7 @@ const TooltipManager = (() => {
         }, idleMs);
     };
     const onLeave: EventListener = () => {
+        if (activeRecord === rec) activeRecord = null;
         clearIdle(rec);
         try {
             t.hide();
@@ -288,70 +295,43 @@ const TooltipManager = (() => {
     trigger.addEventListener('mouseleave', onLeave);
 
     instances.set(trigger, rec);
+
+    // If this was triggered by a real event, we should invoke the enter logic immediately
+    onEnter(new Event('mouseenter'));
     };
 
-    const initExisting = () => {
-        document
-            .querySelectorAll<HTMLElement>(
+    const attachDiscoveryHandler = () => {
+        if (discoveryHandler) return;
+        discoveryHandler = (event: Event) => {
+            const target = event.target as HTMLElement;
+            const trigger = target?.closest?.<HTMLElement>(
                 '[data-tooltip-target], [data-help-text], [data-help-template]',
-            )
-            .forEach(setupTrigger);
-    };
-
-    const attachObserver = () => {
-        if (observer) return;
-        observer = new MutationObserver((mutations) => {
-            for (const m of mutations) {
-                m.addedNodes.forEach((node) => {
-                    if (!(node instanceof HTMLElement)) return;
-                    if (
-                        node.hasAttribute('data-tooltip-target') ||
-            node.hasAttribute('data-help-text') ||
-            node.hasAttribute('data-help-template')
-                    )
-                        setupTrigger(node);
-                    node
-                        .querySelectorAll?.(
-                            '[data-tooltip-target], [data-help-text], [data-help-template]',
-                        )
-                        .forEach((el) => {
-                            if (el instanceof HTMLElement) setupTrigger(el);
-                        });
-                });
+            );
+            if (trigger && !instances.has(trigger)) {
+                setupTrigger(trigger);
             }
-        });
-        observer.observe(document.body, { childList: true, subtree: true });
+        };
+        // Use capture to catch events as they bubble or during capture phase
+        document.addEventListener('mouseover', discoveryHandler, { capture: true, passive: true });
+        document.addEventListener('focusin', discoveryHandler, { capture: true, passive: true });
     };
 
-    const detachObserver = () => {
-        observer?.disconnect();
-        observer = null;
+    const detachDiscoveryHandler = () => {
+        if (!discoveryHandler) return;
+        document.removeEventListener('mouseover', discoveryHandler, true);
+        document.removeEventListener('focusin', discoveryHandler, true);
+        discoveryHandler = null;
     };
 
     const attachDocClickHandler = () => {
         if (docClickHandler) return;
         docClickHandler = (event: Event) => {
+            if (!activeRecord) return;
             const target = event.target as HTMLElement;
-            instances.forEach((rec, trigger) => {
-                // If the user clicks outside the trigger, hide it immediately
-                if (!trigger.contains(target)) {
-                    try {
-                        rec.tooltip.hide?.();
-                        if (rec.idleTimer != null) {
-                            clearTimeout(rec.idleTimer);
-                            rec.idleTimer = null;
-                        }
-                    } catch {
-                        /* noop */
-                    } finally {
-                        // Always ensure the hidden state class is present
-                        rec.targetEl.classList.add('tooltip-hidden');
-                    }
-                } else {
-                    // If they clicked inside the trigger, activate the suppression
-                    rec.clickHide();
-                }
-            });
+            // If the user clicks outside the trigger and outside the tooltip itself, hide it
+            if (!activeRecord.triggerEl.contains(target) && !activeRecord.targetEl.contains(target)) {
+                activeRecord.clickHide();
+            }
         };
         document.addEventListener('click', docClickHandler, { capture: true });
     };
@@ -366,9 +346,8 @@ const TooltipManager = (() => {
     const enable = () => {
         if (enabled) return;
         enabled = true;
-        initExisting();
         attachDocClickHandler();
-        attachObserver();
+        attachDiscoveryHandler();
     };
 
     const disable = () => {
@@ -401,9 +380,10 @@ const TooltipManager = (() => {
                 }
         });
         instances.clear();
+        activeRecord = null;
 
         detachDocClickHandler();
-        detachObserver();
+        detachDiscoveryHandler();
     };
 
     // Ensure any inline mobile info panels are hidden when at lg+ breakpoint
