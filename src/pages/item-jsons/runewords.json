@@ -79,11 +79,15 @@
                 "Index": 1
             },
             {
+                "PropertyString": "+2 Mana after each Kill (Weapon)",
+                "Index": 0
+            },
+            {
                 "PropertyString": "+2 to Light Radius (Weapon)",
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Mana after each Kill (Weapon)",
+                "PropertyString": "+2 Mana after each Kill (Armor)",
                 "Index": 0
             },
             {
@@ -91,19 +95,15 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Mana after each Kill (Armor)",
-                "Index": 0
-            },
-            {
                 "PropertyString": "+30 Defense (Armor)",
                 "Index": 1
             },
             {
-                "PropertyString": "+2 to Light Radius (Shield)",
+                "PropertyString": "+2 Mana after each Kill (Shield)",
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Mana after each Kill (Shield)",
+                "PropertyString": "+2 to Light Radius (Shield)",
                 "Index": 0
             },
             {
@@ -170,7 +170,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             },
             {
@@ -273,7 +273,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             },
             {
@@ -415,7 +415,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             },
             {
@@ -504,7 +504,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             },
             {
@@ -685,7 +685,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Mana after each Kill (Armor)",
+                "PropertyString": "+2 Mana after each Kill (Armor)",
                 "Index": 0
             },
             {
@@ -693,7 +693,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Mana after each Kill (Shield)",
+                "PropertyString": "+2 Mana after each Kill (Shield)",
                 "Index": 0
             }
         ],
@@ -839,7 +839,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             },
             {
@@ -1082,7 +1082,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             }
         ],
@@ -1165,7 +1165,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 4
             },
             {
@@ -1881,7 +1881,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             }
         ],
@@ -2073,7 +2073,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             },
             {
@@ -2593,7 +2593,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             }
         ],
@@ -2954,7 +2954,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             },
             {
@@ -3068,7 +3068,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+2 to Mana after each Kill (Weapon)",
+                "PropertyString": "+2 Mana after each Kill (Weapon)",
                 "Index": 0
             },
             {
@@ -3143,7 +3143,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 3
             },
             {
@@ -3321,7 +3321,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+2-5 to Mana after each Kill",
+                "PropertyString": "+2-5 Mana after each Kill",
                 "Index": 4
             },
             {
@@ -3947,7 +3947,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             }
         ],
@@ -4242,7 +4242,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             }
         ],
@@ -5248,7 +5248,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             }
         ],
@@ -6141,7 +6141,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             },
             {
@@ -7774,7 +7774,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             },
             {
@@ -8409,7 +8409,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+5 to Mana after each Kill",
+                "PropertyString": "+5 Mana after each Kill",
                 "Index": 3
             },
             {
@@ -8698,7 +8698,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             },
             {
@@ -10114,7 +10114,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             },
             {
@@ -10751,7 +10751,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             },
             {
@@ -12299,7 +12299,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             },
             {
@@ -13345,7 +13345,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             }
         ],
@@ -13758,7 +13758,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             }
         ],
@@ -14414,7 +14414,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             },
             {
@@ -18758,7 +18758,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             },
             {
@@ -19057,7 +19057,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             },
             {
@@ -19401,7 +19401,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             },
             {

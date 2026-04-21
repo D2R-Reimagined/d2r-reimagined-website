@@ -16552,5 +16552,911 @@
         ],
         "ETypes": [],
         "PType": "Suffix"
+    },
+    {
+        "Name": "of the Swift",
+        "Level": 1,
+        "MaxLevel": 85,
+        "RequiredLevel": 1,
+        "Group": 200,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+5-10% Increased Attack Speed",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of the Swift",
+        "Level": 45,
+        "MaxLevel": 0,
+        "RequiredLevel": 30,
+        "Group": 200,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+10-20% Increased Attack Speed",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of the Swift",
+        "Level": 80,
+        "MaxLevel": 0,
+        "RequiredLevel": 50,
+        "Group": 200,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+20-30% Increased Attack Speed",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Slaying",
+        "Level": 1,
+        "MaxLevel": 85,
+        "RequiredLevel": 1,
+        "Group": 201,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+5-10% Deadly Strike",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Slaying",
+        "Level": 45,
+        "MaxLevel": 0,
+        "RequiredLevel": 30,
+        "Group": 201,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+10-15% Deadly Strike",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Slaying",
+        "Level": 80,
+        "MaxLevel": 0,
+        "RequiredLevel": 50,
+        "Group": 201,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+15-20% Deadly Strike",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Maiming",
+        "Level": 1,
+        "MaxLevel": 85,
+        "RequiredLevel": 1,
+        "Group": 201,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+5-10% Chance of Open Wounds",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Maiming",
+        "Level": 45,
+        "MaxLevel": 0,
+        "RequiredLevel": 30,
+        "Group": 201,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+10-15% Chance of Open Wounds",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Maiming",
+        "Level": 80,
+        "MaxLevel": 0,
+        "RequiredLevel": 50,
+        "Group": 201,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+15-20% Chance of Open Wounds",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Piercing",
+        "Level": 1,
+        "MaxLevel": 85,
+        "RequiredLevel": 1,
+        "Group": 201,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+10% Piercing Attack",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Piercing",
+        "Level": 45,
+        "MaxLevel": 0,
+        "RequiredLevel": 30,
+        "Group": 201,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+10-20% Piercing Attack",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Piercing",
+        "Level": 80,
+        "MaxLevel": 0,
+        "RequiredLevel": 50,
+        "Group": 201,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+20-30% Piercing Attack",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of the Vampire",
+        "Level": 1,
+        "MaxLevel": 85,
+        "RequiredLevel": 1,
+        "Group": 202,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+2-3% Life stolen per hit",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of the Vampire",
+        "Level": 45,
+        "MaxLevel": 0,
+        "RequiredLevel": 20,
+        "Group": 202,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+3-5% Life stolen per hit",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of the Vampire",
+        "Level": 80,
+        "MaxLevel": 0,
+        "RequiredLevel": 40,
+        "Group": 202,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+5-10% Life stolen per hit",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of the Bat",
+        "Level": 1,
+        "MaxLevel": 85,
+        "RequiredLevel": 1,
+        "Group": 203,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+2-3% Mana stolen per hit",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of the Bat",
+        "Level": 45,
+        "MaxLevel": 0,
+        "RequiredLevel": 20,
+        "Group": 203,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+3-5% Mana stolen per hit",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of the Bat",
+        "Level": 80,
+        "MaxLevel": 0,
+        "RequiredLevel": 40,
+        "Group": 203,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+5-10% Mana stolen per hit",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Resistance",
+        "Level": 1,
+        "MaxLevel": 85,
+        "RequiredLevel": 1,
+        "Group": 204,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+5-10% Fire Resistance",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Resistance",
+        "Level": 45,
+        "MaxLevel": 0,
+        "RequiredLevel": 20,
+        "Group": 204,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+10-20% Fire Resistance",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Resistance",
+        "Level": 80,
+        "MaxLevel": 0,
+        "RequiredLevel": 40,
+        "Group": 204,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+20-30% Fire Resistance",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Resistance",
+        "Level": 1,
+        "MaxLevel": 85,
+        "RequiredLevel": 1,
+        "Group": 204,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+5-10% Cold Resistance",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Resistance",
+        "Level": 45,
+        "MaxLevel": 0,
+        "RequiredLevel": 20,
+        "Group": 204,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+10-20% Cold Resistance",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Resistance",
+        "Level": 80,
+        "MaxLevel": 0,
+        "RequiredLevel": 40,
+        "Group": 204,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+20-30% Cold Resistance",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Resistance",
+        "Level": 1,
+        "MaxLevel": 85,
+        "RequiredLevel": 1,
+        "Group": 204,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+5-10% Lightning Resistance",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Resistance",
+        "Level": 45,
+        "MaxLevel": 0,
+        "RequiredLevel": 20,
+        "Group": 204,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+10-20% Lightning Resistance",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Resistance",
+        "Level": 80,
+        "MaxLevel": 0,
+        "RequiredLevel": 40,
+        "Group": 204,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+20-30% Lightning Resistance",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Resistance",
+        "Level": 1,
+        "MaxLevel": 85,
+        "RequiredLevel": 1,
+        "Group": 204,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+5-10% Poison Resistance",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Resistance",
+        "Level": 45,
+        "MaxLevel": 0,
+        "RequiredLevel": 20,
+        "Group": 204,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+10-20% Poison Resistance",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Resistance",
+        "Level": 80,
+        "MaxLevel": 0,
+        "RequiredLevel": 40,
+        "Group": 204,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+20-30% Poison Resistance",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Resistance",
+        "Level": 1,
+        "MaxLevel": 85,
+        "RequiredLevel": 1,
+        "Group": 204,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+3-5% to All Resistances",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Resistance",
+        "Level": 45,
+        "MaxLevel": 0,
+        "RequiredLevel": 20,
+        "Group": 204,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+5-8% to All Resistances",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Resistance",
+        "Level": 80,
+        "MaxLevel": 0,
+        "RequiredLevel": 40,
+        "Group": 204,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+8-12% to All Resistances",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Fortune",
+        "Level": 1,
+        "MaxLevel": 85,
+        "RequiredLevel": 1,
+        "Group": 205,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+20-30% Extra Gold from Monsters",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+10-15% Chance Items Roll Magic or Better",
+                "Index": 1
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Fortune",
+        "Level": 45,
+        "MaxLevel": 0,
+        "RequiredLevel": 30,
+        "Group": 205,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+30-50% Extra Gold from Monsters",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+15-25% Chance Items Roll Magic or Better",
+                "Index": 1
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Fortune",
+        "Level": 50,
+        "MaxLevel": 0,
+        "RequiredLevel": 50,
+        "Group": 205,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+50-80% Extra Gold from Monsters",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+25-40% Chance Items Roll Magic or Better",
+                "Index": 1
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Transcendence",
+        "Level": 50,
+        "MaxLevel": 0,
+        "RequiredLevel": 50,
+        "Group": 206,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "10% Chance to cast level 5 Lower Resist on striking",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Transcendence",
+        "Level": 50,
+        "MaxLevel": 0,
+        "RequiredLevel": 50,
+        "Group": 206,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "10% Chance to cast level 5 Amplify Damage on striking",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Transcendence",
+        "Level": 50,
+        "MaxLevel": 0,
+        "RequiredLevel": 50,
+        "Group": 206,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "10% Chance to cast level 5 Weaken on striking",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Transcendence",
+        "Level": 85,
+        "MaxLevel": 0,
+        "RequiredLevel": 80,
+        "Group": 206,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "10% Chance to cast level 10 Lower Resist on striking",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-10-15% to All Enemy Elemental Resistances",
+                "Index": 1
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Transcendence",
+        "Level": 85,
+        "MaxLevel": 0,
+        "RequiredLevel": 80,
+        "Group": 206,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "10% Chance to cast level 10 Amplify Damage on striking",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-10-15% to Enemy Physical Damage Resistance",
+                "Index": 1
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
+    },
+    {
+        "Name": "of Transcendence",
+        "Level": 85,
+        "MaxLevel": 0,
+        "RequiredLevel": 80,
+        "Group": 206,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "10% Chance to cast level 10 Weaken on striking",
+                "Index": 0
+            },
+            {
+                "PropertyString": "-10-15% to Enemy Magic Resistance",
+                "Index": 1
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Suffix"
     }
 ]

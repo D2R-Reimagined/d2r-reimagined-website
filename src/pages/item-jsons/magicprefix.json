@@ -9942,7 +9942,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+1 to Mana after each Kill",
+                "PropertyString": "+1 Mana after each Kill",
                 "Index": 0
             }
         ],
@@ -9965,7 +9965,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+2-5 to Mana after each Kill",
+                "PropertyString": "+2-5 Mana after each Kill",
                 "Index": 0
             }
         ],
@@ -9986,7 +9986,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+1-3 to Mana after each Kill",
+                "PropertyString": "+1-3 Mana after each Kill",
                 "Index": 0
             }
         ],
@@ -18974,7 +18974,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+1 to Mana after each Kill",
+                "PropertyString": "+1 Mana after each Kill",
                 "Index": 0
             }
         ],
@@ -18995,7 +18995,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             }
         ],
@@ -19016,7 +19016,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+3 to Mana after each Kill",
+                "PropertyString": "+3 Mana after each Kill",
                 "Index": 0
             }
         ],
@@ -19100,7 +19100,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+1 to Mana after each Kill",
+                "PropertyString": "+1 Mana after each Kill",
                 "Index": 0
             },
             {
@@ -19125,7 +19125,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+1-2 to Mana after each Kill",
+                "PropertyString": "+1-2 Mana after each Kill",
                 "Index": 0
             },
             {
@@ -19150,7 +19150,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+2-3 to Mana after each Kill",
+                "PropertyString": "+2-3 Mana after each Kill",
                 "Index": 0
             },
             {
@@ -19238,7 +19238,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+1 to Mana after each Kill",
+                "PropertyString": "+1 Mana after each Kill",
                 "Index": 0
             },
             {
@@ -19267,7 +19267,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 0
             },
             {
@@ -19296,7 +19296,7 @@
         "ClassLevelReq": 0,
         "Properties": [
             {
-                "PropertyString": "+3 to Mana after each Kill",
+                "PropertyString": "+3 Mana after each Kill",
                 "Index": 0
             },
             {
@@ -24529,6 +24529,684 @@
             "Circlet",
             "Belt",
             "Ring"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Sturdy",
+        "Level": 1,
+        "MaxLevel": 85,
+        "RequiredLevel": 1,
+        "Group": 220,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+5-10 to Life",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Sturdy",
+        "Level": 45,
+        "MaxLevel": 0,
+        "RequiredLevel": 20,
+        "Group": 220,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+15-25 to Life",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Sturdy",
+        "Level": 80,
+        "MaxLevel": 0,
+        "RequiredLevel": 50,
+        "Group": 220,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+30-40 to Life",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Lizard's",
+        "Level": 1,
+        "MaxLevel": 85,
+        "RequiredLevel": 1,
+        "Group": 220,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+5-10 to Mana",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Lizard's",
+        "Level": 45,
+        "MaxLevel": 0,
+        "RequiredLevel": 20,
+        "Group": 220,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+15-25 to Mana",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Lizard's",
+        "Level": 80,
+        "MaxLevel": 0,
+        "RequiredLevel": 50,
+        "Group": 220,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+30-40 to Mana",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Sharp",
+        "Level": 1,
+        "MaxLevel": 85,
+        "RequiredLevel": 1,
+        "Group": 221,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+5-10 to Attack Rating",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Sharp",
+        "Level": 45,
+        "MaxLevel": 0,
+        "RequiredLevel": 20,
+        "Group": 221,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+20-30 to Attack Rating",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Sharp",
+        "Level": 80,
+        "MaxLevel": 0,
+        "RequiredLevel": 50,
+        "Group": 221,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+50-100 to Attack Rating",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Jagged",
+        "Level": 1,
+        "MaxLevel": 85,
+        "RequiredLevel": 1,
+        "Group": 222,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+5-10% Enhanced Weapon Damage",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Jagged",
+        "Level": 45,
+        "MaxLevel": 0,
+        "RequiredLevel": 30,
+        "Group": 222,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+20-30% Enhanced Weapon Damage",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Jagged",
+        "Level": 80,
+        "MaxLevel": 0,
+        "RequiredLevel": 60,
+        "Group": 222,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+30-50% Enhanced Weapon Damage",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Jagged",
+        "Level": 1,
+        "MaxLevel": 85,
+        "RequiredLevel": 1,
+        "Group": 222,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+1-3 to Minimum Weapon Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+3-5 to Maximum Weapon Damage",
+                "Index": 1
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Jagged",
+        "Level": 45,
+        "MaxLevel": 0,
+        "RequiredLevel": 20,
+        "Group": 222,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+3-5 to Minimum Weapon Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+5-10 to Maximum Weapon Damage",
+                "Index": 1
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Jagged",
+        "Level": 80,
+        "MaxLevel": 0,
+        "RequiredLevel": 60,
+        "Group": 222,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+10-20 to Minimum Weapon Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20-30 to Maximum Weapon Damage",
+                "Index": 1
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Flaming",
+        "Level": 1,
+        "MaxLevel": 85,
+        "RequiredLevel": 1,
+        "Group": 223,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+1-3 to Weapon Minimum Fire Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+3-5 to Weapon Maximum Fire Damage",
+                "Index": 1
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Flaming",
+        "Level": 45,
+        "MaxLevel": 0,
+        "RequiredLevel": 20,
+        "Group": 223,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+3-5 to Weapon Minimum Fire Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+5-10 to Weapon Maximum Fire Damage",
+                "Index": 1
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Flaming",
+        "Level": 80,
+        "MaxLevel": 0,
+        "RequiredLevel": 60,
+        "Group": 223,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+10-20 to Weapon Minimum Fire Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20-30 to Weapon Maximum Fire Damage",
+                "Index": 1
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Shivering",
+        "Level": 1,
+        "MaxLevel": 85,
+        "RequiredLevel": 1,
+        "Group": 224,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+1-3 to Weapon Minimum Cold Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+3-5 to Weapon Maximum Cold Damage",
+                "Index": 1
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Shivering",
+        "Level": 45,
+        "MaxLevel": 0,
+        "RequiredLevel": 20,
+        "Group": 224,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+3-5 to Weapon Minimum Cold Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+5-10 to Weapon Maximum Cold Damage",
+                "Index": 1
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Shivering",
+        "Level": 80,
+        "MaxLevel": 0,
+        "RequiredLevel": 60,
+        "Group": 224,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+10-20 to Weapon Minimum Cold Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20-30 to Weapon Maximum Cold Damage",
+                "Index": 1
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Static",
+        "Level": 1,
+        "MaxLevel": 85,
+        "RequiredLevel": 1,
+        "Group": 225,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+1 to Weapon Minimum Lightning Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+5-10 to Weapon Maximum Lightning Damage",
+                "Index": 1
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Static",
+        "Level": 45,
+        "MaxLevel": 0,
+        "RequiredLevel": 20,
+        "Group": 225,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+1-5 to Weapon Minimum Lightning Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+10-20 to Weapon Maximum Lightning Damage",
+                "Index": 1
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Static",
+        "Level": 80,
+        "MaxLevel": 0,
+        "RequiredLevel": 60,
+        "Group": 225,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "+5-10 to Weapon Minimum Lightning Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+30-50 to Weapon Maximum Lightning Damage",
+                "Index": 1
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Corrosive",
+        "Level": 1,
+        "MaxLevel": 85,
+        "RequiredLevel": 1,
+        "Group": 226,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "Adds 12-20 Weapon Poison Damage over 4 seconds",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Corrosive",
+        "Level": 45,
+        "MaxLevel": 0,
+        "RequiredLevel": 20,
+        "Group": 226,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "Adds 40-59 Weapon Poison Damage over 4 seconds",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Corrosive",
+        "Level": 80,
+        "MaxLevel": 0,
+        "RequiredLevel": 60,
+        "Group": 226,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "Adds 118-235 Weapon Poison Damage over 4 seconds",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Apprentice",
+        "Level": 1,
+        "MaxLevel": 85,
+        "RequiredLevel": 1,
+        "Group": 227,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "Adds 1-5 Weapon Magic Damage",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Apprentice",
+        "Level": 45,
+        "MaxLevel": 0,
+        "RequiredLevel": 20,
+        "Group": 227,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "Adds 5-10 Weapon Magic Damage",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
+        ],
+        "ETypes": [],
+        "PType": "Prefix"
+    },
+    {
+        "Name": "Apprentice",
+        "Level": 80,
+        "MaxLevel": 0,
+        "RequiredLevel": 60,
+        "Group": 227,
+        "ClassSpecific": "",
+        "Class": "",
+        "ClassLevelReq": 0,
+        "Properties": [
+            {
+                "PropertyString": "Adds 10-20 Weapon Magic Damage",
+                "Index": 0
+            }
+        ],
+        "Types": [
+            "Missile"
         ],
         "ETypes": [],
         "PType": "Prefix"

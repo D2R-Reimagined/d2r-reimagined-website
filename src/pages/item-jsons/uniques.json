@@ -1577,7 +1577,7 @@
         }
     },
     {
-        "Type": "Magic Bow Quiv",
+        "Type": "Bow Quiver",
         "Vanilla": "N",
         "Name": "Replenishing Quiver",
         "Index": "Replenishing Quiver",
@@ -1585,7 +1585,7 @@
         "Rarity": 1,
         "ItemLevel": 1,
         "RequiredLevel": 6,
-        "Code": "z01",
+        "Code": "aqv",
         "Properties": [
             {
                 "PropertyString": "+10% Increased Attack Speed",
@@ -1603,7 +1603,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Magic Arrows",
+            "Name": "Arrows",
             "RequiredStrength": null,
             "RequiredDexterity": null,
             "Durability": 0,
@@ -1611,7 +1611,7 @@
         }
     },
     {
-        "Type": "Magic Xbow Quiv",
+        "Type": "Crossbow Quiver",
         "Vanilla": "N",
         "Name": "Replenishing Bolt Case",
         "Index": "Replenishing Bolt Case",
@@ -1619,7 +1619,7 @@
         "Rarity": 1,
         "ItemLevel": 1,
         "RequiredLevel": 6,
-        "Code": "z02",
+        "Code": "cqv",
         "Properties": [
             {
                 "PropertyString": "+10% Increased Attack Speed",
@@ -1637,7 +1637,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Magic Bolts",
+            "Name": "Bolts",
             "RequiredStrength": null,
             "RequiredDexterity": null,
             "Durability": 0,
@@ -2083,7 +2083,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 5
             },
             {
@@ -3255,7 +3255,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+4 to Mana after each Kill",
+                "PropertyString": "+4 Mana after each Kill",
                 "Index": 3
             }
         ],
@@ -5793,7 +5793,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+5 to Mana after each Kill",
+                "PropertyString": "+5 Mana after each Kill",
                 "Index": 4
             },
             {
@@ -8270,7 +8270,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+1-2 to Mana after each Kill",
+                "PropertyString": "+1-2 Mana after each Kill",
                 "Index": 1
             },
             {
@@ -9463,6 +9463,98 @@
         "Equipment": {
             "EquipmentType": 2,
             "Name": "Small Charm",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Bow Quiver",
+        "Vanilla": "N",
+        "Name": "Rogue Scout Arrows",
+        "Index": "Rogue Scout Arrows",
+        "Enabled": true,
+        "Rarity": 2,
+        "ItemLevel": 12,
+        "RequiredLevel": 15,
+        "Code": "aqv",
+        "Properties": [
+            {
+                "PropertyString": "10% Chance to cast level 1 Dim Vision on striking",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+10% Increased Attack Speed",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+5-10 to Minimum Weapon Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+10-20 to Maximum Weapon Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "-4 to Light Radius",
+                "Index": 2
+            },
+            {
+                "PropertyString": "Replenishes quantity",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Arrows",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Crossbow Quiver",
+        "Vanilla": "N",
+        "Name": "Sisterhood Bolts",
+        "Index": "Sisterhood Bolts",
+        "Enabled": true,
+        "Rarity": 2,
+        "ItemLevel": 12,
+        "RequiredLevel": 15,
+        "Code": "cqv",
+        "Properties": [
+            {
+                "PropertyString": "5% Chance to cast level 5 Burst of Speed when you Kill an Enemy",
+                "Index": 3
+            },
+            {
+                "PropertyString": "-10% Increased Attack Speed",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+15% Piercing Attack",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20-30 to Maximum Weapon Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+20-30 to Life",
+                "Index": 4
+            },
+            {
+                "PropertyString": "Replenishes quantity",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Bolts",
             "RequiredStrength": null,
             "RequiredDexterity": null,
             "Durability": 0,
@@ -11350,7 +11442,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+4-6 to Mana after each Kill",
+                "PropertyString": "+4-6 Mana after each Kill",
                 "Index": 4
             }
         ],
@@ -11551,7 +11643,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+6 to Mana after each Kill",
+                "PropertyString": "+6 Mana after each Kill",
                 "Index": 2
             }
         ],
@@ -12329,7 +12421,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+5 to Mana after each Kill",
+                "PropertyString": "+5 Mana after each Kill",
                 "Index": 0
             }
         ],
@@ -13095,7 +13187,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+3-5 to Mana after each Kill",
+                "PropertyString": "+3-5 Mana after each Kill",
                 "Index": 4
             }
         ],
@@ -13145,7 +13237,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+3-5 to Mana after each Kill",
+                "PropertyString": "+3-5 Mana after each Kill",
                 "Index": 5
             }
         ],
@@ -13257,7 +13349,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+5 to Mana after each Kill",
+                "PropertyString": "+5 Mana after each Kill",
                 "Index": 5
             }
         ],
@@ -13558,7 +13650,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+4-6 to Mana after each Kill",
+                "PropertyString": "+4-6 Mana after each Kill",
                 "Index": 6
             },
             {
@@ -16185,7 +16277,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2-4 to Mana after each Kill",
+                "PropertyString": "+2-4 Mana after each Kill",
                 "Index": 6
             }
         ],
@@ -16717,7 +16809,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+3-5 to Mana after each Kill",
+                "PropertyString": "+3-5 Mana after each Kill",
                 "Index": 2
             }
         ],
@@ -16939,7 +17031,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+3-5 to Mana after each Kill",
+                "PropertyString": "+3-5 Mana after each Kill",
                 "Index": 5
             },
             {
@@ -19015,7 +19107,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+3-5 to Mana after each Kill",
+                "PropertyString": "+3-5 Mana after each Kill",
                 "Index": 3
             },
             {
@@ -22814,7 +22906,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+3-5 to Mana after each Kill",
+                "PropertyString": "+3-5 Mana after each Kill",
                 "Index": 4
             },
             {
@@ -24723,7 +24815,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+5-7 to Mana after each Kill",
+                "PropertyString": "+5-7 Mana after each Kill",
                 "Index": 7
             },
             {
@@ -25228,6 +25320,98 @@
         }
     },
     {
+        "Type": "Bow Quiver",
+        "Vanilla": "N",
+        "Name": "Hunger of the Jungle",
+        "Index": "Hunger of the Jungle",
+        "Enabled": true,
+        "Rarity": 2,
+        "ItemLevel": 25,
+        "RequiredLevel": 30,
+        "Code": "aqv",
+        "Properties": [
+            {
+                "PropertyString": "+15% Increased Attack Speed",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20-30 to Maximum Weapon Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+5-10% Mana stolen per hit",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+5-10% Life stolen per hit",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+10% Deadly Strike",
+                "Index": 1
+            },
+            {
+                "PropertyString": "Replenishes quantity",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Arrows",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Crossbow Quiver",
+        "Vanilla": "N",
+        "Name": "Kurast Bolts",
+        "Index": "Kurast Bolts",
+        "Enabled": true,
+        "Rarity": 2,
+        "ItemLevel": 25,
+        "RequiredLevel": 30,
+        "Code": "cqv",
+        "Properties": [
+            {
+                "PropertyString": "+20% Piercing Attack",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Adds 10-15 Weapon Damage",
+                "Index": 3
+            },
+            {
+                "PropertyString": "Adds 20-30 Weapon Magic Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+10-15% to Magic Skill Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+5 Life after each Kill",
+                "Index": 4
+            },
+            {
+                "PropertyString": "Replenishes quantity",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Bolts",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
         "Type": "Sword",
         "Vanilla": "Y",
         "Name": "Coldsteel Eye",
@@ -25580,7 +25764,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+5-10 to Mana after each Kill",
+                "PropertyString": "+5-10 Mana after each Kill",
                 "Index": 3
             },
             {
@@ -26328,7 +26512,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+3-6 to Mana after each Kill",
+                "PropertyString": "+3-6 Mana after each Kill",
                 "Index": 4
             }
         ],
@@ -28800,7 +28984,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+3-5 to Mana after each Kill",
+                "PropertyString": "+3-5 Mana after each Kill",
                 "Index": 4
             }
         ],
@@ -29289,15 +29473,15 @@
         }
     },
     {
-        "Type": "Magic Bow Quiv",
+        "Type": "Bow Quiver",
         "Vanilla": "N",
         "Name": "Quiver of Piercing",
         "Index": "Quiver of Piercing",
         "Enabled": true,
         "Rarity": 1,
-        "ItemLevel": 1,
+        "ItemLevel": 25,
         "RequiredLevel": 35,
-        "Code": "z01",
+        "Code": "aqv",
         "Properties": [
             {
                 "PropertyString": "+15% Increased Attack Speed",
@@ -29319,7 +29503,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Magic Arrows",
+            "Name": "Arrows",
             "RequiredStrength": null,
             "RequiredDexterity": null,
             "Durability": 0,
@@ -29389,15 +29573,15 @@
         }
     },
     {
-        "Type": "Magic Xbow Quiv",
+        "Type": "Crossbow Quiver",
         "Vanilla": "N",
         "Name": "Bolt Case of Piercing",
         "Index": "Bolt Case of Piercing",
         "Enabled": false,
         "Rarity": 1,
-        "ItemLevel": 1,
+        "ItemLevel": 25,
         "RequiredLevel": 35,
-        "Code": "z02",
+        "Code": "cqv",
         "Properties": [
             {
                 "PropertyString": "+15% Increased Attack Speed",
@@ -29419,7 +29603,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Magic Bolts",
+            "Name": "Bolts",
             "RequiredStrength": null,
             "RequiredDexterity": null,
             "Durability": 0,
@@ -30405,7 +30589,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+5 to Mana after each Kill",
+                "PropertyString": "+5 Mana after each Kill",
                 "Index": 1
             }
         ],
@@ -30737,7 +30921,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+4 to Mana after each Kill",
+                "PropertyString": "+4 Mana after each Kill",
                 "Index": 5
             },
             {
@@ -31476,7 +31660,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+7 to Mana after each Kill",
+                "PropertyString": "+7 Mana after each Kill",
                 "Index": 3
             },
             {
@@ -31861,7 +32045,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+3-5 to Mana after each Kill",
+                "PropertyString": "+3-5 Mana after each Kill",
                 "Index": 5
             }
         ],
@@ -31911,7 +32095,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+3-5 to Mana after each Kill",
+                "PropertyString": "+3-5 Mana after each Kill",
                 "Index": 5
             },
             {
@@ -32636,7 +32820,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+3-5 to Mana after each Kill",
+                "PropertyString": "+3-5 Mana after each Kill",
                 "Index": 3
             }
         ],
@@ -34113,7 +34297,7 @@
                 "Index": 7
             },
             {
-                "PropertyString": "+4-7 to Mana after each Kill",
+                "PropertyString": "+4-7 Mana after each Kill",
                 "Index": 6
             }
         ],
@@ -36145,7 +36329,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+20 to Mana after each Kill",
+                "PropertyString": "+20 Mana after each Kill",
                 "Index": 1
             },
             {
@@ -36494,7 +36678,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+3-5 to Mana after each Kill",
+                "PropertyString": "+3-5 Mana after each Kill",
                 "Index": 3
             },
             {
@@ -37472,7 +37656,7 @@
                 "Index": 8
             },
             {
-                "PropertyString": "+5 to Mana after each Kill",
+                "PropertyString": "+5 Mana after each Kill",
                 "Index": 7
             }
         ],
@@ -37737,7 +37921,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+5 to Mana after each Kill",
+                "PropertyString": "+5 Mana after each Kill",
                 "Index": 7
             },
             {
@@ -38858,7 +39042,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+5-10 to Mana after each Kill",
+                "PropertyString": "+5-10 Mana after each Kill",
                 "Index": 6
             },
             {
@@ -39455,7 +39639,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2-4 to Mana after each Kill",
+                "PropertyString": "+2-4 Mana after each Kill",
                 "Index": 4
             }
         ],
@@ -40770,7 +40954,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+3-5 to Mana after each Kill",
+                "PropertyString": "+3-5 Mana after each Kill",
                 "Index": 2
             },
             {
@@ -41991,7 +42175,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+6-10 to Mana after each Kill",
+                "PropertyString": "+6-10 Mana after each Kill",
                 "Index": 5
             }
         ],
@@ -42281,6 +42465,98 @@
             "RequiredDexterity": "0",
             "Durability": 20,
             "RequiredClass": "Warlock"
+        }
+    },
+    {
+        "Type": "Bow Quiver",
+        "Vanilla": "N",
+        "Name": "Flames of Sanctuary",
+        "Index": "Flames of Sanctuary",
+        "Enabled": true,
+        "Rarity": 2,
+        "ItemLevel": 43,
+        "RequiredLevel": 45,
+        "Code": "aqv",
+        "Properties": [
+            {
+                "PropertyString": "10% Chance to cast level 10 Blaze when you Kill an Enemy",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+15% Increased Attack Speed",
+                "Index": 2
+            },
+            {
+                "PropertyString": "Adds 15-50 Weapon Fire Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+10-15% to Fire Skill Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+30-50% Fire Resistance",
+                "Index": 3
+            },
+            {
+                "PropertyString": "Replenishes quantity",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Arrows",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Crossbow Quiver",
+        "Vanilla": "N",
+        "Name": "Reaper Bolts",
+        "Index": "Reaper Bolts",
+        "Enabled": true,
+        "Rarity": 2,
+        "ItemLevel": 43,
+        "RequiredLevel": 45,
+        "Code": "cqv",
+        "Properties": [
+            {
+                "PropertyString": "+30-50% Enhanced Weapon Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "+25% Piercing Attack",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+15-20% Deadly Strike",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+100-200 Defense",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+10% Physical Damage Reduction",
+                "Index": 3
+            },
+            {
+                "PropertyString": "Replenishes quantity",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Bolts",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
         }
     },
     {
@@ -43332,7 +43608,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+4 to Mana after each Kill",
+                "PropertyString": "+4 Mana after each Kill",
                 "Index": 6
             },
             {
@@ -46491,7 +46767,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+1-3 to Mana after each Kill",
+                "PropertyString": "+1-3 Mana after each Kill",
                 "Index": 5
             },
             {
@@ -46580,7 +46856,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+4-6 to Mana after each Kill",
+                "PropertyString": "+4-6 Mana after each Kill",
                 "Index": 6
             }
         ],
@@ -47099,7 +47375,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+20 to Mana after each Kill",
+                "PropertyString": "+20 Mana after each Kill",
                 "Index": 4
             },
             {
@@ -48054,7 +48330,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+6 to Mana after each Kill",
+                "PropertyString": "+6 Mana after each Kill",
                 "Index": 8
             },
             {
@@ -48462,7 +48738,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+3 to Mana after each Kill",
+                "PropertyString": "+3 Mana after each Kill",
                 "Index": 1
             }
         ],
@@ -48508,7 +48784,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2 to Mana after each Kill",
+                "PropertyString": "+2 Mana after each Kill",
                 "Index": 1
             },
             {
@@ -50718,7 +50994,7 @@
                 "Index": 8
             },
             {
-                "PropertyString": "+5 to Mana after each Kill",
+                "PropertyString": "+5 Mana after each Kill",
                 "Index": 7
             }
         ],
@@ -51799,7 +52075,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+2-4 to Mana after each Kill",
+                "PropertyString": "+2-4 Mana after each Kill",
                 "Index": 5
             },
             {
@@ -53650,7 +53926,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+8-12 to Mana after each Kill",
+                "PropertyString": "+8-12 Mana after each Kill",
                 "Index": 3
             },
             {
@@ -54030,7 +54306,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+3-5 to Mana after each Kill",
+                "PropertyString": "+3-5 Mana after each Kill",
                 "Index": 4
             }
         ],
@@ -54936,7 +55212,7 @@
                 "Index": 6
             },
             {
-                "PropertyString": "+3-5 to Mana after each Kill",
+                "PropertyString": "+3-5 Mana after each Kill",
                 "Index": 5
             }
         ],
@@ -55593,7 +55869,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+3-5 to Mana after each Kill",
+                "PropertyString": "+3-5 Mana after each Kill",
                 "Index": 5
             }
         ],
@@ -58397,15 +58673,15 @@
         }
     },
     {
-        "Type": "Magic Bow Quiv",
+        "Type": "Bow Quiver",
         "Vanilla": "N",
         "Name": "Quiver of Slaying",
         "Index": "Quiver of Slaying",
         "Enabled": true,
         "Rarity": 1,
-        "ItemLevel": 1,
+        "ItemLevel": 50,
         "RequiredLevel": 65,
-        "Code": "z01",
+        "Code": "aqv",
         "Properties": [
             {
                 "PropertyString": "+1 to Bow and Crossbow Skills (Amazon Only)",
@@ -58431,7 +58707,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Magic Arrows",
+            "Name": "Arrows",
             "RequiredStrength": null,
             "RequiredDexterity": null,
             "Durability": 0,
@@ -58439,15 +58715,15 @@
         }
     },
     {
-        "Type": "Magic Xbow Quiv",
+        "Type": "Crossbow Quiver",
         "Vanilla": "N",
         "Name": "Bolt Case of Slaying",
         "Index": "Bolt Case of Slaying",
         "Enabled": false,
         "Rarity": 1,
-        "ItemLevel": 1,
+        "ItemLevel": 50,
         "RequiredLevel": 65,
-        "Code": "z02",
+        "Code": "cqv",
         "Properties": [
             {
                 "PropertyString": "+1 to Bow and Crossbow Skills (Amazon Only)",
@@ -58473,7 +58749,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Magic Bolts",
+            "Name": "Bolts",
             "RequiredStrength": null,
             "RequiredDexterity": null,
             "Durability": 0,
@@ -61242,7 +61518,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+7-12 to Mana after each Kill",
+                "PropertyString": "+7-12 Mana after each Kill",
                 "Index": 3
             }
         ],
@@ -62994,6 +63270,98 @@
             "RequiredDexterity": "0",
             "Durability": 20,
             "RequiredClass": "Warlock"
+        }
+    },
+    {
+        "Type": "Bow Quiver",
+        "Vanilla": "N",
+        "Name": "Reach of Mephisto",
+        "Index": "Reach of Mephisto",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 70,
+        "RequiredLevel": 70,
+        "Code": "aqv",
+        "Properties": [
+            {
+                "PropertyString": "Level 10-15 Holy Freeze Aura When Equipped",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+20% Increased Attack Speed",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+15% Piercing Attack",
+                "Index": 4
+            },
+            {
+                "PropertyString": "-10-20% to Enemy Cold Resistance",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+40-80% Cold Resistance",
+                "Index": 2
+            },
+            {
+                "PropertyString": "Replenishes quantity",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Arrows",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Crossbow Quiver",
+        "Vanilla": "N",
+        "Name": "Bolts of Zakarum",
+        "Index": "Bolts of Zakarum",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 70,
+        "RequiredLevel": 70,
+        "Code": "cqv",
+        "Properties": [
+            {
+                "PropertyString": "10% Chance to cast level 20 Lightning Bolt on striking",
+                "Index": 3
+            },
+            {
+                "PropertyString": "Level 10-15 Holy Shock Aura When Equipped",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+30% Piercing Attack",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Adds 1-200 Weapon Lightning Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "-15-25% to Enemy Lightning Resistance",
+                "Index": 2
+            },
+            {
+                "PropertyString": "Replenishes quantity",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Bolts",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
         }
     },
     {
@@ -68486,7 +68854,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+15 to Mana after each Kill",
+                "PropertyString": "+15 Mana after each Kill",
                 "Index": 3
             },
             {
@@ -69107,7 +69475,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+9 to Mana after each Kill",
+                "PropertyString": "+9 Mana after each Kill",
                 "Index": 4
             }
         ],
@@ -69354,7 +69722,7 @@
                 "Index": 2
             },
             {
-                "PropertyString": "+10-15 to Mana after each Kill",
+                "PropertyString": "+10-15 Mana after each Kill",
                 "Index": 3
             },
             {
@@ -70879,7 +71247,7 @@
                 "Index": 7
             },
             {
-                "PropertyString": "+5-10 to Mana after each Kill",
+                "PropertyString": "+5-10 Mana after each Kill",
                 "Index": 6
             },
             {
@@ -72508,15 +72876,15 @@
         }
     },
     {
-        "Type": "Magic Bow Quiv",
+        "Type": "Bow Quiver",
         "Vanilla": "N",
         "Name": "Crescendo",
         "Index": "Crescendo",
         "Enabled": true,
         "Rarity": 1,
-        "ItemLevel": 1,
+        "ItemLevel": 65,
         "RequiredLevel": 80,
-        "Code": "z01",
+        "Code": "aqv",
         "Properties": [
             {
                 "PropertyString": "10% Chance to cast level 5 Burst of Speed on striking",
@@ -72546,7 +72914,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Magic Arrows",
+            "Name": "Arrows",
             "RequiredStrength": null,
             "RequiredDexterity": null,
             "Durability": 0,
@@ -72567,6 +72935,10 @@
             {
                 "PropertyString": "Indestructible",
                 "Index": 8
+            },
+            {
+                "PropertyString": "+150-250% Enhanced Weapon Damage",
+                "Index": 7
             },
             {
                 "PropertyString": "+4% Enhanced Maximum Weapon Damage (Based on Character Level)",
@@ -72595,10 +72967,6 @@
             {
                 "PropertyString": "Requirements Increased By 25-50%",
                 "Index": 6
-            },
-            {
-                "PropertyString": "Ethereal (Cannot be Repaired)",
-                "Index": 7
             }
         ],
         "DamageArmorEnhanced": true,
@@ -72606,13 +72974,13 @@
             "DamageTypes": [
                 {
                     "Type": 0,
-                    "DamageString": "(187-292) to (735-885)",
-                    "AverageDamage": 536.0
+                    "DamageString": "(212-342) to (697-887)",
+                    "AverageDamage": 549.5
                 },
                 {
                     "Type": 1,
-                    "DamageString": "(237-342) to (1053-1260)",
-                    "AverageDamage": 748.5
+                    "DamageString": "(295-458) to (984-1262)",
+                    "AverageDamage": 778.5
                 }
             ],
             "Speed": 5,
@@ -73390,7 +73758,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+10-15 to Mana after each Kill",
+                "PropertyString": "+10-15 Mana after each Kill",
                 "Index": 5
             }
         ],
@@ -73998,7 +74366,7 @@
                 "Index": 0
             },
             {
-                "PropertyString": "+80-120 to Maximum Weapon Damage",
+                "PropertyString": "+100-120 to Maximum Weapon Damage",
                 "Index": 1
             },
             {
@@ -74027,7 +74395,7 @@
             "DamageTypes": [
                 {
                     "Type": 3,
-                    "DamageString": "(92-132) to (138-178)",
+                    "DamageString": "(92-132) to (158-178)",
                     "AverageDamage": 135.0
                 }
             ],
@@ -75130,7 +75498,7 @@
                 "Index": 3
             },
             {
-                "PropertyString": "+5-10 to Mana after each Kill",
+                "PropertyString": "+5-10 Mana after each Kill",
                 "Index": 4
             },
             {
@@ -76344,7 +76712,7 @@
                 "Index": 1
             },
             {
-                "PropertyString": "+100-200 to Maximum Weapon Damage",
+                "PropertyString": "+200-250 to Maximum Weapon Damage",
                 "Index": 2
             },
             {
@@ -76369,8 +76737,8 @@
             "DamageTypes": [
                 {
                     "Type": 1,
-                    "DamageString": "(160-267) to (352-483)",
-                    "AverageDamage": 321.5
+                    "DamageString": "(160-267) to (452-533)",
+                    "AverageDamage": 346.5
                 }
             ],
             "Speed": 10,
@@ -77284,15 +77652,15 @@
         }
     },
     {
-        "Type": "Magic Bow Quiv",
+        "Type": "Bow Quiver",
         "Vanilla": "N",
         "Name": "Quiver of Amplified Slaying",
         "Index": "Quiver of Amplified Slaying",
         "Enabled": true,
         "Rarity": 1,
-        "ItemLevel": 1,
+        "ItemLevel": 70,
         "RequiredLevel": 85,
-        "Code": "z01",
+        "Code": "aqv",
         "Properties": [
             {
                 "PropertyString": "20% Chance to cast level 10 Amplify Damage on striking",
@@ -77322,7 +77690,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Magic Arrows",
+            "Name": "Arrows",
             "RequiredStrength": null,
             "RequiredDexterity": null,
             "Durability": 0,
@@ -77330,15 +77698,15 @@
         }
     },
     {
-        "Type": "Magic Bow Quiv",
+        "Type": "Bow Quiver",
         "Vanilla": "N",
         "Name": "Quiver of Resistance Slaying",
         "Index": "Quiver of Resistance Slaying",
         "Enabled": true,
         "Rarity": 1,
-        "ItemLevel": 1,
+        "ItemLevel": 70,
         "RequiredLevel": 85,
-        "Code": "z01",
+        "Code": "aqv",
         "Properties": [
             {
                 "PropertyString": "20% Chance to cast level 5 Lower Resist on striking",
@@ -77368,7 +77736,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Magic Arrows",
+            "Name": "Arrows",
             "RequiredStrength": null,
             "RequiredDexterity": null,
             "Durability": 0,
@@ -77376,15 +77744,15 @@
         }
     },
     {
-        "Type": "Magic Xbow Quiv",
+        "Type": "Crossbow Quiver",
         "Vanilla": "N",
         "Name": "Bolt Case of Amplified Slaying",
         "Index": "Bolt Case of Amplified Slaying",
         "Enabled": true,
         "Rarity": 1,
-        "ItemLevel": 1,
+        "ItemLevel": 70,
         "RequiredLevel": 85,
-        "Code": "z02",
+        "Code": "cqv",
         "Properties": [
             {
                 "PropertyString": "20% Chance to cast level 10 Amplify Damage on striking",
@@ -77414,7 +77782,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Magic Bolts",
+            "Name": "Bolts",
             "RequiredStrength": null,
             "RequiredDexterity": null,
             "Durability": 0,
@@ -77422,15 +77790,15 @@
         }
     },
     {
-        "Type": "Magic Xbow Quiv",
+        "Type": "Crossbow Quiver",
         "Vanilla": "N",
         "Name": "Bolt Case of Resistance Slaying",
         "Index": "Bolt Case of Resistance Slaying",
         "Enabled": true,
         "Rarity": 1,
-        "ItemLevel": 1,
+        "ItemLevel": 70,
         "RequiredLevel": 85,
-        "Code": "z02",
+        "Code": "cqv",
         "Properties": [
             {
                 "PropertyString": "20% Chance to cast level 5 Lower Resist on striking",
@@ -77460,7 +77828,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Magic Bolts",
+            "Name": "Bolts",
             "RequiredStrength": null,
             "RequiredDexterity": null,
             "Durability": 0,
@@ -77556,15 +77924,15 @@
         }
     },
     {
-        "Type": "Magic Bow Quiv",
+        "Type": "Bow Quiver",
         "Vanilla": "N",
         "Name": "Quiver of Pestilence",
         "Index": "Quiver of Pestilence",
         "Enabled": true,
         "Rarity": 1,
-        "ItemLevel": 1,
+        "ItemLevel": 70,
         "RequiredLevel": 85,
-        "Code": "z01",
+        "Code": "aqv",
         "Properties": [
             {
                 "PropertyString": "5% Chance to cast level 10 Corpse Explosion on striking",
@@ -77594,7 +77962,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Magic Arrows",
+            "Name": "Arrows",
             "RequiredStrength": null,
             "RequiredDexterity": null,
             "Durability": 0,
@@ -77602,15 +77970,15 @@
         }
     },
     {
-        "Type": "Magic Xbow Quiv",
+        "Type": "Crossbow Quiver",
         "Vanilla": "N",
         "Name": "Bolt Case of Pestilence",
         "Index": "Bolt Case of Pestilence",
         "Enabled": true,
         "Rarity": 1,
-        "ItemLevel": 1,
+        "ItemLevel": 70,
         "RequiredLevel": 85,
-        "Code": "z02",
+        "Code": "cqv",
         "Properties": [
             {
                 "PropertyString": "5% Chance to cast level 10 Corpse Explosion on striking",
@@ -77640,7 +78008,7 @@
         "DamageArmorEnhanced": false,
         "Equipment": {
             "EquipmentType": 2,
-            "Name": "Magic Bolts",
+            "Name": "Bolts",
             "RequiredStrength": null,
             "RequiredDexterity": null,
             "Durability": 0,
@@ -77817,7 +78185,7 @@
                 "Index": 5
             },
             {
-                "PropertyString": "+15 to Mana after each Kill",
+                "PropertyString": "+15 Mana after each Kill",
                 "Index": 3
             }
         ],
@@ -79341,7 +79709,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+5 to Mana after each Kill",
+                "PropertyString": "+5 Mana after each Kill",
                 "Index": 5
             },
             {
@@ -79457,7 +79825,7 @@
                 "Index": 4
             },
             {
-                "PropertyString": "+100-300 to Maximum Weapon Damage",
+                "PropertyString": "+200-300 to Maximum Weapon Damage",
                 "Index": 5
             },
             {
@@ -79474,7 +79842,7 @@
             "DamageTypes": [
                 {
                     "Type": 1,
-                    "DamageString": "(159-273) to (406-678)",
+                    "DamageString": "(159-273) to (506-678)",
                     "AverageDamage": 418.5
                 }
             ],
@@ -79747,6 +80115,110 @@
             "RequiredDexterity": "0",
             "Durability": 20,
             "RequiredClass": "Warlock"
+        }
+    },
+    {
+        "Type": "Bow Quiver",
+        "Vanilla": "N",
+        "Name": "Siege Beast Arrows",
+        "Index": "Siege Beast Arrows",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 90,
+        "RequiredLevel": 90,
+        "Code": "aqv",
+        "Properties": [
+            {
+                "PropertyString": "+1-2 to All Skills",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20% Increased Attack Speed",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+20% Piercing Attack",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+30-50 to Minimum Weapon Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+50-80 to Maximum Weapon Damage",
+                "Index": 2
+            },
+            {
+                "PropertyString": "-10-20% to Enemy Physical Damage Resistance",
+                "Index": 6
+            },
+            {
+                "PropertyString": "Replenishes quantity",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Arrows",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
+        }
+    },
+    {
+        "Type": "Crossbow Quiver",
+        "Vanilla": "N",
+        "Name": "Echoes of Harrogath",
+        "Index": "Echoes of Harrogath",
+        "Enabled": true,
+        "Rarity": 1,
+        "ItemLevel": 90,
+        "RequiredLevel": 90,
+        "Code": "cqv",
+        "Properties": [
+            {
+                "PropertyString": "+1-2 to All Skills",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+15% Increased Attack Speed",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+35% Piercing Attack",
+                "Index": 4
+            },
+            {
+                "PropertyString": "Adds 25-250 Weapon Fire Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "Adds 25-250 Weapon Lightning Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "Adds 25-250 Weapon Cold Damage",
+                "Index": 1
+            },
+            {
+                "PropertyString": "-15-20% to All Enemy Elemental Resistances",
+                "Index": 2
+            },
+            {
+                "PropertyString": "Replenishes quantity",
+                "Index": 5
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": {
+            "EquipmentType": 2,
+            "Name": "Bolts",
+            "RequiredStrength": null,
+            "RequiredDexterity": null,
+            "Durability": 0,
+            "RequiredClass": ""
         }
     },
     {
