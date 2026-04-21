@@ -1,10 +1,10 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-B8YbS_3X.js";
+import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-DZuhZyBa.js";
 import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options, g as getTypeChain, a as getChainForTypeNameReadonly } from "./item-type-filters-BmbPxQoN.js";
 import { p as passesHandFilter, s as sortItemsByWeaponDamage, t as toggleWeaponSort, g as getSortKeyFromDamageType, c as character_class_options, w as weaponSortOptions, h as handFilterOptions } from "./item-sorting-Biaf6mJs.js";
 import { g as getDamageTypeString } from "./damage-types-BlYhXdWN.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
 import { p as prependTypeResetOption, t as tokenizeSearch, i as isVanillaItem, m as matchesTokenGroups } from "./filter-helpers-DL_Ti2wh.js";
-import { u as uniquesJson } from "./uniques-DJmOKAbF.js";
+import { u as uniquesJson } from "./uniques-BHjt2FVf.js";
 const name = "uniques";
 const template = `<template>
     <h3 class="text-lg type-text text-center my-4">
