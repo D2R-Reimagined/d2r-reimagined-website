@@ -67,7 +67,6 @@ change, subscribe via `onLanguageChanged` and trigger an Aurelia
 
 ## Contract location
 
-The wire-format and synthetic-key reference is in
-`d2r-multi-export-tool/CONTRACT.md`. Schema for `data/keyed/*.json` and the
-list of synthetic keys + enUS templates live in
+Schema for `data/keyed/*.json` and the list of synthetic keys + enUS
+templates live in
 `d2r-multi-export-tool/D2RMultiExport.Lib/Config/synthetic-strings.json`.

@@ -1,7 +1,7 @@
-// Shared types for the key-based wire format produced by d2r-multi-export-tool
-// (see CONTRACT.md in that repo). Every property line on every keyed bundle is
-// a `IKeyedLine`: a translation key plus the post-math args ready to be splatted
-// into the active-language template.
+// Shared types for the key-based wire format produced by d2r-multi-export-tool.
+// Every property line on every keyed bundle is a `IKeyedLine`: a translation
+// key plus the post-math args ready to be splatted into the active-language
+// template.
 
 import type { TemplateArg } from './format-template';
 
