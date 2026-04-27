@@ -217,13 +217,12 @@ export class Affixes {
         }
 
         this.descToGroups = descMap;
-        const descriptions = Array.from(descMap.keys()).sort((a, b) =>
-            a.localeCompare(b),
-        );
-        this.groupOptions = [
-            { value: '', label: '-' },
-            ...descriptions.map((d) => ({ value: d, label: d })),
-        ];
+        const descriptions = Array.from(descMap.keys()).map((d) => ({
+            value: d,
+            label: t(d) || d,
+        }));
+        descriptions.sort((a, b) => a.label.localeCompare(b.label));
+        this.groupOptions = [{ value: '', label: '-' }, ...descriptions];
     }
 
     @watch('search')
