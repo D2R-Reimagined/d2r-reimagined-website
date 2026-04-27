@@ -3939,13 +3939,6 @@
           75
         ],
         "fullSet": true
-      },
-      {
-        "key": "str_poisonlength",
-        "args": [
-          75
-        ],
-        "fullSet": true
       }
     ]
   },
@@ -4812,13 +4805,6 @@
         "key": "ModStr5z",
         "args": [
           1
-        ],
-        "fullSet": true
-      },
-      {
-        "key": "str_coldlength",
-        "args": [
-          100
         ],
         "fullSet": true
       }
@@ -20783,13 +20769,7 @@
               "itemsRequired": 2
             }
           ],
-          [
-            {
-              "key": "str_coldlength",
-              "args": [],
-              "itemsRequired": 2
-            }
-          ],
+          [],
           [
             {
               "key": "ModStr4e",
@@ -22949,15 +22929,7 @@
               "itemsRequired": 2
             }
           ],
-          [
-            {
-              "key": "str_coldlength",
-              "args": [
-                256
-              ],
-              "itemsRequired": 3
-            }
-          ]
+          []
         ],
         "Equipment": {
           "EquipmentType": 1,

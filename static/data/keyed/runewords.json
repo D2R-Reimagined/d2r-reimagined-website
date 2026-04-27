@@ -83,7 +83,7 @@
       {
         "key": "ModStr3h",
         "args": [
-          20
+          40
         ]
       }
     ]
@@ -164,7 +164,7 @@
       {
         "key": "ModStr1h",
         "args": [
-          50
+          150
         ]
       },
       {
@@ -176,7 +176,7 @@
       {
         "key": "ModStr3f",
         "args": [
-          1
+          3
         ]
       },
       {
@@ -273,39 +273,23 @@
         ]
       },
       {
-        "key": "ModStr3f",
-        "args": [
-          1
-        ],
-        "qualifier": "weapon"
-      },
-      {
-        "key": "ModStr5f",
-        "args": [
-          2
-        ],
-        "qualifier": "weapon"
-      },
-      {
         "key": "ModStr1h",
         "args": [
-          50
+          100
+        ]
+      },
+      {
+        "key": "ModStr5f",
+        "args": [
+          2
         ],
         "qualifier": "weapon"
       },
       {
         "key": "ModStr3f",
         "args": [
-          1
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr1i",
-        "args": [
-          15
-        ],
-        "qualifier": "armor"
+          2
+        ]
       },
       {
         "key": "ModStr5f",
@@ -317,16 +301,14 @@
       {
         "key": "ModStr3f",
         "args": [
-          1
-        ],
-        "qualifier": "shield"
+          2
+        ]
       },
       {
         "key": "ModStr1i",
         "args": [
-          15
-        ],
-        "qualifier": "shield"
+          30
+        ]
       },
       {
         "key": "ModStr5f",
@@ -334,12 +316,24 @@
           2
         ],
         "qualifier": "shield"
+      },
+      {
+        "key": "ModStr3f",
+        "args": [
+          2
+        ]
+      },
+      {
+        "key": "ModStr1i",
+        "args": [
+          30
+        ]
       }
     ]
   },
   {
     "Index": "Nadir",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 13,
@@ -430,7 +424,7 @@
   },
   {
     "Index": "Steel1",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 13,
@@ -609,7 +603,7 @@
       {
         "key": "ModStr3f",
         "args": [
-          11
+          12
         ]
       }
     ]
@@ -819,7 +813,7 @@
   },
   {
     "Index": "Malice",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 15,
@@ -922,7 +916,7 @@
       {
         "key": "ModStr3f",
         "args": [
-          -1
+          0
         ]
       }
     ]
@@ -1033,7 +1027,7 @@
   },
   {
     "Index": "Stealth",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 17,
@@ -1109,103 +1103,6 @@
         "key": "ModStr2t",
         "args": [
           3
-        ]
-      }
-    ]
-  },
-  {
-    "Index": "Sting",
-    "Vanilla": "N",
-    "Enabled": true,
-    "Rarity": 0,
-    "ItemLevel": 17,
-    "RequiredLevel": 17,
-    "Code": "",
-    "Runes": [
-      {
-        "NameKey": "r04",
-        "ItemLevel": 13,
-        "RequiredLevel": 13,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r07",
-        "ItemLevel": 17,
-        "RequiredLevel": 17,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r05",
-        "ItemLevel": 15,
-        "RequiredLevel": 15,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      }
-    ],
-    "Types": [
-      {
-        "Name": "Missile Weapon",
-        "Index": "missitype",
-        "Class": ""
-      }
-    ],
-    "Lines": [
-      {
-        "key": "ItemModifierNonClassSkill",
-        "args": [
-          3,
-          "skillname12"
-        ]
-      },
-      {
-        "key": "ModStr4m",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "ModStr1f",
-        "args": [
-          25,
-          40
-        ]
-      },
-      {
-        "key": "ModStr5o",
-        "args": [
-          25
-        ]
-      },
-      {
-        "key": "strModPoisonDamageRange",
-        "args": [
-          76,
-          76,
-          5
-        ]
-      },
-      {
-        "key": "ModStr2y",
-        "args": [
-          5,
-          8
-        ]
-      },
-      {
-        "key": "ModStr1y",
-        "args": [
-          1
         ]
       }
     ]
@@ -1352,6 +1249,13 @@
         ]
       },
       {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          3,
+          "skillname127"
+        ]
+      },
+      {
         "key": "ModStr4m",
         "args": [
           20
@@ -1398,8 +1302,112 @@
     ]
   },
   {
-    "Index": "Leaf",
+    "Index": "Sting",
     "Vanilla": "N",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 17,
+    "RequiredLevel": 18,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r04",
+        "ItemLevel": 13,
+        "RequiredLevel": 13,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r07",
+        "ItemLevel": 17,
+        "RequiredLevel": 17,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r05",
+        "ItemLevel": 15,
+        "RequiredLevel": 15,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Missile Weapon",
+        "Index": "missitype",
+        "Class": ""
+      }
+    ],
+    "Lines": [
+      {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          3,
+          "skillname12"
+        ]
+      },
+      {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          5,
+          "skillname31"
+        ]
+      },
+      {
+        "key": "ModStr4m",
+        "args": [
+          15
+        ]
+      },
+      {
+        "key": "ModStr1f",
+        "args": [
+          25,
+          40
+        ]
+      },
+      {
+        "key": "ModStr5o",
+        "args": [
+          25
+        ]
+      },
+      {
+        "key": "strModPoisonDamageRange",
+        "args": [
+          76,
+          76,
+          5
+        ]
+      },
+      {
+        "key": "ModStr2y",
+        "args": [
+          5,
+          8
+        ]
+      },
+      {
+        "key": "ModStr1y",
+        "args": [
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "Index": "Leaf",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 19,
@@ -1453,6 +1461,22 @@
         "args": [
           3,
           "skillname41",
+          "SorOnly"
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          3,
+          "skillname36",
+          "SorOnly"
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          3,
+          "skillname37",
           "SorOnly"
         ]
       },
@@ -1917,7 +1941,7 @@
       {
         "key": "ModStr4g",
         "args": [
-          85
+          100
         ]
       },
       {
@@ -1951,7 +1975,7 @@
   },
   {
     "Index": "Zephyr",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 21,
@@ -2145,7 +2169,7 @@
   },
   {
     "Index": "Pattern",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 23,
@@ -2610,6 +2634,30 @@
         ]
       },
       {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          3,
+          "skillname55",
+          "SorOnly"
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          3,
+          "skillname37",
+          "SorOnly"
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          3,
+          "skillname44",
+          "SorOnly"
+        ]
+      },
+      {
         "key": "ModStr1e",
         "args": [
           2
@@ -2632,7 +2680,7 @@
   },
   {
     "Index": "Holy Thunder",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 21,
@@ -2716,8 +2764,8 @@
       {
         "key": "strModLightningDamageRange",
         "args": [
-          20,
-          60
+          21,
+          110
         ]
       },
       {
@@ -2866,7 +2914,7 @@
   },
   {
     "Index": "Edge",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 25,
@@ -3079,7 +3127,7 @@
   },
   {
     "Index": "King's Grace",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 25,
@@ -3267,8 +3315,8 @@
       {
         "key": "strModLightningDamageRange",
         "args": [
-          1,
-          50
+          2,
+          100
         ]
       },
       {
@@ -3444,7 +3492,7 @@
       {
         "key": "ModStr2z",
         "args": [
-          7
+          14
         ]
       },
       {
@@ -3463,7 +3511,7 @@
   },
   {
     "Index": "Spirit1",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 25,
@@ -3634,7 +3682,7 @@
   },
   {
     "Index": "Strength",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 25,
@@ -3710,7 +3758,7 @@
   },
   {
     "Index": "Myth",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 33,
@@ -3806,7 +3854,7 @@
   },
   {
     "Index": "Honor",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 27,
@@ -3894,7 +3942,7 @@
       {
         "key": "ModStr1h",
         "args": [
-          200
+          250
         ]
       },
       {
@@ -3937,7 +3985,7 @@
   },
   {
     "Index": "Insight",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 27,
@@ -4085,7 +4133,7 @@
   },
   {
     "Index": "Lore",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 27,
@@ -4161,7 +4209,7 @@
   },
   {
     "Index": "Radiance",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 27,
@@ -4550,7 +4598,7 @@
   },
   {
     "Index": "Authority",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 33,
@@ -4647,7 +4695,7 @@
   },
   {
     "Index": "Rhyme",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 29,
@@ -4686,7 +4734,7 @@
       {
         "key": "ModStr4y",
         "args": [
-          20
+          40
         ]
       },
       {
@@ -4778,7 +4826,7 @@
       {
         "key": "ModStr4m",
         "args": [
-          20
+          40
         ]
       },
       {
@@ -4881,7 +4929,7 @@
       {
         "key": "ModStr4m",
         "args": [
-          20
+          60
         ]
       },
       {
@@ -4919,7 +4967,7 @@
   },
   {
     "Index": "Peace",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 29,
@@ -5620,7 +5668,7 @@
   },
   {
     "Index": "Black1",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 35,
@@ -5740,7 +5788,7 @@
   },
   {
     "Index": "Bulwark",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 35,
@@ -5841,7 +5889,7 @@
   },
   {
     "Index": "Cure",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 35,
@@ -5922,8 +5970,8 @@
       {
         "key": "ModStr1n",
         "args": [
-          10,
-          30
+          40,
+          60
         ]
       },
       {
@@ -5936,7 +5984,7 @@
   },
   {
     "Index": "Ground",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 35,
@@ -6010,8 +6058,8 @@
       {
         "key": "ModStr1l",
         "args": [
-          10,
-          30
+          40,
+          60
         ]
       },
       {
@@ -6116,7 +6164,7 @@
   },
   {
     "Index": "Hearth",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 35,
@@ -6190,8 +6238,8 @@
       {
         "key": "ModStr1k",
         "args": [
-          10,
-          30
+          40,
+          60
         ]
       },
       {
@@ -6275,7 +6323,7 @@
       {
         "key": "ModStr4m",
         "args": [
-          20
+          40
         ]
       },
       {
@@ -6536,8 +6584,8 @@
       {
         "key": "strModFireDamageRange",
         "args": [
-          5,
-          30
+          10,
+          60
         ]
       },
       {
@@ -6633,6 +6681,20 @@
         "classOnly": "NecOnly"
       },
       {
+        "key": "StrSklTabItem7",
+        "args": [
+          1
+        ],
+        "classOnly": "NecOnly"
+      },
+      {
+        "key": "StrSklTabItem9",
+        "args": [
+          1
+        ],
+        "classOnly": "NecOnly"
+      },
+      {
         "key": "ModStr4v",
         "args": [
           15
@@ -6660,7 +6722,7 @@
   },
   {
     "Index": "Temper",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 35,
@@ -6734,8 +6796,8 @@
       {
         "key": "ModStr1j",
         "args": [
-          10,
-          30
+          40,
+          60
         ]
       },
       {
@@ -6749,7 +6811,7 @@
   },
   {
     "Index": "White",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 35,
@@ -6803,6 +6865,22 @@
         "args": [
           3,
           "skillname68",
+          "NecOnly"
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          2,
+          "skillname84",
+          "NecOnly"
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          4,
+          "skillname69",
           "NecOnly"
         ]
       },
@@ -6950,7 +7028,7 @@
   },
   {
     "Index": "Memory",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 37,
@@ -7039,6 +7117,14 @@
         ]
       },
       {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          2,
+          "skillname42",
+          "SorOnly"
+        ]
+      },
+      {
         "key": "Modstr2v",
         "args": [
           50
@@ -7072,7 +7158,7 @@
   },
   {
     "Index": "Smoke",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 37,
@@ -7123,7 +7209,7 @@
       {
         "key": "ModStr6a",
         "args": [
-          250
+          280
         ]
       },
       {
@@ -7157,7 +7243,7 @@
   },
   {
     "Index": "Splendor",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 37,
@@ -7252,7 +7338,7 @@
   },
   {
     "Index": "Harmony",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 39,
@@ -7381,7 +7467,7 @@
   },
   {
     "Index": "Hysteria",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 39,
@@ -7474,7 +7560,7 @@
   },
   {
     "Index": "Mania",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 39,
@@ -7538,7 +7624,7 @@
       {
         "key": "ModStr4m",
         "args": [
-          10
+          30
         ]
       },
       {
@@ -7570,7 +7656,7 @@
   },
   {
     "Index": "Melody",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 39,
@@ -7646,6 +7732,22 @@
         "args": [
           3,
           "skillname9",
+          "AmaOnly"
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          3,
+          "skillname13",
+          "AmaOnly"
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          3,
+          "skillname17",
           "AmaOnly"
         ]
       },
@@ -7751,6 +7853,14 @@
         ]
       },
       {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          3,
+          "skillname83",
+          "NecOnly"
+        ]
+      },
+      {
         "key": "ModStr1b",
         "args": [
           10
@@ -7824,7 +7934,7 @@
       {
         "key": "ModStr1b",
         "args": [
-          -10
+          0
         ]
       },
       {
@@ -8236,7 +8346,7 @@
   },
   {
     "Index": "Lionheart",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 41,
@@ -8291,7 +8401,7 @@
       {
         "key": "ModStr1a",
         "args": [
-          15
+          25
         ]
       },
       {
@@ -8334,7 +8444,7 @@
   },
   {
     "Index": "Obedience",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 41,
@@ -8487,7 +8597,7 @@
   },
   {
     "Index": "Unbending Will",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 41,
@@ -8662,7 +8772,7 @@
   },
   {
     "Index": "Lawbringer",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 43,
@@ -8798,7 +8908,7 @@
   },
   {
     "Index": "Passion",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 43,
@@ -8859,6 +8969,13 @@
         "args": [
           1,
           "skillname106"
+        ]
+      },
+      {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          1,
+          "skillname152"
         ]
       },
       {
@@ -9105,8 +9222,8 @@
       {
         "key": "strModLightningDamageRange",
         "args": [
-          1,
-          300
+          2,
+          350
         ]
       },
       {
@@ -9133,7 +9250,7 @@
   },
   {
     "Index": "Treachery",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 43,
@@ -9229,7 +9346,7 @@
   },
   {
     "Index": "Voice of Reason",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 43,
@@ -9309,6 +9426,14 @@
         ]
       },
       {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          18,
+          20,
+          "skillname45"
+        ]
+      },
+      {
         "key": "ModStr1h",
         "args": [
           50
@@ -9324,8 +9449,8 @@
       {
         "key": "ModStr4f",
         "args": [
-          280,
-          300
+          355,
+          375
         ]
       },
       {
@@ -9375,7 +9500,7 @@
   },
   {
     "Index": "Wealth",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 43,
@@ -9436,7 +9561,7 @@
       {
         "key": "ModStr1w",
         "args": [
-          250
+          300
         ]
       },
       {
@@ -9521,6 +9646,13 @@
         ]
       },
       {
+        "key": "strModColdDamageRange",
+        "args": [
+          3,
+          14
+        ]
+      },
+      {
         "key": "ModitemdamColdsk",
         "args": [
           10,
@@ -9590,8 +9722,8 @@
       {
         "key": "strModFireDamageRange",
         "args": [
-          100,
-          200
+          105,
+          230
         ]
       },
       {
@@ -9833,7 +9965,7 @@
       {
         "key": "ModStr1g",
         "args": [
-          9
+          18
         ]
       },
       {
@@ -9862,13 +9994,6 @@
           "skillname78",
           10,
           10
-        ]
-      },
-      {
-        "key": "str_coldlength",
-        "args": [
-          75,
-          256
         ]
       }
     ]
@@ -10091,8 +10216,8 @@
       {
         "key": "Modstr2v",
         "args": [
-          70,
-          110
+          100,
+          140
         ]
       },
       {
@@ -10118,7 +10243,7 @@
   },
   {
     "Index": "Wisdom",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 45,
@@ -10224,7 +10349,7 @@
   },
   {
     "Index": "Enlightenment",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 45,
@@ -10321,7 +10446,7 @@
   },
   {
     "Index": "Crescent Moon",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 47,
@@ -10386,6 +10511,14 @@
         ]
       },
       {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          20,
+          17,
+          "skillname53"
+        ]
+      },
+      {
         "key": "ModStr4m",
         "args": [
           20
@@ -10442,7 +10575,7 @@
   },
   {
     "Index": "Duress",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 47,
@@ -10498,7 +10631,7 @@
       {
         "key": "ModStr4p",
         "args": [
-          20
+          40
         ]
       },
       {
@@ -10543,7 +10676,7 @@
   },
   {
     "Index": "Gloom",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 47,
@@ -10598,6 +10731,14 @@
         ]
       },
       {
+        "key": "ItemExpansiveChanc2",
+        "args": [
+          12,
+          1,
+          "Blightburst"
+        ]
+      },
+      {
         "key": "ModStr4p",
         "args": [
           10
@@ -10606,8 +10747,8 @@
       {
         "key": "Modstr2v",
         "args": [
-          170,
-          230
+          200,
+          260
         ]
       },
       {
@@ -10619,7 +10760,7 @@
       {
         "key": "strModAllResistances",
         "args": [
-          30
+          45
         ]
       },
       {
@@ -10693,6 +10834,14 @@
         ]
       },
       {
+        "key": "ItemExpansiveChanc2",
+        "args": [
+          25,
+          5,
+          "skillname87"
+        ]
+      },
+      {
         "key": "ModStr3b",
         "args": [
           2
@@ -10721,7 +10870,7 @@
       {
         "key": "strModAllResistances",
         "args": [
-          15
+          30
         ]
       },
       {
@@ -10953,7 +11102,7 @@
       {
         "key": "ModStr1a",
         "args": [
-          10
+          20
         ]
       },
       {
@@ -10979,7 +11128,7 @@
   },
   {
     "Index": "Stone1",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 47,
@@ -11038,14 +11187,14 @@
       {
         "key": "ModStr4p",
         "args": [
-          40
+          60
         ]
       },
       {
         "key": "Modstr2v",
         "args": [
-          220,
-          260
+          250,
+          290
         ]
       },
       {
@@ -11083,6 +11232,15 @@
         "args": [
           16,
           "skillname75",
+          16,
+          16
+        ]
+      },
+      {
+        "key": "strSkillCharges",
+        "args": [
+          80,
+          "Skillname230",
           16,
           16
         ]
@@ -11253,7 +11411,7 @@
   },
   {
     "Index": "Bone1",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 47,
@@ -11331,7 +11489,7 @@
       {
         "key": "strModAllResistances",
         "args": [
-          15
+          30
         ]
       },
       {
@@ -11406,6 +11564,14 @@
           15,
           13,
           "skillname56"
+        ]
+      },
+      {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          20,
+          17,
+          "skillname47"
         ]
       },
       {
@@ -11531,6 +11697,14 @@
         ]
       },
       {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          20,
+          17,
+          "skillname55"
+        ]
+      },
+      {
         "key": "ModStr4m",
         "args": [
           20
@@ -11650,6 +11824,14 @@
           15,
           13,
           "skillname74"
+        ]
+      },
+      {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          20,
+          17,
+          "skillname92"
         ]
       },
       {
@@ -12009,7 +12191,7 @@
   },
   {
     "Index": "Oath",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 49,
@@ -12102,7 +12284,7 @@
       {
         "key": "ModStr4m",
         "args": [
-          30
+          50
         ]
       },
       {
@@ -12151,12 +12333,21 @@
           16,
           16
         ]
+      },
+      {
+        "key": "strSkillCharges",
+        "args": [
+          14,
+          "skillname90",
+          17,
+          17
+        ]
       }
     ]
   },
   {
     "Index": "Prudence",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 49,
@@ -12221,7 +12412,7 @@
       {
         "key": "ModStr2t",
         "args": [
-          10
+          17
         ]
       },
       {
@@ -12247,7 +12438,7 @@
   },
   {
     "Index": "Rain",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 49,
@@ -12344,7 +12535,7 @@
   },
   {
     "Index": "Sanctuary",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 49,
@@ -12424,7 +12615,7 @@
       {
         "key": "ModStr1b",
         "args": [
-          10
+          20
         ]
       },
       {
@@ -12618,6 +12809,14 @@
         ]
       },
       {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          15,
+          20,
+          "skillname84"
+        ]
+      },
+      {
         "key": "ModitemAura",
         "args": [
           10,
@@ -12675,7 +12874,7 @@
   },
   {
     "Index": "Delirium",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 51,
@@ -12735,6 +12934,22 @@
           14,
           13,
           "skillname77"
+        ]
+      },
+      {
+        "key": "ItemExpansiveChanc2",
+        "args": [
+          12,
+          35,
+          "skillname93"
+        ]
+      },
+      {
+        "key": "ItemExpansiveChanc2",
+        "args": [
+          1,
+          50,
+          "Delirium"
         ]
       },
       {
@@ -12876,7 +13091,7 @@
       {
         "key": "ModStr1x",
         "args": [
-          25
+          100
         ]
       },
       {
@@ -12999,7 +13214,7 @@
   },
   {
     "Index": "Runeword180",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 51,
@@ -13094,8 +13309,8 @@
       {
         "key": "ModStr1x",
         "args": [
-          1,
-          15
+          26,
+          40
         ]
       }
     ]
@@ -13186,7 +13401,7 @@
       {
         "key": "ModStr4m",
         "args": [
-          20
+          40
         ]
       },
       {
@@ -13242,7 +13457,7 @@
   },
   {
     "Index": "Kingslayer",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 53,
@@ -13345,7 +13560,7 @@
       {
         "key": "ModStr3m",
         "args": [
-          25
+          50
         ]
       },
       {
@@ -13370,7 +13585,7 @@
   },
   {
     "Index": "Mosaic",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 53,
@@ -13485,7 +13700,7 @@
   },
   {
     "Index": "Rift1",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 53,
@@ -13757,7 +13972,7 @@
   },
   {
     "Index": "Principle",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 53,
@@ -13852,7 +14067,7 @@
   },
   {
     "Index": "Runeword181",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 53,
@@ -13967,7 +14182,7 @@
   },
   {
     "Index": "Death1",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 55,
@@ -14249,7 +14464,7 @@
   },
   {
     "Index": "Flickering Flame",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 55,
@@ -14356,7 +14571,7 @@
   },
   {
     "Index": "Heart of the Oak",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 55,
@@ -14496,6 +14711,15 @@
           "Skillname227",
           4,
           4
+        ]
+      },
+      {
+        "key": "strSkillCharges",
+        "args": [
+          60,
+          "Skillname222",
+          14,
+          14
         ]
       }
     ]
@@ -14723,7 +14947,7 @@
   },
   {
     "Index": "Silence",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 55,
@@ -14838,7 +15062,7 @@
       {
         "key": "ModStr2y",
         "args": [
-          4
+          11
         ]
       },
       {
@@ -15056,13 +15280,13 @@
       {
         "key": "ModStr2y",
         "args": [
-          7
+          14
         ]
       },
       {
         "key": "ModStr2z",
         "args": [
-          7
+          14
         ]
       },
       {
@@ -15194,14 +15418,14 @@
       {
         "key": "strModAllResistances",
         "args": [
-          15
+          30
         ]
       }
     ]
   },
   {
     "Index": "Call to Arms",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 57,
@@ -15281,6 +15505,20 @@
         ]
       },
       {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          1,
+          "skillname149"
+        ]
+      },
+      {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          1,
+          "skillname146"
+        ]
+      },
+      {
         "key": "ModStr4m",
         "args": [
           40
@@ -15291,6 +15529,12 @@
         "args": [
           200,
           240
+        ]
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          50
         ]
       },
       {
@@ -15328,7 +15572,7 @@
   },
   {
     "Index": "Chaos1",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 57,
@@ -15383,6 +15627,14 @@
         ]
       },
       {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          11,
+          5,
+          "Storm Shard"
+        ]
+      },
+      {
         "key": "ItemModifierNonClassSkill",
         "args": [
           1,
@@ -15400,6 +15652,12 @@
         "args": [
           210,
           250
+        ]
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          50
         ]
       },
       {
@@ -15431,7 +15689,7 @@
   },
   {
     "Index": "Exile",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 57,
@@ -15638,6 +15896,14 @@
         ]
       },
       {
+        "key": "ItemExpansiveChanc2",
+        "args": [
+          15,
+          30,
+          "Winter's Pulse"
+        ]
+      },
+      {
         "key": "ModStr4m",
         "args": [
           20
@@ -15648,6 +15914,12 @@
         "args": [
           210,
           230
+        ]
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          50
         ]
       },
       {
@@ -15895,6 +16167,24 @@
         ]
       },
       {
+        "key": "strModEnhancedDamage",
+        "args": [
+          50
+        ]
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          50
+        ]
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          50
+        ]
+      },
+      {
         "key": "ModStr1f",
         "args": [
           2.5
@@ -15949,7 +16239,7 @@
   },
   {
     "Index": "Runeword182",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 57,
@@ -16023,6 +16313,12 @@
         ]
       },
       {
+        "key": "strModEnhancedDamage",
+        "args": [
+          50
+        ]
+      },
+      {
         "key": "ModStr4c",
         "args": [
           200,
@@ -16059,7 +16355,7 @@
   },
   {
     "Index": "Fortitude",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 59,
@@ -16275,7 +16571,7 @@
   },
   {
     "Index": "Fortitude (Dummy)",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 59,
@@ -16358,14 +16654,14 @@
       {
         "key": "ModStr3f",
         "args": [
-          -1
+          0
         ]
       }
     ]
   },
   {
     "Index": "Grief",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 59,
@@ -16636,7 +16932,7 @@
   },
   {
     "Index": "Bramble1",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 61,
@@ -16767,7 +17063,7 @@
   },
   {
     "Index": "Dragon1",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 61,
@@ -17008,7 +17304,7 @@
       {
         "key": "ModStr2h",
         "args": [
-          5
+          10
         ]
       },
       {
@@ -17127,7 +17423,7 @@
       {
         "key": "ModStr4m",
         "args": [
-          20
+          40
         ]
       },
       {
@@ -17282,7 +17578,7 @@
       {
         "key": "ModStr2h",
         "args": [
-          10
+          20
         ]
       },
       {
@@ -17388,6 +17684,12 @@
         ]
       },
       {
+        "key": "strModEnhancedDamage",
+        "args": [
+          50
+        ]
+      },
+      {
         "key": "ModStr4c",
         "args": [
           20
@@ -17441,7 +17743,7 @@
   },
   {
     "Index": "Wind1",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 61,
@@ -17547,7 +17849,7 @@
   },
   {
     "Index": "Beast1",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 63,
@@ -17645,6 +17947,13 @@
         "args": [
           3,
           "Skillname229"
+        ]
+      },
+      {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          3,
+          "Skillname225"
         ]
       },
       {
@@ -17767,6 +18076,14 @@
         ]
       },
       {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          2,
+          "skillname83",
+          "NecOnly"
+        ]
+      },
+      {
         "key": "Modstr2v",
         "args": [
           200,
@@ -17776,7 +18093,7 @@
       {
         "key": "strModAllResistances",
         "args": [
-          15
+          30
         ]
       },
       {
@@ -17795,7 +18112,7 @@
   },
   {
     "Index": "Chains of Honor",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 63,
@@ -17896,7 +18213,7 @@
       {
         "key": "strModAllResistances",
         "args": [
-          50
+          65
         ]
       },
       {
@@ -17915,7 +18232,7 @@
   },
   {
     "Index": "Eternity",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 63,
@@ -18061,7 +18378,7 @@
   },
   {
     "Index": "Infinity",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 63,
@@ -18160,7 +18477,7 @@
       {
         "key": "ModStr5c",
         "args": [
-          10
+          20
         ]
       },
       {
@@ -18474,7 +18791,7 @@
   },
   {
     "Index": "Venom",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 63,
@@ -18566,7 +18883,7 @@
       {
         "key": "ModStr2uPercent",
         "args": [
-          5
+          13
         ]
       },
       {
@@ -18585,7 +18902,7 @@
   },
   {
     "Index": "Wrath1",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 63,
@@ -18650,9 +18967,17 @@
         ]
       },
       {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          30,
+          1,
+          "skillname87"
+        ]
+      },
+      {
         "key": "ModStr4e",
         "args": [
-          300
+          375
         ]
       },
       {
@@ -18710,7 +19035,7 @@
   },
   {
     "Index": "Brand",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 65,
@@ -18772,6 +19097,14 @@
           10,
           10,
           "skillname66"
+        ]
+      },
+      {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          15,
+          5,
+          "Spine Piercer"
         ]
       },
       {
@@ -18942,7 +19275,7 @@
   },
   {
     "Index": "Destruction",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 65,
@@ -19014,6 +19347,22 @@
     ],
     "Lines": [
       {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          10,
+          30,
+          "Skillname245"
+        ]
+      },
+      {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          10,
+          30,
+          "Skillname230"
+        ]
+      },
+      {
         "key": "Moditemskondeath",
         "args": [
           100,
@@ -19025,8 +19374,8 @@
         "key": "ItemExpansiveChanc1",
         "args": [
           10,
-          30,
-          "Skillname245"
+          10,
+          "Storm Pulse"
         ]
       },
       {
@@ -19077,7 +19426,7 @@
   },
   {
     "Index": "Dream",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 65,
@@ -19224,7 +19573,7 @@
   },
   {
     "Index": "Enigma",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 65,
@@ -19338,7 +19687,7 @@
   },
   {
     "Index": "Faith",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 65,
@@ -19415,6 +19764,12 @@
         ]
       },
       {
+        "key": "strModEnhancedDamage",
+        "args": [
+          50
+        ]
+      },
+      {
         "key": "ModStr3y",
         "args": [
           1
@@ -19467,7 +19822,7 @@
   },
   {
     "Index": "Famine",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 65,
@@ -19552,6 +19907,12 @@
         ]
       },
       {
+        "key": "strModEnhancedDamage",
+        "args": [
+          50
+        ]
+      },
+      {
         "key": "ModStr3y",
         "args": [
           1
@@ -19606,7 +19967,7 @@
   },
   {
     "Index": "Fury",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 65,
@@ -19719,7 +20080,7 @@
   },
   {
     "Index": "Ice",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 65,
@@ -19853,7 +20214,7 @@
   },
   {
     "Index": "Phoenix",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 65,
@@ -19965,16 +20326,15 @@
         ]
       },
       {
+        "key": "ModStr2y",
+        "args": [
+          14
+        ]
+      },
+      {
         "key": "ModStr5q",
         "args": [
           20
-        ],
-        "qualifier": "weapon"
-      },
-      {
-        "key": "ModStr2y",
-        "args": [
-          7
         ],
         "qualifier": "weapon"
       },
@@ -19988,9 +20348,8 @@
       {
         "key": "ModStr5u",
         "args": [
-          5
-        ],
-        "qualifier": "shield"
+          10
+        ]
       },
       {
         "key": "ModStr5w",
@@ -20109,7 +20468,7 @@
       {
         "key": "ModStr1a",
         "args": [
-          40
+          50
         ]
       },
       {
@@ -20337,6 +20696,12 @@
         "key": "strModEnhancedDamage",
         "args": [
           250
+        ]
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          50
         ]
       },
       {
@@ -20592,6 +20957,14 @@
         ]
       },
       {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          15,
+          20,
+          "ApocalypseName"
+        ]
+      },
+      {
         "key": "ModStr4m",
         "args": [
           30
@@ -20812,7 +21185,7 @@
   },
   {
     "Index": "Doom1",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 67,
@@ -20959,7 +21332,7 @@
   },
   {
     "Index": "Doom1",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 67,
@@ -21077,6 +21450,12 @@
         "args": [
           250,
           280
+        ]
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          50
         ]
       },
       {
@@ -21270,7 +21649,7 @@
   },
   {
     "Index": "Hand of Justice",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 67,
@@ -21402,7 +21781,7 @@
   },
   {
     "Index": "Last Wish",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 67,
@@ -21515,6 +21894,14 @@
         ]
       },
       {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          15,
+          20,
+          "Storm Shard"
+        ]
+      },
+      {
         "key": "ModitemAura",
         "args": [
           17,
@@ -21540,7 +21927,7 @@
       {
         "key": "ModStr3y",
         "args": [
-          1
+          2
         ]
       },
       {
@@ -21571,7 +21958,7 @@
   },
   {
     "Index": "Metamorphosis",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 67,
@@ -21626,6 +22013,14 @@
         ]
       },
       {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          100,
+          1,
+          "SkillnameMetamorphosisWolf"
+        ]
+      },
+      {
         "key": "StrSklTabItem17",
         "args": [
           3
@@ -21673,7 +22068,7 @@
   },
   {
     "Index": "Mist",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 67,
@@ -22040,19 +22435,19 @@
       {
         "key": "ModStr5c",
         "args": [
-          10
+          20
         ]
       },
       {
         "key": "ModStr5q",
         "args": [
-          20
+          40
         ]
       },
       {
         "key": "ModStr3l",
         "args": [
-          3
+          6
         ]
       },
       {
@@ -22079,7 +22474,7 @@
   },
   {
     "Index": "Plague1",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 67,
@@ -22207,7 +22602,7 @@
   },
   {
     "Index": "Pride",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 67,
@@ -22438,7 +22833,7 @@
       {
         "key": "ModStr2uPercent",
         "args": [
-          8
+          16
         ]
       },
       {
@@ -22689,7 +23084,7 @@
       {
         "key": "ModStr3l",
         "args": [
-          3
+          6
         ]
       },
       {
@@ -22754,6 +23149,22 @@
           25,
           25,
           "skillname53"
+        ]
+      },
+      {
+        "key": "ItemExpansiveChanc2",
+        "args": [
+          25,
+          25,
+          "skillname47"
+        ]
+      },
+      {
+        "key": "ItemExpansiveChanc2",
+        "args": [
+          25,
+          25,
+          "skillname59"
         ]
       },
       {
@@ -22851,7 +23262,7 @@
       {
         "key": "ModStr2uPercent",
         "args": [
-          8
+          16
         ]
       },
       {
@@ -23112,7 +23523,7 @@
   },
   {
     "Index": "Breath of the Dying",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 69,
@@ -23230,7 +23641,7 @@
       {
         "key": "ModStr4f",
         "args": [
-          125
+          200
         ]
       },
       {
@@ -23462,6 +23873,34 @@
         "args": [
           1,
           "skillname138"
+        ]
+      },
+      {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          1,
+          "skillname149"
+        ]
+      },
+      {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          1,
+          "skillname155"
+        ]
+      },
+      {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          1,
+          "skillname50"
+        ]
+      },
+      {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          10,
+          "skillname32"
         ]
       },
       {
@@ -23766,7 +24205,7 @@
   },
   {
     "Index": "Obsession",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 69,
@@ -24152,7 +24591,7 @@
       {
         "key": "ModStr1d",
         "args": [
-          10
+          20
         ]
       },
       {
@@ -24403,7 +24842,7 @@
   },
   {
     "Index": "Void",
-    "Vanilla": "N",
+    "Vanilla": "Y",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 69,

@@ -1,5 +1,5 @@
 {
-  "BuildTimestamp": "2026-04-27T10:14:30.2016948Z",
+  "BuildTimestamp": "2026-04-27T21:16:51.3887733Z",
   "SourceModVersion": null,
   "Files": {
     "keyed/armors.json": {
@@ -11,20 +11,20 @@
       "Bytes": 1317645
     },
     "keyed/magicprefix.json": {
-      "Sha256": "2f578af11a2549dba74e682993250db2ea6bff6301cb1491db63d2259603af34",
-      "Bytes": 527755
+      "Sha256": "63372ef78b3ee321e0ab889b2842fbe600a6f2f682200070988a4f703accb27c",
+      "Bytes": 525560
     },
     "keyed/magicsuffix.json": {
-      "Sha256": "00ff4a1bc8a92757a2a541df74305fbaf55caa223e9047bb2f9f1851a9e6508c",
-      "Bytes": 378351
+      "Sha256": "b22d0a4ba8112bfe8222b15b33ff92ee5af1c3fa02e5655812b77ed667ce907c",
+      "Bytes": 376694
     },
     "keyed/runewords.json": {
-      "Sha256": "dcd65d0fabbbe25a748c2f955fcf6dc9fb3d55628b179d82bbbeb6d08cd0ded4",
-      "Bytes": 437034
+      "Sha256": "f7ebb0826298c46e2f6b06bfba3ec360cd6dd191e032dc0c6e4cb4d6c52b03b5",
+      "Bytes": 445011
     },
     "keyed/sets.json": {
-      "Sha256": "491f67260ea0c369c864d1d2821be1d31f111cf3299469ed99089b42b7aaa4b4",
-      "Bytes": 938322
+      "Sha256": "464a84d785c10ce2fe717061603beefc1894f2210bd910882366a6726b334c4b",
+      "Bytes": 937750
     },
     "keyed/uniques.json": {
       "Sha256": "cf8ac5c40b959e5b047406dcbe17de904bba85bc5f7d00dc3ffcfba0045e35e2",
@@ -35,56 +35,56 @@
       "Bytes": 368950
     },
     "strings/deDE.json": {
-      "Sha256": "dbea151426070918eecdd83e07a2a715c09c6433755c5c68c29f6f0100d1db45",
-      "Bytes": 170976
+      "Sha256": "99a55f25df72e94dbf72ffb780fbdcd5a2b34cf6fcb14e9c7a642462dd12075e",
+      "Bytes": 171026
     },
     "strings/enUS.json": {
-      "Sha256": "87f379293dccec54569c529934ed042f8fe8062c94f1678bb8e150605ab28be5",
-      "Bytes": 150783
+      "Sha256": "c961f67340b1af0e4d1008162c3a0384673b7f4fc5fc99eb4e0231ebcb2223f5",
+      "Bytes": 150836
     },
     "strings/esES.json": {
-      "Sha256": "7a68860c8c10a5f3ef361cf1a189f1bbe4e3c0215b82d21b674079af08ad6f18",
-      "Bytes": 174048
+      "Sha256": "9ec3108ab7e90fcecd522e18a172ea9cbe172f009e90a4128fcdd7b0b0070253",
+      "Bytes": 174099
     },
     "strings/esMX.json": {
-      "Sha256": "4484f577af7a39d4d83908eaf5265f7a9c56c6c5186a7d06deae21b14bd44dd1",
-      "Bytes": 170704
+      "Sha256": "f6944ca6deb9d844c7d18c17b02b462bd51645be4367cc7d14bc89a7475b0de9",
+      "Bytes": 170755
     },
     "strings/frFR.json": {
-      "Sha256": "d898feb35530e31a2c336db13f10ba28642aa6639773abc9c029e7ea13d6eacd",
-      "Bytes": 174327
+      "Sha256": "7c4515ac49b87164e2cc65b1f2d0bd23bc3d79aa15212e15008dccee169b4c07",
+      "Bytes": 174378
     },
     "strings/itIT.json": {
-      "Sha256": "85aebcff243018451cafd1a31be5b5e1e2275183888888be6eaf8389e9bd1dc4",
-      "Bytes": 170694
+      "Sha256": "d266b9df5f04b05f411aae229eeb7c22e61ea1b329e1b126099f8f54cb2751d1",
+      "Bytes": 170747
     },
     "strings/jaJP.json": {
-      "Sha256": "140f2e3c1130feb25f347f1b3a1134af0c2d99d7fceed97298748cd2140825a0",
-      "Bytes": 182306
+      "Sha256": "f9a10e15669c42a45bc40ec69a1db84bc575da9c247ccdb4c3b06d8d76cf8e7c",
+      "Bytes": 182352
     },
     "strings/koKR.json": {
-      "Sha256": "7987a48723b5e996a7c32b286c286b744c6c0504ad67414441bd6d3af47280a0",
-      "Bytes": 161361
+      "Sha256": "9b01935f1df118b1211b8aa7828716f7d2986f6d653bf4eecdb2816a40f3068f",
+      "Bytes": 161414
     },
     "strings/plPL.json": {
-      "Sha256": "b35975ad04c1d313b207ee4259f4486af22a998acb43edf19ce2b29eea2d5a8b",
-      "Bytes": 166683
+      "Sha256": "77dbbf6ab0906de616d1cae2d245a5569cbecfb30cccea87040ff1f1c6826e84",
+      "Bytes": 166730
     },
     "strings/ptBR.json": {
-      "Sha256": "a243ac3034f153e7f75b477d1e692b066859d70fca1101edae39775dc74eb2b7",
-      "Bytes": 173089
+      "Sha256": "83a71f88a71d39558d7e77d647c4d84edc037a6f50c068737e1366dd7b575c2b",
+      "Bytes": 173139
     },
     "strings/ruRU.json": {
-      "Sha256": "d9c82c521db2aad10de0ff6d0b2694f3d00af522d550f1d167e2b2ce6c0107ef",
-      "Bytes": 228345
+      "Sha256": "5f96179b5d314449095e3a45608392761e59d09492b10d50645cdd2ac0e02164",
+      "Bytes": 228401
     },
     "strings/zhCN.json": {
-      "Sha256": "e5dbb7d06c713a625f0e2c2f0203a8387922452eae23c142be792c309b7ecf49",
-      "Bytes": 145792
+      "Sha256": "2ce048f2b8726af06865fd71ad57a830c0a4cb318934314f9070faec595551a3",
+      "Bytes": 145841
     },
     "strings/zhTW.json": {
-      "Sha256": "5e7898320e8fa8c806c02562322bac41bfc29ec0a90aa8b605f74848c35f912e",
-      "Bytes": 145969
+      "Sha256": "e1a45d75c57d94a4555aaa5713c912fdeaa3abe8c10df8671ce114a8792d8b28",
+      "Bytes": 146018
     }
   }
 }
