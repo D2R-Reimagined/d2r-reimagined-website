@@ -1828,7 +1828,7 @@
   "ModStre9p": "Absorve %+d de dano gélido",
   "ModStre9q": "Absorve %+d de dano elétrico",
   "ModStre9s": "Indestrutível",
-  "ModStre9t": "Repara %d de durabilidade por segundo",
+  "ModStre9u": "Repara %d de durabilidade em %d segundos",
   "ModStre9v": "Reabastece a quantidade",
   "ModStrge9": "+%d para habilidades de bruxo",
   "ModStrlightningskill": "%+d às Habilidades Frias",

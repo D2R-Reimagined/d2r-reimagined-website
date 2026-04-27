@@ -1828,7 +1828,7 @@
   "ModStre9p": "Absorbs %d Cold Damage",
   "ModStre9q": "Absorbs %d Lightning Damage",
   "ModStre9s": "Indestructible",
-  "ModStre9t": "Repairs %d durability per second",
+  "ModStre9u": "Repairs %d durability in %d seconds",
   "ModStre9v": "Replenishes quantity",
   "ModStrge9": "+%d to Warlock Skills",
   "ModStrlightningskill": "%+d to Lightning Skills",

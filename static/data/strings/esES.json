@@ -1828,7 +1828,7 @@
   "ModStre9p": "%+d de absorción de daño de frío",
   "ModStre9q": "%+d de absorción de daño de rayos",
   "ModStre9s": "Indestructible",
-  "ModStre9t": "Repara %d p. de durabilidad por segundo",
+  "ModStre9u": "Repara %d p. de durabilidad cada %d s",
   "ModStre9v": "Repone la cantidad",
   "ModStrge9": "+%d a las habilidades de brujo",
   "ModStrlightningskill": "%+d a Habilidades Relámpago",

@@ -1828,7 +1828,7 @@
   "ModStre9p": "%+d absorbiert Kälteschaden",
   "ModStre9q": "%+d absorbiert Blitzschaden",
   "ModStre9s": "Unzerstörbar",
-  "ModStre9t": "Repariert %d Haltbarkeit pro Sekunde",
+  "ModStre9u": "Repariert %d Haltbarkeit alle %d Sek.",
   "ModStre9v": "Füllt die Menge auf",
   "ModStrge9": "+%d zu Hexenmeisterfertigkeiten",
   "ModStrlightningskill": "%+d auf Blitz-Fertigkeiten",

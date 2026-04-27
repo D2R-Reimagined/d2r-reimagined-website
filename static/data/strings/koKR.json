@@ -1828,7 +1828,7 @@
   "ModStre9p": "냉기 피해 흡수 %+d",
   "ModStre9q": "번개 피해 흡수 %+d",
   "ModStre9s": "파괴 불가",
-  "ModStre9t": "내구도 %d 회복 (매초)",
+  "ModStre9u": "내구도 %d 회복 (%d초마다)",
   "ModStre9v": "수량 자동 회복",
   "ModStrge9": "악마술사 기술 +%d",
   "ModStrlightningskill": "번개 기술 %+d",

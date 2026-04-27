@@ -1828,7 +1828,7 @@
   "ModStre9p": "%+d absorbe les dégâts de Froid",
   "ModStre9q": "%+d absorbe les dégâts de Foudre",
   "ModStre9s": "Indestructible",
-  "ModStre9t": "Répare %d\u00A0pts de durabilité par seconde",
+  "ModStre9u": "Répare %d pts de durabilité en %d s",
   "ModStre9v": "Auto-approvisionnement",
   "ModStrge9": "+%d aux compétences de démoniste",
   "ModStrlightningskill": "%+d aux compétences de foudre",
