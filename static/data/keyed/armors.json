@@ -12,6 +12,8 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "RequiredLevel": 59,
+    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 4",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -61,6 +63,8 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "RequiredLevel": 15,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -293,6 +297,8 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "RequiredLevel": 30,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -525,6 +531,8 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "RequiredLevel": 26,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -757,6 +765,8 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "RequiredLevel": 26,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -799,6 +809,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -835,6 +847,8 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -884,6 +898,8 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "RequiredLevel": 12,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -926,6 +942,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 63,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -962,6 +980,8 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "RequiredLevel": 51,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -998,6 +1018,8 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "RequiredLevel": 15,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -1040,6 +1062,8 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "RequiredLevel": 18,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -1082,6 +1106,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 57,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -1118,6 +1144,8 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -1167,6 +1195,8 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -1203,6 +1233,8 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -1239,6 +1271,8 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -1282,6 +1316,8 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -1318,6 +1354,8 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefense",
@@ -1353,6 +1391,8 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "RequiredLevel": 51,
+    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -1402,6 +1442,8 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "RequiredLevel": 60,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -1584,6 +1626,8 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "RequiredLevel": 65,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -1766,6 +1810,8 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "RequiredLevel": 46,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -1808,6 +1854,8 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "RequiredLevel": 65,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -1938,6 +1986,8 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -1974,6 +2024,8 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -2023,6 +2075,8 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "RequiredLevel": 63,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -2059,6 +2113,8 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "RequiredLevel": 54,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -2102,6 +2158,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 47,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -2138,6 +2196,8 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -2175,6 +2235,8 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "RequiredLevel": 42,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -2211,6 +2273,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -2247,6 +2311,8 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 1 - (26-40): 1 - (41+): 1",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -2290,6 +2356,8 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "RequiredLevel": 24,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -2472,6 +2540,8 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "RequiredLevel": 36,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -2602,6 +2672,8 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -2632,6 +2704,8 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "RequiredLevel": 45,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -2674,6 +2748,8 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -2710,6 +2786,8 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -2753,6 +2831,8 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -2789,6 +2869,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -2825,6 +2907,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -2861,6 +2945,8 @@
       "Index": "circitype",
       "Class": ""
     },
+    "RequiredLevel": 16,
+    "GemSockets": "(1-25): 1 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -2897,6 +2983,8 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "RequiredLevel": 12,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -3079,6 +3167,8 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "RequiredLevel": 67,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -3115,6 +3205,8 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "RequiredLevel": 15,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -3297,6 +3389,8 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "RequiredLevel": 60,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -3339,6 +3433,8 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "RequiredLevel": 66,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -3375,6 +3471,8 @@
       "Index": "circitype",
       "Class": ""
     },
+    "RequiredLevel": 39,
+    "GemSockets": "(1-25): 1 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -3411,6 +3509,8 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "RequiredLevel": 18,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -3643,6 +3743,8 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -3679,6 +3781,8 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "RequiredLevel": 57,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -3715,6 +3819,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -3751,6 +3857,8 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "RequiredLevel": 33,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -3933,6 +4041,8 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "RequiredLevel": 29,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -4115,6 +4225,8 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -4151,6 +4263,8 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "RequiredLevel": 22,
+    "GemSockets": "(1-25): 1 - (26-40): 1 - (41+): 1",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -4200,6 +4314,8 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "RequiredLevel": 18,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -4330,6 +4446,8 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "RequiredLevel": 55,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -4366,6 +4484,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -4402,6 +4522,8 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "RequiredLevel": 24,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -4445,6 +4567,8 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "RequiredLevel": 21,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -4481,6 +4605,8 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "RequiredLevel": 24,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -4517,6 +4643,8 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "RequiredLevel": 54,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -4559,6 +4687,8 @@
       "Index": "circitype",
       "Class": ""
     },
+    "RequiredLevel": 64,
+    "GemSockets": "(1-25): 1 - (26-40): 2 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -4595,6 +4725,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 54,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -4631,6 +4763,8 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -4680,6 +4814,8 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "RequiredLevel": 66,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -4722,6 +4858,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 49,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -4758,6 +4896,8 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "RequiredLevel": 57,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -4800,6 +4940,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -4836,6 +4978,8 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "RequiredLevel": 15,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -4878,6 +5022,8 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "RequiredLevel": 6,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -4920,6 +5066,8 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "RequiredLevel": 29,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -5050,6 +5198,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -5086,6 +5236,8 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "RequiredLevel": 44,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -5268,6 +5420,8 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -5304,6 +5458,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -5340,6 +5496,8 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "RequiredLevel": 49,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -5382,6 +5540,8 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "RequiredLevel": 15,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -5512,6 +5672,8 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -5548,6 +5710,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 22,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -5584,6 +5748,8 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "RequiredLevel": 40,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -5620,6 +5786,8 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "RequiredLevel": 38,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -5852,6 +6020,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -5888,6 +6058,8 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -5937,6 +6109,8 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -5973,6 +6147,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 56,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -6009,6 +6185,8 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -6045,6 +6223,8 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -6088,6 +6268,8 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "RequiredLevel": 30,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -6130,6 +6312,8 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -6166,6 +6350,8 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -6215,6 +6401,8 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "RequiredLevel": 18,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -6397,6 +6585,8 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "RequiredLevel": 65,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -6439,6 +6629,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -6475,6 +6667,8 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "RequiredLevel": 6,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -6517,6 +6711,8 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "RequiredLevel": 43,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -6566,6 +6762,8 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefense",
@@ -6601,6 +6799,8 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -6644,6 +6844,8 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -6680,6 +6882,8 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -6710,6 +6914,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 59,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -6746,6 +6952,8 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "RequiredLevel": 50,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -6876,6 +7084,8 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -6912,6 +7122,8 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "RequiredLevel": 12,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -7144,6 +7356,8 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "RequiredLevel": 40,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -7274,6 +7488,8 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "RequiredLevel": 12,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -7316,6 +7532,8 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "RequiredLevel": 29,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -7358,6 +7576,8 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "RequiredLevel": 47,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -7394,6 +7614,8 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "RequiredLevel": 54,
+    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 4",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -7443,6 +7665,8 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "RequiredLevel": 3,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -7485,6 +7709,8 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -7527,6 +7753,8 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -7576,6 +7804,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 61,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -7612,6 +7842,8 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "RequiredLevel": 55,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -7844,6 +8076,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 62,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -7880,6 +8114,8 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -7929,6 +8165,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -7965,6 +8203,8 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -7995,6 +8235,8 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefense",
@@ -8024,6 +8266,8 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -8060,6 +8304,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -8096,6 +8342,8 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -8139,6 +8387,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -8175,6 +8425,8 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "RequiredLevel": 29,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -8217,6 +8469,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 55,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -8253,6 +8507,8 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "RequiredLevel": 45,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -8302,6 +8558,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -8338,6 +8596,8 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -8374,6 +8634,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -8410,6 +8672,8 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -8446,6 +8710,8 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -8489,6 +8755,8 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "RequiredLevel": 44,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -8619,6 +8887,8 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "RequiredLevel": 60,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -8662,6 +8932,8 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "RequiredLevel": 56,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -8698,6 +8970,8 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "RequiredLevel": 54,
+    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 4",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -8747,6 +9021,8 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "RequiredLevel": 24,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -8877,6 +9153,8 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "RequiredLevel": 65,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -8920,6 +9198,8 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "RequiredLevel": 50,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -9102,6 +9382,8 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "RequiredLevel": 49,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -9284,6 +9566,8 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "RequiredLevel": 64,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -9320,6 +9604,8 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "RequiredLevel": 3,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -9502,6 +9788,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -9538,6 +9826,8 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "RequiredLevel": 49,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -9668,6 +9958,8 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -9717,6 +10009,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -9753,6 +10047,8 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -9789,6 +10085,8 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "RequiredLevel": 36,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -9971,6 +10269,8 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "RequiredLevel": 40,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -10153,6 +10453,8 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "RequiredLevel": 3,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -10283,6 +10585,8 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "RequiredLevel": 34,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -10515,6 +10819,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -10551,6 +10857,8 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "RequiredLevel": 29,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -10593,6 +10901,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -10629,6 +10939,8 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "RequiredLevel": 6,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -10861,6 +11173,8 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -10910,6 +11224,8 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "RequiredLevel": 41,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -11142,6 +11458,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -11178,6 +11496,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 66,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -11214,6 +11534,8 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "RequiredLevel": 32,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -11256,6 +11578,8 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "RequiredLevel": 52,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -11488,6 +11812,8 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "RequiredLevel": 47,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -11720,6 +12046,8 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -11756,6 +12084,8 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefense",
@@ -11785,6 +12115,8 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "RequiredLevel": 32,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -11827,6 +12159,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -11863,6 +12197,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 51,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -11899,6 +12235,8 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "RequiredLevel": 49,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -11942,6 +12280,8 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -11991,6 +12331,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 24,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -12027,6 +12369,8 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "RequiredLevel": 33,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -12157,6 +12501,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 64,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -12193,6 +12539,8 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "RequiredLevel": 43,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -12229,6 +12577,8 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -12265,6 +12615,8 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -12308,6 +12660,8 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -12344,6 +12698,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -12380,6 +12736,8 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -12416,6 +12774,8 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "RequiredLevel": 62,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -12458,6 +12818,8 @@
       "Index": "phlmitype",
       "Class": "bar"
     },
+    "RequiredLevel": 40,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -12500,6 +12862,8 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -12549,6 +12913,8 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "RequiredLevel": 46,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -12585,6 +12951,8 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -12634,6 +13002,8 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "RequiredLevel": 59,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -12670,6 +13040,8 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "RequiredLevel": 18,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -12712,6 +13084,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -12748,6 +13122,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -12784,6 +13160,8 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "RequiredLevel": 60,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -12914,6 +13292,8 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "RequiredLevel": 51,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -12956,6 +13336,8 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "RequiredLevel": 3,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -13188,6 +13570,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -13224,6 +13608,8 @@
       "Index": "circitype",
       "Class": ""
     },
+    "RequiredLevel": 52,
+    "GemSockets": "(1-25): 1 - (26-40): 2 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -13260,6 +13646,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -13296,6 +13684,8 @@
       "Index": "grimitype",
       "Class": "war"
     },
+    "RequiredLevel": 6,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -13478,6 +13868,8 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "RequiredLevel": 41,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -13520,6 +13912,8 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "RequiredLevel": 0,
+    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -13569,6 +13963,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -13605,6 +14001,8 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "RequiredLevel": 62,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -13641,6 +14039,8 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "RequiredLevel": 57,
+    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 4",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -13690,6 +14090,8 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "RequiredLevel": 12,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -13820,6 +14222,8 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "RequiredLevel": 51,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -13856,6 +14260,8 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "RequiredLevel": 47,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -13892,6 +14298,8 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "RequiredLevel": 51,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -13928,6 +14336,8 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "RequiredLevel": 66,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -14160,6 +14570,8 @@
       "Index": "beltitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -14196,6 +14608,8 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -14239,6 +14653,8 @@
       "Index": "glovitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -14275,6 +14691,8 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "RequiredLevel": 22,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -14311,6 +14729,8 @@
       "Index": "shieitype",
       "Class": ""
     },
+    "RequiredLevel": 63,
+    "GemSockets": "(1-25): 3 - (26-40): 3 - (41+): 4",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -14360,6 +14780,8 @@
       "Index": "helmitype",
       "Class": ""
     },
+    "RequiredLevel": 25,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -14396,6 +14818,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 53,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -14432,6 +14856,8 @@
       "Index": "peltitype",
       "Class": "dru"
     },
+    "RequiredLevel": 3,
+    "GemSockets": "(1-25): 2 - (26-40): 3 - (41+): 3",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -14474,6 +14900,8 @@
       "Index": "bootitype",
       "Class": ""
     },
+    "RequiredLevel": 45,
+    "GemSockets": "",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -14517,6 +14945,8 @@
       "Index": "torsitype",
       "Class": ""
     },
+    "RequiredLevel": 50,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strDefenseRange",
@@ -14553,6 +14983,8 @@
       "Index": "ashditype",
       "Class": "pal"
     },
+    "RequiredLevel": 61,
+    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 4",
     "Lines": [
       {
         "key": "strChanceToBlock",
@@ -14785,6 +15217,8 @@
       "Index": "headitype",
       "Class": "nec"
     },
+    "RequiredLevel": 6,
+    "GemSockets": "(1-25): 2 - (26-40): 2 - (41+): 2",
     "Lines": [
       {
         "key": "strChanceToBlock",

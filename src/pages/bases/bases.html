@@ -120,28 +120,47 @@
             <template repeat.for="family of group.families">
                 <div class="card-box card-vis" repeat.for="item of family.items">
 
-                    <!-- Name -->
+                    <!-- Name + Sockets banner -->
                     <div class="mb-1">
                         <div class="text-xl base-text">${item.NameKey | t}</div>
+                        <div class="text-base rarity-text"
+                             if.bind="(typeof item.GemSockets === 'number' ? item.GemSockets > 0 : (item.GemSockets && item.GemSockets !== '0'))">
+                            <div>${'label_item_level_sockets' | t}</div>
+                            <div>${item.GemSockets}</div>
+                        </div>
                     </div>
 
-                    <!-- Type label, defense/block, weapon damage, then durability -->
+                    <!-- Type label -->
                     <div class="mb-1">
                         <div class="text-base type-text" if.bind="item.Type && item.Type.Index">
                             ${item.Type.Index | t}
                         </div>
+                    </div>
+
+                    <!-- Defense / block / smite / kick -->
+                    <div class="mb-1"
+                         if.bind="item.Lines && item.Lines.length">
                         <div repeat.for="line of item.Lines"
                              if.bind="['strDefense','strDefenseRange','strDefenseRangeRange','strChanceToBlock','strSmiteDamage','strKickDamage'].includes(line.key)"
                              class="text-base type-text">
                             ${line | keyedLine}
                         </div>
-                        <div class="text-base type-text flex items-center justify-center gap-1"
-                             if.bind="item.__kind === 'weapon' && item.DamageTypes && item.DamageTypes.length">
+                    </div>
+
+                    <!-- Weapon damage -->
+                    <div class="mb-1"
+                         if.bind="item.__kind === 'weapon' && item.DamageTypes && item.DamageTypes.length">
+                        <div class="text-base type-text flex items-center justify-center gap-1">
                             <div repeat.for="d of item.DamageTypes">
                                 <span repeat.for="line of d.Lines | keyedLines">${line}</span>
                                 <span class="set-text" if.bind="d.AverageDamage"> <${d.AverageDamage}></span>
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Durability / indestructible / ethereal / sockets-on-item -->
+                    <div class="mb-1"
+                         if.bind="item.Lines && item.Lines.length">
                         <div repeat.for="line of item.Lines"
                              if.bind="['strDurability','strIndestructible','strethereal','strSocketedCount'].includes(line.key)"
                              class="text-base type-text">
