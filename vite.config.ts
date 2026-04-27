@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+﻿import { defineConfig } from 'vite';
 import aurelia from '@aurelia/vite-plugin';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 import tailwindcss from '@tailwindcss/vite'
@@ -9,6 +9,10 @@ export default defineConfig({
         strictPort: true,
     },
     publicDir: 'static',
+    esbuild: {
+        target: 'es2022',
+        supported: { decorators: false },
+    },
     build: {
         minify: false,
         target: 'es2022',
@@ -18,9 +22,6 @@ export default defineConfig({
         },
         outDir: 'docs',
     },
-    esbuild: {
-        target: 'es2022',
-    },
     plugins: [
         tailwindcss(),
         aurelia({ enableConventions: true, hmr: true }),
@@ -28,10 +29,6 @@ export default defineConfig({
             targets: [
                 {
                     src: 'src/assets',
-                    dest: ''
-                },
-                {
-                    src: 'talonrage',
                     dest: ''
                 }
             ]

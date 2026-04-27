@@ -8,36 +8,22 @@ import {
 } from '../../resources/constants';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
 import { matchesTokenGroups, prependTypeResetOption, tokenizeSearch } from '../../utilities/filter-helpers';
+import { IKeyedLine } from '../../utilities/i-keyed-line';
+import { format, t } from '../../utilities/translation-store.js';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
-import json from '../item-jsons/runewords.json';
 
-// Minimal types used by the Runewords page (only fields actually read)
-interface IRunewordProperty {
-    PropertyString?: string;
-    'group-properties'?: Record<string, IRunewordProperty[]>;
-    pickmode?: number;
-    Index?: number;
-    Chance?: number;
-}
-
-interface IRunewordType {
-    Name: string;
-}
-
-interface IRunewordRune {
-    Name: string;
-}
-
+// Shapes for the new keyed runewords.json
 interface IRunewordData {
-    Name: string;
-    Types?: IRunewordType[];
-    Runes: IRunewordRune[];
-    Properties?: IRunewordProperty[];
-    Vanilla?: string | number | boolean;
+    Index: string;
+    Vanilla: string;
+    Runes: { NameKey: string }[];
+    Types: { Index: string }[];
+    Lines: IKeyedLine[];
+    RequiredLevel: number;
 }
 
 export class Runewords {
-    allRunewords: IRunewordData[] = json as unknown as IRunewordData[];
+    allRunewords: IRunewordData[] = [];
     filteredRunewords: IRunewordData[] = [];
     private _searchStrings = new Map<IRunewordData, string>();
 
@@ -45,28 +31,35 @@ export class Runewords {
     @bindable searchRunes: string = '';
     @bindable exclusiveType: boolean = false;
     @bindable hideVanilla: boolean = false;
+    @bindable selectedType: string = '';
+    @bindable selectedAmount: number | '' = '';
 
     private _debouncedSearchItem!: IDebouncedFunction;
+    private _debouncedUpdateUrl!: IDebouncedFunction;
 
     // Centralized options, narrowed at runtime to types present in data
     types: ReadonlyArray<IFilterOption> = type_filtering_options.slice();
 
-    // Selected type: base token (scalar)
-    selectedType: string = '';
-
     amounts: Array<{ value: number | ''; label: string }> = [
         { value: '', label: '-' },
-        { value: 2, label: '2 Runes' },
-        { value: 3, label: '3 Runes' },
-        { value: 4, label: '4 Runes' },
-        { value: 5, label: '5 Runes' },
-        { value: 6, label: '6 Runes' },
+        { value: 2, label: 'label_runes_count' },
+        { value: 3, label: 'label_runes_count' },
+        { value: 4, label: 'label_runes_count' },
+        { value: 5, label: 'label_runes_count' },
+        { value: 6, label: 'label_runes_count' },
     ];
 
-    selectedAmount: number | undefined;
-
     // Build options and hydrate filters from URL before controls render
-    binding() {
+    async binding() {
+        // Fetch keyed runewords data
+        try {
+            const resp = await fetch('/data/keyed/runewords.json');
+            this.allRunewords = (await resp.json()) as IRunewordData[];
+        } catch (e) {
+            console.error('Failed to load runewords:', e);
+            this.allRunewords = [];
+        }
+
         const urlParams = new URLSearchParams(window.location.search);
 
         // Pre-calculate searchable strings
@@ -80,7 +73,10 @@ export class Runewords {
             for (const rw of this.allRunewords || []) {
                 const types = Array.isArray(rw?.Types) ? rw.Types : [];
                 for (const t of types) {
-                    const chain = getChainForTypeNameReadonly(t?.Name ?? '');
+                    // Use the canonical itemtypes.txt Code column (carried in
+                    // Type.Index) for graph lookups; Type.Name is the English
+                    // display label and is no longer used as a key.
+                    const chain = getChainForTypeNameReadonly(t?.Index ?? '');
                     const base = chain && chain.length ? chain[0] : '';
                     if (base) presentExplicitBases.add(base);
                 }
@@ -111,7 +107,10 @@ export class Runewords {
 
             // Non-aggregates: ONLY show if the base explicitly exists
             return presentExplicitBases.has(base);
-        });
+        }).map(opt => ({
+            ...opt,
+            label: t(opt.label),
+        }));
 
         // Prepend a uniform reset option so users can clear the selection with '-'
         this.types = prependTypeResetOption(this.types);
@@ -151,6 +150,7 @@ export class Runewords {
 
     attached() {
         this._debouncedSearchItem = debounce(() => this.updateList(), 350);
+        this._debouncedUpdateUrl = debounce(() => this.updateUrl(), 150);
         this.updateList();
         this.updateUrl();
     }
@@ -158,6 +158,9 @@ export class Runewords {
     detached() {
         if (this._debouncedSearchItem) {
             this._debouncedSearchItem.cancel();
+        }
+        if (this._debouncedUpdateUrl) {
+            this._debouncedUpdateUrl.cancel();
         }
     }
 
@@ -176,48 +179,51 @@ export class Runewords {
     @watch('searchRunes')
     handleSearchRunesChanged() {
         if (this._debouncedSearchItem) this._debouncedSearchItem();
-        this.updateUrl();
+        if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
     }
 
     @watch('search')
     handleSearchChanged() {
         if (this._debouncedSearchItem) this._debouncedSearchItem();
-        this.updateUrl();
+        if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
     }
 
     @watch('selectedType')
-    selectedTypeChanged() {
+    handleTypeChanged() {
         if (this._debouncedSearchItem) this._debouncedSearchItem();
-        this.updateUrl();
+        if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
     }
 
     @watch('selectedAmount')
-    selectedAmountChanged() {
+    handleAmountChanged() {
         // Coerce from string to number when coming from <select>
-        if (typeof this.selectedAmount !== 'number') {
+        if (typeof this.selectedAmount !== 'number' && this.selectedAmount !== '') {
             const v = Number(this.selectedAmount);
             if (Number.isFinite(v) && v >= 2 && v <= 6) {
                 this.selectedAmount = v;
             } else {
-                this.selectedAmount = undefined;
+                this.selectedAmount = '';
             }
         }
+
         if (this._debouncedSearchItem) {
             this._debouncedSearchItem();
         }
-        this.updateUrl();
+        if (this._debouncedUpdateUrl) {
+            this._debouncedUpdateUrl();
+        }
     }
 
     @watch('exclusiveType')
     handleExclusiveTypeChanged() {
         if (this._debouncedSearchItem) this._debouncedSearchItem();
-        this.updateUrl();
+        if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
     }
 
     @watch('hideVanilla')
     handleHideVanillaChanged() {
         if (this._debouncedSearchItem) this._debouncedSearchItem();
-        this.updateUrl();
+        if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
     }
 
     normalizeRuneName(name: string): string {
@@ -287,7 +293,8 @@ export class Runewords {
                 const types = Array.isArray(rw.Types) ? rw.Types : [];
                 let hasTypeMatch = false;
                 for (let i = 0; i < types.length; i++) {
-                    const raw = types[i]?.Name != null ? String(types[i].Name) : '';
+                    // Filter by the itemtypes.txt Code column (Type.Index).
+                    const raw = types[i]?.Index != null ? String(types[i].Index) : '';
                     const chain = getChainForTypeNameReadonly(raw);
                     if (!chain || chain.length === 0) continue;
                     const itemBase = chain[0];
@@ -316,7 +323,7 @@ export class Runewords {
             // 5. Rune search
             if (runeGroups.length > 0) {
                 const runewordRuneNames = (rw.Runes ?? []).map((rune) =>
-                    this.normalizeRuneName(String(rune.Name)),
+                    this.normalizeRuneName(t(rune.NameKey)),
                 );
                 const hasRuneMatch = runeGroups.every((orGroup) =>
                     orGroup.some((token) => runewordRuneNames.includes(token)),
@@ -330,20 +337,29 @@ export class Runewords {
 
     private buildSearchableStringForRuneword(rw: IRunewordData): string {
         const parts: string[] = [
-            String(rw.Name || ''),
-            ...(rw.Properties || []).flatMap((p: IRunewordProperty) => {
-                const res = [p?.PropertyString || ''];
-                if (p['group-properties']) {
-                    Object.values(p['group-properties']).forEach(pool => {
-                        pool.forEach(affix => {
-                            if (affix.PropertyString) res.push(affix.PropertyString);
-                        });
-                    });
-                }
-                return res;
-            }),
-            ...(rw.Types || []).map((t: IRunewordType) => String(t?.Name || '')),
+            t(rw.Index),
         ];
+        if (Array.isArray(rw.Lines)) {
+            for (const l of rw.Lines) {
+                parts.push(format(l));
+            }
+        }
+        if (Array.isArray(rw.Types)) {
+            for (const typeInfo of rw.Types) {
+                const index = typeInfo?.Index != null ? String(typeInfo.Index) : '';
+                parts.push(index);
+                const chain = getChainForTypeNameReadonly(index);
+                if (chain) {
+                    parts.push(...chain);
+                    parts.push(...chain.map(c => t(c)));
+                }
+            }
+        }
+        if (Array.isArray(rw.Runes)) {
+            for (const rune of rw.Runes) {
+                parts.push(t(rune.NameKey));
+            }
+        }
         return parts.filter(Boolean).join(' ').toLowerCase();
     }
 
@@ -352,7 +368,7 @@ export class Runewords {
         this.search = '';
         this.searchRunes = '';
         this.selectedType = '';
-        this.selectedAmount = undefined;
+        this.selectedAmount = '';
         this.exclusiveType = false;
         this.hideVanilla = false;
 

@@ -33,7 +33,7 @@
                 <input type="text"
                        value.bind="searchText"
                        class="w-full bg-gray-800 border border-gray-600 text-base type-text px-3 py-1.5 rounded outline-none focus:ring-1 focus:ring-gray-400"
-                       placeholder="Search..."
+                       placeholder="${'filter_search_placeholder' | t}"
                        ref="searchInput"
                        keydown.trigger="$event.key === 'Escape' && close()">
                 <span class="mso absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">search</span>
@@ -51,7 +51,7 @@
                 <span if.bind="String(getOptValue(opt)) === String(value)" class="mso text-lime-500">check</span>
             </li>
             <li if.bind="filteredOptions.length === 0" class="px-3 py-4 text-center text-gray-500 italic">
-                No results found
+                ${'filter_no_results' | t}
             </li>
         </ul>
     </div>

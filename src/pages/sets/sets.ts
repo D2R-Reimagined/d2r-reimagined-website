@@ -23,21 +23,21 @@ import {
     tokenizeSearch,
 } from '../../utilities/filter-helpers';
 import {
-    handFilterOptions,
     getSortKeyFromDamageType as getSortKeyFromDamageTypeUtil,
     HandFilterMode,
+    handFilterOptions,
     passesHandFilter,
     toggleWeaponSort,
     WeaponSortMode,
     weaponSortOptions,
 } from '../../utilities/item-sorting';
+import { format, t } from '../../utilities/translation-store.js';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
-import json from '../item-jsons/sets.json';
 
-import { ISetData } from './set-types';
+import { ISetData } from './set-types.js';
 
 export class Sets {
-    allSets: ISetData[] = json as unknown as ISetData[];
+    allSets: ISetData[] = [];
     sets: ISetData[] = [];
     private _searchStrings = new Map<ISetData, string>();
     @bindable search: string;
@@ -58,7 +58,10 @@ export class Sets {
     // Centralized type options, narrowed to types present in data
     types: ReadonlyArray<IFilterOption> = type_filtering_options.slice();
 
-    classes = character_class_options;
+    classes = character_class_options.map(opt => ({
+        ...opt,
+        label: t(opt.label),
+    }));
 
     // Check if selected type is a weapon type
     get isWeaponType(): boolean {
@@ -66,13 +69,13 @@ export class Sets {
         const opt = this.types.find((o) => o.id === this.selectedType);
         if (!opt || !opt.value) return false;
 
-        // Check if 'Weapon' is in the values (works for aggregates and non-exact types)
-        if (opt.value.includes('Weapon')) return true;
+        // Check if the weapon root code is in the values (works for aggregates and non-exact types)
+        if (opt.value.includes('weapitype')) return true;
 
         // For exact types, we need to check their ancestors in the type graph
         return opt.value.some(typeName => {
             const chain = getTypeChain(typeName);
-            return chain.includes('Weapon');
+            return chain.includes('weapitype');
         });
     }
 
@@ -80,7 +83,16 @@ export class Sets {
     handFilterOptions = handFilterOptions;
 
     // Build options and hydrate from URL BEFORE controls render
-    binding(): void {
+    async binding() {
+        // Fetch keyed sets data
+        try {
+            const resp = await fetch('/data/keyed/sets.json');
+            this.allSets = (await resp.json()) as ISetData[];
+        } catch (e) {
+            console.error('Failed to load sets:', e);
+            this.allSets = [];
+        }
+
         const urlParams = new URLSearchParams(window.location.search);
 
         // Pre-calculate searchable strings
@@ -105,13 +117,16 @@ export class Sets {
         // Collect base type names present in data and build options
         try {
             const present = new Set<string>();
-            for (const set of (json as unknown as ISetData[]) || []) {
+            for (const set of this.allSets) {
                 for (const item of set?.SetItems || []) {
                     const base = resolveBaseTypeName(item?.Type ?? '');
                     if (base) present.add(base);
                 }
             }
-            this.types = buildOptionsForPresentTypes(type_filtering_options, present);
+            this.types = buildOptionsForPresentTypes(type_filtering_options, present).map(opt => ({
+                ...opt,
+                label: t(opt.label),
+            }));
             // Prepend a uniform reset option so users can clear the selection with '-'
             this.types = prependTypeResetOption(this.types);
         } catch {
@@ -234,7 +249,7 @@ export class Sets {
                 // 3. Equipment name filter
                 if (this.selectedEquipmentName) {
                     const hasMatch = (set.SetItems ?? []).some(
-                        (si) => si.Equipment?.Name === this.selectedEquipmentName,
+                        (si) => si.Equipment?.NameKey === this.selectedEquipmentName,
                     );
                     if (!hasMatch) return false;
                 }
@@ -300,41 +315,60 @@ export class Sets {
 
     private buildSearchableStringForSet(set: ISetData): string {
         const parts: string[] = [];
-        if (set.Name) parts.push(String(set.Name));
-        const allProps = set.AllProperties ?? [
-            ...(set.FullProperties || []),
-            ...(set.PartialProperties || []),
-        ];
-        for (const p of allProps || []) {
-            if (p.PropertyString) parts.push(p.PropertyString);
-            if (p['group-properties']) {
-                Object.values(p['group-properties']).forEach((pool) => {
-                    pool.forEach((affix) => {
-                        if (affix.PropertyString) parts.push(affix.PropertyString);
-                    });
-                });
+        if (set.Index) parts.push(t(set.Index));
+        
+        if (Array.isArray(set.PartialBonuses)) {
+            for (const l of set.PartialBonuses) {
+                parts.push(format(l));
             }
         }
+        if (Array.isArray(set.FullBonuses)) {
+            for (const l of set.FullBonuses) {
+                parts.push(format(l));
+            }
+        }
+
         for (const si of set.SetItems ?? []) {
-            parts.push(String(si?.Name || ''));
-            parts.push(String(si?.Equipment?.Name || ''));
-            for (const p of si?.Properties || []) {
-                if (p.PropertyString) parts.push(p.PropertyString);
-                if (p['group-properties']) {
-                    Object.values(p['group-properties']).forEach((pool) => {
-                        pool.forEach((affix) => {
-                            if (affix.PropertyString) parts.push(affix.PropertyString);
-                        });
-                    });
+            parts.push(t(si?.Index));
+            parts.push(t(si?.Equipment?.NameKey));
+
+            const typeIndex = si?.Type;
+            if (typeIndex) {
+                parts.push(typeIndex);
+                parts.push(t(typeIndex));
+                const chain = getChainForTypeNameReadonly(typeIndex);
+                if (chain) {
+                    parts.push(...chain);
+                    parts.push(...chain.map(c => t(c)));
                 }
             }
-            for (const s of si?.SetPropertiesString || []) {
-                if (s) parts.push(String(s));
+
+            if (Array.isArray(si?.Lines)) {
+                for (const l of si.Lines) {
+                    parts.push(format(l));
+                }
             }
+            if (Array.isArray(si?.SetBonuses)) {
+                for (const group of si.SetBonuses) {
+                    for (const l of group) {
+                        parts.push(format(l));
+                    }
+                }
+            }
+            if (Array.isArray(si?.Equipment?.Lines)) {
+                for (const l of si.Equipment.Lines) {
+                    parts.push(format(l));
+                }
+            }
+
             if (Array.isArray(si?.Equipment?.DamageTypes)) {
                 for (const d of si.Equipment.DamageTypes) {
                     parts.push(getDamageTypeStringUtil(d.Type));
-                    if (d.DamageString) parts.push(d.DamageString);
+                    if (Array.isArray(d.Lines)) {
+                        for (const l of d.Lines) {
+                            parts.push(format(l));
+                        }
+                    }
                 }
             }
         }
@@ -367,23 +401,23 @@ export class Sets {
             const opt = this.types.find((o) => o.id === this.selectedType);
             return opt && opt.value ? new Set<string>(opt.value) : null;
         })();
-        for (const set of (json as unknown as ISetData[]) || []) {
+        for (const set of this.allSets) {
             for (const si of set.SetItems ?? []) {
                 if (allowed) {
                     const base =
                         getChainForTypeNameReadonly(si?.Type ?? '')[0] || (si?.Type ?? '');
                     if (!allowed.has(base)) continue;
                 }
-                const name = si.Equipment?.Name;
-                if (name) names.add(name);
+                const key = si.Equipment?.NameKey;
+                if (key) names.add(key);
             }
         }
         const options: Array<{ value: string | undefined; label: string }> = [
             { value: '', label: '-' },
         ];
         Array.from(names)
-            .sort()
-            .forEach((n) => options.push({ value: n, label: n }));
+            .sort((a, b) => t(a).localeCompare(t(b)))
+            .forEach((key) => options.push({ value: key, label: t(key) }));
         return options;
     }
 

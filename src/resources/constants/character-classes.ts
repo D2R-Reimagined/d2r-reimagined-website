@@ -2,12 +2,12 @@
 
 export const character_class_options: LabeledStringOption[] = [
     { value: '', label: '-' },
-    { value: 'Amazon', label: 'Amazon' },
-    { value: 'Assassin', label: 'Assassin' },
-    { value: 'Barbarian', label: 'Barbarian' },
-    { value: 'Druid', label: 'Druid' },
-    { value: 'Necromancer', label: 'Necromancer' },
-    { value: 'Paladin', label: 'Paladin' },
-    { value: 'Sorceress', label: 'Sorceress' },
-    { value: 'Warlock', label: 'Warlock' },
+    { value: 'Amazon', label: 'class_amazon' },
+    { value: 'Assassin', label: 'class_assassin' },
+    { value: 'Barbarian', label: 'class_barbarian' },
+    { value: 'Druid', label: 'class_druid' },
+    { value: 'Necromancer', label: 'class_necromancer' },
+    { value: 'Paladin', label: 'class_paladin' },
+    { value: 'Sorceress', label: 'class_sorceress' },
+    { value: 'Warlock', label: 'class_warlock' },
 ];

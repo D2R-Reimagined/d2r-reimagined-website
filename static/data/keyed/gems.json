@@ -1,0 +1,1581 @@
+[
+  {
+    "Code": "gcb",
+    "NameKey": "gcb",
+    "ItemLevel": 0,
+    "RequiredLevel": 1,
+    "WeaponLines": [
+      {
+        "key": "ModStr1t",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr1s",
+        "args": [
+          3
+        ]
+      },
+      {
+        "key": "str_coldlength",
+        "args": [
+          25
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1e",
+        "args": [
+          10
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1k",
+        "args": [
+          12
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gcg",
+    "NameKey": "gcg",
+    "ItemLevel": 0,
+    "RequiredLevel": 1,
+    "WeaponLines": [
+      {
+        "key": "ModStr4i",
+        "args": [
+          34
+        ]
+      },
+      {
+        "key": "ModStr4h",
+        "args": [
+          34
+        ]
+      },
+      {
+        "key": "str_poisonlength",
+        "args": [
+          75
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1b",
+        "args": [
+          3
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1n",
+        "args": [
+          12
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gcr",
+    "NameKey": "gcr",
+    "ItemLevel": 0,
+    "RequiredLevel": 1,
+    "WeaponLines": [
+      {
+        "key": "ModStr1p",
+        "args": [
+          3
+        ]
+      },
+      {
+        "key": "ModStr1o",
+        "args": [
+          4
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1u",
+        "args": [
+          10
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1j",
+        "args": [
+          12
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gcv",
+    "NameKey": "gcv",
+    "ItemLevel": 0,
+    "RequiredLevel": 1,
+    "WeaponLines": [
+      {
+        "key": "ModStr1h",
+        "args": [
+          40
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1a",
+        "args": [
+          3
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1i",
+        "args": [
+          8
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gcw",
+    "NameKey": "gcw",
+    "ItemLevel": 0,
+    "RequiredLevel": 1,
+    "WeaponLines": [
+      {
+        "key": "ModStr4f",
+        "args": [
+          28
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1h",
+        "args": [
+          20
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "strModAllResistances",
+        "args": [
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gcy",
+    "NameKey": "gcy",
+    "ItemLevel": 0,
+    "RequiredLevel": 1,
+    "WeaponLines": [
+      {
+        "key": "ModStr1r",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr1q",
+        "args": [
+          8
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1x",
+        "args": [
+          9
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1l",
+        "args": [
+          12
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gfb",
+    "NameKey": "gfb",
+    "ItemLevel": 0,
+    "RequiredLevel": 5,
+    "WeaponLines": [
+      {
+        "key": "ModStr1t",
+        "args": [
+          3
+        ]
+      },
+      {
+        "key": "ModStr1s",
+        "args": [
+          5
+        ]
+      },
+      {
+        "key": "str_coldlength",
+        "args": [
+          35
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1e",
+        "args": [
+          17
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1k",
+        "args": [
+          16
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gfg",
+    "NameKey": "gfg",
+    "ItemLevel": 0,
+    "RequiredLevel": 5,
+    "WeaponLines": [
+      {
+        "key": "ModStr4i",
+        "args": [
+          51
+        ]
+      },
+      {
+        "key": "ModStr4h",
+        "args": [
+          51
+        ]
+      },
+      {
+        "key": "str_poisonlength",
+        "args": [
+          100
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1b",
+        "args": [
+          4
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1n",
+        "args": [
+          16
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gfr",
+    "NameKey": "gfr",
+    "ItemLevel": 0,
+    "RequiredLevel": 5,
+    "WeaponLines": [
+      {
+        "key": "ModStr1p",
+        "args": [
+          5
+        ]
+      },
+      {
+        "key": "ModStr1o",
+        "args": [
+          8
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1u",
+        "args": [
+          17
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1j",
+        "args": [
+          16
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gfv",
+    "NameKey": "gfv",
+    "ItemLevel": 0,
+    "RequiredLevel": 5,
+    "WeaponLines": [
+      {
+        "key": "ModStr1h",
+        "args": [
+          60
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1a",
+        "args": [
+          4
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1i",
+        "args": [
+          12
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gfw",
+    "NameKey": "gfw",
+    "ItemLevel": 0,
+    "RequiredLevel": 5,
+    "WeaponLines": [
+      {
+        "key": "ModStr4f",
+        "args": [
+          34
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1h",
+        "args": [
+          40
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "strModAllResistances",
+        "args": [
+          8
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gfy",
+    "NameKey": "gfy",
+    "ItemLevel": 0,
+    "RequiredLevel": 5,
+    "WeaponLines": [
+      {
+        "key": "ModStr1r",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr1q",
+        "args": [
+          14
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1x",
+        "args": [
+          13
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1l",
+        "args": [
+          16
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "glb",
+    "NameKey": "glb",
+    "ItemLevel": 0,
+    "RequiredLevel": 15,
+    "WeaponLines": [
+      {
+        "key": "ModStr1t",
+        "args": [
+          6
+        ]
+      },
+      {
+        "key": "ModStr1s",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "str_coldlength",
+        "args": [
+          60
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1e",
+        "args": [
+          31
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1k",
+        "args": [
+          28
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "glg",
+    "NameKey": "glg",
+    "ItemLevel": 0,
+    "RequiredLevel": 15,
+    "WeaponLines": [
+      {
+        "key": "ModStr4i",
+        "args": [
+          101
+        ]
+      },
+      {
+        "key": "ModStr4h",
+        "args": [
+          101
+        ]
+      },
+      {
+        "key": "str_poisonlength",
+        "args": [
+          152
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1b",
+        "args": [
+          8
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1n",
+        "args": [
+          28
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "glr",
+    "NameKey": "glr",
+    "ItemLevel": 0,
+    "RequiredLevel": 15,
+    "WeaponLines": [
+      {
+        "key": "ModStr1p",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "ModStr1o",
+        "args": [
+          16
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1u",
+        "args": [
+          31
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1j",
+        "args": [
+          28
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "glw",
+    "NameKey": "glw",
+    "ItemLevel": 0,
+    "RequiredLevel": 15,
+    "WeaponLines": [
+      {
+        "key": "ModStr4f",
+        "args": [
+          54
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1h",
+        "args": [
+          80
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "strModAllResistances",
+        "args": [
+          14
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gly",
+    "NameKey": "gly",
+    "ItemLevel": 0,
+    "RequiredLevel": 15,
+    "WeaponLines": [
+      {
+        "key": "ModStr1r",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr1q",
+        "args": [
+          30
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1x",
+        "args": [
+          20
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1l",
+        "args": [
+          28
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gmd",
+    "NameKey": "gmd",
+    "ItemLevel": 0,
+    "RequiredLevel": 18,
+    "WeaponLines": [
+      {
+        "key": "ModStr4f",
+        "args": [
+          68
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1h",
+        "args": [
+          100
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "strModAllResistances",
+        "args": [
+          19
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gme",
+    "NameKey": "gme",
+    "ItemLevel": 0,
+    "RequiredLevel": 18,
+    "WeaponLines": [
+      {
+        "key": "ModStr4i",
+        "args": [
+          143
+        ]
+      },
+      {
+        "key": "ModStr4h",
+        "args": [
+          143
+        ]
+      },
+      {
+        "key": "str_poisonlength",
+        "args": [
+          179
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1b",
+        "args": [
+          10
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1n",
+        "args": [
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gmk",
+    "NameKey": "gmk",
+    "ItemLevel": 0,
+    "RequiredLevel": 18,
+    "WeaponLines": [
+      {
+        "key": "ModStr2y",
+        "args": [
+          3
+        ]
+      },
+      {
+        "key": "ModStr2z",
+        "args": [
+          4
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr2l",
+        "args": [
+          5
+        ]
+      },
+      {
+        "key": "ModStr4g",
+        "args": [
+          19
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1v",
+        "args": [
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gmm",
+    "NameKey": "gmm",
+    "ItemLevel": 0,
+    "RequiredLevel": 18,
+    "WeaponLines": [
+      {
+        "key": "ModStr1h",
+        "args": [
+          150
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1a",
+        "args": [
+          10
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1i",
+        "args": [
+          30
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gmo",
+    "NameKey": "gmo",
+    "ItemLevel": 0,
+    "RequiredLevel": 18,
+    "WeaponLines": [
+      {
+        "key": "strModMagicDamageRange",
+        "args": [
+          15,
+          20
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "Moditem2allattrib",
+        "args": [
+          5
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1m",
+        "args": [
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gmr",
+    "NameKey": "gmr",
+    "ItemLevel": 0,
+    "RequiredLevel": 18,
+    "WeaponLines": [
+      {
+        "key": "ModStr1p",
+        "args": [
+          15
+        ]
+      },
+      {
+        "key": "ModStr1o",
+        "args": [
+          20
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1u",
+        "args": [
+          38
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1j",
+        "args": [
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gms",
+    "NameKey": "gms",
+    "ItemLevel": 0,
+    "RequiredLevel": 18,
+    "WeaponLines": [
+      {
+        "key": "ModStr1t",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "ModStr1s",
+        "args": [
+          14
+        ]
+      },
+      {
+        "key": "str_coldlength",
+        "args": [
+          75
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1e",
+        "args": [
+          38
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1k",
+        "args": [
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gmt",
+    "NameKey": "gmt",
+    "ItemLevel": 0,
+    "RequiredLevel": 18,
+    "WeaponLines": [
+      {
+        "key": "ModStr1r",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr1q",
+        "args": [
+          40
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1x",
+        "args": [
+          24
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1l",
+        "args": [
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gpb",
+    "NameKey": "gpb",
+    "ItemLevel": 0,
+    "RequiredLevel": 18,
+    "WeaponLines": [
+      {
+        "key": "ModStr1t",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "ModStr1s",
+        "args": [
+          14
+        ]
+      },
+      {
+        "key": "str_coldlength",
+        "args": [
+          75
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1e",
+        "args": [
+          38
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1k",
+        "args": [
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gpg",
+    "NameKey": "gpg",
+    "ItemLevel": 0,
+    "RequiredLevel": 18,
+    "WeaponLines": [
+      {
+        "key": "ModStr4i",
+        "args": [
+          143
+        ]
+      },
+      {
+        "key": "ModStr4h",
+        "args": [
+          143
+        ]
+      },
+      {
+        "key": "str_poisonlength",
+        "args": [
+          179
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1b",
+        "args": [
+          10
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1n",
+        "args": [
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gpr",
+    "NameKey": "gpr",
+    "ItemLevel": 0,
+    "RequiredLevel": 18,
+    "WeaponLines": [
+      {
+        "key": "ModStr1p",
+        "args": [
+          15
+        ]
+      },
+      {
+        "key": "ModStr1o",
+        "args": [
+          20
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1u",
+        "args": [
+          38
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1j",
+        "args": [
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gpv",
+    "NameKey": "gpv",
+    "ItemLevel": 0,
+    "RequiredLevel": 18,
+    "WeaponLines": [
+      {
+        "key": "ModStr1h",
+        "args": [
+          150
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1a",
+        "args": [
+          10
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1i",
+        "args": [
+          30
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gpw",
+    "NameKey": "gpw",
+    "ItemLevel": 0,
+    "RequiredLevel": 18,
+    "WeaponLines": [
+      {
+        "key": "ModStr4f",
+        "args": [
+          68
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1h",
+        "args": [
+          100
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "strModAllResistances",
+        "args": [
+          19
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gpy",
+    "NameKey": "gpy",
+    "ItemLevel": 0,
+    "RequiredLevel": 18,
+    "WeaponLines": [
+      {
+        "key": "ModStr1r",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr1q",
+        "args": [
+          40
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1x",
+        "args": [
+          24
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1l",
+        "args": [
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gsb",
+    "NameKey": "gsb",
+    "ItemLevel": 0,
+    "RequiredLevel": 12,
+    "WeaponLines": [
+      {
+        "key": "ModStr1t",
+        "args": [
+          4
+        ]
+      },
+      {
+        "key": "ModStr1s",
+        "args": [
+          7
+        ]
+      },
+      {
+        "key": "str_coldlength",
+        "args": [
+          50
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1e",
+        "args": [
+          24
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1k",
+        "args": [
+          22
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gsg",
+    "NameKey": "gsg",
+    "ItemLevel": 0,
+    "RequiredLevel": 12,
+    "WeaponLines": [
+      {
+        "key": "ModStr4i",
+        "args": [
+          82
+        ]
+      },
+      {
+        "key": "ModStr4h",
+        "args": [
+          82
+        ]
+      },
+      {
+        "key": "str_poisonlength",
+        "args": [
+          125
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1b",
+        "args": [
+          6
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1n",
+        "args": [
+          22
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gsr",
+    "NameKey": "gsr",
+    "ItemLevel": 0,
+    "RequiredLevel": 12,
+    "WeaponLines": [
+      {
+        "key": "ModStr1p",
+        "args": [
+          8
+        ]
+      },
+      {
+        "key": "ModStr1o",
+        "args": [
+          12
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1u",
+        "args": [
+          24
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1j",
+        "args": [
+          22
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gsv",
+    "NameKey": "gsv",
+    "ItemLevel": 0,
+    "RequiredLevel": 12,
+    "WeaponLines": [
+      {
+        "key": "ModStr1h",
+        "args": [
+          80
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1a",
+        "args": [
+          6
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1i",
+        "args": [
+          18
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gsw",
+    "NameKey": "gsw",
+    "ItemLevel": 0,
+    "RequiredLevel": 12,
+    "WeaponLines": [
+      {
+        "key": "ModStr4f",
+        "args": [
+          44
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1h",
+        "args": [
+          60
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "strModAllResistances",
+        "args": [
+          11
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gsy",
+    "NameKey": "gsy",
+    "ItemLevel": 0,
+    "RequiredLevel": 12,
+    "WeaponLines": [
+      {
+        "key": "ModStr1r",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr1q",
+        "args": [
+          22
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1x",
+        "args": [
+          16
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1l",
+        "args": [
+          22
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "gzv",
+    "NameKey": "gzv",
+    "ItemLevel": 0,
+    "RequiredLevel": 15,
+    "WeaponLines": [
+      {
+        "key": "ModStr1h",
+        "args": [
+          100
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr1a",
+        "args": [
+          8
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1i",
+        "args": [
+          24
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "skc",
+    "NameKey": "skc",
+    "ItemLevel": 0,
+    "RequiredLevel": 1,
+    "WeaponLines": [
+      {
+        "key": "ModStr2y",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr2z",
+        "args": [
+          2
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr2l",
+        "args": [
+          2
+        ]
+      },
+      {
+        "key": "ModStr4g",
+        "args": [
+          8
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1v",
+        "args": [
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "skf",
+    "NameKey": "skf",
+    "ItemLevel": 0,
+    "RequiredLevel": 5,
+    "WeaponLines": [
+      {
+        "key": "ModStr2y",
+        "args": [
+          2
+        ]
+      },
+      {
+        "key": "ModStr2z",
+        "args": [
+          2
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr2l",
+        "args": [
+          3
+        ]
+      },
+      {
+        "key": "ModStr4g",
+        "args": [
+          8
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1v",
+        "args": [
+          8
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "skl",
+    "NameKey": "skl",
+    "ItemLevel": 0,
+    "RequiredLevel": 15,
+    "WeaponLines": [
+      {
+        "key": "ModStr2y",
+        "args": [
+          3
+        ]
+      },
+      {
+        "key": "ModStr2z",
+        "args": [
+          3
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr2l",
+        "args": [
+          4
+        ]
+      },
+      {
+        "key": "ModStr4g",
+        "args": [
+          12
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1v",
+        "args": [
+          16
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "sku",
+    "NameKey": "sku",
+    "ItemLevel": 0,
+    "RequiredLevel": 12,
+    "WeaponLines": [
+      {
+        "key": "ModStr2y",
+        "args": [
+          2
+        ]
+      },
+      {
+        "key": "ModStr2z",
+        "args": [
+          3
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr2l",
+        "args": [
+          3
+        ]
+      },
+      {
+        "key": "ModStr4g",
+        "args": [
+          12
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1v",
+        "args": [
+          12
+        ]
+      }
+    ]
+  },
+  {
+    "Code": "skz",
+    "NameKey": "skz",
+    "ItemLevel": 0,
+    "RequiredLevel": 18,
+    "WeaponLines": [
+      {
+        "key": "ModStr2y",
+        "args": [
+          3
+        ]
+      },
+      {
+        "key": "ModStr2z",
+        "args": [
+          4
+        ]
+      }
+    ],
+    "ArmorLines": [
+      {
+        "key": "ModStr2l",
+        "args": [
+          5
+        ]
+      },
+      {
+        "key": "ModStr4g",
+        "args": [
+          19
+        ]
+      }
+    ],
+    "ShieldLines": [
+      {
+        "key": "ModStr1v",
+        "args": [
+          20
+        ]
+      }
+    ]
+  }
+]

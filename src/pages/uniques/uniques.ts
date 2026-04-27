@@ -11,7 +11,6 @@ import {
 } from '../../resources/constants';
 import {
     getDamageTypeString as getDamageTypeStringUtil,
-    IDamageType,
 } from '../../utilities/damage-types';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
 import {
@@ -20,52 +19,49 @@ import {
     prependTypeResetOption,
     tokenizeSearch,
 } from '../../utilities/filter-helpers';
+import { IKeyedLine } from '../../utilities/i-keyed-line';
 import {
-    handFilterOptions,
     getSortKeyFromDamageType as getSortKeyFromDamageTypeUtil,
     HandFilterMode,
+    handFilterOptions,
     passesHandFilter,
     sortItemsByWeaponDamage,
     toggleWeaponSort,
     WeaponSortMode,
     weaponSortOptions,
 } from '../../utilities/item-sorting';
+import { format, t } from '../../utilities/translation-store.js';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
-import json from '../item-jsons/uniques.json';
 
-// Minimal shapes for uniques JSON used by this page. Only type what we read.
-interface IUniqueProperty {
-    PropertyString?: string;
-    'group-properties'?: Record<string, IUniqueProperty[]>;
-    pickmode?: number;
-    Index?: number;
-    Chance?: number;
-}
-
+// Shapes for the new keyed uniques.json
 interface IUniqueEquipment {
-    Name?: string;
-    RequiredClass?: string;
-    RequiredStrength?: string;
-    RequiredDexterity?: string;
-    DamageTypes?: IDamageType[];
-    ArmorString?: string;
-    Block?: number;
-    Durability?: number;
+    EquipmentType: number;
+    NameKey: string;
+    RequiredClass: string;
+    DamageTypes?: {
+        Type: number;
+        AverageDamage: number;
+        Lines: IKeyedLine[];
+    }[];
+    Lines: IKeyedLine[];
 }
 
 interface IUniqueItem {
-    Index?: string;
-    Name?: string;
-    Type?: string;
-    Equipment?: IUniqueEquipment;
-    Properties?: IUniqueProperty[];
-    Vanilla?: string | number | boolean;
-    Rarity?: string;
-    RequiredLevel?: number;
+    Type: string;
+    Vanilla: string;
+    Index: string;
+    Enabled: boolean;
+    Rarity: number;
+    ItemLevel: number;
+    RequiredLevel: number;
+    Code: string;
+    DamageArmorEnhanced: boolean;
+    Lines: IKeyedLine[];
+    Equipment: IUniqueEquipment;
 }
 
 export class Uniques {
-    allUniques: IUniqueItem[] = json as unknown as IUniqueItem[];
+    allUniques: IUniqueItem[] = [];
     uniques: IUniqueItem[] = [];
     private _searchStrings = new Map<IUniqueItem, string>();
 
@@ -91,10 +87,22 @@ export class Uniques {
 
 
 
-    classes = character_class_options;
+    classes = character_class_options.map(opt => ({
+        ...opt,
+        label: t(opt.label),
+    }));
 
     // Hydrate state from URL and build type options BEFORE the controls render
-    binding() {
+    async binding() {
+        // Fetch keyed uniques data
+        try {
+            const resp = await fetch('/data/keyed/uniques.json');
+            this.allUniques = (await resp.json()) as IUniqueItem[];
+        } catch (e) {
+            console.error('Failed to load uniques:', e);
+            this.allUniques = [];
+        }
+
         const urlParams = new URLSearchParams(window.location.search);
 
         // Pre-calculate searchable strings
@@ -119,11 +127,14 @@ export class Uniques {
         // Build data-driven options from present types in uniques data
         try {
             const present = new Set<string>();
-            for (const u of (json as unknown as IUniqueItem[]) || []) {
+            for (const u of this.allUniques || []) {
                 const base = resolveBaseTypeName(u?.Type ?? '');
                 if (base) present.add(base);
             }
-            this.types = buildOptionsForPresentTypes(type_filtering_options, present);
+            this.types = buildOptionsForPresentTypes(type_filtering_options, present).map(opt => ({
+                ...opt,
+                label: t(opt.label),
+            }));
             // Prepend a uniform reset option so users can clear the selection with '-'
             this.types = prependTypeResetOption(this.types);
         } catch {
@@ -171,13 +182,13 @@ export class Uniques {
         const opt = this.types.find((o) => o.id === this.selectedType);
         if (!opt || !opt.value) return false;
 
-        // Check if 'Weapon' is in the values (works for aggregates and non-exact types)
-        if (opt.value.includes('Weapon')) return true;
+        // Check if the weapon root code is in the values (works for aggregates and non-exact types)
+        if (opt.value.includes('weapitype')) return true;
 
         // For exact types, we need to check their ancestors in the type graph
         return opt.value.some(typeName => {
             const chain = getTypeChain(typeName);
-            return chain.includes('Weapon');
+            return chain.includes('weapitype');
         });
     }
 
@@ -249,7 +260,7 @@ export class Uniques {
         }
 
         this.uniques = this.allUniques.filter((unique: IUniqueItem) => {
-            const name = unique?.Name || '';
+            const name = unique?.Index || '';
             if (name.toLowerCase().includes('grabber')) return false;
 
             // 1. Vanilla filter
@@ -273,7 +284,7 @@ export class Uniques {
             // 4. Equipment Name filter
             if (
                 this.selectedEquipmentName &&
-        String(unique?.Equipment?.Name || '') !== this.selectedEquipmentName
+                String(unique?.Equipment?.NameKey || '') !== this.selectedEquipmentName
             ) {
                 return false;
             }
@@ -304,27 +315,41 @@ export class Uniques {
 
     private buildSearchableStringForUnique(unique: IUniqueItem): string {
         const parts: string[] = [
-            String(unique?.Name || ''),
-            String(unique?.Equipment?.Name || ''),
+            t(unique?.Index),
+            t(unique?.Equipment?.NameKey),
         ];
 
-        if (Array.isArray(unique?.Properties)) {
-            unique.Properties.forEach((p) => {
-                if (p.PropertyString) parts.push(p.PropertyString);
-                if (p['group-properties']) {
-                    Object.values(p['group-properties']).forEach((pool) => {
-                        pool.forEach((affix) => {
-                            if (affix.PropertyString) parts.push(affix.PropertyString);
-                        });
-                    });
-                }
+        const typeIndex = unique?.Type;
+        if (typeIndex) {
+            parts.push(typeIndex);
+            parts.push(t(typeIndex));
+            const chain = getChainForTypeNameReadonly(typeIndex);
+            if (chain) {
+                parts.push(...chain);
+                parts.push(...chain.map(c => t(c)));
+            }
+        }
+
+        if (Array.isArray(unique?.Lines)) {
+            unique.Lines.forEach((l) => {
+                parts.push(format(l));
+            });
+        }
+
+        if (Array.isArray(unique?.Equipment?.Lines)) {
+            unique.Equipment.Lines.forEach((l) => {
+                parts.push(format(l));
             });
         }
 
         if (Array.isArray(unique?.Equipment?.DamageTypes)) {
             for (const d of unique.Equipment.DamageTypes) {
                 parts.push(getDamageTypeStringUtil(d.Type));
-                if (d.DamageString) parts.push(d.DamageString);
+                if (Array.isArray(d.Lines)) {
+                    d.Lines.forEach((l) => {
+                        parts.push(format(l));
+                    });
+                }
             }
         }
 
@@ -353,8 +378,8 @@ export class Uniques {
         // Extract unique Equipment.Name values
         const uniqueEquipmentNames = new Set<string>();
         filteredUniques.forEach((unique) => {
-            if (unique.Equipment && unique.Equipment.Name) {
-                uniqueEquipmentNames.add(unique.Equipment.Name);
+            if (unique.Equipment && unique.Equipment.NameKey) {
+                uniqueEquipmentNames.add(unique.Equipment.NameKey);
             }
         });
 
@@ -364,9 +389,9 @@ export class Uniques {
             label: string;
         }> = [{ value: '', label: '-' }];
         Array.from(uniqueEquipmentNames)
-            .sort()
-            .forEach((name) => {
-                equipmentNameOptions.push({ value: name, label: name });
+            .sort((a, b) => t(a).localeCompare(t(b)))
+            .forEach((key) => {
+                equipmentNameOptions.push({ value: key, label: t(key) });
             });
 
         return equipmentNameOptions;
