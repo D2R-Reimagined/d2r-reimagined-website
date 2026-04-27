@@ -9370,12 +9370,6 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "str_coldlength",
-        "args": [
-          25
-        ]
-      },
-      {
         "key": "ModStr1t",
         "args": [
           6,
@@ -9407,12 +9401,6 @@
     "ETypes": [],
     "PType": "Prefix",
     "Lines": [
-      {
-        "key": "str_coldlength",
-        "args": [
-          50
-        ]
-      },
       {
         "key": "ModStr1t",
         "args": [
@@ -9446,12 +9434,6 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "str_coldlength",
-        "args": [
-          75
-        ]
-      },
-      {
         "key": "ModStr1t",
         "args": [
           16,
@@ -9482,12 +9464,6 @@
     "ETypes": [],
     "PType": "Prefix",
     "Lines": [
-      {
-        "key": "str_coldlength",
-        "args": [
-          100
-        ]
-      },
       {
         "key": "ModStr1t",
         "args": [
@@ -12859,12 +12835,6 @@
           10,
           15
         ]
-      },
-      {
-        "key": "str_maxdurability",
-        "args": [
-          5
-        ]
       }
     ]
   },
@@ -12891,13 +12861,6 @@
         "args": [
           16,
           25
-        ]
-      },
-      {
-        "key": "str_maxdurability",
-        "args": [
-          6,
-          10
         ]
       }
     ]
@@ -12926,13 +12889,6 @@
           26,
           35
         ]
-      },
-      {
-        "key": "str_maxdurability",
-        "args": [
-          11,
-          15
-        ]
       }
     ]
   },
@@ -12959,13 +12915,6 @@
         "args": [
           36,
           45
-        ]
-      },
-      {
-        "key": "str_maxdurability",
-        "args": [
-          16,
-          20
         ]
       }
     ]
@@ -12994,13 +12943,6 @@
           46,
           55
         ]
-      },
-      {
-        "key": "str_maxdurability",
-        "args": [
-          21,
-          30
-        ]
       }
     ]
   },
@@ -13027,13 +12969,6 @@
         "args": [
           56,
           65
-        ]
-      },
-      {
-        "key": "str_maxdurability",
-        "args": [
-          31,
-          45
         ]
       }
     ]
@@ -13062,13 +12997,6 @@
           66,
           80
         ]
-      },
-      {
-        "key": "str_maxdurability",
-        "args": [
-          46,
-          59
-        ]
       }
     ]
   },
@@ -13095,13 +13023,6 @@
         "args": [
           81,
           100
-        ]
-      },
-      {
-        "key": "str_maxdurability",
-        "args": [
-          60,
-          75
         ]
       }
     ]
@@ -13130,12 +13051,6 @@
           3,
           5
         ]
-      },
-      {
-        "key": "str_maxdurability",
-        "args": [
-          5
-        ]
       }
     ]
   },
@@ -13161,13 +13076,6 @@
           6,
           9
         ]
-      },
-      {
-        "key": "str_maxdurability",
-        "args": [
-          6,
-          10
-        ]
       }
     ]
   },
@@ -13191,13 +13099,6 @@
         "key": "Modstr2v",
         "args": [
           10,
-          15
-        ]
-      },
-      {
-        "key": "str_maxdurability",
-        "args": [
-          11,
           15
         ]
       }
@@ -13225,13 +13126,6 @@
           16,
           20
         ]
-      },
-      {
-        "key": "str_maxdurability",
-        "args": [
-          16,
-          20
-        ]
       }
     ]
   },
@@ -13253,13 +13147,6 @@
     "Lines": [
       {
         "key": "Modstr2v",
-        "args": [
-          21,
-          30
-        ]
-      },
-      {
-        "key": "str_maxdurability",
         "args": [
           21,
           30
@@ -13289,13 +13176,6 @@
           31,
           40
         ]
-      },
-      {
-        "key": "str_maxdurability",
-        "args": [
-          31,
-          45
-        ]
       }
     ]
   },
@@ -13321,13 +13201,6 @@
           41,
           50
         ]
-      },
-      {
-        "key": "str_maxdurability",
-        "args": [
-          46,
-          59
-        ]
       }
     ]
   },
@@ -13351,13 +13224,6 @@
         "key": "Modstr2v",
         "args": [
           51,
-          75
-        ]
-      },
-      {
-        "key": "str_maxdurability",
-        "args": [
-          60,
           75
         ]
       }
