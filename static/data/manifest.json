@@ -1,18 +1,14 @@
 {
-  "BuildTimestamp": "2026-04-27T09:28:20.3022497Z",
+  "BuildTimestamp": "2026-04-27T10:14:30.2016948Z",
   "SourceModVersion": null,
   "Files": {
     "keyed/armors.json": {
-      "Sha256": "32560c45a98b1c6dd085ee0d5814386b591d4d77fdb6af4f95a17e4bc01ba2d9",
-      "Bytes": 273457
+      "Sha256": "b41c62ec355b6542de4b7dd0fab7a850585deba122136944ab7ccd358873ebfd",
+      "Bytes": 289710
     },
     "keyed/cube-recipes.json": {
       "Sha256": "29f0df37d88a2134a14b0b891cd34814e3f973f6d7763b746b3312ca3079ba19",
       "Bytes": 1317645
-    },
-    "keyed/gems.json": {
-      "Sha256": "91e335a3bacabcf41b813d2feaf528ab2d32e4754976eb5f92e7e0e4adbba61b",
-      "Bytes": 24249
     },
     "keyed/magicprefix.json": {
       "Sha256": "2f578af11a2549dba74e682993250db2ea6bff6301cb1491db63d2259603af34",
@@ -21,10 +17,6 @@
     "keyed/magicsuffix.json": {
       "Sha256": "00ff4a1bc8a92757a2a541df74305fbaf55caa223e9047bb2f9f1851a9e6508c",
       "Bytes": 378351
-    },
-    "keyed/runes.json": {
-      "Sha256": "499d99218faae21210c36d3d214b656b3ed1e0c770b2dfe088c7ca0869bf20f9",
-      "Bytes": 16543
     },
     "keyed/runewords.json": {
       "Sha256": "dcd65d0fabbbe25a748c2f955fcf6dc9fb3d55628b179d82bbbeb6d08cd0ded4",
@@ -39,60 +31,60 @@
       "Bytes": 2414258
     },
     "keyed/weapons.json": {
-      "Sha256": "10040abc4c6c2d973c722f3e688de18f7939361fb0bbaa9586d30c1cc733ebec",
-      "Bytes": 344322
+      "Sha256": "c7a67f8c3d47f213012cc39ba14d9f7bc3bdc0e2f345d4f799854c68b511baa2",
+      "Bytes": 368950
     },
     "strings/deDE.json": {
-      "Sha256": "da5edd656a9ff10494508e65a5f32f7d30949317492aabbf10b749f2be382ae7",
-      "Bytes": 172604
+      "Sha256": "dbea151426070918eecdd83e07a2a715c09c6433755c5c68c29f6f0100d1db45",
+      "Bytes": 170976
     },
     "strings/enUS.json": {
-      "Sha256": "818c60b64ead6eeb81ccea273f0fcc59ea4e44fa2aaa029878dd77d6d2045e69",
-      "Bytes": 152310
+      "Sha256": "87f379293dccec54569c529934ed042f8fe8062c94f1678bb8e150605ab28be5",
+      "Bytes": 150783
     },
     "strings/esES.json": {
-      "Sha256": "d22a6d0ec98ae683cc2e655479f45ce980102fd9f6c6382714fee491e79aa69c",
-      "Bytes": 175696
+      "Sha256": "7a68860c8c10a5f3ef361cf1a189f1bbe4e3c0215b82d21b674079af08ad6f18",
+      "Bytes": 174048
     },
     "strings/esMX.json": {
-      "Sha256": "c44af4b0327c5efb8a9f551c357867a1284412df2253c41777443579bb2ae7e2",
-      "Bytes": 172319
+      "Sha256": "4484f577af7a39d4d83908eaf5265f7a9c56c6c5186a7d06deae21b14bd44dd1",
+      "Bytes": 170704
     },
     "strings/frFR.json": {
-      "Sha256": "992f6416053567629e1fd5907299b831c49452531a28f73d04e092bdba8dca2b",
-      "Bytes": 175937
+      "Sha256": "d898feb35530e31a2c336db13f10ba28642aa6639773abc9c029e7ea13d6eacd",
+      "Bytes": 174327
     },
     "strings/itIT.json": {
-      "Sha256": "d380e5b8642af9b2eceb4552af0a4eeafbd03225aeeb5260cc257070d8171a06",
-      "Bytes": 172284
+      "Sha256": "85aebcff243018451cafd1a31be5b5e1e2275183888888be6eaf8389e9bd1dc4",
+      "Bytes": 170694
     },
     "strings/jaJP.json": {
-      "Sha256": "62fdf0fab6da39f759718d685a1e5b56db42e3054328646f951338b572e99c60",
-      "Bytes": 184272
+      "Sha256": "140f2e3c1130feb25f347f1b3a1134af0c2d99d7fceed97298748cd2140825a0",
+      "Bytes": 182306
     },
     "strings/koKR.json": {
-      "Sha256": "f01ade2995361641e9724c2a525a207982801f0f36ab960c95b44a91584f106c",
-      "Bytes": 163085
+      "Sha256": "7987a48723b5e996a7c32b286c286b744c6c0504ad67414441bd6d3af47280a0",
+      "Bytes": 161361
     },
     "strings/plPL.json": {
-      "Sha256": "25d5b8cc849567bd2b531b55fe5774d89541c989a0a8ba3b2a0107b6b2d7fb0f",
-      "Bytes": 168292
+      "Sha256": "b35975ad04c1d313b207ee4259f4486af22a998acb43edf19ce2b29eea2d5a8b",
+      "Bytes": 166683
     },
     "strings/ptBR.json": {
-      "Sha256": "46d1fc94053347e3c6698c92e978052085067fd170aae8daca56c94a876e2a64",
-      "Bytes": 174695
+      "Sha256": "a243ac3034f153e7f75b477d1e692b066859d70fca1101edae39775dc74eb2b7",
+      "Bytes": 173089
     },
     "strings/ruRU.json": {
-      "Sha256": "238970f4bb0fefba0ce0aec251ccb9e7ae2a89f62c1d26849b63e8c38b743e4f",
-      "Bytes": 230512
+      "Sha256": "d9c82c521db2aad10de0ff6d0b2694f3d00af522d550f1d167e2b2ce6c0107ef",
+      "Bytes": 228345
     },
     "strings/zhCN.json": {
-      "Sha256": "09f5da8ba62bf8e7cd4f501c7773d793db533cb660846df19c4b8c36236eaf99",
-      "Bytes": 147560
+      "Sha256": "e5dbb7d06c713a625f0e2c2f0203a8387922452eae23c142be792c309b7ecf49",
+      "Bytes": 145792
     },
     "strings/zhTW.json": {
-      "Sha256": "38a87a6ae7bd2c7d36cab069cbcaaf18137f026cf3b3931bb997ff6732350f48",
-      "Bytes": 147608
+      "Sha256": "5e7898320e8fa8c806c02562322bac41bfc29ec0a90aa8b605f74848c35f912e",
+      "Bytes": 145969
     }
   }
 }
