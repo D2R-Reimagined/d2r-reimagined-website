@@ -1,51 +1,51 @@
 <template>
     <h3 class="text-lg type-text text-center mx-auto mt-4">
-        <span class="text-lg set-text">Green text </span>are included item types.
+        <span class="text-lg set-text">${'affix_included_types' | t}</span>
     </h3>
     <h3 class="text-lg type-text text-center mx-auto mb-4">
-        <span class="text-lg requirement-text">Red text </span>are excluded item types.
+        <span class="text-lg requirement-text">${'affix_excluded_types' | t}</span>
     </h3>
     <h3 class="text-lg type-text text-center mx-auto my-4">
-        <span class="rarity-text">${filteredAffixes.length}</span> Magic Affixes Found
+        <span class="rarity-text">${filteredAffixes.length}</span> ${'found_affixes_suffix' | t}
     </h3>
 
     <search-area>
         <div class="w-full m-auto px-5 py-2">
             <div class="flex flex-wrap justify-center items-start gap-2">
 
-                <div class="w-full lg:w-auto lg:min-w-45" data-help-text="Choose between prefixes, suffixes, or both.">
+                <div class="w-full lg:w-auto lg:min-w-45" data-help-text="${'help_affix_type_filter' | t}">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <select id="ptype" class="select-base peer" value.bind="selectedPType">
-                                <option repeat.for="opt of pTypeOptions" value.bind="opt.value"> ${opt.label}</option>
+                                <option repeat.for="opt of pTypeOptions" value.bind="opt.value"> ${opt.label | t}</option>
                             </select>
-                            <label for="ptype" class="floating-label">Select Affix Type</label>
+                            <label for="ptype" class="floating-label">${'filter_select_affix_type' | t}</label>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="ptype">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Affix Type filter</span>
+                            <span class="sr-only">${'info_more_about' | t:'filter_select_affix_type'}</span>
                         </button>
                     </div>
                 </div>
 
                 <searchable-select id="desc"
                                    class="w-full lg:w-auto lg:min-w-60"
-                                   data-help-text="Filter by property group (e.g., Damage, Defense, Utility). Note: Still WIP some may be incorrect."
+                                   data-help-text="${'help_property_type_filter' | t}"
                                    value.bind="selectedGroupDescription"
                                    options.bind="groupOptions"
-                                   label="Select Property Type">
+                                   label="${'filter_select_property_type' | t}">
                     <button au-slot="after" type="button" class="m-info-button" aria-expanded="false" data-info-for="desc">
                         <span class="mso">info</span>
-                        <span class="sr-only">More info about Property Type filter</span>
+                        <span class="sr-only">${'info_more_about' | t:'filter_select_property_type'}</span>
                     </button>
                 </searchable-select>
 
                 <searchable-select id="itype"
                                    class="w-full lg:w-auto lg:min-w-75"
-                                   data-help-text="Filter by base item type. Toggle ‘Exact’ to remove variants."
+                                   data-help-text="${'help_item_type_filter' | t}"
                                    value.bind="selectedType"
                                    options.bind="types"
-                                   label="Select Item Type"
+                                   label="${'filter_select_type' | t}"
                                    exact.bind="true">
                     <div au-slot="after" class="flex items-stretch">
                         <button type="button"
@@ -53,58 +53,58 @@
                                 aria-pressed.bind="exclusiveType"
                                 click.trigger="exclusiveType = !exclusiveType">
                             <span class="exact-indicator"></span>
-                            Exact
+                            ${'filter_exact' | t}
                         </button>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="itype">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Item Type filter</span>
+                            <span class="sr-only">${'info_more_about' | t:'filter_select_type'}</span>
                         </button>
                     </div>
                 </searchable-select>
 
-                <div class="w-full lg:w-60" data-help-text="Search across all fields. Text is matched as a phrase. Use '+' to require multiple terms (AND). Use ',' or '|' for OR. Prefix with '-' or '!' to exclude a term or phrase. ex. 'fire skill damage' finds the exact phrase. 'fire+cold' finds items with both. 'fire,cold' finds items with either. '-fire' excludes items containing fire. 'damage -fire' finds items with damage but not fire. 'fire skill damage -cold skill damage' finds fire skill damage but excludes cold skill damage.">
+                <div class="w-full lg:w-60" data-help-text="${'help_search' | t}">
                     <div class="flex items-stretch">
                         <div class="trailing-icon flex-1" data-icon="search">
                             <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search"
                                    placeholder=" "/>
-                            <label for="inputsearch" class="floating-label">Search...</label>
+                            <label for="inputsearch" class="floating-label">${'filter_search_placeholder' | t}</label>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="inputsearch">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Search</span>
+                            <span class="sr-only">${'info_more_about' | t:'filter_search_placeholder'}</span>
                         </button>
                     </div>
                 </div>
 
-                <div class="w-full flex flex-nowrap gap-2 lg:w-auto lg:min-w-60" data-help-text="Filter by required level range. The min and max values will update each other if they overlap.">
+                <div class="w-full flex flex-nowrap gap-2 lg:w-auto lg:min-w-60" data-help-text="${'help_required_level_range' | t}">
                     <div class="w-full relative">
                         <select id="minrlvl" class="select-base peer" value.bind="minRequiredLevel">
                             <option repeat.for="opt of rLevelOptions" value.bind="opt.value">${opt.label}</option>
                         </select>
-                        <label for="minrlvl" class="floating-label">Min RLv</label>
+                        <label for="minrlvl" class="floating-label">${'filter_min_rlvl' | t}</label>
                     </div>
                     <div class="w-full relative">
                         <select id="maxrlvl" class="select-base peer" value.bind="maxRequiredLevel">
                             <option repeat.for="opt of rLevelOptions" value.bind="opt.value">${opt.label}</option>
                         </select>
-                        <label for="maxrlvl" class="floating-label">Max RLv</label>
+                        <label for="maxrlvl" class="floating-label">${'filter_max_rlvl' | t}</label>
                     </div>
                     <button type="button" class="m-info-button ml-0!" aria-expanded="false" data-info-for="minrlvl">
                         <span class="mso">info</span>
-                        <span class="sr-only">More info about Required Level filters</span>
+                        <span class="sr-only">${'info_more_about' | t:'help_required_level_range'}</span>
                     </button>
                 </div>
 
-                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Reset all filters to default.">
+                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="${'help_reset_filters' | t}">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <button id="filterreset" class="button-base" type="button" click.trigger="resetFilters()">
-                                Reset Filters
+                                ${'filter_reset' | t}
                             </button>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="filterreset">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Reset Filters</span>
+                            <span class="sr-only">${'info_more_about' | t:'filter_reset'}</span>
                         </button>
                     </div>
                 </div>
@@ -117,48 +117,28 @@
         <div class="card-box card-vis" repeat.for="affix of filteredAffixes">
 
                 <div class="flex justify-between items-center">
-                    <div class="text-lg prop-text mt-1 ml-1">${affix.Name}</div>
-                    <div class="text-lg type-text mt-1 mr-1">${affix.PType}</div>
+                    <div class="text-lg prop-text mt-1 ml-1">${affix.NameKey | t}</div>
+                    <div class="text-lg type-text mt-1 mr-1">${(affix.PType === 'Prefix' ? 'label_prefix' : 'label_suffix') | t}</div>
                 </div>
 
                 <div class="text-base requirement-text mb-1">
-                    Level ${affix.RequiredLevel >0? affix.RequiredLevel: 1} Required
+                    ${'label_level_required' | t: affix.RequiredLevel || 1}
                 </div>
 
                 <div class="text-base type-text mb-1" if.bind="affix.Level">
-                    Affix Level ${affix.Level}${affix.MaxLevel ? '-' + affix.MaxLevel : ''}
+                    ${'label_affix_level' | t: (affix.MaxLevel ? affix.Level + '-' + affix.MaxLevel : affix.Level)}
                 </div>
 
                 <div class="flex flex-wrap justify-center" if.bind="affix.Types && affix.Types.length">
-                    <span class="text-base set-text mx-1" repeat.for="t of affix.Types">${t}</span>
+                    <span class="text-base set-text mx-1" repeat.for="t of affix.Types">${t | t}</span>
                 </div>
 
                 <div class="flex flex-wrap justify-center" if.bind="affix.ETypes && affix.ETypes.length">
-                    <span class="text-base requirement-text mx-1" repeat.for="et of affix.ETypes">${et}</span>
+                    <span class="text-base requirement-text mx-1" repeat.for="et of affix.ETypes">${et | t}</span>
                 </div>
 
-                <div class="text-base prop-text my-1" repeat.for="prop of affix.Properties | sortProperties">
-                    <div if.bind="prop.PropertyString">
-                        ${prop.PropertyString}
-                    </div>
-                    <div if.bind="prop['group-properties']">
-                        <div repeat.for="[groupName, pool] of prop['group-properties'] | entries">
-                            <div if.bind="prop.pickmode == 0 || (pool[0] && pool[0].PickMode == 0)">
-                                <div repeat.for="affixData of pool" if.bind="affixData.PropertyString">
-                                    ${affixData.PropertyString}
-                                </div>
-                            </div>
-                            <div if.bind="prop.pickmode != 0 && (!pool[0] || pool[0].PickMode != 0)" class="border px-2 border-gray-600 rounded m-2">
-                                <div class="set-text text-center p-1 border-b border-gray-600">
-                                    ${formatGroupName(groupName)}
-                                </div>
-                                <div repeat.for="affixData of pool" if.bind="affixData.PropertyString" class="flex justify-between p-1 border-b border-gray-700 last:border-0">
-                                    <span class="prop-text">${affixData | chance:pool}%</span>
-                                    <span class="text-right">${affixData.PropertyString}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="text-base prop-text my-1" repeat.for="line of affix.Lines | keyedLines">
+                    ${line}
                 </div>
 
             </div>

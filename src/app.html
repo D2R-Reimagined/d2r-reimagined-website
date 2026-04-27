@@ -2,22 +2,56 @@
     <div class="w-full h-16 px-4 flex flex-nowrap items-center justify-between mx-auto">
 
         <a href="/" class="text-xl link-text truncate">
-            D2R Reimagined
+            ${'app_brand' | t}
         </a>
 
         <div class="flex lg:order-2">
+            <!-- Language selection dropdown -->
+            <div class="flex items-center relative language-menu px-2">
+                <button type="button"
+                        class="text-2xl link-text inline-flex items-center cursor-pointer select-none"
+                        data-help-text="${'lang_tooltip' | t:activeLanguageCode}"
+                        data-tooltip-placement="bottom"
+                        aria-label="${'aria_choose_language' | t}"
+                        aria-haspopup="true"
+                        aria-expanded.bind="languageMenuOpen.toString()"
+                        click.trigger="toggleLanguageMenu()"
+                        keydown.trigger="event.key === 'Escape' && closeLanguageMenu()">
+                    <span class="sr-only">${'sr_select_language' | t}</span>
+                    <span class="mso">language</span>
+                </button>
+                <!-- Dropdown panel -->
+                <div if.bind="languageMenuOpen"
+                     class="fixed right-5 top-15.75 min-w-60 z-30 bg-gray-800 border border-gray-600 rounded-b-lg shadow-md overflow-hidden"
+                     role="menu"
+                     keydown.trigger="event.key === 'Escape' && closeLanguageMenu()">
+                    <ul class="py-1 max-h-96 overflow-y-auto">
+                        <li repeat.for="lang of languages">
+                            <button type="button"
+                                    class="w-full text-left px-4 py-3 text-lg link-text flex items-center justify-between hover:bg-gray-700"
+                                    role="menuitem"
+                                    click.trigger="selectLanguage(lang.code)">
+                                <span>${lang.name}</span>
+                                <span if.bind="lang.code === activeLanguageCode"
+                                      class="mso ml-2">check</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
             <!-- Font selection dropdown -->
             <div class="flex items-center relative font-menu px-4">
                 <button type="button"
                         class="text-2xl link-text inline-flex items-center cursor-pointer select-none"
-                        data-help-text="Select a font for viewing the site."
+                        data-help-text="${'font_tooltip' | t:activeLanguageCode}"
                         data-tooltip-placement="bottom"
-                        aria-label="Choose font"
+                        aria-label="${'aria_choose_font' | t}"
                         aria-haspopup="true"
                         aria-expanded.bind="fontMenuOpen.toString()"
                         click.trigger="toggleFontMenu()"
                         keydown.trigger="event.key === 'Escape' && closeFontMenu()">
-                    <span class="sr-only">Select Font</span>
+                    <span class="sr-only">${'sr_select_font' | t}</span>
                     <span class="mso">type_specimen</span>
                 </button>
                 <!-- Dropdown panel -->
@@ -45,7 +79,7 @@
                     class="flex items-center px-2 text-2xl link-text lg:hidden"
                     aria-controls="navbar-sticky" aria-expanded="false"
                     click.trigger="toggleMobileMenu($event.currentTarget)">
-                <span class="sr-only">Open main menu</span>
+                <span class="sr-only">${'sr_open_menu' | t}</span>
                 <span class="mso">menu</span>
             </button>
 
@@ -63,36 +97,36 @@
             <ul class="flex flex-col gap-4 p-4 border border-gray-600 bg-gray-800 rounded-b-lg lg:flex-row lg:gap-6 lg:p-0 lg:border-0 lg:bg-transparent">
                 <li>
                     <a href="/bases" class="block text-lg link-text" aria-current="page"
-                       click.trigger="closeMobileMenu()">Bases</a>
+                       click.trigger="closeMobileMenu()">${'nav_bases' | t:activeLanguageCode}</a>
                 </li>
                 <li>
                     <a href="/affixes" class="block text-lg link-text" aria-current="page"
-                       click.trigger="closeMobileMenu()">Affixes</a>
+                       click.trigger="closeMobileMenu()">${'nav_affixes' | t:activeLanguageCode}</a>
                 </li>
                 <li>
                     <a href="/uniques" class="block text-lg link-text" aria-current="page"
-                       click.trigger="closeMobileMenu()">Uniques</a>
+                       click.trigger="closeMobileMenu()">${'nav_uniques' | t:activeLanguageCode}</a>
                 </li>
                 <li>
                     <a href="/sets" class="block text-lg link-text" aria-current="page"
-                       click.trigger="closeMobileMenu()">Sets</a>
+                       click.trigger="closeMobileMenu()">${'nav_sets' | t:activeLanguageCode}</a>
                 </li>
                 <li>
                     <a href="/runewords" class="block text-lg link-text" aria-current="page"
-                       click.trigger="closeMobileMenu()">Runewords</a>
+                       click.trigger="closeMobileMenu()">${'nav_runewords' | t:activeLanguageCode}</a>
                 </li>
                 <li>
                     <a href="/grail" class="block text-lg link-text" aria-current="page"
-                       click.trigger="closeMobileMenu()">Grail</a>
+                       click.trigger="closeMobileMenu()">${'nav_grail' | t:activeLanguageCode}</a>
                 </li>
                 <li>
                     <a href="/cube-recipes" class="block text-lg link-text truncate" aria-current="page"
-                       click.trigger="closeMobileMenu()">Cube Recipes</a>
+                       click.trigger="closeMobileMenu()">${'nav_cube_recipes' | t:activeLanguageCode}</a>
                 </li>
                 <li>
                     <a href="https://wiki.d2r-reimagined.com/" target="_blank"
                        class="flex text-lg link-text items-center" aria-current="page"
-                       click.trigger="closeMobileMenu()">Wiki<span class="mso ml-1">open_in_new</span>
+                       click.trigger="closeMobileMenu()">${'nav_wiki' | t}<span class="mso ml-1">open_in_new</span>
                     </a>
                 </li>
             </ul>
@@ -104,7 +138,7 @@
 <!-- Nav Bar Spacer -->
 <div class="h-16"></div>
 
-<div class="w-full pb-12">
+<div class="w-full pb-12" if.bind="activeLanguageCode">
     <au-viewport default="Home"></au-viewport>
 </div>
 
@@ -113,7 +147,7 @@
         class="min-w-10 min-h-10 m-auto flex items-center justify-center text-2xl type-text
         fixed bottom-2 right-2 z-50 ring-0 ring-offset-0 rounded-full shadow-md
          bg-gray-800 border border-gray-600 hover:bg-gray-700 hover:border-gray-400"
-        aria-label="Back to top" click.trigger="scrollToTop()" if.bind="showBackToTop">
+        aria-label="${'aria_back_to_top' | t}" click.trigger="scrollToTop()" if.bind="showBackToTop">
     <span class="mso" aria-hidden="true">arrow_upward</span>
-    <span class="sr-only">Top</span>
+    <span class="sr-only">${'sr_top' | t}</span>
 </button>

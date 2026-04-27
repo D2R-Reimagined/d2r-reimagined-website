@@ -1,73 +1,73 @@
 <template>
     <h3 class="text-lg type-text text-center my-4">
-        <span class="rarity-text">[N]</span> = Normal <span class="rarity-text">[X]</span> = Exceptional <span
-            class="rarity-text">[E]</span> = Elite
+        <span class="rarity-text">[N]</span> = ${'label_normal' | t} <span class="rarity-text">[X]</span> = ${'label_exceptional' | t} <span
+            class="rarity-text">[E]</span> = ${'label_elite' | t}
     </h3>
     <h3 class="text-lg type-text text-center items-center mx-auto mb-4">
-        <span class="unique-text">- Holy Grail Tracker -</span>
+        <span class="unique-text">${'grail_title' | t}</span>
         <template if.bind="selectedCategory === 'sets'">
             <div>
                 <span class="rarity-text">${setItemFoundCount}</span>/<span
                     class="rarity-text">${setItemTotalCount}</span>
-                Items Found
-                (<span class="rarity-text">${setItemsDisplayedCount}</span> Displayed)
+                ${'found_items_suffix' | t}
+                (<span class="rarity-text">${setItemsDisplayedCount}</span> ${'grail_displayed_suffix' | t})
             </div>
             <div>
                 <span class="rarity-text">${foundCount}</span>/<span
                     class="rarity-text">${totalCount}</span>
-                Sets Completed
-                (<span class="rarity-text">${displayedCount}</span> Displayed)
+                ${'grail_sets_completed' | t}
+                (<span class="rarity-text">${displayedCount}</span> ${'grail_displayed_suffix' | t})
             </div>
         </template>
         <template if.bind="selectedCategory !== 'sets'">
             <div class="mb-11">
                 <span class="rarity-text">${foundCount}</span>/<span
                     class="rarity-text">${totalCount}</span>
-                Items Found
-                (<span class="rarity-text">${displayedCount}</span> Displayed)
+                ${'found_items_suffix' | t}
+                (<span class="rarity-text">${displayedCount}</span> ${'grail_displayed_suffix' | t})
             </div>
         </template>
     </h3>
 
     <div class="flex flex-col items-center gap-2 px-5 pb-5">
-        <div class="w-full lg:w-85" data-help-text="Reset the tracked progress for the current Grail category only." data-tooltip-placement="top">
+        <div class="w-full lg:w-85" data-help-text="${'help_grail_reset' | t}" data-tooltip-placement="top">
             <div class="flex items-stretch">
                 <div class="relative flex-1">
                     <button id="resetgrailcat" type="button" click.trigger="resetGrail()" class="button-base">
-                        Reset Grail Category Progress
+                        ${'grail_reset_progress' | t}
                     </button>
                 </div>
                 <button type="button" class="m-info-button" aria-expanded="false" data-info-for="resetgrailcat">
                     <span class="mso">info</span>
-                    <span class="sr-only">More info about Reset Grail Category Progress</span>
+                    <span class="sr-only">${'info_more_about' | t:'grail_reset_progress'}</span>
                 </button>
             </div>
         </div>
-        <div class="w-full lg:w-85" data-help-text="Open a popup to export or import Grail progress as base64.">
+        <div class="w-full lg:w-85" data-help-text="${'help_grail_import_export' | t}">
             <div class="flex items-stretch">
                 <div class="relative flex-1">
                     <button id="importexportgraildata" type="button" click.trigger="openImportExportPopup()" class="button-base">
-                        Import/Export Grail Data
+                        ${'grail_import_export' | t}
                     </button>
                 </div>
                 <button type="button" class="m-info-button" aria-expanded="false" data-info-for="importexportgraildata">
                     <span class="mso">info</span>
-                    <span class="sr-only">More info about Import/Export Grail Data</span>
+                    <span class="sr-only">${'info_more_about' | t:'grail_import_export'}</span>
                 </button>
             </div>
         </div>
-        <div class="w-full lg:w-85" data-help-text="Filter toggle to hide items you've already found.">
+        <div class="w-full lg:w-85" data-help-text="${'help_grail_hide_found' | t}">
             <div class="flex items-stretch">
                 <div class="relative flex-1">
                     <button id="hidefounditems" type="button" class="vanilla-button flex-row-reverse justify-between"
                             aria-pressed.bind="showFoundItems"
                             click.trigger="showFoundItems = !showFoundItems"><span class="vanilla-indicator"></span>
-                        Hide Found Items
+                        ${'grail_hide_found' | t}
                     </button>
                 </div>
                 <button type="button" class="m-info-button" aria-expanded="false" data-info-for="hidefounditems">
                     <span class="mso">info</span>
-                    <span class="sr-only">More info about the Hide Found Items button</span>
+                    <span class="sr-only">${'info_more_about' | t:'grail_hide_found'}</span>
                 </button>
             </div>
         </div>
@@ -77,27 +77,27 @@
         <div class="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4">
             <div class="w-full max-w-3xl bg-slate-900 border border-slate-600 rounded-md p-4">
                 <div class="flex items-center justify-between mb-3">
-                    <div class="text-lg unique-text">Import/Export Grail Data</div>
-                    <button type="button" class="button-base px-4 py-2 w-auto" click.trigger="closeImportExportPopup()">Close</button>
+                    <div class="text-lg unique-text">${'grail_import_export' | t}</div>
+                    <button type="button" class="button-base px-4 py-2 w-auto" click.trigger="closeImportExportPopup()">${'grail_close' | t}</button>
                 </div>
 
                 <div class="mb-4">
-                    <div class="rarity-text mb-2">Export (Base64)</div>
+                    <div class="rarity-text mb-2">${'grail_export_label' | t}</div>
                     <textarea class="select-base w-full min-h-30 font-mono text-xs" readonly value.bind="exportDataString"></textarea>
                     <div class="flex gap-2 mt-2">
-                        <button type="button" class="button-base" click.trigger="refreshExportData()">Refresh Export</button>
-                        <button type="button" class="button-base" click.trigger="copyExportData()">Copy Export String</button>
+                        <button type="button" class="button-base" click.trigger="refreshExportData()">${'grail_refresh_export' | t}</button>
+                        <button type="button" class="button-base" click.trigger="copyExportData()">${'grail_copy_export' | t}</button>
                     </div>
                 </div>
 
                 <div>
-                    <div class="rarity-text mb-2">Import (Base64)</div>
+                    <div class="rarity-text mb-2">${'grail_import_label' | t}</div>
                     <textarea class="select-base w-full min-h-30 font-mono text-xs"
                               value.bind="importDataString"
-                              placeholder="Paste base64 Grail data here"></textarea>
+                              placeholder="${'grail_import_placeholder' | t}"></textarea>
                     <div class="flex gap-2 mt-2">
-                        <button type="button" class="button-base" click.trigger="importMerge()">Merge</button>
-                        <button type="button" class="button-base" click.trigger="importReplace()">Replace</button>
+                        <button type="button" class="button-base" click.trigger="importMerge()">${'grail_merge' | t}</button>
+                        <button type="button" class="button-base" click.trigger="importReplace()">${'grail_replace' | t}</button>
                     </div>
                 </div>
             </div>
@@ -108,76 +108,76 @@
         <div class="w-full m-auto px-5 py-2">
             <div class="flex flex-wrap justify-center items-start gap-2">
 
-                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Choose the Grail category list.">
+                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="${'help_grail_category' | t}">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <select id="category" class="select-base peer" value.bind="selectedCategory">
-                                <option repeat.for="opt of categories" value.bind="opt.value">${opt.label}</option>
+                                <option repeat.for="opt of categories" value.bind="opt.value">${opt.label | t}</option>
                             </select>
-                            <label for="category" class="floating-label">Select Category</label>
+                            <label for="category" class="floating-label">${'filter_select_category' | t}</label>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="category">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Category filter</span>
+                            <span class="sr-only">${'info_more_about' | t:'Category filter'}</span>
                         </button>
                     </div>
                 </div>
 
-                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Filter by character class.">
+                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="${'help_class_filter' | t}">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <select id="ficlass" class="select-base peer" value.bind="selectedClass">
-                                <option repeat.for="opt of classes" value.bind="opt.value">${opt.label}</option>
+                                <option repeat.for="opt of classes" value.bind="opt.value">${opt.label | t}</option>
                             </select>
-                            <label for="ficlass" class="floating-label">Select Class</label>
+                            <label for="ficlass" class="floating-label">${'filter_select_class' | t}</label>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="ficlass">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Class filter</span>
+                            <span class="sr-only">${'info_more_about' | t:'filter_select_class'}</span>
                         </button>
                     </div>
                 </div>
 
                 <searchable-select id="itype"
                                    class="w-full lg:w-auto lg:min-w-60"
-                                   data-help-text="Filter by base item type, looser than other pages due to Grail."
+                                   data-help-text="${'help_item_type_filter_grail' | t}"
                                    value.bind="selectedTypeBase"
                                    options.bind="types"
-                                   label="Select Type">
+                                   label="${'filter_select_type' | t}">
                     <button au-slot="after" type="button" class="m-info-button" aria-expanded="false" data-info-for="itype">
                         <span class="mso">info</span>
-                        <span class="sr-only">More info about Type filter</span>
+                        <span class="sr-only">${'info_more_about' | t:'filter_select_type'}</span>
                     </button>
                 </searchable-select>
 
                 <searchable-select id="eqsel"
                                    class="w-full lg:w-auto lg:min-w-60"
-                                   data-help-text="Filter to a specific equipment for the selected item type, disabled if one isn't selected."
+                                   data-help-text="${'help_equipment_filter_uniques' | t}"
                                    value.bind="selectedEquipmentName"
                                    options.bind="equipmentNames"
-                                   label="Select Equipment"
+                                   label="${'filter_select_equipment' | t}"
                                    disabled.bind="selectedCategory === 'runewords' || !selectedTypeBase">
                     <button au-slot="after" type="button" class="m-info-button" aria-expanded="false" data-info-for="eqsel">
                         <span class="mso">info</span>
-                        <span class="sr-only">More info about Equipment filter</span>
+                        <span class="sr-only">${'info_more_about' | t:'filter_select_equipment'}</span>
                     </button>
                 </searchable-select>
 
-                <div class="w-full lg:w-60" data-help-text="Search across all fields. Text is matched as a phrase. Use '+' to require multiple terms (AND). Use ',' or '|' for OR. Prefix with '-' or '!' to exclude a term or phrase. ex. 'fire skill damage' finds the exact phrase. 'fire+cold' finds items with both. 'fire,cold' finds items with either. '-fire' excludes items containing fire. 'damage -fire' finds items with damage but not fire. 'fire skill damage -cold skill damage' finds fire skill damage but excludes cold skill damage.">
+                <div class="w-full lg:w-60" data-help-text="${'help_search' | t}">
                     <div class="flex items-stretch">
                         <div class="trailing-icon flex-1" data-icon="search">
                             <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search"
                                    placeholder=" "/>
-                            <label for="inputsearch" class="floating-label">Search...</label>
+                            <label for="inputsearch" class="floating-label">${'filter_search_placeholder' | t}</label>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="inputsearch">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Search</span>
+                            <span class="sr-only">${'info_more_about' | t:'filter_search_placeholder'}</span>
                         </button>
                     </div>
                 </div>
 
-                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Filter toggle to hide Vanilla items.">
+                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="${'help_hide_vanilla' | t}">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <button
@@ -187,26 +187,26 @@
                                     aria-pressed.bind="hideVanilla"
                                     click.trigger="hideVanilla = !hideVanilla">
                                 <span class="vanilla-indicator"></span>
-                                Hide Vanilla
+                                ${'filter_hide_vanilla' | t}
                             </button>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="hidevanillabutton">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about the Hide Vanilla button</span>
+                            <span class="sr-only">${'info_more_about' | t:'filter_hide_vanilla'}</span>
                         </button>
                     </div>
                 </div>
 
-                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Reset all filters to default.">
+                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="${'help_reset_filters' | t}">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <button id="filterreset" class="button-base" type="button" click.trigger="resetFilters()">
-                                Reset Filters
+                                ${'filter_reset' | t}
                             </button>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="filterreset">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Reset Filters</span>
+                            <span class="sr-only">${'info_more_about' | t:'filter_reset'}</span>
                         </button>
                     </div>
                 </div>
@@ -218,25 +218,25 @@
     <!-- weapon-sort-area -->
     <div if.bind="isWeaponType && selectedCategory !== 'runewords'">
         <div class="w-full m-auto px-5 py-5 pb-2 border-b border-gray-600">
-            <h4 class="text-lg type-text text-center mb-2">Sort by Average Weapon Damage:</h4>
+            <h4 class="text-lg type-text text-center mb-2">${'sort_by_damage' | t}</h4>
             <div class="flex flex-wrap justify-center items-start gap-2">
 
-                <div class="w-full lg:w-auto lg:min-w-55" data-help-text="Filter weapon type: All, 1H Only, or 2H Only.">
+                <div class="w-full lg:w-auto lg:min-w-55" data-help-text="${'help_weapon_sort_hand' | t}">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <select id="handfilter" class="select-base peer" value.bind="handFilterMode">
-                                <option repeat.for="opt of handFilterOptions" value.bind="opt.value">${opt.label}</option>
+                                <option repeat.for="opt of handFilterOptions" value.bind="opt.value">${opt.label | t}</option>
                             </select>
-                            <label for="handfilter" class="floating-label">Select Weapon Type</label>
+                            <label for="handfilter" class="floating-label">${'sort_select_weapon_type' | t}</label>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="handfilter">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Weapon Type filter</span>
+                            <span class="sr-only">${'info_more_about' | t:'sort_select_weapon_type'}</span>
                         </button>
                     </div>
                 </div>
 
-                <div repeat.for="opt of weaponSortOptions" class="w-full lg:w-auto lg:min-w-45" data-help-text.bind="opt.help">
+                <div repeat.for="opt of weaponSortOptions" class="w-full lg:w-auto lg:min-w-45" data-help-text="${opt.help | t}">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <button id.bind="opt.id" class="vanilla-button flex-row-reverse" type="button" click.trigger="toggleSort(opt.type)"
@@ -244,12 +244,12 @@
                                 <span class="mso ${weaponSortMode.includes(opt.type) ? 'set-text-light' : ''}">
                                     ${weaponSortMode === 'avg-' + opt.type + '-ascending' ? 'arrow_upward' : (weaponSortMode === 'avg-' + opt.type + '-descending' ? 'arrow_downward' : 'unknown_med')}
                                 </span>
-                                ${opt.label}
+                                ${opt.label | t}
                             </button>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for.bind="opt.id">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about ${opt.label} sorting</span>
+                            <span class="sr-only">${'info_more_about' | t:opt.label}</span>
                         </button>
                     </div>
                 </div>
@@ -258,12 +258,12 @@
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <button id="resetsort" class="button-base" type="button" click.trigger="resetSort()">
-                                Reset Sort
+                                ${'sort_reset' | t}
                             </button>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="resetsort">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Reset Sort</span>
+                            <span class="sr-only">${'info_more_about' | t:'Reset Sort'}</span>
                         </button>
                     </div>
                 </div>
@@ -280,90 +280,64 @@
                 <div class="absolute top-2 right-2">
                     <label class="inline-flex items-center cursor-pointer">
                         <input type="checkbox"
-                               checked.bind="foundUniques[unique.Name]"
-                               change.trigger="updateFoundStatus(unique.Name)"
+                               checked.bind="foundUniques[unique.Index]"
+                               change.trigger="updateFoundStatus(unique.Index)"
                                class="sr-only peer">
                         <span class="grail-toggle"></span>
                     </label>
                 </div>
 
                 <div class="mb-1">
-                    <div class="text-xl unique-text ${foundUniques[unique.Name] ? 'found' : ''}">
-                        ${unique.Name}
+                    <div class="text-xl unique-text ${foundUniques[unique.Index] ? 'found' : ''}">
+                        ${unique.Index | t}
                     </div>
                     <div class="text-base rarity-text" if.bind="unique.Rarity">
-                        Rarity: ${unique.Rarity}
+                        ${'label_rarity' | t:unique.Rarity}
                     </div>
-                    <div class="text-base rarity-text" if.bind="unique.Vanilla">
-                        ${unique.Vanilla === 'Y' ? 'Vanilla' : 'Mod'}
+                    <div class="text-base rarity-text">
+                        ${unique.Vanilla === 'Y' ? 'label_vanilla' : 'label_mod' | t}
                     </div>
                 </div>
 
                 <div class="mb-1">
-                    <div class="text-base type-text" if.bind="unique.Equipment.Name">
-                        ${unique.Equipment.Name}
+                    <div class="text-base type-text">
+                        ${unique.Equipment.NameKey | t}
                     </div>
-                    <div class="text-base type-text" if.bind="unique.Equipment.ArmorString">
-                        Defense: ${unique.Equipment.ArmorString}
+                    <div repeat.for="line of unique.Equipment.Lines"
+                         if.bind="['strDefense','strDefenseRange','strDefenseRangeRange','strChanceToBlock','strSmiteDamage','strKickDamage'].includes(line.key)"
+                         class="text-base type-text">
+                        ${line | keyedLine}
                     </div>
-                    <div class="text-base type-text"
-                         if.bind="unique.Equipment.Block !== null && unique.Equipment.Block !== undefined && unique.Equipment.Block > 0">
-                        Block: ${unique.Equipment.Block}%
-                    </div>
-                    <div class="text-base type-text flex items-center justify-center gap-1" if.bind="unique.Equipment.DamageTypes"
+                    <div class="text-base type-text flex items-center justify-center gap-1"
                          repeat.for="damage of unique.Equipment.DamageTypes"
                          click.trigger="getSortKeyFromDamageType(damage.Type) ? toggleSort(getSortKeyFromDamageType(damage.Type)) : null"
                          class.bind="getSortKeyFromDamageType(damage.Type) ? 'clickable' : ''">
-                        <span>${getDamageTypeString(damage.Type)} ${damage.DamageString}<span class="set-text" if.bind="damage.AverageDamage"> <${damage.AverageDamage}></span></span>
+                        <span repeat.for="line of damage.Lines | keyedLines">${line}</span>
+                        <span class="set-text" if.bind="damage.AverageDamage"> <${damage.AverageDamage}></span>
                         <span class="mso set-text-light" if.bind="getSortKeyFromDamageType(damage.Type) && weaponSortMode.includes(getSortKeyFromDamageType(damage.Type))">
                             ${weaponSortMode.includes('ascending') ? 'arrow_upward' : 'arrow_downward'}
                         </span>
                     </div>
-                    <div class="text-base type-text" if.bind="unique.Equipment.Durability > 0">
-                        Durability: ${unique.Equipment.Durability}
+                    <div repeat.for="line of unique.Equipment.Lines"
+                         if.bind="['strDurability','strIndestructible','strethereal','strSocketedCount'].includes(line.key)"
+                         class="text-base type-text">
+                        ${line | keyedLine}
                     </div>
                 </div>
 
                 <div class="mb-1">
-                    <div class="text-base requirement-text"
-                         if.bind="unique.Equipment.RequiredClass && unique.Equipment.RequiredClass.length">
-                        (${unique.Equipment.RequiredClass} Only)
-                    </div>
-                    <div class="text-base requirement-text" if.bind="unique.Equipment.RequiredDexterity && unique.Equipment.RequiredDexterity !== '0' && unique.Equipment.RequiredDexterity !== 0">
-                        Required Dexterity: ${unique.Equipment.RequiredDexterity}
-                    </div>
-                    <div class="text-base requirement-text" if.bind="unique.Equipment.RequiredStrength && unique.Equipment.RequiredStrength !== '0' && unique.Equipment.RequiredStrength !== 0">
-                        Required Strength: ${unique.Equipment.RequiredStrength}
+                    <div repeat.for="line of unique.Equipment.Lines"
+                         if.bind="['strRequiredClass','strRequiredDexterity','strRequiredStrength'].includes(line.key)"
+                         class="text-base requirement-text">
+                        ${line | keyedLine}
                     </div>
                     <div class="text-base requirement-text">
-                        Required Level: ${unique.RequiredLevel > 0? unique.RequiredLevel: 1}
+                        ${'strRequiredLevel' | t: unique.RequiredLevel || 1}
                     </div>
                 </div>
 
-                <div>
-                    <div class="text-base prop-text" repeat.for="property of unique.Properties | sortProperties">
-                        <div if.bind="property.PropertyString">
-                            <span>${property.PropertyString}</span>
-                        </div>
-                        <div if.bind="property['group-properties']">
-                            <div repeat.for="[groupName, pool] of property['group-properties'] | entries">
-                                <div if.bind="property.pickmode == 0 || (pool[0] && pool[0].PickMode == 0)">
-                                    <div repeat.for="affixData of pool" if.bind="affixData.PropertyString">
-                                        ${affixData.PropertyString}
-                                    </div>
-                                </div>
-                                <div if.bind="property.pickmode != 0 && (!pool[0] || pool[0].PickMode != 0)" class="border px-2 border-gray-600 rounded m-2">
-                                    <div class="set-text text-center p-1 border-b border-gray-600">
-                                        ${formatGroupName(groupName)}
-                                    </div>
-                                    <div repeat.for="affixData of pool" if.bind="affixData.PropertyString" class="flex justify-between p-1 border-b border-gray-700 last:border-0">
-                                        <span class="prop-text">${affixData | chance:pool}%</span>
-                                        <span class="text-right">${affixData.PropertyString}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="text-base prop-text" repeat.for="line of unique.Lines | keyedLines">
+                    ${line}
                 </div>
             </div>
         </div>
@@ -375,96 +349,72 @@
                 <div class="absolute top-2 right-2">
                     <label class="inline-flex items-center cursor-pointer">
                         <input type="checkbox"
-                               checked.bind="foundSets[getSetItemKey(setItem)]"
-                               change.trigger="updateFoundStatus(getSetItemKey(setItem))"
+                               checked.bind="foundSets[setItem.Index]"
+                               change.trigger="updateFoundStatus(setItem.Index)"
                                class="sr-only peer">
                         <span class="grail-toggle"></span>
                     </label>
                 </div>
 
                 <div class="mb-1">
-                    <div class="text-xl set-text-light ${foundSets[getSetItemKey(setItem)] ? 'found' : ''}">
-                        ${setItem.Name}
+                    <div class="text-xl set-text-light ${foundSets[setItem.Index] ? 'found' : ''}">
+                        ${setItem.Index | t}
                     </div>
-                    <div class="text-base set-text  opacity-90 ${foundSets[getSetItemKey(setItem)] ? 'found' : ''}">
-                        (${setItem.Set})
+                    <div class="text-base set-text opacity-90 ${foundSets[setItem.Index] ? 'found' : ''}">
+                        (${setItem.SetName | t})
                     </div>
                     <div class="text-base rarity-text" if.bind="setItem.Rarity">
-                        Rarity: ${setItem.Rarity}
+                        ${'label_rarity' | t:setItem.Rarity}
                     </div>
-                    <div class="text-base rarity-text" if.bind="setItem.Vanilla">
-                        ${setItem.Vanilla === 'Y' ? 'Vanilla' : 'Mod'}
+                    <div class="text-base rarity-text">
+                        ${setItem.Vanilla === 'Y' ? 'label_vanilla' : 'label_mod' | t}
                     </div>
                 </div>
 
                 <div class="mb-1">
-                    <div class="text-base type-text" if.bind="setItem.Equipment.Name">
-                        ${setItem.Equipment.Name}
+                    <div class="text-base type-text">
+                        ${setItem.Equipment.NameKey | t}
                     </div>
-                    <div class="text-base type-text" if.bind="setItem.Equipment.ArmorString">
-                        Defense: ${setItem.Equipment.ArmorString}
+                    <div repeat.for="line of setItem.Equipment.Lines"
+                         if.bind="['strDefense','strDefenseRange','strDefenseRangeRange','strChanceToBlock','strSmiteDamage','strKickDamage'].includes(line.key)"
+                         class="text-base type-text">
+                        ${line | keyedLine}
                     </div>
-                    <div class="text-base type-text"
-                         if.bind="setItem.Equipment.Block !== null && setItem.Equipment.Block !== undefined && setItem.Equipment.Block > 0">
-                        Block: ${setItem.Equipment.Block}%
-                    </div>
-                    <div class="text-base type-text flex items-center justify-center gap-1" if.bind="setItem.Equipment.DamageTypes"
+                    <div class="text-base type-text flex items-center justify-center gap-1"
                          repeat.for="damage of setItem.Equipment.DamageTypes"
                          click.trigger="getSortKeyFromDamageType(damage.Type) ? toggleSort(getSortKeyFromDamageType(damage.Type)) : null"
                          class.bind="getSortKeyFromDamageType(damage.Type) ? 'clickable' : ''">
-                        <span>${getDamageTypeString(damage.Type)} ${damage.DamageString}<span class="set-text" if.bind="damage.AverageDamage"> <${damage.AverageDamage}></span></span>
+                        <span repeat.for="line of damage.Lines | keyedLines">${line}</span>
+                        <span class="set-text" if.bind="damage.AverageDamage"> <${damage.AverageDamage}></span>
                         <span class="mso set-text-light" if.bind="getSortKeyFromDamageType(damage.Type) && weaponSortMode.includes(getSortKeyFromDamageType(damage.Type))">
                             ${weaponSortMode.includes('ascending') ? 'arrow_upward' : 'arrow_downward'}
                         </span>
                     </div>
-                    <div class="text-base type-text" if.bind="setItem.Equipment.Durability > 0">
-                        Durability: ${setItem.Equipment.Durability}
+                    <div repeat.for="line of setItem.Equipment.Lines"
+                         if.bind="['strDurability','strIndestructible','strethereal','strSocketedCount'].includes(line.key)"
+                         class="text-base type-text">
+                        ${line | keyedLine}
                     </div>
                 </div>
 
                 <div class="mb-1">
-                    <div class="text-base requirement-text"
-                         if.bind="setItem.Equipment.RequiredClass && setItem.Equipment.RequiredClass.length">
-                        (${setItem.Equipment.RequiredClass} Only)
-                    </div>
-                    <div class="text-base requirement-text" if.bind="setItem.Equipment.RequiredDexterity && setItem.Equipment.RequiredDexterity !== '0' && setItem.Equipment.RequiredDexterity !== 0">
-                        Required Dexterity: ${setItem.Equipment.RequiredDexterity}
-                    </div>
-                    <div class="text-base requirement-text" if.bind="setItem.Equipment.RequiredStrength && setItem.Equipment.RequiredStrength !== '0' && setItem.Equipment.RequiredStrength !== 0">
-                        Required Strength: ${setItem.Equipment.RequiredStrength}
+                    <div repeat.for="line of setItem.Equipment.Lines"
+                         if.bind="['strRequiredClass','strRequiredDexterity','strRequiredStrength'].includes(line.key)"
+                         class="text-base requirement-text">
+                        ${line | keyedLine}
                     </div>
                     <div class="text-base requirement-text">
-                        Required Level: ${setItem.RequiredLevel > 0? setItem.RequiredLevel: 1}
+                        ${'strRequiredLevel' | t: setItem.RequiredLevel || 1}
                     </div>
                 </div>
 
-                <div>
-                    <div class="text-base prop-text" repeat.for="property of setItem.Properties | sortProperties">
-                        <div if.bind="property.PropertyString">
-                            <span>${property.PropertyString}</span>
-                        </div>
-                        <div if.bind="property['group-properties']">
-                            <div repeat.for="[groupName, pool] of property['group-properties'] | entries">
-                                <div if.bind="property.pickmode == 0 || (pool[0] && pool[0].PickMode == 0)">
-                                    <div repeat.for="affixData of pool" if.bind="affixData.PropertyString">
-                                        ${affixData.PropertyString}
-                                    </div>
-                                </div>
-                                <div if.bind="property.pickmode != 0 && (!pool[0] || pool[0].PickMode != 0)" class="border px-2 border-gray-600 rounded m-2">
-                                    <div class="set-text text-center p-1 border-b border-gray-600">
-                                        ${formatGroupName(groupName)}
-                                    </div>
-                                    <div repeat.for="affixData of pool" if.bind="affixData.PropertyString" class="flex justify-between p-1 border-b border-gray-700 last:border-0">
-                                        <span class="prop-text">${affixData | chance:pool}%</span>
-                                        <span class="text-right">${affixData.PropertyString}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="text-base prop-text" repeat.for="line of setItem.Lines | keyedLines">
+                    ${line}
                 </div>
-                <div class="text-base set-text" repeat.for="setProperty of setItem.SetPropertiesString">
-                    ${setProperty}
+                <div class="text-base set-text" repeat.for="setBonus of setItem.SetBonuses">
+                    <div repeat.for="line of setBonus | keyedLines">
+                        ${line}
+                    </div>
                 </div>
             </div>
         </div>
@@ -477,61 +427,39 @@
                     <label class="inline-flex items-center cursor-pointer">
                         <input type="checkbox"
                                class="sr-only peer"
-                               checked.bind="foundRunewords[runeword.Name]"
-                               change.trigger="updateFoundStatus(runeword.Name)">
+                               checked.bind="foundRunewords[runeword.Index]"
+                               change.trigger="updateFoundStatus(runeword.Index)">
                         <span class="grail-toggle"></span>
                     </label>
                 </div>
 
                 <div class="mb-1">
-                    <div class="text-xl unique-text mb-1 ${foundRunewords[runeword.Name] ? 'found' : ''}">
-                        ${runeword.Name}
+                    <div class="text-xl unique-text mb-1 ${foundRunewords[runeword.Index] ? 'found' : ''}">
+                        ${runeword.Index | t}
                     </div>
-                    <div class="text-base rarity-text" if.bind="runeword.Vanilla">
-                        ${runeword.Vanilla === 'Y' ? 'Vanilla' : 'Mod'}
+                    <div class="text-base rarity-text">
+                        ${runeword.Vanilla === 'Y' ? 'label_vanilla' : 'label_mod' | t}
                     </div>
                 </div>
 
                 <div class="text-base type-text mb-1">
-                    <span repeat.for="type of runeword.Types">
-                        ${type.Name} ${$index + 1 !== runeword.Types.length ? ' or ' : ''}
+                    <span repeat.for="typeInfo of runeword.Types">
+                        ${typeInfo.Index | t} ${ ( $index + 1 !== runeword.Types.length ? 'label_or' : '' ) | t }
                     </span>
                 </div>
 
                 <div class="text-base type-text">
                     <span repeat.for="rune of runeword.Runes">
-                        ${rune.Name} ${$index + 1 !== runeword.Runes.length ? ' + ' : ''}
+                        ${rune.NameKey | t} ${$index + 1 !== runeword.Runes.length ? ' + ' : ''}
                     </span>
                 </div>
 
                 <div class="text-base requirement-text my-1">
-                    Required Level: ${runeword.RequiredLevel > 0? runeword.RequiredLevel: 1}
+                    ${'strRequiredLevel' | t: runeword.RequiredLevel || 1}
                 </div>
 
-                <div>
-                    <div class="text-base prop-text" repeat.for="property of runeword.Properties | sortProperties">
-                        <div if.bind="property.PropertyString">
-                            ${property.PropertyString}
-                        </div>
-                        <div if.bind="property['group-properties']">
-                            <div repeat.for="[groupName, pool] of property['group-properties'] | entries">
-                                <div if.bind="property.pickmode == 0 || (pool[0] && pool[0].PickMode == 0)">
-                                    <div repeat.for="affixData of pool" if.bind="affixData.PropertyString">
-                                        ${affixData.PropertyString}
-                                    </div>
-                                </div>
-                                <div if.bind="property.pickmode != 0 && (!pool[0] || pool[0].PickMode != 0)" class="border px-2 border-gray-600 rounded m-2">
-                                    <div class="set-text text-center p-1 border-b border-gray-600">
-                                        ${formatGroupName(groupName)}
-                                    </div>
-                                    <div repeat.for="affixData of pool" if.bind="affixData.PropertyString" class="flex justify-between p-1 border-b border-gray-700 last:border-0">
-                                        <span class="prop-text">${affixData | chance:pool}%</span>
-                                        <span class="text-right">${affixData.PropertyString}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="text-base prop-text" repeat.for="line of runeword.Lines | keyedLines">
+                    ${line}
                 </div>
 
             </div>

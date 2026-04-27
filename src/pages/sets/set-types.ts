@@ -1,51 +1,36 @@
 // Type definitions for set data
 
-import { IDamageType } from '../../utilities/damage-types';
-
-export interface IProperty {
-    PropertyString?: string;
-    'group-properties'?: Record<string, IProperty[]>;
-    pickmode?: number;
-    Index?: number;
-    Chance?: number;
-}
-
-export interface IEquipment {
-    Name: string;
-    DamageString?: string;
-    DamageTypes?: IDamageType[];
-    ArmorString?: string;
-    EquipmentType?: number;
-    RequiredStrength?: string;
-    RequiredDexterity?: string;
-    Durability?: number;
-    ItemLevel?: number;
-    RequiredClass?: string; // present in some data and used in grail filters
-}
+import { IKeyedLine } from '../../utilities/i-keyed-line';
 
 export interface ISetItem {
     Type: string;
-    Set: string;
-    SetPropertiesString?: string[];
-    Name: string;
+    Vanilla: string;
     Index: string;
-    Enabled: boolean;
-    Rarity: number;
+    SetName: string;
     ItemLevel: number;
     RequiredLevel: number;
     Code: string;
-    Properties: IProperty[];
-    Equipment: IEquipment;
-    DamageArmorEnhanced?: boolean;
-    Vanilla?: string | number | boolean; // present in data, used in filtering
+    DamageArmorEnhanced: boolean;
+    Lines: IKeyedLine[];
+    SetBonuses: IKeyedLine[][];
+    Equipment: {
+        EquipmentType: number;
+        NameKey: string;
+        RequiredClass: string;
+        DamageTypes?: {
+            Type: number;
+            AverageDamage: number;
+            Lines: IKeyedLine[];
+        }[];
+        Lines: IKeyedLine[];
+    };
 }
 
 export interface ISetData {
     Index: string;
-    Name: string;
+    ItemLevel: number;
+    Vanilla: string;
     SetItems: ISetItem[];
-    FullProperties: IProperty[];
-    PartialProperties: IProperty[];
-    AllProperties?: IProperty[];
-    Vanilla?: string |number |boolean; // present in data, used in filtering
+    PartialBonuses: IKeyedLine[];
+    FullBonuses: IKeyedLine[];
 }
