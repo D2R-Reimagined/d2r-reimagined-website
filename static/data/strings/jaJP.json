@@ -1828,7 +1828,7 @@
   "ModStre9p": "冷気ダメージを吸収（%+d）",
   "ModStre9q": "電撃ダメージを吸収（%+d）",
   "ModStre9s": "壊れない",
-  "ModStre9t": "耐久力が回復（毎秒%d）",
+  "ModStre9u": "耐久力が回復（%d秒ごとに%d）",
   "ModStre9v": "数量が自動回復",
   "ModStrge9": "ウォーロックスキル向上（+%d）",
   "ModStrlightningskill": "ライトニング・スキルに%+d",

@@ -9868,9 +9868,10 @@
     "PType": "Suffix",
     "Lines": [
       {
-        "key": "ModStre9t",
+        "key": "ModStre9u",
         "args": [
-          33
+          1,
+          3
         ]
       }
     ]
@@ -9896,9 +9897,10 @@
     "PType": "Suffix",
     "Lines": [
       {
-        "key": "ModStre9t",
+        "key": "ModStre9u",
         "args": [
-          20
+          1,
+          5
         ]
       }
     ]

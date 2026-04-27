@@ -1828,7 +1828,7 @@
   "ModStre9p": "%+d 冰寒傷害吸收",
   "ModStre9q": "%+d 電擊傷害吸收",
   "ModStre9s": "永不毀損",
-  "ModStre9t": "每秒修復 %d 耐久度",
+  "ModStre9u": "每 %1 秒修復 %0 點耐久度",
   "ModStre9v": "回復數量",
   "ModStrge9": "+%d 術士技能",
   "ModStrlightningskill": "閃電技能 %+d",

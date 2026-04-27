@@ -1828,7 +1828,7 @@
   "ModStre9p": "%+d 吸收冰霜伤害",
   "ModStre9q": "%+d 吸收闪电伤害",
   "ModStre9s": "不可摧毁",
-  "ModStre9t": "每秒修复 %d 点耐久度",
+  "ModStre9u": "每 %1 秒修复 %0 点耐久度",
   "ModStre9v": "补充数量",
   "ModStrge9": "+%d 术士技能",
   "ModStrlightningskill": "闪电技能 %+d",
