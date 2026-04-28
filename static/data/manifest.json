@@ -1,5 +1,5 @@
 {
-  "BuildTimestamp": "2026-04-27T21:16:51.3887733Z",
+  "BuildTimestamp": "2026-04-28T04:43:55.5183274Z",
   "SourceModVersion": null,
   "Files": {
     "keyed/armors.json": {
@@ -7,8 +7,8 @@
       "Bytes": 289710
     },
     "keyed/cube-recipes.json": {
-      "Sha256": "29f0df37d88a2134a14b0b891cd34814e3f973f6d7763b746b3312ca3079ba19",
-      "Bytes": 1317645
+      "Sha256": "a7621137b9e0f39b2ebe420652fa4e510d0bdc09b12760a1a6e78d31319d4f73",
+      "Bytes": 1538861
     },
     "keyed/magicprefix.json": {
       "Sha256": "63372ef78b3ee321e0ab889b2842fbe600a6f2f682200070988a4f703accb27c",
@@ -19,7 +19,7 @@
       "Bytes": 376694
     },
     "keyed/runewords.json": {
-      "Sha256": "f7ebb0826298c46e2f6b06bfba3ec360cd6dd191e032dc0c6e4cb4d6c52b03b5",
+      "Sha256": "ba4c4d7818065992e6064fdc1dbbfd1fa5814e073a960ae761ffed3fc38481b3",
       "Bytes": 445011
     },
     "keyed/sets.json": {
@@ -27,8 +27,8 @@
       "Bytes": 937750
     },
     "keyed/uniques.json": {
-      "Sha256": "cf8ac5c40b959e5b047406dcbe17de904bba85bc5f7d00dc3ffcfba0045e35e2",
-      "Bytes": 2414258
+      "Sha256": "1a97f4a2549311c125972b5aeafd4c8d924e8782fe6ac204ed8d49a35843c4c4",
+      "Bytes": 2414280
     },
     "keyed/weapons.json": {
       "Sha256": "c7a67f8c3d47f213012cc39ba14d9f7bc3bdc0e2f345d4f799854c68b511baa2",
