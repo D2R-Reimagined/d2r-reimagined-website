@@ -313,10 +313,10 @@ export class CubeRecipes {
                 if (!rc.includes(selectedClass)) continue;
             }
 
-            // Filter by note (exact match among a raw note array)
+            // Filter by note (exact match among the formatted note labels)
             if (selectedNote) {
                 const notes = (recipe._raw?.Notes || []).map((n) =>
-                    (typeof n === 'string' ? n : '').toLowerCase(),
+                    format(n).trim().toLowerCase(),
                 );
                 if (!notes.includes(selectedNote)) continue;
             }
