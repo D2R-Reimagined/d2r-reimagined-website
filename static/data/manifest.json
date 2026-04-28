@@ -1,5 +1,5 @@
 {
-  "BuildTimestamp": "2026-04-28T04:43:55.5183274Z",
+  "BuildTimestamp": "2026-04-28T04:59:08.3798778Z",
   "SourceModVersion": null,
   "Files": {
     "keyed/armors.json": {
@@ -19,7 +19,7 @@
       "Bytes": 376694
     },
     "keyed/runewords.json": {
-      "Sha256": "ba4c4d7818065992e6064fdc1dbbfd1fa5814e073a960ae761ffed3fc38481b3",
+      "Sha256": "0663daefe845ce731368fcd905899b9d5f310b300f20e3b6cdad83a598fdfbe2",
       "Bytes": 445011
     },
     "keyed/sets.json": {
@@ -31,60 +31,60 @@
       "Bytes": 2414280
     },
     "keyed/weapons.json": {
-      "Sha256": "c7a67f8c3d47f213012cc39ba14d9f7bc3bdc0e2f345d4f799854c68b511baa2",
-      "Bytes": 368950
+      "Sha256": "550aed7f2805a1840daa07eb6a386ec5b7623fc17387c7a253c7c35b9cd98436",
+      "Bytes": 366513
     },
     "strings/deDE.json": {
-      "Sha256": "99a55f25df72e94dbf72ffb780fbdcd5a2b34cf6fcb14e9c7a642462dd12075e",
-      "Bytes": 171026
+      "Sha256": "6d536d970b866b4ab036d467b916d27e5a2e65f628cb52afd608177089c89517",
+      "Bytes": 170921
     },
     "strings/enUS.json": {
-      "Sha256": "c961f67340b1af0e4d1008162c3a0384673b7f4fc5fc99eb4e0231ebcb2223f5",
-      "Bytes": 150836
+      "Sha256": "cd755978240ace9d687fe9bfe5ecc0e1d78838ea29af66187ff284a6ce83d86a",
+      "Bytes": 150736
     },
     "strings/esES.json": {
-      "Sha256": "9ec3108ab7e90fcecd522e18a172ea9cbe172f009e90a4128fcdd7b0b0070253",
-      "Bytes": 174099
+      "Sha256": "ee8084a6f8e9a303b725a4e1fd23ea1a3eec9405a7e6beeaaba911fd8a397a0d",
+      "Bytes": 173978
     },
     "strings/esMX.json": {
-      "Sha256": "f6944ca6deb9d844c7d18c17b02b462bd51645be4367cc7d14bc89a7475b0de9",
-      "Bytes": 170755
+      "Sha256": "27e7c0bbeef98953c9e06ad2f5fa5f9fc330cf2a6494e0002c3f6771dd74e559",
+      "Bytes": 170639
     },
     "strings/frFR.json": {
-      "Sha256": "7c4515ac49b87164e2cc65b1f2d0bd23bc3d79aa15212e15008dccee169b4c07",
-      "Bytes": 174378
+      "Sha256": "463641f7b4919e9bf8e41b41eec0bf1e5d893158f1df0e0aa789e229169e2719",
+      "Bytes": 174262
     },
     "strings/itIT.json": {
-      "Sha256": "d266b9df5f04b05f411aae229eeb7c22e61ea1b329e1b126099f8f54cb2751d1",
-      "Bytes": 170747
+      "Sha256": "00224ef00bba7bee10f57a08d29a5bf4ee5b27c28f6e0c911c78a7be977aaf9a",
+      "Bytes": 170632
     },
     "strings/jaJP.json": {
-      "Sha256": "f9a10e15669c42a45bc40ec69a1db84bc575da9c247ccdb4c3b06d8d76cf8e7c",
-      "Bytes": 182352
+      "Sha256": "bdac54c894910a4628b7cbd73d1df7c4a57c951fcd20db2fa16e634fa5de7471",
+      "Bytes": 182235
     },
     "strings/koKR.json": {
-      "Sha256": "9b01935f1df118b1211b8aa7828716f7d2986f6d653bf4eecdb2816a40f3068f",
-      "Bytes": 161414
+      "Sha256": "0204218055d19e579d5aa99a11ae154287e967e9952e28e0d4bef8b185b5ac3d",
+      "Bytes": 161295
     },
     "strings/plPL.json": {
-      "Sha256": "77dbbf6ab0906de616d1cae2d245a5569cbecfb30cccea87040ff1f1c6826e84",
-      "Bytes": 166730
+      "Sha256": "a172c0c5207cb8908b63445ca9baabe0f3c06f93bc8b20e2e4c35c733fd7e21b",
+      "Bytes": 166618
     },
     "strings/ptBR.json": {
-      "Sha256": "83a71f88a71d39558d7e77d647c4d84edc037a6f50c068737e1366dd7b575c2b",
-      "Bytes": 173139
+      "Sha256": "bb2d2df951ac17c2f90112c5d9ed8d9e498d84c38d54603f7f0492febc31b66a",
+      "Bytes": 173029
     },
     "strings/ruRU.json": {
-      "Sha256": "5f96179b5d314449095e3a45608392761e59d09492b10d50645cdd2ac0e02164",
-      "Bytes": 228401
+      "Sha256": "192f636fae712e62718702ac4f5932e8f84f62b312a52f7a765187a5c6f1e2e2",
+      "Bytes": 228238
     },
     "strings/zhCN.json": {
-      "Sha256": "2ce048f2b8726af06865fd71ad57a830c0a4cb318934314f9070faec595551a3",
-      "Bytes": 145841
+      "Sha256": "735bbac10eaadbcdb32ee5799e381fd2facb446d85f0a4ca67e9f432a39693cf",
+      "Bytes": 145736
     },
     "strings/zhTW.json": {
-      "Sha256": "e1a45d75c57d94a4555aaa5713c912fdeaa3abe8c10df8671ce114a8792d8b28",
-      "Bytes": 146018
+      "Sha256": "882de69dc799b3a329d45e71103222a1552f17b34b8778c66f726b1db0adc5e2",
+      "Bytes": 145913
     }
   }
 }
