@@ -253,6 +253,12 @@
         ]
       },
       {
+        "key": "ModStr1h",
+        "args": [
+          100
+        ]
+      },
+      {
         "key": "Modstr2v",
         "args": [
           30,
@@ -260,22 +266,21 @@
         ]
       },
       {
+        "key": "ModStr1i",
+        "args": [
+          30
+        ]
+      },
+      {
+        "key": "ModStr1i",
+        "args": [
+          30
+        ]
+      },
+      {
         "key": "Moditem2allattrib",
         "args": [
           5
-        ]
-      },
-      {
-        "key": "ModStr1x",
-        "args": [
-          20,
-          25
-        ]
-      },
-      {
-        "key": "ModStr1h",
-        "args": [
-          100
         ]
       },
       {
@@ -286,18 +291,6 @@
         "qualifier": "weapon"
       },
       {
-        "key": "ModStr3f",
-        "args": [
-          2
-        ]
-      },
-      {
-        "key": "ModStr1i",
-        "args": [
-          30
-        ]
-      },
-      {
         "key": "ModStr5f",
         "args": [
           2
@@ -305,23 +298,30 @@
         "qualifier": "armor"
       },
       {
+        "key": "ModStr5f",
+        "args": [
+          2
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ModStr1x",
+        "args": [
+          20,
+          25
+        ]
+      },
+      {
         "key": "ModStr3f",
         "args": [
           2
         ]
       },
       {
-        "key": "ModStr1i",
-        "args": [
-          30
-        ]
-      },
-      {
-        "key": "ModStr5f",
+        "key": "ModStr3f",
         "args": [
           2
-        ],
-        "qualifier": "shield"
+        ]
       },
       {
         "key": "ModStr3f",
@@ -989,39 +989,39 @@
         ]
       },
       {
+        "key": "ModStr5f",
+        "args": [
+          2
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr5f",
+        "args": [
+          2
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ModStr3w",
+        "args": [
+          15
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr3w",
+        "args": [
+          15
+        ],
+        "qualifier": "shield"
+      },
+      {
         "key": "ModStre9u",
         "args": [
           1,
           10
         ]
-      },
-      {
-        "key": "ModStr5f",
-        "args": [
-          2
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr3w",
-        "args": [
-          15
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr5f",
-        "args": [
-          2
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr3w",
-        "args": [
-          15
-        ],
-        "qualifier": "shield"
       }
     ]
   },
@@ -1572,31 +1572,11 @@
         ]
       },
       {
-        "key": "ModStr1u",
+        "key": "ModStr3g",
         "args": [
-          20,
-          25
-        ]
-      },
-      {
-        "key": "ModitemHPaK",
-        "args": [
-          3,
-          5
-        ]
-      },
-      {
-        "key": "ModStr5f",
-        "args": [
-          2
-        ]
-      },
-      {
-        "key": "Moditem2ExpG",
-        "args": [
-          1,
-          3
-        ]
+          7
+        ],
+        "qualifier": "shield"
       },
       {
         "key": "ModStr4f",
@@ -1635,11 +1615,45 @@
         "qualifier": "armor"
       },
       {
+        "key": "ModStr6a",
+        "args": [
+          30
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ModStr1u",
+        "args": [
+          20,
+          25
+        ]
+      },
+      {
         "key": "ModStr1j",
         "args": [
           30
         ],
         "qualifier": "armor"
+      },
+      {
+        "key": "ModStr1j",
+        "args": [
+          35
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ModitemHPaK",
+        "args": [
+          3,
+          5
+        ]
+      },
+      {
+        "key": "ModStr5f",
+        "args": [
+          2
+        ]
       },
       {
         "key": "ModitemHPaK",
@@ -1649,25 +1663,11 @@
         "qualifier": "armor"
       },
       {
-        "key": "ModStr3g",
+        "key": "Moditem2ExpG",
         "args": [
-          7
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr6a",
-        "args": [
-          30
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr1j",
-        "args": [
-          35
-        ],
-        "qualifier": "shield"
+          1,
+          3
+        ]
       }
     ]
   },
@@ -2369,26 +2369,6 @@
         ]
       },
       {
-        "key": "ModStr1i",
-        "args": [
-          50,
-          100
-        ]
-      },
-      {
-        "key": "strModAllResistances",
-        "args": [
-          15,
-          25
-        ]
-      },
-      {
-        "key": "ItemStats2p",
-        "args": [
-          7
-        ]
-      },
-      {
         "key": "ModStr5o",
         "args": [
           25
@@ -2404,11 +2384,11 @@
         "qualifier": "weapon"
       },
       {
-        "key": "ModStr3h",
+        "key": "ModStr1i",
         "args": [
-          20
-        ],
-        "qualifier": "weapon"
+          50,
+          100
+        ]
       },
       {
         "key": "ModStr4g",
@@ -2416,6 +2396,13 @@
           15
         ],
         "qualifier": "armor"
+      },
+      {
+        "key": "ModStr4g",
+        "args": [
+          15
+        ],
+        "qualifier": "shield"
       },
       {
         "key": "ModStr1k",
@@ -2425,25 +2412,38 @@
         "qualifier": "armor"
       },
       {
-        "key": "ModStr3h",
-        "args": [
-          15
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr4g",
-        "args": [
-          15
-        ],
-        "qualifier": "shield"
-      },
-      {
         "key": "ModStr1k",
         "args": [
           35
         ],
         "qualifier": "shield"
+      },
+      {
+        "key": "strModAllResistances",
+        "args": [
+          15,
+          25
+        ]
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          7
+        ]
+      },
+      {
+        "key": "ModStr3h",
+        "args": [
+          20
+        ],
+        "qualifier": "weapon"
+      },
+      {
+        "key": "ModStr3h",
+        "args": [
+          15
+        ],
+        "qualifier": "armor"
       },
       {
         "key": "ModStr3h",
@@ -2510,6 +2510,13 @@
         ]
       },
       {
+        "key": "ModStr3g",
+        "args": [
+          7
+        ],
+        "qualifier": "shield"
+      },
+      {
         "key": "ModStr1e",
         "args": [
           50,
@@ -2531,6 +2538,27 @@
         ]
       },
       {
+        "key": "ModStr1k",
+        "args": [
+          30
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr1k",
+        "args": [
+          35
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ModitemHPaK",
+        "args": [
+          5
+        ],
+        "qualifier": "armor"
+      },
+      {
         "key": "Moditem2ExpG",
         "args": [
           1,
@@ -2542,34 +2570,6 @@
         "args": [
           3
         ]
-      },
-      {
-        "key": "ModStr1k",
-        "args": [
-          30
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModitemHPaK",
-        "args": [
-          5
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr3g",
-        "args": [
-          7
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr1k",
-        "args": [
-          35
-        ],
-        "qualifier": "shield"
       }
     ]
   },
@@ -3593,32 +3593,6 @@
         ]
       },
       {
-        "key": "ModStr6a",
-        "args": [
-          250
-        ]
-      },
-      {
-        "key": "ModStr1c",
-        "args": [
-          22
-        ]
-      },
-      {
-        "key": "ModStr1e",
-        "args": [
-          45,
-          73
-        ]
-      },
-      {
-        "key": "ModStr5l",
-        "args": [
-          3,
-          8
-        ]
-      },
-      {
         "key": "strModLightningDamageRange",
         "args": [
           1,
@@ -3651,6 +3625,25 @@
         "qualifier": "weapon"
       },
       {
+        "key": "ModStr6a",
+        "args": [
+          250
+        ]
+      },
+      {
+        "key": "ModStr1c",
+        "args": [
+          22
+        ]
+      },
+      {
+        "key": "ModStr1e",
+        "args": [
+          45,
+          73
+        ]
+      },
+      {
         "key": "ModStr1k",
         "args": [
           35
@@ -3670,6 +3663,13 @@
           35
         ],
         "qualifier": "shield"
+      },
+      {
+        "key": "ModStr5l",
+        "args": [
+          3,
+          8
+        ]
       },
       {
         "key": "ModStr1v",
@@ -6453,6 +6453,20 @@
         ]
       },
       {
+        "key": "ModStr1c",
+        "args": [
+          10
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr1c",
+        "args": [
+          10
+        ],
+        "qualifier": "shield"
+      },
+      {
         "key": "ModStr1u",
         "args": [
           35,
@@ -6460,52 +6474,38 @@
         ]
       },
       {
+        "key": "ModStr2l",
+        "args": [
+          7
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr2l",
+        "args": [
+          7
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ModStr4g",
+        "args": [
+          15
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr4g",
+        "args": [
+          15
+        ],
+        "qualifier": "shield"
+      },
+      {
         "key": "ItemStats2p",
         "args": [
           1
         ]
-      },
-      {
-        "key": "ModStr1c",
-        "args": [
-          10
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr2l",
-        "args": [
-          7
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr4g",
-        "args": [
-          15
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr1c",
-        "args": [
-          10
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr2l",
-        "args": [
-          7
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr4g",
-        "args": [
-          15
-        ],
-        "qualifier": "shield"
       }
     ]
   },
@@ -8269,6 +8269,48 @@
         ]
       },
       {
+        "key": "ModStr1a",
+        "args": [
+          10
+        ],
+        "qualifier": "weapon"
+      },
+      {
+        "key": "ModStr1a",
+        "args": [
+          10
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr1a",
+        "args": [
+          10
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ModStr1c",
+        "args": [
+          10
+        ],
+        "qualifier": "weapon"
+      },
+      {
+        "key": "ModStr1c",
+        "args": [
+          10
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr1c",
+        "args": [
+          10
+        ],
+        "qualifier": "shield"
+      },
+      {
         "key": "ModStr1u",
         "args": [
           30,
@@ -8299,48 +8341,6 @@
         "args": [
           5
         ]
-      },
-      {
-        "key": "ModStr1a",
-        "args": [
-          10
-        ],
-        "qualifier": "weapon"
-      },
-      {
-        "key": "ModStr1c",
-        "args": [
-          10
-        ],
-        "qualifier": "weapon"
-      },
-      {
-        "key": "ModStr1a",
-        "args": [
-          10
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr1c",
-        "args": [
-          10
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr1a",
-        "args": [
-          10
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr1c",
-        "args": [
-          10
-        ],
-        "qualifier": "shield"
       }
     ]
   },
@@ -11346,34 +11346,7 @@
         ]
       },
       {
-        "key": "ItemStats2p",
-        "args": [
-          1
-        ]
-      },
-      {
         "key": "strModAllResistances",
-        "args": [
-          15
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr1v",
-        "args": [
-          14
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr3w",
-        "args": [
-          15
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr3h",
         "args": [
           15
         ],
@@ -11391,6 +11364,13 @@
         "args": [
           14
         ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr1v",
+        "args": [
+          14
+        ],
         "qualifier": "shield"
       },
       {
@@ -11398,7 +11378,27 @@
         "args": [
           15
         ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr3w",
+        "args": [
+          15
+        ],
         "qualifier": "shield"
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr3h",
+        "args": [
+          15
+        ],
+        "qualifier": "armor"
       },
       {
         "key": "ModStr3h",
@@ -12035,11 +12035,32 @@
         ]
       },
       {
+        "key": "ModStr4m",
+        "args": [
+          20
+        ],
+        "qualifier": "weapon"
+      },
+      {
         "key": "strModEnhancedDamage",
         "args": [
           150,
           200
         ]
+      },
+      {
+        "key": "ModStr4y",
+        "args": [
+          20
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ModStr4a",
+        "args": [
+          1
+        ],
+        "qualifier": "weapon"
       },
       {
         "key": "ModStr1i",
@@ -12061,27 +12082,6 @@
           10,
           15
         ]
-      },
-      {
-        "key": "ModStr4m",
-        "args": [
-          20
-        ],
-        "qualifier": "weapon"
-      },
-      {
-        "key": "ModStr4a",
-        "args": [
-          1
-        ],
-        "qualifier": "weapon"
-      },
-      {
-        "key": "ModStr4y",
-        "args": [
-          20
-        ],
-        "qualifier": "shield"
       },
       {
         "key": "ModStr2t",
@@ -16443,26 +16443,6 @@
         ]
       },
       {
-        "key": "Modstr2v",
-        "args": [
-          200
-        ]
-      },
-      {
-        "key": "ModStr1u",
-        "args": [
-          1
-        ],
-        "perLevel": true
-      },
-      {
-        "key": "strModAllResistances",
-        "args": [
-          25,
-          30
-        ]
-      },
-      {
         "key": "ModStr1g",
         "args": [
           9
@@ -16491,6 +16471,82 @@
         "qualifier": "weapon"
       },
       {
+        "key": "Modstr2v",
+        "args": [
+          200
+        ]
+      },
+      {
+        "key": "ModStr1i",
+        "args": [
+          15
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr1i",
+        "args": [
+          15
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ModStr1u",
+        "args": [
+          1
+        ],
+        "perLevel": true
+      },
+      {
+        "key": "ModStr2l",
+        "args": [
+          7
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr2l",
+        "args": [
+          7
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ModStr5w",
+        "args": [
+          5
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr5w",
+        "args": [
+          5
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "strModAllResistances",
+        "args": [
+          25,
+          30
+        ]
+      },
+      {
+        "key": "ModStr2u",
+        "args": [
+          7
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr2u",
+        "args": [
+          7
+        ],
+        "qualifier": "shield"
+      },
+      {
         "key": "ModStr3f",
         "args": [
           1
@@ -16498,67 +16554,11 @@
         "qualifier": "weapon"
       },
       {
-        "key": "ModStr1i",
-        "args": [
-          15
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr2l",
-        "args": [
-          7
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr5w",
-        "args": [
-          5
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr2u",
-        "args": [
-          7
-        ],
-        "qualifier": "armor"
-      },
-      {
         "key": "ModStr3f",
         "args": [
           1
         ],
         "qualifier": "armor"
-      },
-      {
-        "key": "ModStr1i",
-        "args": [
-          15
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr2l",
-        "args": [
-          7
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr5w",
-        "args": [
-          5
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr2u",
-        "args": [
-          7
-        ],
-        "qualifier": "shield"
       },
       {
         "key": "ModStr3f",
@@ -17164,6 +17164,13 @@
         "perLevel": true
       },
       {
+        "key": "ModStr1e",
+        "args": [
+          50
+        ],
+        "qualifier": "shield"
+      },
+      {
         "key": "ModStr2h",
         "args": [
           5
@@ -17178,25 +17185,18 @@
         "qualifier": "armor"
       },
       {
-        "key": "ModStr2u",
-        "args": [
-          7
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr1e",
-        "args": [
-          50
-        ],
-        "qualifier": "shield"
-      },
-      {
         "key": "ModStr5w",
         "args": [
           5
         ],
         "qualifier": "shield"
+      },
+      {
+        "key": "ModStr2u",
+        "args": [
+          7
+        ],
+        "qualifier": "armor"
       },
       {
         "key": "ModStr2u",
@@ -18613,36 +18613,9 @@
         ]
       },
       {
-        "key": "ItemStats2p",
-        "args": [
-          12
-        ]
-      },
-      {
         "key": "strModAllResistances",
         "args": [
           15
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr2uPercent",
-        "args": [
-          8
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr1w",
-        "args": [
-          50
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr1x",
-        "args": [
-          25
         ],
         "qualifier": "armor"
       },
@@ -18658,7 +18631,21 @@
         "args": [
           8
         ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr2uPercent",
+        "args": [
+          8
+        ],
         "qualifier": "shield"
+      },
+      {
+        "key": "ModStr1w",
+        "args": [
+          50
+        ],
+        "qualifier": "armor"
       },
       {
         "key": "ModStr1w",
@@ -18672,7 +18659,20 @@
         "args": [
           25
         ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr1x",
+        "args": [
+          25
+        ],
         "qualifier": "shield"
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          12
+        ]
       }
     ]
   },
@@ -19500,11 +19500,53 @@
         ]
       },
       {
+        "key": "Modstr2v",
+        "args": [
+          30
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "Modstr2v",
+        "args": [
+          30
+        ],
+        "qualifier": "shield"
+      },
+      {
         "key": "ModStr1i",
         "args": [
           150,
           220
         ]
+      },
+      {
+        "key": "ModStr1c",
+        "args": [
+          10
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr1c",
+        "args": [
+          10
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ModStr1u",
+        "args": [
+          50
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ModStr2g",
+        "args": [
+          5
+        ],
+        "qualifier": "armor"
       },
       {
         "key": "ModStr1e",
@@ -19526,48 +19568,6 @@
           15,
           25
         ]
-      },
-      {
-        "key": "Modstr2v",
-        "args": [
-          30
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr1c",
-        "args": [
-          10
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr2g",
-        "args": [
-          5
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "Modstr2v",
-        "args": [
-          30
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr1c",
-        "args": [
-          10
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr1u",
-        "args": [
-          50
-        ],
-        "qualifier": "shield"
       }
     ]
   },
@@ -20306,26 +20306,6 @@
         ]
       },
       {
-        "key": "Moditemenresfiresk",
-        "args": [
-          28
-        ]
-      },
-      {
-        "key": "ModStr6a",
-        "args": [
-          350,
-          400
-        ]
-      },
-      {
-        "key": "ModStr5h",
-        "args": [
-          15,
-          21
-        ]
-      },
-      {
         "key": "ModStr3y",
         "args": [
           1
@@ -20339,11 +20319,24 @@
         ]
       },
       {
+        "key": "Moditemenresfiresk",
+        "args": [
+          28
+        ]
+      },
+      {
         "key": "ModStr5q",
         "args": [
           20
         ],
         "qualifier": "weapon"
+      },
+      {
+        "key": "ModStr6a",
+        "args": [
+          350,
+          400
+        ]
       },
       {
         "key": "ModStr1u",
@@ -20363,6 +20356,13 @@
         "key": "ModStr5u",
         "args": [
           10
+        ]
+      },
+      {
+        "key": "ModStr5h",
+        "args": [
+          15,
+          21
         ]
       }
     ]
@@ -20828,15 +20828,16 @@
         ]
       },
       {
+        "key": "ModStr1u",
+        "args": [
+          50
+        ],
+        "qualifier": "shield"
+      },
+      {
         "key": "ModStr2g",
         "args": [
           10,
-          20
-        ]
-      },
-      {
-        "key": "ItemStats2p",
-        "args": [
           20
         ]
       },
@@ -20855,18 +20856,17 @@
         "qualifier": "armor"
       },
       {
-        "key": "ModStr1u",
-        "args": [
-          50
-        ],
-        "qualifier": "shield"
-      },
-      {
         "key": "ModStr1v",
         "args": [
           14
         ],
         "qualifier": "shield"
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          20
+        ]
       }
     ]
   },
@@ -24689,6 +24689,27 @@
     ],
     "Lines": [
       {
+        "key": "ModStre9s",
+        "args": [
+          1
+        ],
+        "qualifier": "weapon"
+      },
+      {
+        "key": "ModStre9s",
+        "args": [
+          1
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStre9s",
+        "args": [
+          1
+        ],
+        "qualifier": "shield"
+      },
+      {
         "key": "ModStr3k",
         "args": [
           3
@@ -24708,6 +24729,13 @@
         ]
       },
       {
+        "key": "ModStr1h",
+        "args": [
+          50
+        ],
+        "qualifier": "weapon"
+      },
+      {
         "key": "Modstr2v",
         "args": [
           100,
@@ -24715,11 +24743,67 @@
         ]
       },
       {
+        "key": "ModStr1i",
+        "args": [
+          15
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr1i",
+        "args": [
+          15
+        ],
+        "qualifier": "shield"
+      },
+      {
         "key": "ModStr1x",
         "args": [
           150,
           300
         ]
+      },
+      {
+        "key": "ModStr1x",
+        "args": [
+          30
+        ],
+        "qualifier": "weapon"
+      },
+      {
+        "key": "ModStr1x",
+        "args": [
+          25
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr1x",
+        "args": [
+          25
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ModStr3f",
+        "args": [
+          1
+        ],
+        "qualifier": "weapon"
+      },
+      {
+        "key": "ModStr3f",
+        "args": [
+          1
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr3f",
+        "args": [
+          1
+        ],
+        "qualifier": "shield"
       },
       {
         "key": "ModStr3h",
@@ -24734,34 +24818,6 @@
         ]
       },
       {
-        "key": "ModStre9s",
-        "args": [
-          1
-        ],
-        "qualifier": "weapon"
-      },
-      {
-        "key": "ModStr1h",
-        "args": [
-          50
-        ],
-        "qualifier": "weapon"
-      },
-      {
-        "key": "ModStr1x",
-        "args": [
-          30
-        ],
-        "qualifier": "weapon"
-      },
-      {
-        "key": "ModStr3f",
-        "args": [
-          1
-        ],
-        "qualifier": "weapon"
-      },
-      {
         "key": "ModStr3h",
         "args": [
           20
@@ -24769,67 +24825,11 @@
         "qualifier": "weapon"
       },
       {
-        "key": "ModStre9s",
-        "args": [
-          1
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr1i",
-        "args": [
-          15
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr1x",
-        "args": [
-          25
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr3f",
-        "args": [
-          1
-        ],
-        "qualifier": "armor"
-      },
-      {
         "key": "ModStr3h",
         "args": [
           15
         ],
         "qualifier": "armor"
-      },
-      {
-        "key": "ModStre9s",
-        "args": [
-          1
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr1i",
-        "args": [
-          15
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr1x",
-        "args": [
-          25
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr3f",
-        "args": [
-          1
-        ],
-        "qualifier": "shield"
       },
       {
         "key": "ModStr3h",

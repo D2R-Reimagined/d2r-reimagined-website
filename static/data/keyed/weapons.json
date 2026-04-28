@@ -9420,46 +9420,6 @@
   },
   {
     "EquipmentType": 1,
-    "NameKey": "hfh",
-    "NormCode": "hfh",
-    "UberCode": "",
-    "UltraCode": "",
-    "AutoPrefix": "312",
-    "RequiredClass": "",
-    "Type": {
-      "Name": "Hammer",
-      "Index": "hammitype",
-      "Class": ""
-    },
-    "DamageTypes": [
-      {
-        "Type": 3,
-        "AverageDamage": 10.5,
-        "Lines": [
-          {
-            "key": "strWeaponDamageGeneric",
-            "args": [
-              6,
-              15
-            ]
-          }
-        ]
-      }
-    ],
-    "RequiredLevel": 0,
-    "GemSockets": "(1-25): 3 - (26-40): 4 - (41+): 5",
-    "Lines": [
-      {
-        "key": "strDurability",
-        "args": [
-          250,
-          250
-        ]
-      }
-    ]
-  },
-  {
-    "EquipmentType": 1,
     "NameKey": "7cm",
     "NormCode": "clm",
     "UberCode": "9cm",
@@ -9617,52 +9577,6 @@
         "key": "strRequiredDexterity",
         "args": [
           15
-        ]
-      }
-    ]
-  },
-  {
-    "EquipmentType": 1,
-    "NameKey": "hst",
-    "NormCode": "hst",
-    "UberCode": "",
-    "UltraCode": "",
-    "AutoPrefix": "312",
-    "RequiredClass": "",
-    "Type": {
-      "Name": "Staff",
-      "Index": "stafitype",
-      "Class": ""
-    },
-    "DamageTypes": [
-      {
-        "Type": 1,
-        "AverageDamage": 16,
-        "Lines": [
-          {
-            "key": "strWeaponDamageTwoHand",
-            "args": [
-              12,
-              20
-            ]
-          }
-        ]
-      }
-    ],
-    "RequiredLevel": 0,
-    "GemSockets": "",
-    "Lines": [
-      {
-        "key": "strDurability",
-        "args": [
-          250,
-          250
-        ]
-      },
-      {
-        "key": "strRequiredStrength",
-        "args": [
-          30
         ]
       }
     ]
@@ -14631,52 +14545,6 @@
         "key": "strRequiredDexterity",
         "args": [
           188
-        ]
-      }
-    ]
-  },
-  {
-    "EquipmentType": 1,
-    "NameKey": "msf",
-    "NormCode": "msf",
-    "UberCode": "",
-    "UltraCode": "",
-    "AutoPrefix": "312",
-    "RequiredClass": "",
-    "Type": {
-      "Name": "Staff",
-      "Index": "stafitype",
-      "Class": ""
-    },
-    "DamageTypes": [
-      {
-        "Type": 1,
-        "AverageDamage": 12.5,
-        "Lines": [
-          {
-            "key": "strWeaponDamageTwoHand",
-            "args": [
-              10,
-              15
-            ]
-          }
-        ]
-      }
-    ],
-    "RequiredLevel": 0,
-    "GemSockets": "",
-    "Lines": [
-      {
-        "key": "strDurability",
-        "args": [
-          250,
-          250
-        ]
-      },
-      {
-        "key": "strRequiredStrength",
-        "args": [
-          25
         ]
       }
     ]
