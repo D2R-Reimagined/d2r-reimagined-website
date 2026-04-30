@@ -1,5 +1,12 @@
 import { route } from '@aurelia/router';
 
+import { LanguageCode } from './utilities/i-keyed-line';
+import {
+    getActiveLanguage,
+    onLanguageChanged,
+    setLanguage,
+} from './utilities/translation-store.js';
+
 @route({
     title: 'D2R Reimagined',
     routes: [
@@ -61,6 +68,29 @@ export class App {
     // Selected font (class) reflected to bindings for labels/tooltips
     selectedFontClass: string = 'font-resurrected';
 
+    // UI state for language dropdown visibility
+    languageMenuOpen = false;
+
+    // List of available languages with display names
+    languages: Array<{ code: LanguageCode; name: string }> = [
+        { code: 'enUS', name: 'English' },
+        { code: 'zhTW', name: '繁體中文' },
+        { code: 'deDE', name: 'Deutsch' },
+        { code: 'esES', name: 'Español' },
+        { code: 'frFR', name: 'Français' },
+        { code: 'itIT', name: 'Italiano' },
+        { code: 'koKR', name: '한국어' },
+        { code: 'plPL', name: 'Polski' },
+        { code: 'esMX', name: 'Español (AL)' },
+        { code: 'jaJP', name: '日本語' },
+        { code: 'ptBR', name: 'Português' },
+        { code: 'ruRU', name: 'Русский' },
+        { code: 'zhCN', name: '简体中文' },
+    ];
+
+    // Current active language code
+    activeLanguageCode: LanguageCode = getActiveLanguage();
+
     // Internals for back-to-top monitoring
     private _bt_lastScrollEl?: HTMLElement;
     private _bt_bound = false;
@@ -75,6 +105,20 @@ export class App {
         this.bindBackToTopMonitoring();
         // Initial computation
         this.updateBackToTopVisibility();
+
+        // Listen for language changes to update UI state
+        onLanguageChanged((code) => {
+            if (this.activeLanguageCode === code) return;
+
+            // To force all value converters to re-run across the whole app,
+            // we momentarily "un-set" the active code and then set it back.
+            // Using a next-tick approach ensures the viewport and other
+            // components depending on it are destroyed and recreated.
+            this.activeLanguageCode = '' as unknown as LanguageCode;
+            void Promise.resolve().then(() => {
+                this.activeLanguageCode = code;
+            });
+        });
 
         // Close menus when clicking anywhere outside them
         this._onDocClick = (ev: MouseEvent) => {
@@ -93,7 +137,20 @@ export class App {
                 }
             }
 
-            // 2) Close the mobile menu when clicking outside the panel and its toggle button
+            // 2) Close the language dropdown when clicking outside
+            if (this.languageMenuOpen) {
+                const menuHost = document.querySelector('nav .language-menu');
+                const clickInsideMenu = !!(
+                    target &&
+          menuHost &&
+          menuHost.contains(target)
+                );
+                if (!clickInsideMenu) {
+                    this.closeLanguageMenu();
+                }
+            }
+
+            // 3) Close the mobile menu when clicking outside the panel and its toggle button
             const panel = document.getElementById('navbar-sticky');
             const toggle = document.querySelector(
                 'nav button[aria-controls="navbar-sticky"]',
@@ -154,6 +211,27 @@ export class App {
 
     toggleFontMenu() {
         this.fontMenuOpen = !this.fontMenuOpen;
+    }
+
+    /**
+   * Open/close helpers for the language dropdown
+   */
+    closeLanguageMenu() {
+        this.languageMenuOpen = false;
+    }
+
+    toggleLanguageMenu() {
+        this.languageMenuOpen = !this.languageMenuOpen;
+    }
+
+    async selectLanguage(code: LanguageCode) {
+        if (code === this.activeLanguageCode) {
+            this.closeLanguageMenu();
+            return;
+        }
+        await setLanguage(code);
+        this.closeLanguageMenu();
+        this.closeMobileMenu();
     }
 
     /**

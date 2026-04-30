@@ -8,6 +8,7 @@ import {
     resolveBaseTypeName,
     type_filtering_options,
 } from '../../resources/constants';
+import propertyGroups from '../../resources/property_groups.json';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
 import {
     matchesTokenGroups,
@@ -16,10 +17,9 @@ import {
     tokenizeSearch,
     toOptionalNumber,
 } from '../../utilities/filter-helpers';
+import { IKeyedLine } from '../../utilities/i-keyed-line';
+import { format, t } from '../../utilities/translation-store.js';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
-import prefixes from '../item-jsons/magicprefix.json';
-import suffixes from '../item-jsons/magicsuffix.json';
-import propertyGroups from '../item-jsons/property_groups.json';
 
 type PType = 'Prefix' | 'Suffix';
 
@@ -28,22 +28,15 @@ interface IPropertyGroupEntry {
     items: { description: string }[];
 }
 
-// Minimal shape for affix JSON items used by this page.
-// We only type the fields we read to avoid over-constraining the data.
+// Shapes for the new keyed affix JSON files
 interface IAffixItem {
-    Name?: string;
+    NameKey: string;
     PType: PType;
-    Index?: number;
-    Group?: number;
-    Types?: Array<string | number>;
-    ETypes?: Array<string | number>;
-    RequiredLevel?: number | string;
-    Properties?: Array<{
-        PropertyString?: string;
-        'group-properties'?: Record<string, Array<{ PropertyString?: string }>>;
-        pickmode?: number;
-        Chance?: number;
-    }>;
+    Group: number;
+    Types: string[];
+    ETypes: string[];
+    RequiredLevel: number;
+    Lines: IKeyedLine[];
 }
 
 export class Affixes {
@@ -59,8 +52,8 @@ export class Affixes {
     // Prefix/Suffix dropdown
     pTypeOptions = [
         { value: '', label: '-' },
-        { value: 'Prefix', label: 'Prefix' },
-        { value: 'Suffix', label: 'Suffix' },
+        { value: 'Prefix', label: 'label_prefix' },
+        { value: 'Suffix', label: 'label_suffix' },
     ];
     @bindable selectedPType: PType | undefined;
 
@@ -93,8 +86,22 @@ export class Affixes {
     @bindable minRequiredLevel: number | string | undefined;
     @bindable maxRequiredLevel: number | string | undefined;
 
-    binding() {
-        // Read search query parameters from URL before the first render
+    // Read search query parameters from URL before the first render
+    async binding() {
+        // Fetch keyed affix data
+        try {
+            const [pResp, sResp] = await Promise.all([
+                fetch('/data/keyed/magicprefix.json'),
+                fetch('/data/keyed/magicsuffix.json'),
+            ]);
+            const p = (await pResp.json()) as IAffixItem[];
+            const s = (await sResp.json()) as IAffixItem[];
+            this.allAffixes = [...p, ...s];
+        } catch (e) {
+            console.error('Failed to load affixes:', e);
+            this.allAffixes = [];
+        }
+
         const urlParams = new URLSearchParams(window.location.search);
 
         const searchParam = urlParams.get('search');
@@ -103,7 +110,7 @@ export class Affixes {
 
         const ptypeParam = urlParams.get('ptype');
         if (ptypeParam === 'Prefix' || ptypeParam === 'Suffix') {
-            this.selectedPType = ptypeParam as PType;
+            this.selectedPType = ptypeParam;
         }
 
         const groupParam = urlParams.get('group');
@@ -137,21 +144,6 @@ export class Affixes {
         if (this.minRequiredLevel === undefined) this.minRequiredLevel = '';
         if (this.maxRequiredLevel === undefined) this.maxRequiredLevel = '';
 
-        // Normalize prefix/suffix arrays, ensure PType set explicitly (source JSON already has it, but keep consistent)
-        const normalized = (arr: ReadonlyArray<IAffixItem>, pType: PType, baseIndex: number) =>
-            arr.map((a, i) => ({
-                ...a,
-                PType: pType,
-                Index: baseIndex + i,
-            }));
-
-        const prefixList = (prefixes as unknown as IAffixItem[]) || [];
-        const suffixList = (suffixes as unknown as IAffixItem[]) || [];
-        this.allAffixes = [
-            ...normalized(prefixList, 'Prefix', 0),
-            ...normalized(suffixList, 'Suffix', prefixList.length),
-        ];
-
         // Build the set of base type names present across all affixes (Types only)
         const present = new Set<string>();
         try {
@@ -166,7 +158,10 @@ export class Affixes {
             // keep default options if something unexpected occurs
         }
         // Filter the shared preset to only show options relevant to affix data
-        this.types = buildOptionsForPresentTypes(type_filtering_options, present);
+        this.types = buildOptionsForPresentTypes(type_filtering_options, present).map(opt => ({
+            ...opt,
+            label: t(opt.label),
+        }));
 
         // Prepend a uniform reset option to types
         this.types = prependTypeResetOption(this.types);
@@ -178,7 +173,7 @@ export class Affixes {
         }
 
         // Build group description → group IDs mapping and options
-        this.buildGroupOptions(propertyGroups as unknown as IPropertyGroupEntry[]);
+        this.buildGroupOptions(propertyGroups);
 
         // Set up a debounced filter (arrow wrapper avoids unsafe bind typing)
         this._debouncedFilter = debounce(() => this.applyFilters(), 350);
@@ -222,13 +217,12 @@ export class Affixes {
         }
 
         this.descToGroups = descMap;
-        const descriptions = Array.from(descMap.keys()).sort((a, b) =>
-            a.localeCompare(b),
-        );
-        this.groupOptions = [
-            { value: '', label: '-' },
-            ...descriptions.map((d) => ({ value: d, label: d })),
-        ];
+        const descriptions = Array.from(descMap.keys()).map((d) => ({
+            value: d,
+            label: t(d) || d,
+        }));
+        descriptions.sort((a, b) => a.label.localeCompare(b.label));
+        this.groupOptions = [{ value: '', label: '-' }, ...descriptions];
     }
 
     @watch('search')
@@ -390,31 +384,17 @@ export class Affixes {
 
             // Text search (tokenized AND; search across Name, Properties, and Types only). ETypes are excluded.
             if (hasQuery) {
-                const groupStrings: string[] = [];
-                (a?.Properties || []).forEach((p) => {
-                    if (p['group-properties']) {
-                        Object.values(p['group-properties']).forEach((pool) => {
-                            pool.forEach((affix) => {
-                                if (affix.PropertyString)
-                                    groupStrings.push(String(affix.PropertyString));
-                            });
-                        });
-                    }
-                });
-
-                const hay = [
-                    String(a?.Name || ''),
-                    ...(a?.Properties || []).map((p) =>
-                        p && p.PropertyString ? String(p.PropertyString) : '',
-                    ),
-                    ...groupStrings,
-                    ...(a?.Types || []).map((t) => (t != null ? String(t) : '')),
-                ]
-                    .filter(Boolean)
-                    .join(' ')
-                    .toLowerCase();
-                if (!matchesTokenGroups(hay, tokens))
-                    return false;
+                const hayParts = [
+                    t(a.NameKey),
+                    ...(a?.Lines || []).map(l => format(l)),
+                    ...(a?.Types || []).flatMap(ty => {
+                        const index = String(ty);
+                        const chain = getChainForTypeNameReadonly(index);
+                        return [index, ...(chain || []), ...(chain || []).map(c => t(c))];
+                    }),
+                ];
+                const hay = hayParts.filter(Boolean).join(' ').toLowerCase();
+                if (!matchesTokenGroups(hay, tokens)) return false;
             }
 
             return true;

@@ -3,7 +3,7 @@
     "group": 111,
     "items": [
       {
-        "description": "Damage"
+        "description": "prop_group_damage"
       }
     ]
   },
@@ -11,7 +11,7 @@
     "group": 105,
     "items": [
       {
-        "description": "Damage"
+        "description": "prop_group_damage"
       }
     ]
   },
@@ -19,7 +19,7 @@
     "group": 123,
     "items": [
       {
-        "description": "Demon Damage"
+        "description": "prop_group_demon_damage"
       }
     ]
   },
@@ -27,7 +27,7 @@
     "group": 142,
     "items": [
       {
-        "description": "Undead Damage"
+        "description": "prop_group_undead_damage"
       }
     ]
   },
@@ -35,7 +35,7 @@
     "group": 110,
     "items": [
       {
-        "description": "Attack Rating"
+        "description": "prop_group_attack_rating"
       }
     ]
   },
@@ -43,7 +43,7 @@
     "group": 200,
     "items": [
       {
-        "description": "Attack Rating"
+        "description": "prop_group_attack_rating"
       }
     ]
   },
@@ -51,7 +51,7 @@
     "group": 103,
     "items": [
       {
-        "description": "Damage"
+        "description": "prop_group_damage"
       }
     ]
   },
@@ -59,7 +59,7 @@
     "group": 104,
     "items": [
       {
-        "description": "Damage"
+        "description": "prop_group_damage"
       }
     ]
   },
@@ -67,7 +67,7 @@
     "group": 101,
     "items": [
       {
-        "description": "Defense"
+        "description": "prop_group_defense"
       }
     ]
   },
@@ -75,7 +75,7 @@
     "group": 125,
     "items": [
       {
-        "description": "Skill Levels"
+        "description": "prop_group_skill_levels"
       }
     ]
   },
@@ -83,7 +83,7 @@
     "group": 201,
     "items": [
       {
-        "description": "Skill Levels"
+        "description": "prop_group_skill_levels"
       }
     ]
   },
@@ -91,7 +91,7 @@
     "group": 137,
     "items": [
       {
-        "description": "Elemental Weapon Damage"
+        "description": "prop_group_elemental_weapon_damage"
       }
     ]
   },
@@ -99,7 +99,7 @@
     "group": 138,
     "items": [
       {
-        "description": "Elemental Weapon Damage"
+        "description": "prop_group_elemental_weapon_damage"
       }
     ]
   },
@@ -107,7 +107,7 @@
     "group": 139,
     "items": [
       {
-        "description": "Elemental Weapon Damage"
+        "description": "prop_group_elemental_weapon_damage"
       }
     ]
   },
@@ -115,7 +115,7 @@
     "group": 140,
     "items": [
       {
-        "description": "Elemental Weapon Damage"
+        "description": "prop_group_elemental_weapon_damage"
       }
     ]
   },
@@ -123,7 +123,7 @@
     "group": 117,
     "items": [
       {
-        "description": "Resistances"
+        "description": "prop_group_resistances"
       }
     ]
   },
@@ -131,7 +131,7 @@
     "group": 118,
     "items": [
       {
-        "description": "Resistances"
+        "description": "prop_group_resistances"
       }
     ]
   },
@@ -139,7 +139,7 @@
     "group": 119,
     "items": [
       {
-        "description": "Resistances"
+        "description": "prop_group_resistances"
       }
     ]
   },
@@ -147,7 +147,7 @@
     "group": 120,
     "items": [
       {
-        "description": "Resistances"
+        "description": "prop_group_resistances"
       }
     ]
   },
@@ -155,7 +155,7 @@
     "group": 116,
     "items": [
       {
-        "description": "Resistances"
+        "description": "prop_group_resistances"
       }
     ]
   },
@@ -163,7 +163,7 @@
     "group": 115,
     "items": [
       {
-        "description": "Mana"
+        "description": "prop_group_mana"
       }
     ]
   },
@@ -171,7 +171,7 @@
     "group": 121,
     "items": [
       {
-        "description": "Mana"
+        "description": "prop_group_mana"
       }
     ]
   },
@@ -179,7 +179,7 @@
     "group": 107,
     "items": [
       {
-        "description": "Mana"
+        "description": "prop_group_mana"
       }
     ]
   },
@@ -187,7 +187,7 @@
     "group": 112,
     "items": [
       {
-        "description": "Light Radius"
+        "description": "prop_group_light_radius"
       }
     ]
   },
@@ -195,7 +195,7 @@
     "group": 114,
     "items": [
       {
-        "description": "Magic Find"
+        "description": "prop_group_magic_find"
       }
     ]
   },
@@ -203,7 +203,7 @@
     "group": 122,
     "items": [
       {
-        "description": "Sockets"
+        "description": "prop_group_sockets"
       }
     ]
   },
@@ -211,7 +211,7 @@
     "group": 141,
     "items": [
       {
-        "description": "Elemental Weapon Damage"
+        "description": "prop_group_elemental_weapon_damage"
       }
     ]
   },
@@ -219,7 +219,7 @@
     "group": 102,
     "items": [
       {
-        "description": "Resistances"
+        "description": "prop_group_resistances"
       }
     ]
   },
@@ -227,7 +227,7 @@
     "group": 113,
     "items": [
       {
-        "description": "Weapon Effects"
+        "description": "prop_group_weapon_effects"
       }
     ]
   },
@@ -235,7 +235,7 @@
     "group": 202,
     "items": [
       {
-        "description": "Weapon Effects"
+        "description": "prop_group_weapon_effects"
       }
     ]
   },
@@ -243,7 +243,7 @@
     "group": 203,
     "items": [
       {
-        "description": "Elemental Weapon Damage"
+        "description": "prop_group_elemental_weapon_damage"
       }
     ]
   },
@@ -251,7 +251,7 @@
     "group": 204,
     "items": [
       {
-        "description": "Experience"
+        "description": "prop_group_experience"
       }
     ]
   },
@@ -259,7 +259,7 @@
     "group": 205,
     "items": [
       {
-        "description": "Kick Damage"
+        "description": "prop_group_kick_damage"
       }
     ]
   },
@@ -267,7 +267,7 @@
     "group": 206,
     "items": [
       {
-        "description": "Damage"
+        "description": "prop_group_damage"
       }
     ]
   },
@@ -275,7 +275,7 @@
     "group": 207,
     "items": [
       {
-        "description": "Equip Aura"
+        "description": "prop_group_equip_aura"
       }
     ]
   },
@@ -283,7 +283,7 @@
     "group": 209,
     "items": [
       {
-        "description": "Elemental Skill Effect"
+        "description": "prop_group_elemental_skill_effect"
       }
     ]
   },
@@ -291,7 +291,7 @@
     "group": 44,
     "items": [
       {
-        "description": "Charges"
+        "description": "prop_group_charges"
       }
     ]
   },
@@ -299,7 +299,7 @@
     "group": 130,
     "items": [
       {
-        "description": "Resistances"
+        "description": "prop_group_resistances"
       }
     ]
   },
@@ -307,7 +307,7 @@
     "group": 131,
     "items": [
       {
-        "description": "Mana"
+        "description": "prop_group_mana"
       }
     ]
   },
@@ -315,7 +315,7 @@
     "group": 133,
     "items": [
       {
-        "description": "Resistances"
+        "description": "prop_group_resistances"
       }
     ]
   },
@@ -323,7 +323,7 @@
     "group": 134,
     "items": [
       {
-        "description": "Life"
+        "description": "prop_group_life"
       }
     ]
   },
@@ -331,7 +331,7 @@
     "group": 210,
     "items": [
       {
-        "description": "Thorns"
+        "description": "prop_group_thorns"
       }
     ]
   },
@@ -339,7 +339,7 @@
     "group": 211,
     "items": [
       {
-        "description": "Speeds"
+        "description": "prop_group_speeds"
       }
     ]
   },
@@ -347,10 +347,10 @@
     "group": 212,
     "items": [
       {
-        "description": "Speeds"
+        "description": "prop_group_speeds"
       },
       {
-        "description": "Weapon Effects"
+        "description": "prop_group_weapon_effects"
       }
     ]
   },
@@ -358,7 +358,7 @@
     "group": 213,
     "items": [
       {
-        "description": "Skill Levels"
+        "description": "prop_group_skill_levels"
       }
     ]
   },
@@ -366,7 +366,7 @@
     "group": 214,
     "items": [
       {
-        "description": "Elemental Skill Effect"
+        "description": "prop_group_elemental_skill_effect"
       }
     ]
   },
@@ -374,7 +374,7 @@
     "group": 215,
     "items": [
       {
-        "description": "Elemental Skill Effect"
+        "description": "prop_group_elemental_skill_effect"
       }
     ]
   },
@@ -382,7 +382,7 @@
     "group": 143,
     "items": [
       {
-        "description": "Damage"
+        "description": "prop_group_damage"
       }
     ]
   },
@@ -390,10 +390,10 @@
     "group": 61,
     "items": [
       {
-        "description": "Damage"
+        "description": "prop_group_damage"
       },
             {
-        "description": "Defense"
+        "description": "prop_group_defense"
       }
     ]
   },
@@ -401,7 +401,7 @@
     "group": 14,
     "items": [
       {
-        "description": "Damage"
+        "description": "prop_group_damage"
       }
     ]
   },
@@ -409,7 +409,7 @@
     "group": 15,
     "items": [
       {
-        "description": "Damage"
+        "description": "prop_group_damage"
       }
     ]
   },
@@ -417,7 +417,7 @@
     "group": 10,
     "items": [
       {
-        "description": "Elemental Weapon Damage"
+        "description": "prop_group_elemental_weapon_damage"
       }
     ]
   },
@@ -425,7 +425,7 @@
     "group": 12,
     "items": [
       {
-        "description": "Elemental Weapon Damage"
+        "description": "prop_group_elemental_weapon_damage"
       }
     ]
   },
@@ -433,7 +433,7 @@
     "group": 13,
     "items": [
       {
-        "description": "Elemental Weapon Damage"
+        "description": "prop_group_elemental_weapon_damage"
       }
     ]
   },
@@ -441,7 +441,7 @@
     "group": 16,
     "items": [
       {
-        "description": "Elemental Weapon Damage"
+        "description": "prop_group_elemental_weapon_damage"
       }
     ]
   },
@@ -449,7 +449,7 @@
     "group": 11,
     "items": [
       {
-        "description": "Elemental Effect Defense"
+        "description": "prop_group_elemental_effect_defense"
       }
     ]
   },
@@ -457,7 +457,7 @@
     "group": 29,
     "items": [
       {
-        "description": "Elemental Effect Defense"
+        "description": "prop_group_elemental_effect_defense"
       }
     ]
   },
@@ -465,7 +465,7 @@
     "group": 27,
     "items": [
       {
-        "description": "Life Leech"
+        "description": "prop_group_life_leech"
       }
     ]
   },
@@ -473,7 +473,7 @@
     "group": 28,
     "items": [
       {
-        "description": "Mana Leech"
+        "description": "prop_group_mana_leech"
       }
     ]
   },
@@ -481,10 +481,10 @@
     "group": 60,
     "items": [
         {
-        "description": "Life Leech"
+        "description": "prop_group_life_leech"
       },
       {
-        "description": "Mana Leech"
+        "description": "prop_group_mana_leech"
       }
     ]
   },
@@ -492,7 +492,7 @@
     "group": 1,
     "items": [
       {
-        "description": "Resistances"
+        "description": "prop_group_resistances"
       }
     ]
   },
@@ -500,10 +500,10 @@
     "group": 2,
     "items": [
       {
-        "description": "Resistances"
+        "description": "prop_group_resistances"
       },
       {
-        "description": "Resistances"
+        "description": "prop_group_resistances"
       }
     ]
   },
@@ -511,7 +511,7 @@
     "group": 3,
     "items": [
       {
-        "description": "Absorbs"
+        "description": "prop_group_absorbs"
       }
     ]
   },
@@ -519,7 +519,7 @@
     "group": 43,
     "items": [
       {
-        "description": "Resistances"
+        "description": "prop_group_resistances"
       }
     ]
   },
@@ -527,7 +527,7 @@
     "group": 67,
     "items": [
       {
-        "description": "Resistances"
+        "description": "prop_group_resistances"
       }
     ]
   },
@@ -535,7 +535,7 @@
     "group": 17,
     "items": [
       {
-        "description": "Attributes"
+        "description": "prop_group_attributes"
       }
     ]
   },
@@ -543,7 +543,7 @@
     "group": 31,
     "items": [
       {
-        "description": "Attributes"
+        "description": "prop_group_attributes"
       }
     ]
   },
@@ -551,7 +551,7 @@
     "group": 23,
     "items": [
       {
-        "description": "Attributes"
+        "description": "prop_group_attributes"
       }
     ]
   },
@@ -559,7 +559,7 @@
     "group": 42,
     "items": [
       {
-        "description": "Attributes"
+        "description": "prop_group_attributes"
       }
     ]
   },
@@ -567,7 +567,7 @@
     "group": 26,
     "items": [
       {
-        "description": "Life"
+        "description": "prop_group_life"
       }
     ]
   },
@@ -575,7 +575,7 @@
     "group": 41,
     "items": [
       {
-        "description": "Life"
+        "description": "prop_group_life"
       }
     ]
   },
@@ -583,7 +583,7 @@
     "group": 19,
     "items": [
       {
-        "description": "Life"
+        "description": "prop_group_life"
       }
     ]
   },
@@ -591,7 +591,7 @@
     "group": 35,
     "items": [
       {
-        "description": "Speeds"
+        "description": "prop_group_speeds"
       }
     ]
   },
@@ -599,7 +599,7 @@
     "group": 18,
     "items": [
       {
-        "description": "Speeds"
+        "description": "prop_group_speeds"
       }
     ]
   },
@@ -607,7 +607,7 @@
     "group": 7,
     "items": [
       {
-        "description": "Speeds"
+        "description": "prop_group_speeds"
       }
     ]
   },
@@ -615,7 +615,7 @@
     "group": 6,
     "items": [
       {
-        "description": "Thorns"
+        "description": "prop_group_thorns"
       }
     ]
   },
@@ -623,7 +623,7 @@
     "group": 25,
     "items": [
       {
-        "description": "Light Radius"
+        "description": "prop_group_light_radius"
       }
     ]
   },
@@ -631,7 +631,7 @@
     "group": 22,
     "items": [
       {
-        "description": "Magic Find"
+        "description": "prop_group_magic_find"
       }
     ]
   },
@@ -639,7 +639,7 @@
     "group": 21,
     "items": [
       {
-        "description": "Gold Find"
+        "description": "prop_group_gold_find"
       }
     ]
   },
@@ -647,7 +647,7 @@
     "group": 30,
     "items": [
       {
-        "description": "Requirements"
+        "description": "prop_group_requirements"
       }
     ]
   },
@@ -655,7 +655,7 @@
     "group": 37,
     "items": [
       {
-        "description": "Auto-Repair"
+        "description": "prop_group_auto_repair"
       }
     ]
   },
@@ -663,7 +663,7 @@
     "group": 39,
     "items": [
       {
-        "description": "Indestructible"
+        "description": "prop_group_indestructible"
       }
     ]
   },
@@ -671,7 +671,7 @@
     "group": 4,
     "items": [
       {
-        "description": "Weapon Effects"
+        "description": "prop_group_weapon_effects"
       }
     ]
   },
@@ -679,7 +679,7 @@
     "group": 5,
     "items": [
       {
-        "description": "Weapon Effects"
+        "description": "prop_group_weapon_effects"
       }
     ]
   },
@@ -687,7 +687,7 @@
     "group": 8,
     "items": [
       {
-        "description": "Block Chance"
+        "description": "prop_group_block_chance"
       }
     ]
   },
@@ -695,7 +695,7 @@
     "group": 9,
     "items": [
       {
-        "description": "Speeds"
+        "description": "prop_group_speeds"
       }
     ]
   },
@@ -703,7 +703,7 @@
     "group": 20,
     "items": [
       {
-        "description": "Weapon Effects"
+        "description": "prop_group_weapon_effects"
       }
     ]
   },
@@ -711,7 +711,7 @@
     "group": 24,
     "items": [
       {
-        "description": "Weapon Effects"
+        "description": "prop_group_weapon_effects"
       }
     ]
   },
@@ -719,7 +719,7 @@
     "group": 63,
     "items": [
       {
-        "description": "Vendor Prices"
+        "description": "prop_group_vendor_prices"
       }
     ]
   },
@@ -727,7 +727,7 @@
     "group": 64,
     "items": [
       {
-        "description": "Weapon Effects"
+        "description": "prop_group_weapon_effects"
       }
     ]
   },
@@ -735,7 +735,7 @@
     "group": 65,
     "items": [
       {
-        "description": "Weapon Effects"
+        "description": "prop_group_weapon_effects"
       }
     ]
   },
@@ -743,7 +743,7 @@
     "group": 66,
     "items": [
       {
-        "description": "Reanimate"
+        "description": "prop_group_reanimate"
       }
     ]
   },
@@ -751,7 +751,7 @@
     "group": 77,
     "items": [
       {
-        "description": "CTC When Struck"
+        "description": "prop_group_ctc_when_struck"
       }
     ]
   },
@@ -759,7 +759,7 @@
     "group": 78,
     "items": [
       {
-        "description": "CTC When Striking"
+        "description": "prop_group_ctc_when_striking"
       }
     ]
   },
@@ -767,7 +767,7 @@
     "group": 79,
     "items": [
       {
-        "description": "CTC on Level-Up"
+        "description": "prop_group_ctc_level_up"
       }
     ]
   },
@@ -775,7 +775,7 @@
     "group": 80,
     "items": [
       {
-        "description": "Life"
+        "description": "prop_group_life"
       }
     ]
   },
@@ -783,7 +783,7 @@
     "group": 81,
     "items": [
       {
-        "description": "Skill Special Effects"
+        "description": "prop_group_skill_special_effects"
       }
     ]
   },
@@ -791,7 +791,7 @@
     "group": 32,
     "items": [
       {
-        "description": "Speeds"
+        "description": "prop_group_speeds"
       }
     ]
   },
@@ -799,7 +799,7 @@
     "group": 82,
     "items": [
       {
-        "description": "Elemental Skill Effect"
+        "description": "prop_group_elemental_skill_effect"
       }
     ]
   },
@@ -807,7 +807,7 @@
     "group": 83,
     "items": [
       {
-        "description": "Elemental Skill Effect"
+        "description": "prop_group_elemental_skill_effect"
       }
     ]
   }
