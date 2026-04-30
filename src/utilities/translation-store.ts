@@ -21,6 +21,7 @@ import {
     LANGUAGES,
     StringMap,
 } from './i-keyed-line';
+import { stripGenderTagsInPlace } from './strip-gender-tags';
 import { UI_STRINGS } from './ui-strings.js';
 
 type Listener = (code: LanguageCode) => void;
@@ -32,6 +33,24 @@ let activeCode: LanguageCode = FALLBACK_LANGUAGE;
 let active: StringMap = {};
 let fallback: StringMap = {};
 const listeners = new Set<Listener>();
+
+// Dev-only tracker for keys that fall through every fallback. Keyed by
+// `${activeCode}:${key}` so a key that's missing in one language but added
+// later in another still surfaces. Production builds tree-shake the warner
+// via `import.meta.env.DEV`, so this set stays empty there.
+const missingKeysWarned = new Set<string>();
+
+function warnMissingKey(key: string): void {
+    if (!import.meta.env.DEV) return;
+    const tag = `${activeCode}:${key}`;
+    if (missingKeysWarned.has(tag)) return;
+    missingKeysWarned.add(tag);
+    // eslint-disable-next-line no-console
+    console.warn(
+        `[translation-store] missing key "${key}" in ${activeCode}` +
+            (activeCode !== FALLBACK_LANGUAGE ? ` (and in ${FALLBACK_LANGUAGE})` : ''),
+    );
+}
 
 /** Returns the currently active language code. */
 export function getActiveLanguage(): LanguageCode {
@@ -90,25 +109,18 @@ export function getSavedLanguage(): LanguageCode {
 /** Look up a translation key. Falls back to UI strings, then to enUS UI strings, then to enUS data, then to the raw key. */
 export function lookup(key: string): string {
     if (!key) return '';
-    const val = (
+    // Bundles are pre-normalized in `fetchStrings` — gender/number tags are
+    // stripped at load time, so callers always see a plain string.
+    const hit =
         active[key] ??
         UI_STRINGS[activeCode]?.[key] ??
         UI_STRINGS[FALLBACK_LANGUAGE]?.[key] ??
-        fallback[key] ??
-        key
-    );
-
-    // Strip gender tags like [ms], [fs], [pl] etc. at the start of the string
-    // These are present in many non-English D2R string files.
-    // If a string contains multiple gendered variants, we take the first one.
-    if (val.startsWith('[')) {
-        const match = val.match(/^\[[a-z]{2}\]/);
-        if (match) {
-            return val.substring(match[0].length).split(/\[[a-z]{2}\]/)[0];
-        }
+        fallback[key];
+    if (hit === undefined) {
+        warnMissingKey(key);
+        return key;
     }
-
-    return val;
+    return hit;
 }
 
 /** Look up a key and apply args using the D2R template formatter. Strings in args are also looked up as keys. */
@@ -163,7 +175,11 @@ async function fetchStrings(code: LanguageCode): Promise<StringMap> {
             console.warn(`[translation-store] ${url} -> ${res.status}; using empty map`);
             return {};
         }
-        return (await res.json()) as StringMap;
+        const map = (await res.json()) as StringMap;
+        // Collapse [ms]/[fs]/[pl]/... variants once per language so every
+        // downstream `lookup` is a plain map read.
+        stripGenderTagsInPlace(map);
+        return map;
     } catch (err) {
         // eslint-disable-next-line no-console
         console.warn(`[translation-store] failed to load ${url}:`, err);
