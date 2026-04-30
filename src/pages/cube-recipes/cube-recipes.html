@@ -91,9 +91,7 @@
                 <div class="text-base type-text">
                     ${blk.lineOne}
                 </div>
-                <div repeat.for="line of blk.properties | keyedLines" class="text-base prop-text">
-                    ${line}
-                </div>
+                <keyed-lines class="text-base prop-text" lines.bind="blk.properties"></keyed-lines>
                 <div if.bind="blk.chanceText" class="text-base requirement-text">
                     ${blk.chanceText}
                 </div>

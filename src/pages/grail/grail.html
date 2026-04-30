@@ -336,9 +336,7 @@
                     </div>
                 </div>
 
-                <div class="text-base prop-text" repeat.for="line of unique.Lines | keyedLines">
-                    ${line}
-                </div>
+                <keyed-lines class="text-base prop-text" lines.bind="unique.Lines"></keyed-lines>
             </div>
         </div>
 
@@ -408,13 +406,9 @@
                     </div>
                 </div>
 
-                <div class="text-base prop-text" repeat.for="line of setItem.Lines | keyedLines">
-                    ${line}
-                </div>
+                <keyed-lines class="text-base prop-text" lines.bind="setItem.Lines"></keyed-lines>
                 <div class="text-base set-text" repeat.for="setBonus of setItem.SetBonuses">
-                    <div repeat.for="line of setBonus | keyedLines">
-                        ${line}
-                    </div>
+                    <keyed-lines lines.bind="setBonus"></keyed-lines>
                 </div>
             </div>
         </div>
@@ -458,9 +452,7 @@
                     ${'strRequiredLevel' | t: runeword.RequiredLevel || 1}
                 </div>
 
-                <div class="text-base prop-text" repeat.for="line of runeword.Lines | keyedLines">
-                    ${line}
-                </div>
+                <keyed-lines class="text-base prop-text" lines.bind="runeword.Lines"></keyed-lines>
 
             </div>
         </div>

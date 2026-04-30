@@ -177,12 +177,8 @@
             </div>
 
             <div class="mb-1">
-                <div class="partial-sets text-base set-text" repeat.for="line of set.PartialBonuses | keyedLines">
-                    ${line}
-                </div>
-                <div class="partial-sets text-base set-text" repeat.for="line of set.FullBonuses | keyedLines">
-                    ${line}
-                </div>
+                <keyed-lines class="partial-sets text-base set-text" lines.bind="set.PartialBonuses"></keyed-lines>
+                <keyed-lines class="partial-sets text-base set-text" lines.bind="set.FullBonuses"></keyed-lines>
             </div>
 
             <div repeat.for="setItem of set.SetItems"
@@ -235,13 +231,9 @@
                     </div>
                 </div>
 
-                <div class="text-base prop-text" repeat.for="line of setItem.Lines | keyedLines">
-                    ${line}
-                </div>
+                <keyed-lines class="text-base prop-text" lines.bind="setItem.Lines"></keyed-lines>
                 <div class="text-base set-text" repeat.for="setBonus of setItem.SetBonuses">
-                    <div repeat.for="line of setBonus | keyedLines">
-                        ${line}
-                    </div>
+                    <keyed-lines lines.bind="setBonus"></keyed-lines>
                 </div>
 
             </div>

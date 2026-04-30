@@ -190,10 +190,7 @@
                                 </span>
                             </div>
                             <div class="flex flex-col items-end text-right">
-                                <div class="text-base prop-text"
-                                     repeat.for="line of g.lines | keyedLines">
-                                    ${line}
-                                </div>
+                                <keyed-lines class="text-base prop-text" lines.bind="g.lines"></keyed-lines>
                             </div>
                         </div>
                     </div>
