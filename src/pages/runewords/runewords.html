@@ -67,16 +67,13 @@
                     </div>
                 </div>
 
-                <div class="w-full lg:w-60"
-                     data-help-text="${'help_runes_only_filter' | t}">
-                    <div class="flex items-stretch">
-                        <div class="trailing-icon flex-1" data-icon="search">
-                            <input id="runesearch" type="text" class="select-base peer pr-12 w-full"
-                                   value.bind="searchRunes"
-                                   placeholder=" "/>
-                            <label for="runesearch" class="floating-label">${'filter_runes_only_placeholder' | t}</label>
-                        </div>
-
+                <multi-select id="runesearch"
+                              class="w-full lg:w-60"
+                              data-help-text="${'help_runes_only_filter' | t}"
+                              values.bind="selectedRuneKeys"
+                              options.bind="runeOptions"
+                              label="${'filter_runes_only_placeholder' | t}">
+                    <div au-slot="after" class="flex items-stretch">
                         <!-- Mobile only info button -->
                         <button type="button"
                                 class="m-info-button"
@@ -86,7 +83,7 @@
                             <span class="sr-only">${'info_more_about' | t:'filter_runes_only_placeholder'}</span>
                         </button>
                     </div>
-                </div>
+                </multi-select>
 
                 <div class="w-full lg:w-auto lg:min-w-35" data-help-text="${'help_hide_vanilla' | t}">
                     <div class="flex items-stretch">

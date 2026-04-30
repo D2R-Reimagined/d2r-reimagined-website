@@ -12,6 +12,12 @@ import { IKeyedLine } from '../../utilities/i-keyed-line';
 import { format, t } from '../../utilities/translation-store.js';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 
+interface IRuneOption {
+    id: string;
+    label: string;
+    n: number;
+}
+
 // Shapes for the new keyed runewords.json
 interface IRunewordData {
     Index: string;
@@ -28,7 +34,7 @@ export class Runewords {
     private _searchStrings = new Map<IRunewordData, string>();
 
     @bindable search: string = '';
-    @bindable searchRunes: string = '';
+    @bindable selectedRuneKeys: string[] = [];
     @bindable exclusiveType: boolean = false;
     @bindable hideVanilla: boolean = false;
     @bindable selectedType: string = '';
@@ -36,6 +42,9 @@ export class Runewords {
 
     private _debouncedSearchItem!: IDebouncedFunction;
     private _debouncedUpdateUrl!: IDebouncedFunction;
+
+    // Options for the rune-only multi-select dropdown, ordered by numeric r##.
+    runeOptions: IRuneOption[] = [];
 
     // Centralized options, narrowed at runtime to types present in data
     types: ReadonlyArray<IFilterOption> = type_filtering_options.slice();
@@ -120,9 +129,30 @@ export class Runewords {
             this.search = searchParam;
         }
 
+        // Build the rune options list from unique NameKeys present in the data,
+        // ordered by the numeric portion of `r##` (e.g. r01, r02, ..., r33).
+        const runeKeys = new Set<string>();
+        for (const rw of this.allRunewords || []) {
+            const runes = Array.isArray(rw?.Runes) ? rw.Runes : [];
+            for (const r of runes) {
+                if (r?.NameKey) runeKeys.add(r.NameKey);
+            }
+        }
+        this.runeOptions = Array.from(runeKeys)
+            .map((key) => {
+                const m = /^r(\d+)$/i.exec(key);
+                const n = m ? parseInt(m[1], 10) : Number.MAX_SAFE_INTEGER;
+                return { id: key, label: t(key), n };
+            })
+            .sort((a, b) => (a.n - b.n) || a.id.localeCompare(b.id));
+
         const runesParam = urlParams.get('runes');
         if (runesParam && !isBlankOrInvalid(runesParam)) {
-            this.searchRunes = runesParam;
+            const validKeys = new Set(this.runeOptions.map((o) => o.id));
+            this.selectedRuneKeys = runesParam
+                .split(',')
+                .map((s) => s.trim())
+                .filter((s) => validKeys.has(s));
         }
 
         // Boolean param: hideVanilla=true
@@ -166,9 +196,10 @@ export class Runewords {
 
     // Push current filters to URL
     private updateUrl() {
+        const runesParam = (this.selectedRuneKeys || []).join(',');
         syncParamsToUrl({
             search: this.search,
-            runes: this.searchRunes,
+            runes: runesParam,
             type: this.selectedType,
             sockets: this.selectedAmount,
             exact: this.exclusiveType,
@@ -176,8 +207,8 @@ export class Runewords {
         }, false);
     }
 
-    @watch('searchRunes')
-    handleSearchRunesChanged() {
+    @watch('selectedRuneKeys')
+    handleSelectedRuneKeysChanged() {
         if (this._debouncedSearchItem) this._debouncedSearchItem();
         if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
     }
@@ -226,14 +257,6 @@ export class Runewords {
         if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
     }
 
-    normalizeRuneName(name: string): string {
-        // Remove " Rune" suffix and trim any extra spaces
-        return name
-            .replace(/ rune$/i, '')
-            .trim()
-            .toLowerCase();
-    }
-
     formatGroupName(name: string) {
         return name.replace(/-/g, ' ').replace(/([a-z])([0-9])/g, '$1 $2');
     }
@@ -256,26 +279,10 @@ export class Runewords {
             }
         }
 
-        // Rune search filter setup
-        let runeGroups: string[][] = [];
-        if (this.searchRunes) {
-            const normalized = (this.searchRunes || '')
-                .trim()
-                .toLowerCase()
-                .replace(/\s*[,|]\s*/g, '|')
-                .replace(/\s*\+\s*/g, ' ')
-                .replace(/\s+/g, ' ');
-
-            runeGroups = normalized
-                .split(' ')
-                .map((group) =>
-                    group
-                        .split('|')
-                        .map((tok) => this.normalizeRuneName(tok))
-                        .filter(Boolean),
-                )
-                .filter((g) => g.length > 0);
-        }
+        // Rune-only filter setup: list of selected NameKeys (e.g. ['r15','r28']).
+        const selectedRunes: string[] = Array.isArray(this.selectedRuneKeys)
+            ? this.selectedRuneKeys.filter(Boolean)
+            : [];
 
         this.filteredRunewords = this.allRunewords.filter((rw) => {
             // 1. Vanilla filter
@@ -320,15 +327,12 @@ export class Runewords {
                 }
             }
 
-            // 5. Rune search
-            if (runeGroups.length > 0) {
-                const runewordRuneNames = (rw.Runes ?? []).map((rune) =>
-                    this.normalizeRuneName(t(rune.NameKey)),
-                );
-                const hasRuneMatch = runeGroups.every((orGroup) =>
-                    orGroup.some((token) => runewordRuneNames.includes(token)),
-                );
-                if (!hasRuneMatch) return false;
+            // 5. Rune-only filter (match by NameKey; require all selected runes
+            //    to appear in this runeword).
+            if (selectedRunes.length > 0) {
+                const runewordRuneKeys = (rw.Runes ?? []).map((rune) => rune.NameKey);
+                const hasAll = selectedRunes.every((k) => runewordRuneKeys.includes(k));
+                if (!hasAll) return false;
             }
 
             return true;
@@ -366,7 +370,7 @@ export class Runewords {
     // Reset all filters and refresh URL/list
     resetFilters() {
         this.search = '';
-        this.searchRunes = '';
+        this.selectedRuneKeys = [];
         this.selectedType = '';
         this.selectedAmount = '';
         this.exclusiveType = false;
