@@ -42981,7 +42981,7 @@
         "Index": "Hand of the Vindicator",
         "SetName": "Tools of Vindication",
         "ItemLevel": 0,
-        "RequiredLevel": 20,
+        "RequiredLevel": 24,
         "Code": "whm",
         "DamageArmorEnhanced": false,
         "Lines": [

@@ -159,9 +159,7 @@
                 ${'strRequiredLevel' | t: runeword.RequiredLevel || 1}
             </div>
 
-            <div class="text-base prop-text" repeat.for="line of runeword.Lines | keyedLines">
-                ${line}
-            </div>
+            <keyed-lines class="text-base prop-text" lines.bind="runeword.Lines"></keyed-lines>
 
         </div>
     </div>

@@ -23,6 +23,25 @@ export interface IKeyedLine {
     classOnly?: string;
     /** Optional descPriority kept for stable ordering; not required for render. */
     priority?: number;
+    /** Pool-child weight. Present only on entries inside a group's `children`
+     *  array; the displayed percentage for the row is
+     *  `chance / sum(siblings.chance) * 100`. Children without `chance`
+     *  default to a weight of `1`. */
+    chance?: number;
+    /** Crafted-recipe pool selector. Present only on group parent rows
+     *  (entries with empty `key` and a populated `children` array).
+     *  - `"0"`         → all children always apply (guaranteed group).
+     *  - any non-zero  → exactly one child is rolled from the pool;
+     *                    rows render with their `chance` percentage.
+     *  Today's data ships only `"1"` and `"2"` (uniques.json). */
+    pickMode?: string;
+    /** Group identifier (e.g. `"Gelid-Affix4"`, `"skilltab-war"`).
+     *  Used as the bordered-box header on pooled groups; falls back to
+     *  the literal code when no translation entry exists. */
+    code?: string;
+    /** Group children. When present, this row is a pool parent — its own
+     *  `key`/`args` are ignored and the renderer walks `children` instead. */
+    children?: IKeyedLine[];
 }
 
 /** Flat translation map for a single language (`{ "ModStr3a": "...", ... }`). */

@@ -85,14 +85,12 @@ export class Uniques {
     private _debouncedSearchItem!: IDebouncedFunction;
     private _debouncedUpdateUrl!: IDebouncedFunction;
 
-
-
     classes = character_class_options.map(opt => ({
         ...opt,
         label: t(opt.label),
     }));
 
-    // Hydrate state from URL and build type options BEFORE the controls render
+    // Build options and hydrate from URL BEFORE controls render
     async binding() {
         // Fetch keyed uniques data
         try {
@@ -103,12 +101,12 @@ export class Uniques {
             this.allUniques = [];
         }
 
-        const urlParams = new URLSearchParams(window.location.search);
-
         // Pre-calculate searchable strings
         this.allUniques.forEach(u => {
             this._searchStrings.set(u, this.buildSearchableStringForUnique(u));
         });
+
+        const urlParams = new URLSearchParams(window.location.search);
 
         const searchParam = urlParams.get('search');
         if (searchParam && !isBlankOrInvalid(searchParam)) {
@@ -147,12 +145,10 @@ export class Uniques {
             const opt = this.types.find((o) => o.id === typeParam);
             this.selectedType = opt ? opt.id : '';
         }
-
-        // Equipment name (exact match)
+        // Equipment (exact)
         const eqParam = urlParams.get('equipment');
-        if (eqParam && !isBlankOrInvalid(eqParam)) {
+        if (eqParam && !isBlankOrInvalid(eqParam))
             this.selectedEquipmentName = eqParam;
-        }
     }
 
     attached() {

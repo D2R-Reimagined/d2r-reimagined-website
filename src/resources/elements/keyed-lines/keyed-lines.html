@@ -1,0 +1,24 @@
+﻿<template>
+    <template repeat.for="line of lines">
+        <!-- simple line -->
+        <div if.bind="!isGroup(line)">${line | keyedLine}</div>
+
+        <!-- guaranteed group: render children plain -->
+        <template if.bind="isGroup(line) && !isPooled(line)">
+            <div repeat.for="child of line.children">${child | keyedLine}</div>
+        </template>
+
+        <!-- pooled group: bordered box, header = translated code,
+             rows = ${chance%}: ${rendered child} -->
+        <div if.bind="isPooled(line)" class="border px-2 border-gray-600 rounded m-2">
+            <div class="set-text text-center p-1 border-b border-gray-600" if.bind="line.nameKey">
+                ${line.nameKey | t}
+            </div>
+            <div repeat.for="child of line.children"
+                 class="flex justify-between p-1 border-b border-gray-700 last:border-0">
+                <span class="prop-text">${child | keyedChance:line.children}%</span>
+                <span class="text-right">${child | keyedLine}</span>
+            </div>
+        </div>
+    </template>
+</template>

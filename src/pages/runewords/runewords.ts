@@ -58,7 +58,7 @@ export class Runewords {
         { value: 6, label: 'label_runes_count' },
     ];
 
-    // Build options and hydrate filters from URL before controls render
+    // Build options and hydrate from URL BEFORE controls render
     async binding() {
         // Fetch keyed runewords data
         try {
@@ -69,12 +69,21 @@ export class Runewords {
             this.allRunewords = [];
         }
 
-        const urlParams = new URLSearchParams(window.location.search);
-
         // Pre-calculate searchable strings
         this.allRunewords.forEach(rw => {
             this._searchStrings.set(rw, this.buildSearchableStringForRuneword(rw));
         });
+
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const searchParam = urlParams.get('search');
+        if (searchParam && !isBlankOrInvalid(searchParam)) {
+            this.search = searchParam;
+        }
+
+        // Boolean param: hideVanilla=true
+        const hv = urlParams.get('hideVanilla');
+        if (hv === 'true' || hv === '1') this.hideVanilla = true;
 
         // Collect EXPLICIT base type names present in data (Runewords-only behavior)
         const presentExplicitBases = new Set<string>();
@@ -124,11 +133,6 @@ export class Runewords {
         // Prepend a uniform reset option so users can clear the selection with '-'
         this.types = prependTypeResetOption(this.types);
 
-        const searchParam = urlParams.get('search');
-        if (searchParam && !isBlankOrInvalid(searchParam)) {
-            this.search = searchParam;
-        }
-
         // Build the rune options list from unique NameKeys present in the data,
         // ordered by the numeric portion of `r##` (e.g. r01, r02, ..., r33).
         const runeKeys = new Set<string>();
@@ -146,6 +150,7 @@ export class Runewords {
             })
             .sort((a, b) => (a.n - b.n) || a.id.localeCompare(b.id));
 
+        // Map URL 'runes' (multi)
         const runesParam = urlParams.get('runes');
         if (runesParam && !isBlankOrInvalid(runesParam)) {
             const validKeys = new Set(this.runeOptions.map((o) => o.id));
@@ -154,10 +159,6 @@ export class Runewords {
                 .map((s) => s.trim())
                 .filter((s) => validKeys.has(s));
         }
-
-        // Boolean param: hideVanilla=true
-        const hv = urlParams.get('hideVanilla');
-        if (hv === 'true' || hv === '1') this.hideVanilla = true;
 
         // Map URL 'type' (id)
         const typeParam = urlParams.get('type');

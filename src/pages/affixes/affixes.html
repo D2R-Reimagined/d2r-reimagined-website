@@ -137,9 +137,7 @@
                     <span class="text-base requirement-text mx-1" repeat.for="et of affix.ETypes">${et | t}</span>
                 </div>
 
-                <div class="text-base prop-text my-1" repeat.for="line of affix.Lines | keyedLines">
-                    ${line}
-                </div>
+                <keyed-lines class="text-base prop-text my-1" lines.bind="affix.Lines"></keyed-lines>
 
             </div>
         </div>
