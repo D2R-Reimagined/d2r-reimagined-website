@@ -14584,7 +14584,7 @@
     },
     {
         "Name": "of Defense",
-        "Level": 7,
+        "Level": 1,
         "MaxLevel": 70,
         "RequiredLevel": 10,
         "Group": 31,

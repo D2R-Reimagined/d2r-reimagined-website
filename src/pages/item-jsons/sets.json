@@ -234,7 +234,7 @@
                     "Block": 0,
                     "EquipmentType": 0,
                     "Name": "Buckler [N]",
-                    "RequiredStrength": "12",
+                    "RequiredStrength": "10",
                     "RequiredDexterity": "0",
                     "Durability": 12,
                     "RequiredClass": ""
@@ -24057,7 +24057,7 @@
                 "Enabled": true,
                 "Rarity": 7,
                 "ItemLevel": 12,
-                "RequiredLevel": 20,
+                "RequiredLevel": 24,
                 "Code": "whm",
                 "Properties": [
                     {
@@ -24078,8 +24078,8 @@
                     "DamageTypes": [
                         {
                             "Type": 3,
-                            "DamageString": "(39-119) to (49-129)",
-                            "AverageDamage": 84.0
+                            "DamageString": "(43-119) to (53-129)",
+                            "AverageDamage": 86.0
                         }
                     ],
                     "Speed": 20,

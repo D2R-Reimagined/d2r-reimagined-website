@@ -605,7 +605,7 @@
         "Name": "Buckler [N]",
         "Code": "buc",
         "BaseRequiredLevel": 0,
-        "RequiredStrength": "12",
+        "RequiredStrength": "10",
         "RequiredDexterity": "0",
         "Durability": 12,
         "ItemLevel": 1,

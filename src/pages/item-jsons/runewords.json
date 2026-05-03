@@ -9851,6 +9851,90 @@
     {
         "Runes": [
             {
+                "Name": "Mal Rune",
+                "ItemLevel": 49,
+                "RequiredLevel": 49,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            },
+            {
+                "Name": "Shael Rune",
+                "ItemLevel": 29,
+                "RequiredLevel": 29,
+                "Type": {
+                    "Name": "Rune",
+                    "Index": "Rune",
+                    "Class": ""
+                }
+            }
+        ],
+        "Types": [
+            {
+                "Name": "Weapon",
+                "Index": "Weapon",
+                "Class": ""
+            },
+            {
+                "Name": "Any Shield",
+                "Index": "Any Shield",
+                "Class": ""
+            }
+        ],
+        "Vanilla": "N",
+        "Name": "Blood",
+        "Index": "Blood1",
+        "Enabled": true,
+        "Rarity": 0,
+        "ItemLevel": 49,
+        "RequiredLevel": 49,
+        "Code": "Blood1",
+        "Properties": [
+            {
+                "PropertyString": "+2 to All Skills",
+                "Index": 3
+            },
+            {
+                "PropertyString": "+150-200% Enhanced Weapon Damage",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+125-175 Defense",
+                "Index": 1
+            },
+            {
+                "PropertyString": "+10-15% Increased Maximum Life",
+                "Index": 4
+            },
+            {
+                "PropertyString": "+10-15% Physical Damage Reduction",
+                "Index": 5
+            },
+            {
+                "PropertyString": "+20% Increased Attack Speed (Weapon)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Prevent Monster Heal (Weapon)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "+20% Faster Block Rate (Shield)",
+                "Index": 0
+            },
+            {
+                "PropertyString": "Magic Damage Reduced By 7 (Shield)",
+                "Index": 0
+            }
+        ],
+        "DamageArmorEnhanced": false,
+        "Equipment": null
+    },
+    {
+        "Runes": [
+            {
                 "Name": "Shael Rune",
                 "ItemLevel": 29,
                 "RequiredLevel": 29,
@@ -16415,107 +16499,6 @@
             {
                 "PropertyString": "+3% to Experience Gained",
                 "Index": 6
-            }
-        ],
-        "DamageArmorEnhanced": false,
-        "Equipment": null
-    },
-    {
-        "Runes": [
-            {
-                "Name": "Mal Rune",
-                "ItemLevel": 49,
-                "RequiredLevel": 49,
-                "Type": {
-                    "Name": "Rune",
-                    "Index": "Rune",
-                    "Class": ""
-                }
-            },
-            {
-                "Name": "Shael Rune",
-                "ItemLevel": 29,
-                "RequiredLevel": 29,
-                "Type": {
-                    "Name": "Rune",
-                    "Index": "Rune",
-                    "Class": ""
-                }
-            }
-        ],
-        "Types": [
-            {
-                "Name": "Weapon",
-                "Index": "Weapon",
-                "Class": ""
-            },
-            {
-                "Name": "Any Armor",
-                "Index": "Any Armor",
-                "Class": ""
-            },
-            {
-                "Name": "Any Shield",
-                "Index": "Any Shield",
-                "Class": ""
-            }
-        ],
-        "Vanilla": "N",
-        "Name": "Blood",
-        "Index": "Blood1",
-        "Enabled": true,
-        "Rarity": 0,
-        "ItemLevel": 49,
-        "RequiredLevel": 67,
-        "Code": "Blood1",
-        "Properties": [
-            {
-                "PropertyString": "+2 to All Skills",
-                "Index": 4
-            },
-            {
-                "PropertyString": "+200-250% Enhanced Weapon Damage",
-                "Index": 1
-            },
-            {
-                "PropertyString": "+125-175 Defense",
-                "Index": 2
-            },
-            {
-                "PropertyString": "+10-15% Increased Maximum Life",
-                "Index": 5
-            },
-            {
-                "PropertyString": "+10-15% Physical Damage Reduction",
-                "Index": 6
-            },
-            {
-                "PropertyString": "+18 to Required Level",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+20% Increased Attack Speed (Weapon)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Prevent Monster Heal (Weapon)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+20% Faster Hit Recovery (Armor)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Magic Damage Reduced By 7 (Armor)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "+20% Faster Block Rate (Shield)",
-                "Index": 0
-            },
-            {
-                "PropertyString": "Magic Damage Reduced By 7 (Shield)",
-                "Index": 0
             }
         ],
         "DamageArmorEnhanced": false,

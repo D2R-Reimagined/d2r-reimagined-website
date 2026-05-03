@@ -16002,7 +16002,7 @@
         "ClassLevelReq": 24,
         "Properties": [
             {
-                "PropertyString": "Level 2 Conversion (30 Charges)",
+                "PropertyString": "Level 2 Shield Throw (30 Charges)",
                 "Index": 0
             }
         ],
@@ -16024,7 +16024,7 @@
         "ClassLevelReq": 24,
         "Properties": [
             {
-                "PropertyString": "Level 15 Conversion (30 Charges)",
+                "PropertyString": "Level 15 Shield Throw (30 Charges)",
                 "Index": 0
             }
         ],
@@ -19856,7 +19856,7 @@
     },
     {
         "Name": "Lucky",
-        "Level": 12,
+        "Level": 1,
         "MaxLevel": 70,
         "RequiredLevel": 10,
         "Group": 114,
