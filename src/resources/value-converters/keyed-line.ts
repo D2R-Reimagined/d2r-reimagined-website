@@ -6,10 +6,8 @@
 //   <span>${{ key: 'strDefense', args: [240] } | keyedLine}</span>
 //   <span>${child | keyedChance:siblings}%</span>
 //
-// Pool grouping (uniques.json) is rendered structurally by the
-// `<keyed-lines>` custom element — these converters intentionally stay
-// flat-string-only so that callers can keep using `| keyedLines` for
-// arrays that contain no group parents.
+// These converters stay flat-string-only; structural rendering of pool
+// groups is handled by the `<keyed-lines>` custom element.
 
 import type { IKeyedLine } from '../../utilities/i-keyed-line';
 import { format, t } from '../../utilities/translation-store';
@@ -29,10 +27,9 @@ export class KeyedLineValueConverter {
 export class KeyedLinesValueConverter {
     toView(lines: ReadonlyArray<IKeyedLine> | null | undefined): string[] {
         if (!lines || !Array.isArray(lines)) return [];
-        // Flatten any pool-parent rows so legacy callers that still pipe
-        // through `| keyedLines` keep producing a printable string per
-        // child (no chance prefix, no header). Structural rendering of
-        // pools is the `<keyed-lines>` element's responsibility.
+        // Flatten pool-parent rows into one printable string per child so
+        // `| keyedLines` keeps emitting flat strings; structural rendering
+        // of pools belongs to the `<keyed-lines>` element.
         const out: string[] = [];
         for (const l of lines) {
             if (!l) continue;

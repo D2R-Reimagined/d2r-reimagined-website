@@ -1,16 +1,8 @@
 ﻿// Item-type graph and filter helpers (fast, memoized).
 // Data: itemtypes.txt (D2R Reimagined mod). Parents from Equiv1/Equiv2.
-//
-// MIGRATION (issue: itemtype export now keyed by Code + "itype"):
-//   The exporter now writes the itemtypes.txt **Code** column plus an "itype"
-//   suffix as the canonical, language-agnostic identifier (carried in
-//   Type.Index for object-shaped types and as the bare string in flat Type
-//   fields). The website filter graph below is therefore keyed by
-//   `code` (with "itype" suffix) everywhere internally — `parents` arrays hold
-//   codes, all maps/caches use codes, helper functions accept and return codes.
-//   `name` is retained on each node strictly as a debug/UI label and as a
-//   compatibility fallback in `resolveBaseTypeName` (so legacy callers passing
-//   English names continue to resolve).
+// Graph is keyed by `code` (the itemtypes.txt Code column + "itype" suffix);
+// `name` is kept only as a debug/UI label and a fallback in
+// `resolveBaseTypeName` for legacy callers passing English names.
 
 export interface IItemTypeNode {
     // Human-friendly English display name (itemtypes.txt: ItemType).

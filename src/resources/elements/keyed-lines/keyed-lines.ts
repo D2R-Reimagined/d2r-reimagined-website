@@ -1,17 +1,7 @@
-﻿// `<keyed-lines lines.bind="x.Lines">` — structural renderer for the
-// keyed wire format, including pooled "property group" parents.
-//
-// Each entry in `lines` is an `IKeyedLine`:
-//   - simple line  → `{ key, args, ... }`        rendered as a plain row;
-//   - pool parent  → `{ key: "", pickMode, code, children: [...] }`:
-//        * `pickMode === "0"`  → render every child plain (guaranteed group);
-//        * `pickMode  != "0"`  → bordered box with the (translated) `code`
-//          as a header and one row per child showing
-//          `chance / sum(siblings.chance) * 100 %` next to the rendered text.
-//
-// This matches the original property-group render (commit 423905a) — only
-// the wire shape differs (parent + `children` instead of legacy
-// `group-properties`).
+﻿// `<keyed-lines lines.bind="x.Lines">` — renderer for the keyed wire format.
+// Entries are `IKeyedLine`s: simple rows, or pool parents whose `pickMode`
+// distinguishes guaranteed groups (`"0"`) from chance-weighted pools
+// (anything else, rendered as a bordered box with per-child chance %).
 
 import { bindable, ICustomElementViewModel } from 'aurelia';
 
