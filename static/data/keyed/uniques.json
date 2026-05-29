@@ -71037,116 +71037,6 @@
     }
   },
   {
-    "Type": "ashditype",
-    "Vanilla": "N",
-    "Index": "Crusader's Will",
-    "Enabled": true,
-    "Rarity": 2,
-    "ItemLevel": 40,
-    "RequiredLevel": 45,
-    "Code": "pa9",
-    "DamageArmorEnhanced": true,
-    "Lines": [
-      {
-        "key": "ModStr3b",
-        "args": [
-          2
-        ]
-      },
-      {
-        "key": "ModStr4v",
-        "args": [
-          40
-        ]
-      },
-      {
-        "key": "ModStr4p",
-        "args": [
-          20
-        ]
-      },
-      {
-        "key": "ModStr3g",
-        "args": [
-          35
-        ]
-      },
-      {
-        "key": "Modstr2v",
-        "args": [
-          125,
-          175
-        ]
-      },
-      {
-        "key": "Moditem2allattrib",
-        "args": [
-          10
-        ]
-      },
-      {
-        "key": "ModStr1e",
-        "args": [
-          70,
-          125
-        ]
-      },
-      {
-        "key": "ModStr5f",
-        "args": [
-          6,
-          10
-        ]
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 0,
-      "NameKey": "pa9",
-      "RequiredClass": "Paladin",
-      "Lines": [
-        {
-          "key": "strChanceToBlock",
-          "args": [
-            22
-          ]
-        },
-        {
-          "key": "strDefenseRange",
-          "args": [
-            380,
-            464
-          ]
-        },
-        {
-          "key": "strSmiteDamage",
-          "args": [
-            20,
-            28
-          ]
-        },
-        {
-          "key": "strDurability",
-          "args": [
-            50,
-            50
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            89
-          ]
-        },
-        {
-          "key": "strRequiredClass",
-          "args": [
-            "Paladin"
-          ]
-        }
-      ]
-    }
-  },
-  {
     "Type": "h2hitype",
     "Vanilla": "N",
     "Index": "Dark Demesne",
@@ -78691,7 +78581,7 @@
     "Vanilla": "Y",
     "Index": "Sling",
     "Enabled": true,
-    "Rarity": 1,
+    "Rarity": 5,
     "ItemLevel": 50,
     "RequiredLevel": 50,
     "Code": "rin",
@@ -78707,34 +78597,35 @@
       {
         "key": "ModStr4v",
         "args": [
-          10
+          10,
+          20
         ]
       },
       {
         "key": "ModStrMagPierce",
         "args": [
-          3,
-          5
-        ]
-      },
-      {
-        "key": "ModStr5r",
-        "args": [
-          15
+          5,
+          10
         ]
       },
       {
         "key": "ModStr1d",
         "args": [
           10,
-          15
+          20
         ]
       },
       {
         "key": "ModStr1x",
         "args": [
-          10,
-          20
+          20,
+          30
+        ]
+      },
+      {
+        "key": "ModStrmagicskill",
+        "args": [
+          1
         ]
       }
     ],
@@ -81329,6 +81220,124 @@
           "key": "strRequiredClass",
           "args": [
             "Sorceress"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "ashditype",
+    "Vanilla": "N",
+    "Index": "Crusader's Will",
+    "Enabled": true,
+    "Rarity": 2,
+    "ItemLevel": 45,
+    "RequiredLevel": 50,
+    "Code": "pa9",
+    "DamageArmorEnhanced": true,
+    "Lines": [
+      {
+        "key": "ModitemAura",
+        "args": [
+          2,
+          "skillname120"
+        ]
+      },
+      {
+        "key": "ModStr3b",
+        "args": [
+          2
+        ]
+      },
+      {
+        "key": "ModStr4v",
+        "args": [
+          20
+        ]
+      },
+      {
+        "key": "ModStr4p",
+        "args": [
+          20
+        ]
+      },
+      {
+        "key": "ModStr3g",
+        "args": [
+          20
+        ]
+      },
+      {
+        "key": "ModStrMagPierce",
+        "args": [
+          5,
+          10
+        ]
+      },
+      {
+        "key": "strSkillRandomFromSkillClass",
+        "args": [
+          2,
+          "skillname112",
+          "PalOnly"
+        ]
+      },
+      {
+        "key": "Modstr2v",
+        "args": [
+          100,
+          125
+        ]
+      },
+      {
+        "key": "Moditem2allattrib",
+        "args": [
+          10
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 0,
+      "NameKey": "pa9",
+      "RequiredClass": "Paladin",
+      "Lines": [
+        {
+          "key": "strChanceToBlock",
+          "args": [
+            22
+          ]
+        },
+        {
+          "key": "strDefenseRange",
+          "args": [
+            338,
+            380
+          ]
+        },
+        {
+          "key": "strSmiteDamage",
+          "args": [
+            20,
+            28
+          ]
+        },
+        {
+          "key": "strDurability",
+          "args": [
+            50,
+            50
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            89
+          ]
+        },
+        {
+          "key": "strRequiredClass",
+          "args": [
+            "Paladin"
           ]
         }
       ]
@@ -100118,7 +100127,7 @@
     "Vanilla": "Y",
     "Index": "Steel Carapace",
     "Enabled": true,
-    "Rarity": 1,
+    "Rarity": 2,
     "ItemLevel": 60,
     "RequiredLevel": 66,
     "Code": "uul",
@@ -106973,10 +106982,10 @@
     "DamageArmorEnhanced": true,
     "Lines": [
       {
-        "key": "ModStr4s",
+        "key": "ModStr3k",
         "args": [
-          10,
-          20
+          0,
+          1
         ]
       },
       {
@@ -106996,29 +107005,35 @@
       {
         "key": "ModStrMagPierce",
         "args": [
-          3,
-          7
+          10,
+          15
         ]
       },
       {
         "key": "Modstr2v",
         "args": [
-          90,
-          150
+          100,
+          200
         ]
       },
       {
         "key": "strModAllResistances",
         "args": [
-          5,
-          15
+          -20,
+          20
         ]
       },
       {
         "key": "ModStr1w",
         "args": [
-          44,
-          75
+          -50,
+          100
+        ]
+      },
+      {
+        "key": "ModitemRedVendP",
+        "args": [
+          10
         ]
       }
     ],
@@ -107030,8 +107045,8 @@
         {
           "key": "strDefenseRange",
           "args": [
-            127,
-            167
+            134,
+            201
           ]
         },
         {
@@ -109499,97 +109514,6 @@
     }
   },
   {
-    "Type": "torsitype",
-    "Vanilla": "N",
-    "Index": "Will-O'-Wisp",
-    "Enabled": true,
-    "Rarity": 1,
-    "ItemLevel": 68,
-    "RequiredLevel": 74,
-    "Code": "ucl",
-    "DamageArmorEnhanced": true,
-    "Lines": [
-      {
-        "key": "ModStr3k",
-        "args": [
-          1,
-          2
-        ]
-      },
-      {
-        "key": "ItemModifierNonClassSkill",
-        "args": [
-          1,
-          "SkillNameWarp"
-        ]
-      },
-      {
-        "key": "ItemModifierNonClassSkill",
-        "args": [
-          1,
-          "skillname29"
-        ]
-      },
-      {
-        "key": "ModStr4s",
-        "args": [
-          40
-        ]
-      },
-      {
-        "key": "Modstr2v",
-        "args": [
-          100,
-          200
-        ]
-      },
-      {
-        "key": "ModStre9u",
-        "args": [
-          1,
-          25
-        ]
-      },
-      {
-        "key": "strethereal",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "fadeDescription",
-        "args": []
-      }
-    ],
-    "Equipment": {
-      "EquipmentType": 0,
-      "NameKey": "ucl",
-      "RequiredClass": "",
-      "Lines": [
-        {
-          "key": "strDefenseRange",
-          "args": [
-            1490,
-            2235
-          ]
-        },
-        {
-          "key": "strDurability",
-          "args": [
-            36,
-            36
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            149
-          ]
-        }
-      ]
-    }
-  },
-  {
     "Type": "bootitype",
     "Vanilla": "N",
     "Index": "Stairway to Heaven",
@@ -111892,8 +111816,8 @@
       {
         "key": "ModStr2uPercent",
         "args": [
-          -20,
-          -10
+          -40,
+          -20
         ]
       }
     ],
@@ -111930,8 +111854,8 @@
       {
         "key": "ModStr1m",
         "args": [
-          -65,
-          -45
+          -40,
+          -20
         ]
       }
     ],
@@ -112648,7 +112572,7 @@
       {
         "key": "ModStr2uPercent",
         "args": [
-          -10
+          -20
         ]
       },
       {
@@ -112818,7 +112742,7 @@
       {
         "key": "ModStr1m",
         "args": [
-          -45
+          -20
         ]
       },
       {
@@ -121238,6 +121162,97 @@
   {
     "Type": "torsitype",
     "Vanilla": "N",
+    "Index": "Will-O'-Wisp",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 75,
+    "RequiredLevel": 80,
+    "Code": "ucl",
+    "DamageArmorEnhanced": true,
+    "Lines": [
+      {
+        "key": "ModStr3k",
+        "args": [
+          1,
+          2
+        ]
+      },
+      {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          1,
+          "skillname54"
+        ]
+      },
+      {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          1,
+          "skillname29"
+        ]
+      },
+      {
+        "key": "ModStr4s",
+        "args": [
+          40
+        ]
+      },
+      {
+        "key": "Modstr2v",
+        "args": [
+          100,
+          200
+        ]
+      },
+      {
+        "key": "ModStre9u",
+        "args": [
+          1,
+          25
+        ]
+      },
+      {
+        "key": "strethereal",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "fadeDescription",
+        "args": []
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 0,
+      "NameKey": "ucl",
+      "RequiredClass": "",
+      "Lines": [
+        {
+          "key": "strDefenseRange",
+          "args": [
+            1490,
+            2235
+          ]
+        },
+        {
+          "key": "strDurability",
+          "args": [
+            36,
+            36
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            149
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "Type": "torsitype",
+    "Vanilla": "N",
     "Index": "Gray God's Mantle",
     "Enabled": true,
     "Rarity": 1,
@@ -123933,16 +123948,17 @@
         ]
       },
       {
-        "key": "allelemskilldmg",
-        "args": [
-          5
-        ]
-      },
-      {
         "key": "strSkillRandomFromSkill",
         "args": [
           251,
           "skillname3"
+        ]
+      },
+      {
+        "key": "ModStr1d",
+        "args": [
+          10,
+          20
         ]
       },
       {
@@ -127296,6 +127312,7 @@
       {
         "key": "ModStr3k",
         "args": [
+          1,
           2
         ]
       },
@@ -131266,13 +131283,6 @@
         ]
       },
       {
-        "key": "PenetrateElePen",
-        "args": [
-          5,
-          10
-        ]
-      },
-      {
         "key": "ModAttDexPercent",
         "args": [
           10,
@@ -133961,6 +133971,101 @@
     }
   },
   {
+    "Type": "glovitype",
+    "Vanilla": "N",
+    "Index": "Blinded by Faith",
+    "Enabled": true,
+    "Rarity": 1,
+    "ItemLevel": 85,
+    "RequiredLevel": 89,
+    "Code": "utg",
+    "DamageArmorEnhanced": false,
+    "Lines": [
+      {
+        "key": "ModStr4v",
+        "args": [
+          10,
+          15
+        ]
+      },
+      {
+        "key": "ModStrMagMastery",
+        "args": [
+          10,
+          15
+        ]
+      },
+      {
+        "key": "ModStrMagPierce",
+        "args": [
+          5,
+          10
+        ]
+      },
+      {
+        "key": "ModStr1m",
+        "args": [
+          -15,
+          -10
+        ]
+      },
+      {
+        "key": "ModStr1x",
+        "args": [
+          25,
+          50
+        ]
+      },
+      {
+        "key": "ModStr3f",
+        "args": [
+          -4
+        ]
+      },
+      {
+        "key": "ModStr3h2",
+        "args": [
+          25,
+          50
+        ]
+      },
+      {
+        "key": "ModStrmagicskill",
+        "args": [
+          1,
+          2
+        ]
+      }
+    ],
+    "Equipment": {
+      "EquipmentType": 0,
+      "NameKey": "utg",
+      "RequiredClass": "",
+      "Lines": [
+        {
+          "key": "strDefenseRange",
+          "args": [
+            59,
+            68
+          ]
+        },
+        {
+          "key": "strDurability",
+          "args": [
+            18,
+            18
+          ]
+        },
+        {
+          "key": "strRequiredStrength",
+          "args": [
+            151
+          ]
+        }
+      ]
+    }
+  },
+  {
     "Type": "bowitype",
     "Vanilla": "Y",
     "Index": "Hellclap",
@@ -134710,7 +134815,7 @@
         "args": [
           100,
           1,
-          "splash1"
+          "splash3"
         ]
       }
     ],
