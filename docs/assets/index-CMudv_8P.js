@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-DFKk9bP5.js","assets/debounce-DlM2vs2L.js","assets/filter-helpers-DL_Ti2wh.js","assets/uniques-BmZu6Rox.js","assets/item-type-filters-D1_j0GR_.js","assets/item-sorting-Biaf6mJs.js","assets/damage-types-BlYhXdWN.js","assets/uniques-BiMnx8f3.js","assets/sets-Cw4zT3ta.js","assets/sets-BiATQwaT.js","assets/runewords-Cky7btJJ.js","assets/runewords-C5RlcOYy.js","assets/grail-Clfx8Yvq.js","assets/bases-CM8PYjOC.js","assets/affixes-BlB9GxCP.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-DuN_wWCV.js","assets/filter-helpers-BuZ4Nsi8.js","assets/character-classes-BxKvOt2-.js","assets/debounce-DlM2vs2L.js","assets/uniques-a3WECblH.js","assets/damage-types-BlYhXdWN.js","assets/item-sorting-BibmLCij.js","assets/sets-CF4zLVrP.js","assets/runewords-D7HMLIPB.js","assets/grail-ED9m-Mpn.js","assets/bases-C8Jf8Joj.js","assets/affixes-BC2CikRC.js"])))=>i.map(i=>d[i]);
 (function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) return;
@@ -29,7 +29,7 @@ const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-DF
   }
 })();
 function initializeTC39Metadata() {
-  Symbol.metadata ??= Symbol.for("Symbol.metadata");
+  Symbol.metadata ??= /* @__PURE__ */ Symbol.for("Symbol.metadata");
 }
 const Metadata = {
   get(key, type) {
@@ -75,11 +75,11 @@ const objectAssign$1 = Object.assign;
 const safeString$2 = String;
 const getMetadata$2 = Metadata.get;
 const defineMetadata$2 = Metadata.define;
-const isPromise = (v) => v instanceof Promise;
-const isArray = (v) => v instanceof Array;
-const isSet = (v) => v instanceof Set;
-const isMap = (v) => v instanceof Map;
-const isObject = (v) => v instanceof Object;
+const isPromise = (v) => typeof v?.then === "function";
+const isArray = Array.isArray;
+const isSet = (v) => v?.[Symbol.toStringTag] === "Set";
+const isMap = (v) => v?.[Symbol.toStringTag] === "Map";
+const isObject = (v) => typeof v === "object" && v !== null;
 function isObjectOrFunction(value) {
   return typeof value === "object" && value !== null || typeof value === "function";
 }
@@ -151,7 +151,7 @@ const errorsMap$4 = {
   [
     14
     /* ErrorNames.null_undefined_key */
-  ]: `Key cannot be null or undefined. Are you trying to inject/register something that doesn't exist with DI?A common cause is circular dependency with bundler, did you accidentally introduce circular dependency into your module graph?`,
+  ]: `Key cannot be null or undefined. Are you trying to inject/register something that doesn't exist with DI? A common cause is circular dependency with bundler, did you accidentally introduce circular dependency into your module graph?`,
   [
     15
     /* ErrorNames.no_construct_native_fn */
@@ -187,7 +187,11 @@ const errorsMap$4 = {
   [
     23
     /* ErrorNames.resource_key_already_registered */
-  ]: `Resource key '{{0}}' has already been registered.`
+  ]: `Resource key '{{0}}' has already been registered.`,
+  [
+    24
+    /* ErrorNames.factory_not_constructable_resolved */
+  ]: `The resolved factory for key '{{0}}' is not constructable.`
 };
 const getMessageByCode$4 = (name2, ...details) => {
   let cooked = errorsMap$4[name2];
@@ -469,9 +473,9 @@ const cacheCallbackResult = (fun) => {
     if (resolverLookup.has(resolver)) {
       return resolverLookup.get(resolver);
     }
-    const t = fun(handler, requestor, resolver);
-    resolverLookup.set(resolver, t);
-    return t;
+    const t2 = fun(handler, requestor, resolver);
+    resolverLookup.set(resolver, t2);
+    return t2;
   };
 };
 const Registration = {
@@ -636,7 +640,7 @@ function fromDefinitionOrDefault(name2, def2, getDefault) {
   }
   return value;
 }
-const registrableMetadataKey = Symbol.for("au:registrable");
+const registrableMetadataKey = /* @__PURE__ */ Symbol.for("au:registrable");
 const DefaultResolver = {
   singleton: (key) => new Resolver(key, 1, key)
 };
@@ -968,11 +972,24 @@ class Container {
   }
   getFactory(Type) {
     let factory = this._factories.get(Type);
+    if (factory != null) {
+      return factory;
+    }
+    let RealType;
+    if (Type.$isResolver) {
+      RealType = Type.getFactory?.(this)?.Type;
+    } else {
+      RealType = isFunction(Type) ? Type : this.getResolver(Type, false)?.getFactory?.(this)?.Type;
+    }
+    if (!isFunction(RealType)) {
+      throw createMappedError$4(9, RealType);
+    }
+    factory = this._factories.get(RealType);
     if (factory === void 0) {
-      if (isNativeFunction(Type)) {
+      if (isNativeFunction(RealType)) {
         throw createMappedError$4(15, Type);
       }
-      this._factories.set(Type, factory = new Factory(Type, getDependencies(Type)));
+      this._factories.set(RealType, factory = new Factory(RealType, getDependencies(RealType)));
     }
     return factory;
   }
@@ -1615,7 +1632,7 @@ function __esDecorate(ctor, descriptorIn, decorators, contextIn, initializers, e
   if (target) Object.defineProperty(target, contextIn.name, descriptor);
   done = true;
 }
-function __runInitializers$7(thisArg, initializers, value) {
+function __runInitializers$b(thisArg, initializers, value) {
   var useValue = arguments.length > 2;
   for (var i = 0; i < initializers.length; i++) {
     value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
@@ -1679,7 +1696,7 @@ const LoggerSink = /* @__PURE__ */ objectFreeze$1({
     return getMetadata$2(this.key, target.constructor);
   }
 });
-const format = toLookup({
+const format$1 = toLookup({
   red(str) {
     return `\x1B[31m${str}\x1B[39m`;
   },
@@ -1723,13 +1740,13 @@ const getLogLevelString = (function() {
       QQQ: "???"
     }),
     "colors": toLookup({
-      TRC: format.grey("TRC"),
-      DBG: format.grey("DBG"),
-      INF: format.white("INF"),
-      WRN: format.yellow("WRN"),
-      ERR: format.red("ERR"),
-      FTL: format.red("FTL"),
-      QQQ: format.grey("???")
+      TRC: format$1.grey("TRC"),
+      DBG: format$1.grey("DBG"),
+      INF: format$1.white("INF"),
+      WRN: format$1.yellow("WRN"),
+      ERR: format$1.red("ERR"),
+      FTL: format$1.red("FTL"),
+      QQQ: format$1.grey("???")
     })
   };
   return (level, colorOptions) => {
@@ -1758,13 +1775,13 @@ const getScopeString = (scope, colorOptions) => {
   if (colorOptions === "no-colors") {
     return scope.join(".");
   }
-  return scope.map(format.cyan).join(".");
+  return scope.map(format$1.cyan).join(".");
 };
 const getIsoString = (timestamp, colorOptions) => {
   if (colorOptions === "no-colors") {
     return new Date(timestamp).toISOString();
   }
-  return format.grey(new Date(timestamp).toISOString());
+  return format$1.grey(new Date(timestamp).toISOString());
 };
 class DefaultLogEvent {
   constructor(severity, message, optionalParams, scope, colorOptions, timestamp) {
@@ -1823,7 +1840,7 @@ let DefaultLogger = (() => {
   return _a2 = class DefaultLogger {
     /* eslint-disable default-param-last */
     constructor(config = resolve(ILogConfig), factory = resolve(ILogEventFactory), sinks = resolve(all(ISink)), scope = resolve(optional(ILogScopes)) ?? [], parent = null) {
-      this.scope = (__runInitializers$7(this, _instanceExtraInitializers), scope);
+      this.scope = (__runInitializers$b(this, _instanceExtraInitializers), scope);
       this._scopedLoggers = createLookup$1();
       let traceSinks;
       let debugSinks;
@@ -2197,247 +2214,124 @@ class CustomExpression {
     return void 0;
   }
 }
-class BindingBehaviorExpression {
-  constructor(expression, name2, args) {
-    this.expression = expression;
-    this.name = name2;
-    this.args = args;
-    this.$kind = ekBindingBehavior;
-    this.key = `_bb_${name2}`;
-  }
+function createBindingBehaviorExpression(expression, name2, args) {
+  return { $kind: ekBindingBehavior, key: `_bb_${name2}`, expression, name: name2, args };
 }
-class ValueConverterExpression {
-  constructor(expression, name2, args) {
-    this.expression = expression;
-    this.name = name2;
-    this.args = args;
-    this.$kind = ekValueConverter;
-  }
+function createValueConverterExpression(expression, name2, args) {
+  return { $kind: ekValueConverter, expression, name: name2, args };
 }
-class AssignExpression {
-  constructor(target, value, op = "=") {
-    this.target = target;
-    this.value = value;
-    this.op = op;
-    this.$kind = ekAssign;
-  }
+function createAssignExpression(target, value, op = "=") {
+  return { $kind: ekAssign, target, value, op };
 }
-class ConditionalExpression {
-  constructor(condition, yes, no) {
-    this.condition = condition;
-    this.yes = yes;
-    this.no = no;
-    this.$kind = ekConditional;
-  }
+function createConditionalExpression(condition, yes, no) {
+  return { $kind: ekConditional, condition, yes, no };
 }
-class AccessGlobalExpression {
-  constructor(name2) {
-    this.name = name2;
-    this.$kind = ekAccessGlobal;
-  }
+function createAccessGlobalExpression(name2) {
+  return { $kind: ekAccessGlobal, name: name2 };
 }
-class AccessThisExpression {
-  constructor(ancestor = 0) {
-    this.ancestor = ancestor;
-    this.$kind = ekAccessThis;
-  }
+function createAccessThisExpression(ancestor = 0) {
+  return { $kind: ekAccessThis, ancestor };
 }
-class AccessBoundaryExpression {
-  constructor() {
-    this.$kind = ekAccessBoundary;
-  }
+const AccessBoundary = { $kind: ekAccessBoundary };
+function createAccessBoundaryExpression() {
+  return AccessBoundary;
 }
-class AccessScopeExpression {
-  constructor(name2, ancestor = 0) {
-    this.name = name2;
-    this.ancestor = ancestor;
-    this.$kind = ekAccessScope;
-  }
+function createAccessScopeExpression(name2, ancestor = 0) {
+  return { $kind: ekAccessScope, name: name2, ancestor };
 }
-const isAccessGlobal = (ast) => ast.$kind === ekAccessGlobal || (ast.$kind === ekAccessMember || ast.$kind === ekAccessKeyed) && ast.accessGlobal;
-class AccessMemberExpression {
-  constructor(object, name2, optional2 = false) {
-    this.object = object;
-    this.name = name2;
-    this.optional = optional2;
-    this.$kind = ekAccessMember;
-    this.accessGlobal = isAccessGlobal(object);
-  }
+function isAccessGlobal(ast) {
+  return ast.$kind === ekAccessGlobal || (ast.$kind === ekAccessMember || ast.$kind === ekAccessKeyed) && ast.accessGlobal;
 }
-class AccessKeyedExpression {
-  constructor(object, key, optional2 = false) {
-    this.object = object;
-    this.key = key;
-    this.optional = optional2;
-    this.$kind = ekAccessKeyed;
-    this.accessGlobal = isAccessGlobal(object);
-  }
+function createAccessMemberExpression(object, name2, optional2 = false) {
+  return { $kind: ekAccessMember, accessGlobal: isAccessGlobal(object), object, name: name2, optional: optional2 };
 }
-class NewExpression {
-  constructor(func, args) {
-    this.func = func;
-    this.args = args;
-    this.$kind = ekNew;
-  }
+function createAccessKeyedExpression(object, key, optional2 = false) {
+  return { $kind: ekAccessKeyed, accessGlobal: isAccessGlobal(object), object, key, optional: optional2 };
 }
-class CallScopeExpression {
-  constructor(name2, args, ancestor = 0, optional2 = false) {
-    this.name = name2;
-    this.args = args;
-    this.ancestor = ancestor;
-    this.optional = optional2;
-    this.$kind = ekCallScope;
-  }
+function createNewExpression(func, args) {
+  return { $kind: ekNew, func, args };
 }
-class CallMemberExpression {
-  constructor(object, name2, args, optionalMember = false, optionalCall = false) {
-    this.object = object;
-    this.name = name2;
-    this.args = args;
-    this.optionalMember = optionalMember;
-    this.optionalCall = optionalCall;
-    this.$kind = ekCallMember;
-  }
+function createCallScopeExpression(name2, args, ancestor = 0, optional2 = false) {
+  return { $kind: ekCallScope, name: name2, args, ancestor, optional: optional2 };
 }
-class CallFunctionExpression {
-  constructor(func, args, optional2 = false) {
-    this.func = func;
-    this.args = args;
-    this.optional = optional2;
-    this.$kind = ekCallFunction;
-  }
+function createCallMemberExpression(object, name2, args, optionalMember = false, optionalCall = false) {
+  return { $kind: ekCallMember, object, name: name2, args, optionalMember, optionalCall };
 }
-class CallGlobalExpression {
-  constructor(name2, args) {
-    this.name = name2;
-    this.args = args;
-    this.$kind = ekCallGlobal;
-  }
+function createCallFunctionExpression(func, args, optional2 = false) {
+  return { $kind: ekCallFunction, func, args, optional: optional2 };
 }
-class BinaryExpression {
-  constructor(operation, left2, right2) {
-    this.operation = operation;
-    this.left = left2;
-    this.right = right2;
-    this.$kind = ekBinary;
-  }
+function createCallGlobalExpression(name2, args) {
+  return { $kind: ekCallGlobal, name: name2, args };
 }
-class UnaryExpression {
-  constructor(operation, expression, pos = 0) {
-    this.operation = operation;
-    this.expression = expression;
-    this.pos = pos;
-    this.$kind = ekUnary;
-  }
+function createBinaryExpression(operation, left2, right2) {
+  return { $kind: ekBinary, operation, left: left2, right: right2 };
 }
-class PrimitiveLiteralExpression {
-  constructor(value) {
-    this.value = value;
-    this.$kind = ekPrimitiveLiteral;
-  }
+function createUnaryExpression(operation, expression, pos = 0) {
+  return { $kind: ekUnary, operation, expression, pos };
 }
-PrimitiveLiteralExpression.$undefined = new PrimitiveLiteralExpression(void 0);
-PrimitiveLiteralExpression.$null = new PrimitiveLiteralExpression(null);
-PrimitiveLiteralExpression.$true = new PrimitiveLiteralExpression(true);
-PrimitiveLiteralExpression.$false = new PrimitiveLiteralExpression(false);
-PrimitiveLiteralExpression.$empty = new PrimitiveLiteralExpression("");
-class ArrayLiteralExpression {
-  constructor(elements) {
-    this.elements = elements;
-    this.$kind = ekArrayLiteral;
-  }
+const PrimitiveLiteral = {
+  $undefined: { $kind: ekPrimitiveLiteral, value: void 0 },
+  $null: { $kind: ekPrimitiveLiteral, value: null },
+  $true: { $kind: ekPrimitiveLiteral, value: true },
+  $false: { $kind: ekPrimitiveLiteral, value: false },
+  $empty: { $kind: ekPrimitiveLiteral, value: "" }
+};
+function createPrimitiveLiteralExpression(value) {
+  return { $kind: ekPrimitiveLiteral, value };
 }
-ArrayLiteralExpression.$empty = new ArrayLiteralExpression(emptyArray);
-class ObjectLiteralExpression {
-  constructor(keys, values) {
-    this.keys = keys;
-    this.values = values;
-    this.$kind = ekObjectLiteral;
-  }
+function createArrayLiteralExpression(elements) {
+  return { $kind: ekArrayLiteral, elements };
 }
-ObjectLiteralExpression.$empty = new ObjectLiteralExpression(emptyArray, emptyArray);
-class TemplateExpression {
-  constructor(cooked, expressions = emptyArray) {
-    this.cooked = cooked;
-    this.expressions = expressions;
-    this.$kind = ekTemplate;
-  }
+function createObjectLiteralExpression(keys, values) {
+  return { $kind: ekObjectLiteral, keys, values };
 }
-TemplateExpression.$empty = new TemplateExpression([""]);
-class TaggedTemplateExpression {
-  constructor(cooked, raw, func, expressions = emptyArray) {
-    this.cooked = cooked;
-    this.func = func;
-    this.expressions = expressions;
-    this.$kind = ekTaggedTemplate;
-    cooked.raw = raw;
-  }
+function createTemplateExpression(cooked, expressions = emptyArray) {
+  return { $kind: ekTemplate, cooked, expressions };
 }
-class ArrayBindingPattern {
-  // We'll either have elements, or keys+values, but never all 3
-  constructor(elements) {
-    this.elements = elements;
-    this.$kind = ekArrayBindingPattern;
-  }
+function createTaggedTemplateExpression(cooked, raw, func, expressions = emptyArray) {
+  cooked.raw = raw;
+  return { $kind: ekTaggedTemplate, cooked, func, expressions };
 }
-class ObjectBindingPattern {
-  // We'll either have elements, or keys+values, but never all 3
-  constructor(keys, values) {
-    this.keys = keys;
-    this.values = values;
-    this.$kind = ekObjectBindingPattern;
-  }
+function createArrayBindingPattern(elements) {
+  return { $kind: ekArrayBindingPattern, elements };
 }
-class BindingIdentifier {
-  constructor(name2) {
-    this.name = name2;
-    this.$kind = ekBindingIdentifier;
-  }
+function createObjectBindingPattern(keys, values) {
+  return { $kind: ekObjectBindingPattern, keys, values };
 }
-class ForOfStatement {
-  constructor(declaration, iterable, semiIdx) {
-    this.declaration = declaration;
-    this.iterable = iterable;
-    this.semiIdx = semiIdx;
-    this.$kind = ekForOfStatement;
-  }
+function createBindingIdentifier(name2) {
+  return { $kind: ekBindingIdentifier, name: name2 };
 }
-class Interpolation {
-  constructor(parts, expressions = emptyArray) {
-    this.parts = parts;
-    this.expressions = expressions;
-    this.$kind = ekInterpolation;
-    this.isMulti = expressions.length > 1;
-    this.firstExpression = expressions[0];
-  }
+function createForOfStatement(declaration, iterable, semiIdx) {
+  return { $kind: ekForOfStatement, declaration, iterable, semiIdx };
 }
-class DestructuringAssignmentExpression {
-  constructor($kind, list, source, initializer) {
-    this.$kind = $kind;
-    this.list = list;
-    this.source = source;
-    this.initializer = initializer;
-  }
+function createInterpolation(parts, expressions = emptyArray) {
+  return {
+    $kind: ekInterpolation,
+    isMulti: expressions.length > 1,
+    firstExpression: expressions[0],
+    parts,
+    expressions
+  };
 }
-class DestructuringAssignmentSingleExpression {
-  constructor(target, source, initializer) {
-    this.target = target;
-    this.source = source;
-    this.initializer = initializer;
-    this.$kind = ekDestructuringAssignmentLeaf;
-  }
+function createDestructuringAssignmentExpression($kind, list, source, initializer) {
+  return { $kind, list, source, initializer };
 }
-class ArrowFunction {
-  constructor(args, body, rest = false) {
-    this.args = args;
-    this.body = body;
-    this.rest = rest;
-    this.$kind = ekArrowFunction;
-  }
+function createDestructuringAssignmentSingleExpression(target, source, initializer) {
+  return { $kind: ekDestructuringAssignmentLeaf, target, source, initializer };
+}
+function createArrowFunction(args, body, rest = false) {
+  return { $kind: ekArrowFunction, args, body, rest };
 }
 const safeString$1 = String;
 const createLookup = () => /* @__PURE__ */ Object.create(null);
-const createMappedError$3 = (code, ...details) => new Error(`AUR${safeString$1(code).padStart(4, "0")}: ${getMessageByCode$3(code, ...details)}`);
+const createMappedError$3 = (code, ...details) => {
+  const paddedCode = safeString$1(code).padStart(4, "0");
+  const message = getMessageByCode$3(code, ...details);
+  const link = `https://docs.aurelia.io/developer-guides/error-messages/0151-to-0179/aur${paddedCode}`;
+  return new Error(`AUR${paddedCode}: ${message}
+
+For more information, see: ${link}`);
+};
 const errorsMap$3 = {
   [
     99
@@ -2657,7 +2551,7 @@ class ExpressionParser {
       default: {
         if (expression.length === 0) {
           if (expressionType === etIsFunction$2 || expressionType === etIsProperty$2) {
-            return PrimitiveLiteralExpression.$empty;
+            return PrimitiveLiteral.$empty;
           }
           throw invalidEmptyExpression();
         }
@@ -2711,13 +2605,13 @@ function unescapeCode(code) {
       return code;
   }
 }
-const $false = PrimitiveLiteralExpression.$false;
-const $true = PrimitiveLiteralExpression.$true;
-const $null = PrimitiveLiteralExpression.$null;
-const $undefined = PrimitiveLiteralExpression.$undefined;
-const $this = new AccessThisExpression(0);
-const $parent = new AccessThisExpression(1);
-const boundary = new AccessBoundaryExpression();
+const $false = PrimitiveLiteral.$false;
+const $true = PrimitiveLiteral.$true;
+const $null = PrimitiveLiteral.$null;
+const $undefined = PrimitiveLiteral.$undefined;
+const $this = createAccessThisExpression(0);
+const $parent = createAccessThisExpression(1);
+const boundary = createAccessBoundaryExpression();
 const etNone = "None";
 const etInterpolation$2 = "Interpolation";
 const etIsIterator$1 = "IsIterator";
@@ -2766,7 +2660,7 @@ function parse(minPrecedence, expressionType) {
       /* Token.Type */
     ];
     nextToken();
-    result = new UnaryExpression(op, parse(579, expressionType));
+    result = createUnaryExpression(op, parse(579, expressionType));
     $assignable = false;
   } else {
     primary: switch ($currentToken) {
@@ -2791,14 +2685,14 @@ function parse(minPrecedence, expressionType) {
               $optional = true;
               nextToken();
               if (($currentToken & 12288) === 0) {
-                result = ancestor === 0 ? $this : ancestor === 1 ? $parent : new AccessThisExpression(ancestor);
+                result = ancestor === 0 ? $this : ancestor === 1 ? $parent : createAccessThisExpression(ancestor);
                 optionalThisTail = true;
                 break primary;
               }
               break;
             default:
               if ($currentToken & 2097152) {
-                result = ancestor === 0 ? $this : ancestor === 1 ? $parent : new AccessThisExpression(ancestor);
+                result = ancestor === 0 ? $this : ancestor === 1 ? $parent : createAccessThisExpression(ancestor);
                 break primary;
               }
               throw invalidMemberExpression();
@@ -2806,15 +2700,15 @@ function parse(minPrecedence, expressionType) {
         } while ($currentToken === 12296);
       // falls through
       case 4096: {
-        const id2 = $tokenValue;
+        const id = $tokenValue;
         if (expressionType === etIsIterator$1) {
-          result = new BindingIdentifier(id2);
-        } else if ($accessGlobal && globalNames.includes(id2)) {
-          result = new AccessGlobalExpression(id2);
-        } else if ($accessGlobal && id2 === "import") {
+          result = createBindingIdentifier(id);
+        } else if ($accessGlobal && globalNames.includes(id)) {
+          result = createAccessGlobalExpression(id);
+        } else if ($accessGlobal && id === "import") {
           throw unexpectedImportKeyword();
         } else {
-          result = new AccessScopeExpression(id2, ancestor);
+          result = createAccessScopeExpression(id, ancestor);
         }
         $assignable = !$optional;
         nextToken();
@@ -2832,7 +2726,7 @@ function parse(minPrecedence, expressionType) {
           $optional = _optional;
           $scopeDepth = _scopeDepth;
           $assignable = false;
-          result = new ArrowFunction([new BindingIdentifier(id2)], body);
+          result = createArrowFunction([createBindingIdentifier(id)], body);
         }
         break;
       }
@@ -2851,7 +2745,7 @@ function parse(minPrecedence, expressionType) {
             result = $parent;
             break;
           default:
-            result = new AccessThisExpression($scopeDepth);
+            result = createAccessThisExpression($scopeDepth);
             break;
         }
         break;
@@ -2870,7 +2764,7 @@ function parse(minPrecedence, expressionType) {
         result = parseObjectLiteralExpression(expressionType);
         break;
       case 2163762:
-        result = new TemplateExpression([$tokenValue]);
+        result = createTemplateExpression([$tokenValue]);
         $assignable = false;
         nextToken();
         break;
@@ -2879,7 +2773,7 @@ function parse(minPrecedence, expressionType) {
         break;
       case 16384:
       case 32768:
-        result = new PrimitiveLiteralExpression($tokenValue);
+        result = createPrimitiveLiteralExpression($tokenValue);
         $assignable = false;
         nextToken();
         break;
@@ -2904,7 +2798,7 @@ function parse(minPrecedence, expressionType) {
           args = [];
           nextToken();
         }
-        result = new NewExpression(callee, args);
+        result = createNewExpression(callee, args);
         $assignable = false;
         break;
       }
@@ -2921,7 +2815,7 @@ function parse(minPrecedence, expressionType) {
     switch ($currentToken) {
       case 2228282:
       case 2228283:
-        result = new UnaryExpression(TokenValues[
+        result = createUnaryExpression(TokenValues[
           $currentToken & 63
           /* Token.Type */
         ], result, 1);
@@ -2945,10 +2839,10 @@ function parse(minPrecedence, expressionType) {
             throw unexpectedTokenInOptionalChain();
           }
           if ($currentToken & 12288) {
-            result = new AccessScopeExpression($tokenValue, result.ancestor);
+            result = createAccessScopeExpression($tokenValue, result.ancestor);
             nextToken();
           } else if ($currentToken === 2688009) {
-            result = new CallFunctionExpression(result, parseArguments(), true);
+            result = createCallFunctionExpression(result, parseArguments(), true);
           } else if ($currentToken === 2688020) {
             result = parseKeyedExpression(result, true);
           } else {
@@ -2961,14 +2855,14 @@ function parse(minPrecedence, expressionType) {
           if (($currentToken & 12288) === 0) {
             throw expectedIdentifier();
           }
-          result = new AccessScopeExpression($tokenValue, result.ancestor);
+          result = createAccessScopeExpression($tokenValue, result.ancestor);
           nextToken();
           break;
         case 12:
         case 13:
           throw expectedIdentifier();
         case 2688009:
-          result = new CallFunctionExpression(result, parseArguments(), optionalThisTail);
+          result = createCallFunctionExpression(result, parseArguments(), optionalThisTail);
           break;
         case 2688020:
           result = parseKeyedExpression(result, optionalThisTail);
@@ -3001,13 +2895,13 @@ function parse(minPrecedence, expressionType) {
             return result;
           }
           if (result.$kind === ekAccessScope) {
-            result = new CallScopeExpression(result.name, parseArguments(), result.ancestor, false);
+            result = createCallScopeExpression(result.name, parseArguments(), result.ancestor, false);
           } else if (result.$kind === ekAccessMember) {
-            result = new CallMemberExpression(result.object, result.name, parseArguments(), result.optional, false);
+            result = createCallMemberExpression(result.object, result.name, parseArguments(), result.optional, false);
           } else if (result.$kind === ekAccessGlobal) {
-            result = new CallGlobalExpression(result.name, parseArguments());
+            result = createCallGlobalExpression(result.name, parseArguments());
           } else {
-            result = new CallFunctionExpression(result, parseArguments(), false);
+            result = createCallFunctionExpression(result, parseArguments(), false);
           }
           break;
         case 2688020:
@@ -3040,7 +2934,7 @@ function parse(minPrecedence, expressionType) {
       break;
     }
     nextToken();
-    result = new BinaryExpression(TokenValues[
+    result = createBinaryExpression(TokenValues[
       opToken & 63
       /* Token.Type */
     ], result, parse(opToken & 960, expressionType));
@@ -3058,7 +2952,7 @@ function parse(minPrecedence, expressionType) {
       6291478
       /* Token.Colon */
     );
-    result = new ConditionalExpression(result, yes, parse(62, expressionType));
+    result = createConditionalExpression(result, yes, parse(62, expressionType));
     $assignable = false;
   }
   if (62 < minPrecedence) {
@@ -3078,7 +2972,7 @@ function parse(minPrecedence, expressionType) {
         /* Token.Type */
       ];
       nextToken();
-      result = new AssignExpression(result, parse(62, expressionType), op);
+      result = createAssignExpression(result, parse(62, expressionType), op);
       break;
     }
   }
@@ -3101,7 +2995,7 @@ function parse(minPrecedence, expressionType) {
     )) {
       args.push(parse(62, expressionType));
     }
-    result = new ValueConverterExpression(result, name2, args);
+    result = createValueConverterExpression(result, name2, args);
   }
   while (consumeOpt(
     6291481
@@ -3119,7 +3013,7 @@ function parse(minPrecedence, expressionType) {
     )) {
       args.push(parse(62, expressionType));
     }
-    result = new BindingBehaviorExpression(result, name2, args);
+    result = createBindingBehaviorExpression(result, name2, args);
   }
   if ($currentToken !== 6291456) {
     if (expressionType === etInterpolation$2 && $currentToken === 7340047) {
@@ -3141,8 +3035,7 @@ function parse(minPrecedence, expressionType) {
 }
 function parseArrayDestructuring() {
   const items = [];
-  const dae = new DestructuringAssignmentExpression(ekArrayDestructuring, items, void 0, void 0);
-  let target = "";
+  let target = null;
   let $continue = true;
   let index = 0;
   while ($continue) {
@@ -3166,11 +3059,11 @@ function parseArrayDestructuring() {
     7340053
     /* Token.CloseBracket */
   );
-  return dae;
+  return createDestructuringAssignmentExpression(ekArrayDestructuring, items, void 0, void 0);
   function addItem() {
-    if (target !== "") {
-      items.push(new DestructuringAssignmentSingleExpression(new AccessMemberExpression($this, target), new AccessKeyedExpression($this, new PrimitiveLiteralExpression(index++)), void 0));
-      target = "";
+    if (target !== null) {
+      items.push(createDestructuringAssignmentSingleExpression(createAccessMemberExpression($this, target), createAccessKeyedExpression($this, createPrimitiveLiteralExpression(index++)), void 0));
+      target = null;
     } else {
       index++;
     }
@@ -3200,7 +3093,7 @@ function parseArguments() {
 function parseKeyedExpression(result, optional2) {
   const _optional = $optional;
   nextToken();
-  result = new AccessKeyedExpression(result, parse(62, etNone), optional2);
+  result = createAccessKeyedExpression(result, parse(62, etNone), optional2);
   consume(
     7340053
     /* Token.CloseBracket */
@@ -3221,11 +3114,11 @@ function parseOptionalChainLHS(lhs) {
   }
   if ($currentToken === 2688009) {
     if (lhs.$kind === ekAccessScope) {
-      return new CallScopeExpression(lhs.name, parseArguments(), lhs.ancestor, true);
+      return createCallScopeExpression(lhs.name, parseArguments(), lhs.ancestor, true);
     } else if (lhs.$kind === ekAccessMember) {
-      return new CallMemberExpression(lhs.object, lhs.name, parseArguments(), lhs.optional, true);
+      return createCallMemberExpression(lhs.object, lhs.name, parseArguments(), lhs.optional, true);
     } else {
-      return new CallFunctionExpression(lhs, parseArguments(), true);
+      return createCallFunctionExpression(lhs, parseArguments(), true);
     }
   }
   if ($currentToken === 2688020) {
@@ -3251,7 +3144,7 @@ function parseMemberExpressionLHS(lhs, optional2) {
         throw unexpectedTokenInOptionalChain();
       }
       if ($currentToken === 2688009) {
-        return new CallMemberExpression(lhs, rhs, parseArguments(), optional2, true);
+        return createCallMemberExpression(lhs, rhs, parseArguments(), optional2, true);
       }
       $index = indexSave;
       $startIndex = startIndexSave;
@@ -3260,16 +3153,16 @@ function parseMemberExpressionLHS(lhs, optional2) {
       $tokenValue = tokenValueSave;
       $assignable = assignableSave;
       $optional = optionalSave;
-      return new AccessMemberExpression(lhs, rhs, optional2);
+      return createAccessMemberExpression(lhs, rhs, optional2);
     }
     case 2688009: {
       $assignable = false;
-      return new CallMemberExpression(lhs, rhs, parseArguments(), optional2, false);
+      return createCallMemberExpression(lhs, rhs, parseArguments(), optional2, false);
     }
     default: {
       $assignable = !$optional;
       nextToken();
-      return new AccessMemberExpression(lhs, rhs, optional2);
+      return createAccessMemberExpression(lhs, rhs, optional2);
     }
   }
 }
@@ -3290,7 +3183,7 @@ function parseCoverParenthesizedExpressionAndArrowParameterList(expressionType) 
       if ($currentToken !== 4096) {
         throw expectedIdentifier();
       }
-      arrowParams.push(new BindingIdentifier($tokenValue));
+      arrowParams.push(createBindingIdentifier($tokenValue));
       nextToken();
       if ($currentToken === 6291475) {
         throw restParamsMustBeLastParam();
@@ -3310,11 +3203,11 @@ function parseCoverParenthesizedExpressionAndArrowParameterList(expressionType) 
       $optional = _optional2;
       $scopeDepth = _scopeDepth;
       $assignable = false;
-      return new ArrowFunction(arrowParams, body, true);
+      return createArrowFunction(arrowParams, body, true);
     }
     switch ($currentToken) {
       case 4096:
-        arrowParams.push(new BindingIdentifier($tokenValue));
+        arrowParams.push(createBindingIdentifier($tokenValue));
         nextToken();
         break;
       case 7340048:
@@ -3383,7 +3276,7 @@ function parseCoverParenthesizedExpressionAndArrowParameterList(expressionType) 
       $optional = _optional2;
       $scopeDepth = _scopeDepth;
       $assignable = false;
-      return new ArrowFunction(arrowParams, body);
+      return createArrowFunction(arrowParams, body);
     }
     throw invalidArrowParameterList();
   } else if (paramsState === 1 && arrowParams.length === 0) {
@@ -3460,10 +3353,10 @@ function parseArrayLiteralExpression(expressionType) {
     /* Token.CloseBracket */
   );
   if (expressionType === etIsIterator$1) {
-    return new ArrayBindingPattern(elements);
+    return createArrayBindingPattern(elements);
   } else {
     $assignable = false;
-    return new ArrayLiteralExpression(elements);
+    return createArrayLiteralExpression(elements);
   }
 }
 const allowedForExprKinds = [ekArrayBindingPattern, ekObjectBindingPattern, ekBindingIdentifier, ekArrayDestructuring, ekObjectDestructuring];
@@ -3477,7 +3370,7 @@ function parseForOfStatement(result) {
   nextToken();
   const declaration = result;
   const statement = parse(61, etIsChainable);
-  return new ForOfStatement(declaration, statement, $semicolonIndex);
+  return createForOfStatement(declaration, statement, $semicolonIndex);
 }
 function parseObjectLiteralExpression(expressionType) {
   const _optional = $optional;
@@ -3525,10 +3418,10 @@ function parseObjectLiteralExpression(expressionType) {
     /* Token.CloseBrace */
   );
   if (expressionType === etIsIterator$1) {
-    return new ObjectBindingPattern(keys, values);
+    return createObjectBindingPattern(keys, values);
   } else {
     $assignable = false;
-    return new ObjectLiteralExpression(keys, values);
+    return createObjectLiteralExpression(keys, values);
   }
 }
 function parseInterpolation() {
@@ -3562,7 +3455,7 @@ function parseInterpolation() {
   }
   if (expressions.length) {
     parts.push(result);
-    return new Interpolation(parts, expressions);
+    return createInterpolation(parts, expressions);
   }
   return null;
 }
@@ -3587,17 +3480,17 @@ function parseTemplate(expressionType, result, tagged) {
   $optional = _optional;
   if (tagged) {
     nextToken();
-    return new TaggedTemplateExpression(cooked, cooked, result, expressions);
+    return createTaggedTemplateExpression(cooked, cooked, result, expressions);
   } else {
     nextToken();
-    return new TemplateExpression(cooked, expressions);
+    return createTemplateExpression(cooked, expressions);
   }
 }
 function createTemplateTail(result) {
   $assignable = false;
   const strings = [$tokenValue];
   nextToken();
-  return new TaggedTemplateExpression(strings, strings, result);
+  return createTaggedTemplateExpression(strings, strings, result);
 }
 function nextToken() {
   while ($index < $length) {
@@ -4211,10 +4104,6 @@ const errorsMap$2 = {
     /* ErrorNames.compiler_unknown_binding_command */
   ]: `Template compilation error: unknown binding command: "{{0}}".{{0:bindingCommandHelp}}`,
   [
-    714
-    /* ErrorNames.compiler_primary_already_existed */
-  ]: `Template compilation error: primary already exists on element/attribute "{{0}}"`,
-  [
     715
     /* ErrorNames.compiler_local_name_empty */
   ]: `Template compilation error: the value of "as-custom-element" attribute cannot be empty for local element in element "{{0}}"`,
@@ -4322,349 +4211,7 @@ The ".call" binding command has been removed in v2. If you want to pass a callba
       return "";
   }
 }
-var _a$1, _b$1, _c$1, _d, _e$3;
-class CharSpec {
-  constructor(chars, repeat, isSymbol2, isInverted) {
-    this.chars = chars;
-    this.repeat = repeat;
-    this.isSymbol = isSymbol2;
-    this.isInverted = isInverted;
-    if (isInverted) {
-      switch (chars.length) {
-        case 0:
-          this.has = this._hasOfNoneInverse;
-          break;
-        case 1:
-          this.has = this._hasOfSingleInverse;
-          break;
-        default:
-          this.has = this._hasOfMultipleInverse;
-      }
-    } else {
-      switch (chars.length) {
-        case 0:
-          this.has = this._hasOfNone;
-          break;
-        case 1:
-          this.has = this._hasOfSingle;
-          break;
-        default:
-          this.has = this._hasOfMultiple;
-      }
-    }
-  }
-  equals(other) {
-    return this.chars === other.chars && this.repeat === other.repeat && this.isSymbol === other.isSymbol && this.isInverted === other.isInverted;
-  }
-  /** @internal */
-  _hasOfMultiple(char) {
-    return this.chars.includes(char);
-  }
-  /** @internal */
-  _hasOfSingle(char) {
-    return this.chars === char;
-  }
-  /** @internal */
-  _hasOfNone(_char) {
-    return false;
-  }
-  /** @internal */
-  _hasOfMultipleInverse(char) {
-    return !this.chars.includes(char);
-  }
-  /** @internal */
-  _hasOfSingleInverse(char) {
-    return this.chars !== char;
-  }
-  /** @internal */
-  _hasOfNoneInverse(_char) {
-    return true;
-  }
-}
-class Interpretation {
-  constructor() {
-    this.parts = emptyArray;
-    this._pattern = "";
-    this._currentRecord = {};
-    this._partsRecord = {};
-  }
-  get pattern() {
-    const value = this._pattern;
-    if (value === "") {
-      return null;
-    } else {
-      return value;
-    }
-  }
-  set pattern(value) {
-    if (value == null) {
-      this._pattern = "";
-      this.parts = emptyArray;
-    } else {
-      this._pattern = value;
-      this.parts = this._partsRecord[value];
-    }
-  }
-  append(pattern, ch) {
-    const currentRecord = this._currentRecord;
-    if (currentRecord[pattern] === void 0) {
-      currentRecord[pattern] = ch;
-    } else {
-      currentRecord[pattern] += ch;
-    }
-  }
-  next(pattern) {
-    const currentRecord = this._currentRecord;
-    let partsRecord;
-    if (currentRecord[pattern] !== void 0) {
-      partsRecord = this._partsRecord;
-      if (partsRecord[pattern] === void 0) {
-        partsRecord[pattern] = [currentRecord[pattern]];
-      } else {
-        partsRecord[pattern].push(currentRecord[pattern]);
-      }
-      currentRecord[pattern] = void 0;
-    }
-  }
-}
-class AttrParsingState {
-  get _pattern() {
-    return this._isEndpoint ? this._patterns[0] : null;
-  }
-  constructor(charSpec, ...patterns) {
-    this.charSpec = charSpec;
-    this._nextStates = [];
-    this._types = null;
-    this._isEndpoint = false;
-    this._patterns = patterns;
-  }
-  findChild(charSpec) {
-    const nextStates = this._nextStates;
-    const len = nextStates.length;
-    let child = null;
-    let i = 0;
-    for (; i < len; ++i) {
-      child = nextStates[i];
-      if (charSpec.equals(child.charSpec)) {
-        return child;
-      }
-    }
-    return null;
-  }
-  append(charSpec, pattern) {
-    const patterns = this._patterns;
-    if (!patterns.includes(pattern)) {
-      patterns.push(pattern);
-    }
-    let state = this.findChild(charSpec);
-    if (state == null) {
-      state = new AttrParsingState(charSpec, pattern);
-      this._nextStates.push(state);
-      if (charSpec.repeat) {
-        state._nextStates.push(state);
-      }
-    }
-    return state;
-  }
-  findMatches(ch, interpretation) {
-    const results = [];
-    const nextStates = this._nextStates;
-    const len = nextStates.length;
-    let childLen = 0;
-    let child = null;
-    let i = 0;
-    let j = 0;
-    for (; i < len; ++i) {
-      child = nextStates[i];
-      if (child.charSpec.has(ch)) {
-        results.push(child);
-        childLen = child._patterns.length;
-        j = 0;
-        if (child.charSpec.isSymbol) {
-          for (; j < childLen; ++j) {
-            interpretation.next(child._patterns[j]);
-          }
-        } else {
-          for (; j < childLen; ++j) {
-            interpretation.append(child._patterns[j], ch);
-          }
-        }
-      }
-    }
-    return results;
-  }
-}
-let StaticSegment$1 = class StaticSegment {
-  constructor(text) {
-    this.text = text;
-    const len = this._len = text.length;
-    const specs = this._specs = [];
-    let i = 0;
-    for (; len > i; ++i) {
-      specs.push(new CharSpec(text[i], false, false, false));
-    }
-  }
-  eachChar(callback) {
-    const len = this._len;
-    const specs = this._specs;
-    let i = 0;
-    for (; len > i; ++i) {
-      callback(specs[i]);
-    }
-  }
-};
-let DynamicSegment$1 = class DynamicSegment {
-  constructor(symbols) {
-    this.text = "PART";
-    this._spec = new CharSpec(symbols, true, false, true);
-  }
-  eachChar(callback) {
-    callback(this._spec);
-  }
-};
-class SymbolSegment {
-  constructor(text) {
-    this.text = text;
-    this._spec = new CharSpec(text, false, true, false);
-  }
-  eachChar(callback) {
-    callback(this._spec);
-  }
-}
-class SegmentTypes {
-  constructor() {
-    this.statics = 0;
-    this.dynamics = 0;
-    this.symbols = 0;
-  }
-}
-const ISyntaxInterpreter = /* @__PURE__ */ tcCreateInterface("ISyntaxInterpreter", (x) => x.singleton(SyntaxInterpreter));
-class SyntaxInterpreter {
-  constructor() {
-    this._rootState = new AttrParsingState(null);
-    this._initialStates = [this._rootState];
-  }
-  // todo: this only works if this method is ever called only once
-  add(defs) {
-    defs = defs.slice(0).sort((d1, d22) => d1.pattern > d22.pattern ? 1 : -1);
-    const ii = defs.length;
-    let currentState;
-    let def2;
-    let pattern;
-    let types;
-    let segments;
-    let len;
-    let charSpecCb;
-    let i = 0;
-    let j;
-    while (ii > i) {
-      currentState = this._rootState;
-      def2 = defs[i];
-      pattern = def2.pattern;
-      types = new SegmentTypes();
-      segments = this._parse(def2, types);
-      len = segments.length;
-      charSpecCb = (ch) => currentState = currentState.append(ch, pattern);
-      for (j = 0; len > j; ++j) {
-        segments[j].eachChar(charSpecCb);
-      }
-      currentState._types = types;
-      currentState._isEndpoint = true;
-      ++i;
-    }
-  }
-  interpret(name2) {
-    const interpretation = new Interpretation();
-    const len = name2.length;
-    let states = this._initialStates;
-    let i = 0;
-    let state;
-    for (; i < len; ++i) {
-      states = this._getNextStates(states, name2.charAt(i), interpretation);
-      if (states.length === 0) {
-        break;
-      }
-    }
-    states = states.filter(isEndpoint);
-    if (states.length > 0) {
-      states.sort(sortEndpoint);
-      state = states[0];
-      if (!state.charSpec.isSymbol) {
-        interpretation.next(state._pattern);
-      }
-      interpretation.pattern = state._pattern;
-    }
-    return interpretation;
-  }
-  /** @internal */
-  _getNextStates(states, ch, interpretation) {
-    const nextStates = [];
-    let state = null;
-    const len = states.length;
-    let i = 0;
-    for (; i < len; ++i) {
-      state = states[i];
-      nextStates.push(...state.findMatches(ch, interpretation));
-    }
-    return nextStates;
-  }
-  /** @internal */
-  _parse(def2, types) {
-    const result = [];
-    const pattern = def2.pattern;
-    const len = pattern.length;
-    const symbols = def2.symbols;
-    let i = 0;
-    let start2 = 0;
-    let c = "";
-    while (i < len) {
-      c = pattern.charAt(i);
-      if (symbols.length === 0 || !symbols.includes(c)) {
-        if (i === start2) {
-          if (c === "P" && pattern.slice(i, i + 4) === "PART") {
-            start2 = i = i + 4;
-            result.push(new DynamicSegment$1(symbols));
-            ++types.dynamics;
-          } else {
-            ++i;
-          }
-        } else {
-          ++i;
-        }
-      } else if (i !== start2) {
-        result.push(new StaticSegment$1(pattern.slice(start2, i)));
-        ++types.statics;
-        start2 = i;
-      } else {
-        result.push(new SymbolSegment(pattern.slice(start2, i + 1)));
-        ++types.symbols;
-        start2 = ++i;
-      }
-    }
-    if (start2 !== i) {
-      result.push(new StaticSegment$1(pattern.slice(start2, i)));
-      ++types.statics;
-    }
-    return result;
-  }
-}
-function isEndpoint(a) {
-  return a._isEndpoint;
-}
-function sortEndpoint(a, b) {
-  const aTypes = a._types;
-  const bTypes = b._types;
-  if (aTypes.statics !== bTypes.statics) {
-    return bTypes.statics - aTypes.statics;
-  }
-  if (aTypes.dynamics !== bTypes.dynamics) {
-    return bTypes.dynamics - aTypes.dynamics;
-  }
-  if (aTypes.symbols !== bTypes.symbols) {
-    return bTypes.symbols - aTypes.symbols;
-  }
-  return 0;
-}
+var _a$1, _b$1, _c$1, _d, _e$5;
 class AttrSyntax {
   constructor(rawName, rawValue, target, command, parts = null) {
     this.rawName = rawName;
@@ -4675,15 +4222,172 @@ class AttrSyntax {
   }
 }
 const IAttributePattern = /* @__PURE__ */ tcCreateInterface("IAttributePattern");
+const TOKEN_PART = 0;
+const TOKEN_LIT = 1;
+function createSymbolSet(symbols) {
+  const set = /* @__PURE__ */ new Set();
+  for (let i = 0; i < symbols.length; i++) {
+    set.add(symbols[i]);
+  }
+  return set;
+}
+function compilePattern(pattern, symbols) {
+  const tokens = [];
+  const symbolSet = createSymbolSet(symbols);
+  let statics = 0;
+  let dynamics = 0;
+  let symbolCount = 0;
+  let i = 0;
+  while (i < pattern.length) {
+    if (pattern.startsWith("PART", i)) {
+      tokens.push({ kind: TOKEN_PART });
+      dynamics++;
+      i += 4;
+      continue;
+    }
+    const runStart = i;
+    while (i < pattern.length && !pattern.startsWith("PART", i))
+      i++;
+    const run = pattern.slice(runStart, i);
+    let j = 0;
+    while (j < run.length) {
+      const isSymbol2 = symbolSet.has(run[j]);
+      let k = j + 1;
+      while (k < run.length && symbolSet.has(run[k]) === isSymbol2)
+        k++;
+      tokens.push({ kind: TOKEN_LIT, value: run.slice(j, k) });
+      if (isSymbol2)
+        symbolCount++;
+      else
+        statics++;
+      j = k;
+    }
+  }
+  return { tokens, score: { statics, dynamics, symbols: symbolCount } };
+}
+class CompiledPattern {
+  constructor(def2) {
+    this.def = def2;
+    const { tokens, score } = compilePattern(def2.pattern, def2.symbols);
+    this._tokens = tokens;
+    this._score = score;
+    this._symbolSet = createSymbolSet(def2.symbols);
+  }
+  /**
+   * Match input against pattern, return extracted parts or null.
+   * Parts = all non-symbol text, split by symbols (for backward compat with old NFA).
+   * @internal
+   */
+  _tryMatch(input) {
+    const parts = [];
+    const tokens = this._tokens;
+    const symbolSet = this._symbolSet;
+    let pos = 0;
+    let currentPart = "";
+    for (let t2 = 0; t2 < tokens.length; t2++) {
+      const token = tokens[t2];
+      if (token.kind === TOKEN_LIT) {
+        const { value } = token;
+        if (!input.startsWith(value, pos))
+          return null;
+        for (let i = 0; i < value.length; i++) {
+          const ch = value[i];
+          if (symbolSet.has(ch)) {
+            if (currentPart.length > 0) {
+              parts.push(currentPart);
+              currentPart = "";
+            }
+          } else {
+            currentPart += ch;
+          }
+        }
+        pos += value.length;
+      } else {
+        const start2 = pos;
+        while (pos < input.length && !symbolSet.has(input[pos]))
+          pos++;
+        if (pos === start2)
+          return null;
+        currentPart += input.slice(start2, pos);
+      }
+    }
+    if (currentPart.length > 0)
+      parts.push(currentPart);
+    return pos === input.length ? parts : null;
+  }
+}
+function isBetterScore(a, b) {
+  if (a.statics !== b.statics)
+    return a.statics > b.statics;
+  if (a.dynamics !== b.dynamics)
+    return a.dynamics > b.dynamics;
+  return a.symbols > b.symbols;
+}
+class Interpretation {
+  constructor() {
+    this.parts = emptyArray;
+    this._pattern = null;
+  }
+  get pattern() {
+    return this._pattern;
+  }
+  set pattern(value) {
+    this._pattern = value;
+  }
+  /** @internal */
+  _set(pattern, parts) {
+    this._pattern = pattern;
+    this.parts = parts;
+  }
+}
+const ISyntaxInterpreter = /* @__PURE__ */ tcCreateInterface("ISyntaxInterpreter", (x) => x.singleton(SyntaxInterpreter));
+class SyntaxInterpreter {
+  constructor() {
+    this._patterns = [];
+    this._cache = /* @__PURE__ */ new Map();
+  }
+  add(defs) {
+    for (const def2 of defs) {
+      this._patterns.push(new CompiledPattern(def2));
+    }
+  }
+  interpret(name2) {
+    const interpretation = new Interpretation();
+    const cached = this._cache.get(name2);
+    if (cached !== void 0) {
+      interpretation._set(cached.pattern, cached.parts);
+      return interpretation;
+    }
+    let bestPattern = null;
+    let bestParts = null;
+    for (let i = 0; i < this._patterns.length; i++) {
+      const pattern = this._patterns[i];
+      const parts = pattern._tryMatch(name2);
+      if (parts !== null) {
+        if (bestPattern === null || isBetterScore(pattern._score, bestPattern._score)) {
+          bestPattern = pattern;
+          bestParts = parts;
+        }
+      }
+    }
+    if (bestPattern !== null) {
+      const result = { pattern: bestPattern.def.pattern, parts: bestParts };
+      this._cache.set(name2, result);
+      interpretation._set(result.pattern, result.parts);
+    } else {
+      this._cache.set(name2, { pattern: null, parts: emptyArray });
+    }
+    return interpretation;
+  }
+}
 const IAttributeParser = /* @__PURE__ */ tcCreateInterface("IAttributeParser", (x) => x.singleton(AttributeParser));
 class AttributeParser {
   constructor() {
-    this._cache = {};
-    this._patterns = {};
-    this._initialized = false;
-    this._allDefinitions = [];
     this._interpreter = resolve(ISyntaxInterpreter);
     this._container = resolve(IContainer);
+    this._patternHandlers = {};
+    this._pendingDefs = [];
+    this._initialized = false;
   }
   registerPattern(patterns, Type) {
     if (this._initialized)
@@ -4691,37 +4395,29 @@ class AttributeParser {
         88
         /* ErrorNames.attribute_pattern_already_initialized */
       );
-    const $patterns = this._patterns;
-    for (const { pattern } of patterns) {
-      if ($patterns[pattern] != null)
-        throw createMappedError$2(89, pattern);
-      $patterns[pattern] = { patternType: Type };
+    const handlers = this._patternHandlers;
+    for (const def2 of patterns) {
+      if (handlers[def2.pattern] != null)
+        throw createMappedError$2(89, def2.pattern);
+      handlers[def2.pattern] = { type: Type };
     }
-    this._allDefinitions.push(...patterns);
-  }
-  /** @internal */
-  _initialize() {
-    this._interpreter.add(this._allDefinitions);
-    const _container = this._container;
-    for (const [, value] of Object.entries(this._patterns)) {
-      value.pattern = _container.get(value.patternType);
-    }
+    this._pendingDefs.push(...patterns);
   }
   parse(name2, value) {
     if (!this._initialized) {
-      this._initialize();
+      this._interpreter.add(this._pendingDefs);
       this._initialized = true;
     }
-    let interpretation = this._cache[name2];
-    if (interpretation == null) {
-      interpretation = this._cache[name2] = this._interpreter.interpret(name2);
-    }
+    const interpretation = this._interpreter.interpret(name2);
     const pattern = interpretation.pattern;
-    if (pattern == null) {
+    if (pattern === null) {
       return new AttrSyntax(name2, value, name2, null, null);
-    } else {
-      return this._patterns[pattern].pattern[pattern](name2, value, interpretation.parts);
     }
+    const handlerInfo = this._patternHandlers[pattern];
+    if (handlerInfo.instance === void 0) {
+      handlerInfo.instance = this._container.get(handlerInfo.type);
+    }
+    return handlerInfo.instance[pattern](name2, value, interpretation.parts);
   }
 }
 const AttributePattern = /* @__PURE__ */ tcObjectFreeze({
@@ -4745,10 +4441,7 @@ class DotSeparatedAttributePattern {
 }
 _a$1 = Symbol.metadata;
 DotSeparatedAttributePattern[_a$1] = {
-  [registrableMetadataKey]: /* @__PURE__ */ AttributePattern.create([
-    { pattern: "PART.PART", symbols: "." },
-    { pattern: "PART.PART.PART", symbols: "." }
-  ], DotSeparatedAttributePattern)
+  [registrableMetadataKey]: /* @__PURE__ */ AttributePattern.create([{ pattern: "PART.PART", symbols: "." }, { pattern: "PART.PART.PART", symbols: "." }], DotSeparatedAttributePattern)
 };
 class RefAttributePattern {
   "ref"(rawName, rawValue, _parts) {
@@ -4767,10 +4460,7 @@ class RefAttributePattern {
 }
 _b$1 = Symbol.metadata;
 RefAttributePattern[_b$1] = {
-  [registrableMetadataKey]: /* @__PURE__ */ AttributePattern.create([
-    { pattern: "ref", symbols: "" },
-    { pattern: "PART.ref", symbols: "." }
-  ], RefAttributePattern)
+  [registrableMetadataKey]: /* @__PURE__ */ AttributePattern.create([{ pattern: "ref", symbols: "" }, { pattern: "PART.ref", symbols: "." }], RefAttributePattern)
 };
 class EventAttributePattern {
   "PART.trigger:PART"(rawName, rawValue, parts) {
@@ -4782,10 +4472,7 @@ class EventAttributePattern {
 }
 _c$1 = Symbol.metadata;
 EventAttributePattern[_c$1] = {
-  [registrableMetadataKey]: /* @__PURE__ */ AttributePattern.create([
-    { pattern: "PART.trigger:PART", symbols: ".:" },
-    { pattern: "PART.capture:PART", symbols: ".:" }
-  ], EventAttributePattern)
+  [registrableMetadataKey]: /* @__PURE__ */ AttributePattern.create([{ pattern: "PART.trigger:PART", symbols: ".:" }, { pattern: "PART.capture:PART", symbols: ".:" }], EventAttributePattern)
 };
 class ColonPrefixedBindAttributePattern {
   ":PART"(rawName, rawValue, parts) {
@@ -4804,207 +4491,34 @@ class AtPrefixedTriggerAttributePattern {
     return new AttrSyntax(rawName, rawValue, parts[0], "trigger", [parts[0], "trigger", ...parts.slice(1)]);
   }
 }
-_e$3 = Symbol.metadata;
-AtPrefixedTriggerAttributePattern[_e$3] = {
-  [registrableMetadataKey]: /* @__PURE__ */ AttributePattern.create([
-    { pattern: "@PART", symbols: "@" },
-    { pattern: "@PART:PART", symbols: "@:" }
-  ], AtPrefixedTriggerAttributePattern)
+_e$5 = Symbol.metadata;
+AtPrefixedTriggerAttributePattern[_e$5] = {
+  [registrableMetadataKey]: /* @__PURE__ */ AttributePattern.create([{ pattern: "@PART", symbols: "@" }, { pattern: "@PART:PART", symbols: "@:" }], AtPrefixedTriggerAttributePattern)
 };
 const getMetadata$1 = Metadata.get;
 const defineMetadata$1 = Metadata.define;
-const hydrateElement = "ra";
-const hydrateAttribute = "rb";
-const hydrateTemplateController = "rc";
-const hydrateLetElement = "rd";
-const setProperty = "re";
-const interpolation = "rf";
-const propertyBinding = "rg";
-const letBinding = "ri";
-const refBinding = "rj";
-const iteratorBinding = "rk";
-const multiAttr = "rl";
-const textBinding = "ha";
-const listenerBinding = "hb";
-const attributeBinding = "hc";
-const stylePropertyBinding = "hd";
-const setAttribute = "he";
-const setClassAttribute = "hf";
-const setStyleAttribute = "hg";
-const spreadTransferedBinding = "hs";
-const spreadElementProp = "hp";
-const spreadValueBinding = "svb";
-const InstructionType = /* @__PURE__ */ tcObjectFreeze({
-  hydrateElement,
-  hydrateAttribute,
-  hydrateTemplateController,
-  hydrateLetElement,
-  setProperty,
-  interpolation,
-  propertyBinding,
-  letBinding,
-  refBinding,
-  iteratorBinding,
-  multiAttr,
-  textBinding,
-  listenerBinding,
-  attributeBinding,
-  stylePropertyBinding,
-  setAttribute,
-  setClassAttribute,
-  setStyleAttribute,
-  spreadTransferedBinding,
-  spreadElementProp,
-  spreadValueBinding
-});
+const itHydrateElement = 0;
+const itHydrateAttribute = 1;
+const itHydrateTemplateController = 2;
+const itHydrateLetElement = 3;
+const itSetProperty = 10;
+const itInterpolation = 11;
+const itPropertyBinding = 12;
+const itLetBinding = 13;
+const itRefBinding = 14;
+const itIteratorBinding = 15;
+const itMultiAttr = 16;
+const itTextBinding = 30;
+const itListenerBinding = 31;
+const itAttributeBinding = 32;
+const itStylePropertyBinding = 33;
+const itSetAttribute = 34;
+const itSetClassAttribute = 35;
+const itSetStyleAttribute = 36;
+const itSpreadTransferedBinding = 50;
+const itSpreadElementProp = 51;
+const itSpreadValueBinding = 52;
 const IInstruction = /* @__PURE__ */ tcCreateInterface("Instruction");
-class InterpolationInstruction {
-  constructor(from, to) {
-    this.from = from;
-    this.to = to;
-    this.type = interpolation;
-  }
-}
-class PropertyBindingInstruction {
-  constructor(from, to, mode) {
-    this.from = from;
-    this.to = to;
-    this.mode = mode;
-    this.type = propertyBinding;
-  }
-}
-class IteratorBindingInstruction {
-  constructor(forOf, to, props2) {
-    this.forOf = forOf;
-    this.to = to;
-    this.props = props2;
-    this.type = iteratorBinding;
-  }
-}
-class RefBindingInstruction {
-  constructor(from, to) {
-    this.from = from;
-    this.to = to;
-    this.type = refBinding;
-  }
-}
-class SetPropertyInstruction {
-  constructor(value, to) {
-    this.value = value;
-    this.to = to;
-    this.type = setProperty;
-  }
-}
-class MultiAttrInstruction {
-  constructor(value, to, command) {
-    this.value = value;
-    this.to = to;
-    this.command = command;
-    this.type = multiAttr;
-  }
-}
-class HydrateElementInstruction {
-  constructor(res, props2, projections, containerless, captures, data) {
-    this.res = res;
-    this.props = props2;
-    this.projections = projections;
-    this.containerless = containerless;
-    this.captures = captures;
-    this.data = data;
-    this.type = hydrateElement;
-  }
-}
-class HydrateAttributeInstruction {
-  constructor(res, alias, props2) {
-    this.res = res;
-    this.alias = alias;
-    this.props = props2;
-    this.type = hydrateAttribute;
-  }
-}
-class HydrateTemplateController {
-  constructor(def2, res, alias, props2) {
-    this.def = def2;
-    this.res = res;
-    this.alias = alias;
-    this.props = props2;
-    this.type = hydrateTemplateController;
-  }
-}
-class HydrateLetElementInstruction {
-  constructor(instructions, toBindingContext) {
-    this.instructions = instructions;
-    this.toBindingContext = toBindingContext;
-    this.type = hydrateLetElement;
-  }
-}
-class LetBindingInstruction {
-  constructor(from, to) {
-    this.from = from;
-    this.to = to;
-    this.type = letBinding;
-  }
-}
-class TextBindingInstruction {
-  constructor(from) {
-    this.from = from;
-    this.type = textBinding;
-  }
-}
-class ListenerBindingInstruction {
-  constructor(from, to, capture, modifier) {
-    this.from = from;
-    this.to = to;
-    this.capture = capture;
-    this.modifier = modifier;
-    this.type = listenerBinding;
-  }
-}
-class SetAttributeInstruction {
-  constructor(value, to) {
-    this.value = value;
-    this.to = to;
-    this.type = setAttribute;
-  }
-}
-class SetClassAttributeInstruction {
-  constructor(value) {
-    this.value = value;
-    this.type = setClassAttribute;
-  }
-}
-class SetStyleAttributeInstruction {
-  constructor(value) {
-    this.value = value;
-    this.type = setStyleAttribute;
-  }
-}
-class AttributeBindingInstruction {
-  constructor(attr, from, to) {
-    this.attr = attr;
-    this.from = from;
-    this.to = to;
-    this.type = attributeBinding;
-  }
-}
-class SpreadTransferedBindingInstruction {
-  constructor() {
-    this.type = spreadTransferedBinding;
-  }
-}
-class SpreadElementPropBindingInstruction {
-  constructor(instruction) {
-    this.instruction = instruction;
-    this.type = spreadElementProp;
-  }
-}
-class SpreadValueBindingInstruction {
-  constructor(target, from) {
-    this.target = target;
-    this.from = from;
-    this.type = spreadValueBinding;
-  }
-}
 class BindingCommandDefinition {
   constructor(Type, name2, aliases, key) {
     this.Type = Type;
@@ -5103,12 +4617,13 @@ class OneTimeBindingCommand {
     } else {
       target = info2.bindable.name;
     }
-    return new PropertyBindingInstruction(
-      exprParser.parse(value, etIsProperty$1),
-      target,
-      1
+    return {
+      type: itPropertyBinding,
+      from: exprParser.parse(value, etIsProperty$1),
+      to: target,
+      mode: 1
       /* InternalBindingMode.oneTime */
-    );
+    };
   }
 }
 OneTimeBindingCommand.$au = {
@@ -5129,12 +4644,13 @@ class ToViewBindingCommand {
     } else {
       target = info2.bindable.name;
     }
-    return new PropertyBindingInstruction(
-      exprParser.parse(value, etIsProperty$1),
-      target,
-      2
+    return {
+      type: itPropertyBinding,
+      from: exprParser.parse(value, etIsProperty$1),
+      to: target,
+      mode: 2
       /* InternalBindingMode.toView */
-    );
+    };
   }
 }
 ToViewBindingCommand.$au = {
@@ -5155,12 +4671,13 @@ class FromViewBindingCommand {
     } else {
       target = info2.bindable.name;
     }
-    return new PropertyBindingInstruction(
-      exprParser.parse(value, etIsProperty$1),
-      target,
-      4
+    return {
+      type: itPropertyBinding,
+      from: exprParser.parse(value, etIsProperty$1),
+      to: target,
+      mode: 4
       /* InternalBindingMode.fromView */
-    );
+    };
   }
 }
 FromViewBindingCommand.$au = {
@@ -5181,12 +4698,13 @@ class TwoWayBindingCommand {
     } else {
       target = info2.bindable.name;
     }
-    return new PropertyBindingInstruction(
-      exprParser.parse(value, etIsProperty$1),
-      target,
-      6
+    return {
+      type: itPropertyBinding,
+      from: exprParser.parse(value, etIsProperty$1),
+      to: target,
+      mode: 6
       /* InternalBindingMode.twoWay */
-    );
+    };
   }
 }
 TwoWayBindingCommand.$au = {
@@ -5202,18 +4720,21 @@ class DefaultBindingCommand {
     const bindable2 = info2.bindable;
     let value = attr.rawValue;
     let target = attr.target;
-    let defDefaultMode;
     let mode;
     value = value === "" ? camelCase(target) : value;
     if (bindable2 == null) {
       mode = attrMapper.isTwoWay(info2.node, target) ? 6 : 2;
       target = attrMapper.map(info2.node, target) ?? camelCase(target);
     } else {
-      defDefaultMode = info2.def.defaultBindingMode ?? 0;
-      mode = bindable2.mode === 0 || bindable2.mode == null ? defDefaultMode == null || defDefaultMode === 0 ? 2 : defDefaultMode : bindable2.mode;
+      mode = bindable2.mode === 0 || bindable2.mode == null ? 2 : bindable2.mode;
       target = bindable2.name;
     }
-    return new PropertyBindingInstruction(exprParser.parse(value, etIsProperty$1), target, isString(mode) ? BindingMode[mode] ?? 0 : mode);
+    return {
+      type: itPropertyBinding,
+      from: exprParser.parse(value, etIsProperty$1),
+      to: target,
+      mode: isString(mode) ? BindingMode[mode] ?? 0 : mode
+    };
   }
 }
 DefaultBindingCommand.$au = {
@@ -5232,16 +4753,22 @@ class ForBindingCommand {
     const forOf = exprParser.parse(info2.attr.rawValue, "IsIterator");
     let props2 = emptyArray;
     if (forOf.semiIdx > -1) {
-      const attr = info2.attr.rawValue.slice(forOf.semiIdx + 1);
-      const i = attr.indexOf(":");
-      if (i > -1) {
-        const attrName = attr.slice(0, i).trim();
-        const attrValue = attr.slice(i + 1).trim();
-        const attrSyntax = this._attrParser.parse(attrName, attrValue);
-        props2 = [new MultiAttrInstruction(attrValue, attrSyntax.target, attrSyntax.command)];
+      const attrsString = info2.attr.rawValue.slice(forOf.semiIdx + 1);
+      const attrParts = attrsString.split(";");
+      const parsedProps = [];
+      for (let j = 0, jj = attrParts.length; j < jj; j++) {
+        const attrPart = attrParts[j];
+        const colonIdx = attrPart.indexOf(":");
+        if (colonIdx > -1) {
+          const attrName = attrPart.slice(0, colonIdx).trim();
+          const attrValue = attrPart.slice(colonIdx + 1).trim();
+          const attrSyntax = this._attrParser.parse(attrName, attrValue);
+          parsedProps.push({ type: itMultiAttr, value: attrValue, to: attrSyntax.target, command: attrSyntax.command });
+        }
       }
+      props2 = parsedProps;
     }
-    return new IteratorBindingInstruction(forOf, target, props2);
+    return { type: itIteratorBinding, forOf, to: target, props: props2 };
   }
 }
 ForBindingCommand.$au = {
@@ -5253,7 +4780,13 @@ class TriggerBindingCommand {
     return true;
   }
   build(info2, exprParser) {
-    return new ListenerBindingInstruction(exprParser.parse(info2.attr.rawValue, etIsFunction$1), info2.attr.target, false, info2.attr.parts?.[2] ?? null);
+    return {
+      type: itListenerBinding,
+      from: exprParser.parse(info2.attr.rawValue, etIsFunction$1),
+      to: info2.attr.target,
+      capture: false,
+      modifier: info2.attr.parts?.[2] ?? null
+    };
   }
 }
 TriggerBindingCommand.$au = {
@@ -5265,7 +4798,13 @@ class CaptureBindingCommand {
     return true;
   }
   build(info2, exprParser) {
-    return new ListenerBindingInstruction(exprParser.parse(info2.attr.rawValue, etIsFunction$1), info2.attr.target, true, info2.attr.parts?.[2] ?? null);
+    return {
+      type: itListenerBinding,
+      from: exprParser.parse(info2.attr.rawValue, etIsFunction$1),
+      to: info2.attr.target,
+      capture: true,
+      modifier: info2.attr.parts?.[2] ?? null
+    };
   }
 }
 CaptureBindingCommand.$au = {
@@ -5281,7 +4820,7 @@ class AttrBindingCommand {
     const target = attr.target;
     let value = attr.rawValue;
     value = value === "" ? camelCase(target) : value;
-    return new AttributeBindingInstruction(target, exprParser.parse(value, etIsProperty$1), target);
+    return { type: itAttributeBinding, attr: target, from: exprParser.parse(value, etIsProperty$1), to: target };
   }
 }
 AttrBindingCommand.$au = {
@@ -5293,7 +4832,7 @@ class StyleBindingCommand {
     return true;
   }
   build(info2, exprParser) {
-    return new AttributeBindingInstruction("style", exprParser.parse(info2.attr.rawValue, etIsProperty$1), info2.attr.target);
+    return { type: itAttributeBinding, attr: "style", from: exprParser.parse(info2.attr.rawValue, etIsProperty$1), to: info2.attr.target };
   }
 }
 StyleBindingCommand.$au = {
@@ -5316,7 +4855,7 @@ class ClassBindingCommand {
       }
       target = classes.join(" ");
     }
-    return new AttributeBindingInstruction("class", exprParser.parse(info2.attr.rawValue, etIsProperty$1), target);
+    return { type: itAttributeBinding, attr: "class", from: exprParser.parse(info2.attr.rawValue, etIsProperty$1), to: target };
   }
 }
 ClassBindingCommand.$au = {
@@ -5328,7 +4867,7 @@ class RefBindingCommand {
     return true;
   }
   build(info2, exprParser) {
-    return new RefBindingInstruction(exprParser.parse(info2.attr.rawValue, etIsProperty$1), info2.attr.target);
+    return { type: itRefBinding, from: exprParser.parse(info2.attr.rawValue, etIsProperty$1), to: info2.attr.target };
   }
 }
 RefBindingCommand.$au = {
@@ -5340,7 +4879,7 @@ class SpreadValueBindingCommand {
     return false;
   }
   build(info2) {
-    return new SpreadValueBindingInstruction(info2.attr.target, info2.attr.rawValue);
+    return { type: itSpreadValueBinding, target: info2.attr.target, from: info2.attr.rawValue };
   }
 }
 SpreadValueBindingCommand.$au = {
@@ -5445,7 +4984,7 @@ const isElement$2 = (node) => node.nodeType === 1;
 const isTextNode = (node) => node.nodeType === 3;
 const auslotAttr$1 = "au-slot";
 const defaultSlotName$1 = "default";
-const generateElementName$1 = /* @__PURE__ */ ((id2) => () => `anonymous-${++id2}`)(0);
+const generateElementName$1 = /* @__PURE__ */ ((id) => () => `anonymous-${++id}`)(0);
 class TemplateCompiler {
   constructor() {
     this.debug = false;
@@ -5483,6 +5022,16 @@ class TemplateCompiler {
       hasSlots: context.hasSlot,
       needsCompile: false
     };
+    {
+      if (compiledDef.instructions.some((row) => row.some((instr) => {
+        if (instr.type === itHydrateElement) {
+          return instr.res === compiledDef.name || instr.res?.name === compiledDef.name;
+        }
+        return false;
+      }))) {
+        console.warn(`[DEV:aurelia] Detected unguarded self-referencing component name "${compiledDef.name}" in compiled instructions. This may lead to infinite recursion at runtime.`);
+      }
+    }
     return compiledDef;
   }
   compileSpread(requestor, attrSyntaxs, container, target, targetDef) {
@@ -5499,10 +5048,8 @@ class TemplateCompiler {
     let attrBindableInstructions;
     let bindablesInfo;
     let bindable2;
-    let primaryBindable;
     let bindingCommand = null;
     let expr;
-    let isMultiBindings;
     let attrTarget;
     let attrValue;
     for (; ii > i; ++i) {
@@ -5510,16 +5057,12 @@ class TemplateCompiler {
       attrTarget = attrSyntax.target;
       attrValue = attrSyntax.rawValue;
       if (attrTarget === "...$attrs") {
-        instructions.push(new SpreadTransferedBindingInstruction());
+        instructions.push({ type: itSpreadTransferedBinding });
         continue;
       }
       bindingCommand = context._getCommand(attrSyntax);
       if (bindingCommand !== null && bindingCommand.ignoreAttr) {
-        commandBuildInfo.node = target;
-        commandBuildInfo.attr = attrSyntax;
-        commandBuildInfo.bindable = null;
-        commandBuildInfo.def = null;
-        instructions.push(bindingCommand.build(commandBuildInfo, context._exprParser, context._attrMapper));
+        instructions.push(bindingCommand.build({ node: target, attr: attrSyntax, bindable: null, def: null }, context._exprParser, context._attrMapper));
         continue;
       }
       if (isCustomElement) {
@@ -5528,13 +5071,15 @@ class TemplateCompiler {
         if (bindable2 !== void 0) {
           if (bindingCommand == null) {
             expr = exprParser.parse(attrValue, etInterpolation$1);
-            instructions.push(new SpreadElementPropBindingInstruction(expr == null ? new SetPropertyInstruction(attrValue, bindable2.name) : new InterpolationInstruction(expr, bindable2.name)));
+            instructions.push({
+              type: itSpreadElementProp,
+              instruction: expr == null ? { type: itSetProperty, value: attrValue, to: bindable2.name } : { type: itInterpolation, from: expr, to: bindable2.name }
+            });
           } else {
-            commandBuildInfo.node = target;
-            commandBuildInfo.attr = attrSyntax;
-            commandBuildInfo.bindable = bindable2;
-            commandBuildInfo.def = elDef;
-            instructions.push(new SpreadElementPropBindingInstruction(bindingCommand.build(commandBuildInfo, context._exprParser, context._attrMapper)));
+            instructions.push({
+              type: itSpreadElementProp,
+              instruction: bindingCommand.build({ node: target, attr: attrSyntax, bindable: bindable2, def: elDef }, context._exprParser, context._attrMapper)
+            });
           }
           continue;
         }
@@ -5544,186 +5089,96 @@ class TemplateCompiler {
         if (attrDef.isTemplateController) {
           throw createMappedError$2(9998, attrTarget);
         }
-        bindablesInfo = context._getBindables(attrDef);
-        isMultiBindings = attrDef.noMultiBindings === false && bindingCommand === null && hasInlineBindings(attrValue);
-        if (isMultiBindings) {
-          attrBindableInstructions = this._compileMultiBindings(target, attrValue, attrDef, context);
-        } else {
-          primaryBindable = bindablesInfo.primary;
-          if (bindingCommand === null) {
-            expr = exprParser.parse(attrValue, etInterpolation$1);
-            attrBindableInstructions = [
-              expr === null ? new SetPropertyInstruction(attrValue, primaryBindable.name) : new InterpolationInstruction(expr, primaryBindable.name)
-            ];
-          } else {
-            commandBuildInfo.node = target;
-            commandBuildInfo.attr = attrSyntax;
-            commandBuildInfo.bindable = primaryBindable;
-            commandBuildInfo.def = attrDef;
-            attrBindableInstructions = [bindingCommand.build(commandBuildInfo, context._exprParser, context._attrMapper)];
-          }
-        }
-        (attrInstructions ??= []).push(new HydrateAttributeInstruction(
+        attrBindableInstructions = this._compileCustomAttributeBindables(
+          target,
+          attrDef,
+          attrSyntax,
+          attrValue,
+          bindingCommand,
+          context,
+          /* treatEmptyAsNoBinding */
+          false
+        );
+        (attrInstructions ??= []).push({
+          type: itHydrateAttribute,
           // todo: def/ def.Type or def.name should be configurable
           //       example: AOT/runtime can use def.Type, but there are situation
           //       where instructions need to be serialized, def.name should be used
-          this.resolveResources ? attrDef : attrDef.name,
-          attrDef.aliases != null && attrDef.aliases.includes(attrTarget) ? attrTarget : void 0,
-          attrBindableInstructions
-        ));
+          res: this.resolveResources ? attrDef : attrDef.name,
+          alias: attrDef.aliases != null && attrDef.aliases.includes(attrTarget) ? attrTarget : void 0,
+          props: attrBindableInstructions
+        });
         continue;
       }
       if (bindingCommand == null) {
         expr = exprParser.parse(attrValue, etInterpolation$1);
         if (expr != null) {
-          instructions.push(new InterpolationInstruction(
-            expr,
+          instructions.push({
+            type: itInterpolation,
+            from: expr,
             // if not a bindable, then ensure plain attribute are mapped correctly:
             // e.g: colspan -> colSpan
             //      innerhtml -> innerHTML
             //      minlength -> minLength etc...
-            context._attrMapper.map(target, attrTarget) ?? camelCase(attrTarget)
-          ));
+            to: context._attrMapper.map(target, attrTarget) ?? camelCase(attrTarget)
+          });
         } else {
           switch (attrTarget) {
             case "class":
-              instructions.push(new SetClassAttributeInstruction(attrValue));
+              instructions.push({ type: itSetClassAttribute, value: attrValue });
               break;
             case "style":
-              instructions.push(new SetStyleAttributeInstruction(attrValue));
+              instructions.push({ type: itSetStyleAttribute, value: attrValue });
               break;
             default:
-              instructions.push(new SetAttributeInstruction(attrValue, attrTarget));
+              instructions.push({ type: itSetAttribute, value: attrValue, to: attrTarget });
           }
         }
       } else {
-        commandBuildInfo.node = target;
-        commandBuildInfo.attr = attrSyntax;
-        commandBuildInfo.bindable = null;
-        commandBuildInfo.def = null;
-        instructions.push(bindingCommand.build(commandBuildInfo, context._exprParser, context._attrMapper));
+        instructions.push(bindingCommand.build({ node: target, attr: attrSyntax, bindable: null, def: null }, context._exprParser, context._attrMapper));
       }
     }
-    resetCommandBuildInfo();
     if (attrInstructions != null) {
       return attrInstructions.concat(instructions);
     }
     return instructions;
   }
-  /** @internal */
+  /**
+   * Compile attributes on a surrogate element (the root `<template>`).
+   *
+   * Surrogates are a restricted subset of element compilation:
+   * - No custom element features (bindables, capture, containerless)
+   * - No template controllers (would be ambiguous)
+   * - Certain attributes are disallowed (id, name, au-slot, as-element)
+   * - All attributes become instructions (to be applied to the actual host element)
+   *
+   * @internal
+   */
   _compileSurrogate(el, context) {
-    const instructions = [];
     const attrs = el.attributes;
-    const exprParser = context._exprParser;
-    let ii = attrs.length;
-    let i = 0;
-    let attr;
-    let attrName;
-    let attrValue;
-    let attrSyntax;
-    let attrDef = null;
-    let attrInstructions;
-    let attrBindableInstructions;
-    let bindableInfo;
-    let primaryBindable;
-    let bindingCommand = null;
-    let expr;
-    let isMultiBindings;
-    let realAttrTarget;
-    let realAttrValue;
-    for (; ii > i; ++i) {
-      attr = attrs[i];
-      attrName = attr.name;
-      attrValue = attr.value;
-      attrSyntax = context._attrParser.parse(attrName, attrValue);
-      realAttrTarget = attrSyntax.target;
-      realAttrValue = attrSyntax.rawValue;
-      if (invalidSurrogateAttribute[realAttrTarget]) {
-        throw createMappedError$2(702, attrName);
-      }
-      bindingCommand = context._getCommand(attrSyntax);
-      if (bindingCommand !== null && bindingCommand.ignoreAttr) {
-        commandBuildInfo.node = el;
-        commandBuildInfo.attr = attrSyntax;
-        commandBuildInfo.bindable = null;
-        commandBuildInfo.def = null;
-        instructions.push(bindingCommand.build(commandBuildInfo, context._exprParser, context._attrMapper));
-        continue;
-      }
-      attrDef = context._findAttr(realAttrTarget);
-      if (attrDef !== null) {
-        if (attrDef.isTemplateController) {
-          throw createMappedError$2(703, realAttrTarget);
-        }
-        bindableInfo = context._getBindables(attrDef);
-        isMultiBindings = attrDef.noMultiBindings === false && bindingCommand === null && hasInlineBindings(realAttrValue);
-        if (isMultiBindings) {
-          attrBindableInstructions = this._compileMultiBindings(el, realAttrValue, attrDef, context);
-        } else {
-          primaryBindable = bindableInfo.primary;
-          if (bindingCommand === null) {
-            expr = exprParser.parse(realAttrValue, etInterpolation$1);
-            attrBindableInstructions = expr === null ? realAttrValue === "" ? [] : [new SetPropertyInstruction(realAttrValue, primaryBindable.name)] : [new InterpolationInstruction(expr, primaryBindable.name)];
-          } else {
-            commandBuildInfo.node = el;
-            commandBuildInfo.attr = attrSyntax;
-            commandBuildInfo.bindable = primaryBindable;
-            commandBuildInfo.def = attrDef;
-            attrBindableInstructions = [bindingCommand.build(commandBuildInfo, context._exprParser, context._attrMapper)];
-          }
-        }
-        el.removeAttribute(attrName);
-        --i;
-        --ii;
-        (attrInstructions ??= []).push(new HydrateAttributeInstruction(
-          // todo: def/ def.Type or def.name should be configurable
-          //       example: AOT/runtime can use def.Type, but there are situation
-          //       where instructions need to be serialized, def.name should be used
-          this.resolveResources ? attrDef : attrDef.name,
-          attrDef.aliases != null && attrDef.aliases.includes(realAttrTarget) ? realAttrTarget : void 0,
-          attrBindableInstructions
-        ));
-        continue;
-      }
-      if (bindingCommand === null) {
-        expr = exprParser.parse(realAttrValue, etInterpolation$1);
-        if (expr != null) {
-          el.removeAttribute(attrName);
-          --i;
-          --ii;
-          instructions.push(new InterpolationInstruction(
-            expr,
-            // if not a bindable, then ensure plain attribute are mapped correctly:
-            // e.g: colspan -> colSpan
-            //      innerhtml -> innerHTML
-            //      minlength -> minLength etc...
-            context._attrMapper.map(el, realAttrTarget) ?? camelCase(realAttrTarget)
-          ));
-        } else {
-          switch (attrName) {
-            case "class":
-              instructions.push(new SetClassAttributeInstruction(realAttrValue));
-              break;
-            case "style":
-              instructions.push(new SetStyleAttributeInstruction(realAttrValue));
-              break;
-            default:
-              instructions.push(new SetAttributeInstruction(realAttrValue, attrName));
-          }
-        }
-      } else {
-        commandBuildInfo.node = el;
-        commandBuildInfo.attr = attrSyntax;
-        commandBuildInfo.bindable = null;
-        commandBuildInfo.def = null;
-        instructions.push(bindingCommand.build(commandBuildInfo, context._exprParser, context._attrMapper));
+    for (let i = 0, ii = attrs.length; i < ii; ++i) {
+      const attrSyntax = context._attrParser.parse(attrs[i].name, attrs[i].value);
+      if (invalidSurrogateAttribute[attrSyntax.target]) {
+        throw createMappedError$2(702, attrs[i].name);
       }
     }
-    resetCommandBuildInfo();
+    const { tcInstructions, attrInstructions, plainAttrInstructions } = this._classifyAttributes(
+      el,
+      null,
+      emptyArray,
+      context,
+      /* generateStaticAttrInstructions */
+      true
+    );
+    if (tcInstructions != null && tcInstructions.length > 0) {
+      const tcDef = tcInstructions[0].res;
+      const tcName = typeof tcDef === "string" ? tcDef : tcDef.name;
+      throw createMappedError$2(703, tcName);
+    }
     if (attrInstructions != null) {
-      return attrInstructions.concat(instructions);
+      return attrInstructions.concat(plainAttrInstructions ?? emptyArray);
     }
-    return instructions;
+    return plainAttrInstructions ?? emptyArray;
   }
   // overall flow:
   // each of the method will be responsible for compiling its corresponding node type
@@ -5790,7 +5245,11 @@ class TemplateCompiler {
       bindingCommand = context._getCommand(attrSyntax);
       if (bindingCommand !== null) {
         if (attrSyntax.command === "bind") {
-          letInstructions.push(new LetBindingInstruction(exprParser.parse(realAttrValue, etIsProperty$1), camelCase(realAttrTarget)));
+          letInstructions.push({
+            type: itLetBinding,
+            from: exprParser.parse(realAttrValue, etIsProperty$1),
+            to: camelCase(realAttrTarget)
+          });
         } else {
           throw createMappedError$2(704, attrSyntax);
         }
@@ -5802,76 +5261,211 @@ class TemplateCompiler {
           console.warn(`[DEV:aurelia] Property "${realAttrTarget}" is declared with literal string ${realAttrValue}. Did you mean ${realAttrTarget}.bind="${realAttrValue}"?`);
         }
       }
-      letInstructions.push(new LetBindingInstruction(expr === null ? new PrimitiveLiteralExpression(realAttrValue) : expr, camelCase(realAttrTarget)));
+      letInstructions.push({
+        type: itLetBinding,
+        from: expr === null ? createPrimitiveLiteralExpression(realAttrValue) : expr,
+        to: camelCase(realAttrTarget)
+      });
     }
-    context.rows.push([new HydrateLetElementInstruction(letInstructions, toBindingContext)]);
+    context.rows.push([{
+      type: itHydrateLetElement,
+      instructions: letInstructions,
+      toBindingContext
+    }]);
     return this._markAsTarget(el, context).nextSibling;
   }
   /** @internal */
-  // eslint-disable-next-line
   _compileElement(el, context) {
     const nextSibling = el.nextSibling;
     const elName = (el.getAttribute("as-element") ?? el.nodeName).toLowerCase();
     const elDef = context._findElement(elName);
     const isCustomElement = elDef !== null;
     const isShadowDom = isCustomElement && elDef.shadowOptions != null;
-    const capture = elDef?.capture;
-    const hasCaptureFilter = capture != null && typeof capture !== "boolean";
-    const captures = capture ? [] : emptyArray;
-    const exprParser = context._exprParser;
-    const removeAttr = this.debug ? noop : () => {
-      el.removeAttribute(attrName);
-      --i;
-      --ii;
-    };
-    let attrs = el.attributes;
-    let instructions;
-    let ii = attrs.length;
-    let i = 0;
-    let attr;
-    let attrName;
-    let attrValue;
-    let attrSyntax;
-    let plainAttrInstructions;
-    let elBindableInstructions;
-    let attrDef = null;
-    let isMultiBindings = false;
-    let bindable2;
-    let attrInstructions;
-    let attrBindableInstructions;
-    let tcInstructions;
-    let tcInstruction;
-    let expr;
-    let elementInstruction;
-    let bindingCommand = null;
-    let bindablesInfo;
-    let primaryBindable;
-    let realAttrTarget;
-    let realAttrValue;
-    let processContentResult = true;
-    let hasContainerless = false;
-    let canCapture = false;
-    let needsMarker = false;
-    let elementMetadata;
-    let spreadIndex = 0;
+    const captures = elDef?.capture ? [] : emptyArray;
     if (elName === "slot") {
       if (context.root.def.shadowOptions == null) {
         throw createMappedError$2(717, context.root.def.name);
       }
       context.root.hasSlot = true;
     }
+    let processContentResult = true;
+    const elementMetadata = {};
     if (isCustomElement) {
-      elementMetadata = {};
       processContentResult = elDef.processContent?.call(elDef.Type, el, context.p, elementMetadata);
-      attrs = el.attributes;
-      ii = attrs.length;
     }
+    const { tcInstructions, attrInstructions, elBindableInstructions, plainAttrInstructions, hasContainerless } = this._classifyAttributes(el, elDef, captures, context);
+    if (this._shouldReorderAttrs(el, plainAttrInstructions) && plainAttrInstructions != null && plainAttrInstructions.length > 1) {
+      this._reorder(el, plainAttrInstructions);
+    }
+    let elementInstruction;
+    if (isCustomElement) {
+      elementInstruction = {
+        type: itHydrateElement,
+        res: this.resolveResources ? elDef : elDef.name,
+        props: elBindableInstructions ?? emptyArray,
+        projections: null,
+        containerless: hasContainerless,
+        captures,
+        data: elementMetadata
+      };
+    }
+    let instructions;
+    let needsMarker = false;
+    if (plainAttrInstructions != null || elementInstruction != null || attrInstructions != null) {
+      instructions = emptyArray.concat(elementInstruction ?? emptyArray, attrInstructions ?? emptyArray, plainAttrInstructions ?? emptyArray);
+      needsMarker = true;
+    }
+    if (tcInstructions != null) {
+      const tcCount = tcInstructions.length;
+      let tcIndex = tcCount - 1;
+      let tcInstruction = tcInstructions[tcIndex];
+      this._replaceByMarker(el, context);
+      let tcTemplate;
+      if (el.nodeName === TEMPLATE_NODE_NAME) {
+        tcTemplate = el;
+      } else {
+        tcTemplate = context.t();
+        appendToTemplate(tcTemplate, el);
+      }
+      const innermostTemplate = tcTemplate;
+      const tcChildContext = context._createChild(instructions == null ? [] : [instructions]);
+      if (processContentResult !== false) {
+        const projections = this._extractProjections(el, isCustomElement, isShadowDom, elName, context);
+        if (projections != null) {
+          elementInstruction.projections = projections;
+        }
+      }
+      if (needsMarker) {
+        if (isCustomElement && (hasContainerless || elDef.containerless)) {
+          this._replaceByMarker(el, tcChildContext);
+        } else {
+          this._markAsTarget(el, tcChildContext);
+        }
+      }
+      const shouldCompileContent = !isCustomElement || !elDef.containerless && !hasContainerless && processContentResult !== false;
+      if (shouldCompileContent) {
+        if (el.nodeName === TEMPLATE_NODE_NAME) {
+          this._compileNode(el.content, tcChildContext);
+        } else {
+          let child = el.firstChild;
+          while (child !== null) {
+            child = this._compileNode(child, tcChildContext);
+          }
+        }
+      }
+      tcInstruction.def = {
+        name: generateElementName$1(),
+        type: definitionTypeElement,
+        template: innermostTemplate,
+        instructions: tcChildContext.rows,
+        needsCompile: false
+      };
+      while (tcIndex-- > 0) {
+        tcInstruction = tcInstructions[tcIndex];
+        tcTemplate = context.t();
+        appendManyToTemplate(tcTemplate, [
+          context._marker(),
+          context._comment(auLocationStart),
+          context._comment(auLocationEnd)
+        ]);
+        tcInstruction.def = {
+          name: generateElementName$1(),
+          type: definitionTypeElement,
+          template: tcTemplate,
+          needsCompile: false,
+          instructions: [[tcInstructions[tcIndex + 1]]]
+        };
+      }
+      context.rows.push([tcInstruction]);
+    } else {
+      if (instructions != null) {
+        context.rows.push(instructions);
+      }
+      if (processContentResult !== false) {
+        const projections = this._extractProjections(el, isCustomElement, isShadowDom, elName, context);
+        if (projections != null) {
+          elementInstruction.projections = projections;
+        }
+      }
+      if (needsMarker) {
+        if (isCustomElement && (hasContainerless || elDef.containerless)) {
+          this._replaceByMarker(el, context);
+        } else {
+          this._markAsTarget(el, context);
+        }
+      }
+      const shouldCompileContent = !isCustomElement || !elDef.containerless && !hasContainerless && processContentResult !== false;
+      if (shouldCompileContent && el.childNodes.length > 0) {
+        let child = el.firstChild;
+        while (child !== null) {
+          child = this._compileNode(child, context);
+        }
+      }
+    }
+    return nextSibling;
+  }
+  /**
+   * Classify all attributes on an element into their semantic categories.
+   *
+   * This is the core "attribute semantic decision" algorithm. Each attribute is
+   * checked against these categories in priority order:
+   *
+   * 1. Special attributes (as-element, containerless) - removed, not compiled
+   * 2. Captured attributes - forwarded to custom element via captures array
+   * 3. Spread transferred bindings (...$attrs) - spreads parent's attributes
+   * 4. Binding commands with ignoreAttr (class/style/attr) - command handles everything
+   * 5. Spread bindables (...$bindables) - spreads bindings to all bindable props
+   * 6. Custom element bindable properties - binds to CE's declared bindables
+   * 7. Custom attributes and template controllers - hydrates CA/TC instances
+   * 8. Plain attributes - interpolation or binding command on DOM attribute
+   *
+   * @param el - The element whose attributes to classify
+   * @param elDef - The custom element definition, or null if not a CE
+   * @param captures - Array to collect captured attributes (for CE forwarding)
+   * @param context - The compilation context
+   * @param generateStaticAttrInstructions - If true, generate Set*AttributeInstruction for
+   * static attrs instead of leaving them in the DOM. Used for surrogates where
+   * attrs must be transferred to the actual host element.
+   * @returns Classification result with instructions grouped by category
+   * @internal
+   */
+  _classifyAttributes(el, elDef, captures, context, generateStaticAttrInstructions = false) {
+    const isCustomElement = elDef !== null;
+    const capture = elDef?.capture;
+    const hasCaptureFilter = capture != null && typeof capture !== "boolean";
+    const exprParser = context._exprParser;
+    const attrs = el.attributes;
+    let ii = attrs.length;
+    let i = 0;
+    let attr;
+    let attrName;
+    let attrValue;
+    let attrSyntax;
+    let bindingCommand = null;
+    let realAttrTarget;
+    let realAttrValue;
+    let tcInstructions;
+    let attrInstructions;
+    let elBindableInstructions;
+    let plainAttrInstructions;
+    let attrDef = null;
+    let bindable2;
+    let attrBindableInstructions;
+    let bindablesInfo;
+    let expr;
+    let hasContainerless = false;
+    let canCapture = false;
+    let spreadIndex = 0;
+    const removeAttr = this.debug ? noop : () => {
+      el.removeAttribute(attrName);
+      --i;
+      --ii;
+    };
     for (; ii > i; ++i) {
       attr = attrs[i];
       attrName = attr.name;
       attrValue = attr.value;
       switch (attrName) {
-        // ignore these 2 attributes
         case "as-element":
         case "containerless":
           removeAttr();
@@ -5899,22 +5493,22 @@ class TemplateCompiler {
         }
       }
       if (realAttrTarget === "...$attrs") {
-        (plainAttrInstructions ??= []).push(new SpreadTransferedBindingInstruction());
+        (plainAttrInstructions ??= []).push({ type: itSpreadTransferedBinding });
         removeAttr();
         continue;
       }
       if (bindingCommand?.ignoreAttr) {
-        commandBuildInfo.node = el;
-        commandBuildInfo.attr = attrSyntax;
-        commandBuildInfo.bindable = null;
-        commandBuildInfo.def = null;
-        (plainAttrInstructions ??= []).push(bindingCommand.build(commandBuildInfo, context._exprParser, context._attrMapper));
+        (plainAttrInstructions ??= []).push(bindingCommand.build({ node: el, attr: attrSyntax, bindable: null, def: null }, context._exprParser, context._attrMapper));
         removeAttr();
         continue;
       }
       if (realAttrTarget.indexOf("...") === 0) {
         if (isCustomElement && (realAttrTarget = realAttrTarget.slice(3)) !== "$element") {
-          (elBindableInstructions ??= []).push(new SpreadValueBindingInstruction("$bindables", realAttrTarget === "$bindables" ? realAttrValue : realAttrTarget));
+          (elBindableInstructions ??= []).push({
+            type: itSpreadValueBinding,
+            target: "$bindables",
+            from: realAttrTarget === "$bindables" ? realAttrValue : realAttrTarget
+          });
           removeAttr();
           continue;
         }
@@ -5931,13 +5525,9 @@ class TemplateCompiler {
         if (bindable2 !== void 0) {
           if (bindingCommand === null) {
             expr = exprParser.parse(realAttrValue, etInterpolation$1);
-            (elBindableInstructions ??= []).push(expr == null ? new SetPropertyInstruction(realAttrValue, bindable2.name) : new InterpolationInstruction(expr, bindable2.name));
+            (elBindableInstructions ??= []).push(expr == null ? { type: itSetProperty, value: realAttrValue, to: bindable2.name } : { type: itInterpolation, from: expr, to: bindable2.name });
           } else {
-            commandBuildInfo.node = el;
-            commandBuildInfo.attr = attrSyntax;
-            commandBuildInfo.bindable = bindable2;
-            commandBuildInfo.def = elDef;
-            (elBindableInstructions ??= []).push(bindingCommand.build(commandBuildInfo, context._exprParser, context._attrMapper));
+            (elBindableInstructions ??= []).push(bindingCommand.build({ node: el, attr: attrSyntax, bindable: bindable2, def: elDef }, context._exprParser, context._attrMapper));
           }
           removeAttr();
           {
@@ -5950,17 +5540,13 @@ class TemplateCompiler {
         }
         if (realAttrTarget === "$bindables") {
           if (bindingCommand != null) {
-            commandBuildInfo.node = el;
-            commandBuildInfo.attr = attrSyntax;
-            commandBuildInfo.bindable = null;
-            commandBuildInfo.def = elDef;
+            const instruction = bindingCommand.build({ node: el, attr: attrSyntax, bindable: null, def: null }, context._exprParser, context._attrMapper);
             {
-              const instruction = bindingCommand.build(commandBuildInfo, context._exprParser, context._attrMapper);
-              if (!(instruction instanceof SpreadValueBindingInstruction)) {
+              if (instruction.type !== itSpreadValueBinding) {
                 console.warn(`[DEV:aurelia] Binding with "$bindables" on custom element "${elDef.name}" with command ${attrSyntax.command}  did not result in a spread binding instruction. This likely won't work as expected.`);
               }
-              (elBindableInstructions ??= []).push(instruction);
             }
+            (elBindableInstructions ??= []).push(instruction);
           } else {
             console.warn(`[DEV:aurelia] Usage of "$bindables" on custom element "<${elDef.name}>" is ignored.`);
           }
@@ -5973,43 +5559,32 @@ class TemplateCompiler {
       }
       attrDef = context._findAttr(realAttrTarget);
       if (attrDef !== null) {
-        bindablesInfo = context._getBindables(attrDef);
-        isMultiBindings = attrDef.noMultiBindings === false && bindingCommand === null && hasInlineBindings(realAttrValue);
-        if (isMultiBindings) {
-          attrBindableInstructions = this._compileMultiBindings(el, realAttrValue, attrDef, context);
-        } else {
-          primaryBindable = bindablesInfo.primary;
-          if (bindingCommand === null) {
-            expr = exprParser.parse(realAttrValue, etInterpolation$1);
-            attrBindableInstructions = expr === null ? realAttrValue === "" ? [] : [new SetPropertyInstruction(realAttrValue, primaryBindable.name)] : [new InterpolationInstruction(expr, primaryBindable.name)];
-          } else {
-            commandBuildInfo.node = el;
-            commandBuildInfo.attr = attrSyntax;
-            commandBuildInfo.bindable = primaryBindable;
-            commandBuildInfo.def = attrDef;
-            attrBindableInstructions = [bindingCommand.build(commandBuildInfo, context._exprParser, context._attrMapper)];
-          }
-        }
+        attrBindableInstructions = this._compileCustomAttributeBindables(
+          el,
+          attrDef,
+          attrSyntax,
+          realAttrValue,
+          bindingCommand,
+          context,
+          /* treatEmptyAsNoBinding */
+          true
+        );
         removeAttr();
         if (attrDef.isTemplateController) {
-          (tcInstructions ??= []).push(new HydrateTemplateController(
-            voidDefinition,
-            // todo: def/ def.Type or def.name should be configurable
-            //       example: AOT/runtime can use def.Type, but there are situation
-            //       where instructions need to be serialized, def.name should be used
-            this.resolveResources ? attrDef : attrDef.name,
-            void 0,
-            attrBindableInstructions
-          ));
+          (tcInstructions ??= []).push({
+            type: itHydrateTemplateController,
+            def: voidDefinition,
+            res: this.resolveResources ? attrDef : attrDef.name,
+            alias: void 0,
+            props: attrBindableInstructions
+          });
         } else {
-          (attrInstructions ??= []).push(new HydrateAttributeInstruction(
-            // todo: def/ def.Type or def.name should be configurable
-            //       example: AOT/runtime can use def.Type, but there are situation
-            //       where instructions need to be serialized, def.name should be used
-            this.resolveResources ? attrDef : attrDef.name,
-            attrDef.aliases != null && attrDef.aliases.includes(realAttrTarget) ? realAttrTarget : void 0,
-            attrBindableInstructions
-          ));
+          (attrInstructions ??= []).push({
+            type: itHydrateAttribute,
+            res: this.resolveResources ? attrDef : attrDef.name,
+            alias: attrDef.aliases != null && attrDef.aliases.includes(realAttrTarget) ? realAttrTarget : void 0,
+            props: attrBindableInstructions
+          });
         }
         continue;
       }
@@ -6017,253 +5592,35 @@ class TemplateCompiler {
         expr = exprParser.parse(realAttrValue, etInterpolation$1);
         if (expr != null) {
           removeAttr();
-          (plainAttrInstructions ??= []).push(new InterpolationInstruction(
-            expr,
-            // if not a bindable, then ensure plain attribute are mapped correctly:
-            // e.g: colspan -> colSpan
-            //      innerhtml -> innerHTML
-            //      minlength -> minLength etc...
-            context._attrMapper.map(el, realAttrTarget) ?? camelCase(realAttrTarget)
-          ));
+          (plainAttrInstructions ??= []).push({
+            type: itInterpolation,
+            from: expr,
+            to: context._attrMapper.map(el, realAttrTarget) ?? camelCase(realAttrTarget)
+          });
+        } else if (generateStaticAttrInstructions) {
+          switch (attrName) {
+            case "class":
+              (plainAttrInstructions ??= []).push({ type: itSetClassAttribute, value: realAttrValue });
+              break;
+            case "style":
+              (plainAttrInstructions ??= []).push({ type: itSetStyleAttribute, value: realAttrValue });
+              break;
+            default:
+              (plainAttrInstructions ??= []).push({ type: itSetAttribute, value: realAttrValue, to: attrName });
+          }
         }
         continue;
       }
-      commandBuildInfo.node = el;
-      commandBuildInfo.attr = attrSyntax;
-      commandBuildInfo.bindable = null;
-      commandBuildInfo.def = null;
-      (plainAttrInstructions ??= []).push(bindingCommand.build(commandBuildInfo, context._exprParser, context._attrMapper));
+      (plainAttrInstructions ??= []).push(bindingCommand.build({ node: el, attr: attrSyntax, bindable: null, def: null }, context._exprParser, context._attrMapper));
       removeAttr();
     }
-    resetCommandBuildInfo();
-    if (this._shouldReorderAttrs(el, plainAttrInstructions) && plainAttrInstructions != null && plainAttrInstructions.length > 1) {
-      this._reorder(el, plainAttrInstructions);
-    }
-    if (isCustomElement) {
-      elementInstruction = new HydrateElementInstruction(
-        // todo: def/ def.Type or def.name should be configurable
-        //       example: AOT/runtime can use def.Type, but there are situation
-        //       where instructions need to be serialized, def.name should be used
-        this.resolveResources ? elDef : elDef.name,
-        elBindableInstructions ?? emptyArray,
-        null,
-        hasContainerless,
-        captures,
-        elementMetadata
-      );
-    }
-    if (plainAttrInstructions != null || elementInstruction != null || attrInstructions != null) {
-      instructions = emptyArray.concat(elementInstruction ?? emptyArray, attrInstructions ?? emptyArray, plainAttrInstructions ?? emptyArray);
-      needsMarker = true;
-    }
-    let shouldCompileContent;
-    if (tcInstructions != null) {
-      ii = tcInstructions.length - 1;
-      i = ii;
-      tcInstruction = tcInstructions[i];
-      let template2;
-      if (isMarker(el)) {
-        template2 = context.t();
-        appendManyToTemplate(template2, [
-          // context.h(MARKER_NODE_NAME),
-          context._marker(),
-          context._comment(auLocationStart),
-          context._comment(auLocationEnd)
-        ]);
-      } else {
-        this._replaceByMarker(el, context);
-        if (el.nodeName === "TEMPLATE") {
-          template2 = el;
-        } else {
-          template2 = context.t();
-          appendToTemplate(template2, el);
-        }
-      }
-      const mostInnerTemplate = template2;
-      const childContext = context._createChild(instructions == null ? [] : [instructions]);
-      let childEl;
-      let targetSlot;
-      let hasAuSlot = false;
-      let projections;
-      let slotTemplateRecord;
-      let slotTemplates;
-      let slotTemplate;
-      let marker;
-      let projectionCompilationContext;
-      let j = 0, jj = 0;
-      let child = el.firstChild;
-      let isEmptyTextNode = false;
-      if (processContentResult !== false) {
-        while (child !== null) {
-          targetSlot = isElement$2(child) ? child.getAttribute(auslotAttr$1) : null;
-          hasAuSlot = targetSlot !== null || isCustomElement && !isShadowDom;
-          childEl = child.nextSibling;
-          if (hasAuSlot) {
-            if (!isCustomElement) {
-              throw createMappedError$2(706, targetSlot, elName);
-            }
-            child.removeAttribute?.(auslotAttr$1);
-            isEmptyTextNode = isTextNode(child) && child.textContent.trim() === "";
-            if (!isEmptyTextNode) {
-              ((slotTemplateRecord ??= {})[targetSlot || defaultSlotName$1] ??= []).push(child);
-            }
-            el.removeChild(child);
-          }
-          child = childEl;
-        }
-      }
-      if (slotTemplateRecord != null) {
-        projections = {};
-        for (targetSlot in slotTemplateRecord) {
-          template2 = context.t();
-          slotTemplates = slotTemplateRecord[targetSlot];
-          for (j = 0, jj = slotTemplates.length; jj > j; ++j) {
-            slotTemplate = slotTemplates[j];
-            if (slotTemplate.nodeName === "TEMPLATE") {
-              if (slotTemplate.attributes.length > 0) {
-                appendToTemplate(template2, slotTemplate);
-              } else {
-                appendToTemplate(template2, slotTemplate.content);
-              }
-            } else {
-              appendToTemplate(template2, slotTemplate);
-            }
-          }
-          projectionCompilationContext = context._createChild();
-          this._compileNode(template2.content, projectionCompilationContext);
-          projections[targetSlot] = {
-            name: generateElementName$1(),
-            type: definitionTypeElement,
-            template: template2,
-            instructions: projectionCompilationContext.rows,
-            needsCompile: false
-          };
-        }
-        elementInstruction.projections = projections;
-      }
-      if (needsMarker) {
-        if (isCustomElement && (hasContainerless || elDef.containerless)) {
-          this._replaceByMarker(el, context);
-        } else {
-          this._markAsTarget(el, context);
-        }
-      }
-      shouldCompileContent = !isCustomElement || !elDef.containerless && !hasContainerless && processContentResult !== false;
-      if (shouldCompileContent) {
-        if (el.nodeName === TEMPLATE_NODE_NAME) {
-          this._compileNode(el.content, childContext);
-        } else {
-          child = el.firstChild;
-          while (child !== null) {
-            child = this._compileNode(child, childContext);
-          }
-        }
-      }
-      tcInstruction.def = {
-        name: generateElementName$1(),
-        type: definitionTypeElement,
-        template: mostInnerTemplate,
-        instructions: childContext.rows,
-        needsCompile: false
-      };
-      while (i-- > 0) {
-        tcInstruction = tcInstructions[i];
-        template2 = context.t();
-        marker = context._marker();
-        appendManyToTemplate(template2, [
-          marker,
-          context._comment(auLocationStart),
-          context._comment(auLocationEnd)
-        ]);
-        tcInstruction.def = {
-          name: generateElementName$1(),
-          type: definitionTypeElement,
-          template: template2,
-          needsCompile: false,
-          instructions: [[tcInstructions[i + 1]]]
-        };
-      }
-      context.rows.push([tcInstruction]);
-    } else {
-      if (instructions != null) {
-        context.rows.push(instructions);
-      }
-      let child = el.firstChild;
-      let childEl;
-      let targetSlot;
-      let hasAuSlot = false;
-      let projections = null;
-      let slotTemplateRecord;
-      let slotTemplates;
-      let slotTemplate;
-      let template2;
-      let projectionCompilationContext;
-      let isEmptyTextNode = false;
-      let j = 0, jj = 0;
-      if (processContentResult !== false) {
-        while (child !== null) {
-          targetSlot = isElement$2(child) ? child.getAttribute(auslotAttr$1) : null;
-          hasAuSlot = targetSlot !== null || isCustomElement && !isShadowDom;
-          childEl = child.nextSibling;
-          if (hasAuSlot) {
-            if (!isCustomElement) {
-              throw createMappedError$2(706, targetSlot, elName);
-            }
-            child.removeAttribute?.(auslotAttr$1);
-            isEmptyTextNode = isTextNode(child) && child.textContent.trim() === "";
-            if (!isEmptyTextNode) {
-              ((slotTemplateRecord ??= {})[targetSlot || defaultSlotName$1] ??= []).push(child);
-            }
-            el.removeChild(child);
-          }
-          child = childEl;
-        }
-      }
-      if (slotTemplateRecord != null) {
-        projections = {};
-        for (targetSlot in slotTemplateRecord) {
-          template2 = context.t();
-          slotTemplates = slotTemplateRecord[targetSlot];
-          for (j = 0, jj = slotTemplates.length; jj > j; ++j) {
-            slotTemplate = slotTemplates[j];
-            if (slotTemplate.nodeName === TEMPLATE_NODE_NAME) {
-              if (slotTemplate.attributes.length > 0) {
-                appendToTemplate(template2, slotTemplate);
-              } else {
-                appendToTemplate(template2, slotTemplate.content);
-              }
-            } else {
-              appendToTemplate(template2, slotTemplate);
-            }
-          }
-          projectionCompilationContext = context._createChild();
-          this._compileNode(template2.content, projectionCompilationContext);
-          projections[targetSlot] = {
-            name: generateElementName$1(),
-            type: definitionTypeElement,
-            template: template2,
-            instructions: projectionCompilationContext.rows,
-            needsCompile: false
-          };
-        }
-        elementInstruction.projections = projections;
-      }
-      if (needsMarker) {
-        if (isCustomElement && (hasContainerless || elDef.containerless)) {
-          this._replaceByMarker(el, context);
-        } else {
-          this._markAsTarget(el, context);
-        }
-      }
-      shouldCompileContent = !isCustomElement || !elDef.containerless && !hasContainerless && processContentResult !== false;
-      if (shouldCompileContent && el.childNodes.length > 0) {
-        child = el.firstChild;
-        while (child !== null) {
-          child = this._compileNode(child, context);
-        }
-      }
-    }
-    return nextSibling;
+    return {
+      tcInstructions,
+      attrInstructions,
+      elBindableInstructions,
+      plainAttrInstructions,
+      hasContainerless
+    };
   }
   /** @internal */
   _compileText(node, context) {
@@ -6282,7 +5639,6 @@ class TemplateCompiler {
       }
       for (i = 0, ii = expressions.length; ii > i; ++i) {
         insertManyBefore$1(parent, node, [
-          // context.h(MARKER_NODE_NAME),
           context._marker(),
           // empty text node will not be cloned when doing fragment.cloneNode()
           // so give it an empty space instead
@@ -6291,7 +5647,7 @@ class TemplateCompiler {
         if (part = parts[i + 1]) {
           insertBefore(parent, context._text(part), node);
         }
-        context.rows.push([new TextBindingInstruction(expressions[i])]);
+        context.rows.push([{ type: itTextBinding, from: expressions[i] }]);
       }
       parent.removeChild(node);
     }
@@ -6339,13 +5695,9 @@ class TemplateCompiler {
         }
         if (command === null) {
           expr = context._exprParser.parse(attrValue, etInterpolation$1);
-          instructions.push(expr === null ? new SetPropertyInstruction(attrValue, bindable2.name) : new InterpolationInstruction(expr, bindable2.name));
+          instructions.push(expr === null ? { type: itSetProperty, value: attrValue, to: bindable2.name } : { type: itInterpolation, from: expr, to: bindable2.name });
         } else {
-          commandBuildInfo.node = node;
-          commandBuildInfo.attr = attrSyntax;
-          commandBuildInfo.bindable = bindable2;
-          commandBuildInfo.def = attrDef;
-          instructions.push(command.build(commandBuildInfo, context._exprParser, context._attrMapper));
+          instructions.push(command.build({ node, attr: attrSyntax, bindable: bindable2, def: attrDef }, context._exprParser, context._attrMapper));
         }
         while (i < valueLength && attrRawValue.charCodeAt(++i) <= 32)
           ;
@@ -6354,10 +5706,12 @@ class TemplateCompiler {
         attrValue = void 0;
       }
     }
-    resetCommandBuildInfo();
     return instructions;
   }
-  /** @internal */
+  /**
+   * Extract the `<template as-custom-element="...">` local templates from the root template
+   * @internal
+   */
   _compileLocalElement(template2, context) {
     const elName = context.root.def.name;
     const root = template2;
@@ -6439,7 +5793,7 @@ class TemplateCompiler {
   /** @internal */
   _shouldReorderAttrs(el, instructions) {
     const nodeName = el.nodeName;
-    return nodeName === "INPUT" && orderSensitiveInputType[el.type] === 1 || nodeName === "SELECT" && (el.hasAttribute("multiple") || instructions?.some((i) => i.type === propertyBinding && i.to === "multiple"));
+    return nodeName === "INPUT" && orderSensitiveInputType[el.type] === 1 || nodeName === "SELECT" && (el.hasAttribute("multiple") || instructions?.some((i) => i.type === itPropertyBinding && i.to === "multiple"));
   }
   /** @internal */
   _reorder(el, instructions) {
@@ -6496,17 +5850,18 @@ class TemplateCompiler {
     }
   }
   /**
-   * Mark an element as target with a special css class
-   * and return it
+   * Mark an element as a hydration target by inserting an <!--au--> marker before it.
    *
    * @internal
    */
   _markAsTarget(el, context) {
-    insertBefore(el.parentNode, context._comment("au*"), el);
+    insertBefore(el.parentNode, context._marker(), el);
     return el;
   }
   /**
-   * Replace an element with a marker, and return the marker
+   * Replace an element with a marker, and return the marker.
+   * Used for containerless elements and template controllers.
+   * Creates `<!--au--><!--au-start--><!--au-end-->` structure.
    *
    * @internal
    */
@@ -6524,10 +5879,116 @@ class TemplateCompiler {
     parent.removeChild(node);
     return marker;
   }
+  /**
+   * Build the bindable property instructions for a custom attribute.
+   *
+   * Handles three cases:
+   * 1. Multi-binding syntax: `my-attr="prop1: value1; prop2.bind: expr"`
+   * 2. Single value without command: `my-attr="value"` or `my-attr="${expr}"`
+   * 3. Single value with command: `my-attr.bind="expr"`
+   *
+   * @param node - The element the attribute is on
+   * @param attrDef - The custom attribute definition
+   * @param attrSyntax - The parsed attribute syntax
+   * @param attrValue - The raw attribute value
+   * @param bindingCommand - The binding command instance, or null
+   * @param context - The compilation context
+   * @param treatEmptyAsNoBinding - If true, empty string values produce no instructions (surrogate/element behavior)
+   * @returns Array of instructions for the attribute's bindable properties
+   * @internal
+   */
+  _compileCustomAttributeBindables(node, attrDef, attrSyntax, attrValue, bindingCommand, context, treatEmptyAsNoBinding) {
+    const bindablesInfo = context._getBindables(attrDef);
+    const isMultiBindings = attrDef.noMultiBindings === false && bindingCommand === null && hasInlineBindings(attrValue);
+    if (isMultiBindings) {
+      return this._compileMultiBindings(node, attrValue, attrDef, context);
+    }
+    const primaryBindable = bindablesInfo.primary;
+    if (bindingCommand === null) {
+      const expr = context._exprParser.parse(attrValue, etInterpolation$1);
+      if (expr === null) {
+        if (treatEmptyAsNoBinding && attrValue === "") {
+          return [];
+        }
+        return [{ type: itSetProperty, value: attrValue, to: primaryBindable.name }];
+      }
+      return [{ type: itInterpolation, from: expr, to: primaryBindable.name }];
+    }
+    return [bindingCommand.build({ node, attr: attrSyntax, bindable: primaryBindable, def: attrDef }, context._exprParser, context._attrMapper)];
+  }
+  /**
+   * Extract au-slot projections from a custom element's children.
+   *
+   * Walks through child nodes looking for [au-slot] attributes. When found,
+   * removes them from the parent and groups them by slot name into compiled
+   * projection definitions.
+   *
+   * @returns A record of slot name -> compiled definition, or null if no projections found
+   * @internal
+   */
+  _extractProjections(el, isCustomElement, isShadowDom, elName, context) {
+    let child = el.firstChild;
+    let childEl;
+    let targetSlot;
+    let hasAuSlot;
+    let slotTemplateRecord;
+    let isEmptyTextNode;
+    while (child !== null) {
+      targetSlot = isElement$2(child) ? child.getAttribute(auslotAttr$1) : null;
+      hasAuSlot = targetSlot !== null || isCustomElement && !isShadowDom;
+      childEl = child.nextSibling;
+      if (hasAuSlot) {
+        if (!isCustomElement) {
+          throw createMappedError$2(706, targetSlot, elName);
+        }
+        child.removeAttribute?.(auslotAttr$1);
+        isEmptyTextNode = isTextNode(child) && child.textContent.trim() === "";
+        if (!isEmptyTextNode) {
+          ((slotTemplateRecord ??= {})[targetSlot || defaultSlotName$1] ??= []).push(child);
+        }
+        el.removeChild(child);
+      }
+      child = childEl;
+    }
+    if (slotTemplateRecord == null) {
+      return null;
+    }
+    const projections = {};
+    let template2;
+    let slotTemplates;
+    let slotTemplate;
+    let projectionCompilationContext;
+    for (targetSlot in slotTemplateRecord) {
+      template2 = context.t();
+      slotTemplates = slotTemplateRecord[targetSlot];
+      for (let j = 0, jj = slotTemplates.length; jj > j; ++j) {
+        slotTemplate = slotTemplates[j];
+        if (slotTemplate.nodeName === TEMPLATE_NODE_NAME) {
+          if (slotTemplate.attributes.length > 0) {
+            appendToTemplate(template2, slotTemplate);
+          } else {
+            appendToTemplate(template2, slotTemplate.content);
+          }
+        } else {
+          appendToTemplate(template2, slotTemplate);
+        }
+      }
+      projectionCompilationContext = context._createChild();
+      this._compileNode(template2.content, projectionCompilationContext);
+      projections[targetSlot] = {
+        name: generateElementName$1(),
+        type: definitionTypeElement,
+        template: template2,
+        instructions: projectionCompilationContext.rows,
+        needsCompile: false
+      };
+    }
+    return projections;
+  }
 }
 TemplateCompiler.register = createImplementationRegister(ITemplateCompiler);
 const TEMPLATE_NODE_NAME = "TEMPLATE";
-const isMarker = (el) => el.nodeValue === "au*";
+const isMarker = (el) => el.nodeType === 8 && el.textContent === "au";
 class CompilationContext {
   constructor(def2, container, parent, root, instructions) {
     this.hasSlot = false;
@@ -6564,8 +6025,13 @@ class CompilationContext {
   _comment(text) {
     return this.p.document.createComment(text);
   }
+  /**
+   * Create an `<!--au-->` marker comment.
+   * The target node is always the marker's nextSibling.
+   * Implicit indexing via document order.
+   */
   _marker() {
-    return this._comment("au*");
+    return this._comment("au");
   }
   h(name2) {
     const el = this.p.document.createElement(name2);
@@ -6630,16 +6096,7 @@ const hasInlineBindings = (rawValue) => {
   }
   return false;
 };
-const resetCommandBuildInfo = () => {
-  commandBuildInfo.node = commandBuildInfo.attr = commandBuildInfo.bindable = commandBuildInfo.def = null;
-};
 const voidDefinition = { name: "unnamed", type: definitionTypeElement };
-const commandBuildInfo = {
-  node: null,
-  attr: null,
-  bindable: null,
-  def: null
-};
 const invalidSurrogateAttribute = {
   "id": true,
   "name": true,
@@ -6701,6 +6158,37 @@ const TemplateCompilerHooks = tcObjectFreeze({
     return container.get(allResources(ITemplateCompilerHooks));
   }
 });
+const lookup$1 = /* @__PURE__ */ new Map();
+const createError$2 = (msg) => new Error(msg);
+const notImplemented = (name2) => {
+  return () => {
+    throw createError$2(`AUR1005: The PLATFORM did not receive a valid reference to the global function '${name2}'.
+
+For more information, see: https://docs.aurelia.io/developer-guides/error-messages/platform/aur1005`);
+  };
+};
+class Platform {
+  constructor(g, overrides = {}) {
+    this.globalThis = g;
+    "decodeURI decodeURIComponent encodeURI encodeURIComponent Date Reflect console".split(" ").forEach((prop) => {
+      this[prop] = prop in overrides ? overrides[prop] : g[prop];
+    });
+    "clearInterval clearTimeout queueMicrotask setInterval setTimeout".split(" ").forEach((method) => {
+      this[method] = method in overrides ? overrides[method] : g[method]?.bind(g) ?? notImplemented(method);
+    });
+    this.performanceNow = "performanceNow" in overrides ? overrides.performanceNow : g.performance?.now?.bind(g.performance) ?? notImplemented("performance.now");
+  }
+  static getOrCreate(g, overrides = {}) {
+    let platform = lookup$1.get(g);
+    if (platform === void 0) {
+      lookup$1.set(g, platform = new Platform(g, overrides));
+    }
+    return platform;
+  }
+  static set(g, platform) {
+    lookup$1.set(g, platform);
+  }
+}
 const hasOwnProp = Object.prototype.hasOwnProperty;
 const rtDef = Reflect.defineProperty;
 function rtDefineHiddenProp(obj, key, value) {
@@ -6718,11 +6206,21 @@ function ensureProto(proto, key, defaultValue) {
 }
 const rtObjectAssign = Object.assign;
 const rtObjectFreeze = Object.freeze;
+const getProto = Object.getPrototypeOf;
+const getOwnPropDesc = Object.getOwnPropertyDescriptor;
 const rtSafeString = String;
 const rtCreateInterface = DI.createInterface;
 const rtGetMetadata = Metadata.get;
 const rtDefineMetadata = Metadata.define;
-const createMappedError$1 = (code, ...details) => new Error(`AUR${rtSafeString(code).padStart(4, "0")}: ${getMessageByCode$1(code, ...details)}`);
+const createMappedError$1 = (code, ...details) => {
+  const paddedCode = rtSafeString(code).padStart(4, "0");
+  const message = getMessageByCode$1(code, ...details);
+  const linkPath = code >= 101 && code <= 116 ? "runtime-html" : code >= 151 && code <= 179 ? "0151-to-0179" : "0203-to-0227";
+  const link = `https://docs.aurelia.io/developer-guides/error-messages/${linkPath}/aur${paddedCode}`;
+  return new Error(`AUR${paddedCode}: ${message}
+
+For more information, see: ${link}`);
+};
 const errorsMap$1 = {
   [
     99
@@ -6788,6 +6286,10 @@ const errorsMap$1 = {
     116
     /* ErrorNames.ast_nullish_assignment */
   ]: `Ast eval error: cannot assign value to property "{{0}}" of null/undefined.`,
+  [
+    117
+    /* ErrorNames.ast_track_decorator_not_a_method */
+  ]: `The @astTrack decorator can only be applied to methods, "{{0}}" is not a method.`,
   [
     151
     /* ErrorNames.parse_invalid_start */
@@ -6901,6 +6403,10 @@ const errorsMap$1 = {
     /* ErrorNames.observing_null_undefined */
   ]: `Trying to observe property {{0}} on null/undefined`,
   [
+    200
+    /* ErrorNames.observing_expression_no_parser */
+  ]: `Trying to observe expression "{{0}}" but there is no expression parser available`,
+  [
     203
     /* ErrorNames.null_scope */
   ]: `Trying to retrieve a property or build a scope from a null/undefined scope`,
@@ -6959,7 +6465,15 @@ const errorsMap$1 = {
   [
     226
     /* ErrorNames.effect_maximum_recursion_reached */
-  ]: `Maximum number of recursive effect run reached. Consider handle effect dependencies differently.`
+  ]: `Maximum number of recursive effect run reached. Consider handle effect dependencies differently.`,
+  [
+    227
+    /* ErrorNames.computed_mutating */
+  ]: `Side-effect detected in computed getter '{{0}}': mutation during evaluation caused self-dirtying. This can lead to infinite recursion. Use non-mutating operations (e.g., spread syntax) or move side effects outside the getter.`,
+  [
+    228
+    /* ErrorNames.computed_not_getter */
+  ]: `@computed decorator can only be used on a getter, "{{0}}" is not a getter.`
 };
 const getMessageByCode$1 = (name2, ...details) => {
   let cooked = errorsMap$1[name2];
@@ -7062,6 +6576,500 @@ class BindingContext {
 }
 class OverrideContext {
 }
+let _currentConnectable = null;
+const connectables = [];
+let connecting = false;
+function pauseConnecting() {
+  connecting = false;
+}
+function resumeConnecting() {
+  connecting = true;
+}
+function currentConnectable() {
+  return _currentConnectable;
+}
+function enterConnectable(connectable2) {
+  if (connectable2 == null) {
+    throw createMappedError$1(
+      206
+      /* ErrorNames.switch_on_null_connectable */
+    );
+  }
+  if (_currentConnectable == null) {
+    _currentConnectable = connectable2;
+    connectables[0] = _currentConnectable;
+    connecting = true;
+    return;
+  }
+  if (_currentConnectable === connectable2) {
+    throw createMappedError$1(
+      207
+      /* ErrorNames.switch_active_connectable */
+    );
+  }
+  connectables.push(connectable2);
+  _currentConnectable = connectable2;
+  connecting = true;
+}
+function exitConnectable(connectable2) {
+  if (connectable2 == null) {
+    throw createMappedError$1(
+      208
+      /* ErrorNames.switch_off_null_connectable */
+    );
+  }
+  if (_currentConnectable !== connectable2) {
+    throw createMappedError$1(
+      209
+      /* ErrorNames.switch_off_inactive_connectable */
+    );
+  }
+  connectables.pop();
+  _currentConnectable = connectables.length > 0 ? connectables[connectables.length - 1] : null;
+  connecting = _currentConnectable != null;
+}
+const ConnectableSwitcher = /* @__PURE__ */ rtObjectFreeze({
+  get current() {
+    return _currentConnectable;
+  },
+  get connecting() {
+    return connecting;
+  },
+  enter: enterConnectable,
+  exit: exitConnectable,
+  pause: pauseConnecting,
+  resume: resumeConnecting
+});
+const R$get = Reflect.get;
+const toStringTag = Object.prototype.toString;
+const proxyMap = /* @__PURE__ */ new WeakMap();
+const nowrapClassKey = "__au_nw__";
+const nowrapPropKey = "__au_nw";
+function canWrap(obj) {
+  switch (toStringTag.call(obj)) {
+    case "[object Object]":
+      return obj.constructor[nowrapClassKey] !== true;
+    case "[object Array]":
+    case "[object Map]":
+    case "[object Set]":
+      return true;
+    default:
+      return false;
+  }
+}
+const rawKey = "__raw__";
+function wrap$1(v) {
+  return canWrap(v) ? getProxy(v) : v;
+}
+function getProxy(obj) {
+  return proxyMap.get(obj) ?? createProxy(obj);
+}
+function getRaw(obj) {
+  return obj[rawKey] ?? obj;
+}
+function unwrap$1(v) {
+  return canWrap(v) && v[rawKey] || v;
+}
+const builtInSymbols = new Set(Object.getOwnPropertyNames(Symbol).map((k) => Symbol[k]).filter((s) => isSymbol(s) && s !== Symbol.iterator));
+function doNotCollect(object, key) {
+  if (key === "constructor" || key === "__proto__" || key === "$observers" || isSymbol(key) && builtInSymbols.has(key) || object.constructor[`${nowrapPropKey}_${rtSafeString(key)}__`] === true) {
+    return true;
+  }
+  const descriptor = Reflect.getOwnPropertyDescriptor(object, key);
+  return descriptor?.configurable === false && descriptor.writable === false;
+}
+function createProxy(obj) {
+  const handler = isArray(obj) ? arrayHandler : isMap(obj) || isSet(obj) ? collectionHandler : objectHandler;
+  const proxiedObj = new Proxy(obj, handler);
+  proxyMap.set(obj, proxiedObj);
+  proxyMap.set(proxiedObj, proxiedObj);
+  return proxiedObj;
+}
+function observeTrackableMethodDependencies(connectable2, instance, options) {
+  if (instance == null || typeof instance !== "object") {
+    return;
+  }
+  const deps = options.deps;
+  if (deps == null) {
+    return;
+  }
+  const dependencies2 = isFunction(deps) ? [deps] : deps;
+  for (const dependency of dependencies2) {
+    if (typeof dependency === "string") {
+      connectable2.observeExpression(instance, dependency);
+    } else {
+      dependency(wrap$1(instance));
+    }
+  }
+}
+const objectHandler = {
+  get(target, key, receiver) {
+    if (key === rawKey) {
+      return target;
+    }
+    const connectable2 = _currentConnectable;
+    if (!connecting || connectable2 == null || doNotCollect(target, key)) {
+      return R$get(target, key, receiver);
+    }
+    connectable2.observe(target, key);
+    const value = R$get(target, key, receiver);
+    if (!isFunction(value)) {
+      return wrap$1(value);
+    }
+    const options = value[astTrackableMethodMarker];
+    if (options == null) {
+      return wrap$1(value);
+    }
+    return function trackableMethod(...args) {
+      const current = _currentConnectable;
+      if (!connecting || current == null) {
+        return value.apply(this, args);
+      }
+      const thisArg = this ?? receiver;
+      const rawThisArg = isObject(thisArg) ? getRaw(thisArg) : thisArg;
+      observeTrackableMethodDependencies(current, rawThisArg, options);
+      const useProxy = options.deps == null;
+      const invokedThis = useProxy && isObject(rawThisArg) ? wrap$1(rawThisArg) : rawThisArg;
+      const invokedArgs = useProxy ? args.map((arg) => wrap$1(arg)) : args.map((arg) => unwrap$1(arg));
+      return value.apply(invokedThis, invokedArgs);
+    };
+  },
+  deleteProperty(target, p) {
+    {
+      console.warn(`[DEV:aurelia] deletion of a property will not always be working with Aurelia observation system, as it depends on getter/setter installation.`);
+    }
+    return delete target[p];
+  }
+};
+const arrayHandler = {
+  get(target, key, receiver) {
+    if (key === rawKey) {
+      return target;
+    }
+    if (!connecting || doNotCollect(target, key) || _currentConnectable == null) {
+      return R$get(target, key, receiver);
+    }
+    switch (key) {
+      case "length":
+        _currentConnectable.observe(target, "length");
+        return target.length;
+      case "map":
+        return wrappedArrayMap;
+      case "includes":
+        return wrappedArrayIncludes;
+      case "indexOf":
+        return wrappedArrayIndexOf;
+      case "lastIndexOf":
+        return wrappedArrayLastIndexOf;
+      case "every":
+        return wrappedArrayEvery;
+      case "filter":
+        return wrappedArrayFilter;
+      case "find":
+        return wrappedArrayFind;
+      case "findIndex":
+        return wrappedArrayFindIndex;
+      case "flat":
+        return wrappedArrayFlat;
+      case "flatMap":
+        return wrappedArrayFlatMap;
+      case "join":
+        return wrappedArrayJoin;
+      case "push":
+        return wrappedArrayPush;
+      case "pop":
+        return wrappedArrayPop;
+      case "reduce":
+        return wrappedReduce;
+      case "reduceRight":
+        return wrappedReduceRight;
+      case "reverse":
+        return wrappedArrayReverse;
+      case "shift":
+        return wrappedArrayShift;
+      case "unshift":
+        return wrappedArrayUnshift;
+      case "slice":
+        return wrappedArraySlice;
+      case "splice":
+        return wrappedArraySplice;
+      case "some":
+        return wrappedArraySome;
+      case "sort":
+        return wrappedArraySort;
+      case "keys":
+        return wrappedKeys;
+      case "values":
+      case Symbol.iterator:
+        return wrappedValues;
+      case "entries":
+        return wrappedEntries;
+    }
+    _currentConnectable.observe(target, key);
+    return wrap$1(R$get(target, key, receiver));
+  },
+  // for (let i in array) ...
+  ownKeys(target) {
+    currentConnectable()?.observe(target, "length");
+    return Reflect.ownKeys(target);
+  }
+};
+function wrappedArrayMap(cb, thisArg) {
+  const raw = getRaw(this);
+  const res = raw.map((v, i) => (
+    // do we wrap `thisArg`?
+    unwrap$1(cb.call(thisArg, wrap$1(v), i, this))
+  ));
+  observeCollection(_currentConnectable, raw);
+  return wrap$1(res);
+}
+function wrappedArrayEvery(cb, thisArg) {
+  const raw = getRaw(this);
+  const res = raw.every((v, i) => cb.call(thisArg, wrap$1(v), i, this));
+  observeCollection(_currentConnectable, raw);
+  return res;
+}
+function wrappedArrayFilter(cb, thisArg) {
+  const raw = getRaw(this);
+  const res = raw.filter((v, i) => (
+    // do we wrap `thisArg`?
+    unwrap$1(cb.call(thisArg, wrap$1(v), i, this))
+  ));
+  observeCollection(_currentConnectable, raw);
+  return wrap$1(res);
+}
+function wrappedArrayIncludes(v) {
+  const raw = getRaw(this);
+  const res = raw.includes(unwrap$1(v));
+  observeCollection(_currentConnectable, raw);
+  return res;
+}
+function wrappedArrayIndexOf(v) {
+  const raw = getRaw(this);
+  const res = raw.indexOf(unwrap$1(v));
+  observeCollection(_currentConnectable, raw);
+  return res;
+}
+function wrappedArrayLastIndexOf(v) {
+  const raw = getRaw(this);
+  const res = raw.lastIndexOf(unwrap$1(v));
+  observeCollection(_currentConnectable, raw);
+  return res;
+}
+function wrappedArrayFindIndex(cb, thisArg) {
+  const raw = getRaw(this);
+  const res = raw.findIndex((v, i) => unwrap$1(cb.call(thisArg, wrap$1(v), i, this)));
+  observeCollection(_currentConnectable, raw);
+  return res;
+}
+function wrappedArrayFind(cb, thisArg) {
+  const raw = getRaw(this);
+  const res = raw.find((v, i) => cb(wrap$1(v), i, this), thisArg);
+  observeCollection(_currentConnectable, raw);
+  return wrap$1(res);
+}
+function wrappedArrayFlat() {
+  const raw = getRaw(this);
+  observeCollection(_currentConnectable, raw);
+  return wrap$1(raw.flat());
+}
+function wrappedArrayFlatMap(cb, thisArg) {
+  const raw = getRaw(this);
+  observeCollection(_currentConnectable, raw);
+  return getProxy(raw.flatMap((v, i) => wrap$1(cb.call(thisArg, wrap$1(v), i, this))));
+}
+function wrappedArrayJoin(separator) {
+  const raw = getRaw(this);
+  observeCollection(_currentConnectable, raw);
+  return raw.join(separator);
+}
+function wrappedArrayPop() {
+  return wrap$1(getRaw(this).pop());
+}
+function wrappedArrayPush(...args) {
+  return getRaw(this).push(...args);
+}
+function wrappedArrayShift() {
+  return wrap$1(getRaw(this).shift());
+}
+function wrappedArrayUnshift(...args) {
+  return getRaw(this).unshift(...args);
+}
+function wrappedArraySplice(...args) {
+  return wrap$1(getRaw(this).splice(...args));
+}
+function wrappedArrayReverse(..._args) {
+  return wrap$1(getRaw(this).reverse());
+}
+function wrappedArraySome(cb, thisArg) {
+  const raw = getRaw(this);
+  const res = raw.some((v, i) => unwrap$1(cb.call(thisArg, wrap$1(v), i, this)));
+  observeCollection(_currentConnectable, raw);
+  return res;
+}
+function wrappedArraySort(cb) {
+  const raw = getRaw(this);
+  const res = raw.sort(cb);
+  observeCollection(_currentConnectable, raw);
+  return wrap$1(res);
+}
+function wrappedArraySlice(start2, end2) {
+  const raw = getRaw(this);
+  observeCollection(_currentConnectable, raw);
+  return getProxy(raw.slice(start2, end2));
+}
+function wrappedReduce(cb, initValue) {
+  const raw = getRaw(this);
+  const res = raw.reduce((curr, v, i) => cb(curr, wrap$1(v), i, this), initValue);
+  observeCollection(_currentConnectable, raw);
+  return wrap$1(res);
+}
+function wrappedReduceRight(cb, initValue) {
+  const raw = getRaw(this);
+  const res = raw.reduceRight((curr, v, i) => cb(curr, wrap$1(v), i, this), initValue);
+  observeCollection(_currentConnectable, raw);
+  return wrap$1(res);
+}
+const collectionHandler = {
+  get(target, key, receiver) {
+    if (key === rawKey) {
+      return target;
+    }
+    const connectable2 = currentConnectable();
+    if (!connecting || doNotCollect(target, key) || connectable2 == null) {
+      return R$get(target, key, receiver);
+    }
+    switch (key) {
+      case "size":
+        connectable2.observe(target, "size");
+        return target.size;
+      case "clear":
+        return wrappedClear;
+      case "delete":
+        return wrappedDelete;
+      case "forEach":
+        return wrappedForEach;
+      case "add":
+        if (isSet(target)) {
+          return wrappedAdd;
+        }
+        break;
+      case "get":
+        if (isMap(target)) {
+          return wrappedGet;
+        }
+        break;
+      case "set":
+        if (isMap(target)) {
+          return wrappedSet;
+        }
+        break;
+      case "has":
+        return wrappedHas;
+      case "keys":
+        return wrappedKeys;
+      case "values":
+        return wrappedValues;
+      case "entries":
+        return wrappedEntries;
+      case Symbol.iterator:
+        return isMap(target) ? wrappedEntries : wrappedValues;
+    }
+    return wrap$1(R$get(target, key, receiver));
+  }
+};
+function wrappedForEach(cb, thisArg) {
+  const raw = getRaw(this);
+  observeCollection(_currentConnectable, raw);
+  return raw.forEach((v, key) => {
+    cb.call(
+      /* should wrap or not?? */
+      thisArg,
+      wrap$1(v),
+      wrap$1(key),
+      this
+    );
+  });
+}
+function wrappedHas(v) {
+  const raw = getRaw(this);
+  observeCollection(_currentConnectable, raw);
+  return raw.has(unwrap$1(v));
+}
+function wrappedGet(k) {
+  const raw = getRaw(this);
+  observeCollection(_currentConnectable, raw);
+  return wrap$1(raw.get(unwrap$1(k)));
+}
+function wrappedSet(k, v) {
+  return wrap$1(getRaw(this).set(unwrap$1(k), unwrap$1(v)));
+}
+function wrappedAdd(v) {
+  return wrap$1(getRaw(this).add(unwrap$1(v)));
+}
+function wrappedClear() {
+  return wrap$1(getRaw(this).clear());
+}
+function wrappedDelete(k) {
+  return wrap$1(getRaw(this).delete(unwrap$1(k)));
+}
+function wrappedKeys() {
+  const raw = getRaw(this);
+  observeCollection(_currentConnectable, raw);
+  const iterator = raw.keys();
+  return {
+    next() {
+      const next = iterator.next();
+      const value = next.value;
+      const done = next.done;
+      return done ? { value: void 0, done } : { value: wrap$1(value), done };
+    },
+    [Symbol.iterator]() {
+      return this;
+    }
+  };
+}
+function wrappedValues() {
+  const raw = getRaw(this);
+  observeCollection(_currentConnectable, raw);
+  const iterator = raw.values();
+  return {
+    next() {
+      const next = iterator.next();
+      const value = next.value;
+      const done = next.done;
+      return done ? { value: void 0, done } : { value: wrap$1(value), done };
+    },
+    [Symbol.iterator]() {
+      return this;
+    }
+  };
+}
+function wrappedEntries() {
+  const raw = getRaw(this);
+  observeCollection(_currentConnectable, raw);
+  const iterator = raw.entries();
+  return {
+    next() {
+      const next = iterator.next();
+      const value = next.value;
+      const done = next.done;
+      return done ? { value: void 0, done } : { value: [wrap$1(value[0]), wrap$1(value[1])], done };
+    },
+    [Symbol.iterator]() {
+      return this;
+    }
+  };
+}
+const observeCollection = (connectable2, collection) => connectable2?.observeCollection(collection);
+const ProxyObservable = /* @__PURE__ */ rtObjectFreeze({
+  getProxy,
+  getRaw,
+  wrap: wrap$1,
+  unwrap: unwrap$1,
+  rawKey
+});
+const astTrackableMethodMarker = "__astt__";
 const { astAssign, astEvaluate, astBind, astUnbind } = /* @__PURE__ */ (() => {
   const ekAccessThis2 = "AccessThis";
   const ekAccessBoundary2 = "AccessBoundary";
@@ -7096,6 +7104,28 @@ const { astAssign, astEvaluate, astBind, astUnbind } = /* @__PURE__ */ (() => {
   const ekDestructuringAssignmentLeaf2 = "DestructuringAssignmentLeaf";
   const ekCustom2 = "Custom";
   const getContext = Scope.getContext;
+  function observeTrackableMethodDependencies2(connectable2, instance, options) {
+    if (instance == null) {
+      return;
+    }
+    const deps = options.deps;
+    if (deps == null) {
+      return;
+    }
+    const dependencies2 = isFunction(deps) ? [deps] : deps;
+    for (const dependency of dependencies2) {
+      if (typeof dependency === "string") {
+        connectable2.observeExpression(instance, dependency);
+        continue;
+      }
+      try {
+        enterConnectable(connectable2);
+        dependency(wrap$1(instance));
+      } finally {
+        exitConnectable(connectable2);
+      }
+    }
+  }
   function astEvaluate2(ast, s, e, c) {
     switch (ast.$kind) {
       case ekAccessThis2: {
@@ -7217,7 +7247,19 @@ const { astAssign, astEvaluate, astBind, astUnbind } = /* @__PURE__ */ (() => {
         }
         const fn2 = context[ast.name];
         if (isFunction(fn2)) {
-          return fn2.apply(context, ast.args.map((a) => astEvaluate2(a, s, e, c)));
+          if (c != null && fn2[astTrackableMethodMarker] != null) {
+            const options = fn2[astTrackableMethodMarker];
+            observeTrackableMethodDependencies2(c, context, options);
+            const useProxy = options?.deps == null;
+            try {
+              enterConnectable(c);
+              return fn2.apply(useProxy ? wrap$1(context) : context, ast.args.map((a) => useProxy ? wrap$1(astEvaluate2(a, s, e, c)) : astEvaluate2(a, s, e, c)));
+            } finally {
+              exitConnectable(c);
+            }
+          } else {
+            return fn2.apply(context, ast.args.map((a) => astEvaluate2(a, s, e, c)));
+          }
         }
         if (fn2 == null) {
           if (e?.strict && !ast.optional) {
@@ -7244,11 +7286,23 @@ const { astAssign, astEvaluate, astBind, astUnbind } = /* @__PURE__ */ (() => {
         if (!isFunction(fn2)) {
           throw createMappedError$1(111, ast.name);
         }
-        const ret = fn2.apply(instance, ast.args.map((a) => astEvaluate2(a, s, e, c)));
-        if (isArray(instance) && autoObserveArrayMethods.includes(ast.name)) {
-          c?.observeCollection(instance);
+        if (c != null && fn2[astTrackableMethodMarker] != null) {
+          const options = fn2[astTrackableMethodMarker];
+          observeTrackableMethodDependencies2(c, instance, options);
+          const useProxy = options?.deps == null;
+          try {
+            enterConnectable(c);
+            return fn2.apply(useProxy ? wrap$1(instance) : instance, ast.args.map((a) => useProxy ? wrap$1(astEvaluate2(a, s, e, c)) : astEvaluate2(a, s, e, c)));
+          } finally {
+            exitConnectable(c);
+          }
+        } else {
+          const ret = fn2.apply(instance, ast.args.map((a) => astEvaluate2(a, s, e, c)));
+          if (isArray(instance) && autoObserveArrayMethods.includes(ast.name)) {
+            c?.observeCollection(instance);
+          }
+          return ret;
         }
-        return ret;
       }
       case ekCallFunction2: {
         const func = astEvaluate2(ast.func, s, e, c);
@@ -7555,7 +7609,7 @@ const { astAssign, astEvaluate, astBind, astUnbind } = /* @__PURE__ */ (() => {
         break;
       }
       case ekDestructuringAssignmentLeaf2: {
-        if (ast instanceof DestructuringAssignmentSingleExpression) {
+        if ("source" in ast) {
           if (val == null) {
             return;
           }
@@ -7666,10 +7720,10 @@ const mixinNoopAstEvaluator = /* @__PURE__ */ (() => (target) => {
     });
   });
 })();
-const tsPending$2 = "pending";
-const tsRunning$2 = "running";
-const tsCompleted$1 = "completed";
-const tsCanceled$1 = "canceled";
+const tsPending$1 = "pending";
+const tsRunning$1 = "running";
+const tsCompleted = "completed";
+const tsCanceled = "canceled";
 const resolvedPromise = Promise.resolve();
 let runScheduled = false;
 let isAutoRun = false;
@@ -7768,13 +7822,13 @@ const queueTask = (callback) => {
   queue.push(callback);
 };
 const queueAsyncTask = (callback, options) => {
-  const task = new Task$1(callback, options?.delay);
+  const task = new Task(callback, options?.delay);
   if (task.delay != null && task.delay > 0) {
     ++pendingAsyncCount;
-    task._timerId = setTimeout(() => {
+    task._timerId = Platform.getOrCreate(globalThis).setTimeout(() => {
       --pendingAsyncCount;
       task._timerId = void 0;
-      if (task.status === tsCanceled$1) {
+      if (task.status === tsCanceled) {
         signalSettled(true);
         return;
       }
@@ -7787,29 +7841,32 @@ const queueAsyncTask = (callback, options) => {
   }
   return task;
 };
-let TaskAbortError$1 = class TaskAbortError extends Error {
+class TaskAbortError extends Error {
   constructor(task) {
     super(`Task ${task.id} was canceled.`);
     this.task = task;
   }
-};
-let Task$1 = class Task {
+}
+class Task {
   /**
-   * A promise that:
-   * * **fulfils** with the callback's return value, or
-   * * **rejects** with:
-   *   * whatever error the callback throws,
-   *   * whatever rejection the callback's promise yields, or
-   *   * a {@link TaskAbortError} if the task is canceled before it starts.
+   * The underlying promise that represents the task's execution.
    *
-   * Consumers typically `await` this to know when *their* task is done without
-   * caring about unrelated work still queued.
+   * It:
+   * * **fulfils** with the callback's return value, or
+   * * **rejects** with any error from the callback or a `TaskAbortError`.
+   *
+   * It is recommended to `await` the `Task` object directly rather than its
+   * `.result` property. This property is provided for advanced use cases, such
+   * as interoperating with libraries that require a native `Promise` instance or
+   * for use with promise-composition functions like `Promise.all()`.
    *
    * @example
-   * ```ts
-   * const toastTask = queueAsyncTask(showToast, { delay: 5000 });
-   * await toastTask.result; // waits 5 s then resolves
-   * ```
+   * // Using .result with Promise.all to await multiple tasks in parallel
+   * const task1 = queueAsyncTask(fetchUserData);
+   * const task2 = queueAsyncTask(fetchSiteSettings);
+   *
+   * // We access .result here because Promise.all requires an array of Promises.
+   * const [userData, siteSettings] = await Promise.all([task1.result, task2.result]);
    */
   get result() {
     return this._result;
@@ -7821,7 +7878,7 @@ let Task$1 = class Task {
    * ```ts
    * const task = queueAsyncTask(() => 123);
    * console.log(task.status); // "pending"
-   * await task.result;
+   * await task;
    * console.log(task.status); // "completed"
    * ```
    */
@@ -7832,23 +7889,55 @@ let Task$1 = class Task {
     this.callback = callback;
     this.delay = delay;
     this.id = ++Task._taskId;
-    this._status = tsPending$2;
+    this._status = tsPending$1;
     this._result = new Promise((resolve2, reject) => {
       this._resolve = resolve2;
       this._reject = reject;
     });
   }
+  /**
+   * **Delegates to the underlying `.result` promise's `.then()` method.**
+   *
+   * Attaches callbacks for the resolution and/or rejection of the Promise.
+   * @param onfulfilled The callback to execute when the Promise is resolved.
+   * @param onrejected The callback to execute when the Promise is rejected.
+   * @returns A Promise for the completion of which ever callback is executed.
+   */
+  then(onfulfilled, onrejected) {
+    return this.result.then(onfulfilled, onrejected);
+  }
+  /**
+   * **Delegates to the underlying `.result` promise's `.catch()` method.**
+   *
+   * Attaches a callback for only the rejection of the Promise.
+   * @param onrejected The callback to execute when the Promise is rejected.
+   * @returns A Promise for the completion of the callback.
+   */
+  catch(onrejected) {
+    return this.result.catch(onrejected);
+  }
+  /**
+   * **Delegates to the underlying `.result` promise's `.catch()` method.**
+   *
+   * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+   * resolved value cannot be modified from the callback.
+   * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+   * @returns A Promise for the completion of the callback.
+   */
+  finally(onfinally) {
+    return this.result.finally(onfinally);
+  }
   /** @internal */
   run() {
-    if (this._status !== tsPending$2) {
+    if (this._status !== tsPending$1) {
       throw new Error(`Cannot run task in ${this._status} state`);
     }
-    this._status = tsRunning$2;
+    this._status = tsRunning$1;
     let ret;
     try {
       ret = this.callback();
     } catch (err) {
-      this._status = tsCanceled$1;
+      this._status = tsCanceled;
       this._reject(err);
       taskErrors.push(err);
       return;
@@ -7856,10 +7945,10 @@ let Task$1 = class Task {
     if (ret instanceof Promise) {
       ++pendingAsyncCount;
       ret.then((result) => {
-        this._status = tsCompleted$1;
+        this._status = tsCompleted;
         this._resolve(result);
       }).catch((err) => {
-        this._status = tsCanceled$1;
+        this._status = tsCanceled;
         this._reject(err);
         taskErrors.push(err);
       }).finally(() => {
@@ -7867,7 +7956,7 @@ let Task$1 = class Task {
         signalSettled(true);
       });
     } else {
-      this._status = tsCompleted$1;
+      this._status = tsCompleted;
       this._resolve(ret);
     }
   }
@@ -7893,22 +7982,22 @@ let Task$1 = class Task {
    */
   cancel() {
     if (this._timerId !== void 0) {
-      clearTimeout(this._timerId);
+      Platform.getOrCreate(globalThis).clearTimeout(this._timerId);
       --pendingAsyncCount;
       this._timerId = void 0;
-      this._status = tsCanceled$1;
-      const abortErr = new TaskAbortError$1(this);
+      this._status = tsCanceled;
+      const abortErr = new TaskAbortError(this);
       this._reject(abortErr);
       void this._result.catch(noop);
       signalSettled(true);
       return true;
     }
-    if (this._status === tsPending$2) {
+    if (this._status === tsPending$1) {
       const idx = queue.indexOf(this);
       if (idx > -1) {
         queue.splice(idx, 1);
-        this._status = tsCanceled$1;
-        const abortErr = new TaskAbortError$1(this);
+        this._status = tsCanceled;
+        const abortErr = new TaskAbortError(this);
         this._reject(abortErr);
         void this._result.catch(noop);
         signalSettled(true);
@@ -7917,8 +8006,8 @@ let Task$1 = class Task {
     }
     return false;
   }
-};
-Task$1._taskId = 0;
+}
+Task._taskId = 0;
 const queueRecurringTask = (callback, opts) => {
   const task = new RecurringTask(callback, Math.max(opts?.interval, 0));
   task._start();
@@ -7946,7 +8035,7 @@ class RecurringTask {
     if (this._canceled) {
       return;
     }
-    this._timerId = setTimeout(() => {
+    this._timerId = Platform.getOrCreate(globalThis).setTimeout(() => {
       this._tick();
       if (!this._canceled) {
         this._start();
@@ -8009,7 +8098,7 @@ class RecurringTask {
   cancel() {
     this._canceled = true;
     if (this._timerId !== void 0) {
-      clearTimeout(this._timerId);
+      Platform.getOrCreate(globalThis).clearTimeout(this._timerId);
       this._timerId = void 0;
     }
     const resolvers = this._nextResolvers.splice(0);
@@ -8215,8 +8304,7 @@ function unsubscribe(subscriber) {
   }
 }
 const getArrayObserver = /* @__PURE__ */ (() => {
-  const lookupMetadataKey = Symbol.for("__au_arr_obs__");
-  const observerLookup = Array[lookupMetadataKey] ?? rtDefineHiddenProp(Array, lookupMetadataKey, /* @__PURE__ */ new WeakMap());
+  const observerLookup = /* @__PURE__ */ new WeakMap();
   function sortCompare(x, y3) {
     if (x === y3) {
       return 0;
@@ -8670,8 +8758,7 @@ const getArrayObserver = /* @__PURE__ */ (() => {
   };
 })();
 const getSetObserver = /* @__PURE__ */ (() => {
-  const lookupMetadataKey = Symbol.for("__au_set_obs__");
-  const observerLookup = Set[lookupMetadataKey] ?? rtDefineHiddenProp(Set, lookupMetadataKey, /* @__PURE__ */ new WeakMap());
+  const observerLookup = /* @__PURE__ */ new WeakMap();
   const { add: $add, clear: $clear, delete: $delete } = Set.prototype;
   const methods = ["add", "clear", "delete"];
   const observe = {
@@ -8781,8 +8868,7 @@ const getSetObserver = /* @__PURE__ */ (() => {
   };
 })();
 const getMapObserver = /* @__PURE__ */ (() => {
-  const lookupMetadataKey = Symbol.for("__au_map_obs__");
-  const observerLookup = Map[lookupMetadataKey] ?? rtDefineHiddenProp(Map, lookupMetadataKey, /* @__PURE__ */ new WeakMap());
+  const observerLookup = /* @__PURE__ */ new WeakMap();
   const { set: $set, clear: $clear, delete: $delete } = Map.prototype;
   const methods = ["set", "clear", "delete"];
   const observe = {
@@ -8951,6 +9037,9 @@ const connectableDecorator = /* @__PURE__ */ (() => {
   function observe(obj, key) {
     this.obs.add(this.oL.getObserver(obj, key));
   }
+  function observeExpression(obj, expression) {
+    this.obs.add(this.oL.getExpressionObserver(obj, expression));
+  }
   function observeCollection2(collection) {
     let observer;
     if (isArray(collection)) {
@@ -8976,6 +9065,7 @@ const connectableDecorator = /* @__PURE__ */ (() => {
   return function connectableDecorator2(target, context) {
     const proto = target.prototype;
     ensureProto(proto, "observe", observe);
+    ensureProto(proto, "observeExpression", observeExpression);
     ensureProto(proto, "observeCollection", observeCollection2);
     ensureProto(proto, "subscribeTo", subscribeTo);
     rtDef(proto, "obs", { get: getObserverRecord });
@@ -8987,461 +9077,6 @@ const connectableDecorator = /* @__PURE__ */ (() => {
 function connectable(target, context) {
   return target == null ? connectableDecorator : connectableDecorator(target, context);
 }
-let _connectable = null;
-const connectables = [];
-let connecting = false;
-function pauseConnecting() {
-  connecting = false;
-}
-function resumeConnecting() {
-  connecting = true;
-}
-function currentConnectable() {
-  return _connectable;
-}
-function enterConnectable(connectable2) {
-  if (connectable2 == null) {
-    throw createMappedError$1(
-      206
-      /* ErrorNames.switch_on_null_connectable */
-    );
-  }
-  if (_connectable == null) {
-    _connectable = connectable2;
-    connectables[0] = _connectable;
-    connecting = true;
-    return;
-  }
-  if (_connectable === connectable2) {
-    throw createMappedError$1(
-      207
-      /* ErrorNames.switch_active_connectable */
-    );
-  }
-  connectables.push(connectable2);
-  _connectable = connectable2;
-  connecting = true;
-}
-function exitConnectable(connectable2) {
-  if (connectable2 == null) {
-    throw createMappedError$1(
-      208
-      /* ErrorNames.switch_off_null_connectable */
-    );
-  }
-  if (_connectable !== connectable2) {
-    throw createMappedError$1(
-      209
-      /* ErrorNames.switch_off_inactive_connectable */
-    );
-  }
-  connectables.pop();
-  _connectable = connectables.length > 0 ? connectables[connectables.length - 1] : null;
-  connecting = _connectable != null;
-}
-const ConnectableSwitcher = /* @__PURE__ */ rtObjectFreeze({
-  get current() {
-    return _connectable;
-  },
-  get connecting() {
-    return connecting;
-  },
-  enter: enterConnectable,
-  exit: exitConnectable,
-  pause: pauseConnecting,
-  resume: resumeConnecting
-});
-const R$get = Reflect.get;
-const toStringTag = Object.prototype.toString;
-const proxyMap = /* @__PURE__ */ new WeakMap();
-const nowrapClassKey = "__au_nw__";
-const nowrapPropKey = "__au_nw";
-function canWrap(obj) {
-  switch (toStringTag.call(obj)) {
-    case "[object Object]":
-      return obj.constructor[nowrapClassKey] !== true;
-    case "[object Array]":
-    case "[object Map]":
-    case "[object Set]":
-      return true;
-    default:
-      return false;
-  }
-}
-const rawKey = "__raw__";
-function wrap$1(v) {
-  return canWrap(v) ? getProxy(v) : v;
-}
-function getProxy(obj) {
-  return proxyMap.get(obj) ?? createProxy(obj);
-}
-function getRaw(obj) {
-  return obj[rawKey] ?? obj;
-}
-function unwrap$1(v) {
-  return canWrap(v) && v[rawKey] || v;
-}
-function doNotCollect(object, key) {
-  if (key === "constructor" || key === "__proto__" || key === "$observers" || key === Symbol.toPrimitive || key === Symbol.toStringTag || object.constructor[`${nowrapPropKey}_${rtSafeString(key)}__`] === true) {
-    return true;
-  }
-  const descriptor = Reflect.getOwnPropertyDescriptor(object, key);
-  return descriptor?.configurable === false && descriptor.writable === false;
-}
-function createProxy(obj) {
-  const handler = isArray(obj) ? arrayHandler : isMap(obj) || isSet(obj) ? collectionHandler : objectHandler;
-  const proxiedObj = new Proxy(obj, handler);
-  proxyMap.set(obj, proxiedObj);
-  proxyMap.set(proxiedObj, proxiedObj);
-  return proxiedObj;
-}
-const objectHandler = {
-  get(target, key, receiver) {
-    if (key === rawKey) {
-      return target;
-    }
-    const connectable2 = currentConnectable();
-    if (!connecting || doNotCollect(target, key) || connectable2 == null) {
-      return R$get(target, key, receiver);
-    }
-    connectable2.observe(target, key);
-    return wrap$1(R$get(target, key, receiver));
-  },
-  deleteProperty(target, p) {
-    {
-      console.warn(`[DEV:aurelia] deletion of a property will not always be working with Aurelia observation system, as it depends on getter/setter installation.`);
-    }
-    return delete target[p];
-  }
-};
-const arrayHandler = {
-  get(target, key, receiver) {
-    if (key === rawKey) {
-      return target;
-    }
-    if (!connecting || doNotCollect(target, key) || _connectable == null) {
-      return R$get(target, key, receiver);
-    }
-    switch (key) {
-      case "length":
-        _connectable.observe(target, "length");
-        return target.length;
-      case "map":
-        return wrappedArrayMap;
-      case "includes":
-        return wrappedArrayIncludes;
-      case "indexOf":
-        return wrappedArrayIndexOf;
-      case "lastIndexOf":
-        return wrappedArrayLastIndexOf;
-      case "every":
-        return wrappedArrayEvery;
-      case "filter":
-        return wrappedArrayFilter;
-      case "find":
-        return wrappedArrayFind;
-      case "findIndex":
-        return wrappedArrayFindIndex;
-      case "flat":
-        return wrappedArrayFlat;
-      case "flatMap":
-        return wrappedArrayFlatMap;
-      case "join":
-        return wrappedArrayJoin;
-      case "push":
-        return wrappedArrayPush;
-      case "pop":
-        return wrappedArrayPop;
-      case "reduce":
-        return wrappedReduce;
-      case "reduceRight":
-        return wrappedReduceRight;
-      case "reverse":
-        return wrappedArrayReverse;
-      case "shift":
-        return wrappedArrayShift;
-      case "unshift":
-        return wrappedArrayUnshift;
-      case "slice":
-        return wrappedArraySlice;
-      case "splice":
-        return wrappedArraySplice;
-      case "some":
-        return wrappedArraySome;
-      case "sort":
-        return wrappedArraySort;
-      case "keys":
-        return wrappedKeys;
-      case "values":
-      case Symbol.iterator:
-        return wrappedValues;
-      case "entries":
-        return wrappedEntries;
-    }
-    _connectable.observe(target, key);
-    return wrap$1(R$get(target, key, receiver));
-  },
-  // for (let i in array) ...
-  ownKeys(target) {
-    currentConnectable()?.observe(target, "length");
-    return Reflect.ownKeys(target);
-  }
-};
-function wrappedArrayMap(cb, thisArg) {
-  const raw = getRaw(this);
-  const res = raw.map((v, i) => (
-    // do we wrap `thisArg`?
-    unwrap$1(cb.call(thisArg, wrap$1(v), i, this))
-  ));
-  observeCollection(_connectable, raw);
-  return wrap$1(res);
-}
-function wrappedArrayEvery(cb, thisArg) {
-  const raw = getRaw(this);
-  const res = raw.every((v, i) => cb.call(thisArg, wrap$1(v), i, this));
-  observeCollection(_connectable, raw);
-  return res;
-}
-function wrappedArrayFilter(cb, thisArg) {
-  const raw = getRaw(this);
-  const res = raw.filter((v, i) => (
-    // do we wrap `thisArg`?
-    unwrap$1(cb.call(thisArg, wrap$1(v), i, this))
-  ));
-  observeCollection(_connectable, raw);
-  return wrap$1(res);
-}
-function wrappedArrayIncludes(v) {
-  const raw = getRaw(this);
-  const res = raw.includes(unwrap$1(v));
-  observeCollection(_connectable, raw);
-  return res;
-}
-function wrappedArrayIndexOf(v) {
-  const raw = getRaw(this);
-  const res = raw.indexOf(unwrap$1(v));
-  observeCollection(_connectable, raw);
-  return res;
-}
-function wrappedArrayLastIndexOf(v) {
-  const raw = getRaw(this);
-  const res = raw.lastIndexOf(unwrap$1(v));
-  observeCollection(_connectable, raw);
-  return res;
-}
-function wrappedArrayFindIndex(cb, thisArg) {
-  const raw = getRaw(this);
-  const res = raw.findIndex((v, i) => unwrap$1(cb.call(thisArg, wrap$1(v), i, this)));
-  observeCollection(_connectable, raw);
-  return res;
-}
-function wrappedArrayFind(cb, thisArg) {
-  const raw = getRaw(this);
-  const res = raw.find((v, i) => cb(wrap$1(v), i, this), thisArg);
-  observeCollection(_connectable, raw);
-  return wrap$1(res);
-}
-function wrappedArrayFlat() {
-  const raw = getRaw(this);
-  observeCollection(_connectable, raw);
-  return wrap$1(raw.flat());
-}
-function wrappedArrayFlatMap(cb, thisArg) {
-  const raw = getRaw(this);
-  observeCollection(_connectable, raw);
-  return getProxy(raw.flatMap((v, i) => wrap$1(cb.call(thisArg, wrap$1(v), i, this))));
-}
-function wrappedArrayJoin(separator) {
-  const raw = getRaw(this);
-  observeCollection(_connectable, raw);
-  return raw.join(separator);
-}
-function wrappedArrayPop() {
-  return wrap$1(getRaw(this).pop());
-}
-function wrappedArrayPush(...args) {
-  return getRaw(this).push(...args);
-}
-function wrappedArrayShift() {
-  return wrap$1(getRaw(this).shift());
-}
-function wrappedArrayUnshift(...args) {
-  return getRaw(this).unshift(...args);
-}
-function wrappedArraySplice(...args) {
-  return wrap$1(getRaw(this).splice(...args));
-}
-function wrappedArrayReverse(..._args) {
-  return wrap$1(getRaw(this).reverse());
-}
-function wrappedArraySome(cb, thisArg) {
-  const raw = getRaw(this);
-  const res = raw.some((v, i) => unwrap$1(cb.call(thisArg, wrap$1(v), i, this)));
-  observeCollection(_connectable, raw);
-  return res;
-}
-function wrappedArraySort(cb) {
-  const raw = getRaw(this);
-  const res = raw.sort(cb);
-  observeCollection(_connectable, raw);
-  return wrap$1(res);
-}
-function wrappedArraySlice(start2, end2) {
-  const raw = getRaw(this);
-  observeCollection(_connectable, raw);
-  return getProxy(raw.slice(start2, end2));
-}
-function wrappedReduce(cb, initValue) {
-  const raw = getRaw(this);
-  const res = raw.reduce((curr, v, i) => cb(curr, wrap$1(v), i, this), initValue);
-  observeCollection(_connectable, raw);
-  return wrap$1(res);
-}
-function wrappedReduceRight(cb, initValue) {
-  const raw = getRaw(this);
-  const res = raw.reduceRight((curr, v, i) => cb(curr, wrap$1(v), i, this), initValue);
-  observeCollection(_connectable, raw);
-  return wrap$1(res);
-}
-const collectionHandler = {
-  get(target, key, receiver) {
-    if (key === rawKey) {
-      return target;
-    }
-    const connectable2 = currentConnectable();
-    if (!connecting || doNotCollect(target, key) || connectable2 == null) {
-      return R$get(target, key, receiver);
-    }
-    switch (key) {
-      case "size":
-        connectable2.observe(target, "size");
-        return target.size;
-      case "clear":
-        return wrappedClear;
-      case "delete":
-        return wrappedDelete;
-      case "forEach":
-        return wrappedForEach;
-      case "add":
-        if (isSet(target)) {
-          return wrappedAdd;
-        }
-        break;
-      case "get":
-        if (isMap(target)) {
-          return wrappedGet;
-        }
-        break;
-      case "set":
-        if (isMap(target)) {
-          return wrappedSet;
-        }
-        break;
-      case "has":
-        return wrappedHas;
-      case "keys":
-        return wrappedKeys;
-      case "values":
-        return wrappedValues;
-      case "entries":
-        return wrappedEntries;
-      case Symbol.iterator:
-        return isMap(target) ? wrappedEntries : wrappedValues;
-    }
-    return wrap$1(R$get(target, key, receiver));
-  }
-};
-function wrappedForEach(cb, thisArg) {
-  const raw = getRaw(this);
-  observeCollection(_connectable, raw);
-  return raw.forEach((v, key) => {
-    cb.call(
-      /* should wrap or not?? */
-      thisArg,
-      wrap$1(v),
-      wrap$1(key),
-      this
-    );
-  });
-}
-function wrappedHas(v) {
-  const raw = getRaw(this);
-  observeCollection(_connectable, raw);
-  return raw.has(unwrap$1(v));
-}
-function wrappedGet(k) {
-  const raw = getRaw(this);
-  observeCollection(_connectable, raw);
-  return wrap$1(raw.get(unwrap$1(k)));
-}
-function wrappedSet(k, v) {
-  return wrap$1(getRaw(this).set(unwrap$1(k), unwrap$1(v)));
-}
-function wrappedAdd(v) {
-  return wrap$1(getRaw(this).add(unwrap$1(v)));
-}
-function wrappedClear() {
-  return wrap$1(getRaw(this).clear());
-}
-function wrappedDelete(k) {
-  return wrap$1(getRaw(this).delete(unwrap$1(k)));
-}
-function wrappedKeys() {
-  const raw = getRaw(this);
-  observeCollection(_connectable, raw);
-  const iterator = raw.keys();
-  return {
-    next() {
-      const next = iterator.next();
-      const value = next.value;
-      const done = next.done;
-      return done ? { value: void 0, done } : { value: wrap$1(value), done };
-    },
-    [Symbol.iterator]() {
-      return this;
-    }
-  };
-}
-function wrappedValues() {
-  const raw = getRaw(this);
-  observeCollection(_connectable, raw);
-  const iterator = raw.values();
-  return {
-    next() {
-      const next = iterator.next();
-      const value = next.value;
-      const done = next.done;
-      return done ? { value: void 0, done } : { value: wrap$1(value), done };
-    },
-    [Symbol.iterator]() {
-      return this;
-    }
-  };
-}
-function wrappedEntries() {
-  const raw = getRaw(this);
-  observeCollection(_connectable, raw);
-  const iterator = raw.entries();
-  return {
-    next() {
-      const next = iterator.next();
-      const value = next.value;
-      const done = next.done;
-      return done ? { value: void 0, done } : { value: [wrap$1(value[0]), wrap$1(value[1])], done };
-    },
-    [Symbol.iterator]() {
-      return this;
-    }
-  };
-}
-const observeCollection = (connectable2, collection) => connectable2?.observeCollection(collection);
-const ProxyObservable = /* @__PURE__ */ rtObjectFreeze({
-  getProxy,
-  getRaw,
-  wrap: wrap$1,
-  unwrap: unwrap$1,
-  rawKey
-});
 class ComputedObserver {
   constructor(obj, get, set, observerLocator, flush = "async") {
     this.type = atObserver$1;
@@ -9470,7 +9105,6 @@ class ComputedObserver {
     }
     if (this._isDirty) {
       this.compute();
-      this._isDirty = false;
       this._notified = false;
     }
     return this._value;
@@ -9499,6 +9133,10 @@ class ComputedObserver {
   }
   useCallback(callback) {
     this._callback = callback;
+    return true;
+  }
+  useFlush(flush) {
+    this._flush = flush;
     return true;
   }
   handleDirty() {
@@ -9555,17 +9193,25 @@ class ComputedObserver {
     const newValue = this.compute();
     this._isDirty = false;
     if (!this._notified || !areEqual(newValue, currValue)) {
-      this._callback?.(newValue, oldValue);
       this.subs.notify(newValue, oldValue);
       this._oldValue = this._value = newValue;
+      this._callback?.(newValue, oldValue);
       this._notified = true;
     }
   }
   compute() {
+    this._isDirty = false;
     this.obs.version++;
     try {
       enterConnectable(this);
-      return this._value = unwrap$1(this.$get.call(this._wrapped, this._wrapped, this));
+      const value = unwrap$1(this.$get.call(this._wrapped, this._wrapped, this));
+      if (this._isDirty) {
+        throw createMappedError$1(227, this.$get.name ?? this.$get.toString());
+      }
+      return this._value = value;
+    } catch (e) {
+      this._isDirty = true;
+      throw e;
     } finally {
       this.obs.clear();
       exitConnectable(this);
@@ -9580,24 +9226,6 @@ typeof SuppressedError === "function" ? SuppressedError : function(error2, suppr
   var e = new Error(message);
   return e.name = "SuppressedError", e.error = error2, e.suppressed = suppressed, e;
 };
-const computedPropInfo = /* @__PURE__ */ (() => {
-  const map = /* @__PURE__ */ new WeakMap();
-  const normalizeKey = (key) => {
-    return isSymbol(key) ? key : String(key);
-  };
-  return {
-    get: (obj, key) => map.get(obj)?.get(normalizeKey(key)),
-    _getFlush: (obj, key) => {
-      return map.get(obj)?.get(normalizeKey(key))?.flush;
-    },
-    set: (obj, key, value) => {
-      if (!map.has(obj)) {
-        map.set(obj, /* @__PURE__ */ new Map());
-      }
-      map.get(obj).set(normalizeKey(key), value);
-    }
-  };
-})();
 const IDirtyChecker = /* @__PURE__ */ rtCreateInterface(
   "IDirtyChecker",
   (x) => x.callback(() => {
@@ -9809,6 +9437,243 @@ class SetterObserver {
 (() => {
   subscriberCollection(SetterObserver, null);
 })();
+const getObserverLookup = (instance) => {
+  let lookup2 = instance.$observers;
+  if (lookup2 === void 0) {
+    rtDef(instance, "$observers", { value: lookup2 = createLookup$1() });
+  }
+  return lookup2;
+};
+class ExpressionObserver {
+  get type() {
+    return atObserver$1;
+  }
+  constructor(obj, oL, expression) {
+    this.oL = oL;
+    this._value = void 0;
+    this.boundFn = false;
+    this._scope = Scope.create(obj);
+    this.ast = expression;
+  }
+  getValue() {
+    return this._value;
+  }
+  setValue(value) {
+    astAssign(this.ast, this._scope, this, null, value);
+  }
+  useCallback(cb) {
+    this._callback = cb;
+    return true;
+  }
+  handleChange() {
+    this.run();
+  }
+  handleCollectionChange() {
+    this.run();
+  }
+  run() {
+    this.obs.version++;
+    const oldValue = this._value;
+    const value = astEvaluate(this.ast, this._scope, this, this);
+    this.obs.clear();
+    if (!areEqual(value, oldValue)) {
+      this._value = value;
+      this.subs.notify(value, oldValue);
+      this._callback?.call(void 0, value, oldValue);
+    }
+  }
+  subscribe(subscriber) {
+    if (this.subs.add(subscriber) && this.subs.count === 1) {
+      this._start();
+    }
+  }
+  unsubscribe(subscriber) {
+    if (this.subs.remove(subscriber) && this.subs.count === 0) {
+      this.stop();
+    }
+  }
+  /** @internal */
+  _start() {
+    this.obs.version++;
+    this._value = astEvaluate(this.ast, this._scope, this, this);
+    this.obs.clear();
+  }
+  stop() {
+    this.obs.clearAll();
+    this._value = void 0;
+  }
+}
+(() => {
+  connectable(ExpressionObserver, null);
+  subscriberCollection(ExpressionObserver, null);
+  mixinNoopAstEvaluator(ExpressionObserver);
+})();
+class ControlledComputedObserver {
+  constructor(obj, key, getter, oL, dependencies2, flush, deep) {
+    this.obj = obj;
+    this.key = key;
+    this.getter = getter;
+    this.oL = oL;
+    this.dependencies = dependencies2;
+    this.flush = flush;
+    this.deep = deep;
+    this.type = atObserver$1;
+    this.doNotCache = false;
+    this._value = void 0;
+    this._observers = [];
+    this._queued = false;
+    this._started = false;
+    this._callback = void 0;
+    this._coercer = void 0;
+    this._coercionConfig = void 0;
+  }
+  getValue() {
+    if (!this._started) {
+      return this._eval();
+    }
+    return this._value;
+  }
+  setValue(newValue) {
+    if (this._coercer != null) {
+      newValue = this._coercer.call(null, newValue, this._coercionConfig);
+    }
+    this.obj[this.key] = newValue;
+  }
+  useCallback(callback) {
+    this._callback = callback;
+    return true;
+  }
+  useCoercer(coercer, coercionConfig) {
+    this._coercer = coercer;
+    this._coercionConfig = coercionConfig;
+    return true;
+  }
+  handleChange() {
+    if (this.flush === "sync") {
+      this._doFlush();
+      return;
+    }
+    if (this._queued) {
+      return;
+    }
+    this._queued = true;
+    queueTask(() => {
+      this._queued = false;
+      this._doFlush();
+    });
+  }
+  handleCollectionChange() {
+    if (this.flush === "sync") {
+      this._doFlush();
+      return;
+    }
+    if (this._queued) {
+      return;
+    }
+    this._queued = true;
+    queueTask(() => {
+      this._queued = false;
+      this._doFlush();
+    });
+  }
+  /** @internal */
+  _eval() {
+    return this.getter.call(this.obj);
+  }
+  /** @internal */
+  _doFlush() {
+    if (!this._started) {
+      return;
+    }
+    const oldValue = this._value;
+    const value = this._eval();
+    this._stop();
+    this._observe();
+    if (oldValue === value) {
+      return;
+    }
+    this._value = value;
+    this.subs.notify(value, oldValue);
+    this._callback?.(value, oldValue);
+  }
+  /** @internal */
+  _observe() {
+    const observers = this._observers;
+    this.dependencies.forEach((dep) => {
+      let obs = isString(dep) ? this.oL.getExpressionObserver(this.obj, dep) : this.oL.getObserver(this.obj, dep);
+      observers.push(obs);
+      obs.subscribe(this);
+      obs.useFlush?.(this.flush);
+      if (this.deep) {
+        obs = observeDeep(obs.getValue(), this.oL);
+        observers.push(obs);
+        obs.subscribe(this);
+        obs.useFlush?.(this.flush);
+      }
+    });
+  }
+  /** @internal */
+  _stop() {
+    this._observers.forEach((obs) => {
+      obs.unsubscribe(this);
+    });
+    this._observers.length = 0;
+  }
+  subscribe(subscriber) {
+    if (this.subs.add(subscriber) && this.subs.count === 1) {
+      this._observe();
+      this._started = true;
+      this._value = this._eval();
+    }
+  }
+  unsubscribe(subscriber) {
+    if (this.subs.remove(subscriber) && this.subs.count === 0) {
+      this._stop();
+      this._started = false;
+      this._value = void 0;
+    }
+  }
+}
+(() => {
+  subscriberCollection(ControlledComputedObserver, null);
+})();
+function observeDeep(obj, requestor) {
+  function walk(obj2, connectable2) {
+    const raw = unwrap$1(obj2);
+    if (!isObject(raw)) {
+      return;
+    }
+    if (isArray(raw)) {
+      connectable2.observeCollection(raw);
+      for (let i = 0; i < raw.length; i++) {
+        walk(raw[i], connectable2);
+      }
+      return;
+    }
+    if (isMap(raw)) {
+      connectable2.observeCollection(raw);
+      for (const [k, v] of raw) {
+        walk(k, connectable2);
+        walk(v, connectable2);
+      }
+      return;
+    }
+    if (isSet(raw)) {
+      connectable2.observeCollection(raw);
+      for (const v of raw) {
+        walk(v, connectable2);
+      }
+      return;
+    }
+    for (const key of Object.keys(raw)) {
+      connectable2.observe(raw, key);
+      walk(raw[key], connectable2);
+    }
+  }
+  return requestor.getObserver(obj, ((obj2, connectable2) => {
+    walk(obj2, connectable2);
+  }));
+}
 const propertyAccessor = new PropertyAccessor();
 const IObserverLocator = /* @__PURE__ */ rtCreateInterface("IObserverLocator", (x) => x.singleton(ObserverLocator));
 const INodeObserverLocator = /* @__PURE__ */ rtCreateInterface("INodeObserverLocator", (x) => x.cachedCallback((handler) => {
@@ -9830,26 +9695,12 @@ class DefaultNodeObserverLocator {
     return propertyAccessor;
   }
 }
-const IComputedObserverLocator = /* @__PURE__ */ rtCreateInterface("IComputedObserverLocator", (x) => x.singleton(class DefaultLocator {
-  getObserver(obj, key, pd, requestor) {
-    const observer = new ComputedObserver(obj, pd.get, pd.set, requestor, computedPropInfo._getFlush(obj, key));
-    rtDef(obj, key, {
-      enumerable: pd.enumerable,
-      configurable: true,
-      get: rtObjectAssign((() => observer.getValue()), { getObserver: () => observer }),
-      set: (v) => {
-        observer.setValue(v);
-      }
-    });
-    return observer;
-  }
-}));
 class ObserverLocator {
   constructor() {
     this._adapters = [];
     this._dirtyChecker = resolve(IDirtyChecker);
     this._nodeObserverLocator = resolve(INodeObserverLocator);
-    this._computedObserverLocator = resolve(IComputedObserverLocator);
+    this._expressionParser = resolve(optional(IExpressionParser));
   }
   addAdapter(adapter) {
     this._adapters.push(adapter);
@@ -9883,6 +9734,27 @@ class ObserverLocator {
       return this._nodeObserverLocator.getAccessor(obj, key, this);
     }
     return propertyAccessor;
+  }
+  getExpressionObserver(obj, expression) {
+    if (this._expressionParser == null) {
+      throw createMappedError$1(200, expression);
+    }
+    return new ExpressionObserver(obj, this, this._expressionParser.parse(expression, "IsProperty"));
+  }
+  getComputedObserver(obj, key, pd, info2) {
+    if (info2?.deps == null) {
+      const observer = new ComputedObserver(obj, pd.get, pd.set, this, info2?.flush);
+      rtDef(obj, key, {
+        enumerable: pd.enumerable,
+        configurable: true,
+        get: rtObjectAssign((() => observer.getValue()), { getObserver: () => observer }),
+        set: (v) => {
+          observer.setValue(v);
+        }
+      });
+      return observer;
+    }
+    return new ControlledComputedObserver(obj, key, pd.get, this, info2.deps, info2.flush ?? "async", info2.deep === true);
   }
   getArrayObserver(observedArray) {
     return getArrayObserver(observedArray);
@@ -9931,9 +9803,9 @@ class ObserverLocator {
     if (pd !== void 0 && !hasOwnProp.call(pd, "value")) {
       let obs = this._getAdapterObserver(obj, key, pd);
       if (obs == null) {
-        obs = pd.get?.getObserver?.(obj);
+        obs = pd.get?.getObserver?.(obj, this);
       }
-      return obs == null ? pd.configurable ? this._computedObserverLocator.getObserver(obj, key, pd, this) : this._dirtyChecker.createProperty(obj, key) : obs;
+      return obs == null ? pd.configurable ? this.getComputedObserver(obj, key, pd) : this._dirtyChecker.createProperty(obj, key) : obs;
     }
     return new SetterObserver(obj, key);
   }
@@ -9974,15 +9846,6 @@ const getCollectionObserver$1 = (collection) => {
   }
   return obs;
 };
-const getProto = Object.getPrototypeOf;
-const getOwnPropDesc = Object.getOwnPropertyDescriptor;
-const getObserverLookup = (instance) => {
-  let lookup2 = instance.$observers;
-  if (lookup2 === void 0) {
-    rtDef(instance, "$observers", { value: lookup2 = createLookup$1() });
-  }
-  return lookup2;
-};
 class RunEffect {
   constructor(oL, fn2) {
     this.oL = oL;
@@ -9994,13 +9857,7 @@ class RunEffect {
     this.stopped = false;
     this._cleanupTask = void 0;
     this.run = () => {
-      if (this.stopped) {
-        throw createMappedError$1(
-          225
-          /* ErrorNames.stopping_a_stopped_effect */
-        );
-      }
-      if (this.running) {
+      if (this.running || this.stopped) {
         return;
       }
       ++this.runCount;
@@ -10030,10 +9887,16 @@ class RunEffect {
       }
     };
     this.stop = () => {
-      this._cleanupTask?.call(void 0);
-      this._cleanupTask = void 0;
+      if (this.stopped) {
+        throw createMappedError$1(
+          225
+          /* ErrorNames.stopping_a_stopped_effect */
+        );
+      }
       this.stopped = true;
       this.obs.clearAll();
+      this._cleanupTask?.call(void 0);
+      this._cleanupTask = void 0;
     };
   }
   handleChange() {
@@ -10048,615 +9911,6 @@ class RunEffect {
 (() => {
   connectable(RunEffect, null);
 })();
-class ExpressionObserver {
-  constructor(scope, oL, expression, callback) {
-    this.oL = oL;
-    this._value = void 0;
-    this.boundFn = false;
-    this._scope = scope;
-    this.ast = expression;
-    this._callback = callback;
-  }
-  handleChange() {
-    this.run();
-  }
-  handleCollectionChange() {
-    this.run();
-  }
-  run() {
-    this.obs.version++;
-    const oldValue = this._value;
-    const value = astEvaluate(this.ast, this._scope, this, this);
-    this.obs.clear();
-    if (!areEqual(value, oldValue)) {
-      this._value = value;
-      this._callback.call(void 0, value, oldValue);
-    }
-  }
-  stop() {
-    this.obs.clearAll();
-    this._value = void 0;
-  }
-}
-(() => {
-  connectable(ExpressionObserver, null);
-  mixinNoopAstEvaluator(ExpressionObserver);
-})();
-const tsPending$1 = "pending";
-const tsRunning$1 = "running";
-const tsCompleted = "completed";
-const tsCanceled = "canceled";
-const lookup = /* @__PURE__ */ new Map();
-const notImplemented = (name2) => {
-  return () => {
-    throw createError$2(`AUR1005: The PLATFORM did not receive a valid reference to the global function '${name2}'.`);
-  };
-};
-class Platform {
-  constructor(g, overrides = {}) {
-    this.macroTaskRequested = false;
-    this.macroTaskHandle = -1;
-    this.globalThis = g;
-    "decodeURI decodeURIComponent encodeURI encodeURIComponent Date Reflect console".split(" ").forEach((prop) => {
-      this[prop] = prop in overrides ? overrides[prop] : g[prop];
-    });
-    "clearInterval clearTimeout queueMicrotask setInterval setTimeout".split(" ").forEach((method) => {
-      this[method] = method in overrides ? overrides[method] : g[method]?.bind(g) ?? notImplemented(method);
-    });
-    this.performanceNow = "performanceNow" in overrides ? overrides.performanceNow : g.performance?.now?.bind(g.performance) ?? notImplemented("performance.now");
-    this.flushMacroTask = this.flushMacroTask.bind(this);
-    this.taskQueue = new TaskQueue(this, this.requestMacroTask.bind(this), this.cancelMacroTask.bind(this));
-  }
-  static getOrCreate(g, overrides = {}) {
-    let platform = lookup.get(g);
-    if (platform === void 0) {
-      lookup.set(g, platform = new Platform(g, overrides));
-    }
-    return platform;
-  }
-  static set(g, platform) {
-    lookup.set(g, platform);
-  }
-  requestMacroTask() {
-    this.macroTaskRequested = true;
-    if (this.macroTaskHandle === -1) {
-      this.macroTaskHandle = this.setTimeout(this.flushMacroTask, 0);
-    }
-  }
-  cancelMacroTask() {
-    this.macroTaskRequested = false;
-    if (this.macroTaskHandle > -1) {
-      this.clearTimeout(this.macroTaskHandle);
-      this.macroTaskHandle = -1;
-    }
-  }
-  flushMacroTask() {
-    this.macroTaskHandle = -1;
-    if (this.macroTaskRequested === true) {
-      this.macroTaskRequested = false;
-      this.taskQueue.flush();
-    }
-  }
-}
-class TaskQueue {
-  get isEmpty() {
-    return this._pendingAsyncCount === 0 && this._processing.length === 0 && this._pending.length === 0 && this._delayed.length === 0;
-  }
-  /**
-   * Persistent tasks will re-queue themselves indefinitely until they are explicitly canceled,
-   * so we consider them 'infinite work' whereas non-persistent (one-off) tasks are 'finite work'.
-   *
-   * This `hasNoMoreFiniteWork` getters returns true if either all remaining tasks are persistent, or if there are no more tasks.
-   *
-   * If that is the case, we can resolve the promise that was created when `yield()` is called.
-   *
-   * @internal
-   */
-  get _hasNoMoreFiniteWork() {
-    return this._pendingAsyncCount === 0 && this._processing.every(isPersistent) && this._pending.every(isPersistent) && this._delayed.every(isPersistent);
-  }
-  constructor(platform, $request, $cancel) {
-    this.platform = platform;
-    this.$request = $request;
-    this.$cancel = $cancel;
-    this._suspenderTask = void 0;
-    this._pendingAsyncCount = 0;
-    this._processing = [];
-    this._pending = [];
-    this._delayed = [];
-    this._flushRequested = false;
-    this._yieldPromise = void 0;
-    this._lastRequest = 0;
-    this._lastFlush = 0;
-    this._requestFlush = () => {
-      if (this._tracer.enabled) {
-        this._tracer.enter(this, "requestFlush");
-      }
-      if (!this._flushRequested) {
-        this._flushRequested = true;
-        this._lastRequest = this._now();
-        this.$request();
-      }
-      if (this._tracer.enabled) {
-        this._tracer.leave(this, "requestFlush");
-      }
-    };
-    this._now = platform.performanceNow;
-    this._tracer = new Tracer(platform.console);
-  }
-  flush(now = this._now()) {
-    if (this._tracer.enabled) {
-      this._tracer.enter(this, "flush");
-    }
-    this._flushRequested = false;
-    this._lastFlush = now;
-    if (this._suspenderTask === void 0) {
-      let curr;
-      if (this._pending.length > 0) {
-        this._processing.push(...this._pending);
-        this._pending.length = 0;
-      }
-      if (this._delayed.length > 0) {
-        for (let i = 0; i < this._delayed.length; ++i) {
-          curr = this._delayed[i];
-          if (curr.queueTime <= now) {
-            this._processing.push(curr);
-            this._delayed.splice(i--, 1);
-          }
-        }
-      }
-      let cur;
-      while (this._processing.length > 0) {
-        (cur = this._processing.shift()).run();
-        if (cur.status === tsRunning$1) {
-          if (cur.suspend === true) {
-            this._suspenderTask = cur;
-            this._requestFlush();
-            if (this._tracer.enabled) {
-              this._tracer.leave(this, "flush early async");
-            }
-            return;
-          } else {
-            ++this._pendingAsyncCount;
-          }
-        }
-      }
-      if (this._pending.length > 0) {
-        this._processing.push(...this._pending);
-        this._pending.length = 0;
-      }
-      if (this._delayed.length > 0) {
-        for (let i = 0; i < this._delayed.length; ++i) {
-          curr = this._delayed[i];
-          if (curr.queueTime <= now) {
-            this._processing.push(curr);
-            this._delayed.splice(i--, 1);
-          }
-        }
-      }
-      if (this._processing.length > 0 || this._delayed.length > 0 || this._pendingAsyncCount > 0) {
-        this._requestFlush();
-      }
-      if (this._yieldPromise !== void 0 && this._hasNoMoreFiniteWork) {
-        const p = this._yieldPromise;
-        this._yieldPromise = void 0;
-        p.resolve();
-      }
-    } else {
-      this._requestFlush();
-    }
-    if (this._tracer.enabled) {
-      this._tracer.leave(this, "flush full");
-    }
-  }
-  /**
-   * Cancel the next flush cycle (and/or the macrotask that schedules the next flush cycle, in case this is a microtask queue), if it was requested.
-   *
-   * This operation is idempotent and will do nothing if no flush is scheduled.
-   */
-  cancel() {
-    if (this._tracer.enabled) {
-      this._tracer.enter(this, "cancel");
-    }
-    if (this._flushRequested) {
-      this.$cancel();
-      this._flushRequested = false;
-    }
-    if (this._tracer.enabled) {
-      this._tracer.leave(this, "cancel");
-    }
-  }
-  /**
-   * Returns a promise that, when awaited, resolves when:
-   * - all *non*-persistent (including async) tasks have finished;
-   * - the last-added persistent task has run exactly once;
-   *
-   * This operation is idempotent: the same promise will be returned until it resolves.
-   *
-   * If `yield()` is called multiple times in a row when there are one or more persistent tasks in the queue, each call will await exactly one cycle of those tasks.
-   */
-  async yield() {
-    if (this._tracer.enabled) {
-      this._tracer.enter(this, "yield");
-    }
-    if (this.isEmpty) {
-      if (this._tracer.enabled) {
-        this._tracer.leave(this, "yield empty");
-      }
-    } else {
-      if (this._yieldPromise === void 0) {
-        if (this._tracer.enabled) {
-          this._tracer.trace(this, "yield - creating promise");
-        }
-        this._yieldPromise = createExposedPromise();
-      }
-      await this._yieldPromise;
-      if (this._tracer.enabled) {
-        this._tracer.leave(this, "yield task");
-      }
-    }
-  }
-  queueTask(callback, opts) {
-    if (this._tracer.enabled) {
-      this._tracer.enter(this, "queueTask");
-    }
-    const { delay, preempt, persistent, suspend } = { ...defaultQueueTaskOptions, ...opts };
-    if (preempt) {
-      if (delay > 0) {
-        throw preemptDelayComboError();
-      }
-      if (persistent) {
-        throw preemptyPersistentComboError();
-      }
-    }
-    if (this._processing.length === 0) {
-      this._requestFlush();
-    }
-    const time = this._now();
-    const task = new Task2(this._tracer, this, time, time + delay, preempt, persistent, suspend, callback);
-    if (preempt) {
-      this._processing[this._processing.length] = task;
-    } else if (delay === 0) {
-      this._pending[this._pending.length] = task;
-    } else {
-      this._delayed[this._delayed.length] = task;
-    }
-    if (this._tracer.enabled) {
-      this._tracer.leave(this, "queueTask");
-    }
-    return task;
-  }
-  /**
-   * Remove the task from this queue.
-   */
-  remove(task) {
-    if (this._tracer.enabled) {
-      this._tracer.enter(this, "remove");
-    }
-    let idx = this._processing.indexOf(task);
-    if (idx > -1) {
-      this._processing.splice(idx, 1);
-      if (this._tracer.enabled) {
-        this._tracer.leave(this, "remove processing");
-      }
-      return;
-    }
-    idx = this._pending.indexOf(task);
-    if (idx > -1) {
-      this._pending.splice(idx, 1);
-      if (this._tracer.enabled) {
-        this._tracer.leave(this, "remove pending");
-      }
-      return;
-    }
-    idx = this._delayed.indexOf(task);
-    if (idx > -1) {
-      this._delayed.splice(idx, 1);
-      if (this._tracer.enabled) {
-        this._tracer.leave(this, "remove delayed");
-      }
-      return;
-    }
-    if (this._tracer.enabled) {
-      this._tracer.leave(this, "remove error");
-    }
-    throw createError$2(`Task #${task.id} could not be found`);
-  }
-  /**
-   * Reset the persistent task back to its pending state, preparing it for being invoked again on the next flush.
-   *
-   * @internal
-   */
-  _resetPersistentTask(task) {
-    if (this._tracer.enabled) {
-      this._tracer.enter(this, "resetPersistentTask");
-    }
-    task.reset(this._now());
-    if (task.createdTime === task.queueTime) {
-      this._pending[this._pending.length] = task;
-    } else {
-      this._delayed[this._delayed.length] = task;
-    }
-    if (this._tracer.enabled) {
-      this._tracer.leave(this, "resetPersistentTask");
-    }
-  }
-  /**
-   * Notify the queue that this async task has had its promise resolved, so that the queue can proceed with consecutive tasks on the next flush.
-   *
-   * @internal
-   */
-  _completeAsyncTask(task) {
-    if (this._tracer.enabled) {
-      this._tracer.enter(this, "completeAsyncTask");
-    }
-    if (task.suspend === true) {
-      if (this._suspenderTask !== task) {
-        if (this._tracer.enabled) {
-          this._tracer.leave(this, "completeAsyncTask error");
-        }
-        throw createError$2(`Async task completion mismatch: suspenderTask=${this._suspenderTask?.id}, task=${task.id}`);
-      }
-      this._suspenderTask = void 0;
-    } else {
-      --this._pendingAsyncCount;
-    }
-    if (this._yieldPromise !== void 0 && this._hasNoMoreFiniteWork) {
-      const p = this._yieldPromise;
-      this._yieldPromise = void 0;
-      p.resolve();
-    }
-    if (this.isEmpty) {
-      this.cancel();
-    }
-    if (this._tracer.enabled) {
-      this._tracer.leave(this, "completeAsyncTask");
-    }
-  }
-}
-class TaskAbortError2 extends Error {
-  constructor(task) {
-    super("Task was canceled.");
-    this.task = task;
-  }
-}
-let id = 0;
-class Task2 {
-  get result() {
-    const result = this._result;
-    if (result === void 0) {
-      switch (this._status) {
-        case tsPending$1: {
-          const promise = this._result = createExposedPromise();
-          this._resolve = promise.resolve;
-          this._reject = promise.reject;
-          return promise;
-        }
-        /* istanbul ignore next */
-        case tsRunning$1:
-          throw createError$2("Trying to await task from within task will cause a deadlock.");
-        case tsCompleted:
-          return this._result = Promise.resolve();
-        case tsCanceled:
-          return this._result = Promise.reject(new TaskAbortError2(this));
-      }
-    }
-    return result;
-  }
-  get status() {
-    return this._status;
-  }
-  constructor(tracer, taskQueue, createdTime, queueTime, preempt, persistent, suspend, callback) {
-    this.taskQueue = taskQueue;
-    this.createdTime = createdTime;
-    this.queueTime = queueTime;
-    this.preempt = preempt;
-    this.persistent = persistent;
-    this.suspend = suspend;
-    this.callback = callback;
-    this.id = ++id;
-    this._resolve = void 0;
-    this._reject = void 0;
-    this._result = void 0;
-    this._status = tsPending$1;
-    this._tracer = tracer;
-  }
-  run(time = this.taskQueue.platform.performanceNow()) {
-    if (this._tracer.enabled) {
-      this._tracer.enter(this, "run");
-    }
-    if (this._status !== tsPending$1) {
-      if (this._tracer.enabled) {
-        this._tracer.leave(this, "run error");
-      }
-      throw createError$2(`Cannot run task in ${this._status} state`);
-    }
-    const { persistent, taskQueue, callback, _resolve: resolve2, _reject: reject, createdTime } = this;
-    let ret;
-    this._status = tsRunning$1;
-    try {
-      ret = callback(time - createdTime);
-      if (ret instanceof Promise) {
-        ret.then(($ret) => {
-          if (this.persistent) {
-            taskQueue._resetPersistentTask(this);
-          } else {
-            if (persistent) {
-              this._status = tsCanceled;
-            } else {
-              this._status = tsCompleted;
-            }
-            this.dispose();
-          }
-          taskQueue._completeAsyncTask(this);
-          if (this._tracer.enabled) {
-            this._tracer.leave(this, "run async then");
-          }
-          if (resolve2 !== void 0) {
-            resolve2($ret);
-          }
-        }).catch((err) => {
-          if (!this.persistent) {
-            this.dispose();
-          }
-          taskQueue._completeAsyncTask(this);
-          if (this._tracer.enabled) {
-            this._tracer.leave(this, "run async catch");
-          }
-          if (reject !== void 0) {
-            reject(err);
-          } else {
-            throw err;
-          }
-        });
-      } else {
-        if (this.persistent) {
-          taskQueue._resetPersistentTask(this);
-        } else {
-          if (persistent) {
-            this._status = tsCanceled;
-          } else {
-            this._status = tsCompleted;
-          }
-          this.dispose();
-        }
-        if (this._tracer.enabled) {
-          this._tracer.leave(this, "run sync success");
-        }
-        if (resolve2 !== void 0) {
-          resolve2(ret);
-        }
-      }
-    } catch (err) {
-      if (!this.persistent) {
-        this.dispose();
-      }
-      if (this._tracer.enabled) {
-        this._tracer.leave(this, "run sync error");
-      }
-      if (reject !== void 0) {
-        reject(err);
-      } else {
-        throw err;
-      }
-    }
-  }
-  cancel() {
-    if (this._tracer.enabled) {
-      this._tracer.enter(this, "cancel");
-    }
-    if (this._status === tsPending$1) {
-      const taskQueue = this.taskQueue;
-      const reject = this._reject;
-      taskQueue.remove(this);
-      if (taskQueue.isEmpty) {
-        taskQueue.cancel();
-      }
-      this._status = tsCanceled;
-      this.dispose();
-      if (reject !== void 0) {
-        reject(new TaskAbortError2(this));
-      }
-      if (this._tracer.enabled) {
-        this._tracer.leave(this, "cancel true =pending");
-      }
-      return true;
-    } else if (this._status === tsRunning$1 && this.persistent) {
-      this.persistent = false;
-      if (this._tracer.enabled) {
-        this._tracer.leave(this, "cancel true =running+persistent");
-      }
-      return true;
-    }
-    if (this._tracer.enabled) {
-      this._tracer.leave(this, "cancel false");
-    }
-    return false;
-  }
-  reset(time) {
-    if (this._tracer.enabled) {
-      this._tracer.enter(this, "reset");
-    }
-    const delay = this.queueTime - this.createdTime;
-    this.createdTime = time;
-    this.queueTime = time + delay;
-    this._status = tsPending$1;
-    this._resolve = void 0;
-    this._reject = void 0;
-    this._result = void 0;
-    if (this._tracer.enabled) {
-      this._tracer.leave(this, "reset");
-    }
-  }
-  dispose() {
-    if (this._tracer.enabled) {
-      this._tracer.trace(this, "dispose");
-    }
-    this.callback = void 0;
-    this._resolve = void 0;
-    this._reject = void 0;
-    this._result = void 0;
-  }
-}
-class Tracer {
-  constructor(console2) {
-    this.console = console2;
-    this.enabled = false;
-    this.depth = 0;
-  }
-  enter(obj, method) {
-    this.log(`${"  ".repeat(this.depth++)}> `, obj, method);
-  }
-  leave(obj, method) {
-    this.log(`${"  ".repeat(--this.depth)}< `, obj, method);
-  }
-  trace(obj, method) {
-    this.log(`${"  ".repeat(this.depth)}- `, obj, method);
-  }
-  log(prefix, obj, method) {
-    if (obj instanceof TaskQueue) {
-      const processing = obj._processing.length;
-      const pending = obj._pending.length;
-      const delayed = obj._delayed.length;
-      const flushReq = obj._flushRequested;
-      const susTask = !!obj._suspenderTask;
-      const info2 = `processing=${processing} pending=${pending} delayed=${delayed} flushReq=${flushReq} susTask=${susTask}`;
-      this.console.log(`${prefix}[Q.${method}] ${info2}`);
-    } else {
-      const id2 = obj["id"];
-      const created = Math.round(obj["createdTime"] * 10) / 10;
-      const queue2 = Math.round(obj["queueTime"] * 10) / 10;
-      const preempt = obj["preempt"];
-      const persistent = obj["persistent"];
-      const suspend = obj["suspend"];
-      const status = obj["_status"];
-      const info2 = `id=${id2} created=${created} queue=${queue2} preempt=${preempt} persistent=${persistent} status=${status} suspend=${suspend}`;
-      this.console.log(`${prefix}[T.${method}] ${info2}`);
-    }
-  }
-}
-const defaultQueueTaskOptions = {
-  delay: 0,
-  preempt: false,
-  persistent: false,
-  suspend: false
-};
-let $resolve;
-let $reject;
-const executor = (resolve2, reject) => {
-  $resolve = resolve2;
-  $reject = reject;
-};
-const createExposedPromise = () => {
-  const p = new Promise(executor);
-  p.resolve = $resolve;
-  p.reject = $reject;
-  return p;
-};
-const isPersistent = (task) => task.persistent;
-const preemptDelayComboError = () => createError$2(`AUR1006: Invalid arguments: preempt cannot be combined with a greater-than-zero delay`);
-const preemptyPersistentComboError = () => createError$2(`AUR1007: Invalid arguments: preempt cannot be combined with persistent`);
-const createError$2 = (msg) => new Error(msg);
 class BrowserPlatform extends Platform {
   static getOrCreate(g, overrides = {}) {
     let platform = BrowserPlatform._lookup.get(g);
@@ -10668,24 +9922,6 @@ class BrowserPlatform extends Platform {
   static set(g, platform) {
     BrowserPlatform._lookup.set(g, platform);
   }
-  /**
-   * @deprecated Use `platform.domQueue` instead.
-   */
-  get domWriteQueue() {
-    {
-      this.console.log("[DEV:aurelia] platform.domQueue is deprecated, please use platform.domQueue instead.");
-    }
-    return this.domQueue;
-  }
-  /**
-   * @deprecated Use `platform.domQueue` instead.
-   */
-  get domReadQueue() {
-    {
-      this.console.log("[DEV:aurelia] platform.domReadQueue has been removed, please use platform.domQueue instead.");
-    }
-    return this.domQueue;
-  }
   constructor(g, overrides = {}) {
     super(g, overrides);
     const notImplemented2 = (name2) => () => {
@@ -10696,32 +9932,6 @@ class BrowserPlatform extends Platform {
       // eslint-disable-next-line
       this[prop] = prop in overrides ? overrides[prop] : g[prop]?.bind(g) ?? notImplemented2(prop)
     ));
-    this.domQueue = (() => {
-      let domRequested = false;
-      let domHandle = -1;
-      const requestDomFlush = () => {
-        domRequested = true;
-        if (domHandle === -1) {
-          domHandle = this.requestAnimationFrame(flushDomQueue);
-        }
-      };
-      const cancelDomFlush = () => {
-        domRequested = false;
-        if (domHandle > -1) {
-          this.cancelAnimationFrame(domHandle);
-          domHandle = -1;
-        }
-      };
-      const flushDomQueue = () => {
-        domHandle = -1;
-        if (domRequested === true) {
-          domRequested = false;
-          domQueue.flush();
-        }
-      };
-      const domQueue = new TaskQueue(this, requestDomFlush, cancelDomFlush);
-      return domQueue;
-    })();
   }
 }
 BrowserPlatform._lookup = /* @__PURE__ */ new WeakMap();
@@ -10733,6 +9943,11 @@ const { default: defaultMode, oneTime, toView, fromView, twoWay } = BindingMode;
 const getMetadata = Metadata.get;
 const hasMetadata = Metadata.has;
 const defineMetadata = Metadata.define;
+const clearMetadata = (target, ...keys) => {
+  for (const key of keys) {
+    Metadata.delete(key, target);
+  }
+};
 const { annotation } = Protocol;
 const getAnnotationKeyFor = annotation.keyFor;
 const O = Object;
@@ -10978,11 +10193,11 @@ const errorsMap = {
   [
     654
     /* ErrorNames.select_observer_array_on_non_multi_select */
-  ]: `Array values can only be bound to a multi-select.`,
+  ]: `Array values can only be bound to a multi-select`,
   [
-    714
-    /* ErrorNames.compiler_primary_already_existed */
-  ]: `Template compilation error: primary already exists on element/attribute "{{0}}"`,
+    655
+    /* ErrorNames.watcher_infinite_loop */
+  ]: `Possible infinitely recursive side-effect detected in a watcher`,
   [
     719
     /* ErrorNames.compiler_attr_mapper_duplicate_mapping */
@@ -11038,7 +10253,7 @@ const errorsMap = {
   [
     757
     /* ErrorNames.rendering_mismatch_length */
-  ]: `AUR0757: The compiled template is not aligned with the render instructions. There are {{0}} targets and {{1}} instructions.`,
+  ]: `The compiled template is not aligned with the render instructions. There are {{0}} targets and {{1}} instructions.`,
   [
     772
     /* ErrorNames.watch_null_config */
@@ -11046,7 +10261,7 @@ const errorsMap = {
   [
     773
     /* ErrorNames.watch_invalid_change_handler */
-  ]: `Invalid @watch decorator change handler config.Method "{{0}}" not found in class {{1}}`,
+  ]: `Invalid @watch decorator change handler config. Method "{{0}}" not found in class {{1}}`,
   [
     774
     /* ErrorNames.watch_non_method_decorator_usage */
@@ -11071,6 +10286,10 @@ const errorsMap = {
     814
     /* ErrorNames.repeat_mismatch_length */
   ]: `[repeat] encountered an error: number of views != number of items {{0:join(!=)}}`,
+  [
+    821
+    /* ErrorNames.repeat_invalid_contextual_binding_command */
+  ]: `Invalid command "{{0}}" usage with [repeat.for] option "contextual". Only "bind" or static assignment is supported.`,
   [
     779
     /* ErrorNames.portal_invalid_insert_position */
@@ -11104,6 +10323,10 @@ const errorsMap = {
     808
     /* ErrorNames.au_compose_duplicate_deactivate */
   ]: `Composition has already been deactivated.`,
+  [
+    809
+    /* ErrorNames.au_compose_invalid_flush_mode */
+  ]: `Invalid flushMode "{{0}}" on <au-compose />. Only "sync" or "async" allowed.`,
   [
     810
     /* ErrorNames.else_without_if */
@@ -11187,7 +10410,19 @@ const errorsMap = {
   [
     9989
     /* ErrorNames.children_invalid_query */
-  ]: `Invalid query selector. Only selectors with alpha-numeric characters, or $all are allowed. Got {{0}} instead.`
+  ]: `Invalid query selector. Only selectors with alpha-numeric characters, or $all are allowed. Got {{0}} instead.`,
+  [
+    822
+    /* ErrorNames.hydration_target_count_mismatch */
+  ]: `SSR hydration error: manifest declares {{0}} targets but collected {{1}} from DOM.`,
+  [
+    823
+    /* ErrorNames.hydration_node_count_mismatch */
+  ]: `SSR hydration error: manifest declares {{0}} total nodes for views but found {{1}} nodes in DOM.`,
+  [
+    824
+    /* ErrorNames.hydration_view_count_mismatch */
+  ]: `SSR hydration error: manifest declares {{0}} views but items array has {{1}} elements.`
 };
 const getMessageByCode = (name2, ...details) => {
   let cooked = errorsMap[name2];
@@ -11360,19 +10595,22 @@ const Bindable = objectFreeze({
   }
 });
 class BindableDefinition {
-  constructor(attribute, callback, mode, primary, name2, set) {
+  constructor(attribute, callback, mode, name2, set) {
     this.attribute = attribute;
     this.callback = callback;
     this.mode = mode;
-    this.primary = primary;
     this.name = name2;
     this.set = set;
   }
+  static toAttr(prop) {
+    return this._cache[prop] ??= prop.replace(/([A-Z])/g, (_, $1) => `-${$1.toLowerCase()}`);
+  }
   static create(prop, def2 = {}) {
     const mode = def2.mode ?? toView;
-    return new BindableDefinition(def2.attribute ?? kebabCase(prop), def2.callback ?? `${prop}Changed`, isString(mode) ? BindingMode[mode] ?? defaultMode : mode, def2.primary ?? false, def2.name ?? prop, def2.set ?? getInterceptor(def2));
+    return new BindableDefinition(def2.attribute ?? BindableDefinition.toAttr(prop), def2.callback ?? `${prop}Changed`, isString(mode) ? BindingMode[mode] ?? defaultMode : mode, def2.name ?? prop, def2.set ?? getInterceptor(def2));
   }
 }
+BindableDefinition._cache = {};
 const Coercer = {
   key: /* @__PURE__ */ getAnnotationKeyFor("coercer"),
   define(target, property) {
@@ -11417,7 +10655,8 @@ const instanceRegistration = Registration.instance;
 const registerResolver = (ctn, key, resolver) => ctn.registerResolver(key, resolver);
 const dtElement = "custom-element";
 const dtAttribute = "custom-attribute";
-const getDefinitionFromStaticAu = (Type, typeName, createDef, metadataKey = "__au_static_resource__") => {
+const staticAuMetadataKey = "__au_static_resource__";
+const getDefinitionFromStaticAu = (Type, typeName, createDef, metadataKey = staticAuMetadataKey) => {
   let def2 = getMetadata(metadataKey, Type);
   if (def2 == null) {
     if (Type.$au?.type === typeName) {
@@ -11426,6 +10665,9 @@ const getDefinitionFromStaticAu = (Type, typeName, createDef, metadataKey = "__a
     }
   }
   return def2;
+};
+const clearStaticAuDefinition = (Type) => {
+  clearMetadata(Type, staticAuMetadataKey);
 };
 class BindingBehaviorDefinition {
   constructor(Type, name2, aliases, key) {
@@ -11543,13 +10785,12 @@ class DebounceBindingBehavior {
       type: "debounce",
       delay: delay ?? defaultDelay$1,
       now: this._platform.performanceNow,
-      queue: this._platform.taskQueue,
       signals: isString(signals) ? [signals] : signals ?? emptyArray
     };
     const handler = binding.limit?.(opts);
     if (handler == null) {
       {
-        console.warn(`Binding ${binding.constructor.name} does not support debounce rate limiting`);
+        console.warn(`[DEV:aurelia] Binding ${binding.constructor.name} does not support debounce rate limiting`);
       }
     } else {
       bindingHandlerMap$1.set(binding, handler);
@@ -11570,12 +10811,12 @@ class Signaler {
     this.signals = createLookup$1();
   }
   dispatchSignal(name2) {
-    const listeners = this.signals[name2];
-    if (listeners === void 0) {
+    const listeners2 = this.signals[name2];
+    if (listeners2 === void 0) {
       return;
     }
     let listener;
-    for (listener of listeners.keys()) {
+    for (listener of listeners2.keys()) {
       listener.handleChange(void 0, void 0);
     }
   }
@@ -11627,20 +10868,19 @@ const bindingHandlerMap = /* @__PURE__ */ new WeakMap();
 const defaultDelay = 200;
 class ThrottleBindingBehavior {
   constructor() {
-    ({ performanceNow: this._now, taskQueue: this._taskQueue } = resolve(IPlatform$1));
+    ({ performanceNow: this._now } = resolve(IPlatform$1));
   }
   bind(scope, binding, delay, signals) {
     const opts = {
       type: "throttle",
       delay: delay ?? defaultDelay,
       now: this._now,
-      queue: this._taskQueue,
       signals: isString(signals) ? [signals] : signals ?? emptyArray
     };
     const handler = binding.limit?.(opts);
     if (handler == null) {
       {
-        console.warn(`Binding ${binding.constructor.name} does not support debounce rate limiting`);
+        console.warn(`[DEV:aurelia] Binding ${binding.constructor.name} does not support throttle rate limiting`);
       }
     } else {
       bindingHandlerMap.set(binding, handler);
@@ -11745,6 +10985,15 @@ const refs = /* @__PURE__ */ (() => {
       }
       return ref[name2] = controller;
     }
+    clear(node) {
+      const ref = refsMap.get(node);
+      if (ref == null)
+        return;
+      refsMap.delete(node);
+      if (node.$au != null) {
+        delete node.$au;
+      }
+    }
   }();
 })();
 const INode = /* @__PURE__ */ createInterface("INode");
@@ -11822,18 +11071,18 @@ class CustomAttributeDefinition {
   get type() {
     return dtAttribute;
   }
-  constructor(Type, name2, aliases, key, defaultBindingMode, isTemplateController, bindables2, noMultiBindings, watches, dependencies2, containerStrategy) {
+  constructor(Type, name2, aliases, key, isTemplateController, bindables2, noMultiBindings, watches, dependencies2, containerStrategy, defaultProperty) {
     this.Type = Type;
     this.name = name2;
     this.aliases = aliases;
     this.key = key;
-    this.defaultBindingMode = defaultBindingMode;
     this.isTemplateController = isTemplateController;
     this.bindables = bindables2;
     this.noMultiBindings = noMultiBindings;
     this.watches = watches;
     this.dependencies = dependencies2;
     this.containerStrategy = containerStrategy;
+    this.defaultProperty = defaultProperty;
   }
   static create(nameOrDef, Type) {
     let name2;
@@ -11845,32 +11094,24 @@ class CustomAttributeDefinition {
       name2 = nameOrDef.name;
       def2 = nameOrDef;
     }
-    const mode = firstDefined(getAttributeAnnotation(Type, "defaultBindingMode"), def2.defaultBindingMode, Type.defaultBindingMode, toView);
     for (const bindable2 of Object.values(Bindable.from(def2.bindables))) {
       Bindable._add(bindable2, Type);
     }
-    return new CustomAttributeDefinition(Type, firstDefined(getAttributeAnnotation(Type, "name"), name2), mergeArrays(getAttributeAnnotation(Type, "aliases"), def2.aliases, Type.aliases), getAttributeKeyFrom(name2), isString(mode) ? BindingMode[mode] ?? defaultMode : mode, firstDefined(getAttributeAnnotation(Type, "isTemplateController"), def2.isTemplateController, Type.isTemplateController, false), Bindable.from(...Bindable.getAll(Type), getAttributeAnnotation(Type, "bindables"), Type.bindables, def2.bindables), firstDefined(getAttributeAnnotation(Type, "noMultiBindings"), def2.noMultiBindings, Type.noMultiBindings, false), mergeArrays(Watch.getDefinitions(Type), Type.watches), mergeArrays(getAttributeAnnotation(Type, "dependencies"), def2.dependencies, Type.dependencies), firstDefined(getAttributeAnnotation(Type, "containerStrategy"), def2.containerStrategy, Type.containerStrategy, "reuse"));
+    return new CustomAttributeDefinition(Type, firstDefined(getAttributeAnnotation(Type, "name"), name2), mergeArrays(getAttributeAnnotation(Type, "aliases"), def2.aliases, Type.aliases), getAttributeKeyFrom(name2), firstDefined(getAttributeAnnotation(Type, "isTemplateController"), def2.isTemplateController, Type.isTemplateController, false), Bindable.from(...Bindable.getAll(Type), getAttributeAnnotation(Type, "bindables"), Type.bindables, def2.bindables), firstDefined(getAttributeAnnotation(Type, "noMultiBindings"), def2.noMultiBindings, Type.noMultiBindings, false), mergeArrays(Watch.getDefinitions(Type), Type.watches), mergeArrays(getAttributeAnnotation(Type, "dependencies"), def2.dependencies, Type.dependencies), firstDefined(getAttributeAnnotation(Type, "containerStrategy"), def2.containerStrategy, Type.containerStrategy, "reuse"), firstDefined(getAttributeAnnotation(Type, "defaultProperty"), def2.defaultProperty, Type.defaultProperty, "value"));
   }
   register(container, aliasName) {
     const $Type = this.Type;
     const key = typeof aliasName === "string" ? getAttributeKeyFrom(aliasName) : this.key;
     const aliases = this.aliases;
-    if (!container.has(key, false)) {
-      container.register(container.has($Type, false) ? null : singletonRegistration($Type, $Type), aliasRegistration($Type, key), ...aliases.map((alias) => aliasRegistration($Type, getAttributeKeyFrom(alias))));
-    } else {
-      if (CustomAttributeDefinition.warnDuplicate) {
-        container.get(ILogger).warn(createMappedError(154, this.name));
-      }
-      {
-        console.warn(`[DEV:aurelia] ${createMappedError(154, this.name)}`);
-      }
+    if (container.has(key, false)) {
+      console.warn(createMappedError(154, this.name));
     }
+    container.register(singletonRegistration(key, $Type), ...aliases.map((alias) => aliasRegistration(key, getAttributeKeyFrom(alias))));
   }
   toString() {
     return `au:ca:${this.name}`;
   }
 }
-CustomAttributeDefinition.warnDuplicate = true;
 const attrTypeName = "custom-attribute";
 const attributeBaseName = /* @__PURE__ */ getResourceKeyFor(attrTypeName);
 const getAttributeKeyFrom = (name2) => `${attributeBaseName}:${name2}`;
@@ -12012,6 +11253,46 @@ const LifecycleHooks = /* @__PURE__ */ (() => {
   });
 })();
 class LifecycleHooksLookupImpl {
+}
+function isSSRTemplateController(child) {
+  return "type" in child;
+}
+function isSSRScope(child) {
+  return !("type" in child);
+}
+const ISSRContext = /* @__PURE__ */ createInterface("ISSRContext");
+function adoptSSRView(ssrScope, factory, controller, location, platform) {
+  const viewScope = ssrScope.views[0];
+  if (viewScope == null) {
+    return null;
+  }
+  const nodeCount = viewScope.nodeCount ?? 1;
+  const partitions = partitionSiblingNodes(location, [nodeCount]);
+  if (partitions.length === 0 || partitions[0].length === 0) {
+    return null;
+  }
+  const adoptedNodes = FragmentNodeSequence.adoptSiblings(platform, partitions[0]);
+  const view = factory.createAdopted(controller, adoptedNodes, viewScope);
+  view.setLocation(location);
+  return { view, viewScope };
+}
+function adoptSSRViews(ssrScope, factory, controller, location, platform) {
+  const viewScopes = ssrScope.views;
+  const viewCount = viewScopes.length;
+  const nodeCounts = Array(viewCount);
+  for (let i = 0; i < viewCount; ++i) {
+    nodeCounts[i] = viewScopes[i]?.nodeCount ?? 1;
+  }
+  const partitions = partitionSiblingNodes(location, nodeCounts);
+  const views = Array(viewCount);
+  for (let i = 0; i < viewCount; ++i) {
+    const nodes = partitions[i] ?? [];
+    const adoptedNodes = FragmentNodeSequence.adoptSiblings(platform, nodes);
+    const view = factory.createAdopted(controller, adoptedNodes, viewScopes[i]);
+    view.setLocation(location);
+    views[i] = view;
+  }
+  return { views, viewScopes };
 }
 function valueConverter(nameOrDef) {
   return function(target, context) {
@@ -12512,7 +11793,7 @@ class InterpolationBinding {
   }
   /** @internal */
   _handlePartChange() {
-    if (!this.isBound)
+    if (!this.isBound || this._controller.state > activated)
       return;
     const shouldQueue = this._controller.state !== activating && (this._targetObserver.type & atLayout) > 0;
     if (shouldQueue) {
@@ -12521,7 +11802,7 @@ class InterpolationBinding {
       this._isQueued = true;
       queueTask(() => {
         this._isQueued = false;
-        if (!this.isBound)
+        if (!this.isBound || this._controller.state > activated)
           return;
         this.updateTarget();
       });
@@ -12691,32 +11972,35 @@ class ContentBinding {
     target.textContent = safeString(value ?? "");
   }
   handleChange() {
-    if (!this.isBound)
+    if (!this.isBound || this._controller.state > activated)
       return;
     if (this._isQueued)
       return;
     this._isQueued = true;
     queueTask(() => {
       this._isQueued = false;
-      if (!this.isBound)
+      if (!this.isBound || this._controller.state > activated)
         return;
       this.obs.version++;
       const newValue = astEvaluate(this.ast, this._scope, this, (this.mode & toView) > 0 ? this : null);
       this.obs.clear();
       if (newValue !== this._value) {
+        if (isArray(newValue)) {
+          this.observeCollection(newValue);
+        }
         this.updateTarget(newValue);
       }
     });
   }
   handleCollectionChange() {
-    if (!this.isBound)
+    if (!this.isBound || this._controller.state > activated)
       return;
     if (this._isQueued)
       return;
     this._isQueued = true;
     queueTask(() => {
       this._isQueued = false;
-      if (!this.isBound)
+      if (!this.isBound || this._controller.state > activated)
         return;
       this.obs.version++;
       const v = this._value = astEvaluate(this.ast, this._scope, this, (this.mode & toView) > 0 ? this : null);
@@ -12761,7 +12045,7 @@ ContentBinding.mix = createPrototypeMixer(() => {
   mixinAstEvaluator(ContentBinding);
 });
 class LetBinding {
-  constructor(locator, observerLocator, ast, targetProperty, toBindingContext, strict) {
+  constructor(controller, locator, observerLocator, ast, targetProperty, toBindingContext, strict) {
     this.ast = ast;
     this.targetProperty = targetProperty;
     this.isBound = false;
@@ -12772,12 +12056,13 @@ class LetBinding {
     this.oL = observerLocator;
     this.strict = strict;
     this._toBindingContext = toBindingContext;
+    this._controller = controller;
   }
   updateTarget() {
     this.target[this.targetProperty] = this._value;
   }
   handleChange() {
-    if (!this.isBound)
+    if (!this.isBound || this._controller.state > activated)
       return;
     this.obs.version++;
     this._value = astEvaluate(this.ast, this._scope, this, this);
@@ -12839,7 +12124,7 @@ class PropertyBinding {
     astAssign(this.ast, this._scope, this, null, value);
   }
   handleChange() {
-    if (!this.isBound)
+    if (!this.isBound || this._controller.state > activated)
       return;
     const shouldQueue = this._controller.state !== activating && (this._targetObserver.type & atLayout) > 0;
     if (shouldQueue) {
@@ -13121,7 +12406,7 @@ class ModifiedMouseEventHandler {
           return false;
         }
         {
-          console.warn(`Modifier '${m3}' is not supported for mouse events.`);
+          console.warn(`[DEV:aurelia]Modifier '${m3}' is not supported for mouse events.`);
         }
       }
       if (prevent)
@@ -13223,7 +12508,7 @@ class EventModifier {
   constructor() {
     this._reg = resolve(all(IModifiedEventHandlerCreator)).reduce((acc, cur) => {
       const types = isArray(cur.type) ? cur.type : [cur.type];
-      types.forEach((t) => acc[t] = cur);
+      types.forEach((t2) => acc[t2] = cur);
       return acc;
     }, {});
   }
@@ -13287,6 +12572,9 @@ class ViewFactory {
     controller = Controller.$view(this, parentController);
     return controller;
   }
+  createAdopted(parentController, adoptedNodes, ssrScope) {
+    return Controller.$viewAdopted(this, parentController, adoptedNodes, ssrScope);
+  }
 }
 ViewFactory.maxCacheSize = 65535;
 const createLocation = /* @__PURE__ */ (() => {
@@ -13349,10 +12637,10 @@ class SpreadBinding {
       let inst;
       for (inst of instructions) {
         switch (inst.type) {
-          case InstructionType.spreadTransferedBinding:
+          case itSpreadTransferedBinding:
             renderSpreadInstruction(ancestor + 1);
             break;
-          case InstructionType.spreadElementProp:
+          case itSpreadElementProp:
             renderers[inst.instruction.type].render(spreadBinding, findElementControllerFor(target), inst.instruction, platform, exprParser, observerLocator);
             break;
           default:
@@ -13488,7 +12776,7 @@ class SpreadValueBinding {
       binding = this._bindingCache[key];
       if (key in value) {
         if (binding == null) {
-          binding = this._bindingCache[key] = new PropertyBinding(this._controller, this.l, this.oL, SpreadValueBinding._astCache[key] ??= new AccessScopeExpression(key, 0), this.target, key, BindingMode.toView, this.strict);
+          binding = this._bindingCache[key] = new PropertyBinding(this._controller, this.l, this.oL, SpreadValueBinding._astCache[key] ??= createAccessScopeExpression(key, 0), this.target, key, BindingMode.toView, this.strict);
         }
         binding.bind(scope);
       } else if (unbind) {
@@ -13700,7 +12988,7 @@ function getRefTarget(refHost, refTargetName) {
 }
 const SetPropertyRenderer = /* @__PURE__ */ renderer(class SetPropertyRenderer2 {
   constructor() {
-    this.target = InstructionType.setProperty;
+    this.target = itSetProperty;
   }
   render(renderingCtrl, target, instruction) {
     const obj = getTarget(target);
@@ -13714,9 +13002,9 @@ const SetPropertyRenderer = /* @__PURE__ */ renderer(class SetPropertyRenderer2 
 const CustomElementRenderer = /* @__PURE__ */ renderer(class CustomElementRenderer2 {
   constructor() {
     this._rendering = resolve(IRendering);
-    this.target = InstructionType.hydrateElement;
+    this.target = itHydrateElement;
   }
-  render(renderingCtrl, target, instruction, platform, exprParser, observerLocator) {
+  render(renderingCtrl, target, instruction, platform, exprParser, observerLocator, ssrScope) {
     let def2;
     let component;
     let childCtrl;
@@ -13769,7 +13057,9 @@ const CustomElementRenderer = /* @__PURE__ */ renderer(class CustomElementRender
       /* definition          */
       def2,
       /* location            */
-      location
+      location,
+      /* ssrScope            */
+      ssrScope
     );
     const renderers = this._rendering.renderers;
     const props2 = instruction.props;
@@ -13787,7 +13077,7 @@ const CustomElementRenderer = /* @__PURE__ */ renderer(class CustomElementRender
 const CustomAttributeRenderer = /* @__PURE__ */ renderer(class CustomAttributeRenderer2 {
   constructor() {
     this._rendering = resolve(IRendering);
-    this.target = InstructionType.hydrateAttribute;
+    this.target = itHydrateAttribute;
   }
   render(renderingCtrl, target, instruction, platform, exprParser, observerLocator) {
     let ctxContainer = renderingCtrl.container;
@@ -13852,9 +13142,9 @@ const CustomAttributeRenderer = /* @__PURE__ */ renderer(class CustomAttributeRe
 const TemplateControllerRenderer = /* @__PURE__ */ renderer(class TemplateControllerRenderer2 {
   constructor() {
     this._rendering = resolve(IRendering);
-    this.target = InstructionType.hydrateTemplateController;
+    this.target = itHydrateTemplateController;
   }
-  render(renderingCtrl, target, instruction, platform, exprParser, observerLocator) {
+  render(renderingCtrl, target, instruction, platform, exprParser, observerLocator, ssrScope) {
     let ctxContainer = renderingCtrl.container;
     let def2;
     switch (typeof instruction.res) {
@@ -13900,7 +13190,9 @@ const TemplateControllerRenderer = /* @__PURE__ */ renderer(class TemplateContro
       /* host         */
       target,
       /* definition   */
-      def2
+      def2,
+      /* ssrScope     */
+      ssrScope
     );
     refs.set(renderLocation, def2.key, childController);
     results.vm.link?.(renderingCtrl, childController, target, instruction);
@@ -13919,7 +13211,7 @@ const TemplateControllerRenderer = /* @__PURE__ */ renderer(class TemplateContro
 });
 const LetElementRenderer = /* @__PURE__ */ renderer(class LetElementRenderer2 {
   constructor() {
-    this.target = InstructionType.hydrateLetElement;
+    this.target = itHydrateLetElement;
     LetBinding.mix();
   }
   render(renderingCtrl, target, instruction, platform, exprParser, observerLocator) {
@@ -13934,14 +13226,14 @@ const LetElementRenderer = /* @__PURE__ */ renderer(class LetElementRenderer2 {
     while (ii > i) {
       childInstruction = childInstructions[i];
       expr = ensureExpression(exprParser, childInstruction.from, etIsProperty);
-      renderingCtrl.addBinding(new LetBinding(container, observerLocator, expr, childInstruction.to, toBindingContext, renderingCtrl.strict ?? false));
+      renderingCtrl.addBinding(new LetBinding(renderingCtrl, container, observerLocator, expr, childInstruction.to, toBindingContext, renderingCtrl.strict ?? false));
       ++i;
     }
   }
 });
 const RefBindingRenderer = /* @__PURE__ */ renderer(class RefBindingRenderer2 {
   constructor() {
-    this.target = InstructionType.refBinding;
+    this.target = itRefBinding;
     RefBinding.mix();
   }
   render(renderingCtrl, target, instruction, platform, exprParser, observerLocator) {
@@ -13950,7 +13242,7 @@ const RefBindingRenderer = /* @__PURE__ */ renderer(class RefBindingRenderer2 {
 });
 const InterpolationBindingRenderer = /* @__PURE__ */ renderer(class InterpolationBindingRenderer2 {
   constructor() {
-    this.target = InstructionType.interpolation;
+    this.target = itInterpolation;
     InterpolationPartBinding.mix();
   }
   render(renderingCtrl, target, instruction, platform, exprParser, observerLocator) {
@@ -13965,7 +13257,7 @@ const InterpolationBindingRenderer = /* @__PURE__ */ renderer(class Interpolatio
 });
 const PropertyBindingRenderer = /* @__PURE__ */ renderer(class PropertyBindingRenderer2 {
   constructor() {
-    this.target = InstructionType.propertyBinding;
+    this.target = itPropertyBinding;
     PropertyBinding.mix();
   }
   render(renderingCtrl, target, instruction, platform, exprParser, observerLocator) {
@@ -13980,7 +13272,7 @@ const PropertyBindingRenderer = /* @__PURE__ */ renderer(class PropertyBindingRe
 });
 const IteratorBindingRenderer = /* @__PURE__ */ renderer(class IteratorBindingRenderer2 {
   constructor() {
-    this.target = InstructionType.iteratorBinding;
+    this.target = itIteratorBinding;
     PropertyBinding.mix();
   }
   render(renderingCtrl, target, instruction, platform, exprParser, observerLocator) {
@@ -13989,7 +13281,7 @@ const IteratorBindingRenderer = /* @__PURE__ */ renderer(class IteratorBindingRe
 });
 const TextBindingRenderer = /* @__PURE__ */ renderer(class TextBindingRenderer2 {
   constructor() {
-    this.target = InstructionType.textBinding;
+    this.target = itTextBinding;
     ContentBinding.mix();
   }
   render(renderingCtrl, target, instruction, platform, exprParser, observerLocator) {
@@ -14012,7 +13304,7 @@ const IListenerBindingOptions = createInterface("IListenerBindingOptions", (x) =
 }));
 const ListenerBindingRenderer = /* @__PURE__ */ renderer(class ListenerBindingRenderer2 {
   constructor() {
-    this.target = InstructionType.listenerBinding;
+    this.target = itListenerBinding;
     this._modifierHandler = resolve(IEventModifier);
     this._defaultOptions = resolve(IListenerBindingOptions);
     ListenerBinding.mix();
@@ -14023,7 +13315,7 @@ const ListenerBindingRenderer = /* @__PURE__ */ renderer(class ListenerBindingRe
 });
 const SetAttributeRenderer = /* @__PURE__ */ renderer(class SetAttributeRenderer2 {
   constructor() {
-    this.target = InstructionType.setAttribute;
+    this.target = itSetAttribute;
   }
   render(_, target, instruction) {
     target.setAttribute(instruction.to, instruction.value);
@@ -14031,7 +13323,7 @@ const SetAttributeRenderer = /* @__PURE__ */ renderer(class SetAttributeRenderer
 });
 const SetClassAttributeRenderer = /* @__PURE__ */ renderer(class SetClassAttributeRenderer2 {
   constructor() {
-    this.target = InstructionType.setClassAttribute;
+    this.target = itSetClassAttribute;
   }
   render(_, target, instruction) {
     addClasses(target.classList, instruction.value);
@@ -14039,7 +13331,7 @@ const SetClassAttributeRenderer = /* @__PURE__ */ renderer(class SetClassAttribu
 });
 const SetStyleAttributeRenderer = /* @__PURE__ */ renderer(class SetStyleAttributeRenderer2 {
   constructor() {
-    this.target = InstructionType.setStyleAttribute;
+    this.target = itSetStyleAttribute;
   }
   render(_, target, instruction) {
     target.style.cssText += instruction.value;
@@ -14070,7 +13362,7 @@ const ambiguousStyles = [
 ];
 const StylePropertyBindingRenderer = /* @__PURE__ */ renderer(class StylePropertyBindingRenderer2 {
   constructor() {
-    this.target = InstructionType.stylePropertyBinding;
+    this.target = itStylePropertyBinding;
     PropertyBinding.mix();
   }
   render(renderingCtrl, target, instruction, platform, exprParser, observerLocator) {
@@ -14093,7 +13385,7 @@ class DevStylePropertyBinding extends PropertyBinding {
 }
 const AttributeBindingRenderer = /* @__PURE__ */ renderer(class AttributeBindingRenderer2 {
   constructor() {
-    this.target = InstructionType.attributeBinding;
+    this.target = itAttributeBinding;
     AttributeBinding.mix();
   }
   render(renderingCtrl, target, instruction, platform, exprParser, observerLocator) {
@@ -14106,7 +13398,7 @@ const SpreadRenderer = /* @__PURE__ */ renderer(class SpreadRenderer2 {
   constructor() {
     this._compiler = resolve(ITemplateCompiler);
     this._rendering = resolve(IRendering);
-    this.target = InstructionType.spreadTransferedBinding;
+    this.target = itSpreadTransferedBinding;
   }
   render(renderingCtrl, target, instruction, platform, exprParser, observerLocator) {
     SpreadBinding.create(renderingCtrl.container.get(IHydrationContext), target, void 0, this._rendering, this._compiler, platform, exprParser, observerLocator).forEach((b) => renderingCtrl.addBinding(b));
@@ -14114,7 +13406,7 @@ const SpreadRenderer = /* @__PURE__ */ renderer(class SpreadRenderer2 {
 });
 const SpreadValueRenderer = /* @__PURE__ */ renderer(class SpreadValueRenderer2 {
   constructor() {
-    this.target = InstructionType.spreadValueBinding;
+    this.target = itSpreadValueBinding;
     SpreadValueBinding.mix();
   }
   render(renderingCtrl, target, instruction, platform, exprParser, observerLocator) {
@@ -14230,8 +13522,8 @@ class Rendering {
     const p = this._platform = ctn.get(IPlatform);
     this._exprParser = ctn.get(IExpressionParser);
     this._observerLocator = ctn.get(IObserverLocator);
-    this._marker = p.document.createElement("au-m");
     this._empty = new FragmentNodeSequence(p, p.document.createDocumentFragment());
+    this._preserveMarkers = ctn.has(ISSRContext, true) ? ctn.get(ISSRContext).preserveMarkers : false;
   }
   compile(definition, container) {
     const compiler = container.get(ITemplateCompiler);
@@ -14247,7 +13539,7 @@ class Rendering {
   }
   createNodes(definition) {
     if (definition.enhance === true) {
-      return new FragmentNodeSequence(this._platform, this._transformMarker(definition.template));
+      return new FragmentNodeSequence(this._platform, definition.template);
     }
     let fragment;
     let needsImportNode = false;
@@ -14276,23 +13568,34 @@ class Rendering {
         fragment = tpl.content;
         needsImportNode = true;
       }
-      this._transformMarker(fragment);
       cache2.set(definition, fragment);
     }
-    return fragment == null ? this._empty : new FragmentNodeSequence(this._platform, needsImportNode ? doc.importNode(fragment, true) : doc.adoptNode(fragment.cloneNode(true)));
+    if (fragment == null) {
+      return this._empty;
+    }
+    const clonedFragment = needsImportNode ? doc.importNode(fragment, true) : doc.adoptNode(fragment.cloneNode(true));
+    return new FragmentNodeSequence(this._platform, clonedFragment, this._preserveMarkers);
+  }
+  adoptNodes(host) {
+    return FragmentNodeSequence.adoptChildren(this._platform, host);
   }
   render(controller, targets, definition, host) {
     const rows = definition.instructions;
     const renderers = this.renderers;
-    const ii = targets.length;
+    const targetCount = targets.length;
+    const rowCount = rows.length;
+    const parentScope = controller.ssrScope;
+    const isHydrating = parentScope != null;
+    const scopeChildren = parentScope?.children;
+    let ssrChildIndex = 0;
     let i = 0;
     let j = 0;
-    let jj = rows.length;
+    let jj = rowCount;
     let row;
     let instruction;
     let target;
-    if (ii !== jj) {
-      throw createMappedError(757, ii, jj);
+    if (!isHydrating && targetCount !== rowCount) {
+      throw createMappedError(757, targetCount, rowCount);
     }
     if (host != null) {
       row = definition.surrogates;
@@ -14305,38 +13608,23 @@ class Rendering {
         }
       }
     }
-    if (ii > 0) {
-      while (ii > i) {
+    if (rowCount > 0) {
+      while (rowCount > i) {
         row = rows[i];
         target = targets[i];
         j = 0;
         jj = row.length;
         while (jj > j) {
           instruction = row[j];
-          renderers[instruction.type].render(controller, target, instruction, this._platform, this._exprParser, this._observerLocator);
+          const instructionType = instruction.type;
+          const createsChild = instructionType === itHydrateTemplateController || instructionType === itHydrateElement;
+          const childScope = createsChild && scopeChildren != null ? scopeChildren[ssrChildIndex++] : void 0;
+          renderers[instructionType].render(controller, target, instruction, this._platform, this._exprParser, this._observerLocator, childScope);
           ++j;
         }
         ++i;
       }
     }
-  }
-  /** @internal */
-  _transformMarker(fragment) {
-    if (fragment == null) {
-      return null;
-    }
-    const walker = this._platform.document.createTreeWalker(
-      fragment,
-      /* NodeFilter.SHOW_COMMENT */
-      128
-    );
-    let currentNode;
-    while ((currentNode = walker.nextNode()) != null) {
-      if (currentNode.nodeValue === "au*") {
-        currentNode.parentNode.replaceChild(walker.currentNode = this._marker.cloneNode(), currentNode);
-      }
-    }
-    return fragment;
   }
 }
 const IShadowDOMStyles = /* @__PURE__ */ createInterface("IShadowDOMStyles");
@@ -14398,7 +13686,10 @@ class ComputedWatcher {
     const obj = this.obj;
     const oldValue = this._value;
     if (++this._computeDepth > 100) {
-      throw new Error(`AURXXXX: Possible infinitely recursive side-effect detected in a watcher.`);
+      throw createMappedError(
+        655
+        /* ErrorNames.watcher_infinite_loop */
+      );
     }
     const newValue = this.compute();
     if (!areEqual(newValue, oldValue)) {
@@ -14543,7 +13834,6 @@ class Controller {
     this.parent = null;
     this.bindings = null;
     this.children = null;
-    this.hasLockedScope = false;
     this.scope = null;
     this.isBound = false;
     this._isBindingDone = false;
@@ -14588,7 +13878,7 @@ class Controller {
    *
    * Semi private API
    */
-  static $el(ctn, viewModel, host, hydrationInst, definition = void 0, location = null) {
+  static $el(ctn, viewModel, host, hydrationInst, definition = void 0, location = null, ssrScope = null) {
     if (controllerLookup.has(viewModel)) {
       return controllerLookup.get(viewModel);
     }
@@ -14625,6 +13915,9 @@ class Controller {
     }
     registerResolver(ctn, IHydrationContext, new InstanceProvider("IHydrationContext", new HydrationContext(controller, hydrationInst, hydrationContext)));
     controllerLookup.set(viewModel, controller);
+    if (ssrScope != null) {
+      controller.ssrScope = ssrScope;
+    }
     if (hydrationInst == null || hydrationInst.hydrate !== false) {
       controller._hydrateCustomElement(hydrationInst);
     }
@@ -14640,7 +13933,7 @@ class Controller {
    * @param definition - the definition of the custom attribute,
    * will be used to override the definition associated with the view model object contructor if given
    */
-  static $attr(ctn, viewModel, host, definition) {
+  static $attr(ctn, viewModel, host, definition, ssrScope) {
     if (controllerLookup.has(viewModel)) {
       return controllerLookup.get(viewModel);
     }
@@ -14666,6 +13959,9 @@ class Controller {
       ctn.register(...definition.dependencies);
     }
     controllerLookup.set(viewModel, controller);
+    if (ssrScope != null) {
+      controller.ssrScope = ssrScope;
+    }
     controller._hydrateCustomAttribute();
     return controller;
   }
@@ -14675,10 +13971,44 @@ class Controller {
    * @param viewFactory - todo(comment)
    * @param flags - todo(comment)
    * @param parentController - the parent controller to connect the created view with. Used in activation
+   * @param host - when it's desirable to associate a synthetic view with a host node during hydration,
+   * it's possible to do so if a host is given here.
    *
    * Semi private API
    */
-  static $view(viewFactory, parentController = void 0) {
+  static $view(viewFactory, parentController = void 0, host = null) {
+    const controller = new Controller(
+      /* container      */
+      viewFactory.container,
+      /* vmKind         */
+      vmkSynth,
+      /* definition     */
+      null,
+      /* viewFactory    */
+      viewFactory,
+      /* viewModel      */
+      null,
+      /* host           */
+      host,
+      /* location       */
+      null
+    );
+    controller.parent = parentController ?? null;
+    controller._hydrateSynthetic();
+    return controller;
+  }
+  /**
+   * Create a synthetic view (controller) that adopts existing DOM nodes.
+   *
+   * Used for SSR hydration of template controller views. Instead of cloning
+   * from a template, the view wraps pre-existing DOM nodes.
+   *
+   * @param viewFactory - The view factory
+   * @param parentController - Parent controller
+   * @param adoptedNodes - Pre-existing DOM nodes to adopt
+   * @param ssrScope - SSR manifest scope for nested hydration
+   */
+  static $viewAdopted(viewFactory, parentController, adoptedNodes, ssrScope) {
     const controller = new Controller(
       /* container      */
       viewFactory.container,
@@ -14696,7 +14026,10 @@ class Controller {
       null
     );
     controller.parent = parentController ?? null;
-    controller._hydrateSynthetic();
+    if (ssrScope != null) {
+      controller.ssrScope = ssrScope;
+    }
+    controller._hydrateSyntheticAdopted(adoptedNodes);
     return controller;
   }
   /** @internal */
@@ -14769,7 +14102,11 @@ class Controller {
       this.mountTarget = targetHost;
     }
     this._vm.$controller = this;
-    this.nodes = this._rendering.createNodes(compiledDef);
+    if (this.ssrScope != null) {
+      this.nodes = this._rendering.adoptNodes(host);
+    } else {
+      this.nodes = this._rendering.createNodes(compiledDef);
+    }
     if (this._lifecycleHooks.hydrated !== void 0) {
       this._lifecycleHooks.hydrated.forEach(callHydratedHook, this);
     }
@@ -14782,11 +14119,12 @@ class Controller {
   }
   /** @internal */
   _hydrateChildren() {
+    const targets = this.nodes.findTargets();
     this._rendering.render(
       /* controller */
       this,
       /* targets    */
-      this.nodes.findTargets(),
+      targets,
       /* definition */
       this._compiledDef,
       /* host       */
@@ -14833,7 +14171,31 @@ class Controller {
       /* definition */
       this._compiledDef,
       /* host       */
-      void 0
+      this.host
+    );
+  }
+  /**
+   * Hydrate a synthetic view with adopted DOM nodes (for SSR hydration).
+   *
+   * Instead of creating nodes by cloning, this uses pre-existing DOM nodes
+   * that were rendered by the server. The targets are collected from the
+   * adopted nodes and bindings are applied to them.
+   *
+   * @internal
+   */
+  _hydrateSyntheticAdopted(adoptedNodes) {
+    this._compiledDef = this._rendering.compile(this.viewFactory.def, this.container);
+    this.nodes = adoptedNodes;
+    const targets = adoptedNodes.findTargets();
+    this._rendering.render(
+      /* controller */
+      this,
+      /* targets    */
+      targets,
+      /* definition */
+      this._compiledDef,
+      /* host       */
+      this.host
     );
   }
   activate(initiator, parent, scope) {
@@ -14843,6 +14205,18 @@ class Controller {
         if (!(parent === null || parent.isActive)) {
           return;
         }
+        this.state = activating;
+        break;
+      case deactivating:
+        if (!(parent === null || parent.isActive)) {
+          return;
+        }
+        this._isBindingDone = false;
+        this.isBound = false;
+        this.head = this.tail = this.next = null;
+        this._activatingStack = 0;
+        this._detachingStack = 0;
+        this._unbindingStack = 0;
         this.state = activating;
         break;
       case activated:
@@ -14868,9 +14242,7 @@ class Controller {
         if (scope === void 0 || scope === null) {
           throw createMappedError(504, this.name);
         }
-        if (!this.hasLockedScope) {
-          this.scope = scope;
-        }
+        this.scope = scope;
         break;
     }
     this.$initiator = initiator;
@@ -15028,10 +14400,12 @@ class Controller {
         this.state = deactivating;
         prevActivation = this.$promise?.catch(
           (err) => {
-            this.logger.warn("The activation error will be ignored, as the controller is already scheduled for deactivation. The activation was rejected with: %s", err);
+            this.logger?.warn("The activation error will be ignored, as the controller is already scheduled for deactivation. The activation was rejected with: %s", err);
           }
         );
         break;
+      case deactivating:
+        return this.$promise;
       case none:
       case deactivated:
       case disposed:
@@ -15046,6 +14420,11 @@ class Controller {
     this.$initiator = initiator;
     if (initiator === this) {
       this._enterDetaching();
+    }
+    const asyncPrevActivation = isPromise(prevActivation) && initiator !== this;
+    if (asyncPrevActivation) {
+      initiator._ensurePromise();
+      initiator._enterDetaching();
     }
     let i = 0;
     let ret;
@@ -15085,6 +14464,9 @@ class Controller {
       }
       initiator.tail = this;
       if (initiator !== this) {
+        if (asyncPrevActivation) {
+          initiator._leaveDetaching();
+        }
         return;
       }
       this._leaveDetaching();
@@ -15115,9 +14497,7 @@ class Controller {
         this.scope = null;
         break;
       case vmkSynth:
-        if (!this.hasLockedScope) {
-          this.scope = null;
-        }
+        this.scope = null;
         if ((this.state & released) === released && !this.viewFactory.tryReturnToCache(this) && this.$initiator === this) {
           this.dispose();
         }
@@ -15311,10 +14691,6 @@ class Controller {
         return this.viewFactory.name === name2;
     }
   }
-  lockScope(scope) {
-    this.scope = scope;
-    this.hasLockedScope = true;
-  }
   setHost(host) {
     if (this.vmKind === vmkCe) {
       setRef(host, elementBaseName, this);
@@ -15448,7 +14824,7 @@ function createObservers(controller, definition, instance) {
         throw createMappedError(507, name2);
       }
     }
-    if (instance[handler] != null || instance.propertyChanged != null || hasAggregatedCallbacks) {
+    if (handler in instance || instance.propertyChanged != null || hasAggregatedCallbacks) {
       const callback = (newValue, oldValue) => {
         if (controller.isBound) {
           instance[handler]?.(newValue, oldValue);
@@ -15466,7 +14842,7 @@ const AccessScopeAstMap = /* @__PURE__ */ new Map();
 const getAccessScopeAst = (key) => {
   let ast = AccessScopeAstMap.get(key);
   if (ast == null) {
-    ast = new AccessScopeExpression(key, 0);
+    ast = createAccessScopeExpression(key, 0);
     AccessScopeAstMap.set(key, ast);
   }
   return ast;
@@ -15663,6 +15039,54 @@ function convertToRenderLocation(node) {
 function isRenderLocation(node) {
   return node.textContent === "au-end";
 }
+function findMatchingEndMarker(startMarker) {
+  let depth = 1;
+  let current = startMarker.nextSibling;
+  while (current !== null) {
+    if (current.nodeType === 8) {
+      const text = current.textContent;
+      if (text === "au-start") {
+        depth++;
+      } else if (text === "au-end") {
+        if (--depth === 0) {
+          return current;
+        }
+      }
+    }
+    current = current.nextSibling;
+  }
+  return null;
+}
+function partitionSiblingNodes(location, nodeCounts) {
+  const endMarker = location;
+  const startMarker = location.$start;
+  if (startMarker == null) {
+    return [];
+  }
+  const partitions = [];
+  let current = startMarker.nextSibling;
+  for (let i = 0, ii = nodeCounts.length; ii > i; ++i) {
+    const count = nodeCounts[i];
+    const nodes = [];
+    for (let n = 0; n < count && current != null && current !== endMarker; ++n) {
+      nodes.push(current);
+      current = current.nextSibling;
+    }
+    partitions.push(nodes);
+  }
+  return partitions;
+}
+function collectMarkerComments(fragment) {
+  const markers = [];
+  const walker = fragment.ownerDocument.createTreeWalker(fragment, 128);
+  let node;
+  while ((node = walker.nextNode()) !== null) {
+    if (node.textContent === "au") {
+      markers.push(node);
+    }
+  }
+  return markers;
+}
 class FragmentNodeSequence {
   get firstChild() {
     return this._firstChild;
@@ -15670,25 +15094,28 @@ class FragmentNodeSequence {
   get lastChild() {
     return this._lastChild;
   }
-  constructor(platform, fragment) {
+  constructor(platform, fragment, preserveMarkers) {
     this.platform = platform;
     this.next = void 0;
     this._isMounted = false;
     this._isLinked = false;
     this.ref = null;
-    const targetNodeList = (this.f = fragment).querySelectorAll("au-m");
+    const markers = collectMarkerComments(this.f = fragment);
     let i = 0;
-    let ii = targetNodeList.length;
+    let ii = markers.length;
     let targets = this.t = Array(ii);
     let target;
     let marker;
     while (ii > i) {
-      marker = targetNodeList[i];
+      marker = markers[i];
       target = marker.nextSibling;
-      marker.remove();
+      if (!preserveMarkers) {
+        marker.remove();
+      }
       if (target.nodeType === 8) {
-        marker = target;
-        (target = target.nextSibling).$start = marker;
+        const startMarker = target;
+        target = target.nextSibling;
+        target.$start = startMarker;
       }
       targets[i] = target;
       ++i;
@@ -15702,6 +15129,159 @@ class FragmentNodeSequence {
     }
     this._firstChild = fragment.firstChild;
     this._lastChild = fragment.lastChild;
+  }
+  /** Adopt existing DOM children for SSR hydration instead of cloning from a template. */
+  static adoptChildren(platform, host) {
+    const fragment = platform.document.createDocumentFragment();
+    const seq = new FragmentNodeSequence(platform, fragment);
+    const children = host.childNodes;
+    const childArray = Array(children.length);
+    for (let i = 0, ii = children.length; ii > i; ++i) {
+      childArray[i] = children[i];
+    }
+    seq.childNodes = childArray;
+    seq._firstChild = childArray[0] ?? null;
+    seq._lastChild = childArray[childArray.length - 1] ?? null;
+    seq._isMounted = true;
+    seq.t = seq._collectTargetsFromHost(host);
+    return seq;
+  }
+  /** Adopt sibling nodes for SSR hydration of TC views (nodes between au-start/au-end). */
+  static adoptSiblings(platform, nodes) {
+    const fragment = platform.document.createDocumentFragment();
+    const seq = new FragmentNodeSequence(platform, fragment);
+    seq.childNodes = nodes;
+    seq._firstChild = nodes[0] ?? null;
+    seq._lastChild = nodes[nodes.length - 1] ?? null;
+    seq._isMounted = true;
+    seq.t = seq._collectTargetsFromSiblings(nodes);
+    return seq;
+  }
+  /** @internal */
+  _collectTargetsFromSiblings(nodes) {
+    const targets = [];
+    const markers = [];
+    const collectFromChildren = (nodeList) => {
+      let skipDepth = 0;
+      for (let i = 0, ii = nodeList.length; ii > i; ++i) {
+        const node = nodeList[i];
+        if (node.nodeType === 8) {
+          const text = node.textContent;
+          if (text === "au") {
+            if (skipDepth === 0) {
+              markers.push(node);
+            }
+            continue;
+          } else if (text === "au-start") {
+            skipDepth++;
+            continue;
+          } else if (text === "au-end") {
+            skipDepth--;
+            continue;
+          }
+        }
+        if (skipDepth > 0)
+          continue;
+        if (node.nodeType === 1) {
+          const el = node;
+          if (el.tagName.includes("-")) {
+            continue;
+          }
+          collectFromChildren(el.childNodes);
+        }
+      }
+    };
+    for (let i = 0, ii = nodes.length; ii > i; ++i) {
+      const node = nodes[i];
+      if (node.nodeType === 8 && node.textContent === "au") {
+        markers.push(node);
+      } else if (node.nodeType === 1) {
+        const el = node;
+        if (!el.tagName.includes("-")) {
+          collectFromChildren(el.childNodes);
+        }
+      }
+    }
+    for (let i = 0, ii = markers.length; ii > i; ++i) {
+      const marker = markers[i];
+      let target = marker.nextSibling;
+      if (target.nodeType === 8 && target.textContent === "au-start") {
+        const startMarker = target;
+        const endMarker = findMatchingEndMarker(target);
+        if (endMarker !== null) {
+          target = endMarker;
+          target.$start = startMarker;
+        }
+      }
+      targets[i] = target;
+    }
+    return targets;
+  }
+  /**
+   * Collect targets from existing DOM for SSR adoption.
+   *
+   * Uses `<!--au-->` markers with implicit indexing (document order).
+   * Unlike the constructor, this preserves markers because nested components
+   * still need them for their own hydration.
+   *
+   * IMPORTANT: Only collects markers at the current template level.
+   * Markers inside au-start/au-end regions belong to nested templates
+   * and are NOT collected here - they'll be collected when the nested
+   * template controller processes its own view.
+   *
+   * @param host - The element whose children contain the targets
+   * @returns Array of target nodes in document order
+   *
+   * @internal
+   */
+  _collectTargetsFromHost(host) {
+    const targets = [];
+    const markers = [];
+    const collectSiblings = (nodeList) => {
+      let skipDepth = 0;
+      for (let i = 0, ii = nodeList.length; ii > i; ++i) {
+        const node = nodeList[i];
+        if (node.nodeType === 8) {
+          const text = node.textContent;
+          if (text === "au") {
+            if (skipDepth === 0) {
+              markers.push(node);
+            }
+            continue;
+          } else if (text === "au-start") {
+            skipDepth++;
+            continue;
+          } else if (text === "au-end") {
+            skipDepth--;
+            continue;
+          }
+        }
+        if (skipDepth > 0)
+          continue;
+        if (node.nodeType === 1) {
+          const el = node;
+          if (el.tagName.includes("-")) {
+            continue;
+          }
+          collectSiblings(el.childNodes);
+        }
+      }
+    };
+    collectSiblings(host.childNodes);
+    for (let i = 0, ii = markers.length; ii > i; ++i) {
+      const marker = markers[i];
+      let target = marker.nextSibling;
+      if (target.nodeType === 8 && target.textContent === "au-start") {
+        const startMarker = target;
+        const endMarker = findMatchingEndMarker(target);
+        if (endMarker !== null) {
+          target = endMarker;
+          target.$start = startMarker;
+        }
+      }
+      targets[i] = target;
+    }
+    return targets;
   }
   findTargets() {
     return this.t;
@@ -15917,7 +15497,7 @@ class CustomElementDefinition {
       console.warn(createMappedError(153, this.name));
       return;
     }
-    container.register(container.has($Type, false) ? null : singletonRegistration($Type, $Type), aliasRegistration($Type, key), ...aliases.map((alias) => aliasRegistration($Type, getElementKeyFrom(alias))));
+    container.register(singletonRegistration(key, $Type), ...aliases.map((alias) => aliasRegistration(key, getElementKeyFrom(alias))));
   }
   toString() {
     return `au:ce:${this.name}`;
@@ -15936,7 +15516,7 @@ const returnEmptyArray = () => emptyArray;
 const elementTypeName = "custom-element";
 const elementBaseName = /* @__PURE__ */ getResourceKeyFor(elementTypeName);
 const getElementKeyFrom = (name2) => `${elementBaseName}:${name2}`;
-const generateElementName = /* @__PURE__ */ ((id2) => () => `unnamed-${++id2}`)(0);
+const generateElementName = /* @__PURE__ */ ((id) => () => `unnamed-${++id}`)(0);
 const annotateElementMetadata = (Type, prop, value) => {
   defineMetadata(value, Type, getAnnotationKeyFor(prop));
 };
@@ -16049,6 +15629,10 @@ const generateElementType = /* @__PURE__ */ (function() {
     return Type;
   };
 })();
+const clearElementDefinition = (Type) => {
+  clearMetadata(Type, elementBaseName);
+  clearStaticAuDefinition(Type);
+};
 const CustomElement = /* @__PURE__ */ objectFreeze({
   name: elementBaseName,
   keyFrom: getElementKeyFrom,
@@ -16064,7 +15648,8 @@ const CustomElement = /* @__PURE__ */ objectFreeze({
   find(c, name2) {
     const Type = c.find(elementTypeName, name2);
     return Type == null ? null : getMetadata(elementBaseName, Type) ?? getDefinitionFromStaticAu(Type, elementTypeName, CustomElementDefinition.create) ?? null;
-  }
+  },
+  clearDefinition: clearElementDefinition
 });
 const IAppRoot = /* @__PURE__ */ createInterface("IAppRoot");
 class AppRoot {
@@ -16098,9 +15683,22 @@ class AppRoot {
       } else {
         instance = config.component;
       }
-      const hydrationInst = { hydrate: false, projections: null };
+      const hydrationInst = {
+        hydrate: false,
+        projections: null
+      };
       const definition = enhance ? CustomElementDefinition.create({ name: generateElementName(), template: this.host, enhance: true, strict: config.strictBinding }) : void 0;
-      const controller = this._controller = Controller.$el(childCtn, instance, host, hydrationInst, definition);
+      const controller = this._controller = Controller.$el(
+        childCtn,
+        instance,
+        host,
+        hydrationInst,
+        definition,
+        /* location  */
+        null,
+        /* ssrScope  */
+        config.ssrScope
+      );
       controller._hydrateCustomElement(hydrationInst);
       return onResolve(this._runAppTasks("hydrating"), () => {
         controller._hydrate();
@@ -16218,10 +15816,36 @@ let Aurelia$1 = class Aurelia {
     const appRoot = new AppRoot({ host: config.host, component: config.component }, container, rootProvider, true);
     return onResolve(appRoot.activate(), () => appRoot);
   }
-  async waitForIdle() {
-    const platform = this.root.platform;
-    await platform.domQueue.yield();
-    await platform.taskQueue.yield();
+  /**
+   * Hydrate a pre-rendered DOM tree with an Aurelia component.
+   *
+   * Unlike `enhance()`, which compiles the host element as a template,
+   * `hydrate()` adopts existing DOM that was pre-rendered (e.g., by SSR)
+   * and connects it to a component that has an AOT-compiled definition.
+   *
+   * The component's definition (with instructions) should already be attached
+   * to the component class - either via decorator or static `$au` property.
+   * This is what AOT compilation produces.
+   *
+   * @param config - Hydration configuration including host, component, and ssrScope
+   * @returns The app root, or a promise that resolves to it
+   *
+   * @example
+   * ```typescript
+   * // Server renders HTML with markers and manifest
+   * // Client receives pre-rendered HTML in #app and manifest in window.__SSR_MANIFEST__
+   *
+   * await aurelia.hydrate({
+   *   host: document.getElementById('app'),
+   *   component: MyApp,  // Has AOT-compiled definition
+   *   ssrScope: window.__SSR_MANIFEST__,
+   * });
+   * ```
+   */
+  hydrate(config) {
+    const container = config.container ?? this.container.createChild();
+    const appRoot = new AppRoot({ host: config.host, component: config.component, ssrScope: config.ssrScope }, container, this._rootProvider, false);
+    return onResolve(appRoot.activate(), () => appRoot);
   }
   start(root = this.next) {
     if (root == null) {
@@ -16452,25 +16076,21 @@ class ResourceResolver {
       const attrs = createLookup$1();
       let bindable2;
       let prop;
-      let hasPrimary = false;
       let primary;
       let attr;
+      const isCustomAttribute = def2.type === "custom-attribute";
+      const defaultProperty = isCustomAttribute ? def2.defaultProperty : null;
       for (prop in bindables2) {
         bindable2 = bindables2[prop];
         attr = bindable2.attribute;
-        if (bindable2.primary === true) {
-          if (hasPrimary) {
-            throw createMappedError(714, def2);
-          }
-          hasPrimary = true;
-          primary = bindable2;
-        } else if (!hasPrimary && primary == null) {
+        if (defaultProperty != null && prop === defaultProperty) {
           primary = bindable2;
         }
         attrs[attr] = BindableDefinition.create(prop, bindable2);
       }
-      if (bindable2 == null && def2.type === "custom-attribute") {
-        primary = attrs.value = BindableDefinition.create("value", { mode: def2.defaultBindingMode ?? defaultMode });
+      if (isCustomAttribute && primary == null) {
+        const defaultProp = defaultProperty;
+        primary = attrs[defaultProp] = BindableDefinition.create(defaultProp);
       }
       this._bindableCache.set(def2, info2 = new BindablesInfo(attrs, bindables2, primary ?? null));
     }
@@ -17055,7 +16675,7 @@ class NodeObserverLocator {
       case "popovertargetaction":
         {
           if ((key === "popovertarget" || key === "popovertargetaction") && obj.nodeName !== "INPUT" && obj.nodeName !== "BUTTON") {
-            console.warn(`[aurelia] Popover API are only valid on <input> or <button>. Detected ${key} on <${obj.nodeName.toLowerCase()}>`);
+            console.warn(`[DEV:aurelia] Popover API are only valid on <input> or <button>. Detected ${key} on <${obj.nodeName.toLowerCase()}>`);
           }
         }
         return attrAccessor;
@@ -17397,8 +17017,13 @@ class If {
     this._swapId = 0;
     this._ifFactory = resolve(IViewFactory);
     this._location = resolve(IRenderLocation);
+    this._platform = resolve(IPlatform);
   }
   attaching(_initiator, _parent) {
+    const ssrScope = this.$controller.ssrScope;
+    if (ssrScope != null && isSSRTemplateController(ssrScope) && ssrScope.type === "if") {
+      return this._hydrateView(ssrScope);
+    }
     return this._swap(this.value);
   }
   detaching(initiator, _parent) {
@@ -17424,25 +17049,59 @@ class If {
     const swapId = this._swapId++;
     const isCurrent = () => !this._wantsDeactivate && this._swapId === swapId + 1;
     let view;
-    return onResolve(this.pending, () => this.pending = onResolve(currView?.deactivate(currView, ctrl), () => {
+    return onResolve(this.pending, () => this.pending = onResolve(currView?.isActive ? currView.deactivate(currView, ctrl) : void 0, () => {
       if (!isCurrent()) {
         return;
       }
       if (value) {
-        view = this.view = this.ifView = this.cache && this.ifView != null ? this.ifView : this._ifFactory.create();
+        view = this.view = this.ifView = this.cache && this.ifView != null ? this.ifView : this._ifFactory.create(ctrl);
       } else {
-        view = this.view = this.elseView = this.cache && this.elseView != null ? this.elseView : this.elseFactory?.create();
+        view = this.view = this.elseView = this.cache && this.elseView != null ? this.elseView : this.elseFactory?.create(ctrl);
       }
       if (view == null) {
         return;
       }
       view.setLocation(this._location);
-      return onResolve(view.activate(view, ctrl, ctrl.scope), () => {
-        if (isCurrent()) {
-          this.pending = void 0;
-        }
-      });
+      const ret = view.activate(view, ctrl, ctrl.scope);
+      if (ret instanceof Promise) {
+        return ret.then(() => {
+          if (isCurrent()) {
+            this.pending = void 0;
+          }
+        }, () => {
+          if (isCurrent()) {
+            this.pending = void 0;
+          }
+          void view.deactivate(view, ctrl);
+        });
+      }
+      if (isCurrent()) {
+        this.pending = void 0;
+      }
     }));
+  }
+  /** @internal SSR hydration: adopt existing DOM instead of creating new views. */
+  _hydrateView(ssrScope) {
+    const ctrl = this.$controller;
+    const wasIfBranch = ssrScope.state?.value === true;
+    const factory = wasIfBranch ? this._ifFactory : this.elseFactory;
+    if (factory == null || ssrScope.views.length === 0) {
+      ctrl.ssrScope = void 0;
+      return;
+    }
+    const result = adoptSSRView(ssrScope, factory, ctrl, this._location, this._platform);
+    if (result == null) {
+      ctrl.ssrScope = void 0;
+      return;
+    }
+    const { view } = result;
+    if (wasIfBranch) {
+      this.view = this.ifView = view;
+    } else {
+      this.view = this.elseView = view;
+    }
+    ctrl.ssrScope = void 0;
+    return view.activate(view, ctrl, ctrl.scope);
   }
   dispose() {
     this.ifView?.dispose();
@@ -17501,6 +17160,7 @@ class Repeat {
   constructor() {
     this.views = [];
     this.key = null;
+    this.contextual = true;
     this._oldViews = [];
     this._scopes = [];
     this._oldScopes = [];
@@ -17511,21 +17171,32 @@ class Repeat {
     this._innerItemsExpression = null;
     this._normalizedItems = void 0;
     this._hasDestructuredLocal = false;
+    this._hasAdoptedViews = false;
     this._location = resolve(IRenderLocation);
     this._parent = resolve(IController);
     this._factory = resolve(IViewFactory);
     this._resolver = resolve(IRepeatableHandlerResolver);
+    this._platform = resolve(IPlatform);
     const instruction = resolve(IInstruction);
-    const keyProp = instruction.props[0].props[0];
-    if (keyProp !== void 0) {
-      const { to, value, command } = keyProp;
+    const iteratorProps = instruction.props[0].props;
+    for (let i = 0, ii = iteratorProps.length; i < ii; ++i) {
+      const prop = iteratorProps[i];
+      const { to, value, command } = prop;
       if (to === "key") {
         if (command === null) {
           this.key = value;
         } else if (command === "bind") {
-          this.key = resolve(IExpressionParser).parse(value, etIsProperty);
+          this.key = typeof value === "string" ? resolve(IExpressionParser).parse(value, etIsProperty) : value;
         } else {
           throw createMappedError(775, command);
+        }
+      } else if (to === "contextual") {
+        if (command === null) {
+          this.contextual = value === "false" ? false : !!value;
+        } else if (command === "bind") {
+          this._contextualExpr = typeof value === "string" ? resolve(IExpressionParser).parse(value, etIsProperty) : value;
+        } else {
+          throw createMappedError(821, command);
         }
       } else {
         throw createMappedError(776, to);
@@ -17557,6 +17228,10 @@ class Repeat {
     if (!(this._hasDestructuredLocal = dec.$kind === "ArrayDestructuring" || dec.$kind === "ObjectDestructuring")) {
       this.local = astEvaluate(dec, this.$controller.scope, binding, null);
     }
+    if (this._contextualExpr !== void 0) {
+      const result = astEvaluate(this._contextualExpr, this.$controller.scope, binding, null);
+      this.contextual = result != null && result !== false;
+    }
   }
   attaching(initiator, _parent) {
     this._normalizeToArray();
@@ -17565,7 +17240,13 @@ class Repeat {
   }
   detaching(initiator, _parent) {
     this._refreshCollectionObserver();
-    return this._deactivateAllViews(initiator);
+    const skipCache = this._hasAdoptedViews;
+    this._hasAdoptedViews = false;
+    const result = this._deactivateAllViews(initiator, skipCache);
+    if (skipCache) {
+      this.views = [];
+    }
+    return result;
   }
   unbinding(_initiator, _parent) {
     this._scopeMap.clear();
@@ -17603,61 +17284,42 @@ class Repeat {
     const oldViews = this.views;
     this._oldViews = oldViews.slice();
     const oldLen = oldViews.length;
-    const key = this.key;
-    const hasKey = key !== null;
+    const hasKey = this.key !== null;
     const oldScopes = this._oldScopes;
     const newScopes = this._scopes;
     if (hasKey || indexMap === void 0) {
       const local = this.local;
-      const newItems = this._normalizedItems;
-      const newLen = newItems.length;
-      const forOf = this.forOf;
-      const dec = forOf.declaration;
+      const dec = this.forOf.declaration;
       const binding = this._forOfBinding;
       const hasDestructuredLocal = this._hasDestructuredLocal;
+      const newLen = newScopes.length;
       indexMap = createIndexMap(newLen);
-      let i = 0;
       if (oldLen === 0) {
-        for (; i < newLen; ++i) {
+        for (let i = 0; i < newLen; ++i) {
           indexMap[i] = -2;
         }
       } else if (newLen === 0) {
-        for (i = 0; i < oldLen; ++i) {
+        for (let i = 0; i < oldLen; ++i) {
           indexMap.deletedIndices.push(i);
           indexMap.deletedItems.push(getItem(hasDestructuredLocal, dec, oldScopes[i], binding, local));
         }
-      } else if (hasKey) {
-        const oldKeys = Array(oldLen);
-        for (i = 0; i < oldLen; ++i) {
-          oldKeys[i] = getKeyValue(hasDestructuredLocal, key, dec, oldScopes[i], binding, local);
-        }
-        const newKeys = Array(oldLen);
-        for (i = 0; i < newLen; ++i) {
-          newKeys[i] = getKeyValue(hasDestructuredLocal, key, dec, newScopes[i], binding, local);
-        }
-        for (i = 0; i < newLen; ++i) {
-          if (oldKeys.includes(newKeys[i])) {
-            indexMap[i] = oldKeys.indexOf(newKeys[i]);
-          } else {
-            indexMap[i] = -2;
-          }
-        }
-        for (i = 0; i < oldLen; ++i) {
-          if (!newKeys.includes(oldKeys[i])) {
-            indexMap.deletedIndices.push(i);
-            indexMap.deletedItems.push(getItem(hasDestructuredLocal, dec, oldScopes[i], binding, local));
-          }
-        }
       } else {
-        for (i = 0; i < newLen; ++i) {
-          if (oldScopes.includes(newScopes[i])) {
-            indexMap[i] = oldScopes.indexOf(newScopes[i]);
+        const oldScopeToIndex = /* @__PURE__ */ new Map();
+        for (let i = 0; i < oldLen; ++i) {
+          oldScopeToIndex.set(oldScopes[i], i);
+        }
+        const usedOldIndices = /* @__PURE__ */ new Set();
+        for (let i = 0; i < newLen; ++i) {
+          const oldIdx = oldScopeToIndex.get(newScopes[i]);
+          if (oldIdx !== void 0) {
+            indexMap[i] = oldIdx;
+            usedOldIndices.add(oldIdx);
           } else {
             indexMap[i] = -2;
           }
         }
-        for (i = 0; i < oldLen; ++i) {
-          if (!newScopes.includes(oldScopes[i])) {
+        for (let i = 0; i < oldLen; ++i) {
+          if (!usedOldIndices.has(i)) {
             indexMap.deletedIndices.push(i);
             indexMap.deletedItems.push(getItem(hasDestructuredLocal, dec, oldScopes[i], binding, local));
           }
@@ -17705,7 +17367,7 @@ class Repeat {
     this._oldScopes = oldScopes.slice();
     const items = this._normalizedItems;
     const len = items.length;
-    const scopes = this._scopes = Array(items.length);
+    const scopes = this._scopes = Array(len);
     const oldScopeMap = this._scopeMap;
     const newScopeMap = /* @__PURE__ */ new Map();
     const parentScope = this.$controller.scope;
@@ -17767,19 +17429,54 @@ class Repeat {
   }
   /** @internal */
   _activateAllViews(initiator, $items) {
+    const ssrScope = this.$controller.ssrScope;
+    if (ssrScope != null && isSSRTemplateController(ssrScope) && ssrScope.type === "repeat") {
+      return this._hydrateViews(initiator, $items, ssrScope);
+    }
+    return this._activateAllViewsFresh(initiator, $items);
+  }
+  /** @internal SSR hydration: adopt existing DOM nodes instead of creating new ones. */
+  _hydrateViews(initiator, $items, ssrScope) {
+    const { $controller, _factory, _location, _scopes, _platform } = this;
+    const newLen = $items.length;
+    const { views: adoptedViews } = adoptSSRViews(ssrScope, _factory, $controller, _location, _platform);
+    if (adoptedViews.length === 0) {
+      $controller.ssrScope = void 0;
+      return this._activateAllViewsFresh(initiator, $items);
+    }
+    this._hasAdoptedViews = true;
+    this.views = adoptedViews;
     let promises = void 0;
-    let ret;
-    let view;
-    let scope;
+    for (let i = 0; i < newLen; ++i) {
+      const view = adoptedViews[i];
+      const scope = _scopes[i];
+      if (this.contextual) {
+        setContextualProperties(scope.overrideContext, i, newLen, $items);
+      }
+      const ret = view.activate(initiator ?? view, $controller, scope);
+      if (isPromise(ret)) {
+        (promises ??= []).push(ret);
+      }
+    }
+    $controller.ssrScope = void 0;
+    if (promises !== void 0) {
+      return promises.length === 1 ? promises[0] : Promise.all(promises);
+    }
+  }
+  /** @internal */
+  _activateAllViewsFresh(initiator, $items) {
     const { $controller, _factory, _location, _scopes } = this;
     const newLen = $items.length;
     const views = this.views = Array(newLen);
+    let promises = void 0;
     for (let i = 0; i < newLen; ++i) {
-      view = views[i] = _factory.create().setLocation(_location);
+      const view = views[i] = _factory.create($controller).setLocation(_location);
       view.nodes.unlink();
-      scope = _scopes[i];
-      setContextualProperties(scope.overrideContext, i, newLen);
-      ret = view.activate(initiator ?? view, $controller, scope);
+      const scope = _scopes[i];
+      if (this.contextual) {
+        setContextualProperties(scope.overrideContext, i, newLen, $items);
+      }
+      const ret = view.activate(initiator ?? view, $controller, scope);
       if (isPromise(ret)) {
         (promises ??= []).push(ret);
       }
@@ -17789,7 +17486,7 @@ class Repeat {
     }
   }
   /** @internal */
-  _deactivateAllViews(initiator) {
+  _deactivateAllViews(initiator, skipCache = false) {
     let promises = void 0;
     let ret;
     let view;
@@ -17798,7 +17495,9 @@ class Repeat {
     const ii = views.length;
     for (; ii > i; ++i) {
       view = views[i];
-      view.release();
+      if (!skipCache) {
+        view.release();
+      }
       ret = view.deactivate(initiator ?? view, $controller);
       if (isPromise(ret)) {
         (promises ?? (promises = [])).push(ret);
@@ -17843,7 +17542,7 @@ class Repeat {
     const newLen = indexMap.length;
     for (; newLen > i; ++i) {
       if (indexMap[i] === -2) {
-        view = _factory.create();
+        view = _factory.create($controller);
         views.splice(i, 0, view);
       }
     }
@@ -17865,20 +17564,20 @@ class Repeat {
     for (; i >= 0; --i) {
       view = views[i];
       next = views[i + 1];
+      if (this.contextual) {
+        setContextualProperties(_scopes[i].overrideContext, i, newLen, this._normalizedItems);
+      }
       if (indexMap[i] === -2) {
         view.nodes.link(next?.nodes ?? _location);
         view.setLocation(_location);
-        setContextualProperties(_scopes[i].overrideContext, i, newLen);
         ret = view.activate(view, $controller, _scopes[i]);
         if (isPromise(ret)) {
           (promises ?? (promises = [])).push(ret);
         }
       } else if (j < 0 || i !== seq[j]) {
         view.nodes.link(next?.nodes ?? _location);
-        setContextualProperties(view.scope.overrideContext, i, newLen);
         view.nodes.insertBefore(view.location);
       } else {
-        setContextualProperties(view.scope.overrideContext, i, newLen);
         --j;
       }
     }
@@ -17894,7 +17593,8 @@ class Repeat {
     const { views } = this;
     if (views !== void 0) {
       for (let i = 0, ii = views.length; i < ii; ++i) {
-        if (views[i].accept(visitor) === true) {
+        const result = views[i].accept(visitor);
+        if (result === true) {
           return true;
         }
       }
@@ -17905,6 +17605,7 @@ Repeat.$au = {
   type: attrTypeName,
   name: "repeat",
   isTemplateController: true,
+  defaultProperty: "items",
   bindables: ["items"]
 };
 let maxLen = 16;
@@ -17982,14 +17683,19 @@ class RepeatOverrideContext {
   get $last() {
     return this.$index === this.$length - 1;
   }
-  constructor($index2 = 0, $length2 = 1) {
+  get $previous() {
+    return this.__items__?.[this.$index - 1];
+  }
+  constructor($index2 = 0, $length2 = 1, __items__ = void 0) {
     this.$index = $index2;
     this.$length = $length2;
+    this.__items__ = __items__;
   }
 }
-const setContextualProperties = (oc, index, length) => {
+const setContextualProperties = (oc, index, length, items) => {
   oc.$index = index;
   oc.$length = length;
+  oc.__items__ = items;
 };
 const IRepeatableHandlerResolver = /* @__PURE__ */ createInterface("IRepeatableHandlerResolver", (x) => x.singleton(RepeatableHandlerResolver));
 class RepeatableHandlerResolver {
@@ -18092,13 +17798,6 @@ const setItem = (hasDestructuredLocal, dec, scope, binding, local, item) => {
 const getItem = (hasDestructuredLocal, dec, scope, binding, local) => {
   return hasDestructuredLocal ? astEvaluate(dec, scope, binding, null) : scope.bindingContext[local];
 };
-const getKeyValue = (hasDestructuredLocal, key, dec, scope, binding, local) => {
-  if (typeof key === "string") {
-    const item = getItem(hasDestructuredLocal, dec, scope, binding, local);
-    return item[key];
-  }
-  return astEvaluate(key, scope, binding, null);
-};
 const getScope = (oldScopeMap, newScopeMap, key, item, forOf, parentScope, binding, local, hasDestructuredLocal) => {
   let scope = oldScopeMap.get(key);
   if (scope === void 0) {
@@ -18128,13 +17827,16 @@ const createScope = (item, forOf, parentScope, binding, local, hasDestructuredLo
   if (hasDestructuredLocal) {
     const scope = Scope.fromParent(parentScope, new BindingContext(), new RepeatOverrideContext());
     astAssign(forOf.declaration, scope, binding, null, item);
+    return scope;
   }
   return Scope.fromParent(parentScope, new BindingContext(local, item), new RepeatOverrideContext());
 };
 const compareNumber = (a, b) => a - b;
 class With {
   constructor() {
-    this.view = resolve(IViewFactory).create().setLocation(resolve(IRenderLocation));
+    this._factory = resolve(IViewFactory);
+    this._location = resolve(IRenderLocation);
+    this._platform = resolve(IPlatform);
   }
   valueChanged(newValue, _oldValue) {
     const $controller = this.$controller;
@@ -18148,16 +17850,36 @@ class With {
       }
     }
   }
-  attaching(initiator, _parent) {
+  attaching(_initiator, _parent) {
     const { $controller, value } = this;
+    const ssrScope = $controller.ssrScope;
+    if (ssrScope != null && isSSRTemplateController(ssrScope) && ssrScope.type === "with") {
+      return this._hydrateView(ssrScope);
+    }
+    const view = this.view = this._factory.create($controller).setLocation(this._location);
     const scope = Scope.fromParent($controller.scope, value === void 0 ? {} : value);
-    return this.view.activate(initiator, $controller, scope);
+    return view.activate(view, $controller, scope);
+  }
+  /** @internal */
+  _hydrateView(ssrScope) {
+    const { $controller, value, _factory, _location, _platform } = this;
+    const result = adoptSSRView(ssrScope, _factory, $controller, _location, _platform);
+    if (result == null) {
+      $controller.ssrScope = void 0;
+      const view = this.view = _factory.create($controller).setLocation(_location);
+      const scope2 = Scope.fromParent($controller.scope, value === void 0 ? {} : value);
+      return view.activate(view, $controller, scope2);
+    }
+    this.view = result.view;
+    $controller.ssrScope = void 0;
+    const scope = Scope.fromParent($controller.scope, value === void 0 ? {} : value);
+    return result.view.activate(result.view, $controller, scope);
   }
   detaching(initiator, _parent) {
     return this.view.deactivate(initiator, this.$controller);
   }
   dispose() {
-    this.view.dispose();
+    this.view?.dispose();
     this.view = void 0;
   }
   accept(visitor) {
@@ -18179,13 +17901,30 @@ class Switch {
     this.promise = void 0;
     this._factory = resolve(IViewFactory);
     this._location = resolve(IRenderLocation);
+    this._platform = resolve(IPlatform);
   }
   link(_controller, _childController, _target, _instruction) {
+    const ssrScope = this.$controller.ssrScope;
+    if (ssrScope != null && isSSRTemplateController(ssrScope) && ssrScope.type === "switch") {
+      return;
+    }
     this.view = this._factory.create(this.$controller).setLocation(this._location);
   }
   attaching(initiator, _parent) {
-    const view = this.view;
+    let view = this.view;
     const $controller = this.$controller;
+    const ssrScope = $controller.ssrScope;
+    if (ssrScope != null && isSSRTemplateController(ssrScope) && ssrScope.type === "switch") {
+      const result = adoptSSRView(ssrScope, this._factory, $controller, this._location, this._platform);
+      if (result != null) {
+        view?.dispose();
+        view = this.view = result.view;
+      }
+      $controller.ssrScope = void 0;
+    }
+    if (view === void 0) {
+      view = this.view = this._factory.create(this.$controller).setLocation(this._location);
+    }
     this.queue(() => view.activate(initiator, $controller, $controller.scope));
     this.queue(() => this.swap(initiator, this.value));
     return this.promise;
@@ -18332,7 +18071,7 @@ Switch.$au = {
   bindables: ["value"]
 };
 let caseId = 0;
-const bindables$3 = [
+const bindables$5 = [
   "value",
   {
     name: "fallThrough",
@@ -18358,6 +18097,7 @@ class Case {
     this._factory = resolve(IViewFactory);
     this._locator = resolve(IObserverLocator);
     this._location = resolve(IRenderLocation);
+    this._platform = resolve(IPlatform);
     this._logger = resolve(ILogger).scopeTo(`Case-#${this.id}`);
   }
   link(controller, _childController, _target, _instruction) {
@@ -18377,7 +18117,9 @@ class Case {
     return this.deactivate(initiator);
   }
   isMatch(value) {
-    this._logger.debug("isMatch()");
+    {
+      this._logger.debug("isMatch()");
+    }
     const $value = this.value;
     if (isArray($value)) {
       if (this._observer === void 0) {
@@ -18402,12 +18144,27 @@ class Case {
   activate(initiator, scope) {
     let view = this.view;
     if (view === void 0) {
-      view = this.view = this._factory.create().setLocation(this._location);
+      const ssrScope = this.$controller.ssrScope;
+      if (ssrScope != null && isSSRTemplateController(ssrScope) && (ssrScope.type === "case" || ssrScope.type === "default-case")) {
+        const result = adoptSSRView(ssrScope, this._factory, this.$controller, this._location, this._platform);
+        if (result != null) {
+          view = this.view = result.view;
+        }
+        this.$controller.ssrScope = void 0;
+      }
+      if (view === void 0) {
+        view = this.view = this._factory.create(this.$controller).setLocation(this._location);
+      }
     }
     if (view.isActive) {
       return;
     }
-    return view.activate(initiator ?? view, this.$controller, scope);
+    const ret = view.activate(initiator ?? view, this.$controller, scope);
+    if (ret instanceof Promise) {
+      return ret.catch(() => {
+        return view.deactivate(view, this.$controller);
+      });
+    }
   }
   deactivate(initiator) {
     const view = this.view;
@@ -18438,7 +18195,7 @@ class Case {
   }
 }
 (() => {
-  defineAttribute({ name: "case", bindables: bindables$3, isTemplateController: true }, Case);
+  defineAttribute({ name: "case", bindables: bindables$5, isTemplateController: true }, Case);
 })();
 class DefaultCase extends Case {
   linkToSwitch($switch) {
@@ -18452,7 +18209,7 @@ class DefaultCase extends Case {
   }
 }
 (() => {
-  defineAttribute({ name: "default-case", bindables: bindables$3, isTemplateController: true }, DefaultCase);
+  defineAttribute({ name: "default-case", bindables: bindables$5, isTemplateController: true }, DefaultCase);
 })();
 var _a, _b, _c;
 class PromiseTemplateController {
@@ -18461,7 +18218,6 @@ class PromiseTemplateController {
     this.postSettledTask = null;
     this._factory = resolve(IViewFactory);
     this._location = resolve(IRenderLocation);
-    this._platform = resolve(IPlatform);
     this.logger = resolve(ILogger).scopeTo("promise.resolve");
   }
   link(_controller, _childController, _target, _instruction) {
@@ -18565,7 +18321,7 @@ class PendingTemplateController {
   activate(initiator, scope) {
     let view = this.view;
     if (view === void 0) {
-      view = this.view = this._factory.create().setLocation(this._location);
+      view = this.view = this._factory.create(this.$controller).setLocation(this._location);
     }
     if (view.isActive) {
       return;
@@ -18608,7 +18364,7 @@ class FulfilledTemplateController {
     this.value = resolvedValue;
     let view = this.view;
     if (view === void 0) {
-      view = this.view = this._factory.create().setLocation(this._location);
+      view = this.view = this._factory.create(this.$controller).setLocation(this._location);
     }
     if (view.isActive) {
       return;
@@ -18651,7 +18407,7 @@ class RejectedTemplateController {
     this.value = error2;
     let view = this.view;
     if (view === void 0) {
-      view = this.view = this._factory.create().setLocation(this._location);
+      view = this.view = this._factory.create(this.$controller).setLocation(this._location);
     }
     if (view.isActive) {
       return;
@@ -18981,8 +18737,9 @@ Portal.$au = {
   type: attrTypeName,
   name: "portal",
   isTemplateController: true,
+  defaultProperty: "target",
   bindables: [
-    { name: "target", primary: true },
+    "target",
     "position",
     "activated",
     "activating",
@@ -18992,17 +18749,6 @@ Portal.$au = {
     "deactivated",
     "deactivating"
   ]
-  // bindables: {
-  //   target: { primary: true },
-  //   position: true,
-  //   renderContext: { callback: 'targetChanged' },
-  //   activated: true,
-  //   activating: true,
-  //   callbackContext: true,
-  //   deactivated: true,
-  //   deactivating: true,
-  //   strict: true
-  // }
 };
 let emptyTemplate;
 class AuSlot {
@@ -19019,14 +18765,14 @@ class AuSlot {
     const instruction = resolve(IInstruction);
     const rendering = resolve(IRendering);
     const slotName = this.name = instruction.data.name;
-    const fallback = instruction.projections?.[defaultSlotName];
+    const fallback2 = instruction.projections?.[defaultSlotName];
     const projection = hdrContext.instruction?.projections?.[slotName];
     const contextContainer = hdrContext.controller.container;
     let factory;
     let container;
     if (projection == null) {
       container = contextContainer.createChild({ inheritParentResources: true });
-      factory = rendering.getViewFactory(fallback ?? (emptyTemplate ??= CustomElementDefinition.create({
+      factory = rendering.getViewFactory(fallback2 ?? (emptyTemplate ??= CustomElementDefinition.create({
         name: "au-slot-empty-template",
         template: "",
         needsCompile: false
@@ -19189,6 +18935,7 @@ class AuCompose {
     this.scopeBehavior = "auto";
     this._composition = void 0;
     this.tag = null;
+    this.flushMode = "sync";
     this._container = resolve(IContainer);
     this.parent = resolve(IController);
     this._host = resolve(INode);
@@ -19201,7 +18948,6 @@ class AuCompose {
     this._hydrationContext = resolve(IHydrationContext);
     this._exprParser = resolve(IExpressionParser);
     this._observerLocator = resolve(IObserverLocator);
-    this._attached = false;
   }
   get composing() {
     return this._composing;
@@ -19210,7 +18956,6 @@ class AuCompose {
     return this._composition;
   }
   attaching(initiator, _parent) {
-    this._attached = true;
     return this._composing = onResolve(this.queue(new ChangeInfo(this.template, this.component, this.model, void 0), initiator), (context) => {
       if (this._contextFactory._isCurrent(context)) {
         this._composing = void 0;
@@ -19218,7 +18963,6 @@ class AuCompose {
     });
   }
   detaching(initiator) {
-    this._attached = false;
     const cmpstn = this._composition;
     const pending = this._composing;
     this._contextFactory.invalidate();
@@ -19227,21 +18971,42 @@ class AuCompose {
   }
   /** @internal */
   propertyChanged(name2) {
-    if (!this._attached)
-      return;
-    if (name2 === "composing" || name2 === "composition")
-      return;
-    if (name2 === "model" && this._composition != null) {
-      this._composition.update(this.model);
+    if (name2 === "composing" || name2 === "composition") {
       return;
     }
-    if (name2 === "tag" && this._composition?.controller.vmKind === vmkCe) {
-      {
-        console.warn("[DEV:aurelia] Changing tag name of a custom element composition is ignored.");
+    if (this.flushMode === "sync") {
+      if (name2 === "model" && this._composition != null) {
+        this._composition.update(this.model);
+        return;
       }
-      return;
+      if (name2 === "tag" && this._composition?.controller.vmKind === vmkCe) {
+        {
+          console.warn("[DEV:aurelia] Changing tag name of a custom element composition is ignored.");
+        }
+        return;
+      }
+      this._handleChangeInfo(new ChangeInfo(this.template, this.component, this.model, name2));
     }
-    this._composing = onResolve(this._composing, () => onResolve(this.queue(new ChangeInfo(this.template, this.component, this.model, name2), void 0), (context) => {
+  }
+  /** @internal */
+  propertiesChanged(changes) {
+    if (this.flushMode === "async") {
+      if ("model" in changes && this._composition != null && Object.keys(changes).length === 1) {
+        this._composition.update(this.model);
+        return;
+      }
+      if ("tag" in changes && this._composition?.controller.vmKind === vmkCe) {
+        {
+          console.warn("[DEV:aurelia] Changing tag name of a custom element composition is ignored.");
+        }
+        return;
+      }
+      this._handleChangeInfo(new ChangeInfo(this.template, this.component, this.model, "model" in changes ? "model" : void 0));
+    }
+  }
+  /** @internal */
+  _handleChangeInfo(info2) {
+    this._composing = onResolve(this._composing, () => onResolve(this.queue(info2, void 0), (context) => {
       if (this._contextFactory._isCurrent(context)) {
         this._composing = void 0;
       }
@@ -19336,12 +19101,13 @@ class AuCompose {
           name: CustomElement.generateName(),
           template: template2
         });
-        const viewFactory = this._rendering.getViewFactory(targetDef, childCtn);
-        const controller = Controller.$view(viewFactory, $controller);
+        const compiledDef = this._rendering.compile(targetDef, childCtn);
+        const viewFactory = this._rendering.getViewFactory(compiledDef, childCtn);
+        const controller = Controller.$view(viewFactory, $controller, compositionHost);
         const scope = this.scopeBehavior === "auto" ? Scope.fromParent(this.parent.scope, comp) : Scope.create(comp);
         controller.setHost(compositionHost);
         if (compositionLocation == null) {
-          this._createSpreadBindings(compositionHost, targetDef, aucomposeCapturedAttrs).forEach((b) => controller.addBinding(b));
+          this._createSpreadBindings(compositionHost, viewFactory.def, aucomposeCapturedAttrs).forEach((b) => controller.addBinding(b));
         } else {
           controller.setLocation(compositionLocation);
         }
@@ -19415,7 +19181,13 @@ AuCompose.$au = {
     } },
     { name: "composing", mode: fromView },
     { name: "composition", mode: fromView },
-    "tag"
+    "tag",
+    { name: "flushMode", set: (v) => {
+      if (v === "sync" || v === "async") {
+        return v;
+      }
+      throw createMappedError(809, v);
+    } }
   ]
 };
 class EmptyComponent {
@@ -19461,8 +19233,8 @@ class LoadedChangeInfo {
   }
 }
 class CompositionContext {
-  constructor(id2, change) {
-    this.id = id2;
+  constructor(id, change) {
+    this.id = id;
     this.change = change;
   }
 }
@@ -19703,6 +19475,9 @@ class Aurelia2 extends Aurelia$1 {
     return super.app(config);
   }
 }
+function isIHandler(value) {
+  return value != null && typeof value === "object" && isArray(value.path);
+}
 class Parameter {
   constructor(name2, isOptional, isStar, pattern) {
     this.name = name2;
@@ -19744,14 +19519,36 @@ class Endpoint {
   }
 }
 class RecognizedRoute {
-  constructor(endpoint, params) {
+  constructor(endpoint, path, params) {
     this.endpoint = endpoint;
+    this._firstNonEmptyPath = null;
     const $params = /* @__PURE__ */ Object.create(null);
     for (const key in params) {
       const value = params[key];
       $params[key] = value != null ? decodeURIComponent(value) : value;
     }
     this.params = Object.freeze($params);
+    const residue = this.params[RESIDUE];
+    if ((residue?.length ?? 0) > 0 && path.endsWith(residue)) {
+      path = path.slice(0, -residue.length);
+    }
+    path = path.startsWith("/") ? path.slice(1) : path;
+    path = path.endsWith("/") ? path.slice(0, -1) : path;
+    this.path = path;
+  }
+  /** @internal */
+  _getFirstNonEmptyPath() {
+    let path = this._firstNonEmptyPath;
+    if (path != null)
+      return path;
+    path = this.path;
+    if (path.length !== 0)
+      return this._firstNonEmptyPath = path;
+    const handler = this.endpoint.route.handler;
+    path = isIHandler(handler) ? handler.path.find((p) => p.length > 0) ?? null : null;
+    if (path !== null)
+      return this._firstNonEmptyPath = path;
+    throw new Error(`No non-empty path found`);
   }
 }
 class Candidate {
@@ -19760,7 +19557,8 @@ class Candidate {
     this.states = states;
     this.skippedStates = skippedStates;
     this.result = result;
-    this.params = null;
+    this.childRoutes = [];
+    this.recognizedResult = null;
     this.isConstrained = false;
     this.satisfiesConstraints = null;
     this.head = states[states.length - 1];
@@ -19839,40 +19637,40 @@ class Candidate {
     collectSkippedStates(this.skippedStates, this.head);
     if (!this.isConstrained)
       return true;
-    this._getParams();
+    this._getRoutes();
     return this.satisfiesConstraints;
   }
   /** @internal */
-  _getParams() {
-    let params = this.params;
-    if (params != null)
-      return params;
-    const { states, chars, endpoint } = this;
-    params = {};
+  _getRoutes() {
+    let result = this.recognizedResult;
+    if (result != null)
+      return result;
+    const { states, chars } = this;
     this.satisfiesConstraints = true;
-    for (const param of endpoint.params) {
-      params[param.name] = void 0;
-    }
-    for (let i = 0, ii = states.length; i < ii; ++i) {
+    const routes = [];
+    let curentEndpointRequirements = null;
+    for (let i = states.length - 1, ii = 0; i >= ii; --i) {
       const state = states[i];
-      if (state.isDynamic) {
-        const segment = state.segment;
-        const name2 = segment.name;
-        if (params[name2] === void 0) {
-          params[name2] = chars[i];
-        } else {
-          params[name2] += chars[i];
+      const createNewRoute = state.endpoint !== null && (curentEndpointRequirements === null || curentEndpointRequirements.isDifferentEndpoint(state.endpoint) && curentEndpointRequirements.isFulfilled());
+      if (createNewRoute) {
+        if (curentEndpointRequirements !== null) {
+          routes.unshift(curentEndpointRequirements.toRecognizedRoute());
         }
-        const checkConstraint = state.isConstrained && !Object.is(states[i + 1]?.segment, segment);
-        if (!checkConstraint)
-          continue;
-        this.satisfiesConstraints = this.satisfiesConstraints && state.satisfiesConstraint(params[name2]);
+        curentEndpointRequirements = new EndpointRequirement(state);
       }
+      if (curentEndpointRequirements === null)
+        continue;
+      this.satisfiesConstraints = this.satisfiesConstraints && curentEndpointRequirements.consume(state, chars[i], states[i - 1]);
     }
+    if (curentEndpointRequirements !== null && curentEndpointRequirements.isDifferentRecognizedRoute(routes[0])) {
+      routes.unshift(curentEndpointRequirements.toRecognizedRoute());
+    }
+    if (routes.length > 1 && routes[0].path === "")
+      routes.shift();
     if (this.satisfiesConstraints) {
-      this.params = params;
+      this.recognizedResult = result = [routes, this.head];
     }
-    return params;
+    return result;
   }
   /**
    * Compares this candidate to another candidate to determine the correct sorting order.
@@ -19962,6 +19760,75 @@ class Candidate {
     return 0;
   }
 }
+class EndpointRequirement {
+  /** @internal */
+  constructor(state) {
+    this._parameters = /* @__PURE__ */ Object.create(null);
+    this._staticSegements = [];
+    this._path = "";
+    if (state.endpoint == null)
+      throw new Error("Invalid state; endpoint is required.");
+    const endpoint = this._endpoint = state.endpoint;
+    for (const param of endpoint.params) {
+      this._parameters[param.name] = [void 0, !param.isOptional, false];
+    }
+    for (const part of endpoint.route.path.split("/").filter((p) => isNotEmpty(p) && !p.startsWith(":") && !p.startsWith("*"))) {
+      this._staticSegements.push([part, "", false]);
+    }
+  }
+  /** @internal */
+  consume(state, char, previousState) {
+    this._path = char + this._path;
+    if (state.isDynamic) {
+      const segment = state.segment;
+      const name2 = segment.name;
+      const parameter = this._parameters[name2];
+      if (parameter[0] === void 0) {
+        parameter[0] = char;
+        if (parameter[1])
+          parameter[2] = true;
+      } else {
+        parameter[0] = char + parameter[0];
+      }
+      const checkConstraint = state.isConstrained && !Object.is(previousState?.segment, segment);
+      if (!checkConstraint)
+        return true;
+      return state.satisfiesConstraint(parameter[0]);
+    }
+    if (this._staticSegements.length > 0 && char !== "" && char !== "/") {
+      const lastIncompleteStaticSegment = this._staticSegements.findLast((s) => !s[2]);
+      if (lastIncompleteStaticSegment == null)
+        throw createError(`Unexpected state`);
+      lastIncompleteStaticSegment[1] = char + lastIncompleteStaticSegment[1];
+      lastIncompleteStaticSegment[2] = state.segment.caseSensitive ? lastIncompleteStaticSegment[0] === lastIncompleteStaticSegment[1] : lastIncompleteStaticSegment[0].toLowerCase() === lastIncompleteStaticSegment[1].toLowerCase();
+    }
+    return true;
+  }
+  /** @internal */
+  isFulfilled() {
+    for (const [, isRequired, isFulfilled] of Object.values(this._parameters)) {
+      if (isRequired && !isFulfilled)
+        return false;
+    }
+    return this._staticSegements.length === 0 || this._staticSegements[0][2];
+  }
+  /** @internal */
+  toRecognizedRoute() {
+    const params = /* @__PURE__ */ Object.create(null);
+    for (const key in this._parameters) {
+      params[key] = this._parameters[key][0];
+    }
+    return new RecognizedRoute(this._endpoint, this._path, params);
+  }
+  /** @internal */
+  isDifferentRecognizedRoute(value) {
+    return this.isDifferentEndpoint(value?.endpoint);
+  }
+  /** @internal */
+  isDifferentEndpoint(value) {
+    return value == null || this._endpoint.route.handler !== value.route.handler;
+  }
+}
 function hasEndpoint(candidate) {
   return candidate.head.endpoint !== null;
 }
@@ -20005,36 +19872,39 @@ class RouteRecognizer {
     this.cache = /* @__PURE__ */ new Map();
     this.endpointLookup = /* @__PURE__ */ new Map();
   }
-  add(routeOrRoutes, addResidue = false) {
+  add(routeOrRoutes, addResidue = false, parentPath = null) {
     let params;
     let endpoint;
     if (routeOrRoutes instanceof Array) {
       for (const route2 of routeOrRoutes) {
-        endpoint = this.$add(route2, false);
+        endpoint = this.$add(route2, false, parentPath);
         params = endpoint.params;
         if (!addResidue || (params[params.length - 1]?.isStar ?? false))
           continue;
-        endpoint.residualEndpoint = this.$add({ ...route2, path: `${route2.path}/*${RESIDUE}` }, true);
+        endpoint.residualEndpoint = this.$add({ ...route2, path: `${route2.path}/*${RESIDUE}` }, true, parentPath);
       }
     } else {
-      endpoint = this.$add(routeOrRoutes, false);
+      endpoint = this.$add(routeOrRoutes, false, parentPath);
       params = endpoint.params;
       if (addResidue && !(params[params.length - 1]?.isStar ?? false)) {
-        endpoint.residualEndpoint = this.$add({ ...routeOrRoutes, path: `${routeOrRoutes.path}/*${RESIDUE}` }, true);
+        endpoint.residualEndpoint = this.$add({ ...routeOrRoutes, path: `${routeOrRoutes.path}/*${RESIDUE}` }, true, parentPath);
       }
     }
     this.cache.clear();
   }
-  $add(route2, addResidue) {
-    const path = route2.path;
+  $add(route2, addResidue, parentPath) {
+    const path = parentPath === null ? route2.path : `${parentPath}/${route2.path}`;
     const lookup2 = this.endpointLookup;
     if (lookup2.has(path))
       throw createError(`Cannot add duplicate path '${path}'.`);
-    const $route = new ConfigurableRoute(path, route2.caseSensitive === true, route2.handler);
+    const $route = new ConfigurableRoute(route2.path, route2.caseSensitive === true, route2.handler);
     const parts = path === "" ? [""] : path.split("/").filter(isNotEmpty);
     const params = [];
     let state = this.rootState;
-    for (const part of parts) {
+    const numParentParts = parentPath === null ? 0 : parentPath.split("/").filter(isNotEmpty).length;
+    const numParts = parts.length;
+    for (let i = 0; i < numParts; ++i) {
+      const part = parts[i];
       state = state.append(null, "/");
       switch (part.charAt(0)) {
         case ":": {
@@ -20046,8 +19916,10 @@ class RouteRecognizer {
             throw new Error(`Invalid parameter name; usage of the reserved parameter name '${RESIDUE}' is used.`);
           const constraint = match?.groups?.constraint;
           const pattern = constraint != null ? new RegExp(constraint) : null;
-          params.push(new Parameter(name2, isOptional, false, pattern));
-          state = new DynamicSegment2(name2, isOptional, pattern).appendTo(state);
+          if (i >= numParentParts) {
+            params.push(new Parameter(name2, isOptional, false, pattern));
+          }
+          state = new DynamicSegment(name2, isOptional, pattern).appendTo(state);
           break;
         }
         case "*": {
@@ -20060,12 +19932,14 @@ class RouteRecognizer {
           } else {
             kind = 2;
           }
-          params.push(new Parameter(name2, true, true, null));
+          if (i >= numParentParts) {
+            params.push(new Parameter(name2, true, true, null));
+          }
           state = new StarSegment(name2, kind).appendTo(state);
           break;
         }
         default: {
-          state = new StaticSegment2(part, $route.caseSensitive).appendTo(state);
+          state = new StaticSegment(part, $route.caseSensitive).appendTo(state);
           break;
         }
       }
@@ -20075,21 +19949,55 @@ class RouteRecognizer {
     lookup2.set(path, endpoint);
     return endpoint;
   }
-  recognize(path) {
-    let result = this.cache.get(path);
-    if (result === void 0) {
-      this.cache.set(path, result = this.$recognize(path));
+  recognize(path, relativeTo = null) {
+    const cache2 = this.cache;
+    let result;
+    if (relativeTo == null) {
+      result = cache2.get(path);
+      if (result !== void 0)
+        return result?.[0] ?? null;
+      cache2.set(path, result = this.$recognize(path, this.rootState));
+      return result?.[0] ?? null;
     }
-    return result;
+    const parentPath = relativeTo.map((curr) => curr._getFirstNonEmptyPath()).join("/");
+    const combinedPath = combinePaths(parentPath, path);
+    result = cache2.get(combinedPath);
+    if (result !== void 0)
+      return result === null ? null : result[0].slice(relativeTo.length);
+    let parentResult = cache2.get(parentPath);
+    if (parentResult === null)
+      return null;
+    if (parentResult === void 0) {
+      parentResult = this.$recognize(parentPath, this.rootState);
+      if (parentResult === null)
+        return null;
+    }
+    const relativeResult = this.$recognize(path, parentResult[1]);
+    if (relativeResult === null)
+      return null;
+    let routes = relativeResult[0];
+    if (routes.length > 1 && routes[0].path === "")
+      routes = routes.slice(1);
+    cache2.set(combinedPath, [relativeTo.concat(routes), relativeResult[1]]);
+    return routes;
+    function combinePaths(parentPath2, childPath) {
+      if (parentPath2 === "")
+        return childPath;
+      if (childPath === "")
+        return parentPath2;
+      if (parentPath2.endsWith("/"))
+        return childPath.startsWith("/") ? parentPath2 + childPath.slice(1) : parentPath2 + childPath;
+      return childPath.startsWith("/") ? parentPath2 + childPath : `${parentPath2}/${childPath}`;
+    }
   }
-  $recognize(path) {
+  $recognize(path, relativeToState) {
     if (!path.startsWith("/")) {
       path = `/${path}`;
     }
     if (path.length > 1 && path.endsWith("/")) {
       path = path.slice(0, -1);
     }
-    const result = new RecognizeResult(this.rootState);
+    const result = new RecognizeResult(relativeToState);
     for (let i = 0, ii = path.length; i < ii; ++i) {
       const ch = path.charAt(i);
       result.advance(ch);
@@ -20101,9 +20009,7 @@ class RouteRecognizer {
     if (candidate === null) {
       return null;
     }
-    const { endpoint } = candidate;
-    const params = candidate._getParams();
-    return new RecognizedRoute(endpoint, params);
+    return candidate._getRoutes();
   }
   getEndpoint(path) {
     return this.endpointLookup.get(path) ?? null;
@@ -20194,7 +20100,7 @@ class State {
 function isNotEmpty(segment) {
   return segment.length > 0;
 }
-class StaticSegment2 {
+class StaticSegment {
   get kind() {
     return 4;
   }
@@ -20230,7 +20136,7 @@ class StaticSegment2 {
     return b.kind === 4 && b.caseSensitive === this.caseSensitive && b.value === this.value;
   }
 }
-class DynamicSegment2 {
+class DynamicSegment {
   get kind() {
     return 3;
   }
@@ -20340,6 +20246,10 @@ const eventMessageMap = {
     3059
     /* Events.caLoading */
   ]: "loading(next:%s) - invoking %s hooks",
+  [
+    3060
+    /* Events.caLoaded */
+  ]: "loaded(next:%s) - invoking %s hooks",
   // #endregion
   // #region location manager
   [
@@ -20476,6 +20386,18 @@ const eventMessageMap = {
     3175
     /* Events.rcInvalidLazyImport */
   ]: "%s does not appear to be a component or CustomElement recognizable by Aurelia; make sure to use the @customElement decorator for your class if not using conventions.",
+  [
+    3176
+    /* Events.rcUnexpectedEmptyPathForEagerLoading */
+  ]: 'Empty path encountered (%s) while the router is configured for eager loading. This may result in unexpected behavior. Consider using non-empty paths and/or "default" attribute for au-viewports.',
+  [
+    3177
+    /* Events.rcParamterizedPathHasChildren */
+  ]: "The parameterized path %s has child routes while the router is configured without eager loading. This may result in unexpected behavior.",
+  [
+    3178
+    /* Events.rcNoContextStringComponent */
+  ]: "Expected context for string component, got none.",
   // #endregion
   // #region router events
   [
@@ -20550,30 +20472,34 @@ const eventMessageMap = {
   ]: "invoking loading on %s nodes",
   [
     3265
+    /* Events.rtrRunLoaded */
+  ]: "invoking loaded on %s nodes",
+  [
+    3266
     /* Events.rtrRunSwapping */
   ]: "invoking swapping on %s nodes",
   [
-    3266
+    3267
     /* Events.rtrRunFinalizing */
   ]: "finalizing transition",
   [
-    3267
+    3268
     /* Events.rtrCancelNavigationStart */
   ]: "navigation %s",
   [
-    3268
+    3269
     /* Events.rtrCancelNavigationCompleted */
   ]: "navigation %s; finished.",
   [
-    3269
+    3270
     /* Events.rtrNextTr */
   ]: "scheduling next transition: %s",
   [
-    3270
+    3271
     /* Events.rtrTrFailed */
   ]: "Transition %s failed with error: %s",
   [
-    3271
+    3272
     /* Events.rtrNoCtx */
   ]: "Root RouteContext is not set. Did you forget to register RouteConfiguration, or try to navigate before calling Aurelia.start()?",
   // #endregion
@@ -20725,7 +20651,7 @@ const eventMessageMap = {
   [
     3336
     /* Events.vpaActivateNextScheduled */
-  ]: "Invoking canLoad(), loading() and activate() on the next component at %s",
+  ]: "Invoking canLoad(), loading(), activate() and loaded() on the next component at %s",
   [
     3337
     /* Events.vpaActivateNext */
@@ -20798,6 +20724,22 @@ const eventMessageMap = {
     3354
     /* Events.vpaCanLoadGuardsResult */
   ]: "canLoad returned redirect result %s by the component agent %s",
+  [
+    3355
+    /* Events.vpaLoadedChildren */
+  ]: "Invoking loaded() on children at %s",
+  [
+    3356
+    /* Events.vpaLoadedSelf */
+  ]: "Finished children; invoking loaded() on own component at %s",
+  [
+    3357
+    /* Events.vpaLoadedFinished */
+  ]: "Finished loaded() at %s",
+  [
+    3358
+    /* Events.vpaLoadedNone */
+  ]: "Nothing to invoke loaded() on at %s",
   // #endregion
   // #region instruction
   [
@@ -20902,12 +20844,16 @@ function error(logger, event, ...optionalParameters) {
 }
 function getMessage(event, ...optionalParameters) {
   {
+    const paddedCode = String(event).padStart(4, "0");
+    const link = `https://docs.aurelia.io/developer-guides/error-messages/router/aur${paddedCode}`;
     let message = eventMessageMap[event];
     let offset2 = 0;
     while (message.includes("%s") || offset2 < optionalParameters.length) {
       message = message.replace("%s", String(optionalParameters[offset2++]));
     }
-    return `AUR${event}: ${message}`;
+    return `AUR${event}: ${message}
+
+For more information, see: ${link}`;
   }
 }
 function logAndThrow(err, logger) {
@@ -21257,8 +21203,8 @@ class LocationChangeEvent {
   get name() {
     return "au:router:location-change";
   }
-  constructor(id2, url, trigger, state) {
-    this.id = id2;
+  constructor(id, url, trigger, state) {
+    this.id = id;
     this.url = url;
     this.trigger = trigger;
     this.state = state;
@@ -21271,8 +21217,8 @@ class NavigationStartEvent {
   get name() {
     return "au:router:navigation-start";
   }
-  constructor(id2, instructions, trigger, managedState) {
-    this.id = id2;
+  constructor(id, instructions, trigger, managedState) {
+    this.id = id;
     this.instructions = instructions;
     this.trigger = trigger;
     this.managedState = managedState;
@@ -21285,8 +21231,8 @@ class NavigationEndEvent {
   get name() {
     return "au:router:navigation-end";
   }
-  constructor(id2, instructions, finalInstructions) {
-    this.id = id2;
+  constructor(id, instructions, finalInstructions) {
+    this.id = id;
     this.instructions = instructions;
     this.finalInstructions = finalInstructions;
   }
@@ -21298,8 +21244,8 @@ class NavigationCancelEvent {
   get name() {
     return "au:router:navigation-cancel";
   }
-  constructor(id2, instructions, reason) {
-    this.id = id2;
+  constructor(id, instructions, reason) {
+    this.id = id;
     this.instructions = instructions;
     this.reason = reason;
   }
@@ -21311,8 +21257,8 @@ class NavigationErrorEvent {
   get name() {
     return "au:router:navigation-error";
   }
-  constructor(id2, instructions, error2) {
-    this.id = id2;
+  constructor(id, instructions, error2) {
+    this.id = id;
     this.instructions = instructions;
     this.error = error2;
   }
@@ -21331,7 +21277,8 @@ class BrowserLocationManager {
     this._location = resolve(ILocation);
     this._window = resolve(IWindow);
     this._baseHref = resolve(IBaseHref);
-    this._event = resolve(IRouterOptions).useUrlFragmentHash ? "hashchange" : "popstate";
+    this._useUrlFragmentHash = resolve(IRouterOptions).useUrlFragmentHash;
+    this._event = this._useUrlFragmentHash ? "hashchange" : "popstate";
     debug(this._logger, 3100, this._baseHref.href);
   }
   startListening() {
@@ -21394,6 +21341,9 @@ class BrowserLocationManager {
     if (path.startsWith(basePath)) {
       path = path.slice(basePath.length);
     }
+    if (this._useUrlFragmentHash && path.startsWith("#")) {
+      path = path.slice(1);
+    }
     return normalizePath(path);
   }
 }
@@ -21421,289 +21371,6 @@ function normalizePath(path) {
 }
 function normalizeQuery(query) {
   return query.length > 0 && !query.startsWith("?") ? `?${query}` : query;
-}
-const noRoutes = emptyArray;
-class RouteConfig {
-  get path() {
-    const path = this._path;
-    if (path.length > 0)
-      return path;
-    const ceDfn = CustomElement.getDefinition(this._component);
-    return this._path = [ceDfn.name, ...ceDfn.aliases];
-  }
-  get component() {
-    return this._getComponent();
-  }
-  constructor(id2, _path, title, redirectTo, caseSensitive, transitionPlan, viewport2, data, routes, fallback, component, nav) {
-    this.id = id2;
-    this._path = _path;
-    this.title = title;
-    this.redirectTo = redirectTo;
-    this.caseSensitive = caseSensitive;
-    this.transitionPlan = transitionPlan;
-    this.viewport = viewport2;
-    this.data = data;
-    this.routes = routes;
-    this.fallback = fallback;
-    this.nav = nav;
-    this._configurationFromHookApplied = false;
-    this._currentComponent = null;
-    this._component = component;
-    this._isNavigationStrategy = component instanceof NavigationStrategy;
-  }
-  /** @internal */
-  static _create(configOrPath, Type) {
-    if (typeof configOrPath === "string" || configOrPath instanceof Array) {
-      const path = ensureArrayOfStrings(configOrPath);
-      const redirectTo = Type?.redirectTo ?? null;
-      const caseSensitive = Type?.caseSensitive ?? false;
-      const id2 = ensureString(Type?.id ?? (path instanceof Array ? path[0] : path));
-      const title = Type?.title ?? null;
-      const reentryBehavior = Type?.transitionPlan ?? null;
-      const viewport2 = Type?.viewport ?? defaultViewportName;
-      const data = Type?.data ?? {};
-      const children = Type?.routes ?? noRoutes;
-      return new RouteConfig(id2, path, title, redirectTo, caseSensitive, reentryBehavior, viewport2, data, children, Type?.fallback ?? null, Type, Type?.nav ?? true);
-    } else if (typeof configOrPath === "object") {
-      const config = configOrPath;
-      validateRouteConfig(config, "");
-      const path = ensureArrayOfStrings(config.path ?? Type?.path ?? emptyArray);
-      const title = config.title ?? Type?.title ?? null;
-      const redirectTo = config.redirectTo ?? Type?.redirectTo ?? null;
-      const caseSensitive = config.caseSensitive ?? Type?.caseSensitive ?? false;
-      const id2 = config.id ?? Type?.id ?? (path instanceof Array ? path[0] : path);
-      const reentryBehavior = config.transitionPlan ?? Type?.transitionPlan ?? null;
-      const viewport2 = config.viewport ?? Type?.viewport ?? defaultViewportName;
-      const data = {
-        ...Type?.data,
-        ...config.data
-      };
-      const children = [
-        ...config.routes ?? noRoutes,
-        ...Type?.routes ?? noRoutes
-      ];
-      return new RouteConfig(id2, path, title, redirectTo, caseSensitive, reentryBehavior, viewport2, data, children, config.fallback ?? Type?.fallback ?? null, config.component ?? Type ?? null, config.nav ?? true);
-    } else {
-      expectType("string, function/class or object", "", configOrPath);
-    }
-  }
-  /**
-   * Invoked when this component is used as a child under another parent.
-   * Creates a new route config applying the child route config.
-   * Note that the current rote config is not mutated.
-   *
-   * @internal
-   */
-  _applyChildRouteConfig(config, parentConfig) {
-    validateRouteConfig(config, this.path[0] ?? "");
-    const path = ensureArrayOfStrings(config.path ?? this.path);
-    return new RouteConfig(
-      ensureString(config.id ?? this.id ?? path),
-      path,
-      config.title ?? this.title,
-      config.redirectTo ?? this.redirectTo,
-      config.caseSensitive ?? this.caseSensitive,
-      config.transitionPlan ?? this.transitionPlan ?? parentConfig?.transitionPlan ?? null,
-      config.viewport ?? this.viewport,
-      config.data ?? this.data,
-      config.routes ?? this.routes,
-      config.fallback ?? this.fallback ?? parentConfig?.fallback ?? null,
-      this._component,
-      // The RouteConfig is created using a definitive Type as component; do not overwrite it.
-      config.nav ?? this.nav
-    );
-  }
-  /** @internal */
-  _getTransitionPlan(cur, next, overridingTransitionPlan) {
-    if (hasSamePath(cur, next) && shallowEquals(cur.params, next.params))
-      return "none";
-    if (overridingTransitionPlan != null)
-      return overridingTransitionPlan;
-    const plan = this.transitionPlan ?? "replace";
-    return typeof plan === "function" ? plan(cur, next) : plan;
-    function cleanPath(path) {
-      return path.replace(`/*${RESIDUE}`, "");
-    }
-    function hasSamePath(nodeA, nodeB) {
-      const pathA = nodeA.finalPath;
-      const pathB = nodeB.finalPath;
-      return pathA.length === 0 || pathB.length === 0 || cleanPath(pathA) === cleanPath(pathB);
-    }
-  }
-  /** @internal */
-  _applyFromConfigurationHook(instance, parent, routeNode) {
-    if (this._configurationFromHookApplied)
-      throw new Error(getMessage(
-        3550
-        /* Events.rtConfigFromHookApplied */
-      ));
-    if (typeof instance.getRouteConfig !== "function")
-      return;
-    return onResolve(instance.getRouteConfig(parent, routeNode), (value) => {
-      this._configurationFromHookApplied = true;
-      if (value == null)
-        return;
-      let parentPath = parent?.path ?? "";
-      if (typeof parentPath !== "string") {
-        parentPath = parentPath[0];
-      }
-      validateRouteConfig(value, parentPath);
-      this.id = value.id ?? this.id;
-      this._path = ensureArrayOfStrings(value.path ?? this.path);
-      this.title = value.title ?? this.title;
-      this.redirectTo = value.redirectTo ?? this.redirectTo;
-      this.caseSensitive = value.caseSensitive ?? this.caseSensitive;
-      this.transitionPlan = value.transitionPlan ?? this.transitionPlan;
-      this.viewport = value.viewport ?? this.viewport;
-      this.data = value.data ?? this.data;
-      this.routes = value.routes ?? this.routes;
-      this.fallback = value.fallback ?? this.fallback;
-      this.nav = value.nav ?? this.nav;
-    });
-  }
-  /** @internal */
-  _clone() {
-    return new RouteConfig(this.id, this.path, this.title, this.redirectTo, this.caseSensitive, this.transitionPlan, this.viewport, this.data, this.routes, this.fallback, this._component, this.nav);
-  }
-  /** @internal */
-  _getFallback(viewportInstruction, routeNode, context) {
-    const fallback = this.fallback;
-    return typeof fallback === "function" && !CustomElement.isType(fallback) ? fallback(viewportInstruction, routeNode, context) : fallback;
-  }
-  /** @internal */
-  _getComponentName() {
-    try {
-      return this._getComponent().name;
-    } catch {
-      return "UNRESOLVED-NAVIGATION-STRATEGY";
-    }
-  }
-  _getComponent(vi, ctx, node, route2) {
-    if (vi == null) {
-      if (this._currentComponent != null)
-        return this._currentComponent;
-      if (this._isNavigationStrategy)
-        throw new Error(getMessage(3558, this.id));
-      return this._currentComponent = this._component;
-    }
-    return this._currentComponent ??= this._isNavigationStrategy ? this._component.getComponent(vi, ctx, node, route2) : this._component;
-  }
-  /** @internal */
-  _handleNavigationStart() {
-    if (!this._isNavigationStrategy)
-      return;
-    this._currentComponent = null;
-  }
-  toString() {
-    let value = `RConf(id: ${this.id}, isNavigationStrategy: ${this._isNavigationStrategy}`;
-    value += `, path: [${this.path.join(",")}]`;
-    if (this.redirectTo)
-      value += `, redirectTo: ${this.redirectTo}`;
-    if (this.caseSensitive)
-      value += `, caseSensitive: ${this.caseSensitive}`;
-    if (this.transitionPlan != null)
-      value += `, transitionPlan: ${this.transitionPlan}`;
-    value += `, viewport: ${this.viewport}`;
-    if (this._currentComponent != null)
-      value += `, component: ${this._currentComponent.name}`;
-    return `${value})`;
-  }
-}
-const Route = {
-  name: /* @__PURE__ */ getResourceKeyFor("route-configuration"),
-  /**
-   * Returns `true` if the specified type has any static route configuration (either via static properties or a &#64;route decorator)
-   */
-  isConfigured(Type) {
-    return Metadata.has(Route.name, Type);
-  },
-  /**
-   * Apply the specified configuration to the specified type, overwriting any existing configuration.
-   */
-  configure(configOrPath, Type) {
-    const config = RouteConfig._create(configOrPath, Type);
-    Metadata.define(config, Type, Route.name);
-    return Type;
-  },
-  /**
-   * Get the `RouteConfig` associated with the specified type, creating a new one if it does not yet exist.
-   */
-  getConfig(Type) {
-    if (!Route.isConfigured(Type)) {
-      Route.configure({}, Type);
-    }
-    return Metadata.get(Route.name, Type);
-  }
-};
-function route(configOrPath) {
-  return function(target, context) {
-    context.addInitializer(function() {
-      Route.configure(configOrPath, this);
-    });
-    return target;
-  };
-}
-function resolveRouteConfiguration(routeable, isChild, parent, routeNode, context) {
-  if (isPartialRedirectRouteConfig(routeable))
-    return RouteConfig._create(routeable, null);
-  const [instruction, ceDef] = resolveCustomElementDefinition(routeable, context);
-  if (instruction.type === 5)
-    return RouteConfig._create({ ...routeable, nav: false }, null);
-  return onResolve(ceDef, ($ceDef) => {
-    const type = $ceDef.Type;
-    const routeConfig = Route.getConfig(type);
-    if (isPartialChildRouteConfig(routeable))
-      return routeConfig._applyChildRouteConfig(routeable, parent);
-    if (isChild)
-      return routeConfig._clone();
-    if (!routeConfig._configurationFromHookApplied && instruction.type === 4 && typeof routeable.getRouteConfig === "function") {
-      return onResolve(routeConfig._applyFromConfigurationHook(routeable, parent, routeNode), () => routeConfig);
-    }
-    return routeConfig;
-  });
-}
-function resolveCustomElementDefinition(routeable, context) {
-  const instruction = createNavigationInstruction(routeable);
-  let ceDef;
-  switch (instruction.type) {
-    case 5:
-      return [instruction, null];
-    case 0: {
-      if (context == null)
-        throw new Error(getMessage(
-          3551
-          /* Events.rtNoCtxStrComponent */
-        ));
-      const dependencies2 = context.component.dependencies;
-      let component = dependencies2.find((d3) => isPartialCustomElementDefinition(d3) && d3.name === instruction.value) ?? CustomElement.find(context.container, instruction.value);
-      if (component === null)
-        throw new Error(getMessage(3552, instruction.value, context));
-      if (!(component instanceof CustomElementDefinition)) {
-        component = CustomElementDefinition.create(component);
-        CustomElement.define(component);
-      }
-      ceDef = component;
-      break;
-    }
-    case 2:
-      ceDef = instruction.value;
-      break;
-    case 4:
-      ceDef = CustomElement.getDefinition(instruction.value.constructor);
-      break;
-    case 3:
-      if (context == null)
-        throw new Error(getMessage(
-          3553
-          /* Events.rtNoCtxLazyImport */
-        ));
-      ceDef = context._resolveLazy(instruction.value);
-      break;
-  }
-  return [instruction, ceDef];
-}
-function createNavigationInstruction(routeable) {
-  return isPartialChildRouteConfig(routeable) ? createNavigationInstruction(routeable.component) : TypedNavigationInstruction.create(routeable);
 }
 const terminal = ["?", "#", "/", "+", "(", ")", "@", "!", "=", ",", "&", "'", "~", ";"];
 class ParserState {
@@ -21772,7 +21439,7 @@ class ParserState {
     }
   }
 }
-const cache = /* @__PURE__ */ new Map();
+const cache$1 = /* @__PURE__ */ new Map();
 class RouteExpression {
   get kind() {
     return "Route";
@@ -21785,9 +21452,9 @@ class RouteExpression {
   }
   static parse(value) {
     const key = value.toString();
-    let result = cache.get(key);
+    let result = cache$1.get(key);
     if (result === void 0) {
-      cache.set(key, result = RouteExpression._$parse(value));
+      cache$1.set(key, result = RouteExpression._$parse(value));
     }
     return result;
   }
@@ -22131,6 +21798,12 @@ class ViewportAgent {
   set _nextState(state) {
     this._state = this._state & 16256 | state;
   }
+  /**
+   * The controller of the currently active routed component, if any.
+   */
+  get currentController() {
+    return this._curCA?.controller ?? null;
+  }
   constructor(viewport2, hostController, ctx) {
     this.viewport = viewport2;
     this.hostController = hostController;
@@ -22142,7 +21815,6 @@ class ViewportAgent {
     this._currNode = null;
     this._nextNode = null;
     this._currTransition = null;
-    this._cancellationPromise = null;
     this._logger = ctx.container.get(ILogger).scopeTo(`ViewportAgent<${ctx.routeConfigContext._friendlyPath}>`);
     trace(
       this._logger,
@@ -22279,44 +21951,42 @@ class ViewportAgent {
     }
     b._push();
     const logger = /* @__PURE__ */ this._logger.scopeTo("canUnload()");
-    void onResolve(this._cancellationPromise, () => {
-      Batch._start((b1) => {
-        trace(logger, 3313, this);
-        for (const node of this._currNode.children) {
-          node.context.vpa._canUnload(tr, b1);
-        }
-      })._continueWith((b1) => {
-        switch (this._currState) {
-          case 4096:
-            trace(logger, 3314, this);
-            switch (this._$plan) {
-              case "none":
+    Batch._start((b1) => {
+      trace(logger, 3313, this);
+      for (const node of this._currNode.children) {
+        node.context.vpa._canUnload(tr, b1);
+      }
+    })._continueWith((b1) => {
+      switch (this._currState) {
+        case 4096:
+          trace(logger, 3314, this);
+          switch (this._$plan) {
+            case "none":
+              this._currState = 1024;
+              return;
+            case "invoke-lifecycles":
+            case "replace":
+              this._currState = 2048;
+              b1._push();
+              Batch._start((b2) => {
+                trace(logger, 3315, this);
+                this._curCA._canUnload(tr, this._nextNode, b2);
+              })._continueWith(() => {
+                trace(logger, 3316, this);
                 this._currState = 1024;
-                return;
-              case "invoke-lifecycles":
-              case "replace":
-                this._currState = 2048;
-                b1._push();
-                Batch._start((b2) => {
-                  trace(logger, 3315, this);
-                  this._curCA._canUnload(tr, this._nextNode, b2);
-                })._continueWith(() => {
-                  trace(logger, 3316, this);
-                  this._currState = 1024;
-                  b1._pop();
-                })._start();
-                return;
-            }
-          case 8192:
-            trace(logger, 3317, this);
-            return;
-          default:
-            tr._handleError(new Error(`Unexpected state at canUnload of ${this}`));
-        }
-      })._continueWith(() => {
-        b._pop();
-      })._start();
-    });
+                b1._pop();
+              })._start();
+              return;
+          }
+        case 8192:
+          trace(logger, 3317, this);
+          return;
+        default:
+          tr._handleError(new Error(`Unexpected state at canUnload of ${this}`));
+      }
+    })._continueWith(() => {
+      b._pop();
+    })._start();
   }
   /** @internal */
   _canLoad(tr, b) {
@@ -22487,6 +22157,64 @@ class ViewportAgent {
       }
     })._continueWith(() => {
       trace(logger, 3332, this);
+      b._pop();
+    })._start();
+  }
+  /** @internal */
+  _loaded(tr, b) {
+    ensureTransitionHasNotErrored(tr);
+    ensureGuardsResultIsTrue(this, tr);
+    b._push();
+    const logger = /* @__PURE__ */ this._logger.scopeTo("loaded()");
+    Batch._start((b1) => {
+      switch (this._nextState) {
+        case 1:
+          trace(logger, 3355, this);
+          for (const node of this._nextNode.children) {
+            node.context.vpa._loaded(tr, b1);
+          }
+          return;
+        /* c8 ignore next */
+        case 64:
+          trace(logger, 3358, this);
+          return;
+        /* c8 ignore next */
+        default:
+          this._unexpectedState("loaded");
+      }
+    })._continueWith((b1) => {
+      switch (this._nextState) {
+        case 1:
+          trace(logger, 3356, this);
+          switch (this._$plan) {
+            case "none":
+              return;
+            case "invoke-lifecycles":
+              b1._push();
+              Batch._start((b2) => {
+                this._curCA._loaded(tr, this._nextNode, b2);
+              })._continueWith(() => {
+                b1._pop();
+              })._start();
+              return;
+            case "replace":
+              b1._push();
+              Batch._start((b2) => {
+                this._nextCA._loaded(tr, this._nextNode, b2);
+              })._continueWith(() => {
+                b1._pop();
+              })._start();
+              return;
+          }
+        /* c8 ignore next */
+        case 64:
+          return;
+        /* c8 ignore next */
+        default:
+          this._unexpectedState("loaded");
+      }
+    })._continueWith(() => {
+      trace(logger, 3357, this);
       b._pop();
     })._start();
   }
@@ -22725,15 +22453,16 @@ class ViewportAgent {
     trace(this._logger, 3344, this);
   }
   /** @internal */
-  _cancelUpdate() {
+  _cancelUpdate(b) {
+    b?._push();
     if (this._currNode !== null) {
       this._currNode.children.forEach(function(node) {
-        node.context.vpa._cancelUpdate();
+        node.context.vpa._cancelUpdate(b);
       });
     }
     if (this._nextNode !== null) {
       this._nextNode.children.forEach(function(node) {
-        node.context.vpa._cancelUpdate();
+        node.context.vpa._cancelUpdate(b);
       });
     }
     trace(this._logger, 3345, this._nextNode);
@@ -22780,12 +22509,14 @@ class ViewportAgent {
         break;
       }
     }
-    if (currentDeactivationPromise !== null && nextDeactivationPromise !== null) {
-      this._cancellationPromise = onResolve(onResolveAll(currentDeactivationPromise, nextDeactivationPromise), () => {
-        this._currTransition = null;
-        this._cancellationPromise = null;
-      });
+    if (currentDeactivationPromise === null && nextDeactivationPromise === null) {
+      b?._pop();
+      return;
     }
+    void onResolve(onResolveAll(currentDeactivationPromise, nextDeactivationPromise), () => {
+      this._currTransition = null;
+      b?._pop();
+    });
   }
   /** @internal */
   _endTransition() {
@@ -22927,6 +22658,289 @@ function stringifyState(state) {
   }
   return flags.join("|");
 }
+const noRoutes = emptyArray;
+class RouteConfig {
+  get path() {
+    const path = this._path;
+    if (path.length > 0)
+      return path;
+    const ceDfn = CustomElement.getDefinition(this._component);
+    return this._path = [ceDfn.name, ...ceDfn.aliases];
+  }
+  get component() {
+    return this._getComponent();
+  }
+  constructor(id, _path, title, redirectTo, caseSensitive, transitionPlan, viewport2, data, routes, fallback2, component, nav) {
+    this.id = id;
+    this._path = _path;
+    this.title = title;
+    this.redirectTo = redirectTo;
+    this.caseSensitive = caseSensitive;
+    this.transitionPlan = transitionPlan;
+    this.viewport = viewport2;
+    this.data = data;
+    this.routes = routes;
+    this.fallback = fallback2;
+    this.nav = nav;
+    this._configurationFromHookApplied = false;
+    this._currentComponent = null;
+    this._component = component;
+    this._isNavigationStrategy = component instanceof NavigationStrategy;
+  }
+  /** @internal */
+  static _create(configOrPath, Type) {
+    if (typeof configOrPath === "string" || configOrPath instanceof Array) {
+      const path = ensureArrayOfStrings(configOrPath);
+      const redirectTo = Type?.redirectTo ?? null;
+      const caseSensitive = Type?.caseSensitive ?? false;
+      const id = ensureString(Type?.id ?? (path instanceof Array ? path[0] : path));
+      const title = Type?.title ?? null;
+      const reentryBehavior = Type?.transitionPlan ?? null;
+      const viewport2 = Type?.viewport ?? defaultViewportName;
+      const data = Type?.data ?? {};
+      const children = Type?.routes ?? noRoutes;
+      return new RouteConfig(id, path, title, redirectTo, caseSensitive, reentryBehavior, viewport2, data, children, Type?.fallback ?? null, Type, Type?.nav ?? true);
+    } else if (typeof configOrPath === "object") {
+      const config = configOrPath;
+      validateRouteConfig(config, "");
+      const path = ensureArrayOfStrings(config.path ?? Type?.path ?? emptyArray);
+      const title = config.title ?? Type?.title ?? null;
+      const redirectTo = config.redirectTo ?? Type?.redirectTo ?? null;
+      const caseSensitive = config.caseSensitive ?? Type?.caseSensitive ?? false;
+      const id = config.id ?? Type?.id ?? (path instanceof Array ? path[0] : path);
+      const reentryBehavior = config.transitionPlan ?? Type?.transitionPlan ?? null;
+      const viewport2 = config.viewport ?? Type?.viewport ?? defaultViewportName;
+      const data = {
+        ...Type?.data,
+        ...config.data
+      };
+      const children = [
+        ...config.routes ?? noRoutes,
+        ...Type?.routes ?? noRoutes
+      ];
+      return new RouteConfig(id, path, title, redirectTo, caseSensitive, reentryBehavior, viewport2, data, children, config.fallback ?? Type?.fallback ?? null, config.component ?? Type ?? null, config.nav ?? true);
+    } else {
+      expectType("string, function/class or object", "", configOrPath);
+    }
+  }
+  /**
+   * Invoked when this component is used as a child under another parent.
+   * Creates a new route config applying the child route config.
+   * Note that the current rote config is not mutated.
+   *
+   * @internal
+   */
+  _applyChildRouteConfig(config, parentConfig) {
+    validateRouteConfig(config, this.path[0] ?? "");
+    const path = ensureArrayOfStrings(config.path ?? this.path);
+    return new RouteConfig(
+      ensureString(config.id ?? this.id ?? path),
+      path,
+      config.title ?? this.title,
+      config.redirectTo ?? this.redirectTo,
+      config.caseSensitive ?? this.caseSensitive,
+      config.transitionPlan ?? this.transitionPlan ?? parentConfig?.transitionPlan ?? null,
+      config.viewport ?? this.viewport,
+      config.data ?? this.data,
+      config.routes ?? this.routes,
+      config.fallback ?? this.fallback ?? parentConfig?.fallback ?? null,
+      this._component,
+      // The RouteConfig is created using a definitive Type as component; do not overwrite it.
+      config.nav ?? this.nav
+    );
+  }
+  /** @internal */
+  _getTransitionPlan(cur, next, overridingTransitionPlan) {
+    if (overridingTransitionPlan != null)
+      return overridingTransitionPlan;
+    if (hasSamePath(cur, next) && shallowEquals(cur.params, next.params))
+      return "none";
+    const plan = this.transitionPlan ?? "replace";
+    return typeof plan === "function" ? plan(cur, next) : plan;
+    function cleanPath(path) {
+      return path.replace(`/*${RESIDUE}`, "");
+    }
+    function hasSamePath(nodeA, nodeB) {
+      const pathA = nodeA.finalPath;
+      const pathB = nodeB.finalPath;
+      return pathA.length === 0 || pathB.length === 0 || cleanPath(pathA) === cleanPath(pathB);
+    }
+  }
+  /** @internal */
+  _applyFromConfigurationHook(instance, parent, routeNode) {
+    if (this._configurationFromHookApplied)
+      throw new Error(getMessage(
+        3550
+        /* Events.rtConfigFromHookApplied */
+      ));
+    if (typeof instance.getRouteConfig !== "function")
+      return;
+    return onResolve(instance.getRouteConfig(parent, routeNode), (value) => {
+      this._configurationFromHookApplied = true;
+      if (value == null)
+        return;
+      let parentPath = parent?.path ?? "";
+      if (typeof parentPath !== "string") {
+        parentPath = parentPath[0];
+      }
+      validateRouteConfig(value, parentPath);
+      this.id = value.id ?? this.id;
+      this._path = ensureArrayOfStrings(value.path ?? this.path);
+      this.title = value.title ?? this.title;
+      this.redirectTo = value.redirectTo ?? this.redirectTo;
+      this.caseSensitive = value.caseSensitive ?? this.caseSensitive;
+      this.transitionPlan = value.transitionPlan ?? this.transitionPlan;
+      this.viewport = value.viewport ?? this.viewport;
+      this.data = value.data ?? this.data;
+      this.routes = value.routes ?? this.routes;
+      this.fallback = value.fallback ?? this.fallback;
+      this.nav = value.nav ?? this.nav;
+    });
+  }
+  /** @internal */
+  _clone() {
+    return new RouteConfig(this.id, this.path, this.title, this.redirectTo, this.caseSensitive, this.transitionPlan, this.viewport, this.data, this.routes, this.fallback, this._component, this.nav);
+  }
+  /** @internal */
+  _getFallback(viewportInstruction, routeNode, context) {
+    const fallback2 = this.fallback;
+    return typeof fallback2 === "function" && !CustomElement.isType(fallback2) ? fallback2(viewportInstruction, routeNode, context) : fallback2;
+  }
+  /** @internal */
+  _getComponentName() {
+    try {
+      return this._getComponent().name;
+    } catch {
+      return "UNRESOLVED-NAVIGATION-STRATEGY";
+    }
+  }
+  _getComponent(vi, ctx, node, route2) {
+    if (vi == null) {
+      if (this._currentComponent != null)
+        return this._currentComponent;
+      if (this._isNavigationStrategy)
+        throw new Error(getMessage(3558, this.id));
+      return this._currentComponent = this._component;
+    }
+    return this._currentComponent ??= this._isNavigationStrategy ? this._component.getComponent(vi, ctx, node, route2) : this._component;
+  }
+  /** @internal */
+  _handleNavigationStart() {
+    if (!this._isNavigationStrategy)
+      return;
+    this._currentComponent = null;
+  }
+  toString() {
+    let value = `RConf(id: ${this.id}, isNavigationStrategy: ${this._isNavigationStrategy}`;
+    value += `, path: [${this.path.join(",")}]`;
+    if (this.redirectTo)
+      value += `, redirectTo: ${this.redirectTo}`;
+    if (this.caseSensitive)
+      value += `, caseSensitive: ${this.caseSensitive}`;
+    if (this.transitionPlan != null)
+      value += `, transitionPlan: ${this.transitionPlan}`;
+    value += `, viewport: ${this.viewport}`;
+    if (this._currentComponent != null)
+      value += `, component: ${this._currentComponent.name}`;
+    return `${value})`;
+  }
+}
+const Route = {
+  name: /* @__PURE__ */ getResourceKeyFor("route-configuration"),
+  /**
+   * Returns `true` if the specified type has any static route configuration (either via static properties or a &#64;route decorator)
+   */
+  isConfigured(Type) {
+    return Metadata.has(Route.name, Type);
+  },
+  /**
+   * Apply the specified configuration to the specified type, overwriting any existing configuration.
+   */
+  configure(configOrPath, Type) {
+    const config = RouteConfig._create(configOrPath, Type);
+    Metadata.define(config, Type, Route.name);
+    return Type;
+  },
+  /**
+   * Get the `RouteConfig` associated with the specified type, creating a new one if it does not yet exist.
+   */
+  getConfig(Type) {
+    if (!Route.isConfigured(Type)) {
+      Route.configure({}, Type);
+    }
+    return Metadata.get(Route.name, Type);
+  }
+};
+function route(configOrPath) {
+  return function(target, context) {
+    context.addInitializer(function() {
+      Route.configure(configOrPath, this);
+    });
+    return target;
+  };
+}
+function resolveRouteConfiguration(routeable, isChild, parent, routeNode, context) {
+  if (isPartialRedirectRouteConfig(routeable))
+    return RouteConfig._create(routeable, null);
+  const [instruction, ceDef] = resolveCustomElementDefinition(routeable, context);
+  if (instruction.type === 5)
+    return RouteConfig._create({ ...routeable, nav: false }, null);
+  return onResolve(ceDef, ($ceDef) => {
+    const type = $ceDef.Type;
+    const routeConfig = Route.getConfig(type);
+    if (isPartialChildRouteConfig(routeable))
+      return routeConfig._applyChildRouteConfig(routeable, parent);
+    if (isChild)
+      return routeConfig._clone();
+    if (!routeConfig._configurationFromHookApplied && instruction.type === 4 && typeof routeable.getRouteConfig === "function") {
+      return onResolve(routeConfig._applyFromConfigurationHook(routeable, parent, routeNode), () => routeConfig);
+    }
+    return routeConfig;
+  });
+}
+function resolveCustomElementDefinition(routeable, context) {
+  const instruction = createNavigationInstruction(routeable);
+  let ceDef;
+  switch (instruction.type) {
+    case 5:
+      return [instruction, null];
+    case 0: {
+      if (context == null)
+        throw new Error(getMessage(
+          3551
+          /* Events.rtNoCtxStrComponent */
+        ));
+      const dependencies2 = context.component.dependencies;
+      let component = dependencies2.find((d3) => isPartialCustomElementDefinition(d3) && d3.name === instruction.value) ?? CustomElement.find(context._rootContainer, instruction.value);
+      if (component === null)
+        throw new Error(getMessage(3552, instruction.value, context));
+      if (!(component instanceof CustomElementDefinition)) {
+        component = CustomElementDefinition.create(component);
+        CustomElement.define(component);
+      }
+      ceDef = component;
+      break;
+    }
+    case 2:
+      ceDef = instruction.value;
+      break;
+    case 4:
+      ceDef = CustomElement.getDefinition(instruction.value.constructor);
+      break;
+    case 3:
+      if (context == null)
+        throw new Error(getMessage(
+          3553
+          /* Events.rtNoCtxLazyImport */
+        ));
+      ceDef = context._resolveLazy(instruction.value);
+      break;
+  }
+  return [instruction, ceDef];
+}
+function createNavigationInstruction(routeable) {
+  return isPartialChildRouteConfig(routeable) ? createNavigationInstruction(routeable.component) : TypedNavigationInstruction.create(routeable);
+}
 class RouteNode {
   get root() {
     return this._tree.root;
@@ -22951,7 +22965,21 @@ class RouteNode {
     this._version = 1;
     this._isInstructionsFinalized = false;
     this.children = [];
+    this.pathFromRoot = null;
+    this._combinedParams = null;
     this._originalInstruction ??= instruction;
+    if (context.options.useEagerLoading) {
+      const pathFromRoot = [];
+      let cur = this;
+      while (cur !== null) {
+        const route2 = cur.instruction?.recognizedRoute?.route ?? null;
+        if (route2 === null)
+          break;
+        pathFromRoot.unshift(route2);
+        cur = cur.context.parent?.node ?? null;
+      }
+      this.pathFromRoot = pathFromRoot.length > 0 ? pathFromRoot : null;
+    }
   }
   static create(input) {
     const { [RESIDUE]: _, ...params } = input.params ?? {};
@@ -23018,7 +23046,7 @@ class RouteNode {
   _clearChildren() {
     for (const c of this.children) {
       c._clearChildren();
-      c.context.vpa._cancelUpdate();
+      c.context.vpa._cancelUpdate(null);
     }
     this.children.length = 0;
   }
@@ -23082,6 +23110,28 @@ class RouteNode {
       clone.context.node = clone;
     }
     return clone;
+  }
+  /**
+   * @internal
+   * @deprecated Will be removed in the next major version.
+   */
+  _getParams(combineQuery) {
+    if (!combineQuery)
+      return this.params;
+    if (this._combinedParams !== null)
+      return this._combinedParams;
+    const combinedParams = /* @__PURE__ */ Object.create(null);
+    for (const [key, value] of this.queryParams.entries()) {
+      if (value == null)
+        continue;
+      if (combinedParams[key] == null) {
+        combinedParams[key] = value;
+      } else {
+        const values = combinedParams[key];
+        combinedParams[key] = [...isArray(values) ? values : [values], ...isArray(value) ? value : [value]];
+      }
+    }
+    return this._combinedParams = Object.freeze({ ...combinedParams, ...this.params });
   }
   // Should not be adjust for DEV as it is also used of logging in production build.
   toString() {
@@ -23163,7 +23213,7 @@ function createAndAppendNodes(log, node, vi) {
           if (rr !== null)
             return appendNode(log, node, createConfiguredNode(log, node, vi, rr, originalInstruction));
           if (vi.children.length === 0) {
-            const result = ctx.routeConfigContext._generateViewportInstruction(vi);
+            const result = ctx.routeConfigContext._generateViewportInstruction(vi, node.instruction?.recognizedRoute?.route.endpoint.route.path ?? null);
             if (result !== null) {
               node._tree._mergeQuery(result.query);
               const newVi = result.vi;
@@ -23174,21 +23224,24 @@ function createAndAppendNodes(log, node, vi) {
           let collapse = 0;
           let path = vi.component.value;
           let cur = vi;
+          const collapsedChlidren = [];
           while (cur.children.length === 1) {
             cur = cur.children[0];
             if (cur.component.type === 0) {
               ++collapse;
               path = `${path}/${cur.component.value}`;
+              collapsedChlidren.push(cur);
             } else {
               break;
             }
           }
-          rr = ctx.routeConfigContext.recognize(path);
+          let childrenRoutes;
+          [rr, ...childrenRoutes] = ctx.routeConfigContext.recognize(path, false, node.pathFromRoot) ?? [null];
           log.trace("createNode recognized route: %s", rr);
           const residue = rr?.residue ?? null;
           log.trace("createNode residue:", residue);
           const noResidue = residue === null;
-          if (rr === null || residue === path) {
+          if (rr == null || residue === path) {
             const eagerResult = ctx.routeConfigContext._generateViewportInstruction({
               component: vi.component.value,
               params: vi.params ?? emptyObject,
@@ -23196,48 +23249,59 @@ function createAndAppendNodes(log, node, vi) {
               close: vi.close,
               viewport: vi.viewport,
               children: vi.children
-            });
+            }, node.instruction?.recognizedRoute?.route.endpoint.route.path ?? null);
             if (eagerResult !== null) {
               node._tree._mergeQuery(eagerResult.query);
               return appendNode(log, node, createConfiguredNode(log, node, eagerResult.vi, eagerResult.vi.recognizedRoute, vi));
             }
-            const name2 = vi.component.value;
-            if (name2 === "")
-              return;
-            let vp = vi.viewport;
-            if (vp === null || vp.length === 0)
-              vp = defaultViewportName;
-            const vpa = ctx.getFallbackViewportAgent(vp);
-            const fallback = vpa !== null ? vpa.viewport._getFallback(vi, node, ctx) : ctx.routeConfigContext.config._getFallback(vi, node, ctx);
-            if (fallback === null)
-              throw new UnknownRouteError(getMessage(3401, name2, ctx.routeConfigContext._friendlyPath, vp, name2, ctx.routeConfigContext.component.name));
-            if (typeof fallback === "string") {
-              log.trace(`Fallback is set to '${fallback}'. Looking for a recognized route.`);
-              const rd = ctx.routeConfigContext.childRoutes.find((x) => x.id === fallback);
-              if (rd !== void 0)
-                return appendNode(log, node, createFallbackNode(log, rd, node, vi));
-              log.trace(`No route configuration for the fallback '${fallback}' is found; trying to recognize the route.`);
-              const rr2 = ctx.routeConfigContext.recognize(fallback, true);
-              if (rr2 !== null && rr2.residue !== fallback)
-                return appendNode(log, node, createConfiguredNode(log, node, vi, rr2, null));
-            }
-            log.trace(`The fallback '${fallback}' is not recognized as a route; treating as custom element name.`);
-            return onResolve(resolveRouteConfiguration(fallback, false, ctx.routeConfigContext.config, null, ctx.routeConfigContext), (rc) => appendNode(log, node, createFallbackNode(log, rc, node, vi)));
+            return createFallbackNode(vi, node, log);
           }
           rr.residue = null;
           vi.component.value = noResidue ? path : path.slice(0, -(residue.length + 1));
-          let addResidue = !noResidue;
-          for (let i = 0; i < collapse; ++i) {
-            const child = vi.children[0];
-            if (residue?.startsWith(child.component.value) ?? false) {
-              addResidue = false;
-              break;
+          const numRecognizedChildren = childrenRoutes.length;
+          if (numRecognizedChildren > 0) {
+            let childVi = null;
+            for (let i = numRecognizedChildren - 1, j = collapse; i >= 0; --i) {
+              const recognizedRoute = childrenRoutes[i];
+              const component = recognizedRoute.route.path;
+              const recognizedRouteResidue = recognizedRoute.residue;
+              const hasRecognizedRouteResidue = recognizedRouteResidue !== null && recognizedRouteResidue.length > 0;
+              const collapsedChildVi = collapsedChlidren[--j];
+              let viewport2 = null;
+              if (collapsedChildVi != null) {
+                viewport2 = collapsedChildVi.viewport;
+                let inputPath = collapsedChildVi.component.value;
+                const matched = `${component}${hasRecognizedRouteResidue ? `/${recognizedRouteResidue}` : ""}`;
+                while (matched !== inputPath && j >= 0) {
+                  inputPath = `${collapsedChlidren[--j].component.value}/${inputPath}`;
+                }
+              }
+              childVi = ViewportInstruction.create({
+                recognizedRoute,
+                component,
+                children: childVi != null ? [childVi] : hasRecognizedRouteResidue ? [ViewportInstruction.create(recognizedRouteResidue)] : [],
+                viewport: viewport2
+              });
             }
-            vi.viewport = child.viewport;
-            vi.children = child.children;
-          }
-          if (addResidue) {
-            vi.children.unshift(ViewportInstruction.create(residue));
+            vi.children = vi.children.filter(
+              (c) => c.component.type !== 0
+              /* NavigationInstructionType.string */
+            );
+            vi.children.unshift(childVi);
+          } else {
+            let addResidue = !noResidue;
+            for (let i = 0; i < collapse; ++i) {
+              const child = vi.children[0];
+              if (residue?.startsWith(child.component.value) ?? false) {
+                addResidue = false;
+                break;
+              }
+              vi.viewport = child.viewport;
+              vi.children = child.children;
+            }
+            if (addResidue) {
+              vi.children.unshift(ViewportInstruction.create(residue));
+            }
           }
           vi.recognizedRoute = rr;
           log.trace("createNode after adjustment vi:%s", vi);
@@ -23256,11 +23320,41 @@ function createAndAppendNodes(log, node, vi) {
           close: vi.close,
           viewport: vi.viewport,
           children: vi.children
-        });
+        }, node.instruction?.recognizedRoute?.route.endpoint.route.path ?? null);
         node._tree._mergeQuery(query);
         return appendNode(log, node, createConfiguredNode(log, node, newVi, newVi.recognizedRoute, vi));
       });
     }
+  }
+}
+function createFallbackNode(vi, node, log) {
+  const name2 = vi.component.value;
+  const ctx = node.context;
+  if (name2 === "")
+    return;
+  let vp = vi.viewport;
+  if (vp === null || vp.length === 0)
+    vp = defaultViewportName;
+  const vpa = ctx.getFallbackViewportAgent(vp);
+  const fallback2 = vpa !== null ? vpa.viewport._getFallback(vi, node, ctx) : ctx.routeConfigContext.config._getFallback(vi, node, ctx);
+  if (fallback2 === null)
+    throw new UnknownRouteError(getMessage(3401, name2, ctx.routeConfigContext._friendlyPath, vp, name2, ctx.routeConfigContext.component.name));
+  if (typeof fallback2 === "string") {
+    log.trace(`Fallback is set to '${fallback2}'. Looking for a recognized route.`);
+    const rd = ctx.routeConfigContext.childRoutes.find((x) => x.id === fallback2);
+    if (rd !== void 0)
+      return appendNode(log, node, createNode(log, rd, node, vi));
+    log.trace(`No route configuration for the fallback '${fallback2}' is found; trying to recognize the route.`);
+    const [rr] = ctx.routeConfigContext.recognize(fallback2, true) ?? [null];
+    if (rr !== null && rr.residue !== fallback2)
+      return appendNode(log, node, createConfiguredNode(log, node, vi, rr, null));
+  }
+  log.trace(`The fallback '${fallback2}' is not recognized as a route; treating as custom element name.`);
+  return onResolve(resolveRouteConfiguration(fallback2, false, ctx.routeConfigContext.config, null, ctx.routeConfigContext), (rc) => appendNode(log, node, createNode(log, rc, node, vi)));
+  function createNode(log2, rc, node2, vi2) {
+    const rr = new $RecognizedRoute(new RecognizedRoute(new Endpoint(new ConfigurableRoute(rc.path[0], rc.caseSensitive, rc), []), rc.path[0], emptyObject), null);
+    vi2.children.length = 0;
+    return createConfiguredNode(log2, node2, vi2, rr, null);
   }
 }
 function createConfiguredNode(log, node, vi, rr, originalVi, route2 = rr.route.endpoint.route) {
@@ -23278,7 +23372,7 @@ function createConfiguredNode(log, node, vi, rr, originalVi, route2 = rr.route.e
           vi.viewport = vpa.viewport.name;
         }
         const router = ctx.container.get(IRouter);
-        return onResolve(router.getRouteContext(vpa, ced, null, vpa.hostController.container, ctx.routeConfigContext.config, ctx, $handler), (childCtx) => {
+        return onResolve(router._getRouteContext(vpa, ced, null, vpa.hostController.container, ctx.routeConfigContext.config, ctx, $handler), (childCtx) => {
           log.trace("createConfiguredNode setting the context node");
           const $node = childCtx.node = RouteNode.create({
             path: rr.route.endpoint.route.path,
@@ -23377,13 +23471,13 @@ function createConfiguredNode(log, node, vi, rr, originalVi, route2 = rr.route.e
     if (redirRR === null)
       throw new UnknownRouteError(getMessage(3402, newPath, ctx.routeConfigContext._friendlyPath, newPath, ctx.routeConfigContext.component.name));
     return createConfiguredNode(log, node, ViewportInstruction.create({
-      recognizedRoute: redirRR,
+      recognizedRoute: redirRR[0],
       component: newPath,
       children: vi.children,
       viewport: vi.viewport,
       open: vi.open,
       close: vi.close
-    }), redirRR, originalVi);
+    }), redirRR[0], originalVi);
   });
 }
 function appendNode(log, node, childNode) {
@@ -23393,17 +23487,12 @@ function appendNode(log, node, childNode) {
     return $childNode.context.vpa._scheduleUpdate(node._tree.options, $childNode);
   });
 }
-function createFallbackNode(log, rc, node, vi) {
-  const rr = new $RecognizedRoute(new RecognizedRoute(new Endpoint(new ConfigurableRoute(rc.path[0], rc.caseSensitive, rc), []), emptyObject), null);
-  vi.children.length = 0;
-  return createConfiguredNode(log, node, vi, rr, null);
-}
 const emptyQuery = Object.freeze(new URLSearchParams());
 function isManagedState(state) {
   return isObjectOrFunction(state) && Object.prototype.hasOwnProperty.call(state, AuNavId) === true;
 }
 function toManagedState(state, navId) {
-  return { ...state, [AuNavId]: navId };
+  return { ...state, [AuNavId]: state?.[AuNavId] ?? navId };
 }
 class UnknownRouteError extends Error {
 }
@@ -23411,8 +23500,8 @@ class Transition {
   get erredWithUnknownRoute() {
     return this._erredWithUnknownRoute;
   }
-  constructor(id2, prevInstructions, instructions, finalInstructions, instructionsChanged, trigger, options, managedState, previousRouteTree, routeTree, promise, resolve2, reject, guardsResult, error2) {
-    this.id = id2;
+  constructor(id, prevInstructions, instructions, finalInstructions, instructionsChanged, trigger, options, managedState, previousRouteTree, routeTree, promise, resolve2, reject, guardsResult, error2) {
+    this.id = id;
     this.prevInstructions = prevInstructions;
     this.instructions = instructions;
     this.finalInstructions = finalInstructions;
@@ -23470,7 +23559,7 @@ class Router {
       return ctx;
     if (!this._container.has(IRouteContext, true))
       throw new Error(getMessage(
-        3271
+        3272
         /* Events.rtrNoCtx */
       ));
     return this._$ctx = this._container.get(IRouteContext);
@@ -23522,6 +23611,7 @@ class Router {
     this._currentTr = null;
     this._navigated = false;
     this._navigationId = 0;
+    this._lastLocationChangeStateId = 0;
     this._nextTr = null;
     this._locationChangeSubscription = null;
     this._hasTitleBuilder = false;
@@ -23533,9 +23623,8 @@ class Router {
     this._events = resolve(IRouterEvents);
     this._locationMgr = resolve(ILocationManager);
     this.options = resolve(IRouterOptions);
-    this._routeConfigLookup = /* @__PURE__ */ new WeakMap();
     this._vpaLookup = /* @__PURE__ */ new Map();
-    this._instructions = ViewportInstructionTree.create("", this.options, null, null);
+    this._instructions = ViewportInstructionTree.create("", this.options, null, null, null);
     this._container.registerResolver(Router, Registration.instance(Router, this));
   }
   /**
@@ -23559,11 +23648,14 @@ class Router {
     this._hasTitleBuilder = typeof this.options.buildTitle === "function";
     this._locationMgr.startListening();
     this._locationChangeSubscription = this._events.subscribe("au:router:location-change", (e) => {
-      this._p.taskQueue.queueTask(() => {
+      void queueAsyncTask(() => {
         const state = isManagedState(e.state) ? e.state : null;
         const routerOptions = this.options;
-        const options = NavigationOptions.create(routerOptions, { historyStrategy: "replace" });
-        const instructions = ViewportInstructionTree.create(e.url, routerOptions, options, this._ctx);
+        const auNavId = state?.[AuNavId] ?? 0;
+        const isBack = auNavId <= this._lastLocationChangeStateId || this._lastLocationChangeStateId === 0;
+        this._lastLocationChangeStateId = auNavId;
+        const options = NavigationOptions.create(routerOptions, { historyStrategy: "replace", isBack });
+        const instructions = ViewportInstructionTree.create(e.url, routerOptions, options, this._ctx, null);
         this._enqueue(instructions, e.trigger, state, null);
       });
     });
@@ -23576,14 +23668,14 @@ class Router {
     this._locationChangeSubscription?.dispose();
   }
   load(instructionOrInstructions, options) {
-    return onResolve(this.createViewportInstructions(instructionOrInstructions, options ?? null), (instructions) => {
+    return onResolve(this.createViewportInstructions(instructionOrInstructions, options ?? null, null), (instructions) => {
       trace(this._logger, 3250, instructions);
       return this._enqueue(instructions, "api", null, null);
     });
   }
   isActive(instructionOrInstructions, context) {
     const ctx = this._resolveContext(context);
-    const instructions = instructionOrInstructions instanceof ViewportInstructionTree ? instructionOrInstructions : this.createViewportInstructions(instructionOrInstructions, { context: ctx, historyStrategy: this.options.historyStrategy });
+    const instructions = instructionOrInstructions instanceof ViewportInstructionTree ? instructionOrInstructions : this.createViewportInstructions(instructionOrInstructions, { context: ctx, historyStrategy: this.options.historyStrategy }, null);
     trace(this._logger, 3251, instructions, ctx);
     return this.routeTree.contains(instructions, false);
   }
@@ -23596,10 +23688,11 @@ class Router {
    * @param componentDefinition - The custom element definition.
    * @param container - The `controller.container` of the component hosting the viewport that the route will be loaded into.
    *
+   * @internal
    */
-  getRouteContext(viewportAgent, componentDefinition, componentInstance, container, parentRouteConfig, parentContext, $rdConfig) {
+  _getRouteContext(viewportAgent, componentDefinition, componentInstance, container, parentRouteConfig, parentContext, $rdConfig) {
     const logger = /* @__PURE__ */ container.get(ILogger).scopeTo("RouteContext");
-    return onResolve(this.getRouteConfigContext($rdConfig, componentDefinition, componentInstance, container, parentRouteConfig, parentContext?.routeConfigContext ?? null), (rdConfigContext) => {
+    return onResolve(RouteConfigContext.getOrCreate($rdConfig, componentDefinition, componentInstance, parentRouteConfig, parentContext?.routeConfigContext ?? null, container.root, this.options), (rdConfigContext) => {
       let routeConfigLookup = this._vpaLookup.get(viewportAgent);
       if (routeConfigLookup === void 0) {
         this._vpaLookup.set(viewportAgent, routeConfigLookup = /* @__PURE__ */ new WeakMap());
@@ -23615,29 +23708,6 @@ class Router {
       return routeContext;
     });
   }
-  getRouteConfigContext($rdConfig, componentDefinition, componentInstance, container, parentRouteConfig, parentRouteConfigContext) {
-    return onResolve(
-      // In case of navigation strategy, get the route config for the resolved component directly.
-      // Conceptually, navigation strategy is another form of lazily deciding on the route config for the given component.
-      // Hence, when we see a navigation strategy, we resolve the route config for the component first.
-      $rdConfig instanceof RouteConfig && !$rdConfig._isNavigationStrategy ? $rdConfig : resolveRouteConfiguration(
-        // getRouteConfig is prioritized over the statically configured routes via @route decorator.
-        typeof componentInstance?.getRouteConfig === "function" ? componentInstance : componentDefinition.Type,
-        false,
-        parentRouteConfig,
-        null,
-        parentRouteConfigContext
-      ),
-      (rdConfig) => {
-        let routeConfigContext = this._routeConfigLookup.get(rdConfig);
-        if (routeConfigContext != null)
-          return routeConfigContext;
-        routeConfigContext = new RouteConfigContext(parentRouteConfigContext, componentDefinition, rdConfig, container, this);
-        this._routeConfigLookup.set(rdConfig, routeConfigContext);
-        return routeConfigContext;
-      }
-    );
-  }
   /**
    * Generate a path from the provided instructions.
    *
@@ -23645,15 +23715,15 @@ class Router {
    * @param context - The context to use for relative navigation. If not provided, the root context is used.
    */
   generatePath(instructionOrInstructions, context) {
-    return onResolve(this.createViewportInstructions(createEagerInstructions(instructionOrInstructions), { context: context ?? this._ctx }, true), (vit) => vit.toUrl(true, this.options._urlParser));
+    return onResolve(this.createViewportInstructions(createEagerInstructions(instructionOrInstructions), { context: context ?? this._ctx }, null, true), (vit) => vit.toUrl(true, this.options._urlParser, vit.options.context.isRoot));
   }
-  createViewportInstructions(instructionOrInstructions, options, traverseChildren) {
+  createViewportInstructions(instructionOrInstructions, options, parentRoutePath, traverseChildren) {
     if (instructionOrInstructions instanceof ViewportInstructionTree)
       return instructionOrInstructions;
     let context = options?.context ?? null;
     if (context !== null)
       context = options.context = this._resolveContext(context);
-    return (context ?? this._$ctx).createViewportInstructions(instructionOrInstructions, options, traverseChildren);
+    return (context ?? this._$ctx).createViewportInstructions(instructionOrInstructions, options, parentRoutePath, traverseChildren);
   }
   /**
    * Enqueue an instruction tree to be processed as soon as possible.
@@ -23679,9 +23749,9 @@ class Router {
     let promise;
     const restorePrevRT = this.options.restorePreviousRouteTreeOnError;
     if (failedTr === null || failedTr.erredWithUnknownRoute || failedTr.error != null && restorePrevRT) {
-      promise = new Promise(function($resolve2, $reject2) {
-        resolve2 = $resolve2;
-        reject = $reject2;
+      promise = new Promise(function($resolve, $reject) {
+        resolve2 = $resolve;
+        reject = $reject;
       });
     } else {
       debug(logger, 3255, failedTr);
@@ -23718,7 +23788,7 @@ class Router {
       debug(logger, 3257, nextTr);
       return ret;
     }).catch((err) => {
-      error(logger, 3270, nextTr, err);
+      error(logger, 3271, nextTr, err);
       if (nextTr.erredWithUnknownRoute) {
         this._cancelNavigation(nextTr);
       } else {
@@ -23808,7 +23878,7 @@ class Router {
           node.context.vpa._loading(tr, b);
         }
       })._continueWith((b) => {
-        trace(logger, 3265, all2.length);
+        trace(logger, 3266, all2.length);
         for (const node of all2) {
           node.context.vpa._swap(tr, b);
         }
@@ -23817,10 +23887,15 @@ class Router {
           b._push();
           this._cancelNavigation(tr);
         }
+      })._continueWith((b) => {
+        trace(logger, 3265, next.length);
+        for (const node of next) {
+          node.context.vpa._loaded(tr, b);
+        }
       })._continueWith(() => {
         trace(
           logger,
-          3266
+          3267
           /* Events.rtrRunFinalizing */
         );
         all2.forEach(function(node) {
@@ -23829,15 +23904,15 @@ class Router {
         this._navigated = true;
         this._instructions = tr.finalInstructions = tr.routeTree._finalizeInstructions();
         this._isNavigating = false;
-        const newUrl = tr.finalInstructions.toUrl(true, this.options._urlParser);
+        const newUrl = tr.finalInstructions.toUrl(true, this.options._urlParser, true);
         switch (tr.options._getHistoryStrategy(this._instructions)) {
           case "none":
             break;
           case "push":
-            this._locationMgr.pushState(toManagedState(tr.options.state, tr.id), this.updateTitle(tr), newUrl);
+            this._locationMgr.pushState(toManagedState(tr.managedState, tr.id), this.updateTitle(tr), newUrl);
             break;
           case "replace":
-            this._locationMgr.replaceState(toManagedState(tr.options.state, tr.id), this.updateTitle(tr), newUrl);
+            this._locationMgr.replaceState(toManagedState(tr.managedState, tr.id), this.updateTitle(tr), newUrl);
             break;
         }
         this._events.publish(new NavigationEndEvent(tr.id, tr.instructions, this._instructions));
@@ -23887,40 +23962,43 @@ class Router {
   /** @internal */
   _cancelNavigation(tr) {
     const logger = /* @__PURE__ */ this._logger.scopeTo("cancelNavigation()");
-    trace(logger, 3267, tr);
+    trace(logger, 3268, tr);
     const prev = tr.previousRouteTree.root.children;
     const next = tr.routeTree.root.children;
     const all2 = mergeDistinct(prev, next);
-    all2.forEach(function(node) {
-      node.context.vpa._cancelUpdate();
-    });
-    this._instructions = tr.prevInstructions;
-    this._routeTree = tr.previousRouteTree;
-    this._isNavigating = false;
-    const guardsResult = tr.guardsResult;
-    this._events.publish(new NavigationCancelEvent(tr.id, tr.instructions, `guardsResult is ${guardsResult}`));
-    if (guardsResult === false) {
-      tr.resolve(false);
-      this._runNextTransition();
-    } else {
-      let instructions;
-      if (this._navigated && (tr.erredWithUnknownRoute || tr.error != null && this.options.restorePreviousRouteTreeOnError))
-        instructions = tr.prevInstructions;
-      else if (guardsResult === true)
-        return;
-      else
-        instructions = guardsResult;
-      void onResolve(this._enqueue(instructions, "api", tr.managedState, tr), () => {
-        trace(this._logger, 3268, tr);
+    Batch._start((b) => {
+      all2.forEach(function(node) {
+        node.context.vpa._cancelUpdate(b);
       });
-    }
+    })._continueWith((_b2) => {
+      this._instructions = tr.prevInstructions;
+      this._routeTree = tr.previousRouteTree;
+      this._isNavigating = false;
+      const guardsResult = tr.guardsResult;
+      this._events.publish(new NavigationCancelEvent(tr.id, tr.instructions, `guardsResult is ${guardsResult}`));
+      if (guardsResult === false) {
+        tr.resolve(false);
+        this._runNextTransition();
+      } else {
+        let instructions;
+        if (this._navigated && (tr.erredWithUnknownRoute || tr.error != null && this.options.restorePreviousRouteTreeOnError))
+          instructions = tr.prevInstructions;
+        else if (guardsResult === true)
+          return;
+        else
+          instructions = guardsResult;
+        void onResolve(this._enqueue(instructions, "api", tr.managedState, tr), () => {
+          trace(this._logger, 3269, tr);
+        });
+      }
+    })._start();
   }
   /** @internal */
   _runNextTransition() {
     if (this._nextTr === null)
       return;
-    trace(this._logger, 3269, this._nextTr);
-    this._p.taskQueue.queueTask(() => {
+    trace(this._logger, 3270, this._nextTr);
+    void queueAsyncTask(() => {
       const nextTr = this._nextTr;
       if (nextTr === null)
         return;
@@ -24002,7 +24080,7 @@ const pathUrlParser = Object.freeze({
   parse(value) {
     return ParsedUrl._create(value);
   },
-  stringify(pathOrParsedUrl, query, fragment) {
+  stringify(pathOrParsedUrl, query, fragment, _isRooted) {
     return stringify(pathOrParsedUrl, query, fragment);
   }
 });
@@ -24015,8 +24093,8 @@ const fragmentUrlParser = Object.freeze({
     }
     return ParsedUrl._create(value);
   },
-  stringify(pathOrParsedUrl, query, fragment) {
-    return `/#/${stringify(pathOrParsedUrl, query, fragment)}`;
+  stringify(pathOrParsedUrl, query, fragment, isRooted) {
+    return `${isRooted ? "/#/" : ""}${stringify(pathOrParsedUrl, query, fragment)}`;
   }
 });
 function valueOrFuncToValue(instructions, valueOrFunc) {
@@ -24027,7 +24105,7 @@ function valueOrFuncToValue(instructions, valueOrFunc) {
 }
 const IRouterOptions = /* @__PURE__ */ DI.createInterface("RouterOptions");
 class RouterOptions {
-  constructor(useUrlFragmentHash, useHref, historyStrategy, buildTitle, useNavigationModel, activeClass, restorePreviousRouteTreeOnError) {
+  constructor(useUrlFragmentHash, useHref, historyStrategy, buildTitle, useNavigationModel, activeClass, restorePreviousRouteTreeOnError, treatQueryAsParameters, useEagerLoading) {
     this.useUrlFragmentHash = useUrlFragmentHash;
     this.useHref = useHref;
     this.historyStrategy = historyStrategy;
@@ -24035,10 +24113,12 @@ class RouterOptions {
     this.useNavigationModel = useNavigationModel;
     this.activeClass = activeClass;
     this.restorePreviousRouteTreeOnError = restorePreviousRouteTreeOnError;
+    this.treatQueryAsParameters = treatQueryAsParameters;
+    this.useEagerLoading = useEagerLoading;
     this._urlParser = useUrlFragmentHash ? fragmentUrlParser : pathUrlParser;
   }
   static create(input) {
-    return new RouterOptions(input.useUrlFragmentHash ?? false, input.useHref ?? true, input.historyStrategy ?? "push", input.buildTitle ?? null, input.useNavigationModel ?? true, input.activeClass ?? null, input.restorePreviousRouteTreeOnError ?? true);
+    return new RouterOptions(input.useUrlFragmentHash ?? false, input.useHref ?? true, input.historyStrategy ?? "push", input.buildTitle ?? null, input.useNavigationModel ?? true, input.activeClass ?? null, input.restorePreviousRouteTreeOnError ?? true, input.treatQueryAsParameters ?? false, input.useEagerLoading ?? false);
   }
   toString() {
     return `RO(${[
@@ -24050,7 +24130,7 @@ class RouterOptions {
   }
 }
 class NavigationOptions {
-  constructor(historyStrategy, title, titleSeparator, context, queryParams, fragment, state, transitionPlan) {
+  constructor(historyStrategy, title, titleSeparator, context, queryParams, fragment, state, transitionPlan, isBack) {
     this.historyStrategy = historyStrategy;
     this.title = title;
     this.titleSeparator = titleSeparator;
@@ -24059,13 +24139,14 @@ class NavigationOptions {
     this.fragment = fragment;
     this.state = state;
     this.transitionPlan = transitionPlan;
+    this.isBack = isBack;
   }
   static create(routerOptions, input) {
-    return new NavigationOptions(input.historyStrategy ?? routerOptions.historyStrategy, input.title ?? null, input.titleSeparator ?? " | ", input.context ?? null, input.queryParams ?? null, input.fragment ?? "", input.state ?? null, input.transitionPlan ?? null);
+    return new NavigationOptions(input.historyStrategy ?? routerOptions.historyStrategy, input.title ?? null, input.titleSeparator ?? " | ", input.context ?? null, input.queryParams ?? null, input.fragment ?? "", input.state ?? null, input.transitionPlan ?? null, input.isBack ?? false);
   }
   /** @internal */
   _clone() {
-    return new NavigationOptions(this.historyStrategy, this.title, this.titleSeparator, this.context, { ...this.queryParams }, this.fragment, this.state === null ? null : { ...this.state }, this.transitionPlan);
+    return new NavigationOptions(this.historyStrategy, this.title, this.titleSeparator, this.context, { ...this.queryParams }, this.fragment, this.state === null ? null : { ...this.state }, this.transitionPlan, this.isBack);
   }
   /** @internal */
   _getHistoryStrategy(instructions) {
@@ -24134,7 +24215,7 @@ class ViewportInstruction {
     return new ViewportInstruction(this.open, this.close, this.recognizedRoute, this.component._clone(), this.viewport, this.params, [...this.children]);
   }
   toUrlComponent(recursive = true) {
-    const component = this.component.toUrlComponent();
+    const component = this.recognizedRoute?.route.path ?? this.component.toUrlComponent();
     const vp = this.viewport;
     const viewport2 = component.length === 0 || vp === null || vp.length === 0 || vp === defaultViewportName ? "" : `@${vp}`;
     const thisPart = `${"(".repeat(this.open)}${component}${stringifyParams(this.params)}${viewport2}${")".repeat(this.close)}`;
@@ -24188,7 +24269,7 @@ class ViewportInstructionTree {
     this.fragment = fragment;
     Object.freeze(queryParams);
   }
-  static create(instructionOrInstructions, routerOptions, options, rootCtx, traverseChildren) {
+  static create(instructionOrInstructions, routerOptions, options, rootCtx, parentRoutePath, traverseChildren) {
     options = options instanceof NavigationOptions ? options : NavigationOptions.create(routerOptions, options ?? emptyObject);
     let context = options.context;
     if (!(context instanceof RouteContext) && rootCtx != null) {
@@ -24202,7 +24283,7 @@ class ViewportInstructionTree {
       const promises = new Array(len);
       for (let i = 0; i < len; i++) {
         const instruction = instructionOrInstructions[i];
-        promises[i] = onResolve(hasContext ? context.routeConfigContext._generateViewportInstruction(instruction, traverseChildren) : null, (eagerVi) => {
+        promises[i] = onResolve(hasContext ? context.routeConfigContext._generateViewportInstruction(instruction, parentRoutePath, traverseChildren) : null, (eagerVi) => {
           if (eagerVi !== null) {
             children[i] = eagerVi.vi;
             mergeURLSearchParams(query, eagerVi.query, false);
@@ -24217,7 +24298,7 @@ class ViewportInstructionTree {
       const expr = RouteExpression.parse(routerOptions._urlParser.parse(instructionOrInstructions));
       return expr.toInstructionTree(options);
     }
-    return onResolve(hasContext ? context.routeConfigContext._generateViewportInstruction(isPartialViewportInstruction(instructionOrInstructions) ? { ...instructionOrInstructions, params: instructionOrInstructions.params ?? emptyObject } : { component: instructionOrInstructions, params: emptyObject }, traverseChildren) : null, (eagerVi) => {
+    return onResolve(hasContext ? context.routeConfigContext._generateViewportInstruction(isPartialViewportInstruction(instructionOrInstructions) ? { ...instructionOrInstructions, params: instructionOrInstructions.params ?? emptyObject } : { component: instructionOrInstructions, params: emptyObject }, parentRoutePath, traverseChildren) : null, (eagerVi) => {
       const query = new URLSearchParams(options.queryParams ?? emptyObject);
       return eagerVi !== null ? new ViewportInstructionTree(options, false, [eagerVi.vi], mergeURLSearchParams(query, eagerVi.query, false), options.fragment) : new ViewportInstructionTree(options, false, [ViewportInstruction.create(instructionOrInstructions)], query, options.fragment);
     });
@@ -24235,7 +24316,7 @@ class ViewportInstructionTree {
     }
     return true;
   }
-  toUrl(isFinalInstruction, parser) {
+  toUrl(isFinalInstruction, parser, isRooted) {
     let parentPath = "";
     if (!isFinalInstruction) {
       const parentPaths = [];
@@ -24247,7 +24328,7 @@ class ViewportInstructionTree {
         const node = vpa._currState === 4096 ? vpa._currNode : vpa._nextNode;
         if (node == null)
           throw new Error("Invalid operation; nodes of the viewport agent are not set.");
-        parentPaths.splice(0, 0, node.instruction.toUrlComponent());
+        parentPaths.splice(0, 0, node.instruction.component.toUrlComponent());
         ctx = ctx.parent;
       }
       if (parentPaths[0] === "") {
@@ -24256,7 +24337,7 @@ class ViewportInstructionTree {
       parentPath = parentPaths.join("/");
     }
     const currentPath = this.toPath();
-    return parser.stringify(parentPath.length > 0 ? `${parentPath}/${currentPath}` : currentPath, this.queryParams, this.fragment);
+    return parser.stringify(parentPath.length > 0 ? `${parentPath}/${currentPath}` : currentPath, this.queryParams, this.fragment, isRooted);
   }
   toPath() {
     return this.children.map((x) => x.toUrlComponent()).join("+");
@@ -24360,6 +24441,12 @@ class TypedNavigationInstruction {
   }
 }
 class ComponentAgent {
+  /**
+   * The component's controller.
+   */
+  get controller() {
+    return this._controller;
+  }
   constructor(_instance, _controller, _routeNode, _ctx, _routerOptions) {
     this._instance = _instance;
     this._controller = _controller;
@@ -24375,28 +24462,18 @@ class ComponentAgent {
     const lifecycleHooks = _controller.lifecycleHooks;
     this._canLoadHooks = (lifecycleHooks.canLoad ?? []).map((x) => x.instance);
     this._loadHooks = (lifecycleHooks.loading ?? []).map((x) => x.instance);
+    this._loadedHooks = (lifecycleHooks.loaded ?? []).map((x) => x.instance);
     this._canUnloadHooks = (lifecycleHooks.canUnload ?? []).map((x) => x.instance);
     this._unloadHooks = (lifecycleHooks.unloading ?? []).map((x) => x.instance);
     this._hasCanLoad = "canLoad" in _instance;
     this._hasLoad = "loading" in _instance;
+    this._hasLoaded = "loaded" in _instance;
     this._hasCanUnload = "canUnload" in _instance;
     this._hasUnload = "unloading" in _instance;
   }
   /** @internal */
   _activate(initiator, parent) {
-    const controller = this._controller;
-    const viewportController = this._ctx.vpa.hostController;
-    switch (controller.mountTarget) {
-      case MountTarget.host:
-      case MountTarget.shadowRoot:
-        viewportController.host.appendChild(controller.host);
-        break;
-      case MountTarget.location:
-        viewportController.host.append(controller.location.$start, controller.location);
-        break;
-      case MountTarget.none:
-        throw new Error("Invalid mount target for routed component");
-    }
+    this._mountToViewport();
     if (initiator === null) {
       trace(
         this._logger,
@@ -24411,6 +24488,46 @@ class ComponentAgent {
       /* Events.caActivateInitiator */
     );
     void this._controller.activate(initiator, parent);
+  }
+  /**
+   * Mount the component's host element to the viewport.
+   * During SSR hydration, the element already exists in the DOM and mounting is skipped.
+   * @internal
+   */
+  _mountToViewport() {
+    const controller = this._controller;
+    const viewportHost = this._ctx.vpa.hostController.host;
+    if (this._isMountedTo(viewportHost)) {
+      return;
+    }
+    switch (controller.mountTarget) {
+      case MountTarget.host:
+      case MountTarget.shadowRoot:
+        viewportHost.appendChild(controller.host);
+        break;
+      case MountTarget.location:
+        viewportHost.append(controller.location.$start, controller.location);
+        break;
+      case MountTarget.none:
+        throw new Error("Invalid mount target for routed component");
+    }
+  }
+  /**
+   * Check if the component is already mounted to the given host.
+   * Returns true during SSR hydration when the element was server-rendered.
+   * @internal
+   */
+  _isMountedTo(host) {
+    const controller = this._controller;
+    switch (controller.mountTarget) {
+      case MountTarget.host:
+      case MountTarget.shadowRoot:
+        return controller.host.parentNode === host;
+      case MountTarget.location:
+        return controller.location?.$start?.parentNode === host;
+      default:
+        return false;
+    }
   }
   /** @internal */
   _deactivate(initiator, parent) {
@@ -24446,6 +24563,7 @@ class ComponentAgent {
   _canUnload(tr, next, b) {
     trace(this._logger, 3056, next, this._canUnloadHooks.length);
     b._push();
+    const options = tr.options;
     let promise = Promise.resolve();
     for (const hook of this._canUnloadHooks) {
       b._push();
@@ -24456,7 +24574,7 @@ class ComponentAgent {
           return;
         }
         tr._run(() => {
-          return hook.canUnload(this._instance, next, this._routeNode);
+          return hook.canUnload(this._instance, next, this._routeNode, options);
         }, (ret) => {
           if (tr.guardsResult === true && ret === false) {
             tr.guardsResult = false;
@@ -24474,7 +24592,7 @@ class ComponentAgent {
           return;
         }
         tr._run(() => {
-          return this._instance.canUnload(next, this._routeNode);
+          return this._instance.canUnload(next, this._routeNode, options);
         }, (ret) => {
           if (tr.guardsResult === true && ret === false) {
             tr.guardsResult = false;
@@ -24488,8 +24606,10 @@ class ComponentAgent {
   /** @internal */
   _canLoad(tr, next, b) {
     trace(this._logger, 3057, next, this._canLoadHooks.length);
+    const params = next._getParams(this._routerOptions.treatQueryAsParameters);
     const rootCtx = this._ctx.root;
     b._push();
+    const options = tr.options;
     let promise = Promise.resolve();
     for (const hook of this._canLoadHooks) {
       b._push();
@@ -24500,10 +24620,10 @@ class ComponentAgent {
           return;
         }
         tr._run(() => {
-          return hook.canLoad(this._instance, next.params, next, this._routeNode);
+          return hook.canLoad(this._instance, params, next, this._routeNode, options);
         }, (ret) => {
           if (tr.guardsResult === true && ret != null && ret !== true) {
-            tr.guardsResult = ret === false ? false : ViewportInstructionTree.create(ret, this._routerOptions, null, rootCtx);
+            tr.guardsResult = ret === false ? false : ViewportInstructionTree.create(ret, this._routerOptions, null, rootCtx, null);
           }
           b._pop();
           res();
@@ -24518,10 +24638,10 @@ class ComponentAgent {
           return;
         }
         tr._run(() => {
-          return this._instance.canLoad(next.params, next, this._routeNode);
+          return this._instance.canLoad(params, next, this._routeNode, options);
         }, (ret) => {
           if (tr.guardsResult === true && ret != null && ret !== true) {
-            tr.guardsResult = ret === false ? false : ViewportInstructionTree.create(ret, this._routerOptions, null, rootCtx);
+            tr.guardsResult = ret === false ? false : ViewportInstructionTree.create(ret, this._routerOptions, null, rootCtx, null);
           }
           b._pop();
         });
@@ -24533,10 +24653,11 @@ class ComponentAgent {
   _unloading(tr, next, b) {
     trace(this._logger, 3058, next, this._unloadHooks.length);
     b._push();
+    const options = tr.options;
     for (const hook of this._unloadHooks) {
       tr._run(() => {
         b._push();
-        return hook.unloading(this._instance, next, this._routeNode);
+        return hook.unloading(this._instance, next, this._routeNode, options);
       }, () => {
         b._pop();
       });
@@ -24544,7 +24665,7 @@ class ComponentAgent {
     if (this._hasUnload) {
       tr._run(() => {
         b._push();
-        return this._instance.unloading(next, this._routeNode);
+        return this._instance.unloading(next, this._routeNode, options);
       }, () => {
         b._pop();
       });
@@ -24554,11 +24675,13 @@ class ComponentAgent {
   /** @internal */
   _loading(tr, next, b) {
     trace(this._logger, 3059, next, this._loadHooks.length);
+    const params = next._getParams(this._routerOptions.treatQueryAsParameters);
     b._push();
+    const options = tr.options;
     for (const hook of this._loadHooks) {
       tr._run(() => {
         b._push();
-        return hook.loading(this._instance, next.params, next, this._routeNode);
+        return hook.loading(this._instance, params, next, this._routeNode, options);
       }, () => {
         b._pop();
       });
@@ -24566,12 +24689,81 @@ class ComponentAgent {
     if (this._hasLoad) {
       tr._run(() => {
         b._push();
-        return this._instance.loading(next.params, next, this._routeNode);
+        return this._instance.loading(params, next, this._routeNode, options);
       }, () => {
         b._pop();
       });
     }
     b._pop();
+  }
+  /** @internal */
+  _loaded(tr, next, b) {
+    trace(this._logger, 3060, next, this._loadedHooks.length);
+    const params = next._getParams(this._routerOptions.treatQueryAsParameters);
+    b._push();
+    const options = tr.options;
+    for (const hook of this._loadedHooks) {
+      tr._run(() => {
+        b._push();
+        return hook.loaded(this._instance, params, next, this._routeNode, options);
+      }, () => {
+        b._pop();
+      });
+    }
+    if (this._hasLoaded) {
+      tr._run(() => {
+        b._push();
+        return this._instance.loaded(params, next, this._routeNode, options);
+      }, () => {
+        b._pop();
+      });
+    }
+    b._pop();
+  }
+}
+const IContextRouter = /* @__PURE__ */ DI.createInterface("IContextRouter");
+class ContextRouter {
+  /** @internal */
+  get _options() {
+    return this._router.options;
+  }
+  /** @internal */
+  get _allResolved() {
+    return this._context.routeConfigContext.allResolved;
+  }
+  constructor(_router, _context) {
+    this._router = _router;
+    this._context = _context;
+  }
+  load(instructionOrInstructions, options) {
+    return this._router.load(instructionOrInstructions, { context: this._context, ...options });
+  }
+  /**
+   * Generate a path from the provided instructions.
+   *
+   * @param instructionOrInstructions - The navigation instruction(s) to generate the path for.
+   * @param context - The context to use for relative navigation. If not provided, the root context is used.
+   */
+  generatePath(instructionOrInstructions) {
+    return this._router.generatePath(instructionOrInstructions, this._context);
+  }
+  createViewportInstructions(instructionOrInstructions, options, parentRoutePath, traverseChildren) {
+    return this._router.createViewportInstructions(instructionOrInstructions, { context: this._context, ...options }, parentRoutePath, traverseChildren);
+  }
+  isActive(instructionOrInstructions) {
+    return this._router.isActive(instructionOrInstructions, this._context);
+  }
+  /** @internal */
+  _copyWith(context) {
+    return new ContextRouter(this._router, context);
+  }
+  /** @internal */
+  _copyWithRoot() {
+    return this._copyWith(this._context.root);
+  }
+  /** @internal */
+  _isOfContext(context) {
+    return this._context === context;
   }
 }
 const IRouteContext = /* @__PURE__ */ DI.createInterface("IRouteContext");
@@ -24635,6 +24827,9 @@ class RouteContext {
       throw new Error(getMessage(3172, this));
     return vpa;
   }
+  get options() {
+    return this._router.options;
+  }
   constructor(viewportAgent, parent, parentContainer, _router, routeConfigContext, _locationMgr) {
     this.parent = parent;
     this._router = _router;
@@ -24662,10 +24857,123 @@ class RouteContext {
     const ctxProvider = new InstanceProvider("IRouteContext", this);
     container.registerResolver(IRouteContext, ctxProvider);
     container.registerResolver(RouteContext, ctxProvider);
+    const contextRouterProvider = new InstanceProvider("IContextRouter", new ContextRouter(_router, this));
+    container.registerResolver(IContextRouter, contextRouterProvider);
+    container.registerResolver(ContextRouter, contextRouterProvider);
+    if (this.isRoot) {
+      container.root.registerResolver(IContextRouter, contextRouterProvider);
+      container.root.registerResolver(ContextRouter, contextRouterProvider);
+    }
     if (_router.options.useNavigationModel) {
       container.get(IRouterEvents).subscribe("au:router:navigation-end", () => {
         routeConfigContext.navigationModel._setIsActive(_router, this);
       });
+    }
+  }
+  getRouteParameters(options) {
+    const includeQueryParams = options?.includeQueryParams ?? this._router.options.treatQueryAsParameters;
+    const mergeStrategy = options?.mergeStrategy ?? "child-first";
+    const freezeValue = (value) => {
+      if (isArray(value)) {
+        return Object.freeze(value.slice());
+      }
+      return value;
+    };
+    const forEachNodeValue = (node, visit) => {
+      if (includeQueryParams) {
+        const seenKeys = /* @__PURE__ */ new Set();
+        for (const key of node.queryParams.keys()) {
+          if (seenKeys.has(key))
+            continue;
+          seenKeys.add(key);
+          const values = node.queryParams.getAll(key);
+          if (values.length === 0)
+            continue;
+          visit(key, values.length === 1 ? values[0] : values);
+        }
+      }
+      for (const [key, value] of Object.entries(node.params)) {
+        if (value === void 0)
+          continue;
+        visit(key, value);
+      }
+    };
+    const collectFlat = (preferNearest) => {
+      const aggregated = /* @__PURE__ */ Object.create(null);
+      let mutated = false;
+      for (let current = this; current !== null; current = current.parent) {
+        const node = current._node;
+        if (node === null)
+          continue;
+        forEachNodeValue(node, (key, value) => {
+          if (preferNearest && Object.prototype.hasOwnProperty.call(aggregated, key))
+            return;
+          aggregated[key] = freezeValue(value);
+          mutated = true;
+        });
+      }
+      return mutated ? Object.freeze(aggregated) : emptyObject;
+    };
+    const collectAppend = () => {
+      let accumulator;
+      let mutated = false;
+      for (let current = this; current !== null; current = current.parent) {
+        const node = current._node;
+        if (node === null)
+          continue;
+        const target = accumulator ?? (accumulator = /* @__PURE__ */ Object.create(null));
+        forEachNodeValue(node, (key, value) => {
+          const bucket = target[key] ?? (target[key] = []);
+          bucket.unshift(freezeValue(value));
+          mutated = true;
+        });
+      }
+      if (!mutated || accumulator === void 0) {
+        return emptyObject;
+      }
+      const result = /* @__PURE__ */ Object.create(null);
+      for (const key of Object.keys(accumulator)) {
+        result[key] = Object.freeze(accumulator[key]);
+      }
+      return Object.freeze(result);
+    };
+    const collectPerRoute = () => {
+      const resolveRouteIdentifier = (node) => {
+        const cfg = node.context.routeConfigContext.config;
+        return cfg.id ?? node.context.routeConfigContext._friendlyPath;
+      };
+      let accumulator;
+      let mutated = false;
+      for (let current = this; current !== null; current = current.parent) {
+        const node = current._node;
+        if (node === null)
+          continue;
+        const target = accumulator ?? (accumulator = /* @__PURE__ */ Object.create(null));
+        const routeId = resolveRouteIdentifier(node);
+        forEachNodeValue(node, (key, value) => {
+          (target[key] ?? (target[key] = /* @__PURE__ */ Object.create(null)))[routeId] = freezeValue(value);
+          mutated = true;
+        });
+      }
+      if (!mutated || accumulator === void 0) {
+        return emptyObject;
+      }
+      const result = /* @__PURE__ */ Object.create(null);
+      for (const key of Object.keys(accumulator)) {
+        result[key] = Object.freeze(accumulator[key]);
+      }
+      return Object.freeze(result);
+    };
+    switch (mergeStrategy) {
+      case "append":
+        return collectAppend();
+      case "by-route":
+        return collectPerRoute();
+      case "parent-first":
+        return collectFlat(false);
+      case "child-first":
+      default:
+        return collectFlat(true);
     }
   }
   /**
@@ -24697,7 +25005,7 @@ class RouteContext {
       )), logger);
     }
     const router = container.get(IRouter);
-    return onResolve(router.getRouteContext(null, controller.definition, controller.viewModel, controller.container, null, null, null), (routeContext) => {
+    return onResolve(router._getRouteContext(null, controller.definition, controller.viewModel, controller.container, null, null, null), (routeContext) => {
       container.register(Registration.instance(IRouteContext, routeContext));
       routeContext.node = router.routeTree.root;
     });
@@ -24767,25 +25075,45 @@ class RouteContext {
     trace(this._logger, 3159, routeNode);
     this._hostControllerProvider.prepare(hostController);
     const container = this.container.createChild({ inheritParentResources: true });
-    const platform = this._platform;
     const elDefn = routeNode.component;
-    const host = platform.document.createElement(elDefn.name);
-    registerHostNode(container, host, platform);
+    const { host, ssrScope } = this._resolveHostElement(hostController, elDefn.name);
+    registerHostNode(container, host, this._platform);
     const componentInstance = container.invoke(elDefn.Type);
     const task = this.routeConfigContext._childRoutesConfigured ? void 0 : onResolve(resolveRouteConfiguration(componentInstance, false, this.routeConfigContext.config, routeNode, null), (config) => this.routeConfigContext._processConfig(config));
     return onResolve(task, () => {
-      const controller = Controller.$el(container, componentInstance, host, { projections: null }, elDefn);
+      const controller = Controller.$el(container, componentInstance, host, { projections: null }, elDefn, null, ssrScope);
       const componentAgent = new ComponentAgent(componentInstance, controller, routeNode, this, this._router.options);
       this._hostControllerProvider.dispose();
       return componentAgent;
     });
   }
   /**
+   * Resolve the host element for a routed component.
+   * During SSR hydration, adopts an existing server-rendered element.
+   * Otherwise, creates a new element.
+   * @internal
+   */
+  _resolveHostElement(hostController, componentName) {
+    const parentSsrScope = hostController.ssrScope;
+    if (parentSsrScope != null) {
+      const existingEl = hostController.host.querySelector(`:scope > ${componentName}`);
+      if (existingEl != null) {
+        const childScope = parentSsrScope.children.find((child) => isSSRScope(child) && child.name === componentName);
+        return { host: existingEl, ssrScope: childScope ?? null };
+      }
+    }
+    return {
+      host: this._platform.document.createElement(componentName),
+      ssrScope: null
+    };
+  }
+  /**
    * Generates a path that is rooted to the application.
    */
   generateRootedPath(instructionOrInstructions) {
-    return onResolve(this.createViewportInstructions(createEagerInstructions(instructionOrInstructions), null, true), (vit) => {
-      const relativePath = vit.toUrl(true, this._router.options._urlParser);
+    return onResolve(this.createViewportInstructions(createEagerInstructions(instructionOrInstructions), null, null, true), (vit) => {
+      const options = this._router.options;
+      const relativePath = vit.toUrl(true, options._urlParser, false);
       let parentPath = "";
       const parentSegments = [];
       let ctx = vit.options.context;
@@ -24796,16 +25124,24 @@ class RouteContext {
         ctx = ctx.parent;
       }
       parentPath = parentSegments.join("/");
-      return parentPath.length === 0 ? relativePath : `${parentPath}/${relativePath}`;
+      return `${options.useUrlFragmentHash ? "/#/" : ""}${parentPath.length === 0 ? relativePath : `${parentPath}/${relativePath}`}`;
     });
   }
   /**
    * Generates a path that is relative to the this context.
    */
   generateRelativePath(instructionOrInstructions) {
-    return onResolve(this.createViewportInstructions(createEagerInstructions(instructionOrInstructions), null, true), (vit) => vit.toUrl(true, this._router.options._urlParser));
+    return onResolve(
+      this.createViewportInstructions(createEagerInstructions(instructionOrInstructions), null, null, true),
+      // Note that even though this method is for generating relative paths, one can still generate a rooted path using this method.
+      // For example, when instructions like `../sibling-route` is used and the parent of the current context is the root context.
+      // In such cases, the upward crawl of context will happen, and thus the deciding factor will be if the ViewportInstructionTree
+      // is created with the root context or not. Thus, instead of simply using `false`, the `isRoot` property of the vit context is
+      // used while generating the URL.
+      (vit) => vit.toUrl(true, this._router.options._urlParser, vit.options.context.isRoot)
+    );
   }
-  createViewportInstructions(instructionOrInstructions, options, traverseChildren) {
+  createViewportInstructions(instructionOrInstructions, options, parentRoutePath, traverseChildren) {
     if (instructionOrInstructions instanceof ViewportInstructionTree)
       return instructionOrInstructions;
     let context = options?.context ?? this;
@@ -24819,19 +25155,34 @@ class RouteContext {
       }
     }
     const routerOptions = this._router.options;
-    return ViewportInstructionTree.create(instructionOrInstructions, routerOptions, NavigationOptions.create(routerOptions, { ...options, context }), this.root, traverseChildren);
+    return ViewportInstructionTree.create(instructionOrInstructions, routerOptions, NavigationOptions.create(routerOptions, { ...options, context }), this.root, parentRoutePath, traverseChildren);
     function processStringInstruction(instr) {
       if (typeof instr === "string")
         instr = this._locationMgr.removeBaseHref(instr);
       const isVpInstr = isPartialViewportInstruction(instr);
       let $instruction = isVpInstr ? instr.component : instr;
-      if (typeof $instruction === "string" && $instruction.startsWith("../") && context !== null) {
-        while ($instruction.startsWith("../") && ((context?.parent ?? null) !== null || contextChanged)) {
-          $instruction = $instruction.slice(3);
-          if (!contextChanged)
-            context = context.parent;
+      if (typeof $instruction === "string") {
+        if ($instruction.startsWith("/")) {
+          context = this.root;
+          contextChanged = true;
+          $instruction = $instruction.slice(1);
+        } else if ($instruction.startsWith("../") && context !== null) {
+          while ($instruction.startsWith("../") && ((context?.parent ?? null) !== null || contextChanged)) {
+            $instruction = $instruction.slice(3);
+            if (!contextChanged)
+              context = context.parent;
+          }
+          contextChanged = true;
+        } else {
+          if (context == null)
+            logAndThrow(new Error(getMessage(
+              3178
+              /* Events.rcNoContextStringComponent */
+            )), this._logger);
+          if ($instruction.startsWith("./")) {
+            $instruction = $instruction.slice(2);
+          }
         }
-        contextChanged = true;
       }
       if (isVpInstr) {
         instr.component = $instruction;
@@ -24891,34 +25242,49 @@ class RouteConfigContext {
   get allResolved() {
     return this._allResolved;
   }
-  constructor(parent, component, config, parentContainer, _router) {
+  get parentPaths() {
+    if (!this._options.useEagerLoading)
+      return null;
+    if (this._parentPaths !== null)
+      return this._parentPaths;
+    let parentPaths = [""];
+    let current = this;
+    while (current.parent !== null) {
+      parentPaths = current.config.path.flatMap((p) => parentPaths.map((pp) => pp.length === 0 ? p : `${p}/${pp}`));
+      current = current.parent;
+    }
+    return this._parentPaths = parentPaths.filter((p) => p.length > 0);
+  }
+  constructor(parent, component, config, _rootContainer, _options) {
     this.parent = parent;
     this.component = component;
     this.config = config;
-    this._router = _router;
+    this._rootContainer = _rootContainer;
+    this._options = _options;
     this._childRoutesConfigured = false;
     this.childRoutes = [];
     this._allResolved = null;
+    this._parentPaths = null;
     if (parent === null) {
       this.root = this;
       this.path = [this];
       this._friendlyPath = component.name;
+      this._recognizer = new RouteRecognizer();
     } else {
       this.root = parent.root;
       this.path = [...parent.path, this];
       this._friendlyPath = `${parent._friendlyPath}/${component.name}`;
+      this._recognizer = _options.useEagerLoading ? parent._recognizer : new RouteRecognizer();
     }
-    this._logger = parentContainer.get(ILogger).scopeTo(`RouteConfigContext<${this._friendlyPath}>`);
+    this._logger = _rootContainer.get(ILogger).scopeTo(`RouteConfigContext<${this._friendlyPath}>`);
     trace(
       this._logger,
       3150
       /* Events.rcCreated */
     );
-    this._moduleLoader = parentContainer.get(IModuleLoader);
-    this.container = parentContainer.createChild();
-    this._recognizer = new RouteRecognizer();
-    if (_router.options.useNavigationModel) {
-      this._navigationModel = new NavigationModel([]);
+    this._moduleLoader = _rootContainer.get(IModuleLoader);
+    if (this._options.useNavigationModel) {
+      this._navigationModel = new NavigationModel(this.parentPaths);
     } else {
       this._navigationModel = null;
     }
@@ -24942,6 +25308,20 @@ class RouteConfigContext {
       const getRouteConfig = config.component.prototype?.getRouteConfig;
       this._childRoutesConfigured = getRouteConfig == null ? true : typeof getRouteConfig !== "function";
       return;
+    }
+    if (!this._options.useEagerLoading) {
+      const parameterized = config.path.find((p) => {
+        const parts = p.split("/");
+        const len2 = parts.length;
+        if (len2 === 0)
+          return false;
+        const lastPart = parts[len2 - 1];
+        return lastPart.startsWith(":") || lastPart.startsWith("*");
+      });
+      const $static = config.path.find((p) => !p.includes(":") && !p.includes("*"));
+      if (parameterized != null && $static != null) {
+        warn(this._logger, 3177, config.path);
+      }
     }
     const navModel = this._navigationModel;
     const hasNavModel = navModel !== null;
@@ -24983,7 +25363,11 @@ class RouteConfigContext {
     }
     this._childRoutesConfigured = true;
     if (allPromises.length > 0) {
-      this._allResolved = Promise.all(allPromises).then(() => {
+      this._allResolved = Promise.all(allPromises).then(() => this._options.useEagerLoading ? this._eagerLoadChildRouteConfigContext() : void 0).then(() => {
+        this._allResolved = null;
+      });
+    } else if (this._options.useEagerLoading) {
+      this._allResolved = onResolve(this._eagerLoadChildRouteConfigContext(), () => {
         this._allResolved = null;
       });
     }
@@ -25000,11 +25384,38 @@ class RouteConfigContext {
   }
   /** @internal */
   _$addRoute(path, caseSensitive, handler) {
-    this._recognizer.add({
-      path,
-      caseSensitive,
-      handler
-    }, true);
+    if (path === "") {
+      warn(this._logger, 3176, isPromise(handler) ? "Promise" : handler);
+    }
+    const parentPaths = this.parentPaths;
+    const len = parentPaths?.length ?? 0;
+    if (parentPaths === null || len === 0) {
+      this._recognizer.add({ path, caseSensitive, handler }, true);
+      return;
+    }
+    for (let i = 0; i < len; i++) {
+      const parentPath = parentPaths[i];
+      this._recognizer.add({ path, caseSensitive, handler }, true, parentPath);
+    }
+  }
+  /** @internal */
+  async _eagerLoadChildRouteConfigContext() {
+    const childRoutes = this.childRoutes;
+    const len = childRoutes.length;
+    if (len === 0)
+      return;
+    const childRouteConfigPromises = [];
+    for (let i = 0; i < len; i++) {
+      const childRoute = childRoutes[i];
+      if (childRoute.redirectTo != null)
+        continue;
+      const parentComponent = childRoute.component;
+      const defn = CustomElement.isType(parentComponent) ? CustomElement.getDefinition(parentComponent) : resolveCustomElementDefinition(parentComponent, this)[1];
+      if (defn === this.component)
+        continue;
+      childRouteConfigPromises.push(onResolve(RouteConfigContext.getOrCreate(childRoute, defn, null, this.config, this, this._rootContainer, this._options), noop));
+    }
+    await Promise.all(childRouteConfigPromises);
   }
   /** @internal */
   _resolveLazy(promise) {
@@ -25037,9 +25448,19 @@ class RouteConfigContext {
       return firstNonDefaultExport ?? defaultExport;
     });
   }
-  _generateViewportInstruction(instruction, traverseChildren) {
+  _generateViewportInstruction(instruction, parentRoutePath, traverseChildren) {
     if (!isEagerInstruction(instruction))
       return null;
+    if (!this._options.useEagerLoading)
+      parentRoutePath = null;
+    else if (parentRoutePath == null) {
+      if (this.isRoot)
+        parentRoutePath = "";
+      else {
+        const configuredPaths = this.config.path;
+        parentRoutePath = configuredPaths.find((p) => p.length) ?? null;
+      }
+    }
     traverseChildren ??= false;
     const component = instruction.component;
     let paths;
@@ -25104,7 +25525,7 @@ class RouteConfigContext {
     }
     return createPathGenerationResult.call(this, result);
     function core(path) {
-      const endpoint = recognizer.getEndpoint(path);
+      const endpoint = recognizer.getEndpoint((parentRoutePath?.length ?? 0) > 0 ? `${parentRoutePath}/${path}` : path);
       if (endpoint === null) {
         errors.push(`No endpoint found for the path: '${path}'.`);
         return null;
@@ -25133,20 +25554,20 @@ class RouteConfigContext {
       const query = Object.fromEntries(Object.entries(params).filter(([key]) => !consumedKeys.includes(key)));
       return { path: path.replace(/\/\//g, "/"), endpoint, consumed, query };
     }
-    async function generateChildrenInstructions(parentConfig) {
+    async function generateChildrenInstructions(parentConfig, parentPath) {
       const children = instruction.children;
       const numChildren = children?.length ?? 0;
       if (numChildren === 0)
         return { instructions: emptyArray, query: emptyObject };
       const parentComponent = parentConfig.component;
       const parentDefn = CustomElement.isType(parentComponent) ? CustomElement.getDefinition(parentComponent) : resolveCustomElementDefinition(parentComponent, this)[1];
-      return onResolve(onResolve(this._router.getRouteConfigContext(parentConfig, parentDefn, null, this.container, this.config, this), (x) => onResolve(x.allResolved, () => x)), ($routeConfigContext) => {
+      return onResolve(onResolve(RouteConfigContext.getOrCreate(parentConfig, parentDefn, null, this.config, this, this._rootContainer, this._options), (x) => onResolve(x.allResolved, () => x)), ($routeConfigContext) => {
         const promises = new Array(numChildren);
         const instructions = new Array(numChildren);
         let query = /* @__PURE__ */ Object.create(null);
         for (let i = 0; i < numChildren; ++i) {
           const child = children[i];
-          promises[i] = onResolve($routeConfigContext._generateViewportInstruction(isPartialViewportInstruction(child) ? { ...child, params: child.params ?? emptyObject } : { component: child, params: emptyObject }, traverseChildren), (eagerVi) => {
+          promises[i] = onResolve($routeConfigContext._generateViewportInstruction(isPartialViewportInstruction(child) ? { ...child, params: child.params ?? emptyObject } : { component: child, params: emptyObject }, parentPath, traverseChildren), (eagerVi) => {
             if (eagerVi == null)
               throw new Error(getMessage(3166, child));
             instructions[i] = eagerVi.vi;
@@ -25157,10 +25578,10 @@ class RouteConfigContext {
       });
     }
     function createPathGenerationResult(result2) {
-      return onResolve(traverseChildren ? generateChildrenInstructions.call(this, result2.endpoint.route.handler) : { instructions: instruction.children, query: emptyObject }, ({ instructions: children, query: $query }) => {
+      return onResolve(traverseChildren ? generateChildrenInstructions.call(this, result2.endpoint.route.handler, parentRoutePath != null && parentRoutePath.length > 0 ? `${parentRoutePath}/${result2.endpoint.route.path}` : result2.endpoint.route.path) : { instructions: instruction.children, query: emptyObject }, ({ instructions: children, query: $query }) => {
         return {
           vi: ViewportInstruction.create({
-            recognizedRoute: new $RecognizedRoute(new RecognizedRoute(result2.endpoint, result2.consumed), null),
+            recognizedRoute: new $RecognizedRoute(new RecognizedRoute(result2.endpoint, result2.path, result2.consumed), null),
             component: result2.path,
             children,
             viewport: instruction.viewport,
@@ -25172,14 +25593,14 @@ class RouteConfigContext {
       });
     }
   }
-  recognize(path, searchAncestor = false) {
+  recognize(path, searchAncestor = false, relativeTo = null) {
     trace(this._logger, 3164, path);
     let _current = this;
     let _continue = true;
-    let result = null;
+    let results = null;
     while (_continue) {
-      result = _current._recognizer.recognize(path);
-      if (result === null) {
+      results = _current._recognizer.recognize(path, relativeTo);
+      if (results === null) {
         if (!searchAncestor || _current.isRoot)
           return null;
         _current = _current.parent;
@@ -25187,16 +25608,40 @@ class RouteConfigContext {
         _continue = false;
       }
     }
-    return new $RecognizedRoute(result, Reflect.has(result.params, RESIDUE) ? result.params[RESIDUE] ?? null : null);
+    return results.map((result) => new $RecognizedRoute(result, Reflect.has(result.params, RESIDUE) ? result.params[RESIDUE] ?? null : null));
   }
-  dispose() {
-    this.container.dispose();
+  static getOrCreate($rdConfig, componentDefinition, componentInstance, parentRouteConfig, parentRouteConfigContext, rootContainer, options) {
+    return onResolve(
+      // In case of navigation strategy, get the route config for the resolved component directly.
+      // Conceptually, navigation strategy is another form of lazily deciding on the route config for the given component.
+      // Hence, when we see a navigation strategy, we resolve the route config for the component first.
+      $rdConfig instanceof RouteConfig && !$rdConfig._isNavigationStrategy ? $rdConfig : resolveRouteConfiguration(
+        // getRouteConfig is prioritized over the statically configured routes via @route decorator.
+        typeof componentInstance?.getRouteConfig === "function" ? componentInstance : componentDefinition.Type,
+        false,
+        parentRouteConfig,
+        null,
+        parentRouteConfigContext
+      ),
+      (rdConfig) => {
+        let routeConfigContext = this._lookup.get(rdConfig);
+        if (routeConfigContext != null)
+          return routeConfigContext;
+        routeConfigContext = new RouteConfigContext(parentRouteConfigContext, componentDefinition, rdConfig, rootContainer, options);
+        this._lookup.set(rdConfig, routeConfigContext);
+        return routeConfigContext;
+      }
+    );
   }
 }
+RouteConfigContext._lookup = /* @__PURE__ */ new WeakMap();
 class $RecognizedRoute {
   constructor(route2, residue) {
     this.route = route2;
     this.residue = residue;
+    if (residue?.startsWith("/") === true) {
+      this.residue = residue.slice(1);
+    }
   }
   toString() {
     const route2 = this.route;
@@ -25205,9 +25650,11 @@ class $RecognizedRoute {
   }
 }
 class NavigationModel {
-  constructor(routes) {
-    this.routes = routes;
+  constructor(_parentPaths) {
+    this._parentPaths = _parentPaths;
     this._promise = void 0;
+    this.routes = [];
+    this.emptyRoute = /* @__PURE__ */ Symbol.for("au:router:empty-navigation-route");
   }
   resolve() {
     return onResolve(this._promise, noop);
@@ -25225,36 +25672,40 @@ class NavigationModel {
     const routes = this.routes;
     if (!(route2 instanceof Promise)) {
       if ((route2.nav ?? false) && route2.redirectTo === null) {
-        routes.push(NavigationRoute._create(route2));
+        routes.push(NavigationRoute._create(route2, this._parentPaths));
       }
       return;
     }
     const index = routes.length;
-    routes.push(void 0);
+    routes.push(this.emptyRoute);
     let promise = void 0;
     promise = this._promise = onResolve(this._promise, () => onResolve(route2, (rdConfig) => {
       if (rdConfig.nav && rdConfig.redirectTo === null) {
-        routes[index] = NavigationRoute._create(rdConfig);
-      } else {
-        routes.splice(index, 1);
+        routes[index] = NavigationRoute._create(rdConfig, this._parentPaths);
       }
       if (this._promise === promise) {
+        for (let i = this.routes.length - 1; i >= 0; --i) {
+          if (this.routes[i] === this.emptyRoute) {
+            this.routes.splice(i, 1);
+          }
+        }
         this._promise = void 0;
       }
     }));
   }
 }
 class NavigationRoute {
-  constructor(id2, path, title, data) {
-    this.id = id2;
+  constructor(id, path, title, data, _parentPaths) {
+    this.id = id;
     this.path = path;
     this.title = title;
     this.data = data;
+    this._parentPaths = _parentPaths;
     this._trees = null;
   }
   /** @internal */
-  static _create(rdConfig) {
-    return new NavigationRoute(rdConfig.id, ensureArrayOfStrings(rdConfig.path ?? emptyArray), rdConfig.title, rdConfig.data);
+  static _create(rdConfig, parentPaths) {
+    return new NavigationRoute(rdConfig.id, ensureArrayOfStrings(rdConfig.path ?? emptyArray), rdConfig.title, rdConfig.data, parentPaths);
   }
   get isActive() {
     return this._isActive;
@@ -25264,13 +25715,14 @@ class NavigationRoute {
     let trees = this._trees;
     if (trees === null) {
       const routerOptions = router.options;
-      trees = this._trees = this.path.map((p) => {
+      const paths = this._parentPaths === null || this._parentPaths.length === 0 ? this.path : this._parentPaths.flatMap((pp) => this.path.map((p) => pp.length === 0 ? p : `${pp}/${p}`));
+      trees = this._trees = paths.map((p) => {
         const ep = context.routeConfigContext._recognizer.getEndpoint(p);
         if (ep === null)
           throw new Error(getMessage(3450, p));
         return new ViewportInstructionTree(NavigationOptions.create(routerOptions, { context }), false, [
           ViewportInstruction.create({
-            recognizedRoute: new $RecognizedRoute(new RecognizedRoute(ep, emptyObject), null),
+            recognizedRoute: new $RecognizedRoute(new RecognizedRoute(ep, p, emptyObject), null),
             component: p
           })
         ], emptyQuery, null);
@@ -25290,10 +25742,16 @@ class ViewportCustomElement {
     this._ctx = resolve(IRouteContext);
     this._logger = resolve(ILogger).scopeTo(`au-viewport<${this._ctx.routeConfigContext._friendlyPath}>`);
   }
+  /**
+   * The controller of the currently active routed component, if any.
+   */
+  get currentController() {
+    return this._agent?.currentController ?? null;
+  }
   /** @internal */
   _getFallback(viewportInstruction, routeNode, context) {
-    const fallback = this.fallback;
-    return typeof fallback === "function" && !CustomElement.isType(fallback) ? fallback(viewportInstruction, routeNode, context) : fallback;
+    const fallback2 = this.fallback;
+    return typeof fallback2 === "function" && !CustomElement.isType(fallback2) ? fallback2(viewportInstruction, routeNode, context) : fallback2;
   }
   hydrated(controller) {
     trace(
@@ -25362,8 +25820,7 @@ const props = [
 class LoadCustomAttribute {
   constructor() {
     this._el = resolve(INode);
-    this._router = resolve(IRouter);
-    this._ctx = resolve(IRouteContext);
+    this._ctxRouter = resolve(IContextRouter);
     this._events = resolve(IRouterEvents);
     this._locationMgr = resolve(ILocationManager);
     this.attribute = "href";
@@ -25379,11 +25836,11 @@ class LoadCustomAttribute {
         return;
       }
       e.preventDefault();
-      void this._router.load(this._instructions, { context: this.context });
+      void this._ctxRouter.load(this._instructions);
     };
     const el = this._el;
     this._isEnabled = !el.hasAttribute("external") && !el.hasAttribute("data-external");
-    this._activeClass = this._router.options.activeClass;
+    this._activeClass = this._ctxRouter._options.activeClass;
   }
   binding() {
     if (this._isEnabled) {
@@ -25391,16 +25848,15 @@ class LoadCustomAttribute {
     }
     this.valueChanged();
     this._navigationEndListener = this._events.subscribe("au:router:navigation-end", (_e2) => {
-      const active = this.active = this._instructions !== null && this._router.isActive(this._instructions, this.context);
+      const active2 = this.active = this._instructions !== null && this._ctxRouter.isActive(this._instructions);
       const activeClass = this._activeClass;
       if (activeClass === null)
         return;
-      this._el.classList.toggle(activeClass, active);
+      this._el.classList.toggle(activeClass, active2);
     });
   }
   attaching() {
-    const ctx = this.context;
-    const promise = ctx.routeConfigContext.allResolved;
+    const promise = this._ctxRouter._allResolved;
     if (promise !== null) {
       return promise.then(() => {
         this.valueChanged();
@@ -25414,40 +25870,41 @@ class LoadCustomAttribute {
     this._navigationEndListener.dispose();
   }
   valueChanged() {
-    const router = this._router;
-    const options = router.options;
+    const options = this._ctxRouter._options;
     const component = this.route;
-    let ctx = this.context;
-    if (ctx === void 0) {
-      ctx = this.context = this._ctx;
-    } else if (ctx === null) {
-      ctx = this.context = this._ctx.root;
+    const ctx = this.context;
+    if (ctx === null) {
+      this._ctxRouter = this._ctxRouter._copyWithRoot();
+    } else if (ctx !== void 0 && !this._ctxRouter._isOfContext(ctx)) {
+      this._ctxRouter = this._ctxRouter._copyWith(ctx);
     }
-    if (component != null && ctx.routeConfigContext.allResolved === null) {
+    if (component != null && this._ctxRouter._allResolved === null) {
       const params = this.params;
-      const instructions = this._instructions = router.createViewportInstructions(typeof params === "object" && params !== null ? { component, params } : component, { context: ctx });
-      this._href = instructions.toUrl(false, options._urlParser);
+      const instructions = this._instructions = this._ctxRouter.createViewportInstructions(typeof params === "object" && params !== null ? { component, params } : component, null, null);
+      this._href = instructions.toUrl(false, options._urlParser, true);
     } else {
       this._instructions = null;
       this._href = null;
     }
+    const hasHref = this._href !== null;
+    const url = hasHref ? options.useUrlFragmentHash ? this._href : this._locationMgr.addBaseHref(this._href) : null;
     const controller = CustomElement.for(this._el, { optional: true });
     if (controller !== null) {
-      controller.viewModel[this.attribute] = this._instructions;
+      controller.viewModel[this.attribute] = url;
     } else {
-      if (this._href === null) {
+      if (!hasHref) {
         this._el.removeAttribute(this.attribute);
       } else {
-        const value = options.useUrlFragmentHash ? this._href : this._locationMgr.addBaseHref(this._href);
-        this._el.setAttribute(this.attribute, value);
+        this._el.setAttribute(this.attribute, url);
       }
     }
   }
 }
 CustomAttribute.define({
   name: "load",
+  defaultProperty: "route",
   bindables: {
-    route: { mode: bmToView, primary: true, callback: "valueChanged" },
+    route: { mode: bmToView, callback: "valueChanged" },
     params: { mode: bmToView, callback: "valueChanged" },
     attribute: { mode: bmToView },
     active: { mode: bmFromView },
@@ -25455,16 +25912,14 @@ CustomAttribute.define({
   }
 }, LoadCustomAttribute);
 class HrefCustomAttribute {
-  /** @internal */
-  get _isExternal() {
-    return this._el.hasAttribute("external") || this._el.hasAttribute("data-external");
-  }
   constructor() {
     this._el = resolve(INode);
-    this._router = resolve(IRouter);
-    this._ctx = resolve(IRouteContext);
+    this._ctxRouter = resolve(IContextRouter);
+    this._locationMgr = resolve(ILocationManager);
     this._isInitialized = false;
-    if (this._router.options.useHref && // Ensure the element is an anchor
+    this._instructions = null;
+    this._treatAsExternal = false;
+    if (this._ctxRouter._options.useHref && // Ensure the element is an anchor
     this._el.nodeName === "A") {
       const windowName = resolve(IWindow).name;
       switch (this._el.getAttribute("target")) {
@@ -25493,11 +25948,17 @@ class HrefCustomAttribute {
     this._el.removeEventListener("click", this);
   }
   valueChanged(newValue) {
+    const treatAsExternal = this._resolveIsExternal(newValue);
+    this._treatAsExternal = treatAsExternal;
     if (newValue == null) {
+      this._instructions = null;
       this._el.removeAttribute("href");
     } else {
-      if (this._router.options.useUrlFragmentHash && this._ctx.routeConfigContext.isRoot && !/^[.#]/.test(newValue) && !this._isExternal) {
-        newValue = `#${newValue}`;
+      if (!treatAsExternal) {
+        const instructions = this._instructions = this._ctxRouter.createViewportInstructions(newValue, null, null);
+        newValue = this._locationMgr.addBaseHref(instructions.toUrl(false, this._ctxRouter._options._urlParser, true));
+      } else {
+        this._instructions = null;
       }
       this._el.setAttribute("href", newValue);
     }
@@ -25507,13 +25968,35 @@ class HrefCustomAttribute {
   }
   /** @internal */
   _onClick(e) {
-    if (e.altKey || e.ctrlKey || e.shiftKey || e.metaKey || e.button !== 0 || this._isExternal || !this._isEnabled) {
+    if (e.altKey || e.ctrlKey || e.shiftKey || e.metaKey || e.button !== 0 || this._treatAsExternal || !this._isEnabled || this._instructions === null) {
       return;
     }
-    const href = this._el.getAttribute("href");
-    if (href !== null) {
-      e.preventDefault();
-      void this._router.load(href, { context: this._ctx });
+    e.preventDefault();
+    void this._ctxRouter.load(this._instructions);
+  }
+  /** @internal */
+  _resolveIsExternal(value) {
+    if (this._el.hasAttribute("external") || this._el.hasAttribute("data-external")) {
+      return true;
+    }
+    if (typeof value !== "string") {
+      return false;
+    }
+    const trimmed = value.trim();
+    if (trimmed === "") {
+      return false;
+    }
+    if (trimmed.startsWith("//")) {
+      return true;
+    }
+    if (/^[a-z][a-z0-9+\-.]*:\/\//i.test(trimmed)) {
+      return true;
+    }
+    try {
+      new URL(trimmed);
+      return true;
+    } catch {
+      return false;
     }
   }
 }
@@ -25567,66 +26050,66 @@ const RouterConfiguration = {
     };
   }
 };
-const name$2 = "search-area";
-const template$2 = '<div class="static top-16 z-10 m-auto bg-black border-b border-gray-600 lg:sticky">\n    <au-slot></au-slot>\n</div>';
-const dependencies$2 = [];
-const bindables$2 = {};
-let _e$2;
-function register$2(container) {
-  if (!_e$2) {
-    _e$2 = CustomElement.define({ name: name$2, template: template$2, dependencies: dependencies$2, bindables: bindables$2 });
+const name$4 = "search-area";
+const template$4 = '<div class="static top-16 z-10 m-auto bg-black border-b border-gray-600 lg:sticky">\n    <au-slot></au-slot>\n</div>';
+const dependencies$4 = [];
+const bindables$4 = {};
+let _e$4;
+function register$4(container) {
+  if (!_e$4) {
+    _e$4 = CustomElement.define({ name: name$4, template: template$4, dependencies: dependencies$4, bindables: bindables$4 });
   }
-  container.register(_e$2);
+  container.register(_e$4);
 }
-const __au2ViewDef$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __au2ViewDef$4 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  bindables: bindables$2,
-  default: template$2,
-  dependencies: dependencies$2,
-  name: name$2,
-  register: register$2,
-  template: template$2
+  bindables: bindables$4,
+  default: template$4,
+  dependencies: dependencies$4,
+  name: name$4,
+  register: register$4,
+  template: template$4
 }, Symbol.toStringTag, { value: "Module" }));
-var __create$6 = Object.create;
-var __defProp$6 = Object.defineProperty;
-var __getOwnPropDesc$6 = Object.getOwnPropertyDescriptor;
-var __knownSymbol$6 = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : Symbol.for("Symbol." + name2);
-var __typeError$6 = (msg) => {
+var __create$a = Object.create;
+var __defProp$a = Object.defineProperty;
+var __getOwnPropDesc$a = Object.getOwnPropertyDescriptor;
+var __knownSymbol$a = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : /* @__PURE__ */ Symbol.for("Symbol." + name2);
+var __typeError$a = (msg) => {
   throw TypeError(msg);
 };
-var __defNormalProp$6 = (obj, key, value) => key in obj ? __defProp$6(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __name$6 = (target, value) => __defProp$6(target, "name", { value, configurable: true });
-var __decoratorStart$6 = (base) => [, , , __create$6(null)];
-var __decoratorStrings$6 = ["class", "method", "getter", "setter", "accessor", "field", "value", "get", "set"];
-var __expectFn$6 = (fn2) => fn2 !== void 0 && typeof fn2 !== "function" ? __typeError$6("Function expected") : fn2;
-var __decoratorContext$6 = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings$6[kind], name: name2, metadata, addInitializer: (fn2) => done._ ? __typeError$6("Already initialized") : fns.push(__expectFn$6(fn2 || null)) });
-var __decoratorMetadata$6 = (array, target) => __defNormalProp$6(target, __knownSymbol$6("metadata"), array[3]);
-var __runInitializers$6 = (array, flags, self, value) => {
+var __defNormalProp$a = (obj, key, value) => key in obj ? __defProp$a(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __name$a = (target, value) => __defProp$a(target, "name", { value, configurable: true });
+var __decoratorStart$a = (base) => [, , , __create$a(null)];
+var __decoratorStrings$a = ["class", "method", "getter", "setter", "accessor", "field", "value", "get", "set"];
+var __expectFn$a = (fn2) => fn2 !== void 0 && typeof fn2 !== "function" ? __typeError$a("Function expected") : fn2;
+var __decoratorContext$a = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings$a[kind], name: name2, metadata, addInitializer: (fn2) => done._ ? __typeError$a("Already initialized") : fns.push(__expectFn$a(fn2 || null)) });
+var __decoratorMetadata$a = (array, target) => __defNormalProp$a(target, __knownSymbol$a("metadata"), array[3]);
+var __runInitializers$a = (array, flags, self, value) => {
   for (var i = 0, fns = array[flags >> 1], n = fns && fns.length; i < n; i++) fns[i].call(self);
   return value;
 };
-var __decorateElement$6 = (array, flags, name2, decorators, target, extra) => {
+var __decorateElement$a = (array, flags, name2, decorators, target, extra) => {
   var it, done, ctx, k = flags & 7, p = false;
   var j = 0;
   var extraInitializers = array[j] || (array[j] = []);
-  var desc = k && (target = target.prototype, k < 5 && (k > 3 || !p) && __getOwnPropDesc$6(target, name2));
-  __name$6(target, name2);
+  var desc = k && (target = target.prototype, k < 5 && (k > 3 || !p) && __getOwnPropDesc$a(target, name2));
+  __name$a(target, name2);
   for (var i = decorators.length - 1; i >= 0; i--) {
-    ctx = __decoratorContext$6(k, name2, done = {}, array[3], extraInitializers);
+    ctx = __decoratorContext$a(k, name2, done = {}, array[3], extraInitializers);
     it = (0, decorators[i])(target, ctx), done._ = 1;
-    __expectFn$6(it) && (target = it);
+    __expectFn$a(it) && (target = it);
   }
-  return __decoratorMetadata$6(array, target), desc && __defProp$6(target, name2, desc), p ? k ^ 4 ? extra : desc : target;
+  return __decoratorMetadata$a(array, target), desc && __defProp$a(target, name2, desc), p ? k ^ 4 ? extra : desc : target;
 };
-var _SearchArea_decorators, _init$6;
-_SearchArea_decorators = [customElement(__au2ViewDef$2)];
+var _SearchArea_decorators, _init$a;
+_SearchArea_decorators = [customElement(__au2ViewDef$4)];
 class SearchArea {
 }
-_init$6 = __decoratorStart$6();
-SearchArea = __decorateElement$6(_init$6, 0, "SearchArea", _SearchArea_decorators, SearchArea);
-__runInitializers$6(_init$6, 1, SearchArea);
-const name$1 = "searchable-select";
-const template$1 = `\uFEFF<template class="block relative searchable-select-container \${isOpen ? 'z-30' : 'z-0'}">
+_init$a = __decoratorStart$a();
+SearchArea = __decorateElement$a(_init$a, 0, "SearchArea", _SearchArea_decorators, SearchArea);
+__runInitializers$a(_init$a, 1, SearchArea);
+const name$3 = "searchable-select";
+const template$3 = `\uFEFF<template class="block relative searchable-select-container \${isOpen ? 'z-30' : 'z-0'}">
     <div class="relative flex items-stretch">
         <div class="relative flex-1">
             <!-- The main "select" trigger button -->
@@ -25661,7 +26144,7 @@ const template$1 = `\uFEFF<template class="block relative searchable-select-cont
                 <input type="text"
                        value.bind="searchText"
                        class="w-full bg-gray-800 border border-gray-600 text-base type-text px-3 py-1.5 rounded outline-none focus:ring-1 focus:ring-gray-400"
-                       placeholder="Search..."
+                       placeholder="\${'filter_search_placeholder' | t}"
                        ref="searchInput"
                        keydown.trigger="$event.key === 'Escape' && close()">
                 <span class="mso absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">search</span>
@@ -25679,93 +26162,93 @@ const template$1 = `\uFEFF<template class="block relative searchable-select-cont
                 <span if.bind="String(getOptValue(opt)) === String(value)" class="mso text-lime-500">check</span>
             </li>
             <li if.bind="filteredOptions.length === 0" class="px-3 py-4 text-center text-gray-500 italic">
-                No results found
+                \${'filter_no_results' | t}
             </li>
         </ul>
     </div>
 </template>
 `;
-const dependencies$1 = [];
-const bindables$1 = {};
-let _e$1;
-function register$1(container) {
-  if (!_e$1) {
-    _e$1 = CustomElement.define({ name: name$1, template: template$1, dependencies: dependencies$1, bindables: bindables$1 });
+const dependencies$3 = [];
+const bindables$3 = {};
+let _e$3;
+function register$3(container) {
+  if (!_e$3) {
+    _e$3 = CustomElement.define({ name: name$3, template: template$3, dependencies: dependencies$3, bindables: bindables$3 });
   }
-  container.register(_e$1);
+  container.register(_e$3);
 }
-const __au2ViewDef$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const __au2ViewDef$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  bindables: bindables$1,
-  default: template$1,
-  dependencies: dependencies$1,
-  name: name$1,
-  register: register$1,
-  template: template$1
+  bindables: bindables$3,
+  default: template$3,
+  dependencies: dependencies$3,
+  name: name$3,
+  register: register$3,
+  template: template$3
 }, Symbol.toStringTag, { value: "Module" }));
-var __create$5 = Object.create;
-var __defProp$5 = Object.defineProperty;
-var __getOwnPropDesc$5 = Object.getOwnPropertyDescriptor;
-var __knownSymbol$5 = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : Symbol.for("Symbol." + name2);
-var __typeError$5 = (msg) => {
+var __create$9 = Object.create;
+var __defProp$9 = Object.defineProperty;
+var __getOwnPropDesc$9 = Object.getOwnPropertyDescriptor;
+var __knownSymbol$9 = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : /* @__PURE__ */ Symbol.for("Symbol." + name2);
+var __typeError$9 = (msg) => {
   throw TypeError(msg);
 };
-var __defNormalProp$5 = (obj, key, value) => key in obj ? __defProp$5(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __name$5 = (target, value) => __defProp$5(target, "name", { value, configurable: true });
-var __decoratorStart$5 = (base) => [, , , __create$5(null)];
-var __decoratorStrings$5 = ["class", "method", "getter", "setter", "accessor", "field", "value", "get", "set"];
-var __expectFn$5 = (fn2) => fn2 !== void 0 && typeof fn2 !== "function" ? __typeError$5("Function expected") : fn2;
-var __decoratorContext$5 = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings$5[kind], name: name2, metadata, addInitializer: (fn2) => done._ ? __typeError$5("Already initialized") : fns.push(__expectFn$5(fn2 || null)) });
-var __decoratorMetadata$5 = (array, target) => __defNormalProp$5(target, __knownSymbol$5("metadata"), array[3]);
-var __runInitializers$5 = (array, flags, self, value) => {
+var __defNormalProp$9 = (obj, key, value) => key in obj ? __defProp$9(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __name$9 = (target, value) => __defProp$9(target, "name", { value, configurable: true });
+var __decoratorStart$9 = (base) => [, , , __create$9(null)];
+var __decoratorStrings$9 = ["class", "method", "getter", "setter", "accessor", "field", "value", "get", "set"];
+var __expectFn$9 = (fn2) => fn2 !== void 0 && typeof fn2 !== "function" ? __typeError$9("Function expected") : fn2;
+var __decoratorContext$9 = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings$9[kind], name: name2, metadata, addInitializer: (fn2) => done._ ? __typeError$9("Already initialized") : fns.push(__expectFn$9(fn2 || null)) });
+var __decoratorMetadata$9 = (array, target) => __defNormalProp$9(target, __knownSymbol$9("metadata"), array[3]);
+var __runInitializers$9 = (array, flags, self, value) => {
   for (var i = 0, fns = array[flags >> 1], n = fns && fns.length; i < n; i++) flags & 1 ? fns[i].call(self) : value = fns[i].call(self, value);
   return value;
 };
-var __decorateElement$5 = (array, flags, name2, decorators, target, extra) => {
+var __decorateElement$9 = (array, flags, name2, decorators, target, extra) => {
   var fn2, it, done, ctx, access, k = flags & 7, s = !!(flags & 8), p = !!(flags & 16);
-  var j = k > 3 ? array.length + 1 : k ? s ? 1 : 2 : 0, key = __decoratorStrings$5[k + 5];
+  var j = k > 3 ? array.length + 1 : k ? s ? 1 : 2 : 0, key = __decoratorStrings$9[k + 5];
   var initializers = k > 3 && (array[j - 1] = []), extraInitializers = array[j] || (array[j] = []);
-  var desc = k && (!p && !s && (target = target.prototype), k < 5 && (k > 3 || !p) && __getOwnPropDesc$5(k < 4 ? target : { get [name2]() {
-    return __privateGet(this, extra);
+  var desc = k && (!p && !s && (target = target.prototype), k < 5 && (k > 3 || !p) && __getOwnPropDesc$9(k < 4 ? target : { get [name2]() {
+    return __privateGet$2(this, extra);
   }, set [name2](x) {
-    return __privateSet(this, extra, x);
+    return __privateSet$2(this, extra, x);
   } }, name2));
-  k ? p && k < 4 && __name$5(extra, (k > 2 ? "set " : k > 1 ? "get " : "") + name2) : __name$5(target, name2);
+  k ? p && k < 4 && __name$9(extra, (k > 2 ? "set " : k > 1 ? "get " : "") + name2) : __name$9(target, name2);
   for (var i = decorators.length - 1; i >= 0; i--) {
-    ctx = __decoratorContext$5(k, name2, done = {}, array[3], extraInitializers);
+    ctx = __decoratorContext$9(k, name2, done = {}, array[3], extraInitializers);
     if (k) {
-      ctx.static = s, ctx.private = p, access = ctx.access = { has: p ? (x) => __privateIn(target, x) : (x) => name2 in x };
-      if (k ^ 3) access.get = p ? (x) => (k ^ 1 ? __privateGet : __privateMethod)(x, target, k ^ 4 ? extra : desc.get) : (x) => x[name2];
-      if (k > 2) access.set = p ? (x, y3) => __privateSet(x, target, y3, k ^ 4 ? extra : desc.set) : (x, y3) => x[name2] = y3;
+      ctx.static = s, ctx.private = p, access = ctx.access = { has: p ? (x) => __privateIn$2(target, x) : (x) => name2 in x };
+      if (k ^ 3) access.get = p ? (x) => (k ^ 1 ? __privateGet$2 : __privateMethod$2)(x, target, k ^ 4 ? extra : desc.get) : (x) => x[name2];
+      if (k > 2) access.set = p ? (x, y3) => __privateSet$2(x, target, y3, k ^ 4 ? extra : desc.set) : (x, y3) => x[name2] = y3;
     }
     it = (0, decorators[i])(k ? k < 4 ? p ? extra : desc[key] : k > 4 ? void 0 : { get: desc.get, set: desc.set } : target, ctx), done._ = 1;
-    if (k ^ 4 || it === void 0) __expectFn$5(it) && (k > 4 ? initializers.unshift(it) : k ? p ? extra = it : desc[key] = it : target = it);
-    else if (typeof it !== "object" || it === null) __typeError$5("Object expected");
-    else __expectFn$5(fn2 = it.get) && (desc.get = fn2), __expectFn$5(fn2 = it.set) && (desc.set = fn2), __expectFn$5(fn2 = it.init) && initializers.unshift(fn2);
+    if (k ^ 4 || it === void 0) __expectFn$9(it) && (k > 4 ? initializers.unshift(it) : k ? p ? extra = it : desc[key] = it : target = it);
+    else if (typeof it !== "object" || it === null) __typeError$9("Object expected");
+    else __expectFn$9(fn2 = it.get) && (desc.get = fn2), __expectFn$9(fn2 = it.set) && (desc.set = fn2), __expectFn$9(fn2 = it.init) && initializers.unshift(fn2);
   }
-  return k || __decoratorMetadata$5(array, target), desc && __defProp$5(target, name2, desc), p ? k ^ 4 ? extra : desc : target;
+  return k || __decoratorMetadata$9(array, target), desc && __defProp$9(target, name2, desc), p ? k ^ 4 ? extra : desc : target;
 };
-var __publicField = (obj, key, value) => __defNormalProp$5(obj, typeof key !== "symbol" ? key + "" : key, value);
-var __accessCheck = (obj, member, msg) => member.has(obj) || __typeError$5("Cannot " + msg);
-var __privateIn = (member, obj) => Object(obj) !== obj ? __typeError$5('Cannot use the "in" operator on this value') : member.has(obj);
-var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
-var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
-var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "access private method"), method);
-var _exact_dec, _disabled_dec, _id_dec, _label_dec, _options_dec, _value_dec, _SearchableSelect_decorators, _init$5;
-_SearchableSelect_decorators = [customElement(__au2ViewDef$1)], _value_dec = [bindable({ mode: BindingMode.twoWay })], _options_dec = [bindable], _label_dec = [bindable], _id_dec = [bindable], _disabled_dec = [bindable], _exact_dec = [bindable];
+var __publicField$2 = (obj, key, value) => __defNormalProp$9(obj, typeof key !== "symbol" ? key + "" : key, value);
+var __accessCheck$2 = (obj, member, msg) => member.has(obj) || __typeError$9("Cannot " + msg);
+var __privateIn$2 = (member, obj) => Object(obj) !== obj ? __typeError$9('Cannot use the "in" operator on this value') : member.has(obj);
+var __privateGet$2 = (obj, member, getter) => (__accessCheck$2(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
+var __privateSet$2 = (obj, member, value, setter) => (__accessCheck$2(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
+var __privateMethod$2 = (obj, member, method) => (__accessCheck$2(obj, member, "access private method"), method);
+var _exact_dec, _disabled_dec$1, _id_dec$1, _label_dec$1, _options_dec$1, _value_dec, _SearchableSelect_decorators, _init$9;
+_SearchableSelect_decorators = [customElement(__au2ViewDef$3)], _value_dec = [bindable({ mode: BindingMode.twoWay })], _options_dec$1 = [bindable], _label_dec$1 = [bindable], _id_dec$1 = [bindable], _disabled_dec$1 = [bindable], _exact_dec = [bindable];
 class SearchableSelect {
   constructor() {
-    __publicField(this, "value", __runInitializers$5(_init$5, 8, this)), __runInitializers$5(_init$5, 11, this);
-    __publicField(this, "options", __runInitializers$5(_init$5, 12, this, [])), __runInitializers$5(_init$5, 15, this);
-    __publicField(this, "label", __runInitializers$5(_init$5, 16, this, "")), __runInitializers$5(_init$5, 19, this);
-    __publicField(this, "id", __runInitializers$5(_init$5, 20, this, "")), __runInitializers$5(_init$5, 23, this);
-    __publicField(this, "disabled", __runInitializers$5(_init$5, 24, this, false)), __runInitializers$5(_init$5, 27, this);
-    __publicField(this, "exact", __runInitializers$5(_init$5, 28, this, false)), __runInitializers$5(_init$5, 31, this);
-    __publicField(this, "searchText", "");
-    __publicField(this, "isOpen", false);
-    __publicField(this, "searchInput", null);
-    __publicField(this, "element", resolve(INode));
-    __publicField(this, "_boundDocClick", null);
+    __publicField$2(this, "value", __runInitializers$9(_init$9, 8, this)), __runInitializers$9(_init$9, 11, this);
+    __publicField$2(this, "options", __runInitializers$9(_init$9, 12, this, [])), __runInitializers$9(_init$9, 15, this);
+    __publicField$2(this, "label", __runInitializers$9(_init$9, 16, this, "")), __runInitializers$9(_init$9, 19, this);
+    __publicField$2(this, "id", __runInitializers$9(_init$9, 20, this, "")), __runInitializers$9(_init$9, 23, this);
+    __publicField$2(this, "disabled", __runInitializers$9(_init$9, 24, this, false)), __runInitializers$9(_init$9, 27, this);
+    __publicField$2(this, "exact", __runInitializers$9(_init$9, 28, this, false)), __runInitializers$9(_init$9, 31, this);
+    __publicField$2(this, "searchText", "");
+    __publicField$2(this, "isOpen", false);
+    __publicField$2(this, "searchInput", null);
+    __publicField$2(this, "element", resolve(INode));
+    __publicField$2(this, "_boundDocClick", null);
   }
   get filteredOptions() {
     if (!this.searchText) return this.options;
@@ -25831,17 +26314,388 @@ class SearchableSelect {
     }
   }
 }
-_init$5 = __decoratorStart$5();
-__decorateElement$5(_init$5, 5, "value", _value_dec, SearchableSelect);
-__decorateElement$5(_init$5, 5, "options", _options_dec, SearchableSelect);
-__decorateElement$5(_init$5, 5, "label", _label_dec, SearchableSelect);
-__decorateElement$5(_init$5, 5, "id", _id_dec, SearchableSelect);
-__decorateElement$5(_init$5, 5, "disabled", _disabled_dec, SearchableSelect);
-__decorateElement$5(_init$5, 5, "exact", _exact_dec, SearchableSelect);
-SearchableSelect = __decorateElement$5(_init$5, 0, "SearchableSelect", _SearchableSelect_decorators, SearchableSelect);
-__runInitializers$5(_init$5, 1, SearchableSelect);
+_init$9 = __decoratorStart$9();
+__decorateElement$9(_init$9, 5, "value", _value_dec, SearchableSelect);
+__decorateElement$9(_init$9, 5, "options", _options_dec$1, SearchableSelect);
+__decorateElement$9(_init$9, 5, "label", _label_dec$1, SearchableSelect);
+__decorateElement$9(_init$9, 5, "id", _id_dec$1, SearchableSelect);
+__decorateElement$9(_init$9, 5, "disabled", _disabled_dec$1, SearchableSelect);
+__decorateElement$9(_init$9, 5, "exact", _exact_dec, SearchableSelect);
+SearchableSelect = __decorateElement$9(_init$9, 0, "SearchableSelect", _SearchableSelect_decorators, SearchableSelect);
+__runInitializers$9(_init$9, 1, SearchableSelect);
+const name$2 = "multi-select";
+const template$2 = `\uFEFF<template class="block relative searchable-select-container \${isOpen ? 'z-30' : 'z-0'}">
+    <div class="relative flex items-stretch min-w-0">
+        <div class="relative flex-1 min-w-0">
+            <!-- The main "select" trigger button -->
+            <button type="button"
+                    id.bind="id"
+                    class="select-base peer text-left flex items-center justify-between cursor-pointer \${disabled ? 'opacity-50 cursor-not-allowed' : ''} \${ (!disabled && selectedCount > 0) ? 'ring ring-gray-400' : '' }"
+                    click.trigger="toggle($event)"
+                    disabled.bind="disabled"
+                    aria-haspopup="listbox"
+                    aria-expanded.bind="isOpen.toString()">
+                <span class="truncate min-w-0 flex-1">\${displayLabel || '&nbsp;'}</span>
+                <span class="flex items-center gap-1 ml-2 shrink-0">
+                    <span if.bind="selectedCount > 1"
+                          class="text-xs px-1.5 py-0.5 rounded bg-gray-700 type-text">
+                        \${selectedCount}
+                    </span>
+                    <span class="mso transition-transform \${isOpen ? 'rotate-180' : ''}">arrow_downward</span>
+                </span>
+            </button>
+
+            <!-- Floating Label -->
+            <label if.bind="label"
+                   for.bind="id"
+                   class="floating-label \${disabled ? 'bg-transparent!' : ''} \${ (isOpen || selectedCount > 0) ? 'bg-transparent top-1 -translate-y-2/5 scale-75' : '' }">
+                \${label}
+            </label>
+        </div>
+        <au-slot name="after"></au-slot>
+    </div>
+
+    <!-- Dropdown Panel -->
+    <div if.bind="isOpen"
+         class="absolute z-50 w-full mt-1 bg-gray-800 border border-gray-600 rounded-lg shadow-xl overflow-hidden min-w-[200px]"
+         click.trigger="panelClick($event)">
+        <!-- Header with reset -->
+        <div if.bind="selectedCount > 0"
+             class="p-2 border-b border-gray-600 bg-gray-900 flex items-center justify-between gap-2">
+            <span class="text-xs type-text">
+                \${selectedCount}
+            </span>
+            <button type="button"
+                    class="text-xs type-text hover:text-lime-400 underline"
+                    click.trigger="clearAll($event)">
+                \${'filter_reset' | t}
+            </button>
+        </div>
+
+        <!-- Search Box -->
+        <div class="p-2 border-b border-gray-600 bg-gray-900">
+            <div class="relative">
+                <input type="text"
+                       value.bind="searchText"
+                       class="w-full bg-gray-800 border border-gray-600 text-base type-text px-3 py-1.5 rounded outline-none focus:ring-1 focus:ring-gray-400 pr-8"
+                       placeholder="\${'filter_search_placeholder' | t}"
+                       ref="searchInput"
+                       keydown.trigger="$event.key === 'Escape' && close()">
+                <span class="mso absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">search</span>
+            </div>
+        </div>
+
+        <!-- Options List -->
+        <ul class="max-h-60 overflow-y-auto py-1" role="listbox" aria-multiselectable="true">
+            <li repeat.for="opt of filteredOptions"
+                class="\${selectedKeySet.has(String(getOptValue(opt))) ? 'bg-gray-700' : ''}"
+                role="option"
+                aria-selected.bind="selectedKeySet.has(String(getOptValue(opt))).toString()">
+                <div class="flex items-center gap-2 px-3 py-2 cursor-pointer hover:bg-gray-700 type-text"
+                     click.trigger="toggleOption(opt, $event)">
+                    <span class="inline-flex items-center justify-center w-4 h-4 rounded border \${selectedKeySet.has(String(getOptValue(opt))) ? 'bg-lime-500 border-lime-500' : 'border-gray-500 bg-gray-800'} shrink-0">
+                        <span if.bind="selectedKeySet.has(String(getOptValue(opt)))" class="mso text-gray-900 text-base leading-none">check</span>
+                    </span>
+                    <span class="flex-1 truncate min-w-0">\${getOptLabel(opt)}</span>
+                </div>
+            </li>
+            <li if.bind="filteredOptions.length === 0" class="px-3 py-4 text-center text-gray-500 italic">
+                \${'filter_no_results' | t}
+            </li>
+        </ul>
+    </div>
+</template>
+`;
+const dependencies$2 = [];
+const bindables$2 = {};
+let _e$2;
+function register$2(container) {
+  if (!_e$2) {
+    _e$2 = CustomElement.define({ name: name$2, template: template$2, dependencies: dependencies$2, bindables: bindables$2 });
+  }
+  container.register(_e$2);
+}
+const __au2ViewDef$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  bindables: bindables$2,
+  default: template$2,
+  dependencies: dependencies$2,
+  name: name$2,
+  register: register$2,
+  template: template$2
+}, Symbol.toStringTag, { value: "Module" }));
+var __create$8 = Object.create;
+var __defProp$8 = Object.defineProperty;
+var __getOwnPropDesc$8 = Object.getOwnPropertyDescriptor;
+var __knownSymbol$8 = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : /* @__PURE__ */ Symbol.for("Symbol." + name2);
+var __typeError$8 = (msg) => {
+  throw TypeError(msg);
+};
+var __defNormalProp$8 = (obj, key, value) => key in obj ? __defProp$8(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __name$8 = (target, value) => __defProp$8(target, "name", { value, configurable: true });
+var __decoratorStart$8 = (base) => [, , , __create$8(null)];
+var __decoratorStrings$8 = ["class", "method", "getter", "setter", "accessor", "field", "value", "get", "set"];
+var __expectFn$8 = (fn2) => fn2 !== void 0 && typeof fn2 !== "function" ? __typeError$8("Function expected") : fn2;
+var __decoratorContext$8 = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings$8[kind], name: name2, metadata, addInitializer: (fn2) => done._ ? __typeError$8("Already initialized") : fns.push(__expectFn$8(fn2 || null)) });
+var __decoratorMetadata$8 = (array, target) => __defNormalProp$8(target, __knownSymbol$8("metadata"), array[3]);
+var __runInitializers$8 = (array, flags, self, value) => {
+  for (var i = 0, fns = array[flags >> 1], n = fns && fns.length; i < n; i++) flags & 1 ? fns[i].call(self) : value = fns[i].call(self, value);
+  return value;
+};
+var __decorateElement$8 = (array, flags, name2, decorators, target, extra) => {
+  var fn2, it, done, ctx, access, k = flags & 7, s = !!(flags & 8), p = !!(flags & 16);
+  var j = k > 3 ? array.length + 1 : k ? s ? 1 : 2 : 0, key = __decoratorStrings$8[k + 5];
+  var initializers = k > 3 && (array[j - 1] = []), extraInitializers = array[j] || (array[j] = []);
+  var desc = k && (!p && !s && (target = target.prototype), k < 5 && (k > 3 || !p) && __getOwnPropDesc$8(k < 4 ? target : { get [name2]() {
+    return __privateGet$1(this, extra);
+  }, set [name2](x) {
+    return __privateSet$1(this, extra, x);
+  } }, name2));
+  k ? p && k < 4 && __name$8(extra, (k > 2 ? "set " : k > 1 ? "get " : "") + name2) : __name$8(target, name2);
+  for (var i = decorators.length - 1; i >= 0; i--) {
+    ctx = __decoratorContext$8(k, name2, done = {}, array[3], extraInitializers);
+    if (k) {
+      ctx.static = s, ctx.private = p, access = ctx.access = { has: p ? (x) => __privateIn$1(target, x) : (x) => name2 in x };
+      if (k ^ 3) access.get = p ? (x) => (k ^ 1 ? __privateGet$1 : __privateMethod$1)(x, target, k ^ 4 ? extra : desc.get) : (x) => x[name2];
+      if (k > 2) access.set = p ? (x, y3) => __privateSet$1(x, target, y3, k ^ 4 ? extra : desc.set) : (x, y3) => x[name2] = y3;
+    }
+    it = (0, decorators[i])(k ? k < 4 ? p ? extra : desc[key] : k > 4 ? void 0 : { get: desc.get, set: desc.set } : target, ctx), done._ = 1;
+    if (k ^ 4 || it === void 0) __expectFn$8(it) && (k > 4 ? initializers.unshift(it) : k ? p ? extra = it : desc[key] = it : target = it);
+    else if (typeof it !== "object" || it === null) __typeError$8("Object expected");
+    else __expectFn$8(fn2 = it.get) && (desc.get = fn2), __expectFn$8(fn2 = it.set) && (desc.set = fn2), __expectFn$8(fn2 = it.init) && initializers.unshift(fn2);
+  }
+  return k || __decoratorMetadata$8(array, target), desc && __defProp$8(target, name2, desc), p ? k ^ 4 ? extra : desc : target;
+};
+var __publicField$1 = (obj, key, value) => __defNormalProp$8(obj, typeof key !== "symbol" ? key + "" : key, value);
+var __accessCheck$1 = (obj, member, msg) => member.has(obj) || __typeError$8("Cannot " + msg);
+var __privateIn$1 = (member, obj) => Object(obj) !== obj ? __typeError$8('Cannot use the "in" operator on this value') : member.has(obj);
+var __privateGet$1 = (obj, member, getter) => (__accessCheck$1(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
+var __privateSet$1 = (obj, member, value, setter) => (__accessCheck$1(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
+var __privateMethod$1 = (obj, member, method) => (__accessCheck$1(obj, member, "access private method"), method);
+var _disabled_dec, _id_dec, _label_dec, _options_dec, _values_dec, _MultiSelect_decorators, _init$8;
+_MultiSelect_decorators = [customElement(__au2ViewDef$2)], _values_dec = [bindable({ mode: BindingMode.twoWay })], _options_dec = [bindable], _label_dec = [bindable], _id_dec = [bindable], _disabled_dec = [bindable];
+class MultiSelect {
+  constructor() {
+    __publicField$1(this, "values", __runInitializers$8(_init$8, 8, this, [])), __runInitializers$8(_init$8, 11, this);
+    __publicField$1(this, "options", __runInitializers$8(_init$8, 12, this, [])), __runInitializers$8(_init$8, 15, this);
+    __publicField$1(this, "label", __runInitializers$8(_init$8, 16, this, "")), __runInitializers$8(_init$8, 19, this);
+    __publicField$1(this, "id", __runInitializers$8(_init$8, 20, this, "")), __runInitializers$8(_init$8, 23, this);
+    __publicField$1(this, "disabled", __runInitializers$8(_init$8, 24, this, false)), __runInitializers$8(_init$8, 27, this);
+    __publicField$1(this, "searchText", "");
+    __publicField$1(this, "isOpen", false);
+    __publicField$1(this, "searchInput", null);
+    __publicField$1(this, "element", resolve(INode));
+    __publicField$1(this, "_boundDocClick", null);
+  }
+  get filteredOptions() {
+    if (!this.searchText) return this.options;
+    const search = this.searchText.toLowerCase();
+    return this.options.filter((opt) => this.getOptLabel(opt).toLowerCase().includes(search));
+  }
+  /**
+   * Reactive set of currently-selected keys (stringified).
+   * Using a getter (instead of an `isSelected(opt)` method) ensures Aurelia
+   * re-evaluates template bindings when `this.values` mutates — method calls
+   * in template expressions are NOT observed for property accesses inside
+   * their bodies, but getters ARE.
+   */
+  get selectedKeySet() {
+    const arr = Array.isArray(this.values) ? this.values : [];
+    return new Set(arr.map((v) => String(v)));
+  }
+  get selectedOptions() {
+    const sel = Array.isArray(this.values) ? this.values : [];
+    if (sel.length === 0) return [];
+    const byKey = /* @__PURE__ */ new Map();
+    for (const opt of this.options) {
+      byKey.set(String(this.getOptValue(opt)), opt);
+    }
+    const result = [];
+    for (const v of sel) {
+      const opt = byKey.get(String(v));
+      if (opt) result.push(opt);
+    }
+    return result;
+  }
+  get displayLabel() {
+    const opts = this.selectedOptions;
+    if (opts.length === 0) return "";
+    return opts.map((o) => this.getOptLabel(o)).join(", ");
+  }
+  get selectedCount() {
+    return Array.isArray(this.values) ? this.values.length : 0;
+  }
+  attached() {
+    this._boundDocClick = (ev) => {
+      if (this.isOpen && !this.element.contains(ev.target)) {
+        this.isOpen = false;
+        this._syncTooltipDisabled();
+      }
+    };
+    document.addEventListener("click", this._boundDocClick, false);
+  }
+  detaching() {
+    if (this._boundDocClick) {
+      document.removeEventListener("click", this._boundDocClick, false);
+      this._boundDocClick = null;
+    }
+  }
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  toggle(_ev) {
+    if (this.disabled) return;
+    this.isOpen = !this.isOpen;
+    this._syncTooltipDisabled();
+    if (this.isOpen) {
+      this.searchText = "";
+      void Promise.resolve().then(() => this.searchInput?.focus());
+    }
+  }
+  isSelected(opt) {
+    const v = this.getOptValue(opt);
+    const arr = Array.isArray(this.values) ? this.values : [];
+    return arr.some((x) => String(x) === String(v));
+  }
+  toggleOption(opt, ev) {
+    ev.stopPropagation();
+    const v = this.getOptValue(opt);
+    if (v === void 0) return;
+    const arr = Array.isArray(this.values) ? this.values.slice() : [];
+    const idx = arr.findIndex((x) => String(x) === String(v));
+    if (idx >= 0) {
+      arr.splice(idx, 1);
+    } else {
+      arr.push(v);
+    }
+    this.values = arr;
+  }
+  clearAll(ev) {
+    ev.stopPropagation();
+    this.values = [];
+  }
+  close() {
+    this.isOpen = false;
+    this._syncTooltipDisabled();
+  }
+  panelClick(ev) {
+    ev.stopPropagation();
+  }
+  getOptValue(opt) {
+    return opt.id !== void 0 ? opt.id : opt.value;
+  }
+  getOptLabel(opt) {
+    return opt.label ?? opt.name ?? "";
+  }
+  _syncTooltipDisabled() {
+    if (this.isOpen) {
+      this.element.setAttribute("data-tooltip-disabled", "");
+    } else {
+      this.element.removeAttribute("data-tooltip-disabled");
+    }
+  }
+}
+_init$8 = __decoratorStart$8();
+__decorateElement$8(_init$8, 5, "values", _values_dec, MultiSelect);
+__decorateElement$8(_init$8, 5, "options", _options_dec, MultiSelect);
+__decorateElement$8(_init$8, 5, "label", _label_dec, MultiSelect);
+__decorateElement$8(_init$8, 5, "id", _id_dec, MultiSelect);
+__decorateElement$8(_init$8, 5, "disabled", _disabled_dec, MultiSelect);
+MultiSelect = __decorateElement$8(_init$8, 0, "MultiSelect", _MultiSelect_decorators, MultiSelect);
+__runInitializers$8(_init$8, 1, MultiSelect);
+const name$1 = "keyed-lines";
+const template$1 = '\uFEFF<template>\n    <template repeat.for="line of lines">\n        <!-- simple line -->\n        <div if.bind="!isGroup(line)">${line | keyedLine}</div>\n\n        <!-- guaranteed group: render children plain -->\n        <template if.bind="isGroup(line) && !isPooled(line)">\n            <div repeat.for="child of line.children">${child | keyedLine}</div>\n        </template>\n\n        <!-- pooled group: bordered box, header = translated code,\n             rows = ${chance%}: ${rendered child} -->\n        <div if.bind="isPooled(line)" class="border px-2 border-gray-600 rounded m-2">\n            <div class="set-text text-center p-1 border-b border-gray-600" if.bind="line.nameKey">\n                ${line.nameKey | t}\n            </div>\n            <div repeat.for="child of line.children"\n                 class="flex justify-between p-1 border-b border-gray-700 last:border-0">\n                <span class="prop-text">${child | keyedChance:line.children}%</span>\n                <span class="text-right">${child | keyedLine}</span>\n            </div>\n        </div>\n    </template>\n</template>\n';
+const dependencies$1 = [];
+const bindables$1 = {};
+let _e$1;
+function register$1(container) {
+  if (!_e$1) {
+    _e$1 = CustomElement.define({ name: name$1, template: template$1, dependencies: dependencies$1, bindables: bindables$1 });
+  }
+  container.register(_e$1);
+}
+const __au2ViewDef$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  bindables: bindables$1,
+  default: template$1,
+  dependencies: dependencies$1,
+  name: name$1,
+  register: register$1,
+  template: template$1
+}, Symbol.toStringTag, { value: "Module" }));
+var __create$7 = Object.create;
+var __defProp$7 = Object.defineProperty;
+var __getOwnPropDesc$7 = Object.getOwnPropertyDescriptor;
+var __knownSymbol$7 = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : /* @__PURE__ */ Symbol.for("Symbol." + name2);
+var __typeError$7 = (msg) => {
+  throw TypeError(msg);
+};
+var __defNormalProp$7 = (obj, key, value) => key in obj ? __defProp$7(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __name$7 = (target, value) => __defProp$7(target, "name", { value, configurable: true });
+var __decoratorStart$7 = (base) => [, , , __create$7(null)];
+var __decoratorStrings$7 = ["class", "method", "getter", "setter", "accessor", "field", "value", "get", "set"];
+var __expectFn$7 = (fn2) => fn2 !== void 0 && typeof fn2 !== "function" ? __typeError$7("Function expected") : fn2;
+var __decoratorContext$7 = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings$7[kind], name: name2, metadata, addInitializer: (fn2) => done._ ? __typeError$7("Already initialized") : fns.push(__expectFn$7(fn2 || null)) });
+var __decoratorMetadata$7 = (array, target) => __defNormalProp$7(target, __knownSymbol$7("metadata"), array[3]);
+var __runInitializers$7 = (array, flags, self, value) => {
+  for (var i = 0, fns = array[flags >> 1], n = fns && fns.length; i < n; i++) flags & 1 ? fns[i].call(self) : value = fns[i].call(self, value);
+  return value;
+};
+var __decorateElement$7 = (array, flags, name2, decorators, target, extra) => {
+  var fn2, it, done, ctx, access, k = flags & 7, s = !!(flags & 8), p = !!(flags & 16);
+  var j = k > 3 ? array.length + 1 : k ? s ? 1 : 2 : 0, key = __decoratorStrings$7[k + 5];
+  var initializers = k > 3 && (array[j - 1] = []), extraInitializers = array[j] || (array[j] = []);
+  var desc = k && (!p && !s && (target = target.prototype), k < 5 && (k > 3 || !p) && __getOwnPropDesc$7(k < 4 ? target : { get [name2]() {
+    return __privateGet(this, extra);
+  }, set [name2](x) {
+    return __privateSet(this, extra, x);
+  } }, name2));
+  k ? p && k < 4 && __name$7(extra, (k > 2 ? "set " : k > 1 ? "get " : "") + name2) : __name$7(target, name2);
+  for (var i = decorators.length - 1; i >= 0; i--) {
+    ctx = __decoratorContext$7(k, name2, done = {}, array[3], extraInitializers);
+    if (k) {
+      ctx.static = s, ctx.private = p, access = ctx.access = { has: p ? (x) => __privateIn(target, x) : (x) => name2 in x };
+      if (k ^ 3) access.get = p ? (x) => (k ^ 1 ? __privateGet : __privateMethod)(x, target, k ^ 4 ? extra : desc.get) : (x) => x[name2];
+      if (k > 2) access.set = p ? (x, y3) => __privateSet(x, target, y3, k ^ 4 ? extra : desc.set) : (x, y3) => x[name2] = y3;
+    }
+    it = (0, decorators[i])(k ? k < 4 ? p ? extra : desc[key] : k > 4 ? void 0 : { get: desc.get, set: desc.set } : target, ctx), done._ = 1;
+    if (k ^ 4 || it === void 0) __expectFn$7(it) && (k > 4 ? initializers.unshift(it) : k ? p ? extra = it : desc[key] = it : target = it);
+    else if (typeof it !== "object" || it === null) __typeError$7("Object expected");
+    else __expectFn$7(fn2 = it.get) && (desc.get = fn2), __expectFn$7(fn2 = it.set) && (desc.set = fn2), __expectFn$7(fn2 = it.init) && initializers.unshift(fn2);
+  }
+  return k || __decoratorMetadata$7(array, target), desc && __defProp$7(target, name2, desc), p ? k ^ 4 ? extra : desc : target;
+};
+var __publicField = (obj, key, value) => __defNormalProp$7(obj, key + "", value);
+var __accessCheck = (obj, member, msg) => member.has(obj) || __typeError$7("Cannot " + msg);
+var __privateIn = (member, obj) => Object(obj) !== obj ? __typeError$7('Cannot use the "in" operator on this value') : member.has(obj);
+var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
+var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
+var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "access private method"), method);
+var _lines_dec, _KeyedLines_decorators, _init$7;
+_KeyedLines_decorators = [customElement(__au2ViewDef$1)], _lines_dec = [bindable];
+class KeyedLines {
+  constructor() {
+    __publicField(this, "lines", __runInitializers$7(_init$7, 8, this, null)), __runInitializers$7(_init$7, 11, this);
+  }
+  /** True when the row is a pool-parent (has children). */
+  isGroup(line) {
+    return !!line && Array.isArray(line.children) && line.children.length > 0;
+  }
+  /** True for pooled groups — the bordered/chance-prefixed render path. */
+  isPooled(line) {
+    return this.isGroup(line) && line.pickMode != null && line.pickMode !== "0";
+  }
+}
+_init$7 = __decoratorStart$7();
+__decorateElement$7(_init$7, 5, "lines", _lines_dec, KeyedLines);
+KeyedLines = __decorateElement$7(_init$7, 0, "KeyedLines", _KeyedLines_decorators, KeyedLines);
+__runInitializers$7(_init$7, 1, KeyedLines);
 const Elements = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
+  get KeyedLines() {
+    return KeyedLines;
+  },
+  get MultiSelect() {
+    return MultiSelect;
+  },
   get SearchArea() {
     return SearchArea;
   },
@@ -25849,38 +26703,38 @@ const Elements = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProp
     return SearchableSelect;
   }
 }, Symbol.toStringTag, { value: "Module" }));
-var __create$4 = Object.create;
-var __defProp$4 = Object.defineProperty;
-var __getOwnPropDesc$4 = Object.getOwnPropertyDescriptor;
-var __knownSymbol$4 = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : Symbol.for("Symbol." + name2);
-var __typeError$4 = (msg) => {
+var __create$6 = Object.create;
+var __defProp$6 = Object.defineProperty;
+var __getOwnPropDesc$6 = Object.getOwnPropertyDescriptor;
+var __knownSymbol$6 = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : /* @__PURE__ */ Symbol.for("Symbol." + name2);
+var __typeError$6 = (msg) => {
   throw TypeError(msg);
 };
-var __defNormalProp$4 = (obj, key, value) => key in obj ? __defProp$4(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __name$4 = (target, value) => __defProp$4(target, "name", { value, configurable: true });
-var __decoratorStart$4 = (base) => [, , , __create$4(null)];
-var __decoratorStrings$4 = ["class", "method", "getter", "setter", "accessor", "field", "value", "get", "set"];
-var __expectFn$4 = (fn2) => fn2 !== void 0 && typeof fn2 !== "function" ? __typeError$4("Function expected") : fn2;
-var __decoratorContext$4 = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings$4[kind], name: name2, metadata, addInitializer: (fn2) => done._ ? __typeError$4("Already initialized") : fns.push(__expectFn$4(fn2 || null)) });
-var __decoratorMetadata$4 = (array, target) => __defNormalProp$4(target, __knownSymbol$4("metadata"), array[3]);
-var __runInitializers$4 = (array, flags, self, value) => {
+var __defNormalProp$6 = (obj, key, value) => key in obj ? __defProp$6(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __name$6 = (target, value) => __defProp$6(target, "name", { value, configurable: true });
+var __decoratorStart$6 = (base) => [, , , __create$6(null)];
+var __decoratorStrings$6 = ["class", "method", "getter", "setter", "accessor", "field", "value", "get", "set"];
+var __expectFn$6 = (fn2) => fn2 !== void 0 && typeof fn2 !== "function" ? __typeError$6("Function expected") : fn2;
+var __decoratorContext$6 = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings$6[kind], name: name2, metadata, addInitializer: (fn2) => done._ ? __typeError$6("Already initialized") : fns.push(__expectFn$6(fn2 || null)) });
+var __decoratorMetadata$6 = (array, target) => __defNormalProp$6(target, __knownSymbol$6("metadata"), array[3]);
+var __runInitializers$6 = (array, flags, self, value) => {
   for (var i = 0, fns = array[flags >> 1], n = fns && fns.length; i < n; i++) fns[i].call(self);
   return value;
 };
-var __decorateElement$4 = (array, flags, name2, decorators, target, extra) => {
+var __decorateElement$6 = (array, flags, name2, decorators, target, extra) => {
   var it, done, ctx, k = flags & 7, p = false;
   var j = 0;
   var extraInitializers = array[j] || (array[j] = []);
-  var desc = k && (target = target.prototype, k < 5 && (k > 3 || !p) && __getOwnPropDesc$4(target, name2));
-  __name$4(target, name2);
+  var desc = k && (target = target.prototype, k < 5 && (k > 3 || !p) && __getOwnPropDesc$6(target, name2));
+  __name$6(target, name2);
   for (var i = decorators.length - 1; i >= 0; i--) {
-    ctx = __decoratorContext$4(k, name2, done = {}, array[3], extraInitializers);
+    ctx = __decoratorContext$6(k, name2, done = {}, array[3], extraInitializers);
     it = (0, decorators[i])(target, ctx), done._ = 1;
-    __expectFn$4(it) && (target = it);
+    __expectFn$6(it) && (target = it);
   }
-  return __decoratorMetadata$4(array, target), desc && __defProp$4(target, name2, desc), p ? k ^ 4 ? extra : desc : target;
+  return __decoratorMetadata$6(array, target), desc && __defProp$6(target, name2, desc), p ? k ^ 4 ? extra : desc : target;
 };
-var _RuneNameValueConverter_decorators, _init$4;
+var _RuneNameValueConverter_decorators, _init$6;
 _RuneNameValueConverter_decorators = [valueConverter("runeName")];
 class RuneNameValueConverter {
   toView(value) {
@@ -25958,13 +26812,102 @@ class RuneNameValueConverter {
     return value;
   }
 }
+_init$6 = __decoratorStart$6();
+RuneNameValueConverter = __decorateElement$6(_init$6, 0, "RuneNameValueConverter", _RuneNameValueConverter_decorators, RuneNameValueConverter);
+__runInitializers$6(_init$6, 1, RuneNameValueConverter);
+var __create$5 = Object.create;
+var __defProp$5 = Object.defineProperty;
+var __getOwnPropDesc$5 = Object.getOwnPropertyDescriptor;
+var __knownSymbol$5 = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : /* @__PURE__ */ Symbol.for("Symbol." + name2);
+var __typeError$5 = (msg) => {
+  throw TypeError(msg);
+};
+var __defNormalProp$5 = (obj, key, value) => key in obj ? __defProp$5(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __name$5 = (target, value) => __defProp$5(target, "name", { value, configurable: true });
+var __decoratorStart$5 = (base) => [, , , __create$5(null)];
+var __decoratorStrings$5 = ["class", "method", "getter", "setter", "accessor", "field", "value", "get", "set"];
+var __expectFn$5 = (fn2) => fn2 !== void 0 && typeof fn2 !== "function" ? __typeError$5("Function expected") : fn2;
+var __decoratorContext$5 = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings$5[kind], name: name2, metadata, addInitializer: (fn2) => done._ ? __typeError$5("Already initialized") : fns.push(__expectFn$5(fn2 || null)) });
+var __decoratorMetadata$5 = (array, target) => __defNormalProp$5(target, __knownSymbol$5("metadata"), array[3]);
+var __runInitializers$5 = (array, flags, self, value) => {
+  for (var i = 0, fns = array[flags >> 1], n = fns && fns.length; i < n; i++) fns[i].call(self);
+  return value;
+};
+var __decorateElement$5 = (array, flags, name2, decorators, target, extra) => {
+  var it, done, ctx, k = flags & 7, p = false;
+  var j = 0;
+  var extraInitializers = array[j] || (array[j] = []);
+  var desc = k && (target = target.prototype, k < 5 && (k > 3 || !p) && __getOwnPropDesc$5(target, name2));
+  __name$5(target, name2);
+  for (var i = decorators.length - 1; i >= 0; i--) {
+    ctx = __decoratorContext$5(k, name2, done = {}, array[3], extraInitializers);
+    it = (0, decorators[i])(target, ctx), done._ = 1;
+    __expectFn$5(it) && (target = it);
+  }
+  return __decoratorMetadata$5(array, target), desc && __defProp$5(target, name2, desc), p ? k ^ 4 ? extra : desc : target;
+};
+var _EntriesValueConverter_decorators, _init$5;
+_EntriesValueConverter_decorators = [valueConverter("entries")];
+class EntriesValueConverter {
+  toView(obj) {
+    if (!obj) return [];
+    return Object.entries(obj);
+  }
+}
+_init$5 = __decoratorStart$5();
+EntriesValueConverter = __decorateElement$5(_init$5, 0, "EntriesValueConverter", _EntriesValueConverter_decorators, EntriesValueConverter);
+__runInitializers$5(_init$5, 1, EntriesValueConverter);
+var __create$4 = Object.create;
+var __defProp$4 = Object.defineProperty;
+var __getOwnPropDesc$4 = Object.getOwnPropertyDescriptor;
+var __knownSymbol$4 = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : /* @__PURE__ */ Symbol.for("Symbol." + name2);
+var __typeError$4 = (msg) => {
+  throw TypeError(msg);
+};
+var __defNormalProp$4 = (obj, key, value) => key in obj ? __defProp$4(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __name$4 = (target, value) => __defProp$4(target, "name", { value, configurable: true });
+var __decoratorStart$4 = (base) => [, , , __create$4(null)];
+var __decoratorStrings$4 = ["class", "method", "getter", "setter", "accessor", "field", "value", "get", "set"];
+var __expectFn$4 = (fn2) => fn2 !== void 0 && typeof fn2 !== "function" ? __typeError$4("Function expected") : fn2;
+var __decoratorContext$4 = (kind, name2, done, metadata, fns) => ({ kind: __decoratorStrings$4[kind], name: name2, metadata, addInitializer: (fn2) => done._ ? __typeError$4("Already initialized") : fns.push(__expectFn$4(fn2 || null)) });
+var __decoratorMetadata$4 = (array, target) => __defNormalProp$4(target, __knownSymbol$4("metadata"), array[3]);
+var __runInitializers$4 = (array, flags, self, value) => {
+  for (var i = 0, fns = array[flags >> 1], n = fns && fns.length; i < n; i++) fns[i].call(self);
+  return value;
+};
+var __decorateElement$4 = (array, flags, name2, decorators, target, extra) => {
+  var it, done, ctx, k = flags & 7, p = false;
+  var j = 0;
+  var extraInitializers = array[j] || (array[j] = []);
+  var desc = k && (target = target.prototype, k < 5 && (k > 3 || !p) && __getOwnPropDesc$4(target, name2));
+  __name$4(target, name2);
+  for (var i = decorators.length - 1; i >= 0; i--) {
+    ctx = __decoratorContext$4(k, name2, done = {}, array[3], extraInitializers);
+    it = (0, decorators[i])(target, ctx), done._ = 1;
+    __expectFn$4(it) && (target = it);
+  }
+  return __decoratorMetadata$4(array, target), desc && __defProp$4(target, name2, desc), p ? k ^ 4 ? extra : desc : target;
+};
+var _ChanceValueConverter_decorators, _init$4;
+_ChanceValueConverter_decorators = [valueConverter("chance")];
+class ChanceValueConverter {
+  toView(affix, pool) {
+    if (!pool || pool.length === 0) return 0;
+    const propertyPool = pool.filter((item) => item.PropertyString);
+    if (propertyPool.length === 0) return 0;
+    const totalChance = propertyPool.reduce((sum, item) => sum + (item.Chance || item.ModChance || 1), 0);
+    const specificChance = affix.Chance || affix.ModChance || 1;
+    const chancePercent = specificChance / totalChance * 100;
+    return Number.isInteger(chancePercent) ? chancePercent : chancePercent.toFixed(1);
+  }
+}
 _init$4 = __decoratorStart$4();
-RuneNameValueConverter = __decorateElement$4(_init$4, 0, "RuneNameValueConverter", _RuneNameValueConverter_decorators, RuneNameValueConverter);
-__runInitializers$4(_init$4, 1, RuneNameValueConverter);
+ChanceValueConverter = __decorateElement$4(_init$4, 0, "ChanceValueConverter", _ChanceValueConverter_decorators, ChanceValueConverter);
+__runInitializers$4(_init$4, 1, ChanceValueConverter);
 var __create$3 = Object.create;
 var __defProp$3 = Object.defineProperty;
 var __getOwnPropDesc$3 = Object.getOwnPropertyDescriptor;
-var __knownSymbol$3 = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : Symbol.for("Symbol." + name2);
+var __knownSymbol$3 = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : /* @__PURE__ */ Symbol.for("Symbol." + name2);
 var __typeError$3 = (msg) => {
   throw TypeError(msg);
 };
@@ -25992,21 +26935,2588 @@ var __decorateElement$3 = (array, flags, name2, decorators, target, extra) => {
   }
   return __decoratorMetadata$3(array, target), desc && __defProp$3(target, name2, desc), p ? k ^ 4 ? extra : desc : target;
 };
-var _EntriesValueConverter_decorators, _init$3;
-_EntriesValueConverter_decorators = [valueConverter("entries")];
-class EntriesValueConverter {
-  toView(obj) {
-    if (!obj) return [];
-    return Object.entries(obj);
+var _SortPropertiesValueConverter_decorators, _init$3;
+_SortPropertiesValueConverter_decorators = [valueConverter("sortProperties")];
+class SortPropertiesValueConverter {
+  toView(properties) {
+    if (!properties || !Array.isArray(properties)) return properties;
+    return [...properties].sort((a, b) => {
+      const getPriority = (p) => {
+        if (p["group-properties"]) {
+          const pools = Object.values(p["group-properties"]);
+          if (pools.length > 0) {
+            const pool = pools[0];
+            const pickMode = p.pickmode ?? (pool[0] ? pool[0].PickMode : void 0);
+            if (pickMode == 0) {
+              return 0;
+            }
+            return 1;
+          }
+        }
+        return 0;
+      };
+      return getPriority(a) - getPriority(b);
+    });
   }
 }
 _init$3 = __decoratorStart$3();
-EntriesValueConverter = __decorateElement$3(_init$3, 0, "EntriesValueConverter", _EntriesValueConverter_decorators, EntriesValueConverter);
-__runInitializers$3(_init$3, 1, EntriesValueConverter);
+SortPropertiesValueConverter = __decorateElement$3(_init$3, 0, "SortPropertiesValueConverter", _SortPropertiesValueConverter_decorators, SortPropertiesValueConverter);
+__runInitializers$3(_init$3, 1, SortPropertiesValueConverter);
+const SEQ = /%(?:\+d|d|D|s|S|i|c\d|\d|%)/g;
+function formatTemplate(template2, args = []) {
+  if (!template2) return "";
+  const tokens = template2.match(SEQ) ?? [];
+  const sequentialCount = tokens.filter(
+    (m3) => m3 !== "%%" && !/^%\d$/.test(m3) && !/^%c\d$/.test(m3)
+  ).length;
+  const rangeMode = sequentialCount > 0 && args.length === sequentialCount * 2;
+  let seqIndex = 0;
+  return template2.replace(SEQ, (match) => {
+    if (match === "%%") return "%";
+    if (/^%\d$/.test(match)) {
+      const i = Number(match.charAt(1));
+      return formatArg(args[i], match);
+    }
+    if (/^%c\d$/.test(match)) return "";
+    if (rangeMode) {
+      const min2 = args[seqIndex++];
+      const max2 = args[seqIndex++];
+      const minStr = formatArg(min2, match);
+      if (typeof min2 === "number" && typeof max2 === "number" && Number.isFinite(min2) && Number.isFinite(max2) && min2 !== max2) {
+        const maxToken = match === "%+d" ? "%d" : match;
+        return `${minStr}-${formatArg(max2, maxToken)}`;
+      }
+      return minStr;
+    }
+    const value = args[seqIndex++];
+    return formatArg(value, match);
+  });
+}
+function formatArg(value, token) {
+  if (value === null || value === void 0) return "";
+  switch (token) {
+    case "%+d": {
+      const n = Number(value);
+      if (!Number.isFinite(n)) return String(value);
+      return (n >= 0 ? "+" : "") + n.toString();
+    }
+    case "%d":
+    case "%D":
+    case "%i": {
+      const n = Number(value);
+      return Number.isFinite(n) ? Math.trunc(n).toString() : String(value);
+    }
+    case "%s":
+    case "%S":
+      return String(value);
+    default:
+      return String(value);
+  }
+}
+const LANGUAGES = [
+  "enUS",
+  "zhTW",
+  "deDE",
+  "esES",
+  "frFR",
+  "itIT",
+  "koKR",
+  "plPL",
+  "esMX",
+  "jaJP",
+  "ptBR",
+  "ruRU",
+  "zhCN"
+];
+const FALLBACK_LANGUAGE = "enUS";
+const GENDER_TAG = /\[[a-z]{2}\]/g;
+const OPEN_BRACKET = 91;
+function stripGenderTags(value) {
+  if (!value || value.charCodeAt(0) !== OPEN_BRACKET) return value;
+  const parts = value.split(GENDER_TAG);
+  for (const p of parts) {
+    if (p.length > 0) return p;
+  }
+  return value;
+}
+function stripGenderTagsInPlace(map) {
+  for (const k in map) {
+    const v = map[k];
+    if (v && v.charCodeAt(0) === OPEN_BRACKET) {
+      map[k] = stripGenderTags(v);
+    }
+  }
+}
+const UI_STRINGS = {
+  "deDE": {
+    "nav_home": "Startseite",
+    "nav_cube_recipes": "Würfelrezepte",
+    "nav_uniques": "Einzigartige Gegenstände",
+    "nav_sets": "Sets",
+    "nav_runewords": "Runenwörter",
+    "nav_grail": "Heiliger Gral",
+    "nav_bases": "Basen",
+    "nav_affixes": "Affixe",
+    "lang_tooltip": "Wählt eine Sprache für Website-Daten und Benutzeroberfläche.",
+    "font_tooltip": "Wählt eine Schriftart zur Anzeige der Website.",
+    "home_mission_title": "Unsere Mission",
+    "home_mission_text": "Unsere Mission ist es, ein Diablo-II-Erlebnis zu bieten, das zugleich vertraut und neu ist. Wir möchten das Kernspielgefühl von Diablo II bewahren und dem Spiel gleichzeitig neue Funktionen und Inhalte hinzufügen. Wir wollen erfahrenen Diablo-II-Spielern ein frisches Erlebnis bieten und neuen Spielern zugleich ein unterhaltsames, fesselndes Erlebnis ermöglichen.",
+    "home_open_source_title": "Open Source",
+    "home_open_source_text": "Alles, was wir tun, ist Open Source – egal ob es sich um die D2R-Dateien selbst oder um Werkzeuge handelt, die wir entwickeln. Wir glauben, dass die Community die Möglichkeit haben sollte, den Code zu sehen und zu ändern, auf dem die Mod läuft. Außerdem sollte die Community zur Mod beitragen und ihre Zukunft mitgestalten können.",
+    "home_discord_text": "Möchtest du Teil dieser Mission sein? Tritt unserem Discord-Server unter {0} bei, um mehr über Beiträge und Zusammenarbeit zu erfahren.",
+    "strPartialSetBonus": "%s (%d Gegenstände)",
+    "strFullSetBonus": "%s (vollständiges Set)",
+    "strItemsCount": "(%d Gegenstände)",
+    "strFullSet": "(vollständiges Set)",
+    "strRequiredLevel": "Erforderliche Stufe: %d",
+    "app_brand": "D2R Reimagined",
+    "nav_wiki": "Wiki",
+    "sr_select_language": "Sprache auswählen",
+    "sr_select_font": "Schriftart auswählen",
+    "sr_open_menu": "Hauptmenü öffnen",
+    "sr_top": "Oben",
+    "aria_back_to_top": "Zurück nach oben",
+    "aria_choose_language": "Sprache wählen",
+    "aria_choose_font": "Schriftart wählen",
+    "label_normal": "Normal",
+    "label_exceptional": "Exzeptionell",
+    "label_elite": "Elite",
+    "label_vanilla": "Vanilla",
+    "label_mod": "Mod",
+    "label_rarity": "Seltenheit: %s",
+    "label_level_required": "Stufe %d erforderlich",
+    "label_affix_level": "Affix-Stufe %s",
+    "label_only": "(nur %s)",
+    "label_or": " oder ",
+    "found_items_suffix": "Gegenstände gefunden",
+    "found_sets_suffix": "Sets gefunden",
+    "found_recipes_suffix": "Rezepte gefunden",
+    "found_runewords_suffix": "Runenwörter gefunden",
+    "found_affixes_suffix": "Magische Affixe gefunden",
+    "found_bases_suffix": "Basisgegenstände gefunden",
+    "filter_select_class": "Klasse auswählen",
+    "filter_select_type": "Gegenstandstyp auswählen",
+    "filter_select_equipment": "Ausrüstung auswählen",
+    "filter_search_placeholder": "Suchen...",
+    "filter_hide_vanilla": "Vanilla ausblenden",
+    "filter_reset": "Filter zurücksetzen",
+    "filter_no_results": "Keine Ergebnisse gefunden",
+    "filter_select_category": "Kategorie auswählen",
+    "filter_select_sockets": "Sockel auswählen",
+    "filter_select_tier": "Stufe auswählen",
+    "filter_select_affix_type": "Affixtyp auswählen",
+    "filter_select_property_type": "Eigenschaftstyp auswählen",
+    "filter_exact": "Exakt",
+    "filter_min_rlvl": "Min. erf. Stufe",
+    "filter_max_rlvl": "Max. erf. Stufe",
+    "filter_rune_count": "Runenanzahl",
+    "filter_runes_only_placeholder": "Nur Runen...",
+    "filter_select_recipe_type": "Rezepttyp auswählen",
+    "sort_by_damage": "Nach durchschnittlichem Waffenschaden sortieren:",
+    "sort_select_weapon_type": "Waffentyp auswählen",
+    "sort_reset": "Sortierung zurücksetzen",
+    "grail_title": "- Heiliger-Gral-Tracker -",
+    "grail_displayed_suffix": "Angezeigt",
+    "grail_sets_completed": "Sets abgeschlossen",
+    "grail_reset_progress": "Gral-Kategoriefortschritt zurücksetzen",
+    "grail_import_export": "Gral-Daten importieren/exportieren",
+    "grail_hide_found": "Gefundene Gegenstände ausblenden",
+    "grail_close": "Schließen",
+    "grail_export_label": "Exportieren (Base64)",
+    "grail_refresh_export": "Export aktualisieren",
+    "grail_copy_export": "Export-Zeichenfolge kopieren",
+    "grail_import_label": "Importieren (Base64)",
+    "grail_import_placeholder": "Base64-Gral-Daten hier einfügen",
+    "grail_merge": "Zusammenführen",
+    "grail_replace": "Ersetzen",
+    "info_more_about": "Weitere Informationen zu %s",
+    "affix_included_types": "Grüner Text sind eingeschlossene Gegenstandstypen.",
+    "affix_excluded_types": "Roter Text sind ausgeschlossene Gegenstandstypen.",
+    "class_amazon": "Amazone",
+    "class_assassin": "Assassine",
+    "class_barbarian": "Barbar",
+    "class_druid": "Druide",
+    "class_necromancer": "Totenbeschwörer",
+    "class_paladin": "Paladin",
+    "class_sorceress": "Zauberin",
+    "class_warlock": "Hexenmeister",
+    "itype_any_helm": "Beliebiger Helm",
+    "label_armors": "Rüstungen",
+    "label_weapons": "Waffen",
+    "label_prefix": "Präfix",
+    "label_suffix": "Suffix",
+    "label_socket": "%d Sockel",
+    "label_sockets": "%d Sockel",
+    "label_runes_count": "%d Runen",
+    "label_1h_only": "Nur 1H",
+    "label_2h_only": "Nur 2H",
+    "sort_1h_phys": "1H physisch",
+    "sort_1h_phys_help": "Nach einhändigem physischen Schaden sortieren.",
+    "sort_2h_phys": "2H physisch",
+    "sort_2h_phys_help": "Nach zweihändigem physischen Schaden sortieren.",
+    "sort_throw_phys": "Wurf physisch",
+    "sort_throw_phys_help": "Nach physischem Wurfschaden sortieren.",
+    "sort_non_phys": "Nicht-physisch",
+    "sort_non_phys_help": "Nach nicht-physischem Schaden sortieren.",
+    "help_class_filter": "Nach Charakterklasse filtern.",
+    "help_item_type_filter": "Nach Basisgegenstandstyp filtern.",
+    "help_equipment_filter": "Auf bestimmte Ausrüstung filtern.",
+    "help_search": "Durchsucht alle Felder. Text wird als Phrase abgeglichen. Verwende „+“, um mehrere Begriffe zu verlangen (AND). Verwende „,“ oder „|“ für OR. Stelle „-“ oder „!“ voran, um einen Begriff oder eine Phrase auszuschließen. Beispiel: „fire skill damage“ findet die exakte Phrase. „fire+cold“ findet Gegenstände mit beidem. „fire,cold“ findet Gegenstände mit einem von beiden. „-fire“ schließt Gegenstände mit fire aus. „damage -fire“ findet Gegenstände mit damage, aber ohne fire. „fire skill damage -cold skill damage“ findet fire skill damage und schließt cold skill damage aus.",
+    "help_search_sets": "Durchsucht alle Felder; Sets werden als vollständiges Set abgeglichen, wenn ein Treffer gefunden wird. Text wird als Phrase abgeglichen. Verwende „+“, um mehrere Begriffe zu verlangen (AND). Verwende „,“ oder „|“ für OR. Stelle „-“ oder „!“ voran, um einen Begriff oder eine Phrase auszuschließen. Beispiel: „sorc skill mana“ findet die exakte Phrase. „fire+cold“ findet Gegenstände mit beidem. „-fire“ schließt Gegenstände mit fire aus. „damage -fire“ findet Gegenstände mit damage, aber ohne fire. „fire skill damage -cold skill damage“ findet fire skill damage und schließt cold skill damage aus.",
+    "help_search_runes": "Nach bestimmten Runen suchen. Leerzeichen und + bedeuten AND. , und | bedeuten OR. Beispiel: El Eld|Hel Zod gibt nur Breath of the Dying und Starlight zurück.",
+    "help_hide_vanilla": "Filterumschalter zum Ausblenden von Vanilla-Gegenständen.",
+    "help_hide_vanilla_sets": "Filterumschalter zum Ausblenden von Vanilla-Gegenständen. Gilt für das gesamte Set.",
+    "help_reset_filters": "Setzt alle Filter auf Standard zurück.",
+    "help_sockets_filter": "Nach der maximal möglichen Sockelzahl der Basis filtern.",
+    "help_tier_filter": "Nach Basisstufe filtern. Wenn nichts ausgewählt ist, versucht die Seite standardmäßig, N/E/E einer Basisgruppe zusammenzuhalten.",
+    "help_category_filter": "Zwischen Rüstungen, Waffen oder beidem wählen.",
+    "help_affix_type_filter": "Zwischen Präfixen, Suffixen oder beidem wählen.",
+    "help_property_type_filter": "Nach Eigenschaftsgruppe filtern (z. B. Schaden, Verteidigung, Nutzen). Hinweis: Noch in Arbeit; manches kann falsch sein.",
+    "help_rune_count_filter": "Nach der benötigten Runenanzahl filtern. Diese Anzahl ist exakt.",
+    "help_runes_only_filter": "Nach bestimmten Runen suchen.",
+    "help_recipe_type_filter": "Rezepte nach Typ filtern (Neu würfeln, Upgrade, Crafting usw.).",
+    "help_recipe_class_filter": "Rezepte nach Charakterklasse filtern. Hinweis: Diese sind für jede Klasse gleich, gewähren bei Verwendung jedoch klassenspezifische Fertigkeiten.",
+    "help_grail_category": "Die Gral-Kategorieliste wählen.",
+    "help_grail_reset": "Setzt nur den verfolgten Fortschritt der aktuellen Gral-Kategorie zurück.",
+    "help_grail_import_export": "Öffnet ein Popup zum Exportieren oder Importieren des Gral-Fortschritts als Base64.",
+    "help_grail_hide_found": "Filterumschalter zum Ausblenden bereits gefundener Gegenstände.",
+    "help_weapon_sort_hand": "Waffentyp filtern: Alle, nur 1H oder nur 2H.",
+    "help_weapon_sort_reset": "Waffensortierung zurücksetzen.",
+    "help_item_type_filter_sets": "Nach Basisgegenstandstyp filtern; Sets werden als vollständiges Set abgeglichen, wenn ein Treffer gefunden wird.",
+    "help_item_type_filter_uniques": "Nach Basisgegenstandstyp filtern; bei generischen Typen werden nur klassenspezifische Varianten eingeschlossen.",
+    "help_item_type_filter_runewords": "Nach Basisgegenstandstyp filtern. „Exakt“ umschalten, um Varianten zu entfernen.",
+    "help_item_type_filter_grail": "Nach Basisgegenstandstyp filtern; wegen des Grals lockerer als auf anderen Seiten.",
+    "help_equipment_filter_uniques": "Auf bestimmte Ausrüstung für den ausgewählten Gegenstandstyp filtern; deaktiviert, wenn keiner ausgewählt ist.",
+    "help_equipment_filter_sets": "Auf bestimmte Ausrüstung für den ausgewählten Typ filtern; deaktiviert, wenn keiner ausgewählt ist.",
+    "help_required_level_range": "Nach erforderlichem Stufenbereich filtern. Mindest- und Höchstwert aktualisieren einander, wenn sie sich überschneiden.",
+    "help_exact_toggle": "„Exakt“ umschalten, um Varianten zu entfernen.",
+    "label_chance": "%d%% Chance",
+    "prop_group_absorbs": "Absorption",
+    "prop_group_attack_rating": "Trefferchance",
+    "prop_group_attributes": "Attribute",
+    "prop_group_auto_repair": "Selbstreparatur",
+    "prop_group_block_chance": "Blockchance",
+    "prop_group_charges": "Ladungen",
+    "prop_group_ctc_level_up": "Auslösen bei Stufenaufstieg",
+    "prop_group_ctc_when_striking": "Auslösen bei Treffer",
+    "prop_group_ctc_when_struck": "Auslösen bei Treffer-Erleiden",
+    "prop_group_damage": "Schaden",
+    "prop_group_defense": "Verteidigung",
+    "prop_group_demon_damage": "Dämonenschaden",
+    "prop_group_elemental_effect_defense": "Verteidigung gegen Elementareffekte",
+    "prop_group_elemental_skill_effect": "Elementare Fertigkeitseffekte",
+    "prop_group_elemental_weapon_damage": "Elementarer Waffenschaden",
+    "prop_group_equip_aura": "Aura beim Tragen",
+    "prop_group_experience": "Erfahrung",
+    "prop_group_gold_find": "Goldfund",
+    "prop_group_indestructible": "Unzerstörbar",
+    "prop_group_kick_damage": "Trittschaden",
+    "prop_group_life": "Leben",
+    "prop_group_life_leech": "Lebensraub",
+    "prop_group_light_radius": "Lichtradius",
+    "prop_group_magic_find": "Magiefund",
+    "prop_group_mana": "Mana",
+    "prop_group_mana_leech": "Manaraub",
+    "prop_group_reanimate": "Wiederbelebung",
+    "prop_group_requirements": "Anforderungen",
+    "prop_group_resistances": "Resistenzen",
+    "prop_group_skill_levels": "Fertigkeitsstufen",
+    "prop_group_skill_special_effects": "Spezialeffekte von Fertigkeiten",
+    "prop_group_sockets": "Sockel",
+    "label_item_level_sockets": "(Gegenstandsstufe): Sockel",
+    "prop_group_speeds": "Geschwindigkeit",
+    "prop_group_thorns": "Dornen",
+    "prop_group_undead_damage": "Untotenschaden",
+    "prop_group_vendor_prices": "Händlerpreise",
+    "prop_group_weapon_effects": "Waffeneffekte"
+  },
+  "enUS": {
+    "nav_home": "Home",
+    "nav_cube_recipes": "Cube Recipes",
+    "nav_uniques": "Uniques",
+    "nav_sets": "Sets",
+    "nav_runewords": "Runewords",
+    "nav_grail": "Holy Grail",
+    "nav_bases": "Bases",
+    "nav_affixes": "Affixes",
+    "lang_tooltip": "Select a language for the site data and UI.",
+    "font_tooltip": "Select a font for viewing the site.",
+    "home_mission_title": "Our Mission",
+    "home_mission_text": "Our mission is to provide a Diablo II experience that is both familiar and new. We aim to keep the core gameplay of Diablo II intact while adding new features and content to the game. We want to provide a fresh experience for players who have played Diablo II for years, while also providing a fun and engaging experience for new players.",
+    "home_open_source_title": "Open Source",
+    "home_open_source_text": "Everything we do, regardless if that is the D2R Files themselves or any of the tooling we build, is open source. We believe that the community should have the ability to see and modify the code that runs the mod. We also believe that the community should have the ability to contribute to the mod and help shape its future.",
+    "home_discord_text": "Want to be a part of this mission? Join our Discord Server at {0} for more information on contributing and collaborating.",
+    "strPartialSetBonus": "%s (%d items)",
+    "strFullSetBonus": "%s (full set)",
+    "strItemsCount": "(%d items)",
+    "strFullSet": "(full set)",
+    "strRequiredLevel": "Required Level: %d",
+    "app_brand": "D2R Reimagined",
+    "nav_wiki": "Wiki",
+    "sr_select_language": "Select Language",
+    "sr_select_font": "Select Font",
+    "sr_open_menu": "Open main menu",
+    "sr_top": "Top",
+    "aria_back_to_top": "Back to top",
+    "aria_choose_language": "Choose language",
+    "aria_choose_font": "Choose font",
+    "label_normal": "Normal",
+    "label_exceptional": "Exceptional",
+    "label_elite": "Elite",
+    "label_vanilla": "Vanilla",
+    "label_mod": "Mod",
+    "label_rarity": "Rarity: %s",
+    "label_level_required": "Level %d Required",
+    "label_affix_level": "Affix Level %s",
+    "label_only": "(%s Only)",
+    "label_or": " or ",
+    "found_items_suffix": "Items Found",
+    "found_sets_suffix": "Sets Found",
+    "found_recipes_suffix": "Recipes Found",
+    "found_runewords_suffix": "Runewords Found",
+    "found_affixes_suffix": "Magic Affixes Found",
+    "found_bases_suffix": "Base Items Found",
+    "filter_select_class": "Select Class",
+    "filter_select_type": "Select Item Type",
+    "filter_select_equipment": "Select Equipment",
+    "filter_search_placeholder": "Search...",
+    "filter_hide_vanilla": "Hide Vanilla",
+    "filter_reset": "Reset Filters",
+    "filter_no_results": "No results found",
+    "filter_select_category": "Select Category",
+    "filter_select_sockets": "Select Sockets",
+    "filter_select_tier": "Select Tier",
+    "filter_select_affix_type": "Select Affix Type",
+    "filter_select_property_type": "Select Property Type",
+    "filter_exact": "Exact",
+    "filter_min_rlvl": "Min RLv",
+    "filter_max_rlvl": "Max RLv",
+    "filter_rune_count": "Rune Count",
+    "filter_runes_only_placeholder": "Runes Only...",
+    "filter_select_recipe_type": "Select Recipe Type",
+    "sort_by_damage": "Sort by Average Weapon Damage:",
+    "sort_select_weapon_type": "Select Weapon Type",
+    "sort_reset": "Reset Sort",
+    "grail_title": "- Holy Grail Tracker -",
+    "grail_displayed_suffix": "Displayed",
+    "grail_sets_completed": "Sets Completed",
+    "grail_reset_progress": "Reset Grail Category Progress",
+    "grail_import_export": "Import/Export Grail Data",
+    "grail_hide_found": "Hide Found Items",
+    "grail_close": "Close",
+    "grail_export_label": "Export (Base64)",
+    "grail_refresh_export": "Refresh Export",
+    "grail_copy_export": "Copy Export String",
+    "grail_import_label": "Import (Base64)",
+    "grail_import_placeholder": "Paste base64 Grail data here",
+    "grail_merge": "Merge",
+    "grail_replace": "Replace",
+    "info_more_about": "More info about %s",
+    "affix_included_types": "Green text are included item types.",
+    "affix_excluded_types": "Red text are excluded item types.",
+    "class_amazon": "Amazon",
+    "class_assassin": "Assassin",
+    "class_barbarian": "Barbarian",
+    "class_druid": "Druid",
+    "class_necromancer": "Necromancer",
+    "class_paladin": "Paladin",
+    "class_sorceress": "Sorceress",
+    "class_warlock": "Warlock",
+    "itype_any_helm": "Any Helm",
+    "label_armors": "Armors",
+    "label_weapons": "Weapons",
+    "label_prefix": "Prefix",
+    "label_suffix": "Suffix",
+    "label_socket": "%d Socket",
+    "label_sockets": "%d Sockets",
+    "label_runes_count": "%d Runes",
+    "label_1h_only": "1H Only",
+    "label_2h_only": "2H Only",
+    "sort_1h_phys": "1H Physical",
+    "sort_1h_phys_help": "Sort by One-Handed Physical Damage.",
+    "sort_2h_phys": "2H Physical",
+    "sort_2h_phys_help": "Sort by Two-Handed Physical Damage.",
+    "sort_throw_phys": "Throw Physical",
+    "sort_throw_phys_help": "Sort by Throw Physical Damage.",
+    "sort_non_phys": "Non-Physical",
+    "sort_non_phys_help": "Sort by Non-Physical Damage.",
+    "help_class_filter": "Filter by character class.",
+    "help_item_type_filter": "Filter by base item type.",
+    "help_equipment_filter": "Filter to a specific equipment.",
+    "help_search": "Search across all fields. Text is matched as a phrase. Use '+' to require multiple terms (AND). Use ',' or '|' for OR. Prefix with '-' or '!' to exclude a term or phrase. ex. 'fire skill damage' finds the exact phrase. 'fire+cold' finds items with both. 'fire,cold' finds items with either. '-fire' excludes items containing fire. 'damage -fire' finds items with damage but not fire. 'fire skill damage -cold skill damage' finds fire skill damage but excludes cold skill damage.",
+    "help_search_sets": "Search across all fields, sets match as full set if one is found. Text is matched as a phrase. Use '+' to require multiple terms (AND). Use ',' or '|' for OR. Prefix with '-' or '!' to exclude a term or phrase. ex: 'sorc skill mana' finds the exact phrase. 'fire+cold' finds items with both. '-fire' excludes items containing fire. 'damage -fire' finds items with damage but not fire. 'fire skill damage -cold skill damage' finds fire skill damage but excludes cold skill damage.",
+    "help_search_runes": "Search for specific Runes. Uses (space) and + as AND. Uses , and | as OR. ex: El Eld|Hel Zod returns only Breath of the Dying and Starlight.",
+    "help_hide_vanilla": "Filter toggle to hide Vanilla items.",
+    "help_hide_vanilla_sets": "Filter toggle to hide Vanilla items. Applies to the entire set.",
+    "help_reset_filters": "Reset all filters to default.",
+    "help_sockets_filter": "Filter by the max possible sockets on the base.",
+    "help_tier_filter": "Filter by the base tier. With none selected, the page defaults to sticking NXE of a base group with each other.",
+    "help_category_filter": "Choose between armors, weapons, or both.",
+    "help_affix_type_filter": "Choose between prefixes, suffixes, or both.",
+    "help_property_type_filter": "Filter by property group (e.g., Damage, Defense, Utility). Note: Still WIP some may be incorrect.",
+    "help_rune_count_filter": "Filter by number of runes required. This amount is exact.",
+    "help_runes_only_filter": "Search for specific Runes.",
+    "help_recipe_type_filter": "Filter recipes by type (reroll, upgrade, craft, etc.).",
+    "help_recipe_class_filter": "Filter recipes by character class. note: These are all the same for each class but grant class-specific skills on use.",
+    "help_grail_category": "Choose the Grail category list.",
+    "help_grail_reset": "Reset the tracked progress for the current Grail category only.",
+    "help_grail_import_export": "Open a popup to export or import Grail progress as base64.",
+    "help_grail_hide_found": "Filter toggle to hide items you've already found.",
+    "help_weapon_sort_hand": "Filter weapon type: All, 1H Only, or 2H Only.",
+    "help_weapon_sort_reset": "Reset weapon sorting.",
+    "help_item_type_filter_sets": "Filter by base item type, sets match as full set if one is found.",
+    "help_item_type_filter_uniques": "Filter by base item type, only includes class specific variants on generic types.",
+    "help_item_type_filter_runewords": "Filter by base item type. Toggle ‘Exact’ to remove variants.",
+    "help_item_type_filter_grail": "Filter by base item type, looser than other pages due to Grail.",
+    "help_equipment_filter_uniques": "Filter to a specific equipment for the selected item type, disabled if one isn't selected.",
+    "help_equipment_filter_sets": "Filter to a specific equipment for the selected type, disabled if one isn't selected.",
+    "help_required_level_range": "Filter by required level range. The min and max values will update each other if they overlap.",
+    "help_exact_toggle": "Toggle ‘Exact’ to remove variants.",
+    "label_chance": "%d%% chance",
+    "prop_group_absorbs": "Absorbs",
+    "prop_group_attack_rating": "Attack Rating",
+    "prop_group_attributes": "Attributes",
+    "prop_group_auto_repair": "Auto-Repair",
+    "prop_group_block_chance": "Block Chance",
+    "prop_group_charges": "Charges",
+    "prop_group_ctc_level_up": "CTC on Level-Up",
+    "prop_group_ctc_when_striking": "CTC When Striking",
+    "prop_group_ctc_when_struck": "CTC When Struck",
+    "prop_group_damage": "Damage",
+    "prop_group_defense": "Defense",
+    "prop_group_demon_damage": "Demon Damage",
+    "prop_group_elemental_effect_defense": "Elemental Effect Defense",
+    "prop_group_elemental_skill_effect": "Elemental Skill Effect",
+    "prop_group_elemental_weapon_damage": "Elemental Weapon Damage",
+    "prop_group_equip_aura": "Equip Aura",
+    "prop_group_experience": "Experience",
+    "prop_group_gold_find": "Gold Find",
+    "prop_group_indestructible": "Indestructible",
+    "prop_group_kick_damage": "Kick Damage",
+    "prop_group_life": "Life",
+    "prop_group_life_leech": "Life Leech",
+    "prop_group_light_radius": "Light Radius",
+    "prop_group_magic_find": "Magic Find",
+    "prop_group_mana": "Mana",
+    "prop_group_mana_leech": "Mana Leech",
+    "prop_group_reanimate": "Reanimate",
+    "prop_group_requirements": "Requirements",
+    "prop_group_resistances": "Resistances",
+    "prop_group_skill_levels": "Skill Levels",
+    "prop_group_skill_special_effects": "Skill Special Effects",
+    "prop_group_sockets": "Sockets",
+    "label_item_level_sockets": "(Item Level): Sockets",
+    "prop_group_speeds": "Speeds",
+    "prop_group_thorns": "Thorns",
+    "prop_group_undead_damage": "Undead Damage",
+    "prop_group_vendor_prices": "Vendor Prices",
+    "prop_group_weapon_effects": "Weapon Effects"
+  },
+  "esES": {
+    "nav_home": "Inicio",
+    "nav_cube_recipes": "Recetas del cubo",
+    "nav_uniques": "Únicos",
+    "nav_sets": "Conjuntos",
+    "nav_runewords": "Palabras rúnicas",
+    "nav_grail": "Santo Grial",
+    "nav_bases": "Bases",
+    "nav_affixes": "Afijos",
+    "lang_tooltip": "Selecciona un idioma para los datos y la interfaz del sitio.",
+    "font_tooltip": "Selecciona una fuente para ver el sitio.",
+    "home_mission_title": "Nuestra misión",
+    "home_mission_text": "Nuestra misión es ofrecer una experiencia de Diablo II que resulte familiar y nueva a la vez. Queremos mantener intacta la jugabilidad principal de Diablo II mientras añadimos nuevas funciones y contenido al juego. Queremos ofrecer una experiencia fresca a quienes llevan años jugando a Diablo II, y también una experiencia divertida y atractiva para jugadores nuevos.",
+    "home_open_source_title": "Código abierto",
+    "home_open_source_text": "Todo lo que hacemos, ya sean los archivos de D2R o cualquiera de las herramientas que creamos, es de código abierto. Creemos que la comunidad debe poder ver y modificar el código que ejecuta el mod. También creemos que la comunidad debe poder contribuir al mod y ayudar a dar forma a su futuro.",
+    "home_discord_text": "¿Quieres formar parte de esta misión? Únete a nuestro servidor de Discord en {0} para obtener más información sobre cómo contribuir y colaborar.",
+    "strPartialSetBonus": "%s (%d objetos)",
+    "strFullSetBonus": "%s (conjunto completo)",
+    "strItemsCount": "(%d objetos)",
+    "strFullSet": "(conjunto completo)",
+    "strRequiredLevel": "Nivel requerido: %d",
+    "app_brand": "D2R Reimagined",
+    "nav_wiki": "Wiki",
+    "sr_select_language": "Seleccionar idioma",
+    "sr_select_font": "Seleccionar fuente",
+    "sr_open_menu": "Abrir menú principal",
+    "sr_top": "Arriba",
+    "aria_back_to_top": "Volver arriba",
+    "aria_choose_language": "Elegir idioma",
+    "aria_choose_font": "Elegir fuente",
+    "label_normal": "Normal",
+    "label_exceptional": "Excepcional",
+    "label_elite": "Élite",
+    "label_vanilla": "Vanilla",
+    "label_mod": "Mod",
+    "label_rarity": "Rareza: %s",
+    "label_level_required": "Nivel %d requerido",
+    "label_affix_level": "Nivel de afijo %s",
+    "label_only": "(solo %s)",
+    "label_or": " o ",
+    "found_items_suffix": "Objetos encontrados",
+    "found_sets_suffix": "Conjuntos encontrados",
+    "found_recipes_suffix": "Recetas encontradas",
+    "found_runewords_suffix": "Palabras rúnicas encontradas",
+    "found_affixes_suffix": "Afijos mágicos encontrados",
+    "found_bases_suffix": "Objetos base encontrados",
+    "filter_select_class": "Seleccionar clase",
+    "filter_select_type": "Seleccionar tipo de objeto",
+    "filter_select_equipment": "Seleccionar equipo",
+    "filter_search_placeholder": "Buscar...",
+    "filter_hide_vanilla": "Ocultar vanilla",
+    "filter_reset": "Restablecer filtros",
+    "filter_select_category": "Seleccionar categoría",
+    "filter_select_sockets": "Seleccionar engarces",
+    "filter_select_tier": "Seleccionar grado",
+    "filter_select_affix_type": "Seleccionar tipo de afijo",
+    "filter_select_property_type": "Seleccionar tipo de propiedad",
+    "filter_exact": "Exacto",
+    "filter_min_rlvl": "Niv. req. mín.",
+    "filter_max_rlvl": "Niv. req. máx.",
+    "filter_rune_count": "Cantidad de runas",
+    "filter_runes_only_placeholder": "Solo runas...",
+    "filter_select_recipe_type": "Seleccionar tipo de receta",
+    "sort_by_damage": "Ordenar por daño medio del arma:",
+    "sort_select_weapon_type": "Seleccionar tipo de arma",
+    "sort_reset": "Restablecer orden",
+    "grail_title": "- Rastreador del Santo Grial -",
+    "grail_displayed_suffix": "Mostrados",
+    "grail_sets_completed": "Conjuntos completados",
+    "grail_reset_progress": "Restablecer progreso de categoría del Grial",
+    "grail_import_export": "Importar/exportar datos del Grial",
+    "grail_hide_found": "Ocultar objetos encontrados",
+    "grail_close": "Cerrar",
+    "grail_export_label": "Exportar (Base64)",
+    "grail_refresh_export": "Actualizar exportación",
+    "grail_copy_export": "Copiar cadena de exportación",
+    "grail_import_label": "Importar (Base64)",
+    "grail_import_placeholder": "Pega aquí los datos del Grial en base64",
+    "grail_merge": "Combinar",
+    "grail_replace": "Reemplazar",
+    "info_more_about": "Más información sobre %s",
+    "affix_included_types": "El texto verde indica tipos de objeto incluidos.",
+    "affix_excluded_types": "El texto rojo indica tipos de objeto excluidos.",
+    "class_amazon": "Amazona",
+    "class_assassin": "Asesina",
+    "class_barbarian": "Bárbaro",
+    "class_druid": "Druida",
+    "class_necromancer": "Nigromante",
+    "class_paladin": "Paladín",
+    "class_sorceress": "Hechicera",
+    "class_warlock": "Brujo",
+    "itype_any_helm": "Cualquier yelmo",
+    "label_armors": "Armaduras",
+    "label_weapons": "Armas",
+    "label_prefix": "Prefijo",
+    "label_suffix": "Sufijo",
+    "label_socket": "%d engarce",
+    "label_sockets": "%d engarces",
+    "label_runes_count": "%d runas",
+    "label_1h_only": "Solo 1M",
+    "label_2h_only": "Solo 2M",
+    "sort_1h_phys": "Físico 1M",
+    "sort_1h_phys_help": "Ordenar por daño físico de una mano.",
+    "sort_2h_phys": "Físico 2M",
+    "sort_2h_phys_help": "Ordenar por daño físico de dos manos.",
+    "sort_throw_phys": "Físico de lanzamiento",
+    "sort_throw_phys_help": "Ordenar por daño físico de lanzamiento.",
+    "sort_non_phys": "No físico",
+    "sort_non_phys_help": "Ordenar por daño no físico.",
+    "help_class_filter": "Filtrar por clase de personaje.",
+    "help_item_type_filter": "Filtrar por tipo de objeto base.",
+    "help_equipment_filter": "Filtrar a un equipo específico.",
+    "help_search": 'Busca en todos los campos. El texto se compara como una frase. Usa "+" para requerir varios términos (AND). Usa "," o "|" para OR. Antepon "-" o "!" para excluir un término o frase. Ej.: "fire skill damage" encuentra la frase exacta. "fire+cold" encuentra objetos con ambos. "fire,cold" encuentra objetos con cualquiera de los dos. "-fire" excluye objetos que contengan fire. "damage -fire" encuentra objetos con damage pero no fire. "fire skill damage -cold skill damage" encuentra fire skill damage pero excluye cold skill damage.',
+    "help_search_sets": 'Busca en todos los campos; los conjuntos coinciden como conjunto completo si se encuentra uno. El texto se compara como una frase. Usa "+" para requerir varios términos (AND). Usa "," o "|" para OR. Antepon "-" o "!" para excluir un término o frase. Ej.: "sorc skill mana" encuentra la frase exacta. "fire+cold" encuentra objetos con ambos. "-fire" excluye objetos que contengan fire. "damage -fire" encuentra objetos con damage pero no fire. "fire skill damage -cold skill damage" encuentra fire skill damage pero excluye cold skill damage.',
+    "help_search_runes": "Busca runas específicas. Usa espacio y + como AND. Usa , y | como OR. Ej.: El Eld|Hel Zod devuelve solo Breath of the Dying y Starlight.",
+    "help_hide_vanilla": "Activa o desactiva el filtro para ocultar objetos vanilla.",
+    "help_hide_vanilla_sets": "Activa o desactiva el filtro para ocultar objetos vanilla. Se aplica a todo el conjunto.",
+    "help_reset_filters": "Restablece todos los filtros a sus valores predeterminados.",
+    "help_sockets_filter": "Filtrar por el máximo posible de engarces de la base.",
+    "help_tier_filter": "Filtrar por el grado de la base. Si no se selecciona nada, la página intenta mantener juntos normal/excepcional/élite de un mismo grupo base.",
+    "help_category_filter": "Elige entre armaduras, armas o ambos.",
+    "help_affix_type_filter": "Elige entre prefijos, sufijos o ambos.",
+    "help_property_type_filter": "Filtrar por grupo de propiedad (p. ej., daño, defensa, utilidad). Nota: aún en desarrollo; algunas pueden ser incorrectas.",
+    "help_rune_count_filter": "Filtrar por el número de runas requeridas. Esta cantidad es exacta.",
+    "help_runes_only_filter": "Busca runas específicas.",
+    "help_recipe_type_filter": "Filtrar recetas por tipo (repetición, mejora, fabricación, etc.).",
+    "help_recipe_class_filter": "Filtrar recetas por clase de personaje. Nota: son iguales para cada clase, pero otorgan habilidades específicas de clase al usarse.",
+    "help_grail_category": "Elige la lista de categoría del Grial.",
+    "help_grail_reset": "Restablece solo el progreso registrado de la categoría actual del Grial.",
+    "help_grail_import_export": "Abre una ventana emergente para exportar o importar el progreso del Grial como base64.",
+    "help_grail_hide_found": "Activa o desactiva el filtro para ocultar objetos que ya encontraste.",
+    "help_weapon_sort_hand": "Filtra el tipo de arma: todas, solo 1M o solo 2M.",
+    "help_weapon_sort_reset": "Restablecer orden de armas.",
+    "help_item_type_filter_sets": "Filtrar por tipo de objeto base; los conjuntos coinciden como conjunto completo si se encuentra uno.",
+    "help_item_type_filter_uniques": "Filtrar por tipo de objeto base; en tipos genéricos solo incluye variantes específicas de clase.",
+    "help_item_type_filter_runewords": "Filtrar por tipo de objeto base. Activa “Exacto” para eliminar variantes.",
+    "help_item_type_filter_grail": "Filtrar por tipo de objeto base; es más flexible que otras páginas debido al Grial.",
+    "help_equipment_filter_uniques": "Filtrar a un equipo específico para el tipo de objeto seleccionado; se desactiva si no se selecciona ninguno.",
+    "help_equipment_filter_sets": "Filtrar a un equipo específico para el tipo seleccionado; se desactiva si no se selecciona ninguno.",
+    "help_required_level_range": "Filtrar por rango de nivel requerido. Los valores mínimo y máximo se actualizarán entre sí si se superponen.",
+    "help_exact_toggle": "Activa “Exacto” para eliminar variantes.",
+    "label_chance": "%d%% de probabilidad",
+    "prop_group_absorbs": "Absorción",
+    "prop_group_attack_rating": "Probabilidad de impacto",
+    "prop_group_attributes": "Atributos",
+    "prop_group_auto_repair": "Auto-reparación",
+    "prop_group_block_chance": "Probabilidad de bloqueo",
+    "prop_group_charges": "Cargas",
+    "prop_group_ctc_level_up": "PdL al subir de nivel",
+    "prop_group_ctc_when_striking": "PdL al golpear",
+    "prop_group_ctc_when_struck": "PdL al ser golpeado",
+    "prop_group_damage": "Daño",
+    "prop_group_defense": "Defensa",
+    "prop_group_demon_damage": "Daño a demonios",
+    "prop_group_elemental_effect_defense": "Defensa contra efectos elementales",
+    "prop_group_elemental_skill_effect": "Efecto de habilidad elemental",
+    "prop_group_elemental_weapon_damage": "Daño elemental de arma",
+    "prop_group_equip_aura": "Aura al equipar",
+    "prop_group_experience": "Experiencia",
+    "prop_group_gold_find": "Hallar oro",
+    "prop_group_indestructible": "Indestructible",
+    "prop_group_kick_damage": "Daño de patada",
+    "prop_group_life": "Vida",
+    "prop_group_life_leech": "Robo de vida",
+    "prop_group_light_radius": "Radio de luz",
+    "prop_group_magic_find": "Hallar magia",
+    "prop_group_mana": "Maná",
+    "prop_group_mana_leech": "Robo de maná",
+    "prop_group_reanimate": "Reanimar",
+    "prop_group_requirements": "Requisitos",
+    "prop_group_resistances": "Resistencias",
+    "prop_group_skill_levels": "Niveles de habilidad",
+    "prop_group_skill_special_effects": "Efectos especiales de habilidad",
+    "prop_group_sockets": "Engarces",
+    "label_item_level_sockets": "(Nivel del objeto): Engarces",
+    "prop_group_speeds": "Velocidades",
+    "prop_group_thorns": "Espinas",
+    "prop_group_undead_damage": "Daño a muertos vivientes",
+    "prop_group_vendor_prices": "Precios de vendedor",
+    "prop_group_weapon_effects": "Efectos de arma"
+  },
+  "esMX": {
+    "nav_home": "Inicio",
+    "nav_cube_recipes": "Recetas del cubo",
+    "nav_uniques": "Únicos",
+    "nav_sets": "Conjuntos",
+    "nav_runewords": "Palabras rúnicas",
+    "nav_grail": "Santo Grial",
+    "nav_bases": "Bases",
+    "nav_affixes": "Afijos",
+    "lang_tooltip": "Selecciona un idioma para los datos y la interfaz del sitio.",
+    "font_tooltip": "Selecciona una fuente para ver el sitio.",
+    "home_mission_title": "Nuestra misión",
+    "home_mission_text": "Nuestra misión es ofrecer una experiencia de Diablo II que se sienta familiar y nueva al mismo tiempo. Buscamos mantener intacta la jugabilidad principal de Diablo II mientras agregamos nuevas funciones y contenido al juego. Queremos dar una experiencia fresca a quienes han jugado Diablo II durante años, y también una experiencia divertida y envolvente para jugadores nuevos.",
+    "home_open_source_title": "Código abierto",
+    "home_open_source_text": "Todo lo que hacemos, ya sean los archivos de D2R o cualquiera de las herramientas que creamos, es de código abierto. Creemos que la comunidad debe tener la posibilidad de ver y modificar el código que ejecuta el mod. También creemos que la comunidad debe poder contribuir al mod y ayudar a definir su futuro.",
+    "home_discord_text": "¿Quieres formar parte de esta misión? Únete a nuestro servidor de Discord en {0} para obtener más información sobre cómo contribuir y colaborar.",
+    "strPartialSetBonus": "%s (%d objetos)",
+    "strFullSetBonus": "%s (conjunto completo)",
+    "strItemsCount": "(%d objetos)",
+    "strFullSet": "(conjunto completo)",
+    "strRequiredLevel": "Nivel requerido: %d",
+    "app_brand": "D2R Reimagined",
+    "nav_wiki": "Wiki",
+    "sr_select_language": "Seleccionar idioma",
+    "sr_select_font": "Seleccionar fuente",
+    "sr_open_menu": "Abrir menú principal",
+    "sr_top": "Arriba",
+    "aria_back_to_top": "Volver arriba",
+    "aria_choose_language": "Elegir idioma",
+    "aria_choose_font": "Elegir fuente",
+    "label_normal": "Normal",
+    "label_exceptional": "Excepcional",
+    "label_elite": "Élite",
+    "label_vanilla": "Vanilla",
+    "label_mod": "Mod",
+    "label_rarity": "Rareza: %s",
+    "label_level_required": "Nivel %d requerido",
+    "label_affix_level": "Nivel de afijo %s",
+    "label_only": "(solo %s)",
+    "label_or": " o ",
+    "found_items_suffix": "Objetos encontrados",
+    "found_sets_suffix": "Conjuntos encontrados",
+    "found_recipes_suffix": "Recetas encontradas",
+    "found_runewords_suffix": "Palabras rúnicas encontradas",
+    "found_affixes_suffix": "Afijos mágicos encontrados",
+    "found_bases_suffix": "Objetos base encontrados",
+    "filter_select_class": "Seleccionar clase",
+    "filter_select_type": "Seleccionar tipo de objeto",
+    "filter_select_equipment": "Seleccionar equipo",
+    "filter_search_placeholder": "Buscar...",
+    "filter_hide_vanilla": "Ocultar vanilla",
+    "filter_reset": "Restablecer filtros",
+    "filter_select_category": "Seleccionar categoría",
+    "filter_select_sockets": "Seleccionar engarces",
+    "filter_select_tier": "Seleccionar grado",
+    "filter_select_affix_type": "Seleccionar tipo de afijo",
+    "filter_select_property_type": "Seleccionar tipo de propiedad",
+    "filter_exact": "Exacto",
+    "filter_min_rlvl": "Niv. req. mín.",
+    "filter_max_rlvl": "Niv. req. máx.",
+    "filter_rune_count": "Cantidad de runas",
+    "filter_runes_only_placeholder": "Solo runas...",
+    "filter_select_recipe_type": "Seleccionar tipo de receta",
+    "sort_by_damage": "Ordenar por daño promedio del arma:",
+    "sort_select_weapon_type": "Seleccionar tipo de arma",
+    "sort_reset": "Restablecer orden",
+    "grail_title": "- Rastreador del Santo Grial -",
+    "grail_displayed_suffix": "Mostrados",
+    "grail_sets_completed": "Conjuntos completados",
+    "grail_reset_progress": "Restablecer progreso de categoría del Grial",
+    "grail_import_export": "Importar/exportar datos del Grial",
+    "grail_hide_found": "Ocultar objetos encontrados",
+    "grail_close": "Cerrar",
+    "grail_export_label": "Exportar (Base64)",
+    "grail_refresh_export": "Actualizar exportación",
+    "grail_copy_export": "Copiar cadena de exportación",
+    "grail_import_label": "Importar (Base64)",
+    "grail_import_placeholder": "Pega aquí los datos del Grial en base64",
+    "grail_merge": "Combinar",
+    "grail_replace": "Reemplazar",
+    "info_more_about": "Más información sobre %s",
+    "affix_included_types": "El texto verde indica tipos de objeto incluidos.",
+    "affix_excluded_types": "El texto rojo indica tipos de objeto excluidos.",
+    "class_amazon": "Amazona",
+    "class_assassin": "Asesina",
+    "class_barbarian": "Bárbaro",
+    "class_druid": "Druida",
+    "class_necromancer": "Nigromante",
+    "class_paladin": "Paladín",
+    "class_sorceress": "Hechicera",
+    "class_warlock": "Brujo",
+    "itype_any_helm": "Cualquier yelmo",
+    "label_armors": "Armaduras",
+    "label_weapons": "Armas",
+    "label_prefix": "Prefijo",
+    "label_suffix": "Sufijo",
+    "label_socket": "%d engarce",
+    "label_sockets": "%d engarces",
+    "label_runes_count": "%d runas",
+    "label_1h_only": "Solo 1M",
+    "label_2h_only": "Solo 2M",
+    "sort_1h_phys": "Físico 1M",
+    "sort_1h_phys_help": "Ordenar por daño físico de una mano.",
+    "sort_2h_phys": "Físico 2M",
+    "sort_2h_phys_help": "Ordenar por daño físico de dos manos.",
+    "sort_throw_phys": "Físico de lanzamiento",
+    "sort_throw_phys_help": "Ordenar por daño físico de lanzamiento.",
+    "sort_non_phys": "No físico",
+    "sort_non_phys_help": "Ordenar por daño no físico.",
+    "help_class_filter": "Filtrar por clase de personaje.",
+    "help_item_type_filter": "Filtrar por tipo de objeto base.",
+    "help_equipment_filter": "Filtrar a un equipo específico.",
+    "help_search": 'Busca en todos los campos. El texto se compara como una frase. Usa "+" para requerir varios términos (AND). Usa "," o "|" para OR. Antepon "-" o "!" para excluir un término o frase. Ej.: "fire skill damage" encuentra la frase exacta. "fire+cold" encuentra objetos con ambos. "fire,cold" encuentra objetos con cualquiera de los dos. "-fire" excluye objetos que contengan fire. "damage -fire" encuentra objetos con damage pero no fire. "fire skill damage -cold skill damage" encuentra fire skill damage pero excluye cold skill damage.',
+    "help_search_sets": 'Busca en todos los campos; los conjuntos coinciden como conjunto completo si se encuentra uno. El texto se compara como una frase. Usa "+" para requerir varios términos (AND). Usa "," o "|" para OR. Antepon "-" o "!" para excluir un término o frase. Ej.: "sorc skill mana" encuentra la frase exacta. "fire+cold" encuentra objetos con ambos. "-fire" excluye objetos que contengan fire. "damage -fire" encuentra objetos con damage pero no fire. "fire skill damage -cold skill damage" encuentra fire skill damage pero excluye cold skill damage.',
+    "help_search_runes": "Busca runas específicas. Usa espacio y + como AND. Usa , y | como OR. Ej.: El Eld|Hel Zod devuelve solo Breath of the Dying y Starlight.",
+    "help_hide_vanilla": "Activa o desactiva el filtro para ocultar objetos vanilla.",
+    "help_hide_vanilla_sets": "Activa o desactiva el filtro para ocultar objetos vanilla. Se aplica a todo el conjunto.",
+    "help_reset_filters": "Restablece todos los filtros a sus valores predeterminados.",
+    "help_sockets_filter": "Filtrar por el máximo posible de engarces de la base.",
+    "help_tier_filter": "Filtrar por el grado de la base. Si no se selecciona nada, la página intenta mantener juntos normal/excepcional/élite de un mismo grupo base.",
+    "help_category_filter": "Elige entre armaduras, armas o ambos.",
+    "help_affix_type_filter": "Elige entre prefijos, sufijos o ambos.",
+    "help_property_type_filter": "Filtrar por grupo de propiedad (p. ej., daño, defensa, utilidad). Nota: aún en desarrollo; algunas pueden ser incorrectas.",
+    "help_rune_count_filter": "Filtrar por el número de runas requeridas. Esta cantidad es exacta.",
+    "help_runes_only_filter": "Busca runas específicas.",
+    "help_recipe_type_filter": "Filtrar recetas por tipo (reroll, mejora, fabricación, etc.).",
+    "help_recipe_class_filter": "Filtrar recetas por clase de personaje. Nota: son iguales para cada clase, pero otorgan habilidades específicas de clase al usarse.",
+    "help_grail_category": "Elige la lista de categoría del Grial.",
+    "help_grail_reset": "Restablece solo el progreso registrado de la categoría actual del Grial.",
+    "help_grail_import_export": "Abre una ventana emergente para exportar o importar el progreso del Grial como base64.",
+    "help_grail_hide_found": "Activa o desactiva el filtro para ocultar objetos que ya encontraste.",
+    "help_weapon_sort_hand": "Filtra el tipo de arma: todas, solo 1M o solo 2M.",
+    "help_weapon_sort_reset": "Restablecer orden de armas.",
+    "help_item_type_filter_sets": "Filtrar por tipo de objeto base; los conjuntos coinciden como conjunto completo si se encuentra uno.",
+    "help_item_type_filter_uniques": "Filtrar por tipo de objeto base; en tipos genéricos solo incluye variantes específicas de clase.",
+    "help_item_type_filter_runewords": "Filtrar por tipo de objeto base. Activa “Exacto” para eliminar variantes.",
+    "help_item_type_filter_grail": "Filtrar por tipo de objeto base; es más flexible que otras páginas debido al Grial.",
+    "help_equipment_filter_uniques": "Filtrar a un equipo específico para el tipo de objeto seleccionado; se desactiva si no se selecciona ninguno.",
+    "help_equipment_filter_sets": "Filtrar a un equipo específico para el tipo seleccionado; se desactiva si no se selecciona ninguno.",
+    "help_required_level_range": "Filtrar por rango de nivel requerido. Los valores mínimo y máximo se actualizarán entre sí si se superponen.",
+    "help_exact_toggle": "Activa “Exacto” para eliminar variantes.",
+    "label_chance": "%d%% de probabilidad",
+    "prop_group_absorbs": "Absorción",
+    "prop_group_attack_rating": "Probabilidad de impacto",
+    "prop_group_attributes": "Atributos",
+    "prop_group_auto_repair": "Auto-reparación",
+    "prop_group_block_chance": "Probabilidad de bloqueo",
+    "prop_group_charges": "Cargas",
+    "prop_group_ctc_level_up": "PdL al subir de nivel",
+    "prop_group_ctc_when_striking": "PdL al golpear",
+    "prop_group_ctc_when_struck": "PdL al ser golpeado",
+    "prop_group_damage": "Daño",
+    "prop_group_defense": "Defensa",
+    "prop_group_demon_damage": "Daño a demonios",
+    "prop_group_elemental_effect_defense": "Defensa contra efectos elementales",
+    "prop_group_elemental_skill_effect": "Efecto de habilidad elemental",
+    "prop_group_elemental_weapon_damage": "Daño elemental de arma",
+    "prop_group_equip_aura": "Aura al equipar",
+    "prop_group_experience": "Experiencia",
+    "prop_group_gold_find": "Hallar oro",
+    "prop_group_indestructible": "Indestructible",
+    "prop_group_kick_damage": "Daño de patada",
+    "prop_group_life": "Vida",
+    "prop_group_life_leech": "Robo de vida",
+    "prop_group_light_radius": "Radio de luz",
+    "prop_group_magic_find": "Hallar magia",
+    "prop_group_mana": "Maná",
+    "prop_group_mana_leech": "Robo de maná",
+    "prop_group_reanimate": "Reanimar",
+    "prop_group_requirements": "Requisitos",
+    "prop_group_resistances": "Resistencias",
+    "prop_group_skill_levels": "Niveles de habilidad",
+    "prop_group_skill_special_effects": "Efectos especiales de habilidad",
+    "prop_group_sockets": "Engarces",
+    "label_item_level_sockets": "(Nivel del objeto): Engarces",
+    "prop_group_speeds": "Velocidades",
+    "prop_group_thorns": "Espinas",
+    "prop_group_undead_damage": "Daño a muertos vivientes",
+    "prop_group_vendor_prices": "Precios de vendedor",
+    "prop_group_weapon_effects": "Efectos de arma"
+  },
+  "frFR": {
+    "nav_home": "Accueil",
+    "nav_cube_recipes": "Recettes du cube",
+    "nav_uniques": "Objets uniques",
+    "nav_sets": "Sets",
+    "nav_runewords": "Mots runiques",
+    "nav_grail": "Saint Graal",
+    "nav_bases": "Bases",
+    "nav_affixes": "Affixes",
+    "lang_tooltip": "Sélectionnez une langue pour les données et l’interface du site.",
+    "font_tooltip": "Sélectionnez une police pour afficher le site.",
+    "home_mission_title": "Notre mission",
+    "home_mission_text": "Notre mission est de proposer une expérience Diablo II à la fois familière et nouvelle. Nous voulons préserver le gameplay de base de Diablo II tout en ajoutant de nouvelles fonctionnalités et du nouveau contenu au jeu. Nous voulons offrir une expérience renouvelée aux joueurs qui jouent à Diablo II depuis des années, tout en proposant une expérience amusante et captivante aux nouveaux joueurs.",
+    "home_open_source_title": "Open source",
+    "home_open_source_text": "Tout ce que nous faisons, qu’il s’agisse des fichiers D2R eux-mêmes ou des outils que nous créons, est open source. Nous pensons que la communauté doit pouvoir voir et modifier le code qui fait fonctionner le mod. Nous pensons également qu’elle doit pouvoir contribuer au mod et aider à façonner son avenir.",
+    "home_discord_text": "Vous voulez faire partie de cette mission ? Rejoignez notre serveur Discord à l’adresse {0} pour en savoir plus sur la contribution et la collaboration.",
+    "strPartialSetBonus": "%s (%d objets)",
+    "strFullSetBonus": "%s (set complet)",
+    "strItemsCount": "(%d objets)",
+    "strFullSet": "(set complet)",
+    "strRequiredLevel": "Niveau requis : %d",
+    "app_brand": "D2R Reimagined",
+    "nav_wiki": "Wiki",
+    "sr_select_language": "Sélectionner la langue",
+    "sr_select_font": "Sélectionner la police",
+    "sr_open_menu": "Ouvrir le menu principal",
+    "sr_top": "Haut",
+    "aria_back_to_top": "Retour en haut",
+    "aria_choose_language": "Choisir la langue",
+    "aria_choose_font": "Choisir la police",
+    "label_normal": "Normal",
+    "label_exceptional": "Exceptionnel",
+    "label_elite": "Élite",
+    "label_vanilla": "Vanilla",
+    "label_mod": "Mod",
+    "label_rarity": "Rareté : %s",
+    "label_level_required": "Niveau %d requis",
+    "label_affix_level": "Niveau d'affixe %s",
+    "label_only": "(%s uniquement)",
+    "label_or": " ou ",
+    "found_items_suffix": "Objets trouvés",
+    "found_sets_suffix": "Sets trouvés",
+    "found_recipes_suffix": "Recettes trouvées",
+    "found_runewords_suffix": "Mots runiques trouvés",
+    "found_affixes_suffix": "Affixes magiques trouvés",
+    "found_bases_suffix": "Objets de base trouvés",
+    "filter_select_class": "Sélectionner une classe",
+    "filter_select_type": "Sélectionner le type d’objet",
+    "filter_select_equipment": "Sélectionner l’équipement",
+    "filter_search_placeholder": "Rechercher...",
+    "filter_hide_vanilla": "Masquer Vanilla",
+    "filter_reset": "Réinitialiser les filtres",
+    "filter_select_category": "Sélectionner une catégorie",
+    "filter_select_sockets": "Sélectionner les chasses",
+    "filter_select_tier": "Sélectionner le palier",
+    "filter_select_affix_type": "Sélectionner le type d’affixe",
+    "filter_select_property_type": "Sélectionner le type de propriété",
+    "filter_exact": "Exact",
+    "filter_min_rlvl": "Niv. requis min.",
+    "filter_max_rlvl": "Niv. requis max.",
+    "filter_rune_count": "Nombre de runes",
+    "filter_runes_only_placeholder": "Runes uniquement...",
+    "filter_select_recipe_type": "Sélectionner le type de recette",
+    "sort_by_damage": "Trier par dégâts moyens de l’arme :",
+    "sort_select_weapon_type": "Sélectionner le type d’arme",
+    "sort_reset": "Réinitialiser le tri",
+    "grail_title": "- Suivi du Saint Graal -",
+    "grail_displayed_suffix": "Affichés",
+    "grail_sets_completed": "Sets terminés",
+    "grail_reset_progress": "Réinitialiser la progression de la catégorie du Graal",
+    "grail_import_export": "Importer/exporter les données du Graal",
+    "grail_hide_found": "Masquer les objets trouvés",
+    "grail_close": "Fermer",
+    "grail_export_label": "Exporter (Base64)",
+    "grail_refresh_export": "Actualiser l’export",
+    "grail_copy_export": "Copier la chaîne d’export",
+    "grail_import_label": "Importer (Base64)",
+    "grail_import_placeholder": "Collez ici les données du Graal en base64",
+    "grail_merge": "Fusionner",
+    "grail_replace": "Remplacer",
+    "info_more_about": "Plus d’infos sur %s",
+    "affix_included_types": "Le texte vert indique les types d’objets inclus.",
+    "affix_excluded_types": "Le texte rouge indique les types d’objets exclus.",
+    "class_amazon": "Amazone",
+    "class_assassin": "Assassin",
+    "class_barbarian": "Barbare",
+    "class_druid": "Druide",
+    "class_necromancer": "Nécromancien",
+    "class_paladin": "Paladin",
+    "class_sorceress": "Sorcière",
+    "class_warlock": "Démoniste",
+    "itype_any_helm": "Tout casque",
+    "label_armors": "Armures",
+    "label_weapons": "Armes",
+    "label_prefix": "Préfixe",
+    "label_suffix": "Suffixe",
+    "label_socket": "%d chasse",
+    "label_sockets": "%d chasses",
+    "label_runes_count": "%d runes",
+    "label_1h_only": "1M uniquement",
+    "label_2h_only": "2M uniquement",
+    "sort_1h_phys": "Physique 1M",
+    "sort_1h_phys_help": "Trier par dégâts physiques à une main.",
+    "sort_2h_phys": "Physique 2M",
+    "sort_2h_phys_help": "Trier par dégâts physiques à deux mains.",
+    "sort_throw_phys": "Physique de jet",
+    "sort_throw_phys_help": "Trier par dégâts physiques de jet.",
+    "sort_non_phys": "Non physique",
+    "sort_non_phys_help": "Trier par dégâts non physiques.",
+    "help_class_filter": "Filtrer par classe de personnage.",
+    "help_item_type_filter": "Filtrer par type d’objet de base.",
+    "help_equipment_filter": "Filtrer vers un équipement précis.",
+    "help_search": "Recherche dans tous les champs. Le texte est recherché comme une phrase. Utilisez « + » pour exiger plusieurs termes (AND). Utilisez « , » ou « | » pour OR. Préfixez par « - » ou « ! » pour exclure un terme ou une phrase. Ex. : « fire skill damage » trouve la phrase exacte. « fire+cold » trouve les objets avec les deux. « fire,cold » trouve les objets avec l’un ou l’autre. « -fire » exclut les objets contenant fire. « damage -fire » trouve les objets avec damage mais sans fire. « fire skill damage -cold skill damage » trouve fire skill damage mais exclut cold skill damage.",
+    "help_search_sets": "Recherche dans tous les champs ; les sets correspondent comme set complet si un élément est trouvé. Le texte est recherché comme une phrase. Utilisez « + » pour exiger plusieurs termes (AND). Utilisez « , » ou « | » pour OR. Préfixez par « - » ou « ! » pour exclure un terme ou une phrase. Ex. : « sorc skill mana » trouve la phrase exacte. « fire+cold » trouve les objets avec les deux. « -fire » exclut les objets contenant fire. « damage -fire » trouve les objets avec damage mais sans fire. « fire skill damage -cold skill damage » trouve fire skill damage mais exclut cold skill damage.",
+    "help_search_runes": "Rechercher des runes précises. L’espace et + servent de AND. , et | servent de OR. Ex. : El Eld|Hel Zod renvoie uniquement Breath of the Dying et Starlight.",
+    "help_hide_vanilla": "Active ou désactive le filtre pour masquer les objets Vanilla.",
+    "help_hide_vanilla_sets": "Active ou désactive le filtre pour masquer les objets Vanilla. S’applique à tout le set.",
+    "help_reset_filters": "Réinitialise tous les filtres par défaut.",
+    "help_sockets_filter": "Filtrer par le nombre maximal de chasses possible sur la base.",
+    "help_tier_filter": "Filtrer par palier de base. Si rien n’est sélectionné, la page garde par défaut les N/E/E d’un même groupe de base ensemble.",
+    "help_category_filter": "Choisissez entre armures, armes ou les deux.",
+    "help_affix_type_filter": "Choisissez entre préfixes, suffixes ou les deux.",
+    "help_property_type_filter": "Filtrer par groupe de propriétés (p. ex. dégâts, défense, utilité). Remarque : encore en cours de développement, certaines peuvent être incorrectes.",
+    "help_rune_count_filter": "Filtrer par nombre de runes requises. Ce nombre est exact.",
+    "help_runes_only_filter": "Rechercher des runes précises.",
+    "help_recipe_type_filter": "Filtrer les recettes par type (relance, amélioration, artisanat, etc.).",
+    "help_recipe_class_filter": "Filtrer les recettes par classe de personnage. Remarque : elles sont toutes identiques pour chaque classe, mais accordent des compétences propres à la classe à l’utilisation.",
+    "help_grail_category": "Choisissez la liste de catégorie du Graal.",
+    "help_grail_reset": "Réinitialise uniquement la progression suivie de la catégorie actuelle du Graal.",
+    "help_grail_import_export": "Ouvre une fenêtre contextuelle pour exporter ou importer la progression du Graal en base64.",
+    "help_grail_hide_found": "Active ou désactive le filtre pour masquer les objets déjà trouvés.",
+    "help_weapon_sort_hand": "Filtrer le type d’arme : toutes, 1M uniquement ou 2M uniquement.",
+    "help_weapon_sort_reset": "Réinitialiser le tri des armes.",
+    "help_item_type_filter_sets": "Filtrer par type d’objet de base ; les sets correspondent comme set complet si un élément est trouvé.",
+    "help_item_type_filter_uniques": "Filtrer par type d’objet de base ; n’inclut que les variantes propres aux classes sur les types génériques.",
+    "help_item_type_filter_runewords": "Filtrer par type d’objet de base. Activez « Exact » pour retirer les variantes.",
+    "help_item_type_filter_grail": "Filtrer par type d’objet de base, plus souple que les autres pages en raison du Graal.",
+    "help_equipment_filter_uniques": "Filtrer vers un équipement précis pour le type d’objet sélectionné, désactivé si aucun n’est sélectionné.",
+    "help_equipment_filter_sets": "Filtrer vers un équipement précis pour le type sélectionné, désactivé si aucun n’est sélectionné.",
+    "help_required_level_range": "Filtrer par plage de niveau requis. Les valeurs min et max se mettront à jour mutuellement si elles se chevauchent.",
+    "help_exact_toggle": "Activez « Exact » pour retirer les variantes.",
+    "label_chance": "%d%% de chances",
+    "prop_group_absorbs": "Absorption",
+    "prop_group_attack_rating": "Score d'attaque",
+    "prop_group_attributes": "Caractéristiques",
+    "prop_group_auto_repair": "Auto-réparation",
+    "prop_group_block_chance": "Chances de blocage",
+    "prop_group_charges": "Charges",
+    "prop_group_ctc_level_up": "Déclenchement à la montée de niveau",
+    "prop_group_ctc_when_striking": "Déclenchement en attaquant",
+    "prop_group_ctc_when_struck": "Déclenchement en étant touché",
+    "prop_group_damage": "Dégâts",
+    "prop_group_defense": "Défense",
+    "prop_group_demon_damage": "Dégâts aux démons",
+    "prop_group_elemental_effect_defense": "Défense contre effets élémentaires",
+    "prop_group_elemental_skill_effect": "Effet de compétence élémentaire",
+    "prop_group_elemental_weapon_damage": "Dégâts élémentaires d'arme",
+    "prop_group_equip_aura": "Aura à l'équipement",
+    "prop_group_experience": "Expérience",
+    "prop_group_gold_find": "Découverte d'or",
+    "prop_group_indestructible": "Indestructible",
+    "prop_group_kick_damage": "Dégâts de coup de pied",
+    "prop_group_life": "Vie",
+    "prop_group_life_leech": "Vol de vie",
+    "prop_group_light_radius": "Rayon de lumière",
+    "prop_group_magic_find": "Découverte magique",
+    "prop_group_mana": "Mana",
+    "prop_group_mana_leech": "Vol de mana",
+    "prop_group_reanimate": "Réanimation",
+    "prop_group_requirements": "Conditions",
+    "prop_group_resistances": "Résistances",
+    "prop_group_skill_levels": "Niveaux de compétence",
+    "prop_group_skill_special_effects": "Effets spéciaux de compétence",
+    "prop_group_sockets": "Châsses",
+    "label_item_level_sockets": "(Niveau de l’objet) : Châsses",
+    "prop_group_speeds": "Vitesses",
+    "prop_group_thorns": "Épines",
+    "prop_group_undead_damage": "Dégâts aux morts-vivants",
+    "prop_group_vendor_prices": "Prix des marchands",
+    "prop_group_weapon_effects": "Effets d'arme"
+  },
+  "itIT": {
+    "nav_home": "Home",
+    "nav_cube_recipes": "Ricette del Cubo",
+    "nav_uniques": "Unici",
+    "nav_sets": "Set",
+    "nav_runewords": "Parole runiche",
+    "nav_grail": "Sacro Graal",
+    "nav_bases": "Basi",
+    "nav_affixes": "Affissi",
+    "lang_tooltip": "Seleziona una lingua per i dati e l’interfaccia del sito.",
+    "font_tooltip": "Seleziona un carattere per visualizzare il sito.",
+    "home_mission_title": "La nostra missione",
+    "home_mission_text": "La nostra missione è offrire un’esperienza di Diablo II che sia familiare e nuova allo stesso tempo. Puntiamo a mantenere intatto il gameplay principale di Diablo II aggiungendo al gioco nuove funzionalità e contenuti. Vogliamo offrire un’esperienza fresca ai giocatori che giocano a Diablo II da anni, ma anche un’esperienza divertente e coinvolgente per i nuovi giocatori.",
+    "home_open_source_title": "Open source",
+    "home_open_source_text": "Tutto ciò che facciamo, che si tratti dei file D2R stessi o degli strumenti che realizziamo, è open source. Crediamo che la community debba poter vedere e modificare il codice su cui si basa la mod. Crediamo anche che la community debba poter contribuire alla mod e aiutarne a plasmare il futuro.",
+    "home_discord_text": "Vuoi far parte di questa missione? Unisciti al nostro server Discord su {0} per maggiori informazioni su contributi e collaborazione.",
+    "strPartialSetBonus": "%s (%d oggetti)",
+    "strFullSetBonus": "%s (set completo)",
+    "strItemsCount": "(%d oggetti)",
+    "strFullSet": "(set completo)",
+    "strRequiredLevel": "Livello richiesto: %d",
+    "app_brand": "D2R Reimagined",
+    "nav_wiki": "Wiki",
+    "sr_select_language": "Seleziona lingua",
+    "sr_select_font": "Seleziona carattere",
+    "sr_open_menu": "Apri menu principale",
+    "sr_top": "In alto",
+    "aria_back_to_top": "Torna in alto",
+    "aria_choose_language": "Scegli lingua",
+    "aria_choose_font": "Scegli carattere",
+    "label_normal": "Normale",
+    "label_exceptional": "Eccezionale",
+    "label_elite": "Élite",
+    "label_vanilla": "Vanilla",
+    "label_mod": "Mod",
+    "label_rarity": "Rarità: %s",
+    "label_level_required": "Livello %d richiesto",
+    "label_affix_level": "Livello affisso %s",
+    "label_only": "(solo %s)",
+    "label_or": " o ",
+    "found_items_suffix": "Oggetti trovati",
+    "found_sets_suffix": "Set trovati",
+    "found_recipes_suffix": "Ricette trovate",
+    "found_runewords_suffix": "Parole runiche trovate",
+    "found_affixes_suffix": "Affissi magici trovati",
+    "found_bases_suffix": "Oggetti base trovati",
+    "filter_select_class": "Seleziona classe",
+    "filter_select_type": "Seleziona tipo oggetto",
+    "filter_select_equipment": "Seleziona equipaggiamento",
+    "filter_search_placeholder": "Cerca...",
+    "filter_hide_vanilla": "Nascondi Vanilla",
+    "filter_reset": "Reimposta filtri",
+    "filter_select_category": "Seleziona categoria",
+    "filter_select_sockets": "Seleziona incavi",
+    "filter_select_tier": "Seleziona grado",
+    "filter_select_affix_type": "Seleziona tipo affisso",
+    "filter_select_property_type": "Seleziona tipo proprietà",
+    "filter_exact": "Esatto",
+    "filter_min_rlvl": "Liv. rich. min.",
+    "filter_max_rlvl": "Liv. rich. max.",
+    "filter_rune_count": "Numero rune",
+    "filter_runes_only_placeholder": "Solo rune...",
+    "filter_select_recipe_type": "Seleziona tipo ricetta",
+    "sort_by_damage": "Ordina per danno medio dell’arma:",
+    "sort_select_weapon_type": "Seleziona tipo arma",
+    "sort_reset": "Reimposta ordinamento",
+    "grail_title": "- Tracciatore Sacro Graal -",
+    "grail_displayed_suffix": "Visualizzati",
+    "grail_sets_completed": "Set completati",
+    "grail_reset_progress": "Reimposta progresso categoria Graal",
+    "grail_import_export": "Importa/esporta dati Graal",
+    "grail_hide_found": "Nascondi oggetti trovati",
+    "grail_close": "Chiudi",
+    "grail_export_label": "Esporta (Base64)",
+    "grail_refresh_export": "Aggiorna esportazione",
+    "grail_copy_export": "Copia stringa esportazione",
+    "grail_import_label": "Importa (Base64)",
+    "grail_import_placeholder": "Incolla qui i dati Graal in base64",
+    "grail_merge": "Unisci",
+    "grail_replace": "Sostituisci",
+    "info_more_about": "Maggiori informazioni su %s",
+    "affix_included_types": "Il testo verde indica i tipi di oggetto inclusi.",
+    "affix_excluded_types": "Il testo rosso indica i tipi di oggetto esclusi.",
+    "class_amazon": "Amazzone",
+    "class_assassin": "Assassina",
+    "class_barbarian": "Barbaro",
+    "class_druid": "Druido",
+    "class_necromancer": "Necromante",
+    "class_paladin": "Paladino",
+    "class_sorceress": "Incantatrice",
+    "class_warlock": "Stregone",
+    "itype_any_helm": "Qualsiasi elmo",
+    "label_armors": "Armature",
+    "label_weapons": "Armi",
+    "label_prefix": "Prefisso",
+    "label_suffix": "Suffisso",
+    "label_socket": "%d incavo",
+    "label_sockets": "%d incavi",
+    "label_runes_count": "%d rune",
+    "label_1h_only": "Solo 1M",
+    "label_2h_only": "Solo 2M",
+    "sort_1h_phys": "Fisico 1M",
+    "sort_1h_phys_help": "Ordina per danno fisico a una mano.",
+    "sort_2h_phys": "Fisico 2M",
+    "sort_2h_phys_help": "Ordina per danno fisico a due mani.",
+    "sort_throw_phys": "Fisico da lancio",
+    "sort_throw_phys_help": "Ordina per danno fisico da lancio.",
+    "sort_non_phys": "Non fisico",
+    "sort_non_phys_help": "Ordina per danno non fisico.",
+    "help_class_filter": "Filtra per classe del personaggio.",
+    "help_item_type_filter": "Filtra per tipo di oggetto base.",
+    "help_equipment_filter": "Filtra un equipaggiamento specifico.",
+    "help_search": 'Cerca in tutti i campi. Il testo viene confrontato come frase. Usa "+" per richiedere più termini (AND). Usa "," o "|" per OR. Anteponi "-" o "!" per escludere un termine o una frase. Es.: "fire skill damage" trova la frase esatta. "fire+cold" trova oggetti con entrambi. "fire,cold" trova oggetti con uno dei due. "-fire" esclude oggetti che contengono fire. "damage -fire" trova oggetti con damage ma non fire. "fire skill damage -cold skill damage" trova fire skill damage ma esclude cold skill damage.',
+    "help_search_sets": 'Cerca in tutti i campi; i set corrispondono come set completo se viene trovato un elemento. Il testo viene confrontato come frase. Usa "+" per richiedere più termini (AND). Usa "," o "|" per OR. Anteponi "-" o "!" per escludere un termine o una frase. Es.: "sorc skill mana" trova la frase esatta. "fire+cold" trova oggetti con entrambi. "-fire" esclude oggetti che contengono fire. "damage -fire" trova oggetti con damage ma non fire. "fire skill damage -cold skill damage" trova fire skill damage ma esclude cold skill damage.',
+    "help_search_runes": "Cerca rune specifiche. Usa spazio e + come AND. Usa , e | come OR. Es.: El Eld|Hel Zod restituisce solo Breath of the Dying e Starlight.",
+    "help_hide_vanilla": "Attiva/disattiva il filtro per nascondere oggetti Vanilla.",
+    "help_hide_vanilla_sets": "Attiva/disattiva il filtro per nascondere oggetti Vanilla. Si applica all’intero set.",
+    "help_reset_filters": "Reimposta tutti i filtri ai valori predefiniti.",
+    "help_sockets_filter": "Filtra in base al numero massimo possibile di incavi sulla base.",
+    "help_tier_filter": "Filtra per grado della base. Se non è selezionato nulla, la pagina tende a tenere insieme normale/eccezionale/élite dello stesso gruppo base.",
+    "help_category_filter": "Scegli tra armature, armi o entrambi.",
+    "help_affix_type_filter": "Scegli tra prefissi, suffissi o entrambi.",
+    "help_property_type_filter": "Filtra per gruppo di proprietà (es. danno, difesa, utilità). Nota: ancora in lavorazione, alcune potrebbero essere errate.",
+    "help_rune_count_filter": "Filtra per numero di rune richieste. Questo valore è esatto.",
+    "help_runes_only_filter": "Cerca rune specifiche.",
+    "help_recipe_type_filter": "Filtra le ricette per tipo (rilancio, potenziamento, creazione, ecc.).",
+    "help_recipe_class_filter": "Filtra le ricette per classe del personaggio. Nota: sono uguali per ogni classe, ma all’uso conferiscono abilità specifiche della classe.",
+    "help_grail_category": "Scegli l’elenco categoria del Graal.",
+    "help_grail_reset": "Reimposta solo il progresso tracciato della categoria Graal corrente.",
+    "help_grail_import_export": "Apre un popup per esportare o importare il progresso del Graal in base64.",
+    "help_grail_hide_found": "Attiva/disattiva il filtro per nascondere gli oggetti già trovati.",
+    "help_weapon_sort_hand": "Filtra il tipo di arma: tutte, solo 1M o solo 2M.",
+    "help_weapon_sort_reset": "Reimposta ordinamento armi.",
+    "help_item_type_filter_sets": "Filtra per tipo di oggetto base; i set corrispondono come set completo se viene trovato un elemento.",
+    "help_item_type_filter_uniques": "Filtra per tipo di oggetto base; sui tipi generici include solo le varianti specifiche di classe.",
+    "help_item_type_filter_runewords": "Filtra per tipo di oggetto base. Attiva “Esatto” per rimuovere le varianti.",
+    "help_item_type_filter_grail": "Filtra per tipo di oggetto base, più permissivo rispetto ad altre pagine a causa del Graal.",
+    "help_equipment_filter_uniques": "Filtra un equipaggiamento specifico per il tipo di oggetto selezionato; disattivato se non ne è selezionato uno.",
+    "help_equipment_filter_sets": "Filtra un equipaggiamento specifico per il tipo selezionato; disattivato se non ne è selezionato uno.",
+    "help_required_level_range": "Filtra per intervallo di livello richiesto. I valori minimo e massimo si aggiorneranno a vicenda se si sovrappongono.",
+    "help_exact_toggle": "Attiva “Esatto” per rimuovere le varianti.",
+    "label_chance": "%d%% di probabilità",
+    "prop_group_absorbs": "Assorbimenti",
+    "prop_group_attack_rating": "Punteggio d'attacco",
+    "prop_group_attributes": "Attributi",
+    "prop_group_auto_repair": "Auto-riparazione",
+    "prop_group_block_chance": "Probabilità di parata",
+    "prop_group_charges": "Cariche",
+    "prop_group_ctc_level_up": "Probabilità a salita di livello",
+    "prop_group_ctc_when_striking": "Probabilità colpendo",
+    "prop_group_ctc_when_struck": "Probabilità se colpiti",
+    "prop_group_damage": "Danno",
+    "prop_group_defense": "Difesa",
+    "prop_group_demon_damage": "Danno ai demoni",
+    "prop_group_elemental_effect_defense": "Difesa effetti elementali",
+    "prop_group_elemental_skill_effect": "Effetto abilità elementale",
+    "prop_group_elemental_weapon_damage": "Danno elementale d'arma",
+    "prop_group_equip_aura": "Aura equipaggiando",
+    "prop_group_experience": "Esperienza",
+    "prop_group_gold_find": "Trovare oro",
+    "prop_group_indestructible": "Indistruttibile",
+    "prop_group_kick_damage": "Danno calcio",
+    "prop_group_life": "Vita",
+    "prop_group_life_leech": "Furto vita",
+    "prop_group_light_radius": "Raggio di luce",
+    "prop_group_magic_find": "Trovare oggetti magici",
+    "prop_group_mana": "Mana",
+    "prop_group_mana_leech": "Furto mana",
+    "prop_group_reanimate": "Rianimare",
+    "prop_group_requirements": "Requisiti",
+    "prop_group_resistances": "Resistenze",
+    "prop_group_skill_levels": "Livelli abilità",
+    "prop_group_skill_special_effects": "Effetti speciali abilità",
+    "prop_group_sockets": "Incastonature",
+    "label_item_level_sockets": "(Livello oggetto): Incastonature",
+    "prop_group_speeds": "Velocità",
+    "prop_group_thorns": "Spine",
+    "prop_group_undead_damage": "Danno ai non morti",
+    "prop_group_vendor_prices": "Prezzi mercanti",
+    "prop_group_weapon_effects": "Effetti d'arma"
+  },
+  "jaJP": {
+    "nav_home": "ホーム",
+    "nav_cube_recipes": "キューブレシピ",
+    "nav_uniques": "ユニーク",
+    "nav_sets": "セット",
+    "nav_runewords": "ルーンワード",
+    "nav_grail": "ホーリーグレイル",
+    "nav_bases": "ベース",
+    "nav_affixes": "特性",
+    "lang_tooltip": "サイトデータとUIの言語を選択します。",
+    "font_tooltip": "サイト表示に使用するフォントを選択します。",
+    "home_mission_title": "私たちの使命",
+    "home_mission_text": "私たちの使命は、懐かしくも新しいDiablo II体験を提供することです。Diablo IIの核となるゲームプレイを保ちながら、新しい機能やコンテンツを追加することを目指しています。長年Diablo IIを遊んできたプレイヤーには新鮮な体験を、新規プレイヤーには楽しく没入できる体験を提供したいと考えています。",
+    "home_open_source_title": "オープンソース",
+    "home_open_source_text": "私たちが行うことは、D2Rファイルそのものでも、作成するツールでも、すべてオープンソースです。コミュニティはMODを動かすコードを確認し、変更できるべきだと考えています。また、コミュニティがMODに貢献し、その未来を形作る手助けができるべきだとも考えています。",
+    "home_discord_text": "この使命に参加したいですか？貢献や協力について詳しく知るには、{0} のDiscordサーバーに参加してください。",
+    "strPartialSetBonus": "%s（%d個）",
+    "strFullSetBonus": "%s（フルセット）",
+    "strItemsCount": "（%d個）",
+    "strFullSet": "（フルセット）",
+    "strRequiredLevel": "必要レベル: %d",
+    "app_brand": "D2R Reimagined",
+    "nav_wiki": "Wiki",
+    "sr_select_language": "言語を選択",
+    "sr_select_font": "フォントを選択",
+    "sr_open_menu": "メインメニューを開く",
+    "sr_top": "上へ",
+    "aria_back_to_top": "トップへ戻る",
+    "aria_choose_language": "言語を選ぶ",
+    "aria_choose_font": "フォントを選ぶ",
+    "label_normal": "ノーマル",
+    "label_exceptional": "エクセプショナル",
+    "label_elite": "エリート",
+    "label_vanilla": "バニラ",
+    "label_mod": "MOD",
+    "label_rarity": "レア度: %s",
+    "label_level_required": "レベル%d必要",
+    "label_affix_level": "接辞レベル %s",
+    "label_only": "（%s専用）",
+    "label_or": " または ",
+    "found_items_suffix": "発見済みアイテム",
+    "found_sets_suffix": "発見済みセット",
+    "found_recipes_suffix": "発見済みレシピ",
+    "found_runewords_suffix": "発見済みルーンワード",
+    "found_affixes_suffix": "発見済み魔法特性",
+    "found_bases_suffix": "発見済みベースアイテム",
+    "filter_select_class": "クラスを選択",
+    "filter_select_type": "アイテムタイプを選択",
+    "filter_select_equipment": "装備を選択",
+    "filter_search_placeholder": "検索...",
+    "filter_hide_vanilla": "バニラを非表示",
+    "filter_reset": "フィルターをリセット",
+    "filter_select_category": "カテゴリを選択",
+    "filter_select_sockets": "ソケット数を選択",
+    "filter_select_tier": "ティアを選択",
+    "filter_select_affix_type": "特性タイプを選択",
+    "filter_select_property_type": "プロパティタイプを選択",
+    "filter_exact": "完全一致",
+    "filter_min_rlvl": "最小必要Lv",
+    "filter_max_rlvl": "最大必要Lv",
+    "filter_rune_count": "ルーン数",
+    "filter_runes_only_placeholder": "ルーンのみ...",
+    "filter_select_recipe_type": "レシピタイプを選択",
+    "sort_by_damage": "平均武器ダメージで並べ替え:",
+    "sort_select_weapon_type": "武器タイプを選択",
+    "sort_reset": "並べ替えをリセット",
+    "grail_title": "- ホーリーグレイルトラッカー -",
+    "grail_displayed_suffix": "表示中",
+    "grail_sets_completed": "完了セット",
+    "grail_reset_progress": "グレイルカテゴリの進行状況をリセット",
+    "grail_import_export": "グレイルデータをインポート/エクスポート",
+    "grail_hide_found": "発見済みアイテムを非表示",
+    "grail_close": "閉じる",
+    "grail_export_label": "エクスポート（Base64）",
+    "grail_refresh_export": "エクスポートを更新",
+    "grail_copy_export": "エクスポート文字列をコピー",
+    "grail_import_label": "インポート（Base64）",
+    "grail_import_placeholder": "base64グレイルデータをここに貼り付け",
+    "grail_merge": "マージ",
+    "grail_replace": "置換",
+    "info_more_about": "%sの詳細情報",
+    "affix_included_types": "緑のテキストは含まれるアイテムタイプです。",
+    "affix_excluded_types": "赤のテキストは除外されるアイテムタイプです。",
+    "class_amazon": "アマゾン",
+    "class_assassin": "アサシン",
+    "class_barbarian": "バーバリアン",
+    "class_druid": "ドルイド",
+    "class_necromancer": "ネクロマンサー",
+    "class_paladin": "パラディン",
+    "class_sorceress": "ソーサレス",
+    "class_warlock": "ウォーロック",
+    "itype_any_helm": "全ての兜",
+    "label_armors": "防具",
+    "label_weapons": "武器",
+    "label_prefix": "接頭辞",
+    "label_suffix": "接尾辞",
+    "label_socket": "%dソケット",
+    "label_sockets": "%dソケット",
+    "label_runes_count": "%dルーン",
+    "label_1h_only": "片手のみ",
+    "label_2h_only": "両手のみ",
+    "sort_1h_phys": "片手物理",
+    "sort_1h_phys_help": "片手物理ダメージで並べ替えます。",
+    "sort_2h_phys": "両手物理",
+    "sort_2h_phys_help": "両手物理ダメージで並べ替えます。",
+    "sort_throw_phys": "投擲物理",
+    "sort_throw_phys_help": "投擲物理ダメージで並べ替えます。",
+    "sort_non_phys": "非物理",
+    "sort_non_phys_help": "非物理ダメージで並べ替えます。",
+    "help_class_filter": "キャラクタークラスで絞り込みます。",
+    "help_item_type_filter": "ベースアイテムタイプで絞り込みます。",
+    "help_equipment_filter": "特定の装備に絞り込みます。",
+    "help_search": "すべてのフィールドを検索します。テキストはフレーズとして一致します。複数の語を必須にするには「+」を使用します（AND）。ORには「,」または「|」を使用します。語句を除外するには先頭に「-」または「!」を付けます。例: 「fire skill damage」は完全なフレーズを検索します。「fire+cold」は両方を含むアイテムを検索します。「fire,cold」はどちらかを含むアイテムを検索します。「-fire」はfireを含むアイテムを除外します。「damage -fire」はdamageを含みfireを含まないアイテムを検索します。「fire skill damage -cold skill damage」はfire skill damageを検索し、cold skill damageを除外します。",
+    "help_search_sets": "すべてのフィールドを検索します。セットは1つでも見つかるとフルセットとして一致します。テキストはフレーズとして一致します。複数の語を必須にするには「+」を使用します（AND）。ORには「,」または「|」を使用します。語句を除外するには先頭に「-」または「!」を付けます。例: 「sorc skill mana」は完全なフレーズを検索します。「fire+cold」は両方を含むアイテムを検索します。「-fire」はfireを含むアイテムを除外します。「damage -fire」はdamageを含みfireを含まないアイテムを検索します。「fire skill damage -cold skill damage」はfire skill damageを検索し、cold skill damageを除外します。",
+    "help_search_runes": "特定のルーンを検索します。スペースと+はANDとして扱われます。, と | はORとして扱われます。例: El Eld|Hel Zod は Breath of the Dying と Starlight のみを返します。",
+    "help_hide_vanilla": "バニラアイテムを非表示にするフィルタートグルです。",
+    "help_hide_vanilla_sets": "バニラアイテムを非表示にするフィルタートグルです。セット全体に適用されます。",
+    "help_reset_filters": "すべてのフィルターを既定値にリセットします。",
+    "help_sockets_filter": "ベースの最大ソケット数で絞り込みます。",
+    "help_tier_filter": "ベースのティアで絞り込みます。未選択の場合、同じベースグループのノーマル/エクセプショナル/エリートをまとめて表示します。",
+    "help_category_filter": "防具、武器、または両方を選択します。",
+    "help_affix_type_filter": "接頭辞、接尾辞、または両方を選択します。",
+    "help_property_type_filter": "プロパティグループ（例: ダメージ、防御、ユーティリティ）で絞り込みます。注: まだ作業中のため、一部が不正確な場合があります。",
+    "help_rune_count_filter": "必要なルーン数で絞り込みます。この数は完全一致です。",
+    "help_runes_only_filter": "特定のルーンを検索します。",
+    "help_recipe_type_filter": "種類（リロール、アップグレード、クラフトなど）でレシピを絞り込みます。",
+    "help_recipe_class_filter": "キャラクタークラスでレシピを絞り込みます。注: 各クラスで同じですが、使用時にクラス専用スキルを付与します。",
+    "help_grail_category": "グレイルカテゴリ一覧を選択します。",
+    "help_grail_reset": "現在のグレイルカテゴリの追跡進行状況のみをリセットします。",
+    "help_grail_import_export": "グレイルの進行状況をbase64でエクスポートまたはインポートするポップアップを開きます。",
+    "help_grail_hide_found": "すでに発見したアイテムを非表示にするフィルタートグルです。",
+    "help_weapon_sort_hand": "武器タイプを絞り込みます: すべて、片手のみ、両手のみ。",
+    "help_weapon_sort_reset": "武器の並べ替えをリセットします。",
+    "help_item_type_filter_sets": "ベースアイテムタイプで絞り込みます。セットは1つでも見つかるとフルセットとして一致します。",
+    "help_item_type_filter_uniques": "ベースアイテムタイプで絞り込みます。汎用タイプではクラス専用バリアントのみを含みます。",
+    "help_item_type_filter_runewords": "ベースアイテムタイプで絞り込みます。「完全一致」を切り替えるとバリアントを除外します。",
+    "help_item_type_filter_grail": "ベースアイテムタイプで絞り込みます。グレイルの都合上、他のページより緩めです。",
+    "help_equipment_filter_uniques": "選択したアイテムタイプの特定装備に絞り込みます。選択されていない場合は無効です。",
+    "help_equipment_filter_sets": "選択したタイプの特定装備に絞り込みます。選択されていない場合は無効です。",
+    "help_required_level_range": "必要レベル範囲で絞り込みます。最小値と最大値が重なる場合、互いに更新されます。",
+    "help_exact_toggle": "「完全一致」を切り替えるとバリアントを除外します。",
+    "label_chance": "%d%%の確率",
+    "prop_group_absorbs": "吸収",
+    "prop_group_attack_rating": "攻撃値",
+    "prop_group_attributes": "属性",
+    "prop_group_auto_repair": "自動修復",
+    "prop_group_block_chance": "ブロック率",
+    "prop_group_charges": "チャージ",
+    "prop_group_ctc_level_up": "レベルアップ時発動",
+    "prop_group_ctc_when_striking": "攻撃時発動",
+    "prop_group_ctc_when_struck": "被弾時発動",
+    "prop_group_damage": "ダメージ",
+    "prop_group_defense": "防御",
+    "prop_group_demon_damage": "悪魔ダメージ",
+    "prop_group_elemental_effect_defense": "元素効果防御",
+    "prop_group_elemental_skill_effect": "元素スキル効果",
+    "prop_group_elemental_weapon_damage": "元素武器ダメージ",
+    "prop_group_equip_aura": "装備時オーラ",
+    "prop_group_experience": "経験値",
+    "prop_group_gold_find": "ゴールド発見",
+    "prop_group_indestructible": "破壊不能",
+    "prop_group_kick_damage": "キックダメージ",
+    "prop_group_life": "ライフ",
+    "prop_group_life_leech": "ライフ吸収",
+    "prop_group_light_radius": "光の範囲",
+    "prop_group_magic_find": "マジックアイテム発見率",
+    "prop_group_mana": "マナ",
+    "prop_group_mana_leech": "マナ吸収",
+    "prop_group_reanimate": "再生",
+    "prop_group_requirements": "必要条件",
+    "prop_group_resistances": "耐性",
+    "prop_group_skill_levels": "スキルレベル",
+    "prop_group_skill_special_effects": "スキル特殊効果",
+    "prop_group_sockets": "ソケット",
+    "label_item_level_sockets": "（アイテムレベル）：ソケット",
+    "prop_group_speeds": "スピード",
+    "prop_group_thorns": "茨",
+    "prop_group_undead_damage": "不死者ダメージ",
+    "prop_group_vendor_prices": "商人価格",
+    "prop_group_weapon_effects": "武器効果"
+  },
+  "koKR": {
+    "nav_home": "홈",
+    "nav_cube_recipes": "큐브 제조법",
+    "nav_uniques": "고유",
+    "nav_sets": "세트",
+    "nav_runewords": "룬어",
+    "nav_grail": "성배",
+    "nav_bases": "일반",
+    "nav_affixes": "접사",
+    "lang_tooltip": "사이트 데이터와 UI에 사용할 언어를 선택합니다.",
+    "font_tooltip": "사이트를 볼 때 사용할 글꼴을 선택합니다.",
+    "home_mission_title": "우리의 사명",
+    "home_mission_text": "우리의 사명은 익숙하면서도 새로운 Diablo II 경험을 제공하는 것입니다. Diablo II의 핵심 게임플레이는 그대로 유지하면서 새로운 기능과 콘텐츠를 게임에 추가하는 것을 목표로 합니다. 오랫동안 Diablo II를 즐겨 온 플레이어에게는 신선한 경험을, 새로운 플레이어에게는 재미있고 몰입감 있는 경험을 제공하고자 합니다.",
+    "home_open_source_title": "오픈 소스",
+    "home_open_source_text": "우리가 하는 모든 작업은 D2R 파일 자체이든 우리가 만드는 도구이든 모두 오픈 소스입니다. 우리는 커뮤니티가 모드를 실행하는 코드를 확인하고 수정할 수 있어야 한다고 믿습니다. 또한 커뮤니티가 모드에 기여하고 그 미래를 함께 만들어 갈 수 있어야 한다고 믿습니다.",
+    "home_discord_text": "이 사명에 함께하고 싶으신가요? 기여와 협업에 대한 자세한 내용은 {0}의 Discord 서버에 참여해 확인하세요.",
+    "strPartialSetBonus": "%s (%d개 아이템)",
+    "strFullSetBonus": "%s (전체 세트)",
+    "strItemsCount": "(%d개 아이템)",
+    "strFullSet": "(전체 세트)",
+    "strRequiredLevel": "요구 레벨: %d",
+    "app_brand": "D2R Reimagined",
+    "nav_wiki": "위키",
+    "sr_select_language": "언어 선택",
+    "sr_select_font": "글꼴 선택",
+    "sr_open_menu": "기본 메뉴 열기",
+    "sr_top": "맨 위",
+    "aria_back_to_top": "맨 위로 돌아가기",
+    "aria_choose_language": "언어 선택",
+    "aria_choose_font": "글꼴 선택",
+    "label_normal": "일반",
+    "label_exceptional": "익셉셔널",
+    "label_elite": "엘리트",
+    "label_vanilla": "바닐라",
+    "label_mod": "모드",
+    "label_rarity": "희귀도: %s",
+    "label_level_required": "레벨 %d 필요",
+    "label_affix_level": "접사 레벨 %s",
+    "label_only": "(%s 전용)",
+    "label_or": " 또는 ",
+    "found_items_suffix": "발견한 아이템",
+    "found_sets_suffix": "발견한 세트",
+    "found_recipes_suffix": "발견한 제조법",
+    "found_runewords_suffix": "발견한 룬어",
+    "found_affixes_suffix": "발견한 마법 접사",
+    "found_bases_suffix": "발견한 기본 아이템",
+    "filter_select_class": "직업 선택",
+    "filter_select_type": "아이템 유형 선택",
+    "filter_select_equipment": "장비 선택",
+    "filter_search_placeholder": "검색...",
+    "filter_hide_vanilla": "바닐라 숨기기",
+    "filter_reset": "필터 초기화",
+    "filter_select_category": "분류 선택",
+    "filter_select_sockets": "홈 수 선택",
+    "filter_select_tier": "등급 선택",
+    "filter_select_affix_type": "접사 유형 선택",
+    "filter_select_property_type": "속성 유형 선택",
+    "filter_exact": "완전 일치",
+    "filter_min_rlvl": "최소 요구 레벨",
+    "filter_max_rlvl": "최대 요구 레벨",
+    "filter_rune_count": "룬 개수",
+    "filter_runes_only_placeholder": "룬만...",
+    "filter_select_recipe_type": "제조법 유형 선택",
+    "sort_by_damage": "평균 무기 피해로 정렬:",
+    "sort_select_weapon_type": "무기 유형 선택",
+    "sort_reset": "정렬 초기화",
+    "grail_title": "- 성배 추적기 -",
+    "grail_displayed_suffix": "표시됨",
+    "grail_sets_completed": "완성한 세트",
+    "grail_reset_progress": "성배 분류 진행도 초기화",
+    "grail_import_export": "성배 데이터 가져오기/내보내기",
+    "grail_hide_found": "찾은 아이템 숨기기",
+    "grail_close": "닫기",
+    "grail_export_label": "내보내기 (Base64)",
+    "grail_refresh_export": "내보내기 새로고침",
+    "grail_copy_export": "내보내기 문자열 복사",
+    "grail_import_label": "가져오기 (Base64)",
+    "grail_import_placeholder": "base64 성배 데이터를 여기에 붙여넣기",
+    "grail_merge": "병합",
+    "grail_replace": "교체",
+    "info_more_about": "%s에 대한 추가 정보",
+    "affix_included_types": "녹색 텍스트는 포함된 아이템 유형입니다.",
+    "affix_excluded_types": "빨간색 텍스트는 제외된 아이템 유형입니다.",
+    "class_amazon": "아마존",
+    "class_assassin": "암살자",
+    "class_barbarian": "야만용사",
+    "class_druid": "드루이드",
+    "class_necromancer": "강령술사",
+    "class_paladin": "성기사",
+    "class_sorceress": "원소술사",
+    "class_warlock": "악마술사",
+    "itype_any_helm": "모든 투구",
+    "label_armors": "방어구",
+    "label_weapons": "무기",
+    "label_prefix": "접두사",
+    "label_suffix": "접미사",
+    "label_socket": "%d 홈",
+    "label_sockets": "%d 홈",
+    "label_runes_count": "%d 룬",
+    "label_1h_only": "한손 전용",
+    "label_2h_only": "양손 전용",
+    "sort_1h_phys": "한손 물리",
+    "sort_1h_phys_help": "한손 물리 피해로 정렬합니다.",
+    "sort_2h_phys": "양손 물리",
+    "sort_2h_phys_help": "양손 물리 피해로 정렬합니다.",
+    "sort_throw_phys": "투척 물리",
+    "sort_throw_phys_help": "투척 물리 피해로 정렬합니다.",
+    "sort_non_phys": "비물리",
+    "sort_non_phys_help": "비물리 피해로 정렬합니다.",
+    "help_class_filter": "캐릭터 직업으로 필터링합니다.",
+    "help_item_type_filter": "기본 아이템 유형으로 필터링합니다.",
+    "help_equipment_filter": "특정 장비로 필터링합니다.",
+    "help_search": '모든 필드를 검색합니다. 텍스트는 구문으로 일치합니다. 여러 용어를 요구하려면 "+"를 사용합니다(AND). OR에는 "," 또는 "|"를 사용합니다. 용어나 구문을 제외하려면 "-" 또는 "!"를 앞에 붙입니다. 예: "fire skill damage"는 정확한 구문을 찾습니다. "fire+cold"는 둘 다 포함한 아이템을 찾습니다. "fire,cold"는 둘 중 하나를 포함한 아이템을 찾습니다. "-fire"는 fire를 포함한 아이템을 제외합니다. "damage -fire"는 damage가 있지만 fire가 없는 아이템을 찾습니다. "fire skill damage -cold skill damage"는 fire skill damage를 찾고 cold skill damage를 제외합니다.',
+    "help_search_sets": '모든 필드를 검색하며, 세트는 하나라도 발견되면 전체 세트로 일치합니다. 텍스트는 구문으로 일치합니다. 여러 용어를 요구하려면 "+"를 사용합니다(AND). OR에는 "," 또는 "|"를 사용합니다. 용어나 구문을 제외하려면 "-" 또는 "!"를 앞에 붙입니다. 예: "sorc skill mana"는 정확한 구문을 찾습니다. "fire+cold"는 둘 다 포함한 아이템을 찾습니다. "-fire"는 fire를 포함한 아이템을 제외합니다. "damage -fire"는 damage가 있지만 fire가 없는 아이템을 찾습니다. "fire skill damage -cold skill damage"는 fire skill damage를 찾고 cold skill damage를 제외합니다.',
+    "help_search_runes": "특정 룬을 검색합니다. 공백과 +는 AND로 사용됩니다. ,와 |는 OR로 사용됩니다. 예: El Eld|Hel Zod는 Breath of the Dying과 Starlight만 반환합니다.",
+    "help_hide_vanilla": "바닐라 아이템을 숨기는 필터 토글입니다.",
+    "help_hide_vanilla_sets": "바닐라 아이템을 숨기는 필터 토글입니다. 전체 세트에 적용됩니다.",
+    "help_reset_filters": "모든 필터를 기본값으로 초기화합니다.",
+    "help_sockets_filter": "기본 아이템의 최대 홈 수로 필터링합니다.",
+    "help_tier_filter": "기본 아이템 등급으로 필터링합니다. 선택하지 않으면 페이지는 기본적으로 같은 기본 그룹의 일반/익셉셔널/엘리트를 함께 유지합니다.",
+    "help_category_filter": "방어구, 무기 또는 둘 다 중에서 선택합니다.",
+    "help_affix_type_filter": "접두사, 접미사 또는 둘 다 중에서 선택합니다.",
+    "help_property_type_filter": "속성 그룹(예: 피해, 방어, 유틸리티)으로 필터링합니다. 참고: 아직 작업 중이라 일부가 올바르지 않을 수 있습니다.",
+    "help_rune_count_filter": "필요한 룬 수로 필터링합니다. 이 수량은 정확히 일치합니다.",
+    "help_runes_only_filter": "특정 룬을 검색합니다.",
+    "help_recipe_type_filter": "유형(재굴림, 업그레이드, 제작 등)별로 제조법을 필터링합니다.",
+    "help_recipe_class_filter": "캐릭터 직업별로 제조법을 필터링합니다. 참고: 각 직업의 제조법은 모두 같지만 사용 시 직업 전용 기술을 부여합니다.",
+    "help_grail_category": "성배 분류 목록을 선택합니다.",
+    "help_grail_reset": "현재 성배 분류의 추적 진행도만 초기화합니다.",
+    "help_grail_import_export": "성배 진행도를 base64로 내보내거나 가져오는 팝업을 엽니다.",
+    "help_grail_hide_found": "이미 찾은 아이템을 숨기는 필터 토글입니다.",
+    "help_weapon_sort_hand": "무기 유형을 필터링합니다: 모두, 한손 전용 또는 양손 전용.",
+    "help_weapon_sort_reset": "무기 정렬을 초기화합니다.",
+    "help_item_type_filter_sets": "기본 아이템 유형으로 필터링합니다. 세트는 하나라도 발견되면 전체 세트로 일치합니다.",
+    "help_item_type_filter_uniques": "기본 아이템 유형으로 필터링합니다. 일반 유형에서는 직업 전용 변형만 포함합니다.",
+    "help_item_type_filter_runewords": "기본 아이템 유형으로 필터링합니다. 변형을 제거하려면 ‘완전 일치’를 전환합니다.",
+    "help_item_type_filter_grail": "기본 아이템 유형으로 필터링합니다. 성배 특성상 다른 페이지보다 느슨합니다.",
+    "help_equipment_filter_uniques": "선택한 아이템 유형의 특정 장비로 필터링합니다. 선택된 유형이 없으면 비활성화됩니다.",
+    "help_equipment_filter_sets": "선택한 유형의 특정 장비로 필터링합니다. 선택된 유형이 없으면 비활성화됩니다.",
+    "help_required_level_range": "요구 레벨 범위로 필터링합니다. 최소값과 최대값이 겹치면 서로 갱신됩니다.",
+    "help_exact_toggle": "변형을 제거하려면 ‘완전 일치’를 전환합니다.",
+    "label_chance": "%d%% 확률",
+    "prop_group_absorbs": "흡수",
+    "prop_group_attack_rating": "공격 평점",
+    "prop_group_attributes": "속성",
+    "prop_group_auto_repair": "자동 수리",
+    "prop_group_block_chance": "막기 확률",
+    "prop_group_charges": "충전",
+    "prop_group_ctc_level_up": "레벨업 시 발동",
+    "prop_group_ctc_when_striking": "공격 시 발동",
+    "prop_group_ctc_when_struck": "피격 시 발동",
+    "prop_group_damage": "피해",
+    "prop_group_defense": "방어",
+    "prop_group_demon_damage": "악마 피해",
+    "prop_group_elemental_effect_defense": "원소 효과 방어",
+    "prop_group_elemental_skill_effect": "원소 기술 효과",
+    "prop_group_elemental_weapon_damage": "원소 무기 피해",
+    "prop_group_equip_aura": "장착 시 오라",
+    "prop_group_experience": "경험치",
+    "prop_group_gold_find": "골드 획득",
+    "prop_group_indestructible": "파괴 불가",
+    "prop_group_kick_damage": "발차기 피해",
+    "prop_group_life": "생명력",
+    "prop_group_life_leech": "생명력 흡수",
+    "prop_group_light_radius": "광원 반경",
+    "prop_group_magic_find": "마법 아이템 획득",
+    "prop_group_mana": "마나",
+    "prop_group_mana_leech": "마나 흡수",
+    "prop_group_reanimate": "되살아남",
+    "prop_group_requirements": "요구치",
+    "prop_group_resistances": "저항",
+    "prop_group_skill_levels": "기술 레벨",
+    "prop_group_skill_special_effects": "기술 특수 효과",
+    "prop_group_sockets": "홈",
+    "label_item_level_sockets": "(아이템 레벨): 홈 수",
+    "prop_group_speeds": "속도",
+    "prop_group_thorns": "가시",
+    "prop_group_undead_damage": "언데드 피해",
+    "prop_group_vendor_prices": "상인 가격",
+    "prop_group_weapon_effects": "무기 효과"
+  },
+  "plPL": {
+    "nav_home": "Strona główna",
+    "nav_cube_recipes": "Przepisy kostki",
+    "nav_uniques": "Unikatowe",
+    "nav_sets": "Zestawy",
+    "nav_runewords": "Słowa runiczne",
+    "nav_grail": "Święty Graal",
+    "nav_bases": "Bazy",
+    "nav_affixes": "Afiksy",
+    "lang_tooltip": "Wybierz język danych strony i interfejsu.",
+    "font_tooltip": "Wybierz czcionkę do wyświetlania strony.",
+    "home_mission_title": "Nasza misja",
+    "home_mission_text": "Naszą misją jest dostarczenie doświadczenia Diablo II, które jest jednocześnie znajome i nowe. Chcemy zachować podstawową rozgrywkę Diablo II, dodając jednocześnie nowe funkcje i zawartość. Chcemy zapewnić świeże wrażenia graczom, którzy grają w Diablo II od lat, a także ciekawą i angażującą przygodę nowym graczom.",
+    "home_open_source_title": "Open source",
+    "home_open_source_text": "Wszystko, co robimy — zarówno same pliki D2R, jak i narzędzia, które tworzymy — jest open source. Uważamy, że społeczność powinna mieć możliwość przeglądania i modyfikowania kodu, na którym działa mod. Wierzymy też, że społeczność powinna móc wnosić wkład w mod i współtworzyć jego przyszłość.",
+    "home_discord_text": "Chcesz być częścią tej misji? Dołącz do naszego serwera Discord pod adresem {0}, aby dowiedzieć się więcej o współpracy i wkładzie.",
+    "strPartialSetBonus": "%s (%d przedm.)",
+    "strFullSetBonus": "%s (pełny zestaw)",
+    "strItemsCount": "(%d przedm.)",
+    "strFullSet": "(pełny zestaw)",
+    "strRequiredLevel": "Wymagany poziom: %d",
+    "app_brand": "D2R Reimagined",
+    "nav_wiki": "Wiki",
+    "sr_select_language": "Wybierz język",
+    "sr_select_font": "Wybierz czcionkę",
+    "sr_open_menu": "Otwórz menu główne",
+    "sr_top": "Góra",
+    "aria_back_to_top": "Wróć na górę",
+    "aria_choose_language": "Wybierz język",
+    "aria_choose_font": "Wybierz czcionkę",
+    "label_normal": "Normalny",
+    "label_exceptional": "Wyjątkowy",
+    "label_elite": "Elitarny",
+    "label_vanilla": "Vanilla",
+    "label_mod": "Mod",
+    "label_rarity": "Rzadkość: %s",
+    "label_level_required": "Wymagany poziom %d",
+    "label_affix_level": "Poziom afiksu %s",
+    "label_only": "(tylko %s)",
+    "label_or": " lub ",
+    "found_items_suffix": "Znalezione przedmioty",
+    "found_sets_suffix": "Znalezione zestawy",
+    "found_recipes_suffix": "Znalezione przepisy",
+    "found_runewords_suffix": "Znalezione słowa runiczne",
+    "found_affixes_suffix": "Znalezione magiczne afiksy",
+    "found_bases_suffix": "Znalezione przedmioty bazowe",
+    "filter_select_class": "Wybierz klasę",
+    "filter_select_type": "Wybierz typ przedmiotu",
+    "filter_select_equipment": "Wybierz wyposażenie",
+    "filter_search_placeholder": "Szukaj...",
+    "filter_hide_vanilla": "Ukryj Vanilla",
+    "filter_reset": "Resetuj filtry",
+    "filter_select_category": "Wybierz kategorię",
+    "filter_select_sockets": "Wybierz gniazda",
+    "filter_select_tier": "Wybierz rangę",
+    "filter_select_affix_type": "Wybierz typ afiksu",
+    "filter_select_property_type": "Wybierz typ właściwości",
+    "filter_exact": "Dokładnie",
+    "filter_min_rlvl": "Min. wymagany poz.",
+    "filter_max_rlvl": "Maks. wymagany poz.",
+    "filter_rune_count": "Liczba run",
+    "filter_runes_only_placeholder": "Tylko runy...",
+    "filter_select_recipe_type": "Wybierz typ przepisu",
+    "sort_by_damage": "Sortuj według średnich obrażeń broni:",
+    "sort_select_weapon_type": "Wybierz typ broni",
+    "sort_reset": "Resetuj sortowanie",
+    "grail_title": "- Śledzenie Świętego Graala -",
+    "grail_displayed_suffix": "Wyświetlane",
+    "grail_sets_completed": "Ukończone zestawy",
+    "grail_reset_progress": "Resetuj postęp kategorii Graala",
+    "grail_import_export": "Import/eksport danych Graala",
+    "grail_hide_found": "Ukryj znalezione przedmioty",
+    "grail_close": "Zamknij",
+    "grail_export_label": "Eksport (Base64)",
+    "grail_refresh_export": "Odśwież eksport",
+    "grail_copy_export": "Kopiuj ciąg eksportu",
+    "grail_import_label": "Import (Base64)",
+    "grail_import_placeholder": "Wklej tutaj dane Graala base64",
+    "grail_merge": "Scal",
+    "grail_replace": "Zastąp",
+    "info_more_about": "Więcej informacji o %s",
+    "affix_included_types": "Zielony tekst oznacza uwzględnione typy przedmiotów.",
+    "affix_excluded_types": "Czerwony tekst oznacza wykluczone typy przedmiotów.",
+    "class_amazon": "Amazonka",
+    "class_assassin": "Zabójczyni",
+    "class_barbarian": "Barbarzyńca",
+    "class_druid": "Druid",
+    "class_necromancer": "Nekromanta",
+    "class_paladin": "Paladyn",
+    "class_sorceress": "Czarodziejka",
+    "class_warlock": "Czarnoksiężnik",
+    "itype_any_helm": "Dowolny Hełm",
+    "label_armors": "Zbroje",
+    "label_weapons": "Bronie",
+    "label_prefix": "Przedrostek",
+    "label_suffix": "Przyrostek",
+    "label_socket": "%d gniazdo",
+    "label_sockets": "%d gniazd",
+    "label_runes_count": "%d run",
+    "label_1h_only": "Tylko 1R",
+    "label_2h_only": "Tylko 2R",
+    "sort_1h_phys": "Fizyczne 1R",
+    "sort_1h_phys_help": "Sortuj według obrażeń fizycznych jedną ręką.",
+    "sort_2h_phys": "Fizyczne 2R",
+    "sort_2h_phys_help": "Sortuj według obrażeń fizycznych dwiema rękami.",
+    "sort_throw_phys": "Fizyczne rzutu",
+    "sort_throw_phys_help": "Sortuj według obrażeń fizycznych od rzutu.",
+    "sort_non_phys": "Niefizyczne",
+    "sort_non_phys_help": "Sortuj według obrażeń niefizycznych.",
+    "help_class_filter": "Filtruj według klasy postaci.",
+    "help_item_type_filter": "Filtruj według typu przedmiotu bazowego.",
+    "help_equipment_filter": "Filtruj do konkretnego wyposażenia.",
+    "help_search": "Przeszukuje wszystkie pola. Tekst jest dopasowywany jako fraza. Użyj „+”, aby wymagać wielu terminów (AND). Użyj „,” lub „|” dla OR. Poprzedź „-” lub „!”, aby wykluczyć termin albo frazę. Np. „fire skill damage” znajduje dokładną frazę. „fire+cold” znajduje przedmioty z oboma terminami. „fire,cold” znajduje przedmioty z dowolnym z nich. „-fire” wyklucza przedmioty zawierające fire. „damage -fire” znajduje przedmioty z damage, ale bez fire. „fire skill damage -cold skill damage” znajduje fire skill damage, ale wyklucza cold skill damage.",
+    "help_search_sets": "Przeszukuje wszystkie pola; zestawy są dopasowywane jako pełny zestaw, jeśli coś zostanie znalezione. Tekst jest dopasowywany jako fraza. Użyj „+”, aby wymagać wielu terminów (AND). Użyj „,” lub „|” dla OR. Poprzedź „-” lub „!”, aby wykluczyć termin albo frazę. Np. „sorc skill mana” znajduje dokładną frazę. „fire+cold” znajduje przedmioty z oboma terminami. „-fire” wyklucza przedmioty zawierające fire. „damage -fire” znajduje przedmioty z damage, ale bez fire. „fire skill damage -cold skill damage” znajduje fire skill damage, ale wyklucza cold skill damage.",
+    "help_search_runes": "Szukaj konkretnych run. Spacja i + działają jako AND. , oraz | działają jako OR. Np. El Eld|Hel Zod zwraca tylko Breath of the Dying i Starlight.",
+    "help_hide_vanilla": "Przełącznik filtra ukrywający przedmioty Vanilla.",
+    "help_hide_vanilla_sets": "Przełącznik filtra ukrywający przedmioty Vanilla. Dotyczy całego zestawu.",
+    "help_reset_filters": "Resetuje wszystkie filtry do wartości domyślnych.",
+    "help_sockets_filter": "Filtruj według maksymalnej liczby gniazd na bazie.",
+    "help_tier_filter": "Filtruj według rangi bazy. Gdy nic nie wybrano, strona domyślnie trzyma razem normalne/wyjątkowe/elitarne przedmioty tej samej grupy bazowej.",
+    "help_category_filter": "Wybierz zbroje, bronie albo oba typy.",
+    "help_affix_type_filter": "Wybierz przedrostki, przyrostki albo oba typy.",
+    "help_property_type_filter": "Filtruj według grupy właściwości (np. obrażenia, obrona, użyteczność). Uwaga: nadal WIP, część może być niepoprawna.",
+    "help_rune_count_filter": "Filtruj według liczby wymaganych run. Ta liczba jest dokładna.",
+    "help_runes_only_filter": "Szukaj konkretnych run.",
+    "help_recipe_type_filter": "Filtruj przepisy według typu (losowanie, ulepszenie, tworzenie itd.).",
+    "help_recipe_class_filter": "Filtruj przepisy według klasy postaci. Uwaga: są takie same dla każdej klasy, ale przy użyciu dają umiejętności specyficzne dla klasy.",
+    "help_grail_category": "Wybierz listę kategorii Graala.",
+    "help_grail_reset": "Resetuje tylko śledzony postęp bieżącej kategorii Graala.",
+    "help_grail_import_export": "Otwiera okno do eksportu lub importu postępu Graala jako base64.",
+    "help_grail_hide_found": "Przełącznik filtra ukrywający już znalezione przedmioty.",
+    "help_weapon_sort_hand": "Filtruj typ broni: wszystkie, tylko 1R albo tylko 2R.",
+    "help_weapon_sort_reset": "Resetuj sortowanie broni.",
+    "help_item_type_filter_sets": "Filtruj według typu przedmiotu bazowego; zestawy są dopasowywane jako pełny zestaw, jeśli coś zostanie znalezione.",
+    "help_item_type_filter_uniques": "Filtruj według typu przedmiotu bazowego; dla typów ogólnych uwzględnia tylko warianty klasowe.",
+    "help_item_type_filter_runewords": "Filtruj według typu przedmiotu bazowego. Przełącz „Dokładnie”, aby usunąć warianty.",
+    "help_item_type_filter_grail": "Filtruj według typu przedmiotu bazowego, luźniej niż na innych stronach ze względu na Graala.",
+    "help_equipment_filter_uniques": "Filtruj do konkretnego wyposażenia dla wybranego typu przedmiotu; wyłączone, jeśli nic nie wybrano.",
+    "help_equipment_filter_sets": "Filtruj do konkretnego wyposażenia dla wybranego typu; wyłączone, jeśli nic nie wybrano.",
+    "help_required_level_range": "Filtruj według zakresu wymaganego poziomu. Wartości min. i maks. będą się wzajemnie aktualizować, jeśli się nakładają.",
+    "help_exact_toggle": "Przełącz „Dokładnie”, aby usunąć warianty.",
+    "label_chance": "%d%% szans",
+    "prop_group_absorbs": "Pochłanianie",
+    "prop_group_attack_rating": "Współczynnik ataku",
+    "prop_group_attributes": "Atrybuty",
+    "prop_group_auto_repair": "Auto-naprawa",
+    "prop_group_block_chance": "Szansa na blok",
+    "prop_group_charges": "Ładunki",
+    "prop_group_ctc_level_up": "Szansa przy awansie",
+    "prop_group_ctc_when_striking": "Szansa przy uderzeniu",
+    "prop_group_ctc_when_struck": "Szansa po trafieniu",
+    "prop_group_damage": "Obrażenia",
+    "prop_group_defense": "Obrona",
+    "prop_group_demon_damage": "Obrażenia demonom",
+    "prop_group_elemental_effect_defense": "Obrona przed efektami żywiołów",
+    "prop_group_elemental_skill_effect": "Efekt umiejętności żywiołu",
+    "prop_group_elemental_weapon_damage": "Żywiołowe obrażenia broni",
+    "prop_group_equip_aura": "Aura przy założeniu",
+    "prop_group_experience": "Doświadczenie",
+    "prop_group_gold_find": "Znajdowanie złota",
+    "prop_group_indestructible": "Niezniszczalny",
+    "prop_group_kick_damage": "Obrażenia kopnięcia",
+    "prop_group_life": "Życie",
+    "prop_group_life_leech": "Kradzież życia",
+    "prop_group_light_radius": "Promień światła",
+    "prop_group_magic_find": "Znajdowanie magii",
+    "prop_group_mana": "Mana",
+    "prop_group_mana_leech": "Kradzież many",
+    "prop_group_reanimate": "Wskrzeszanie",
+    "prop_group_requirements": "Wymagania",
+    "prop_group_resistances": "Odporności",
+    "prop_group_skill_levels": "Poziomy umiejętności",
+    "prop_group_skill_special_effects": "Specjalne efekty umiejętności",
+    "prop_group_sockets": "Gniazda",
+    "label_item_level_sockets": "(Poziom przedmiotu): Gniazda",
+    "prop_group_speeds": "Szybkości",
+    "prop_group_thorns": "Ciernie",
+    "prop_group_undead_damage": "Obrażenia nieumarłym",
+    "prop_group_vendor_prices": "Ceny u handlarzy",
+    "prop_group_weapon_effects": "Efekty broni"
+  },
+  "ptBR": {
+    "nav_home": "Início",
+    "nav_cube_recipes": "Receitas do Cubo",
+    "nav_uniques": "Únicos",
+    "nav_sets": "Conjuntos",
+    "nav_runewords": "Runavras",
+    "nav_grail": "Santo Graal",
+    "nav_bases": "Bases",
+    "nav_affixes": "Afixos",
+    "lang_tooltip": "Selecione um idioma para os dados e a interface do site.",
+    "font_tooltip": "Selecione uma fonte para visualizar o site.",
+    "home_mission_title": "Nossa missão",
+    "home_mission_text": "Nossa missão é oferecer uma experiência de Diablo II que seja familiar e nova ao mesmo tempo. Queremos manter a jogabilidade principal de Diablo II intacta enquanto adicionamos novos recursos e conteúdo ao jogo. Queremos proporcionar uma experiência renovada para jogadores que jogam Diablo II há anos, além de uma experiência divertida e envolvente para novos jogadores.",
+    "home_open_source_title": "Código aberto",
+    "home_open_source_text": "Tudo o que fazemos, seja os próprios arquivos de D2R ou qualquer ferramenta que criamos, é de código aberto. Acreditamos que a comunidade deve poder ver e modificar o código que executa o mod. Também acreditamos que a comunidade deve poder contribuir com o mod e ajudar a moldar seu futuro.",
+    "home_discord_text": "Quer fazer parte desta missão? Entre no nosso servidor do Discord em {0} para saber mais sobre como contribuir e colaborar.",
+    "strPartialSetBonus": "%s (%d itens)",
+    "strFullSetBonus": "%s (conjunto completo)",
+    "strItemsCount": "(%d itens)",
+    "strFullSet": "(conjunto completo)",
+    "strRequiredLevel": "Nível requerido: %d",
+    "app_brand": "D2R Reimagined",
+    "nav_wiki": "Wiki",
+    "sr_select_language": "Selecionar idioma",
+    "sr_select_font": "Selecionar fonte",
+    "sr_open_menu": "Abrir menu principal",
+    "sr_top": "Topo",
+    "aria_back_to_top": "Voltar ao topo",
+    "aria_choose_language": "Escolher idioma",
+    "aria_choose_font": "Escolher fonte",
+    "label_normal": "Normal",
+    "label_exceptional": "Excepcional",
+    "label_elite": "Elite",
+    "label_vanilla": "Vanilla",
+    "label_mod": "Mod",
+    "label_rarity": "Raridade: %s",
+    "label_level_required": "Nível %d requerido",
+    "label_affix_level": "Nível do afixo %s",
+    "label_only": "(somente %s)",
+    "label_or": " ou ",
+    "found_items_suffix": "Itens encontrados",
+    "found_sets_suffix": "Conjuntos encontrados",
+    "found_recipes_suffix": "Receitas encontradas",
+    "found_runewords_suffix": "Runavras encontradas",
+    "found_affixes_suffix": "Afixos mágicos encontrados",
+    "found_bases_suffix": "Itens base encontrados",
+    "filter_select_class": "Selecionar classe",
+    "filter_select_type": "Selecionar tipo de item",
+    "filter_select_equipment": "Selecionar equipamento",
+    "filter_search_placeholder": "Pesquisar...",
+    "filter_hide_vanilla": "Ocultar Vanilla",
+    "filter_reset": "Redefinir filtros",
+    "filter_select_category": "Selecionar categoria",
+    "filter_select_sockets": "Selecionar soquetes",
+    "filter_select_tier": "Selecionar grau",
+    "filter_select_affix_type": "Selecionar tipo de afixo",
+    "filter_select_property_type": "Selecionar tipo de propriedade",
+    "filter_exact": "Exato",
+    "filter_min_rlvl": "Nív. req. mín.",
+    "filter_max_rlvl": "Nív. req. máx.",
+    "filter_rune_count": "Quantidade de runas",
+    "filter_runes_only_placeholder": "Apenas runas...",
+    "filter_select_recipe_type": "Selecionar tipo de receita",
+    "sort_by_damage": "Ordenar por dano médio da arma:",
+    "sort_select_weapon_type": "Selecionar tipo de arma",
+    "sort_reset": "Redefinir ordenação",
+    "grail_title": "- Rastreador do Santo Graal -",
+    "grail_displayed_suffix": "Exibidos",
+    "grail_sets_completed": "Conjuntos concluídos",
+    "grail_reset_progress": "Redefinir progresso da categoria do Graal",
+    "grail_import_export": "Importar/exportar dados do Graal",
+    "grail_hide_found": "Ocultar itens encontrados",
+    "grail_close": "Fechar",
+    "grail_export_label": "Exportar (Base64)",
+    "grail_refresh_export": "Atualizar exportação",
+    "grail_copy_export": "Copiar string de exportação",
+    "grail_import_label": "Importar (Base64)",
+    "grail_import_placeholder": "Cole aqui os dados do Graal em base64",
+    "grail_merge": "Mesclar",
+    "grail_replace": "Substituir",
+    "info_more_about": "Mais informações sobre %s",
+    "affix_included_types": "Texto verde indica tipos de item incluídos.",
+    "affix_excluded_types": "Texto vermelho indica tipos de item excluídos.",
+    "class_amazon": "Amazona",
+    "class_assassin": "Assassina",
+    "class_barbarian": "Bárbaro",
+    "class_druid": "Druida",
+    "class_necromancer": "Necromante",
+    "class_paladin": "Paladino",
+    "class_sorceress": "Feiticeira",
+    "class_warlock": "Bruxo",
+    "itype_any_helm": "Qualquer Elmo",
+    "label_armors": "Armaduras",
+    "label_weapons": "Armas",
+    "label_prefix": "Prefixo",
+    "label_suffix": "Sufixo",
+    "label_socket": "%d soquete",
+    "label_sockets": "%d soquetes",
+    "label_runes_count": "%d runas",
+    "label_1h_only": "Somente 1M",
+    "label_2h_only": "Somente 2M",
+    "sort_1h_phys": "Físico 1M",
+    "sort_1h_phys_help": "Ordenar por dano físico de uma mão.",
+    "sort_2h_phys": "Físico 2M",
+    "sort_2h_phys_help": "Ordenar por dano físico de duas mãos.",
+    "sort_throw_phys": "Físico de arremesso",
+    "sort_throw_phys_help": "Ordenar por dano físico de arremesso.",
+    "sort_non_phys": "Não físico",
+    "sort_non_phys_help": "Ordenar por dano não físico.",
+    "help_class_filter": "Filtrar por classe de personagem.",
+    "help_item_type_filter": "Filtrar por tipo de item base.",
+    "help_equipment_filter": "Filtrar para um equipamento específico.",
+    "help_search": 'Pesquisa em todos os campos. O texto é comparado como uma frase. Use "+" para exigir vários termos (AND). Use "," ou "|" para OR. Prefixe com "-" ou "!" para excluir um termo ou frase. Ex.: "fire skill damage" encontra a frase exata. "fire+cold" encontra itens com ambos. "fire,cold" encontra itens com qualquer um dos dois. "-fire" exclui itens contendo fire. "damage -fire" encontra itens com damage, mas sem fire. "fire skill damage -cold skill damage" encontra fire skill damage, mas exclui cold skill damage.',
+    "help_search_sets": 'Pesquisa em todos os campos; conjuntos correspondem como conjunto completo se um deles for encontrado. O texto é comparado como uma frase. Use "+" para exigir vários termos (AND). Use "," ou "|" para OR. Prefixe com "-" ou "!" para excluir um termo ou frase. Ex.: "sorc skill mana" encontra a frase exata. "fire+cold" encontra itens com ambos. "-fire" exclui itens contendo fire. "damage -fire" encontra itens com damage, mas sem fire. "fire skill damage -cold skill damage" encontra fire skill damage, mas exclui cold skill damage.',
+    "help_search_runes": "Pesquise runas específicas. Usa espaço e + como AND. Usa , e | como OR. Ex.: El Eld|Hel Zod retorna apenas Breath of the Dying e Starlight.",
+    "help_hide_vanilla": "Alterna o filtro para ocultar itens Vanilla.",
+    "help_hide_vanilla_sets": "Alterna o filtro para ocultar itens Vanilla. Aplica-se ao conjunto inteiro.",
+    "help_reset_filters": "Redefine todos os filtros para o padrão.",
+    "help_sockets_filter": "Filtrar pelo máximo possível de soquetes da base.",
+    "help_tier_filter": "Filtrar pelo grau da base. Se nada for selecionado, a página tenta manter juntos normal/excepcional/elite de um mesmo grupo base.",
+    "help_category_filter": "Escolha entre armaduras, armas ou ambos.",
+    "help_affix_type_filter": "Escolha entre prefixos, sufixos ou ambos.",
+    "help_property_type_filter": "Filtrar por grupo de propriedade (ex.: dano, defesa, utilidade). Nota: ainda em desenvolvimento; algumas podem estar incorretas.",
+    "help_rune_count_filter": "Filtrar pelo número de runas necessárias. Esse valor é exato.",
+    "help_runes_only_filter": "Pesquise runas específicas.",
+    "help_recipe_type_filter": "Filtrar receitas por tipo (reroll, melhoria, criação etc.).",
+    "help_recipe_class_filter": "Filtrar receitas por classe de personagem. Observação: são iguais para cada classe, mas concedem habilidades específicas da classe ao usar.",
+    "help_grail_category": "Escolha a lista de categoria do Graal.",
+    "help_grail_reset": "Redefine apenas o progresso rastreado da categoria atual do Graal.",
+    "help_grail_import_export": "Abre um popup para exportar ou importar o progresso do Graal em base64.",
+    "help_grail_hide_found": "Alterna o filtro para ocultar itens que você já encontrou.",
+    "help_weapon_sort_hand": "Filtrar tipo de arma: todas, somente 1M ou somente 2M.",
+    "help_weapon_sort_reset": "Redefinir ordenação de armas.",
+    "help_item_type_filter_sets": "Filtrar por tipo de item base; conjuntos correspondem como conjunto completo se um deles for encontrado.",
+    "help_item_type_filter_uniques": "Filtrar por tipo de item base; em tipos genéricos, inclui apenas variantes específicas de classe.",
+    "help_item_type_filter_runewords": "Filtrar por tipo de item base. Ative “Exato” para remover variantes.",
+    "help_item_type_filter_grail": "Filtrar por tipo de item base, de forma mais flexível que em outras páginas por causa do Graal.",
+    "help_equipment_filter_uniques": "Filtrar para um equipamento específico do tipo de item selecionado; desativado se nenhum estiver selecionado.",
+    "help_equipment_filter_sets": "Filtrar para um equipamento específico do tipo selecionado; desativado se nenhum estiver selecionado.",
+    "help_required_level_range": "Filtrar por intervalo de nível requerido. Os valores mínimo e máximo serão atualizados um pelo outro se se sobrepuserem.",
+    "help_exact_toggle": "Ative “Exato” para remover variantes.",
+    "label_chance": "%d%% de chance",
+    "prop_group_absorbs": "Absorção",
+    "prop_group_attack_rating": "Pontuação de Ataque",
+    "prop_group_attributes": "Atributos",
+    "prop_group_auto_repair": "Auto-reparo",
+    "prop_group_block_chance": "Chance de Bloqueio",
+    "prop_group_charges": "Cargas",
+    "prop_group_ctc_level_up": "Chance ao subir de nível",
+    "prop_group_ctc_when_striking": "Chance ao atacar",
+    "prop_group_ctc_when_struck": "Chance ao ser atingido",
+    "prop_group_damage": "Dano",
+    "prop_group_defense": "Defesa",
+    "prop_group_demon_damage": "Dano a Demônios",
+    "prop_group_elemental_effect_defense": "Defesa contra Efeitos Elementais",
+    "prop_group_elemental_skill_effect": "Efeito de Habilidade Elemental",
+    "prop_group_elemental_weapon_damage": "Dano Elemental de Arma",
+    "prop_group_equip_aura": "Aura ao Equipar",
+    "prop_group_experience": "Experiência",
+    "prop_group_gold_find": "Encontrar Ouro",
+    "prop_group_indestructible": "Indestrutível",
+    "prop_group_kick_damage": "Dano de Chute",
+    "prop_group_life": "Vida",
+    "prop_group_life_leech": "Roubo de Vida",
+    "prop_group_light_radius": "Raio de Luz",
+    "prop_group_magic_find": "Encontrar Magia",
+    "prop_group_mana": "Mana",
+    "prop_group_mana_leech": "Roubo de Mana",
+    "prop_group_reanimate": "Reanimar",
+    "prop_group_requirements": "Requisitos",
+    "prop_group_resistances": "Resistências",
+    "prop_group_skill_levels": "Níveis de Habilidade",
+    "prop_group_skill_special_effects": "Efeitos Especiais de Habilidade",
+    "prop_group_sockets": "Soquetes",
+    "label_item_level_sockets": "(Nível do item): Soquetes",
+    "prop_group_speeds": "Velocidades",
+    "prop_group_thorns": "Espinhos",
+    "prop_group_undead_damage": "Dano a Mortos-Vivos",
+    "prop_group_vendor_prices": "Preços de Vendedor",
+    "prop_group_weapon_effects": "Efeitos de Arma"
+  },
+  "ruRU": {
+    "nav_home": "Главная",
+    "nav_cube_recipes": "Рецепты куба",
+    "nav_uniques": "Уникальные",
+    "nav_sets": "Комплекты",
+    "nav_runewords": "Рунные слова",
+    "nav_grail": "Святой Грааль",
+    "nav_bases": "Основы",
+    "nav_affixes": "Аффиксы",
+    "lang_tooltip": "Выберите язык данных сайта и интерфейса.",
+    "font_tooltip": "Выберите шрифт для просмотра сайта.",
+    "home_mission_title": "Наша миссия",
+    "home_mission_text": "Наша миссия — предоставить опыт Diablo II, который одновременно знаком и нов. Мы стремимся сохранить основную игру Diablo II, добавляя при этом новые функции и контент. Мы хотим дать свежие впечатления игрокам, которые играют в Diablo II много лет, и одновременно предложить интересный и увлекательный опыт новым игрокам.",
+    "home_open_source_title": "Открытый исходный код",
+    "home_open_source_text": "Всё, что мы делаем — будь то сами файлы D2R или любые инструменты, которые мы создаём, — имеет открытый исходный код. Мы считаем, что сообщество должно иметь возможность видеть и изменять код, на котором работает мод. Мы также считаем, что сообщество должно иметь возможность вносить вклад в мод и помогать формировать его будущее.",
+    "home_discord_text": "Хотите стать частью этой миссии? Присоединяйтесь к нашему серверу Discord по адресу {0}, чтобы узнать больше о вкладе и сотрудничестве.",
+    "strPartialSetBonus": "%s (%d предметов)",
+    "strFullSetBonus": "%s (полный комплект)",
+    "strItemsCount": "(%d предметов)",
+    "strFullSet": "(полный комплект)",
+    "strRequiredLevel": "Требуемый уровень: %d",
+    "app_brand": "D2R Reimagined",
+    "nav_wiki": "Вики",
+    "sr_select_language": "Выбрать язык",
+    "sr_select_font": "Выбрать шрифт",
+    "sr_open_menu": "Открыть главное меню",
+    "sr_top": "Вверх",
+    "aria_back_to_top": "Вернуться наверх",
+    "aria_choose_language": "Выбрать язык",
+    "aria_choose_font": "Выбрать шрифт",
+    "label_normal": "Обычный",
+    "label_exceptional": "Исключительный",
+    "label_elite": "Элитный",
+    "label_vanilla": "Оригинал",
+    "label_mod": "Мод",
+    "label_rarity": "Редкость: %s",
+    "label_level_required": "Требуется уровень %d",
+    "label_affix_level": "Уровень аффикса %s",
+    "label_only": "(только %s)",
+    "label_or": " или ",
+    "found_items_suffix": "Предметов найдено",
+    "found_sets_suffix": "Комплектов найдено",
+    "found_recipes_suffix": "Рецептов найдено",
+    "found_runewords_suffix": "Рунных слов найдено",
+    "found_affixes_suffix": "Магических аффиксов найдено",
+    "found_bases_suffix": "Базовых предметов найдено",
+    "filter_select_class": "Выбрать класс",
+    "filter_select_type": "Выбрать тип предмета",
+    "filter_select_equipment": "Выбрать экипировку",
+    "filter_search_placeholder": "Поиск...",
+    "filter_hide_vanilla": "Скрыть оригинальные",
+    "filter_reset": "Сбросить фильтры",
+    "filter_select_category": "Выбрать категорию",
+    "filter_select_sockets": "Выбрать гнёзда",
+    "filter_select_tier": "Выбрать ранг",
+    "filter_select_affix_type": "Выбрать тип аффикса",
+    "filter_select_property_type": "Выбрать тип свойства",
+    "filter_exact": "Точно",
+    "filter_min_rlvl": "Мин. треб. ур.",
+    "filter_max_rlvl": "Макс. треб. ур.",
+    "filter_rune_count": "Количество рун",
+    "filter_runes_only_placeholder": "Только руны...",
+    "filter_select_recipe_type": "Выбрать тип рецепта",
+    "sort_by_damage": "Сортировать по среднему урону оружия:",
+    "sort_select_weapon_type": "Выбрать тип оружия",
+    "sort_reset": "Сбросить сортировку",
+    "grail_title": "- Трекер Святого Грааля -",
+    "grail_displayed_suffix": "Показано",
+    "grail_sets_completed": "Комплектов завершено",
+    "grail_reset_progress": "Сбросить прогресс категории Грааля",
+    "grail_import_export": "Импорт/экспорт данных Грааля",
+    "grail_hide_found": "Скрыть найденные предметы",
+    "grail_close": "Закрыть",
+    "grail_export_label": "Экспорт (Base64)",
+    "grail_refresh_export": "Обновить экспорт",
+    "grail_copy_export": "Копировать строку экспорта",
+    "grail_import_label": "Импорт (Base64)",
+    "grail_import_placeholder": "Вставьте сюда данные Грааля base64",
+    "grail_merge": "Объединить",
+    "grail_replace": "Заменить",
+    "info_more_about": "Больше информации о %s",
+    "affix_included_types": "Зелёный текст — включённые типы предметов.",
+    "affix_excluded_types": "Красный текст — исключённые типы предметов.",
+    "class_amazon": "Амазонка",
+    "class_assassin": "Ассасин",
+    "class_barbarian": "Варвар",
+    "class_druid": "Друид",
+    "class_necromancer": "Некромант",
+    "class_paladin": "Паладин",
+    "class_sorceress": "Волшебница",
+    "class_warlock": "Чернокнижник",
+    "itype_any_helm": "Любой шлем",
+    "label_armors": "Броня",
+    "label_weapons": "Оружие",
+    "label_prefix": "Префикс",
+    "label_suffix": "Суффикс",
+    "label_socket": "%d гнездо",
+    "label_sockets": "%d гнёзд",
+    "label_runes_count": "%d рун",
+    "label_1h_only": "Только 1Р",
+    "label_2h_only": "Только 2Р",
+    "sort_1h_phys": "Физ. 1Р",
+    "sort_1h_phys_help": "Сортировать по физическому урону одной рукой.",
+    "sort_2h_phys": "Физ. 2Р",
+    "sort_2h_phys_help": "Сортировать по физическому урону двумя руками.",
+    "sort_throw_phys": "Физ. броска",
+    "sort_throw_phys_help": "Сортировать по физическому урону броска.",
+    "sort_non_phys": "Не физический",
+    "sort_non_phys_help": "Сортировать по не-физическому урону.",
+    "help_class_filter": "Фильтровать по классу персонажа.",
+    "help_item_type_filter": "Фильтровать по типу базового предмета.",
+    "help_equipment_filter": "Фильтровать по конкретной экипировке.",
+    "help_search": "Ищет по всем полям. Текст сопоставляется как фраза. Используйте «+», чтобы требовать несколько терминов (AND). Используйте «,» или «|» для OR. Добавьте «-» или «!» перед термином или фразой, чтобы исключить их. Например, «fire skill damage» находит точную фразу. «fire+cold» находит предметы с обоими терминами. «fire,cold» находит предметы с любым из них. «-fire» исключает предметы с fire. «damage -fire» находит предметы с damage, но без fire. «fire skill damage -cold skill damage» находит fire skill damage, но исключает cold skill damage.",
+    "help_search_sets": "Ищет по всем полям; комплекты сопоставляются как полный комплект, если найден один из предметов. Текст сопоставляется как фраза. Используйте «+», чтобы требовать несколько терминов (AND). Используйте «,» или «|» для OR. Добавьте «-» или «!» перед термином или фразой, чтобы исключить их. Например, «sorc skill mana» находит точную фразу. «fire+cold» находит предметы с обоими терминами. «-fire» исключает предметы с fire. «damage -fire» находит предметы с damage, но без fire. «fire skill damage -cold skill damage» находит fire skill damage, но исключает cold skill damage.",
+    "help_search_runes": "Поиск конкретных рун. Пробел и + работают как AND. , и | работают как OR. Например: El Eld|Hel Zod вернёт только Breath of the Dying и Starlight.",
+    "help_hide_vanilla": "Переключатель фильтра для скрытия оригинальных предметов.",
+    "help_hide_vanilla_sets": "Переключатель фильтра для скрытия оригинальных предметов. Применяется ко всему комплекту.",
+    "help_reset_filters": "Сбрасывает все фильтры к значениям по умолчанию.",
+    "help_sockets_filter": "Фильтровать по максимальному числу гнёзд у основы.",
+    "help_tier_filter": "Фильтровать по рангу основы. Если ничего не выбрано, страница по умолчанию держит вместе обычный/исключительный/элитный варианты одной группы основ.",
+    "help_category_filter": "Выберите броню, оружие или и то и другое.",
+    "help_affix_type_filter": "Выберите префиксы, суффиксы или и то и другое.",
+    "help_property_type_filter": "Фильтровать по группе свойств (например, урон, защита, полезность). Примечание: ещё в работе, некоторые могут быть неверными.",
+    "help_rune_count_filter": "Фильтровать по числу требуемых рун. Значение должно совпадать точно.",
+    "help_runes_only_filter": "Поиск конкретных рун.",
+    "help_recipe_type_filter": "Фильтровать рецепты по типу (перековка, улучшение, создание и т. д.).",
+    "help_recipe_class_filter": "Фильтровать рецепты по классу персонажа. Примечание: они одинаковы для каждого класса, но при использовании дают классовые навыки.",
+    "help_grail_category": "Выберите список категории Грааля.",
+    "help_grail_reset": "Сбрасывает отслеживаемый прогресс только текущей категории Грааля.",
+    "help_grail_import_export": "Открывает всплывающее окно для экспорта или импорта прогресса Грааля в base64.",
+    "help_grail_hide_found": "Переключатель фильтра для скрытия уже найденных предметов.",
+    "help_weapon_sort_hand": "Фильтровать тип оружия: все, только 1Р или только 2Р.",
+    "help_weapon_sort_reset": "Сбросить сортировку оружия.",
+    "help_item_type_filter_sets": "Фильтровать по типу базового предмета; комплекты сопоставляются как полный комплект, если найден один из предметов.",
+    "help_item_type_filter_uniques": "Фильтровать по типу базового предмета; для общих типов включает только классовые варианты.",
+    "help_item_type_filter_runewords": "Фильтровать по типу базового предмета. Включите «Точно», чтобы убрать варианты.",
+    "help_item_type_filter_grail": "Фильтровать по типу базового предмета, свободнее, чем на других страницах, из-за Грааля.",
+    "help_equipment_filter_uniques": "Фильтровать по конкретной экипировке для выбранного типа предмета; отключено, если тип не выбран.",
+    "help_equipment_filter_sets": "Фильтровать по конкретной экипировке для выбранного типа; отключено, если тип не выбран.",
+    "help_required_level_range": "Фильтровать по диапазону требуемого уровня. Минимальное и максимальное значения будут обновлять друг друга, если пересекаются.",
+    "help_exact_toggle": "Включите «Точно», чтобы убрать варианты.",
+    "label_chance": "%d%% шанс",
+    "prop_group_absorbs": "Поглощение",
+    "prop_group_attack_rating": "Рейтинг атаки",
+    "prop_group_attributes": "Атрибуты",
+    "prop_group_auto_repair": "Самопочинка",
+    "prop_group_block_chance": "Шанс блока",
+    "prop_group_charges": "Заряды",
+    "prop_group_ctc_level_up": "Шанс при повышении уровня",
+    "prop_group_ctc_when_striking": "Шанс при ударе",
+    "prop_group_ctc_when_struck": "Шанс при получении удара",
+    "prop_group_damage": "Урон",
+    "prop_group_defense": "Защита",
+    "prop_group_demon_damage": "Урон демонам",
+    "prop_group_elemental_effect_defense": "Защита от стихийных эффектов",
+    "prop_group_elemental_skill_effect": "Эффект стихийных умений",
+    "prop_group_elemental_weapon_damage": "Стихийный урон оружия",
+    "prop_group_equip_aura": "Аура при ношении",
+    "prop_group_experience": "Опыт",
+    "prop_group_gold_find": "Поиск золота",
+    "prop_group_indestructible": "Несокрушимый",
+    "prop_group_kick_damage": "Урон удара ногой",
+    "prop_group_life": "Жизнь",
+    "prop_group_life_leech": "Похищение жизни",
+    "prop_group_light_radius": "Радиус света",
+    "prop_group_magic_find": "Поиск магии",
+    "prop_group_mana": "Мана",
+    "prop_group_mana_leech": "Похищение маны",
+    "prop_group_reanimate": "Воскрешение",
+    "prop_group_requirements": "Требования",
+    "prop_group_resistances": "Сопротивления",
+    "prop_group_skill_levels": "Уровни умений",
+    "prop_group_skill_special_effects": "Особые эффекты умений",
+    "prop_group_sockets": "Гнёзда",
+    "label_item_level_sockets": "(Уровень предмета): Гнёзда",
+    "prop_group_speeds": "Скорости",
+    "prop_group_thorns": "Шипы",
+    "prop_group_undead_damage": "Урон нежити",
+    "prop_group_vendor_prices": "Цены торговцев",
+    "prop_group_weapon_effects": "Эффекты оружия"
+  },
+  "zhCN": {
+    "nav_home": "首页",
+    "nav_cube_recipes": "方块配方",
+    "nav_uniques": "暗金物品",
+    "nav_sets": "套装",
+    "nav_runewords": "符文之语",
+    "nav_grail": "圣杯",
+    "nav_bases": "底材",
+    "nav_affixes": "词缀",
+    "lang_tooltip": "选择网站数据和界面的语言。",
+    "font_tooltip": "选择浏览网站时使用的字体。",
+    "home_mission_title": "我们的使命",
+    "home_mission_text": "我们的使命是提供既熟悉又新颖的 Diablo II 体验。我们希望在保持 Diablo II 核心玩法不变的同时，为游戏加入新的功能和内容。我们想为玩了多年 Diablo II 的玩家带来新鲜体验，也为新玩家带来有趣且引人入胜的体验。",
+    "home_open_source_title": "开源",
+    "home_open_source_text": "我们所做的一切，无论是 D2R 文件本身，还是我们构建的任何工具，都是开源的。我们相信社区应该能够查看并修改运行该模组的代码。我们也相信社区应该能够为模组做出贡献，并帮助塑造它的未来。",
+    "home_discord_text": "想成为这项使命的一部分吗？加入我们的 Discord 服务器 {0}，了解有关贡献和协作的更多信息。",
+    "strPartialSetBonus": "%s（%d 件）",
+    "strFullSetBonus": "%s（完整套装）",
+    "strItemsCount": "（%d 件）",
+    "strFullSet": "（完整套装）",
+    "strRequiredLevel": "需求等级：%d",
+    "app_brand": "D2R Reimagined",
+    "nav_wiki": "Wiki",
+    "sr_select_language": "选择语言",
+    "sr_select_font": "选择字体",
+    "sr_open_menu": "打开主菜单",
+    "sr_top": "顶部",
+    "aria_back_to_top": "返回顶部",
+    "aria_choose_language": "选择语言",
+    "aria_choose_font": "选择字体",
+    "label_normal": "普通",
+    "label_exceptional": "扩展",
+    "label_elite": "精英",
+    "label_vanilla": "原版",
+    "label_mod": "模组",
+    "label_rarity": "稀有度：%s",
+    "label_level_required": "需要等级 %d",
+    "label_affix_level": "词缀等级 %s",
+    "label_only": "（仅限 %s）",
+    "label_or": " 或 ",
+    "found_items_suffix": "已找到物品",
+    "found_sets_suffix": "已找到套装",
+    "found_recipes_suffix": "已找到配方",
+    "found_runewords_suffix": "已找到符文之语",
+    "found_affixes_suffix": "已找到魔法词缀",
+    "found_bases_suffix": "已找到底材",
+    "filter_select_class": "选择职业",
+    "filter_select_type": "选择物品类型",
+    "filter_select_equipment": "选择装备",
+    "filter_search_placeholder": "搜索...",
+    "filter_hide_vanilla": "隐藏原版",
+    "filter_reset": "重置筛选器",
+    "filter_select_category": "选择分类",
+    "filter_select_sockets": "选择镶孔数",
+    "filter_select_tier": "选择阶级",
+    "filter_select_affix_type": "选择词缀类型",
+    "filter_select_property_type": "选择属性类型",
+    "filter_exact": "精确",
+    "filter_min_rlvl": "最低需求等级",
+    "filter_max_rlvl": "最高需求等级",
+    "filter_rune_count": "符文数量",
+    "filter_runes_only_placeholder": "仅符文...",
+    "filter_select_recipe_type": "选择配方类型",
+    "sort_by_damage": "按平均武器伤害排序：",
+    "sort_select_weapon_type": "选择武器类型",
+    "sort_reset": "重置排序",
+    "grail_title": "- 圣杯追踪器 -",
+    "grail_displayed_suffix": "已显示",
+    "grail_sets_completed": "已完成套装",
+    "grail_reset_progress": "重置圣杯分类进度",
+    "grail_import_export": "导入/导出圣杯数据",
+    "grail_hide_found": "隐藏已找到物品",
+    "grail_close": "关闭",
+    "grail_export_label": "导出（Base64）",
+    "grail_refresh_export": "刷新导出",
+    "grail_copy_export": "复制导出字符串",
+    "grail_import_label": "导入（Base64）",
+    "grail_import_placeholder": "在此粘贴 base64 圣杯数据",
+    "grail_merge": "合并",
+    "grail_replace": "替换",
+    "info_more_about": "更多关于 %s 的信息",
+    "affix_included_types": "绿色文字表示包含的物品类型。",
+    "affix_excluded_types": "红色文字表示排除的物品类型。",
+    "class_amazon": "亚马逊",
+    "class_assassin": "刺客",
+    "class_barbarian": "野蛮人",
+    "class_druid": "德鲁伊",
+    "class_necromancer": "死灵法师",
+    "class_paladin": "圣骑士",
+    "class_sorceress": "女巫",
+    "class_warlock": "术士",
+    "itype_any_helm": "任意头盔",
+    "label_armors": "护甲",
+    "label_weapons": "武器",
+    "label_prefix": "前缀",
+    "label_suffix": "后缀",
+    "label_socket": "%d 个镶孔",
+    "label_sockets": "%d 个镶孔",
+    "label_runes_count": "%d 个符文",
+    "label_1h_only": "仅限单手",
+    "label_2h_only": "仅限双手",
+    "sort_1h_phys": "单手物理",
+    "sort_1h_phys_help": "按单手物理伤害排序。",
+    "sort_2h_phys": "双手物理",
+    "sort_2h_phys_help": "按双手物理伤害排序。",
+    "sort_throw_phys": "投掷物理",
+    "sort_throw_phys_help": "按投掷物理伤害排序。",
+    "sort_non_phys": "非物理",
+    "sort_non_phys_help": "按非物理伤害排序。",
+    "help_class_filter": "按角色职业筛选。",
+    "help_item_type_filter": "按基础物品类型筛选。",
+    "help_equipment_filter": "筛选到特定装备。",
+    "help_search": "搜索所有字段。文本会作为短语匹配。使用“+”要求多个词（AND）。使用“,”或“|”表示 OR。以“-”或“!”开头可排除某个词或短语。例如：“fire skill damage”会查找完整短语。“fire+cold”会查找同时包含两者的物品。“fire,cold”会查找包含任一者的物品。“-fire”会排除包含 fire 的物品。“damage -fire”会查找包含 damage 但不包含 fire 的物品。“fire skill damage -cold skill damage”会查找 fire skill damage 并排除 cold skill damage。",
+    "help_search_sets": "搜索所有字段；如果找到套装中的任一项，套装会作为完整套装匹配。文本会作为短语匹配。使用“+”要求多个词（AND）。使用“,”或“|”表示 OR。以“-”或“!”开头可排除某个词或短语。例如：“sorc skill mana”会查找完整短语。“fire+cold”会查找同时包含两者的物品。“-fire”会排除包含 fire 的物品。“damage -fire”会查找包含 damage 但不包含 fire 的物品。“fire skill damage -cold skill damage”会查找 fire skill damage 并排除 cold skill damage。",
+    "help_search_runes": "搜索特定符文。空格和 + 作为 AND。 , 和 | 作为 OR。例如：El Eld|Hel Zod 只会返回 Breath of the Dying 和 Starlight。",
+    "help_hide_vanilla": "用于隐藏原版物品的筛选开关。",
+    "help_hide_vanilla_sets": "用于隐藏原版物品的筛选开关。适用于整个套装。",
+    "help_reset_filters": "将所有筛选器重置为默认值。",
+    "help_sockets_filter": "按底材最大可能镶孔数筛选。",
+    "help_tier_filter": "按底材阶级筛选。未选择时，页面默认会将同一底材组的普通/扩展/精英放在一起。",
+    "help_category_filter": "选择护甲、武器或两者。",
+    "help_affix_type_filter": "选择前缀、后缀或两者。",
+    "help_property_type_filter": "按属性组筛选（例如伤害、防御、功能）。注意：仍在开发中，部分可能不正确。",
+    "help_rune_count_filter": "按所需符文数量筛选。该数量为精确匹配。",
+    "help_runes_only_filter": "搜索特定符文。",
+    "help_recipe_type_filter": "按类型筛选配方（重骰、升级、制作等）。",
+    "help_recipe_class_filter": "按角色职业筛选配方。注意：每个职业的配方都相同，但使用时会赋予职业专属技能。",
+    "help_grail_category": "选择圣杯分类列表。",
+    "help_grail_reset": "仅重置当前圣杯分类的追踪进度。",
+    "help_grail_import_export": "打开弹窗，以 base64 导出或导入圣杯进度。",
+    "help_grail_hide_found": "用于隐藏已找到物品的筛选开关。",
+    "help_weapon_sort_hand": "筛选武器类型：全部、仅单手或仅双手。",
+    "help_weapon_sort_reset": "重置武器排序。",
+    "help_item_type_filter_sets": "按基础物品类型筛选；如果找到套装中的任一项，会作为完整套装匹配。",
+    "help_item_type_filter_uniques": "按基础物品类型筛选；在通用类型中仅包含职业专属变体。",
+    "help_item_type_filter_runewords": "按基础物品类型筛选。切换“精确”以移除变体。",
+    "help_item_type_filter_grail": "按基础物品类型筛选；由于圣杯页面需求，比其他页面更宽松。",
+    "help_equipment_filter_uniques": "筛选到所选物品类型的特定装备；未选择时禁用。",
+    "help_equipment_filter_sets": "筛选到所选类型的特定装备；未选择时禁用。",
+    "help_required_level_range": "按需求等级范围筛选。如果最小值和最大值重叠，它们会互相更新。",
+    "help_exact_toggle": "切换“精确”以移除变体。",
+    "label_chance": "%d%% 几率",
+    "prop_group_absorbs": "吸收",
+    "prop_group_attack_rating": "攻击等级",
+    "prop_group_attributes": "属性",
+    "prop_group_auto_repair": "自动修复",
+    "prop_group_block_chance": "格挡几率",
+    "prop_group_charges": "充能",
+    "prop_group_ctc_level_up": "升级时触发",
+    "prop_group_ctc_when_striking": "攻击时触发",
+    "prop_group_ctc_when_struck": "受击时触发",
+    "prop_group_damage": "伤害",
+    "prop_group_defense": "防御",
+    "prop_group_demon_damage": "对恶魔伤害",
+    "prop_group_elemental_effect_defense": "元素效果防御",
+    "prop_group_elemental_skill_effect": "元素技能效果",
+    "prop_group_elemental_weapon_damage": "元素武器伤害",
+    "prop_group_equip_aura": "装备光环",
+    "prop_group_experience": "经验",
+    "prop_group_gold_find": "金币掉落",
+    "prop_group_indestructible": "不灭",
+    "prop_group_kick_damage": "踢击伤害",
+    "prop_group_life": "生命",
+    "prop_group_life_leech": "生命窃取",
+    "prop_group_light_radius": "光源范围",
+    "prop_group_magic_find": "魔法物品掉落",
+    "prop_group_mana": "法力",
+    "prop_group_mana_leech": "法力窃取",
+    "prop_group_reanimate": "复生",
+    "prop_group_requirements": "需求",
+    "prop_group_resistances": "抗性",
+    "prop_group_skill_levels": "技能等级",
+    "prop_group_skill_special_effects": "技能特殊效果",
+    "prop_group_sockets": "镶孔",
+    "label_item_level_sockets": "（物品等级）：镶孔",
+    "prop_group_speeds": "速度",
+    "prop_group_thorns": "荆棘",
+    "prop_group_undead_damage": "对不死生物伤害",
+    "prop_group_vendor_prices": "商店价格",
+    "prop_group_weapon_effects": "武器效果"
+  },
+  "zhTW": {
+    "nav_home": "首頁",
+    "nav_cube_recipes": "方塊配方",
+    "nav_uniques": "獨特物品",
+    "nav_sets": "套裝",
+    "nav_runewords": "符文組",
+    "nav_grail": "聖杯",
+    "nav_bases": "底材",
+    "nav_affixes": "詞綴",
+    "lang_tooltip": "選擇網站資料與介面的語言。",
+    "font_tooltip": "選擇瀏覽網站時使用的字型。",
+    "home_mission_title": "我們的使命",
+    "home_mission_text": "我們的使命是提供既熟悉又嶄新的 Diablo II 體驗。我們希望保留 Diablo II 的核心玩法，同時為遊戲加入新功能與內容。我們想為多年遊玩 Diablo II 的玩家提供新鮮體驗，也為新玩家提供有趣且引人入勝的體驗。",
+    "home_open_source_title": "開放原始碼",
+    "home_open_source_text": "我們所做的一切，無論是 D2R 檔案本身，還是我們建置的任何工具，都是開放原始碼。我們相信社群應該能夠查看並修改執行此模組的程式碼。我們也相信社群應該能夠為模組做出貢獻，並協助塑造它的未來。",
+    "home_discord_text": "想成為這項使命的一部分嗎？加入我們的 Discord 伺服器 {0}，了解更多貢獻與協作資訊。",
+    "strPartialSetBonus": "%s（%d 件）",
+    "strFullSetBonus": "%s（完整套裝）",
+    "strItemsCount": "（%d 件）",
+    "strFullSet": "（完整套裝）",
+    "strRequiredLevel": "需求等級：%d",
+    "app_brand": "D2R Reimagined",
+    "nav_wiki": "Wiki",
+    "sr_select_language": "選擇語言",
+    "sr_select_font": "選擇字型",
+    "sr_open_menu": "開啟主選單",
+    "sr_top": "頂端",
+    "aria_back_to_top": "回到頂端",
+    "aria_choose_language": "選擇語言",
+    "aria_choose_font": "選擇字型",
+    "label_normal": "普通",
+    "label_exceptional": "進階",
+    "label_elite": "精英",
+    "label_vanilla": "原版",
+    "label_mod": "模組",
+    "label_rarity": "稀有度：%s",
+    "label_level_required": "需要等級 %d",
+    "label_affix_level": "詞綴等級 %s",
+    "label_only": "（僅限 %s）",
+    "label_or": " 或 ",
+    "found_items_suffix": "已找到物品",
+    "found_sets_suffix": "已找到套裝",
+    "found_recipes_suffix": "已找到配方",
+    "found_runewords_suffix": "已找到符文組",
+    "found_affixes_suffix": "已找到魔法詞綴",
+    "found_bases_suffix": "已找到底材",
+    "filter_select_class": "選擇職業",
+    "filter_select_type": "選擇物品類型",
+    "filter_select_equipment": "選擇裝備",
+    "filter_search_placeholder": "搜尋...",
+    "filter_hide_vanilla": "隱藏原版",
+    "filter_reset": "重設篩選器",
+    "filter_no_results": "未找到結果",
+    "filter_select_category": "選擇分類",
+    "filter_select_sockets": "選擇鑲孔數",
+    "filter_select_tier": "選擇階級",
+    "filter_select_affix_type": "選擇詞綴類型",
+    "filter_select_property_type": "選擇屬性類型",
+    "filter_exact": "精確",
+    "filter_min_rlvl": "最低需求等級",
+    "filter_max_rlvl": "最高需求等級",
+    "filter_rune_count": "符文數量",
+    "filter_runes_only_placeholder": "僅符文...",
+    "filter_select_recipe_type": "選擇配方類型",
+    "sort_by_damage": "依平均武器傷害排序：",
+    "sort_select_weapon_type": "選擇武器類型",
+    "sort_reset": "重設排序",
+    "grail_title": "- 聖杯追蹤器 -",
+    "grail_displayed_suffix": "已顯示",
+    "grail_sets_completed": "已完成套裝",
+    "grail_reset_progress": "重設聖杯分類進度",
+    "grail_import_export": "匯入/匯出聖杯資料",
+    "grail_hide_found": "隱藏已找到物品",
+    "grail_close": "關閉",
+    "grail_export_label": "匯出（Base64）",
+    "grail_refresh_export": "重新整理匯出",
+    "grail_copy_export": "複製匯出字串",
+    "grail_import_label": "匯入（Base64）",
+    "grail_import_placeholder": "在此貼上 base64 聖杯資料",
+    "grail_merge": "合併",
+    "grail_replace": "取代",
+    "info_more_about": "更多關於 %s 的資訊",
+    "affix_included_types": "綠色文字為包含的物品類型。",
+    "affix_excluded_types": "紅色文字為排除的物品類型。",
+    "class_amazon": "亞馬遜",
+    "class_assassin": "刺客",
+    "class_barbarian": "野蠻人",
+    "class_druid": "德魯伊",
+    "class_necromancer": "死靈法師",
+    "class_paladin": "聖騎士",
+    "class_sorceress": "魔法使",
+    "class_warlock": "術士",
+    "itype_any_helm": "任何頭盔",
+    "label_armors": "護甲",
+    "label_weapons": "武器",
+    "label_prefix": "前綴",
+    "label_suffix": "後綴",
+    "label_socket": "%d 個鑲孔",
+    "label_sockets": "%d 個鑲孔",
+    "label_runes_count": "%d 個符文",
+    "label_1h_only": "僅限單手",
+    "label_2h_only": "僅限雙手",
+    "sort_1h_phys": "單手物理",
+    "sort_1h_phys_help": "依單手物理傷害排序。",
+    "sort_2h_phys": "雙手物理",
+    "sort_2h_phys_help": "依雙手物理傷害排序。",
+    "sort_throw_phys": "投擲物理",
+    "sort_throw_phys_help": "依投擲物理傷害排序。",
+    "sort_non_phys": "非物理",
+    "sort_non_phys_help": "依非物理傷害排序。",
+    "help_class_filter": "依角色職業篩選。",
+    "help_item_type_filter": "依基礎物品類型篩選。",
+    "help_equipment_filter": "篩選到特定裝備。",
+    "help_search": "搜尋所有欄位。文字會以片語比對。使用「+」要求多個詞（AND）。使用「,」或「|」表示 OR。以「-」或「!」開頭可排除詞語或片語。例如：「fire skill damage」會尋找完整片語。「fire+cold」會尋找同時包含兩者的物品。「fire,cold」會尋找包含任一者的物品。「-fire」會排除包含 fire 的物品。「damage -fire」會尋找有 damage 但沒有 fire 的物品。「fire skill damage -cold skill damage」會尋找 fire skill damage 並排除 cold skill damage。",
+    "help_search_sets": "搜尋所有欄位；若找到套裝中的任一項，套裝會以完整套裝比對。文字會以片語比對。使用「+」要求多個詞（AND）。使用「,」或「|」表示 OR。以「-」或「!」開頭可排除詞語或片語。例如：「sorc skill mana」會尋找完整片語。「fire+cold」會尋找同時包含兩者的物品。「-fire」會排除包含 fire 的物品。「damage -fire」會尋找有 damage 但沒有 fire 的物品。「fire skill damage -cold skill damage」會尋找 fire skill damage 並排除 cold skill damage。",
+    "help_search_runes": "搜尋特定符文。使用空格與 + 作為 AND。使用 , 與 | 作為 OR。例如：El Eld|Hel Zod 只會返回 Breath of the Dying 與 Starlight。",
+    "help_hide_vanilla": "切換篩選以隱藏原版物品。",
+    "help_hide_vanilla_sets": "切換篩選以隱藏原版物品。會套用到整個套裝。",
+    "help_reset_filters": "將所有篩選器重設為預設值。",
+    "help_sockets_filter": "依底材可擁有的最大鑲孔數篩選。",
+    "help_tier_filter": "依底材階級篩選。未選擇時，頁面預設會將同一底材群組的普通/進階/精英黏在一起。",
+    "help_category_filter": "在護甲、武器或兩者之間選擇。",
+    "help_affix_type_filter": "在前綴、後綴或兩者之間選擇。",
+    "help_property_type_filter": "依屬性群組篩選（例如傷害、防禦、通用）。注意：仍在開發中，部分內容可能不正確。",
+    "help_rune_count_filter": "依所需符文數量篩選。此數量為精確值。",
+    "help_runes_only_filter": "搜尋特定符文。",
+    "help_recipe_type_filter": "依類型篩選配方（重骰、升級、製作等）。",
+    "help_recipe_class_filter": "依角色職業篩選配方。注意：各職業的配方都相同，但使用時會賦予該職業專屬技能。",
+    "help_grail_category": "選擇聖杯分類清單。",
+    "help_grail_reset": "只重設目前聖杯分類的追蹤進度。",
+    "help_grail_import_export": "開啟彈出視窗以 base64 匯出或匯入聖杯進度。",
+    "help_grail_hide_found": "切換篩選以隱藏已找到的物品。",
+    "help_weapon_sort_hand": "篩選武器類型：全部、僅單手或僅雙手。",
+    "help_weapon_sort_reset": "重設武器排序。",
+    "help_item_type_filter_sets": "依基礎物品類型篩選；若找到套裝中的任一項，會以完整套裝比對。",
+    "help_item_type_filter_uniques": "依基礎物品類型篩選；在通用類型上只包含職業專屬變體。",
+    "help_item_type_filter_runewords": "依基礎物品類型篩選。切換「精確」以移除變體。",
+    "help_item_type_filter_grail": "依基礎物品類型篩選；由於聖杯頁面需求，比其他頁面更寬鬆。",
+    "help_equipment_filter_uniques": "依所選物品類型篩選到特定裝備；若未選擇物品類型則停用。",
+    "help_equipment_filter_sets": "依所選類型篩選到特定裝備；若未選擇類型則停用。",
+    "help_required_level_range": "依需求等級範圍篩選。若最小值與最大值重疊，兩者會互相更新。",
+    "help_exact_toggle": "切換「精確」以移除變體。",
+    "label_chance": "%d%% 機率",
+    "prop_group_absorbs": "吸收",
+    "prop_group_attack_rating": "攻擊等級",
+    "prop_group_attributes": "屬性",
+    "prop_group_auto_repair": "自動修復",
+    "prop_group_block_chance": "格擋機率",
+    "prop_group_charges": "充能",
+    "prop_group_ctc_level_up": "升級時觸發",
+    "prop_group_ctc_when_striking": "攻擊時觸發",
+    "prop_group_ctc_when_struck": "受擊時觸發",
+    "prop_group_damage": "傷害",
+    "prop_group_defense": "防禦",
+    "prop_group_demon_damage": "對惡魔傷害",
+    "prop_group_elemental_effect_defense": "元素效果防禦",
+    "prop_group_elemental_skill_effect": "元素技能效果",
+    "prop_group_elemental_weapon_damage": "元素武器傷害",
+    "prop_group_equip_aura": "裝備光環",
+    "prop_group_experience": "經驗",
+    "prop_group_gold_find": "金幣掉落",
+    "prop_group_indestructible": "不滅",
+    "prop_group_kick_damage": "踢擊傷害",
+    "prop_group_life": "生命",
+    "prop_group_life_leech": "生命竊取",
+    "prop_group_light_radius": "光源範圍",
+    "prop_group_magic_find": "魔法物品掉落",
+    "prop_group_mana": "法力",
+    "prop_group_mana_leech": "法力竊取",
+    "prop_group_reanimate": "復生",
+    "prop_group_requirements": "需求",
+    "prop_group_resistances": "抗性",
+    "prop_group_skill_levels": "技能等級",
+    "prop_group_skill_special_effects": "技能特殊效果",
+    "prop_group_sockets": "鑲孔",
+    "label_item_level_sockets": "（物品等級）：鑲孔",
+    "prop_group_speeds": "速度",
+    "prop_group_thorns": "荊棘",
+    "prop_group_undead_damage": "對不死生物傷害",
+    "prop_group_vendor_prices": "商店價格",
+    "prop_group_weapon_effects": "武器效果"
+  }
+};
+const STRINGS_BASE_URL = "/data/strings";
+const cache = /* @__PURE__ */ new Map();
+let activeCode = FALLBACK_LANGUAGE;
+let active = {};
+let fallback = {};
+const listeners = /* @__PURE__ */ new Set();
+function getActiveLanguage() {
+  return activeCode;
+}
+function onLanguageChanged(listener) {
+  listeners.add(listener);
+  return () => listeners.delete(listener);
+}
+async function setLanguage(code) {
+  if (!LANGUAGES.includes(code)) {
+    throw new Error(`Unknown language code: ${code}`);
+  }
+  if (!cache.has(FALLBACK_LANGUAGE)) {
+    cache.set(FALLBACK_LANGUAGE, await fetchStrings(FALLBACK_LANGUAGE));
+  }
+  fallback = cache.get(FALLBACK_LANGUAGE) ?? {};
+  if (!cache.has(code)) {
+    cache.set(code, await fetchStrings(code));
+  }
+  active = cache.get(code) ?? {};
+  activeCode = code;
+  formatCache = /* @__PURE__ */ new WeakMap();
+  try {
+    window.localStorage.setItem("language", code);
+  } catch (err) {
+  }
+  listeners.forEach((l) => l(code));
+}
+function getSavedLanguage() {
+  try {
+    const saved = window.localStorage.getItem("language");
+    if (saved && LANGUAGES.includes(saved)) {
+      return saved;
+    }
+  } catch {
+  }
+  return FALLBACK_LANGUAGE;
+}
+function lookupSilent(key) {
+  if (!key) return "";
+  return active[key] ?? UI_STRINGS[activeCode]?.[key] ?? UI_STRINGS[FALLBACK_LANGUAGE]?.[key] ?? fallback[key] ?? key;
+}
+function lookup(key) {
+  if (!key) return "";
+  const hit = active[key] ?? UI_STRINGS[activeCode]?.[key] ?? UI_STRINGS[FALLBACK_LANGUAGE]?.[key] ?? fallback[key];
+  if (hit === void 0) {
+    return key;
+  }
+  return hit;
+}
+function t(key, args = []) {
+  const resolvedArgs = args.map((arg) => typeof arg === "string" ? lookupSilent(arg) : arg);
+  return formatTemplate(lookupSilent(key), resolvedArgs);
+}
+let formatCache = /* @__PURE__ */ new WeakMap();
+function format(line) {
+  if (!line) return "";
+  const cached = formatCache.get(line);
+  if (cached !== void 0) return cached;
+  const resolvedArgs = (line.args || []).map(
+    (arg) => typeof arg === "string" ? lookupSilent(arg) : arg
+  );
+  let result = formatTemplate(lookup(line.key), resolvedArgs);
+  if (line.perLevel) {
+    result += lookup("strPerCharacterLevelSuffix");
+  }
+  if (line.qualifier) {
+    const qualifierKey = {
+      weapon: "strRuneScopeWeapon",
+      shield: "strRuneScopeShield",
+      armor: "strRuneScopeArmor"
+    }[line.qualifier];
+    if (qualifierKey) {
+      result += lookup(qualifierKey);
+    }
+  }
+  if (line.classOnly) {
+    result += " " + lookupSilent(line.classOnly);
+  }
+  if (line.itemsRequired) {
+    result = formatTemplate(lookup("strPartialSetBonus"), [result, line.itemsRequired]);
+  } else if (line.fullSet) {
+    result = formatTemplate(lookup("strFullSetBonus"), [result]);
+  }
+  formatCache.set(line, result);
+  return result;
+}
+async function fetchStrings(code) {
+  const url = `${STRINGS_BASE_URL}/${code}.json`;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      console.warn(`[translation-store] ${url} -> ${res.status}; using empty map`);
+      return {};
+    }
+    const map = await res.json();
+    stripGenderTagsInPlace(map);
+    return map;
+  } catch (err) {
+    console.warn(`[translation-store] failed to load ${url}:`, err);
+    return {};
+  }
+}
 var __create$2 = Object.create;
 var __defProp$2 = Object.defineProperty;
 var __getOwnPropDesc$2 = Object.getOwnPropertyDescriptor;
-var __knownSymbol$2 = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : Symbol.for("Symbol." + name2);
+var __knownSymbol$2 = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : /* @__PURE__ */ Symbol.for("Symbol." + name2);
 var __typeError$2 = (msg) => {
   throw TypeError(msg);
 };
@@ -26034,26 +29544,65 @@ var __decorateElement$2 = (array, flags, name2, decorators, target, extra) => {
   }
   return __decoratorMetadata$2(array, target), desc && __defProp$2(target, name2, desc), p ? k ^ 4 ? extra : desc : target;
 };
-var _ChanceValueConverter_decorators, _init$2;
-_ChanceValueConverter_decorators = [valueConverter("chance")];
-class ChanceValueConverter {
-  toView(affix, pool) {
-    if (!pool || pool.length === 0) return 0;
-    const propertyPool = pool.filter((item) => item.PropertyString);
-    if (propertyPool.length === 0) return 0;
-    const totalChance = propertyPool.reduce((sum, item) => sum + (item.Chance || item.ModChance || 1), 0);
-    const specificChance = affix.Chance || affix.ModChance || 1;
-    const chancePercent = specificChance / totalChance * 100;
-    return Number.isInteger(chancePercent) ? chancePercent : chancePercent.toFixed(1);
+var _TValueConverter_decorators, _init$2, _KeyedLineValueConverter_decorators, _init2, _KeyedLinesValueConverter_decorators, _init3, _KeyedChanceValueConverter_decorators, _init4;
+_TValueConverter_decorators = [valueConverter("t")];
+class TValueConverter {
+  toView(key, ...args) {
+    return t(key ?? "", args);
   }
 }
 _init$2 = __decoratorStart$2();
-ChanceValueConverter = __decorateElement$2(_init$2, 0, "ChanceValueConverter", _ChanceValueConverter_decorators, ChanceValueConverter);
-__runInitializers$2(_init$2, 1, ChanceValueConverter);
+TValueConverter = __decorateElement$2(_init$2, 0, "TValueConverter", _TValueConverter_decorators, TValueConverter);
+__runInitializers$2(_init$2, 1, TValueConverter);
+_KeyedLineValueConverter_decorators = [valueConverter("keyedLine")];
+class KeyedLineValueConverter {
+  toView(line) {
+    return format(line);
+  }
+}
+_init2 = __decoratorStart$2();
+KeyedLineValueConverter = __decorateElement$2(_init2, 0, "KeyedLineValueConverter", _KeyedLineValueConverter_decorators, KeyedLineValueConverter);
+__runInitializers$2(_init2, 1, KeyedLineValueConverter);
+_KeyedLinesValueConverter_decorators = [valueConverter("keyedLines")];
+class KeyedLinesValueConverter {
+  toView(lines) {
+    if (!lines || !Array.isArray(lines)) return [];
+    const out = [];
+    for (const l of lines) {
+      if (!l) continue;
+      if (Array.isArray(l.children) && l.children.length > 0) {
+        for (const c of l.children) out.push(format(c));
+      } else {
+        out.push(format(l));
+      }
+    }
+    return out;
+  }
+}
+_init3 = __decoratorStart$2();
+KeyedLinesValueConverter = __decorateElement$2(_init3, 0, "KeyedLinesValueConverter", _KeyedLinesValueConverter_decorators, KeyedLinesValueConverter);
+__runInitializers$2(_init3, 1, KeyedLinesValueConverter);
+_KeyedChanceValueConverter_decorators = [valueConverter("keyedChance")];
+class KeyedChanceValueConverter {
+  toView(child, siblings) {
+    if (!child || !siblings || siblings.length === 0) return 0;
+    const total = siblings.reduce(
+      (sum, s) => sum + (typeof s?.chance === "number" ? s.chance : 1),
+      0
+    );
+    if (total <= 0) return 0;
+    const weight = typeof child.chance === "number" ? child.chance : 1;
+    const pct = weight / total * 100;
+    return Number.isInteger(pct) ? pct : Number(pct.toFixed(1));
+  }
+}
+_init4 = __decoratorStart$2();
+KeyedChanceValueConverter = __decorateElement$2(_init4, 0, "KeyedChanceValueConverter", _KeyedChanceValueConverter_decorators, KeyedChanceValueConverter);
+__runInitializers$2(_init4, 1, KeyedChanceValueConverter);
 var __create$1 = Object.create;
 var __defProp$1 = Object.defineProperty;
 var __getOwnPropDesc$1 = Object.getOwnPropertyDescriptor;
-var __knownSymbol$1 = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : Symbol.for("Symbol." + name2);
+var __knownSymbol$1 = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : /* @__PURE__ */ Symbol.for("Symbol." + name2);
 var __typeError$1 = (msg) => {
   throw TypeError(msg);
 };
@@ -26081,33 +29630,17 @@ var __decorateElement$1 = (array, flags, name2, decorators, target, extra) => {
   }
   return __decoratorMetadata$1(array, target), desc && __defProp$1(target, name2, desc), p ? k ^ 4 ? extra : desc : target;
 };
-var _SortPropertiesValueConverter_decorators, _init$1;
-_SortPropertiesValueConverter_decorators = [valueConverter("sortProperties")];
-class SortPropertiesValueConverter {
-  toView(properties) {
-    if (!properties || !Array.isArray(properties)) return properties;
-    return [...properties].sort((a, b) => {
-      const getPriority = (p) => {
-        if (p["group-properties"]) {
-          const pools = Object.values(p["group-properties"]);
-          if (pools.length > 0) {
-            const pool = pools[0];
-            const pickMode = p.pickmode ?? (pool[0] ? pool[0].PickMode : void 0);
-            if (pickMode == 0) {
-              return 0;
-            }
-            return 1;
-          }
-        }
-        return 0;
-      };
-      return getPriority(a) - getPriority(b);
-    });
+var _SplitValueConverter_decorators, _init$1;
+_SplitValueConverter_decorators = [valueConverter("split")];
+class SplitValueConverter {
+  toView(value, separator) {
+    if (value == null) return [];
+    return String(value).split(separator);
   }
 }
 _init$1 = __decoratorStart$1();
-SortPropertiesValueConverter = __decorateElement$1(_init$1, 0, "SortPropertiesValueConverter", _SortPropertiesValueConverter_decorators, SortPropertiesValueConverter);
-__runInitializers$1(_init$1, 1, SortPropertiesValueConverter);
+SplitValueConverter = __decorateElement$1(_init$1, 0, "SplitValueConverter", _SplitValueConverter_decorators, SplitValueConverter);
+__runInitializers$1(_init$1, 1, SplitValueConverter);
 const Resources = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   get ChanceValueConverter() {
@@ -26116,11 +29649,26 @@ const Resources = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePro
   get EntriesValueConverter() {
     return EntriesValueConverter;
   },
+  get KeyedChanceValueConverter() {
+    return KeyedChanceValueConverter;
+  },
+  get KeyedLineValueConverter() {
+    return KeyedLineValueConverter;
+  },
+  get KeyedLinesValueConverter() {
+    return KeyedLinesValueConverter;
+  },
   get RuneNameValueConverter() {
     return RuneNameValueConverter;
   },
   get SortPropertiesValueConverter() {
     return SortPropertiesValueConverter;
+  },
+  get SplitValueConverter() {
+    return SplitValueConverter;
+  },
+  get TValueConverter() {
+    return TValueConverter;
   }
 }, Symbol.toStringTag, { value: "Module" }));
 function isBlankOrInvalid(v) {
@@ -26235,22 +29783,56 @@ const template = `<nav class="bg-gray-800 fixed w-full z-20 top-0 left-0 shadow-
     <div class="w-full h-16 px-4 flex flex-nowrap items-center justify-between mx-auto">
 
         <a href="/" class="text-xl link-text truncate">
-            D2R Reimagined
+            \${'app_brand' | t}
         </a>
 
         <div class="flex lg:order-2">
+            <!-- Language selection dropdown -->
+            <div class="flex items-center relative language-menu px-2">
+                <button type="button"
+                        class="text-2xl link-text inline-flex items-center cursor-pointer select-none"
+                        data-help-text="\${'lang_tooltip' | t:activeLanguageCode}"
+                        data-tooltip-placement="bottom"
+                        aria-label="\${'aria_choose_language' | t}"
+                        aria-haspopup="true"
+                        aria-expanded.bind="languageMenuOpen.toString()"
+                        click.trigger="toggleLanguageMenu()"
+                        keydown.trigger="event.key === 'Escape' && closeLanguageMenu()">
+                    <span class="sr-only">\${'sr_select_language' | t}</span>
+                    <span class="mso">language</span>
+                </button>
+                <!-- Dropdown panel -->
+                <div if.bind="languageMenuOpen"
+                     class="fixed right-5 top-15.75 min-w-60 z-30 bg-gray-800 border border-gray-600 rounded-b-lg shadow-md overflow-hidden"
+                     role="menu"
+                     keydown.trigger="event.key === 'Escape' && closeLanguageMenu()">
+                    <ul class="py-1 max-h-96 overflow-y-auto">
+                        <li repeat.for="lang of languages">
+                            <button type="button"
+                                    class="w-full text-left px-4 py-3 text-lg link-text flex items-center justify-between hover:bg-gray-700"
+                                    role="menuitem"
+                                    click.trigger="selectLanguage(lang.code)">
+                                <span>\${lang.name}</span>
+                                <span if.bind="lang.code === activeLanguageCode"
+                                      class="mso ml-2">check</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
             <!-- Font selection dropdown -->
             <div class="flex items-center relative font-menu px-4">
                 <button type="button"
                         class="text-2xl link-text inline-flex items-center cursor-pointer select-none"
-                        data-help-text="Select a font for viewing the site."
+                        data-help-text="\${'font_tooltip' | t:activeLanguageCode}"
                         data-tooltip-placement="bottom"
-                        aria-label="Choose font"
+                        aria-label="\${'aria_choose_font' | t}"
                         aria-haspopup="true"
                         aria-expanded.bind="fontMenuOpen.toString()"
                         click.trigger="toggleFontMenu()"
                         keydown.trigger="event.key === 'Escape' && closeFontMenu()">
-                    <span class="sr-only">Select Font</span>
+                    <span class="sr-only">\${'sr_select_font' | t}</span>
                     <span class="mso">type_specimen</span>
                 </button>
                 <!-- Dropdown panel -->
@@ -26278,7 +29860,7 @@ const template = `<nav class="bg-gray-800 fixed w-full z-20 top-0 left-0 shadow-
                     class="flex items-center px-2 text-2xl link-text lg:hidden"
                     aria-controls="navbar-sticky" aria-expanded="false"
                     click.trigger="toggleMobileMenu($event.currentTarget)">
-                <span class="sr-only">Open main menu</span>
+                <span class="sr-only">\${'sr_open_menu' | t}</span>
                 <span class="mso">menu</span>
             </button>
 
@@ -26296,36 +29878,36 @@ const template = `<nav class="bg-gray-800 fixed w-full z-20 top-0 left-0 shadow-
             <ul class="flex flex-col gap-4 p-4 border border-gray-600 bg-gray-800 rounded-b-lg lg:flex-row lg:gap-6 lg:p-0 lg:border-0 lg:bg-transparent">
                 <li>
                     <a href="/bases" class="block text-lg link-text" aria-current="page"
-                       click.trigger="closeMobileMenu()">Bases</a>
+                       click.trigger="closeMobileMenu()">\${'nav_bases' | t:activeLanguageCode}</a>
                 </li>
                 <li>
                     <a href="/affixes" class="block text-lg link-text" aria-current="page"
-                       click.trigger="closeMobileMenu()">Affixes</a>
+                       click.trigger="closeMobileMenu()">\${'nav_affixes' | t:activeLanguageCode}</a>
                 </li>
                 <li>
                     <a href="/uniques" class="block text-lg link-text" aria-current="page"
-                       click.trigger="closeMobileMenu()">Uniques</a>
+                       click.trigger="closeMobileMenu()">\${'nav_uniques' | t:activeLanguageCode}</a>
                 </li>
                 <li>
                     <a href="/sets" class="block text-lg link-text" aria-current="page"
-                       click.trigger="closeMobileMenu()">Sets</a>
+                       click.trigger="closeMobileMenu()">\${'nav_sets' | t:activeLanguageCode}</a>
                 </li>
                 <li>
                     <a href="/runewords" class="block text-lg link-text" aria-current="page"
-                       click.trigger="closeMobileMenu()">Runewords</a>
+                       click.trigger="closeMobileMenu()">\${'nav_runewords' | t:activeLanguageCode}</a>
                 </li>
                 <li>
                     <a href="/grail" class="block text-lg link-text" aria-current="page"
-                       click.trigger="closeMobileMenu()">Grail</a>
+                       click.trigger="closeMobileMenu()">\${'nav_grail' | t:activeLanguageCode}</a>
                 </li>
                 <li>
                     <a href="/cube-recipes" class="block text-lg link-text truncate" aria-current="page"
-                       click.trigger="closeMobileMenu()">Cube Recipes</a>
+                       click.trigger="closeMobileMenu()">\${'nav_cube_recipes' | t:activeLanguageCode}</a>
                 </li>
                 <li>
                     <a href="https://wiki.d2r-reimagined.com/" target="_blank"
                        class="flex text-lg link-text items-center" aria-current="page"
-                       click.trigger="closeMobileMenu()">Wiki<span class="mso ml-1">open_in_new</span>
+                       click.trigger="closeMobileMenu()">\${'nav_wiki' | t:activeLanguageCode}<span class="mso ml-1">open_in_new</span>
                     </a>
                 </li>
             </ul>
@@ -26337,7 +29919,7 @@ const template = `<nav class="bg-gray-800 fixed w-full z-20 top-0 left-0 shadow-
 <!-- Nav Bar Spacer -->
 <div class="h-16"></div>
 
-<div class="w-full pb-12">
+<div class="w-full pb-12" if.bind="activeLanguageCode">
     <au-viewport default="Home"></au-viewport>
 </div>
 
@@ -26346,9 +29928,9 @@ const template = `<nav class="bg-gray-800 fixed w-full z-20 top-0 left-0 shadow-
         class="min-w-10 min-h-10 m-auto flex items-center justify-center text-2xl type-text
         fixed bottom-2 right-2 z-50 ring-0 ring-offset-0 rounded-full shadow-md
          bg-gray-800 border border-gray-600 hover:bg-gray-700 hover:border-gray-400"
-        aria-label="Back to top" click.trigger="scrollToTop()" if.bind="showBackToTop">
+        aria-label="\${'aria_back_to_top' | t}" click.trigger="scrollToTop()" if.bind="showBackToTop">
     <span class="mso" aria-hidden="true">arrow_upward</span>
-    <span class="sr-only">Top</span>
+    <span class="sr-only">\${'sr_top' | t}</span>
 </button>
 `;
 const dependencies = [];
@@ -26372,7 +29954,7 @@ const __au2ViewDef = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.define
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __knownSymbol = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : Symbol.for("Symbol." + name2);
+var __knownSymbol = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : /* @__PURE__ */ Symbol.for("Symbol." + name2);
 var __typeError = (msg) => {
   throw TypeError(msg);
 };
@@ -26406,42 +29988,42 @@ _App_decorators = [customElement(__au2ViewDef), route({
   routes: [
     {
       path: "",
-      component: __vitePreload(() => import("./home-DSylz0FI.js"), true ? [] : void 0),
+      component: __vitePreload(() => import("./home-DfBUmJea.js"), true ? [] : void 0),
       title: "Home"
     },
     {
       path: "cube-recipes",
-      component: __vitePreload(() => import("./cube-recipes-DFKk9bP5.js"), true ? __vite__mapDeps([0,1,2]) : void 0),
+      component: __vitePreload(() => import("./cube-recipes-DuN_wWCV.js"), true ? __vite__mapDeps([0,1,2,3]) : void 0),
       title: "Cube Recipes"
     },
     {
       path: "uniques",
-      component: __vitePreload(() => import("./uniques-BmZu6Rox.js"), true ? __vite__mapDeps([3,4,5,6,1,2,7]) : void 0),
+      component: __vitePreload(() => import("./uniques-a3WECblH.js"), true ? __vite__mapDeps([4,1,2,5,3,6]) : void 0),
       title: "Uniques"
     },
     {
       path: "sets",
-      component: __vitePreload(() => import("./sets-Cw4zT3ta.js"), true ? __vite__mapDeps([8,4,5,6,1,2,9]) : void 0),
+      component: __vitePreload(() => import("./sets-CF4zLVrP.js"), true ? __vite__mapDeps([7,1,2,5,3,6]) : void 0),
       title: "Sets"
     },
     {
       path: "runewords",
-      component: __vitePreload(() => import("./runewords-Cky7btJJ.js"), true ? __vite__mapDeps([10,4,1,2,11]) : void 0),
+      component: __vitePreload(() => import("./runewords-D7HMLIPB.js"), true ? __vite__mapDeps([8,1,3]) : void 0),
       title: "Runewords"
     },
     {
       path: "grail",
-      component: __vitePreload(() => import("./grail-Clfx8Yvq.js"), true ? __vite__mapDeps([12,4,5,6,1,2,11,9,7]) : void 0),
+      component: __vitePreload(() => import("./grail-ED9m-Mpn.js"), true ? __vite__mapDeps([9,1,2,5,3,6]) : void 0),
       title: "Holy Grail"
     },
     {
       path: "bases",
-      component: __vitePreload(() => import("./bases-CM8PYjOC.js"), true ? __vite__mapDeps([13,4,6,2]) : void 0),
+      component: __vitePreload(() => import("./bases-C8Jf8Joj.js"), true ? __vite__mapDeps([10,1,5]) : void 0),
       title: "Bases"
     },
     {
       path: "affixes",
-      component: __vitePreload(() => import("./affixes-BlB9GxCP.js"), true ? __vite__mapDeps([14,4,1,2]) : void 0),
+      component: __vitePreload(() => import("./affixes-BC2CikRC.js"), true ? __vite__mapDeps([11,1,3]) : void 0),
       title: "Affixes"
     }
   ]
@@ -26458,6 +30040,26 @@ class App {
   fontMenuOpen = false;
   // Selected font (class) reflected to bindings for labels/tooltips
   selectedFontClass = "font-resurrected";
+  // UI state for language dropdown visibility
+  languageMenuOpen = false;
+  // List of available languages with display names
+  languages = [
+    { code: "enUS", name: "English" },
+    { code: "zhTW", name: "繁體中文" },
+    { code: "deDE", name: "Deutsch" },
+    { code: "esES", name: "Español" },
+    { code: "frFR", name: "Français" },
+    { code: "itIT", name: "Italiano" },
+    { code: "koKR", name: "한국어" },
+    { code: "plPL", name: "Polski" },
+    { code: "esMX", name: "Español (AL)" },
+    { code: "jaJP", name: "日本語" },
+    { code: "ptBR", name: "Português" },
+    { code: "ruRU", name: "Русский" },
+    { code: "zhCN", name: "简体中文" }
+  ];
+  // Current active language code
+  activeLanguageCode = getActiveLanguage();
   // Internals for back-to-top monitoring
   _bt_lastScrollEl;
   _bt_bound = false;
@@ -26469,6 +30071,13 @@ class App {
     this.loadFont();
     this.bindBackToTopMonitoring();
     this.updateBackToTopVisibility();
+    onLanguageChanged((code) => {
+      if (this.activeLanguageCode === code) return;
+      this.activeLanguageCode = "";
+      void Promise.resolve().then(() => {
+        this.activeLanguageCode = code;
+      });
+    });
     this._onDocClick = (ev) => {
       const target = ev.target;
       if (this.fontMenuOpen) {
@@ -26476,6 +30085,13 @@ class App {
         const clickInsideMenu = !!(target && menuHost && menuHost.contains(target));
         if (!clickInsideMenu) {
           this.closeFontMenu();
+        }
+      }
+      if (this.languageMenuOpen) {
+        const menuHost = document.querySelector("nav .language-menu");
+        const clickInsideMenu = !!(target && menuHost && menuHost.contains(target));
+        if (!clickInsideMenu) {
+          this.closeLanguageMenu();
         }
       }
       const panel = document.getElementById("navbar-sticky");
@@ -26529,6 +30145,24 @@ class App {
   }
   toggleFontMenu() {
     this.fontMenuOpen = !this.fontMenuOpen;
+  }
+  /**
+  * Open/close helpers for the language dropdown
+  */
+  closeLanguageMenu() {
+    this.languageMenuOpen = false;
+  }
+  toggleLanguageMenu() {
+    this.languageMenuOpen = !this.languageMenuOpen;
+  }
+  async selectLanguage(code) {
+    if (code === this.activeLanguageCode) {
+      this.closeLanguageMenu();
+      return;
+    }
+    await setLanguage(code);
+    this.closeLanguageMenu();
+    this.closeMobileMenu();
   }
   /**
   * Toggle the mobile navigation panel visibility and sync aria-expanded on the button.
@@ -26591,8 +30225,8 @@ class App {
     const style = document.documentElement.style;
     return "scrollBehavior" in style;
   }
-  easeOutCubic(t) {
-    return 1 - Math.pow(1 - t, 3);
+  easeOutCubic(t2) {
+    return 1 - Math.pow(1 - t2, 3);
   }
   animateWindowToTop(duration = 400) {
     const start2 = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
@@ -26753,7 +30387,7 @@ var Instances = (
         Datepicker: {}
       };
     }
-    Instances2.prototype.addInstance = function(component, instance, id2, override) {
+    Instances2.prototype.addInstance = function(component, instance, id, override) {
       if (override === void 0) {
         override = false;
       }
@@ -26761,14 +30395,14 @@ var Instances = (
         console.warn("Flowbite: Component ".concat(component, " does not exist."));
         return false;
       }
-      if (this._instances[component][id2] && !override) {
-        console.warn("Flowbite: Instance with ID ".concat(id2, " already exists."));
+      if (this._instances[component][id] && !override) {
+        console.warn("Flowbite: Instance with ID ".concat(id, " already exists."));
         return;
       }
-      if (override && this._instances[component][id2]) {
-        this._instances[component][id2].destroyAndRemoveInstance();
+      if (override && this._instances[component][id]) {
+        this._instances[component][id].destroyAndRemoveInstance();
       }
-      this._instances[component][id2 ? id2 : this._generateRandomId()] = instance;
+      this._instances[component][id ? id : this._generateRandomId()] = instance;
     };
     Instances2.prototype.getAllInstances = function() {
       return this._instances;
@@ -26780,40 +30414,40 @@ var Instances = (
       }
       return this._instances[component];
     };
-    Instances2.prototype.getInstance = function(component, id2) {
-      if (!this._componentAndInstanceCheck(component, id2)) {
+    Instances2.prototype.getInstance = function(component, id) {
+      if (!this._componentAndInstanceCheck(component, id)) {
         return;
       }
-      if (!this._instances[component][id2]) {
-        console.warn("Flowbite: Instance with ID ".concat(id2, " does not exist."));
+      if (!this._instances[component][id]) {
+        console.warn("Flowbite: Instance with ID ".concat(id, " does not exist."));
         return;
       }
-      return this._instances[component][id2];
+      return this._instances[component][id];
     };
-    Instances2.prototype.destroyAndRemoveInstance = function(component, id2) {
-      if (!this._componentAndInstanceCheck(component, id2)) {
+    Instances2.prototype.destroyAndRemoveInstance = function(component, id) {
+      if (!this._componentAndInstanceCheck(component, id)) {
         return;
       }
-      this.destroyInstanceObject(component, id2);
-      this.removeInstance(component, id2);
+      this.destroyInstanceObject(component, id);
+      this.removeInstance(component, id);
     };
-    Instances2.prototype.removeInstance = function(component, id2) {
-      if (!this._componentAndInstanceCheck(component, id2)) {
+    Instances2.prototype.removeInstance = function(component, id) {
+      if (!this._componentAndInstanceCheck(component, id)) {
         return;
       }
-      delete this._instances[component][id2];
+      delete this._instances[component][id];
     };
-    Instances2.prototype.destroyInstanceObject = function(component, id2) {
-      if (!this._componentAndInstanceCheck(component, id2)) {
+    Instances2.prototype.destroyInstanceObject = function(component, id) {
+      if (!this._componentAndInstanceCheck(component, id)) {
         return;
       }
-      this._instances[component][id2].destroy();
+      this._instances[component][id].destroy();
     };
-    Instances2.prototype.instanceExists = function(component, id2) {
+    Instances2.prototype.instanceExists = function(component, id) {
       if (!this._instances[component]) {
         return false;
       }
-      if (!this._instances[component][id2]) {
+      if (!this._instances[component][id]) {
         return false;
       }
       return true;
@@ -26821,13 +30455,13 @@ var Instances = (
     Instances2.prototype._generateRandomId = function() {
       return Math.random().toString(36).substr(2, 9);
     };
-    Instances2.prototype._componentAndInstanceCheck = function(component, id2) {
+    Instances2.prototype._componentAndInstanceCheck = function(component, id) {
       if (!this._instances[component]) {
         console.warn("Flowbite: Component ".concat(component, " does not exist."));
         return false;
       }
-      if (!this._instances[component][id2]) {
-        console.warn("Flowbite: Instance with ID ".concat(id2, " does not exist."));
+      if (!this._instances[component][id]) {
+        console.warn("Flowbite: Instance with ID ".concat(id, " does not exist."));
         return false;
       }
       return true;
@@ -26840,20 +30474,20 @@ if (typeof window !== "undefined") {
   window.FlowbiteInstances = instances;
 }
 var __assign$d = function() {
-  __assign$d = Object.assign || function(t) {
+  __assign$d = Object.assign || function(t2) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
       s = arguments[i];
       for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-        t[p] = s[p];
+        t2[p] = s[p];
     }
-    return t;
+    return t2;
   };
   return __assign$d.apply(this, arguments);
 };
 var Default$d = {
   alwaysOpen: false,
-  activeClasses: "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white",
-  inactiveClasses: "text-gray-500 dark:text-gray-400",
+  activeClasses: "bg-neutral-secondary-medium text-heading",
+  inactiveClasses: "bg-neutral-primary text-body",
   onOpen: function() {
   },
   onClose: function() {
@@ -26921,15 +30555,15 @@ var Accordion = (
       this.destroy();
       this.removeInstance();
     };
-    Accordion2.prototype.getItem = function(id2) {
+    Accordion2.prototype.getItem = function(id) {
       return this._items.filter(function(item) {
-        return item.id === id2;
+        return item.id === id;
       })[0];
     };
-    Accordion2.prototype.open = function(id2) {
+    Accordion2.prototype.open = function(id) {
       var _a2, _b2;
       var _this = this;
-      var item = this.getItem(id2);
+      var item = this.getItem(id);
       if (!this._options.alwaysOpen) {
         this._items.map(function(i) {
           var _a3, _b3;
@@ -26955,18 +30589,18 @@ var Accordion = (
       }
       this._options.onOpen(this, item);
     };
-    Accordion2.prototype.toggle = function(id2) {
-      var item = this.getItem(id2);
+    Accordion2.prototype.toggle = function(id) {
+      var item = this.getItem(id);
       if (item.active) {
-        this.close(id2);
+        this.close(id);
       } else {
-        this.open(id2);
+        this.open(id);
       }
       this._options.onToggle(this, item);
     };
-    Accordion2.prototype.close = function(id2) {
+    Accordion2.prototype.close = function(id) {
       var _a2, _b2;
-      var item = this.getItem(id2);
+      var item = this.getItem(id);
       (_a2 = item.triggerEl.classList).remove.apply(_a2, this._options.activeClasses.split(" "));
       (_b2 = item.triggerEl.classList).add.apply(_b2, this._options.inactiveClasses.split(" "));
       item.targetEl.classList.add("hidden");
@@ -27019,13 +30653,13 @@ if (typeof window !== "undefined") {
   window.initAccordions = initAccordions;
 }
 var __assign$c = function() {
-  __assign$c = Object.assign || function(t) {
+  __assign$c = Object.assign || function(t2) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
       s = arguments[i];
       for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-        t[p] = s[p];
+        t2[p] = s[p];
     }
-    return t;
+    return t2;
   };
   return __assign$c.apply(this, arguments);
 };
@@ -27152,13 +30786,13 @@ if (typeof window !== "undefined") {
   window.initCollapses = initCollapses;
 }
 var __assign$b = function() {
-  __assign$b = Object.assign || function(t) {
+  __assign$b = Object.assign || function(t2) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
       s = arguments[i];
       for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-        t[p] = s[p];
+        t2[p] = s[p];
     }
-    return t;
+    return t2;
   };
   return __assign$b.apply(this, arguments);
 };
@@ -27394,13 +31028,13 @@ if (typeof window !== "undefined") {
   window.initCarousels = initCarousels;
 }
 var __assign$a = function() {
-  __assign$a = Object.assign || function(t) {
+  __assign$a = Object.assign || function(t2) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
       s = arguments[i];
       for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-        t[p] = s[p];
+        t2[p] = s[p];
     }
-    return t;
+    return t2;
   };
   return __assign$a.apply(this, arguments);
 };
@@ -28838,13 +32472,13 @@ var createPopper = /* @__PURE__ */ popperGenerator({
   defaultModifiers
 });
 var __assign$9 = function() {
-  __assign$9 = Object.assign || function(t) {
+  __assign$9 = Object.assign || function(t2) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
       s = arguments[i];
       for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-        t[p] = s[p];
+        t2[p] = s[p];
     }
-    return t;
+    return t2;
   };
   return __assign$9.apply(this, arguments);
 };
@@ -29123,19 +32757,19 @@ if (typeof window !== "undefined") {
   window.initDropdowns = initDropdowns;
 }
 var __assign$8 = function() {
-  __assign$8 = Object.assign || function(t) {
+  __assign$8 = Object.assign || function(t2) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
       s = arguments[i];
       for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-        t[p] = s[p];
+        t2[p] = s[p];
     }
-    return t;
+    return t2;
   };
   return __assign$8.apply(this, arguments);
 };
 var Default$8 = {
   placement: "center",
-  backdropClasses: "bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-40",
+  backdropClasses: "bg-dark-backdrop/70 fixed inset-0 z-40",
   backdrop: "dynamic",
   closable: true,
   onHide: function() {
@@ -29412,13 +33046,13 @@ if (typeof window !== "undefined") {
   window.initModals = initModals;
 }
 var __assign$7 = function() {
-  __assign$7 = Object.assign || function(t) {
+  __assign$7 = Object.assign || function(t2) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
       s = arguments[i];
       for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-        t[p] = s[p];
+        t2[p] = s[p];
     }
-    return t;
+    return t2;
   };
   return __assign$7.apply(this, arguments);
 };
@@ -29428,7 +33062,7 @@ var Default$7 = {
   backdrop: true,
   edge: false,
   edgeOffset: "bottom-[60px]",
-  backdropClasses: "bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-30",
+  backdropClasses: "bg-dark-backdrop/70 fixed inset-0 z-30",
   onShow: function() {
   },
   onHide: function() {
@@ -29734,20 +33368,20 @@ if (typeof window !== "undefined") {
   window.initDrawers = initDrawers;
 }
 var __assign$6 = function() {
-  __assign$6 = Object.assign || function(t) {
+  __assign$6 = Object.assign || function(t2) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
       s = arguments[i];
       for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-        t[p] = s[p];
+        t2[p] = s[p];
     }
-    return t;
+    return t2;
   };
   return __assign$6.apply(this, arguments);
 };
 var Default$6 = {
   defaultTabId: null,
-  activeClasses: "text-blue-600 hover:text-blue-600 dark:text-blue-500 dark:hover:text-blue-500 border-blue-600 dark:border-blue-500",
-  inactiveClasses: "dark:border-transparent text-gray-500 hover:text-gray-600 dark:text-gray-400 border-gray-100 hover:border-gray-300 dark:border-gray-700 dark:hover:text-gray-300",
+  activeClasses: "text-fg-brand hover:text-fg-brand border-brand",
+  inactiveClasses: "border-transparent text-body hover:text-heading border-soft hover:border-default",
   onShow: function() {
   }
 };
@@ -29814,28 +33448,28 @@ var Tabs = (
     Tabs2.prototype.setActiveTab = function(tab) {
       this._activeTab = tab;
     };
-    Tabs2.prototype.getTab = function(id2) {
-      return this._items.filter(function(t) {
-        return t.id === id2;
+    Tabs2.prototype.getTab = function(id) {
+      return this._items.filter(function(t2) {
+        return t2.id === id;
       })[0];
     };
-    Tabs2.prototype.show = function(id2, forceShow) {
+    Tabs2.prototype.show = function(id, forceShow) {
       var _a2, _b2;
       var _this = this;
       if (forceShow === void 0) {
         forceShow = false;
       }
-      var tab = this.getTab(id2);
+      var tab = this.getTab(id);
       if (tab === this._activeTab && !forceShow) {
         return;
       }
-      this._items.map(function(t) {
+      this._items.map(function(t2) {
         var _a3, _b3;
-        if (t !== tab) {
-          (_a3 = t.triggerEl.classList).remove.apply(_a3, _this._options.activeClasses.split(" "));
-          (_b3 = t.triggerEl.classList).add.apply(_b3, _this._options.inactiveClasses.split(" "));
-          t.targetEl.classList.add("hidden");
-          t.triggerEl.setAttribute("aria-selected", "false");
+        if (t2 !== tab) {
+          (_a3 = t2.triggerEl.classList).remove.apply(_a3, _this._options.activeClasses.split(" "));
+          (_b3 = t2.triggerEl.classList).add.apply(_b3, _this._options.inactiveClasses.split(" "));
+          t2.targetEl.classList.add("hidden");
+          t2.triggerEl.setAttribute("aria-selected", "false");
         }
       });
       (_a2 = tab.triggerEl.classList).add.apply(_a2, this._options.activeClasses.split(" "));
@@ -29881,13 +33515,13 @@ if (typeof window !== "undefined") {
   window.initTabs = initTabs;
 }
 var __assign$5 = function() {
-  __assign$5 = Object.assign || function(t) {
+  __assign$5 = Object.assign || function(t2) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
       s = arguments[i];
       for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-        t[p] = s[p];
+        t2[p] = s[p];
     }
-    return t;
+    return t2;
   };
   return __assign$5.apply(this, arguments);
 };
@@ -30123,13 +33757,13 @@ if (typeof window !== "undefined") {
   window.initTooltips = initTooltips;
 }
 var __assign$4 = function() {
-  __assign$4 = Object.assign || function(t) {
+  __assign$4 = Object.assign || function(t2) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
       s = arguments[i];
       for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-        t[p] = s[p];
+        t2[p] = s[p];
     }
-    return t;
+    return t2;
   };
   return __assign$4.apply(this, arguments);
 };
@@ -30377,13 +34011,13 @@ if (typeof window !== "undefined") {
   window.initPopovers = initPopovers;
 }
 var __assign$3 = function() {
-  __assign$3 = Object.assign || function(t) {
+  __assign$3 = Object.assign || function(t2) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
       s = arguments[i];
       for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-        t[p] = s[p];
+        t2[p] = s[p];
     }
-    return t;
+    return t2;
   };
   return __assign$3.apply(this, arguments);
 };
@@ -30561,13 +34195,13 @@ if (typeof window !== "undefined") {
   window.initDials = initDials;
 }
 var __assign$2 = function() {
-  __assign$2 = Object.assign || function(t) {
+  __assign$2 = Object.assign || function(t2) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
       s = arguments[i];
       for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-        t[p] = s[p];
+        t2[p] = s[p];
     }
-    return t;
+    return t2;
   };
   return __assign$2.apply(this, arguments);
 };
@@ -30713,13 +34347,13 @@ if (typeof window !== "undefined") {
   window.initInputCounters = initInputCounters;
 }
 var __assign$1 = function() {
-  __assign$1 = Object.assign || function(t) {
+  __assign$1 = Object.assign || function(t2) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
       s = arguments[i];
       for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-        t[p] = s[p];
+        t2[p] = s[p];
     }
-    return t;
+    return t2;
   };
   return __assign$1.apply(this, arguments);
 };
@@ -30857,76 +34491,76 @@ function _assertThisInitialized(e) {
   if (void 0 === e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
   return e;
 }
-function _callSuper(t, o, e) {
-  return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e));
+function _callSuper(t2, o, e) {
+  return o = _getPrototypeOf(o), _possibleConstructorReturn(t2, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], _getPrototypeOf(t2).constructor) : o.apply(t2, e));
 }
 function _classCallCheck(a, n) {
   if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function");
 }
 function _defineProperties(e, r) {
-  for (var t = 0; t < r.length; t++) {
-    var o = r[t];
+  for (var t2 = 0; t2 < r.length; t2++) {
+    var o = r[t2];
     o.enumerable = o.enumerable || false, o.configurable = true, "value" in o && (o.writable = true), Object.defineProperty(e, _toPropertyKey(o.key), o);
   }
 }
-function _createClass(e, r, t) {
-  return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", {
+function _createClass(e, r, t2) {
+  return r && _defineProperties(e.prototype, r), t2 && _defineProperties(e, t2), Object.defineProperty(e, "prototype", {
     writable: false
   }), e;
 }
 function _get() {
-  return _get = "undefined" != typeof Reflect && Reflect.get ? Reflect.get.bind() : function(e, t, r) {
-    var p = _superPropBase(e, t);
+  return _get = "undefined" != typeof Reflect && Reflect.get ? Reflect.get.bind() : function(e, t2, r) {
+    var p = _superPropBase(e, t2);
     if (p) {
-      var n = Object.getOwnPropertyDescriptor(p, t);
+      var n = Object.getOwnPropertyDescriptor(p, t2);
       return n.get ? n.get.call(arguments.length < 3 ? e : r) : n.value;
     }
   }, _get.apply(null, arguments);
 }
-function _getPrototypeOf(t) {
-  return _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function(t2) {
-    return t2.__proto__ || Object.getPrototypeOf(t2);
-  }, _getPrototypeOf(t);
+function _getPrototypeOf(t2) {
+  return _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function(t3) {
+    return t3.__proto__ || Object.getPrototypeOf(t3);
+  }, _getPrototypeOf(t2);
 }
-function _inherits(t, e) {
+function _inherits(t2, e) {
   if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function");
-  t.prototype = Object.create(e && e.prototype, {
+  t2.prototype = Object.create(e && e.prototype, {
     constructor: {
-      value: t,
+      value: t2,
       writable: true,
       configurable: true
     }
-  }), Object.defineProperty(t, "prototype", {
+  }), Object.defineProperty(t2, "prototype", {
     writable: false
-  }), e && _setPrototypeOf(t, e);
+  }), e && _setPrototypeOf(t2, e);
 }
 function _isNativeReflectConstruct() {
   try {
-    var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function() {
+    var t2 = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function() {
     }));
-  } catch (t2) {
+  } catch (t3) {
   }
   return (_isNativeReflectConstruct = function() {
-    return !!t;
+    return !!t2;
   })();
 }
 function _iterableToArray(r) {
   if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r);
 }
 function _iterableToArrayLimit(r, l) {
-  var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"];
-  if (null != t) {
+  var t2 = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"];
+  if (null != t2) {
     var e, n, i, u, a = [], f = true, o = false;
     try {
-      if (i = (t = t.call(r)).next, 0 === l) {
-        if (Object(t) !== t) return;
+      if (i = (t2 = t2.call(r)).next, 0 === l) {
+        if (Object(t2) !== t2) return;
         f = false;
-      } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = true) ;
+      } else for (; !(f = (e = i.call(t2)).done) && (a.push(e.value), a.length !== l); f = true) ;
     } catch (r2) {
       o = true, n = r2;
     } finally {
       try {
-        if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return;
+        if (!f && null != t2.return && (u = t2.return(), Object(u) !== u)) return;
       } finally {
         if (o) throw n;
       }
@@ -30940,38 +34574,38 @@ function _nonIterableRest() {
 function _nonIterableSpread() {
   throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-function _possibleConstructorReturn(t, e) {
+function _possibleConstructorReturn(t2, e) {
   if (e && ("object" == typeof e || "function" == typeof e)) return e;
   if (void 0 !== e) throw new TypeError("Derived constructors may only return object or undefined");
-  return _assertThisInitialized(t);
+  return _assertThisInitialized(t2);
 }
-function _setPrototypeOf(t, e) {
-  return _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function(t2, e2) {
-    return t2.__proto__ = e2, t2;
-  }, _setPrototypeOf(t, e);
+function _setPrototypeOf(t2, e) {
+  return _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function(t3, e2) {
+    return t3.__proto__ = e2, t3;
+  }, _setPrototypeOf(t2, e);
 }
 function _slicedToArray(r, e) {
   return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest();
 }
-function _superPropBase(t, o) {
-  for (; !{}.hasOwnProperty.call(t, o) && null !== (t = _getPrototypeOf(t)); ) ;
-  return t;
+function _superPropBase(t2, o) {
+  for (; !{}.hasOwnProperty.call(t2, o) && null !== (t2 = _getPrototypeOf(t2)); ) ;
+  return t2;
 }
 function _toConsumableArray(r) {
   return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread();
 }
-function _toPrimitive(t, r) {
-  if ("object" != typeof t || !t) return t;
-  var e = t[Symbol.toPrimitive];
+function _toPrimitive(t2, r) {
+  if ("object" != typeof t2 || !t2) return t2;
+  var e = t2[Symbol.toPrimitive];
   if (void 0 !== e) {
-    var i = e.call(t, r);
+    var i = e.call(t2, r);
     if ("object" != typeof i) return i;
     throw new TypeError("@@toPrimitive must return a primitive value.");
   }
-  return String(t);
+  return String(t2);
 }
-function _toPropertyKey(t) {
-  var i = _toPrimitive(t, "string");
+function _toPropertyKey(t2) {
+  var i = _toPrimitive(t2, "string");
   return "symbol" == typeof i ? i : i + "";
 }
 function _typeof(o) {
@@ -30985,8 +34619,8 @@ function _typeof(o) {
 function _unsupportedIterableToArray(r, a) {
   if (r) {
     if ("string" == typeof r) return _arrayLikeToArray(r, a);
-    var t = {}.toString.call(r).slice(8, -1);
-    return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0;
+    var t2 = {}.toString.call(r).slice(8, -1);
+    return "Object" === t2 && r.constructor && (t2 = r.constructor.name), "Map" === t2 || "Set" === t2 ? Array.from(r) : "Arguments" === t2 || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t2) ? _arrayLikeToArray(r, a) : void 0;
   }
 }
 function hasProperty(obj, prop) {
@@ -31252,23 +34886,23 @@ function formatDate(date, format2, locale) {
 }
 var listenerRegistry = /* @__PURE__ */ new WeakMap();
 var _EventTarget$prototyp = EventTarget.prototype, addEventListener = _EventTarget$prototyp.addEventListener, removeEventListener = _EventTarget$prototyp.removeEventListener;
-function registerListeners(keyObj, listeners) {
+function registerListeners(keyObj, listeners2) {
   var registered = listenerRegistry.get(keyObj);
   if (!registered) {
     registered = [];
     listenerRegistry.set(keyObj, registered);
   }
-  listeners.forEach(function(listener) {
+  listeners2.forEach(function(listener) {
     addEventListener.call.apply(addEventListener, _toConsumableArray(listener));
     registered.push(listener);
   });
 }
 function unregisterListeners(keyObj) {
-  var listeners = listenerRegistry.get(keyObj);
-  if (!listeners) {
+  var listeners2 = listenerRegistry.get(keyObj);
+  if (!listeners2) {
     return;
   }
-  listeners.forEach(function(listener) {
+  listeners2.forEach(function(listener) {
     removeEventListener.call.apply(removeEventListener, _toConsumableArray(listener));
   });
   listenerRegistry["delete"](keyObj);
@@ -31340,10 +34974,10 @@ var defaultOptions = {
   maxNumberOfDates: 1,
   maxView: 3,
   minDate: null,
-  nextArrow: '<svg class="w-4 h-4 rtl:rotate-180 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/></svg>',
+  nextArrow: '<svg class="w-4 h-4 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/></svg>',
   orientation: "auto",
   pickLevel: 0,
-  prevArrow: '<svg class="w-4 h-4 rtl:rotate-180 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/></svg>',
+  prevArrow: '<svg class="w-4 h-4 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5H1m0 0 4 4M1 5l4-4"/></svg>',
   showDaysOfWeek: true,
   showOnClick: true,
   showOnFocus: true,
@@ -31601,14 +35235,14 @@ function processOptions(options, datepicker) {
   });
   return config;
 }
-var pickerTemplate = optimizeTemplateHTML('<div class="datepicker hidden">\n  <div class="datepicker-picker inline-block rounded-lg bg-white dark:bg-gray-700 shadow-lg p-4">\n    <div class="datepicker-header">\n      <div class="datepicker-title bg-white dark:bg-gray-700 dark:text-white px-2 py-3 text-center font-semibold"></div>\n      <div class="datepicker-controls flex justify-between mb-2">\n        <button type="button" class="bg-white dark:bg-gray-700 rounded-lg text-gray-500 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-white text-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-gray-200 prev-btn"></button>\n        <button type="button" class="text-sm rounded-lg text-gray-900 dark:text-white bg-white dark:bg-gray-700 font-semibold py-2.5 px-5 hover:bg-gray-100 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-200 view-switch"></button>\n        <button type="button" class="bg-white dark:bg-gray-700 rounded-lg text-gray-500 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-white text-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-gray-200 next-btn"></button>\n      </div>\n    </div>\n    <div class="datepicker-main p-1"></div>\n    <div class="datepicker-footer">\n      <div class="datepicker-controls flex space-x-2 rtl:space-x-reverse mt-2">\n        <button type="button" class="%buttonClass% today-btn text-white bg-blue-700 !bg-primary-700 dark:bg-blue-600 dark:!bg-primary-600 hover:bg-blue-800 hover:!bg-primary-800 dark:hover:bg-blue-700 dark:hover:!bg-primary-700 focus:ring-4 focus:ring-blue-300 focus:!ring-primary-300 font-medium rounded-lg text-sm px-5 py-2 text-center w-1/2"></button>\n        <button type="button" class="%buttonClass% clear-btn text-gray-900 dark:text-white bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600 focus:ring-4 focus:ring-blue-300 focus:!ring-primary-300 font-medium rounded-lg text-sm px-5 py-2 text-center w-1/2"></button>\n      </div>\n    </div>\n  </div>\n</div>');
+var pickerTemplate = optimizeTemplateHTML('<div class="datepicker hidden">\n  <div class="datepicker-picker inline-block rounded-base bg-neutral-primary-medium border border-default-medium p-4">\n    <div class="datepicker-header">\n      <div class="datepicker-title bg-neutral-primary-medium text-heading px-2 py-3 text-center font-medium"></div>\n      <div class="datepicker-controls flex justify-between mb-2">\n        <button type="button" class="bg-neutral-primary-medium rounded-base text-body hover:bg-neutral-tertiary-medium hover:text-heading text-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-neutral-tertiary prev-btn"></button>\n        <button type="button" class="text-sm rounded-base text-heading bg-neutral-primary-medium font-medium py-2.5 px-5 hover:bg-neutral-tertiary-medium focus:outline-none focus:ring-2 focus:ring-neutral-tertiary view-switch"></button>\n        <button type="button" class="bg-neutral-primary-medium rounded-base text-body hover:bg-neutral-tertiary-medium hover:text-heading text-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-neutral-tertiary next-btn"></button>\n      </div>\n    </div>\n    <div class="datepicker-main p-1"></div>\n    <div class="datepicker-footer">\n      <div class="datepicker-controls flex space-x-2 rtl:space-x-reverse mt-2">\n        <button type="button" class="%buttonClass% today-btn text-white bg-brand hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium font-medium rounded-base text-sm px-5 py-2 text-center w-1/2"></button>\n        <button type="button" class="%buttonClass% clear-btn text-body bg-neutral-secondary-medium border border-default-medium hover:bg-neutral-tertiary-medium focus:ring-4 focus:ring-neutral-tertiary font-medium rounded-base text-sm px-5 py-2 text-center w-1/2"></button>\n      </div>\n    </div>\n  </div>\n</div>');
 var daysTemplate = optimizeTemplateHTML('<div class="days">\n  <div class="days-of-week grid grid-cols-7 mb-1">'.concat(createTagRepeat("span", 7, {
-  "class": "dow block flex-1 leading-9 border-0 rounded-lg cursor-default text-center text-gray-900 font-semibold text-sm"
+  "class": "dow block flex-1 leading-9 border-0 rounded-base cursor-default text-center text-body font-medium text-sm"
 }), '</div>\n  <div class="datepicker-grid w-64 grid grid-cols-7">').concat(createTagRepeat("span", 42, {
-  "class": "block flex-1 leading-9 border-0 rounded-lg cursor-default text-center text-gray-900 font-semibold text-sm h-6 leading-6 text-sm font-medium text-gray-500 dark:text-gray-400"
+  "class": "block flex-1 leading-9 border-0 rounded-base cursor-default text-center text-body font-medium text-sm h-6 leading-6 text-sm font-medium text-fg-disabled"
 }), "</div>\n</div>"));
-var calendarWeeksTemplate = optimizeTemplateHTML('<div class="calendar-weeks">\n  <div class="days-of-week flex"><span class="dow h-6 leading-6 text-sm font-medium text-gray-500 dark:text-gray-400"></span></div>\n  <div class="weeks">'.concat(createTagRepeat("span", 6, {
-  "class": "week block flex-1 leading-9 border-0 rounded-lg cursor-default text-center text-gray-900 font-semibold text-sm"
+var calendarWeeksTemplate = optimizeTemplateHTML('<div class="calendar-weeks">\n  <div class="days-of-week flex"><span class="dow h-6 leading-6 text-sm font-medium text-fg-disabled"></span></div>\n  <div class="weeks">'.concat(createTagRepeat("span", 6, {
+  "class": "week block flex-1 leading-9 border-0 rounded-base cursor-default text-center text-body font-medium text-sm"
 }), "</div>\n</div>"));
 var View = /* @__PURE__ */ (function() {
   function View2(picker, config) {
@@ -31760,7 +35394,7 @@ var DaysView = /* @__PURE__ */ (function(_View) {
         Array.from(this.dow.children).forEach(function(el, index) {
           var dow = (_this.weekStart + index) % 7;
           el.textContent = _this.dayNames[dow];
-          el.className = _this.daysOfWeekDisabled.includes(dow) ? "dow disabled text-center h-6 leading-6 text-sm font-medium text-gray-500 dark:text-gray-400 cursor-not-allowed" : "dow text-center h-6 leading-6 text-sm font-medium text-gray-500 dark:text-gray-400";
+          el.className = _this.daysOfWeekDisabled.includes(dow) ? "dow disabled text-center h-6 leading-6 text-sm font-medium text-fg-disabled cursor-not-allowed" : "dow text-center h-6 leading-6 text-sm font-medium text-body";
         });
       }
     }
@@ -31810,24 +35444,24 @@ var DaysView = /* @__PURE__ */ (function(_View) {
         var current = addDays(_this2.start, index);
         var date = new Date(current);
         var day = date.getDay();
-        el.className = "datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer text-center text-gray-900 dark:text-white font-semibold text-sm ".concat(_this2.cellClass);
+        el.className = "datepicker-cell hover:bg-neutral-tertiary-medium block flex-1 leading-9 border-0 rounded-base cursor-pointer text-center text-body font-medium text-sm ".concat(_this2.cellClass);
         el.dataset.date = current;
         el.textContent = date.getDate();
         if (current < _this2.first) {
-          classList.add("prev", "text-gray-500", "dark:text-white");
+          classList.add("prev", "text-fg-disabled");
         } else if (current > _this2.last) {
-          classList.add("next", "text-gray-500", "dark:text-white");
+          classList.add("next", "text-fg-disabled");
         }
         if (_this2.today === current) {
           classList.add("today", "bg-gray-100", "dark:bg-gray-600");
         }
         if (current < _this2.minDate || current > _this2.maxDate || _this2.disabled.includes(current)) {
-          classList.add("disabled", "cursor-not-allowed", "text-gray-400", "dark:text-gray-500");
-          classList.remove("hover:bg-gray-100", "dark:hover:bg-gray-600", "text-gray-900", "dark:text-white", "cursor-pointer");
+          classList.add("disabled", "cursor-not-allowed", "text-fg-disabled");
+          classList.remove("hover:bg-neutral-tertiary-medium", "text-body", "cursor-pointer");
         }
         if (_this2.daysOfWeekDisabled.includes(day)) {
-          classList.add("disabled", "cursor-not-allowed", "text-gray-400", "dark:text-gray-500");
-          classList.remove("hover:bg-gray-100", "dark:hover:bg-gray-600", "text-gray-900", "dark:text-white", "cursor-pointer");
+          classList.add("disabled", "cursor-not-allowed", "text-fg-disabled");
+          classList.remove("hover:bg-neutral-tertiary-medium", "text-body", "cursor-pointer");
           pushUnique(_this2.disabled, current);
         }
         if (_this2.daysOfWeekHighlighted.includes(day)) {
@@ -31836,21 +35470,21 @@ var DaysView = /* @__PURE__ */ (function(_View) {
         if (_this2.range) {
           var _this2$range = _slicedToArray(_this2.range, 2), rangeStart = _this2$range[0], rangeEnd = _this2$range[1];
           if (current > rangeStart && current < rangeEnd) {
-            classList.add("range", "bg-gray-200", "dark:bg-gray-600");
-            classList.remove("rounded-lg", "rounded-l-lg", "rounded-r-lg");
+            classList.add("range", "bg-neutral-tertiary-medium");
+            classList.remove("rounded-base", "rounded-s-base", "rounded-e-base");
           }
           if (current === rangeStart) {
-            classList.add("range-start", "bg-gray-100", "dark:bg-gray-600", "rounded-l-lg");
-            classList.remove("rounded-lg", "rounded-r-lg");
+            classList.add("range-start", "bg-brand", "rounded-s-base");
+            classList.remove("rounded-base", "rounded-e-base");
           }
           if (current === rangeEnd) {
-            classList.add("range-end", "bg-gray-100", "dark:bg-gray-600", "rounded-r-lg");
-            classList.remove("rounded-lg", "rounded-l-lg");
+            classList.add("range-end", "bg-neutral-tertiary-medium", "rounded-e-base");
+            classList.remove("rounded-base", "rounded-s-base");
           }
         }
         if (_this2.selected.includes(current)) {
-          classList.add("selected", "bg-blue-700", "!bg-primary-700", "text-white", "dark:bg-blue-600", "dark:!bg-primary-600", "dark:text-white");
-          classList.remove("text-gray-900", "text-gray-500", "hover:bg-gray-100", "dark:text-white", "dark:hover:bg-gray-600", "dark:bg-gray-600", "bg-gray-100", "bg-gray-200");
+          classList.add("selected", "bg-brand", "text-white");
+          classList.remove("text-body", "hover:bg-neutral-tertiary-medium", "bg-neutral-tertiary-medium");
         }
         if (current === _this2.focused) {
           classList.add("focused");
@@ -31867,28 +35501,28 @@ var DaysView = /* @__PURE__ */ (function(_View) {
       var _this3 = this;
       var _ref = this.range || [], _ref2 = _slicedToArray(_ref, 2), rangeStart = _ref2[0], rangeEnd = _ref2[1];
       this.grid.querySelectorAll(".range, .range-start, .range-end, .selected, .focused").forEach(function(el) {
-        el.classList.remove("range", "range-start", "range-end", "selected", "bg-blue-700", "!bg-primary-700", "text-white", "dark:bg-blue-600", "dark:!bg-primary-600", "dark:text-white", "focused");
-        el.classList.add("text-gray-900", "rounded-lg", "dark:text-white");
+        el.classList.remove("range", "range-start", "range-end", "selected", "bg-brand", "text-white", "focused");
+        el.classList.add("text-body", "rounded-base");
       });
       Array.from(this.grid.children).forEach(function(el) {
         var current = Number(el.dataset.date);
         var classList = el.classList;
-        classList.remove("bg-gray-200", "dark:bg-gray-600", "rounded-l-lg", "rounded-r-lg");
+        classList.remove("bg-neutral-tertiary-medium", "rounded-s-base", "rounded-e-base");
         if (current > rangeStart && current < rangeEnd) {
-          classList.add("range", "bg-gray-200", "dark:bg-gray-600");
-          classList.remove("rounded-lg");
+          classList.add("range", "bg-neutral-tertiary-medium");
+          classList.remove("rounded-base");
         }
         if (current === rangeStart) {
-          classList.add("range-start", "bg-gray-200", "dark:bg-gray-600", "rounded-l-lg");
-          classList.remove("rounded-lg");
+          classList.add("range-start", "bg-brand", "text-white", "rounded-s-base");
+          classList.remove("rounded-base");
         }
         if (current === rangeEnd) {
-          classList.add("range-end", "bg-gray-200", "dark:bg-gray-600", "rounded-r-lg");
-          classList.remove("rounded-lg");
+          classList.add("range-end", "bg-neutral-tertiary-medium", "rounded-e-base");
+          classList.remove("rounded-base");
         }
         if (_this3.selected.includes(current)) {
-          classList.add("selected", "bg-blue-700", "!bg-primary-700", "text-white", "dark:bg-blue-600", "dark:!bg-primary-600", "dark:text-white");
-          classList.remove("text-gray-900", "hover:bg-gray-100", "dark:text-white", "dark:hover:bg-gray-600", "bg-gray-100", "bg-gray-200", "dark:bg-gray-600");
+          classList.add("selected", "bg-brand", "text-white");
+          classList.remove("text-body", "hover:bg-neutral-tertiary-medium", "bg-neutral-tertiary-medium");
         }
         if (current === _this3.focused) {
           classList.add("focused");
@@ -32020,7 +35654,7 @@ var MonthsView = /* @__PURE__ */ (function(_View) {
       Array.from(this.grid.children).forEach(function(el, index) {
         var classList = el.classList;
         var date = dateValue(_this.year, index, 1);
-        el.className = "datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer text-center text-gray-900 dark:text-white font-semibold text-sm ".concat(_this.cellClass);
+        el.className = "datepicker-cell hover:bg-neutral-tertiary-medium block flex-1 leading-9 border-0 rounded-base cursor-pointer text-center text-body font-medium text-sm ".concat(_this.cellClass);
         if (_this.isMinView) {
           el.dataset.date = date;
         }
@@ -32041,8 +35675,8 @@ var MonthsView = /* @__PURE__ */ (function(_View) {
           }
         }
         if (selected.includes(index)) {
-          classList.add("selected", "bg-blue-700", "!bg-primary-700", "text-white", "dark:bg-blue-600", "dark:!bg-primary-600", "dark:text-white");
-          classList.remove("text-gray-900", "hover:bg-gray-100", "dark:text-white", "dark:hover:bg-gray-600");
+          classList.add("selected", "bg-brand", "text-white", "dark:text-white");
+          classList.remove("text-body", "hover:bg-neutral-tertiary-medium", "dark:text-white");
         }
         if (index === _this.focused) {
           classList.add("focused");
@@ -32060,8 +35694,8 @@ var MonthsView = /* @__PURE__ */ (function(_View) {
       var selected = this.selected[this.year] || [];
       var _ref = computeMonthRange(this.range, this.year) || [], _ref2 = _slicedToArray(_ref, 2), rangeStart = _ref2[0], rangeEnd = _ref2[1];
       this.grid.querySelectorAll(".range, .range-start, .range-end, .selected, .focused").forEach(function(el) {
-        el.classList.remove("range", "range-start", "range-end", "selected", "bg-blue-700", "!bg-primary-700", "dark:bg-blue-600", "dark:!bg-primary-700", "dark:text-white", "text-white", "focused");
-        el.classList.add("text-gray-900", "hover:bg-gray-100", "dark:text-white", "dark:hover:bg-gray-600");
+        el.classList.remove("range", "range-start", "range-end", "selected", "bg-brand", "dark:text-white", "text-white", "focused");
+        el.classList.add("text-body", "hover:bg-neutral-tertiary-medium", "dark:text-white");
       });
       Array.from(this.grid.children).forEach(function(el, index) {
         var classList = el.classList;
@@ -32075,8 +35709,8 @@ var MonthsView = /* @__PURE__ */ (function(_View) {
           classList.add("range-end");
         }
         if (selected.includes(index)) {
-          classList.add("selected", "bg-blue-700", "!bg-primary-700", "text-white", "dark:bg-blue-600", "dark:!bg-primary-600", "dark:text-white");
-          classList.remove("text-gray-900", "hover:bg-gray-100", "dark:text-white", "dark:hover:bg-gray-600");
+          classList.add("selected", "bg-brand", "text-white", "dark:text-white");
+          classList.remove("text-body", "hover:bg-neutral-tertiary-medium", "dark:text-white");
         }
         if (index === _this2.focused) {
           classList.add("focused");
@@ -32184,7 +35818,7 @@ var YearsView = /* @__PURE__ */ (function(_View) {
         var classList = el.classList;
         var current = _this2.start + index * _this2.step;
         var date = dateValue(current, 0, 1);
-        el.className = "datepicker-cell hover:bg-gray-100 dark:hover:bg-gray-600 block flex-1 leading-9 border-0 rounded-lg cursor-pointer text-center text-gray-900 dark:text-white font-semibold text-sm ".concat(_this2.cellClass);
+        el.className = "datepicker-cell hover:bg-neutral-tertiary-medium block flex-1 leading-9 border-0 rounded-base cursor-pointer text-center text-body font-medium text-sm ".concat(_this2.cellClass);
         if (_this2.isMinView) {
           el.dataset.date = date;
         }
@@ -32210,8 +35844,8 @@ var YearsView = /* @__PURE__ */ (function(_View) {
           }
         }
         if (_this2.selected.includes(current)) {
-          classList.add("selected", "bg-blue-700", "!bg-primary-700", "text-white", "dark:bg-blue-600", "dark:!bg-primary-600", "dark:text-white");
-          classList.remove("text-gray-900", "hover:bg-gray-100", "dark:text-white", "dark:hover:bg-gray-600");
+          classList.add("selected", "bg-brand", "text-white", "dark:text-white");
+          classList.remove("text-body", "hover:bg-neutral-tertiary-medium", "dark:text-white");
         }
         if (current === _this2.focused) {
           classList.add("focused");
@@ -32228,7 +35862,7 @@ var YearsView = /* @__PURE__ */ (function(_View) {
       var _this3 = this;
       var _ref = this.range || [], _ref2 = _slicedToArray(_ref, 2), rangeStart = _ref2[0], rangeEnd = _ref2[1];
       this.grid.querySelectorAll(".range, .range-start, .range-end, .selected, .focused").forEach(function(el) {
-        el.classList.remove("range", "range-start", "range-end", "selected", "bg-blue-700", "!bg-primary-700", "text-white", "dark:bg-blue-600", "dark!bg-primary-600", "dark:text-white", "focused");
+        el.classList.remove("range", "range-start", "range-end", "selected", "bg-brand", "text-white", "dark:text-white", "focused");
       });
       Array.from(this.grid.children).forEach(function(el) {
         var current = Number(el.textContent);
@@ -32243,8 +35877,8 @@ var YearsView = /* @__PURE__ */ (function(_View) {
           classList.add("range-end");
         }
         if (_this3.selected.includes(current)) {
-          classList.add("selected", "bg-blue-700", "!bg-primary-700", "text-white", "dark:bg-blue-600", "dark:!bg-primary-600", "dark:text-white");
-          classList.remove("text-gray-900", "hover:bg-gray-100", "dark:text-white", "dark:hover:bg-gray-600");
+          classList.add("selected", "bg-brand", "text-white", "hover:text-heading");
+          classList.remove("text-body", "hover:bg-neutral-tertiary-medium", "hover:text-heading");
         }
         if (current === _this3.focused) {
           classList.add("focused");
@@ -32352,10 +35986,10 @@ function onClickView(datepicker, ev) {
   if (!target || target.classList.contains("disabled")) {
     return;
   }
-  var _datepicker$picker$cu = datepicker.picker.currentView, id2 = _datepicker$picker$cu.id, isMinView = _datepicker$picker$cu.isMinView;
+  var _datepicker$picker$cu = datepicker.picker.currentView, id = _datepicker$picker$cu.id, isMinView = _datepicker$picker$cu.isMinView;
   if (isMinView) {
     datepicker.setDate(Number(target.dataset.date));
-  } else if (id2 === 1) {
+  } else if (id === 1) {
     goToSelectedMonthOrYear(datepicker, Number(target.dataset.month));
   } else {
     goToSelectedMonthOrYear(datepicker, Number(target.dataset.year));
@@ -32421,7 +36055,7 @@ function computeResetViewDate(datepicker) {
 function setViewDate(picker, newDate) {
   var oldViewDate = new Date(picker.viewDate);
   var newViewDate = new Date(newDate);
-  var _picker$currentView = picker.currentView, id2 = _picker$currentView.id, year = _picker$currentView.year, first = _picker$currentView.first, last = _picker$currentView.last;
+  var _picker$currentView = picker.currentView, id = _picker$currentView.id, year = _picker$currentView.year, first = _picker$currentView.first, last = _picker$currentView.last;
   var viewYear = newViewDate.getFullYear();
   picker.viewDate = newDate;
   if (viewYear !== oldViewDate.getFullYear()) {
@@ -32430,7 +36064,7 @@ function setViewDate(picker, newDate) {
   if (newViewDate.getMonth() !== oldViewDate.getMonth()) {
     triggerDatepickerEvent(picker.datepicker, "changeMonth");
   }
-  switch (id2) {
+  switch (id) {
     case 0:
       return newDate < first || newDate > last;
     case 1:
@@ -32703,7 +36337,7 @@ function onKeydown(datepicker, ev) {
     return;
   }
   var picker = datepicker.picker;
-  var _picker$currentView = picker.currentView, id2 = _picker$currentView.id, isMinView = _picker$currentView.isMinView;
+  var _picker$currentView = picker.currentView, id = _picker$currentView.id, isMinView = _picker$currentView.isMinView;
   if (!picker.active) {
     switch (ev.key) {
       case "ArrowDown":
@@ -32776,7 +36410,7 @@ function onKeydown(datepicker, ev) {
         if (isMinView) {
           datepicker.setDate(picker.viewDate);
         } else {
-          picker.changeView(id2 - 1).render();
+          picker.changeView(id - 1).render();
         }
         break;
       case "Backspace":
@@ -32981,8 +36615,8 @@ var Datepicker$1 = /* @__PURE__ */ (function() {
       this.show();
     } else {
       var onMousedownDocument = onClickOutside.bind(null, this);
-      var listeners = [[inputField, "keydown", onKeydown.bind(null, this)], [inputField, "focus", onFocus.bind(null, this)], [inputField, "mousedown", onMousedown.bind(null, this)], [inputField, "click", onClickInput.bind(null, this)], [inputField, "paste", onPaste.bind(null, this)], [document, "mousedown", onMousedownDocument], [document, "touchstart", onMousedownDocument], [window, "resize", picker.place.bind(picker)]];
-      registerListeners(this, listeners);
+      var listeners2 = [[inputField, "keydown", onKeydown.bind(null, this)], [inputField, "focus", onFocus.bind(null, this)], [inputField, "mousedown", onMousedown.bind(null, this)], [inputField, "click", onClickInput.bind(null, this)], [inputField, "paste", onPaste.bind(null, this)], [document, "mousedown", onMousedownDocument], [document, "touchstart", onMousedownDocument], [window, "resize", picker.place.bind(picker)]];
+      registerListeners(this, listeners2);
     }
   }
   return _createClass(Datepicker2, [{
@@ -33207,7 +36841,7 @@ var Datepicker$1 = /* @__PURE__ */ (function() {
         return;
       }
       this.editMode = true;
-      this.inputField.classList.add("in-edit", "border-blue-700", "!border-primary-700");
+      this.inputField.classList.add("in-edit", "border-brand");
     }
     /**
      * Exit from edit mode
@@ -33228,7 +36862,7 @@ var Datepicker$1 = /* @__PURE__ */ (function() {
         update: false
       }, options);
       delete this.editMode;
-      this.inputField.classList.remove("in-edit", "border-blue-700", "!border-primary-700");
+      this.inputField.classList.remove("in-edit", "border-brand");
       if (opts.update) {
         this.update(opts);
       }
@@ -33453,13 +37087,13 @@ var DateRangePicker = /* @__PURE__ */ (function() {
   }]);
 })();
 var __assign = function() {
-  __assign = Object.assign || function(t) {
+  __assign = Object.assign || function(t2) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
       s = arguments[i];
       for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-        t[p] = s[p];
+        t2[p] = s[p];
     }
-    return t;
+    return t2;
   };
   return __assign.apply(this, arguments);
 };
@@ -33732,8 +37366,8 @@ const TooltipManager = (() => {
     if (!enabled) return;
     if (instances2.has(trigger)) return;
     let target = null;
-    const id2 = trigger.getAttribute("data-tooltip-target");
-    if (id2) target = document.getElementById(id2);
+    const id = trigger.getAttribute("data-tooltip-target");
+    if (id) target = document.getElementById(id);
     if (!target) {
       const help = getHelpNode(trigger);
       if (!help) return;
@@ -33776,7 +37410,7 @@ const TooltipManager = (() => {
       // Some Flowbite type bundles may not include "strategy"
       ...{ strategy: "fixed" }
     });
-    const t = rawTooltip;
+    const t2 = rawTooltip;
     const clearIdle = (rec2) => {
       if (rec2.idleTimer != null) {
         clearTimeout(rec2.idleTimer);
@@ -33784,14 +37418,14 @@ const TooltipManager = (() => {
       }
     };
     const rec = {
-      tooltip: t,
+      tooltip: t2,
       targetEl: target,
       triggerEl: trigger,
       clickHide: () => {
         if (activeRecord === rec) activeRecord = null;
         clearIdle(rec);
         try {
-          t.hide();
+          t2.hide();
         } catch {
         } finally {
           target.classList.add("tooltip-hidden");
@@ -33809,7 +37443,7 @@ const TooltipManager = (() => {
       rec.idleTimer = window.setTimeout(() => {
         target.classList.remove("tooltip-hidden");
         try {
-          t.show();
+          t2.show();
         } catch {
           target.classList.add("tooltip-hidden");
         }
@@ -33823,7 +37457,7 @@ const TooltipManager = (() => {
       rec.idleTimer = window.setTimeout(() => {
         target.classList.remove("tooltip-hidden");
         try {
-          t.show();
+          t2.show();
         } catch {
           target.classList.add("tooltip-hidden");
         }
@@ -33833,7 +37467,7 @@ const TooltipManager = (() => {
       if (activeRecord === rec) activeRecord = null;
       clearIdle(rec);
       try {
-        t.hide();
+        t2.hide();
       } catch {
       } finally {
         target.classList.add("tooltip-hidden");
@@ -33974,17 +37608,22 @@ function initMobileInfoButtons() {
 }
 TooltipManager.start();
 initMobileInfoButtons();
-void Aurelia2.register(
-  RouterConfiguration.customize({
-    //title: "Betsy Bot Admin Panel",
-    useUrlFragmentHash: false
-  })
-).register(Resources).register(Elements).app(App).start();
+void setLanguage(getSavedLanguage()).then(() => {
+  void Aurelia2.register(
+    RouterConfiguration.customize({
+      //title: "Betsy Bot Admin Panel",
+      useUrlFragmentHash: false
+    })
+  ).register(Resources).register(Elements).app(App).start();
+});
 export {
   CustomElement as C,
   bindable as b,
   customElement as c,
+  format as f,
   isBlankOrInvalid as i,
+  onLanguageChanged as o,
   syncParamsToUrl as s,
+  t,
   watch as w
 };

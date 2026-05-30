@@ -1,39 +1,38 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-QatnjEkL.js";
-import { a as getChainForTypeNameReadonly, t as type_filtering_options, A as ANCESTOR_ONLY_WHEN_EXACT_OFF } from "./item-type-filters-D1_j0GR_.js";
+import { C as CustomElement, i as isBlankOrInvalid, t, s as syncParamsToUrl, f as format, w as watch, c as customElement, b as bindable } from "./index-CMudv_8P.js";
+import { c as getChainForTypeNameReadonly, a as type_filtering_options, p as prependTypeResetOption, t as tokenizeSearch, A as ANCESTOR_ONLY_WHEN_EXACT_OFF, m as matchesTokenGroups } from "./filter-helpers-BuZ4Nsi8.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
-import { p as prependTypeResetOption, t as tokenizeSearch, m as matchesTokenGroups } from "./filter-helpers-DL_Ti2wh.js";
-import { r as runewordsJson } from "./runewords-C5RlcOYy.js";
 const name = "runewords";
 const template = `<template>
     <h3 class="text-lg type-text text-center mx-auto my-4">
-        <span class="rarity-text">\${filteredRunewords.length}</span> Runewords Found
+        <span class="rarity-text">\${filteredRunewords.length}</span> \${'found_runewords_suffix' | t}
     </h3>
 
     <search-area>
         <div class="w-full m-auto px-5 py-2">
             <div class="flex flex-wrap justify-center items-start gap-2">
 
-                <div class="w-full lg:w-auto lg:min-w-40" data-help-text="Filter by number of runes required. This amount is exact.">
+                <div class="w-full lg:w-auto lg:min-w-40" data-help-text="\${'help_rune_count_filter' | t}">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <select id="runecount" class="select-base peer" value.bind="selectedAmount">
-                                <option repeat.for="opt of amounts" value.bind="opt.value">\${opt.label}</option>
+                                <option repeat.for="opt of amounts" if.bind="opt.value === ''" value="">\${opt.label | t}</option>
+                                <option repeat.for="opt of amounts" if.bind="opt.value !== ''" model.bind="opt.value">\${opt.label | t:opt.value}</option>
                             </select>
-                            <label for="runecount" class="floating-label">Rune Count</label>
+                            <label for="runecount" class="floating-label">\${'filter_rune_count' | t}</label>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="runecount">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Item Type filter</span>
+                            <span class="sr-only">\${'info_more_about' | t:'filter_rune_count'}</span>
                         </button>
                     </div>
                 </div>
 
                 <searchable-select id="itype"
-                                   class="w-full lg:w-auto lg:min-w-70"
-                                   data-help-text="Filter by base item type. Toggle ‘Exact’ to remove variants."
+                                   class="w-full lg:w-auto lg:min-w-80"
+                                   data-help-text="\${'help_item_type_filter' | t}"
                                    value.bind="selectedType"
                                    options.bind="types"
-                                   label="Select Item Type"
+                                   label="\${'filter_select_type' | t}"
                                    exact.bind="true">
                     <div au-slot="after" class="flex items-stretch">
                         <button type="button"
@@ -41,25 +40,25 @@ const template = `<template>
                                 aria-pressed.bind="exclusiveType"
                                 click.trigger="exclusiveType = !exclusiveType">
                             <span class="exact-indicator"></span>
-                            Exact
+                            \${'filter_exact' | t}
                         </button>
                         <!-- Mobile-only info button -->
                         <button type="button"
                                 class="m-info-button"
                                 aria-expanded="false" data-info-for="itype">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Item Type filter</span>
+                            <span class="sr-only">\${'info_more_about' | t:'filter_select_type'}</span>
                         </button>
                     </div>
                 </searchable-select>
 
                 <div class="w-full lg:w-60"
-                     data-help-text="Search across all fields. Text is matched as a phrase. Use '+' to require multiple terms (AND). Use ',' or '|' for OR. Prefix with '-' or '!' to exclude a term or phrase. ex. 'fire skill damage' finds the exact phrase. 'fire+cold' finds items with both. 'fire,cold' finds items with either. '-fire' excludes items containing fire. 'damage -fire' finds items with damage but not fire. 'fire skill damage -cold skill damage' finds fire skill damage but excludes cold skill damage.">
+                     data-help-text="\${'help_search' | t}">
                     <div class="flex items-stretch">
                         <div class="trailing-icon flex-1" data-icon="search">
                             <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search"
                                    placeholder=" "/>
-                            <label for="inputsearch" class="floating-label">Search...</label>
+                            <label for="inputsearch" class="floating-label">\${'filter_search_placeholder' | t}</label>
                         </div>
                         <!-- Mobile only info button -->
                         <button type="button"
@@ -67,33 +66,30 @@ const template = `<template>
                                 aria-expanded="false"
                                 data-info-for="inputsearch">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about the Hide Vanilla button</span>
+                            <span class="sr-only">\${'info_more_about' | t:'filter_search_placeholder'}</span>
                         </button>
                     </div>
                 </div>
 
-                <div class="w-full lg:w-60"
-                     data-help-text="Search for specific Runes. Uses (space) and + as AND. Uses , and | as OR. ex: El Eld|Hel Zod returns only Breath of the Dying and Starlight.">
-                    <div class="flex items-stretch">
-                        <div class="trailing-icon flex-1" data-icon="search">
-                            <input id="runesearch" type="text" class="select-base peer pr-12 w-full"
-                                   value.bind="searchRunes"
-                                   placeholder=" "/>
-                            <label for="runesearch" class="floating-label">Runes Only...</label>
-                        </div>
-
+                <multi-select id="runesearch"
+                              class="w-full lg:w-60"
+                              data-help-text="\${'help_runes_only_filter' | t}"
+                              values.bind="selectedRuneKeys"
+                              options.bind="runeOptions"
+                              label="\${'filter_runes_only_placeholder' | t}">
+                    <div au-slot="after" class="flex items-stretch">
                         <!-- Mobile only info button -->
                         <button type="button"
                                 class="m-info-button"
                                 aria-expanded="false"
                                 data-info-for="runesearch">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Rune Only search</span>
+                            <span class="sr-only">\${'info_more_about' | t:'filter_runes_only_placeholder'}</span>
                         </button>
                     </div>
-                </div>
+                </multi-select>
 
-                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Filter toggle to hide Vanilla items.">
+                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="\${'help_hide_vanilla' | t}">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <button
@@ -103,7 +99,7 @@ const template = `<template>
                                     aria-pressed.bind="hideVanilla"
                                     click.trigger="hideVanilla = !hideVanilla">
                                 <span class="vanilla-indicator"></span>
-                                Hide Vanilla
+                                \${'filter_hide_vanilla' | t}
                             </button>
                         </div>
                         <!-- Mobile only info button -->
@@ -112,16 +108,16 @@ const template = `<template>
                                 aria-expanded="false"
                                 data-info-for="hidevanillabutton">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about the Hide Vanilla button</span>
+                            <span class="sr-only">\${'info_more_about' | t:'filter_hide_vanilla'}</span>
                         </button>
                     </div>
                 </div>
 
-                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Reset all filters to default.">
+                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="\${'help_reset_filters' | t}">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <button id="resetfilters" class="button-base" type="button" click.trigger="resetFilters()">
-                                Reset Filters
+                                \${'filter_reset' | t}
                             </button>
                         </div>
                         <!-- Mobile only info button -->
@@ -130,7 +126,7 @@ const template = `<template>
                                 aria-expanded="false"
                                 data-info-for="resetfilters">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about the Hide Vanilla button</span>
+                            <span class="sr-only">\${'info_more_about' | t:'filter_reset'}</span>
                         </button>
                     </div>
                 </div>
@@ -144,48 +140,30 @@ const template = `<template>
 
             <div class="mb-1">
                 <div class="text-xl unique-text">
-                    \${runeword.Name}
+                    \${runeword.Index | t}
                 </div>
                 <div class="text-base rarity-text">
-                    \${runeword.Vanilla === 'Y' ? 'Vanilla' : 'Mod'}
+                    \${runeword.Vanilla === 'Y' ? 'label_vanilla' : 'label_mod' | t}
                 </div>
             </div>
 
-            <div class="text-base type-text mb-1"><span repeat.for="type of runeword.Types">
-                        \${type.Name} \${$index + 1 !== runeword.Types.length ? ' or ' : ''}
-                    </span></div>
+            <div class="text-base type-text mb-1">
+                <span repeat.for="typeInfo of runeword.Types">
+                        \${typeInfo.Index | t} \${ ( $index + 1 !== runeword.Types.length ? 'label_or' : '' ) | t }
+                    </span>
+            </div>
 
-            <div class="text-base type-text"><span repeat.for="rune of runeword.Runes">
-                        \${rune.Name | runeName} \${$index + 1 !== runeword.Runes.length ? ' + ' : ''}
-                    </span></div>
+            <div class="text-base type-text">
+                <span repeat.for="rune of runeword.Runes">
+                    \${rune.NameKey | t} \${$index + 1 !== runeword.Runes.length ? ' + ' : ''}
+                </span>
+            </div>
 
             <div class="text-base requirement-text my-1">
-                Required Level: \${runeword.RequiredLevel > 0? runeword.RequiredLevel: 1}
+                \${'strRequiredLevel' | t: runeword.RequiredLevel || 1}
             </div>
 
-            <div class="text-base prop-text" repeat.for="property of runeword.Properties | sortProperties">
-                <div if.bind="property.PropertyString">
-                    \${property.PropertyString}
-                </div>
-                <div if.bind="property['group-properties']">
-                    <div repeat.for="[groupName, pool] of property['group-properties'] | entries">
-                        <div if.bind="property.pickmode == 0 || (pool[0] && pool[0].PickMode == 0)">
-                            <div repeat.for="affix of pool" if.bind="affix.PropertyString">
-                                \${affix.PropertyString}
-                            </div>
-                        </div>
-                        <div if.bind="property.pickmode != 0 && (!pool[0] || pool[0].PickMode != 0)" class="border px-2 border-gray-600 rounded m-2">
-                            <div class="set-text text-center p-1 border-b border-gray-600">
-                                \${formatGroupName(groupName)}
-                            </div>
-                            <div repeat.for="affixData of pool" if.bind="affixData.PropertyString" class="flex justify-between p-1 border-b border-gray-700 last:border-0">
-                                <span class="prop-text">\${affixData | chance:pool}%</span>
-                                <span class="text-right">\${affixData.PropertyString}</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <keyed-lines class="text-base prop-text" lines.bind="runeword.Lines"></keyed-lines>
 
         </div>
     </div>
@@ -212,7 +190,7 @@ const __au2ViewDef = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.define
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __knownSymbol = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : Symbol.for("Symbol." + name2);
+var __knownSymbol = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : /* @__PURE__ */ Symbol.for("Symbol." + name2);
 var __typeError = (msg) => {
   throw TypeError(msg);
 };
@@ -257,43 +235,58 @@ var __privateIn = (member, obj) => Object(obj) !== obj ? __typeError('Cannot use
 var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
 var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "access private method"), method);
-var _handleHideVanillaChanged_dec, _handleExclusiveTypeChanged_dec, _selectedAmountChanged_dec, _selectedTypeChanged_dec, _handleSearchChanged_dec, _handleSearchRunesChanged_dec, _hideVanilla_dec, _exclusiveType_dec, _searchRunes_dec, _search_dec, _Runewords_decorators, _init;
-_Runewords_decorators = [customElement(__au2ViewDef)], _search_dec = [bindable], _searchRunes_dec = [bindable], _exclusiveType_dec = [bindable], _hideVanilla_dec = [bindable], _handleSearchRunesChanged_dec = [watch("searchRunes")], _handleSearchChanged_dec = [watch("search")], _selectedTypeChanged_dec = [watch("selectedType")], _selectedAmountChanged_dec = [watch("selectedAmount")], _handleExclusiveTypeChanged_dec = [watch("exclusiveType")], _handleHideVanillaChanged_dec = [watch("hideVanilla")];
+var _handleHideVanillaChanged_dec, _handleExclusiveTypeChanged_dec, _handleAmountChanged_dec, _handleTypeChanged_dec, _handleSearchChanged_dec, _handleSelectedRuneKeysChanged_dec, _selectedAmount_dec, _selectedType_dec, _hideVanilla_dec, _exclusiveType_dec, _selectedRuneKeys_dec, _search_dec, _Runewords_decorators, _init;
+_Runewords_decorators = [customElement(__au2ViewDef)], _search_dec = [bindable], _selectedRuneKeys_dec = [bindable], _exclusiveType_dec = [bindable], _hideVanilla_dec = [bindable], _selectedType_dec = [bindable], _selectedAmount_dec = [bindable], _handleSelectedRuneKeysChanged_dec = [watch("selectedRuneKeys")], _handleSearchChanged_dec = [watch("search")], _handleTypeChanged_dec = [watch("selectedType")], _handleAmountChanged_dec = [watch("selectedAmount")], _handleExclusiveTypeChanged_dec = [watch("exclusiveType")], _handleHideVanillaChanged_dec = [watch("hideVanilla")];
 class Runewords {
   constructor() {
     __runInitializers(_init, 5, this);
-    __publicField(this, "allRunewords", runewordsJson);
+    __publicField(this, "allRunewords", []);
     __publicField(this, "filteredRunewords", []);
     __publicField(this, "_searchStrings", /* @__PURE__ */ new Map());
     __publicField(this, "search", __runInitializers(_init, 8, this, "")), __runInitializers(_init, 11, this);
-    __publicField(this, "searchRunes", __runInitializers(_init, 12, this, "")), __runInitializers(_init, 15, this);
+    __publicField(this, "selectedRuneKeys", __runInitializers(_init, 12, this, [])), __runInitializers(_init, 15, this);
     __publicField(this, "exclusiveType", __runInitializers(_init, 16, this, false)), __runInitializers(_init, 19, this);
     __publicField(this, "hideVanilla", __runInitializers(_init, 20, this, false)), __runInitializers(_init, 23, this);
+    __publicField(this, "selectedType", __runInitializers(_init, 24, this, "")), __runInitializers(_init, 27, this);
+    __publicField(this, "selectedAmount", __runInitializers(_init, 28, this, "")), __runInitializers(_init, 31, this);
     __publicField(this, "_debouncedSearchItem");
+    __publicField(this, "_debouncedUpdateUrl");
+    __publicField(this, "runeOptions", []);
     __publicField(this, "types", type_filtering_options.slice());
-    __publicField(this, "selectedType", "");
     __publicField(this, "amounts", [
       { value: "", label: "-" },
-      { value: 2, label: "2 Runes" },
-      { value: 3, label: "3 Runes" },
-      { value: 4, label: "4 Runes" },
-      { value: 5, label: "5 Runes" },
-      { value: 6, label: "6 Runes" }
+      { value: 2, label: "label_runes_count" },
+      { value: 3, label: "label_runes_count" },
+      { value: 4, label: "label_runes_count" },
+      { value: 5, label: "label_runes_count" },
+      { value: 6, label: "label_runes_count" }
     ]);
-    __publicField(this, "selectedAmount");
   }
-  // Build options and hydrate filters from URL before controls render
-  binding() {
-    const urlParams = new URLSearchParams(window.location.search);
+  // Build options and hydrate from URL BEFORE controls render
+  async binding() {
+    try {
+      const resp = await fetch("/data/keyed/runewords.json");
+      this.allRunewords = await resp.json();
+    } catch (e) {
+      console.error("Failed to load runewords:", e);
+      this.allRunewords = [];
+    }
     this.allRunewords.forEach((rw) => {
       this._searchStrings.set(rw, this.buildSearchableStringForRuneword(rw));
     });
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get("search");
+    if (searchParam && !isBlankOrInvalid(searchParam)) {
+      this.search = searchParam;
+    }
+    const hv = urlParams.get("hideVanilla");
+    if (hv === "true" || hv === "1") this.hideVanilla = true;
     const presentExplicitBases = /* @__PURE__ */ new Set();
     try {
       for (const rw of this.allRunewords || []) {
         const types = Array.isArray(rw?.Types) ? rw.Types : [];
-        for (const t of types) {
-          const chain = getChainForTypeNameReadonly(t?.Name ?? "");
+        for (const t2 of types) {
+          const chain = getChainForTypeNameReadonly(t2?.Index ?? "");
           const base = chain && chain.length ? chain[0] : "";
           if (base) presentExplicitBases.add(base);
         }
@@ -307,18 +300,28 @@ class Runewords {
         return opt.value.some((v) => presentExplicitBases.has(v));
       }
       return presentExplicitBases.has(base);
-    });
+    }).map((opt) => ({
+      ...opt,
+      label: t(opt.label)
+    }));
     this.types = prependTypeResetOption(this.types);
-    const searchParam = urlParams.get("search");
-    if (searchParam && !isBlankOrInvalid(searchParam)) {
-      this.search = searchParam;
+    const runeKeys = /* @__PURE__ */ new Set();
+    for (const rw of this.allRunewords || []) {
+      const runes = Array.isArray(rw?.Runes) ? rw.Runes : [];
+      for (const r of runes) {
+        if (r?.NameKey) runeKeys.add(r.NameKey);
+      }
     }
+    this.runeOptions = Array.from(runeKeys).map((key) => {
+      const m = /^r(\d+)$/i.exec(key);
+      const n = m ? parseInt(m[1], 10) : Number.MAX_SAFE_INTEGER;
+      return { id: key, label: t(key), n };
+    }).sort((a, b) => a.n - b.n || a.id.localeCompare(b.id));
     const runesParam = urlParams.get("runes");
     if (runesParam && !isBlankOrInvalid(runesParam)) {
-      this.searchRunes = runesParam;
+      const validKeys = new Set(this.runeOptions.map((o) => o.id));
+      this.selectedRuneKeys = runesParam.split(",").map((s) => s.trim()).filter((s) => validKeys.has(s));
     }
-    const hv = urlParams.get("hideVanilla");
-    if (hv === "true" || hv === "1") this.hideVanilla = true;
     const typeParam = urlParams.get("type");
     if (typeParam && !isBlankOrInvalid(typeParam)) {
       const opt = this.types.find((o) => o.id === typeParam);
@@ -336,6 +339,7 @@ class Runewords {
   }
   attached() {
     this._debouncedSearchItem = debounce(() => this.updateList(), 350);
+    this._debouncedUpdateUrl = debounce(() => this.updateUrl(), 150);
     this.updateList();
     this.updateUrl();
   }
@@ -343,54 +347,57 @@ class Runewords {
     if (this._debouncedSearchItem) {
       this._debouncedSearchItem.cancel();
     }
+    if (this._debouncedUpdateUrl) {
+      this._debouncedUpdateUrl.cancel();
+    }
   }
   // Push current filters to URL
   updateUrl() {
+    const runesParam = (this.selectedRuneKeys || []).join(",");
     syncParamsToUrl({
       search: this.search,
-      runes: this.searchRunes,
+      runes: runesParam,
       type: this.selectedType,
       sockets: this.selectedAmount,
       exact: this.exclusiveType,
       hideVanilla: this.hideVanilla
     }, false);
   }
-  handleSearchRunesChanged() {
+  handleSelectedRuneKeysChanged() {
     if (this._debouncedSearchItem) this._debouncedSearchItem();
-    this.updateUrl();
+    if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
   }
   handleSearchChanged() {
     if (this._debouncedSearchItem) this._debouncedSearchItem();
-    this.updateUrl();
+    if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
   }
-  selectedTypeChanged() {
+  handleTypeChanged() {
     if (this._debouncedSearchItem) this._debouncedSearchItem();
-    this.updateUrl();
+    if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
   }
-  selectedAmountChanged() {
-    if (typeof this.selectedAmount !== "number") {
+  handleAmountChanged() {
+    if (typeof this.selectedAmount !== "number" && this.selectedAmount !== "") {
       const v = Number(this.selectedAmount);
       if (Number.isFinite(v) && v >= 2 && v <= 6) {
         this.selectedAmount = v;
       } else {
-        this.selectedAmount = void 0;
+        this.selectedAmount = "";
       }
     }
     if (this._debouncedSearchItem) {
       this._debouncedSearchItem();
     }
-    this.updateUrl();
+    if (this._debouncedUpdateUrl) {
+      this._debouncedUpdateUrl();
+    }
   }
   handleExclusiveTypeChanged() {
     if (this._debouncedSearchItem) this._debouncedSearchItem();
-    this.updateUrl();
+    if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
   }
   handleHideVanillaChanged() {
     if (this._debouncedSearchItem) this._debouncedSearchItem();
-    this.updateUrl();
-  }
-  normalizeRuneName(name2) {
-    return name2.replace(/ rune$/i, "").trim().toLowerCase();
+    if (this._debouncedUpdateUrl) this._debouncedUpdateUrl();
   }
   formatGroupName(name2) {
     return name2.replace(/-/g, " ").replace(/([a-z])([0-9])/g, "$1 $2");
@@ -410,13 +417,7 @@ class Runewords {
         }
       }
     }
-    let runeGroups = [];
-    if (this.searchRunes) {
-      const normalized = (this.searchRunes || "").trim().toLowerCase().replace(/\s*[,|]\s*/g, "|").replace(/\s*\+\s*/g, " ").replace(/\s+/g, " ");
-      runeGroups = normalized.split(" ").map(
-        (group) => group.split("|").map((tok) => this.normalizeRuneName(tok)).filter(Boolean)
-      ).filter((g) => g.length > 0);
-    }
+    const selectedRunes = Array.isArray(this.selectedRuneKeys) ? this.selectedRuneKeys.filter(Boolean) : [];
     this.filteredRunewords = this.allRunewords.filter((rw) => {
       if (this.hideVanilla && String(rw?.Vanilla || "").toUpperCase() === "Y") {
         return false;
@@ -428,7 +429,7 @@ class Runewords {
         const types = Array.isArray(rw.Types) ? rw.Types : [];
         let hasTypeMatch = false;
         for (let i = 0; i < types.length; i++) {
-          const raw = types[i]?.Name != null ? String(types[i].Name) : "";
+          const raw = types[i]?.Index != null ? String(types[i].Index) : "";
           const chain = getChainForTypeNameReadonly(raw);
           if (!chain || chain.length === 0) continue;
           const itemBase = chain[0];
@@ -450,42 +451,47 @@ class Runewords {
           return false;
         }
       }
-      if (runeGroups.length > 0) {
-        const runewordRuneNames = (rw.Runes ?? []).map(
-          (rune) => this.normalizeRuneName(String(rune.Name))
-        );
-        const hasRuneMatch = runeGroups.every(
-          (orGroup) => orGroup.some((token) => runewordRuneNames.includes(token))
-        );
-        if (!hasRuneMatch) return false;
+      if (selectedRunes.length > 0) {
+        const runewordRuneKeys = (rw.Runes ?? []).map((rune) => rune.NameKey);
+        const hasAll = selectedRunes.every((k) => runewordRuneKeys.includes(k));
+        if (!hasAll) return false;
       }
       return true;
     });
   }
   buildSearchableStringForRuneword(rw) {
     const parts = [
-      String(rw.Name || ""),
-      ...(rw.Properties || []).flatMap((p) => {
-        const res = [p?.PropertyString || ""];
-        if (p["group-properties"]) {
-          Object.values(p["group-properties"]).forEach((pool) => {
-            pool.forEach((affix) => {
-              if (affix.PropertyString) res.push(affix.PropertyString);
-            });
-          });
-        }
-        return res;
-      }),
-      ...(rw.Types || []).map((t) => String(t?.Name || ""))
+      t(rw.Index)
     ];
+    if (Array.isArray(rw.Lines)) {
+      for (const l of rw.Lines) {
+        parts.push(format(l));
+      }
+    }
+    if (Array.isArray(rw.Types)) {
+      for (const typeInfo of rw.Types) {
+        const index = typeInfo?.Index != null ? String(typeInfo.Index) : "";
+        parts.push(index);
+        const chain = getChainForTypeNameReadonly(index);
+        if (chain) {
+          parts.push(...chain);
+          parts.push(...chain.map((c) => t(c)));
+        }
+      }
+    }
+    if (Array.isArray(rw.Runes)) {
+      for (const rune of rw.Runes) {
+        parts.push(t(rune.NameKey));
+      }
+    }
     return parts.filter(Boolean).join(" ").toLowerCase();
   }
   // Reset all filters and refresh URL/list
   resetFilters() {
     this.search = "";
-    this.searchRunes = "";
+    this.selectedRuneKeys = [];
     this.selectedType = "";
-    this.selectedAmount = void 0;
+    this.selectedAmount = "";
     this.exclusiveType = false;
     this.hideVanilla = false;
     this.updateList();
@@ -494,16 +500,18 @@ class Runewords {
   // Note: no type name transformations; use the names as exported by the game data.
 }
 _init = __decoratorStart();
-__decorateElement(_init, 1, "handleSearchRunesChanged", _handleSearchRunesChanged_dec, Runewords);
+__decorateElement(_init, 1, "handleSelectedRuneKeysChanged", _handleSelectedRuneKeysChanged_dec, Runewords);
 __decorateElement(_init, 1, "handleSearchChanged", _handleSearchChanged_dec, Runewords);
-__decorateElement(_init, 1, "selectedTypeChanged", _selectedTypeChanged_dec, Runewords);
-__decorateElement(_init, 1, "selectedAmountChanged", _selectedAmountChanged_dec, Runewords);
+__decorateElement(_init, 1, "handleTypeChanged", _handleTypeChanged_dec, Runewords);
+__decorateElement(_init, 1, "handleAmountChanged", _handleAmountChanged_dec, Runewords);
 __decorateElement(_init, 1, "handleExclusiveTypeChanged", _handleExclusiveTypeChanged_dec, Runewords);
 __decorateElement(_init, 1, "handleHideVanillaChanged", _handleHideVanillaChanged_dec, Runewords);
 __decorateElement(_init, 5, "search", _search_dec, Runewords);
-__decorateElement(_init, 5, "searchRunes", _searchRunes_dec, Runewords);
+__decorateElement(_init, 5, "selectedRuneKeys", _selectedRuneKeys_dec, Runewords);
 __decorateElement(_init, 5, "exclusiveType", _exclusiveType_dec, Runewords);
 __decorateElement(_init, 5, "hideVanilla", _hideVanilla_dec, Runewords);
+__decorateElement(_init, 5, "selectedType", _selectedType_dec, Runewords);
+__decorateElement(_init, 5, "selectedAmount", _selectedAmount_dec, Runewords);
 Runewords = __decorateElement(_init, 0, "Runewords", _Runewords_decorators, Runewords);
 __runInitializers(_init, 1, Runewords);
 export {

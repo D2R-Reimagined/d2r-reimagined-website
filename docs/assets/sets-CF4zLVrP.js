@@ -1,18 +1,17 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-QatnjEkL.js";
-import { g as getTypeChain, r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options, a as getChainForTypeNameReadonly } from "./item-type-filters-D1_j0GR_.js";
-import { p as passesHandFilter, t as toggleWeaponSort, g as getSortKeyFromDamageType, c as character_class_options, w as weaponSortOptions, h as handFilterOptions } from "./item-sorting-Biaf6mJs.js";
+import { C as CustomElement, t, i as isBlankOrInvalid, s as syncParamsToUrl, f as format, w as watch, c as customElement, b as bindable } from "./index-CMudv_8P.js";
+import { g as getTypeChain, r as resolveBaseTypeName, b as buildOptionsForPresentTypes, a as type_filtering_options, p as prependTypeResetOption, t as tokenizeSearch, i as isVanillaItem, c as getChainForTypeNameReadonly, m as matchesTokenGroups } from "./filter-helpers-BuZ4Nsi8.js";
+import { c as character_class_options } from "./character-classes-BxKvOt2-.js";
 import { a as getWeaponPhysDamValue, b as getWeaponNonPhysDamValue, g as getDamageTypeString } from "./damage-types-BlYhXdWN.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
-import { p as prependTypeResetOption, t as tokenizeSearch, i as isVanillaItem, m as matchesTokenGroups } from "./filter-helpers-DL_Ti2wh.js";
-import { s as setsJson } from "./sets-BiATQwaT.js";
+import { p as passesHandFilter, t as toggleWeaponSort, g as getSortKeyFromDamageType, w as weaponSortOptions, h as handFilterOptions } from "./item-sorting-BibmLCij.js";
 const name = "sets";
 const template = `<template>
     <h3 class="text-lg type-text text-center my-4">
-        <span class="rarity-text">[N]</span> = Normal <span class="rarity-text">[X]</span> = Exceptional <span
-            class="rarity-text">[E]</span> = Elite
+        <span class="rarity-text">[N]</span> = \${'label_normal' | t} <span class="rarity-text">[X]</span> = \${'label_exceptional' | t} <span
+            class="rarity-text">[E]</span> = \${'label_elite' | t}
     </h3>
     <h3 class="type-text text-lg text-center mx-auto mb-4">
-        <span class="rarity-text">\${sets.length}</span> Sets Found
+        <span class="rarity-text">\${sets.length}</span> \${'found_sets_suffix' | t}
     </h3>
 
     <search-area>
@@ -20,63 +19,63 @@ const template = `<template>
             <div class="flex flex-wrap justify-center items-start gap-2">
 
                 <div class="w-full lg:w-auto lg:min-w-60"
-                     data-help-text="Filter by character class, sets match as full set if one is found.">
+                     data-help-text="\${'help_class_filter' | t}">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <select id="ficlass" class="select-base peer" value.bind="selectedClass">
-                                <option repeat.for="opt of classes" value.bind="opt.value">\${opt.label}</option>
+                                <option repeat.for="opt of classes" value.bind="opt.value">\${opt.label | t}</option>
                             </select>
-                            <label for="ficlass" class="floating-label">Select Class</label>
+                            <label for="ficlass" class="floating-label">\${'filter_select_class' | t}</label>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="ficlass">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Class filter</span>
+                            <span class="sr-only">\${'info_more_about' | t:'filter_select_class'}</span>
                         </button>
                     </div>
                 </div>
 
                 <searchable-select id="itype"
                                    class="w-full lg:w-auto lg:min-w-60"
-                                   data-help-text="Filter by base item type, sets match as full set if one is found."
+                                   data-help-text="\${'help_item_type_filter' | t}"
                                    value.bind="selectedType"
                                    options.bind="types"
-                                   label="Select Item Type">
+                                   label="\${'filter_select_type' | t}">
                     <button au-slot="after" type="button" class="m-info-button" aria-expanded="false" data-info-for="itype">
                         <span class="mso">info</span>
-                        <span class="sr-only">More info about Item Type filter</span>
+                        <span class="sr-only">\${'info_more_about' | t:'filter_select_type'}</span>
                     </button>
                 </searchable-select>
 
                 <searchable-select id="eqname"
                                    class="w-full lg:w-auto lg:min-w-60"
-                                   data-help-text="Filter to a specific equipment for the selected type, disabled if one isn't selected."
+                                   data-help-text="\${'help_equipment_filter' | t}"
                                    value.bind="selectedEquipmentName"
                                    options.bind="equipmentNames"
-                                   label="Select Equipment"
+                                   label="\${'filter_select_equipment' | t}"
                                    disabled.bind="!selectedType">
                     <button au-slot="after" type="button" class="m-info-button" aria-expanded="false" data-info-for="eqname">
                         <span class="mso">info</span>
-                        <span class="sr-only">More info about Equipment filter</span>
+                        <span class="sr-only">\${'info_more_about' | t:'filter_select_equipment'}</span>
                     </button>
                 </searchable-select>
 
                 <div class="w-full lg:w-60"
-                     data-help-text="Search across all fields, sets match as full set if one is found. Text is matched as a phrase. Use '+' to require multiple terms (AND). Use ',' or '|' for OR. Prefix with '-' or '!' to exclude a term or phrase. ex: 'sorc skill mana' finds the exact phrase. 'fire+cold' finds items with both. '-fire' excludes items containing fire. 'damage -fire' finds items with damage but not fire. 'fire skill damage -cold skill damage' finds fire skill damage but excludes cold skill damage.">
+                     data-help-text="\${'help_search' | t}">
                     <div class="flex items-stretch">
                         <div class="trailing-icon flex-1" data-icon="search">
                             <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search"
                                    placeholder=" "/>
-                            <label for="inputsearch" class="floating-label">Search...</label>
+                            <label for="inputsearch" class="floating-label">\${'filter_search_placeholder' | t}</label>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="inputsearch">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Search</span>
+                            <span class="sr-only">\${'info_more_about' | t:'filter_search_placeholder'}</span>
                         </button>
                     </div>
                 </div>
 
                 <div class="w-full lg:w-auto lg:min-w-35"
-                     data-help-text="Filter toggle to hide Vanilla items. Applies to the entire set.">
+                     data-help-text="\${'help_hide_vanilla' | t}">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <button
@@ -86,27 +85,27 @@ const template = `<template>
                                     aria-pressed.bind="hideVanilla"
                                     click.trigger="hideVanilla = !hideVanilla">
                                 <span class="vanilla-indicator"></span>
-                                Hide Vanilla
+                                \${'filter_hide_vanilla' | t}
                             </button>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false"
                                 data-info-for="hidevanillabutton">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about the Hide Vanilla button</span>
+                            <span class="sr-only">\${'info_more_about' | t:'filter_hide_vanilla'}</span>
                         </button>
                     </div>
                 </div>
 
-                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Reset all filters to default.">
+                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="\${'help_reset_filters' | t}">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <button id="resetfilters" class="button-base" type="button" click.trigger="resetFilters()">
-                                Reset Filters
+                                \${'filter_reset' | t}
                             </button>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="resetfilters">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Reset Filters</span>
+                            <span class="sr-only">\${'info_more_about' | t:'filter_reset'}</span>
                         </button>
                     </div>
                 </div>
@@ -118,25 +117,25 @@ const template = `<template>
     <!-- weapon-sort-area -->
     <div if.bind="isWeaponType">
         <div class="w-full m-auto px-5 py-5 pb-2 border-b border-gray-600">
-            <h4 class="text-lg type-text text-center mb-2">Sort by Average Weapon Damage:</h4>
+            <h4 class="text-lg type-text text-center mb-2">\${'sort_by_damage' | t}</h4>
             <div class="flex flex-wrap justify-center items-start gap-2">
 
                 <div class="w-full lg:w-auto lg:min-w-55" data-help-text="Filter weapon type: All, 1H Only, or 2H Only.">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <select id="handfilter" class="select-base peer" value.bind="handFilterMode">
-                                <option repeat.for="opt of handFilterOptions" value.bind="opt.value">\${opt.label}</option>
+                                <option repeat.for="opt of handFilterOptions" value.bind="opt.value">\${opt.label | t}</option>
                             </select>
-                            <label for="handfilter" class="floating-label">Select Weapon Type</label>
+                            <label for="handfilter" class="floating-label">\${'sort_select_weapon_type' | t}</label>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="handfilter">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Weapon Type filter</span>
+                            <span class="sr-only">\${'info_more_about' | t:'sort_select_weapon_type'}</span>
                         </button>
                     </div>
                 </div>
 
-                <div repeat.for="opt of weaponSortOptions" class="w-full lg:w-auto lg:min-w-45" data-help-text.bind="opt.help">
+                <div repeat.for="opt of weaponSortOptions" class="w-full lg:w-auto lg:min-w-45" data-help-text="\${opt.help | t}">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <button id.bind="opt.id" class="vanilla-button flex-row-reverse" type="button" click.trigger="toggleSort(opt.type)"
@@ -144,12 +143,12 @@ const template = `<template>
                                 <span class="mso \${weaponSortMode.includes(opt.type) ? 'set-text-light' : ''}">
                                     \${weaponSortMode === 'avg-' + opt.type + '-ascending' ? 'arrow_upward' : (weaponSortMode === 'avg-' + opt.type + '-descending' ? 'arrow_downward' : 'unknown_med')}
                                 </span>
-                                \${opt.label}
+                                \${opt.label | t}
                             </button>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for.bind="opt.id">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about \${opt.label} sorting</span>
+                            <span class="sr-only">\${'info_more_about' | t:opt.label}</span>
                         </button>
                     </div>
                 </div>
@@ -158,12 +157,12 @@ const template = `<template>
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <button id="resetsort" class="button-base" type="button" click.trigger="resetSort()">
-                                Reset Sort
+                                \${'sort_reset' | t}
                             </button>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="resetsort">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Reset Sort</span>
+                            <span class="sr-only">\${'info_more_about' | t:'Reset Sort'}</span>
                         </button>
                     </div>
                 </div>
@@ -177,20 +176,16 @@ const template = `<template>
 
             <div class="mb-1">
                 <div class="text-xl set-text-light">
-                    \${set.Name}
+                    \${set.Index | t}
                 </div>
                 <div class="text-base rarity-text">
-                    \${set.Vanilla === 'Y' ? 'Vanilla' : 'Mod'}
+                    \${set.Vanilla === 'Y' ? 'label_vanilla' : 'label_mod' | t}
                 </div>
             </div>
 
             <div class="mb-1">
-                <div class="partial-sets text-base set-text" repeat.for="partial of set.PartialProperties">
-                    \${partial.PropertyString} (\${getItemCount(partial.Index)} Items)
-                </div>
-                <div class="partial-sets text-base set-text" repeat.for="full of set.FullProperties">
-                    \${full.PropertyString} (Full Set)
-                </div>
+                <keyed-lines class="partial-sets text-base set-text" lines.bind="set.PartialBonuses"></keyed-lines>
+                <keyed-lines class="partial-sets text-base set-text" lines.bind="set.FullBonuses"></keyed-lines>
             </div>
 
             <div repeat.for="setItem of set.SetItems"
@@ -199,79 +194,53 @@ const template = `<template>
                 <div class="mt-2 mb-1">
                     <div class="text-base set-text-light"
                          if.bind="!hideVanilla || (set.Vanilla || '').toUpperCase() !== 'Y'">
-                        \${setItem.Name}
+                        \${setItem.Index | t}
                     </div>
                     <div class="text-base rarity-text" if.bind="setItem.Rarity">
-                        Rarity: \${setItem.Rarity}
+                        \${'label_rarity' | t:setItem.Rarity}
                     </div>
                 </div>
 
                 <div class="mb-1">
-                    <div class="text-base type-text" if.bind="setItem.Equipment.Name">
-                        \${setItem.Equipment.Name}
+                    <div class="text-base type-text">
+                        \${setItem.Equipment.NameKey | t}
                     </div>
-                    <div class="text-base type-text" if.bind="setItem.Equipment.ArmorString">
-                        Defense: \${setItem.Equipment.ArmorString}
+                    <div repeat.for="line of setItem.Equipment.Lines"
+                         if.bind="['strDefense','strDefenseRange','strDefenseRangeRange','strChanceToBlock','strSmiteDamage','strKickDamage'].includes(line.key)"
+                         class="text-base type-text">
+                        \${line | keyedLine}
                     </div>
-                    <div class="text-base type-text"
-                         if.bind="setItem.Equipment.Block !== null && setItem.Equipment.Block !== undefined && setItem.Equipment.Block > 0">
-                        Block: \${setItem.Equipment.Block}%
-                    </div>
-                    <div class="text-base type-text flex items-center justify-center gap-1" if.bind="setItem.Equipment.DamageTypes"
+                    <div class="text-base type-text flex items-center justify-center gap-1"
                          repeat.for="damage of setItem.Equipment.DamageTypes"
                          click.trigger="getSortKeyFromDamageType(damage.Type) ? toggleSort(getSortKeyFromDamageType(damage.Type)) : null"
                          class.bind="getSortKeyFromDamageType(damage.Type) ? 'clickable' : ''">
-                        <span>\${getDamageTypeString(damage.Type)} \${damage.DamageString}<span class="set-text" if.bind="damage.AverageDamage"> <\${damage.AverageDamage}></span></span>
+                        <span repeat.for="line of damage.Lines | keyedLines">\${line}</span>
+                        <span class="set-text" if.bind="damage.AverageDamage"> <\${damage.AverageDamage}></span>
                         <span class="mso set-text-light" if.bind="getSortKeyFromDamageType(damage.Type) && weaponSortMode.includes(getSortKeyFromDamageType(damage.Type))">
                             \${weaponSortMode.includes('ascending') ? 'arrow_upward' : 'arrow_downward'}
                         </span>
                     </div>
-                    <div class="text-base type-text" if.bind="setItem.Equipment.Durability > 0">
-                        Durability: \${setItem.Equipment.Durability}
+                    <div repeat.for="line of setItem.Equipment.Lines"
+                         if.bind="['strDurability','strIndestructible','strethereal','strSocketedCount'].includes(line.key)"
+                         class="text-base type-text">
+                        \${line | keyedLine}
                     </div>
                 </div>
 
                 <div class="mb-1">
-                    <div class="text-base requirement-text"
-                         if.bind="setItem.Equipment.RequiredClass && setItem.Equipment.RequiredClass.length">
-                        (\${setItem.Equipment.RequiredClass} Only)
-                    </div>
-                    <div class="text-base requirement-text" if.bind="setItem.Equipment.RequiredDexterity && setItem.Equipment.RequiredDexterity !== '0' && setItem.Equipment.RequiredDexterity !== 0">
-                        \${setItem.Equipment.RequiredDexterity} Dexterity Required
-                    </div>
-                    <div class="text-base requirement-text" if.bind="setItem.Equipment.RequiredStrength && setItem.Equipment.RequiredStrength !== '0' && setItem.Equipment.RequiredStrength !== 0">
-                        \${setItem.Equipment.RequiredStrength} Strength Required
+                    <div repeat.for="line of setItem.Equipment.Lines"
+                         if.bind="['strRequiredClass','strRequiredDexterity','strRequiredStrength'].includes(line.key)"
+                         class="text-base requirement-text">
+                        \${line | keyedLine}
                     </div>
                     <div class="text-base requirement-text">
-                        Level \${setItem.RequiredLevel > 0? setItem.RequiredLevel: 1} Required
+                        \${'strRequiredLevel' | t: setItem.RequiredLevel || 1}
                     </div>
                 </div>
 
-                <div class="text-base prop-text" repeat.for="property of setItem.Properties | sortProperties">
-                    <div if.bind="property.PropertyString">
-                        <span>\${property.PropertyString}</span>
-                    </div>
-                    <div if.bind="property['group-properties']">
-                        <div repeat.for="[groupName, pool] of property['group-properties'] | entries">
-                            <div if.bind="property.pickmode == 0 || (pool[0] && pool[0].PickMode == 0)">
-                                <div repeat.for="affix of pool" if.bind="affix.PropertyString">
-                                    \${affix.PropertyString}
-                                </div>
-                            </div>
-                            <div if.bind="property.pickmode != 0 && (!pool[0] || pool[0].PickMode != 0)" class="border px-2 border-gray-600 rounded m-2">
-                                <div class="set-text text-center p-1 border-b border-gray-600">
-                                    \${formatGroupName(groupName)}
-                                </div>
-                                <div repeat.for="affixData of pool" if.bind="affixData.PropertyString" class="flex justify-between p-1 border-b border-gray-700 last:border-0">
-                                    <span class="prop-text">\${affixData | chance:pool}%</span>
-                                    <span class="text-right">\${affixData.PropertyString}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-base set-text" repeat.for="setProperty of setItem.SetPropertiesString">
-                    \${setProperty}
+                <keyed-lines class="text-base prop-text" lines.bind="setItem.Lines"></keyed-lines>
+                <div class="text-base set-text" repeat.for="setBonus of setItem.SetBonuses">
+                    <keyed-lines lines.bind="setBonus"></keyed-lines>
                 </div>
 
             </div>
@@ -301,7 +270,7 @@ const __au2ViewDef = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.define
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __knownSymbol = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : Symbol.for("Symbol." + name2);
+var __knownSymbol = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : /* @__PURE__ */ Symbol.for("Symbol." + name2);
 var __typeError = (msg) => {
   throw TypeError(msg);
 };
@@ -351,7 +320,7 @@ _Sets_decorators = [customElement(__au2ViewDef)], _search_dec = [bindable], _sel
 class Sets {
   constructor() {
     __runInitializers(_init, 5, this);
-    __publicField(this, "allSets", setsJson);
+    __publicField(this, "allSets", []);
     __publicField(this, "sets", []);
     __publicField(this, "_searchStrings", /* @__PURE__ */ new Map());
     __publicField(this, "search", __runInitializers(_init, 8, this)), __runInitializers(_init, 11, this);
@@ -365,7 +334,10 @@ class Sets {
     __publicField(this, "_debouncedUpdateUrl");
     __publicField(this, "equipmentNames", []);
     __publicField(this, "types", type_filtering_options.slice());
-    __publicField(this, "classes", character_class_options);
+    __publicField(this, "classes", character_class_options.map((opt) => ({
+      ...opt,
+      label: t(opt.label)
+    })));
     __publicField(this, "weaponSortOptions", weaponSortOptions);
     __publicField(this, "handFilterOptions", handFilterOptions);
     __publicField(this, "getDamageTypeString", getDamageTypeString);
@@ -375,14 +347,21 @@ class Sets {
     if (!this.selectedType) return false;
     const opt = this.types.find((o) => o.id === this.selectedType);
     if (!opt || !opt.value) return false;
-    if (opt.value.includes("Weapon")) return true;
+    if (opt.value.includes("weapitype")) return true;
     return opt.value.some((typeName) => {
       const chain = getTypeChain(typeName);
-      return chain.includes("Weapon");
+      return chain.includes("weapitype");
     });
   }
   // Build options and hydrate from URL BEFORE controls render
-  binding() {
+  async binding() {
+    try {
+      const resp = await fetch("/data/keyed/sets.json");
+      this.allSets = await resp.json();
+    } catch (e) {
+      console.error("Failed to load sets:", e);
+      this.allSets = [];
+    }
     const urlParams = new URLSearchParams(window.location.search);
     this.allSets.forEach((s) => {
       this._searchStrings.set(s, this.buildSearchableStringForSet(s));
@@ -399,13 +378,16 @@ class Sets {
     if (hv === "true" || hv === "1") this.hideVanilla = true;
     try {
       const present = /* @__PURE__ */ new Set();
-      for (const set of setsJson || []) {
+      for (const set of this.allSets) {
         for (const item of set?.SetItems || []) {
           const base = resolveBaseTypeName(item?.Type ?? "");
           if (base) present.add(base);
         }
       }
-      this.types = buildOptionsForPresentTypes(type_filtering_options, present);
+      this.types = buildOptionsForPresentTypes(type_filtering_options, present).map((opt) => ({
+        ...opt,
+        label: t(opt.label)
+      }));
       this.types = prependTypeResetOption(this.types);
     } catch {
     }
@@ -489,7 +471,7 @@ class Sets {
         }
         if (this.selectedEquipmentName) {
           const hasMatch = (set.SetItems ?? []).some(
-            (si) => si.Equipment?.Name === this.selectedEquipmentName
+            (si) => si.Equipment?.NameKey === this.selectedEquipmentName
           );
           if (!hasMatch) return false;
         }
@@ -543,41 +525,55 @@ class Sets {
   }
   buildSearchableStringForSet(set) {
     const parts = [];
-    if (set.Name) parts.push(String(set.Name));
-    const allProps = set.AllProperties ?? [
-      ...set.FullProperties || [],
-      ...set.PartialProperties || []
-    ];
-    for (const p of allProps || []) {
-      if (p.PropertyString) parts.push(p.PropertyString);
-      if (p["group-properties"]) {
-        Object.values(p["group-properties"]).forEach((pool) => {
-          pool.forEach((affix) => {
-            if (affix.PropertyString) parts.push(affix.PropertyString);
-          });
-        });
+    if (set.Index) parts.push(t(set.Index));
+    if (Array.isArray(set.PartialBonuses)) {
+      for (const l of set.PartialBonuses) {
+        parts.push(format(l));
+      }
+    }
+    if (Array.isArray(set.FullBonuses)) {
+      for (const l of set.FullBonuses) {
+        parts.push(format(l));
       }
     }
     for (const si of set.SetItems ?? []) {
-      parts.push(String(si?.Name || ""));
-      parts.push(String(si?.Equipment?.Name || ""));
-      for (const p of si?.Properties || []) {
-        if (p.PropertyString) parts.push(p.PropertyString);
-        if (p["group-properties"]) {
-          Object.values(p["group-properties"]).forEach((pool) => {
-            pool.forEach((affix) => {
-              if (affix.PropertyString) parts.push(affix.PropertyString);
-            });
-          });
+      parts.push(t(si?.Index));
+      parts.push(t(si?.Equipment?.NameKey));
+      const typeIndex = si?.Type;
+      if (typeIndex) {
+        parts.push(typeIndex);
+        parts.push(t(typeIndex));
+        const chain = getChainForTypeNameReadonly(typeIndex);
+        if (chain) {
+          parts.push(...chain);
+          parts.push(...chain.map((c) => t(c)));
         }
       }
-      for (const s of si?.SetPropertiesString || []) {
-        if (s) parts.push(String(s));
+      if (Array.isArray(si?.Lines)) {
+        for (const l of si.Lines) {
+          parts.push(format(l));
+        }
+      }
+      if (Array.isArray(si?.SetBonuses)) {
+        for (const group of si.SetBonuses) {
+          for (const l of group) {
+            parts.push(format(l));
+          }
+        }
+      }
+      if (Array.isArray(si?.Equipment?.Lines)) {
+        for (const l of si.Equipment.Lines) {
+          parts.push(format(l));
+        }
       }
       if (Array.isArray(si?.Equipment?.DamageTypes)) {
         for (const d of si.Equipment.DamageTypes) {
           parts.push(getDamageTypeString(d.Type));
-          if (d.DamageString) parts.push(d.DamageString);
+          if (Array.isArray(d.Lines)) {
+            for (const l of d.Lines) {
+              parts.push(format(l));
+            }
+          }
         }
       }
     }
@@ -601,20 +597,20 @@ class Sets {
       const opt = this.types.find((o) => o.id === this.selectedType);
       return opt && opt.value ? new Set(opt.value) : null;
     })();
-    for (const set of setsJson || []) {
+    for (const set of this.allSets) {
       for (const si of set.SetItems ?? []) {
         if (allowed) {
           const base = getChainForTypeNameReadonly(si?.Type ?? "")[0] || (si?.Type ?? "");
           if (!allowed.has(base)) continue;
         }
-        const name2 = si.Equipment?.Name;
-        if (name2) names.add(name2);
+        const key = si.Equipment?.NameKey;
+        if (key) names.add(key);
       }
     }
     const options = [
       { value: "", label: "-" }
     ];
-    Array.from(names).sort().forEach((n) => options.push({ value: n, label: n }));
+    Array.from(names).sort((a, b) => t(a).localeCompare(t(b))).forEach((key) => options.push({ value: key, label: t(key) }));
     return options;
   }
   // Reset all filters to defaults and refresh

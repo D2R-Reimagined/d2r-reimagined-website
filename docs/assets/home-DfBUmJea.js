@@ -1,6 +1,6 @@
-import { C as CustomElement, c as customElement } from "./index-QatnjEkL.js";
+import { C as CustomElement, o as onLanguageChanged, t, c as customElement } from "./index-CMudv_8P.js";
 const name = "home";
-const template = '<template>\n    <div class="container mx-auto mt-5">\n        <div class="max-w-5xl mx-auto text-lg type-text p-5">\n            Our mission is to provide a Diablo II experience that is both familiar and new. We aim to keep the core\n            gameplay of Diablo II intact while adding new features and content to the game. We want to provide a fresh\n            experience for players who have played Diablo II for years, while also providing a fun and engaging\n            experience for new players.\n        </div>\n        <div class="max-w-5xl mx-auto text-lg type-text p-5">\n            Everything we do, regardless if that is the D2R Files themselves or any of the tooling we build, is open\n            source. We believe that the community should have the ability to see and modify the code that runs the mod.\n            We also believe that the community should have the ability to contribute to the mod and help shape its\n            future.\n        </div>\n        <div class="max-w-5xl mx-auto text-lg type-text p-5">\n            Want to be a part of this mission? Join our Discord Server at\n            <a class="link-text" href="https://discord.gg/9zZkYrSA8C" target="_blank" rel="noopener noreferrer">https://discord.gg/9zZkYrSA8C</a>\n            for more information on contributing and collaborating.\n        </div>\n    </div>\n</template>';
+const template = '\uFEFF<template>\n    <div class="container mx-auto mt-5">\n        <div class="max-w-5xl mx-auto text-lg type-text p-5">\n            ${\'home_mission_text\' | t}\n        </div>\n        <div class="max-w-5xl mx-auto text-lg type-text p-5">\n            ${\'home_open_source_text\' | t}\n        </div>\n        <div class="max-w-5xl mx-auto text-lg type-text p-5">\n            ${discordBefore}<a href.bind="discordUrl" target="_blank" rel="noopener noreferrer"\n                               class="link-text">${discordUrl}</a>${discordAfter}\n        </div>\n    </div>\n</template>\n';
 const dependencies = [];
 const bindables = {};
 let _e;
@@ -22,7 +22,7 @@ const __au2ViewDef = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.define
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __knownSymbol = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : Symbol.for("Symbol." + name2);
+var __knownSymbol = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : /* @__PURE__ */ Symbol.for("Symbol." + name2);
 var __typeError = (msg) => {
   throw TypeError(msg);
 };
@@ -51,8 +51,32 @@ var __decorateElement = (array, flags, name2, decorators, target, extra) => {
   return __decoratorMetadata(array, target), desc && __defProp(target, name2, desc), p ? k ^ 4 ? extra : desc : target;
 };
 var _Home_decorators, _init;
+const DISCORD_URL = "https://discord.gg/9zZkYrSA8C";
 _Home_decorators = [customElement(__au2ViewDef)];
 class Home {
+  discordUrl = DISCORD_URL;
+  discordBefore = "";
+  discordAfter = "";
+  unsubscribe;
+  attached() {
+    this.refreshDiscordParts();
+    this.unsubscribe = onLanguageChanged(() => this.refreshDiscordParts());
+  }
+  detached() {
+    this.unsubscribe?.();
+    this.unsubscribe = void 0;
+  }
+  refreshDiscordParts() {
+    const template2 = t("home_discord_text");
+    const idx = template2.indexOf("{0}");
+    if (idx >= 0) {
+      this.discordBefore = template2.substring(0, idx);
+      this.discordAfter = template2.substring(idx + "{0}".length);
+    } else {
+      this.discordBefore = template2;
+      this.discordAfter = "";
+    }
+  }
 }
 _init = __decoratorStart();
 Home = __decorateElement(_init, 0, "Home", _Home_decorators, Home);

@@ -1,20 +1,9 @@
 import { a as getWeaponPhysDamValue, b as getWeaponNonPhysDamValue } from "./damage-types-BlYhXdWN.js";
-const character_class_options = [
-  { value: "", label: "-" },
-  { value: "Amazon", label: "Amazon" },
-  { value: "Assassin", label: "Assassin" },
-  { value: "Barbarian", label: "Barbarian" },
-  { value: "Druid", label: "Druid" },
-  { value: "Necromancer", label: "Necromancer" },
-  { value: "Paladin", label: "Paladin" },
-  { value: "Sorceress", label: "Sorceress" },
-  { value: "Warlock", label: "Warlock" }
-];
 const weaponSortOptions = [
-  { id: "sort1h", type: "1h-phys", label: "1H Physical", help: "Sort by One-Handed Physical Damage." },
-  { id: "sort2h", type: "2h-phys", label: "2H Physical", help: "Sort by Two-Handed Physical Damage." },
-  { id: "sortthrow", type: "throw-phys", label: "Throw Physical", help: "Sort by Throw Physical Damage." },
-  { id: "sortnonphys", type: "non-phys", label: "Non-Physical", help: "Sort by Non-Physical Damage." }
+  { id: "sort1h", type: "1h-phys", label: "sort_1h_phys", help: "sort_1h_phys_help" },
+  { id: "sort2h", type: "2h-phys", label: "sort_2h_phys", help: "sort_2h_phys_help" },
+  { id: "sortthrow", type: "throw-phys", label: "sort_throw_phys", help: "sort_throw_phys_help" },
+  { id: "sortnonphys", type: "non-phys", label: "sort_non_phys", help: "sort_non_phys_help" }
 ];
 function sortItemsByWeaponDamage(items, mode) {
   if (mode === "none") return items;
@@ -54,8 +43,8 @@ function getSortKeyFromDamageType(type) {
 }
 const handFilterOptions = [
   { value: "", label: "-" },
-  { value: "1h", label: "1H Only" },
-  { value: "2h", label: "2H Only" }
+  { value: "1h", label: "label_1h_only" },
+  { value: "2h", label: "label_2h_only" }
 ];
 function passesHandFilter(damageTypes, mode) {
   if (!mode) return true;
@@ -65,7 +54,6 @@ function passesHandFilter(damageTypes, mode) {
   return true;
 }
 export {
-  character_class_options as c,
   getSortKeyFromDamageType as g,
   handFilterOptions as h,
   passesHandFilter as p,

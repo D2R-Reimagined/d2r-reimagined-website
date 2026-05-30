@@ -1,78 +1,77 @@
-import { C as CustomElement, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-QatnjEkL.js";
-import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, t as type_filtering_options, g as getTypeChain, a as getChainForTypeNameReadonly } from "./item-type-filters-D1_j0GR_.js";
-import { p as passesHandFilter, s as sortItemsByWeaponDamage, t as toggleWeaponSort, g as getSortKeyFromDamageType, c as character_class_options, w as weaponSortOptions, h as handFilterOptions } from "./item-sorting-Biaf6mJs.js";
+import { C as CustomElement, t, i as isBlankOrInvalid, s as syncParamsToUrl, f as format, w as watch, c as customElement, b as bindable } from "./index-CMudv_8P.js";
+import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, a as type_filtering_options, p as prependTypeResetOption, g as getTypeChain, t as tokenizeSearch, i as isVanillaItem, c as getChainForTypeNameReadonly, m as matchesTokenGroups } from "./filter-helpers-BuZ4Nsi8.js";
+import { c as character_class_options } from "./character-classes-BxKvOt2-.js";
 import { g as getDamageTypeString } from "./damage-types-BlYhXdWN.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
-import { p as prependTypeResetOption, t as tokenizeSearch, i as isVanillaItem, m as matchesTokenGroups } from "./filter-helpers-DL_Ti2wh.js";
-import { u as uniquesJson } from "./uniques-BiMnx8f3.js";
+import { p as passesHandFilter, s as sortItemsByWeaponDamage, t as toggleWeaponSort, g as getSortKeyFromDamageType, w as weaponSortOptions, h as handFilterOptions } from "./item-sorting-BibmLCij.js";
 const name = "uniques";
 const template = `<template>
     <h3 class="text-lg type-text text-center my-4">
-        <span class="rarity-text">[N]</span> = Normal <span class="rarity-text">[X]</span> = Exceptional <span
-            class="rarity-text">[E]</span> = Elite
+        <span class="rarity-text">[N]</span> = \${'label_normal' | t} <span class="rarity-text">[X]</span> = \${'label_exceptional' | t} <span
+            class="rarity-text">[E]</span> = \${'label_elite' | t}
     </h3>
     <h3 class="text-lg type-text text-center mx-auto mb-4">
-        <span class="rarity-text">\${uniques.length}</span> Uniques Found
+        <span class="rarity-text">\${uniques.length}</span> \${'found_items_suffix' | t}
     </h3>
 
     <search-area>
         <div class="w-full m-auto px-5 py-2">
             <div class="flex flex-wrap justify-center items-start gap-2">
 
-                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Filter by character class.">
+                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="\${'help_class_filter' | t}">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <select id="ficlass" class="select-base peer" value.bind="selectedClass">
-                                <option repeat.for="opt of classes" value.bind="opt.value">\${opt.label}</option>
+                                <option repeat.for="opt of classes" value.bind="opt.value">\${opt.label | t}</option>
                             </select>
-                            <label for="ficlass" class="floating-label">Select Class</label>
+                            <label for="ficlass" class="floating-label">\${'filter_select_class' | t}</label>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="ficlass">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Class filter</span>
+                            <span class="sr-only">\${'info_more_about' | t:'filter_select_class'}</span>
                         </button>
                     </div>
                 </div>
 
                 <searchable-select id="itype"
                                    class="w-full lg:w-auto lg:min-w-60"
-                                   data-help-text="Filter by base item type, only includes class specific variants on generic types."
+                                   data-help-text="\${'help_item_type_filter' | t}"
                                    value.bind="selectedType"
                                    options.bind="types"
-                                   label="Select Item Type">
+                                   label="\${'filter_select_type' | t}">
                     <button au-slot="after" type="button" class="m-info-button" aria-expanded="false" data-info-for="itype">
                         <span class="mso">info</span>
-                        <span class="sr-only">More info about Item Type filter</span>
+                        <span class="sr-only">\${'info_more_about' | t:'filter_select_type'}</span>
                     </button>
                 </searchable-select>
 
                 <searchable-select id="eqsel"
                                    class="w-full lg:w-auto lg:min-w-60"
-                                   data-help-text="Filter to a specific equipment for the selected item type, disabled if one isn't selected."
+                                   data-help-text="\${'help_equipment_filter' | t}"
                                    value.bind="selectedEquipmentName"
                                    options.bind="equipmentNames"
-                                   label="Select Equipment"
+                                   label="\${'filter_select_equipment' | t}"
                                    disabled.bind="!selectedType">
                     <button au-slot="after" type="button" class="m-info-button" aria-expanded="false" data-info-for="eqsel">
                         <span class="mso">info</span>
-                        <span class="sr-only">More info about Equipment filter</span>
+                        <span class="sr-only">\${'info_more_about' | t:'filter_select_equipment'}</span>
                     </button>
                 </searchable-select>
 
-                <div class="w-full lg:w-60" data-help-text="Search across all fields. Text is matched as a phrase. Use '+' to require multiple terms (AND). Use ',' or '|' for OR. Prefix with '-' or '!' to exclude a term or phrase. ex. 'fire skill damage' finds the exact phrase. 'fire+cold' finds items with both. 'fire,cold' finds items with either. '-fire' excludes items containing fire. 'damage -fire' finds items with damage but not fire. 'fire skill damage -cold skill damage' finds fire skill damage but excludes cold skill damage.">
+                <div class="w-full lg:w-60" data-help-text="\${'help_search' | t}">
                     <div class="flex items-stretch">
                         <div class="trailing-icon flex-1" data-icon="search">
                             <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search" placeholder=" "/>
-                            <label for="inputsearch" class="floating-label">Search...</label>
+                            <label for="inputsearch" class="floating-label">\${'filter_search_placeholder' | t}</label>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="inputsearch">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Search</span>
+                            <span class="sr-only">\${'info_more_about' | t:'filter_search_placeholder'}</span>
                         </button>
                     </div>
                 </div>
 
-                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Filter toggle to hide Vanilla items.">
+                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="\${'help_hide_vanilla' | t}">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <button
@@ -82,26 +81,26 @@ const template = `<template>
                                     aria-pressed.bind="hideVanilla"
                                     click.trigger="hideVanilla = !hideVanilla">
                                 <span class="vanilla-indicator"></span>
-                                Hide Vanilla
+                                \${'filter_hide_vanilla' | t}
                             </button>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="hidevanillabutton">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about the Hide Vanilla button</span>
+                            <span class="sr-only">\${'info_more_about' | t:'filter_hide_vanilla'}</span>
                         </button>
                     </div>
                 </div>
 
-                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Reset all filters to default.">
+                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="\${'help_reset_filters' | t}">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <button id="resetfilters" class="button-base" type="button" click.trigger="resetFilters()">
-                                Reset Filters
+                                \${'filter_reset' | t}
                             </button>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="resetfilters">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Reset Filters</span>
+                            <span class="sr-only">\${'info_more_about' | t:'filter_reset'}</span>
                         </button>
                     </div>
                 </div>
@@ -113,25 +112,25 @@ const template = `<template>
     <!-- weapon-sort-area -->
     <div if.bind="isWeaponType">
         <div class="w-full m-auto px-5 py-5 pb-2 border-b border-gray-600">
-            <h4 class="text-lg type-text text-center mb-2">Sort by Average Weapon Damage:</h4>
+            <h4 class="text-lg type-text text-center mb-2">\${'sort_by_damage' | t}</h4>
             <div class="flex flex-wrap justify-center items-start gap-2">
 
                 <div class="w-full lg:w-auto lg:min-w-55" data-help-text="Filter weapon type: All, 1H Only, or 2H Only.">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <select id="handfilter" class="select-base peer" value.bind="handFilterMode">
-                                <option repeat.for="opt of handFilterOptions" value.bind="opt.value">\${opt.label}</option>
+                                <option repeat.for="opt of handFilterOptions" value.bind="opt.value">\${opt.label | t}</option>
                             </select>
-                            <label for="handfilter" class="floating-label">Select Weapon Type</label>
+                            <label for="handfilter" class="floating-label">\${'sort_select_weapon_type' | t}</label>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="handfilter">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Weapon Type filter</span>
+                            <span class="sr-only">\${'info_more_about' | t:'sort_select_weapon_type'}</span>
                         </button>
                     </div>
                 </div>
 
-                <div repeat.for="opt of weaponSortOptions" class="w-full lg:w-auto lg:min-w-45" data-help-text.bind="opt.help">
+                <div repeat.for="opt of weaponSortOptions" class="w-full lg:w-auto lg:min-w-45" data-help-text="\${opt.help | t}">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <button id.bind="opt.id" class="vanilla-button flex-row-reverse" type="button" click.trigger="toggleSort(opt.type)"
@@ -139,12 +138,12 @@ const template = `<template>
                                 <span class="mso \${weaponSortMode.includes(opt.type) ? 'set-text-light' : ''}">
                                     \${weaponSortMode === 'avg-' + opt.type + '-ascending' ? 'arrow_upward' : (weaponSortMode === 'avg-' + opt.type + '-descending' ? 'arrow_downward' : 'unknown_med')}
                                 </span>
-                                \${opt.label}
+                                \${opt.label | t}
                             </button>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for.bind="opt.id">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about \${opt.label} sorting</span>
+                            <span class="sr-only">\${'info_more_about' | t:opt.label}</span>
                         </button>
                     </div>
                 </div>
@@ -153,12 +152,12 @@ const template = `<template>
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <button id="resetsort" class="button-base" type="button" click.trigger="resetSort()">
-                                Reset Sort
+                                \${'sort_reset' | t}
                             </button>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="resetsort">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Reset Sort</span>
+                            <span class="sr-only">\${'info_more_about' | t:'Reset Sort'}</span>
                         </button>
                     </div>
                 </div>
@@ -172,80 +171,54 @@ const template = `<template>
 
                 <div class="mb-1">
                     <div class="text-xl unique-text">
-                        \${unique.Name}
+                        \${unique.Index | t}
                     </div>
                     <div class="text-base rarity-text" if.bind="unique.Rarity">
-                        Rarity: \${unique.Rarity}
+                        \${'label_rarity' | t:unique.Rarity}
                     </div>
-                    <div class="text-base rarity-text" if.bind="unique.Vanilla">
-                        \${unique.Vanilla === 'Y' ? 'Vanilla' : 'Mod'}
+                    <div class="text-base rarity-text">
+                        \${unique.Vanilla === 'Y' ? 'label_vanilla' : 'label_mod' | t}
                     </div>
                 </div>
 
                 <div class="mb-1">
-                    <div class="text-base type-text" if.bind="unique.Equipment.Name">
-                        \${unique.Equipment.Name}
+                    <div class="text-base type-text">
+                        \${unique.Equipment.NameKey | t}
                     </div>
-                    <div class="text-base type-text" if.bind="unique.Equipment.ArmorString">
-                        Defense: \${unique.Equipment.ArmorString}
-                    </div>
-                    <div class="text-base type-text"
-                         if.bind="unique.Equipment.Block !== null && unique.Equipment.Block !== undefined && unique.Equipment.Block > 0">
-                        Block: \${unique.Equipment.Block}%
+                    <div repeat.for="line of unique.Equipment.Lines"
+                         if.bind="['strDefense','strDefenseRange','strDefenseRangeRange','strChanceToBlock','strSmiteDamage','strKickDamage'].includes(line.key)"
+                         class="text-base type-text">
+                        \${line | keyedLine}
                     </div>
                     <div class="text-base type-text flex items-center justify-center gap-1"
                          repeat.for="damage of unique.Equipment.DamageTypes"
                          click.trigger="getSortKeyFromDamageType(damage.Type) ? toggleSort(getSortKeyFromDamageType(damage.Type)) : null"
                          class.bind="getSortKeyFromDamageType(damage.Type) ? 'clickable' : ''">
-                        <span>\${getDamageTypeString(damage.Type)} \${damage.DamageString}<span class="set-text" if.bind="damage.AverageDamage"> <\${damage.AverageDamage}></span></span>
+                        <span repeat.for="line of damage.Lines | keyedLines">\${line}</span>
+                        <span class="set-text" if.bind="damage.AverageDamage"> <\${damage.AverageDamage}></span>
                         <span class="mso set-text-light" if.bind="getSortKeyFromDamageType(damage.Type) && weaponSortMode.includes(getSortKeyFromDamageType(damage.Type))">
                             \${weaponSortMode.includes('ascending') ? 'arrow_upward' : 'arrow_downward'}
                         </span>
                     </div>
-                    <div class="text-base type-text" if.bind="unique.Equipment.Durability > 0">
-                        Durability: \${unique.Equipment.Durability}
+                    <div repeat.for="line of unique.Equipment.Lines"
+                         if.bind="['strDurability','strIndestructible','strethereal','strSocketedCount'].includes(line.key)"
+                         class="text-base type-text">
+                        \${line | keyedLine}
                     </div>
                 </div>
 
                 <div class="mb-1">
-                    <div class="text-base requirement-text"
-                         if.bind="unique.Equipment.RequiredClass && unique.Equipment.RequiredClass.length">
-                        (\${unique.Equipment.RequiredClass} Only)
-                    </div>
-                    <div class="text-base requirement-text" if.bind="unique.Equipment.RequiredDexterity && unique.Equipment.RequiredDexterity !== '0' && unique.Equipment.RequiredDexterity !== 0">
-                        Required Dexterity: \${unique.Equipment.RequiredDexterity}
-                    </div>
-                    <div class="text-base requirement-text" if.bind="unique.Equipment.RequiredStrength && unique.Equipment.RequiredStrength !== '0' && unique.Equipment.RequiredStrength !== 0">
-                        Required Strength: \${unique.Equipment.RequiredStrength}
+                    <div repeat.for="line of unique.Equipment.Lines"
+                         if.bind="['strRequiredClass','strRequiredDexterity','strRequiredStrength'].includes(line.key)"
+                         class="text-base requirement-text">
+                        \${line | keyedLine}
                     </div>
                     <div class="text-base requirement-text">
-                        Required Level: \${unique.RequiredLevel > 0? unique.RequiredLevel: 1}
+                        \${'strRequiredLevel' | t: unique.RequiredLevel || 1}
                     </div>
                 </div>
 
-                <div class="text-base prop-text" repeat.for="property of unique.Properties | sortProperties">
-                    <div if.bind="property.PropertyString">
-                        <span>\${property.PropertyString}</span>
-                    </div>
-                    <div if.bind="property['group-properties']">
-                        <div repeat.for="[groupName, pool] of property['group-properties'] | entries">
-                            <div if.bind="property.pickmode == 0 || (pool[0] && pool[0].PickMode == 0)">
-                                <div repeat.for="affix of pool" if.bind="affix.PropertyString">
-                                    \${affix.PropertyString}
-                                </div>
-                            </div>
-                            <div if.bind="property.pickmode != 0 && (!pool[0] || pool[0].PickMode != 0)" class="border px-2 border-gray-600 rounded m-2">
-                                <div class="set-text text-center p-1 border-b border-gray-600">
-                                    \${formatGroupName(groupName)}
-                                </div>
-                                <div repeat.for="affixData of pool" if.bind="affixData.PropertyString" class="flex justify-between p-1 border-b border-gray-700 last:border-0">
-                                    <span class="prop-text">\${affixData | chance:pool}%</span>
-                                    <span class="text-right">\${affixData.PropertyString}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <keyed-lines class="text-base prop-text" lines.bind="unique.Lines"></keyed-lines>
                 </div>
             </div>
 </template>
@@ -271,7 +244,7 @@ const __au2ViewDef = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.define
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __knownSymbol = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : Symbol.for("Symbol." + name2);
+var __knownSymbol = (name2, symbol) => (symbol = Symbol[name2]) ? symbol : /* @__PURE__ */ Symbol.for("Symbol." + name2);
 var __typeError = (msg) => {
   throw TypeError(msg);
 };
@@ -321,7 +294,7 @@ _Uniques_decorators = [customElement(__au2ViewDef)], _search_dec = [bindable], _
 class Uniques {
   constructor() {
     __runInitializers(_init, 5, this);
-    __publicField(this, "allUniques", uniquesJson);
+    __publicField(this, "allUniques", []);
     __publicField(this, "uniques", []);
     __publicField(this, "_searchStrings", /* @__PURE__ */ new Map());
     __publicField(this, "search", __runInitializers(_init, 8, this)), __runInitializers(_init, 11, this);
@@ -335,17 +308,27 @@ class Uniques {
     __publicField(this, "types", type_filtering_options.slice());
     __publicField(this, "_debouncedSearchItem");
     __publicField(this, "_debouncedUpdateUrl");
-    __publicField(this, "classes", character_class_options);
+    __publicField(this, "classes", character_class_options.map((opt) => ({
+      ...opt,
+      label: t(opt.label)
+    })));
     __publicField(this, "weaponSortOptions", weaponSortOptions);
     __publicField(this, "handFilterOptions", handFilterOptions);
     __publicField(this, "getDamageTypeString", getDamageTypeString);
   }
-  // Hydrate state from URL and build type options BEFORE the controls render
-  binding() {
-    const urlParams = new URLSearchParams(window.location.search);
+  // Build options and hydrate from URL BEFORE controls render
+  async binding() {
+    try {
+      const resp = await fetch("/data/keyed/uniques.json");
+      this.allUniques = await resp.json();
+    } catch (e) {
+      console.error("Failed to load uniques:", e);
+      this.allUniques = [];
+    }
     this.allUniques.forEach((u) => {
       this._searchStrings.set(u, this.buildSearchableStringForUnique(u));
     });
+    const urlParams = new URLSearchParams(window.location.search);
     const searchParam = urlParams.get("search");
     if (searchParam && !isBlankOrInvalid(searchParam)) {
       this.search = searchParam;
@@ -358,11 +341,14 @@ class Uniques {
     if (hv === "true" || hv === "1") this.hideVanilla = true;
     try {
       const present = /* @__PURE__ */ new Set();
-      for (const u of uniquesJson || []) {
+      for (const u of this.allUniques || []) {
         const base = resolveBaseTypeName(u?.Type ?? "");
         if (base) present.add(base);
       }
-      this.types = buildOptionsForPresentTypes(type_filtering_options, present);
+      this.types = buildOptionsForPresentTypes(type_filtering_options, present).map((opt) => ({
+        ...opt,
+        label: t(opt.label)
+      }));
       this.types = prependTypeResetOption(this.types);
     } catch {
     }
@@ -372,9 +358,8 @@ class Uniques {
       this.selectedType = opt ? opt.id : "";
     }
     const eqParam = urlParams.get("equipment");
-    if (eqParam && !isBlankOrInvalid(eqParam)) {
+    if (eqParam && !isBlankOrInvalid(eqParam))
       this.selectedEquipmentName = eqParam;
-    }
   }
   attached() {
     this._debouncedSearchItem = debounce(() => this.updateList(), 350);
@@ -398,10 +383,10 @@ class Uniques {
     if (!this.selectedType) return false;
     const opt = this.types.find((o) => o.id === this.selectedType);
     if (!opt || !opt.value) return false;
-    if (opt.value.includes("Weapon")) return true;
+    if (opt.value.includes("weapitype")) return true;
     return opt.value.some((typeName) => {
       const chain = getTypeChain(typeName);
-      return chain.includes("Weapon");
+      return chain.includes("weapitype");
     });
   }
   handleFilterChanged() {
@@ -444,7 +429,7 @@ class Uniques {
       this.equipmentNames = this.getUniqueEquipmentNames();
     }
     this.uniques = this.allUniques.filter((unique) => {
-      const name2 = unique?.Name || "";
+      const name2 = unique?.Index || "";
       if (name2.toLowerCase().includes("grabber")) return false;
       if (this.hideVanilla && isVanillaItem(unique?.Vanilla)) return false;
       if (selectedClassLower) {
@@ -455,7 +440,7 @@ class Uniques {
         const base = getChainForTypeNameReadonly(unique?.Type ?? "")[0] || (unique?.Type ?? "");
         if (!allowedTypeSet.has(base)) return false;
       }
-      if (this.selectedEquipmentName && String(unique?.Equipment?.Name || "") !== this.selectedEquipmentName) {
+      if (this.selectedEquipmentName && String(unique?.Equipment?.NameKey || "") !== this.selectedEquipmentName) {
         return false;
       }
       if (searchTokens.length > 0) {
@@ -477,25 +462,37 @@ class Uniques {
   }
   buildSearchableStringForUnique(unique) {
     const parts = [
-      String(unique?.Name || ""),
-      String(unique?.Equipment?.Name || "")
+      t(unique?.Index),
+      t(unique?.Equipment?.NameKey)
     ];
-    if (Array.isArray(unique?.Properties)) {
-      unique.Properties.forEach((p) => {
-        if (p.PropertyString) parts.push(p.PropertyString);
-        if (p["group-properties"]) {
-          Object.values(p["group-properties"]).forEach((pool) => {
-            pool.forEach((affix) => {
-              if (affix.PropertyString) parts.push(affix.PropertyString);
-            });
-          });
-        }
+    const typeIndex = unique?.Type;
+    if (typeIndex) {
+      parts.push(typeIndex);
+      parts.push(t(typeIndex));
+      const chain = getChainForTypeNameReadonly(typeIndex);
+      if (chain) {
+        parts.push(...chain);
+        parts.push(...chain.map((c) => t(c)));
+      }
+    }
+    if (Array.isArray(unique?.Lines)) {
+      unique.Lines.forEach((l) => {
+        parts.push(format(l));
+      });
+    }
+    if (Array.isArray(unique?.Equipment?.Lines)) {
+      unique.Equipment.Lines.forEach((l) => {
+        parts.push(format(l));
       });
     }
     if (Array.isArray(unique?.Equipment?.DamageTypes)) {
       for (const d of unique.Equipment.DamageTypes) {
         parts.push(getDamageTypeString(d.Type));
-        if (d.DamageString) parts.push(d.DamageString);
+        if (Array.isArray(d.Lines)) {
+          d.Lines.forEach((l) => {
+            parts.push(format(l));
+          });
+        }
       }
     }
     return parts.filter(Boolean).join(" ").toLowerCase();
@@ -515,13 +512,13 @@ class Uniques {
     );
     const uniqueEquipmentNames = /* @__PURE__ */ new Set();
     filteredUniques.forEach((unique) => {
-      if (unique.Equipment && unique.Equipment.Name) {
-        uniqueEquipmentNames.add(unique.Equipment.Name);
+      if (unique.Equipment && unique.Equipment.NameKey) {
+        uniqueEquipmentNames.add(unique.Equipment.NameKey);
       }
     });
     const equipmentNameOptions = [{ value: "", label: "-" }];
-    Array.from(uniqueEquipmentNames).sort().forEach((name2) => {
-      equipmentNameOptions.push({ value: name2, label: name2 });
+    Array.from(uniqueEquipmentNames).sort((a, b) => t(a).localeCompare(t(b))).forEach((key) => {
+      equipmentNameOptions.push({ value: key, label: t(key) });
     });
     return equipmentNameOptions;
   }
