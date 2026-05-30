@@ -11,10 +11,10 @@ export type WeaponSortMode = 'none' |
     'avg-non-phys-ascending' | 'avg-non-phys-descending';
 
 export const weaponSortOptions = [
-    { id: 'sort1h', type: '1h-phys', label: '1H Physical', help: 'Sort by One-Handed Physical Damage.' },
-    { id: 'sort2h', type: '2h-phys', label: '2H Physical', help: 'Sort by Two-Handed Physical Damage.' },
-    { id: 'sortthrow', type: 'throw-phys', label: 'Throw Physical', help: 'Sort by Throw Physical Damage.' },
-    { id: 'sortnonphys', type: 'non-phys', label: 'Non-Physical', help: 'Sort by Non-Physical Damage.' },
+    { id: 'sort1h', type: '1h-phys', label: 'sort_1h_phys', help: 'sort_1h_phys_help' },
+    { id: 'sort2h', type: '2h-phys', label: 'sort_2h_phys', help: 'sort_2h_phys_help' },
+    { id: 'sortthrow', type: 'throw-phys', label: 'sort_throw_phys', help: 'sort_throw_phys_help' },
+    { id: 'sortnonphys', type: 'non-phys', label: 'sort_non_phys', help: 'sort_non_phys_help' },
 ];
 
 export function sortItemsByWeaponDamage<T>(items: T[], mode: WeaponSortMode): T[] {
@@ -65,8 +65,8 @@ export type HandFilterMode = '' | '1h' | '2h';
 
 export const handFilterOptions: { value: HandFilterMode, label: string }[] = [
     { value: '', label: '-' },
-    { value: '1h', label: '1H Only' },
-    { value: '2h', label: '2H Only' },
+    { value: '1h', label: 'label_1h_only' },
+    { value: '2h', label: 'label_2h_only' },
 ];
 
 /**

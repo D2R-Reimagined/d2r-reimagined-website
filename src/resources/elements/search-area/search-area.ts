@@ -1,4 +1,4 @@
-import { ICustomElementViewModel } from 'aurelia';
+﻿import { ICustomElementViewModel } from 'aurelia';
 
 export class SearchArea implements ICustomElementViewModel {
 }

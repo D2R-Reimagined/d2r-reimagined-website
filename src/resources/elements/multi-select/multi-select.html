@@ -1,0 +1,81 @@
+﻿<template class="block relative searchable-select-container ${isOpen ? 'z-30' : 'z-0'}">
+    <div class="relative flex items-stretch min-w-0">
+        <div class="relative flex-1 min-w-0">
+            <!-- The main "select" trigger button -->
+            <button type="button"
+                    id.bind="id"
+                    class="select-base peer text-left flex items-center justify-between cursor-pointer ${disabled ? 'opacity-50 cursor-not-allowed' : ''} ${ (!disabled && selectedCount > 0) ? 'ring ring-gray-400' : '' }"
+                    click.trigger="toggle($event)"
+                    disabled.bind="disabled"
+                    aria-haspopup="listbox"
+                    aria-expanded.bind="isOpen.toString()">
+                <span class="truncate min-w-0 flex-1">${displayLabel || '&nbsp;'}</span>
+                <span class="flex items-center gap-1 ml-2 shrink-0">
+                    <span if.bind="selectedCount > 1"
+                          class="text-xs px-1.5 py-0.5 rounded bg-gray-700 type-text">
+                        ${selectedCount}
+                    </span>
+                    <span class="mso transition-transform ${isOpen ? 'rotate-180' : ''}">arrow_downward</span>
+                </span>
+            </button>
+
+            <!-- Floating Label -->
+            <label if.bind="label"
+                   for.bind="id"
+                   class="floating-label ${disabled ? 'bg-transparent!' : ''} ${ (isOpen || selectedCount > 0) ? 'bg-transparent top-1 -translate-y-2/5 scale-75' : '' }">
+                ${label}
+            </label>
+        </div>
+        <au-slot name="after"></au-slot>
+    </div>
+
+    <!-- Dropdown Panel -->
+    <div if.bind="isOpen"
+         class="absolute z-50 w-full mt-1 bg-gray-800 border border-gray-600 rounded-lg shadow-xl overflow-hidden min-w-[200px]"
+         click.trigger="panelClick($event)">
+        <!-- Header with reset -->
+        <div if.bind="selectedCount > 0"
+             class="p-2 border-b border-gray-600 bg-gray-900 flex items-center justify-between gap-2">
+            <span class="text-xs type-text">
+                ${selectedCount}
+            </span>
+            <button type="button"
+                    class="text-xs type-text hover:text-lime-400 underline"
+                    click.trigger="clearAll($event)">
+                ${'filter_reset' | t}
+            </button>
+        </div>
+
+        <!-- Search Box -->
+        <div class="p-2 border-b border-gray-600 bg-gray-900">
+            <div class="relative">
+                <input type="text"
+                       value.bind="searchText"
+                       class="w-full bg-gray-800 border border-gray-600 text-base type-text px-3 py-1.5 rounded outline-none focus:ring-1 focus:ring-gray-400 pr-8"
+                       placeholder="${'filter_search_placeholder' | t}"
+                       ref="searchInput"
+                       keydown.trigger="$event.key === 'Escape' && close()">
+                <span class="mso absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">search</span>
+            </div>
+        </div>
+
+        <!-- Options List -->
+        <ul class="max-h-60 overflow-y-auto py-1" role="listbox" aria-multiselectable="true">
+            <li repeat.for="opt of filteredOptions"
+                class="${selectedKeySet.has(String(getOptValue(opt))) ? 'bg-gray-700' : ''}"
+                role="option"
+                aria-selected.bind="selectedKeySet.has(String(getOptValue(opt))).toString()">
+                <div class="flex items-center gap-2 px-3 py-2 cursor-pointer hover:bg-gray-700 type-text"
+                     click.trigger="toggleOption(opt, $event)">
+                    <span class="inline-flex items-center justify-center w-4 h-4 rounded border ${selectedKeySet.has(String(getOptValue(opt))) ? 'bg-lime-500 border-lime-500' : 'border-gray-500 bg-gray-800'} shrink-0">
+                        <span if.bind="selectedKeySet.has(String(getOptValue(opt)))" class="mso text-gray-900 text-base leading-none">check</span>
+                    </span>
+                    <span class="flex-1 truncate min-w-0">${getOptLabel(opt)}</span>
+                </div>
+            </li>
+            <li if.bind="filteredOptions.length === 0" class="px-3 py-4 text-center text-gray-500 italic">
+                ${'filter_no_results' | t}
+            </li>
+        </ul>
+    </div>
+</template>

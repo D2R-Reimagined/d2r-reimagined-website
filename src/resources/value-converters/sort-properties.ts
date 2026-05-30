@@ -18,7 +18,7 @@ export class SortPropertiesValueConverter {
                         const pool = pools[0];
                         // Check if it's pickmode 0 (as number or string)
                         const pickMode = p.pickmode ?? (pool[0] ? pool[0].PickMode : undefined);
-                        // eslint-disable-next-line eqeqeq
+                         
                         if (pickMode == 0) {
                             return 0; // Pickmode 0 group (high priority)
                         }

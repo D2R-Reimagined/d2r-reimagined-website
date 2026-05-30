@@ -1,107 +1,106 @@
 <template>
     <h3 class="text-lg type-text text-center my-4">
-        <span class="rarity-text">[N]</span> = Normal <span class="rarity-text">[X]</span> = Exceptional <span
-            class="rarity-text">[E]</span> = Elite
+        <span class="rarity-text">[N]</span> = ${'label_normal' | t} <span class="rarity-text">[X]</span> = ${'label_exceptional' | t} <span
+            class="rarity-text">[E]</span> = ${'label_elite' | t}
     </h3>
     <h3 class="text-lg type-text text-center mb-4">
-        <span class="rarity-text">${totalCount}</span> Base Items Found
+        <span class="rarity-text">${totalCount}</span> ${'found_bases_suffix' | t}
     </h3>
 
     <search-area>
         <div class="w-full m-auto px-5 py-2">
             <div class="flex flex-wrap justify-center items-start gap-2">
 
-                <!-- Category selector: - (both), Armors, Weapons -->
-                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="Choose between armors, weapons, or both.">
+                <div class="w-full lg:w-auto lg:min-w-60" data-help-text="${'help_category_filter' | t}">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <select id="category" class="select-base peer" value.bind="selectedCategory"
                                     change.trigger="handleCategoryChange()">
-                                <option repeat.for="opt of categoryOptions" value.bind="opt.value">${opt.label}</option>
+                                <option repeat.for="opt of categoryOptions" value.bind="opt.value">${opt.label | t}</option>
                             </select>
-                            <label for="category" class="floating-label">Select Category</label>
+                            <label for="category" class="floating-label">${'filter_select_category' | t}</label>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="category">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Category filter</span>
+                            <span class="sr-only">${'info_more_about' | t:'filter_select_category'}</span>
                         </button>
                     </div>
                 </div>
 
                 <div class="w-full lg:w-auto lg:min-w-60"
-                     data-help-text="Filter by the max possible sockets on the base.">
+                     data-help-text="${'help_sockets_filter' | t}">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <select id="sockets" class="select-base peer" value.bind="selectedSockets">
                                 <option repeat.for="opt of socketOptions" if.bind="opt.value === ''" value="">
-                                    ${opt.label}
+                                    ${opt.label | t}
                                 </option>
                                 <option repeat.for="opt of socketOptions" if.bind="opt.value !== ''"
-                                        model.bind="opt.value">${opt.label}
+                                        model.bind="opt.value">${opt.label | t:opt.value}
                                 </option>
                             </select>
-                            <label for="sockets" class="floating-label">Select Sockets</label>
+                            <label for="sockets" class="floating-label">${'filter_select_sockets' | t}</label>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="sockets">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Sockets filter</span>
+                            <span class="sr-only">${'info_more_about' | t:'filter_select_sockets'}</span>
                         </button>
                     </div>
                 </div>
 
                 <searchable-select id="itype"
                                    class="w-full lg:w-auto lg:min-w-60"
-                                   data-help-text="Filter by the base item type."
+                                   data-help-text="${'help_item_type_filter' | t}"
                                    value.bind="selectedType"
                                    options.bind="types"
-                                   label="Select Item Type">
+                                   label="${'filter_select_type' | t}">
                     <button au-slot="after" type="button" class="m-info-button" aria-expanded="false" data-info-for="itype">
                         <span class="mso">info</span>
-                        <span class="sr-only">More info about Item Type filter</span>
+                        <span class="sr-only">${'info_more_about' | t:'filter_select_type'}</span>
                     </button>
                 </searchable-select>
 
                 <div class="w-full lg:w-auto lg:min-w-60"
-                     data-help-text="Filter by the base tier. With none selected, the page defaults to sticking NXE of a base group with each other.">
+                     data-help-text="${'help_tier_filter' | t}">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <select id="tier" class="select-base peer" value.bind="selectedTier">
-                                <option repeat.for="opt of tierOptions" value.bind="opt.value">${opt.label}</option>
+                                <option repeat.for="opt of tierOptions" value.bind="opt.value">${opt.label | t}</option>
                             </select>
-                            <label for="tier" class="floating-label">Select Tier</label>
+                            <label for="tier" class="floating-label">${'filter_select_tier' | t}</label>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="tier">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Tier filter</span>
+                            <span class="sr-only">${'info_more_about' | t:'filter_select_tier'}</span>
                         </button>
                     </div>
                 </div>
 
                 <div class="w-full lg:w-60"
-                     data-help-text="Search across all fields. Text is matched as a phrase. Use '+' to require multiple terms (AND). Use ',' or '|' for OR. Prefix with '-' or '!' to exclude a term or phrase. ex. 'fire skill damage' finds the exact phrase. 'fire+cold' finds items with both. 'fire,cold' finds items with either. '-fire' excludes items containing fire. 'damage -fire' finds items with damage but not fire. 'fire skill damage -cold skill damage' finds fire skill damage but excludes cold skill damage.">
+                     data-help-text="${'help_search' | t}">
                     <div class="flex items-stretch">
                         <div class="trailing-icon flex-1" data-icon="search">
                             <input id="inputsearch" type="text" class="select-base peer pr-12" value.bind="search"
                                    placeholder=" "/>
-                            <label for="inputsearch" class="floating-label">Search...</label>
+                            <label for="inputsearch" class="floating-label">${'filter_search_placeholder' | t}</label>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="inputsearch">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Search</span>
+                            <span class="sr-only">${'info_more_about' | t:'filter_search_placeholder'}</span>
                         </button>
                     </div>
                 </div>
 
-                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="Reset all filters to default.">
+                <div class="w-full lg:w-auto lg:min-w-35" data-help-text="${'help_reset_filters' | t}">
                     <div class="flex items-stretch">
                         <div class="relative flex-1">
                             <button id="filterreset" class="button-base" type="button" click.trigger="resetFilters()">
-                                Reset Filters
+                                ${'filter_reset' | t}
                             </button>
                         </div>
                         <button type="button" class="m-info-button" aria-expanded="false" data-info-for="filterreset">
                             <span class="mso">info</span>
-                            <span class="sr-only">More info about Reset Filters</span>
+                            <span class="sr-only">${'info_more_about' | t:'filter_reset'}</span>
                         </button>
                     </div>
                 </div>
@@ -115,92 +114,83 @@
 
     <!-- Cards and title begin -->
     <div class="card-vis" repeat.for="group of filteredAndGrouped">
-        <h4 class="text-xl type-text">${group.typeName}</h4>
+        <h4 class="text-xl type-text">${group.typeName | t}</h4>
 
         <div class="card-container">
             <template repeat.for="family of group.families">
                 <div class="card-box card-vis" repeat.for="item of family.items">
 
+                    <!-- Name + Sockets banner -->
                     <div class="mb-1">
-                        <div class="text-xl base-text">${item.Name}</div>
+                        <div class="text-xl base-text">${item.NameKey | t}</div>
                         <div class="text-base rarity-text"
                              if.bind="(typeof item.GemSockets === 'number' ? item.GemSockets > 0 : (item.GemSockets && item.GemSockets !== '0'))">
-                            <div>(Item Level): Sockets</div>
+                            <div>${'label_item_level_sockets' | t}</div>
                             <div>${item.GemSockets}</div>
                         </div>
                     </div>
 
+                    <!-- Type label -->
                     <div class="mb-1">
-                        <div class="text-base type-text" if.bind="(item.Type && item.Type.Name) || group.typeName">
-                            ${item.Type && item.Type.Name ? item.Type.Name : group.typeName}
+                        <div class="text-base type-text" if.bind="item.Type && item.Type.Index">
+                            ${item.Type.Index | t}
                         </div>
+                    </div>
 
-                        <!-- Armor-only UI -->
-                        <div class="text-base type-text" if.bind="item.__kind === 'armor' && item.ArmorString">Defense:
-                            ${item.ArmorString}
+                    <!-- Defense / block / smite / kick -->
+                    <div class="mb-1"
+                         if.bind="item.Lines && item.Lines.length">
+                        <div repeat.for="line of item.Lines"
+                             if.bind="['strDefense','strDefenseRange','strDefenseRangeRange','strChanceToBlock','strSmiteDamage','strKickDamage'].includes(line.key)"
+                             class="text-base type-text">
+                            ${line | keyedLine}
                         </div>
-                        <div class="text-base type-text"
-                             if.bind="item.__kind === 'armor' && item.Block && item.Block > 0">Block: ${item.Block}%
-                        </div>
-                        <div class="text-base type-text" if.bind="item.__kind === 'armor' && item.DamageString">
-                            ${getDamageLabel(item)}
-                        </div>
+                    </div>
 
-                        <!-- Weapon-only UI -->
-                        <div class="text-base type-text"
-                             if.bind="item.__kind === 'weapon' && item.DamageTypes && item.DamageTypes.length">
-                            <div repeat.for="d of item.DamageTypes">${getDamageTypeString(d.Type)} ${d.DamageString}<span class="set-text" if.bind="d.AverageDamage"> <${d.AverageDamage}></span>
+                    <!-- Weapon damage -->
+                    <div class="mb-1"
+                         if.bind="item.__kind === 'weapon' && item.DamageTypes && item.DamageTypes.length">
+                        <div class="text-base type-text flex items-center justify-center gap-1">
+                            <div repeat.for="d of item.DamageTypes">
+                                <span repeat.for="line of d.Lines | keyedLines">${line}</span>
+                                <span class="set-text" if.bind="d.AverageDamage"> <${d.AverageDamage}></span>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="text-base type-text" if.bind="item.Durability && item.Durability > 0">Durability:
-                            ${item.Durability}
+                    <!-- Durability / indestructible / ethereal / sockets-on-item -->
+                    <div class="mb-1"
+                         if.bind="item.Lines && item.Lines.length">
+                        <div repeat.for="line of item.Lines"
+                             if.bind="['strDurability','strIndestructible','strethereal','strSocketedCount'].includes(line.key)"
+                             class="text-base type-text">
+                            ${line | keyedLine}
                         </div>
                     </div>
 
+                    <!-- Requirements: class / dex / str / level -->
                     <div class="mb-1">
-                        <div class="text-base requirement-text"
-                             if.bind="item.RequiredClass && item.RequiredClass.length">
-                            (${item.RequiredClass} Only)
+                        <div repeat.for="line of item.Lines"
+                             if.bind="['strRequiredClass','strRequiredDexterity','strRequiredStrength'].includes(line.key)"
+                             class="text-base requirement-text">
+                            ${line | keyedLine}
                         </div>
-                        <div class="text-base requirement-text"
-                             if.bind="item.RequiredDexterity && item.RequiredDexterity !== '0' && item.RequiredDexterity !== 0">
-                            ${item.RequiredDexterity} Dexterity Required
-                        </div>
-                        <div class="text-base requirement-text"
-                             if.bind="item.RequiredStrength && item.RequiredStrength !== '0' && item.RequiredStrength !== 0">
-                            ${item.RequiredStrength} Strength Required
-                        </div>
-                        <div class="text-base requirement-text">Required Level:
-                            ${item.BaseRequiredLevel > 0 ? item.BaseRequiredLevel : 1}
+                        <div class="text-base requirement-text">
+                            ${'strRequiredLevel' | t: item.RequiredLevel || 1}
                         </div>
                     </div>
 
-                    <div class="mb-1">
-                        <div class="text-base set-text"
-                             if.bind="item.__kind === 'weapon' && item.Speed !== null && item.Speed !== undefined">
-                            Speed: ${item.Speed}
-                        </div>
-                        <div class="text-base set-text" if.bind="item.StrBonus && item.StrBonus > 0">
-                            Str Bonus: ${item.StrBonus}%
-                        </div>
-                        <div class="text-base set-text" if.bind="item.DexBonus && item.DexBonus > 0">
-                            Dex Bonus: ${item.DexBonus}%
-                        </div>
-                    </div>
-
+                    <!-- AutoMagicGroups: per-affix-family block, mirrors master layout -->
                     <div if.bind="item.AutoMagicGroups && item.AutoMagicGroups.length">
                         <div class="flex justify-between items-start mb-1 border-b border-gray-700 last:border-b-0 last:mb-0"
-                             repeat.for="group of groupedProperties(item)">
+                             repeat.for="g of groupedProperties(item)">
                             <div class="text-base prop-text text-left whitespace-nowrap">
-                                <span if.bind="group.requiredLevel && group.requiredLevel > 0">
-                                    Lvl Req ${group.requiredLevel}
+                                <span if.bind="g.requiredLevel && g.requiredLevel > 0">
+                                    ${'strRequiredLevel' | t: g.requiredLevel}
                                 </span>
                             </div>
                             <div class="flex flex-col items-end text-right">
-                                <div class="text-base prop-text " repeat.for="line of group.propertyStrings">
-                                    ${line}
-                                </div>
+                                <keyed-lines class="text-base prop-text" lines.bind="g.lines"></keyed-lines>
                             </div>
                         </div>
                     </div>

@@ -3,6 +3,7 @@ import { RouterConfiguration } from '@aurelia/router';
 
 import * as Elements from './resources/elements/index.js';
 import * as Resources from './resources/index.js';
+import { getSavedLanguage, setLanguage } from './utilities/translation-store.js';
 import { cleanCurrentUrl } from './utilities/url-sanitize.js';
 import { App } from './app.js';
 
@@ -200,7 +201,7 @@ const TooltipManager = (() => {
       triggerEl: HTMLElement,
       options?: Record<string, unknown>, // Flowbite types can be too restrictive for custom strategy
     ) => ITooltipLike;
-    const TTip: TooltipCtor = Tooltip as unknown as TooltipCtor;
+    const TTip: TooltipCtor = Tooltip;
     const rawTooltip: unknown = new TTip(target, trigger, {
         // We will control show/hide manually to enforce the idle (no-move) requirement
         triggerType: 'none',
@@ -466,13 +467,16 @@ function initMobileInfoButtons(): void {
 TooltipManager.start();
 initMobileInfoButtons();
 
-void Aurelia.register(
-    RouterConfiguration.customize({
-    //title: "Betsy Bot Admin Panel",
-        useUrlFragmentHash: false,
-    }),
-)
-    .register(Resources)
-    .register(Elements)
-    .app(App)
-    .start();
+// Load saved language (defaults to enUS) before starting the app
+void setLanguage(getSavedLanguage()).then(() => {
+    void Aurelia.register(
+        RouterConfiguration.customize({
+            //title: "Betsy Bot Admin Panel",
+            useUrlFragmentHash: false,
+        }),
+    )
+        .register(Resources)
+        .register(Elements)
+        .app(App)
+        .start();
+});

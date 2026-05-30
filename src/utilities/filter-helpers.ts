@@ -55,13 +55,13 @@ export function swapMinMax<T extends number | undefined>(
     max: T,
 ): [T, T] {
     if (typeof min === 'number' && typeof max === 'number' && min > max) {
-        return [max as T, min as T];
+        return [max, min];
     }
     return [min, max];
 }
 
 /** A single search token that may be negated (prefixed with '-' or '!'). */
-export interface SearchToken {
+export interface ISearchToken {
     term: string;
     negated: boolean;
 }
@@ -70,14 +70,14 @@ export interface SearchToken {
  *  Within each '+'-delimited segment, phrases starting with '-' or '!' are negated.
  *  A negation prefix applies to all following words until the next negation or end of segment.
  *  Example: 'fire skill damage -cold skill damage' → phrase "fire skill damage" + negated "cold skill damage". */
-export function tokenizeSearch(input: string | undefined | null): SearchToken[][] {
+export function tokenizeSearch(input: string | undefined | null): ISearchToken[][] {
     const raw = (input || '').trim().toLowerCase();
     if (!raw) return [];
     // Split by OR operators: ',' or '|'
     return raw
         .split(/[,|]/)
         .map((group) => {
-            const tokens: SearchToken[] = [];
+            const tokens: ISearchToken[] = [];
             // Split by '+' for explicit AND
             for (const segment of group.split('+')) {
                 // Split segment into phrase chunks at negation boundaries.
@@ -103,7 +103,7 @@ export function tokenizeSearch(input: string | undefined | null): SearchToken[][
 
 /** Check whether a haystack string matches at least one OR-group of search tokens.
  *  Each group is an AND-list: every non-negated token must be present and every negated token must be absent. */
-export function matchesTokenGroups(hay: string, groups: SearchToken[][]): boolean {
+export function matchesTokenGroups(hay: string, groups: ISearchToken[][]): boolean {
     return groups.some((group) =>
         group.every((t) => (t.negated ? !hay.includes(t.term) : hay.includes(t.term))),
     );

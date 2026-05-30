@@ -11,29 +11,27 @@ import {
 } from '../../resources/constants';
 import {
     getDamageTypeString as getDamageTypeStringUtil,
-    IDamageType,
 } from '../../utilities/damage-types';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
 import {
+    type ISearchToken,
     isVanillaItem,
     prependTypeResetOption,
-    type SearchToken,
     tokenizeSearch,
 } from '../../utilities/filter-helpers';
+import { IKeyedLine } from '../../utilities/i-keyed-line';
 import {
-    handFilterOptions,
     getSortKeyFromDamageType as getSortKeyFromDamageTypeUtil,
     HandFilterMode,
+    handFilterOptions,
     passesHandFilter,
     sortItemsByWeaponDamage,
     toggleWeaponSort,
     WeaponSortMode,
     weaponSortOptions,
 } from '../../utilities/item-sorting';
+import { format, t } from '../../utilities/translation-store.js';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
-import runewordsJson from '../item-jsons/runewords.json';
-import setsJson from '../item-jsons/sets.json';
-import uniquesJson from '../item-jsons/uniques.json';
 import type { ISetData, ISetItem } from '../sets/set-types';
 
 interface ISelectOption {
@@ -41,62 +39,38 @@ interface ISelectOption {
     name: string;
 }
 
-interface IProperty {
-    PropertyString?: string;
-    'group-properties'?: Record<string, IProperty[]>;
-    pickmode?: number;
-    Index?: number;
-    Chance?: number;
-    ModChance?: number;
-}
-
-interface IEquipment {
-    Name?: string;
-    Type?: string;
-    ArmorString?: string;
-    DamageTypes?: IDamageType[];
-    RequiredStrength?: string;
-    RequiredDexterity?: string;
-    Durability?: number;
-    RequiredClass?: string;
+interface IUniqueEquipment {
+    EquipmentType: number;
+    NameKey: string;
+    RequiredClass: string;
+    DamageTypes?: {
+        Type: number;
+        AverageDamage: number;
+        Lines: IKeyedLine[];
+    }[];
+    Lines: IKeyedLine[];
 }
 
 interface IUniqueItem {
-    Index?: string;
-    Name: string;
-    Class?: string;
-    Rarity?: string;
-    RequiredLevel?: number;
-    Type?: string;
-    Vanilla?: string | number | boolean;
-    Equipment: IEquipment;
-    Properties?: IProperty[];
-}
-
-// Minimal runeword types (only fields used on the page)
-interface IRunewordProperty {
-    PropertyString?: string;
-    'group-properties'?: Record<string, IRunewordProperty[]>;
-    pickmode?: number;
-    Index?: number;
-    Chance?: number;
-    ModChance?: number;
-}
-
-interface IRunewordType {
-    Name: string;
-}
-
-interface IRunewordRune {
-    Name: string;
+    Type: string;
+    Vanilla: string;
+    Index: string;
+    Enabled: boolean;
+    Rarity: number;
+    ItemLevel: number;
+    RequiredLevel: number;
+    Code: string;
+    DamageArmorEnhanced: boolean;
+    Lines: IKeyedLine[];
+    Equipment: IUniqueEquipment;
 }
 
 interface IRunewordData {
-    Name: string;
-    Types?: IRunewordType[];
-    Runes?: IRunewordRune[];
-    Properties?: IRunewordProperty[];
-    Vanilla?: string | number | boolean;
+    Index: string;
+    Vanilla: string;
+    Runes: { NameKey: string }[];
+    Types: { Index: string }[];
+    Lines: IKeyedLine[];
 }
 
 interface IGrailImportExportPayload {
@@ -108,24 +82,28 @@ interface IGrailImportExportPayload {
 
 export class Grail {
     // Data sources
-    uniques: IUniqueItem[] = uniquesJson as unknown as IUniqueItem[];
+    uniques: IUniqueItem[] = [];
     filteredUniques: IUniqueItem[] = [];
 
     allSetItems: ISetItem[] = [];
+    allSets: ISetData[] = [];
     filteredSetItems: ISetItem[] = [];
 
-    runewords: IRunewordData[] = runewordsJson as unknown as IRunewordData[];
+    runewords: IRunewordData[] = [];
     filteredRunewords: IRunewordData[] = [];
 
-    classes = character_class_options;
+    classes = character_class_options.map(opt => ({
+        ...opt,
+        label: t(opt.label),
+    }));
 
     equipmentNames: ISelectOption[] = [{ id: '', name: '-' }];
 
     // Category handling
     categories = [
-        { value: 'uniques', label: 'Uniques' },
-        { value: 'sets', label: 'Sets' },
-        { value: 'runewords', label: 'Runewords' },
+        { value: 'uniques', label: 'nav_uniques' },
+        { value: 'sets', label: 'nav_sets' },
+        { value: 'runewords', label: 'nav_runewords' },
     ];
     @bindable selectedCategory: 'uniques' | 'sets' | 'runewords' = 'uniques';
 
@@ -146,13 +124,13 @@ export class Grail {
         const opt = this.types.find((o) => o.id === this.selectedTypeBase);
         if (!opt || !opt.value) return false;
 
-        // Check if 'Weapon' is in the values (works for aggregates and non-exact types)
-        if (opt.value.includes('Weapon')) return true;
+        // Check if the weapon root code is in the values (works for aggregates and non-exact types)
+        if (opt.value.includes('weapitype')) return true;
 
         // For exact types, we need to check their ancestors in the type graph
         return opt.value.some(typeName => {
             const chain = getTypeChain(typeName);
-            return chain.includes('Weapon');
+            return chain.includes('weapitype');
         });
     }
 
@@ -196,18 +174,27 @@ export class Grail {
     // Cache for which base types have descendants in the dataset
     private _baseHasDescendantsInRunewords = new Set<string>();
 
-    binding(): void {
-        // Flatten sets to item list for filtering
+    async binding() {
+        // Fetch all keyed data files
         try {
-            const sets = setsJson;
+            const [uResp, sResp, rResp] = await Promise.all([
+                fetch('/data/keyed/uniques.json'),
+                fetch('/data/keyed/sets.json'),
+                fetch('/data/keyed/runewords.json'),
+            ]);
+            this.uniques = (await uResp.json()) as IUniqueItem[];
+            this.allSets = (await sResp.json()) as ISetData[];
+            this.runewords = (await rResp.json()) as IRunewordData[];
+
+            // Flatten sets to item list for filtering
             this.allSetItems = [];
-            for (const s of sets) {
+            for (const s of this.allSets) {
                 for (const it of s.SetItems || []) {
                     this.allSetItems.push(it);
                 }
             }
-        } catch {
-            this.allSetItems = [];
+        } catch (e) {
+            console.error('Failed to load grail data:', e);
         }
 
         // Load found-state from localStorage
@@ -241,19 +228,19 @@ export class Grail {
                     for (const u of this.uniques) {
                         const base =
                             getChainForTypeNameReadonly(u?.Type ?? '')[0] || (u?.Type ?? '');
-                        if (selectedBases.has(base) && u?.Equipment?.Name)
-                            set.add(u.Equipment.Name);
+                        if (selectedBases.has(base) && u?.Equipment?.NameKey)
+                            set.add(u.Equipment.NameKey);
                     }
                 } else if (this.selectedCategory === 'sets') {
                     const selectedBases = new Set<string>(this.selectedType);
                     for (const it of this.allSetItems) {
                         const base =
                             getChainForTypeNameReadonly(it?.Type ?? '')[0] || (it?.Type ?? '');
-                        if (selectedBases.has(base) && it?.Equipment?.Name)
-                            set.add(it.Equipment.Name);
+                        if (selectedBases.has(base) && it?.Equipment?.NameKey)
+                            set.add(it.Equipment.NameKey);
                     }
                 }
-                for (const name of set) this.equipmentNames.push({ id: name, name });
+                for (const name of set) this.equipmentNames.push({ id: name, name: t(name) });
             } catch {
                 // ignore errors, keep default "All Equipment"
             }
@@ -368,7 +355,7 @@ export class Grail {
                     if (base) present.add(base);
                 }
             } else if (this.selectedCategory === 'sets') {
-                for (const s of setsJson as unknown as ISetData[]) {
+                for (const s of this.allSets) {
                     for (const it of s?.SetItems ?? []) {
                         const base = resolveBaseTypeName(it?.Type ?? '');
                         if (base) present.add(base);
@@ -378,7 +365,7 @@ export class Grail {
                 for (const rw of this.runewords) {
                     const types = Array.isArray(rw?.Types) ? rw.Types : [];
                     for (const t of types) {
-                        const base = resolveBaseTypeName(t?.Name ?? '');
+                        const base = resolveBaseTypeName(t?.Index ?? '');
                         if (base) present.add(base);
                     }
                 }
@@ -386,7 +373,10 @@ export class Grail {
         } catch {
             // keep default preset on error
         }
-        this.types = buildOptionsForPresentTypes(type_filtering_options, present);
+        this.types = buildOptionsForPresentTypes(type_filtering_options, present).map(opt => ({
+            ...opt,
+            label: t(opt.label),
+        }));
         // Prepend a reset option so users can clear the selection with '-'
         this.types = prependTypeResetOption(this.types);
     }
@@ -430,18 +420,18 @@ export class Grail {
             if (this.selectedCategory === 'uniques') {
                 for (const u of this.uniques) {
                     const base = getChainForTypeNameReadonly(u?.Type ?? '')[0] || (u?.Type ?? '');
-                    if (selectedBases.has(base) && u?.Equipment?.Name)
-                        set.add(u.Equipment.Name);
+                    if (selectedBases.has(base) && u?.Equipment?.NameKey)
+                        set.add(u.Equipment.NameKey);
                 }
             } else if (this.selectedCategory === 'sets') {
                 for (const it of this.allSetItems) {
                     const base =
                         getChainForTypeNameReadonly(it?.Type ?? '')[0] || (it?.Type ?? '');
-                    if (selectedBases.has(base) && it?.Equipment?.Name)
-                        set.add(it.Equipment.Name);
+                    if (selectedBases.has(base) && it?.Equipment?.NameKey)
+                        set.add(it.Equipment.NameKey);
                 }
             }
-            for (const name of set) this.equipmentNames.push({ id: name, name });
+            for (const name of set) this.equipmentNames.push({ id: name, name: t(name) });
         }
 
         this.updateList();
@@ -483,19 +473,19 @@ export class Grail {
                     for (const u of this.uniques) {
                         const base =
                             getChainForTypeNameReadonly(u?.Type ?? '')[0] || (u?.Type ?? '');
-                        if (selectedBases.has(base) && u?.Equipment?.Name)
-                            set.add(u.Equipment.Name);
+                        if (selectedBases.has(base) && u?.Equipment?.NameKey)
+                            set.add(u.Equipment.NameKey);
                     }
                 } else if (this.selectedCategory === 'sets') {
                     const selectedBases = new Set<string>(this.selectedType);
                     for (const it of this.allSetItems) {
                         const base =
                             getChainForTypeNameReadonly(it?.Type ?? '')[0] || (it?.Type ?? '');
-                        if (selectedBases.has(base) && it?.Equipment?.Name)
-                            set.add(it.Equipment.Name);
+                        if (selectedBases.has(base) && it?.Equipment?.NameKey)
+                            set.add(it.Equipment.NameKey);
                     }
                 }
-                for (const name of set) this.equipmentNames.push({ id: name, name });
+                for (const name of set) this.equipmentNames.push({ id: name, name: t(name) });
             } catch {
                 /* ignore */
             }
@@ -566,7 +556,7 @@ export class Grail {
 
             const result = this.uniques.filter((unique) => {
                 // Cheap checks first
-                if (String(unique?.Name || '').toLowerCase().includes('grabber')) return false;
+                if (t(unique?.Index).toLowerCase().includes('grabber')) return false;
                 if (checkVanilla && isVanillaItem(unique?.Vanilla)) return false;
 
                 if (selectedClassLower) {
@@ -578,7 +568,7 @@ export class Grail {
                     if (!selectedTypeSet.has(base)) return false;
                 }
                 if (this.selectedEquipmentName &&
-                    String(unique?.Equipment?.Name || '') !== this.selectedEquipmentName) return false;
+                    String(unique?.Equipment?.NameKey || '') !== this.selectedEquipmentName) return false;
 
                 const key = this.getUniqueKey(unique);
                 if (checkFound && this.foundUniques[key]) return false;
@@ -617,7 +607,7 @@ export class Grail {
                     if (!selectedTypeSet.has(base)) return false;
                 }
                 if (this.selectedEquipmentName &&
-                    String(item?.Equipment?.Name || '') !== this.selectedEquipmentName) return false;
+                    String(item?.Equipment?.NameKey || '') !== this.selectedEquipmentName) return false;
 
                 const key = this.getSetItemKey(item);
                 if (checkFound && this.foundSets[key]) return false;
@@ -641,7 +631,7 @@ export class Grail {
             // Count unique sets among displayed items
             const displayedSets = new Set<string>();
             for (const it of this.filteredSetItems) {
-                if (it?.Set) displayedSets.add(String(it.Set));
+                if (it?.SetName) displayedSets.add(String(it.SetName));
             }
             this.displayedCount = displayedSets.size;
         } else if (this.selectedCategory === 'runewords') {
@@ -665,8 +655,8 @@ export class Grail {
                                 // if we have descendants, we check the item type's full chain.
                                 // We can use the original logic for this case as it's less frequent
                                 const types = rw.Types || [];
-                                for (const t of types) {
-                                    const chain = getChainForTypeNameReadonly(t?.Name ?? '');
+                                for (const typeInfo of types) {
+                                    const chain = getChainForTypeNameReadonly(typeInfo?.Index ?? '');
                                     if (chain.includes(selectedBase)) return true;
                                 }
                             } else {
@@ -712,33 +702,37 @@ export class Grail {
         typeName: string | undefined | null,
     ): string {
         const chain = getChainForTypeNameReadonly(typeName ? String(typeName) : '');
-        return this.buildSearchableString(chain);
+        const translatedChain = (chain || []).map(c => t(c));
+        return this.buildSearchableString([...chain, ...translatedChain]);
     }
 
     private buildSearchableStringForUnique(u: IUniqueItem): string {
         const parts: Array<string | undefined | null> = [
-            u?.Name,
-            u?.Equipment?.Name,
+            t(u?.Index),
+            t(u?.Equipment?.NameKey),
             u?.Equipment?.RequiredClass,
         ];
-        // Properties
-        if (Array.isArray(u?.Properties)) {
-            for (const p of u.Properties) {
-                if (p?.PropertyString) parts.push(String(p.PropertyString));
-                if (p['group-properties']) {
-                    Object.values(p['group-properties']).forEach((pool) => {
-                        pool.forEach((affix) => {
-                            if (affix.PropertyString) parts.push(String(affix.PropertyString));
-                        });
-                    });
-                }
+        // Lines
+        if (Array.isArray(u?.Lines)) {
+            for (const l of u.Lines) {
+                parts.push(format(l));
+            }
+        }
+        // Equipment Lines
+        if (Array.isArray(u?.Equipment?.Lines)) {
+            for (const l of u.Equipment.Lines) {
+                parts.push(format(l));
             }
         }
         // Damage lines
         if (Array.isArray(u?.Equipment?.DamageTypes)) {
             for (const d of u.Equipment.DamageTypes) {
                 parts.push(getDamageTypeStringUtil(d.Type));
-                if (d.DamageString) parts.push(d.DamageString);
+                if (Array.isArray(d.Lines)) {
+                    for (const l of d.Lines) {
+                        parts.push(format(l));
+                    }
+                }
             }
         }
         // Type chain
@@ -748,32 +742,30 @@ export class Grail {
 
     private buildSearchableStringForSetItem(it: ISetItem): string {
         const parts: Array<string | undefined | null> = [
-            it?.Name,
-            it?.Set,
-            it?.Equipment?.Name,
+            t(it?.Index),
+            t(it?.SetName),
+            t(it?.Equipment?.NameKey),
         ];
-        if (Array.isArray(it?.Properties)) {
-            for (const p of it.Properties) {
-                if (p?.PropertyString) parts.push(String(p.PropertyString));
-                if (p['group-properties']) {
-                    Object.values(p['group-properties']).forEach((pool) => {
-                        pool.forEach((affix) => {
-                            if (affix.PropertyString) parts.push(String(affix.PropertyString));
-                        });
-                    });
-                }
+        if (Array.isArray(it?.Lines)) {
+            for (const l of it.Lines) {
+                parts.push(format(l));
             }
         }
-        if (Array.isArray(it?.SetPropertiesString)) {
-            for (const s of it.SetPropertiesString) {
-                if (s) parts.push(String(s));
+        // Equipment Lines
+        if (Array.isArray(it?.Equipment?.Lines)) {
+            for (const l of it.Equipment.Lines) {
+                parts.push(format(l));
             }
         }
         // Damage lines
         if (Array.isArray(it?.Equipment?.DamageTypes)) {
             for (const d of it.Equipment.DamageTypes) {
                 parts.push(getDamageTypeStringUtil(d.Type));
-                if (d.DamageString) parts.push(d.DamageString);
+                if (Array.isArray(d.Lines)) {
+                    for (const l of d.Lines) {
+                        parts.push(format(l));
+                    }
+                }
             }
         }
         parts.push(this.searchStringFromTypeChain(it?.Type));
@@ -781,29 +773,23 @@ export class Grail {
     }
 
     private buildSearchableStringForRuneword(rw: IRunewordData): string {
-        const parts: Array<string | undefined | null> = [rw?.Name];
-        if (Array.isArray(rw?.Properties)) {
-            for (const p of rw.Properties) {
-                if (p?.PropertyString) parts.push(String(p.PropertyString));
-                if (p['group-properties']) {
-                    Object.values(p['group-properties']).forEach((pool) => {
-                        pool.forEach((affix) => {
-                            if (affix.PropertyString) parts.push(String(affix.PropertyString));
-                        });
-                    });
-                }
+        const parts: Array<string | undefined | null> = [t(rw?.Index)];
+        if (Array.isArray(rw?.Lines)) {
+            for (const l of rw.Lines) {
+                parts.push(format(l));
             }
         }
         if (Array.isArray(rw?.Types)) {
-            for (const t of rw.Types) {
-                const name = t?.Name != null ? String(t.Name) : '';
+            for (const typeInfo of rw.Types) {
+                const name = typeInfo?.Index != null ? String(typeInfo.Index) : '';
                 parts.push(name);
+                parts.push(t(name));
                 parts.push(this.searchStringFromTypeChain(name));
             }
         }
         if (Array.isArray(rw?.Runes)) {
             for (const r of rw.Runes) {
-                if (r?.Name) parts.push(String(r.Name));
+                if (r?.NameKey) parts.push(t(r.NameKey));
             }
         }
         return this.buildSearchableString(parts);
@@ -858,12 +844,12 @@ export class Grail {
     }
 
     // Checks that the search query matches the item's searchable string.
-    // queryGroups is an OR-list of AND-groups (SearchToken[][]).
+    // queryGroups is an OR-list of AND-groups (ISearchToken[][]).
     // An item matches if at least one OR-group matches.
     // An OR-group matches if all its non-negated terms are present and all negated terms are absent.
     private tokensPartiallyMatch(
         searchString: string | undefined,
-        queryGroups: SearchToken[][],
+        queryGroups: ISearchToken[][],
     ): boolean {
         if (!queryGroups.length) return true;
         if (!searchString) return false;
@@ -1148,11 +1134,7 @@ export class Grail {
             this.totalCount = this.uniques.length;
         } else if (this.selectedCategory === 'sets') {
             // Total unique sets available
-            try {
-                this.totalCount = (setsJson as unknown as ISetData[]).length;
-            } catch {
-                this.totalCount = 0;
-            }
+            this.totalCount = this.allSets.length;
         } else if (this.selectedCategory === 'runewords') {
             this.totalCount = this.runewords.length;
         } else {
@@ -1182,22 +1164,22 @@ export class Grail {
     getDamageTypeString = getDamageTypeStringUtil;
 
     private getUniqueKey(u: IUniqueItem): string {
-        return String(u?.Name || '');
+        return u.Index;
     }
 
     private getSetItemKey(it: ISetItem): string {
-        return `${String(it?.Set || '')}::${String(it?.Name || '')}`;
+        return it.Index;
     }
 
     private getRunewordKey(rw: IRunewordData): string {
-        return String(rw?.Name || '');
+        return rw.Index;
     }
 
     // Count fully completed sets based on found set items
     private computeCompletedSetsCount(): number {
         try {
             let completed = 0;
-            for (const set of setsJson) {
+            for (const set of this.allSets) {
                 const items = Array.isArray(set?.SetItems) ? set.SetItems : [];
                 if (items.length === 0) continue; // ignore malformed sets
                 let allFound = true;

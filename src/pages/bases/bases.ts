@@ -1,4 +1,4 @@
-ï»¿import { bindable, watch } from 'aurelia';
+import { bindable, watch } from 'aurelia';
 
 import {
     buildOptionsForPresentTypes,
@@ -9,46 +9,53 @@ import {
 } from '../../resources/constants';
 import {
     getDamageTypeString as getDamageTypeStringUtil,
-    IDamageType,
 } from '../../utilities/damage-types';
 import { matchesTokenGroups, prependTypeResetOption, tokenizeSearch } from '../../utilities/filter-helpers';
+import { IKeyedLine } from '../../utilities/i-keyed-line';
+import { format, t } from '../../utilities/translation-store.js';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
-import armorsJson from '../item-jsons/armors.json';
-import weaponsJson from '../item-jsons/weapons.json';
 
 // Shared shape for union; add a discriminator so the template can branch UI
 interface IBaseItem {
     __index?: number;
     __kind: 'armor' | 'weapon';
-    Name: string;
-    Type?: { Name?: string; Index?: string; Class?: string } | null;
-    GemSockets?: number | string | null;
-    BaseRequiredLevel?: number;
-    RequiredStrength?: string;
-    RequiredDexterity?: string;
-    Durability?: number;
-    StrBonus?: number;
-    DexBonus?: number;
+    NameKey: string;
+    Code: string;
+    Tier?: 'Normal' | 'Exceptional' | 'Elite';
     NormCode?: string | null;
     UberCode?: string | null;
     UltraCode?: string | null;
-    AutoMagicGroups?:
-        | {
+    RequiredLevel?: number;
+    GemSockets?: number | string;
+    Lines: IKeyedLine[];
+    Type: {
+        Index: string;
         Name: string;
+        Class?: string;
+    };
+    EquipmentType: number;
+    RequiredClass: string;
+    DamageTypes?: {
+        Type: number;
+        AverageDamage: number;
+        Lines: IKeyedLine[];
+    }[];
+    AutoMagicGroups?: {
+        NameKey: string;
         Level?: number;
         RequiredLevel?: number;
-        PropertyStrings: string[];
-        Index?: number;
-    }[]
-        | null;
-    // armor-only
-    ArmorString?: string | null;
-    DamageString?: string | null;
-    DamageStringPrefix?: string | null;
-    Block?: number | null;
-    // weapon-only
-    DamageTypes?: IDamageType[];
-    Speed?: number | null;
+        Lines: IKeyedLine[];
+    }[] | null;
+}
+
+// Shape returned by Bases.groupedProperties() — consumed by bases.html.
+export interface IGroupedAutoMagic {
+    nameKey: string;
+    name: string;
+    level: number;
+    requiredLevel?: number;
+    lines: IKeyedLine[];
+    minIndex: number;
 }
 
 export class Bases {
@@ -56,8 +63,8 @@ export class Bases {
     // Category: "" (both), "armors", "weapons"
     categoryOptions: Array<{ value: '' | 'armors' | 'weapons'; label: string; }> = [
         { value: '', label: '-' },
-        { value: 'armors', label: 'Armors' },
-        { value: 'weapons', label: 'Weapons' }];
+        { value: 'armors', label: 'label_armors' },
+        { value: 'weapons', label: 'label_weapons' }];
 
     @bindable selectedCategory: '' | 'armors' | 'weapons' = '';
 
@@ -68,18 +75,18 @@ export class Bases {
 
     tierOptions: Array<{ value: '' | 'Normal' | 'Exceptional' | 'Elite' | undefined; label: string; }> = [
         { value: '', label: '-' },
-        { value: 'Normal', label: 'Normal' },
-        { value: 'Exceptional', label: 'Exceptional' },
-        { value: 'Elite', label: 'Elite' }];
+        { value: 'Normal', label: 'label_normal' },
+        { value: 'Exceptional', label: 'label_exceptional' },
+        { value: 'Elite', label: 'label_elite' }];
 
     socketOptions: Array<{ value: number | ''; label: string }> = [
         { value: '', label: '-' },
-        { value: 1, label: '1 Socket' },
-        { value: 2, label: '2 Sockets' },
-        { value: 3, label: '3 Sockets' },
-        { value: 4, label: '4 Sockets' },
-        { value: 5, label: '5 Sockets' },
-        { value: 6, label: '6 Sockets' },
+        { value: 1, label: 'label_socket' },
+        { value: 2, label: 'label_sockets' },
+        { value: 3, label: 'label_sockets' },
+        { value: 4, label: 'label_sockets' },
+        { value: 5, label: 'label_sockets' },
+        { value: 6, label: 'label_sockets' },
     ];
 
     types: ReadonlyArray<IFilterOption> = type_filtering_options.slice();
@@ -89,16 +96,31 @@ export class Bases {
     private _familyMap = new Map<string, IBaseItem[]>();
     private _allBases: IBaseItem[] = [];
 
-    itemsArmor: IBaseItem[] = (Array.isArray(armorsJson) ? (armorsJson as unknown as IBaseItem[]) : []).map((it, __index) => ({
-        ...it, __kind: 'armor' as const, __index,
-    }));
-
-    itemsWeapon: IBaseItem[] = (Array.isArray(weaponsJson) ? (weaponsJson as unknown as IBaseItem[]) : []).map((it, __index) => ({
-        ...it, __kind: 'weapon' as const, __index,
-    }));
+    itemsArmor: IBaseItem[] = [];
+    itemsWeapon: IBaseItem[] = [];
 
     // Build type options and hydrate from URL
-    binding() {
+    async binding() {
+        // Fetch keyed bases data
+        try {
+            const [aResp, wResp] = await Promise.all([
+                fetch('/data/keyed/armors.json'),
+                fetch('/data/keyed/weapons.json'),
+            ]);
+            this.itemsArmor = ((await aResp.json()) as IBaseItem[]).map((it, __index) => ({
+                ...it, __kind: 'armor' as const, __index,
+                Code: it.Code || it.NameKey, // Fallback for missing Code
+            }));
+            this.itemsWeapon = ((await wResp.json()) as IBaseItem[]).map((it, __index) => ({
+                ...it, __kind: 'weapon' as const, __index,
+                Code: it.Code || it.NameKey, // Fallback for missing Code
+            }));
+        } catch (e) {
+            console.error('Failed to load bases:', e);
+            this.itemsArmor = [];
+            this.itemsWeapon = [];
+        }
+
         // Prepare base collections
         this._allBases = [...this.itemsArmor, ...this.itemsWeapon];
 
@@ -164,14 +186,19 @@ export class Bases {
         const datasets = this.selectedCategory === 'armors' ? [this.itemsArmor] : this.selectedCategory === 'weapons' ? [this.itemsWeapon] : [this.itemsArmor, this.itemsWeapon];
         for (const ds of datasets) {
             for (const i of ds) {
-                const base = resolveBaseTypeName(i?.Type?.Name ?? '');
+                // Use Type.Index (itemtypes.txt Code column) — the canonical id the
+                // filter graph is keyed by. Type.Name remains the English label.
+                const base = resolveBaseTypeName(i?.Type?.Index ?? '');
                 if (base) present.add(base);
             }
         }
         const options = buildOptionsForPresentTypes(
             type_filtering_options,
             present,
-        );
+        ).map(opt => ({
+            ...opt,
+            label: t(opt.label),
+        }));
         this.types = prependTypeResetOption(options);
     }
 
@@ -306,7 +333,9 @@ export class Bases {
         for (const i of combinedSet) {
             // Type filter
             if (allowedTypeSet) {
-                const base = getChainForTypeNameReadonly(i?.Type?.Name ?? '')[0] || (i?.Type?.Name ?? '');
+                // Filter against codes (Type.Index) so the comparison aligns with
+                // the option value lists, which now hold codes.
+                const base = getChainForTypeNameReadonly(i?.Type?.Index ?? '')[0] || (i?.Type?.Index ?? '');
                 if (!allowedTypeSet.has(base)) continue;
             }
 
@@ -328,10 +357,10 @@ export class Bases {
             filtered.push(i);
         }
 
-        // 5. Group by Type.Name, then cluster into code families
+        // 5. Group by Type.Index, then cluster into code families
         const typeMap = new Map<string, Map<string, IBaseItem[]>>();
         for (const i of filtered) {
-            const t = i?.Type?.Name || 'Other';
+            const t = i?.Type?.Index || 'Other';
             let familyMap = typeMap.get(t);
             if (!familyMap) {
                 familyMap = new Map<string, IBaseItem[]>();
@@ -379,20 +408,8 @@ export class Bases {
         );
     }
 
-    getDamageLabel(i: IBaseItem) {
-        if (!i) return '';
-        if (i.DamageString) {
-            const prefix =
-                i.DamageStringPrefix && String(i.DamageStringPrefix).trim() !== ''
-                    ? `${i.DamageStringPrefix}:`
-                    : 'Damage:';
-            return `${prefix} ${i.DamageString}`;
-        }
-        return '';
-    }
-
     private calculateTier(i: IBaseItem): 'Normal' | 'Exceptional' | 'Elite' | undefined {
-        const name: string = i?.Name ?? '';
+        const name: string = t(i.NameKey);
         const m = name.match(/\[(N|X|E)\]/i);
         if (m) {
             const ch = m[1].toUpperCase();
@@ -417,72 +434,90 @@ export class Bases {
 
     private buildSearchString(i: IBaseItem): string {
         const parts: string[] = [
-            i.Name ?? '',
-            i.Type?.Name ?? '',
+            t(i.NameKey),
+            t(i.Type.Index),
+            i.Code || i.NameKey,
             i.NormCode ?? '',
             i.UberCode ?? '',
             i.UltraCode ?? '',
         ];
-        if (i.DamageString) {
-            if (i.DamageStringPrefix && String(i.DamageStringPrefix).trim() !== '') {
-                parts.push(i.DamageStringPrefix);
-            }
-            parts.push(i.DamageString);
+
+        if (Array.isArray(i.Lines)) {
+            for (const l of i.Lines) parts.push(format(l));
         }
+
         if (Array.isArray(i.DamageTypes)) {
             for (const d of i.DamageTypes) {
                 parts.push(getDamageTypeStringUtil(d.Type));
-                if (d.DamageString) parts.push(d.DamageString);
+                if (Array.isArray(d.Lines)) {
+                    for (const l of d.Lines) parts.push(format(l));
+                }
             }
         }
+
+        if (Array.isArray(i.AutoMagicGroups)) {
+            for (const g of i.AutoMagicGroups) {
+                if (g.NameKey) parts.push(t(g.NameKey));
+                if (Array.isArray(g.Lines)) {
+                    for (const l of g.Lines) parts.push(format(l));
+                }
+            }
+        }
+
         return parts.filter(Boolean).join(' ').toLowerCase();
     }
 
-    groupedProperties(item: IBaseItem) {
-        const raw = (item?.AutoMagicGroups || []).slice();
-        if (!raw.length)
-            return [] as {
-                name: string;
-                propertyStrings: string[];
-                requiredLevel?: number;
-                minIndex: number;
-            }[];
+    /**
+     * Group `AutoMagicGroups` for display.
+     *
+     * The keyed bundle emits one entry per affix tier (e.g. "of Blight",
+     * "of Venom", "of Pestilence", ...) — each carries its own `RequiredLevel`
+     * and a `Lines` array describing the mods. The UI shows them as one block
+     * per affix family with the lowest required level on the left and all
+     * the lines stacked on the right (matching the master-branch layout).
+     *
+     * Strategy: bucket entries by `NameKey`, accumulate lines (deduped), keep
+     * the smallest `RequiredLevel` and the `Level` for ordering, then return
+     * the buckets sorted by min-level / order-of-appearance.
+     */
+    groupedProperties(item: IBaseItem): IGroupedAutoMagic[] {
+        const raw = item?.AutoMagicGroups;
+        if (!Array.isArray(raw) || raw.length === 0) return [];
 
-        const splitLines = (s: string) =>
-            s
-                .split(',')
-                .map((x) => x.trim())
-                .filter((x) => x.length > 0);
-
-        const map = new Map<
-            string,
-            {
-                name: string;
-                propertyStrings: string[];
-                requiredLevel?: number;
-                minIndex: number;
-            }
-        >();
+        const map = new Map<string, IGroupedAutoMagic>();
         raw.forEach((g, idx) => {
-            const name = g.Name && g.Name.trim() !== '' ? g.Name : 'Other';
-            const minIdx = g.Level ?? g.Index ?? idx ?? Number.MAX_SAFE_INTEGER;
-            if (!map.has(name))
-                map.set(name, {
-                    name,
-                    propertyStrings: [],
+            const nameKey = (g.NameKey && g.NameKey.trim() !== '') ? g.NameKey : `__auto_${idx}`;
+            const minIdx = g.Level ?? idx;
+            let entry = map.get(nameKey);
+            if (!entry) {
+                entry = {
+                    nameKey,
+                    name: t(nameKey),
+                    level: g.Level ?? 0,
                     requiredLevel: g.RequiredLevel,
+                    lines: [],
                     minIndex: minIdx,
-                });
-            const entry = map.get(name);
-            if (entry) {
-                if (g.RequiredLevel !== undefined)
+                };
+                map.set(nameKey, entry);
+            } else {
+                if (g.RequiredLevel !== undefined &&
+                    (entry.requiredLevel === undefined || g.RequiredLevel < entry.requiredLevel)) {
                     entry.requiredLevel = g.RequiredLevel;
-                (g.PropertyStrings || []).forEach((ps) => {
-                    splitLines(ps).forEach((line) => entry.propertyStrings.push(line));
-                });
+                }
                 if (minIdx < entry.minIndex) entry.minIndex = minIdx;
             }
+
+            if (Array.isArray(g.Lines)) {
+                for (const l of g.Lines) {
+                    // De-dupe identical formatted lines within the same bucket.
+                    const rendered = format(l);
+                    if (!entry.lines.some(existing => format(existing) === rendered)) {
+                        entry.lines.push(l);
+                    }
+                }
+            }
         });
+
         return Array.from(map.values()).sort((a, b) => {
             if (a.minIndex !== b.minIndex) return a.minIndex - b.minIndex;
             return a.name.localeCompare(b.name);
