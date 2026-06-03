@@ -763,6 +763,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          2,
           "skillname69",
           "NecOnly"
         ]
@@ -771,6 +772,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          2,
           "skillname70",
           "NecOnly"
         ]
@@ -845,6 +847,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "Skillname224",
           "DruOnly"
         ]
@@ -853,6 +856,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "Skillname225",
           "DruOnly"
         ]
@@ -1258,6 +1262,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           5,
+          5,
           "skillname36",
           "SorOnly"
         ]
@@ -1265,6 +1270,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          2,
           2,
           "skillname37",
           "SorOnly"
@@ -2015,6 +2021,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "Skillname255",
           "AssOnly"
         ]
@@ -2194,6 +2201,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "MiasmaBoltName",
           "WarOnly"
         ]
@@ -2202,6 +2210,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "SummonGoatmanName",
           "WarOnly"
         ]
@@ -2449,17 +2458,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname2"
+          2,
+          "Sorceress"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname2"
+          2,
+          "Sorceress"
         ]
       },
       {
@@ -2612,6 +2621,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          2,
           "skillname9",
           "AmaOnly"
         ]
@@ -3546,6 +3556,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          3,
           "skillname6",
           "AmaOnly"
         ]
@@ -3829,6 +3840,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          2,
           "Skillname253",
           "AssOnly"
         ]
@@ -4921,15 +4933,16 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "skillname69",
           "NecOnly"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname2"
+          2,
+          "Necromancer"
         ]
       },
       {
@@ -5718,6 +5731,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          2,
           "skillname132",
           "BarOnly"
         ]
@@ -5884,17 +5898,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       },
       {
@@ -6188,7 +6202,8 @@
       {
         "key": "StrSklTabItem11",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "BarOnly"
       },
@@ -6978,7 +6993,8 @@
       {
         "key": "StrSklTabItem5",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "PalOnly"
       },
@@ -7703,6 +7719,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "skillname36",
           "SorOnly"
         ]
@@ -7711,6 +7728,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "skillname38",
           "SorOnly"
         ]
@@ -7719,6 +7737,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "skillname39",
           "SorOnly"
         ]
@@ -8017,6 +8036,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          4,
           "DemonicMasteryName",
           "WarOnly"
         ]
@@ -8673,24 +8693,24 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname1"
+          1,
+          "Sorceress"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname2"
+          2,
+          "Sorceress"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname2"
+          2,
+          "Sorceress"
         ]
       }
     ],
@@ -8750,31 +8770,31 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname1"
+          1,
+          "Necromancer"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname2"
+          2,
+          "Necromancer"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname2"
+          2,
+          "Necromancer"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       },
       {
@@ -9178,7 +9198,8 @@
       {
         "key": "StrSklTabItem8",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "NecOnly"
       },
@@ -9199,6 +9220,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "skillname66",
           "NecOnly"
         ]
@@ -9293,6 +9315,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "skillname130",
           "BarOnly"
         ]
@@ -9366,7 +9389,8 @@
       {
         "key": "StrSklTabItem16",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "DruOnly"
       },
@@ -9539,7 +9563,8 @@
       {
         "key": "StrSklTabItem20",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "AssOnly"
       },
@@ -10526,7 +10551,8 @@
       {
         "key": "StrSklTabItem4",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "PalOnly"
       },
@@ -10540,6 +10566,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "skillname99",
           "PalOnly"
         ]
@@ -10718,6 +10745,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "skillname74",
           "NecOnly"
         ]
@@ -10726,6 +10754,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "skillname77",
           "NecOnly"
         ]
@@ -10734,6 +10763,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "skillname66",
           "NecOnly"
         ]
@@ -10742,6 +10772,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "skillname76",
           "NecOnly"
         ]
@@ -11246,6 +11277,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "skillname68",
           "NecOnly"
         ]
@@ -11254,6 +11286,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "skillname73",
           "NecOnly"
         ]
@@ -12079,7 +12112,8 @@
       {
         "key": "StrSklTabItem17",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "DruOnly"
       },
@@ -12186,6 +12220,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          2,
           "LevitateName",
           "WarOnly"
         ]
@@ -12194,6 +12229,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          2,
           "CleaveName",
           "WarOnly"
         ]
@@ -12405,6 +12441,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname96",
           "PalOnly"
         ]
@@ -13487,6 +13524,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "skillname130",
           "BarOnly"
         ]
@@ -14855,7 +14893,8 @@
       {
         "key": "StrSklTabItem1",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "AmaOnly"
       },
@@ -15034,21 +15073,24 @@
       {
         "key": "StrSklTabItem14",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "SorOnly"
       },
       {
         "key": "StrSklTabItem15",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "SorOnly"
       },
       {
         "key": "StrSklTabItem13",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "SorOnly"
       },
@@ -15122,7 +15164,8 @@
       {
         "key": "StrSklTabItem8",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "NecOnly"
       },
@@ -15540,7 +15583,8 @@
       {
         "key": "StrSklTabItem21",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "AssOnly"
       },
@@ -15708,6 +15752,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "PsychicWardName",
           "WarOnly"
         ]
@@ -16713,7 +16758,8 @@
       {
         "key": "StrSklTabItem17",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "DruOnly"
       },
@@ -17925,6 +17971,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "skillname111",
           "PalOnly"
         ]
@@ -17932,6 +17979,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          3,
           3,
           "skillname103",
           "PalOnly"
@@ -18010,6 +18058,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "skillname53",
           "SorOnly"
         ]
@@ -18018,6 +18067,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "skillname49",
           "SorOnly"
         ]
@@ -18025,6 +18075,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          3,
           3,
           "skillname42",
           "SorOnly"
@@ -18337,6 +18388,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "skillname137",
           "BarOnly"
         ]
@@ -18345,6 +18397,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "skillname146",
           "BarOnly"
         ]
@@ -19139,7 +19192,8 @@
       {
         "key": "StrSklTabItem11",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "BarOnly"
       },
@@ -19486,6 +19540,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "skillname73",
           "NecOnly"
         ]
@@ -20099,7 +20154,8 @@
       {
         "key": "StrSklTabItem7",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "NecOnly"
       },
@@ -21943,6 +21999,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "Skillname225",
           "DruOnly"
         ]
@@ -22017,7 +22074,8 @@
       {
         "key": "StrSklTabItem5",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "PalOnly"
       },
@@ -22097,7 +22155,8 @@
       {
         "key": "StrSklTabItem3",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "AmaOnly"
       },
@@ -22355,7 +22414,8 @@
       {
         "key": "StrSklTabItem1",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "AmaOnly"
       },
@@ -22982,7 +23042,8 @@
       {
         "key": "StrSklTabItem20",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "AssOnly"
       },
@@ -23112,6 +23173,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          2,
           2,
           "Skillname253",
           "AssOnly"
@@ -23566,6 +23628,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          1,
           "skillname51",
           "SorOnly"
         ]
@@ -23574,6 +23637,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          2,
           "skillname47",
           "SorOnly"
         ]
@@ -23581,6 +23645,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          3,
           3,
           "skillname37",
           "SorOnly"
@@ -24255,6 +24320,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "skillname140",
           "BarOnly"
         ]
@@ -24529,6 +24595,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "skillname69",
           "NecOnly"
         ]
@@ -24537,6 +24604,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "skillname80",
           "NecOnly"
         ]
@@ -24716,6 +24784,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "Skillname227",
           "DruOnly"
         ]
@@ -25896,7 +25965,8 @@
       {
         "key": "StrSklTabItem19",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "AssOnly"
       },
@@ -26037,6 +26107,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          6,
           6,
           "skillname102",
           "PalOnly"
@@ -27152,7 +27223,8 @@
       {
         "key": "StrSklTabItem11",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "BarOnly"
       },
@@ -27325,7 +27397,8 @@
       {
         "key": "StrSklTabItem17",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "DruOnly"
       },
@@ -27346,6 +27419,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          4,
           "Skillname236",
           "DruOnly"
         ]
@@ -27354,6 +27428,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          4,
           "Skillname245",
           "DruOnly"
         ]
@@ -27783,7 +27858,8 @@
       {
         "key": "StrSklTabItem3",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "AmaOnly"
       },
@@ -27893,7 +27969,8 @@
       {
         "key": "StrSklTabItem9",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "NecOnly"
       },
@@ -27905,17 +27982,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname2"
+          2,
+          "Necromancer"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       },
       {
@@ -28345,6 +28422,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "BladeWarpName",
           "WarOnly"
         ]
@@ -28353,6 +28431,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "EchoingStrikeName",
           "WarOnly"
         ]
@@ -29368,10 +29447,10 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          96,
-          "skillname3"
+          3,
+          "Paladin"
         ]
       },
       {
@@ -29450,17 +29529,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname2"
+          2,
+          "Necromancer"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname2"
+          2,
+          "Necromancer"
         ]
       },
       {
@@ -29548,6 +29627,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           4,
+          6,
           "skillname12",
           "AmaOnly"
         ]
@@ -30248,7 +30328,8 @@
       {
         "key": "StrSklTabItem2",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "AmaOnly"
       },
@@ -30407,7 +30488,8 @@
       {
         "key": "StrSklTabItem1",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "AmaOnly"
       },
@@ -30740,7 +30822,8 @@
       {
         "key": "StrSklTabItem18",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "DruOnly"
       },
@@ -30833,7 +30916,8 @@
       {
         "key": "StrSklTabItem20",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "AssOnly"
       },
@@ -31671,6 +31755,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname72",
           "NecOnly"
         ]
@@ -31679,6 +31764,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname77",
           "NecOnly"
         ]
@@ -31687,6 +31773,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname86",
           "NecOnly"
         ]
@@ -31924,6 +32011,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          2,
           "skillname54",
           "SorOnly"
         ]
@@ -31931,6 +32019,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          1,
           1,
           "skillname37",
           "SorOnly"
@@ -32013,7 +32102,8 @@
       {
         "key": "StrSklTabItem7",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "NecOnly"
       },
@@ -32737,6 +32827,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           4,
+          4,
           "skillname131",
           "BarOnly"
         ]
@@ -32745,6 +32836,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           4,
+          4,
           "skillname142",
           "BarOnly"
         ]
@@ -32752,6 +32844,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          4,
           4,
           "skillname127",
           "BarOnly"
@@ -33425,7 +33518,8 @@
       {
         "key": "StrSklTabItem11",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "BarOnly"
       },
@@ -33717,7 +33811,8 @@
       {
         "key": "StrSklTabItem12",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "BarOnly"
       },
@@ -33882,6 +33977,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "SummonGoatmanName",
           "WarOnly"
         ]
@@ -33890,6 +33986,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "BloodOathName",
           "WarOnly"
         ]
@@ -33976,6 +34073,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          3,
           "skillname77",
           "NecOnly"
         ]
@@ -33983,6 +34081,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          2,
           2,
           "skillname87",
           "NecOnly"
@@ -34175,6 +34274,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          2,
           "skillname48",
           "SorOnly"
         ]
@@ -34183,6 +34283,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          2,
           "skillname46",
           "SorOnly"
         ]
@@ -34190,6 +34291,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          3,
           3,
           "skillname44",
           "SorOnly"
@@ -36064,6 +36166,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          3,
           "skillname69",
           "NecOnly"
         ]
@@ -36945,6 +37048,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname102",
           "PalOnly"
         ]
@@ -37422,10 +37526,10 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          221,
-          "skillname4"
+          4,
+          "Druid"
         ]
       },
       {
@@ -37504,24 +37608,24 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname2"
+          2,
+          "Sorceress"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname3"
+          3,
+          "Sorceress"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname3"
+          3,
+          "Sorceress"
         ]
       }
     ],
@@ -38105,7 +38209,8 @@
       {
         "key": "StrSklTabItem9",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "NecOnly"
       },
@@ -38326,6 +38431,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname110",
           "PalOnly"
         ]
@@ -38334,6 +38440,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          3,
           "skillname118",
           "PalOnly"
         ]
@@ -38341,6 +38448,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          1,
           1,
           "skillname121",
           "PalOnly"
@@ -38503,6 +38611,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          4,
           "skillname127",
           "BarOnly"
         ]
@@ -38511,6 +38620,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "skillname151",
           "BarOnly"
         ]
@@ -39986,6 +40096,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          4,
           "skillname140",
           "BarOnly"
         ]
@@ -40759,7 +40870,8 @@
       {
         "key": "StrSklTabItem4",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "PalOnly"
       },
@@ -41055,24 +41167,24 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname3"
+          3,
+          "Sorceress"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname3"
+          3,
+          "Sorceress"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname3"
+          3,
+          "Sorceress"
         ]
       },
       {
@@ -41149,17 +41261,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname3"
+          3,
+          "Sorceress"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname3"
+          3,
+          "Sorceress"
         ]
       },
       {
@@ -41727,7 +41839,8 @@
       {
         "key": "StrSklTabItem20",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "AssOnly"
       },
@@ -41829,7 +41942,8 @@
       {
         "key": "StrSklTabItem21",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "AssOnly"
       },
@@ -41943,7 +42057,8 @@
       {
         "key": "StrSklTabItem20",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "AssOnly"
       },
@@ -41978,6 +42093,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          5,
           "Skillname280",
           "AssOnly"
         ]
@@ -42073,6 +42189,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          2,
           2,
           "Skillname281",
           "AssOnly"
@@ -42521,6 +42638,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname19",
           "AmaOnly"
         ]
@@ -42529,6 +42647,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          2,
           "skillname30",
           "AmaOnly"
         ]
@@ -43334,7 +43453,8 @@
       {
         "key": "StrSklTabItem10",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "BarOnly"
       },
@@ -44210,31 +44330,31 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname3"
+          3,
+          "Sorceress"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname3"
+          3,
+          "Sorceress"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname2"
+          2,
+          "Sorceress"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname2"
+          2,
+          "Sorceress"
         ]
       },
       {
@@ -44308,17 +44428,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname5"
+          5,
+          "Necromancer"
         ]
       },
       {
@@ -45609,6 +45729,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          3,
           "skillname27",
           "AmaOnly"
         ]
@@ -45977,6 +46098,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname52",
           "SorOnly"
         ]
@@ -46091,6 +46213,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname69",
           "NecOnly"
         ]
@@ -46099,6 +46222,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "skillname70",
           "NecOnly"
         ]
@@ -46372,7 +46496,8 @@
       {
         "key": "StrSklTabItem3",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "AmaOnly"
       },
@@ -46424,6 +46549,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname6",
           "AmaOnly"
         ]
@@ -46651,24 +46777,24 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          76,
-          "skillname2"
+          2,
+          "Necromancer"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          88,
-          "skillname1"
+          1,
+          "Necromancer"
         ]
       },
       {
@@ -46740,7 +46866,8 @@
       {
         "key": "StrSklTabItem11",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "BarOnly"
       },
@@ -46831,7 +46958,8 @@
       {
         "key": "StrSklTabItem20",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "AssOnly"
       },
@@ -46862,10 +46990,10 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          251,
-          "skillname3"
+          3,
+          "Assassin"
         ]
       },
       {
@@ -47249,17 +47377,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          251,
-          "skillname2"
+          2,
+          "Assassin"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          251,
-          "skillname2"
+          2,
+          "Assassin"
         ]
       },
       {
@@ -47628,6 +47756,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "Skillname239",
           "DruOnly"
         ]
@@ -48978,17 +49107,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       },
       {
@@ -50085,17 +50214,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          221,
-          "skillname2"
+          2,
+          "Druid"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          221,
-          "skillname2"
+          2,
+          "Druid"
         ]
       },
       {
@@ -50386,17 +50515,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname2"
+          2,
+          "Necromancer"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       },
       {
@@ -50565,7 +50694,8 @@
       {
         "key": "StrSklTabItem23",
         "args": [
-          2
+          2,
+          3
         ],
         "classOnly": "WarOnly"
       },
@@ -50818,6 +50948,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          2,
           "skillname77",
           "NecOnly"
         ]
@@ -50825,6 +50956,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          2,
           2,
           "skillname80",
           "NecOnly"
@@ -50834,6 +50966,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          3,
           "skillname69",
           "NecOnly"
         ]
@@ -50841,6 +50974,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          3,
           3,
           "skillname70",
           "NecOnly"
@@ -50927,6 +51061,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname26",
           "AmaOnly"
         ]
@@ -51484,24 +51619,24 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname3"
+          3,
+          "Sorceress"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname3"
+          3,
+          "Sorceress"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname3"
+          3,
+          "Sorceress"
         ]
       },
       {
@@ -51926,6 +52061,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          3,
           "skillname77",
           "NecOnly"
         ]
@@ -51996,7 +52132,8 @@
       {
         "key": "StrSklTabItem8",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "NecOnly"
       },
@@ -52110,6 +52247,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "skillname147",
           "BarOnly"
         ]
@@ -52117,6 +52255,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          2,
           2,
           "skillname152",
           "BarOnly"
@@ -52333,6 +52472,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          2,
           "skillname114",
           "PalOnly"
         ]
@@ -52340,6 +52480,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          2,
           2,
           "skillname118",
           "PalOnly"
@@ -54064,17 +54205,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          221,
-          "skillname2"
+          2,
+          "Druid"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          221,
-          "skillname3"
+          3,
+          "Druid"
         ]
       },
       {
@@ -54141,7 +54282,8 @@
       {
         "key": "StrSklTabItem20",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "AssOnly"
       },
@@ -54277,6 +54419,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "EchoingStrikeName",
           "WarOnly"
         ]
@@ -54285,6 +54428,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "MirroredBladesName",
           "WarOnly"
         ]
@@ -55532,7 +55676,8 @@
       {
         "key": "StrSklTabItem21",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "AssOnly"
       },
@@ -56165,7 +56310,8 @@
       {
         "key": "StrSklTabItem6",
         "args": [
-          2
+          2,
+          3
         ],
         "classOnly": "PalOnly"
       },
@@ -56292,6 +56438,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          3,
           "skillname54",
           "SorOnly"
         ]
@@ -56300,6 +56447,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          3,
           "skillname43",
           "SorOnly"
         ]
@@ -56307,6 +56455,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          3,
           3,
           "skillname58",
           "SorOnly"
@@ -56679,24 +56828,24 @@
         "perLevel": true
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          96,
-          "skillname3"
+          3,
+          "Paladin"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          96,
-          "skillname2"
+          2,
+          "Paladin"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          96,
-          "skillname2"
+          2,
+          "Paladin"
         ]
       },
       {
@@ -56891,24 +57040,24 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname2"
+          2,
+          "Sorceress"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname2"
+          2,
+          "Sorceress"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname2"
+          2,
+          "Sorceress"
         ]
       },
       {
@@ -57539,17 +57688,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname2"
+          2,
+          "Sorceress"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname2"
+          2,
+          "Sorceress"
         ]
       },
       {
@@ -57904,6 +58053,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           4,
+          6,
           "skillname69",
           "NecOnly"
         ]
@@ -57912,6 +58062,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname70",
           "NecOnly"
         ]
@@ -57920,6 +58071,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          4,
           "skillname80",
           "NecOnly"
         ]
@@ -57928,6 +58080,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "skillname95",
           "NecOnly"
         ]
@@ -58767,10 +58920,10 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname2"
+          2,
+          "Sorceress"
         ]
       },
       {
@@ -58934,17 +59087,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname2"
+          2,
+          "Sorceress"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname2"
+          2,
+          "Sorceress"
         ]
       },
       {
@@ -59275,7 +59428,8 @@
       {
         "key": "StrSklTabItem2",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "AmaOnly"
       },
@@ -59383,7 +59537,8 @@
       {
         "key": "StrSklTabItem2",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "AmaOnly"
       },
@@ -59991,6 +60146,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          5,
           "Skillname224",
           "DruOnly"
         ]
@@ -59999,6 +60155,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          5,
           "Skillname233",
           "DruOnly"
         ]
@@ -60007,6 +60164,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "Skillname243",
           "DruOnly"
         ]
@@ -60087,7 +60245,8 @@
       {
         "key": "StrSklTabItem17",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "DruOnly"
       },
@@ -60194,6 +60353,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "Skillname267",
           "AssOnly"
         ]
@@ -60760,6 +60920,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "Skillname239",
           "DruOnly"
         ]
@@ -62417,6 +62578,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "Skillname261",
           "AssOnly"
         ]
@@ -62425,6 +62587,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "Skillname264",
           "AssOnly"
         ]
@@ -64221,24 +64384,24 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname4"
+          4,
+          "Necromancer"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname2"
+          2,
+          "Necromancer"
         ]
       },
       {
@@ -64679,15 +64842,16 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "Skillname222",
           "DruOnly"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          221,
-          "skillname3"
+          3,
+          "Druid"
         ]
       },
       {
@@ -64787,6 +64951,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          2,
           "Skillname234",
           "DruOnly"
         ]
@@ -64795,6 +64960,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          2,
           "Skillname249",
           "DruOnly"
         ]
@@ -65231,6 +65397,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          3,
           "skillname22",
           "AmaOnly"
         ]
@@ -65613,17 +65780,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       },
       {
@@ -65687,17 +65854,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname2"
+          2,
+          "Necromancer"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname2"
+          2,
+          "Necromancer"
         ]
       },
       {
@@ -65800,10 +65967,10 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          96,
-          "skillname2"
+          2,
+          "Paladin"
         ]
       },
       {
@@ -66232,7 +66399,8 @@
       {
         "key": "StrSklTabItem16",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "DruOnly"
       },
@@ -66348,10 +66516,10 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          251,
-          "skillname3"
+          3,
+          "Assassin"
         ]
       },
       {
@@ -67495,7 +67663,8 @@
       {
         "key": "StrSklTabItem2",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "AmaOnly"
       },
@@ -67772,17 +67941,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          126,
-          "skillname2"
+          2,
+          "Barbarian"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          126,
-          "skillname2"
+          2,
+          "Barbarian"
         ]
       },
       {
@@ -67882,6 +68051,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "PurgeHexName",
           "WarOnly"
         ]
@@ -68687,6 +68857,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "skillsname61",
           "SorOnly"
         ]
@@ -68695,6 +68866,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "skillname63",
           "SorOnly"
         ]
@@ -68703,6 +68875,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "skillname65",
           "SorOnly"
         ]
@@ -69844,17 +70017,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       },
       {
@@ -70424,17 +70597,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname2"
+          2,
+          "Necromancer"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname2"
+          2,
+          "Necromancer"
         ]
       },
       {
@@ -70804,7 +70977,8 @@
       {
         "key": "StrSklTabItem1",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "AmaOnly"
       },
@@ -71058,7 +71232,8 @@
       {
         "key": "StrSklTabItem21",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "AssOnly"
       },
@@ -71155,7 +71330,8 @@
       {
         "key": "StrSklTabItem20",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "AssOnly"
       },
@@ -71277,38 +71453,38 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          251,
-          "skillname4"
+          4,
+          "Assassin"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          251,
-          "skillname3"
+          3,
+          "Assassin"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          251,
-          "skillname3"
+          3,
+          "Assassin"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          251,
-          "skillname2"
+          2,
+          "Assassin"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          251,
-          "skillname2"
+          2,
+          "Assassin"
         ]
       }
     ],
@@ -71439,6 +71615,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          4,
           "RancorSigilName",
           "WarOnly"
         ]
@@ -71447,6 +71624,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          4,
           "BaneHexName",
           "WarOnly"
         ]
@@ -71768,7 +71946,8 @@
       {
         "key": "StrSklTabItem10",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "BarOnly"
       },
@@ -72401,17 +72580,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          251,
-          "skillname2"
+          2,
+          "Assassin"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          251,
-          "skillname2"
+          2,
+          "Assassin"
         ]
       },
       {
@@ -72686,6 +72865,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          2,
           "skillname143",
           "BarOnly"
         ]
@@ -72860,7 +73040,8 @@
       {
         "key": "StrSklTabItem5",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "PalOnly"
       },
@@ -72963,17 +73144,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          126,
-          "skillname3"
+          3,
+          "Barbarian"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          126,
-          "skillname2"
+          2,
+          "Barbarian"
         ]
       },
       {
@@ -73313,6 +73494,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          3,
           "skillname34",
           "AmaOnly"
         ]
@@ -73320,6 +73502,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          3,
           3,
           "skillname35",
           "AmaOnly"
@@ -74090,24 +74273,24 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          221,
-          "skillname3"
+          3,
+          "Druid"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          221,
-          "skillname2"
+          2,
+          "Druid"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          221,
-          "skillname3"
+          3,
+          "Druid"
         ]
       }
     ],
@@ -74186,6 +74369,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          3,
           "skillname11",
           "AmaOnly"
         ]
@@ -74193,6 +74377,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          5,
           5,
           "skillname21",
           "AmaOnly"
@@ -74663,7 +74848,8 @@
       {
         "key": "StrSklTabItem7",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "NecOnly"
       },
@@ -74894,6 +75080,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          3,
           3,
           "skillname127",
           "BarOnly"
@@ -75736,17 +75923,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          6,
-          "skillname2"
+          2,
+          "Amazon"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          6,
-          "skillname2"
+          2,
+          "Amazon"
         ]
       },
       {
@@ -77394,6 +77581,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname143",
           "BarOnly"
         ]
@@ -77683,30 +77871,31 @@
     "DamageArmorEnhanced": false,
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname1"
+          1,
+          "Necromancer"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname2"
+          2,
+          "Necromancer"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       },
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          5,
           "skillname69",
           "NecOnly"
         ]
@@ -77907,17 +78096,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          96,
-          "skillname2"
+          2,
+          "Paladin"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          96,
-          "skillname2"
+          2,
+          "Paladin"
         ]
       },
       {
@@ -79294,6 +79483,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "Skillname244",
           "DruOnly"
         ]
@@ -79758,6 +79948,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname48",
           "SorOnly"
         ]
@@ -79766,6 +79957,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname60",
           "SorOnly"
         ]
@@ -79857,24 +80049,24 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname2"
+          2,
+          "Necromancer"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname2"
+          2,
+          "Necromancer"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       }
     ],
@@ -79938,17 +80130,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       },
       {
@@ -80647,7 +80839,8 @@
       {
         "key": "StrSklTabItem16",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "DruOnly"
       },
@@ -81278,6 +81471,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          2,
           "skillname112",
           "PalOnly"
         ]
@@ -81470,7 +81664,8 @@
       {
         "key": "StrSklTabItem20",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "AssOnly"
       },
@@ -81567,7 +81762,8 @@
       {
         "key": "StrSklTabItem20",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "AssOnly"
       },
@@ -82513,10 +82709,10 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          6,
-          "skillname3"
+          3,
+          "Amazon"
         ]
       },
       {
@@ -82596,6 +82792,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "SummonTaintedName",
           "WarOnly"
         ]
@@ -82604,6 +82801,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "RingOfFireName",
           "WarOnly"
         ]
@@ -82612,6 +82810,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "FlameWaveName",
           "WarOnly"
         ]
@@ -83039,17 +83238,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          251,
-          "skillname4"
+          4,
+          "Assassin"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          251,
-          "skillname3"
+          3,
+          "Assassin"
         ]
       },
       {
@@ -83117,7 +83316,8 @@
       {
         "key": "StrSklTabItem9",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "NecOnly"
       },
@@ -83562,6 +83762,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "Skillname225",
           "DruOnly"
         ]
@@ -83958,17 +84159,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          221,
-          "skillname2"
+          2,
+          "Druid"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          221,
-          "skillname2"
+          2,
+          "Druid"
         ]
       },
       {
@@ -84499,17 +84700,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          96,
-          "skillname4"
+          4,
+          "Paladin"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          96,
-          "skillname3"
+          3,
+          "Paladin"
         ]
       },
       {
@@ -85302,6 +85503,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "Skillname261",
           "AssOnly"
         ]
@@ -85310,6 +85512,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "Skillname264",
           "AssOnly"
         ]
@@ -85434,6 +85637,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname101",
           "PalOnly"
         ]
@@ -85442,6 +85646,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "skillname121",
           "PalOnly"
         ]
@@ -86325,10 +86530,10 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          96,
-          "skillname2"
+          2,
+          "Paladin"
         ]
       },
       {
@@ -87168,24 +87373,24 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          221,
-          "skillname3"
+          3,
+          "Druid"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          221,
-          "skillname3"
+          3,
+          "Druid"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          221,
-          "skillname3"
+          3,
+          "Druid"
         ]
       },
       {
@@ -87270,10 +87475,10 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          126,
-          "skillname3"
+          3,
+          "Barbarian"
         ]
       },
       {
@@ -87613,6 +87818,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          3,
           "skillname10",
           "AmaOnly"
         ]
@@ -87620,6 +87826,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          3,
           3,
           "skillname30",
           "AmaOnly"
@@ -88008,17 +88215,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       },
       {
@@ -88121,10 +88328,10 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          96,
-          "skillname2"
+          2,
+          "Paladin"
         ]
       },
       {
@@ -88331,7 +88538,8 @@
       {
         "key": "StrSklTabItem21",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "AssOnly"
       },
@@ -88626,6 +88834,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          4,
           "CleaveName",
           "WarOnly"
         ]
@@ -88697,7 +88906,8 @@
       {
         "key": "StrSklTabItem24",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "WarOnly"
       },
@@ -89142,6 +89352,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           5,
+          5,
           "skillname6",
           "AmaOnly"
         ]
@@ -89546,17 +89757,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          126,
-          "skillname2"
+          2,
+          "Barbarian"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          126,
-          "skillname2"
+          2,
+          "Barbarian"
         ]
       },
       {
@@ -89616,7 +89827,8 @@
       {
         "key": "StrSklTabItem20",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "AssOnly"
       },
@@ -90479,7 +90691,8 @@
       {
         "key": "StrSklTabItem7",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "NecOnly"
       },
@@ -90527,6 +90740,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname92",
           "NecOnly"
         ]
@@ -91734,7 +91948,8 @@
       {
         "key": "StrSklTabItem3",
         "args": [
-          2
+          2,
+          3
         ],
         "classOnly": "AmaOnly"
       },
@@ -91869,6 +92084,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          4,
           "skillname147",
           "BarOnly"
         ]
@@ -92040,17 +92256,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          96,
-          "skillname2"
+          2,
+          "Paladin"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          96,
-          "skillname2"
+          2,
+          "Paladin"
         ]
       },
       {
@@ -92140,17 +92356,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          221,
-          "skillname4"
+          4,
+          "Druid"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          221,
-          "skillname3"
+          3,
+          "Druid"
         ]
       },
       {
@@ -94148,7 +94364,8 @@
       {
         "key": "StrSklTabItem16",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "DruOnly"
       },
@@ -94162,6 +94379,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "Skillname228",
           "DruOnly"
         ]
@@ -94170,6 +94388,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "Skillname238",
           "DruOnly"
         ]
@@ -94324,7 +94543,8 @@
       {
         "key": "StrSklTabItem1",
         "args": [
-          2
+          2,
+          3
         ],
         "classOnly": "AmaOnly"
       },
@@ -94622,6 +94842,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          4,
           "DeathMarkName",
           "WarOnly"
         ]
@@ -94630,6 +94851,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          4,
           "BloodBoilName",
           "WarOnly"
         ]
@@ -94638,6 +94860,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          4,
           "DemonicMasteryName",
           "WarOnly"
         ]
@@ -95051,6 +95274,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          3,
           3,
           "MirroredBladesName",
           "WarOnly"
@@ -95808,7 +96032,8 @@
       {
         "key": "StrSklTabItem17",
         "args": [
-          2
+          2,
+          4
         ],
         "classOnly": "DruOnly"
       },
@@ -95836,6 +96061,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          4,
           "Skillname233",
           "DruOnly"
         ]
@@ -96275,7 +96501,8 @@
       {
         "key": "StrSklTabItem1",
         "args": [
-          2
+          2,
+          3
         ],
         "classOnly": "AmaOnly"
       },
@@ -96385,21 +96612,24 @@
       {
         "key": "StrSklTabItem8",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "NecOnly"
       },
       {
         "key": "StrSklTabItem7",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "NecOnly"
       },
       {
         "key": "StrSklTabItem9",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "NecOnly"
       },
@@ -96680,7 +96910,8 @@
       {
         "key": "StrSklTabItem18",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "DruOnly"
       },
@@ -97090,10 +97321,10 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          221,
-          "skillname2"
+          2,
+          "Druid"
         ]
       },
       {
@@ -97152,7 +97383,8 @@
       {
         "key": "StrSklTabItem21",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "AssOnly"
       },
@@ -97487,7 +97719,8 @@
       {
         "key": "StrSklTabItem4",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "PalOnly"
       },
@@ -97712,7 +97945,8 @@
       {
         "key": "StrSklTabItem1",
         "args": [
-          2
+          2,
+          4
         ],
         "classOnly": "AmaOnly"
       },
@@ -97745,6 +97979,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          3,
           3,
           "skillname20",
           "AmaOnly"
@@ -98440,7 +98675,8 @@
       {
         "key": "StrSklTabItem1",
         "args": [
-          2
+          2,
+          3
         ],
         "classOnly": "AmaOnly"
       },
@@ -98663,7 +98899,8 @@
       {
         "key": "StrSklTabItem9",
         "args": [
-          2
+          2,
+          5
         ],
         "classOnly": "NecOnly"
       },
@@ -99107,6 +99344,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          5,
           5,
           "skillname58",
           "SorOnly"
@@ -99964,17 +100202,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          221,
-          "skillname3"
+          3,
+          "Druid"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          221,
-          "skillname3"
+          3,
+          "Druid"
         ]
       },
       {
@@ -100039,14 +100277,16 @@
       {
         "key": "StrSklTabItem20",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "AssOnly"
       },
       {
         "key": "StrSklTabItem21",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "AssOnly"
       },
@@ -100817,6 +101057,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "BloodOathName",
           "WarOnly"
         ]
@@ -100825,6 +101066,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "BloodBoilName",
           "WarOnly"
         ]
@@ -100833,6 +101075,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           1,
+          3,
           "BindDemonName",
           "WarOnly"
         ]
@@ -102141,6 +102384,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          4,
           "skillname117",
           "PalOnly"
         ]
@@ -102149,6 +102393,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname112",
           "PalOnly"
         ]
@@ -102157,6 +102402,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname113",
           "PalOnly"
         ]
@@ -102237,17 +102483,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       },
       {
@@ -103017,6 +103263,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           5,
+          7,
           "Skillname225",
           "DruOnly"
         ]
@@ -103100,24 +103347,24 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname5"
+          5,
+          "Sorceress"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname5"
+          5,
+          "Sorceress"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname5"
+          5,
+          "Sorceress"
         ]
       },
       {
@@ -103599,7 +103846,8 @@
       {
         "key": "StrSklTabItem7",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "NecOnly"
       },
@@ -104919,10 +105167,10 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       },
       {
@@ -105550,7 +105798,8 @@
       {
         "key": "StrSklTabItem12",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "BarOnly"
       },
@@ -105717,7 +105966,8 @@
       {
         "key": "StrSklTabItem1",
         "args": [
-          2
+          2,
+          3
         ],
         "classOnly": "AmaOnly"
       },
@@ -105849,10 +106099,10 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          96,
-          "skillname5"
+          5,
+          "Paladin"
         ]
       },
       {
@@ -106073,24 +106323,24 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          126,
-          "skillname2"
+          2,
+          "Barbarian"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          126,
-          "skillname3"
+          3,
+          "Barbarian"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          126,
-          "skillname4"
+          4,
+          "Barbarian"
         ]
       },
       {
@@ -106274,7 +106524,8 @@
       {
         "key": "StrSklTabItem16",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "DruOnly"
       },
@@ -106649,6 +106900,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          4,
           "AbyssName",
           "WarOnly"
         ]
@@ -106657,6 +106909,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          4,
           "EnhancedEntropyName",
           "WarOnly"
         ]
@@ -108008,6 +108261,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "DemonicMasteryName",
           "WarOnly"
         ]
@@ -108016,6 +108270,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          4,
           "BloodBoilName",
           "WarOnly"
         ]
@@ -108024,6 +108279,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "EngorgeName",
           "WarOnly"
         ]
@@ -108032,6 +108288,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "ConsumeName",
           "WarOnly"
         ]
@@ -108612,6 +108869,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          6,
           "skillname32",
           "AmaOnly"
         ]
@@ -108715,6 +108973,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           4,
+          6,
           "skillname58",
           "SorOnly"
         ]
@@ -108962,6 +109221,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           7,
+          7,
           "Skillname222",
           "DruOnly"
         ]
@@ -109036,7 +109296,8 @@
       {
         "key": "StrSklTabItem5",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "PalOnly"
       },
@@ -109357,6 +109618,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "skillname83",
           "NecOnly"
         ]
@@ -109460,6 +109722,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           4,
+          6,
           "skillname83",
           "NecOnly"
         ]
@@ -109669,6 +109932,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           5,
+          5,
           "skillname94",
           "NecOnly"
         ]
@@ -109676,6 +109940,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          5,
           5,
           "skillname79",
           "NecOnly"
@@ -110334,7 +110599,8 @@
       {
         "key": "StrSklTabItem20",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "AssOnly"
       },
@@ -110414,21 +110680,24 @@
       {
         "key": "StrSklTabItem11",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "BarOnly"
       },
       {
         "key": "StrSklTabItem12",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "BarOnly"
       },
       {
         "key": "StrSklTabItem10",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "BarOnly"
       },
@@ -110624,7 +110893,8 @@
       {
         "key": "StrSklTabItem3",
         "args": [
-          2
+          2,
+          4
         ],
         "classOnly": "AmaOnly"
       },
@@ -110764,10 +111034,10 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname3"
+          3,
+          "Sorceress"
         ]
       },
       {
@@ -110936,7 +111206,8 @@
       {
         "key": "StrSklTabItem6",
         "args": [
-          2
+          2,
+          4
         ],
         "classOnly": "PalOnly"
       },
@@ -110970,6 +111241,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          3,
           3,
           "skillname97",
           "PalOnly"
@@ -113001,7 +113273,8 @@
       {
         "key": "StrSklTabItem16",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "DruOnly"
       },
@@ -114423,10 +114696,10 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       },
       {
@@ -114510,7 +114783,8 @@
       {
         "key": "StrSklTabItem9",
         "args": [
-          2
+          2,
+          3
         ],
         "classOnly": "NecOnly"
       },
@@ -114607,7 +114881,8 @@
       {
         "key": "StrSklTabItem9",
         "args": [
-          2
+          2,
+          3
         ],
         "classOnly": "NecOnly"
       },
@@ -114710,10 +114985,10 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          96,
-          "skillname3"
+          3,
+          "Paladin"
         ]
       },
       {
@@ -115472,6 +115747,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname69",
           "NecOnly"
         ]
@@ -116002,7 +116278,8 @@
       {
         "key": "StrSklTabItem12",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "BarOnly"
       },
@@ -116022,6 +116299,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          3,
           "skillname149",
           "BarOnly"
         ]
@@ -116030,6 +116308,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "skillname150",
           "BarOnly"
         ]
@@ -116631,7 +116910,8 @@
       {
         "key": "StrSklTabItem3",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "AmaOnly"
       },
@@ -117596,7 +117876,8 @@
       {
         "key": "StrSklTabItem13",
         "args": [
-          2
+          2,
+          3
         ],
         "classOnly": "SorOnly"
       },
@@ -117618,6 +117899,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          4,
           "skillname59",
           "SorOnly"
         ]
@@ -117626,6 +117908,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          4,
           "skillname64",
           "SorOnly"
         ]
@@ -117949,7 +118232,8 @@
       {
         "key": "StrSklTabItem10",
         "args": [
-          2
+          2,
+          3
         ],
         "classOnly": "BarOnly"
       },
@@ -118401,6 +118685,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname68",
           "NecOnly"
         ]
@@ -118472,7 +118757,8 @@
       {
         "key": "StrSklTabItem3",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "AmaOnly"
       },
@@ -118611,6 +118897,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          4,
           "skillname31",
           "AmaOnly"
         ]
@@ -118619,6 +118906,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          4,
           "skillname11",
           "AmaOnly"
         ]
@@ -118719,6 +119007,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           4,
+          5,
           "skillname73",
           "NecOnly"
         ]
@@ -118727,6 +119016,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           4,
+          5,
           "skillname92",
           "NecOnly"
         ]
@@ -119273,6 +119563,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname94",
           "NecOnly"
         ]
@@ -119755,6 +120046,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "ApocalypseName",
           "WarOnly"
         ]
@@ -120208,10 +120500,10 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       },
       {
@@ -120396,6 +120688,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname57",
           "SorOnly"
         ]
@@ -120653,7 +120946,8 @@
       {
         "key": "StrSklTabItem7",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "NecOnly"
       },
@@ -120828,6 +121122,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "skillname83",
           "NecOnly"
         ]
@@ -120931,7 +121226,8 @@
       {
         "key": "StrSklTabItem12",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "BarOnly"
       },
@@ -121342,24 +121638,24 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          96,
-          "skillname1"
+          1,
+          "Paladin"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          96,
-          "skillname3"
+          3,
+          "Paladin"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          96,
-          "skillname2"
+          2,
+          "Paladin"
         ]
       },
       {
@@ -122112,7 +122408,8 @@
       {
         "key": "StrSklTabItem1",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "AmaOnly"
       },
@@ -122357,6 +122654,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          5,
           "skillname48",
           "SorOnly"
         ]
@@ -123246,7 +123544,8 @@
       {
         "key": "StrSklTabItem21",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "AssOnly"
       },
@@ -123948,10 +124247,10 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          251,
-          "skillname3"
+          3,
+          "Assassin"
         ]
       },
       {
@@ -124239,6 +124538,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          3,
           "skillname63",
           "SorOnly"
         ]
@@ -124246,6 +124546,7 @@
       {
         "key": "strSkillRandomFromSkillClass",
         "args": [
+          3,
           3,
           "skillsname61",
           "SorOnly"
@@ -124329,6 +124630,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "skillname101",
           "PalOnly"
         ]
@@ -124337,6 +124639,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname121",
           "PalOnly"
         ]
@@ -124518,7 +124821,8 @@
       {
         "key": "StrSklTabItem17",
         "args": [
-          2
+          2,
+          4
         ],
         "classOnly": "DruOnly"
       },
@@ -124545,6 +124849,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "Skillname224",
           "DruOnly"
         ]
@@ -124553,6 +124858,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          6,
           "Skillname249",
           "DruOnly"
         ]
@@ -124561,6 +124867,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "Skillname233",
           "DruOnly"
         ]
@@ -124654,6 +124961,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "Skillname267",
           "AssOnly"
         ]
@@ -124662,6 +124970,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "Skillname278",
           "AssOnly"
         ]
@@ -125307,6 +125616,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "Skillname239",
           "DruOnly"
         ]
@@ -125638,7 +125948,8 @@
       {
         "key": "StrSklTabItem19",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "AssOnly"
       },
@@ -125674,6 +125985,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "Skillname277",
           "AssOnly"
         ]
@@ -125983,7 +126295,8 @@
       {
         "key": "StrSklTabItem7",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "NecOnly"
       },
@@ -126011,6 +126324,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname67",
           "NecOnly"
         ]
@@ -126019,6 +126333,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname68",
           "NecOnly"
         ]
@@ -126027,6 +126342,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname84",
           "NecOnly"
         ]
@@ -126035,6 +126351,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname93",
           "NecOnly"
         ]
@@ -126252,7 +126569,8 @@
       {
         "key": "StrSklTabItem19",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "AssOnly"
       },
@@ -126288,6 +126606,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          4,
           "Skillname265",
           "AssOnly"
         ]
@@ -126296,6 +126615,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          4,
           "Skillname274",
           "AssOnly"
         ]
@@ -126363,7 +126683,8 @@
       {
         "key": "StrSklTabItem21",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "AssOnly"
       },
@@ -126389,17 +126710,17 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          251,
-          "skillname3"
+          3,
+          "Assassin"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          251,
-          "skillname3"
+          3,
+          "Assassin"
         ]
       },
       {
@@ -126504,6 +126825,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "DeathSigilName",
           "WarOnly"
         ]
@@ -126618,6 +126940,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "MirroredBladesName",
           "WarOnly"
         ]
@@ -127185,7 +127508,8 @@
       {
         "key": "StrSklTabItem10",
         "args": [
-          2
+          2,
+          4
         ],
         "classOnly": "BarOnly"
       },
@@ -127481,6 +127805,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "skillname117",
           "PalOnly"
         ]
@@ -127489,6 +127814,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "skillname97",
           "PalOnly"
         ]
@@ -127652,7 +127978,8 @@
       {
         "key": "StrSklTabItem19",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "AssOnly"
       },
@@ -127688,6 +128015,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          4,
           "Skillname263",
           "AssOnly"
         ]
@@ -127696,6 +128024,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          4,
           "Skillname273",
           "AssOnly"
         ]
@@ -128386,24 +128715,24 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname3"
+          3,
+          "Sorceress"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname3"
+          3,
+          "Sorceress"
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname3"
+          3,
+          "Sorceress"
         ]
       },
       {
@@ -128464,7 +128793,8 @@
       {
         "key": "StrSklTabItem17",
         "args": [
-          3
+          3,
+          5
         ],
         "classOnly": "DruOnly"
       },
@@ -128603,6 +128933,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          4,
           "skillname124",
           "PalOnly"
         ]
@@ -129310,6 +129641,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname26",
           "AmaOnly"
         ]
@@ -129852,7 +130184,8 @@
       {
         "key": "StrSklTabItem10",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "BarOnly"
       },
@@ -130511,7 +130844,8 @@
       {
         "key": "StrSklTabItem19",
         "args": [
-          1
+          1,
+          3
         ],
         "classOnly": "AssOnly"
       },
@@ -130547,6 +130881,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          4,
           "Skillname262",
           "AssOnly"
         ]
@@ -130555,6 +130890,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          4,
           "Skillname272",
           "AssOnly"
         ]
@@ -131271,7 +131607,8 @@
       {
         "key": "StrSklTabItem19",
         "args": [
-          1
+          1,
+          2
         ],
         "classOnly": "AssOnly"
       },
@@ -132280,7 +132617,8 @@
       {
         "key": "StrSklTabItem7",
         "args": [
-          2
+          2,
+          3
         ],
         "classOnly": "NecOnly"
       },
@@ -132300,6 +132638,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname92",
           "NecOnly"
         ]
@@ -132308,6 +132647,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname73",
           "NecOnly"
         ]
@@ -132316,6 +132656,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname83",
           "NecOnly"
         ]
@@ -132402,6 +132743,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "Skillname228",
           "DruOnly"
         ]
@@ -132410,6 +132752,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "Skillname238",
           "DruOnly"
         ]
@@ -132418,6 +132761,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "Skillname248",
           "DruOnly"
         ]
@@ -133378,10 +133722,10 @@
         ]
       },
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          76,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       },
       {
@@ -133683,7 +134027,8 @@
       {
         "key": "StrSklTabItem21",
         "args": [
-          2
+          2,
+          3
         ],
         "classOnly": "AssOnly"
       },
@@ -133712,6 +134057,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "Skillname275",
           "AssOnly"
         ]
@@ -133783,7 +134129,8 @@
       {
         "key": "StrSklTabItem3",
         "args": [
-          2
+          2,
+          3
         ],
         "classOnly": "AmaOnly"
       },
@@ -134317,6 +134664,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname13",
           "AmaOnly"
         ]
@@ -134325,6 +134673,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname21",
           "AmaOnly"
         ]
@@ -134608,7 +134957,8 @@
       {
         "key": "StrSklTabItem3",
         "args": [
-          3
+          3,
+          4
         ],
         "classOnly": "AmaOnly"
       },
@@ -134637,6 +134987,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          5,
           "skillname32",
           "AmaOnly"
         ]
@@ -134854,6 +135205,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "DeathMarkName",
           "WarOnly"
         ]
@@ -134862,6 +135214,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "BloodBoilName",
           "WarOnly"
         ]
@@ -134870,6 +135223,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           2,
+          3,
           "DemonicMasteryName",
           "WarOnly"
         ]
@@ -134983,6 +135337,7 @@
         "key": "strSkillRandomFromSkillClass",
         "args": [
           3,
+          4,
           "ApocalypseName",
           "WarOnly"
         ]
