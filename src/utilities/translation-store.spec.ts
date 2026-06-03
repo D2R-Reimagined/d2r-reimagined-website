@@ -24,7 +24,10 @@ const fixture: Record<string, string> = {
     strRuneScopeArmor: ' (Body Armor)',
     strPartialSetBonus: '%s (%d Items)',
     strFullSetBonus: '%s (Complete Set)',
+    strSkillRandomFromSkillClass: '+%d to %s %s',
     Sorceress: 'Sorceress',
+    skillname69: 'Bone Spear',
+    NecOnly: '(Necromancer Only)',
 };
 
 beforeAll(async () => {
@@ -98,6 +101,29 @@ describe('format(line) — D2R line decoration', () => {
 
     it('returns empty string for undefined lines', () => {
         expect(format(undefined)).toBe('');
+    });
+});
+
+describe('strSkillRandomFromSkillClass — level range + skill + class', () => {
+    it('renders a #-# range, skill name, and class', () => {
+        expect(format({
+            key: 'strSkillRandomFromSkillClass',
+            args: [1, 3, 'skillname69', 'NecOnly'],
+        })).toBe('+1-3 to Bone Spear (Necromancer Only)');
+    });
+
+    it('collapses an equal min/max into a single number', () => {
+        expect(format({
+            key: 'strSkillRandomFromSkillClass',
+            args: [2, 2, 'skillname69', 'NecOnly'],
+        })).toBe('+2 to Bone Spear (Necromancer Only)');
+    });
+
+    it('drops the trailing class token when only a skill name is present', () => {
+        expect(format({
+            key: 'strSkillRandomFromSkillClass',
+            args: [1, 3, 'skillname69'],
+        })).toBe('+1-3 to Bone Spear');
     });
 });
 

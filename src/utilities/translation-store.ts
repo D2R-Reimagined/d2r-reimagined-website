@@ -197,7 +197,51 @@ export function lookup(key: string): string {
  */
 export function t(key: string, args: ReadonlyArray<TemplateArg> = []): string {
     const resolvedArgs = args.map((arg) => (typeof arg === 'string' ? lookupSilent(arg) : arg));
-    return formatTemplate(lookupSilent(key), resolvedArgs);
+    const { template, args: prepared } = prepareSkillRandomFromSkillClass(
+        key,
+        lookupSilent(key),
+        resolvedArgs,
+    );
+    return formatTemplate(template, prepared);
+}
+
+// `strSkillRandomFromSkillClass` ships its args as
+// `[min, max, skillName, classOnly?]` — two numerics that form a level range,
+// followed by a skill name and an optional class restriction. Its template
+// (`+%d to %s %s`) only carries a single `%d`, so collapse the numeric pair
+// into a `#`/`#-#` value for that token, leave the skill name for the first
+// `%s`, and the class for the second. When no class arg is present, drop the
+// trailing ` %s` so the line doesn't render a dangling token.
+function prepareSkillRandomFromSkillClass(
+    key: string,
+    template: string,
+    args: ReadonlyArray<TemplateArg>,
+): { template: string; args: ReadonlyArray<TemplateArg> } {
+    if (key !== 'strSkillRandomFromSkillClass' || args.length < 2) {
+        return { template, args };
+    }
+
+    const min = args[0];
+    const max = args[1];
+    const rest = args.slice(2);
+
+    let numeric: TemplateArg;
+    if (
+        typeof min === 'number' &&
+        typeof max === 'number' &&
+        Number.isFinite(min) &&
+        Number.isFinite(max)
+    ) {
+        const lo = Math.trunc(min);
+        const hi = Math.trunc(max);
+        numeric = lo === hi ? String(lo) : `${lo}-${hi}`;
+    } else {
+        numeric = min;
+    }
+
+    // Only a single string (skill name, no class) — strip the trailing `%s`.
+    const nextTemplate = rest.length < 2 ? template.replace(/\s*%s\s*$/, '') : template;
+    return { template: nextTemplate, args: [numeric, ...rest] };
 }
 
 // Memoize `format()` per IKeyedLine reference. Aurelia's `keyedLines`
@@ -227,7 +271,12 @@ export function format(line: IKeyedLine | null | undefined): string {
         (arg) => (typeof arg === 'string' ? lookupSilent(arg) : arg),
     );
 
-    let result = formatTemplate(lookup(line.key), resolvedArgs);
+    const { template, args: prepared } = prepareSkillRandomFromSkillClass(
+        line.key,
+        lookup(line.key),
+        resolvedArgs,
+    );
+    let result = formatTemplate(template, prepared);
 
     if (line.perLevel) {
         result += lookup('strPerCharacterLevelSuffix');
