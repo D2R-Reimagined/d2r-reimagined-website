@@ -8616,10 +8616,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          6,
-          "skillname2"
+          2,
+          "Amazon"
         ]
       }
     ]
@@ -8643,10 +8643,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          6,
-          "skillname3"
+          3,
+          "Amazon"
         ]
       }
     ]
@@ -8670,10 +8670,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          6,
-          "skillname4"
+          4,
+          "Amazon"
         ]
       }
     ]
@@ -8697,10 +8697,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          6,
-          "skillname5"
+          5,
+          "Amazon"
         ]
       }
     ]
@@ -8724,10 +8724,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          96,
-          "skillname2"
+          2,
+          "Paladin"
         ]
       }
     ]
@@ -8751,10 +8751,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          96,
-          "skillname3"
+          3,
+          "Paladin"
         ]
       }
     ]
@@ -8778,10 +8778,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          96,
-          "skillname4"
+          4,
+          "Paladin"
         ]
       }
     ]
@@ -8805,10 +8805,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          96,
-          "skillname5"
+          5,
+          "Paladin"
         ]
       }
     ]
@@ -8832,10 +8832,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname2"
+          2,
+          "Necromancer"
         ]
       }
     ]
@@ -8859,10 +8859,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       }
     ]
@@ -8886,10 +8886,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname4"
+          4,
+          "Necromancer"
         ]
       }
     ]
@@ -8913,10 +8913,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname5"
+          5,
+          "Necromancer"
         ]
       }
     ]
@@ -8940,10 +8940,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname2"
+          2,
+          "Sorceress"
         ]
       }
     ]
@@ -8967,10 +8967,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname3"
+          3,
+          "Sorceress"
         ]
       }
     ]
@@ -8994,10 +8994,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname4"
+          4,
+          "Sorceress"
         ]
       }
     ]
@@ -9021,10 +9021,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname5"
+          5,
+          "Sorceress"
         ]
       }
     ]
@@ -9048,10 +9048,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          126,
-          "skillname2"
+          2,
+          "Barbarian"
         ]
       }
     ]
@@ -9075,10 +9075,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          126,
-          "skillname3"
+          3,
+          "Barbarian"
         ]
       }
     ]
@@ -9102,10 +9102,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          126,
-          "skillname4"
+          4,
+          "Barbarian"
         ]
       }
     ]
@@ -9129,10 +9129,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          126,
-          "skillname5"
+          5,
+          "Barbarian"
         ]
       }
     ]
@@ -9156,10 +9156,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          221,
-          "skillname2"
+          2,
+          "Druid"
         ]
       }
     ]
@@ -9183,10 +9183,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          221,
-          "skillname3"
+          3,
+          "Druid"
         ]
       }
     ]
@@ -9210,10 +9210,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          221,
-          "skillname4"
+          4,
+          "Druid"
         ]
       }
     ]
@@ -9237,10 +9237,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          221,
-          "skillname5"
+          5,
+          "Druid"
         ]
       }
     ]
@@ -9264,10 +9264,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          251,
-          "skillname2"
+          2,
+          "Assassin"
         ]
       }
     ]
@@ -9291,10 +9291,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          251,
-          "skillname3"
+          3,
+          "Assassin"
         ]
       }
     ]
@@ -9318,10 +9318,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          251,
-          "skillname4"
+          4,
+          "Assassin"
         ]
       }
     ]
@@ -9345,10 +9345,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          251,
-          "skillname5"
+          5,
+          "Assassin"
         ]
       }
     ]
@@ -23429,10 +23429,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          6,
-          "skillname1"
+          1,
+          "Amazon"
         ]
       },
       {
@@ -23467,10 +23467,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          96,
-          "skillname1"
+          1,
+          "Paladin"
         ]
       },
       {
@@ -23505,10 +23505,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname1"
+          1,
+          "Necromancer"
         ]
       },
       {
@@ -23543,10 +23543,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname1"
+          1,
+          "Sorceress"
         ]
       },
       {
@@ -23581,10 +23581,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          126,
-          "skillname1"
+          1,
+          "Barbarian"
         ]
       },
       {
@@ -23619,10 +23619,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          221,
-          "skillname1"
+          1,
+          "Druid"
         ]
       },
       {
@@ -23657,10 +23657,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          251,
-          "skillname1"
+          1,
+          "Assassin"
         ]
       },
       {
@@ -23935,10 +23935,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          6,
-          "skillname2"
+          2,
+          "Amazon"
         ]
       },
       {
@@ -23973,10 +23973,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          96,
-          "skillname2"
+          2,
+          "Paladin"
         ]
       },
       {
@@ -24011,10 +24011,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname2"
+          2,
+          "Necromancer"
         ]
       },
       {
@@ -24049,10 +24049,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname2"
+          2,
+          "Sorceress"
         ]
       },
       {
@@ -24087,10 +24087,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          126,
-          "skillname2"
+          2,
+          "Barbarian"
         ]
       },
       {
@@ -24125,10 +24125,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          221,
-          "skillname2"
+          2,
+          "Druid"
         ]
       },
       {
@@ -24163,10 +24163,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          251,
-          "skillname2"
+          2,
+          "Assassin"
         ]
       },
       {
@@ -24441,10 +24441,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          6,
-          "skillname3"
+          3,
+          "Amazon"
         ]
       },
       {
@@ -24479,10 +24479,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          96,
-          "skillname3"
+          3,
+          "Paladin"
         ]
       },
       {
@@ -24517,10 +24517,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          66,
-          "skillname3"
+          3,
+          "Necromancer"
         ]
       },
       {
@@ -24555,10 +24555,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          36,
-          "skillname3"
+          3,
+          "Sorceress"
         ]
       },
       {
@@ -24593,10 +24593,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          126,
-          "skillname3"
+          3,
+          "Barbarian"
         ]
       },
       {
@@ -24631,10 +24631,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          221,
-          "skillname3"
+          3,
+          "Druid"
         ]
       },
       {
@@ -24669,10 +24669,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          251,
-          "skillname3"
+          3,
+          "Assassin"
         ]
       },
       {
@@ -28321,10 +28321,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          373,
-          "skillname1"
+          1,
+          "Warlock"
         ]
       },
       {
@@ -28359,10 +28359,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          373,
-          "skillname2"
+          2,
+          "Warlock"
         ]
       },
       {
@@ -28397,10 +28397,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          373,
-          "skillname3"
+          3,
+          "Warlock"
         ]
       },
       {
@@ -28510,10 +28510,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          373,
-          "skillname2"
+          2,
+          "Warlock"
         ]
       }
     ]
@@ -28537,10 +28537,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          373,
-          "skillname3"
+          3,
+          "Warlock"
         ]
       }
     ]
@@ -28564,10 +28564,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          373,
-          "skillname4"
+          4,
+          "Warlock"
         ]
       }
     ]
@@ -28591,10 +28591,10 @@
     "PType": "Prefix",
     "Lines": [
       {
-        "key": "strSkillRandomFromSkill",
+        "key": "strSkillRandomClass",
         "args": [
-          373,
-          "skillname5"
+          5,
+          "Warlock"
         ]
       }
     ]

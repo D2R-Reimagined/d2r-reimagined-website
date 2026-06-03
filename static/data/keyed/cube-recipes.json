@@ -8080,7 +8080,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "strCubeInputAnyItem",
           "args": []
         },
         "Quantity": 1,
@@ -8139,7 +8139,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "strCubeInputAnyItem",
           "args": []
         },
         "Quantity": 1,
@@ -9677,7 +9677,7 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Barilzar's Mazed Band",
           "args": []
         },
         "Quantity": 1,
@@ -22413,7 +22413,7 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Replenishing Quiver",
           "args": []
         },
         "Quantity": 1,
@@ -22467,7 +22467,7 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Quiver of Piercing",
           "args": []
         },
         "Quantity": 1,
@@ -22521,7 +22521,7 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Quiver of Slaying",
           "args": []
         },
         "Quantity": 1,
@@ -22546,7 +22546,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Quiver of Slaying",
           "args": []
         },
         "Quantity": 1,
@@ -22580,7 +22580,7 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Quiver of Pestilence",
           "args": []
         },
         "Quantity": 1,
@@ -22605,7 +22605,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Quiver of Slaying",
           "args": []
         },
         "Quantity": 1,
@@ -22639,7 +22639,7 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Quiver of Amplified Slaying",
           "args": []
         },
         "Quantity": 1,
@@ -22664,7 +22664,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Quiver of Slaying",
           "args": []
         },
         "Quantity": 1,
@@ -22698,7 +22698,7 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Quiver of Resistance Slaying",
           "args": []
         },
         "Quantity": 1,
@@ -22723,7 +22723,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Quiver of Slaying",
           "args": []
         },
         "Quantity": 1,
@@ -22775,7 +22775,7 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Crescendo",
           "args": []
         },
         "Quantity": 1,
@@ -22824,7 +22824,7 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Replenishing Bolt Case",
           "args": []
         },
         "Quantity": 1,
@@ -22878,7 +22878,7 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Bolt Case of Piercing",
           "args": []
         },
         "Quantity": 1,
@@ -22932,7 +22932,7 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Bolt Case of Slaying",
           "args": []
         },
         "Quantity": 1,
@@ -22957,7 +22957,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Bolt Case of Slaying",
           "args": []
         },
         "Quantity": 1,
@@ -22991,7 +22991,7 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Bolt Case of Pestilence",
           "args": []
         },
         "Quantity": 1,
@@ -23016,7 +23016,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Bolt Case of Slaying",
           "args": []
         },
         "Quantity": 1,
@@ -23050,7 +23050,7 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Bolt Case of Amplified Slaying",
           "args": []
         },
         "Quantity": 1,
@@ -23075,7 +23075,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Bolt Case of Slaying",
           "args": []
         },
         "Quantity": 1,
@@ -23109,7 +23109,7 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Bolt Case of Resistance Slaying",
           "args": []
         },
         "Quantity": 1,
@@ -23134,7 +23134,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "PreCrafted Rotting Fissure",
           "args": []
         },
         "Quantity": 1,
@@ -23172,7 +23172,7 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Crafted Rotting Fissure",
           "args": []
         },
         "Quantity": 1,
@@ -23180,7 +23180,12 @@
         "Lines": []
       }
     },
-    "Notes": [],
+    "Notes": [
+      {
+        "key": "strCubeNoteSunderItemCrafting",
+        "args": []
+      }
+    ],
     "Enabled": true
   },
   {
@@ -23192,7 +23197,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "PreCrafted Cold Rupture",
           "args": []
         },
         "Quantity": 1,
@@ -23230,7 +23235,7 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Crafted Cold Rupture",
           "args": []
         },
         "Quantity": 1,
@@ -23238,7 +23243,12 @@
         "Lines": []
       }
     },
-    "Notes": [],
+    "Notes": [
+      {
+        "key": "strCubeNoteSunderItemCrafting",
+        "args": []
+      }
+    ],
     "Enabled": true
   },
   {
@@ -23250,7 +23260,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "PreCrafted Crack of the Heavens",
           "args": []
         },
         "Quantity": 1,
@@ -23288,7 +23298,7 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Crafted Crack of the Heavens",
           "args": []
         },
         "Quantity": 1,
@@ -23296,7 +23306,12 @@
         "Lines": []
       }
     },
-    "Notes": [],
+    "Notes": [
+      {
+        "key": "strCubeNoteSunderItemCrafting",
+        "args": []
+      }
+    ],
     "Enabled": true
   },
   {
@@ -23308,7 +23323,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "PreCrafted Flame Rift",
           "args": []
         },
         "Quantity": 1,
@@ -23346,7 +23361,7 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Crafted Flame Rift",
           "args": []
         },
         "Quantity": 1,
@@ -23354,7 +23369,12 @@
         "Lines": []
       }
     },
-    "Notes": [],
+    "Notes": [
+      {
+        "key": "strCubeNoteSunderItemCrafting",
+        "args": []
+      }
+    ],
     "Enabled": true
   },
   {
@@ -23366,7 +23386,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "PreCrafted Bone Break",
           "args": []
         },
         "Quantity": 1,
@@ -23404,7 +23424,7 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Crafted Bone Break",
           "args": []
         },
         "Quantity": 1,
@@ -23412,7 +23432,12 @@
         "Lines": []
       }
     },
-    "Notes": [],
+    "Notes": [
+      {
+        "key": "strCubeNoteSunderItemCrafting",
+        "args": []
+      }
+    ],
     "Enabled": true
   },
   {
@@ -23424,7 +23449,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "PreCrafted Black Cleft",
           "args": []
         },
         "Quantity": 1,
@@ -23480,7 +23505,7 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Crafted Black Cleft",
           "args": []
         },
         "Quantity": 1,
@@ -23488,7 +23513,12 @@
         "Lines": []
       }
     },
-    "Notes": [],
+    "Notes": [
+      {
+        "key": "strCubeNoteSunderItemCrafting",
+        "args": []
+      }
+    ],
     "Enabled": true
   },
   {
@@ -24902,7 +24932,7 @@
       },
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "PreCrafted Cold Rupture",
           "args": []
         },
         "Quantity": 1,
@@ -24977,7 +25007,12 @@
         ]
       }
     },
-    "Notes": [],
+    "Notes": [
+      {
+        "key": "strCubeNoteSunderItemCrafting",
+        "args": []
+      }
+    ],
     "Enabled": true
   },
   {
@@ -25001,7 +25036,7 @@
       },
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "PreCrafted Flame Rift",
           "args": []
         },
         "Quantity": 1,
@@ -25076,7 +25111,12 @@
         ]
       }
     },
-    "Notes": [],
+    "Notes": [
+      {
+        "key": "strCubeNoteSunderItemCrafting",
+        "args": []
+      }
+    ],
     "Enabled": true
   },
   {
@@ -25100,7 +25140,7 @@
       },
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "PreCrafted Crack of the Heavens",
           "args": []
         },
         "Quantity": 1,
@@ -25175,7 +25215,12 @@
         ]
       }
     },
-    "Notes": [],
+    "Notes": [
+      {
+        "key": "strCubeNoteSunderItemCrafting",
+        "args": []
+      }
+    ],
     "Enabled": true
   },
   {
@@ -25199,7 +25244,7 @@
       },
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "PreCrafted Rotting Fissure",
           "args": []
         },
         "Quantity": 1,
@@ -25274,7 +25319,12 @@
         ]
       }
     },
-    "Notes": [],
+    "Notes": [
+      {
+        "key": "strCubeNoteSunderItemCrafting",
+        "args": []
+      }
+    ],
     "Enabled": true
   },
   {
@@ -25298,7 +25348,7 @@
       },
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "PreCrafted Bone Break",
           "args": []
         },
         "Quantity": 1,
@@ -25373,7 +25423,12 @@
         ]
       }
     },
-    "Notes": [],
+    "Notes": [
+      {
+        "key": "strCubeNoteSunderItemCrafting",
+        "args": []
+      }
+    ],
     "Enabled": true
   },
   {
@@ -25397,7 +25452,7 @@
       },
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "PreCrafted Black Cleft",
           "args": []
         },
         "Quantity": 1,
@@ -25472,7 +25527,12 @@
         ]
       }
     },
-    "Notes": [],
+    "Notes": [
+      {
+        "key": "strCubeNoteSunderItemCrafting",
+        "args": []
+      }
+    ],
     "Enabled": true
   },
   {
@@ -25496,7 +25556,7 @@
       },
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "PreCrafted Cold Rupture",
           "args": []
         },
         "Quantity": 1,
@@ -25542,7 +25602,7 @@
       },
       "B": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Winter Facet",
           "args": []
         },
         "Quantity": 1,
@@ -25550,7 +25610,12 @@
         "Lines": []
       }
     },
-    "Notes": [],
+    "Notes": [
+      {
+        "key": "strCubeNoteSunderItemCrafting",
+        "args": []
+      }
+    ],
     "Enabled": true
   },
   {
@@ -25574,7 +25639,7 @@
       },
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "PreCrafted Flame Rift",
           "args": []
         },
         "Quantity": 1,
@@ -25620,7 +25685,7 @@
       },
       "B": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Summer Facet",
           "args": []
         },
         "Quantity": 1,
@@ -25628,7 +25693,12 @@
         "Lines": []
       }
     },
-    "Notes": [],
+    "Notes": [
+      {
+        "key": "strCubeNoteSunderItemCrafting",
+        "args": []
+      }
+    ],
     "Enabled": true
   },
   {
@@ -25652,7 +25722,7 @@
       },
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "PreCrafted Crack of the Heavens",
           "args": []
         },
         "Quantity": 1,
@@ -25698,7 +25768,7 @@
       },
       "B": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Spring Facet",
           "args": []
         },
         "Quantity": 1,
@@ -25706,7 +25776,12 @@
         "Lines": []
       }
     },
-    "Notes": [],
+    "Notes": [
+      {
+        "key": "strCubeNoteSunderItemCrafting",
+        "args": []
+      }
+    ],
     "Enabled": true
   },
   {
@@ -25730,7 +25805,7 @@
       },
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "PreCrafted Rotting Fissure",
           "args": []
         },
         "Quantity": 1,
@@ -25776,7 +25851,7 @@
       },
       "B": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Autumn Facet",
           "args": []
         },
         "Quantity": 1,
@@ -25784,7 +25859,12 @@
         "Lines": []
       }
     },
-    "Notes": [],
+    "Notes": [
+      {
+        "key": "strCubeNoteSunderItemCrafting",
+        "args": []
+      }
+    ],
     "Enabled": true
   },
   {
@@ -25808,7 +25888,7 @@
       },
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "PreCrafted Bone Break",
           "args": []
         },
         "Quantity": 1,
@@ -25854,7 +25934,7 @@
       },
       "B": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Star Facet",
           "args": []
         },
         "Quantity": 1,
@@ -25862,7 +25942,12 @@
         "Lines": []
       }
     },
-    "Notes": [],
+    "Notes": [
+      {
+        "key": "strCubeNoteSunderItemCrafting",
+        "args": []
+      }
+    ],
     "Enabled": true
   },
   {
@@ -25886,7 +25971,7 @@
       },
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "PreCrafted Black Cleft",
           "args": []
         },
         "Quantity": 1,
@@ -25938,7 +26023,7 @@
       },
       "B": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Heaven Facet",
           "args": []
         },
         "Quantity": 1,
@@ -25946,7 +26031,12 @@
         "Lines": []
       }
     },
-    "Notes": [],
+    "Notes": [
+      {
+        "key": "strCubeNoteSunderItemCrafting",
+        "args": []
+      }
+    ],
     "Enabled": true
   },
   {
@@ -27253,7 +27343,7 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Hellfire Torch",
           "args": []
         },
         "Quantity": 1,
@@ -33370,7 +33460,7 @@
       },
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "t1 Splash Charm",
           "args": []
         },
         "Quantity": 1,
@@ -33402,7 +33492,7 @@
       },
       "B": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "t2 Splash Charm",
           "args": []
         },
         "Quantity": 1,
@@ -33439,7 +33529,7 @@
       },
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "t2 Splash Charm",
           "args": []
         },
         "Quantity": 1,
@@ -33480,7 +33570,7 @@
       },
       "B": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "t3 Splash Charm",
           "args": []
         },
         "Quantity": 1,
@@ -33517,7 +33607,7 @@
       },
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "t3 Splash Charm",
           "args": []
         },
         "Quantity": 1,
@@ -33558,7 +33648,7 @@
       },
       "B": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "t4 Splash Charm",
           "args": []
         },
         "Quantity": 1,
@@ -33595,7 +33685,7 @@
       },
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "t4 Splash Charm",
           "args": []
         },
         "Quantity": 1,
@@ -33650,7 +33740,7 @@
       },
       "B": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "t5 Splash Charm",
           "args": []
         },
         "Quantity": 1,
@@ -33687,7 +33777,7 @@
       },
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "t5 Splash Charm",
           "args": []
         },
         "Quantity": 1,
@@ -33748,7 +33838,7 @@
       },
       "B": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "t6 Splash Charm",
           "args": []
         },
         "Quantity": 1,
@@ -33785,7 +33875,7 @@
       },
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "t6 Splash Charm",
           "args": []
         },
         "Quantity": 1,
@@ -33855,7 +33945,7 @@
       },
       "B": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "t7 Splash Charm",
           "args": []
         },
         "Quantity": 1,
@@ -33892,7 +33982,7 @@
       },
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "t7 Splash Charm",
           "args": []
         },
         "Quantity": 1,
@@ -33962,7 +34052,7 @@
       },
       "B": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "t8 Splash Charm",
           "args": []
         },
         "Quantity": 1,
@@ -33999,7 +34089,7 @@
       },
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "t8 Splash Charm",
           "args": []
         },
         "Quantity": 1,
@@ -34077,7 +34167,7 @@
       },
       "B": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Collin's Destruction",
           "args": []
         },
         "Quantity": 1,
@@ -34105,7 +34195,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Hellfire Torch",
           "args": []
         },
         "Quantity": 1,
@@ -34189,7 +34279,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Hellfire Torch",
           "args": []
         },
         "Quantity": 1,
@@ -34273,7 +34363,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Hellfire Torch",
           "args": []
         },
         "Quantity": 1,
@@ -34357,7 +34447,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Hellfire Torch",
           "args": []
         },
         "Quantity": 1,
@@ -34441,7 +34531,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Hellfire Torch",
           "args": []
         },
         "Quantity": 1,
@@ -34531,7 +34621,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Hellfire Torch",
           "args": []
         },
         "Quantity": 1,
@@ -34615,7 +34705,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Hellfire Torch",
           "args": []
         },
         "Quantity": 1,
@@ -34699,7 +34789,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Hellfire Torch",
           "args": []
         },
         "Quantity": 1,
@@ -34783,7 +34873,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Hellfire Torch",
           "args": []
         },
         "Quantity": 1,
@@ -34867,7 +34957,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Hellfire Torch",
           "args": []
         },
         "Quantity": 1,
@@ -34896,7 +34986,7 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Obsidian Beacon",
           "args": []
         },
         "Quantity": 1,
@@ -34928,7 +35018,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Annihilus",
           "args": []
         },
         "Quantity": 1,
@@ -35016,7 +35106,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Annihilus",
           "args": []
         },
         "Quantity": 1,
@@ -35104,7 +35194,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Annihilus",
           "args": []
         },
         "Quantity": 1,
@@ -35192,7 +35282,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Annihilus",
           "args": []
         },
         "Quantity": 1,
@@ -35280,7 +35370,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Annihilus",
           "args": []
         },
         "Quantity": 1,
@@ -35368,7 +35458,7 @@
     "Inputs": [
       {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Annihilus",
           "args": []
         },
         "Quantity": 1,
@@ -35395,7 +35485,7 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "Black Soulstone",
           "args": []
         },
         "Quantity": 1,
@@ -36836,16 +36926,11 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "strCubeNoteCowPortal",
           "args": []
         },
         "Quantity": 1,
-        "Qualifiers": [
-          {
-            "key": "strCubeNoteCowPortal",
-            "args": []
-          }
-        ],
+        "Qualifiers": [],
         "Lines": []
       },
       "B": {
@@ -36896,16 +36981,11 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "strCubeNoteCowPortal",
           "args": []
         },
         "Quantity": 1,
-        "Qualifiers": [
-          {
-            "key": "strCubeNoteCowPortal",
-            "args": []
-          }
-        ],
+        "Qualifiers": [],
         "Lines": []
       }
     },
@@ -36956,16 +37036,11 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "strCubeNotePandemoniumPortal",
           "args": []
         },
         "Quantity": 1,
-        "Qualifiers": [
-          {
-            "key": "strCubeNotePandemoniumPortal",
-            "args": []
-          }
-        ],
+        "Qualifiers": [],
         "Lines": []
       }
     },
@@ -37016,16 +37091,11 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "strCubeNotePandemoniumFinalePortal",
           "args": []
         },
         "Quantity": 1,
-        "Qualifiers": [
-          {
-            "key": "strCubeNotePandemoniumFinalePortal",
-            "args": []
-          }
-        ],
+        "Qualifiers": [],
         "Lines": []
       }
     },
@@ -37094,15 +37164,11 @@
     "Outputs": {
       "A": {
         "Name": {
-          "key": "strCubeNameUnknown",
+          "key": "strCubeNoteRedPortal",
           "args": []
         },
         "Quantity": 1,
         "Qualifiers": [
-          {
-            "key": "strCubeNoteRedPortal",
-            "args": []
-          },
           {
             "key": "strCubeQualifierSetLevelN",
             "args": [
@@ -38003,10 +38069,10 @@
             ]
           },
           {
-            "key": "strSkillRandomFromSkill",
+            "key": "strSkillRandomClass",
             "args": [
-              251,
-              "skillname2"
+              2,
+              "Assassin"
             ]
           }
         ]
@@ -38079,10 +38145,10 @@
             ]
           },
           {
-            "key": "strSkillRandomFromSkill",
+            "key": "strSkillRandomClass",
             "args": [
-              126,
-              "skillname2"
+              2,
+              "Barbarian"
             ]
           }
         ]
@@ -38155,10 +38221,10 @@
             ]
           },
           {
-            "key": "strSkillRandomFromSkill",
+            "key": "strSkillRandomClass",
             "args": [
-              36,
-              "skillname2"
+              2,
+              "Sorceress"
             ]
           }
         ]
@@ -38231,10 +38297,10 @@
             ]
           },
           {
-            "key": "strSkillRandomFromSkill",
+            "key": "strSkillRandomClass",
             "args": [
-              221,
-              "skillname2"
+              2,
+              "Druid"
             ]
           }
         ]
@@ -38307,10 +38373,10 @@
             ]
           },
           {
-            "key": "strSkillRandomFromSkill",
+            "key": "strSkillRandomClass",
             "args": [
-              66,
-              "skillname2"
+              2,
+              "Necromancer"
             ]
           }
         ]
@@ -38383,10 +38449,10 @@
             ]
           },
           {
-            "key": "strSkillRandomFromSkill",
+            "key": "strSkillRandomClass",
             "args": [
-              6,
-              "skillname2"
+              2,
+              "Amazon"
             ]
           }
         ]
@@ -38459,10 +38525,10 @@
             ]
           },
           {
-            "key": "strSkillRandomFromSkill",
+            "key": "strSkillRandomClass",
             "args": [
-              96,
-              "skillname2"
+              2,
+              "Paladin"
             ]
           }
         ]
@@ -38535,10 +38601,10 @@
             ]
           },
           {
-            "key": "strSkillRandomFromSkill",
+            "key": "strSkillRandomClass",
             "args": [
-              373,
-              "skillname2"
+              2,
+              "Warlock"
             ]
           }
         ]
