@@ -14243,10 +14243,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname6",
           1,
-          1
+          "skillname6",
+          255,
+          255
         ]
       }
     ]
@@ -14271,10 +14271,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname6",
           10,
-          10
+          "skillname6",
+          255,
+          255
         ]
       }
     ]
@@ -14299,10 +14299,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname7",
           1,
-          1
+          "skillname7",
+          255,
+          255
         ]
       }
     ]
@@ -14327,10 +14327,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname7",
           11,
-          11
+          "skillname7",
+          255,
+          255
         ]
       }
     ]
@@ -14356,10 +14356,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          33,
-          "skillname8",
           1,
-          1
+          "skillname8",
+          33,
+          33
         ]
       }
     ]
@@ -14385,10 +14385,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          33,
-          "skillname8",
           11,
-          11
+          "skillname8",
+          33,
+          33
         ]
       }
     ]
@@ -14412,10 +14412,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname10",
           1,
-          1
+          "skillname10",
+          255,
+          255
         ]
       }
     ]
@@ -14439,10 +14439,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname10",
           12,
-          12
+          "skillname10",
+          255,
+          255
         ]
       }
     ]
@@ -14467,10 +14467,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname11",
           1,
-          1
+          "skillname11",
+          255,
+          255
         ]
       }
     ]
@@ -14495,10 +14495,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname11",
           9,
-          9
+          "skillname11",
+          255,
+          255
         ]
       }
     ]
@@ -14523,10 +14523,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname12",
           5,
-          5
+          "skillname12",
+          255,
+          255
         ]
       }
     ]
@@ -14551,10 +14551,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname12",
           25,
-          25
+          "skillname12",
+          255,
+          255
         ]
       }
     ]
@@ -14579,10 +14579,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname14",
           1,
-          1
+          "skillname14",
+          255,
+          255
         ]
       }
     ]
@@ -14607,10 +14607,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname14",
           13,
-          13
+          "skillname14",
+          255,
+          255
         ]
       }
     ]
@@ -14635,10 +14635,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname15",
           1,
-          1
+          "skillname15",
+          255,
+          255
         ]
       }
     ]
@@ -14663,10 +14663,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname15",
           15,
-          15
+          "skillname15",
+          255,
+          255
         ]
       }
     ]
@@ -14691,10 +14691,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname16",
           1,
-          1
+          "skillname16",
+          255,
+          255
         ]
       }
     ]
@@ -14719,10 +14719,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname16",
           17,
-          17
+          "skillname16",
+          255,
+          255
         ]
       }
     ]
@@ -14747,10 +14747,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname17",
           1,
-          1
+          "skillname17",
+          35,
+          35
         ]
       }
     ]
@@ -14775,10 +14775,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname17",
           15,
-          15
+          "skillname17",
+          35,
+          35
         ]
       }
     ]
@@ -14803,10 +14803,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname19",
           1,
-          1
+          "skillname19",
+          255,
+          255
         ]
       }
     ]
@@ -14831,10 +14831,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname19",
           17,
-          17
+          "skillname19",
+          255,
+          255
         ]
       }
     ]
@@ -14859,10 +14859,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname20",
           1,
-          1
+          "skillname20",
+          255,
+          255
         ]
       }
     ]
@@ -14887,10 +14887,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname20",
           12,
-          12
+          "skillname20",
+          255,
+          255
         ]
       }
     ]
@@ -14915,10 +14915,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname31",
           1,
-          1
+          "skillname31",
+          255,
+          255
         ]
       }
     ]
@@ -14943,10 +14943,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname31",
           20,
-          20
+          "skillname31",
+          255,
+          255
         ]
       }
     ]
@@ -14971,10 +14971,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname22",
           1,
-          1
+          "skillname22",
+          255,
+          255
         ]
       }
     ]
@@ -14999,10 +14999,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname22",
           23,
-          23
+          "skillname22",
+          255,
+          255
         ]
       }
     ]
@@ -15027,10 +15027,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname24",
           1,
-          1
+          "skillname24",
+          255,
+          255
         ]
       }
     ]
@@ -15055,10 +15055,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname24",
           20,
-          20
+          "skillname24",
+          255,
+          255
         ]
       }
     ]
@@ -15083,10 +15083,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname25",
           1,
-          1
+          "skillname25",
+          255,
+          255
         ]
       }
     ]
@@ -15111,10 +15111,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname25",
           19,
-          19
+          "skillname25",
+          255,
+          255
         ]
       }
     ]
@@ -15139,10 +15139,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname27",
           2,
-          2
+          "skillname27",
+          255,
+          255
         ]
       }
     ]
@@ -15167,10 +15167,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname27",
           21,
-          21
+          "skillname27",
+          255,
+          255
         ]
       }
     ]
@@ -15195,10 +15195,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname30",
           2,
-          2
+          "skillname30",
+          255,
+          255
         ]
       }
     ]
@@ -15223,10 +15223,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname30",
           17,
-          17
+          "skillname30",
+          255,
+          255
         ]
       }
     ]
@@ -15251,10 +15251,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname21",
           3,
-          3
+          "skillname21",
+          255,
+          255
         ]
       }
     ]
@@ -15279,10 +15279,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname21",
           22,
-          22
+          "skillname21",
+          255,
+          255
         ]
       }
     ]
@@ -15307,10 +15307,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname34",
           3,
-          3
+          "skillname34",
+          255,
+          255
         ]
       }
     ]
@@ -15335,10 +15335,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname34",
           15,
-          15
+          "skillname34",
+          255,
+          255
         ]
       }
     ]
@@ -15363,10 +15363,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname35",
           3,
-          3
+          "skillname35",
+          255,
+          255
         ]
       }
     ]
@@ -15391,10 +15391,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname35",
           15,
-          15
+          "skillname35",
+          255,
+          255
         ]
       }
     ]
@@ -15419,10 +15419,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname36",
           1,
-          1
+          "skillname36",
+          255,
+          255
         ]
       }
     ]
@@ -15447,10 +15447,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname36",
           10,
-          10
+          "skillname36",
+          255,
+          255
         ]
       }
     ]
@@ -15475,10 +15475,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname38",
           1,
-          1
+          "skillname38",
+          255,
+          255
         ]
       }
     ]
@@ -15503,10 +15503,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname38",
           11,
-          11
+          "skillname38",
+          255,
+          255
         ]
       }
     ]
@@ -15531,10 +15531,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname39",
           1,
-          1
+          "skillname39",
+          255,
+          255
         ]
       }
     ]
@@ -15559,10 +15559,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname39",
           9,
-          9
+          "skillname39",
+          255,
+          255
         ]
       }
     ]
@@ -15586,10 +15586,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          25,
-          "skillname40",
           1,
-          1
+          "skillname40",
+          25,
+          25
         ]
       }
     ]
@@ -15613,10 +15613,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          25,
-          "skillname40",
           10,
-          10
+          "skillname40",
+          25,
+          25
         ]
       }
     ]
@@ -15641,10 +15641,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          50,
-          "skillname42",
           1,
-          1
+          "skillname42",
+          50,
+          50
         ]
       }
     ]
@@ -15669,10 +15669,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          50,
-          "skillname42",
           17,
-          17
+          "skillname42",
+          50,
+          50
         ]
       }
     ]
@@ -15697,10 +15697,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          50,
-          "skillname43",
           1,
-          1
+          "skillname43",
+          50,
+          50
         ]
       }
     ]
@@ -15725,10 +15725,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          50,
-          "skillname43",
           20,
-          20
+          "skillname43",
+          50,
+          50
         ]
       }
     ]
@@ -15753,10 +15753,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname44",
           1,
-          1
+          "skillname44",
+          255,
+          255
         ]
       }
     ]
@@ -15781,10 +15781,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname44",
           10,
-          10
+          "skillname44",
+          255,
+          255
         ]
       }
     ]
@@ -15809,10 +15809,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname45",
           1,
-          1
+          "skillname45",
+          255,
+          255
         ]
       }
     ]
@@ -15837,10 +15837,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname45",
           9,
-          9
+          "skillname45",
+          255,
+          255
         ]
       }
     ]
@@ -15865,10 +15865,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          75,
-          "skillname46",
           1,
-          1
+          "skillname46",
+          75,
+          75
         ]
       }
     ]
@@ -15893,10 +15893,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          75,
-          "skillname46",
           12,
-          12
+          "skillname46",
+          75,
+          75
         ]
       }
     ]
@@ -15919,10 +15919,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname47",
           1,
-          1
+          "skillname47",
+          255,
+          255
         ]
       }
     ]
@@ -15945,10 +15945,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname47",
           18,
-          18
+          "skillname47",
+          255,
+          255
         ]
       }
     ]
@@ -15972,10 +15972,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname48",
           1,
-          1
+          "skillname48",
+          255,
+          255
         ]
       }
     ]
@@ -15999,10 +15999,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname48",
           15,
-          15
+          "skillname48",
+          255,
+          255
         ]
       }
     ]
@@ -16025,10 +16025,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname49",
           1,
-          1
+          "skillname49",
+          255,
+          255
         ]
       }
     ]
@@ -16051,10 +16051,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname49",
           12,
-          12
+          "skillname49",
+          255,
+          255
         ]
       }
     ]
@@ -16078,10 +16078,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          45,
-          "skillname50",
           1,
-          1
+          "skillname50",
+          45,
+          45
         ]
       }
     ]
@@ -16105,10 +16105,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          45,
-          "skillname50",
           16,
-          16
+          "skillname50",
+          45,
+          45
         ]
       }
     ]
@@ -16131,10 +16131,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          100,
-          "skillname51",
           1,
-          1
+          "skillname51",
+          100,
+          100
         ]
       }
     ]
@@ -16157,10 +16157,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          100,
-          "skillname51",
           25,
-          25
+          "skillname51",
+          100,
+          100
         ]
       }
     ]
@@ -16183,10 +16183,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          15,
-          "skillname52",
           1,
-          1
+          "skillname52",
+          15,
+          15
         ]
       }
     ]
@@ -16209,10 +16209,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          15,
-          "skillname52",
           25,
-          25
+          "skillname52",
+          15,
+          15
         ]
       }
     ]
@@ -16235,10 +16235,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname53",
           1,
-          1
+          "skillname53",
+          255,
+          255
         ]
       }
     ]
@@ -16261,10 +16261,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname53",
           22,
-          22
+          "skillname53",
+          255,
+          255
         ]
       }
     ]
@@ -16288,10 +16288,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname54",
           1,
-          1
+          "skillname54",
+          255,
+          255
         ]
       }
     ]
@@ -16315,10 +16315,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname54",
           1,
-          1
+          "skillname54",
+          255,
+          255
         ]
       }
     ]
@@ -16341,10 +16341,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname55",
           1,
-          1
+          "skillname55",
+          255,
+          255
         ]
       }
     ]
@@ -16367,10 +16367,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname55",
           19,
-          19
+          "skillname55",
+          255,
+          255
         ]
       }
     ]
@@ -16393,10 +16393,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname56",
           2,
-          2
+          "skillname56",
+          255,
+          255
         ]
       }
     ]
@@ -16419,10 +16419,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname56",
           22,
-          22
+          "skillname56",
+          255,
+          255
         ]
       }
     ]
@@ -16445,10 +16445,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          25,
-          "skillname57",
           2,
-          2
+          "skillname57",
+          25,
+          25
         ]
       }
     ]
@@ -16471,10 +16471,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          25,
-          "skillname57",
           15,
-          15
+          "skillname57",
+          25,
+          25
         ]
       }
     ]
@@ -16498,10 +16498,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          15,
-          "skillname58",
           2,
-          2
+          "skillname58",
+          15,
+          15
         ]
       }
     ]
@@ -16525,10 +16525,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          15,
-          "skillname58",
           10,
-          10
+          "skillname58",
+          15,
+          15
         ]
       }
     ]
@@ -16551,10 +16551,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          200,
-          "skillname59",
           2,
-          2
+          "skillname59",
+          200,
+          200
         ]
       }
     ]
@@ -16577,10 +16577,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          200,
-          "skillname59",
           17,
-          17
+          "skillname59",
+          200,
+          200
         ]
       }
     ]
@@ -16604,10 +16604,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname60",
           2,
-          2
+          "skillname60",
+          35,
+          35
         ]
       }
     ]
@@ -16631,10 +16631,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname60",
           15,
-          15
+          "skillname60",
+          35,
+          35
         ]
       }
     ]
@@ -16657,10 +16657,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          250,
-          "skillname62",
           3,
-          3
+          "skillname62",
+          250,
+          250
         ]
       }
     ]
@@ -16683,10 +16683,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          250,
-          "skillname62",
           25,
-          25
+          "skillname62",
+          250,
+          250
         ]
       }
     ]
@@ -16709,10 +16709,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname64",
           3,
-          3
+          "skillname64",
+          255,
+          255
         ]
       }
     ]
@@ -16735,10 +16735,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname64",
           25,
-          25
+          "skillname64",
+          255,
+          255
         ]
       }
     ]
@@ -16762,10 +16762,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          75,
-          "skillname66",
           1,
-          1
+          "skillname66",
+          75,
+          75
         ]
       }
     ]
@@ -16789,10 +16789,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          75,
-          "skillname66",
           15,
-          15
+          "skillname66",
+          75,
+          75
         ]
       }
     ]
@@ -16816,10 +16816,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname67",
           1,
-          1
+          "skillname67",
+          255,
+          255
         ]
       }
     ]
@@ -16843,10 +16843,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname67",
           10,
-          10
+          "skillname67",
+          255,
+          255
         ]
       }
     ]
@@ -16871,10 +16871,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          30,
-          "skillname68",
           1,
-          1
+          "skillname68",
+          30,
+          30
         ]
       }
     ]
@@ -16899,10 +16899,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          30,
-          "skillname68",
           15,
-          15
+          "skillname68",
+          30,
+          30
         ]
       }
     ]
@@ -16928,10 +16928,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          25,
-          "skillname70",
           1,
-          1
+          "skillname70",
+          25,
+          25
         ]
       }
     ]
@@ -16957,10 +16957,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          25,
-          "skillname70",
           10,
-          10
+          "skillname70",
+          25,
+          25
         ]
       }
     ]
@@ -16986,10 +16986,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          25,
-          "skillname71",
           1,
-          1
+          "skillname71",
+          25,
+          25
         ]
       }
     ]
@@ -17015,10 +17015,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          25,
-          "skillname71",
           12,
-          12
+          "skillname71",
+          25,
+          25
         ]
       }
     ]
@@ -17043,10 +17043,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          25,
-          "skillname72",
           1,
-          1
+          "skillname72",
+          25,
+          25
         ]
       }
     ]
@@ -17071,10 +17071,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          25,
-          "skillname72",
           18,
-          18
+          "skillname72",
+          25,
+          25
         ]
       }
     ]
@@ -17101,10 +17101,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          20,
-          "skillname73",
           1,
-          1
+          "skillname73",
+          20,
+          20
         ]
       }
     ]
@@ -17131,10 +17131,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          20,
-          "skillname73",
           18,
-          18
+          "skillname73",
+          20,
+          20
         ]
       }
     ]
@@ -17158,10 +17158,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          150,
-          "skillname74",
           1,
-          1
+          "skillname74",
+          150,
+          150
         ]
       }
     ]
@@ -17185,10 +17185,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          150,
-          "skillname74",
           15,
-          15
+          "skillname74",
+          150,
+          150
         ]
       }
     ]
@@ -17214,10 +17214,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          20,
-          "skillname75",
           1,
-          1
+          "skillname75",
+          20,
+          20
         ]
       }
     ]
@@ -17243,10 +17243,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          20,
+          12,
           "skillname75",
-          12,
-          12
+          20,
+          20
         ]
       }
     ]
@@ -17271,10 +17271,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          75,
-          "skillname76",
           1,
-          1
+          "skillname76",
+          75,
+          75
         ]
       }
     ]
@@ -17299,10 +17299,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          75,
-          "skillname76",
           10,
-          10
+          "skillname76",
+          75,
+          75
         ]
       }
     ]
@@ -17327,10 +17327,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          65,
-          "skillname77",
           1,
-          1
+          "skillname77",
+          65,
+          65
         ]
       }
     ]
@@ -17355,10 +17355,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          65,
-          "skillname77",
           12,
-          12
+          "skillname77",
+          65,
+          65
         ]
       }
     ]
@@ -17382,10 +17382,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname78",
           1,
-          1
+          "skillname78",
+          35,
+          35
         ]
       }
     ]
@@ -17409,10 +17409,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname78",
           25,
-          25
+          "skillname78",
+          35,
+          35
         ]
       }
     ]
@@ -17438,10 +17438,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          50,
-          "skillname80",
           1,
-          1
+          "skillname80",
+          50,
+          50
         ]
       }
     ]
@@ -17467,10 +17467,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          50,
-          "skillname80",
           20,
-          20
+          "skillname80",
+          50,
+          50
         ]
       }
     ]
@@ -17496,10 +17496,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname81",
           1,
-          1
+          "skillname81",
+          35,
+          35
         ]
       }
     ]
@@ -17525,10 +17525,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname81",
           17,
-          17
+          "skillname81",
+          35,
+          35
         ]
       }
     ]
@@ -17553,10 +17553,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname82",
           1,
-          1
+          "skillname82",
+          35,
+          35
         ]
       }
     ]
@@ -17581,10 +17581,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname82",
           15,
-          15
+          "skillname82",
+          35,
+          35
         ]
       }
     ]
@@ -17608,10 +17608,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          100,
-          "skillname83",
           1,
-          1
+          "skillname83",
+          100,
+          100
         ]
       }
     ]
@@ -17635,10 +17635,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          100,
-          "skillname83",
           10,
-          10
+          "skillname83",
+          100,
+          100
         ]
       }
     ]
@@ -17662,10 +17662,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname84",
           1,
-          1
+          "skillname84",
+          255,
+          255
         ]
       }
     ]
@@ -17689,10 +17689,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname84",
           20,
-          20
+          "skillname84",
+          255,
+          255
         ]
       }
     ]
@@ -17716,10 +17716,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          15,
-          "skillname85",
           1,
-          1
+          "skillname85",
+          15,
+          15
         ]
       }
     ]
@@ -17743,10 +17743,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          15,
-          "skillname85",
           18,
-          18
+          "skillname85",
+          15,
+          15
         ]
       }
     ]
@@ -17773,10 +17773,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          75,
-          "skillname86",
           2,
-          2
+          "skillname86",
+          75,
+          75
         ]
       }
     ]
@@ -17803,10 +17803,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          75,
-          "skillname86",
           20,
-          20
+          "skillname86",
+          75,
+          75
         ]
       }
     ]
@@ -17831,10 +17831,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname87",
           2,
-          2
+          "skillname87",
+          35,
+          35
         ]
       }
     ]
@@ -17859,10 +17859,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname87",
           15,
-          15
+          "skillname87",
+          35,
+          35
         ]
       }
     ]
@@ -17887,10 +17887,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          55,
-          "skillname88",
           2,
-          2
+          "skillname88",
+          55,
+          55
         ]
       }
     ]
@@ -17915,10 +17915,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          55,
-          "skillname88",
           14,
-          14
+          "skillname88",
+          55,
+          55
         ]
       }
     ]
@@ -17942,10 +17942,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname90",
           2,
-          2
+          "skillname90",
+          35,
+          35
         ]
       }
     ]
@@ -17969,10 +17969,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname90",
           21,
-          21
+          "skillname90",
+          35,
+          35
         ]
       }
     ]
@@ -17996,10 +17996,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname91",
           3,
-          3
+          "skillname91",
+          35,
+          35
         ]
       }
     ]
@@ -18023,10 +18023,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname91",
           22,
-          22
+          "skillname91",
+          35,
+          35
         ]
       }
     ]
@@ -18051,10 +18051,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname92",
           3,
-          3
+          "skillname92",
+          255,
+          255
         ]
       }
     ]
@@ -18079,10 +18079,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname92",
           19,
-          19
+          "skillname92",
+          255,
+          255
         ]
       }
     ]
@@ -18108,10 +18108,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          200,
-          "skillname93",
           3,
-          3
+          "skillname93",
+          200,
+          200
         ]
       }
     ]
@@ -18137,10 +18137,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          200,
-          "skillname93",
           23,
-          23
+          "skillname93",
+          200,
+          200
         ]
       }
     ]
@@ -18164,10 +18164,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          10,
-          "skillname94",
           3,
-          3
+          "skillname94",
+          10,
+          10
         ]
       }
     ]
@@ -18191,10 +18191,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          10,
-          "skillname94",
           24,
-          24
+          "skillname94",
+          10,
+          10
         ]
       }
     ]
@@ -18218,10 +18218,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname95",
           3,
-          3
+          "skillname95",
+          35,
+          35
         ]
       }
     ]
@@ -18245,10 +18245,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname95",
           10,
-          10
+          "skillname95",
+          35,
+          35
         ]
       }
     ]
@@ -18272,10 +18272,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname96",
           1,
-          1
+          "skillname96",
+          255,
+          255
         ]
       }
     ]
@@ -18301,10 +18301,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname96",
           20,
-          20
+          "skillname96",
+          255,
+          255
         ]
       }
     ]
@@ -18330,10 +18330,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname101",
           1,
-          1
+          "skillname101",
+          255,
+          255
         ]
       }
     ]
@@ -18359,10 +18359,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname101",
           20,
-          20
+          "skillname101",
+          255,
+          255
         ]
       }
     ]
@@ -18386,10 +18386,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname106",
           1,
-          1
+          "skillname106",
+          255,
+          255
         ]
       }
     ]
@@ -18415,10 +18415,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname106",
           18,
-          18
+          "skillname106",
+          255,
+          255
         ]
       }
     ]
@@ -18442,10 +18442,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname111",
           1,
-          1
+          "skillname111",
+          255,
+          255
         ]
       }
     ]
@@ -18469,10 +18469,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname111",
           16,
-          16
+          "skillname111",
+          255,
+          255
         ]
       }
     ]
@@ -18496,10 +18496,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname112",
           1,
-          1
+          "skillname112",
+          255,
+          255
         ]
       }
     ]
@@ -18523,10 +18523,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname112",
           20,
-          20
+          "skillname112",
+          255,
+          255
         ]
       }
     ]
@@ -18550,10 +18550,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          30,
-          "skillname116",
           2,
-          2
+          "skillname116",
+          30,
+          30
         ]
       }
     ]
@@ -18579,10 +18579,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          30,
-          "skillname116",
           15,
-          15
+          "skillname116",
+          30,
+          30
         ]
       }
     ]
@@ -18607,10 +18607,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          125,
-          "skillname121",
           3,
-          3
+          "skillname121",
+          125,
+          125
         ]
       }
     ]
@@ -18635,10 +18635,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          125,
-          "skillname121",
           24,
-          24
+          "skillname121",
+          125,
+          125
         ]
       }
     ]
@@ -18662,10 +18662,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname126",
           1,
-          1
+          "skillname126",
+          255,
+          255
         ]
       }
     ]
@@ -18693,10 +18693,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname126",
           10,
-          10
+          "skillname126",
+          255,
+          255
         ]
       }
     ]
@@ -18720,10 +18720,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          50,
-          "skillname130",
           1,
-          1
+          "skillname130",
+          50,
+          50
         ]
       }
     ]
@@ -18747,10 +18747,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          50,
-          "skillname130",
           12,
-          12
+          "skillname130",
+          50,
+          50
         ]
       }
     ]
@@ -18774,10 +18774,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          55,
-          "skillname131",
           1,
-          1
+          "skillname131",
+          55,
+          55
         ]
       }
     ]
@@ -18801,10 +18801,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          55,
-          "skillname131",
           15,
-          15
+          "skillname131",
+          55,
+          55
         ]
       }
     ]
@@ -18828,10 +18828,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          65,
-          "skillname137",
           1,
-          1
+          "skillname137",
+          65,
+          65
         ]
       }
     ]
@@ -18855,10 +18855,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          65,
-          "skillname137",
           12,
-          12
+          "skillname137",
+          65,
+          65
         ]
       }
     ]
@@ -18882,10 +18882,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          25,
-          "skillname138",
           3,
-          3
+          "skillname138",
+          25,
+          25
         ]
       }
     ]
@@ -18909,10 +18909,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          25,
-          "skillname138",
           20,
-          20
+          "skillname138",
+          25,
+          25
         ]
       }
     ]
@@ -18940,10 +18940,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          55,
-          "skillname139",
           1,
-          1
+          "skillname139",
+          55,
+          55
         ]
       }
     ]
@@ -18967,10 +18967,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          55,
-          "skillname139",
           12,
-          12
+          "skillname139",
+          55,
+          55
         ]
       }
     ]
@@ -18994,10 +18994,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname142",
           1,
-          1
+          "skillname142",
+          255,
+          255
         ]
       }
     ]
@@ -19021,10 +19021,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname142",
           21,
-          21
+          "skillname142",
+          255,
+          255
         ]
       }
     ]
@@ -19048,10 +19048,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname144",
           1,
-          1
+          "skillname144",
+          255,
+          255
         ]
       }
     ]
@@ -19079,10 +19079,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "skillname144",
           19,
-          19
+          "skillname144",
+          255,
+          255
         ]
       }
     ]
@@ -19106,10 +19106,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname146",
           1,
-          1
+          "skillname146",
+          35,
+          35
         ]
       }
     ]
@@ -19133,10 +19133,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname146",
           18,
-          18
+          "skillname146",
+          35,
+          35
         ]
       }
     ]
@@ -19160,10 +19160,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname149",
           2,
-          2
+          "skillname149",
+          35,
+          35
         ]
       }
     ]
@@ -19187,10 +19187,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname149",
           18,
-          18
+          "skillname149",
+          35,
+          35
         ]
       }
     ]
@@ -19215,10 +19215,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname150",
           2,
-          2
+          "skillname150",
+          35,
+          35
         ]
       }
     ]
@@ -19243,10 +19243,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname150",
           15,
-          15
+          "skillname150",
+          35,
+          35
         ]
       }
     ]
@@ -19270,10 +19270,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname154",
           3,
-          3
+          "skillname154",
+          35,
+          35
         ]
       }
     ]
@@ -19297,10 +19297,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname154",
           13,
-          13
+          "skillname154",
+          35,
+          35
         ]
       }
     ]
@@ -19324,10 +19324,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname155",
           3,
-          3
+          "skillname155",
+          35,
+          35
         ]
       }
     ]
@@ -19351,10 +19351,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "skillname155",
           20,
-          20
+          "skillname155",
+          35,
+          35
         ]
       }
     ]
@@ -19377,10 +19377,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          75,
-          "Skillname226",
           1,
-          1
+          "Skillname226",
+          75,
+          75
         ]
       }
     ]
@@ -19403,10 +19403,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          75,
-          "Skillname226",
           12,
-          12
+          "Skillname226",
+          75,
+          75
         ]
       }
     ]
@@ -19429,10 +19429,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "Skillname230",
           1,
-          1
+          "Skillname230",
+          255,
+          255
         ]
       }
     ]
@@ -19455,10 +19455,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "Skillname230",
           14,
-          14
+          "Skillname230",
+          255,
+          255
         ]
       }
     ]
@@ -19481,10 +19481,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "Skillname235",
           1,
-          1
+          "Skillname235",
+          255,
+          255
         ]
       }
     ]
@@ -19507,10 +19507,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "Skillname235",
           15,
-          15
+          "Skillname235",
+          255,
+          255
         ]
       }
     ]
@@ -19534,10 +19534,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          75,
-          "Skillname236",
           1,
-          1
+          "Skillname236",
+          75,
+          75
         ]
       }
     ]
@@ -19561,10 +19561,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          75,
-          "Skillname236",
           19,
-          19
+          "Skillname236",
+          75,
+          75
         ]
       }
     ]
@@ -19589,10 +19589,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "Skillname241",
           1,
-          1
+          "Skillname241",
+          255,
+          255
         ]
       }
     ]
@@ -19617,10 +19617,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "Skillname241",
           25,
-          25
+          "Skillname241",
+          255,
+          255
         ]
       }
     ]
@@ -19643,10 +19643,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          125,
-          "Skillname245",
           2,
-          2
+          "Skillname245",
+          125,
+          125
         ]
       }
     ]
@@ -19669,10 +19669,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          125,
-          "Skillname245",
           18,
-          18
+          "Skillname245",
+          125,
+          125
         ]
       }
     ]
@@ -19697,10 +19697,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          200,
-          "Skillname246",
           2,
-          2
+          "Skillname246",
+          200,
+          200
         ]
       }
     ]
@@ -19725,10 +19725,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          200,
-          "Skillname246",
           15,
-          15
+          "Skillname246",
+          200,
+          200
         ]
       }
     ]
@@ -19751,10 +19751,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          100,
-          "Skillname250",
           3,
-          3
+          "Skillname250",
+          100,
+          100
         ]
       }
     ]
@@ -19777,10 +19777,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          100,
-          "Skillname250",
           30,
-          30
+          "Skillname250",
+          100,
+          100
         ]
       }
     ]
@@ -19805,10 +19805,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          100,
-          "Skillname251",
           3,
-          3
+          "Skillname251",
+          100,
+          100
         ]
       }
     ]
@@ -19833,10 +19833,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          100,
-          "Skillname251",
           28,
-          28
+          "Skillname251",
+          100,
+          100
         ]
       }
     ]
@@ -19860,10 +19860,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          150,
-          "Skillname254",
           1,
-          1
+          "Skillname254",
+          150,
+          150
         ]
       }
     ]
@@ -19887,10 +19887,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          150,
-          "Skillname254",
           10,
-          10
+          "Skillname254",
+          150,
+          150
         ]
       }
     ]
@@ -19914,10 +19914,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "Skillname257",
           1,
-          1
+          "Skillname257",
+          255,
+          255
         ]
       }
     ]
@@ -19941,10 +19941,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "Skillname257",
           9,
-          9
+          "Skillname257",
+          255,
+          255
         ]
       }
     ]
@@ -19968,10 +19968,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          25,
-          "Skillname259",
           1,
-          1
+          "Skillname259",
+          25,
+          25
         ]
       }
     ]
@@ -19995,10 +19995,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          25,
+          12,
           "Skillname259",
-          12,
-          12
+          25,
+          25
         ]
       }
     ]
@@ -20022,10 +20022,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          150,
-          "Skillname262",
           1,
-          1
+          "Skillname262",
+          150,
+          150
         ]
       }
     ]
@@ -20049,10 +20049,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          150,
-          "Skillname262",
           12,
-          12
+          "Skillname262",
+          150,
+          150
         ]
       }
     ]
@@ -20076,10 +20076,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          150,
-          "Skillname263",
           1,
-          1
+          "Skillname263",
+          150,
+          150
         ]
       }
     ]
@@ -20103,10 +20103,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          150,
-          "Skillname263",
           13,
-          13
+          "Skillname263",
+          150,
+          150
         ]
       }
     ]
@@ -20130,10 +20130,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          55,
-          "Skillname265",
           1,
-          1
+          "Skillname265",
+          55,
+          55
         ]
       }
     ]
@@ -20157,10 +20157,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          55,
-          "Skillname265",
           15,
-          15
+          "Skillname265",
+          55,
+          55
         ]
       }
     ]
@@ -20184,10 +20184,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          300,
-          "Skillname267",
           20,
-          20
+          "Skillname267",
+          255,
+          255
         ]
       }
     ]
@@ -20212,10 +20212,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "Skillname268",
           1,
-          1
+          "Skillname268",
+          35,
+          35
         ]
       }
     ]
@@ -20240,10 +20240,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "Skillname268",
           12,
-          12
+          "Skillname268",
+          35,
+          35
         ]
       }
     ]
@@ -20267,10 +20267,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          15,
-          "Skillname269",
           1,
-          1
+          "Skillname269",
+          15,
+          15
         ]
       }
     ]
@@ -20321,10 +20321,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          150,
-          "Skillname272",
           2,
-          2
+          "Skillname272",
+          150,
+          150
         ]
       }
     ]
@@ -20348,10 +20348,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          150,
-          "Skillname272",
           13,
-          13
+          "Skillname272",
+          150,
+          150
         ]
       }
     ]
@@ -20375,10 +20375,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          150,
-          "Skillname273",
           2,
-          2
+          "Skillname273",
+          150,
+          150
         ]
       }
     ]
@@ -20402,10 +20402,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          150,
-          "Skillname273",
           10,
-          10
+          "Skillname273",
+          150,
+          150
         ]
       }
     ]
@@ -20429,10 +20429,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          55,
-          "Skillname274",
           2,
-          2
+          "Skillname274",
+          55,
+          55
         ]
       }
     ]
@@ -20456,10 +20456,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          55,
-          "Skillname274",
           22,
-          22
+          "Skillname274",
+          55,
+          55
         ]
       }
     ]
@@ -20483,10 +20483,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          100,
-          "Skillname277",
           3,
-          3
+          "Skillname277",
+          100,
+          100
         ]
       }
     ]
@@ -20510,10 +20510,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          100,
-          "Skillname277",
           17,
-          17
+          "Skillname277",
+          100,
+          100
         ]
       }
     ]
@@ -20537,10 +20537,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "Skillname278",
           3,
-          3
+          "Skillname278",
+          35,
+          35
         ]
       }
     ]
@@ -20564,10 +20564,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          35,
-          "Skillname278",
           20,
-          20
+          "Skillname278",
+          35,
+          35
         ]
       }
     ]
@@ -20591,10 +20591,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          55,
-          "Skillname279",
           3,
-          3
+          "Skillname279",
+          55,
+          55
         ]
       }
     ]
@@ -20618,10 +20618,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          55,
-          "Skillname279",
           19,
-          19
+          "Skillname279",
+          55,
+          55
         ]
       }
     ]
@@ -20645,10 +20645,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          10,
-          "Skillname280",
           3,
-          3
+          "Skillname280",
+          10,
+          10
         ]
       }
     ]
@@ -20672,10 +20672,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          10,
-          "Skillname280",
           18,
-          18
+          "Skillname280",
+          10,
+          10
         ]
       }
     ]

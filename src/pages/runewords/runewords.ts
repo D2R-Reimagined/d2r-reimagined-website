@@ -2,8 +2,11 @@ import { bindable, watch } from 'aurelia';
 
 import {
     ANCESTOR_ONLY_WHEN_EXACT_OFF,
+    buildOptionsForPresentTypes,
     getChainForTypeNameReadonly,
     IFilterOption,
+    normalizeClassItemCode,
+    resolveBaseTypeName,
     type_filtering_options,
 } from '../../resources/constants';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
@@ -85,47 +88,24 @@ export class Runewords {
         const hv = urlParams.get('hideVanilla');
         if (hv === 'true' || hv === '1') this.hideVanilla = true;
 
-        // Collect EXPLICIT base type names present in data (Runewords-only behavior)
-        const presentExplicitBases = new Set<string>();
+        // Collect base type codes present in data, normalizing single-leaf class
+        // items so generic and leaf spellings surface the same option.
+        const present = new Set<string>();
         try {
             for (const rw of this.allRunewords || []) {
                 const types = Array.isArray(rw?.Types) ? rw.Types : [];
-                for (const t of types) {
-                    // Use the canonical itemtypes.txt Code column (carried in
-                    // Type.Index) for graph lookups; Type.Name is the English
-                    // display label and is no longer used as a key.
-                    const chain = getChainForTypeNameReadonly(t?.Index ?? '');
-                    const base = chain && chain.length ? chain[0] : '';
-                    if (base) presentExplicitBases.add(base);
+                for (const ty of types) {
+                    const base = resolveBaseTypeName(normalizeClassItemCode(ty?.Index ?? ''));
+                    if (base) present.add(base);
                 }
             }
         } catch {
             // keep defaults on error
         }
 
-        // Build options WITHOUT pulling in implied parents (e.g., Amazon Bow → Bow)
-        this.types = type_filtering_options.filter((opt) => {
-            // Always keep a placeholder
-            if (!opt.value || opt.value.length === 0) return true;
-
-            const base = opt.value[0];
-
-            // Aggregates: include it only if they actually match something in this dataset
-            if (
-                opt.id === 'any-armor' ||
-                opt.id === 'any-weapon' ||
-                opt.id === 'melee-weapon' ||
-                opt.id === 'missile-weapon' ||
-                opt.id === 'thrown-weapon' ||
-                opt.id === 'any-helm' ||
-                opt.id === 'any-shield'
-            ) {
-                return opt.value.some((v) => presentExplicitBases.has(v));
-            }
-
-            // Non-aggregates: ONLY show if the base explicitly exists
-            return presentExplicitBases.has(base);
-        }).map(opt => ({
+        // Narrow the shared preset to present types; ancestor matching off so broad
+        // types (e.g. weapitype) don't surface leaves runewords can't use (javelins).
+        this.types = buildOptionsForPresentTypes(type_filtering_options, present, false).map(opt => ({
             ...opt,
             label: t(opt.label),
         }));
@@ -301,8 +281,9 @@ export class Runewords {
                 const types = Array.isArray(rw.Types) ? rw.Types : [];
                 let hasTypeMatch = false;
                 for (let i = 0; i < types.length; i++) {
-                    // Filter by the itemtypes.txt Code column (Type.Index).
-                    const raw = types[i]?.Index != null ? String(types[i].Index) : '';
+                    // Filter by the itemtypes.txt Code column (Type.Index), normalized
+                    // so Exact matches both class-item spellings.
+                    const raw = types[i]?.Index != null ? normalizeClassItemCode(String(types[i].Index)) : '';
                     const chain = getChainForTypeNameReadonly(raw);
                     if (!chain || chain.length === 0) continue;
                     const itemBase = chain[0];

@@ -18993,10 +18993,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          -60,
-          "MiasmaBoltName",
           -10,
-          -10
+          "MiasmaBoltName",
+          112,
+          112
         ]
       }
     ]
@@ -19019,10 +19019,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          -20,
-          "MiasmaBoltName",
           -6,
-          -6
+          "MiasmaBoltName",
+          55,
+          55
         ]
       }
     ]
@@ -19047,10 +19047,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          -60,
-          "LethargySigilName",
           -8,
-          -8
+          "LethargySigilName",
+          150,
+          150
         ]
       }
     ]
@@ -19074,10 +19074,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          -20,
-          "LethargySigilName",
           -5,
-          -5
+          "LethargySigilName",
+          80,
+          80
         ]
       }
     ]
@@ -19102,10 +19102,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          -60,
-          "RancorSigilName",
           -7,
-          -7
+          "RancorSigilName",
+          195,
+          195
         ]
       }
     ]
@@ -19128,10 +19128,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          -20,
-          "RancorSigilName",
           -4,
-          -4
+          "RancorSigilName",
+          110,
+          110
         ]
       }
     ]
@@ -19156,10 +19156,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          -60,
-          "ApocalypseName",
           -3,
-          -3
+          "ApocalypseName",
+          255,
+          255
         ]
       }
     ]
@@ -19182,10 +19182,10 @@
       {
         "key": "strSkillCharges",
         "args": [
-          -20,
-          "ApocalypseName",
           -1,
-          -1
+          "ApocalypseName",
+          200,
+          200
         ]
       }
     ]

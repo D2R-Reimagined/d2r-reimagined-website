@@ -68,7 +68,7 @@ export const ITEM_TYPES: ReadonlyArray<IItemTypeNode> = [
     { name: 'Crossbow', code: 'xbowitype', parents: ['missitype', 'weapitype'] },
     { name: 'Knife', code: 'knifitype', parents: ['bldeitype', 'meleitype', 'weapitype'] },
     { name: 'Javelin', code: 'javeitype', parents: ['meleitype', 'throitype', 'weapitype'] },
-    { name: 'Throwing Knife', code: 'tknitype', parents: ['combitype', 'knifitype'] },
+    { name: 'Throwing Knife', code: 'tkniitype', parents: ['combitype', 'knifitype'] },
     { name: 'Throwing Axe', code: 'taxeitype', parents: ['combitype', 'axeitype'] },
 
     // Aggregations
@@ -86,7 +86,7 @@ export const ITEM_TYPES: ReadonlyArray<IItemTypeNode> = [
     { name: 'Paladin Item', code: 'palaitype', parents: ['clasitype'] },
     { name: 'Sorceress Item', code: 'sorcitype', parents: ['clasitype'] },
     { name: 'Assassin Item', code: 'assnitype', parents: ['clasitype'] },
-    { name: 'Druid Item', code: 'druitype', parents: ['clasitype'] },
+    { name: 'Druid Item', code: 'druiitype', parents: ['clasitype'] },
     { name: 'Warlock Item', code: 'warlitype', parents: ['clasitype'] },
 
     // Class-specific weapons
@@ -98,7 +98,7 @@ export const ITEM_TYPES: ReadonlyArray<IItemTypeNode> = [
 
     // Class Specific Armors
     { name: 'Primal Helm', code: 'phlmitype', parents: ['barbitype', 'helmitype'] },
-    { name: 'Pelt', code: 'peltitype', parents: ['druitype', 'helmitype'] },
+    { name: 'Pelt', code: 'peltitype', parents: ['druiitype', 'helmitype'] },
     { name: 'Voodoo Heads', code: 'headitype', parents: ['necritype', 'shlditype'] },
     { name: 'Auric Shields', code: 'ashditype', parents: ['palaitype', 'shlditype'] },
     { name: 'Grimoire', code: 'grimitype', parents: ['warlitype', 'shlditype'] },
@@ -256,7 +256,7 @@ export interface IFilterOption {
 }
 
 // Class aggregate bases (codes); only show when the aggregate itself exists in page data.
-const CLASS_AGGREGATE_BASES = new Set<string>(['amazitype', 'barbitype', 'necritype', 'palaitype', 'sorcitype', 'assnitype', 'druitype', 'warlitype']);
+const CLASS_AGGREGATE_BASES = new Set<string>(['amazitype', 'barbitype', 'necritype', 'palaitype', 'sorcitype', 'assnitype', 'druiitype', 'warlitype']);
 
 /**
  * Build an IFilterOption from an itemtype CODE and optional extra parent codes.
@@ -318,6 +318,22 @@ export function resolveBaseTypeName(raw: string): string {
     if (!v) return '';
     const chain = getChainForTypeNameReadonly(v);
     return chain && chain.length > 0 ? chain[0] : v;
+}
+
+// Single-leaf class items mapped to their sole class-armor leaf, collapsing the
+// generic and leaf data spellings onto one code. Multi-leaf classes are omitted.
+export const CLASS_ITEM_TO_LEAF: Readonly<Record<string, string>> = {
+    barbitype: 'phlmitype',
+    druiitype: 'peltitype',
+    necritype: 'headitype',
+    palaitype: 'ashditype',
+    warlitype: 'grimitype',
+};
+
+// Map a single-leaf class item code to its class-armor leaf; pass others through.
+export function normalizeClassItemCode(raw: string): string {
+    const v = (raw ?? '').trim();
+    return CLASS_ITEM_TO_LEAF[v] ?? v;
 }
 
 /**
@@ -393,6 +409,7 @@ export const ANCESTOR_ONLY_WHEN_EXACT_OFF: string[] = [
 export function buildOptionsForPresentTypes(
     preset: ReadonlyArray<IFilterOption>,
     presentBaseCodes: ReadonlySet<string>,
+    includeAncestorMatches: boolean = true,
 ): IFilterOption[] {
     const result: IFilterOption[] = [];
 
@@ -430,8 +447,11 @@ export function buildOptionsForPresentTypes(
         if (CLASS_AGGREGATE_BASES.has(base)) {
             include = presentBaseCodes.has(base);
         } else {
-            // Check if any part of the base chain is present in data (this type or its parents)
-            include = baseChain.some((b) => presentBaseCodes.has(b));
+            // Include if the base is present; with ancestor matching on (default),
+            // also if an ancestor is present (off restricts to base plus descendants).
+            include = includeAncestorMatches
+                ? baseChain.some((b) => presentBaseCodes.has(b))
+                : presentBaseCodes.has(base);
             if (!include && extras.length > 0) {
                 // Check if any explicit extra descendants are present (including THEIR parents)
                 for (let k = 0; k < extras.length; k++) {
@@ -497,7 +517,7 @@ export const type_filtering_options: ReadonlyArray<IFilterOption> = [
     makeTypeOption('bowitype', 'bowitype'),
     makeTypeOption('xbowitype', 'xbowitype'),
     makeTypeOption('javeitype', 'javeitype'),
-    makeTypeOption('tknitype', 'tknitype', [], true),
+    makeTypeOption('tkniitype', 'tkniitype', [], true),
     makeTypeOption('taxeitype', 'taxeitype', [], true),
     // Quivers and Bolts: base on the non-magic types and include their descendants (magic quivers)
     makeTypeOption('bowqitype', 'bowqitype'),
