@@ -48,7 +48,7 @@ const ITEM_TYPES = [
   { name: "Crossbow", code: "xbowitype", parents: ["missitype", "weapitype"] },
   { name: "Knife", code: "knifitype", parents: ["bldeitype", "meleitype", "weapitype"] },
   { name: "Javelin", code: "javeitype", parents: ["meleitype", "throitype", "weapitype"] },
-  { name: "Throwing Knife", code: "tknitype", parents: ["combitype", "knifitype"] },
+  { name: "Throwing Knife", code: "tkniitype", parents: ["combitype", "knifitype"] },
   { name: "Throwing Axe", code: "taxeitype", parents: ["combitype", "axeitype"] },
   // Aggregations
   { name: "Blade", code: "bldeitype", parents: ["meleitype"] },
@@ -64,7 +64,7 @@ const ITEM_TYPES = [
   { name: "Paladin Item", code: "palaitype", parents: ["clasitype"] },
   { name: "Sorceress Item", code: "sorcitype", parents: ["clasitype"] },
   { name: "Assassin Item", code: "assnitype", parents: ["clasitype"] },
-  { name: "Druid Item", code: "druitype", parents: ["clasitype"] },
+  { name: "Druid Item", code: "druiitype", parents: ["clasitype"] },
   { name: "Warlock Item", code: "warlitype", parents: ["clasitype"] },
   // Class-specific weapons
   { name: "Amazon Bow", code: "abowitype", parents: ["amazitype", "bowitype", "missitype", "weapitype"] },
@@ -74,7 +74,7 @@ const ITEM_TYPES = [
   { name: "Orb", code: "orbitype", parents: ["sorcitype", "weapitype"] },
   // Class Specific Armors
   { name: "Primal Helm", code: "phlmitype", parents: ["barbitype", "helmitype"] },
-  { name: "Pelt", code: "peltitype", parents: ["druitype", "helmitype"] },
+  { name: "Pelt", code: "peltitype", parents: ["druiitype", "helmitype"] },
   { name: "Voodoo Heads", code: "headitype", parents: ["necritype", "shlditype"] },
   { name: "Auric Shields", code: "ashditype", parents: ["palaitype", "shlditype"] },
   { name: "Grimoire", code: "grimitype", parents: ["warlitype", "shlditype"] },
@@ -174,7 +174,7 @@ function getChainForTypeNameReadonly(raw) {
   const node = ITEM_TYPE_BY_CODE.get(v) || ITEM_TYPE_BY_NAME_LC.get(v.toLowerCase());
   return node ? computeChain(node.code) : Object.freeze([v]);
 }
-const CLASS_AGGREGATE_BASES = /* @__PURE__ */ new Set(["amazitype", "barbitype", "necritype", "palaitype", "sorcitype", "assnitype", "druitype", "warlitype"]);
+const CLASS_AGGREGATE_BASES = /* @__PURE__ */ new Set(["amazitype", "barbitype", "necritype", "palaitype", "sorcitype", "assnitype", "druiitype", "warlitype"]);
 function makeTypeOption(label, baseCode, extraParents = [], exactBaseOnly = false, id) {
   if (!baseCode) return { id: "", label, value: void 0 };
   const finalId = id || (exactBaseOnly ? `exact-${baseCode}` : baseCode).toLowerCase().replace(/\s+/g, "-");
@@ -211,6 +211,17 @@ function resolveBaseTypeName(raw) {
   if (!v) return "";
   const chain = getChainForTypeNameReadonly(v);
   return chain && chain.length > 0 ? chain[0] : v;
+}
+const CLASS_ITEM_TO_LEAF = {
+  barbitype: "phlmitype",
+  druiitype: "peltitype",
+  necritype: "headitype",
+  palaitype: "ashditype",
+  warlitype: "grimitype"
+};
+function normalizeClassItemCode(raw) {
+  const v = (raw ?? "").trim();
+  return CLASS_ITEM_TO_LEAF[v] ?? v;
 }
 const DESCENDANTS_MAP = /* @__PURE__ */ new Map();
 function computeDescendants(code) {
@@ -257,7 +268,7 @@ const ANCESTOR_ONLY_WHEN_EXACT_OFF = [
   "warlock-grimoire",
   "helm"
 ];
-function buildOptionsForPresentTypes(preset, presentBaseCodes) {
+function buildOptionsForPresentTypes(preset, presentBaseCodes, includeAncestorMatches = true) {
   const result = [];
   const presentClosure = /* @__PURE__ */ new Set();
   for (const b of presentBaseCodes) {
@@ -283,7 +294,7 @@ function buildOptionsForPresentTypes(preset, presentBaseCodes) {
     if (CLASS_AGGREGATE_BASES.has(base)) {
       include = presentBaseCodes.has(base);
     } else {
-      include = baseChain.some((b) => presentBaseCodes.has(b));
+      include = includeAncestorMatches ? baseChain.some((b) => presentBaseCodes.has(b)) : presentBaseCodes.has(base);
       if (!include && extras.length > 0) {
         for (let k = 0; k < extras.length; k++) {
           if (presentClosure.has(extras[k])) {
@@ -343,7 +354,7 @@ const type_filtering_options = [
   makeTypeOption("bowitype", "bowitype"),
   makeTypeOption("xbowitype", "xbowitype"),
   makeTypeOption("javeitype", "javeitype"),
-  makeTypeOption("tknitype", "tknitype", [], true),
+  makeTypeOption("tkniitype", "tkniitype", [], true),
   makeTypeOption("taxeitype", "taxeitype", [], true),
   // Quivers and Bolts: base on the non-magic types and include their descendants (magic quivers)
   makeTypeOption("bowqitype", "bowqitype"),
@@ -425,6 +436,7 @@ export {
   getTypeChain as g,
   isVanillaItem as i,
   matchesTokenGroups as m,
+  normalizeClassItemCode as n,
   prependTypeResetOption as p,
   resolveBaseTypeName as r,
   swapMinMax as s,

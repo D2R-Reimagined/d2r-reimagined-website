@@ -1,5 +1,5 @@
-import { C as CustomElement, i as isBlankOrInvalid, t, s as syncParamsToUrl, f as format, w as watch, c as customElement, b as bindable } from "./index-sCWnxeuZ.js";
-import { c as getChainForTypeNameReadonly, a as type_filtering_options, p as prependTypeResetOption, t as tokenizeSearch, A as ANCESTOR_ONLY_WHEN_EXACT_OFF, m as matchesTokenGroups } from "./filter-helpers-BuZ4Nsi8.js";
+import { C as CustomElement, i as isBlankOrInvalid, t, s as syncParamsToUrl, f as format, w as watch, c as customElement, b as bindable } from "./index-DpIbpNL0.js";
+import { r as resolveBaseTypeName, n as normalizeClassItemCode, b as buildOptionsForPresentTypes, p as prependTypeResetOption, t as tokenizeSearch, A as ANCESTOR_ONLY_WHEN_EXACT_OFF, c as getChainForTypeNameReadonly, m as matchesTokenGroups, a as type_filtering_options } from "./filter-helpers-CCuQ9HM5.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
 const name = "runewords";
 const template = `<template>
@@ -281,26 +281,18 @@ class Runewords {
     }
     const hv = urlParams.get("hideVanilla");
     if (hv === "true" || hv === "1") this.hideVanilla = true;
-    const presentExplicitBases = /* @__PURE__ */ new Set();
+    const present = /* @__PURE__ */ new Set();
     try {
       for (const rw of this.allRunewords || []) {
         const types = Array.isArray(rw?.Types) ? rw.Types : [];
-        for (const t2 of types) {
-          const chain = getChainForTypeNameReadonly(t2?.Index ?? "");
-          const base = chain && chain.length ? chain[0] : "";
-          if (base) presentExplicitBases.add(base);
+        for (const ty of types) {
+          const base = resolveBaseTypeName(normalizeClassItemCode(ty?.Index ?? ""));
+          if (base) present.add(base);
         }
       }
     } catch {
     }
-    this.types = type_filtering_options.filter((opt) => {
-      if (!opt.value || opt.value.length === 0) return true;
-      const base = opt.value[0];
-      if (opt.id === "any-armor" || opt.id === "any-weapon" || opt.id === "melee-weapon" || opt.id === "missile-weapon" || opt.id === "thrown-weapon" || opt.id === "any-helm" || opt.id === "any-shield") {
-        return opt.value.some((v) => presentExplicitBases.has(v));
-      }
-      return presentExplicitBases.has(base);
-    }).map((opt) => ({
+    this.types = buildOptionsForPresentTypes(type_filtering_options, present, false).map((opt) => ({
       ...opt,
       label: t(opt.label)
     }));
@@ -429,7 +421,7 @@ class Runewords {
         const types = Array.isArray(rw.Types) ? rw.Types : [];
         let hasTypeMatch = false;
         for (let i = 0; i < types.length; i++) {
-          const raw = types[i]?.Index != null ? String(types[i].Index) : "";
+          const raw = types[i]?.Index != null ? normalizeClassItemCode(String(types[i].Index)) : "";
           const chain = getChainForTypeNameReadonly(raw);
           if (!chain || chain.length === 0) continue;
           const itemBase = chain[0];

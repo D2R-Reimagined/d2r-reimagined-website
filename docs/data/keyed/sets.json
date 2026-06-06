@@ -19990,10 +19990,10 @@
           {
             "key": "strSkillCharges",
             "args": [
-              8,
-              "Skillname238",
               35,
-              35
+              "Skillname238",
+              8,
+              8
             ]
           }
         ],
@@ -30430,10 +30430,10 @@
           {
             "key": "strSkillCharges",
             "args": [
-              65,
-              "skillname75",
               15,
-              15
+              "skillname75",
+              65,
+              65
             ]
           }
         ],
@@ -39749,10 +39749,10 @@
           {
             "key": "strSkillCharges",
             "args": [
-              100,
-              "skillname66",
               13,
-              13
+              "skillname66",
+              100,
+              100
             ]
           }
         ],
@@ -40491,10 +40491,10 @@
           {
             "key": "strSkillCharges",
             "args": [
-              200,
-              "skillname142",
               12,
-              12
+              "skillname142",
+              200,
+              200
             ]
           }
         ],
