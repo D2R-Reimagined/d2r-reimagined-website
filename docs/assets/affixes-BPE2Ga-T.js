@@ -1,4 +1,4 @@
-import { C as CustomElement, i as isBlankOrInvalid, t, s as syncParamsToUrl, f as format, w as watch, c as customElement, b as bindable } from "./index-CxVW9Ozx.js";
+import { C as CustomElement, i as isBlankOrInvalid, t, s as syncParamsToUrl, f as format, w as watch, c as customElement, b as bindable } from "./index-F_TVDUIB.js";
 import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, p as prependTypeResetOption, d as toOptionalNumber, t as tokenizeSearch, s as swapMinMax, A as ANCESTOR_ONLY_WHEN_EXACT_OFF, c as getChainForTypeNameReadonly, m as matchesTokenGroups, a as type_filtering_options } from "./filter-helpers-CCuQ9HM5.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
 const name = "affixes";

@@ -1,4 +1,4 @@
-import { C as CustomElement, i as isBlankOrInvalid, t, s as syncParamsToUrl, f as format, w as watch, c as customElement, b as bindable } from "./index-CxVW9Ozx.js";
+import { C as CustomElement, i as isBlankOrInvalid, t, s as syncParamsToUrl, f as format, w as watch, c as customElement, b as bindable } from "./index-F_TVDUIB.js";
 import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, p as prependTypeResetOption, t as tokenizeSearch, m as matchesTokenGroups, c as getChainForTypeNameReadonly, a as type_filtering_options } from "./filter-helpers-CCuQ9HM5.js";
 import { g as getDamageTypeString } from "./damage-types-BlYhXdWN.js";
 const name = "bases";

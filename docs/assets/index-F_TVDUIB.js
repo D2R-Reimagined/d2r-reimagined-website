@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-BqNrGy7T.js","assets/filter-helpers-CCuQ9HM5.js","assets/character-classes-BxKvOt2-.js","assets/debounce-DlM2vs2L.js","assets/uniques-B-TM9sbG.js","assets/damage-types-BlYhXdWN.js","assets/item-sorting-BibmLCij.js","assets/sets-nQx1bh_S.js","assets/runewords-Bi4bBBSq.js","assets/grail-B0dbKN6Y.js","assets/bases-C19JnQTR.js","assets/affixes-CDwbVEB-.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/cube-recipes-DAulm6P4.js","assets/filter-helpers-CCuQ9HM5.js","assets/character-classes-BxKvOt2-.js","assets/debounce-DlM2vs2L.js","assets/uniques-CgpSVd-Z.js","assets/damage-types-BlYhXdWN.js","assets/item-sorting-BibmLCij.js","assets/sets-CGPBh2aC.js","assets/runewords-Bb7LjzgF.js","assets/grail-616-u_Cv.js","assets/bases-TvYQKsnU.js","assets/affixes-BPE2Ga-T.js"])))=>i.map(i=>d[i]);
 (function polyfill() {
   const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) return;
@@ -26972,11 +26972,18 @@ function formatTemplate(template2, args = []) {
   const isNumericToken = (m3) => m3 === "%+d" || /^%[dDi]$/.test(m3);
   const numericCount = sequential.filter(isNumericToken).length;
   let pairBudget = Math.max(0, Math.min(args.length - sequential.length, numericCount));
+  const indexedTokens = tokens.filter((m3) => /^%\d$/.test(m3));
+  const indexedSlots = indexedTokens.reduce(
+    (mx, m3) => Math.max(mx, Number(m3.charAt(1)) + 1),
+    0
+  );
+  const resolvedIndexed = indexedTokens.length > 0 && args.length > indexedSlots ? resolveIndexedArgs(args, indexedSlots, args.length - indexedSlots) : null;
   let seqIndex = 0;
   return template2.replace(SEQ, (match) => {
     if (match === "%%") return "%";
     if (/^%\d$/.test(match)) {
       const i = Number(match.charAt(1));
+      if (resolvedIndexed) return resolvedIndexed[i] ?? "";
       return formatArg(args[i], match);
     }
     if (/^%c\d$/.test(match)) return "";
@@ -26994,6 +27001,25 @@ function formatTemplate(template2, args = []) {
     const value = args[seqIndex++];
     return formatArg(value, match);
   });
+}
+function resolveIndexedArgs(args, slots, surplus) {
+  const resolved = [];
+  let p = 0;
+  let budget = surplus;
+  for (let i = 0; i < slots; i++) {
+    const min2 = args[p];
+    const max2 = args[p + 1];
+    if (budget > 0 && typeof min2 === "number" && typeof max2 === "number" && Number.isFinite(min2) && Number.isFinite(max2)) {
+      const minStr = formatArg(min2, "%d");
+      resolved.push(min2 === max2 ? minStr : `${minStr}-${formatArg(max2, "%d")}`);
+      p += 2;
+      budget--;
+    } else {
+      resolved.push(formatArg(args[p], "%0"));
+      p += 1;
+    }
+  }
+  return resolved;
 }
 function formatArg(value, token) {
   if (value === null || value === void 0) return "";
@@ -30019,42 +30045,42 @@ _App_decorators = [customElement(__au2ViewDef), route({
   routes: [
     {
       path: "",
-      component: __vitePreload(() => import("./home-DKkC2OZm.js"), true ? [] : void 0),
+      component: __vitePreload(() => import("./home-B3iXospu.js"), true ? [] : void 0),
       title: "Home"
     },
     {
       path: "cube-recipes",
-      component: __vitePreload(() => import("./cube-recipes-BqNrGy7T.js"), true ? __vite__mapDeps([0,1,2,3]) : void 0),
+      component: __vitePreload(() => import("./cube-recipes-DAulm6P4.js"), true ? __vite__mapDeps([0,1,2,3]) : void 0),
       title: "Cube Recipes"
     },
     {
       path: "uniques",
-      component: __vitePreload(() => import("./uniques-B-TM9sbG.js"), true ? __vite__mapDeps([4,1,2,5,3,6]) : void 0),
+      component: __vitePreload(() => import("./uniques-CgpSVd-Z.js"), true ? __vite__mapDeps([4,1,2,5,3,6]) : void 0),
       title: "Uniques"
     },
     {
       path: "sets",
-      component: __vitePreload(() => import("./sets-nQx1bh_S.js"), true ? __vite__mapDeps([7,1,2,5,3,6]) : void 0),
+      component: __vitePreload(() => import("./sets-CGPBh2aC.js"), true ? __vite__mapDeps([7,1,2,5,3,6]) : void 0),
       title: "Sets"
     },
     {
       path: "runewords",
-      component: __vitePreload(() => import("./runewords-Bi4bBBSq.js"), true ? __vite__mapDeps([8,1,3]) : void 0),
+      component: __vitePreload(() => import("./runewords-Bb7LjzgF.js"), true ? __vite__mapDeps([8,1,3]) : void 0),
       title: "Runewords"
     },
     {
       path: "grail",
-      component: __vitePreload(() => import("./grail-B0dbKN6Y.js"), true ? __vite__mapDeps([9,1,2,5,3,6]) : void 0),
+      component: __vitePreload(() => import("./grail-616-u_Cv.js"), true ? __vite__mapDeps([9,1,2,5,3,6]) : void 0),
       title: "Holy Grail"
     },
     {
       path: "bases",
-      component: __vitePreload(() => import("./bases-C19JnQTR.js"), true ? __vite__mapDeps([10,1,5]) : void 0),
+      component: __vitePreload(() => import("./bases-TvYQKsnU.js"), true ? __vite__mapDeps([10,1,5]) : void 0),
       title: "Bases"
     },
     {
       path: "affixes",
-      component: __vitePreload(() => import("./affixes-CDwbVEB-.js"), true ? __vite__mapDeps([11,1,3]) : void 0),
+      component: __vitePreload(() => import("./affixes-BPE2Ga-T.js"), true ? __vite__mapDeps([11,1,3]) : void 0),
       title: "Affixes"
     }
   ]
