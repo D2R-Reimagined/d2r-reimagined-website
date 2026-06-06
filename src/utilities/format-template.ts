@@ -49,6 +49,23 @@ export function formatTemplate(template: string, args: ReadonlyArray<TemplateArg
     // Number of numeric tokens that should consume a [min, max] pair.
     let pairBudget = Math.max(0, Math.min(args.length - sequential.length, numericCount));
 
+    // Indexed positional templates (e.g. `%0%% Reanimate as: %1`) address logical
+    // argument slots, but the exporter still ships ranged numerics as `[min, max]`
+    // pairs. When `args` carries more values than there are distinct indices, the
+    // surplus comes from those pairs, so resolve each index to its logical slot
+    // first (collapsing leading numeric ranges to `min-max`). Without this, an
+    // index past the first range would read the wrong flat element (rendering
+    // "5% Reanimate as: 10" for args `[5, 10, "Voltshade"]`).
+    const indexedTokens = tokens.filter((m) => /^%\d$/.test(m));
+    const indexedSlots = indexedTokens.reduce(
+        (mx, m) => Math.max(mx, Number(m.charAt(1)) + 1),
+        0,
+    );
+    const resolvedIndexed =
+        indexedTokens.length > 0 && args.length > indexedSlots
+            ? resolveIndexedArgs(args, indexedSlots, args.length - indexedSlots)
+            : null;
+
     let seqIndex = 0;
     return template.replace(SEQ, (match) => {
         // Literal percent.
@@ -56,6 +73,7 @@ export function formatTemplate(template: string, args: ReadonlyArray<TemplateArg
         // Indexed positional (%0..%9) — language reordering.
         if (/^%\d$/.test(match)) {
             const i = Number(match.charAt(1));
+            if (resolvedIndexed) return resolvedIndexed[i] ?? '';
             return formatArg(args[i], match);
         }
         // Color codes — strip.
@@ -83,6 +101,38 @@ export function formatTemplate(template: string, args: ReadonlyArray<TemplateArg
         const value = args[seqIndex++];
         return formatArg(value, match);
     });
+}
+
+// Map indexed templates onto logical slots, collapsing leading numeric `[min, max]`
+// pairs to `min-max` while the surplus (one extra arg per ranged value) lasts.
+function resolveIndexedArgs(
+    args: ReadonlyArray<TemplateArg>,
+    slots: number,
+    surplus: number,
+): string[] {
+    const resolved: string[] = [];
+    let p = 0;
+    let budget = surplus;
+    for (let i = 0; i < slots; i++) {
+        const min = args[p];
+        const max = args[p + 1];
+        if (
+            budget > 0 &&
+            typeof min === 'number' &&
+            typeof max === 'number' &&
+            Number.isFinite(min) &&
+            Number.isFinite(max)
+        ) {
+            const minStr = formatArg(min, '%d');
+            resolved.push(min === max ? minStr : `${minStr}-${formatArg(max, '%d')}`);
+            p += 2;
+            budget--;
+        } else {
+            resolved.push(formatArg(args[p], '%0'));
+            p += 1;
+        }
+    }
+    return resolved;
 }
 
 function formatArg(value: TemplateArg, token: string): string {
