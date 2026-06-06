@@ -56,7 +56,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -151,7 +151,7 @@
                 1
               ],
               "perLevel": true,
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -209,7 +209,7 @@
               "args": [
                 30
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -353,7 +353,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -444,7 +444,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -529,7 +529,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -668,7 +668,7 @@
                 0.5
               ],
               "perLevel": true,
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -762,7 +762,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -857,7 +857,7 @@
                 0.5
               ],
               "perLevel": true,
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -987,7 +987,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -1044,7 +1044,7 @@
               "args": [
                 30
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -1122,7 +1122,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -1195,7 +1195,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -1345,7 +1345,7 @@
                 10,
                 30
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -1433,7 +1433,7 @@
                 1,
                 30
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -1602,7 +1602,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -1749,7 +1749,7 @@
                 1
               ],
               "perLevel": true,
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -1845,7 +1845,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -1931,7 +1931,7 @@
                 2.5
               ],
               "perLevel": true,
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -2009,7 +2009,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -2147,7 +2147,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -2237,7 +2237,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -2544,7 +2544,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -2643,7 +2643,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -2727,7 +2727,7 @@
               "args": [
                 5
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -2804,7 +2804,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -2862,7 +2862,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -2989,7 +2989,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -3090,7 +3090,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -3168,7 +3168,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -3250,7 +3250,7 @@
               "args": [
                 100
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -3306,7 +3306,7 @@
               "args": [
                 100
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -3525,7 +3525,7 @@
               "args": [
                 5
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -3606,7 +3606,7 @@
                 1
               ],
               "perLevel": true,
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -3683,7 +3683,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -3768,7 +3768,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -3845,7 +3845,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -3997,7 +3997,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -4071,7 +4071,7 @@
                 10,
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -4165,7 +4165,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -4307,7 +4307,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -4379,7 +4379,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -4457,7 +4457,7 @@
               "args": [
                 30
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -4710,7 +4710,7 @@
                 10,
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -4850,7 +4850,7 @@
               "args": [
                 30
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -4943,7 +4943,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -5023,7 +5023,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -5080,7 +5080,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -5192,7 +5192,7 @@
                 20,
                 30
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -5282,7 +5282,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -5360,7 +5360,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -5435,7 +5435,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -5560,7 +5560,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -5610,7 +5610,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -5690,7 +5690,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -5768,7 +5768,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -5913,7 +5913,7 @@
                 25,
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -6010,7 +6010,7 @@
               "args": [
                 100
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -6019,7 +6019,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -6125,7 +6125,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -6134,7 +6134,7 @@
               "args": [
                 2
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -6234,7 +6234,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -6420,7 +6420,7 @@
                 "Skillname227",
                 "DruOnly"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -6429,7 +6429,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -6536,7 +6536,7 @@
                 "Skillname237",
                 "DruOnly"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -6545,7 +6545,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -6643,7 +6643,7 @@
                 20,
                 120
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -6652,7 +6652,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -6752,7 +6752,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -6761,7 +6761,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -6937,7 +6937,7 @@
               "args": [
                 2
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -7029,7 +7029,7 @@
               "args": [
                 40
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -7038,7 +7038,7 @@
               "args": [
                 40
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ],
           [
@@ -7047,7 +7047,7 @@
               "args": [
                 40
               ],
-              "itemsRequired": 3
+              "itemsRequired": 5
             }
           ],
           [
@@ -7056,7 +7056,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 4
+              "itemsRequired": 6
             }
           ]
         ],
@@ -7153,7 +7153,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -7162,7 +7162,7 @@
               "args": [
                 100
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ],
           [
@@ -7171,7 +7171,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 3
+              "itemsRequired": 5
             }
           ],
           [
@@ -7181,7 +7181,7 @@
                 2
               ],
               "classOnly": "BarOnly",
-              "itemsRequired": 4
+              "itemsRequired": 6
             }
           ]
         ],
@@ -7273,7 +7273,7 @@
               "args": [
                 120
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -7282,7 +7282,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ],
           [
@@ -7291,7 +7291,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 3
+              "itemsRequired": 5
             }
           ],
           [
@@ -7300,7 +7300,7 @@
               "args": [
                 2
               ],
-              "itemsRequired": 4
+              "itemsRequired": 6
             }
           ]
         ],
@@ -7391,7 +7391,7 @@
                 2
               ],
               "classOnly": "BarOnly",
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -7400,7 +7400,7 @@
               "args": [
                 160
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ],
           [
@@ -7409,7 +7409,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 3
+              "itemsRequired": 5
             }
           ]
         ],
@@ -7515,7 +7515,7 @@
                 10,
                 700
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -7525,7 +7525,7 @@
                 250,
                 500
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ],
           [
@@ -7535,7 +7535,7 @@
                 250,
                 500
               ],
-              "itemsRequired": 3
+              "itemsRequired": 5
             }
           ],
           [
@@ -7545,7 +7545,7 @@
                 50,
                 100
               ],
-              "itemsRequired": 4
+              "itemsRequired": 6
             }
           ]
         ],
@@ -7736,7 +7736,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -7833,7 +7833,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -7922,7 +7922,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -7931,7 +7931,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 3
+              "itemsRequired": 5
             }
           ]
         ],
@@ -8041,7 +8041,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -8143,7 +8143,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -8310,7 +8310,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -8400,7 +8400,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -8495,7 +8495,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -8505,7 +8505,7 @@
                 20,
                 40
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -8612,7 +8612,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -8791,7 +8791,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -8879,7 +8879,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -8888,7 +8888,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 5
             }
           ]
         ],
@@ -8982,7 +8982,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -8991,7 +8991,7 @@
               "args": [
                 30
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -9086,7 +9086,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -9192,7 +9192,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -9381,7 +9381,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -9390,7 +9390,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -9489,7 +9489,7 @@
               "args": [
                 30
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -9591,7 +9591,7 @@
                 150,
                 300
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ],
           [
@@ -9600,7 +9600,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 3
+              "itemsRequired": 5
             }
           ]
         ],
@@ -9685,7 +9685,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -9781,7 +9781,7 @@
                 8,
                 "Hailstorm"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -9790,7 +9790,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -10025,7 +10025,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -10105,7 +10105,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -10210,7 +10210,7 @@
                 10,
                 "Storm Pulse"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -10293,7 +10293,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -10448,7 +10448,7 @@
                 100,
                 200
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -10457,7 +10457,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -10570,7 +10570,7 @@
               "args": [
                 150
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -10667,7 +10667,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -10760,7 +10760,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -11002,7 +11002,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -11086,7 +11086,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -11172,7 +11172,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -11439,7 +11439,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -11530,7 +11530,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -11633,7 +11633,7 @@
                 3,
                 "Storm Shard"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -11805,7 +11805,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -11926,7 +11926,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -12012,7 +12012,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -12746,7 +12746,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -12857,7 +12857,7 @@
               "args": [
                 200
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -12950,7 +12950,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -13251,7 +13251,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -13847,7 +13847,7 @@
               "args": [
                 30
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -13948,7 +13948,7 @@
                 8
               ],
               "perLevel": true,
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -14025,7 +14025,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -14164,7 +14164,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -14265,7 +14265,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ],
           [
@@ -14274,7 +14274,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 3
+              "itemsRequired": 6
             }
           ]
         ],
@@ -14367,7 +14367,7 @@
               "args": [
                 7
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -14376,7 +14376,7 @@
               "args": [
                 7
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -14564,7 +14564,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -14573,7 +14573,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -14805,7 +14805,7 @@
                 2
               ],
               "classOnly": "AssOnly",
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -14943,7 +14943,7 @@
               "args": [
                 8
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -15168,7 +15168,7 @@
               "args": [
                 3
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -15177,7 +15177,7 @@
               "args": [
                 75
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -15243,7 +15243,7 @@
                 "Skillname225",
                 "DruOnly"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -15441,7 +15441,7 @@
                 8,
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -15516,7 +15516,7 @@
               "args": [
                 40
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -15705,7 +15705,7 @@
                 1
               ],
               "classOnly": "SorOnly",
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -15715,7 +15715,7 @@
                 1
               ],
               "classOnly": "SorOnly",
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -15796,7 +15796,7 @@
                 1
               ],
               "perLevel": true,
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -15869,7 +15869,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -15878,7 +15878,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -15962,7 +15962,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -16087,7 +16087,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -16160,7 +16160,7 @@
               "args": [
                 12
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -16211,7 +16211,7 @@
               "args": [
                 8
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -16220,7 +16220,7 @@
               "args": [
                 5
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -16394,7 +16394,7 @@
                 1
               ],
               "classOnly": "BarOnly",
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -16472,7 +16472,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -16615,7 +16615,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -16732,7 +16732,7 @@
               "args": [
                 3
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -16798,7 +16798,7 @@
                 3,
                 "skillname40"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -16883,7 +16883,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -16966,7 +16966,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -17159,7 +17159,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -17216,7 +17216,7 @@
               "args": [
                 8
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -17280,7 +17280,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -17471,7 +17471,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -17535,7 +17535,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -17599,7 +17599,7 @@
               "args": [
                 30
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -17608,7 +17608,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -17651,7 +17651,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -17756,7 +17756,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -17765,7 +17765,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -17838,7 +17838,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -17911,7 +17911,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -17991,7 +17991,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -18000,7 +18000,7 @@
               "args": [
                 75
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -18129,7 +18129,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ],
           [
@@ -18138,7 +18138,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 6
             }
           ]
         ],
@@ -18210,7 +18210,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 5
             }
           ]
         ],
@@ -18274,7 +18274,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -18283,7 +18283,7 @@
               "args": [
                 5
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -18346,7 +18346,7 @@
               "args": [
                 5
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ],
           [
@@ -18355,7 +18355,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 6
             }
           ]
         ],
@@ -18412,7 +18412,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -18421,7 +18421,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 5
             }
           ]
         ],
@@ -18500,7 +18500,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -18664,7 +18664,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -18742,7 +18742,7 @@
                 1,
                 "skillname64"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 5
             }
           ]
         ],
@@ -18851,7 +18851,7 @@
                 20,
                 "skillname93"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -18908,7 +18908,7 @@
                 1,
                 "skillname51"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -18918,7 +18918,7 @@
                 1
               ],
               "perLevel": true,
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -19006,7 +19006,7 @@
                 2,
                 "skillname154"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ],
           [
@@ -19015,7 +19015,7 @@
               "args": [
                 3
               ],
-              "itemsRequired": 2
+              "itemsRequired": 5
             }
           ]
         ],
@@ -19159,7 +19159,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -19232,7 +19232,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -19362,7 +19362,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 2
+              "itemsRequired": 5
             }
           ]
         ],
@@ -19440,7 +19440,7 @@
               "args": [
                 100
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -19449,7 +19449,7 @@
               "args": [
                 35
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -19604,7 +19604,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -19752,7 +19752,7 @@
                 50,
                 125
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -19761,7 +19761,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -19859,7 +19859,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -20005,7 +20005,7 @@
                 1
               ],
               "perLevel": true,
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -20163,7 +20163,7 @@
               "args": [
                 35
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -20250,7 +20250,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -20486,7 +20486,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -20495,7 +20495,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -20681,7 +20681,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 5
             }
           ]
         ],
@@ -20751,7 +20751,7 @@
                 25,
                 100
               ],
-              "itemsRequired": 2
+              "itemsRequired": 6
             }
           ]
         ],
@@ -21002,7 +21002,7 @@
               "args": [
                 5
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -21087,7 +21087,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -21323,7 +21323,7 @@
               "args": [
                 100
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -21333,7 +21333,7 @@
                 25,
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -21403,7 +21403,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -21490,7 +21490,7 @@
               "args": [
                 5
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -21499,7 +21499,7 @@
               "args": [
                 5
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -21873,7 +21873,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -21882,7 +21882,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -22111,7 +22111,7 @@
               "args": [
                 100
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -22196,7 +22196,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -22205,7 +22205,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -22273,7 +22273,7 @@
             {
               "key": "ModStr5z",
               "args": [],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -22413,7 +22413,7 @@
               "args": [
                 5
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -22501,7 +22501,7 @@
                 3,
                 "skillname69"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -22576,7 +22576,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -23043,7 +23043,7 @@
               "args": [
                 30
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -23132,7 +23132,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -23270,7 +23270,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -23279,7 +23279,7 @@
               "args": [
                 30
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -23372,7 +23372,7 @@
               "args": [
                 12
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -23381,7 +23381,7 @@
               "args": [
                 40
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -23499,7 +23499,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -23618,7 +23618,7 @@
                 7,
                 "skillname56"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -23697,7 +23697,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -23707,7 +23707,7 @@
                 16
               ],
               "perLevel": true,
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -23852,7 +23852,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -23861,7 +23861,7 @@
               "args": [
                 3
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -23948,7 +23948,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -23957,7 +23957,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -24049,7 +24049,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -24058,7 +24058,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -24166,7 +24166,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -24175,7 +24175,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -24262,7 +24262,7 @@
                 8,
                 "skillname44"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           []
@@ -24405,7 +24405,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -24424,7 +24424,7 @@
               "args": [
                 100
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ],
           [
@@ -24443,7 +24443,7 @@
                 1
               ],
               "perLevel": true,
-              "itemsRequired": 4
+              "itemsRequired": 5
             }
           ],
           [
@@ -24518,7 +24518,7 @@
               "args": [
                 120
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -24527,7 +24527,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ],
           [
@@ -24536,7 +24536,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ],
           [
@@ -24545,7 +24545,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 4
+              "itemsRequired": 5
             }
           ],
           [
@@ -24554,7 +24554,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 4
+              "itemsRequired": 5
             }
           ]
         ],
@@ -24619,7 +24619,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -24628,7 +24628,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ],
           [
@@ -24637,7 +24637,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ],
           [
@@ -24646,7 +24646,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 4
+              "itemsRequired": 5
             }
           ],
           [
@@ -24655,7 +24655,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 4
+              "itemsRequired": 5
             }
           ]
         ],
@@ -24720,7 +24720,7 @@
               "args": [
                 40
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -24729,7 +24729,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ],
           [
@@ -24738,7 +24738,7 @@
               "args": [
                 75
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ],
           [
@@ -24747,7 +24747,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 4
+              "itemsRequired": 5
             }
           ],
           [
@@ -24756,7 +24756,7 @@
               "args": [
                 110
               ],
-              "itemsRequired": 4
+              "itemsRequired": 5
             }
           ]
         ],
@@ -25023,7 +25023,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -25095,7 +25095,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -25104,7 +25104,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ],
           [
@@ -25115,7 +25115,7 @@
                 20,
                 "Skillname244"
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -25196,7 +25196,7 @@
               "args": [
                 6
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ],
           [
@@ -25207,7 +25207,7 @@
                 14,
                 "skillname48"
               ],
-              "itemsRequired": 3
+              "itemsRequired": 5
             }
           ]
         ],
@@ -25286,7 +25286,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -25297,7 +25297,7 @@
                 12,
                 "skillname56"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ],
           [
@@ -25306,7 +25306,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 3
+              "itemsRequired": 5
             }
           ]
         ],
@@ -25394,7 +25394,7 @@
               "args": [
                 2
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -25403,7 +25403,7 @@
               "args": [
                 135
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ],
           [
@@ -25412,7 +25412,7 @@
               "args": [
                 75
               ],
-              "itemsRequired": 3
+              "itemsRequired": 5
             }
           ]
         ],
@@ -25547,7 +25547,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -25556,7 +25556,7 @@
               "args": [
                 2
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -25651,7 +25651,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -25660,7 +25660,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -25740,7 +25740,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -25749,7 +25749,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ],
           [
@@ -25758,7 +25758,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 3
+              "itemsRequired": 5
             }
           ]
         ],
@@ -25839,7 +25839,7 @@
                 3,
                 "skillname29"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -25849,7 +25849,7 @@
                 3,
                 "skillname54"
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ],
           [
@@ -25858,7 +25858,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 3
+              "itemsRequired": 5
             }
           ]
         ],
@@ -25945,7 +25945,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -25954,7 +25954,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -26097,7 +26097,7 @@
               "args": [
                 23
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -26106,7 +26106,7 @@
               "args": [
                 35
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -26170,7 +26170,7 @@
               "args": [
                 22
               ],
-              "itemsRequired": 2
+              "itemsRequired": 5
             }
           ]
         ],
@@ -26247,7 +26247,7 @@
               "args": [
                 22
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -26256,7 +26256,7 @@
               "args": [
                 55
               ],
-              "itemsRequired": 2
+              "itemsRequired": 5
             }
           ]
         ],
@@ -26353,7 +26353,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -26362,7 +26362,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -26452,7 +26452,7 @@
               "args": [
                 77
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ],
           [
@@ -26461,7 +26461,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 3
+              "itemsRequired": 5
             }
           ]
         ],
@@ -26619,7 +26619,7 @@
               "args": [
                 2
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -26731,7 +26731,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -26740,7 +26740,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -26829,7 +26829,7 @@
               "args": [
                 75
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ],
           [
@@ -26838,7 +26838,7 @@
               "args": [
                 75
               ],
-              "itemsRequired": 2
+              "itemsRequired": 5
             }
           ]
         ],
@@ -26924,7 +26924,7 @@
               "args": [
                 35
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -26976,7 +26976,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -26985,7 +26985,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -27144,7 +27144,7 @@
                 50,
                 100
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -27252,7 +27252,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -27338,7 +27338,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -27432,7 +27432,7 @@
                 5,
                 "skillname127"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -27441,7 +27441,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -27590,7 +27590,7 @@
                 4
               ],
               "perLevel": true,
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -27748,7 +27748,7 @@
               "args": [
                 30
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -27977,7 +27977,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -28043,7 +28043,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -28053,7 +28053,7 @@
                 4,
                 "skillname109"
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -28145,7 +28145,7 @@
               "args": [
                 70
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -28230,7 +28230,7 @@
               "args": [
                 18
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -28239,7 +28239,7 @@
               "args": [
                 3
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -28974,7 +28974,7 @@
                 1,
                 "skillname44"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -29052,7 +29052,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -29061,7 +29061,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -29119,7 +29119,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -29192,7 +29192,7 @@
                 16,
                 "skillname42"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -29201,7 +29201,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -29294,7 +29294,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -29604,7 +29604,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -29681,7 +29681,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ],
           [
@@ -29690,7 +29690,7 @@
               "args": [
                 44
               ],
-              "itemsRequired": 2
+              "itemsRequired": 5
             }
           ]
         ],
@@ -29838,7 +29838,7 @@
                 50,
                 120
               ],
-              "itemsRequired": 2
+              "itemsRequired": 6
             }
           ]
         ],
@@ -30058,7 +30058,7 @@
               "args": [
                 5
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -30135,7 +30135,7 @@
               "args": [
                 35
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -30212,7 +30212,7 @@
               "args": [
                 5
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -30222,7 +30222,7 @@
                 1,
                 "skillname151"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -30361,7 +30361,7 @@
                 50,
                 100
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -30371,7 +30371,7 @@
                 1,
                 "skillname37"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -30451,7 +30451,7 @@
                 100,
                 200
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -30462,7 +30462,7 @@
                 5,
                 "Skillname259"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ],
           [
@@ -30472,7 +30472,7 @@
                 100,
                 200
               ],
-              "itemsRequired": 3
+              "itemsRequired": 5
             }
           ]
         ],
@@ -30573,7 +30573,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -30582,7 +30582,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -30671,7 +30671,7 @@
                 100,
                 150
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -30681,7 +30681,7 @@
                 10,
                 300
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -30793,7 +30793,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -30802,7 +30802,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ],
           [
@@ -30811,7 +30811,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 3
+              "itemsRequired": 5
             }
           ],
           [
@@ -30820,7 +30820,7 @@
               "args": [
                 250
               ],
-              "itemsRequired": 4
+              "itemsRequired": 6
             }
           ]
         ],
@@ -30894,7 +30894,7 @@
                 10,
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -30903,7 +30903,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ],
           [
@@ -30913,7 +30913,7 @@
                 1.5
               ],
               "perLevel": true,
-              "itemsRequired": 3
+              "itemsRequired": 5
             }
           ],
           [
@@ -30922,7 +30922,7 @@
               "args": [
                 313
               ],
-              "itemsRequired": 4
+              "itemsRequired": 6
             }
           ]
         ],
@@ -31006,7 +31006,7 @@
               "args": [
                 33
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -31015,7 +31015,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ],
           [
@@ -31025,7 +31025,7 @@
                 25,
                 200
               ],
-              "itemsRequired": 3
+              "itemsRequired": 6
             }
           ]
         ],
@@ -31109,7 +31109,7 @@
               "args": [
                 33
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -31118,7 +31118,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ],
           [
@@ -31128,7 +31128,7 @@
                 100,
                 150
               ],
-              "itemsRequired": 3
+              "itemsRequired": 6
             }
           ]
         ],
@@ -31313,7 +31313,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 2
+              "itemsRequired": 6
             }
           ],
           [
@@ -31322,7 +31322,7 @@
               "args": [
                 2
               ],
-              "itemsRequired": 2
+              "itemsRequired": 6
             }
           ]
         ],
@@ -31462,7 +31462,7 @@
                 1
               ],
               "perLevel": true,
-              "itemsRequired": 2
+              "itemsRequired": 5
             }
           ]
         ],
@@ -31539,7 +31539,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -31706,7 +31706,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -31715,7 +31715,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ],
           [
@@ -31724,7 +31724,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 3
+              "itemsRequired": 5
             }
           ]
         ],
@@ -31793,7 +31793,7 @@
               "args": [
                 100
               ],
-              "itemsRequired": 2
+              "itemsRequired": 5
             }
           ]
         ],
@@ -32168,7 +32168,7 @@
               "args": [
                 4
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -32315,7 +32315,7 @@
                 30,
                 "skillname40"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -32405,7 +32405,7 @@
                 10,
                 "skillname42"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -32415,7 +32415,7 @@
                 50,
                 150
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -32538,7 +32538,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -32547,7 +32547,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -32637,7 +32637,7 @@
               "args": [
                 30
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -32655,7 +32655,7 @@
               "args": [
                 30
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -32872,7 +32872,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -33104,7 +33104,7 @@
                 5
               ],
               "perLevel": true,
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -33182,7 +33182,7 @@
               "args": [
                 6
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -33403,7 +33403,7 @@
               "args": [
                 3
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -33571,7 +33571,7 @@
               "args": [
                 40
               ],
-              "itemsRequired": 2
+              "itemsRequired": 5
             }
           ]
         ],
@@ -33622,7 +33622,7 @@
                 1,
                 "skillname87"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 5
             }
           ],
           [
@@ -33631,7 +33631,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 2
+              "itemsRequired": 6
             }
           ]
         ],
@@ -33768,7 +33768,7 @@
               "args": [
                 30
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -33777,7 +33777,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ],
           [
@@ -33787,7 +33787,7 @@
                 0.62
               ],
               "perLevel": true,
-              "itemsRequired": 3
+              "itemsRequired": 5
             }
           ],
           [
@@ -33797,7 +33797,7 @@
                 1
               ],
               "perLevel": true,
-              "itemsRequired": 4
+              "itemsRequired": 6
             }
           ]
         ],
@@ -34407,7 +34407,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -34416,7 +34416,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -34500,7 +34500,7 @@
               "args": [
                 30
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -34509,7 +34509,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -34714,7 +34714,7 @@
               "args": [
                 200
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ],
           [
@@ -34723,7 +34723,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 5
             }
           ]
         ],
@@ -34802,7 +34802,7 @@
                 25,
                 75
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -34893,7 +34893,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 5
             }
           ]
         ],
@@ -35256,7 +35256,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -35346,7 +35346,7 @@
               "args": [
                 30
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -35636,7 +35636,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -35645,7 +35645,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -35952,7 +35952,7 @@
                 25,
                 75
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -36061,7 +36061,7 @@
               "args": [
                 30
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -36139,7 +36139,7 @@
               "args": [
                 100
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -36267,7 +36267,7 @@
               "args": [
                 8
               ],
-              "itemsRequired": 2
+              "itemsRequired": 5
             }
           ]
         ],
@@ -36353,7 +36353,7 @@
                 6,
                 "skillname24"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -36546,7 +36546,7 @@
                 1,
                 "skillname59"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -36556,7 +36556,7 @@
                 1,
                 "skillname64"
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -36633,7 +36633,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -36860,7 +36860,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -37066,7 +37066,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -37462,7 +37462,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -37539,7 +37539,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -37549,7 +37549,7 @@
                 2
               ],
               "classOnly": "WarOnly",
-              "itemsRequired": 2
+              "itemsRequired": 5
             }
           ]
         ],
@@ -37640,7 +37640,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -37649,7 +37649,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ],
           [
@@ -37658,7 +37658,7 @@
               "args": [
                 150
               ],
-              "itemsRequired": 3
+              "itemsRequired": 5
             }
           ]
         ],
@@ -37736,7 +37736,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -37745,7 +37745,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 3
+              "itemsRequired": 5
             }
           ]
         ],
@@ -37817,7 +37817,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -37827,7 +37827,7 @@
                 2
               ],
               "classOnly": "WarOnly",
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -38055,7 +38055,7 @@
                 40,
                 80
               ],
-              "itemsRequired": 2
+              "itemsRequired": 5
             }
           ]
         ],
@@ -38299,7 +38299,7 @@
               "args": [
                 30
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -38308,7 +38308,7 @@
               "args": [
                 33
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ],
           [
@@ -38318,7 +38318,7 @@
                 8,
                 15
               ],
-              "itemsRequired": 3
+              "itemsRequired": 5
             }
           ],
           [
@@ -38327,7 +38327,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 4
+              "itemsRequired": 6
             }
           ]
         ],
@@ -38407,7 +38407,7 @@
               "args": [
                 33
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ],
           [
@@ -38416,7 +38416,7 @@
               "args": [
                 33
               ],
-              "itemsRequired": 2
+              "itemsRequired": 5
             }
           ]
         ],
@@ -38565,7 +38565,7 @@
               "args": [
                 100
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -38649,7 +38649,7 @@
                 3
               ],
               "perLevel": true,
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -38748,7 +38748,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -38826,7 +38826,7 @@
                 3,
                 "skillname127"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -38920,7 +38920,7 @@
               "args": [
                 100
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -39066,7 +39066,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -39161,7 +39161,7 @@
                 10,
                 "skillname6"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -39171,7 +39171,7 @@
                 10,
                 "skillname22"
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ],
           [
@@ -39180,7 +39180,7 @@
               "args": [
                 200
               ],
-              "itemsRequired": 3
+              "itemsRequired": 5
             }
           ]
         ],
@@ -39280,7 +39280,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -39362,7 +39362,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -39447,7 +39447,7 @@
               "args": [
                 30
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -39456,7 +39456,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -39929,7 +39929,7 @@
               "args": [
                 30
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -39939,7 +39939,7 @@
                 1,
                 100
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -40070,7 +40070,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -40079,7 +40079,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -40176,7 +40176,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -40274,7 +40274,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -40364,7 +40364,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -40593,7 +40593,7 @@
                 256,
                 500
               ],
-              "itemsRequired": 2
+              "itemsRequired": 5
             }
           ]
         ],
@@ -40759,7 +40759,7 @@
               "args": [
                 30
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -40845,7 +40845,7 @@
               "args": [
                 65
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -40996,15 +40996,6 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
-            }
-          ],
-          [
-            {
-              "key": "Moditemenresfiresk",
-              "args": [
-                20
-              ],
               "itemsRequired": 3
             }
           ],
@@ -41014,7 +41005,16 @@
               "args": [
                 20
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
+            }
+          ],
+          [
+            {
+              "key": "Moditemenresfiresk",
+              "args": [
+                20
+              ],
+              "itemsRequired": 5
             }
           ]
         ],
@@ -41092,15 +41092,6 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
-            }
-          ],
-          [
-            {
-              "key": "Moditemenrescoldsk",
-              "args": [
-                20
-              ],
               "itemsRequired": 3
             }
           ],
@@ -41110,7 +41101,16 @@
               "args": [
                 20
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
+            }
+          ],
+          [
+            {
+              "key": "Moditemenrescoldsk",
+              "args": [
+                20
+              ],
+              "itemsRequired": 5
             }
           ]
         ],
@@ -41189,15 +41189,6 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
-            }
-          ],
-          [
-            {
-              "key": "Moditemenresltngsk",
-              "args": [
-                20
-              ],
               "itemsRequired": 3
             }
           ],
@@ -41207,7 +41198,16 @@
               "args": [
                 20
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
+            }
+          ],
+          [
+            {
+              "key": "Moditemenresltngsk",
+              "args": [
+                20
+              ],
+              "itemsRequired": 5
             }
           ]
         ],
@@ -41285,15 +41285,6 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
-            }
-          ],
-          [
-            {
-              "key": "Moditemenrespoissk",
-              "args": [
-                20
-              ],
               "itemsRequired": 3
             }
           ],
@@ -41303,7 +41294,16 @@
               "args": [
                 20
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
+            }
+          ],
+          [
+            {
+              "key": "Moditemenrespoissk",
+              "args": [
+                20
+              ],
+              "itemsRequired": 5
             }
           ]
         ],
@@ -41385,7 +41385,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -41476,7 +41476,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -41486,7 +41486,7 @@
                 50,
                 100
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ],
           [
@@ -41495,7 +41495,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ],
           [
@@ -41504,7 +41504,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 4
+              "itemsRequired": 5
             }
           ]
         ],
@@ -41739,7 +41739,7 @@
                 150,
                 300
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -41836,7 +41836,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -41921,7 +41921,7 @@
               "args": [
                 25
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -42160,7 +42160,7 @@
                 100,
                 200
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -42170,7 +42170,7 @@
                 100,
                 200
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ],
           [
@@ -42180,7 +42180,7 @@
                 64,
                 200
               ],
-              "itemsRequired": 3
+              "itemsRequired": 5
             }
           ],
           [
@@ -42189,7 +42189,7 @@
               "args": [
                 250
               ],
-              "itemsRequired": 4
+              "itemsRequired": 6
             }
           ]
         ],
@@ -42296,7 +42296,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -42305,7 +42305,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ],
           [
@@ -42314,7 +42314,7 @@
               "args": [
                 35
               ],
-              "itemsRequired": 3
+              "itemsRequired": 5
             }
           ]
         ],
@@ -42395,7 +42395,7 @@
               "args": [
                 35
               ],
-              "itemsRequired": 2
+              "itemsRequired": 5
             }
           ]
         ],
@@ -42734,7 +42734,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -42848,7 +42848,7 @@
                 8,
                 "skillname35"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -43013,7 +43013,7 @@
               "args": [
                 40
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -43064,7 +43064,7 @@
               "args": [
                 40
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -43117,7 +43117,7 @@
               "args": [
                 40
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -43238,7 +43238,7 @@
                 "skillname84",
                 "NecOnly"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -43331,7 +43331,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -43423,7 +43423,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -43432,7 +43432,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ],
           [
@@ -43441,7 +43441,7 @@
               "args": [
                 10
               ],
-              "itemsRequired": 3
+              "itemsRequired": 5
             }
           ]
         ],
@@ -43526,7 +43526,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -43625,7 +43625,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 2
+              "itemsRequired": 5
             }
           ]
         ],
@@ -43781,7 +43781,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -43859,7 +43859,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -43965,7 +43965,7 @@
               "args": [
                 2
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -43974,7 +43974,7 @@
               "args": [
                 2
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -44091,7 +44091,7 @@
               "args": [
                 2
               ],
-              "itemsRequired": 2
+              "itemsRequired": 4
             }
           ]
         ],
@@ -44212,7 +44212,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -44221,7 +44221,7 @@
               "args": [
                 3
               ],
-              "itemsRequired": 3
+              "itemsRequired": 4
             }
           ]
         ],
@@ -44465,7 +44465,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ],
           [
@@ -44690,7 +44690,7 @@
               "args": [
                 1
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -44787,7 +44787,7 @@
               "args": [
                 20
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -44923,7 +44923,7 @@
                 20,
                 "Skillname246"
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -45179,7 +45179,7 @@
               "args": [
                 15
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
@@ -45373,7 +45373,7 @@
               "args": [
                 50
               ],
-              "itemsRequired": 2
+              "itemsRequired": 3
             }
           ]
         ],
