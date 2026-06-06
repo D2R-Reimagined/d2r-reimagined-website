@@ -44,15 +44,7 @@ const FORMAT_LITERAL_KEYS = [
 // UI_STRINGS). Listing them here lets the rest of the suite enforce 100%
 // coverage; the stale-entry check below makes sure entries are removed once
 // the gap is closed.
-const KNOWN_MISSING: ReadonlyArray<string> = [
-    // Affix-name keys emitted by `magicprefix.json` for six new mod affixes.
-    'Virulent-Affix1', 'Virulent-Affix2',
-    'Gelid-Affix1', 'Gelid-Affix2',
-    'Magnetic-Affix1', 'Magnetic-Affix2',
-    'Incendiary-Affix1', 'Incendiary-Affix2',
-    'Breaching-Affix1', 'Breaching-Affix2',
-    'Mystical-Affix1', 'Mystical-Affix2',
-];
+const KNOWN_MISSING: ReadonlyArray<string> = [];
 
 type KeyedLineLike = { key: string; args: unknown[]; classOnly?: unknown };
 
