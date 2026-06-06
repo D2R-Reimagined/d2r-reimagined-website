@@ -26,17 +26,28 @@ const SEQ = /%(?:\+d|d|D|s|S|i|c\d|\d|%)/g;
 export function formatTemplate(template: string, args: ReadonlyArray<TemplateArg> = []): string {
     if (!template) return '';
 
-    // Count sequential (non-indexed, non-color, non-literal) placeholders.
-    // When args carries exactly twice as many values as sequential placeholders,
-    // each consumed token represents a [min, max] pair and should render as a
-    // "min-max" range. This is how the exporter ships ranged item properties
-    // (e.g. `strModEnhancedDamage` with args [150, 250] for "+150-250%
-    // Enhanced Weapon Damage").
+    // Sequential (non-indexed, non-color, non-literal) placeholders are filled
+    // left-to-right from `args`. The exporter ships ranged item properties as a
+    // `[min, max]` pair per ranged value (e.g. `strModEnhancedDamage` args
+    // [150, 250] -> "+150-250% Enhanced Damage"); equal min/max collapse to a
+    // single number (the exporter already drops the max in that case).
+    //
+    // Templates mix a single numeric token with string tokens (e.g. descfunc
+    // 16/20/28: "Level %d %s ...", shipped as `[min, max, skillName]`). Here
+    // `args` carries one extra value beyond the placeholder count — the
+    // "surplus" — and that surplus must be absorbed by the numeric tokens, each
+    // of which then consumes a `[min, max]` pair. String tokens always consume a
+    // single arg. We only collapse as many leading numeric tokens as the surplus
+    // allows, so a fixed `%d` followed by a `%s` skill name renders correctly
+    // whether or not the numeric value is a range.
     const tokens = template.match(SEQ) ?? [];
-    const sequentialCount = tokens.filter(
+    const sequential = tokens.filter(
         (m) => m !== '%%' && !/^%\d$/.test(m) && !/^%c\d$/.test(m),
-    ).length;
-    const rangeMode = sequentialCount > 0 && args.length === sequentialCount * 2;
+    );
+    const isNumericToken = (m: string) => m === '%+d' || /^%[dDi]$/.test(m);
+    const numericCount = sequential.filter(isNumericToken).length;
+    // Number of numeric tokens that should consume a [min, max] pair.
+    let pairBudget = Math.max(0, Math.min(args.length - sequential.length, numericCount));
 
     let seqIndex = 0;
     return template.replace(SEQ, (match) => {
@@ -49,8 +60,9 @@ export function formatTemplate(template: string, args: ReadonlyArray<TemplateArg
         }
         // Color codes — strip.
         if (/^%c\d$/.test(match)) return '';
-        // Sequential tokens consume from a running cursor.
-        if (rangeMode) {
+        // Numeric tokens absorb a [min, max] pair while the surplus budget lasts.
+        if (isNumericToken(match) && pairBudget > 0) {
+            pairBudget--;
             const min = args[seqIndex++];
             const max = args[seqIndex++];
             const minStr = formatArg(min, match);

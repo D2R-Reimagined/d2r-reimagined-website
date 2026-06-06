@@ -6302,6 +6302,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           1,
+          3,
           "skillname96"
         ]
       },
@@ -8553,6 +8554,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           2,
+          3,
           "skillname69"
         ]
       },
@@ -8560,6 +8562,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           2,
+          3,
           "skillname70"
         ]
       },
@@ -8669,6 +8672,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           5,
+          7,
           "skillname75"
         ]
       },
@@ -8936,6 +8940,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           3,
+          5,
           "skillname70"
         ]
       },
@@ -10336,6 +10341,7 @@
         "key": "ModitemAura",
         "args": [
           3,
+          5,
           "skillname103"
         ]
       },
@@ -11548,6 +11554,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           3,
+          5,
           "skillname96"
         ]
       },
@@ -11889,6 +11896,7 @@
         "key": "ModitemAura",
         "args": [
           1,
+          3,
           "skillname104"
         ]
       },
@@ -11993,6 +12001,7 @@
         "key": "ModitemAura",
         "args": [
           1,
+          2,
           "skillname102"
         ]
       },
@@ -14029,6 +14038,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           1,
+          3,
           "skillname96"
         ]
       },
@@ -14506,6 +14516,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           1,
+          2,
           "skillname15"
         ]
       },
@@ -15000,6 +15011,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           1,
+          2,
           "skillname98"
         ]
       },
@@ -15375,6 +15387,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           2,
+          3,
           "Skillname227"
         ]
       },
@@ -15738,6 +15751,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           2,
+          3,
           "skillname58"
         ]
       },
@@ -16229,6 +16243,7 @@
         "key": "ModitemAura",
         "args": [
           2,
+          5,
           "skillname103"
         ]
       },
@@ -18253,6 +18268,7 @@
         "key": "ModitemAura",
         "args": [
           3,
+          5,
           "skillname114"
         ]
       },
@@ -18477,6 +18493,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           1,
+          5,
           "skillname73"
         ]
       },
@@ -18903,6 +18920,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           1,
+          5,
           "skillname106"
         ]
       },
@@ -19813,6 +19831,7 @@
         "key": "ModitemAura",
         "args": [
           3,
+          5,
           "skillname99"
         ]
       },
@@ -20063,6 +20082,7 @@
         "key": "ModitemAura",
         "args": [
           2,
+          3,
           "skillname103"
         ]
       },
@@ -21992,6 +22012,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           1,
+          3,
           "Skillname228"
         ]
       },
@@ -25487,6 +25508,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           2,
+          3,
           "skillname6"
         ]
       },
@@ -25585,6 +25607,7 @@
         "key": "ModitemAura",
         "args": [
           3,
+          5,
           "skillname102"
         ]
       },
@@ -26285,6 +26308,7 @@
         "key": "ModitemAura",
         "args": [
           5,
+          7,
           "skillname99"
         ]
       },
@@ -26771,6 +26795,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           1,
+          3,
           "skillname37"
         ]
       },
@@ -26778,6 +26803,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           1,
+          3,
           "skillname40"
         ]
       },
@@ -26785,6 +26811,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           1,
+          3,
           "skillname68"
         ]
       },
@@ -26792,6 +26819,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           1,
+          3,
           "Skillname236"
         ]
       },
@@ -28156,6 +28184,7 @@
         "key": "ModitemAura",
         "args": [
           1,
+          3,
           "skillname104"
         ]
       },
@@ -28800,6 +28829,7 @@
         "key": "ModitemAura",
         "args": [
           1,
+          3,
           "skillname118"
         ]
       },
@@ -31843,6 +31873,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           3,
+          6,
           "skillname12"
         ]
       },
@@ -32210,6 +32241,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           6,
+          10,
           "skillname41"
         ]
       },
@@ -33911,6 +33943,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           5,
+          10,
           "skillname69"
         ]
       },
@@ -33918,6 +33951,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           3,
+          5,
           "skillname80"
         ]
       },
@@ -33964,6 +33998,7 @@
         "key": "ModitemAura",
         "args": [
           3,
+          5,
           "skillname98"
         ]
       },
@@ -34349,6 +34384,7 @@
         "key": "ModitemAura",
         "args": [
           2,
+          3,
           "skillname102"
         ]
       },
@@ -34356,6 +34392,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           2,
+          3,
           "skillname16"
         ]
       },
@@ -34670,6 +34707,7 @@
         "key": "ModitemAura",
         "args": [
           10,
+          15,
           "skillname103"
         ]
       },
@@ -35978,6 +36016,7 @@
         "key": "ModitemAura",
         "args": [
           3,
+          5,
           "skillname98"
         ]
       },
@@ -36380,6 +36419,7 @@
         "key": "ModitemAura",
         "args": [
           2,
+          3,
           "skillname115"
         ]
       },
@@ -37789,6 +37829,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           2,
+          3,
           "skillname26"
         ]
       },
@@ -38107,6 +38148,7 @@
         "key": "ModitemAura",
         "args": [
           3,
+          6,
           "skillname109"
         ]
       },
@@ -38980,6 +39022,7 @@
         "key": "ModitemAura",
         "args": [
           2,
+          4,
           "skillname119"
         ]
       },
@@ -39273,6 +39316,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           2,
+          3,
           "skillname126"
         ]
       },
@@ -39471,6 +39515,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           5,
+          10,
           "Skillname222"
         ]
       },
@@ -39964,6 +40009,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           3,
+          5,
           "skillname22"
         ]
       },
@@ -40371,6 +40417,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           2,
+          5,
           "skillname85"
         ]
       },
@@ -40446,6 +40493,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           2,
+          4,
           "skillname86"
         ]
       },
@@ -44028,6 +44076,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           3,
+          5,
           "Skillname278"
         ]
       },
@@ -44232,6 +44281,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           1,
+          4,
           "skillname74"
         ]
       },
@@ -44692,6 +44742,7 @@
         "key": "ModitemAura",
         "args": [
           3,
+          5,
           "skillname114"
         ]
       },
@@ -45212,6 +45263,7 @@
         "key": "ModitemAura",
         "args": [
           3,
+          6,
           "skillname109"
         ]
       },
@@ -47068,6 +47120,7 @@
         "key": "ModitemAura",
         "args": [
           5,
+          7,
           "skillname102"
         ]
       },
@@ -49091,6 +49144,7 @@
         "key": "ModitemAura",
         "args": [
           2,
+          3,
           "skillname98"
         ]
       },
@@ -49178,6 +49232,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           2,
+          5,
           "skillname21"
         ]
       },
@@ -49261,6 +49316,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           3,
+          5,
           "skillname22"
         ]
       },
@@ -49369,6 +49425,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           3,
+          5,
           "skillname70"
         ]
       },
@@ -49376,6 +49433,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           5,
+          8,
           "skillname69"
         ]
       },
@@ -50196,6 +50254,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           2,
+          5,
           "skillname69"
         ]
       },
@@ -50203,6 +50262,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           2,
+          3,
           "skillname70"
         ]
       },
@@ -54291,6 +54351,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           2,
+          4,
           "skillname111"
         ]
       },
@@ -54864,6 +54925,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           1,
+          3,
           "skillname87"
         ]
       },
@@ -55413,6 +55475,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           3,
+          5,
           "skillname16"
         ]
       },
@@ -56629,6 +56692,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           5,
+          8,
           "skillname69"
         ]
       },
@@ -58182,6 +58246,7 @@
         "key": "ModitemAura",
         "args": [
           5,
+          10,
           "skillname118"
         ]
       },
@@ -58475,6 +58540,7 @@
         "key": "ModitemAura",
         "args": [
           5,
+          10,
           "skillname118"
         ]
       },
@@ -58593,6 +58659,7 @@
         "key": "ModitemAura",
         "args": [
           5,
+          10,
           "skillname109"
         ]
       },
@@ -59171,6 +59238,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           5,
+          10,
           "skillname154"
         ]
       },
@@ -59178,6 +59246,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           5,
+          10,
           "skillname130"
         ]
       },
@@ -60468,6 +60537,7 @@
         "key": "Moditemreanimas",
         "args": [
           5,
+          10,
           "Wight"
         ]
       }
@@ -60537,6 +60607,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           5,
+          8,
           "Skillname225"
         ]
       },
@@ -60544,6 +60615,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           5,
+          8,
           "Skillname224"
         ]
       },
@@ -60551,6 +60623,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           1,
+          3,
           "Skillname249"
         ]
       },
@@ -64367,6 +64440,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           10,
+          15,
           "skillname47"
         ]
       },
@@ -64737,6 +64811,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           2,
+          3,
           "skillname117"
         ]
       },
@@ -65585,6 +65660,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           5,
+          10,
           "skillname94"
         ]
       },
@@ -65667,6 +65743,7 @@
         "key": "ModitemAura",
         "args": [
           3,
+          6,
           "skillname120"
         ]
       },
@@ -65674,6 +65751,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           3,
+          5,
           "Skillname222"
         ]
       },
@@ -67236,6 +67314,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           3,
+          5,
           "skillname17"
         ]
       },
@@ -67551,6 +67630,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           8,
+          10,
           "skillname83"
         ]
       },
@@ -69797,6 +69877,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           3,
+          5,
           "Skillname225"
         ]
       },
@@ -69804,6 +69885,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           3,
+          5,
           "Skillname249"
         ]
       },
@@ -70198,6 +70280,7 @@
         "key": "ModitemAura",
         "args": [
           9,
+          15,
           "skillname118"
         ]
       },
@@ -70486,6 +70569,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           1,
+          3,
           "skillname111"
         ]
       },
@@ -70573,6 +70657,7 @@
         "key": "ModitemAura",
         "args": [
           1,
+          4,
           "skillname119"
         ]
       },
@@ -71126,6 +71211,7 @@
         "key": "ModitemAura",
         "args": [
           5,
+          8,
           "skillname104"
         ]
       },
@@ -72851,6 +72937,7 @@
         "key": "ModitemAura",
         "args": [
           1,
+          6,
           "skillname99"
         ]
       },
@@ -73583,6 +73670,7 @@
         "key": "ModitemAura",
         "args": [
           3,
+          5,
           "skillname122"
         ]
       },
@@ -74044,6 +74132,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           1,
+          3,
           "skillname32"
         ]
       },
@@ -75577,6 +75666,7 @@
         "key": "ModitemAura",
         "args": [
           5,
+          10,
           "skillname102"
         ]
       },
@@ -75802,6 +75892,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           3,
+          5,
           "skillname31"
         ]
       },
@@ -76128,6 +76219,7 @@
         "key": "Moditemreanimas",
         "args": [
           10,
+          15,
           "Afflicted"
         ]
       },
@@ -76283,6 +76375,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           7,
+          12,
           "skillname151"
         ]
       },
@@ -77658,6 +77751,7 @@
         "key": "ModitemAura",
         "args": [
           10,
+          15,
           "skillname102"
         ]
       },
@@ -77978,6 +78072,7 @@
         "key": "ModitemAura",
         "args": [
           5,
+          7,
           "skillname114"
         ]
       },
@@ -79037,6 +79132,7 @@
         "key": "ModitemAura",
         "args": [
           8,
+          12,
           "skillname118"
         ]
       },
@@ -79044,6 +79140,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           4,
+          7,
           "skillname93"
         ]
       },
@@ -80039,6 +80136,7 @@
         "key": "ModitemAura",
         "args": [
           2,
+          3,
           "skillname113"
         ]
       },
@@ -80320,6 +80418,7 @@
         "key": "ModitemAura",
         "args": [
           5,
+          15,
           "skillname99"
         ]
       },
@@ -81332,6 +81431,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           5,
+          10,
           "skillname69"
         ]
       },
@@ -81339,6 +81439,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           3,
+          5,
           "skillname70"
         ]
       },
@@ -81346,6 +81447,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           3,
+          5,
           "skillname80"
         ]
       },
@@ -81433,6 +81535,7 @@
         "key": "ModitemAura",
         "args": [
           2,
+          4,
           "skillname120"
         ]
       },
@@ -81953,6 +82056,7 @@
         "key": "ModitemAura",
         "args": [
           1,
+          2,
           "skillname122"
         ]
       },
@@ -82687,6 +82791,7 @@
         "key": "ModitemAura",
         "args": [
           1,
+          6,
           "skillname113"
         ]
       },
@@ -83834,6 +83939,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           5,
+          8,
           "skillname70"
         ]
       },
@@ -83841,6 +83947,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           5,
+          8,
           "skillname80"
         ]
       },
@@ -84041,6 +84148,7 @@
         "key": "ModitemAura",
         "args": [
           2,
+          3,
           "skillname98"
         ]
       },
@@ -84566,6 +84674,7 @@
         "key": "ModitemAura",
         "args": [
           5,
+          10,
           "skillname108"
         ]
       },
@@ -85197,6 +85306,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           3,
+          5,
           "skillname35"
         ]
       },
@@ -85331,6 +85441,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           1,
+          3,
           "skillname80"
         ]
       },
@@ -85338,6 +85449,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           1,
+          3,
           "Skillname248"
         ]
       },
@@ -86872,6 +86984,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           1,
+          3,
           "skillname12"
         ]
       },
@@ -88021,6 +88134,7 @@
         "key": "ModitemAura",
         "args": [
           10,
+          15,
           "skillname103"
         ]
       },
@@ -88211,6 +88325,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           15,
+          20,
           "skillname41"
         ]
       },
@@ -88921,6 +89036,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           2,
+          3,
           "skillname122"
         ]
       },
@@ -89111,6 +89227,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           2,
+          3,
           "Skillname259"
         ]
       },
@@ -89669,6 +89786,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           2,
+          4,
           "Skillname268"
         ]
       },
@@ -90700,6 +90818,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           5,
+          8,
           "skillname15"
         ]
       },
@@ -90707,6 +90826,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           5,
+          8,
           "skillname25"
         ]
       },
@@ -92953,6 +93073,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           10,
+          20,
           "skillname152"
         ]
       },
@@ -92974,6 +93095,7 @@
         "key": "Moditemreanimas",
         "args": [
           5,
+          10,
           "Wight"
         ]
       },
@@ -93494,6 +93616,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           5,
+          10,
           "skillname151"
         ]
       },
@@ -93698,6 +93821,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           5,
+          12,
           "skillname69"
         ]
       },
@@ -93705,6 +93829,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           5,
+          8,
           "skillname89"
         ]
       },
@@ -95951,6 +96076,7 @@
         "key": "ModitemAura",
         "args": [
           5,
+          10,
           "skillname120"
         ]
       },
@@ -96809,6 +96935,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           3,
+          5,
           "skillname82"
         ]
       },
@@ -97852,6 +97979,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           3,
+          5,
           "skillname22"
         ]
       },
@@ -99697,6 +99825,7 @@
         "key": "ModitemAura",
         "args": [
           2,
+          5,
           "skillname119"
         ]
       },
@@ -100385,6 +100514,7 @@
         "key": "ModitemAura",
         "args": [
           8,
+          10,
           "skillname103"
         ]
       },
@@ -102264,6 +102394,7 @@
         "key": "ModitemAura",
         "args": [
           5,
+          10,
           "skillname114"
         ]
       },
@@ -102473,6 +102604,7 @@
         "key": "ModitemAura",
         "args": [
           2,
+          3,
           "skillname122"
         ]
       },
@@ -103152,6 +103284,7 @@
         "key": "ModitemAura",
         "args": [
           10,
+          15,
           "skillname103"
         ]
       },
@@ -104123,6 +104256,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           20,
+          30,
           "Skillname251"
         ]
       },
@@ -104239,6 +104373,7 @@
         "key": "ModitemAura",
         "args": [
           5,
+          10,
           "skillname103"
         ]
       },
@@ -104327,6 +104462,7 @@
         "key": "ModitemAura",
         "args": [
           2,
+          4,
           "skillname122"
         ]
       },
@@ -104433,6 +104569,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           5,
+          10,
           "skillname32"
         ]
       },
@@ -104913,6 +105050,7 @@
         "key": "ModitemAura",
         "args": [
           5,
+          10,
           "skillname98"
         ]
       },
@@ -105346,6 +105484,7 @@
         "key": "ModitemAura",
         "args": [
           12,
+          15,
           "skillname102"
         ]
       },
@@ -105474,6 +105613,7 @@
         "key": "ModitemAura",
         "args": [
           4,
+          7,
           "skillname109"
         ]
       },
@@ -106083,6 +106223,7 @@
         "key": "ModitemAura",
         "args": [
           5,
+          7,
           "skillname108"
         ]
       },
@@ -106984,6 +107125,7 @@
         "key": "ModitemAura",
         "args": [
           10,
+          15,
           "skillname114"
         ]
       },
@@ -107048,6 +107190,7 @@
         "key": "ModitemAura",
         "args": [
           10,
+          15,
           "skillname118"
         ]
       },
@@ -107112,6 +107255,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           20,
+          30,
           "skillname41"
         ]
       },
@@ -107557,6 +107701,7 @@
         "key": "ModitemAura",
         "args": [
           10,
+          15,
           "skillname119"
         ]
       },
@@ -107744,6 +107889,7 @@
         "key": "ModitemAura",
         "args": [
           5,
+          10,
           "skillname109"
         ]
       },
@@ -107857,6 +108003,7 @@
         "key": "ModitemAura",
         "args": [
           15,
+          20,
           "skillname103"
         ]
       },
@@ -108478,6 +108625,7 @@
         "key": "ModitemAura",
         "args": [
           10,
+          15,
           "skillname119"
         ]
       },
@@ -109731,6 +109879,7 @@
         "key": "Moditemreanimas",
         "args": [
           5,
+          10,
           "Wight"
         ]
       }
@@ -110176,6 +110325,7 @@
         "key": "ModitemAura",
         "args": [
           10,
+          15,
           "skillname118"
         ]
       },
@@ -113486,6 +113636,7 @@
         "key": "ModitemAura",
         "args": [
           5,
+          10,
           "skillname98"
         ]
       },
@@ -113617,6 +113768,7 @@
         "key": "ModitemAura",
         "args": [
           10,
+          20,
           "skillname119"
         ]
       },
@@ -113932,6 +114084,7 @@
         "key": "ModitemAura",
         "args": [
           10,
+          15,
           "skillname114"
         ]
       },
@@ -114187,6 +114340,7 @@
         "key": "ModitemAura",
         "args": [
           2,
+          3,
           "skillname122"
         ]
       },
@@ -115146,6 +115300,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           10,
+          20,
           "skillname32"
         ]
       },
@@ -115357,6 +115512,7 @@
         "key": "Moditemreanimas",
         "args": [
           5,
+          10,
           "Voltshade"
         ]
       },
@@ -115970,6 +116126,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           5,
+          10,
           "skillname119"
         ]
       },
@@ -117870,6 +118027,7 @@
         "key": "ModitemAura",
         "args": [
           3,
+          6,
           "skillname123"
         ]
       },
@@ -118241,6 +118399,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           3,
+          6,
           "Skillname224"
         ]
       },
@@ -118248,6 +118407,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           3,
+          6,
           "Skillname225"
         ]
       },
@@ -118255,6 +118415,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           3,
+          6,
           "Skillname233"
         ]
       },
@@ -118552,6 +118713,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           6,
+          8,
           "skillname85"
         ]
       },
@@ -118566,6 +118728,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           6,
+          8,
           "skillname94"
         ]
       },
@@ -119638,6 +119801,7 @@
         "key": "ModitemAura",
         "args": [
           12,
+          15,
           "skillname102"
         ]
       },
@@ -119743,6 +119907,7 @@
         "key": "ModitemAura",
         "args": [
           20,
+          30,
           "skillname103"
         ]
       },
@@ -120354,6 +120519,7 @@
         "key": "ModitemAura",
         "args": [
           5,
+          10,
           "skillname98"
         ]
       },
@@ -120368,6 +120534,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           3,
+          5,
           "skillname146"
         ]
       },
@@ -120572,6 +120739,7 @@
         "key": "ModitemAura",
         "args": [
           10,
+          15,
           "skillname123"
         ]
       },
@@ -120660,6 +120828,7 @@
         "key": "ModitemAura",
         "args": [
           15,
+          20,
           "skillname118"
         ]
       },
@@ -120757,6 +120926,7 @@
         "key": "ModitemAura",
         "args": [
           5,
+          10,
           "skillname122"
         ]
       },
@@ -122641,6 +122811,7 @@
         "key": "ModitemAura",
         "args": [
           5,
+          10,
           "skillname123"
         ]
       },
@@ -126502,6 +126673,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           1,
+          5,
           "skillname91"
         ]
       },
@@ -126797,6 +126969,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           2,
+          3,
           "skillname91"
         ]
       },
@@ -126912,6 +127085,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           2,
+          3,
           "skillname66"
         ]
       },
@@ -127042,6 +127216,7 @@
         "key": "Moditemreanimas",
         "args": [
           10,
+          15,
           "Wight"
         ]
       },
@@ -127137,6 +127312,7 @@
         "key": "ModitemAura",
         "args": [
           15,
+          20,
           "skillname98"
         ]
       },
@@ -127630,6 +127806,7 @@
         "key": "ModitemAura",
         "args": [
           4,
+          8,
           "skillname123"
         ]
       },
@@ -127875,6 +128052,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           2,
+          4,
           "skillname106"
         ]
       },
@@ -128489,6 +128667,7 @@
         "key": "ModitemAura",
         "args": [
           10,
+          13,
           "skillname119"
         ]
       },
@@ -129193,6 +129372,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           5,
+          10,
           "skillname106"
         ]
       },
@@ -129296,6 +129476,7 @@
         "key": "ModitemAura",
         "args": [
           10,
+          15,
           "skillname98"
         ]
       },
@@ -129598,6 +129779,7 @@
         "key": "ModitemAura",
         "args": [
           10,
+          15,
           "skillname108"
         ]
       },
@@ -129709,6 +129891,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           15,
+          20,
           "skillname6"
         ]
       },
@@ -129816,6 +129999,7 @@
         "key": "ModitemAura",
         "args": [
           15,
+          20,
           "skillname118"
         ]
       },
@@ -130495,6 +130679,7 @@
         "key": "ModitemAura",
         "args": [
           5,
+          10,
           "skillname122"
         ]
       },
@@ -131677,6 +131862,7 @@
         "key": "ItemModifierNonClassSkill",
         "args": [
           10,
+          30,
           "skillname121"
         ]
       },
@@ -131921,6 +132107,7 @@
         "key": "ModitemAura",
         "args": [
           5,
+          10,
           "skillname115"
         ]
       },
@@ -133260,6 +133447,7 @@
         "key": "ModitemAura",
         "args": [
           10,
+          15,
           "skillname98"
         ]
       },

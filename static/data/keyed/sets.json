@@ -23907,6 +23907,7 @@
             "key": "ModitemAura",
             "args": [
               3,
+              5,
               "skillname125"
             ]
           },
@@ -28798,6 +28799,7 @@
             "key": "ItemModifierNonClassSkill",
             "args": [
               10,
+              12,
               "skillname21"
             ]
           },
@@ -28907,6 +28909,7 @@
         "key": "Moditemreanimas",
         "args": [
           8,
+          12,
           "PlagueBearer"
         ],
         "fullSet": true
@@ -29022,6 +29025,7 @@
             "key": "ItemModifierNonClassSkill",
             "args": [
               12,
+              15,
               "skillname119"
             ]
           },
@@ -29088,6 +29092,7 @@
             "key": "ItemModifierNonClassSkill",
             "args": [
               8,
+              12,
               "skillname87"
             ]
           },
@@ -29184,6 +29189,7 @@
               "key": "ItemModifierNonClassSkill",
               "args": [
                 13,
+                16,
                 "skillname42"
               ],
               "itemsRequired": 2
@@ -31592,6 +31598,7 @@
             "key": "ModitemAura",
             "args": [
               1,
+              7,
               "skillname103"
             ]
           },
@@ -32271,6 +32278,7 @@
             "key": "ModitemAura",
             "args": [
               5,
+              10,
               "skillname114"
             ]
           },
@@ -32353,6 +32361,7 @@
             "key": "ModitemAura",
             "args": [
               5,
+              10,
               "skillname123"
             ]
           },
@@ -32586,6 +32595,7 @@
             "key": "ModitemAura",
             "args": [
               3,
+              5,
               "skillname109"
             ]
           },
@@ -32831,6 +32841,7 @@
             "key": "ModitemAura",
             "args": [
               3,
+              5,
               "skillname102"
             ]
           },
@@ -35598,6 +35609,7 @@
             "key": "ModitemAura",
             "args": [
               7,
+              10,
               "skillname103"
             ]
           },
@@ -37936,6 +37948,7 @@
             "key": "ItemModifierNonClassSkill",
             "args": [
               4,
+              6,
               "skillname127"
             ]
           },
@@ -39640,6 +39653,7 @@
             "key": "ItemModifierNonClassSkill",
             "args": [
               1,
+              3,
               "skillname152"
             ]
           },
@@ -44137,6 +44151,7 @@
             "key": "ItemModifierNonClassSkill",
             "args": [
               2,
+              5,
               "skillname37"
             ]
           },
@@ -44947,6 +44962,7 @@
             "key": "ItemModifierNonClassSkill",
             "args": [
               5,
+              8,
               "Skillname228"
             ]
           },

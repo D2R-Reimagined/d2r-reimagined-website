@@ -25,8 +25,13 @@ const fixture: Record<string, string> = {
     strPartialSetBonus: '%s (%d Items)',
     strFullSetBonus: '%s (Complete Set)',
     strSkillRandomFromSkillClass: '+%d to %s %s',
+    // descfunc 16-style aura: one numeric token + a skill name. The exporter
+    // ships ranged values as [min, max, skillName] and equal values as
+    // [min, skillName].
+    ModitemAura: 'Level %d %s Aura When Equipped',
     Sorceress: 'Sorceress',
     skillname69: 'Bone Spear',
+    skillname98: 'Holy Fire',
     NecOnly: '(Necromancer Only)',
 };
 
@@ -124,6 +129,18 @@ describe('strSkillRandomFromSkillClass — level range + skill + class', () => {
             key: 'strSkillRandomFromSkillClass',
             args: [1, 3, 'skillname69'],
         })).toBe('+1-3 to Bone Spear');
+    });
+});
+
+describe('mixed numeric + string templates — ranged leading value', () => {
+    it('collapses a min/max pair into #-# before a string token', () => {
+        expect(format({ key: 'ModitemAura', args: [10, 20, 'skillname98'] }))
+            .toBe('Level 10-20 Holy Fire Aura When Equipped');
+    });
+
+    it('renders a single numeric value before a string token', () => {
+        expect(format({ key: 'ModitemAura', args: [1, 'skillname98'] }))
+            .toBe('Level 1 Holy Fire Aura When Equipped');
     });
 });
 
