@@ -1,193 +1,5 @@
 [
   {
-    "Index": "Law",
-    "Vanilla": "N",
-    "Enabled": true,
-    "Rarity": 0,
-    "ItemLevel": 33,
-    "RequiredLevel": 0,
-    "Code": "",
-    "Runes": [
-      {
-        "NameKey": "r15",
-        "ItemLevel": 33,
-        "RequiredLevel": 0,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r15",
-        "ItemLevel": 33,
-        "RequiredLevel": 0,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      }
-    ],
-    "Types": [
-      {
-        "Name": "Axe",
-        "Index": "axeitype",
-        "Class": ""
-      }
-    ],
-    "Lines": [
-      {
-        "key": "ModStr4m",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "strModEnhancedDamage",
-        "args": [
-          120,
-          170
-        ]
-      },
-      {
-        "key": "ModitemSMRIP",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ModStr5r",
-        "args": [
-          30
-        ]
-      },
-      {
-        "key": "ModStr1u",
-        "args": [
-          48
-        ]
-      },
-      {
-        "key": "ModStr1e",
-        "args": [
-          24
-        ]
-      },
-      {
-        "key": "ItemStats2p",
-        "args": [
-          26
-        ]
-      },
-      {
-        "key": "ModStr3h",
-        "args": [
-          40
-        ]
-      }
-    ]
-  },
-  {
-    "Index": "Knowledge",
-    "Vanilla": "N",
-    "Enabled": true,
-    "Rarity": 0,
-    "ItemLevel": 11,
-    "RequiredLevel": 11,
-    "Code": "",
-    "Runes": [
-      {
-        "NameKey": "r01",
-        "ItemLevel": 11,
-        "RequiredLevel": 11,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r01",
-        "ItemLevel": 11,
-        "RequiredLevel": 11,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r01",
-        "ItemLevel": 11,
-        "RequiredLevel": 11,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      }
-    ],
-    "Types": [
-      {
-        "Name": "Sword",
-        "Index": "sworitype",
-        "Class": ""
-      }
-    ],
-    "Lines": [
-      {
-        "key": "ModStr3k",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ModStr4m",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "strModEnhancedDamage",
-        "args": [
-          100
-        ]
-      },
-      {
-        "key": "ModStr1f",
-        "args": [
-          1.5
-        ],
-        "perLevel": true
-      },
-      {
-        "key": "ModStr1h",
-        "args": [
-          150
-        ]
-      },
-      {
-        "key": "Moditem2ExpG",
-        "args": [
-          10
-        ]
-      },
-      {
-        "key": "ModStr3f",
-        "args": [
-          3
-        ]
-      },
-      {
-        "key": "ItemStats2p",
-        "args": [
-          11
-        ]
-      }
-    ]
-  },
-  {
     "Index": "Desire",
     "Vanilla": "N",
     "Enabled": true,
@@ -2068,6 +1880,105 @@
     ]
   },
   {
+    "Index": "Knowledge",
+    "Vanilla": "N",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 11,
+    "RequiredLevel": 22,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r01",
+        "ItemLevel": 11,
+        "RequiredLevel": 11,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r01",
+        "ItemLevel": 11,
+        "RequiredLevel": 11,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r01",
+        "ItemLevel": 11,
+        "RequiredLevel": 11,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Sword",
+        "Index": "sworitype",
+        "Class": ""
+      }
+    ],
+    "Lines": [
+      {
+        "key": "ModStr3k",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr4m",
+        "args": [
+          15
+        ]
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          100
+        ]
+      },
+      {
+        "key": "ModStr1f",
+        "args": [
+          1.5
+        ],
+        "perLevel": true
+      },
+      {
+        "key": "ModStr1h",
+        "args": [
+          150
+        ]
+      },
+      {
+        "key": "Moditem2ExpG",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "ModStr3f",
+        "args": [
+          3
+        ]
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          11
+        ]
+      }
+    ]
+  },
+  {
     "Index": "Distortion",
     "Vanilla": "N",
     "Enabled": true,
@@ -2282,297 +2193,6 @@
         "key": "strModAllResistances",
         "args": [
           15
-        ]
-      }
-    ]
-  },
-  {
-    "Index": "Prayer",
-    "Vanilla": "N",
-    "Enabled": true,
-    "Rarity": 0,
-    "ItemLevel": 33,
-    "RequiredLevel": 23,
-    "Code": "",
-    "Runes": [
-      {
-        "NameKey": "r15",
-        "ItemLevel": 33,
-        "RequiredLevel": 0,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r05",
-        "ItemLevel": 15,
-        "RequiredLevel": 15,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r10",
-        "ItemLevel": 23,
-        "RequiredLevel": 23,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      }
-    ],
-    "Types": [
-      {
-        "Name": "Weapon",
-        "Index": "weapitype",
-        "Class": ""
-      },
-      {
-        "Name": "Any Armor",
-        "Index": "armoitype",
-        "Class": ""
-      },
-      {
-        "Name": "Any Shield",
-        "Index": "shlditype",
-        "Class": ""
-      }
-    ],
-    "Lines": [
-      {
-        "key": "ModitemAura",
-        "args": [
-          10,
-          14,
-          "skillname99"
-        ]
-      },
-      {
-        "key": "ModStr4m",
-        "args": [
-          20
-        ]
-      },
-      {
-        "key": "ModStr3g",
-        "args": [
-          20,
-          30
-        ]
-      },
-      {
-        "key": "strModMinDamageRange",
-        "args": [
-          10,
-          30
-        ]
-      },
-      {
-        "key": "ModStr5o",
-        "args": [
-          25
-        ],
-        "qualifier": "weapon"
-      },
-      {
-        "key": "strModColdDamageRange",
-        "args": [
-          3,
-          14
-        ],
-        "qualifier": "weapon"
-      },
-      {
-        "key": "ModStr1i",
-        "args": [
-          50,
-          100
-        ]
-      },
-      {
-        "key": "ModStr4g",
-        "args": [
-          15
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr4g",
-        "args": [
-          15
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr1k",
-        "args": [
-          30
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr1k",
-        "args": [
-          35
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "strModAllResistances",
-        "args": [
-          15,
-          25
-        ]
-      },
-      {
-        "key": "ItemStats2p",
-        "args": [
-          7
-        ]
-      },
-      {
-        "key": "ModStr3h",
-        "args": [
-          20
-        ],
-        "qualifier": "weapon"
-      },
-      {
-        "key": "ModStr3h",
-        "args": [
-          15
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr3h",
-        "args": [
-          15
-        ],
-        "qualifier": "shield"
-      }
-    ]
-  },
-  {
-    "Index": "Revenge",
-    "Vanilla": "N",
-    "Enabled": true,
-    "Rarity": 0,
-    "ItemLevel": 23,
-    "RequiredLevel": 23,
-    "Code": "",
-    "Runes": [
-      {
-        "NameKey": "r10",
-        "ItemLevel": 23,
-        "RequiredLevel": 23,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r02",
-        "ItemLevel": 11,
-        "RequiredLevel": 11,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      }
-    ],
-    "Types": [
-      {
-        "Name": "Any Armor",
-        "Index": "armoitype",
-        "Class": ""
-      },
-      {
-        "Name": "Any Shield",
-        "Index": "shlditype",
-        "Class": ""
-      }
-    ],
-    "Lines": [
-      {
-        "key": "ModStr3d",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ModStr4v",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "ModStr3g",
-        "args": [
-          7
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr1e",
-        "args": [
-          50,
-          75
-        ]
-      },
-      {
-        "key": "ModStr4g",
-        "args": [
-          60,
-          70
-        ]
-      },
-      {
-        "key": "ModStr1m",
-        "args": [
-          5,
-          10
-        ]
-      },
-      {
-        "key": "ModStr1k",
-        "args": [
-          30
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr1k",
-        "args": [
-          35
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModitemHPaK",
-        "args": [
-          5
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "Moditem2ExpG",
-        "args": [
-          1,
-          3
-        ]
-      },
-      {
-        "key": "ItemStats2p",
-        "args": [
-          3
         ]
       }
     ]
@@ -2817,111 +2437,6 @@
     ]
   },
   {
-    "Index": "Friendship",
-    "Vanilla": "N",
-    "Enabled": true,
-    "Rarity": 0,
-    "ItemLevel": 33,
-    "RequiredLevel": 25,
-    "Code": "",
-    "Runes": [
-      {
-        "NameKey": "r15",
-        "ItemLevel": 33,
-        "RequiredLevel": 0,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r11",
-        "ItemLevel": 25,
-        "RequiredLevel": 25,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      }
-    ],
-    "Types": [
-      {
-        "Name": "Club",
-        "Index": "clubitype",
-        "Class": ""
-      },
-      {
-        "Name": "Hammer",
-        "Index": "hammitype",
-        "Class": ""
-      },
-      {
-        "Name": "Mace",
-        "Index": "maceitype",
-        "Class": ""
-      }
-    ],
-    "Lines": [
-      {
-        "key": "strModEnhancedDamage",
-        "args": [
-          133
-        ]
-      },
-      {
-        "key": "strModMinDamageRange",
-        "args": [
-          25,
-          50
-        ]
-      },
-      {
-        "key": "ModStr2z",
-        "args": [
-          7
-        ]
-      },
-      {
-        "key": "ModStr5c",
-        "args": [
-          10
-        ]
-      },
-      {
-        "key": "ModStr5q",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "ModitemSMRIP",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "Moditem2ExpG",
-        "args": [
-          3
-        ]
-      },
-      {
-        "key": "ItemStats2p",
-        "args": [
-          5
-        ]
-      },
-      {
-        "key": "ModStr3h",
-        "args": [
-          20
-        ]
-      }
-    ]
-  },
-  {
     "Index": "Edge",
     "Vanilla": "Y",
     "Enabled": true,
@@ -3030,104 +2545,6 @@
       },
       {
         "key": "ModitemRedVendP",
-        "args": [
-          15
-        ]
-      }
-    ]
-  },
-  {
-    "Index": "Hunger",
-    "Vanilla": "N",
-    "Enabled": true,
-    "Rarity": 0,
-    "ItemLevel": 33,
-    "RequiredLevel": 25,
-    "Code": "",
-    "Runes": [
-      {
-        "NameKey": "r11",
-        "ItemLevel": 25,
-        "RequiredLevel": 25,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r15",
-        "ItemLevel": 33,
-        "RequiredLevel": 0,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      }
-    ],
-    "Types": [
-      {
-        "Name": "Any Shield",
-        "Index": "shlditype",
-        "Class": ""
-      }
-    ],
-    "Lines": [
-      {
-        "key": "ModStr3g",
-        "args": [
-          15,
-          30
-        ]
-      },
-      {
-        "key": "ModStr2z",
-        "args": [
-          10
-        ]
-      },
-      {
-        "key": "ModStr2w",
-        "args": [
-          -20
-        ]
-      },
-      {
-        "key": "ModStr1m",
-        "args": [
-          10,
-          15
-        ]
-      },
-      {
-        "key": "strModAllResistances",
-        "args": [
-          10,
-          15
-        ]
-      },
-      {
-        "key": "ModStr2uPercent",
-        "args": [
-          10,
-          15
-        ]
-      },
-      {
-        "key": "ModStr1v",
-        "args": [
-          14
-        ]
-      },
-      {
-        "key": "ItemStats2p",
-        "args": [
-          8
-        ]
-      },
-      {
-        "key": "ModStr3h",
         "args": [
           15
         ]
@@ -3857,6 +3274,214 @@
         "key": "ModStr3h",
         "args": [
           15
+        ]
+      }
+    ]
+  },
+  {
+    "Index": "Law",
+    "Vanilla": "N",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 33,
+    "RequiredLevel": 26,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r15",
+        "ItemLevel": 33,
+        "RequiredLevel": 0,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r15",
+        "ItemLevel": 33,
+        "RequiredLevel": 0,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Axe",
+        "Index": "axeitype",
+        "Class": ""
+      }
+    ],
+    "Lines": [
+      {
+        "key": "ModStr4m",
+        "args": [
+          15
+        ]
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          120,
+          170
+        ]
+      },
+      {
+        "key": "ModitemSMRIP",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr5r",
+        "args": [
+          30
+        ]
+      },
+      {
+        "key": "ModStr1u",
+        "args": [
+          48
+        ]
+      },
+      {
+        "key": "ModStr1e",
+        "args": [
+          24
+        ]
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          26
+        ]
+      },
+      {
+        "key": "ModStr3h",
+        "args": [
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "Index": "Revenge",
+    "Vanilla": "N",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 23,
+    "RequiredLevel": 26,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r10",
+        "ItemLevel": 23,
+        "RequiredLevel": 23,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r02",
+        "ItemLevel": 11,
+        "RequiredLevel": 11,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Any Armor",
+        "Index": "armoitype",
+        "Class": ""
+      },
+      {
+        "Name": "Any Shield",
+        "Index": "shlditype",
+        "Class": ""
+      }
+    ],
+    "Lines": [
+      {
+        "key": "ModStr3d",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr4v",
+        "args": [
+          15
+        ]
+      },
+      {
+        "key": "ModStr3g",
+        "args": [
+          7
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ModStr1e",
+        "args": [
+          50,
+          75
+        ]
+      },
+      {
+        "key": "ModStr4g",
+        "args": [
+          60,
+          70
+        ]
+      },
+      {
+        "key": "ModStr1m",
+        "args": [
+          5,
+          10
+        ]
+      },
+      {
+        "key": "ModStr1k",
+        "args": [
+          30
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr1k",
+        "args": [
+          35
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ModitemHPaK",
+        "args": [
+          5
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "Moditem2ExpG",
+        "args": [
+          1,
+          3
+        ]
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          3
         ]
       }
     ]
@@ -5163,6 +4788,283 @@
     ]
   },
   {
+    "Index": "Friendship",
+    "Vanilla": "N",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 33,
+    "RequiredLevel": 30,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r15",
+        "ItemLevel": 33,
+        "RequiredLevel": 0,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r11",
+        "ItemLevel": 25,
+        "RequiredLevel": 25,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Club",
+        "Index": "clubitype",
+        "Class": ""
+      },
+      {
+        "Name": "Hammer",
+        "Index": "hammitype",
+        "Class": ""
+      },
+      {
+        "Name": "Mace",
+        "Index": "maceitype",
+        "Class": ""
+      }
+    ],
+    "Lines": [
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          133
+        ]
+      },
+      {
+        "key": "strModMinDamageRange",
+        "args": [
+          25,
+          50
+        ]
+      },
+      {
+        "key": "ModStr2z",
+        "args": [
+          7
+        ]
+      },
+      {
+        "key": "ModStr5c",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "ModStr5q",
+        "args": [
+          15
+        ]
+      },
+      {
+        "key": "ModitemSMRIP",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "Moditem2ExpG",
+        "args": [
+          3
+        ]
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          5
+        ]
+      },
+      {
+        "key": "ModStr3h",
+        "args": [
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "Index": "Prayer",
+    "Vanilla": "N",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 33,
+    "RequiredLevel": 30,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r15",
+        "ItemLevel": 33,
+        "RequiredLevel": 0,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r05",
+        "ItemLevel": 15,
+        "RequiredLevel": 15,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r10",
+        "ItemLevel": 23,
+        "RequiredLevel": 23,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Weapon",
+        "Index": "weapitype",
+        "Class": ""
+      },
+      {
+        "Name": "Any Armor",
+        "Index": "armoitype",
+        "Class": ""
+      },
+      {
+        "Name": "Any Shield",
+        "Index": "shlditype",
+        "Class": ""
+      }
+    ],
+    "Lines": [
+      {
+        "key": "ModitemAura",
+        "args": [
+          10,
+          14,
+          "skillname99"
+        ]
+      },
+      {
+        "key": "ModStr4m",
+        "args": [
+          20
+        ]
+      },
+      {
+        "key": "ModStr3g",
+        "args": [
+          20,
+          30
+        ]
+      },
+      {
+        "key": "strModMinDamageRange",
+        "args": [
+          10,
+          30
+        ]
+      },
+      {
+        "key": "ModStr5o",
+        "args": [
+          25
+        ],
+        "qualifier": "weapon"
+      },
+      {
+        "key": "strModColdDamageRange",
+        "args": [
+          3,
+          14
+        ],
+        "qualifier": "weapon"
+      },
+      {
+        "key": "ModStr1i",
+        "args": [
+          50,
+          100
+        ]
+      },
+      {
+        "key": "ModStr4g",
+        "args": [
+          15
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr4g",
+        "args": [
+          15
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ModStr1k",
+        "args": [
+          30
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr1k",
+        "args": [
+          35
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "strModAllResistances",
+        "args": [
+          15,
+          25
+        ]
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          7
+        ]
+      },
+      {
+        "key": "ModStr3h",
+        "args": [
+          20
+        ],
+        "qualifier": "weapon"
+      },
+      {
+        "key": "ModStr3h",
+        "args": [
+          15
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr3h",
+        "args": [
+          15
+        ],
+        "qualifier": "shield"
+      }
+    ]
+  },
+  {
     "Index": "Beauty",
     "Vanilla": "N",
     "Enabled": true,
@@ -5255,128 +5157,6 @@
         "key": "ModStr5f",
         "args": [
           2
-        ]
-      }
-    ]
-  },
-  {
-    "Index": "Dread1",
-    "Vanilla": "N",
-    "Enabled": true,
-    "Rarity": 0,
-    "ItemLevel": 31,
-    "RequiredLevel": 31,
-    "Code": "",
-    "Runes": [
-      {
-        "NameKey": "r14",
-        "ItemLevel": 31,
-        "RequiredLevel": 31,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r01",
-        "ItemLevel": 11,
-        "RequiredLevel": 11,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r06",
-        "ItemLevel": 15,
-        "RequiredLevel": 15,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      }
-    ],
-    "Types": [
-      {
-        "Name": "Armor",
-        "Index": "torsitype",
-        "Class": ""
-      }
-    ],
-    "Lines": [
-      {
-        "key": "ItemExpansiveChanc1",
-        "args": [
-          13,
-          13,
-          "skillname38"
-        ]
-      },
-      {
-        "key": "ModStr4s",
-        "args": [
-          20
-        ]
-      },
-      {
-        "key": "Modstr2v",
-        "args": [
-          100,
-          125
-        ]
-      },
-      {
-        "key": "ModStr1i",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "ModStr1a",
-        "args": [
-          0.5
-        ],
-        "perLevel": true
-      },
-      {
-        "key": "ModStr1b",
-        "args": [
-          0.5
-        ],
-        "perLevel": true
-      },
-      {
-        "key": "ModStr2l",
-        "args": [
-          7
-        ]
-      },
-      {
-        "key": "ModitemHPaK",
-        "args": [
-          6,
-          8
-        ]
-      },
-      {
-        "key": "ModStr3w",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "ModStr3f",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ItemStats2p",
-        "args": [
-          1
         ]
       }
     ]
@@ -5675,6 +5455,226 @@
         "key": "ModStr1u",
         "args": [
           40
+        ]
+      }
+    ]
+  },
+  {
+    "Index": "Dread1",
+    "Vanilla": "N",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 31,
+    "RequiredLevel": 32,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r14",
+        "ItemLevel": 31,
+        "RequiredLevel": 31,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r01",
+        "ItemLevel": 11,
+        "RequiredLevel": 11,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r06",
+        "ItemLevel": 15,
+        "RequiredLevel": 15,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Armor",
+        "Index": "torsitype",
+        "Class": ""
+      }
+    ],
+    "Lines": [
+      {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          13,
+          13,
+          "skillname38"
+        ]
+      },
+      {
+        "key": "ModStr4s",
+        "args": [
+          20
+        ]
+      },
+      {
+        "key": "Modstr2v",
+        "args": [
+          100,
+          125
+        ]
+      },
+      {
+        "key": "ModStr1i",
+        "args": [
+          15
+        ]
+      },
+      {
+        "key": "ModStr1a",
+        "args": [
+          0.5
+        ],
+        "perLevel": true
+      },
+      {
+        "key": "ModStr1b",
+        "args": [
+          0.5
+        ],
+        "perLevel": true
+      },
+      {
+        "key": "ModStr2l",
+        "args": [
+          7
+        ]
+      },
+      {
+        "key": "ModitemHPaK",
+        "args": [
+          6,
+          8
+        ]
+      },
+      {
+        "key": "ModStr3w",
+        "args": [
+          15
+        ]
+      },
+      {
+        "key": "ModStr3f",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "Index": "Hunger",
+    "Vanilla": "N",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 33,
+    "RequiredLevel": 33,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r11",
+        "ItemLevel": 25,
+        "RequiredLevel": 25,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r15",
+        "ItemLevel": 33,
+        "RequiredLevel": 0,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Any Shield",
+        "Index": "shlditype",
+        "Class": ""
+      }
+    ],
+    "Lines": [
+      {
+        "key": "ModStr3g",
+        "args": [
+          15,
+          30
+        ]
+      },
+      {
+        "key": "ModStr2z",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "ModStr2w",
+        "args": [
+          -20
+        ]
+      },
+      {
+        "key": "ModStr1m",
+        "args": [
+          10,
+          15
+        ]
+      },
+      {
+        "key": "strModAllResistances",
+        "args": [
+          10,
+          15
+        ]
+      },
+      {
+        "key": "ModStr2uPercent",
+        "args": [
+          10,
+          15
+        ]
+      },
+      {
+        "key": "ModStr1v",
+        "args": [
+          14
+        ]
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          8
+        ]
+      },
+      {
+        "key": "ModStr3h",
+        "args": [
+          15
         ]
       }
     ]
@@ -6379,150 +6379,6 @@
     ]
   },
   {
-    "Index": "Madness",
-    "Vanilla": "N",
-    "Enabled": true,
-    "Rarity": 0,
-    "ItemLevel": 35,
-    "RequiredLevel": 35,
-    "Code": "",
-    "Runes": [
-      {
-        "NameKey": "r16",
-        "ItemLevel": 35,
-        "RequiredLevel": 35,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r05",
-        "ItemLevel": 15,
-        "RequiredLevel": 15,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r14",
-        "ItemLevel": 31,
-        "RequiredLevel": 31,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      }
-    ],
-    "Types": [
-      {
-        "Name": "Any Armor",
-        "Index": "armoitype",
-        "Class": ""
-      },
-      {
-        "Name": "Any Shield",
-        "Index": "shlditype",
-        "Class": ""
-      }
-    ],
-    "Lines": [
-      {
-        "key": "ItemExpansiveChanc2",
-        "args": [
-          9,
-          5,
-          "skillname86"
-        ]
-      },
-      {
-        "key": "ItemExpansiveChanc1",
-        "args": [
-          12,
-          16,
-          "skillname77"
-        ]
-      },
-      {
-        "key": "ModStr3k",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ModStr4m",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "ModStr4y",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "ModStr1c",
-        "args": [
-          10
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr1c",
-        "args": [
-          10
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr1u",
-        "args": [
-          35,
-          50
-        ]
-      },
-      {
-        "key": "ModStr2l",
-        "args": [
-          7
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr2l",
-        "args": [
-          7
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr4g",
-        "args": [
-          15
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr4g",
-        "args": [
-          15
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ItemStats2p",
-        "args": [
-          1
-        ]
-      }
-    ]
-  },
-  {
     "Index": "Red1",
     "Vanilla": "N",
     "Enabled": true,
@@ -6925,6 +6781,150 @@
         "key": "ModStr2t",
         "args": [
           4
+        ]
+      }
+    ]
+  },
+  {
+    "Index": "Madness",
+    "Vanilla": "N",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 35,
+    "RequiredLevel": 36,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r16",
+        "ItemLevel": 35,
+        "RequiredLevel": 35,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r05",
+        "ItemLevel": 15,
+        "RequiredLevel": 15,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r14",
+        "ItemLevel": 31,
+        "RequiredLevel": 31,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Any Armor",
+        "Index": "armoitype",
+        "Class": ""
+      },
+      {
+        "Name": "Any Shield",
+        "Index": "shlditype",
+        "Class": ""
+      }
+    ],
+    "Lines": [
+      {
+        "key": "ItemExpansiveChanc2",
+        "args": [
+          9,
+          5,
+          "skillname86"
+        ]
+      },
+      {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          12,
+          16,
+          "skillname77"
+        ]
+      },
+      {
+        "key": "ModStr3k",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr4m",
+        "args": [
+          15
+        ]
+      },
+      {
+        "key": "ModStr4y",
+        "args": [
+          15
+        ]
+      },
+      {
+        "key": "ModStr1c",
+        "args": [
+          10
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr1c",
+        "args": [
+          10
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ModStr1u",
+        "args": [
+          35,
+          50
+        ]
+      },
+      {
+        "key": "ModStr2l",
+        "args": [
+          7
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr2l",
+        "args": [
+          7
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ModStr4g",
+        "args": [
+          15
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr4g",
+        "args": [
+          15
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          1
         ]
       }
     ]
@@ -8237,136 +8237,6 @@
         "key": "ModStr1x",
         "args": [
           35
-        ]
-      }
-    ]
-  },
-  {
-    "Index": "Fortune's Favor",
-    "Vanilla": "N",
-    "Enabled": true,
-    "Rarity": 0,
-    "ItemLevel": 41,
-    "RequiredLevel": 41,
-    "Code": "",
-    "Runes": [
-      {
-        "NameKey": "r19",
-        "ItemLevel": 41,
-        "RequiredLevel": 41,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r16",
-        "ItemLevel": 35,
-        "RequiredLevel": 35,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      }
-    ],
-    "Types": [
-      {
-        "Name": "Weapon",
-        "Index": "weapitype",
-        "Class": ""
-      },
-      {
-        "Name": "Any Armor",
-        "Index": "armoitype",
-        "Class": ""
-      },
-      {
-        "Name": "Any Shield",
-        "Index": "shlditype",
-        "Class": ""
-      }
-    ],
-    "Lines": [
-      {
-        "key": "ModStr3k",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ModStr1a",
-        "args": [
-          10
-        ],
-        "qualifier": "weapon"
-      },
-      {
-        "key": "ModStr1a",
-        "args": [
-          10
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr1a",
-        "args": [
-          10
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr1c",
-        "args": [
-          10
-        ],
-        "qualifier": "weapon"
-      },
-      {
-        "key": "ModStr1c",
-        "args": [
-          10
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr1c",
-        "args": [
-          10
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr1u",
-        "args": [
-          30,
-          50
-        ]
-      },
-      {
-        "key": "strModAllResistances",
-        "args": [
-          10
-        ]
-      },
-      {
-        "key": "ModStr1w",
-        "args": [
-          200
-        ]
-      },
-      {
-        "key": "ModStr1x",
-        "args": [
-          2
-        ],
-        "perLevel": true
-      },
-      {
-        "key": "ItemStats2p",
-        "args": [
-          5
         ]
       }
     ]
@@ -10476,6 +10346,136 @@
     ]
   },
   {
+    "Index": "Fortune's Favor",
+    "Vanilla": "N",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 41,
+    "RequiredLevel": 46,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r19",
+        "ItemLevel": 41,
+        "RequiredLevel": 41,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r16",
+        "ItemLevel": 35,
+        "RequiredLevel": 35,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Weapon",
+        "Index": "weapitype",
+        "Class": ""
+      },
+      {
+        "Name": "Any Armor",
+        "Index": "armoitype",
+        "Class": ""
+      },
+      {
+        "Name": "Any Shield",
+        "Index": "shlditype",
+        "Class": ""
+      }
+    ],
+    "Lines": [
+      {
+        "key": "ModStr3k",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr1a",
+        "args": [
+          10
+        ],
+        "qualifier": "weapon"
+      },
+      {
+        "key": "ModStr1a",
+        "args": [
+          10
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr1a",
+        "args": [
+          10
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ModStr1c",
+        "args": [
+          10
+        ],
+        "qualifier": "weapon"
+      },
+      {
+        "key": "ModStr1c",
+        "args": [
+          10
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr1c",
+        "args": [
+          10
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ModStr1u",
+        "args": [
+          30,
+          50
+        ]
+      },
+      {
+        "key": "strModAllResistances",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "ModStr1w",
+        "args": [
+          200
+        ]
+      },
+      {
+        "key": "ModStr1x",
+        "args": [
+          2
+        ],
+        "perLevel": true
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          5
+        ]
+      }
+    ]
+  },
+  {
     "Index": "Crescent Moon",
     "Vanilla": "Y",
     "Enabled": true,
@@ -11279,168 +11279,6 @@
     ]
   },
   {
-    "Index": "Voice",
-    "Vanilla": "N",
-    "Enabled": true,
-    "Rarity": 0,
-    "ItemLevel": 47,
-    "RequiredLevel": 47,
-    "Code": "",
-    "Runes": [
-      {
-        "NameKey": "r22",
-        "ItemLevel": 47,
-        "RequiredLevel": 47,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r06",
-        "ItemLevel": 15,
-        "RequiredLevel": 15,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r11",
-        "ItemLevel": 25,
-        "RequiredLevel": 25,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r15",
-        "ItemLevel": 33,
-        "RequiredLevel": 0,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      }
-    ],
-    "Types": [
-      {
-        "Name": "Any Armor",
-        "Index": "armoitype",
-        "Class": ""
-      },
-      {
-        "Name": "Any Shield",
-        "Index": "shlditype",
-        "Class": ""
-      }
-    ],
-    "Lines": [
-      {
-        "key": "ModitemdamColdsk",
-        "args": [
-          10,
-          15
-        ]
-      },
-      {
-        "key": "ModitemdamFiresk",
-        "args": [
-          10,
-          15
-        ]
-      },
-      {
-        "key": "ModitemdamLtngsk",
-        "args": [
-          10,
-          15
-        ]
-      },
-      {
-        "key": "ModStr1e",
-        "args": [
-          1
-        ],
-        "perLevel": true
-      },
-      {
-        "key": "strModAllResistances",
-        "args": [
-          7,
-          10
-        ]
-      },
-      {
-        "key": "strModAllResistances",
-        "args": [
-          15
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "strModAllResistances",
-        "args": [
-          22
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr1v",
-        "args": [
-          14
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr1v",
-        "args": [
-          14
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr3w",
-        "args": [
-          15
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr3w",
-        "args": [
-          15
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ItemStats2p",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ModStr3h",
-        "args": [
-          15
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr3h",
-        "args": [
-          15
-        ],
-        "qualifier": "shield"
-      }
-    ]
-  },
-  {
     "Index": "Bone1",
     "Vanilla": "Y",
     "Enabled": true,
@@ -12013,6 +11851,168 @@
         "args": [
           7
         ]
+      }
+    ]
+  },
+  {
+    "Index": "Voice",
+    "Vanilla": "N",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 47,
+    "RequiredLevel": 48,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r22",
+        "ItemLevel": 47,
+        "RequiredLevel": 47,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r06",
+        "ItemLevel": 15,
+        "RequiredLevel": 15,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r11",
+        "ItemLevel": 25,
+        "RequiredLevel": 25,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r15",
+        "ItemLevel": 33,
+        "RequiredLevel": 0,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Any Armor",
+        "Index": "armoitype",
+        "Class": ""
+      },
+      {
+        "Name": "Any Shield",
+        "Index": "shlditype",
+        "Class": ""
+      }
+    ],
+    "Lines": [
+      {
+        "key": "ModitemdamColdsk",
+        "args": [
+          10,
+          15
+        ]
+      },
+      {
+        "key": "ModitemdamFiresk",
+        "args": [
+          10,
+          15
+        ]
+      },
+      {
+        "key": "ModitemdamLtngsk",
+        "args": [
+          10,
+          15
+        ]
+      },
+      {
+        "key": "ModStr1e",
+        "args": [
+          1
+        ],
+        "perLevel": true
+      },
+      {
+        "key": "strModAllResistances",
+        "args": [
+          7,
+          10
+        ]
+      },
+      {
+        "key": "strModAllResistances",
+        "args": [
+          15
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "strModAllResistances",
+        "args": [
+          22
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ModStr1v",
+        "args": [
+          14
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr1v",
+        "args": [
+          14
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ModStr3w",
+        "args": [
+          15
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr3w",
+        "args": [
+          15
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr3h",
+        "args": [
+          15
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr3h",
+        "args": [
+          15
+        ],
+        "qualifier": "shield"
       }
     ]
   },
@@ -15856,424 +15856,6 @@
     ]
   },
   {
-    "Index": "Praise",
-    "Vanilla": "N",
-    "Enabled": true,
-    "Rarity": 0,
-    "ItemLevel": 57,
-    "RequiredLevel": 57,
-    "Code": "",
-    "Runes": [
-      {
-        "NameKey": "r19",
-        "ItemLevel": 41,
-        "RequiredLevel": 41,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r25",
-        "ItemLevel": 53,
-        "RequiredLevel": 53,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r27",
-        "ItemLevel": 57,
-        "RequiredLevel": 57,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r13",
-        "ItemLevel": 29,
-        "RequiredLevel": 29,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      }
-    ],
-    "Types": [
-      {
-        "Name": "Club",
-        "Index": "clubitype",
-        "Class": ""
-      },
-      {
-        "Name": "Hammer",
-        "Index": "hammitype",
-        "Class": ""
-      },
-      {
-        "Name": "Mace",
-        "Index": "maceitype",
-        "Class": ""
-      }
-    ],
-    "Lines": [
-      {
-        "key": "ItemExpansiveChanc2",
-        "args": [
-          10,
-          50,
-          "skillname64"
-        ]
-      },
-      {
-        "key": "ItemExpansiveChanc2",
-        "args": [
-          15,
-          30,
-          "Winter's Pulse"
-        ]
-      },
-      {
-        "key": "ModStr4m",
-        "args": [
-          20
-        ]
-      },
-      {
-        "key": "strModEnhancedDamage",
-        "args": [
-          210,
-          230
-        ]
-      },
-      {
-        "key": "strModEnhancedDamage",
-        "args": [
-          50
-        ]
-      },
-      {
-        "key": "ModStr3y",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ModStr4c",
-        "args": [
-          20
-        ]
-      },
-      {
-        "key": "ModStr2z",
-        "args": [
-          10
-        ]
-      },
-      {
-        "key": "ModStr1a",
-        "args": [
-          10
-        ]
-      },
-      {
-        "key": "ModStr1x",
-        "args": [
-          40,
-          60
-        ]
-      },
-      {
-        "key": "ItemStats2p",
-        "args": [
-          15
-        ]
-      }
-    ]
-  },
-  {
-    "Index": "Trust",
-    "Vanilla": "N",
-    "Enabled": true,
-    "Rarity": 0,
-    "ItemLevel": 57,
-    "RequiredLevel": 57,
-    "Code": "",
-    "Runes": [
-      {
-        "NameKey": "r11",
-        "ItemLevel": 25,
-        "RequiredLevel": 25,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r27",
-        "ItemLevel": 57,
-        "RequiredLevel": 57,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r19",
-        "ItemLevel": 41,
-        "RequiredLevel": 41,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      }
-    ],
-    "Types": [
-      {
-        "Name": "Armor",
-        "Index": "torsitype",
-        "Class": ""
-      }
-    ],
-    "Lines": [
-      {
-        "key": "Moditemskondeath",
-        "args": [
-          100,
-          50,
-          "Hailstorm"
-        ]
-      },
-      {
-        "key": "ModStr3k",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ModStr4m",
-        "args": [
-          20
-        ]
-      },
-      {
-        "key": "strModMinDamageRange",
-        "args": [
-          15,
-          30
-        ]
-      },
-      {
-        "key": "Modstr2v",
-        "args": [
-          125,
-          200
-        ]
-      },
-      {
-        "key": "ModStr1a",
-        "args": [
-          10
-        ]
-      },
-      {
-        "key": "ModStr1u",
-        "args": [
-          75,
-          100
-        ]
-      },
-      {
-        "key": "ModStr5v",
-        "args": [
-          5
-        ]
-      },
-      {
-        "key": "ModStr1v",
-        "args": [
-          14
-        ]
-      },
-      {
-        "key": "ItemStats2p",
-        "args": [
-          5
-        ]
-      }
-    ]
-  },
-  {
-    "Index": "Victory",
-    "Vanilla": "N",
-    "Enabled": true,
-    "Rarity": 0,
-    "ItemLevel": 57,
-    "RequiredLevel": 57,
-    "Code": "",
-    "Runes": [
-      {
-        "NameKey": "r27",
-        "ItemLevel": 57,
-        "RequiredLevel": 57,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r27",
-        "ItemLevel": 57,
-        "RequiredLevel": 57,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r24",
-        "ItemLevel": 51,
-        "RequiredLevel": 51,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r20",
-        "ItemLevel": 43,
-        "RequiredLevel": 43,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r27",
-        "ItemLevel": 57,
-        "RequiredLevel": 57,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r27",
-        "ItemLevel": 57,
-        "RequiredLevel": 57,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      }
-    ],
-    "Types": [
-      {
-        "Name": "Axe",
-        "Index": "axeitype",
-        "Class": ""
-      }
-    ],
-    "Lines": [
-      {
-        "key": "ModStr4m",
-        "args": [
-          60
-        ]
-      },
-      {
-        "key": "strModEnhancedDamage",
-        "args": [
-          50
-        ]
-      },
-      {
-        "key": "strModEnhancedDamage",
-        "args": [
-          50
-        ]
-      },
-      {
-        "key": "strModEnhancedDamage",
-        "args": [
-          50
-        ]
-      },
-      {
-        "key": "strModEnhancedDamage",
-        "args": [
-          50
-        ]
-      },
-      {
-        "key": "ModStr1f",
-        "args": [
-          2.5
-        ],
-        "perLevel": true
-      },
-      {
-        "key": "ModStr1p",
-        "args": [
-          1,
-          300
-        ]
-      },
-      {
-        "key": "ModStr4a",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ModStr1w",
-        "args": [
-          75
-        ]
-      },
-      {
-        "key": "ModStr1x",
-        "args": [
-          30
-        ]
-      },
-      {
-        "key": "ModStre9u",
-        "args": [
-          1,
-          10
-        ]
-      },
-      {
-        "key": "ItemStats2p",
-        "args": [
-          24
-        ]
-      },
-      {
-        "key": "ModStr3h",
-        "args": [
-          50
-        ]
-      }
-    ]
-  },
-  {
     "Index": "Runeword182",
     "Vanilla": "Y",
     "Enabled": true,
@@ -17885,6 +17467,121 @@
     ]
   },
   {
+    "Index": "Trust",
+    "Vanilla": "N",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 57,
+    "RequiredLevel": 62,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r11",
+        "ItemLevel": 25,
+        "RequiredLevel": 25,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r27",
+        "ItemLevel": 57,
+        "RequiredLevel": 57,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r19",
+        "ItemLevel": 41,
+        "RequiredLevel": 41,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Armor",
+        "Index": "torsitype",
+        "Class": ""
+      }
+    ],
+    "Lines": [
+      {
+        "key": "Moditemskondeath",
+        "args": [
+          100,
+          50,
+          "Hailstorm"
+        ]
+      },
+      {
+        "key": "ModStr3k",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr4m",
+        "args": [
+          20
+        ]
+      },
+      {
+        "key": "strModMinDamageRange",
+        "args": [
+          15,
+          30
+        ]
+      },
+      {
+        "key": "Modstr2v",
+        "args": [
+          125,
+          200
+        ]
+      },
+      {
+        "key": "ModStr1a",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "ModStr1u",
+        "args": [
+          75,
+          100
+        ]
+      },
+      {
+        "key": "ModStr5v",
+        "args": [
+          5
+        ]
+      },
+      {
+        "key": "ModStr1v",
+        "args": [
+          14
+        ]
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          5
+        ]
+      }
+    ]
+  },
+  {
     "Index": "Beast1",
     "Vanilla": "Y",
     "Enabled": true,
@@ -18545,173 +18242,6 @@
           "Skillname236",
           30,
           30
-        ]
-      }
-    ]
-  },
-  {
-    "Index": "Knight's Vigil",
-    "Vanilla": "N",
-    "Enabled": true,
-    "Rarity": 0,
-    "ItemLevel": 63,
-    "RequiredLevel": 63,
-    "Code": "",
-    "Runes": [
-      {
-        "NameKey": "r30",
-        "ItemLevel": 63,
-        "RequiredLevel": 63,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r20",
-        "ItemLevel": 43,
-        "RequiredLevel": 43,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r22",
-        "ItemLevel": 47,
-        "RequiredLevel": 47,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r24",
-        "ItemLevel": 51,
-        "RequiredLevel": 51,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      }
-    ],
-    "Types": [
-      {
-        "Name": "Any Armor",
-        "Index": "armoitype",
-        "Class": ""
-      },
-      {
-        "Name": "Any Shield",
-        "Index": "shlditype",
-        "Class": ""
-      }
-    ],
-    "Lines": [
-      {
-        "key": "ModitemAura",
-        "args": [
-          8,
-          12,
-          "skillname120"
-        ]
-      },
-      {
-        "key": "ModStr3b",
-        "args": [
-          2
-        ]
-      },
-      {
-        "key": "ModStr4v",
-        "args": [
-          40
-        ]
-      },
-      {
-        "key": "ModStr4y",
-        "args": [
-          20
-        ]
-      },
-      {
-        "key": "ModStr3g",
-        "args": [
-          20,
-          30
-        ]
-      },
-      {
-        "key": "ModStr2l",
-        "args": [
-          10,
-          15
-        ]
-      },
-      {
-        "key": "strModAllResistances",
-        "args": [
-          15
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "strModAllResistances",
-        "args": [
-          22
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr2uPercent",
-        "args": [
-          8
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr2uPercent",
-        "args": [
-          8
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr1w",
-        "args": [
-          50
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr1w",
-        "args": [
-          50
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr1x",
-        "args": [
-          25
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr1x",
-        "args": [
-          25
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ItemStats2p",
-        "args": [
-          12
         ]
       }
     ]
@@ -20535,118 +20065,6 @@
     ]
   },
   {
-    "Index": "Prowess in Battle",
-    "Vanilla": "N",
-    "Enabled": true,
-    "Rarity": 0,
-    "ItemLevel": 65,
-    "RequiredLevel": 65,
-    "Code": "",
-    "Runes": [
-      {
-        "NameKey": "r31",
-        "ItemLevel": 65,
-        "RequiredLevel": 65,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r24",
-        "ItemLevel": 51,
-        "RequiredLevel": 51,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r19",
-        "ItemLevel": 41,
-        "RequiredLevel": 41,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      }
-    ],
-    "Types": [
-      {
-        "Name": "Barbarian Item",
-        "Index": "barbitype",
-        "Class": "bar"
-      }
-    ],
-    "Lines": [
-      {
-        "key": "ModitemAura",
-        "args": [
-          6,
-          "skillname122"
-        ]
-      },
-      {
-        "key": "ModStr3e",
-        "args": [
-          3
-        ]
-      },
-      {
-        "key": "strModEnhancedDamage",
-        "args": [
-          100
-        ]
-      },
-      {
-        "key": "ModStr4p",
-        "args": [
-          40
-        ]
-      },
-      {
-        "key": "ModStr4c",
-        "args": [
-          50
-        ]
-      },
-      {
-        "key": "ModStr1i",
-        "args": [
-          3
-        ],
-        "perLevel": true
-      },
-      {
-        "key": "ModStr1a",
-        "args": [
-          10
-        ]
-      },
-      {
-        "key": "ModStr2g",
-        "args": [
-          5
-        ]
-      },
-      {
-        "key": "ModStr1x",
-        "args": [
-          25
-        ]
-      },
-      {
-        "key": "ItemStats2p",
-        "args": [
-          10
-        ]
-      }
-    ]
-  },
-  {
     "Index": "Storm1",
     "Vanilla": "N",
     "Enabled": true,
@@ -20788,440 +20206,6 @@
         "key": "Moditem2ExpG",
         "args": [
           3
-        ]
-      }
-    ]
-  },
-  {
-    "Index": "Time",
-    "Vanilla": "N",
-    "Enabled": true,
-    "Rarity": 0,
-    "ItemLevel": 65,
-    "RequiredLevel": 65,
-    "Code": "",
-    "Runes": [
-      {
-        "NameKey": "r31",
-        "ItemLevel": 65,
-        "RequiredLevel": 65,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r11",
-        "ItemLevel": 25,
-        "RequiredLevel": 25,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      }
-    ],
-    "Types": [
-      {
-        "Name": "Any Armor",
-        "Index": "armoitype",
-        "Class": ""
-      },
-      {
-        "Name": "Any Shield",
-        "Index": "shlditype",
-        "Class": ""
-      }
-    ],
-    "Lines": [
-      {
-        "key": "ItemExpansiveChanc2",
-        "args": [
-          100,
-          25,
-          "skillname48"
-        ]
-      },
-      {
-        "key": "ItemModifierNonClassSkill",
-        "args": [
-          1,
-          "skillname54"
-        ]
-      },
-      {
-        "key": "ModStr4a",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "Modstr2v",
-        "args": [
-          160,
-          220
-        ]
-      },
-      {
-        "key": "ModStr1u",
-        "args": [
-          35,
-          50
-        ]
-      },
-      {
-        "key": "ModStr1u",
-        "args": [
-          50
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ModStr2g",
-        "args": [
-          10,
-          20
-        ]
-      },
-      {
-        "key": "ModStr2g",
-        "args": [
-          5
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr1v",
-        "args": [
-          14
-        ],
-        "qualifier": "armor"
-      },
-      {
-        "key": "ModStr1v",
-        "args": [
-          14
-        ],
-        "qualifier": "shield"
-      },
-      {
-        "key": "ItemStats2p",
-        "args": [
-          20
-        ]
-      }
-    ]
-  },
-  {
-    "Index": "Armageddon",
-    "Vanilla": "N",
-    "Enabled": true,
-    "Rarity": 0,
-    "ItemLevel": 67,
-    "RequiredLevel": 67,
-    "Code": "",
-    "Runes": [
-      {
-        "NameKey": "r08",
-        "ItemLevel": 19,
-        "RequiredLevel": 19,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r09",
-        "ItemLevel": 21,
-        "RequiredLevel": 21,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r10",
-        "ItemLevel": 23,
-        "RequiredLevel": 23,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r32",
-        "ItemLevel": 67,
-        "RequiredLevel": 67,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r30",
-        "ItemLevel": 63,
-        "RequiredLevel": 63,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r15",
-        "ItemLevel": 33,
-        "RequiredLevel": 0,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      }
-    ],
-    "Types": [
-      {
-        "Name": "Sword",
-        "Index": "sworitype",
-        "Class": ""
-      }
-    ],
-    "Lines": [
-      {
-        "key": "ItemExpansiveChanc1",
-        "args": [
-          15,
-          20,
-          "skillname59"
-        ]
-      },
-      {
-        "key": "ItemExpansiveChanc1",
-        "args": [
-          15,
-          20,
-          "ApocalypseName"
-        ]
-      },
-      {
-        "key": "ModStr4m",
-        "args": [
-          30
-        ]
-      },
-      {
-        "key": "strModEnhancedDamage",
-        "args": [
-          275,
-          300
-        ]
-      },
-      {
-        "key": "ModStr1p",
-        "args": [
-          50,
-          300
-        ]
-      },
-      {
-        "key": "strModFireDamageRange",
-        "args": [
-          5,
-          30
-        ]
-      },
-      {
-        "key": "strModLightningDamageRange",
-        "args": [
-          1,
-          50
-        ]
-      },
-      {
-        "key": "strModColdDamageRange",
-        "args": [
-          3,
-          14
-        ]
-      },
-      {
-        "key": "ModStr5c",
-        "args": [
-          10
-        ]
-      },
-      {
-        "key": "ModStr3l",
-        "args": [
-          3
-        ]
-      },
-      {
-        "key": "strModAllResistances",
-        "args": [
-          35
-        ]
-      },
-      {
-        "key": "ItemStats2p",
-        "args": [
-          13
-        ]
-      },
-      {
-        "key": "ModStr3h",
-        "args": [
-          20
-        ]
-      }
-    ]
-  },
-  {
-    "Index": "Broken Promise",
-    "Vanilla": "N",
-    "Enabled": true,
-    "Rarity": 0,
-    "ItemLevel": 67,
-    "RequiredLevel": 67,
-    "Code": "",
-    "Runes": [
-      {
-        "NameKey": "r32",
-        "ItemLevel": 67,
-        "RequiredLevel": 67,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r26",
-        "ItemLevel": 55,
-        "RequiredLevel": 55,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r11",
-        "ItemLevel": 25,
-        "RequiredLevel": 25,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r13",
-        "ItemLevel": 29,
-        "RequiredLevel": 29,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r28",
-        "ItemLevel": 59,
-        "RequiredLevel": 59,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      }
-    ],
-    "Types": [
-      {
-        "Name": "Weapon",
-        "Index": "weapitype",
-        "Class": ""
-      }
-    ],
-    "Lines": [
-      {
-        "key": "ItemExpansiveChanc1",
-        "args": [
-          18,
-          18,
-          "skillname93"
-        ]
-      },
-      {
-        "key": "ModStr3k",
-        "args": [
-          2
-        ]
-      },
-      {
-        "key": "ModStr4m",
-        "args": [
-          20
-        ]
-      },
-      {
-        "key": "strModEnhancedDamage",
-        "args": [
-          285,
-          325
-        ]
-      },
-      {
-        "key": "ModStr1f",
-        "args": [
-          2
-        ],
-        "perLevel": true
-      },
-      {
-        "key": "ModStr2y",
-        "args": [
-          7
-        ]
-      },
-      {
-        "key": "ModStr2z",
-        "args": [
-          7
-        ]
-      },
-      {
-        "key": "ModStr5c",
-        "args": [
-          20
-        ]
-      },
-      {
-        "key": "ModStr5q",
-        "args": [
-          20
-        ]
-      },
-      {
-        "key": "ModStr3l",
-        "args": [
-          3
-        ]
-      },
-      {
-        "key": "Moditem2ExpG",
-        "args": [
-          -5
-        ]
-      },
-      {
-        "key": "ItemStats2p",
-        "args": [
-          15
         ]
       }
     ]
@@ -22375,149 +21359,6 @@
     ]
   },
   {
-    "Index": "Peril",
-    "Vanilla": "N",
-    "Enabled": true,
-    "Rarity": 0,
-    "ItemLevel": 67,
-    "RequiredLevel": 67,
-    "Code": "",
-    "Runes": [
-      {
-        "NameKey": "r32",
-        "ItemLevel": 67,
-        "RequiredLevel": 67,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r28",
-        "ItemLevel": 59,
-        "RequiredLevel": 59,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r30",
-        "ItemLevel": 63,
-        "RequiredLevel": 63,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r30",
-        "ItemLevel": 63,
-        "RequiredLevel": 63,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r28",
-        "ItemLevel": 59,
-        "RequiredLevel": 59,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r32",
-        "ItemLevel": 67,
-        "RequiredLevel": 67,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      }
-    ],
-    "Types": [
-      {
-        "Name": "Missile Weapon",
-        "Index": "missitype",
-        "Class": ""
-      }
-    ],
-    "Lines": [
-      {
-        "key": "ModStr3k",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ModStr4m",
-        "args": [
-          75
-        ]
-      },
-      {
-        "key": "strModEnhancedDamage",
-        "args": [
-          250
-        ]
-      },
-      {
-        "key": "ModStr1f",
-        "args": [
-          3.12
-        ],
-        "perLevel": true
-      },
-      {
-        "key": "ModStr5c",
-        "args": [
-          20
-        ]
-      },
-      {
-        "key": "ModStr5q",
-        "args": [
-          40
-        ]
-      },
-      {
-        "key": "ModStr3l",
-        "args": [
-          6
-        ]
-      },
-      {
-        "key": "Moditem2allattrib",
-        "args": [
-          20,
-          30
-        ]
-      },
-      {
-        "key": "ModStr1x",
-        "args": [
-          1
-        ],
-        "perLevel": true
-      },
-      {
-        "key": "ItemStats2p",
-        "args": [
-          11
-        ]
-      }
-    ]
-  },
-  {
     "Index": "Plague1",
     "Vanilla": "Y",
     "Enabled": true,
@@ -22892,168 +21733,6 @@
     ]
   },
   {
-    "Index": "Valor",
-    "Vanilla": "N",
-    "Enabled": true,
-    "Rarity": 0,
-    "ItemLevel": 67,
-    "RequiredLevel": 67,
-    "Code": "",
-    "Runes": [
-      {
-        "NameKey": "r13",
-        "ItemLevel": 29,
-        "RequiredLevel": 29,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r03",
-        "ItemLevel": 13,
-        "RequiredLevel": 13,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r14",
-        "ItemLevel": 31,
-        "RequiredLevel": 31,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r32",
-        "ItemLevel": 67,
-        "RequiredLevel": 67,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r29",
-        "ItemLevel": 61,
-        "RequiredLevel": 61,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r22",
-        "ItemLevel": 47,
-        "RequiredLevel": 47,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      }
-    ],
-    "Types": [
-      {
-        "Name": "Melee Weapon",
-        "Index": "meleitype",
-        "Class": ""
-      }
-    ],
-    "Lines": [
-      {
-        "key": "ModStre9s",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ModStr4m",
-        "args": [
-          20
-        ]
-      },
-      {
-        "key": "ModStr1g",
-        "args": [
-          100
-        ]
-      },
-      {
-        "key": "ModStr1f",
-        "args": [
-          2.5
-        ],
-        "perLevel": true
-      },
-      {
-        "key": "ModStr3m",
-        "args": [
-          25
-        ]
-      },
-      {
-        "key": "ModStr6d",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ModStr3u",
-        "args": [
-          25
-        ]
-      },
-      {
-        "key": "ModStr3l",
-        "args": [
-          3
-        ]
-      },
-      {
-        "key": "ModStr5f",
-        "args": [
-          2
-        ]
-      },
-      {
-        "key": "Moditem2ExpG",
-        "args": [
-          5
-        ]
-      },
-      {
-        "key": "strSkillCharges",
-        "args": [
-          40,
-          "skillname149",
-          15,
-          15
-        ]
-      },
-      {
-        "key": "ItemStats2p",
-        "args": [
-          10
-        ]
-      },
-      {
-        "key": "strethereal",
-        "args": [
-          1
-        ]
-      }
-    ]
-  },
-  {
     "Index": "Wings of Hope",
     "Vanilla": "N",
     "Enabled": true,
@@ -23138,122 +21817,6 @@
         "key": "Moditem2allattrib",
         "args": [
           20
-        ]
-      }
-    ]
-  },
-  {
-    "Index": "Woe",
-    "Vanilla": "N",
-    "Enabled": true,
-    "Rarity": 0,
-    "ItemLevel": 67,
-    "RequiredLevel": 67,
-    "Code": "",
-    "Runes": [
-      {
-        "NameKey": "r32",
-        "ItemLevel": 67,
-        "RequiredLevel": 67,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r03",
-        "ItemLevel": 13,
-        "RequiredLevel": 13,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r13",
-        "ItemLevel": 29,
-        "RequiredLevel": 29,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      }
-    ],
-    "Types": [
-      {
-        "Name": "Armor",
-        "Index": "torsitype",
-        "Class": ""
-      }
-    ],
-    "Lines": [
-      {
-        "key": "ItemExpansiveChanc2",
-        "args": [
-          25,
-          25,
-          "skillname53"
-        ]
-      },
-      {
-        "key": "ItemExpansiveChanc2",
-        "args": [
-          25,
-          25,
-          "skillname47"
-        ]
-      },
-      {
-        "key": "ItemExpansiveChanc2",
-        "args": [
-          25,
-          25,
-          "skillname59"
-        ]
-      },
-      {
-        "key": "ModStr3k",
-        "args": [
-          2
-        ]
-      },
-      {
-        "key": "ModStr4p",
-        "args": [
-          20
-        ]
-      },
-      {
-        "key": "Moditem2allattrib",
-        "args": [
-          25
-        ]
-      },
-      {
-        "key": "ModStr5z",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ModStr3r",
-        "args": [
-          80
-        ]
-      },
-      {
-        "key": "ModStr5f",
-        "args": [
-          2
-        ]
-      },
-      {
-        "key": "ItemStats2p",
-        "args": [
-          7
         ]
       }
     ]
@@ -23847,307 +22410,6 @@
     ]
   },
   {
-    "Index": "Humility",
-    "Vanilla": "N",
-    "Enabled": true,
-    "Rarity": 0,
-    "ItemLevel": 69,
-    "RequiredLevel": 69,
-    "Code": "",
-    "Runes": [
-      {
-        "NameKey": "r33",
-        "ItemLevel": 69,
-        "RequiredLevel": 69,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r22",
-        "ItemLevel": 47,
-        "RequiredLevel": 47,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r06",
-        "ItemLevel": 15,
-        "RequiredLevel": 15,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r32",
-        "ItemLevel": 67,
-        "RequiredLevel": 67,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      }
-    ],
-    "Types": [
-      {
-        "Name": "Armor",
-        "Index": "torsitype",
-        "Class": ""
-      }
-    ],
-    "Lines": [
-      {
-        "key": "ModStre9s",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ModitemAura",
-        "args": [
-          3,
-          5,
-          "skillname125"
-        ]
-      },
-      {
-        "key": "ItemModifierNonClassSkill",
-        "args": [
-          1,
-          4,
-          "skillname138"
-        ]
-      },
-      {
-        "key": "ItemModifierNonClassSkill",
-        "args": [
-          1,
-          4,
-          "skillname149"
-        ]
-      },
-      {
-        "key": "ItemModifierNonClassSkill",
-        "args": [
-          1,
-          4,
-          "skillname155"
-        ]
-      },
-      {
-        "key": "ItemModifierNonClassSkill",
-        "args": [
-          1,
-          4,
-          "skillname50"
-        ]
-      },
-      {
-        "key": "ItemModifierNonClassSkill",
-        "args": [
-          10,
-          15,
-          "skillname32"
-        ]
-      },
-      {
-        "key": "strModAllResistances",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "ModStr5z",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ModStr3w",
-        "args": [
-          15
-        ]
-      },
-      {
-        "key": "ItemStats2p",
-        "args": [
-          17
-        ]
-      }
-    ]
-  },
-  {
-    "Index": "Morning Dew",
-    "Vanilla": "N",
-    "Enabled": true,
-    "Rarity": 0,
-    "ItemLevel": 69,
-    "RequiredLevel": 69,
-    "Code": "",
-    "Runes": [
-      {
-        "NameKey": "r23",
-        "ItemLevel": 49,
-        "RequiredLevel": 49,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r06",
-        "ItemLevel": 15,
-        "RequiredLevel": 15,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r30",
-        "ItemLevel": 63,
-        "RequiredLevel": 63,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r32",
-        "ItemLevel": 67,
-        "RequiredLevel": 67,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r33",
-        "ItemLevel": 69,
-        "RequiredLevel": 69,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r24",
-        "ItemLevel": 51,
-        "RequiredLevel": 51,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      }
-    ],
-    "Types": [
-      {
-        "Name": "Polearm",
-        "Index": "poleitype",
-        "Class": ""
-      }
-    ],
-    "Lines": [
-      {
-        "key": "ModitemskonKill",
-        "args": [
-          10,
-          20,
-          "skillname42"
-        ]
-      },
-      {
-        "key": "ModStre9s",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ModStre8a",
-        "args": [
-          2
-        ]
-      },
-      {
-        "key": "ItemModifierNonClassSkill",
-        "args": [
-          3,
-          5,
-          "skillname127"
-        ]
-      },
-      {
-        "key": "ModStr4m",
-        "args": [
-          50
-        ]
-      },
-      {
-        "key": "strModEnhancedDamage",
-        "args": [
-          300,
-          325
-        ]
-      },
-      {
-        "key": "ModStr1f",
-        "args": [
-          9
-        ]
-      },
-      {
-        "key": "ModStr5c",
-        "args": [
-          10
-        ]
-      },
-      {
-        "key": "ModStr4a",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ModStr3l",
-        "args": [
-          3
-        ]
-      },
-      {
-        "key": "strModAllResistances",
-        "args": [
-          25
-        ]
-      },
-      {
-        "key": "ModStr1x",
-        "args": [
-          30
-        ]
-      },
-      {
-        "key": "ItemStats2p",
-        "args": [
-          10
-        ]
-      }
-    ]
-  },
-  {
     "Index": "Mystery",
     "Vanilla": "N",
     "Enabled": true,
@@ -24677,12 +22939,1970 @@
     ]
   },
   {
+    "Index": "Void",
+    "Vanilla": "Y",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 69,
+    "RequiredLevel": 69,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r10",
+        "ItemLevel": 23,
+        "RequiredLevel": 23,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r33",
+        "ItemLevel": 69,
+        "RequiredLevel": 69,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r24",
+        "ItemLevel": 51,
+        "RequiredLevel": 51,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Knife",
+        "Index": "knifitype",
+        "Class": ""
+      }
+    ],
+    "Lines": [
+      {
+        "key": "ModStre9s",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr3k",
+        "args": [
+          2
+        ]
+      },
+      {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          1,
+          3,
+          "AbyssName"
+        ]
+      },
+      {
+        "key": "ModStr4v",
+        "args": [
+          40
+        ]
+      },
+      {
+        "key": "strModColdDamageRange",
+        "args": [
+          3,
+          14
+        ]
+      },
+      {
+        "key": "ModStrMagMastery",
+        "args": [
+          10,
+          15
+        ]
+      },
+      {
+        "key": "Moditem2allattrib",
+        "args": [
+          8,
+          12
+        ]
+      },
+      {
+        "key": "ModStr1x",
+        "args": [
+          30
+        ]
+      },
+      {
+        "key": "strSkillCharges",
+        "args": [
+          4,
+          "skillname87",
+          35,
+          35
+        ]
+      }
+    ]
+  },
+  {
+    "Index": "Praise",
+    "Vanilla": "N",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 57,
+    "RequiredLevel": 72,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r19",
+        "ItemLevel": 41,
+        "RequiredLevel": 41,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r25",
+        "ItemLevel": 53,
+        "RequiredLevel": 53,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r27",
+        "ItemLevel": 57,
+        "RequiredLevel": 57,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r13",
+        "ItemLevel": 29,
+        "RequiredLevel": 29,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Club",
+        "Index": "clubitype",
+        "Class": ""
+      },
+      {
+        "Name": "Hammer",
+        "Index": "hammitype",
+        "Class": ""
+      },
+      {
+        "Name": "Mace",
+        "Index": "maceitype",
+        "Class": ""
+      }
+    ],
+    "Lines": [
+      {
+        "key": "ItemExpansiveChanc2",
+        "args": [
+          10,
+          50,
+          "skillname64"
+        ]
+      },
+      {
+        "key": "ItemExpansiveChanc2",
+        "args": [
+          15,
+          30,
+          "Winter's Pulse"
+        ]
+      },
+      {
+        "key": "ModStr4m",
+        "args": [
+          20
+        ]
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          210,
+          230
+        ]
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          50
+        ]
+      },
+      {
+        "key": "ModStr3y",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr4c",
+        "args": [
+          20
+        ]
+      },
+      {
+        "key": "ModStr2z",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "ModStr1a",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "ModStr1x",
+        "args": [
+          40,
+          60
+        ]
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          15
+        ]
+      }
+    ]
+  },
+  {
+    "Index": "Woe",
+    "Vanilla": "N",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 67,
+    "RequiredLevel": 74,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r32",
+        "ItemLevel": 67,
+        "RequiredLevel": 67,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r03",
+        "ItemLevel": 13,
+        "RequiredLevel": 13,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r13",
+        "ItemLevel": 29,
+        "RequiredLevel": 29,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Armor",
+        "Index": "torsitype",
+        "Class": ""
+      }
+    ],
+    "Lines": [
+      {
+        "key": "ItemExpansiveChanc2",
+        "args": [
+          25,
+          25,
+          "skillname53"
+        ]
+      },
+      {
+        "key": "ItemExpansiveChanc2",
+        "args": [
+          25,
+          25,
+          "skillname47"
+        ]
+      },
+      {
+        "key": "ItemExpansiveChanc2",
+        "args": [
+          25,
+          25,
+          "skillname59"
+        ]
+      },
+      {
+        "key": "ModStr3k",
+        "args": [
+          2
+        ]
+      },
+      {
+        "key": "ModStr4p",
+        "args": [
+          20
+        ]
+      },
+      {
+        "key": "Moditem2allattrib",
+        "args": [
+          25
+        ]
+      },
+      {
+        "key": "ModStr5z",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr3r",
+        "args": [
+          80
+        ]
+      },
+      {
+        "key": "ModStr5f",
+        "args": [
+          2
+        ]
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "Index": "Knight's Vigil",
+    "Vanilla": "N",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 63,
+    "RequiredLevel": 75,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r30",
+        "ItemLevel": 63,
+        "RequiredLevel": 63,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r20",
+        "ItemLevel": 43,
+        "RequiredLevel": 43,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r22",
+        "ItemLevel": 47,
+        "RequiredLevel": 47,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r24",
+        "ItemLevel": 51,
+        "RequiredLevel": 51,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Any Armor",
+        "Index": "armoitype",
+        "Class": ""
+      },
+      {
+        "Name": "Any Shield",
+        "Index": "shlditype",
+        "Class": ""
+      }
+    ],
+    "Lines": [
+      {
+        "key": "ModitemAura",
+        "args": [
+          8,
+          12,
+          "skillname120"
+        ]
+      },
+      {
+        "key": "ModStr3b",
+        "args": [
+          2
+        ]
+      },
+      {
+        "key": "ModStr4v",
+        "args": [
+          40
+        ]
+      },
+      {
+        "key": "ModStr4y",
+        "args": [
+          20
+        ]
+      },
+      {
+        "key": "ModStr3g",
+        "args": [
+          20,
+          30
+        ]
+      },
+      {
+        "key": "ModStr2l",
+        "args": [
+          10,
+          15
+        ]
+      },
+      {
+        "key": "strModAllResistances",
+        "args": [
+          15
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "strModAllResistances",
+        "args": [
+          22
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ModStr2uPercent",
+        "args": [
+          8
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr2uPercent",
+        "args": [
+          8
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ModStr1w",
+        "args": [
+          50
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr1w",
+        "args": [
+          50
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ModStr1x",
+        "args": [
+          25
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr1x",
+        "args": [
+          25
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          12
+        ]
+      }
+    ]
+  },
+  {
+    "Index": "Prowess in Battle",
+    "Vanilla": "N",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 65,
+    "RequiredLevel": 75,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r31",
+        "ItemLevel": 65,
+        "RequiredLevel": 65,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r24",
+        "ItemLevel": 51,
+        "RequiredLevel": 51,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r19",
+        "ItemLevel": 41,
+        "RequiredLevel": 41,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Barbarian Item",
+        "Index": "barbitype",
+        "Class": "bar"
+      }
+    ],
+    "Lines": [
+      {
+        "key": "ModitemAura",
+        "args": [
+          6,
+          "skillname122"
+        ]
+      },
+      {
+        "key": "ModStr3e",
+        "args": [
+          3
+        ]
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          100
+        ]
+      },
+      {
+        "key": "ModStr4p",
+        "args": [
+          40
+        ]
+      },
+      {
+        "key": "ModStr4c",
+        "args": [
+          50
+        ]
+      },
+      {
+        "key": "ModStr1i",
+        "args": [
+          3
+        ],
+        "perLevel": true
+      },
+      {
+        "key": "ModStr1a",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "ModStr2g",
+        "args": [
+          5
+        ]
+      },
+      {
+        "key": "ModStr1x",
+        "args": [
+          25
+        ]
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          10
+        ]
+      }
+    ]
+  },
+  {
+    "Index": "Valor",
+    "Vanilla": "N",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 67,
+    "RequiredLevel": 77,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r13",
+        "ItemLevel": 29,
+        "RequiredLevel": 29,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r03",
+        "ItemLevel": 13,
+        "RequiredLevel": 13,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r14",
+        "ItemLevel": 31,
+        "RequiredLevel": 31,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r32",
+        "ItemLevel": 67,
+        "RequiredLevel": 67,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r29",
+        "ItemLevel": 61,
+        "RequiredLevel": 61,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r22",
+        "ItemLevel": 47,
+        "RequiredLevel": 47,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Melee Weapon",
+        "Index": "meleitype",
+        "Class": ""
+      }
+    ],
+    "Lines": [
+      {
+        "key": "ModStre9s",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr4m",
+        "args": [
+          20
+        ]
+      },
+      {
+        "key": "ModStr1g",
+        "args": [
+          100
+        ]
+      },
+      {
+        "key": "ModStr1f",
+        "args": [
+          2.5
+        ],
+        "perLevel": true
+      },
+      {
+        "key": "ModStr3m",
+        "args": [
+          25
+        ]
+      },
+      {
+        "key": "ModStr6d",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr3u",
+        "args": [
+          25
+        ]
+      },
+      {
+        "key": "ModStr3l",
+        "args": [
+          3
+        ]
+      },
+      {
+        "key": "ModStr5f",
+        "args": [
+          2
+        ]
+      },
+      {
+        "key": "Moditem2ExpG",
+        "args": [
+          5
+        ]
+      },
+      {
+        "key": "strSkillCharges",
+        "args": [
+          40,
+          "skillname149",
+          15,
+          15
+        ]
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "strethereal",
+        "args": [
+          1
+        ]
+      }
+    ]
+  },
+  {
+    "Index": "Peril",
+    "Vanilla": "N",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 67,
+    "RequiredLevel": 78,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r32",
+        "ItemLevel": 67,
+        "RequiredLevel": 67,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r28",
+        "ItemLevel": 59,
+        "RequiredLevel": 59,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r30",
+        "ItemLevel": 63,
+        "RequiredLevel": 63,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r30",
+        "ItemLevel": 63,
+        "RequiredLevel": 63,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r28",
+        "ItemLevel": 59,
+        "RequiredLevel": 59,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r32",
+        "ItemLevel": 67,
+        "RequiredLevel": 67,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Missile Weapon",
+        "Index": "missitype",
+        "Class": ""
+      }
+    ],
+    "Lines": [
+      {
+        "key": "ModStr3k",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr4m",
+        "args": [
+          75
+        ]
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          250
+        ]
+      },
+      {
+        "key": "ModStr1f",
+        "args": [
+          3.12
+        ],
+        "perLevel": true
+      },
+      {
+        "key": "ModStr5c",
+        "args": [
+          20
+        ]
+      },
+      {
+        "key": "ModStr5q",
+        "args": [
+          40
+        ]
+      },
+      {
+        "key": "ModStr3l",
+        "args": [
+          6
+        ]
+      },
+      {
+        "key": "Moditem2allattrib",
+        "args": [
+          20,
+          30
+        ]
+      },
+      {
+        "key": "ModStr1x",
+        "args": [
+          1
+        ],
+        "perLevel": true
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          11
+        ]
+      }
+    ]
+  },
+  {
+    "Index": "Morning Dew",
+    "Vanilla": "N",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 69,
+    "RequiredLevel": 79,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r23",
+        "ItemLevel": 49,
+        "RequiredLevel": 49,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r06",
+        "ItemLevel": 15,
+        "RequiredLevel": 15,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r30",
+        "ItemLevel": 63,
+        "RequiredLevel": 63,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r32",
+        "ItemLevel": 67,
+        "RequiredLevel": 67,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r33",
+        "ItemLevel": 69,
+        "RequiredLevel": 69,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r24",
+        "ItemLevel": 51,
+        "RequiredLevel": 51,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Polearm",
+        "Index": "poleitype",
+        "Class": ""
+      }
+    ],
+    "Lines": [
+      {
+        "key": "ModitemskonKill",
+        "args": [
+          10,
+          20,
+          "skillname42"
+        ]
+      },
+      {
+        "key": "ModStre9s",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStre8a",
+        "args": [
+          2
+        ]
+      },
+      {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          3,
+          5,
+          "skillname127"
+        ]
+      },
+      {
+        "key": "ModStr4m",
+        "args": [
+          50
+        ]
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          300,
+          325
+        ]
+      },
+      {
+        "key": "ModStr1f",
+        "args": [
+          9
+        ]
+      },
+      {
+        "key": "ModStr5c",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "ModStr4a",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr3l",
+        "args": [
+          3
+        ]
+      },
+      {
+        "key": "strModAllResistances",
+        "args": [
+          25
+        ]
+      },
+      {
+        "key": "ModStr1x",
+        "args": [
+          30
+        ]
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          10
+        ]
+      }
+    ]
+  },
+  {
+    "Index": "Armageddon",
+    "Vanilla": "N",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 67,
+    "RequiredLevel": 80,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r08",
+        "ItemLevel": 19,
+        "RequiredLevel": 19,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r09",
+        "ItemLevel": 21,
+        "RequiredLevel": 21,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r10",
+        "ItemLevel": 23,
+        "RequiredLevel": 23,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r32",
+        "ItemLevel": 67,
+        "RequiredLevel": 67,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r30",
+        "ItemLevel": 63,
+        "RequiredLevel": 63,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r15",
+        "ItemLevel": 33,
+        "RequiredLevel": 0,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Sword",
+        "Index": "sworitype",
+        "Class": ""
+      }
+    ],
+    "Lines": [
+      {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          15,
+          20,
+          "skillname59"
+        ]
+      },
+      {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          15,
+          20,
+          "ApocalypseName"
+        ]
+      },
+      {
+        "key": "ModStr4m",
+        "args": [
+          30
+        ]
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          275,
+          300
+        ]
+      },
+      {
+        "key": "ModStr1p",
+        "args": [
+          50,
+          300
+        ]
+      },
+      {
+        "key": "strModFireDamageRange",
+        "args": [
+          5,
+          30
+        ]
+      },
+      {
+        "key": "strModLightningDamageRange",
+        "args": [
+          1,
+          50
+        ]
+      },
+      {
+        "key": "strModColdDamageRange",
+        "args": [
+          3,
+          14
+        ]
+      },
+      {
+        "key": "ModStr5c",
+        "args": [
+          10
+        ]
+      },
+      {
+        "key": "ModStr3l",
+        "args": [
+          3
+        ]
+      },
+      {
+        "key": "strModAllResistances",
+        "args": [
+          35
+        ]
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          13
+        ]
+      },
+      {
+        "key": "ModStr3h",
+        "args": [
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "Index": "Victory",
+    "Vanilla": "N",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 57,
+    "RequiredLevel": 81,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r27",
+        "ItemLevel": 57,
+        "RequiredLevel": 57,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r27",
+        "ItemLevel": 57,
+        "RequiredLevel": 57,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r24",
+        "ItemLevel": 51,
+        "RequiredLevel": 51,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r20",
+        "ItemLevel": 43,
+        "RequiredLevel": 43,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r27",
+        "ItemLevel": 57,
+        "RequiredLevel": 57,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r27",
+        "ItemLevel": 57,
+        "RequiredLevel": 57,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Axe",
+        "Index": "axeitype",
+        "Class": ""
+      }
+    ],
+    "Lines": [
+      {
+        "key": "ModStr4m",
+        "args": [
+          60
+        ]
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          50
+        ]
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          50
+        ]
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          50
+        ]
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          50
+        ]
+      },
+      {
+        "key": "ModStr1f",
+        "args": [
+          2.5
+        ],
+        "perLevel": true
+      },
+      {
+        "key": "ModStr1p",
+        "args": [
+          1,
+          300
+        ]
+      },
+      {
+        "key": "ModStr4a",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr1w",
+        "args": [
+          75
+        ]
+      },
+      {
+        "key": "ModStr1x",
+        "args": [
+          30
+        ]
+      },
+      {
+        "key": "ModStre9u",
+        "args": [
+          1,
+          10
+        ]
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          24
+        ]
+      },
+      {
+        "key": "ModStr3h",
+        "args": [
+          50
+        ]
+      }
+    ]
+  },
+  {
+    "Index": "Glammer",
+    "Vanilla": "N",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 69,
+    "RequiredLevel": 81,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r32",
+        "ItemLevel": 67,
+        "RequiredLevel": 67,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r33",
+        "ItemLevel": 69,
+        "RequiredLevel": 69,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r30",
+        "ItemLevel": 63,
+        "RequiredLevel": 63,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Merc Equip",
+        "Index": "helmitype",
+        "Class": ""
+      }
+    ],
+    "Lines": [
+      {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          16,
+          9,
+          "skillname72"
+        ]
+      },
+      {
+        "key": "ModStre9s",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr3k",
+        "args": [
+          2
+        ]
+      },
+      {
+        "key": "ModStr5q",
+        "args": [
+          25
+        ]
+      },
+      {
+        "key": "Modstr2v",
+        "args": [
+          160,
+          200
+        ]
+      },
+      {
+        "key": "ModStr2uPercent",
+        "args": [
+          8
+        ]
+      },
+      {
+        "key": "ModStr5z",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr1x",
+        "args": [
+          1.5
+        ],
+        "perLevel": true
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          12
+        ]
+      }
+    ]
+  },
+  {
+    "Index": "Broken Promise",
+    "Vanilla": "N",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 67,
+    "RequiredLevel": 82,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r32",
+        "ItemLevel": 67,
+        "RequiredLevel": 67,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r26",
+        "ItemLevel": 55,
+        "RequiredLevel": 55,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r11",
+        "ItemLevel": 25,
+        "RequiredLevel": 25,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r13",
+        "ItemLevel": 29,
+        "RequiredLevel": 29,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r28",
+        "ItemLevel": 59,
+        "RequiredLevel": 59,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Weapon",
+        "Index": "weapitype",
+        "Class": ""
+      }
+    ],
+    "Lines": [
+      {
+        "key": "ItemExpansiveChanc1",
+        "args": [
+          18,
+          18,
+          "skillname93"
+        ]
+      },
+      {
+        "key": "ModStr3k",
+        "args": [
+          2
+        ]
+      },
+      {
+        "key": "ModStr4m",
+        "args": [
+          20
+        ]
+      },
+      {
+        "key": "strModEnhancedDamage",
+        "args": [
+          285,
+          325
+        ]
+      },
+      {
+        "key": "ModStr1f",
+        "args": [
+          2
+        ],
+        "perLevel": true
+      },
+      {
+        "key": "ModStr2y",
+        "args": [
+          7
+        ]
+      },
+      {
+        "key": "ModStr2z",
+        "args": [
+          7
+        ]
+      },
+      {
+        "key": "ModStr5c",
+        "args": [
+          20
+        ]
+      },
+      {
+        "key": "ModStr5q",
+        "args": [
+          20
+        ]
+      },
+      {
+        "key": "ModStr3l",
+        "args": [
+          3
+        ]
+      },
+      {
+        "key": "Moditem2ExpG",
+        "args": [
+          -5
+        ]
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          15
+        ]
+      }
+    ]
+  },
+  {
+    "Index": "Time",
+    "Vanilla": "N",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 65,
+    "RequiredLevel": 85,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r31",
+        "ItemLevel": 65,
+        "RequiredLevel": 65,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r11",
+        "ItemLevel": 25,
+        "RequiredLevel": 25,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Any Armor",
+        "Index": "armoitype",
+        "Class": ""
+      },
+      {
+        "Name": "Any Shield",
+        "Index": "shlditype",
+        "Class": ""
+      }
+    ],
+    "Lines": [
+      {
+        "key": "ItemExpansiveChanc2",
+        "args": [
+          100,
+          25,
+          "skillname48"
+        ]
+      },
+      {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          1,
+          "skillname54"
+        ]
+      },
+      {
+        "key": "ModStr4a",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "Modstr2v",
+        "args": [
+          160,
+          220
+        ]
+      },
+      {
+        "key": "ModStr1u",
+        "args": [
+          35,
+          50
+        ]
+      },
+      {
+        "key": "ModStr1u",
+        "args": [
+          50
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ModStr2g",
+        "args": [
+          10,
+          20
+        ]
+      },
+      {
+        "key": "ModStr2g",
+        "args": [
+          5
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr1v",
+        "args": [
+          14
+        ],
+        "qualifier": "armor"
+      },
+      {
+        "key": "ModStr1v",
+        "args": [
+          14
+        ],
+        "qualifier": "shield"
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "Index": "Humility",
+    "Vanilla": "N",
+    "Enabled": true,
+    "Rarity": 0,
+    "ItemLevel": 69,
+    "RequiredLevel": 86,
+    "Code": "",
+    "Runes": [
+      {
+        "NameKey": "r33",
+        "ItemLevel": 69,
+        "RequiredLevel": 69,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r22",
+        "ItemLevel": 47,
+        "RequiredLevel": 47,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r06",
+        "ItemLevel": 15,
+        "RequiredLevel": 15,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      },
+      {
+        "NameKey": "r32",
+        "ItemLevel": 67,
+        "RequiredLevel": 67,
+        "Type": {
+          "Name": "Rune",
+          "Index": "runeitype",
+          "Class": ""
+        }
+      }
+    ],
+    "Types": [
+      {
+        "Name": "Armor",
+        "Index": "torsitype",
+        "Class": ""
+      }
+    ],
+    "Lines": [
+      {
+        "key": "ModStre9s",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModitemAura",
+        "args": [
+          3,
+          5,
+          "skillname125"
+        ]
+      },
+      {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          1,
+          4,
+          "skillname138"
+        ]
+      },
+      {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          1,
+          4,
+          "skillname149"
+        ]
+      },
+      {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          1,
+          4,
+          "skillname155"
+        ]
+      },
+      {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          1,
+          4,
+          "skillname50"
+        ]
+      },
+      {
+        "key": "ItemModifierNonClassSkill",
+        "args": [
+          10,
+          15,
+          "skillname32"
+        ]
+      },
+      {
+        "key": "strModAllResistances",
+        "args": [
+          15
+        ]
+      },
+      {
+        "key": "ModStr5z",
+        "args": [
+          1
+        ]
+      },
+      {
+        "key": "ModStr3w",
+        "args": [
+          15
+        ]
+      },
+      {
+        "key": "ItemStats2p",
+        "args": [
+          17
+        ]
+      }
+    ]
+  },
+  {
     "Index": "Starlight",
     "Vanilla": "N",
     "Enabled": true,
     "Rarity": 0,
     "ItemLevel": 69,
-    "RequiredLevel": 69,
+    "RequiredLevel": 89,
     "Code": "",
     "Runes": [
       {
@@ -24893,226 +25113,6 @@
           15
         ],
         "qualifier": "shield"
-      }
-    ]
-  },
-  {
-    "Index": "Void",
-    "Vanilla": "Y",
-    "Enabled": true,
-    "Rarity": 0,
-    "ItemLevel": 69,
-    "RequiredLevel": 69,
-    "Code": "",
-    "Runes": [
-      {
-        "NameKey": "r10",
-        "ItemLevel": 23,
-        "RequiredLevel": 23,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r33",
-        "ItemLevel": 69,
-        "RequiredLevel": 69,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r24",
-        "ItemLevel": 51,
-        "RequiredLevel": 51,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      }
-    ],
-    "Types": [
-      {
-        "Name": "Knife",
-        "Index": "knifitype",
-        "Class": ""
-      }
-    ],
-    "Lines": [
-      {
-        "key": "ModStre9s",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ModStr3k",
-        "args": [
-          2
-        ]
-      },
-      {
-        "key": "ItemModifierNonClassSkill",
-        "args": [
-          1,
-          3,
-          "AbyssName"
-        ]
-      },
-      {
-        "key": "ModStr4v",
-        "args": [
-          40
-        ]
-      },
-      {
-        "key": "strModColdDamageRange",
-        "args": [
-          3,
-          14
-        ]
-      },
-      {
-        "key": "ModStrMagMastery",
-        "args": [
-          10,
-          15
-        ]
-      },
-      {
-        "key": "Moditem2allattrib",
-        "args": [
-          8,
-          12
-        ]
-      },
-      {
-        "key": "ModStr1x",
-        "args": [
-          30
-        ]
-      },
-      {
-        "key": "strSkillCharges",
-        "args": [
-          4,
-          "skillname87",
-          35,
-          35
-        ]
-      }
-    ]
-  },
-  {
-    "Index": "Glammer",
-    "Vanilla": "N",
-    "Enabled": true,
-    "Rarity": 0,
-    "ItemLevel": 69,
-    "RequiredLevel": 69,
-    "Code": "",
-    "Runes": [
-      {
-        "NameKey": "r32",
-        "ItemLevel": 67,
-        "RequiredLevel": 67,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r33",
-        "ItemLevel": 69,
-        "RequiredLevel": 69,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      },
-      {
-        "NameKey": "r30",
-        "ItemLevel": 63,
-        "RequiredLevel": 63,
-        "Type": {
-          "Name": "Rune",
-          "Index": "runeitype",
-          "Class": ""
-        }
-      }
-    ],
-    "Types": [
-      {
-        "Name": "Merc Equip",
-        "Index": "helmitype",
-        "Class": ""
-      }
-    ],
-    "Lines": [
-      {
-        "key": "ItemExpansiveChanc1",
-        "args": [
-          16,
-          9,
-          "skillname72"
-        ]
-      },
-      {
-        "key": "ModStre9s",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ModStr3k",
-        "args": [
-          2
-        ]
-      },
-      {
-        "key": "ModStr5q",
-        "args": [
-          25
-        ]
-      },
-      {
-        "key": "Modstr2v",
-        "args": [
-          160,
-          200
-        ]
-      },
-      {
-        "key": "ModStr2uPercent",
-        "args": [
-          8
-        ]
-      },
-      {
-        "key": "ModStr5z",
-        "args": [
-          1
-        ]
-      },
-      {
-        "key": "ModStr1x",
-        "args": [
-          1.5
-        ],
-        "perLevel": true
-      },
-      {
-        "key": "ItemStats2p",
-        "args": [
-          12
-        ]
       }
     ]
   }
