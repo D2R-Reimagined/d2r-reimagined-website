@@ -114,7 +114,7 @@
     </search-area>
 
     <div class="card-container">
-        <div class="card-box card-vis" repeat.for="affix of filteredAffixes">
+        <div class="card-box card-vis" repeat.for="affix of visibleAffixes; key.bind: affix.__rid">
 
                 <div class="flex justify-between items-center">
                     <div class="text-lg prop-text mt-1 ml-1">${affix.NameKey | t}</div>
@@ -140,5 +140,6 @@
                 <keyed-lines class="text-base prop-text my-1" lines.bind="affix.Lines"></keyed-lines>
 
             </div>
+        <div ref="sentinelEl" class="h-1"></div>
         </div>
 </template>
