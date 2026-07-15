@@ -132,7 +132,7 @@
     </search-area>
 
     <div class="card-container">
-        <div class="card-box card-vis" repeat.for="runeword of filteredRunewords">
+        <div class="card-box card-vis" repeat.for="runeword of visibleRunewords; key.bind: runeword.__rid">
 
             <div class="mb-1">
                 <div class="text-xl unique-text">
@@ -162,5 +162,6 @@
             <keyed-lines class="text-base prop-text" lines.bind="runeword.Lines"></keyed-lines>
 
         </div>
+        <div ref="sentinelEl" class="h-1"></div>
     </div>
 </template>
