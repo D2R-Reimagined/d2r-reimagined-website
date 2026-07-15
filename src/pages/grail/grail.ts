@@ -20,6 +20,7 @@ import {
     tokenizeSearch,
 } from '../../utilities/filter-helpers';
 import { IKeyedLine } from '../../utilities/i-keyed-line';
+import { IncrementalRenderer, tagIds } from '../../utilities/incremental-render';
 import {
     getSortKeyFromDamageType as getSortKeyFromDamageTypeUtil,
     HandFilterMode,
@@ -84,13 +85,21 @@ export class Grail {
     // Data sources
     uniques: IUniqueItem[] = [];
     filteredUniques: IUniqueItem[] = [];
+    visibleUniques: IUniqueItem[] = [];
 
     allSetItems: ISetItem[] = [];
     allSets: ISetData[] = [];
     filteredSetItems: ISetItem[] = [];
+    visibleSetItems: ISetItem[] = [];
 
     runewords: IRunewordData[] = [];
     filteredRunewords: IRunewordData[] = [];
+    visibleRunewords: IRunewordData[] = [];
+
+    // One renderer + one sentinel: only one category list renders at a time, and
+    // the sentinel lives in the always-present shared card-container.
+    sentinelEl?: HTMLElement;
+    private _inc = new IncrementalRenderer<unknown>(60);
 
     classes = character_class_options.map(opt => ({
         ...opt,
@@ -197,6 +206,11 @@ export class Grail {
             console.error('Failed to load grail data:', e);
         }
 
+        // Stable ids for keyed repeats (view reuse across filter/grow).
+        tagIds(this.uniques);
+        tagIds(this.allSetItems);
+        tagIds(this.runewords);
+
         // Load found-state from localStorage
         this.loadFoundItems();
 
@@ -268,10 +282,41 @@ export class Grail {
     attached(): void {
         // Push clean state into URL on the first load (no external hydration)
         this.updateUrl();
+        this._inc.attach(this.sentinelEl, () => this.loadMore());
+    }
+
+    // Rebuild the visible slice for whichever category is active (only one list
+    // renders at a time).
+    private syncVisible(): void {
+        switch (this.selectedCategory) {
+            case 'uniques':
+                this.visibleUniques = this._inc.visible(this.filteredUniques) as IUniqueItem[];
+                break;
+            case 'sets':
+                this.visibleSetItems = this._inc.visible(this.filteredSetItems) as ISetItem[];
+                break;
+            case 'runewords':
+                this.visibleRunewords = this._inc.visible(this.filteredRunewords) as IRunewordData[];
+                break;
+        }
+    }
+
+    private applyVisible(): void {
+        this._inc.reset();
+        this.syncVisible();
+    }
+
+    loadMore(): void {
+        const list =
+            this.selectedCategory === 'uniques' ? this.filteredUniques
+                : this.selectedCategory === 'sets' ? this.filteredSetItems
+                    : this.filteredRunewords;
+        if (this._inc.grow(list)) this.syncVisible();
     }
 
     // When navigating away, clear Grail-related params from the URL so returning starts empty
     detached(): void {
+        this._inc.detach();
         if (this._debouncedApplyFilters) this._debouncedApplyFilters.cancel();
         if (this._debouncedSaveFound) this._debouncedSaveFound.cancel();
         try {
@@ -681,6 +726,9 @@ export class Grail {
             this.filteredRunewords = result;
             this.displayedCount = this.filteredRunewords.length;
         }
+
+        // Reset to the first page for the active category: new results show from the top.
+        this.applyVisible();
 
         // Refresh counters
         this.updateFoundCount();

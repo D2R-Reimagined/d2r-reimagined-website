@@ -273,7 +273,7 @@
     </div>
 
     <div class="card-container">
-        <div class="card-box card-vis" repeat.for="unique of filteredUniques"
+        <div class="card-box card-vis" repeat.for="unique of visibleUniques; key.bind: unique.__rid"
              if.bind="selectedCategory === 'uniques'">
             <div class="relative">
 
@@ -340,7 +340,7 @@
             </div>
         </div>
 
-        <div class="card-box card-vis" repeat.for="setItem of filteredSetItems"
+        <div class="card-box card-vis" repeat.for="setItem of visibleSetItems; key.bind: setItem.__rid"
              if.bind="selectedCategory === 'sets'">
             <div class="relative">
 
@@ -413,7 +413,7 @@
             </div>
         </div>
 
-        <div class="card-box card-vis" repeat.for="runeword of filteredRunewords"
+        <div class="card-box card-vis" repeat.for="runeword of visibleRunewords; key.bind: runeword.__rid"
              if.bind="selectedCategory === 'runewords'">
             <div class="relative">
 
@@ -456,5 +456,6 @@
 
             </div>
         </div>
+        <div ref="sentinelEl" class="h-1"></div>
     </div>
 </template>
