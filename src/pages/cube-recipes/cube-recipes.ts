@@ -4,6 +4,7 @@ import { character_class_options } from '../../resources/constants';
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
 import { matchesTokenGroups, tokenizeSearch } from '../../utilities/filter-helpers';
 import { IKeyedLine } from '../../utilities/i-keyed-line';
+import { IncrementalRenderer, tagIds } from '../../utilities/incremental-render';
 import { format, t } from '../../utilities/translation-store.js';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 
@@ -184,6 +185,10 @@ function mapV2ToDisplay(recipes: V2Recipe[]): DisplayRecipe[] {
 export class CubeRecipes {
     private allRecipes: DisplayRecipe[] = [];
     recipes: DisplayRecipe[] = [];
+    // Incrementally-rendered slice of `recipes` bound in the template.
+    visibleRecipes: DisplayRecipe[] = [];
+    sentinelEl?: HTMLElement;
+    private _inc = new IncrementalRenderer<DisplayRecipe>(60);
 
     formatGroupName(name: string) {
         return name.replace(/-/g, ' ').replace(/([a-z])([0-9])/g, '$1 $2');
@@ -215,6 +220,9 @@ export class CubeRecipes {
             this.allRecipes = [];
             this.recipes = [];
         }
+
+        // Stable ids for keyed repeat (view reuse across filter/grow).
+        tagIds(this.allRecipes);
 
         // Build dropdown options from the existing data set
         try {
@@ -255,6 +263,24 @@ export class CubeRecipes {
         // Run the initial filter pass based on any URL params
         this.handleSearch();
         this.updateUrl();
+
+        this._inc.attach(this.sentinelEl, () => this.loadMore());
+    }
+
+    detached() {
+        this._inc.detach();
+        if (this._debouncedSearchItem) this._debouncedSearchItem.cancel();
+    }
+
+    private applyVisible() {
+        this._inc.reset();
+        this.visibleRecipes = this._inc.visible(this.recipes);
+    }
+
+    loadMore() {
+        if (this._inc.grow(this.recipes)) {
+            this.visibleRecipes = this._inc.visible(this.recipes);
+        }
     }
 
     @watch('search')
@@ -302,6 +328,7 @@ export class CubeRecipes {
 
         if (!tokens.length && !selectedNote && !selectedClass) {
             this.recipes = this.allRecipes;
+            this.applyVisible();
             return;
         }
 
@@ -341,6 +368,9 @@ export class CubeRecipes {
             found.push(recipe);
         }
         this.recipes = found;
+
+        // Reset to the first page: new results always show from the top.
+        this.applyVisible();
     }
 
     // Reset filters by default (show all) and refresh URL/list
@@ -349,6 +379,7 @@ export class CubeRecipes {
         this.selectedNote = undefined;
         this.selectedClass = undefined;
         this.recipes = this.allRecipes;
+        this.applyVisible();
         this.updateUrl();
     }
 }
