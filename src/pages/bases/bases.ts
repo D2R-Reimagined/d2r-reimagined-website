@@ -12,6 +12,7 @@ import {
 } from '../../utilities/damage-types';
 import { matchesTokenGroups, prependTypeResetOption, tokenizeSearch } from '../../utilities/filter-helpers';
 import { IKeyedLine } from '../../utilities/i-keyed-line';
+import { IncrementalRenderer } from '../../utilities/incremental-render';
 import { format, t } from '../../utilities/translation-store.js';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 
@@ -58,6 +59,17 @@ export interface IGroupedAutoMagic {
     minIndex: number;
 }
 
+interface IBaseFamily {
+    familyKey: string;
+    items: IBaseItem[];
+    minIndex: number;
+}
+
+interface IBaseGroup {
+    typeName: string;
+    families: IBaseFamily[];
+}
+
 export class Bases {
 
     // Category: "" (both), "armors", "weapons"
@@ -98,6 +110,13 @@ export class Bases {
 
     itemsArmor: IBaseItem[] = [];
     itemsWeapon: IBaseItem[] = [];
+
+    // Incremental rendering: paginate by GROUP (each group carries a type header
+    // plus its cards), so headers never get orphaned. `shownGroups` mirrors the
+    // renderer's count as an observed field so `visibleGroups` re-renders on grow.
+    sentinelEl?: HTMLElement;
+    private _inc = new IncrementalRenderer<IBaseGroup>(8);
+    shownGroups = 8;
 
     // Build type options and hydrate from URL
     async binding() {
@@ -204,6 +223,11 @@ export class Bases {
 
     attached() {
         this.updateUrl();
+        this._inc.attach(this.sentinelEl, () => this.loadMore());
+    }
+
+    detached() {
+        this._inc.detach();
     }
 
     private updateUrl() {
@@ -226,16 +250,19 @@ export class Bases {
         ) {
             this.selectedType = '';
         }
+        this.resetGroups();
         this.updateUrl();
     }
 
     @watch('search')
     onSearchChanged() {
+        this.resetGroups();
         this.updateUrl();
     }
 
     @watch('selectedType')
     onTypeChanged() {
+        this.resetGroups();
         this.updateUrl();
     }
 
@@ -243,6 +270,7 @@ export class Bases {
     onTierChanged() {
         // Handle the common case where the select yields an empty string
         if ((this.selectedTier as unknown) === '') this.selectedTier = undefined;
+        this.resetGroups();
         this.updateUrl();
     }
 
@@ -261,6 +289,7 @@ export class Bases {
         ) {
             this.selectedSockets = undefined;
         }
+        this.resetGroups();
         this.updateUrl();
     }
 
@@ -273,6 +302,7 @@ export class Bases {
         this.selectedSockets = undefined;
         // Rebuild type options to reflect the combined dataset again
         this.rebuildTypeOptions();
+        this.resetGroups();
         // Ensure the URL is updated (category param removed when empty)
         this.updateUrl();
     }
@@ -283,7 +313,7 @@ export class Bases {
         return [...this.itemsArmor, ...this.itemsWeapon];
     }
 
-    get filteredAndGrouped() {
+    get filteredAndGrouped(): IBaseGroup[] {
         const searchTokens = tokenizeSearch(this.search);
         const typeFilter = this.selectedType;
         const tierFilter = this.selectedTier;
@@ -399,6 +429,22 @@ export class Bases {
             .sort((a, b) => a.typeName.localeCompare(b.typeName));
 
         return groups;
+    }
+
+    // The prefix of groups currently rendered; grows as the sentinel scrolls in.
+    get visibleGroups(): IBaseGroup[] {
+        return this.filteredAndGrouped.slice(0, this.shownGroups);
+    }
+
+    private resetGroups() {
+        this._inc.reset();
+        this.shownGroups = this._inc.shown;
+    }
+
+    loadMore() {
+        if (this._inc.grow(this.filteredAndGrouped)) {
+            this.shownGroups = this._inc.shown;
+        }
     }
 
     get totalCount() {
