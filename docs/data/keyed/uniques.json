@@ -11420,7 +11420,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            50
+            32
           ]
         }
       ]
@@ -14374,13 +14374,13 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            30
+            22
           ]
         },
         {
           "key": "strRequiredDexterity",
           "args": [
-            40
+            30
           ]
         }
       ]
@@ -14610,13 +14610,13 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            52
+            33
           ]
         },
         {
           "key": "strRequiredDexterity",
           "args": [
-            35
+            22
           ]
         }
       ]
@@ -15353,7 +15353,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            40
+            34
           ]
         },
         {
@@ -25218,7 +25218,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            55
+            49
           ]
         }
       ]
@@ -25394,7 +25394,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            32
+            19
           ]
         }
       ]
@@ -35433,13 +35433,13 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            25
+            21
           ]
         },
         {
           "key": "strRequiredDexterity",
           "args": [
-            35
+            29
           ]
         }
       ]
@@ -35997,7 +35997,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            70
+            84
           ]
         }
       ]
@@ -36074,7 +36074,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            99
+            49
           ]
         }
       ]
@@ -38880,13 +38880,13 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            80
+            64
           ]
         },
         {
           "key": "strRequiredDexterity",
           "args": [
-            95
+            76
           ]
         }
       ]
@@ -39185,13 +39185,13 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            71
+            106
           ]
         },
         {
           "key": "strRequiredDexterity",
           "args": [
-            45
+            67
           ]
         }
       ]
@@ -40632,7 +40632,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            41
+            51
           ]
         }
       ]
@@ -44352,13 +44352,13 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            80
+            96
           ]
         },
         {
           "key": "strRequiredDexterity",
           "args": [
-            80
+            96
           ]
         }
       ]
@@ -50529,13 +50529,13 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            101
+            80
           ]
         },
         {
           "key": "strRequiredDexterity",
           "args": [
-            80
+            64
           ]
         },
         {
@@ -51310,13 +51310,13 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            80
+            32
           ]
         },
         {
           "key": "strRequiredDexterity",
           "args": [
-            70
+            28
           ]
         }
       ]
@@ -51827,7 +51827,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            41
+            20
           ]
         }
       ]
@@ -52862,7 +52862,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            70
+            94
           ]
         }
       ]
@@ -56164,7 +56164,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            92
+            36
           ]
         }
       ]
@@ -57616,7 +57616,7 @@
         {
           "key": "strRequiredDexterity",
           "args": [
-            50
+            75
           ]
         }
       ]
@@ -59130,7 +59130,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            30
+            60
           ]
         }
       ]
@@ -63167,7 +63167,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            95
+            71
           ]
         }
       ]
@@ -65324,13 +65324,13 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            91
+            63
           ]
         },
         {
           "key": "strRequiredDexterity",
           "args": [
-            20
+            14
           ]
         }
       ]
@@ -67914,7 +67914,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            92
+            69
           ]
         }
       ]
@@ -70559,7 +70559,7 @@
         {
           "key": "strRequiredDexterity",
           "args": [
-            50
+            62
           ]
         }
       ]
@@ -73564,7 +73564,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            125
+            93
           ]
         }
       ]
@@ -75366,13 +75366,13 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            170
+            85
           ]
         },
         {
           "key": "strRequiredDexterity",
           "args": [
-            110
+            55
           ]
         }
       ]
@@ -76464,7 +76464,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            65
+            81
           ]
         }
       ]
@@ -80865,7 +80865,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            140
+            196
           ]
         }
       ]
@@ -82883,7 +82883,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            65
+            48
           ]
         }
       ]
@@ -84148,13 +84148,13 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            95
+            76
           ]
         },
         {
           "key": "strRequiredDexterity",
           "args": [
-            118
+            94
           ]
         }
       ]
@@ -84246,13 +84246,13 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            80
+            92
           ]
         },
         {
           "key": "strRequiredDexterity",
           "args": [
-            70
+            80
           ]
         }
       ]
@@ -84519,7 +84519,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            133
+            146
           ]
         }
       ]
@@ -89866,7 +89866,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            125
+            81
           ]
         }
       ]
@@ -92077,7 +92077,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            124
+            155
           ]
         }
       ]
@@ -94007,7 +94007,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            125
+            106
           ]
         }
       ]
@@ -94597,7 +94597,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            60
+            90
           ]
         }
       ]
@@ -95489,13 +95489,13 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            175
+            117
           ]
         },
         {
           "key": "strRequiredDexterity",
           "args": [
-            100
+            67
           ]
         }
       ]
@@ -96632,13 +96632,13 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            125
+            100
           ]
         },
         {
           "key": "strRequiredDexterity",
           "args": [
-            77
+            61
           ]
         }
       ]
@@ -98302,7 +98302,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            106
+            159
           ]
         }
       ]
@@ -99643,7 +99643,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            131
+            32
           ]
         }
       ]
@@ -100412,7 +100412,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            65
+            130
           ]
         },
         {
@@ -100607,7 +100607,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            230
+            172
           ]
         }
       ]
@@ -101091,7 +101091,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            192
+            144
           ]
         }
       ]
@@ -106754,7 +106754,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            95
+            190
           ]
         },
         {
@@ -107802,13 +107802,13 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            122
+            152
           ]
         },
         {
           "key": "strRequiredDexterity",
           "args": [
-            163
+            203
           ]
         }
       ]
@@ -110184,13 +110184,13 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            140
+            70
           ]
         },
         {
           "key": "strRequiredDexterity",
           "args": [
-            140
+            70
           ]
         }
       ]
@@ -111054,13 +111054,13 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            152
+            114
           ]
         },
         {
           "key": "strRequiredDexterity",
           "args": [
-            118
+            88
           ]
         }
       ]
@@ -114667,12 +114667,6 @@
             24,
             24
           ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            109
-          ]
         }
       ]
     }
@@ -115040,7 +115034,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            91
+            136
           ]
         },
         {
@@ -115139,7 +115133,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            95
+            142
           ]
         },
         {
@@ -116462,7 +116456,7 @@
         {
           "key": "strRequiredDexterity",
           "args": [
-            60
+            78
           ]
         }
       ]
@@ -123428,18 +123422,6 @@
         {
           "key": "strIndestructible",
           "args": []
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            189
-          ]
-        },
-        {
-          "key": "strRequiredDexterity",
-          "args": [
-            110
-          ]
         }
       ]
     }
@@ -124506,12 +124488,6 @@
           "args": [
             16,
             16
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            106
           ]
         }
       ]
@@ -126049,7 +126025,7 @@
         {
           "key": "strRequiredDexterity",
           "args": [
-            60
+            78
           ]
         }
       ]
@@ -126150,7 +126126,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            219
+            328
           ]
         }
       ]
@@ -126698,7 +126674,7 @@
         {
           "key": "strRequiredDexterity",
           "args": [
-            80
+            120
           ]
         }
       ]
@@ -127449,12 +127425,6 @@
         {
           "key": "strIndestructible",
           "args": []
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            232
-          ]
         }
       ]
     }
@@ -129306,13 +129276,13 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            99
+            148
           ]
         },
         {
           "key": "strRequiredDexterity",
           "args": [
-            109
+            163
           ]
         }
       ]
@@ -129606,13 +129576,13 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            132
+            264
           ]
         },
         {
           "key": "strRequiredDexterity",
           "args": [
-            134
+            268
           ]
         }
       ]
@@ -130615,7 +130585,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            208
+            249
           ]
         }
       ]
@@ -130788,12 +130758,6 @@
           "args": [
             40,
             40
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            192
           ]
         }
       ]
@@ -131057,12 +131021,6 @@
           "args": [
             24,
             24
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            185
           ]
         }
       ]
@@ -133592,18 +133550,6 @@
             250,
             250
           ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            179
-          ]
-        },
-        {
-          "key": "strRequiredDexterity",
-          "args": [
-            99
-          ]
         }
       ]
     }
@@ -133703,13 +133649,13 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            134
+            167
           ]
         },
         {
           "key": "strRequiredDexterity",
           "args": [
-            167
+            208
           ]
         }
       ]
@@ -134646,12 +134592,6 @@
             18,
             18
           ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            151
-          ]
         }
       ]
     }
@@ -134860,13 +134800,13 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            122
+            183
           ]
         },
         {
           "key": "strRequiredDexterity",
           "args": [
-            163
+            244
           ]
         }
       ]
@@ -135060,12 +135000,6 @@
           "args": [
             40,
             40
-          ]
-        },
-        {
-          "key": "strRequiredStrength",
-          "args": [
-            106
           ]
         }
       ]
@@ -135630,7 +135564,7 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            106
+            159
           ]
         },
         {
@@ -135885,13 +135819,13 @@
         {
           "key": "strRequiredStrength",
           "args": [
-            182
+            273
           ]
         },
         {
           "key": "strRequiredDexterity",
           "args": [
-            95
+            142
           ]
         }
       ]
