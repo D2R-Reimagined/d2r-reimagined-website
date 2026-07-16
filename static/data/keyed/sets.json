@@ -2669,7 +2669,7 @@
             {
               "key": "strRequiredStrength",
               "args": [
-                48
+                24
               ]
             }
           ]
@@ -6572,7 +6572,7 @@
             {
               "key": "strRequiredStrength",
               "args": [
-                230
+                172
               ]
             }
           ]
@@ -7763,7 +7763,7 @@
             {
               "key": "strRequiredStrength",
               "args": [
-                58
+                46
               ]
             }
           ]
@@ -8068,7 +8068,7 @@
             {
               "key": "strRequiredStrength",
               "args": [
-                208
+                83
               ]
             }
           ]
@@ -8337,7 +8337,7 @@
             {
               "key": "strRequiredStrength",
               "args": [
-                174
+                130
               ]
             }
           ]
@@ -8427,7 +8427,7 @@
             {
               "key": "strRequiredStrength",
               "args": [
-                170
+                127
               ]
             }
           ]
@@ -8915,7 +8915,7 @@
             {
               "key": "strRequiredStrength",
               "args": [
-                140
+                84
               ]
             }
           ]
@@ -9219,7 +9219,7 @@
             {
               "key": "strRequiredStrength",
               "args": [
-                151
+                90
               ]
             }
           ]
@@ -9516,7 +9516,7 @@
             {
               "key": "strRequiredStrength",
               "args": [
-                174
+                121
               ]
             }
           ]
@@ -12885,7 +12885,7 @@
             {
               "key": "strRequiredStrength",
               "args": [
-                196
+                137
               ]
             }
           ]
@@ -14500,7 +14500,7 @@
             {
               "key": "strRequiredStrength",
               "args": [
-                163
+                114
               ]
             }
           ]
@@ -20201,7 +20201,7 @@
             {
               "key": "strRequiredStrength",
               "args": [
-                124
+                74
               ]
             }
           ]
@@ -24797,7 +24797,7 @@
             {
               "key": "strRequiredStrength",
               "args": [
-                219
+                43
               ]
             }
           ]
@@ -26781,7 +26781,7 @@
             {
               "key": "strRequiredStrength",
               "args": [
-                156
+                93
               ]
             }
           ]
@@ -26866,7 +26866,7 @@
             {
               "key": "strRequiredStrength",
               "args": [
-                149
+                96
               ]
             }
           ]
@@ -27628,13 +27628,13 @@
             {
               "key": "strRequiredStrength",
               "args": [
-                152
+                182
               ]
             },
             {
               "key": "strRequiredDexterity",
               "args": [
-                118
+                141
               ]
             }
           ]
@@ -38856,7 +38856,7 @@
             {
               "key": "strRequiredStrength",
               "args": [
-                185
+                148
               ]
             }
           ]
@@ -41415,7 +41415,7 @@
             {
               "key": "strRequiredStrength",
               "args": [
-                185
+                92
               ]
             }
           ]
@@ -42432,7 +42432,7 @@
             {
               "key": "strRequiredStrength",
               "args": [
-                163
+                130
               ]
             }
           ]
@@ -45025,7 +45025,7 @@
             {
               "key": "strRequiredStrength",
               "args": [
-                219
+                153
               ]
             }
           ]
