@@ -165,7 +165,7 @@
     </div>
 
     <div class="card-container">
-        <div class="card-box card-vis" repeat.for="set of sets">
+        <div class="card-box card-vis" repeat.for="set of visibleSets; key.bind: set.__rid">
 
             <div class="mb-1">
                 <div class="text-xl set-text-light">
@@ -239,5 +239,6 @@
             </div>
 
         </div>
+        <div ref="sentinelEl" class="h-1"></div>
     </div>
 </template>

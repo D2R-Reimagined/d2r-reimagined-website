@@ -113,12 +113,12 @@
     <div class="h-5"></div>
 
     <!-- Cards and title begin -->
-    <div class="card-vis" repeat.for="group of filteredAndGrouped">
+    <div class="card-vis" repeat.for="group of visibleGroups; key.bind: group.typeName">
         <h4 class="text-xl type-text">${group.typeName | t}</h4>
 
         <div class="card-container">
-            <template repeat.for="family of group.families">
-                <div class="card-box card-vis" repeat.for="item of family.items">
+            <template repeat.for="family of group.families; key.bind: family.familyKey">
+                <div class="card-box card-vis" repeat.for="item of family.items; key.bind: item.__index">
 
                     <!-- Name + Sockets banner -->
                     <div class="mb-1">
@@ -199,4 +199,5 @@
             </template>
         </div>
     </div>
+    <div ref="sentinelEl" class="h-1"></div>
 </template>

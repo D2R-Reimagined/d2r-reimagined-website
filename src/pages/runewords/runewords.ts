@@ -12,6 +12,7 @@ import {
 import { debounce, IDebouncedFunction } from '../../utilities/debounce';
 import { matchesTokenGroups, prependTypeResetOption, tokenizeSearch } from '../../utilities/filter-helpers';
 import { IKeyedLine } from '../../utilities/i-keyed-line';
+import { IncrementalRenderer, tagIds } from '../../utilities/incremental-render';
 import { format, t } from '../../utilities/translation-store.js';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 
@@ -34,6 +35,10 @@ interface IRunewordData {
 export class Runewords {
     allRunewords: IRunewordData[] = [];
     filteredRunewords: IRunewordData[] = [];
+    // Incrementally-rendered slice of `filteredRunewords` bound in the template.
+    visibleRunewords: IRunewordData[] = [];
+    sentinelEl?: HTMLElement;
+    private _inc = new IncrementalRenderer<IRunewordData>(60);
     private _searchStrings = new Map<IRunewordData, string>();
 
     @bindable search: string = '';
@@ -71,6 +76,9 @@ export class Runewords {
             console.error('Failed to load runewords:', e);
             this.allRunewords = [];
         }
+
+        // Stable ids for keyed repeat (view reuse across filter/sort/grow).
+        tagIds(this.allRunewords);
 
         // Pre-calculate searchable strings
         this.allRunewords.forEach(rw => {
@@ -164,14 +172,28 @@ export class Runewords {
         this._debouncedUpdateUrl = debounce(() => this.updateUrl(), 150);
         this.updateList();
         this.updateUrl();
+
+        this._inc.attach(this.sentinelEl, () => this.loadMore());
     }
 
     detached() {
+        this._inc.detach();
         if (this._debouncedSearchItem) {
             this._debouncedSearchItem.cancel();
         }
         if (this._debouncedUpdateUrl) {
             this._debouncedUpdateUrl.cancel();
+        }
+    }
+
+    private applyVisible() {
+        this._inc.reset();
+        this.visibleRunewords = this._inc.visible(this.filteredRunewords);
+    }
+
+    loadMore() {
+        if (this._inc.grow(this.filteredRunewords)) {
+            this.visibleRunewords = this._inc.visible(this.filteredRunewords);
         }
     }
 
@@ -319,6 +341,9 @@ export class Runewords {
 
             return true;
         });
+
+        // Reset to the first page: new results always show from the top.
+        this.applyVisible();
     }
 
     private buildSearchableStringForRuneword(rw: IRunewordData): string {

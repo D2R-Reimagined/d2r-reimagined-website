@@ -22,6 +22,7 @@ import {
     prependTypeResetOption,
     tokenizeSearch,
 } from '../../utilities/filter-helpers';
+import { IncrementalRenderer, tagIds } from '../../utilities/incremental-render';
 import {
     getSortKeyFromDamageType as getSortKeyFromDamageTypeUtil,
     HandFilterMode,
@@ -39,6 +40,10 @@ import { ISetData } from './set-types.js';
 export class Sets {
     allSets: ISetData[] = [];
     sets: ISetData[] = [];
+    // Incrementally-rendered slice of `sets` actually bound in the template.
+    visibleSets: ISetData[] = [];
+    sentinelEl?: HTMLElement;
+    private _inc = new IncrementalRenderer<ISetData>(60);
     private _searchStrings = new Map<ISetData, string>();
     @bindable search: string;
     @bindable selectedClass: string | undefined;
@@ -92,6 +97,9 @@ export class Sets {
             console.error('Failed to load sets:', e);
             this.allSets = [];
         }
+
+        // Stable ids for keyed repeat (view reuse across filter/sort/grow).
+        tagIds(this.allSets);
 
         const urlParams = new URLSearchParams(window.location.search);
 
@@ -154,14 +162,28 @@ export class Sets {
         }
         this.updateList();
         this.updateUrl();
+
+        this._inc.attach(this.sentinelEl, () => this.loadMore());
     }
 
     detached() {
+        this._inc.detach();
         if (this._debouncedSearchItem) {
             this._debouncedSearchItem.cancel();
         }
         if (this._debouncedUpdateUrl) {
             this._debouncedUpdateUrl.cancel();
+        }
+    }
+
+    private applyVisible() {
+        this._inc.reset();
+        this.visibleSets = this._inc.visible(this.sets);
+    }
+
+    loadMore() {
+        if (this._inc.grow(this.sets)) {
+            this.visibleSets = this._inc.visible(this.sets);
         }
     }
 
@@ -311,6 +333,9 @@ export class Sets {
             console.error(e);
             this.sets = this.allSets;
         }
+
+        // Reset to the first page: new results always show from the top.
+        this.applyVisible();
     }
 
     private buildSearchableStringForSet(set: ISetData): string {

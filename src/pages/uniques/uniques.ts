@@ -20,6 +20,7 @@ import {
     tokenizeSearch,
 } from '../../utilities/filter-helpers';
 import { IKeyedLine } from '../../utilities/i-keyed-line';
+import { IncrementalRenderer, tagIds } from '../../utilities/incremental-render';
 import {
     getSortKeyFromDamageType as getSortKeyFromDamageTypeUtil,
     HandFilterMode,
@@ -63,6 +64,10 @@ interface IUniqueItem {
 export class Uniques {
     allUniques: IUniqueItem[] = [];
     uniques: IUniqueItem[] = [];
+    // Incrementally-rendered slice of `uniques` actually bound in the template.
+    visibleUniques: IUniqueItem[] = [];
+    sentinelEl?: HTMLElement;
+    private _inc = new IncrementalRenderer<IUniqueItem>(60);
     private _searchStrings = new Map<IUniqueItem, string>();
 
     @bindable search: string;
@@ -100,6 +105,9 @@ export class Uniques {
             console.error('Failed to load uniques:', e);
             this.allUniques = [];
         }
+
+        // Stable ids for keyed repeat (view reuse across filter/sort/grow).
+        tagIds(this.allUniques);
 
         // Pre-calculate searchable strings
         this.allUniques.forEach(u => {
@@ -161,14 +169,28 @@ export class Uniques {
         }
         this.updateList();
         this.updateUrl();
+
+        this._inc.attach(this.sentinelEl, () => this.loadMore());
     }
 
     detached() {
+        this._inc.detach();
         if (this._debouncedSearchItem) {
             this._debouncedSearchItem.cancel();
         }
         if (this._debouncedUpdateUrl) {
             this._debouncedUpdateUrl.cancel();
+        }
+    }
+
+    private applyVisible() {
+        this._inc.reset();
+        this.visibleUniques = this._inc.visible(this.uniques);
+    }
+
+    loadMore() {
+        if (this._inc.grow(this.uniques)) {
+            this.visibleUniques = this._inc.visible(this.uniques);
         }
     }
 
@@ -307,6 +329,9 @@ export class Uniques {
         if (this.isWeaponType && this.weaponSortMode !== 'none') {
             this.uniques = sortItemsByWeaponDamage(this.uniques, this.weaponSortMode);
         }
+
+        // Reset to the first page: new results always show from the top.
+        this.applyVisible();
     }
 
     private buildSearchableStringForUnique(unique: IUniqueItem): string {

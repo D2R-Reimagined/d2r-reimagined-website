@@ -18,6 +18,7 @@ import {
     toOptionalNumber,
 } from '../../utilities/filter-helpers';
 import { IKeyedLine } from '../../utilities/i-keyed-line';
+import { IncrementalRenderer, tagIds } from '../../utilities/incremental-render';
 import { format, t } from '../../utilities/translation-store.js';
 import { isBlankOrInvalid, syncParamsToUrl } from '../../utilities/url-sanitize';
 
@@ -43,6 +44,10 @@ export class Affixes {
     // Data
     allAffixes: IAffixItem[] = [];
     filteredAffixes: IAffixItem[] = [];
+    // Incrementally-rendered slice of `filteredAffixes` bound in the template.
+    visibleAffixes: IAffixItem[] = [];
+    sentinelEl?: HTMLElement;
+    private _inc = new IncrementalRenderer<IAffixItem>(60);
 
     // Search text
     @bindable search: string;
@@ -101,6 +106,10 @@ export class Affixes {
             console.error('Failed to load affixes:', e);
             this.allAffixes = [];
         }
+
+        // Stable ids for keyed repeat (view reuse across filter/grow). NameKey is
+        // not unique across the merged prefix+suffix set, so positional ids only.
+        tagIds(this.allAffixes);
 
         const urlParams = new URLSearchParams(window.location.search);
 
@@ -185,6 +194,24 @@ export class Affixes {
     attached() {
         // Push initial state into URL (removes stale params when empty)
         this.updateUrl();
+
+        this._inc.attach(this.sentinelEl, () => this.loadMore());
+    }
+
+    detached() {
+        this._inc.detach();
+        if (this._debouncedFilter) this._debouncedFilter.cancel();
+    }
+
+    private applyVisible() {
+        this._inc.reset();
+        this.visibleAffixes = this._inc.visible(this.filteredAffixes);
+    }
+
+    loadMore() {
+        if (this._inc.grow(this.filteredAffixes)) {
+            this.visibleAffixes = this._inc.visible(this.filteredAffixes);
+        }
     }
 
     // Helper method to update URL with current search parameters
@@ -399,6 +426,9 @@ export class Affixes {
 
             return true;
         });
+
+        // Reset to the first page: new results always show from the top.
+        this.applyVisible();
     }
 
     formatGroupName(name: string) {

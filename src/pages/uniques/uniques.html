@@ -160,7 +160,7 @@
     </div>
 
     <div class="card-container">
-        <div class="card-box card-vis" repeat.for="unique of uniques">
+        <div class="card-box card-vis" repeat.for="unique of visibleUniques; key.bind: unique.__rid">
 
                 <div class="mb-1">
                     <div class="text-xl unique-text">
@@ -213,5 +213,6 @@
 
                 <keyed-lines class="text-base prop-text" lines.bind="unique.Lines"></keyed-lines>
                 </div>
+        <div ref="sentinelEl" class="h-1"></div>
             </div>
 </template>
