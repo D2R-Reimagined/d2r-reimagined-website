@@ -1,5 +1,5 @@
-import { C as CustomElement, t, i as isBlankOrInvalid, s as syncParamsToUrl, f as format, w as watch, c as customElement, b as bindable } from "./index-BG6DvWBQ.js";
-import { g as getTypeChain, c as getChainForTypeNameReadonly, r as resolveBaseTypeName, b as buildOptionsForPresentTypes, p as prependTypeResetOption, t as tokenizeSearch, i as isVanillaItem, a as type_filtering_options } from "./filter-helpers-CCuQ9HM5.js";
+import { C as CustomElement, t, i as isBlankOrInvalid, s as syncParamsToUrl, f as format, w as watch, c as customElement, b as bindable } from "./index-CTTJeB_J.js";
+import { g as getTypeChain, t as tagIds, d as getChainForTypeNameReadonly, r as resolveBaseTypeName, b as buildOptionsForPresentTypes, p as prependTypeResetOption, a as tokenizeSearch, i as isVanillaItem, c as type_filtering_options, I as IncrementalRenderer } from "./incremental-render-Cch9chka.js";
 import { c as character_class_options } from "./character-classes-BxKvOt2-.js";
 import { g as getDamageTypeString } from "./damage-types-BlYhXdWN.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
@@ -280,7 +280,7 @@ const template = `<template>
     </div>
 
     <div class="card-container">
-        <div class="card-box card-vis" repeat.for="unique of filteredUniques"
+        <div class="card-box card-vis" repeat.for="unique of visibleUniques; key.bind: unique.__rid"
              if.bind="selectedCategory === 'uniques'">
             <div class="relative">
 
@@ -347,7 +347,7 @@ const template = `<template>
             </div>
         </div>
 
-        <div class="card-box card-vis" repeat.for="setItem of filteredSetItems"
+        <div class="card-box card-vis" repeat.for="setItem of visibleSetItems; key.bind: setItem.__rid"
              if.bind="selectedCategory === 'sets'">
             <div class="relative">
 
@@ -420,7 +420,7 @@ const template = `<template>
             </div>
         </div>
 
-        <div class="card-box card-vis" repeat.for="runeword of filteredRunewords"
+        <div class="card-box card-vis" repeat.for="runeword of visibleRunewords; key.bind: runeword.__rid"
              if.bind="selectedCategory === 'runewords'">
             <div class="relative">
 
@@ -463,6 +463,7 @@ const template = `<template>
 
             </div>
         </div>
+        <div ref="sentinelEl" class="h-1"></div>
     </div>
 </template>
 `;
@@ -539,11 +540,16 @@ class Grail {
     __runInitializers(_init, 5, this);
     __publicField(this, "uniques", []);
     __publicField(this, "filteredUniques", []);
+    __publicField(this, "visibleUniques", []);
     __publicField(this, "allSetItems", []);
     __publicField(this, "allSets", []);
     __publicField(this, "filteredSetItems", []);
+    __publicField(this, "visibleSetItems", []);
     __publicField(this, "runewords", []);
     __publicField(this, "filteredRunewords", []);
+    __publicField(this, "visibleRunewords", []);
+    __publicField(this, "sentinelEl");
+    __publicField(this, "_inc", new IncrementalRenderer(60));
     __publicField(this, "classes", character_class_options.map((opt) => ({
       ...opt,
       label: t(opt.label)
@@ -619,6 +625,9 @@ class Grail {
     } catch (e) {
       console.error("Failed to load grail data:", e);
     }
+    tagIds(this.uniques);
+    tagIds(this.allSetItems);
+    tagIds(this.runewords);
     this.loadFoundItems();
     this.readUrlStateSafely();
     this.rebuildTypeOptions();
@@ -663,9 +672,34 @@ class Grail {
   // Reflect the current state back into the URL
   attached() {
     this.updateUrl();
+    this._inc.attach(this.sentinelEl, () => this.loadMore());
+  }
+  // Rebuild the visible slice for whichever category is active (only one list
+  // renders at a time).
+  syncVisible() {
+    switch (this.selectedCategory) {
+      case "uniques":
+        this.visibleUniques = this._inc.visible(this.filteredUniques);
+        break;
+      case "sets":
+        this.visibleSetItems = this._inc.visible(this.filteredSetItems);
+        break;
+      case "runewords":
+        this.visibleRunewords = this._inc.visible(this.filteredRunewords);
+        break;
+    }
+  }
+  applyVisible() {
+    this._inc.reset();
+    this.syncVisible();
+  }
+  loadMore() {
+    const list = this.selectedCategory === "uniques" ? this.filteredUniques : this.selectedCategory === "sets" ? this.filteredSetItems : this.filteredRunewords;
+    if (this._inc.grow(list)) this.syncVisible();
   }
   // When navigating away, clear Grail-related params from the URL so returning starts empty
   detached() {
+    this._inc.detach();
     if (this._debouncedApplyFilters) this._debouncedApplyFilters.cancel();
     if (this._debouncedSaveFound) this._debouncedSaveFound.cancel();
     try {
@@ -982,6 +1016,7 @@ class Grail {
       this.filteredRunewords = result;
       this.displayedCount = this.filteredRunewords.length;
     }
+    this.applyVisible();
     this.updateFoundCount();
     this.updateTotalCount();
     this.updateSetCounters();

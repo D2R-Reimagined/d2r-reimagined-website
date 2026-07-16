@@ -1,5 +1,5 @@
-import { C as CustomElement, i as isBlankOrInvalid, t, s as syncParamsToUrl, f as format, w as watch, c as customElement, b as bindable } from "./index-BG6DvWBQ.js";
-import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, p as prependTypeResetOption, d as toOptionalNumber, t as tokenizeSearch, s as swapMinMax, A as ANCESTOR_ONLY_WHEN_EXACT_OFF, c as getChainForTypeNameReadonly, m as matchesTokenGroups, a as type_filtering_options } from "./filter-helpers-CCuQ9HM5.js";
+import { C as CustomElement, i as isBlankOrInvalid, t, s as syncParamsToUrl, f as format, w as watch, c as customElement, b as bindable } from "./index-CTTJeB_J.js";
+import { t as tagIds, r as resolveBaseTypeName, b as buildOptionsForPresentTypes, p as prependTypeResetOption, e as toOptionalNumber, a as tokenizeSearch, s as swapMinMax, A as ANCESTOR_ONLY_WHEN_EXACT_OFF, d as getChainForTypeNameReadonly, m as matchesTokenGroups, c as type_filtering_options, I as IncrementalRenderer } from "./incremental-render-Cch9chka.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
 const name = "affixes";
 const template = `<template>
@@ -118,7 +118,7 @@ const template = `<template>
     </search-area>
 
     <div class="card-container">
-        <div class="card-box card-vis" repeat.for="affix of filteredAffixes">
+        <div class="card-box card-vis" repeat.for="affix of visibleAffixes; key.bind: affix.__rid">
 
                 <div class="flex justify-between items-center">
                     <div class="text-lg prop-text mt-1 ml-1">\${affix.NameKey | t}</div>
@@ -144,6 +144,7 @@ const template = `<template>
                 <keyed-lines class="text-base prop-text my-1" lines.bind="affix.Lines"></keyed-lines>
 
             </div>
+        <div ref="sentinelEl" class="h-1"></div>
         </div>
 </template>
 `;
@@ -221,6 +222,9 @@ class Affixes {
     __runInitializers(_init, 5, this);
     __publicField(this, "allAffixes", []);
     __publicField(this, "filteredAffixes", []);
+    __publicField(this, "visibleAffixes", []);
+    __publicField(this, "sentinelEl");
+    __publicField(this, "_inc", new IncrementalRenderer(60));
     __publicField(this, "search", __runInitializers(_init, 8, this)), __runInitializers(_init, 11, this);
     __publicField(this, "_debouncedFilter");
     __publicField(this, "_isCoercing", false);
@@ -262,6 +266,7 @@ class Affixes {
       console.error("Failed to load affixes:", e);
       this.allAffixes = [];
     }
+    tagIds(this.allAffixes);
     const urlParams = new URLSearchParams(window.location.search);
     const searchParam = urlParams.get("search");
     if (searchParam && !isBlankOrInvalid(searchParam))
@@ -318,6 +323,20 @@ class Affixes {
   }
   attached() {
     this.updateUrl();
+    this._inc.attach(this.sentinelEl, () => this.loadMore());
+  }
+  detached() {
+    this._inc.detach();
+    if (this._debouncedFilter) this._debouncedFilter.cancel();
+  }
+  applyVisible() {
+    this._inc.reset();
+    this.visibleAffixes = this._inc.visible(this.filteredAffixes);
+  }
+  loadMore() {
+    if (this._inc.grow(this.filteredAffixes)) {
+      this.visibleAffixes = this._inc.visible(this.filteredAffixes);
+    }
   }
   // Helper method to update URL with current search parameters
   updateUrl() {
@@ -476,6 +495,7 @@ class Affixes {
       }
       return true;
     });
+    this.applyVisible();
   }
   formatGroupName(name2) {
     return name2.replace(/-/g, " ").replace(/([a-z])([0-9])/g, "$1 $2");

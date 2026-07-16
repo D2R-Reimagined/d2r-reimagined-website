@@ -1,5 +1,5 @@
-import { C as CustomElement, i as isBlankOrInvalid, t, s as syncParamsToUrl, f as format, w as watch, c as customElement, b as bindable } from "./index-BG6DvWBQ.js";
-import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, p as prependTypeResetOption, t as tokenizeSearch, m as matchesTokenGroups, c as getChainForTypeNameReadonly, a as type_filtering_options } from "./filter-helpers-CCuQ9HM5.js";
+import { C as CustomElement, i as isBlankOrInvalid, t, s as syncParamsToUrl, f as format, w as watch, c as customElement, b as bindable } from "./index-CTTJeB_J.js";
+import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, p as prependTypeResetOption, a as tokenizeSearch, m as matchesTokenGroups, d as getChainForTypeNameReadonly, c as type_filtering_options, I as IncrementalRenderer } from "./incremental-render-Cch9chka.js";
 import { g as getDamageTypeString } from "./damage-types-BlYhXdWN.js";
 const name = "bases";
 const template = `<template>
@@ -117,12 +117,12 @@ const template = `<template>
     <div class="h-5"></div>
 
     <!-- Cards and title begin -->
-    <div class="card-vis" repeat.for="group of filteredAndGrouped">
+    <div class="card-vis" repeat.for="group of visibleGroups; key.bind: group.typeName">
         <h4 class="text-xl type-text">\${group.typeName | t}</h4>
 
         <div class="card-container">
-            <template repeat.for="family of group.families">
-                <div class="card-box card-vis" repeat.for="item of family.items">
+            <template repeat.for="family of group.families; key.bind: family.familyKey">
+                <div class="card-box card-vis" repeat.for="item of family.items; key.bind: item.__index">
 
                     <!-- Name + Sockets banner -->
                     <div class="mb-1">
@@ -203,6 +203,7 @@ const template = `<template>
             </template>
         </div>
     </div>
+    <div ref="sentinelEl" class="h-1"></div>
 </template>
 `;
 const dependencies = [];
@@ -308,6 +309,9 @@ class Bases {
     __publicField(this, "_allBases", []);
     __publicField(this, "itemsArmor", []);
     __publicField(this, "itemsWeapon", []);
+    __publicField(this, "sentinelEl");
+    __publicField(this, "_inc", new IncrementalRenderer(8));
+    __publicField(this, "shownGroups", 8);
     __publicField(this, "getDamageTypeString", getDamageTypeString);
   }
   // Build type options and hydrate from URL
@@ -402,6 +406,10 @@ class Bases {
   }
   attached() {
     this.updateUrl();
+    this._inc.attach(this.sentinelEl, () => this.loadMore());
+  }
+  detached() {
+    this._inc.detach();
   }
   updateUrl() {
     syncParamsToUrl({
@@ -417,16 +425,20 @@ class Bases {
     if (this.selectedType && !this.types.some((o) => o.id === this.selectedType)) {
       this.selectedType = "";
     }
+    this.resetGroups();
     this.updateUrl();
   }
   onSearchChanged() {
+    this.resetGroups();
     this.updateUrl();
   }
   onTypeChanged() {
+    this.resetGroups();
     this.updateUrl();
   }
   onTierChanged() {
     if (this.selectedTier === "") this.selectedTier = void 0;
+    this.resetGroups();
     this.updateUrl();
   }
   onSocketsChanged() {
@@ -438,6 +450,7 @@ class Bases {
     if (typeof this.selectedSockets !== "number" || !Number.isFinite(this.selectedSockets) || this.selectedSockets < 1 || this.selectedSockets > 6) {
       this.selectedSockets = void 0;
     }
+    this.resetGroups();
     this.updateUrl();
   }
   resetFilters() {
@@ -447,6 +460,7 @@ class Bases {
     this.selectedTier = void 0;
     this.selectedSockets = void 0;
     this.rebuildTypeOptions();
+    this.resetGroups();
     this.updateUrl();
   }
   get allItems() {
@@ -538,6 +552,19 @@ class Bases {
       return { typeName, families };
     }).sort((a, b) => a.typeName.localeCompare(b.typeName));
     return groups;
+  }
+  // The prefix of groups currently rendered; grows as the sentinel scrolls in.
+  get visibleGroups() {
+    return this.filteredAndGrouped.slice(0, this.shownGroups);
+  }
+  resetGroups() {
+    this._inc.reset();
+    this.shownGroups = this._inc.shown;
+  }
+  loadMore() {
+    if (this._inc.grow(this.filteredAndGrouped)) {
+      this.shownGroups = this._inc.shown;
+    }
   }
   get totalCount() {
     return this.filteredAndGrouped.reduce(

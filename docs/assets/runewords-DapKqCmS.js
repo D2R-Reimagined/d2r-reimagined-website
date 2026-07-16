@@ -1,5 +1,5 @@
-import { C as CustomElement, i as isBlankOrInvalid, t, s as syncParamsToUrl, f as format, w as watch, c as customElement, b as bindable } from "./index-BG6DvWBQ.js";
-import { r as resolveBaseTypeName, n as normalizeClassItemCode, b as buildOptionsForPresentTypes, p as prependTypeResetOption, t as tokenizeSearch, A as ANCESTOR_ONLY_WHEN_EXACT_OFF, c as getChainForTypeNameReadonly, m as matchesTokenGroups, a as type_filtering_options } from "./filter-helpers-CCuQ9HM5.js";
+import { C as CustomElement, i as isBlankOrInvalid, t, s as syncParamsToUrl, f as format, w as watch, c as customElement, b as bindable } from "./index-CTTJeB_J.js";
+import { t as tagIds, r as resolveBaseTypeName, n as normalizeClassItemCode, b as buildOptionsForPresentTypes, p as prependTypeResetOption, a as tokenizeSearch, A as ANCESTOR_ONLY_WHEN_EXACT_OFF, d as getChainForTypeNameReadonly, m as matchesTokenGroups, c as type_filtering_options, I as IncrementalRenderer } from "./incremental-render-Cch9chka.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
 const name = "runewords";
 const template = `<template>
@@ -136,7 +136,7 @@ const template = `<template>
     </search-area>
 
     <div class="card-container">
-        <div class="card-box card-vis" repeat.for="runeword of filteredRunewords">
+        <div class="card-box card-vis" repeat.for="runeword of visibleRunewords; key.bind: runeword.__rid">
 
             <div class="mb-1">
                 <div class="text-xl unique-text">
@@ -166,6 +166,7 @@ const template = `<template>
             <keyed-lines class="text-base prop-text" lines.bind="runeword.Lines"></keyed-lines>
 
         </div>
+        <div ref="sentinelEl" class="h-1"></div>
     </div>
 </template>
 `;
@@ -242,6 +243,9 @@ class Runewords {
     __runInitializers(_init, 5, this);
     __publicField(this, "allRunewords", []);
     __publicField(this, "filteredRunewords", []);
+    __publicField(this, "visibleRunewords", []);
+    __publicField(this, "sentinelEl");
+    __publicField(this, "_inc", new IncrementalRenderer(60));
     __publicField(this, "_searchStrings", /* @__PURE__ */ new Map());
     __publicField(this, "search", __runInitializers(_init, 8, this, "")), __runInitializers(_init, 11, this);
     __publicField(this, "selectedRuneKeys", __runInitializers(_init, 12, this, [])), __runInitializers(_init, 15, this);
@@ -271,6 +275,7 @@ class Runewords {
       console.error("Failed to load runewords:", e);
       this.allRunewords = [];
     }
+    tagIds(this.allRunewords);
     this.allRunewords.forEach((rw) => {
       this._searchStrings.set(rw, this.buildSearchableStringForRuneword(rw));
     });
@@ -334,13 +339,24 @@ class Runewords {
     this._debouncedUpdateUrl = debounce(() => this.updateUrl(), 150);
     this.updateList();
     this.updateUrl();
+    this._inc.attach(this.sentinelEl, () => this.loadMore());
   }
   detached() {
+    this._inc.detach();
     if (this._debouncedSearchItem) {
       this._debouncedSearchItem.cancel();
     }
     if (this._debouncedUpdateUrl) {
       this._debouncedUpdateUrl.cancel();
+    }
+  }
+  applyVisible() {
+    this._inc.reset();
+    this.visibleRunewords = this._inc.visible(this.filteredRunewords);
+  }
+  loadMore() {
+    if (this._inc.grow(this.filteredRunewords)) {
+      this.visibleRunewords = this._inc.visible(this.filteredRunewords);
     }
   }
   // Push current filters to URL
@@ -450,6 +466,7 @@ class Runewords {
       }
       return true;
     });
+    this.applyVisible();
   }
   buildSearchableStringForRuneword(rw) {
     const parts = [

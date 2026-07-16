@@ -1,4 +1,4 @@
-import { C as CustomElement, o as onLanguageChanged, t, c as customElement } from "./index-BG6DvWBQ.js";
+import { C as CustomElement, o as onLanguageChanged, t, c as customElement } from "./index-CTTJeB_J.js";
 const name = "home";
 const template = '\uFEFF<template>\n    <div class="container mx-auto mt-5">\n        <div class="max-w-5xl mx-auto text-lg type-text p-5">\n            ${\'home_mission_text\' | t}\n        </div>\n        <div class="max-w-5xl mx-auto text-lg type-text p-5">\n            ${\'home_open_source_text\' | t}\n        </div>\n        <div class="max-w-5xl mx-auto text-lg type-text p-5">\n            ${discordBefore}<a href.bind="discordUrl" target="_blank" rel="noopener noreferrer"\n                               class="link-text">${discordUrl}</a>${discordAfter}\n        </div>\n    </div>\n</template>\n';
 const dependencies = [];

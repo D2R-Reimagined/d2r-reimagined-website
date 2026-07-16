@@ -1,5 +1,5 @@
-import { C as CustomElement, t, f as format, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-BG6DvWBQ.js";
-import { t as tokenizeSearch, m as matchesTokenGroups } from "./filter-helpers-CCuQ9HM5.js";
+import { C as CustomElement, t, f as format, i as isBlankOrInvalid, s as syncParamsToUrl, w as watch, c as customElement, b as bindable } from "./index-CTTJeB_J.js";
+import { t as tagIds, a as tokenizeSearch, m as matchesTokenGroups, I as IncrementalRenderer } from "./incremental-render-Cch9chka.js";
 import { c as character_class_options } from "./character-classes-BxKvOt2-.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
 const name = "cube-recipes";
@@ -74,7 +74,7 @@ const template = `<template>
     </search-area>
 
     <div class="card-container">
-        <div class="card-box card-vis" repeat.for="recipe of recipes">
+        <div class="card-box card-vis" repeat.for="recipe of visibleRecipes; key.bind: recipe.__rid">
 
             <div class="mb-1  text-xl unique-text">
                 \${recipe.Description}
@@ -102,6 +102,7 @@ const template = `<template>
                 </div>
             </div>
         </div>
+        <div ref="sentinelEl" class="h-1"></div>
 
     </div>
 
@@ -271,6 +272,9 @@ class CubeRecipes {
     __runInitializers(_init, 5, this);
     __publicField(this, "allRecipes", []);
     __publicField(this, "recipes", []);
+    __publicField(this, "visibleRecipes", []);
+    __publicField(this, "sentinelEl");
+    __publicField(this, "_inc", new IncrementalRenderer(60));
     __publicField(this, "search", __runInitializers(_init, 8, this)), __runInitializers(_init, 11, this);
     __publicField(this, "selectedNote", __runInitializers(_init, 12, this)), __runInitializers(_init, 15, this);
     __publicField(this, "selectedClass", __runInitializers(_init, 16, this)), __runInitializers(_init, 19, this);
@@ -295,6 +299,7 @@ class CubeRecipes {
       this.allRecipes = [];
       this.recipes = [];
     }
+    tagIds(this.allRecipes);
     try {
       const noteSet = /* @__PURE__ */ new Set();
       for (const r of this.allRecipes) {
@@ -327,6 +332,20 @@ class CubeRecipes {
     this._debouncedSearchItem = debounce(() => this.handleSearch(), 350);
     this.handleSearch();
     this.updateUrl();
+    this._inc.attach(this.sentinelEl, () => this.loadMore());
+  }
+  detached() {
+    this._inc.detach();
+    if (this._debouncedSearchItem) this._debouncedSearchItem.cancel();
+  }
+  applyVisible() {
+    this._inc.reset();
+    this.visibleRecipes = this._inc.visible(this.recipes);
+  }
+  loadMore() {
+    if (this._inc.grow(this.recipes)) {
+      this.visibleRecipes = this._inc.visible(this.recipes);
+    }
   }
   handleSearchChanged() {
     if (this._debouncedSearchItem) {
@@ -364,6 +383,7 @@ class CubeRecipes {
     const selectedClass = (this.selectedClass || "").toLowerCase();
     if (!tokens.length && !selectedNote && !selectedClass) {
       this.recipes = this.allRecipes;
+      this.applyVisible();
       return;
     }
     const found = [];
@@ -389,6 +409,7 @@ class CubeRecipes {
       found.push(recipe);
     }
     this.recipes = found;
+    this.applyVisible();
   }
   // Reset filters by default (show all) and refresh URL/list
   resetFilters() {
@@ -396,6 +417,7 @@ class CubeRecipes {
     this.selectedNote = void 0;
     this.selectedClass = void 0;
     this.recipes = this.allRecipes;
+    this.applyVisible();
     this.updateUrl();
   }
 }

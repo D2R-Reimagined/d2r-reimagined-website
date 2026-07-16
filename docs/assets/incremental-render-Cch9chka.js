@@ -427,12 +427,65 @@ function isVanillaItem(vanilla) {
   const vStr = typeof vanilla === "string" || typeof vanilla === "number" || typeof vanilla === "boolean" ? String(vanilla).toUpperCase() : "";
   return vStr === "Y";
 }
+class IncrementalRenderer {
+  pageSize;
+  shown;
+  _observer = null;
+  constructor(pageSize = 60) {
+    this.pageSize = pageSize;
+    this.shown = pageSize;
+  }
+  /** Collapse back to the first page (call whenever the source list changes). */
+  reset() {
+    this.shown = this.pageSize;
+  }
+  /** The prefix of `items` currently meant to be in the DOM. */
+  visible(items) {
+    return items.slice(0, this.shown);
+  }
+  /** Grow by one page. Returns false when already showing everything. */
+  grow(items) {
+    if (this.shown >= items.length) return false;
+    this.shown = Math.min(this.shown + this.pageSize, items.length);
+    return true;
+  }
+  hasMore(items) {
+    return this.shown < items.length;
+  }
+  /**
+   * Observe `sentinel`; call `onGrow` whenever it enters view (plus an 800px
+   * lead margin so growth happens ~a viewport early). No-op without a sentinel
+   * or when IntersectionObserver is unavailable (e.g. unit-test env).
+   */
+  attach(sentinel, onGrow) {
+    if (!sentinel || typeof IntersectionObserver === "undefined") return;
+    this._observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) onGrow();
+      },
+      { rootMargin: "0px 0px 800px 0px" }
+    );
+    this._observer.observe(sentinel);
+  }
+  detach() {
+    this._observer?.disconnect();
+    this._observer = null;
+  }
+}
+function tagIds(items, field = "__rid") {
+  for (let i = 0; i < items.length; i++) {
+    items[i][field] = i;
+  }
+  return items;
+}
 export {
   ANCESTOR_ONLY_WHEN_EXACT_OFF as A,
-  type_filtering_options as a,
+  IncrementalRenderer as I,
+  tokenizeSearch as a,
   buildOptionsForPresentTypes as b,
-  getChainForTypeNameReadonly as c,
-  toOptionalNumber as d,
+  type_filtering_options as c,
+  getChainForTypeNameReadonly as d,
+  toOptionalNumber as e,
   getTypeChain as g,
   isVanillaItem as i,
   matchesTokenGroups as m,
@@ -440,5 +493,5 @@ export {
   prependTypeResetOption as p,
   resolveBaseTypeName as r,
   swapMinMax as s,
-  tokenizeSearch as t
+  tagIds as t
 };

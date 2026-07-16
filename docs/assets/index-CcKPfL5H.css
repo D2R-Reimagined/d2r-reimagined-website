@@ -2918,6 +2918,10 @@ body {
     display: table-row;
   }
 
+  .h-1 {
+    height: calc(var(--spacing) * 1);
+  }
+
   .h-4 {
     height: calc(var(--spacing) * 4);
   }
