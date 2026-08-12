@@ -1,4 +1,4 @@
-import { C as CustomElement, i as isBlankOrInvalid, t, s as syncParamsToUrl, f as format, w as watch, c as customElement, b as bindable } from "./index-CTTJeB_J.js";
+import { C as CustomElement, i as isBlankOrInvalid, t, s as syncParamsToUrl, f as format, w as watch, c as customElement, b as bindable } from "./index-C3FNI0ne.js";
 import { r as resolveBaseTypeName, b as buildOptionsForPresentTypes, p as prependTypeResetOption, a as tokenizeSearch, m as matchesTokenGroups, d as getChainForTypeNameReadonly, c as type_filtering_options, I as IncrementalRenderer } from "./incremental-render-Cch9chka.js";
 import { g as getDamageTypeString } from "./damage-types-BlYhXdWN.js";
 const name = "bases";
@@ -175,11 +175,11 @@ const template = `<template>
                     <!-- Requirements: class / dex / str / level -->
                     <div class="mb-1">
                         <div repeat.for="line of item.Lines"
-                             if.bind="['strRequiredClass','strRequiredDexterity','strRequiredStrength'].includes(line.key)"
+                             if.bind="['strRequiredClass','strRequiredDexterity','strRequiredStrength','strRequiredDexterityRange','strRequiredStrengthRange','strRequiredLevelRange'].includes(line.key)"
                              class="text-base requirement-text">
                             \${line | keyedLine}
                         </div>
-                        <div class="text-base requirement-text">
+                        <div class="text-base requirement-text" if.bind="!item.Lines.some(l => l.key === 'strRequiredLevelRange')">
                             \${'strRequiredLevel' | t: item.RequiredLevel || 1}
                         </div>
                     </div>

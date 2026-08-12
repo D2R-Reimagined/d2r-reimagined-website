@@ -114667,6 +114667,13 @@
             24,
             24
           ]
+        },
+        {
+          "key": "strRequiredStrengthRange",
+          "args": [
+            163,
+            190
+          ]
         }
       ]
     }
@@ -123422,6 +123429,20 @@
         {
           "key": "strIndestructible",
           "args": []
+        },
+        {
+          "key": "strRequiredStrengthRange",
+          "args": [
+            236,
+            283
+          ]
+        },
+        {
+          "key": "strRequiredDexterityRange",
+          "args": [
+            137,
+            165
+          ]
         }
       ]
     }
@@ -124488,6 +124509,13 @@
           "args": [
             16,
             16
+          ]
+        },
+        {
+          "key": "strRequiredStrengthRange",
+          "args": [
+            159,
+            185
           ]
         }
       ]
@@ -130759,6 +130787,13 @@
             40,
             40
           ]
+        },
+        {
+          "key": "strRequiredStrengthRange",
+          "args": [
+            288,
+            384
+          ]
         }
       ]
     }
@@ -131021,6 +131056,13 @@
           "args": [
             24,
             24
+          ]
+        },
+        {
+          "key": "strRequiredStrengthRange",
+          "args": [
+            222,
+            259
           ]
         }
       ]
@@ -133550,6 +133592,20 @@
             250,
             250
           ]
+        },
+        {
+          "key": "strRequiredStrengthRange",
+          "args": [
+            223,
+            268
+          ]
+        },
+        {
+          "key": "strRequiredDexterityRange",
+          "args": [
+            123,
+            148
+          ]
         }
       ]
     }
@@ -134592,6 +134648,13 @@
             18,
             18
           ]
+        },
+        {
+          "key": "strRequiredStrengthRange",
+          "args": [
+            188,
+            226
+          ]
         }
       ]
     }
@@ -135000,6 +135063,13 @@
           "args": [
             40,
             40
+          ]
+        },
+        {
+          "key": "strRequiredStrengthRange",
+          "args": [
+            106,
+            265
           ]
         }
       ]

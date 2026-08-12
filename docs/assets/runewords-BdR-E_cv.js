@@ -1,4 +1,4 @@
-import { C as CustomElement, i as isBlankOrInvalid, t, s as syncParamsToUrl, f as format, w as watch, c as customElement, b as bindable } from "./index-CTTJeB_J.js";
+import { C as CustomElement, i as isBlankOrInvalid, t, s as syncParamsToUrl, f as format, w as watch, c as customElement, b as bindable } from "./index-C3FNI0ne.js";
 import { t as tagIds, r as resolveBaseTypeName, n as normalizeClassItemCode, b as buildOptionsForPresentTypes, p as prependTypeResetOption, a as tokenizeSearch, A as ANCESTOR_ONLY_WHEN_EXACT_OFF, d as getChainForTypeNameReadonly, m as matchesTokenGroups, c as type_filtering_options, I as IncrementalRenderer } from "./incremental-render-Cch9chka.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
 const name = "runewords";
@@ -159,7 +159,7 @@ const template = `<template>
                 </span>
             </div>
 
-            <div class="text-base requirement-text my-1">
+            <div class="text-base requirement-text my-1" if.bind="!runeword.Lines.some(l => l.key === 'strRequiredLevelRange')">
                 \${'strRequiredLevel' | t: runeword.RequiredLevel || 1}
             </div>
 

@@ -1,4 +1,4 @@
-import { C as CustomElement, t, i as isBlankOrInvalid, s as syncParamsToUrl, f as format, w as watch, c as customElement, b as bindable } from "./index-CTTJeB_J.js";
+import { C as CustomElement, t, i as isBlankOrInvalid, s as syncParamsToUrl, f as format, w as watch, c as customElement, b as bindable } from "./index-C3FNI0ne.js";
 import { g as getTypeChain, t as tagIds, d as getChainForTypeNameReadonly, r as resolveBaseTypeName, b as buildOptionsForPresentTypes, p as prependTypeResetOption, a as tokenizeSearch, i as isVanillaItem, c as type_filtering_options, I as IncrementalRenderer } from "./incremental-render-Cch9chka.js";
 import { c as character_class_options } from "./character-classes-BxKvOt2-.js";
 import { g as getDamageTypeString } from "./damage-types-BlYhXdWN.js";
@@ -334,11 +334,11 @@ const template = `<template>
 
                 <div class="mb-1">
                     <div repeat.for="line of unique.Equipment.Lines"
-                         if.bind="['strRequiredClass','strRequiredDexterity','strRequiredStrength'].includes(line.key)"
+                         if.bind="['strRequiredClass','strRequiredDexterity','strRequiredStrength','strRequiredDexterityRange','strRequiredStrengthRange','strRequiredLevelRange'].includes(line.key)"
                          class="text-base requirement-text">
                         \${line | keyedLine}
                     </div>
-                    <div class="text-base requirement-text">
+                    <div class="text-base requirement-text" if.bind="!unique.Equipment.Lines.some(l => l.key === 'strRequiredLevelRange')">
                         \${'strRequiredLevel' | t: unique.RequiredLevel || 1}
                     </div>
                 </div>
@@ -404,11 +404,11 @@ const template = `<template>
 
                 <div class="mb-1">
                     <div repeat.for="line of setItem.Equipment.Lines"
-                         if.bind="['strRequiredClass','strRequiredDexterity','strRequiredStrength'].includes(line.key)"
+                         if.bind="['strRequiredClass','strRequiredDexterity','strRequiredStrength','strRequiredDexterityRange','strRequiredStrengthRange','strRequiredLevelRange'].includes(line.key)"
                          class="text-base requirement-text">
                         \${line | keyedLine}
                     </div>
-                    <div class="text-base requirement-text">
+                    <div class="text-base requirement-text" if.bind="!setItem.Equipment.Lines.some(l => l.key === 'strRequiredLevelRange')">
                         \${'strRequiredLevel' | t: setItem.RequiredLevel || 1}
                     </div>
                 </div>
@@ -455,7 +455,7 @@ const template = `<template>
                     </span>
                 </div>
 
-                <div class="text-base requirement-text my-1">
+                <div class="text-base requirement-text my-1" if.bind="!runeword.Lines.some(l => l.key === 'strRequiredLevelRange')">
                     \${'strRequiredLevel' | t: runeword.RequiredLevel || 1}
                 </div>
 

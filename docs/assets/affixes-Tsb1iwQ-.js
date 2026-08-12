@@ -1,4 +1,4 @@
-import { C as CustomElement, i as isBlankOrInvalid, t, s as syncParamsToUrl, f as format, w as watch, c as customElement, b as bindable } from "./index-CTTJeB_J.js";
+import { C as CustomElement, i as isBlankOrInvalid, t, s as syncParamsToUrl, f as format, w as watch, c as customElement, b as bindable } from "./index-C3FNI0ne.js";
 import { t as tagIds, r as resolveBaseTypeName, b as buildOptionsForPresentTypes, p as prependTypeResetOption, e as toOptionalNumber, a as tokenizeSearch, s as swapMinMax, A as ANCESTOR_ONLY_WHEN_EXACT_OFF, d as getChainForTypeNameReadonly, m as matchesTokenGroups, c as type_filtering_options, I as IncrementalRenderer } from "./incremental-render-Cch9chka.js";
 import { d as debounce } from "./debounce-DlM2vs2L.js";
 const name = "affixes";
@@ -125,7 +125,7 @@ const template = `<template>
                     <div class="text-lg type-text mt-1 mr-1">\${(affix.PType === 'Prefix' ? 'label_prefix' : 'label_suffix') | t}</div>
                 </div>
 
-                <div class="text-base requirement-text mb-1">
+                <div class="text-base requirement-text mb-1" if.bind="!affix.Lines.some(l => l.key === 'strRequiredLevelRange')">
                     \${'label_level_required' | t: affix.RequiredLevel || 1}
                 </div>
 
