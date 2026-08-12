@@ -121,7 +121,7 @@
                     <div class="text-lg type-text mt-1 mr-1">${(affix.PType === 'Prefix' ? 'label_prefix' : 'label_suffix') | t}</div>
                 </div>
 
-                <div class="text-base requirement-text mb-1">
+                <div class="text-base requirement-text mb-1" if.bind="!affix.Lines.some(l => l.key === 'strRequiredLevelRange')">
                     ${'label_level_required' | t: affix.RequiredLevel || 1}
                 </div>
 
