@@ -40,6 +40,24 @@
     fontOpen = false;
   }
 
+  function toggleDataMenu(): void {
+    dataOpen = !dataOpen;
+    languageOpen = false;
+    fontOpen = false;
+  }
+
+  function toggleLanguageMenu(): void {
+    languageOpen = !languageOpen;
+    dataOpen = false;
+    fontOpen = false;
+  }
+
+  function toggleFontMenu(): void {
+    fontOpen = !fontOpen;
+    dataOpen = false;
+    languageOpen = false;
+  }
+
   async function chooseLanguage(code: LanguageCode): Promise<void> {
     await setLanguage(code);
     closeMenus();
@@ -73,7 +91,7 @@
         <a href="/grail" onclick={closeMenus} class={navClass('/grail')}>Holy Grail</a>
 
         <div class="relative">
-          <button type="button" onclick={() => dataOpen = !dataOpen} class={`flex w-full items-center justify-between gap-2 ${navClass('/data')}`} aria-expanded={dataOpen}>
+          <button type="button" onclick={toggleDataMenu} class={`flex w-full items-center justify-between gap-2 ${navClass('/data')}`} aria-expanded={dataOpen}>
             Data <span aria-hidden="true" class="text-xs">▾</span>
           </button>
           {#if dataOpen}
@@ -93,7 +111,7 @@
         <div class="my-2 h-px bg-parchment-300/15 lg:mx-2 lg:my-0 lg:h-7 lg:w-px"></div>
 
         <div class="relative">
-          <button type="button" aria-label="Choose language" aria-expanded={languageOpen} onclick={() => languageOpen = !languageOpen} class="flex w-full items-center gap-2 rounded px-3 py-2 text-parchment-200 hover:bg-white/5 hover:text-white">◎ <span class="lg:hidden">Language</span></button>
+          <button type="button" aria-label="Choose language" aria-expanded={languageOpen} onclick={toggleLanguageMenu} class="flex w-full items-center gap-2 rounded px-3 py-2 text-parchment-200 hover:bg-white/5 hover:text-white">◎ <span class="lg:hidden">Language</span></button>
           {#if languageOpen}
             <div class="mt-1 max-h-80 min-w-56 overflow-y-auto rounded-lg border border-parchment-300/20 bg-abyss-900 p-2 shadow-2xl lg:absolute lg:right-0 lg:top-full">
               {#each languages as language}
@@ -106,7 +124,7 @@
         </div>
 
         <div class="relative">
-          <button type="button" aria-label="Choose font" aria-expanded={fontOpen} onclick={() => fontOpen = !fontOpen} class="flex w-full items-center gap-2 rounded px-3 py-2 text-parchment-200 hover:bg-white/5 hover:text-white">Aa <span class="lg:hidden">Font</span></button>
+          <button type="button" aria-label="Choose font" aria-expanded={fontOpen} onclick={toggleFontMenu} class="flex w-full items-center gap-2 rounded px-3 py-2 text-parchment-200 hover:bg-white/5 hover:text-white">Aa <span class="lg:hidden">Font</span></button>
           {#if fontOpen}
             <div class="mt-1 min-w-44 rounded-lg border border-parchment-300/20 bg-abyss-900 p-2 shadow-2xl lg:absolute lg:right-0 lg:top-full">
               {#each fonts as font}
