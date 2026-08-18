@@ -47,7 +47,7 @@
     <div class="relative mx-auto flex min-h-[72vh] max-w-7xl items-center px-5 py-20">
         <div class="max-w-2xl">
             <p class="display-text mb-4 text-sm uppercase tracking-[0.28em] text-ember-400">A familiar darkness,
-                reforged</p>
+                Reimagined</p>
             <h1 class="display-text text-5xl leading-tight text-parchment-50 sm:text-7xl">Diablo II,<br/><span
                     class="text-unique">Reimagined.</span></h1>
             <p class="mt-6 max-w-xl text-lg leading-8 text-parchment-200 sm:text-xl">An expanded D2R experience shaped
@@ -90,7 +90,6 @@
                 src="/images/tectonic-slam.png" alt="Tectonic Slam gameplay in D2R Reimagined"
                 class="aspect-video h-full w-full object-cover" loading="lazy"/></div>
         <div>
-            <p class="display-text text-sm uppercase tracking-[0.25em] text-ember-400">Built to be played</p>
             <h2 class="display-text mt-3 text-3xl sm:text-5xl">More ways to break Hell</h2>
             <p class="mt-5 text-lg leading-8 text-parchment-200">Rebalanced class trees, original skills, custom
                 effects, expanded storage, new crafting paths, and end-game item hunts turn another playthrough into a
@@ -104,7 +103,6 @@
 
 <section class="mx-auto grid max-w-7xl gap-8 px-5 py-20 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
     <div>
-        <p class="display-text text-sm uppercase tracking-[0.25em] text-ember-400">Open by design</p>
         <h2 class="display-text mt-3 text-3xl sm:text-5xl">Made with the community</h2>
         <p class="mt-5 text-lg leading-8 text-parchment-200">What began as a merge of beloved mods has grown into a
             community-maintained overhaul. The source is open, feedback is welcome, and contributors keep Sanctuary
