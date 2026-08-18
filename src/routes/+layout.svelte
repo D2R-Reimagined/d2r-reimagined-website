@@ -2,6 +2,8 @@
   import { page } from '$app/state';
   import Footer from '$lib/components/Footer.svelte';
   import Header from '$lib/components/Header.svelte';
+  import BackToTop from '$lib/components/BackToTop.svelte';
+  import RouteLoading from '$lib/components/RouteLoading.svelte';
   import { initializeI18n } from '$lib/i18n';
   import '../app.css';
 
@@ -29,5 +31,7 @@
 </svelte:head>
 
 <Header />
+<RouteLoading />
 <main id="main-content">{@render children()}</main>
 <Footer />
+<BackToTop />

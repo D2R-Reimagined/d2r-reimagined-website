@@ -1,0 +1,3364 @@
+[
+  {
+    "Class": "Amazon",
+    "ClassCode": "ama",
+    "NameKey": "Amazon",
+    "Tabs": [
+      {
+        "Page": 1,
+        "NameKey": "SkillCategoryAm3",
+        "Skills": [
+          {
+            "Id": 6,
+            "Code": "Magic Arrow",
+            "NameKey": "skillname6",
+            "ShortDescriptionKey": "skillld6",
+            "DescriptionKey": "skillld6",
+            "Row": 1,
+            "Column": 2,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 7,
+            "Code": "Fire Arrow",
+            "NameKey": "skillname7",
+            "ShortDescriptionKey": "skillxld7",
+            "DescriptionKey": "skillxld7",
+            "Row": 1,
+            "Column": 3,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 11,
+            "Code": "Cold Arrow",
+            "NameKey": "skillname11",
+            "ShortDescriptionKey": "skillxld11",
+            "DescriptionKey": "skillxld11",
+            "Row": 2,
+            "Column": 1,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 12,
+            "Code": "Multiple Shot",
+            "NameKey": "skillname12",
+            "ShortDescriptionKey": "skillld12",
+            "DescriptionKey": "skillld12",
+            "Row": 2,
+            "Column": 2,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              6
+            ]
+          },
+          {
+            "Id": 16,
+            "Code": "Exploding Arrow",
+            "NameKey": "skillname16",
+            "ShortDescriptionKey": "skillxld16",
+            "DescriptionKey": "skillxld16",
+            "Row": 3,
+            "Column": 3,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              7
+            ]
+          },
+          {
+            "Id": 21,
+            "Code": "Freezing Arrow",
+            "NameKey": "skillname31",
+            "ShortDescriptionKey": "skillxld31",
+            "DescriptionKey": "skillxld31",
+            "Row": 4,
+            "Column": 1,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              11
+            ]
+          },
+          {
+            "Id": 22,
+            "Code": "Guided Arrow",
+            "NameKey": "skillname22",
+            "ShortDescriptionKey": "skillld22",
+            "DescriptionKey": "skillld22",
+            "Row": 4,
+            "Column": 2,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              12
+            ]
+          },
+          {
+            "Id": 26,
+            "Code": "Strafe",
+            "NameKey": "skillname26",
+            "ShortDescriptionKey": "skillld26",
+            "DescriptionKey": "skillld26",
+            "Row": 5,
+            "Column": 2,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              22
+            ]
+          },
+          {
+            "Id": 27,
+            "Code": "Meteoric Arrow",
+            "NameKey": "skillname27",
+            "ShortDescriptionKey": "skillld27",
+            "DescriptionKey": "skillld27",
+            "Row": 5,
+            "Column": 3,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              16
+            ]
+          },
+          {
+            "Id": 31,
+            "Code": "Glacial Orb Arrow",
+            "NameKey": "skillname21",
+            "ShortDescriptionKey": "skillld21",
+            "DescriptionKey": "skillld21",
+            "Row": 6,
+            "Column": 1,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              21
+            ]
+          }
+        ]
+      },
+      {
+        "Page": 2,
+        "NameKey": "SkillCategoryAm2",
+        "Skills": [
+          {
+            "Id": 8,
+            "Code": "Inner Sight",
+            "NameKey": "skillname8",
+            "ShortDescriptionKey": "skillld8",
+            "DescriptionKey": "skillld8",
+            "Row": 1,
+            "Column": 1,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 9,
+            "Code": "Critical Strike",
+            "NameKey": "skillname9",
+            "ShortDescriptionKey": "skillld9",
+            "DescriptionKey": "skillld9",
+            "Row": 1,
+            "Column": 3,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 13,
+            "Code": "Dodge",
+            "NameKey": "skillname13",
+            "ShortDescriptionKey": "skillld13",
+            "DescriptionKey": "skillld13",
+            "Row": 2,
+            "Column": 2,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 17,
+            "Code": "Slow Missiles",
+            "NameKey": "skillname17",
+            "ShortDescriptionKey": "skillld17",
+            "DescriptionKey": "skillld17",
+            "Row": 3,
+            "Column": 1,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              8
+            ]
+          },
+          {
+            "Id": 23,
+            "Code": "Penetrate",
+            "NameKey": "skillname23",
+            "ShortDescriptionKey": "skillld23",
+            "DescriptionKey": "skillld23",
+            "Row": 3,
+            "Column": 3,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              9
+            ]
+          },
+          {
+            "Id": 29,
+            "Code": "Evade",
+            "NameKey": "skillname29",
+            "ShortDescriptionKey": "skillld29",
+            "DescriptionKey": "skillld29",
+            "Row": 5,
+            "Column": 2,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              13
+            ]
+          },
+          {
+            "Id": 33,
+            "Code": "Pierce",
+            "NameKey": "skillname33",
+            "ShortDescriptionKey": "skillld33",
+            "DescriptionKey": "skillld33",
+            "Row": 5,
+            "Column": 3,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              23
+            ]
+          },
+          {
+            "Id": 32,
+            "Code": "Valkyrie",
+            "NameKey": "skillname32",
+            "ShortDescriptionKey": "skillld32",
+            "DescriptionKey": "skillld32",
+            "Row": 6,
+            "Column": 1,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              17,
+              29
+            ]
+          },
+          {
+            "Id": 18,
+            "Code": "Elemental Covenant",
+            "NameKey": "skillname18",
+            "ShortDescriptionKey": "skillld18",
+            "DescriptionKey": "skillld18",
+            "Row": 6,
+            "Column": 2,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 28,
+            "Code": "Titans Covenant",
+            "NameKey": "skillname28",
+            "ShortDescriptionKey": "skillld28",
+            "DescriptionKey": "skillld28",
+            "Row": 6,
+            "Column": 3,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          }
+        ]
+      },
+      {
+        "Page": 3,
+        "NameKey": "SkillCategoryAm1",
+        "Skills": [
+          {
+            "Id": 10,
+            "Code": "Jab",
+            "NameKey": "skillname10",
+            "ShortDescriptionKey": "skillld10",
+            "DescriptionKey": "skillld10",
+            "Row": 1,
+            "Column": 1,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 15,
+            "Code": "Poison Javelin",
+            "NameKey": "skillname15",
+            "ShortDescriptionKey": "skillld15",
+            "DescriptionKey": "skillld15",
+            "Row": 2,
+            "Column": 2,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 20,
+            "Code": "Lightning Bolt",
+            "NameKey": "skillname20",
+            "ShortDescriptionKey": "skillld20",
+            "DescriptionKey": "skillld20",
+            "Row": 2,
+            "Column": 3,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 25,
+            "Code": "Plague Javelin",
+            "NameKey": "skillname25",
+            "ShortDescriptionKey": "skillld25",
+            "DescriptionKey": "skillld25",
+            "Row": 3,
+            "Column": 2,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              15
+            ]
+          },
+          {
+            "Id": 35,
+            "Code": "Lightning Fury",
+            "NameKey": "skillname35",
+            "ShortDescriptionKey": "skillld35",
+            "DescriptionKey": "skillld35",
+            "Row": 3,
+            "Column": 3,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              20
+            ]
+          },
+          {
+            "Id": 19,
+            "Code": "Impale",
+            "NameKey": "skillname19",
+            "ShortDescriptionKey": "skillld19",
+            "DescriptionKey": "skillld19",
+            "Row": 4,
+            "Column": 1,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              10
+            ]
+          },
+          {
+            "Id": 14,
+            "Code": "Toxic Whirl",
+            "NameKey": "skillname14",
+            "ShortDescriptionKey": "skillld14",
+            "DescriptionKey": "skillld14",
+            "Row": 5,
+            "Column": 2,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 34,
+            "Code": "Lightning Strike",
+            "NameKey": "skillname34",
+            "ShortDescriptionKey": "skillld34",
+            "DescriptionKey": "skillld34",
+            "Row": 5,
+            "Column": 3,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 30,
+            "Code": "Fend",
+            "NameKey": "skillname30",
+            "ShortDescriptionKey": "skillld30",
+            "DescriptionKey": "skillld30",
+            "Row": 6,
+            "Column": 1,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              19
+            ]
+          },
+          {
+            "Id": 24,
+            "Code": "Charged Strike",
+            "NameKey": "skillname24",
+            "ShortDescriptionKey": "skillld24",
+            "DescriptionKey": "skillld24",
+            "Row": 6,
+            "Column": 3,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              34
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Class": "Sorceress",
+    "ClassCode": "sor",
+    "NameKey": "Sorceress",
+    "Tabs": [
+      {
+        "Page": 1,
+        "NameKey": "SkillCategorySo3",
+        "Skills": [
+          {
+            "Id": 36,
+            "Code": "Fire Bolt",
+            "NameKey": "skillname36",
+            "ShortDescriptionKey": "skillld36",
+            "DescriptionKey": "skillld36",
+            "Row": 1,
+            "Column": 2,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 37,
+            "Code": "Warmth",
+            "NameKey": "skillname37",
+            "ShortDescriptionKey": "skillld37",
+            "DescriptionKey": "skillld37",
+            "Row": 1,
+            "Column": 3,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 41,
+            "Code": "Inferno",
+            "NameKey": "skillname41",
+            "ShortDescriptionKey": "skillld41",
+            "DescriptionKey": "skillld41",
+            "Row": 2,
+            "Column": 1,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 46,
+            "Code": "Blaze",
+            "NameKey": "skillname46",
+            "ShortDescriptionKey": "skillld46",
+            "DescriptionKey": "skillld46",
+            "Row": 3,
+            "Column": 1,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              41
+            ]
+          },
+          {
+            "Id": 47,
+            "Code": "Fire Ball",
+            "NameKey": "skillname47",
+            "ShortDescriptionKey": "skillld47",
+            "DescriptionKey": "skillld47",
+            "Row": 3,
+            "Column": 2,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              36
+            ]
+          },
+          {
+            "Id": 51,
+            "Code": "Fire Wall",
+            "NameKey": "skillname51",
+            "ShortDescriptionKey": "skillld51",
+            "DescriptionKey": "skillld51",
+            "Row": 4,
+            "Column": 1,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              46
+            ]
+          },
+          {
+            "Id": 52,
+            "Code": "Enchant",
+            "NameKey": "skillname52",
+            "ShortDescriptionKey": "skillld52",
+            "DescriptionKey": "skillld52",
+            "Row": 4,
+            "Column": 3,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              37,
+              47
+            ]
+          },
+          {
+            "Id": 56,
+            "Code": "Meteor",
+            "NameKey": "skillname56",
+            "ShortDescriptionKey": "skillld56",
+            "DescriptionKey": "skillld56",
+            "Row": 5,
+            "Column": 2,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              47,
+              51
+            ]
+          },
+          {
+            "Id": 61,
+            "Code": "Fire Mastery",
+            "NameKey": "skillsname61",
+            "ShortDescriptionKey": "skillld61",
+            "DescriptionKey": "skillld61",
+            "Row": 6,
+            "Column": 2,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 62,
+            "Code": "Hydra",
+            "NameKey": "skillname62",
+            "ShortDescriptionKey": "skillld62",
+            "DescriptionKey": "skillld62",
+            "Row": 6,
+            "Column": 3,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              52
+            ]
+          }
+        ]
+      },
+      {
+        "Page": 2,
+        "NameKey": "SkillCategorySo2",
+        "Skills": [
+          {
+            "Id": 38,
+            "Code": "Charged Bolt",
+            "NameKey": "skillname38",
+            "ShortDescriptionKey": "skillld38",
+            "DescriptionKey": "skillld38",
+            "Row": 1,
+            "Column": 2,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 42,
+            "Code": "Static Field",
+            "NameKey": "skillname42",
+            "ShortDescriptionKey": "skillxld42",
+            "DescriptionKey": "skillxld42",
+            "Row": 2,
+            "Column": 1,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 43,
+            "Code": "Telekinesis",
+            "NameKey": "skillname43",
+            "ShortDescriptionKey": "skillld43",
+            "DescriptionKey": "skillld43",
+            "Row": 2,
+            "Column": 3,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 48,
+            "Code": "Nova",
+            "NameKey": "skillname48",
+            "ShortDescriptionKey": "skillld48",
+            "DescriptionKey": "skillld48",
+            "Row": 3,
+            "Column": 1,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              42
+            ]
+          },
+          {
+            "Id": 49,
+            "Code": "Lightning",
+            "NameKey": "skillname49",
+            "ShortDescriptionKey": "skillld49",
+            "DescriptionKey": "skillld49",
+            "Row": 3,
+            "Column": 2,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              38
+            ]
+          },
+          {
+            "Id": 53,
+            "Code": "Chain Lightning",
+            "NameKey": "skillname53",
+            "ShortDescriptionKey": "skillld53",
+            "DescriptionKey": "skillld53",
+            "Row": 4,
+            "Column": 2,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              49
+            ]
+          },
+          {
+            "Id": 54,
+            "Code": "Teleport",
+            "NameKey": "skillname54",
+            "ShortDescriptionKey": "skillld54",
+            "DescriptionKey": "skillld54",
+            "Row": 4,
+            "Column": 3,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              43
+            ]
+          },
+          {
+            "Id": 57,
+            "Code": "Thunder Storm",
+            "NameKey": "skillname57",
+            "ShortDescriptionKey": "skillld57",
+            "DescriptionKey": "skillld57",
+            "Row": 5,
+            "Column": 1,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              48,
+              53
+            ]
+          },
+          {
+            "Id": 58,
+            "Code": "Energy Shield",
+            "NameKey": "skillname58",
+            "ShortDescriptionKey": "skillld58",
+            "DescriptionKey": "skillld58",
+            "Row": 5,
+            "Column": 3,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              54,
+              53
+            ]
+          },
+          {
+            "Id": 63,
+            "Code": "Lightning Mastery",
+            "NameKey": "skillname63",
+            "ShortDescriptionKey": "skillxld63",
+            "DescriptionKey": "skillxld63",
+            "Row": 6,
+            "Column": 2,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          }
+        ]
+      },
+      {
+        "Page": 3,
+        "NameKey": "SkillCategorySo1",
+        "Skills": [
+          {
+            "Id": 39,
+            "Code": "Ice Bolt",
+            "NameKey": "skillname39",
+            "ShortDescriptionKey": "skillld39",
+            "DescriptionKey": "skillld39",
+            "Row": 1,
+            "Column": 1,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 40,
+            "Code": "Frozen Armor",
+            "NameKey": "skillname40",
+            "ShortDescriptionKey": "skillld40",
+            "DescriptionKey": "skillld40",
+            "Row": 1,
+            "Column": 3,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 45,
+            "Code": "Ice Blast",
+            "NameKey": "skillname45",
+            "ShortDescriptionKey": "skillld45",
+            "DescriptionKey": "skillld45",
+            "Row": 2,
+            "Column": 2,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              39
+            ]
+          },
+          {
+            "Id": 44,
+            "Code": "Frost Nova",
+            "NameKey": "skillname44",
+            "ShortDescriptionKey": "skillld44",
+            "DescriptionKey": "skillld44",
+            "Row": 3,
+            "Column": 1,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              39
+            ]
+          },
+          {
+            "Id": 50,
+            "Code": "Shiver Armor",
+            "NameKey": "skillname50",
+            "ShortDescriptionKey": "skillld50",
+            "DescriptionKey": "skillld50",
+            "Row": 3,
+            "Column": 3,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              40
+            ]
+          },
+          {
+            "Id": 55,
+            "Code": "Glacial Spike",
+            "NameKey": "skillname55",
+            "ShortDescriptionKey": "skillld55",
+            "DescriptionKey": "skillld55",
+            "Row": 4,
+            "Column": 2,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              45
+            ]
+          },
+          {
+            "Id": 59,
+            "Code": "Blizzard",
+            "NameKey": "skillname59",
+            "ShortDescriptionKey": "skillld59",
+            "DescriptionKey": "skillld59",
+            "Row": 5,
+            "Column": 2,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              55
+            ]
+          },
+          {
+            "Id": 60,
+            "Code": "Chilling Armor",
+            "NameKey": "skillname60",
+            "ShortDescriptionKey": "skillld60",
+            "DescriptionKey": "skillld60",
+            "Row": 5,
+            "Column": 3,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              50
+            ]
+          },
+          {
+            "Id": 64,
+            "Code": "Frozen Orb",
+            "NameKey": "skillname64",
+            "ShortDescriptionKey": "skillld64",
+            "DescriptionKey": "skillld64",
+            "Row": 6,
+            "Column": 1,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              44
+            ]
+          },
+          {
+            "Id": 65,
+            "Code": "Cold Mastery",
+            "NameKey": "skillname65",
+            "ShortDescriptionKey": "skillld65",
+            "DescriptionKey": "skillld65",
+            "Row": 6,
+            "Column": 2,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Class": "Necromancer",
+    "ClassCode": "nec",
+    "NameKey": "Necromancer",
+    "Tabs": [
+      {
+        "Page": 1,
+        "NameKey": "SkillCategoryNe3",
+        "Skills": [
+          {
+            "Id": 81,
+            "Code": "Corpse Field",
+            "NameKey": "skillname81",
+            "ShortDescriptionKey": "skillld81",
+            "DescriptionKey": "skillld81",
+            "Row": 1,
+            "Column": 1,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 66,
+            "Code": "Amplify Damage",
+            "NameKey": "skillname66",
+            "ShortDescriptionKey": "skillld66",
+            "DescriptionKey": "skillld66",
+            "Row": 1,
+            "Column": 2,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 71,
+            "Code": "Dim Vision",
+            "NameKey": "skillname71",
+            "ShortDescriptionKey": "skillld71",
+            "DescriptionKey": "skillld71",
+            "Row": 2,
+            "Column": 1,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 72,
+            "Code": "Weaken",
+            "NameKey": "skillname72",
+            "ShortDescriptionKey": "skillld72",
+            "DescriptionKey": "skillld72",
+            "Row": 2,
+            "Column": 3,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 76,
+            "Code": "Iron Maiden",
+            "NameKey": "skillname76",
+            "ShortDescriptionKey": "skillld76",
+            "DescriptionKey": "skillld76",
+            "Row": 3,
+            "Column": 2,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 77,
+            "Code": "Terror",
+            "NameKey": "skillname77",
+            "ShortDescriptionKey": "skillld77",
+            "DescriptionKey": "skillld77",
+            "Row": 3,
+            "Column": 3,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 82,
+            "Code": "Life Tap",
+            "NameKey": "skillname82",
+            "ShortDescriptionKey": "skillld82",
+            "DescriptionKey": "skillld82",
+            "Row": 4,
+            "Column": 2,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 86,
+            "Code": "Attract",
+            "NameKey": "skillname86",
+            "ShortDescriptionKey": "skillxld86",
+            "DescriptionKey": "skillxld86",
+            "Row": 5,
+            "Column": 1,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 87,
+            "Code": "Decrepify",
+            "NameKey": "skillname87",
+            "ShortDescriptionKey": "skillld87",
+            "DescriptionKey": "skillld87",
+            "Row": 5,
+            "Column": 3,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 91,
+            "Code": "Lower Resist",
+            "NameKey": "skillname91",
+            "ShortDescriptionKey": "skillld91",
+            "DescriptionKey": "skillld91",
+            "Row": 6,
+            "Column": 2,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          }
+        ]
+      },
+      {
+        "Page": 2,
+        "NameKey": "SkillCategoryNe2",
+        "Skills": [
+          {
+            "Id": 73,
+            "Code": "Poison Dagger",
+            "NameKey": "skillname73",
+            "ShortDescriptionKey": "skillld73",
+            "DescriptionKey": "skillld73",
+            "Row": 1,
+            "Column": 1,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 67,
+            "Code": "Teeth",
+            "NameKey": "skillname67",
+            "ShortDescriptionKey": "skillld67",
+            "DescriptionKey": "skillld67",
+            "Row": 1,
+            "Column": 2,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 68,
+            "Code": "Bone Armor",
+            "NameKey": "skillname68",
+            "ShortDescriptionKey": "skillld68",
+            "DescriptionKey": "skillld68",
+            "Row": 1,
+            "Column": 3,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 74,
+            "Code": "Corpse Explosion",
+            "NameKey": "skillname74",
+            "ShortDescriptionKey": "skillld74",
+            "DescriptionKey": "skillld74",
+            "Row": 2,
+            "Column": 2,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              67
+            ]
+          },
+          {
+            "Id": 78,
+            "Code": "Bone Wall",
+            "NameKey": "skillname78",
+            "ShortDescriptionKey": "skillld78",
+            "DescriptionKey": "skillld78",
+            "Row": 3,
+            "Column": 3,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              68
+            ]
+          },
+          {
+            "Id": 83,
+            "Code": "Poison Explosion",
+            "NameKey": "skillname83",
+            "ShortDescriptionKey": "skillld83",
+            "DescriptionKey": "skillld83",
+            "Row": 4,
+            "Column": 1,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              73
+            ]
+          },
+          {
+            "Id": 84,
+            "Code": "Bone Spear",
+            "NameKey": "skillname84",
+            "ShortDescriptionKey": "skillld84",
+            "DescriptionKey": "skillld84",
+            "Row": 4,
+            "Column": 2,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              74
+            ]
+          },
+          {
+            "Id": 88,
+            "Code": "Bone Prison",
+            "NameKey": "skillname88",
+            "ShortDescriptionKey": "skillld88",
+            "DescriptionKey": "skillld88",
+            "Row": 5,
+            "Column": 3,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              78,
+              84
+            ]
+          },
+          {
+            "Id": 92,
+            "Code": "Poison Nova",
+            "NameKey": "skillname92",
+            "ShortDescriptionKey": "skillld92",
+            "DescriptionKey": "skillld92",
+            "Row": 6,
+            "Column": 1,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              83
+            ]
+          },
+          {
+            "Id": 93,
+            "Code": "Bone Spirit",
+            "NameKey": "skillname93",
+            "ShortDescriptionKey": "skillld93",
+            "DescriptionKey": "skillld93",
+            "Row": 6,
+            "Column": 2,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              84
+            ]
+          }
+        ]
+      },
+      {
+        "Page": 3,
+        "NameKey": "SkillCategoryNe1",
+        "Skills": [
+          {
+            "Id": 69,
+            "Code": "Skeleton Mastery",
+            "NameKey": "skillname69",
+            "ShortDescriptionKey": "skillld69",
+            "DescriptionKey": "skillld69",
+            "Row": 1,
+            "Column": 1,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              70
+            ]
+          },
+          {
+            "Id": 70,
+            "Code": "Raise Skeleton",
+            "NameKey": "skillname70",
+            "ShortDescriptionKey": "skillld70",
+            "DescriptionKey": "skillld70",
+            "Row": 1,
+            "Column": 3,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 75,
+            "Code": "Clay Golem",
+            "NameKey": "skillname75",
+            "ShortDescriptionKey": "skillld75",
+            "DescriptionKey": "skillld75",
+            "Row": 2,
+            "Column": 2,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 79,
+            "Code": "Golem Mastery",
+            "NameKey": "skillname79",
+            "ShortDescriptionKey": "skillld79",
+            "DescriptionKey": "skillld79",
+            "Row": 3,
+            "Column": 1,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              75
+            ]
+          },
+          {
+            "Id": 80,
+            "Code": "Raise Skeletal Mage",
+            "NameKey": "skillname80",
+            "ShortDescriptionKey": "skillld80",
+            "DescriptionKey": "skillld80",
+            "Row": 3,
+            "Column": 3,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              70
+            ]
+          },
+          {
+            "Id": 85,
+            "Code": "BloodGolem",
+            "NameKey": "skillname85",
+            "ShortDescriptionKey": "skillld85",
+            "DescriptionKey": "skillld85",
+            "Row": 4,
+            "Column": 2,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              75
+            ]
+          },
+          {
+            "Id": 89,
+            "Code": "Summon Resist",
+            "NameKey": "skillname89",
+            "ShortDescriptionKey": "skillld89",
+            "DescriptionKey": "skillld89",
+            "Row": 5,
+            "Column": 1,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              79
+            ]
+          },
+          {
+            "Id": 90,
+            "Code": "IronGolem",
+            "NameKey": "skillname90",
+            "ShortDescriptionKey": "skillld90",
+            "DescriptionKey": "skillld90",
+            "Row": 5,
+            "Column": 2,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              85
+            ]
+          },
+          {
+            "Id": 94,
+            "Code": "FireGolem",
+            "NameKey": "skillname94",
+            "ShortDescriptionKey": "skillld94",
+            "DescriptionKey": "skillld94",
+            "Row": 6,
+            "Column": 2,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              90
+            ]
+          },
+          {
+            "Id": 95,
+            "Code": "Revive",
+            "NameKey": "skillname95",
+            "ShortDescriptionKey": "skillld95",
+            "DescriptionKey": "skillld95",
+            "Row": 6,
+            "Column": 3,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              80,
+              90
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Class": "Paladin",
+    "ClassCode": "pal",
+    "NameKey": "Paladin",
+    "Tabs": [
+      {
+        "Page": 1,
+        "NameKey": "SkillCategoryPa3",
+        "Skills": [
+          {
+            "Id": 96,
+            "Code": "Sacrifice",
+            "NameKey": "skillname96",
+            "ShortDescriptionKey": "skillld96",
+            "DescriptionKey": "skillld96",
+            "Row": 1,
+            "Column": 1,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 97,
+            "Code": "Smite",
+            "NameKey": "skillname97",
+            "ShortDescriptionKey": "skillld97",
+            "DescriptionKey": "skillld97",
+            "Row": 1,
+            "Column": 3,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 101,
+            "Code": "Holy Bolt",
+            "NameKey": "skillname101",
+            "ShortDescriptionKey": "skillld101",
+            "DescriptionKey": "skillld101",
+            "Row": 2,
+            "Column": 2,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 107,
+            "Code": "Charge",
+            "NameKey": "skillname107",
+            "ShortDescriptionKey": "skillld107",
+            "DescriptionKey": "skillld107",
+            "Row": 3,
+            "Column": 1,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              96
+            ]
+          },
+          {
+            "Id": 116,
+            "Code": "Shield Throw",
+            "NameKey": "skillname116",
+            "ShortDescriptionKey": "skillld116",
+            "DescriptionKey": "skillld116",
+            "Row": 3,
+            "Column": 3,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              97
+            ]
+          },
+          {
+            "Id": 106,
+            "Code": "Zeal",
+            "NameKey": "skillname106",
+            "ShortDescriptionKey": "skillld106",
+            "DescriptionKey": "skillld106",
+            "Row": 4,
+            "Column": 1,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              107
+            ]
+          },
+          {
+            "Id": 112,
+            "Code": "Blessed Hammer",
+            "NameKey": "skillname112",
+            "ShortDescriptionKey": "skillld112",
+            "DescriptionKey": "skillld112",
+            "Row": 4,
+            "Column": 2,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              101
+            ]
+          },
+          {
+            "Id": 111,
+            "Code": "Vengeance",
+            "NameKey": "skillname111",
+            "ShortDescriptionKey": "skillld111",
+            "DescriptionKey": "skillld111",
+            "Row": 5,
+            "Column": 1,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              106
+            ]
+          },
+          {
+            "Id": 117,
+            "Code": "Holy Shield",
+            "NameKey": "skillname117",
+            "ShortDescriptionKey": "skillld117",
+            "DescriptionKey": "skillld117",
+            "Row": 5,
+            "Column": 3,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              116,
+              112
+            ]
+          },
+          {
+            "Id": 121,
+            "Code": "Fist of the Heavens",
+            "NameKey": "skillname121",
+            "ShortDescriptionKey": "skillld121",
+            "DescriptionKey": "skillld121",
+            "Row": 6,
+            "Column": 2,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              112
+            ]
+          }
+        ]
+      },
+      {
+        "Page": 2,
+        "NameKey": "SkillCategoryPa2",
+        "Skills": [
+          {
+            "Id": 98,
+            "Code": "Might",
+            "NameKey": "skillname98",
+            "ShortDescriptionKey": "skillld98",
+            "DescriptionKey": "skillld98",
+            "Row": 1,
+            "Column": 1,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 102,
+            "Code": "Holy Fire",
+            "NameKey": "skillname102",
+            "ShortDescriptionKey": "skillld102",
+            "DescriptionKey": "skillld102",
+            "Row": 2,
+            "Column": 2,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 103,
+            "Code": "Thorns",
+            "NameKey": "skillname103",
+            "ShortDescriptionKey": "skillld103",
+            "DescriptionKey": "skillld103",
+            "Row": 2,
+            "Column": 3,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 108,
+            "Code": "Blessed Aim",
+            "NameKey": "skillname108",
+            "ShortDescriptionKey": "skillld108",
+            "DescriptionKey": "skillld108",
+            "Row": 3,
+            "Column": 1,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              98
+            ]
+          },
+          {
+            "Id": 113,
+            "Code": "Concentration",
+            "NameKey": "skillname113",
+            "ShortDescriptionKey": "skillld113",
+            "DescriptionKey": "skillld113",
+            "Row": 4,
+            "Column": 1,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              108
+            ]
+          },
+          {
+            "Id": 114,
+            "Code": "Holy Freeze",
+            "NameKey": "skillname114",
+            "ShortDescriptionKey": "skillld114",
+            "DescriptionKey": "skillld114",
+            "Row": 4,
+            "Column": 2,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              102
+            ]
+          },
+          {
+            "Id": 118,
+            "Code": "Holy Shock",
+            "NameKey": "skillname118",
+            "ShortDescriptionKey": "skillxld118",
+            "DescriptionKey": "skillxld118",
+            "Row": 5,
+            "Column": 2,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              114
+            ]
+          },
+          {
+            "Id": 119,
+            "Code": "Sanctuary",
+            "NameKey": "skillname119",
+            "ShortDescriptionKey": "skillld119",
+            "DescriptionKey": "skillld119",
+            "Row": 5,
+            "Column": 3,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              103
+            ]
+          },
+          {
+            "Id": 122,
+            "Code": "Fanaticism",
+            "NameKey": "skillname122",
+            "ShortDescriptionKey": "skillxld122",
+            "DescriptionKey": "skillxld122",
+            "Row": 6,
+            "Column": 1,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              113
+            ]
+          },
+          {
+            "Id": 123,
+            "Code": "Conviction",
+            "NameKey": "skillname123",
+            "ShortDescriptionKey": "skillld123",
+            "DescriptionKey": "skillld123",
+            "Row": 6,
+            "Column": 3,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              119,
+              118
+            ]
+          }
+        ]
+      },
+      {
+        "Page": 3,
+        "NameKey": "SkillCategoryPa1",
+        "Skills": [
+          {
+            "Id": 99,
+            "Code": "Prayer",
+            "NameKey": "skillname99",
+            "ShortDescriptionKey": "skillld99",
+            "DescriptionKey": "skillld99",
+            "Row": 1,
+            "Column": 1,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 100,
+            "Code": "Resist Fire",
+            "NameKey": "skillname100",
+            "ShortDescriptionKey": "skillld100",
+            "DescriptionKey": "skillld100",
+            "Row": 1,
+            "Column": 3,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 104,
+            "Code": "Defiance",
+            "NameKey": "skillname104",
+            "ShortDescriptionKey": "skillld104",
+            "DescriptionKey": "skillld104",
+            "Row": 2,
+            "Column": 2,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 105,
+            "Code": "Resist Cold",
+            "NameKey": "skillname105",
+            "ShortDescriptionKey": "skillld105",
+            "DescriptionKey": "skillld105",
+            "Row": 2,
+            "Column": 3,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 109,
+            "Code": "Cleansing",
+            "NameKey": "skillname109",
+            "ShortDescriptionKey": "skillld109",
+            "DescriptionKey": "skillld109",
+            "Row": 3,
+            "Column": 1,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              99
+            ]
+          },
+          {
+            "Id": 110,
+            "Code": "Resist Lightning",
+            "NameKey": "skillname110",
+            "ShortDescriptionKey": "skillld110",
+            "DescriptionKey": "skillld110",
+            "Row": 3,
+            "Column": 3,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 115,
+            "Code": "Vigor",
+            "NameKey": "skillname115",
+            "ShortDescriptionKey": "skillld115",
+            "DescriptionKey": "skillld115",
+            "Row": 4,
+            "Column": 2,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              109,
+              104
+            ]
+          },
+          {
+            "Id": 120,
+            "Code": "Meditation",
+            "NameKey": "skillname120",
+            "ShortDescriptionKey": "skillld120",
+            "DescriptionKey": "skillld120",
+            "Row": 5,
+            "Column": 1,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              109
+            ]
+          },
+          {
+            "Id": 124,
+            "Code": "Redemption",
+            "NameKey": "skillname124",
+            "ShortDescriptionKey": "skillxld124",
+            "DescriptionKey": "skillxld124",
+            "Row": 6,
+            "Column": 2,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              115
+            ]
+          },
+          {
+            "Id": 125,
+            "Code": "Salvation",
+            "NameKey": "skillname125",
+            "ShortDescriptionKey": "skillld125",
+            "DescriptionKey": "skillld125",
+            "Row": 6,
+            "Column": 3,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Class": "Barbarian",
+    "ClassCode": "bar",
+    "NameKey": "Barbarian",
+    "Tabs": [
+      {
+        "Page": 1,
+        "NameKey": "SkillCategoryBa3",
+        "Skills": [
+          {
+            "Id": 126,
+            "Code": "Bash",
+            "NameKey": "skillname126",
+            "ShortDescriptionKey": "skillld126",
+            "DescriptionKey": "skillld126",
+            "Row": 1,
+            "Column": 2,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 133,
+            "Code": "Double Swing",
+            "NameKey": "skillname133",
+            "ShortDescriptionKey": "skillld133",
+            "DescriptionKey": "skillld133",
+            "Row": 1,
+            "Column": 3,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 132,
+            "Code": "Leap",
+            "NameKey": "skillname132",
+            "ShortDescriptionKey": "skillld132",
+            "DescriptionKey": "skillld132",
+            "Row": 2,
+            "Column": 1,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 139,
+            "Code": "Stun",
+            "NameKey": "skillname139",
+            "ShortDescriptionKey": "skillld139",
+            "DescriptionKey": "skillld139",
+            "Row": 3,
+            "Column": 2,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              126
+            ]
+          },
+          {
+            "Id": 140,
+            "Code": "Double Throw",
+            "NameKey": "skillname140",
+            "ShortDescriptionKey": "skillld140",
+            "DescriptionKey": "skillld140",
+            "Row": 3,
+            "Column": 3,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              133
+            ]
+          },
+          {
+            "Id": 143,
+            "Code": "Leap Attack",
+            "NameKey": "skillname143",
+            "ShortDescriptionKey": "skillld143",
+            "DescriptionKey": "skillld143",
+            "Row": 4,
+            "Column": 1,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              132
+            ]
+          },
+          {
+            "Id": 144,
+            "Code": "Concentrate",
+            "NameKey": "skillname144",
+            "ShortDescriptionKey": "skillsd144",
+            "DescriptionKey": "skillld144",
+            "Row": 4,
+            "Column": 2,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              139
+            ]
+          },
+          {
+            "Id": 147,
+            "Code": "Frenzy",
+            "NameKey": "skillname147",
+            "ShortDescriptionKey": "skillld147",
+            "DescriptionKey": "skillld147",
+            "Row": 5,
+            "Column": 3,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              140
+            ]
+          },
+          {
+            "Id": 151,
+            "Code": "Whirlwind",
+            "NameKey": "skillname151",
+            "ShortDescriptionKey": "skillld151",
+            "DescriptionKey": "skillld151",
+            "Row": 6,
+            "Column": 1,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              143,
+              144
+            ]
+          },
+          {
+            "Id": 152,
+            "Code": "Berserk",
+            "NameKey": "skillname152",
+            "ShortDescriptionKey": "skillld152",
+            "DescriptionKey": "skillld152",
+            "Row": 6,
+            "Column": 2,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              144
+            ]
+          }
+        ]
+      },
+      {
+        "Page": 2,
+        "NameKey": "SkillCategoryBa2",
+        "Skills": [
+          {
+            "Id": 127,
+            "Code": "Melee Mastery",
+            "NameKey": "skillname127",
+            "ShortDescriptionKey": "skillld127",
+            "DescriptionKey": "skillld127",
+            "Row": 1,
+            "Column": 1,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 135,
+            "Code": "Throwing Mastery",
+            "NameKey": "skillname135",
+            "ShortDescriptionKey": "skillld135",
+            "DescriptionKey": "skillld135",
+            "Row": 1,
+            "Column": 2,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 134,
+            "Code": "Unstoppable Force",
+            "NameKey": "skillname134",
+            "ShortDescriptionKey": "skillld134",
+            "DescriptionKey": "skillld134",
+            "Row": 1,
+            "Column": 3,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 128,
+            "Code": "Shield Mastery",
+            "NameKey": "skillname128",
+            "ShortDescriptionKey": "skillld128",
+            "DescriptionKey": "skillld128",
+            "Row": 3,
+            "Column": 1,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 136,
+            "Code": "Winters Gambit",
+            "NameKey": "skillname136",
+            "ShortDescriptionKey": "skillld136",
+            "DescriptionKey": "skillld136",
+            "Row": 3,
+            "Column": 3,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              134
+            ]
+          },
+          {
+            "Id": 145,
+            "Code": "Iron Skin",
+            "NameKey": "skillname145",
+            "ShortDescriptionKey": "skillld145",
+            "DescriptionKey": "skillld145",
+            "Row": 4,
+            "Column": 1,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 148,
+            "Code": "Increased Speed",
+            "NameKey": "skillname148",
+            "ShortDescriptionKey": "skillld148",
+            "DescriptionKey": "skillld148",
+            "Row": 5,
+            "Column": 2,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 141,
+            "Code": "Chasm Break",
+            "NameKey": "skillname141",
+            "ShortDescriptionKey": "skillld141",
+            "DescriptionKey": "skillld141",
+            "Row": 5,
+            "Column": 3,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              136
+            ]
+          },
+          {
+            "Id": 153,
+            "Code": "Natural Resistance",
+            "NameKey": "skillname153",
+            "ShortDescriptionKey": "skillld153",
+            "DescriptionKey": "skillld153",
+            "Row": 6,
+            "Column": 1,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              145
+            ]
+          },
+          {
+            "Id": 150,
+            "Code": "Korlics Fury",
+            "NameKey": "skillname150",
+            "ShortDescriptionKey": "skillld150",
+            "DescriptionKey": "skillld150",
+            "Row": 6,
+            "Column": 3,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              141
+            ]
+          }
+        ]
+      },
+      {
+        "Page": 3,
+        "NameKey": "SkillCategoryBa1",
+        "Skills": [
+          {
+            "Id": 130,
+            "Code": "Howl",
+            "NameKey": "skillname130",
+            "ShortDescriptionKey": "skillld130",
+            "DescriptionKey": "skillld130",
+            "Row": 1,
+            "Column": 1,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 131,
+            "Code": "Find Potion",
+            "NameKey": "skillname131",
+            "ShortDescriptionKey": "skillld131",
+            "DescriptionKey": "skillld131",
+            "Row": 1,
+            "Column": 3,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 137,
+            "Code": "Taunt",
+            "NameKey": "skillname137",
+            "ShortDescriptionKey": "skillld137",
+            "DescriptionKey": "skillld137",
+            "Row": 2,
+            "Column": 1,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              130
+            ]
+          },
+          {
+            "Id": 138,
+            "Code": "Shout",
+            "NameKey": "skillname138",
+            "ShortDescriptionKey": "skillld138",
+            "DescriptionKey": "skillld138",
+            "Row": 2,
+            "Column": 2,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              130
+            ]
+          },
+          {
+            "Id": 142,
+            "Code": "Find Item",
+            "NameKey": "skillname142",
+            "ShortDescriptionKey": "skillld142",
+            "DescriptionKey": "skillld142",
+            "Row": 3,
+            "Column": 3,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              131
+            ]
+          },
+          {
+            "Id": 146,
+            "Code": "Battle Cry",
+            "NameKey": "skillname146",
+            "ShortDescriptionKey": "skillld146",
+            "DescriptionKey": "skillld146",
+            "Row": 4,
+            "Column": 1,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              137
+            ]
+          },
+          {
+            "Id": 149,
+            "Code": "Battle Orders",
+            "NameKey": "skillname149",
+            "ShortDescriptionKey": "skillld149",
+            "DescriptionKey": "skillld149",
+            "Row": 5,
+            "Column": 2,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              138
+            ]
+          },
+          {
+            "Id": 129,
+            "Code": "Deadly Treasures",
+            "NameKey": "skillname129",
+            "ShortDescriptionKey": "skillld129",
+            "DescriptionKey": "skillld129",
+            "Row": 5,
+            "Column": 3,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              142
+            ]
+          },
+          {
+            "Id": 154,
+            "Code": "War Cry",
+            "NameKey": "skillname154",
+            "ShortDescriptionKey": "skillld154",
+            "DescriptionKey": "skillld154",
+            "Row": 6,
+            "Column": 1,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              149,
+              146
+            ]
+          },
+          {
+            "Id": 155,
+            "Code": "Battle Command",
+            "NameKey": "skillname155",
+            "ShortDescriptionKey": "skillld155",
+            "DescriptionKey": "skillld155",
+            "Row": 6,
+            "Column": 2,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              149
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Class": "Druid",
+    "ClassCode": "dru",
+    "NameKey": "Druid",
+    "Tabs": [
+      {
+        "Page": 1,
+        "NameKey": "SkillCategoryDr3",
+        "Skills": [
+          {
+            "Id": 221,
+            "Code": "Raven",
+            "NameKey": "Skillname222",
+            "ShortDescriptionKey": "Skillld222",
+            "DescriptionKey": "Skillld222",
+            "Row": 1,
+            "Column": 2,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 222,
+            "Code": "Plague Poppy",
+            "NameKey": "Skillname223",
+            "ShortDescriptionKey": "Skillld223",
+            "DescriptionKey": "Skillld223",
+            "Row": 1,
+            "Column": 3,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 226,
+            "Code": "Oak Sage",
+            "NameKey": "Skillname227",
+            "ShortDescriptionKey": "Skillld227",
+            "DescriptionKey": "Skillld227",
+            "Row": 2,
+            "Column": 1,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 227,
+            "Code": "Summon Spirit Wolf",
+            "NameKey": "Skillname228",
+            "ShortDescriptionKey": "Skillld228",
+            "DescriptionKey": "Skillld228",
+            "Row": 2,
+            "Column": 2,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 231,
+            "Code": "CoL",
+            "NameKey": "Skillname232",
+            "ShortDescriptionKey": "Skillld232",
+            "DescriptionKey": "Skillld232",
+            "Row": 3,
+            "Column": 3,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 236,
+            "Code": "HoW",
+            "NameKey": "Skillname237",
+            "ShortDescriptionKey": "Skillld237",
+            "DescriptionKey": "Skillld237",
+            "Row": 4,
+            "Column": 1,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 237,
+            "Code": "Summon Fenris",
+            "NameKey": "Skillname238",
+            "ShortDescriptionKey": "Skillld238",
+            "DescriptionKey": "Skillld238",
+            "Row": 4,
+            "Column": 2,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 241,
+            "Code": "Vines",
+            "NameKey": "Skillname242",
+            "ShortDescriptionKey": "Skillld242",
+            "DescriptionKey": "Skillld242",
+            "Row": 5,
+            "Column": 3,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 246,
+            "Code": "Spirit of Barbs",
+            "NameKey": "Skillname247",
+            "ShortDescriptionKey": "Skillld247",
+            "DescriptionKey": "Skillld247",
+            "Row": 6,
+            "Column": 1,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 247,
+            "Code": "Summon Grizzly",
+            "NameKey": "Skillname248",
+            "ShortDescriptionKey": "Skillld248",
+            "DescriptionKey": "Skillld248",
+            "Row": 6,
+            "Column": 2,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          }
+        ]
+      },
+      {
+        "Page": 2,
+        "NameKey": "SkillCategoryDr2",
+        "Skills": [
+          {
+            "Id": 223,
+            "Code": "Wearwolf",
+            "NameKey": "Skillname224",
+            "ShortDescriptionKey": "Skillld224",
+            "DescriptionKey": "Skillld224",
+            "Row": 1,
+            "Column": 1,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 224,
+            "Code": "Shape Shifting",
+            "NameKey": "Skillname225",
+            "ShortDescriptionKey": "Skillld225",
+            "DescriptionKey": "Skillld225",
+            "Row": 1,
+            "Column": 2,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 228,
+            "Code": "Wearbear",
+            "NameKey": "Skillname229",
+            "ShortDescriptionKey": "Skillld229",
+            "DescriptionKey": "Skillld229",
+            "Row": 2,
+            "Column": 3,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 232,
+            "Code": "Feral Rage",
+            "NameKey": "Skillname233",
+            "ShortDescriptionKey": "Skillld233",
+            "DescriptionKey": "Skillld233",
+            "Row": 3,
+            "Column": 1,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 233,
+            "Code": "Maul",
+            "NameKey": "Skillname234",
+            "ShortDescriptionKey": "Skillld234",
+            "DescriptionKey": "Skillld234",
+            "Row": 3,
+            "Column": 3,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 238,
+            "Code": "Rabies",
+            "NameKey": "Skillname239",
+            "ShortDescriptionKey": "Skillld239",
+            "DescriptionKey": "Skillld239",
+            "Row": 4,
+            "Column": 1,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 239,
+            "Code": "Fire Claws",
+            "NameKey": "Skillname240",
+            "ShortDescriptionKey": "Skillld240",
+            "DescriptionKey": "Skillld240",
+            "Row": 4,
+            "Column": 2,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 243,
+            "Code": "Shock Wave",
+            "NameKey": "Skillname244",
+            "ShortDescriptionKey": "Skillld244",
+            "DescriptionKey": "Skillld244",
+            "Row": 5,
+            "Column": 3,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 248,
+            "Code": "Fury",
+            "NameKey": "Skillname249",
+            "ShortDescriptionKey": "Skillld249",
+            "DescriptionKey": "Skillld249",
+            "Row": 6,
+            "Column": 1,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 242,
+            "Code": "Hunger",
+            "NameKey": "Skillname243",
+            "ShortDescriptionKey": "Skillld243",
+            "DescriptionKey": "Skillld243",
+            "Row": 6,
+            "Column": 2,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          }
+        ]
+      },
+      {
+        "Page": 3,
+        "NameKey": "SkillCategoryDr1",
+        "Skills": [
+          {
+            "Id": 225,
+            "Code": "Firestorm",
+            "NameKey": "Skillname226",
+            "ShortDescriptionKey": "Skillld226",
+            "DescriptionKey": "Skillld226",
+            "Row": 1,
+            "Column": 1,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 229,
+            "Code": "Molten Boulder",
+            "NameKey": "Skillname230",
+            "ShortDescriptionKey": "Skillld230",
+            "DescriptionKey": "Skillld230",
+            "Row": 2,
+            "Column": 1,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 230,
+            "Code": "Arctic Blast",
+            "NameKey": "Skillname231",
+            "ShortDescriptionKey": "Skillld231",
+            "DescriptionKey": "Skillld231",
+            "Row": 2,
+            "Column": 3,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 234,
+            "Code": "Eruption",
+            "NameKey": "Skillname235",
+            "ShortDescriptionKey": "Skillld235",
+            "DescriptionKey": "Skillld235",
+            "Row": 3,
+            "Column": 1,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 235,
+            "Code": "Cyclone Armor",
+            "NameKey": "Skillname236",
+            "ShortDescriptionKey": "Skillld236",
+            "DescriptionKey": "Skillld236",
+            "Row": 3,
+            "Column": 3,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 240,
+            "Code": "Twister",
+            "NameKey": "Skillname241",
+            "ShortDescriptionKey": "Skillld241",
+            "DescriptionKey": "Skillld241",
+            "Row": 4,
+            "Column": 2,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 244,
+            "Code": "Volcano",
+            "NameKey": "Skillname245",
+            "ShortDescriptionKey": "Skillld245",
+            "DescriptionKey": "Skillld245",
+            "Row": 5,
+            "Column": 1,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 245,
+            "Code": "Tornado",
+            "NameKey": "Skillname246",
+            "ShortDescriptionKey": "Skillld246",
+            "DescriptionKey": "Skillld246",
+            "Row": 5,
+            "Column": 2,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 249,
+            "Code": "Armageddon",
+            "NameKey": "Skillname250",
+            "ShortDescriptionKey": "Skillld250",
+            "DescriptionKey": "Skillld250",
+            "Row": 6,
+            "Column": 1,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 250,
+            "Code": "Hurricane",
+            "NameKey": "Skillname251",
+            "ShortDescriptionKey": "Skillld251",
+            "DescriptionKey": "Skillld251",
+            "Row": 6,
+            "Column": 2,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Class": "Assassin",
+    "ClassCode": "ass",
+    "NameKey": "Assassin",
+    "Tabs": [
+      {
+        "Page": 1,
+        "NameKey": "SkillCategoryAs3",
+        "Skills": [
+          {
+            "Id": 256,
+            "Code": "Shock Field",
+            "NameKey": "Skillname257",
+            "ShortDescriptionKey": "Skillld257",
+            "DescriptionKey": "Skillld257",
+            "Row": 1,
+            "Column": 1,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 251,
+            "Code": "Fire Trauma",
+            "NameKey": "Skillname252",
+            "ShortDescriptionKey": "Skillld252",
+            "DescriptionKey": "Skillld252",
+            "Row": 1,
+            "Column": 2,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 253,
+            "Code": "Ice Barrage",
+            "NameKey": "Skillname254",
+            "ShortDescriptionKey": "Skillld254",
+            "DescriptionKey": "Skillld254",
+            "Row": 1,
+            "Column": 3,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 261,
+            "Code": "Charged Bolt Sentry",
+            "NameKey": "Skillname262",
+            "ShortDescriptionKey": "Skillld262",
+            "DescriptionKey": "Skillld262",
+            "Row": 3,
+            "Column": 1,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              256
+            ]
+          },
+          {
+            "Id": 262,
+            "Code": "Wake of Fire Sentry",
+            "NameKey": "Skillname263",
+            "ShortDescriptionKey": "Skillld263",
+            "DescriptionKey": "Skillld263",
+            "Row": 3,
+            "Column": 2,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              251
+            ]
+          },
+          {
+            "Id": 264,
+            "Code": "Snowlash Sentry",
+            "NameKey": "Skillname265",
+            "ShortDescriptionKey": "Skillld265",
+            "DescriptionKey": "Skillld265",
+            "Row": 3,
+            "Column": 3,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              253
+            ]
+          },
+          {
+            "Id": 271,
+            "Code": "Lightning Sentry",
+            "NameKey": "Skillname272",
+            "ShortDescriptionKey": "Skillld272",
+            "DescriptionKey": "Skillld272",
+            "Row": 5,
+            "Column": 1,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              261
+            ]
+          },
+          {
+            "Id": 272,
+            "Code": "Flameburst Sentry",
+            "NameKey": "Skillname273",
+            "ShortDescriptionKey": "Skillld273",
+            "DescriptionKey": "Skillld273",
+            "Row": 5,
+            "Column": 2,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              262
+            ]
+          },
+          {
+            "Id": 273,
+            "Code": "Glacial Burst Sentry",
+            "NameKey": "Skillname274",
+            "ShortDescriptionKey": "Skillld274",
+            "DescriptionKey": "Skillld274",
+            "Row": 5,
+            "Column": 3,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              264
+            ]
+          },
+          {
+            "Id": 276,
+            "Code": "Death Sentry",
+            "NameKey": "Skillname277",
+            "ShortDescriptionKey": "Skillld277",
+            "DescriptionKey": "Skillld277",
+            "Row": 6,
+            "Column": 2,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          }
+        ]
+      },
+      {
+        "Page": 2,
+        "NameKey": "SkillCategoryAs2",
+        "Skills": [
+          {
+            "Id": 252,
+            "Code": "Claw Mastery",
+            "NameKey": "Skillname253",
+            "ShortDescriptionKey": "Skillld253",
+            "DescriptionKey": "Skillld253",
+            "Row": 1,
+            "Column": 2,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 258,
+            "Code": "Quickness",
+            "NameKey": "Skillname259",
+            "ShortDescriptionKey": "Skillld259",
+            "DescriptionKey": "Skillld259",
+            "Row": 2,
+            "Column": 1,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              252
+            ]
+          },
+          {
+            "Id": 257,
+            "Code": "Blade Sentinel",
+            "NameKey": "Skillname258",
+            "ShortDescriptionKey": "Skillld258",
+            "DescriptionKey": "Skillld258",
+            "Row": 2,
+            "Column": 3,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 263,
+            "Code": "Weapon Block",
+            "NameKey": "Skillname264",
+            "ShortDescriptionKey": "Skillld264",
+            "DescriptionKey": "Skillld264",
+            "Row": 3,
+            "Column": 2,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              252
+            ]
+          },
+          {
+            "Id": 267,
+            "Code": "Fade",
+            "NameKey": "Skillname268",
+            "ShortDescriptionKey": "Skillld268",
+            "DescriptionKey": "Skillld268",
+            "Row": 4,
+            "Column": 1,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              258
+            ]
+          },
+          {
+            "Id": 268,
+            "Code": "Shadow Warrior",
+            "NameKey": "Skillname269",
+            "ShortDescriptionKey": "Skillld269",
+            "DescriptionKey": "Skillld269",
+            "Row": 4,
+            "Column": 2,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              263
+            ]
+          },
+          {
+            "Id": 266,
+            "Code": "Blade Fury",
+            "NameKey": "Skillname267",
+            "ShortDescriptionKey": "Skillld267",
+            "DescriptionKey": "Skillld267",
+            "Row": 4,
+            "Column": 3,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              257
+            ]
+          },
+          {
+            "Id": 278,
+            "Code": "Venom",
+            "NameKey": "Skillname279",
+            "ShortDescriptionKey": "Skillld279",
+            "DescriptionKey": "Skillld279",
+            "Row": 6,
+            "Column": 1,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              267
+            ]
+          },
+          {
+            "Id": 279,
+            "Code": "Shadow Master",
+            "NameKey": "Skillname280",
+            "ShortDescriptionKey": "Skillld280",
+            "DescriptionKey": "Skillld280",
+            "Row": 6,
+            "Column": 2,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              268
+            ]
+          },
+          {
+            "Id": 277,
+            "Code": "Blade Shield",
+            "NameKey": "Skillname278",
+            "ShortDescriptionKey": "Skillld278",
+            "DescriptionKey": "Skillld278",
+            "Row": 6,
+            "Column": 3,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              266
+            ]
+          }
+        ]
+      },
+      {
+        "Page": 3,
+        "NameKey": "SkillCategoryAs1",
+        "Skills": [
+          {
+            "Id": 254,
+            "Code": "Tiger Strike",
+            "NameKey": "Skillname255",
+            "ShortDescriptionKey": "Skillld255",
+            "DescriptionKey": "Skillld255",
+            "Row": 1,
+            "Column": 2,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 255,
+            "Code": "Dragon Talon",
+            "NameKey": "Skillname256",
+            "ShortDescriptionKey": "Skillld256",
+            "DescriptionKey": "Skillld256",
+            "Row": 1,
+            "Column": 3,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 259,
+            "Code": "Fists of Fire",
+            "NameKey": "Skillname260",
+            "ShortDescriptionKey": "Skillld260",
+            "DescriptionKey": "Skillld260",
+            "Row": 2,
+            "Column": 1,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 260,
+            "Code": "Dragon Claw",
+            "NameKey": "Skillname261",
+            "ShortDescriptionKey": "Skillld261",
+            "DescriptionKey": "Skillld261",
+            "Row": 2,
+            "Column": 3,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              255
+            ]
+          },
+          {
+            "Id": 265,
+            "Code": "Cobra Strike",
+            "NameKey": "Skillname266",
+            "ShortDescriptionKey": "Skillld266",
+            "DescriptionKey": "Skillld266",
+            "Row": 3,
+            "Column": 2,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              254
+            ]
+          },
+          {
+            "Id": 269,
+            "Code": "Claws of Thunder",
+            "NameKey": "Skillname270",
+            "ShortDescriptionKey": "Skillld270",
+            "DescriptionKey": "Skillld270",
+            "Row": 4,
+            "Column": 1,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              259
+            ]
+          },
+          {
+            "Id": 270,
+            "Code": "Dragon Tail",
+            "NameKey": "Skillname271",
+            "ShortDescriptionKey": "Skillld271",
+            "DescriptionKey": "Skillld271",
+            "Row": 4,
+            "Column": 3,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              260
+            ]
+          },
+          {
+            "Id": 274,
+            "Code": "Blades of Ice",
+            "NameKey": "Skillname275",
+            "ShortDescriptionKey": "Skillld275",
+            "DescriptionKey": "Skillld275",
+            "Row": 5,
+            "Column": 1,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              269
+            ]
+          },
+          {
+            "Id": 275,
+            "Code": "Dragon Flight",
+            "NameKey": "Skillname276",
+            "ShortDescriptionKey": "Skillld276",
+            "DescriptionKey": "Skillld276",
+            "Row": 5,
+            "Column": 3,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              270
+            ]
+          },
+          {
+            "Id": 280,
+            "Code": "Royal Strike",
+            "NameKey": "Skillname281",
+            "ShortDescriptionKey": "Skillld281",
+            "DescriptionKey": "Skillld281",
+            "Row": 6,
+            "Column": 2,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              265,
+              274
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Class": "Warlock",
+    "ClassCode": "war",
+    "NameKey": "Warlock",
+    "Tabs": [
+      {
+        "Page": 1,
+        "NameKey": "SkillCategoryWa1",
+        "Skills": [
+          {
+            "Id": 374,
+            "Code": "Demonic Mastery",
+            "NameKey": "DemonicMasteryName",
+            "ShortDescriptionKey": "DemonicMasteryLongDesc",
+            "DescriptionKey": "DemonicMasteryLongDesc",
+            "Row": 1,
+            "Column": 1,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              373
+            ]
+          },
+          {
+            "Id": 373,
+            "Code": "Summon Goatman",
+            "NameKey": "SummonGoatmanName",
+            "ShortDescriptionKey": "SummonGoatmanLongDesc",
+            "DescriptionKey": "SummonGoatmanLongDesc",
+            "Row": 1,
+            "Column": 3,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 378,
+            "Code": "Blood Oath",
+            "NameKey": "BloodOathName",
+            "ShortDescriptionKey": "BloodOathLongDesc",
+            "DescriptionKey": "BloodOathLongDesc",
+            "Row": 2,
+            "Column": 1,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              374
+            ]
+          },
+          {
+            "Id": 375,
+            "Code": "Death Mark",
+            "NameKey": "DeathMarkName",
+            "ShortDescriptionKey": "DeathMarkLongDesc",
+            "DescriptionKey": "DeathMarkLongDesc",
+            "Row": 2,
+            "Column": 2,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              373
+            ]
+          },
+          {
+            "Id": 376,
+            "Code": "Summon Tainted",
+            "NameKey": "SummonTaintedName",
+            "ShortDescriptionKey": "SummonTaintedLongDesc",
+            "DescriptionKey": "SummonTaintedLongDesc",
+            "Row": 3,
+            "Column": 3,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              373
+            ]
+          },
+          {
+            "Id": 380,
+            "Code": "Blood Boil",
+            "NameKey": "BloodBoilName",
+            "ShortDescriptionKey": "BloodBoilLongDesc",
+            "DescriptionKey": "BloodBoilLongDesc",
+            "Row": 4,
+            "Column": 2,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              375
+            ]
+          },
+          {
+            "Id": 377,
+            "Code": "Summon Defiler",
+            "NameKey": "SummonDefilerName",
+            "ShortDescriptionKey": "SummonDefilerLongDesc",
+            "DescriptionKey": "SummonDefilerLongDesc",
+            "Row": 4,
+            "Column": 3,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              376
+            ]
+          },
+          {
+            "Id": 379,
+            "Code": "Engorge",
+            "NameKey": "EngorgeName",
+            "ShortDescriptionKey": "EngorgeLongDesc",
+            "DescriptionKey": "EngorgeLongDesc",
+            "Row": 5,
+            "Column": 2,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              380
+            ]
+          },
+          {
+            "Id": 381,
+            "Code": "Consume",
+            "NameKey": "ConsumeName",
+            "ShortDescriptionKey": "ConsumeLongDesc",
+            "DescriptionKey": "ConsumeLongDesc",
+            "Row": 6,
+            "Column": 1,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              378
+            ]
+          },
+          {
+            "Id": 382,
+            "Code": "Bind Demon",
+            "NameKey": "BindDemonName",
+            "ShortDescriptionKey": "BindDemonLongDesc",
+            "DescriptionKey": "BindDemonLongDesc",
+            "Row": 6,
+            "Column": 3,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              379,
+              377
+            ]
+          }
+        ]
+      },
+      {
+        "Page": 2,
+        "NameKey": "SkillCategoryWa2",
+        "Skills": [
+          {
+            "Id": 383,
+            "Code": "Levitate",
+            "NameKey": "LevitateName",
+            "ShortDescriptionKey": "LevitateLongDesc",
+            "DescriptionKey": "LevitateLongDesc",
+            "Row": 1,
+            "Column": 1,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 385,
+            "Code": "Hex Bane",
+            "NameKey": "BaneHexName",
+            "ShortDescriptionKey": "BaneHexLongDesc",
+            "DescriptionKey": "BaneHexLongDesc",
+            "Row": 1,
+            "Column": 3,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 391,
+            "Code": "Cleave",
+            "NameKey": "CleaveName",
+            "ShortDescriptionKey": "CleaveLongDesc",
+            "DescriptionKey": "CleaveLongDesc",
+            "Row": 2,
+            "Column": 2,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              383
+            ]
+          },
+          {
+            "Id": 388,
+            "Code": "Echoing Strike",
+            "NameKey": "EchoingStrikeName",
+            "ShortDescriptionKey": "EchoingStrikeLongDesc",
+            "DescriptionKey": "EchoingStrikeLongDesc",
+            "Row": 3,
+            "Column": 1,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              383
+            ]
+          },
+          {
+            "Id": 389,
+            "Code": "Hex Purge",
+            "NameKey": "PurgeHexName",
+            "ShortDescriptionKey": "PurgeHexLongDesc",
+            "DescriptionKey": "PurgeHexLongDesc",
+            "Row": 3,
+            "Column": 3,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              385
+            ]
+          },
+          {
+            "Id": 390,
+            "Code": "Blade Warp",
+            "NameKey": "BladeWarpName",
+            "ShortDescriptionKey": "BladeWarpLongDesc",
+            "DescriptionKey": "BladeWarpLongDesc",
+            "Row": 4,
+            "Column": 1,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              388
+            ]
+          },
+          {
+            "Id": 387,
+            "Code": "Psychic Ward",
+            "NameKey": "PsychicWardName",
+            "ShortDescriptionKey": "PsychicWardLongDesc",
+            "DescriptionKey": "PsychicWardLongDesc",
+            "Row": 4,
+            "Column": 2,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              391
+            ]
+          },
+          {
+            "Id": 384,
+            "Code": "Eldritch Blast",
+            "NameKey": "EldritchBlastName",
+            "ShortDescriptionKey": "EldritchBlastLongDesc",
+            "DescriptionKey": "EldritchBlastLongDesc",
+            "Row": 5,
+            "Column": 2,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              387
+            ]
+          },
+          {
+            "Id": 386,
+            "Code": "Hex Siphon",
+            "NameKey": "SiphonHexName",
+            "ShortDescriptionKey": "SiphonHexLongDesc",
+            "DescriptionKey": "SiphonHexLongDesc",
+            "Row": 5,
+            "Column": 3,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              389
+            ]
+          },
+          {
+            "Id": 392,
+            "Code": "Mirrored Blades",
+            "NameKey": "MirroredBladesName",
+            "ShortDescriptionKey": "MirroredBladesLongDesc",
+            "DescriptionKey": "MirroredBladesLongDesc",
+            "Row": 6,
+            "Column": 2,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              390,
+              384
+            ]
+          }
+        ]
+      },
+      {
+        "Page": 3,
+        "NameKey": "SkillCategoryWa3",
+        "Skills": [
+          {
+            "Id": 395,
+            "Code": "Miasma Bolt",
+            "NameKey": "MiasmaBoltName",
+            "ShortDescriptionKey": "MiasmaBoltLongDesc",
+            "DescriptionKey": "MiasmaBoltLongDesc",
+            "Row": 1,
+            "Column": 3,
+            "RequiredLevel": 1,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 394,
+            "Code": "Ring of Fire",
+            "NameKey": "RingOfFireName",
+            "ShortDescriptionKey": "RingOfFireLongDesc",
+            "DescriptionKey": "RingOfFireLongDesc",
+            "Row": 2,
+            "Column": 1,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 393,
+            "Code": "Sigil Lethargy",
+            "NameKey": "LethargySigilName",
+            "ShortDescriptionKey": "LethargySigilLongDesc",
+            "DescriptionKey": "LethargySigilLongDesc",
+            "Row": 2,
+            "Column": 2,
+            "RequiredLevel": 6,
+            "MaxLevel": 25,
+            "PrerequisiteIds": []
+          },
+          {
+            "Id": 396,
+            "Code": "Sigil Rancor",
+            "NameKey": "RancorSigilName",
+            "ShortDescriptionKey": "RancorSigilLongDesc",
+            "DescriptionKey": "RancorSigilLongDesc",
+            "Row": 3,
+            "Column": 2,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              393
+            ]
+          },
+          {
+            "Id": 399,
+            "Code": "Miasma Chains",
+            "NameKey": "MiasmaChainName",
+            "ShortDescriptionKey": "MiasmaChainLongDesc",
+            "DescriptionKey": "MiasmaChainLongDesc",
+            "Row": 3,
+            "Column": 3,
+            "RequiredLevel": 12,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              395
+            ]
+          },
+          {
+            "Id": 398,
+            "Code": "Flame Wave",
+            "NameKey": "FlameWaveName",
+            "ShortDescriptionKey": "FlameWaveLongDesc",
+            "DescriptionKey": "FlameWaveLongDesc",
+            "Row": 4,
+            "Column": 1,
+            "RequiredLevel": 18,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              394
+            ]
+          },
+          {
+            "Id": 400,
+            "Code": "Sigil Death",
+            "NameKey": "DeathSigilName",
+            "ShortDescriptionKey": "DeathSigilLongDesc",
+            "DescriptionKey": "DeathSigilLongDesc",
+            "Row": 5,
+            "Column": 2,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              396
+            ]
+          },
+          {
+            "Id": 397,
+            "Code": "Enhanced Entropy",
+            "NameKey": "EnhancedEntropyName",
+            "ShortDescriptionKey": "EnhancedEntropyLongDesc",
+            "DescriptionKey": "EnhancedEntropyLongDesc",
+            "Row": 5,
+            "Column": 3,
+            "RequiredLevel": 24,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              399
+            ]
+          },
+          {
+            "Id": 401,
+            "Code": "Apocalypse",
+            "NameKey": "ApocalypseName",
+            "ShortDescriptionKey": "ApocalypseLongDesc",
+            "DescriptionKey": "ApocalypseLongDesc",
+            "Row": 6,
+            "Column": 1,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              398,
+              400
+            ]
+          },
+          {
+            "Id": 402,
+            "Code": "Abyss",
+            "NameKey": "AbyssName",
+            "ShortDescriptionKey": "AbyssLongDesc",
+            "DescriptionKey": "AbyssLongDesc",
+            "Row": 6,
+            "Column": 3,
+            "RequiredLevel": 30,
+            "MaxLevel": 25,
+            "PrerequisiteIds": [
+              397
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,5 +1,7 @@
 <script lang="ts">
-  import { catalogDefinitions } from '$lib/types';
+  import { catalogDefinitions, skillPlannerDefinition } from '$lib/types';
+
+  const definitions = [skillPlannerDefinition, ...Object.values(catalogDefinitions)];
 </script>
 
 <svelte:head>
@@ -14,7 +16,7 @@
     <p class="mt-4 text-lg text-parchment-300">Search the systems and items that shape D2R Reimagined.</p>
   </div>
   <div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-    {#each Object.values(catalogDefinitions) as definition}
+    {#each definitions as definition}
       <a href={`/data/${definition.slug}`} class="panel group rounded-lg p-6 transition hover:-translate-y-1 hover:border-ember-400/50">
         <p class="display-text text-xs uppercase tracking-[0.2em] text-ember-400">{definition.eyebrow}</p>
         <h2 class="display-text mt-3 text-2xl group-hover:text-ember-400">{definition.title}</h2>

@@ -1,11 +1,14 @@
 <script lang="ts">
   import { i18n } from '$lib/i18n';
+  import { sortModifierLines } from '$lib/catalog-controls';
   import type { KeyedLine } from '$lib/types';
 
   let {
     lines = [],
     class: className = 'property-line'
   }: { lines?: KeyedLine[]; class?: string } = $props();
+
+  let orderedLines = $derived(sortModifierLines(lines));
 
   function chance(line: KeyedLine, siblings: KeyedLine[]): string {
     if (line.chance == null) return '';
@@ -14,9 +17,9 @@
   }
 </script>
 
-{#if lines.length}
+{#if orderedLines.length}
   <div class={className}>
-    {#each lines as keyedLine}
+    {#each orderedLines as keyedLine}
       {#if keyedLine.children?.length}
         <div class="my-2 rounded border border-parchment-300/20 bg-black/25 p-2">
           {#if keyedLine.code}<p class="mb-1 text-parchment-300">{$i18n.t(keyedLine.code)}</p>{/if}
