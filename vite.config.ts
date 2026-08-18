@@ -16,6 +16,7 @@ export default defineConfig({
   ],
   server: {
     port: 9500,
-    strictPort: true
+    strictPort: true,
+    allowedHosts: true
   }
 });
