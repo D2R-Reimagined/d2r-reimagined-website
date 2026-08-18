@@ -1,0 +1,9 @@
+services:
+  website:
+    build: .
+    restart: unless-stopped
+    environment:
+      ORIGIN: ${ORIGIN:-https://www.d2r-reimagined.com}
+      PORT: 3000
+    ports:
+      - "3000:3000"

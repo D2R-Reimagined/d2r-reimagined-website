@@ -1,45 +1,51 @@
 # D2R Reimagined Website
 
-## Prerequisites
+Server-rendered SvelteKit website and searchable game-data reference for D2R Reimagined.
 
-- Node.js 20.19+ or 22.12+ (Vite requires one of these versions)
-- pnpm 10.x (this repo uses pnpm; see `package.json#packageManager`)
+## Stack
 
-Verify versions:
+- SvelteKit and Svelte 5
+- Node SSR adapter
+- Tailwind CSS 4
+- Flowbite Svelte
+- pnpm 10
 
+## Local development
+
+Requires Node.js 22 and pnpm 10.
+
+```powershell
+pnpm install
+pnpm dev
 ```
-node -v
-pnpm -v
-```
 
-## Start dev web server
+The development server runs at `http://localhost:9500`.
 
-```
-pnpm start
-```
+## Validation
 
-This starts Vite on http://localhost:9500.
-
-## Build the app in production mode
-
-```
+```powershell
+pnpm run check
+pnpm test
 pnpm run build
 ```
 
-The build outputs to the `docs` folder. A `404.html` is generated for SPA routing (copied from `index.html`).
+## Production
 
-To deploy to a static host, copy everything under `docs/` to your server root. For example:
+`pnpm run build` creates a Node SSR application in `build/`. Run it with:
 
-```
-docs/index.html
-docs/404.html
-docs/foo.12345.js
+```powershell
+$env:ORIGIN='https://www.d2r-reimagined.com'
+$env:PORT='3000'
+node build
 ```
 
-Copy to production root folder:
+The included `Dockerfile` and `compose.yml` provide the same Node SSR runtime in a container. This app cannot be deployed as a static GitHub Pages site without losing server rendering.
 
-```
-root_folder/index.html
-root_folder/404.html
-root_folder/foo.12345.js
-```
+## Routes
+
+- `/` — project home
+- `/grail` — local Holy Grail tracker
+- `/data/*` — uniques, sets, runewords, bases, affixes, and cube recipes
+- `/robots.txt` and `/sitemap.xml` — SEO discovery endpoints
+
+Legacy catalog routes redirect permanently to their `/data/*` equivalents.

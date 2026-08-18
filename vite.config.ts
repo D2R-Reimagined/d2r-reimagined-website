@@ -1,37 +1,22 @@
-﻿import { defineConfig } from 'vite';
-import aurelia from '@aurelia/vite-plugin';
-import { viteStaticCopy } from 'vite-plugin-static-copy';
-import tailwindcss from '@tailwindcss/vite'
+import adapter from '@sveltejs/adapter-node';
+import { sveltekit } from '@sveltejs/kit/vite';
+import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
-    server: {
-        port: 9500,
-        strictPort: true,
-    },
-    publicDir: 'static',
-    esbuild: {
-        target: 'es2022',
-        supported: { decorators: false },
-    },
-    build: {
-        minify: false,
-        target: 'es2022',
-        emptyOutDir: false,
-        rollupOptions: {
-            plugins: [],
-        },
-        outDir: 'docs',
-    },
-    plugins: [
-        tailwindcss(),
-        aurelia({ enableConventions: true, hmr: true }),
-        viteStaticCopy({
-            targets: [
-                {
-                    src: 'src/assets',
-                    dest: ''
-                }
-            ]
-        })
-    ],
+  plugins: [
+    sveltekit({
+      compilerOptions: {
+        runes: ({ filename }) =>
+          filename.split(/[/\\]/).includes('node_modules') ? undefined : true
+      },
+      adapter: adapter()
+    }),
+    tailwindcss()
+  ],
+  server: {
+    port: 9500,
+    strictPort: true,
+    allowedHosts: true
+  }
 });
