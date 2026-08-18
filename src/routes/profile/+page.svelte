@@ -5,6 +5,7 @@
 
   import {
     authState,
+    beginBattleNetLink,
     beginSteamLink,
     beginSteamSignIn,
     completeSteamSignIn,
@@ -13,7 +14,9 @@
     register,
     signIn,
     signOut,
-    unlinkSteam
+    unlinkBattleNet,
+    unlinkSteam,
+    updateProfile
   } from '$lib/auth';
 
   let mode = $state<'signin' | 'register'>('signin');
@@ -22,6 +25,9 @@
   let confirmPassword = $state('');
   let displayName = $state('');
   let battleTag = $state('');
+  let editingProfile = $state(false);
+  let editEmail = $state('');
+  let editDisplayName = $state('');
   let busy = $state(false);
   let error = $state('');
   let notice = $state('');
@@ -93,6 +99,64 @@
     }
   }
 
+  async function linkBattleNet(): Promise<void> {
+    if (busy) return;
+    busy = true;
+    error = '';
+    try {
+      await beginBattleNetLink(profileUrl());
+    } catch (value) {
+      error = message(value);
+      busy = false;
+    }
+  }
+
+  async function removeBattleNet(): Promise<void> {
+    if (busy) return;
+    busy = true;
+    error = '';
+    notice = '';
+    try {
+      await unlinkBattleNet();
+      notice = 'Your Battle.net account has been unlinked.';
+    } catch (value) {
+      error = message(value);
+    } finally {
+      busy = false;
+    }
+  }
+
+  function startEditingProfile(): void {
+    if (!$authState.user) return;
+    editEmail = $authState.user.email;
+    editDisplayName = $authState.user.displayName;
+    editingProfile = true;
+    error = '';
+    notice = '';
+  }
+
+  function cancelEditingProfile(): void {
+    editingProfile = false;
+    error = '';
+  }
+
+  async function saveProfile(event: SubmitEvent): Promise<void> {
+    event.preventDefault();
+    if (busy) return;
+    busy = true;
+    error = '';
+    notice = '';
+    try {
+      await updateProfile(editEmail.trim(), editDisplayName.trim());
+      editingProfile = false;
+      notice = 'Your profile details have been updated.';
+    } catch (value) {
+      error = message(value);
+    } finally {
+      busy = false;
+    }
+  }
+
   function logOut(): void {
     signOut();
     notice = 'You have been signed out.';
@@ -100,6 +164,7 @@
 
   onMount(async () => {
     const steamStatus = page.url.searchParams.get('steam');
+    const battleNetStatus = page.url.searchParams.get('battlenet');
     try {
       if (steamStatus === 'signed-in') {
         busy = true;
@@ -110,20 +175,27 @@
         if (steamStatus === 'linked') {
           await refreshProfile();
           notice = 'Your Steam account is linked.';
+        } else if (battleNetStatus === 'linked') {
+          await refreshProfile();
+          notice = 'Your Battle.net account is linked.';
+        } else if (battleNetStatus === 'denied') {
+          notice = 'Battle.net linking was cancelled.';
         }
       }
     } catch (value) {
       error = message(value);
     } finally {
       busy = false;
-      if (steamStatus) await goto('/profile', { replaceState: true, noScroll: true });
+      if (steamStatus || battleNetStatus) {
+        await goto('/profile', { replaceState: true, noScroll: true });
+      }
     }
   });
 </script>
 
 <svelte:head>
   <title>Profile | D2R Reimagined</title>
-  <meta name="description" content="Manage your D2R Reimagined account and linked Steam identity." />
+  <meta name="description" content="Manage your D2R Reimagined account and linked Steam and Battle.net identities." />
   <meta name="robots" content="noindex" />
 </svelte:head>
 
@@ -159,24 +231,70 @@
           </div>
         </div>
 
-        <dl class="mt-8 divide-y divide-parchment-300/15 border-y border-parchment-300/15">
-          <div class="grid gap-1 py-4 sm:grid-cols-[10rem_1fr]">
-            <dt class="text-parchment-300">Display name</dt>
-            <dd class="text-parchment-50">{$authState.user.displayName}</dd>
+        {#if !$authState.user.email && !editingProfile}
+          <div class="mt-7 rounded border border-ember-400/35 bg-ember-950/25 p-4">
+            <p class="font-semibold text-parchment-50">Complete your profile</p>
+            <p class="mt-1 text-sm leading-6 text-parchment-300">
+              Add an email address and choose the display name you want other players to see.
+            </p>
           </div>
-          <div class="grid gap-1 py-4 sm:grid-cols-[10rem_1fr]">
-            <dt class="text-parchment-300">BattleTag</dt>
-            <dd class="text-parchment-50">{$authState.user.battleTag || 'Not set'}</dd>
-          </div>
-          <div class="grid gap-1 py-4 sm:grid-cols-[10rem_1fr]">
-            <dt class="text-parchment-300">Member since</dt>
-            <dd class="text-parchment-50">{new Date($authState.user.createdAtUtc).toLocaleDateString()}</dd>
-          </div>
-        </dl>
+        {/if}
 
-        <button type="button" onclick={logOut} class="mt-6 rounded border border-parchment-300/30 px-4 py-2 text-parchment-200 transition hover:border-parchment-200/60 hover:bg-white/5 hover:text-white">
-          Sign out
-        </button>
+        {#if editingProfile}
+          <form class="mt-8 space-y-5 border-y border-parchment-300/15 py-6" onsubmit={saveProfile}>
+            <div>
+              <label for="profile-email" class="mb-2 block text-sm text-parchment-200">Email address</label>
+              <input class="field" id="profile-email" type="email" autocomplete="email" required maxlength="256" bind:value={editEmail} />
+            </div>
+            <div>
+              <label for="profile-display-name" class="mb-2 block text-sm text-parchment-200">Display name</label>
+              <input class="field" id="profile-display-name" autocomplete="nickname" required minlength="2" maxlength="50" bind:value={editDisplayName} />
+            </div>
+            <div>
+              <p class="text-sm text-parchment-200">BattleTag</p>
+              <p class="mt-2 text-sm text-parchment-300">
+                {$authState.user.battleTag || 'Not linked'}
+                <span class="block text-xs">Managed through your connected Battle.net account.</span>
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-3 pt-1">
+              <button type="submit" disabled={busy} class="rounded border border-ember-400/60 bg-ember-700/30 px-4 py-2 text-parchment-50 transition hover:bg-ember-700/45 disabled:cursor-wait disabled:opacity-60">
+                {busy ? 'Saving…' : 'Save profile'}
+              </button>
+              <button type="button" disabled={busy} onclick={cancelEditingProfile} class="rounded border border-parchment-300/30 px-4 py-2 text-parchment-200 transition hover:border-parchment-200/60 hover:bg-white/5 hover:text-white disabled:opacity-60">
+                Cancel
+              </button>
+            </div>
+          </form>
+        {:else}
+          <dl class="mt-8 divide-y divide-parchment-300/15 border-y border-parchment-300/15">
+            <div class="grid gap-1 py-4 sm:grid-cols-[10rem_1fr]">
+              <dt class="text-parchment-300">Email</dt>
+              <dd class="break-all text-parchment-50">{$authState.user.email || 'Not set'}</dd>
+            </div>
+            <div class="grid gap-1 py-4 sm:grid-cols-[10rem_1fr]">
+              <dt class="text-parchment-300">Display name</dt>
+              <dd class="text-parchment-50">{$authState.user.displayName}</dd>
+            </div>
+            <div class="grid gap-1 py-4 sm:grid-cols-[10rem_1fr]">
+              <dt class="text-parchment-300">BattleTag</dt>
+              <dd class="text-parchment-50">{$authState.user.battleTag || 'Not set'}</dd>
+            </div>
+            <div class="grid gap-1 py-4 sm:grid-cols-[10rem_1fr]">
+              <dt class="text-parchment-300">Member since</dt>
+              <dd class="text-parchment-50">{new Date($authState.user.createdAtUtc).toLocaleDateString()}</dd>
+            </div>
+          </dl>
+
+          <div class="mt-6 flex flex-wrap gap-3">
+            <button type="button" onclick={startEditingProfile} class="rounded border border-ember-400/60 bg-ember-700/20 px-4 py-2 text-parchment-50 transition hover:bg-ember-700/35">
+              {$authState.user.email ? 'Edit profile' : 'Set email and edit profile'}
+            </button>
+            <button type="button" onclick={logOut} class="rounded border border-parchment-300/30 px-4 py-2 text-parchment-200 transition hover:border-parchment-200/60 hover:bg-white/5 hover:text-white">
+              Sign out
+            </button>
+          </div>
+        {/if}
       </article>
 
       <aside class="panel rounded-lg p-6 sm:p-8">
@@ -200,6 +318,28 @@
             {busy ? 'Opening Steam…' : 'Link Steam account'}
           </button>
         {/if}
+
+        <div class="mt-8 border-t border-parchment-300/15 pt-7">
+          <h2 class="display-text text-2xl text-parchment-50">Battle.net</h2>
+          <p class="mt-3 text-sm leading-6 text-parchment-300">
+            Link Battle.net to verify your BattleTag and associate future D2R character data with this profile.
+          </p>
+
+          {#if $authState.user.battleNetId}
+            <div class="mt-6 rounded border border-[#148eff]/40 bg-[#071d33]/60 p-4">
+              <p class="text-xs uppercase tracking-[0.18em] text-[#56b5ff]">Connected</p>
+              <p class="mt-2 break-all text-parchment-50">{$authState.user.battleTag}</p>
+            </div>
+            <button type="button" disabled={busy} onclick={removeBattleNet} class="mt-4 rounded border border-red-500/35 px-4 py-2 text-red-200 transition hover:bg-red-950/40 disabled:cursor-wait disabled:opacity-60">
+              {busy ? 'Working…' : 'Unlink Battle.net'}
+            </button>
+          {:else}
+            <button type="button" disabled={busy} onclick={linkBattleNet} class="mt-6 flex w-full items-center justify-center gap-3 rounded bg-[#148eff] px-5 py-3 font-semibold text-white transition hover:bg-[#0074e8] disabled:cursor-wait disabled:opacity-60">
+              <span aria-hidden="true" class="text-xl">◈</span>
+              {busy ? 'Opening Battle.net…' : 'Link Battle.net account'}
+            </button>
+          {/if}
+        </div>
       </aside>
     </div>
   {:else}

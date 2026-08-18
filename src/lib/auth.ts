@@ -9,6 +9,7 @@ export interface UserProfile {
   email: string;
   displayName: string;
   battleTag: string | null;
+  battleNetId: string | null;
   steamId: string | null;
   createdAtUtc: string;
 }
@@ -19,7 +20,7 @@ interface AuthResponse {
   user: UserProfile;
 }
 
-interface SteamLinkTicketResponse {
+interface AccountLinkTicketResponse {
   url: string;
 }
 
@@ -148,6 +149,19 @@ export async function refreshProfile(): Promise<UserProfile> {
   return user;
 }
 
+export async function updateProfile(email: string, displayName: string): Promise<UserProfile> {
+  const user = await apiRequest<UserProfile>(
+    '/users/me',
+    {
+      method: 'PATCH',
+      body: JSON.stringify({ email, displayName })
+    },
+    true
+  );
+  authState.set({ ready: true, user });
+  return user;
+}
+
 export function signOut(): void {
   if (browser) localStorage.removeItem(tokenStorageKey);
   authState.set({ ready: true, user: null });
@@ -168,7 +182,7 @@ export async function completeSteamSignIn(): Promise<UserProfile> {
 }
 
 export async function beginSteamLink(returnUrl: string): Promise<void> {
-  const result = await apiRequest<SteamLinkTicketResponse>(
+  const result = await apiRequest<AccountLinkTicketResponse>(
     '/auth/steam/link-ticket',
     {
       method: 'POST',
@@ -181,6 +195,23 @@ export async function beginSteamLink(returnUrl: string): Promise<void> {
 
 export async function unlinkSteam(): Promise<UserProfile> {
   await apiRequest('/auth/steam/link', { method: 'DELETE' }, true);
+  return await refreshProfile();
+}
+
+export async function beginBattleNetLink(returnUrl: string): Promise<void> {
+  const result = await apiRequest<AccountLinkTicketResponse>(
+    '/auth/battlenet/link-ticket',
+    {
+      method: 'POST',
+      body: JSON.stringify({ returnUrl })
+    },
+    true
+  );
+  window.location.assign(result.url);
+}
+
+export async function unlinkBattleNet(): Promise<UserProfile> {
+  await apiRequest('/auth/battlenet/link', { method: 'DELETE' }, true);
   return await refreshProfile();
 }
 
