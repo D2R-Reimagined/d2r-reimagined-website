@@ -21,6 +21,14 @@ pnpm dev
 
 The development server runs at `http://localhost:9500`.
 
+The development environment points authentication requests at `http://localhost:5000`. For production, set:
+
+```powershell
+$env:PUBLIC_API_BASE_URL='https://api.d2r-reimagined.com'
+```
+
+The API must include the website origin in `Cors__AllowedOrigins` so credentialed Steam handoff requests are accepted.
+
 ## Validation
 
 ```powershell
@@ -45,6 +53,7 @@ The included `Dockerfile` and `compose.yml` provide the same Node SSR runtime in
 
 - `/` — project home
 - `/grail` — local Holy Grail tracker
+- `/profile` — registration, sign-in, profile details, and Steam account linking
 - `/data/*` — uniques, sets, runewords, bases, affixes, and cube recipes
 - `/robots.txt` and `/sitemap.xml` — SEO discovery endpoints
 

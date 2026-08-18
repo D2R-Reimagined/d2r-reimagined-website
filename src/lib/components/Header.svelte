@@ -2,6 +2,7 @@
   import { page } from '$app/state';
   import { onMount } from 'svelte';
 
+  import { authState, initializeAuth } from '$lib/auth';
   import { i18n, languages, restoreSavedLanguage, setLanguage, type LanguageCode } from '$lib/i18n';
 
   let mobileOpen = $state(false);
@@ -75,6 +76,7 @@
     const savedFont = localStorage.getItem('font') ?? 'font-resurrected';
     chooseFont(fonts.some((font) => font.value === savedFont) ? savedFont : 'font-resurrected');
     void restoreSavedLanguage();
+    void initializeAuth();
   });
 </script>
 
@@ -82,11 +84,23 @@
   <nav class="mx-auto flex min-h-16 max-w-screen-2xl items-center justify-between gap-4 px-4" aria-label="Primary navigation">
     <a href="/" class="display-text truncate text-lg text-parchment-50 transition hover:text-ember-400">D2R Reimagined</a>
 
-    <button type="button" class="rounded-md border border-parchment-300/25 px-3 py-2 lg:hidden" aria-label="Toggle navigation" aria-expanded={mobileOpen} onclick={() => mobileOpen = !mobileOpen}>
-      <span aria-hidden="true" class="text-xl">☰</span>
-    </button>
+    <div class="ml-auto flex items-center gap-2 lg:order-3 lg:ml-2">
+      {#if $authState.user}
+        <a href="/profile" onclick={closeMenus} aria-label={`Open ${$authState.user.displayName}'s profile`} class="display-text flex h-10 w-10 items-center justify-center rounded-full border border-ember-400/55 bg-ember-700/25 text-parchment-50 transition hover:border-ember-400 hover:bg-ember-700/40">
+          {$authState.user.displayName.slice(0, 1).toUpperCase()}
+        </a>
+      {:else}
+        <a href="/profile" onclick={closeMenus} class="whitespace-nowrap rounded border border-ember-400/50 px-3 py-2 text-sm text-parchment-50 transition hover:border-ember-400 hover:bg-ember-700/25">
+          Sign in
+        </a>
+      {/if}
 
-    <div class:hidden={!mobileOpen} class="absolute left-0 right-0 top-16 border-b border-parchment-300/20 bg-abyss-950 p-4 lg:static lg:flex lg:items-center lg:gap-1 lg:border-0 lg:bg-transparent lg:p-0">
+      <button type="button" class="rounded-md border border-parchment-300/25 px-3 py-2 lg:hidden" aria-label="Toggle navigation" aria-expanded={mobileOpen} onclick={() => mobileOpen = !mobileOpen}>
+        <span aria-hidden="true" class="text-xl">☰</span>
+      </button>
+    </div>
+
+    <div class:hidden={!mobileOpen} class="absolute left-0 right-0 top-16 border-b border-parchment-300/20 bg-abyss-950 p-4 lg:static lg:order-2 lg:ml-auto lg:flex lg:items-center lg:gap-1 lg:border-0 lg:bg-transparent lg:p-0">
       <div class="flex flex-col gap-1 lg:flex-row lg:items-center">
         <a href="/" onclick={closeMenus} class={navClass('/')}>Home</a>
         <a href="/grail" onclick={closeMenus} class={navClass('/grail')}>Holy Grail</a>
