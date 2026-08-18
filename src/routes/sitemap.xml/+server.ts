@@ -4,6 +4,7 @@ const routes = [
   '/',
   '/grail',
   '/data',
+  '/data/skills',
   '/data/uniques',
   '/data/sets',
   '/data/runewords',

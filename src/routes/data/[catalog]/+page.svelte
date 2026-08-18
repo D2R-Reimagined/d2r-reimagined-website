@@ -1,9 +1,25 @@
 <script lang="ts">
   import CatalogCard from '$lib/components/CatalogCard.svelte';
   import CatalogFilters from '$lib/components/CatalogFilters.svelte';
-  import { collectText, isVanilla, itemClass, itemType, uniqueOptions } from '$lib/catalog';
+  import {
+    affixMatchesProperty,
+    affixPropertyOptions,
+    baseHasSockets,
+    baseTier,
+    matchesSearch,
+    matchesItemType,
+    passesHandFilter,
+    recipeType as recipeTypesFor,
+    sortByWeaponDamage,
+    tokenizeSearch,
+    weaponSortOptions,
+    type WeaponSortMode
+  } from '$lib/catalog-controls';
+  import { collectText, isVanilla, itemClass, itemType } from '$lib/catalog';
   import { i18n } from '$lib/i18n';
-  import type { CatalogItem } from '$lib/types';
+  import type { CatalogItem, KeyedLine } from '$lib/types';
+
+  type Option = { value: string; label: string };
 
   let { data } = $props();
   let search = $state('');
@@ -12,45 +28,106 @@
   let subtype = $state('');
   let hideVanilla = $state(false);
   let runeCount = $state('');
+  let selectedEquipment = $state('');
+  let selectedTier = $state('');
+  let selectedSockets = $state('');
+  let propertyType = $state('');
+  let minLevel = $state('');
+  let maxLevel = $state('');
+  let exactType = $state(false);
+  let recipeType = $state('');
+  let selectedRunes = $state<string[]>([]);
+  let weaponSort = $state<WeaponSortMode>('');
+  let handFilter = $state('');
   let visibleCount = $state(48);
 
+  function typeValue(value: string | { Index?: string; Name?: string }): string {
+    return typeof value === 'string' ? value : value.Index ?? value.Name ?? '';
+  }
+
   function typesFor(item: CatalogItem): string[] {
-    if (data.definition.slug === 'sets') return (item.SetItems ?? []).map(itemType);
-    if (data.definition.slug === 'runewords') {
-      return (item.Types ?? []).map((type) => typeof type === 'string' ? type : type.Index ?? type.Name ?? '');
+    if (data.definition.slug === 'sets') return (item.SetItems ?? []).map(itemType).filter(Boolean);
+    if (data.definition.slug === 'runewords' || data.definition.slug === 'affixes') {
+      return (item.Types ?? []).map(typeValue).filter(Boolean);
     }
-    if (data.definition.slug === 'affixes') {
-      return (item.Types ?? []).map((type) => typeof type === 'string' ? type : type.Index ?? type.Name ?? '');
-    }
-    return [itemType(item)];
+    return [itemType(item)].filter(Boolean);
   }
 
   function classesFor(item: CatalogItem): string[] {
-    if (data.definition.slug === 'sets') return (item.SetItems ?? []).map(itemClass);
-    return [itemClass(item)];
+    if (data.definition.slug === 'sets') return (item.SetItems ?? []).map(itemClass).filter(Boolean);
+    return [itemClass(item)].filter(Boolean);
   }
 
-  let typeOptions = $derived(uniqueOptions(data.items.flatMap(typesFor), (value) => $i18n.t(value)).map((value) => $i18n.t(value)));
-  let classOptions = $derived(uniqueOptions(data.items.flatMap(classesFor), (value) => $i18n.t(value)).map((value) => $i18n.t(value)));
+  function equipmentFor(item: CatalogItem): string[] {
+    if (data.definition.slug === 'sets') {
+      return (item.SetItems ?? []).map((setItem) => setItem.Equipment?.NameKey ?? '').filter(Boolean);
+    }
+    return [item.Equipment?.NameKey ?? ''].filter(Boolean);
+  }
+
+  function options(values: string[]): Option[] {
+    return [...new Set(values.filter(Boolean))]
+      .map((value) => ({ value, label: $i18n.t(value) }))
+      .sort((a, b) => a.label.localeCompare(b.label));
+  }
+
+  function recipeLabel(key: string): string {
+    const source = data.items
+      .flatMap((item: CatalogItem) => item.Notes ?? [])
+      .find((line: KeyedLine) => line.key === key);
+    return source ? $i18n.line(source) : $i18n.t(key);
+  }
+
+  let typeOptions = $derived(options(data.items.flatMap(typesFor)));
+  let classOptions = $derived(options(data.items.flatMap(classesFor)));
+  let equipmentOptions = $derived(options(data.items.flatMap(equipmentFor)));
+  let propertyOptions = $derived(affixPropertyOptions
+    .map((value) => ({ value, label: $i18n.t(value) }))
+    .sort((a, b) => a.label.localeCompare(b.label)));
+  let recipeTypeOptions = $derived(([...new Set<string>(data.items.flatMap((item: CatalogItem) => recipeTypesFor(item)))] as string[])
+    .map((value) => ({ value, label: recipeLabel(value) }))
+    .sort((a, b) => a.label.localeCompare(b.label)));
+  let runeOptions = $derived(options(data.items
+    .flatMap((item: CatalogItem) => item.Runes ?? [])
+    .map((rune: { NameKey?: string }) => rune.NameKey ?? '')));
 
   let filtered = $derived.by(() => {
-    const query = search.trim().toLowerCase();
-    return data.items.filter((item: CatalogItem) => {
+    const searchGroups = tokenizeSearch(search);
+    const minimum = minLevel ? Number(minLevel) : undefined;
+    const maximum = maxLevel ? Number(maxLevel) : undefined;
+
+    const matches = data.items.filter((item: CatalogItem) => {
       if (hideVanilla && isVanilla(item)) return false;
-      if (selectedType && !typesFor(item).some((value) => $i18n.t(value) === selectedType)) return false;
-      if (selectedClass && !classesFor(item).some((value) => $i18n.t(value) === selectedClass)) return false;
+      if (!matchesItemType(typesFor(item), selectedType, exactType)) return false;
+      if (selectedClass && !classesFor(item).includes(selectedClass)) return false;
+      if (selectedEquipment && !equipmentFor(item).includes(selectedEquipment)) return false;
       if (subtype && item.source !== subtype) return false;
       if (runeCount && (item.Runes?.length ?? 0) !== Number(runeCount)) return false;
-      if (query && !collectText(item, $i18n.t).includes(query)) return false;
+      if (selectedRunes.length) {
+        const itemRunes = (item.Runes ?? []).map((rune) => rune.NameKey ?? '');
+        if (!selectedRunes.every((rune) => itemRunes.includes(rune))) return false;
+      }
+      if (selectedTier && baseTier(item) !== selectedTier) return false;
+      if (selectedSockets && !baseHasSockets(item, Number(selectedSockets))) return false;
+      if (propertyType && !affixMatchesProperty(item, propertyType)) return false;
+      if (minimum != null && Number(item.RequiredLevel ?? 0) < minimum) return false;
+      if (maximum != null && Number(item.RequiredLevel ?? 0) > maximum) return false;
+      if (recipeType && !recipeTypesFor(item).includes(recipeType)) return false;
+      if (handFilter && !passesHandFilter(item, handFilter)) return false;
+      if (!matchesSearch(collectText(item, $i18n.t), searchGroups)) return false;
       if (String(item.Index ?? '').toLowerCase().includes('grabber')) return false;
       return true;
     });
+
+    return sortByWeaponDamage(matches, weaponSort);
   });
 
   let visible = $derived(filtered.slice(0, visibleCount));
 
   $effect(() => {
     search; selectedType; selectedClass; subtype; hideVanilla; runeCount;
+    selectedEquipment; selectedTier; selectedSockets; propertyType; minLevel;
+    maxLevel; exactType; recipeType; selectedRunes; weaponSort; handFilter;
     visibleCount = 48;
   });
 
@@ -61,6 +138,17 @@
     subtype = '';
     hideVanilla = false;
     runeCount = '';
+    selectedEquipment = '';
+    selectedTier = '';
+    selectedSockets = '';
+    propertyType = '';
+    minLevel = '';
+    maxLevel = '';
+    exactType = false;
+    recipeType = '';
+    selectedRunes = [];
+    weaponSort = '';
+    handFilter = '';
   }
 </script>
 
@@ -80,22 +168,39 @@
     <p class="mx-auto mt-4 max-w-3xl text-lg text-parchment-300">{data.definition.description}</p>
   </div>
 </section>
+<!-- Catalog controls are shared across every data route. -->
 
 <section class="mx-auto max-w-screen-2xl px-4 py-8">
   <CatalogFilters
     slug={data.definition.slug}
     {typeOptions}
     {classOptions}
+    {equipmentOptions}
+    {propertyOptions}
+    {recipeTypeOptions}
+    {runeOptions}
+    {weaponSortOptions}
     bind:search
     bind:selectedType
     bind:selectedClass
     bind:subtype
     bind:hideVanilla
     bind:runeCount
+    bind:selectedEquipment
+    bind:selectedTier
+    bind:selectedSockets
+    bind:propertyType
+    bind:minLevel
+    bind:maxLevel
+    bind:exactType
+    bind:recipeType
+    bind:selectedRunes
+    bind:weaponSort
+    bind:handFilter
     {reset}
   />
 
-  <p class="mb-5 text-center text-parchment-300"><span class="rarity-line">{filtered.length.toLocaleString()}</span> results</p>
+  <p class="mb-5 text-center text-parchment-300" aria-live="polite"><span class="rarity-line">{filtered.length.toLocaleString()}</span> results</p>
 
   {#if visible.length}
     <div class="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">

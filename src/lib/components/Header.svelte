@@ -10,6 +10,7 @@
   let dataOpen = $state(false);
 
   const dataLinks = [
+    { href: '/data/skills', label: 'Skills', detail: 'Class trees and build planner' },
     { href: '/data/uniques', label: 'Uniques', detail: 'Distinctive named items' },
     { href: '/data/sets', label: 'Sets', detail: 'Pieces and set bonuses' },
     { href: '/data/runewords', label: 'Runewords', detail: 'Rune orders and properties' },

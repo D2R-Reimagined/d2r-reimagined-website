@@ -1,84 +1,197 @@
 <script lang="ts">
   import type { CatalogSlug } from '$lib/types';
+  import type { WeaponSortMode } from '$lib/catalog-controls';
+  import { i18n } from '$lib/i18n';
+
+  type Option = { value: string; label: string };
 
   let {
-    slug,
-    typeOptions,
-    classOptions,
-    search = $bindable(''),
-    selectedType = $bindable(''),
-    selectedClass = $bindable(''),
-    subtype = $bindable(''),
-    hideVanilla = $bindable(false),
-    runeCount = $bindable(''),
-    reset
+    slug, typeOptions, classOptions, equipmentOptions, propertyOptions,
+    recipeTypeOptions, runeOptions, weaponSortOptions,
+    search = $bindable(''), selectedType = $bindable(''),
+    selectedClass = $bindable(''), subtype = $bindable(''),
+    hideVanilla = $bindable(false), runeCount = $bindable(''),
+    selectedEquipment = $bindable(''), selectedTier = $bindable(''),
+    selectedSockets = $bindable(''), propertyType = $bindable(''),
+    minLevel = $bindable(''), maxLevel = $bindable(''),
+    exactType = $bindable(false), recipeType = $bindable(''),
+    selectedRunes = $bindable([]), weaponSort = $bindable(''),
+    handFilter = $bindable(''), reset
   }: {
     slug: CatalogSlug;
-    typeOptions: string[];
-    classOptions: string[];
+    typeOptions: Option[];
+    classOptions: Option[];
+    equipmentOptions: Option[];
+    propertyOptions: Option[];
+    recipeTypeOptions: Option[];
+    runeOptions: Option[];
+    weaponSortOptions: Array<{ value: WeaponSortMode; label: string }>;
     search?: string;
     selectedType?: string;
     selectedClass?: string;
     subtype?: string;
     hideVanilla?: boolean;
     runeCount?: string;
+    selectedEquipment?: string;
+    selectedTier?: string;
+    selectedSockets?: string;
+    propertyType?: string;
+    minLevel?: string;
+    maxLevel?: string;
+    exactType?: boolean;
+    recipeType?: string;
+    selectedRunes?: string[];
+    weaponSort?: WeaponSortMode;
+    handFilter?: string;
     reset: () => void;
   } = $props();
+
+  const fieldLabel = 'mb-1 block text-xs uppercase tracking-widest text-parchment-300';
 </script>
 
-<div class="panel mb-8 rounded-lg p-4" aria-label="Catalog filters">
+<div class="panel sticky top-16 z-40 mb-8 max-h-[calc(100vh-4rem)] overflow-y-auto rounded-lg p-4 shadow-2xl" aria-label="Catalog filters" data-testid="catalog-filters">
   <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6">
     <label class="sm:col-span-2">
-      <span class="mb-1 block text-xs uppercase tracking-widest text-parchment-300">Search</span>
-      <input class="field" type="search" placeholder="Name, property, base, or class…" bind:value={search} />
+      <span class={fieldLabel}>{$i18n.t('filter_search_placeholder')}</span>
+      <input class="field" type="search" placeholder="Name, property, base, or class…" autocomplete="off" bind:value={search} />
+      <span class="mt-1 block text-xs text-parchment-300/75">Use + for AND, comma or | for OR, and - to exclude a phrase.</span>
     </label>
+
+    {#if slug === 'bases'}
+      <label>
+        <span class={fieldLabel}>{$i18n.t('filter_select_category')}</span>
+        <select class="field" bind:value={subtype}>
+          <option value="">All bases</option><option value="weapon">{$i18n.t('label_weapons')}</option><option value="armor">{$i18n.t('label_armors')}</option>
+        </select>
+      </label>
+    {:else if slug === 'affixes'}
+      <label>
+        <span class={fieldLabel}>{$i18n.t('filter_select_affix_type')}</span>
+        <select class="field" bind:value={subtype}>
+          <option value="">All affixes</option><option value="prefix">{$i18n.t('label_prefix')}</option><option value="suffix">{$i18n.t('label_suffix')}</option>
+        </select>
+      </label>
+    {/if}
+
+    {#if slug === 'cube-recipes'}
+      <label class="sm:col-span-2">
+        <span class={fieldLabel}>{$i18n.t('filter_select_recipe_type')}</span>
+        <select class="field" bind:value={recipeType}>
+          <option value="">All recipe types</option>
+          {#each recipeTypeOptions as option}<option value={option.value}>{option.label}</option>{/each}
+        </select>
+      </label>
+    {/if}
 
     {#if typeOptions.length}
       <label>
-        <span class="mb-1 block text-xs uppercase tracking-widest text-parchment-300">Item type</span>
+        <span class={fieldLabel}>{$i18n.t('filter_select_type')}</span>
         <select class="field" bind:value={selectedType}>
           <option value="">All types</option>
-          {#each typeOptions as option}<option value={option}>{option}</option>{/each}
+          {#each typeOptions as option}<option value={option.value}>{option.label}</option>{/each}
+        </select>
+      </label>
+    {/if}
+
+    {#if (slug === 'uniques' || slug === 'sets') && equipmentOptions.length}
+      <label>
+        <span class={fieldLabel}>{$i18n.t('filter_select_equipment')}</span>
+        <select class="field" bind:value={selectedEquipment}>
+          <option value="">All equipment</option>
+          {#each equipmentOptions as option}<option value={option.value}>{option.label}</option>{/each}
         </select>
       </label>
     {/if}
 
     {#if classOptions.length}
       <label>
-        <span class="mb-1 block text-xs uppercase tracking-widest text-parchment-300">Class</span>
+        <span class={fieldLabel}>{$i18n.t('filter_select_class')}</span>
         <select class="field" bind:value={selectedClass}>
           <option value="">All classes</option>
-          {#each classOptions as option}<option value={option}>{option}</option>{/each}
+          {#each classOptions as option}<option value={option.value}>{option.label}</option>{/each}
         </select>
       </label>
     {/if}
 
     {#if slug === 'bases'}
       <label>
-        <span class="mb-1 block text-xs uppercase tracking-widest text-parchment-300">Base group</span>
-        <select class="field" bind:value={subtype}><option value="">All bases</option><option value="weapon">Weapons</option><option value="armor">Armor</option></select>
+        <span class={fieldLabel}>{$i18n.t('filter_select_tier')}</span>
+        <select class="field" bind:value={selectedTier}>
+          <option value="">All tiers</option><option value="Normal">{$i18n.t('label_normal')}</option><option value="Exceptional">{$i18n.t('label_exceptional')}</option><option value="Elite">{$i18n.t('label_elite')}</option>
+        </select>
       </label>
-    {:else if slug === 'affixes'}
       <label>
-        <span class="mb-1 block text-xs uppercase tracking-widest text-parchment-300">Affix kind</span>
-        <select class="field" bind:value={subtype}><option value="">All affixes</option><option value="prefix">Prefixes</option><option value="suffix">Suffixes</option></select>
+        <span class={fieldLabel}>{$i18n.t('filter_select_sockets')}</span>
+        <select class="field" bind:value={selectedSockets}>
+          <option value="">Any sockets</option>
+          {#each [1, 2, 3, 4, 5, 6] as count}<option value={String(count)}>{count === 1 ? $i18n.t('label_socket', [count]) : $i18n.t('label_sockets', [count])}</option>{/each}
+        </select>
       </label>
-    {:else if slug === 'runewords'}
+    {/if}
+
+    {#if slug === 'affixes'}
+      <label class="sm:col-span-2">
+        <span class={fieldLabel}>{$i18n.t('filter_select_property_type')}</span>
+        <select class="field" bind:value={propertyType}>
+          <option value="">All properties</option>
+          {#each propertyOptions as option}<option value={option.value}>{option.label}</option>{/each}
+        </select>
+      </label>
       <label>
-        <span class="mb-1 block text-xs uppercase tracking-widest text-parchment-300">Rune count</span>
+        <span class={fieldLabel}>{$i18n.t('filter_min_rlvl')}</span>
+        <select class="field" bind:value={minLevel}><option value="">No minimum</option>{#each Array.from({ length: 99 }, (_, i) => i + 1) as level}<option value={String(level)}>{level}</option>{/each}</select>
+      </label>
+      <label>
+        <span class={fieldLabel}>{$i18n.t('filter_max_rlvl')}</span>
+        <select class="field" bind:value={maxLevel}><option value="">No maximum</option>{#each Array.from({ length: 99 }, (_, i) => i + 1) as level}<option value={String(level)}>{level}</option>{/each}</select>
+      </label>
+    {/if}
+
+    {#if slug === 'runewords'}
+      <label>
+        <span class={fieldLabel}>{$i18n.t('filter_rune_count')}</span>
         <select class="field" bind:value={runeCount}><option value="">Any count</option>{#each [2, 3, 4, 5, 6] as count}<option value={String(count)}>{count} runes</option>{/each}</select>
+      </label>
+      <label class="sm:col-span-2">
+        <span class={fieldLabel}>{$i18n.t('filter_runes_only_placeholder')}</span>
+        <select class="field min-h-28" multiple size="4" bind:value={selectedRunes}>
+          {#each runeOptions as option}<option value={option.value}>{option.label}</option>{/each}
+        </select>
+        <span class="mt-1 block text-xs text-parchment-300/75">Hold Ctrl or Command to choose multiple runes.</span>
+      </label>
+    {/if}
+
+    {#if ['affixes', 'runewords'].includes(slug) && typeOptions.length}
+      <label class="flex min-h-12 items-center gap-3 self-end rounded-md border border-parchment-300/20 bg-black/20 px-3 py-2">
+        <input type="checkbox" bind:checked={exactType} class="rounded border-gray-600 bg-gray-900 text-ember-500 focus:ring-ember-500" />
+        <span>{$i18n.t('filter_exact')}</span>
+      </label>
+    {/if}
+
+    {#if ['bases', 'uniques', 'sets'].includes(slug)}
+      <label>
+        <span class={fieldLabel}>{$i18n.t('sort_select_weapon_type')}</span>
+        <select class="field" bind:value={handFilter}>
+          <option value="">All weapons</option><option value="1h">{$i18n.t('label_1h_only')}</option><option value="2h">{$i18n.t('label_2h_only')}</option>
+        </select>
+      </label>
+      <label class="sm:col-span-2">
+        <span class={fieldLabel}>{$i18n.t('sort_by_damage')}</span>
+        <select class="field" bind:value={weaponSort}>
+          {#each weaponSortOptions as option}<option value={option.value}>{option.label}</option>{/each}
+        </select>
       </label>
     {/if}
 
     {#if ['uniques', 'sets', 'runewords'].includes(slug)}
       <label class="flex min-h-12 items-center gap-3 self-end rounded-md border border-parchment-300/20 bg-black/20 px-3 py-2">
         <input type="checkbox" bind:checked={hideVanilla} class="rounded border-gray-600 bg-gray-900 text-ember-500 focus:ring-ember-500" />
-        <span>Hide vanilla</span>
+        <span>{$i18n.t('filter_hide_vanilla')}</span>
       </label>
     {/if}
 
     <button type="button" onclick={reset} class="min-h-12 self-end rounded-md border border-ember-500/55 px-4 py-2 text-ember-400 transition hover:bg-ember-700 hover:text-white">
-      Reset filters
+      {$i18n.t('filter_reset')}
     </button>
   </div>
 </div>

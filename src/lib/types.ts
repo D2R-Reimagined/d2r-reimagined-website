@@ -50,6 +50,14 @@ export interface CatalogItem {
   RequiredClass?: string;
   ClassSpecific?: string;
   PType?: string;
+  Group?: number;
+  Level?: number;
+  MaxLevel?: number;
+  Code?: string;
+  NormCode?: string;
+  UberCode?: string;
+  UltraCode?: string;
+  GemSockets?: number | string;
   Lines?: KeyedLine[];
   Equipment?: Equipment;
   DamageTypes?: DamageType[];
@@ -73,6 +81,39 @@ export interface CatalogDefinition {
   eyebrow: string;
   description: string;
 }
+
+export interface Skill {
+  Id: number;
+  Code: string;
+  NameKey: string;
+  ShortDescriptionKey?: string;
+  DescriptionKey?: string;
+  Row: number;
+  Column: number;
+  RequiredLevel: number;
+  MaxLevel: number;
+  PrerequisiteIds: number[];
+}
+
+export interface SkillTab {
+  Page: number;
+  NameKey: string;
+  Skills: Skill[];
+}
+
+export interface SkillClass {
+  Class: string;
+  ClassCode: string;
+  NameKey: string;
+  Tabs: SkillTab[];
+}
+
+export const skillPlannerDefinition = {
+  slug: 'skills',
+  title: 'Skill Planner',
+  eyebrow: 'Shape your hero',
+  description: 'Preview every class skill tree and plan your point allocation with requirements and prerequisites.'
+} as const;
 
 export const catalogDefinitions: Record<CatalogSlug, CatalogDefinition> = {
   uniques: {
