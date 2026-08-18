@@ -75,7 +75,7 @@
     <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {#each dataCards as card}
             <a href={card.href}
-               class="panel group rounded-lg p-6 transition duration-200 hover:-translate-y-1 hover:border-ember-400/50">
+               class="panel group rounded-lg p-6 hover:border-ember-400/50">
                 <p class="rarity-line text-3xl">{card.count.toLocaleString()}</p>
                 <h3 class="display-text mt-2 text-xl group-hover:text-ember-400">{card.label}</h3>
                 <span class="mt-5 inline-block text-sm text-ember-400">Explore data →</span>

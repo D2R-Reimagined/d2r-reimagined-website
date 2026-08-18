@@ -17,7 +17,7 @@
   </div>
   <div class="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
     {#each definitions as definition}
-      <a href={`/data/${definition.slug}`} class="panel group rounded-lg p-6 transition hover:-translate-y-1 hover:border-ember-400/50">
+      <a href={`/data/${definition.slug}`} class="panel group rounded-lg p-6 hover:border-ember-400/50">
         <p class="display-text text-xs uppercase tracking-[0.2em] text-ember-400">{definition.eyebrow}</p>
         <h2 class="display-text mt-3 text-2xl group-hover:text-ember-400">{definition.title}</h2>
         <p class="mt-3 text-parchment-300">{definition.description}</p>

@@ -13,7 +13,7 @@
   let itemKey = $derived(String(item.Index ?? item.NameKey ?? 'Unknown'));
 </script>
 
-<label class="panel scroll-card flex cursor-pointer gap-4 rounded-lg p-4 transition hover:border-ember-400/45" class:opacity-55={found}>
+<label class="panel scroll-card flex cursor-pointer gap-4 rounded-lg p-4 hover:border-ember-400/45" class:opacity-55={found}>
   <input type="checkbox" checked={found} onchange={(event) => onchange(event.currentTarget.checked)} aria-label={`Mark ${$i18n.t(itemKey)} as found`} class="mt-1 h-5 w-5 shrink-0 rounded border-gray-600 bg-gray-900 text-ember-500 focus:ring-ember-500" />
   <span class="min-w-0">
     <span class:unique-line={tone === 'unique'} class:set-line={tone === 'set'} class="display-text block text-lg">{$i18n.t(itemKey)}</span>
