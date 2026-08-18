@@ -78,7 +78,7 @@
   });
 </script>
 
-<header class="sticky top-0 z-50 border-b border-parchment-300/20 bg-abyss-950/94 shadow-2xl backdrop-blur-xl">
+<header class="sticky top-0 z-50 border-b border-parchment-300/20 bg-abyss-950">
   <nav class="mx-auto flex min-h-16 max-w-screen-2xl items-center justify-between gap-4 px-4" aria-label="Primary navigation">
     <a href="/" class="display-text truncate text-lg text-parchment-50 transition hover:text-ember-400">D2R Reimagined</a>
 

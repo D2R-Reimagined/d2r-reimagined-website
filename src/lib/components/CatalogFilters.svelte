@@ -49,7 +49,7 @@
   const fieldLabel = 'mb-1 block text-xs uppercase tracking-widest text-parchment-300';
 </script>
 
-<div class="panel sticky top-16 z-40 mb-8 max-h-[calc(100vh-4rem)] overflow-y-auto rounded-lg p-4 shadow-2xl" aria-label="Catalog filters" data-testid="catalog-filters">
+<div class="panel sticky top-16 z-40 mb-8 max-h-[calc(100vh-4rem)] overflow-y-auto rounded-lg p-4" aria-label="Catalog filters" data-testid="catalog-filters">
   <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6">
     <label class="sm:col-span-2">
       <span class={fieldLabel}>{$i18n.t('filter_search_placeholder')}</span>

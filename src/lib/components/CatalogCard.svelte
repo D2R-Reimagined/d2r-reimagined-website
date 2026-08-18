@@ -31,7 +31,7 @@
   }
 </script>
 
-<article class="panel flex h-full flex-col rounded-lg p-5 text-center transition duration-200 hover:-translate-y-0.5 hover:border-ember-400/45">
+<article class="panel scroll-card flex h-full flex-col rounded-lg p-5 text-center transition duration-200 hover:-translate-y-0.5 hover:border-ember-400/45">
   <header class="mb-3 border-b border-parchment-300/15 pb-3">
     <h2 class:unique-line={slug !== 'sets'} class:set-line={slug === 'sets'} class="display-text text-xl">
       {$i18n.t(itemTitle(item, slug))}

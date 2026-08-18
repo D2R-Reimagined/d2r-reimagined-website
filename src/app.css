@@ -60,20 +60,6 @@ body {
     linear-gradient(180deg, #0d0d0e 0, #070707 42rem);
 }
 
-body::before {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  content: '';
-  pointer-events: none;
-  opacity: 0.18;
-  background-image:
-    linear-gradient(rgb(255 255 255 / 0.018) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(255 255 255 / 0.012) 1px, transparent 1px);
-  background-size: 36px 36px;
-  mask-image: linear-gradient(to bottom, black, transparent 75%);
-}
-
 button, a, input, select, textarea { font: inherit; }
 button, a { -webkit-tap-highlight-color: transparent; }
 
@@ -99,8 +85,15 @@ body.font-neutral { font-family: Verdana, Helvetica, Arial, sans-serif; }
   border: 1px solid rgb(188 167 125 / 0.24);
   background:
     linear-gradient(135deg, rgb(255 255 255 / 0.025), transparent 38%),
-    rgb(20 19 19 / 0.92);
-  box-shadow: inset 0 1px rgb(255 255 255 / 0.035), 0 20px 50px rgb(0 0 0 / 0.28);
+    rgb(20 19 19 / 0.98);
+  box-shadow: inset 0 1px rgb(255 255 255 / 0.035);
+}
+
+/* Keep large result lists cheap to paint when Firefox uses software rendering. */
+.scroll-card {
+  content-visibility: auto;
+  contain: layout paint style;
+  contain-intrinsic-size: auto 260px;
 }
 
 .field {

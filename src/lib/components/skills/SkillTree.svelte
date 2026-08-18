@@ -75,7 +75,7 @@
       radial-gradient(circle at 50% 45%, rgb(92 27 18 / 0.22), transparent 52%),
       linear-gradient(90deg, transparent 49.5%, rgb(216 201 167 / 0.03) 50%, transparent 50.5%),
       linear-gradient(#171411, #090909);
-    box-shadow: inset 0 0 45px #000, 0 18px 36px rgb(0 0 0 / 0.34);
+    box-shadow: inset 0 0 32px #000;
   }
 
   .tree-heading {
@@ -104,10 +104,9 @@
     inset: 0;
     content: '';
     pointer-events: none;
-    opacity: 0.22;
+    opacity: 0.1;
     background-image: radial-gradient(circle, #bca77d 0 1px, transparent 1.2px);
     background-size: 1.25rem 1.25rem;
-    mask-image: radial-gradient(circle at center, black, transparent 75%);
   }
 
   .connectors {
@@ -122,7 +121,6 @@
     stroke: #39362f;
     stroke-width: 4;
     vector-effect: non-scaling-stroke;
-    filter: drop-shadow(0 2px 1px #000);
   }
 
   .connectors line.lit { stroke: #aa7938; }

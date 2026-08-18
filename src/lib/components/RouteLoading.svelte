@@ -19,7 +19,7 @@
 </script>
 
 {#if visible}
-  <div class="fixed inset-x-0 bottom-0 top-16 z-[45] overflow-hidden bg-abyss-950/96 backdrop-blur-sm" role="status" aria-live="polite" aria-label={`Loading ${routeName}`}>
+  <div class="fixed inset-x-0 bottom-0 top-16 z-[45] overflow-hidden bg-abyss-950" role="status" aria-live="polite" aria-label={`Loading ${routeName}`}>
     <div class="loading-bar absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-ember-400 to-transparent"></div>
     <div class="mx-auto flex min-h-full max-w-5xl flex-col items-center justify-center px-5 py-12 text-center">
       <div class="relative grid size-20 place-items-center" aria-hidden="true">
