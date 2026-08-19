@@ -16,8 +16,8 @@
     ranks: Record<number, number>;
     selectedSkillId: number | null;
     select: (skill: Skill) => void;
-    increase: (skill: Skill) => void;
-    decrease: (skill: Skill) => void;
+    increase: (skill: Skill, amount?: number) => void;
+    decrease: (skill: Skill, amount?: number) => void;
     canIncrease: (skill: Skill) => boolean;
   } = $props();
 
