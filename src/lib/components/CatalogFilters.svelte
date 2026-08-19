@@ -47,10 +47,33 @@
   } = $props();
 
   const fieldLabel = 'mb-1 block text-xs uppercase tracking-widest text-parchment-300';
+  let expanded = $state(true);
 </script>
 
-<div class="panel sticky top-16 z-40 mb-8 max-h-[calc(100vh-4rem)] overflow-y-auto rounded-lg p-4" aria-label="Catalog filters" data-testid="catalog-filters">
-  <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6">
+<section
+  class:collapsed={!expanded}
+  class="filters-panel panel sticky top-16 z-40 mb-8 max-h-[calc(100vh-4rem)] overflow-y-auto rounded-lg p-3 sm:p-4"
+  aria-label="Catalog filters"
+  data-testid="catalog-filters"
+>
+  <div class="flex items-center justify-between gap-3">
+    <div>
+      <h2 class="display-text text-base text-parchment-50">Filters</h2>
+      <p class="text-xs text-parchment-300">Refine the catalog results.</p>
+    </div>
+    <button
+      type="button"
+      class="shrink-0 rounded-md border border-parchment-300/30 px-3 py-1.5 text-sm text-parchment-200 transition hover:border-ember-400/70 hover:text-white"
+      aria-controls="catalog-filter-controls"
+      aria-expanded={expanded}
+      onclick={() => expanded = !expanded}
+    >
+      {expanded ? 'Collapse' : 'Expand'} <span aria-hidden="true">{expanded ? '▴' : '▾'}</span>
+    </button>
+  </div>
+
+  {#if expanded}
+  <div id="catalog-filter-controls" class="filters-grid mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6">
     <label class="sm:col-span-2">
       <span class={fieldLabel}>{$i18n.t('filter_search_placeholder')}</span>
       <input class="field" type="search" placeholder="Name, property, base, or class…" autocomplete="off" bind:value={search} />
@@ -162,7 +185,7 @@
     {/if}
 
     {#if ['affixes', 'runewords'].includes(slug) && typeOptions.length}
-      <label class="flex min-h-12 items-center gap-3 self-end rounded-md border border-parchment-300/20 bg-black/20 px-3 py-2">
+      <label class="compact-control flex min-h-12 items-center gap-3 self-end rounded-md border border-parchment-300/20 bg-black/20 px-3 py-2">
         <input type="checkbox" bind:checked={exactType} class="rounded border-gray-600 bg-gray-900 text-ember-500 focus:ring-ember-500" />
         <span>{$i18n.t('filter_exact')}</span>
       </label>
@@ -184,14 +207,30 @@
     {/if}
 
     {#if ['uniques', 'sets', 'runewords'].includes(slug)}
-      <label class="flex min-h-12 items-center gap-3 self-end rounded-md border border-parchment-300/20 bg-black/20 px-3 py-2">
+      <label class="compact-control flex min-h-12 items-center gap-3 self-end rounded-md border border-parchment-300/20 bg-black/20 px-3 py-2">
         <input type="checkbox" bind:checked={hideVanilla} class="rounded border-gray-600 bg-gray-900 text-ember-500 focus:ring-ember-500" />
         <span>{$i18n.t('filter_hide_vanilla')}</span>
       </label>
     {/if}
 
-    <button type="button" onclick={reset} class="min-h-12 self-end rounded-md border border-ember-500/55 px-4 py-2 text-ember-400 transition hover:bg-ember-700 hover:text-white">
+    <button type="button" onclick={reset} class="compact-control min-h-12 self-end rounded-md border border-ember-500/55 px-4 py-2 text-ember-400 transition hover:bg-ember-700 hover:text-white">
       {$i18n.t('filter_reset')}
     </button>
   </div>
-</div>
+  {/if}
+</section>
+
+<style>
+  .filters-panel.collapsed { margin-bottom: 1rem; }
+
+  @media (max-height: 800px) and (min-width: 640px) {
+    .filters-panel { padding: 0.65rem; }
+    .filters-grid { margin-top: 0.5rem; gap: 0.5rem; }
+    :global(.filters-grid .field) { padding: 0.45rem 0.6rem; }
+    :global(.filters-grid .compact-control) {
+      min-height: 2.5rem;
+      padding-top: 0.35rem;
+      padding-bottom: 0.35rem;
+    }
+  }
+</style>

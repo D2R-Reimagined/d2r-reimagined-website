@@ -31,7 +31,7 @@
   }
 </script>
 
-<article class="panel scroll-card flex h-full flex-col rounded-lg p-5 text-center hover:border-ember-400/45">
+<article class="catalog-card panel scroll-card flex h-full flex-col rounded-lg p-5 text-center hover:border-ember-400/45">
   <header class="mb-3 border-b border-parchment-300/15 pb-3">
     <h2 class:unique-line={slug !== 'sets'} class:set-line={slug === 'sets'} class="display-text text-xl">
       {$i18n.t(itemTitle(item, slug))}
@@ -113,3 +113,10 @@
     <KeyedLines lines={item.Lines} />
   {/if}
 </article>
+
+<style>
+  @media (max-height: 800px) and (min-width: 640px) {
+    .catalog-card { padding: 1rem; }
+    .catalog-card > header { margin-bottom: 0.5rem; padding-bottom: 0.5rem; }
+  }
+</style>

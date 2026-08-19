@@ -15,10 +15,10 @@
 </svelte:head>
 
 <section class="border-b border-parchment-300/15 bg-black/25">
-  <div class="mx-auto max-w-7xl px-5 py-10 text-center sm:py-14">
+  <div class="data-page-hero mx-auto max-w-7xl px-5 py-10 text-center sm:py-12">
     <p class="display-text text-sm uppercase tracking-[0.25em] text-ember-400">{skillPlannerDefinition.eyebrow}</p>
     <h1 class="display-text mt-3 text-4xl sm:text-6xl">{skillPlannerDefinition.title}</h1>
-    <p class="mx-auto mt-4 max-w-3xl text-lg text-parchment-300">{skillPlannerDefinition.description}</p>
+    <p class="data-page-description mx-auto mt-4 max-w-3xl text-lg text-parchment-300">{skillPlannerDefinition.description}</p>
   </div>
 </section>
 
