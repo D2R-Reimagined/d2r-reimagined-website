@@ -162,15 +162,15 @@
 </svelte:head>
 
 <section class="border-b border-parchment-300/15 bg-black/25">
-  <div class="mx-auto max-w-7xl px-5 py-12 text-center sm:py-16">
+  <div class="data-page-hero mx-auto max-w-7xl px-5 py-10 text-center sm:py-12">
     <p class="display-text text-sm uppercase tracking-[0.25em] text-ember-400">{data.definition.eyebrow}</p>
     <h1 class="display-text mt-3 text-4xl sm:text-6xl">{data.definition.title}</h1>
-    <p class="mx-auto mt-4 max-w-3xl text-lg text-parchment-300">{data.definition.description}</p>
+    <p class="data-page-description mx-auto mt-4 max-w-3xl text-lg text-parchment-300">{data.definition.description}</p>
   </div>
 </section>
 <!-- Catalog controls are shared across every data route. -->
 
-<section class="mx-auto max-w-screen-2xl px-4 py-8">
+<section class="data-page-content mx-auto max-w-screen-2xl px-4 py-8">
   <CatalogFilters
     slug={data.definition.slug}
     {typeOptions}

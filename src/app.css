@@ -108,6 +108,53 @@ body.font-neutral { font-family: Verdana, Helvetica, Arial, sans-serif; }
 .set-line { color: var(--color-set); }
 .rarity-line { color: var(--color-rarity); }
 
+@media (max-height: 800px) and (min-width: 640px) {
+  .data-page-hero {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  .data-page-hero > p:first-child { font-size: 0.7rem; }
+  .data-page-hero h1 {
+    margin-top: 0.35rem;
+    font-size: 2.25rem;
+    line-height: 1;
+  }
+
+  .data-page-hero .data-page-description {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .data-page-content {
+    padding-top: 1rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  .data-index-page {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .data-index-page .data-index-grid {
+    margin-top: 1.5rem !important;
+    gap: 0.75rem;
+  }
+
+  .data-index-page .data-index-card { padding: 1rem; }
+  .data-index-page .data-index-card h2 {
+    margin-top: 0.4rem;
+    font-size: 1.25rem;
+  }
+
+  .data-index-page .data-index-card p:last-child {
+    margin-top: 0.4rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
