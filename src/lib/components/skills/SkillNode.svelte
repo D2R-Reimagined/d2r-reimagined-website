@@ -16,16 +16,33 @@
     selected: boolean;
     available: boolean;
     select: (skill: Skill) => void;
-    increase: (skill: Skill) => void;
-    decrease: (skill: Skill) => void;
+    increase: (skill: Skill, amount?: number) => void;
+    decrease: (skill: Skill, amount?: number) => void;
   } = $props();
 
   let name = $derived($i18n.t(skill.NameKey));
   let initial = $derived(name.trim().charAt(0).toUpperCase() || '?');
 
-  function addPoint(): void {
+  function addPointAmount(event: MouseEvent): number {
+    if (event.shiftKey) return (skill.MaxLevel || 20) - rank;
+    if (event.ctrlKey) return 5;
+    return 1;
+  }
+
+  function removePointAmount(event: MouseEvent): number {
+    if (event.shiftKey) return rank;
+    if (event.ctrlKey) return 5;
+    return 1;
+  }
+
+  function addPoint(event: MouseEvent): void {
     select(skill);
-    increase(skill);
+    increase(skill, addPointAmount(event));
+  }
+
+  function removePoint(event: MouseEvent): void {
+    select(skill);
+    decrease(skill, removePointAmount(event));
   }
 </script>
 
@@ -39,15 +56,16 @@
     aria-label={`${name}: ${rank} of ${skill.MaxLevel || 20} points`}
     aria-pressed={rank > 0}
     aria-disabled={!available && rank === 0}
-    title={`${name} — left click to add, right click to remove`}
+    title={`${name} — click: +1; Ctrl-click: +5; Shift-click: max. Right-click removes using the same modifiers.`}
     onclick={addPoint}
+    onmousedown={(event) => {
+      if (event.button !== 2) return;
+      event.preventDefault();
+      removePoint(event);
+    }}
     onfocus={() => select(skill)}
     onmouseenter={() => select(skill)}
-    oncontextmenu={(event) => {
-      event.preventDefault();
-      select(skill);
-      decrease(skill);
-    }}
+    oncontextmenu={(event) => event.preventDefault()}
   >
     <span class="skill-initial" aria-hidden="true">{initial}</span>
     <span class="skill-rank">{rank}/{skill.MaxLevel || 20}</span>

@@ -14,8 +14,8 @@
     skills: Skill[];
     rank: number;
     available: boolean;
-    increase: (skill: Skill) => void;
-    decrease: (skill: Skill) => void;
+    increase: (skill: Skill, amount?: number) => void;
+    decrease: (skill: Skill, amount?: number) => void;
   } = $props();
 
   function prerequisiteName(id: number): string {
@@ -57,7 +57,7 @@
     {#if !available && rank < (skill.MaxLevel || 20)}
       <p class="mt-3 text-xs text-requirement">Allocate every prerequisite before adding a point here.</p>
     {/if}
-    <p class="mt-5 text-xs leading-5 text-parchment-300">Left-click a skill to add a point. Right-click it to remove one.</p>
+    <p class="mt-5 text-xs leading-5 text-parchment-300">Click a skill to add one point; Ctrl-click adds five and Shift-click fills it to its maximum. Right-click removes points using the same modifiers.</p>
   {:else}
     <p class="text-parchment-300">Select a skill to preview it.</p>
   {/if}

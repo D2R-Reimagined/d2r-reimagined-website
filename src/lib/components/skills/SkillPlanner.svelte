@@ -56,20 +56,22 @@
       && skill.PrerequisiteIds.every((id) => (ranks[id] ?? 0) > 0);
   }
 
-  function increase(skill: Skill): void {
+  function increase(skill: Skill, amount = 1): void {
     selectedSkillId = skill.Id;
     if (!canIncrease(skill)) return;
-    ranks = { ...ranks, [skill.Id]: (ranks[skill.Id] ?? 0) + 1 };
+    const rank = ranks[skill.Id] ?? 0;
+    ranks = { ...ranks, [skill.Id]: Math.min(rank + amount, skill.MaxLevel || 20) };
   }
 
-  function decrease(skill: Skill): void {
+  function decrease(skill: Skill, amount = 1): void {
     selectedSkillId = skill.Id;
     const rank = ranks[skill.Id] ?? 0;
     if (rank === 0) return;
-    const hasAllocatedDependent = rank === 1 && activeSkills.some((candidate) =>
+    const hasAllocatedDependent = activeSkills.some((candidate) =>
       (ranks[candidate.Id] ?? 0) > 0 && candidate.PrerequisiteIds.includes(skill.Id));
-    if (hasAllocatedDependent) return;
-    ranks = { ...ranks, [skill.Id]: rank - 1 };
+    const minimumRank = hasAllocatedDependent ? 1 : 0;
+    if (rank === minimumRank) return;
+    ranks = { ...ranks, [skill.Id]: Math.max(rank - amount, minimumRank) };
   }
 
   function resetClass(): void {
