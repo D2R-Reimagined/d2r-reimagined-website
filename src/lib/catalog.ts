@@ -32,7 +32,35 @@ export function linesFrom(item: CatalogItem): KeyedLine[] {
   ];
 }
 
-export function collectText(value: unknown, translate: (key: string | number | undefined | null) => string): string {
+/** The pieces of the `$i18n` store `collectText` needs to build a searchable haystack. */
+export interface SearchTools {
+  code: string;
+  t: (key: string | number | undefined | null) => string;
+  line: (value: KeyedLine | undefined | null) => string;
+}
+
+function isKeyedLine(entry: object): entry is KeyedLine {
+  return typeof (entry as KeyedLine).key === 'string' && (entry as KeyedLine).key !== '';
+}
+
+/**
+ * Flattens an item into the text a search runs against: every raw value, its translation,
+ * and — for `KeyedLine`s — the line as the card actually renders it.
+ *
+ * Rendering matters because the numbers live apart from the text they belong to. A line is
+ * stored as `{ key: 'ModStr3k', args: [5] }`, so translating the key alone only ever yields
+ * the template `"+%d to All Skills"`; searching "5 to" could never reach the "+5 to All
+ * Skills" a player is reading on the card.
+ *
+ * Parts are newline-joined rather than space-joined so a phrase cannot straddle two
+ * unrelated values — "…required level 25, base code tow…" used to match "5 to". Search
+ * across separate fields with the `+` (AND) operator instead.
+ */
+export function collectText(
+  value: unknown,
+  translate: (key: string | number | undefined | null) => string,
+  renderLine?: (line: KeyedLine) => string
+): string {
   const parts: string[] = [];
   const walk = (entry: unknown): void => {
     if (entry == null) return;
@@ -45,10 +73,30 @@ export function collectText(value: unknown, translate: (key: string | number | u
       entry.forEach(walk);
       return;
     }
-    if (typeof entry === 'object') Object.values(entry as Record<string, unknown>).forEach(walk);
+    if (typeof entry === 'object') {
+      // Property-group parents carry an empty key and render nothing; their children are
+      // picked up by the walk below like any other line.
+      if (renderLine && isKeyedLine(entry)) parts.push(renderLine(entry));
+      Object.values(entry as Record<string, unknown>).forEach(walk);
+    }
   };
   walk(value);
-  return parts.join(' ').toLowerCase();
+  return parts.join('\n').toLowerCase();
+}
+
+// Building a haystack means walking every nested line of an item and translating it, which
+// is far too much to redo for all ~2,400 uniques on each keystroke. The text only changes
+// when the language does, so cache it per item and re-derive on a language switch.
+const haystacks = new WeakMap<object, { code: string; text: string }>();
+
+/** Cached {@link collectText} for one catalog item, keyed on the active language. */
+export function searchText(item: object, tools: SearchTools): string {
+  const cached = haystacks.get(item);
+  if (cached?.code === tools.code) return cached.text;
+
+  const text = collectText(item, tools.t, tools.line);
+  haystacks.set(item, { code: tools.code, text });
+  return text;
 }
 
 export function uniqueOptions(values: Array<string | undefined>, translate: (value: string) => string) {

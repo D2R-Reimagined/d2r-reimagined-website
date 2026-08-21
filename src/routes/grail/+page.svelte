@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
 
   import GrailItem from '$lib/components/GrailItem.svelte';
-  import { collectText } from '$lib/catalog';
+  import { searchText } from '$lib/catalog';
   import { i18n } from '$lib/i18n';
   import type { CatalogItem } from '$lib/types';
 
@@ -40,7 +40,7 @@
     return currentItems.filter((item) => {
       const key = itemKey(item);
       if (hideFound && currentMap[key]) return false;
-      return !query || collectText(item, $i18n.t).includes(query);
+      return !query || searchText(item, $i18n).includes(query);
     });
   });
   let visible = $derived(filtered.slice(0, visibleCount));

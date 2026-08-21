@@ -15,7 +15,7 @@
     weaponSortOptions,
     type WeaponSortMode
   } from '$lib/catalog-controls';
-  import { collectText, isVanilla, itemClass, itemType } from '$lib/catalog';
+  import { isVanilla, itemClass, itemType, searchText } from '$lib/catalog';
   import { i18n } from '$lib/i18n';
   import type { CatalogItem, KeyedLine } from '$lib/types';
 
@@ -114,7 +114,8 @@
       if (maximum != null && Number(item.RequiredLevel ?? 0) > maximum) return false;
       if (recipeType && !recipeTypesFor(item).includes(recipeType)) return false;
       if (handFilter && !passesHandFilter(item, handFilter)) return false;
-      if (!matchesSearch(collectText(item, $i18n.t), searchGroups)) return false;
+      // Guarded so an unsearched page never pays for flattening every item.
+      if (searchGroups.length && !matchesSearch(searchText(item, $i18n), searchGroups)) return false;
       if (String(item.Index ?? '').toLowerCase().includes('grabber')) return false;
       return true;
     });
@@ -163,8 +164,7 @@
 
 <section class="border-b border-parchment-300/15 bg-black/25">
   <div class="data-page-hero mx-auto max-w-7xl px-5 py-10 text-center sm:py-12">
-    <p class="display-text text-sm uppercase tracking-[0.25em] text-ember-400">{data.definition.eyebrow}</p>
-    <h1 class="display-text mt-3 text-4xl sm:text-6xl">{data.definition.title}</h1>
+    <h1 class="display-text text-4xl sm:text-6xl">{data.definition.title}</h1>
     <p class="data-page-description mx-auto mt-4 max-w-3xl text-lg text-parchment-300">{data.definition.description}</p>
   </div>
 </section>
