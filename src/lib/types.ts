@@ -78,7 +78,6 @@ export interface CatalogItem {
 export interface CatalogDefinition {
   slug: CatalogSlug;
   title: string;
-  eyebrow: string;
   description: string;
 }
 
@@ -141,7 +140,6 @@ export interface SkillClass {
 export const skillPlannerDefinition = {
   slug: 'skills',
   title: 'Skill Planner',
-  eyebrow: 'Shape your hero',
   description: 'Preview every class skill tree and plan your point allocation with requirements and prerequisites.'
 } as const;
 
@@ -149,37 +147,31 @@ export const catalogDefinitions: Record<CatalogSlug, CatalogDefinition> = {
   uniques: {
     slug: 'uniques',
     title: 'Unique Items',
-    eyebrow: 'The rarest spoils',
     description: 'Search every unique item in D2R Reimagined, including equipment requirements and complete property rolls.'
   },
   sets: {
     slug: 'sets',
     title: 'Set Items',
-    eyebrow: 'Greater than the sum',
     description: 'Explore complete item sets, their individual pieces, partial bonuses, and full-set rewards.'
   },
   runewords: {
     slug: 'runewords',
     title: 'Runewords',
-    eyebrow: 'Power written in stone',
     description: 'Find compatible bases, rune orders, level requirements, and modifiers for every runeword.'
   },
   bases: {
     slug: 'bases',
     title: 'Item Bases',
-    eyebrow: 'Choose the foundation',
     description: 'Compare armor and weapon bases, sockets, requirements, defenses, and damage ranges.'
   },
   affixes: {
     slug: 'affixes',
     title: 'Magic Affixes',
-    eyebrow: 'Know what can roll',
     description: 'Browse prefixes and suffixes by item type, level, class restriction, and property.'
   },
   'cube-recipes': {
     slug: 'cube-recipes',
     title: 'Cube Recipes',
-    eyebrow: 'Transmute with purpose',
     description: 'Search the full Horadric Cube recipe catalog, including inputs, outputs, properties, and notes.'
   }
 };
