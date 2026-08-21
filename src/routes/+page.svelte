@@ -40,7 +40,7 @@
 </svelte:head>
 
 <section class="relative isolate min-h-[72vh] overflow-hidden border-b border-parchment-300/15">
-    <img src="/images/reimagined-hero.jpg" alt="D2R Reimagined artwork"
+    <img src="/images/reimagined-hero.webp" alt="D2R Reimagined artwork"
          class="absolute inset-0 h-full w-full object-cover object-center" fetchpriority="high"/>
     <div class="absolute inset-0 bg-gradient-to-r from-black via-black/78 to-black/25"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-abyss-950 via-transparent to-black/20"></div>
@@ -87,7 +87,7 @@
 <section class="border-y border-parchment-300/15 bg-black/30 py-20">
     <div class="mx-auto grid max-w-7xl gap-8 px-5 lg:grid-cols-2 lg:items-center">
         <div class="overflow-hidden rounded-lg border border-parchment-300/20 shadow-2xl"><img
-                src="/images/tectonic-slam.png" alt="Tectonic Slam gameplay in D2R Reimagined"
+                src="/images/tectonic-slam.webp" alt="Tectonic Slam gameplay in D2R Reimagined"
                 class="aspect-video h-full w-full object-cover" loading="lazy"/></div>
         <div>
             <h2 class="display-text mt-3 text-3xl sm:text-5xl">More ways to break Hell</h2>
@@ -115,6 +115,6 @@
         </div>
     </div>
     <div class="overflow-hidden rounded-lg border border-parchment-300/20 shadow-2xl"><img
-            src="/images/reimagined-skills.png" alt="A reimagined lightning skill in combat"
+            src="/images/reimagined-skills.webp" alt="A reimagined lightning skill in combat"
             class="aspect-video h-full w-full object-cover" loading="lazy"/></div>
 </section>
