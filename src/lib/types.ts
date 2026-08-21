@@ -67,8 +67,8 @@ export interface CatalogItem {
   SetBonuses?: KeyedLine[][];
   Runes?: Array<{ NameKey?: string }>;
   Types?: Array<string | { Name?: string; Index?: string; Class?: string }>;
-  Inputs?: Array<{ Name?: KeyedLine; Quantity?: number; Qualifiers?: string[] }>;
-  Outputs?: Record<string, { Name?: KeyedLine; Quantity?: number; Qualifiers?: string[]; Lines?: KeyedLine[] }>;
+  Inputs?: Array<{ Name?: KeyedLine; Quantity?: number; Qualifiers?: KeyedLine[] }>;
+  Outputs?: Record<string, { Name?: KeyedLine; Quantity?: number; Qualifiers?: KeyedLine[]; Lines?: KeyedLine[] }>;
   Notes?: KeyedLine[];
   Description?: string;
   source?: 'armor' | 'weapon' | 'prefix' | 'suffix';

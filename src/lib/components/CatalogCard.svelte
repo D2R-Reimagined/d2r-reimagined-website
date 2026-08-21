@@ -29,6 +29,19 @@
   function quantity(value: number | undefined): string {
     return value && value > 1 ? `${value} × ` : '';
   }
+
+  function visibleQualifiers(qualifiers: KeyedLine[] | undefined): KeyedLine[] {
+    return (qualifiers ?? []).filter((qualifier) => qualifier.key !== 'strCubeQualifierQuantityN');
+  }
+
+  function qualifierClass(key: string): string {
+    if (key.includes('RareItem')) return 'border-yellow-500/50 bg-yellow-950/45 text-yellow-200';
+    if (key.includes('MagicItem')) return 'border-blue-500/50 bg-blue-950/45 text-blue-200';
+    if (key.includes('CraftedItem')) return 'border-orange-500/50 bg-orange-950/45 text-orange-200';
+    if (key.includes('SetItem')) return 'border-green-500/50 bg-green-950/45 text-green-200';
+    if (key.includes('UniqueItem')) return 'border-amber-500/50 bg-amber-950/45 text-amber-200';
+    return 'border-parchment-300/30 bg-black/25 text-parchment-200';
+  }
 </script>
 
 <article class="catalog-card panel scroll-card flex h-full flex-col rounded-lg p-5 text-center hover:border-ember-400/45">
@@ -91,12 +104,28 @@
     <div class="space-y-3 text-left">
       <div>
         <h3 class="display-text text-xs uppercase tracking-widest text-parchment-300">Inputs</h3>
-        {#each item.Inputs ?? [] as input}<p>{quantity(input.Quantity)}{$i18n.line(input.Name)}</p>{/each}
+        {#each item.Inputs ?? [] as input}
+          <p class="flex flex-wrap items-center gap-1.5">
+            <span>{quantity(input.Quantity)}{$i18n.line(input.Name)}</span>
+            {#each visibleQualifiers(input.Qualifiers) as qualifier}
+              <span class={`rounded border px-1.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide ${qualifierClass(qualifier.key)}`}>
+                {$i18n.line(qualifier)}
+              </span>
+            {/each}
+          </p>
+        {/each}
       </div>
       <div>
         <h3 class="display-text text-xs uppercase tracking-widest text-parchment-300">Outputs</h3>
         {#each Object.values(item.Outputs ?? {}) as output}
-          <p>{quantity(output.Quantity)}{$i18n.line(output.Name)}</p>
+          <p class="flex flex-wrap items-center gap-1.5">
+            <span>{quantity(output.Quantity)}{$i18n.line(output.Name)}</span>
+            {#each visibleQualifiers(output.Qualifiers) as qualifier}
+              <span class={`rounded border px-1.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide ${qualifierClass(qualifier.key)}`}>
+                {$i18n.line(qualifier)}
+              </span>
+            {/each}
+          </p>
           <KeyedLines lines={output.Lines} />
         {/each}
       </div>
