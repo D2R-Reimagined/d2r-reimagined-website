@@ -23,6 +23,22 @@ export type TemplateArg = string | number | boolean | null | undefined;
 
 const SEQ = /%(?:\+d|d|D|s|S|i|c\d|\d|%)/g;
 
+/**
+ * How many numeric arguments `template` can place, once `stringArgs` leading `%s` slots are
+ * accounted for. Callers with more values than slots (skill lines whose template lost a
+ * line upstream) use this to drop the surplus, which would otherwise be absorbed by the
+ * min-max range collapsing below and print two unrelated numbers as one range.
+ */
+export function countNumericSlots(template: string, stringArgs = 0): number {
+    const tokens = template.match(SEQ) ?? [];
+    const indexed = tokens.filter((m) => /^%\d$/.test(m));
+    if (indexed.length > 0) {
+        const slots = indexed.reduce((mx, m) => Math.max(mx, Number(m.charAt(1)) + 1), 0);
+        return Math.max(slots - stringArgs, 0);
+    }
+    return tokens.filter((m) => m === '%+d' || /^%[dDi]$/.test(m)).length;
+}
+
 export function formatTemplate(template: string, args: ReadonlyArray<TemplateArg> = []): string {
     if (!template) return '';
 
@@ -135,19 +151,27 @@ function resolveIndexedArgs(
     return resolved;
 }
 
+// `%d` is D2's own token for values it prints with a fraction — "Mana Cost: 2.5",
+// "Cold Length: 4.8 seconds" — so a fractional value keeps its single decimal place rather
+// than being truncated to a misleading whole number. Item properties always arrive as
+// integers and are unaffected.
+function formatDecimal(value: number): string {
+    return Number.isInteger(value) ? value.toString() : Number(value.toFixed(1)).toString();
+}
+
 function formatArg(value: TemplateArg, token: string): string {
     if (value === null || value === undefined) return '';
     switch (token) {
         case '%+d': {
             const n = Number(value);
             if (!Number.isFinite(n)) return String(value);
-            return (n >= 0 ? '+' : '') + n.toString();
+            return (n >= 0 ? '+' : '') + formatDecimal(n);
         }
         case '%d':
         case '%D':
         case '%i': {
             const n = Number(value);
-            return Number.isFinite(n) ? Math.trunc(n).toString() : String(value);
+            return Number.isFinite(n) ? formatDecimal(n) : String(value);
         }
         case '%s':
         case '%S':
