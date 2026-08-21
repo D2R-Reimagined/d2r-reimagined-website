@@ -1,6 +1,7 @@
 <script lang="ts">
+  import { afterNavigate, beforeNavigate, replaceState } from '$app/navigation';
   import { page } from '$app/state';
-
+  import { untrack } from 'svelte';
   import CatalogCard from '$lib/components/CatalogCard.svelte';
   import CatalogFilters from '$lib/components/CatalogFilters.svelte';
   import {
@@ -17,33 +18,40 @@
     weaponSortOptions,
     type WeaponSortMode
   } from '$lib/catalog-controls';
+  import { readCatalogFilters, writeCatalogFilters, type CatalogFilterState } from '$lib/catalog-query';
   import { isVanilla, itemClass, itemType, searchText } from '$lib/catalog';
   import { debounced } from '$lib/debounce.svelte';
   import { i18n } from '$lib/i18n';
-  import type { CatalogItem, KeyedLine } from '$lib/types';
+  import type { CatalogItem, CatalogSlug, KeyedLine } from '$lib/types';
 
   type Option = { value: string; label: string };
 
   let { data } = $props();
-  // Seeded from ?q= so the all-data search can hand a query straight to a catalog.
-  let search = $state(page.url.searchParams.get('q') ?? '');
-  let selectedType = $state('');
-  let selectedClass = $state('');
-  let subtype = $state('');
-  let hideVanilla = $state(false);
-  let runeCount = $state('');
-  let selectedEquipment = $state('');
-  let selectedTier = $state('');
-  let selectedSockets = $state('');
-  let propertyType = $state('');
-  let minLevel = $state('');
-  let maxLevel = $state('');
-  let exactType = $state(false);
-  let recipeType = $state('');
-  let selectedRunes = $state<string[]>([]);
-  let weaponSort = $state<WeaponSortMode>('');
-  let handFilter = $state('');
+  const initialFilters = untrack(() => normalizeFilters(
+    readCatalogFilters(page.url.searchParams, page.params.catalog as CatalogSlug),
+    options(data.items.flatMap(typesFor)),
+    options(data.items.flatMap((item: CatalogItem) => item.Runes ?? []).map((rune: { NameKey?: string }) => rune.NameKey ?? ''))
+  ));
+  let search = $state(initialFilters.search);
+  let selectedType = $state(initialFilters.selectedType);
+  let selectedClass = $state(initialFilters.selectedClass);
+  let subtype = $state(initialFilters.subtype);
+  let hideVanilla = $state(initialFilters.hideVanilla);
+  let runeCount = $state(initialFilters.runeCount);
+  let selectedEquipment = $state(initialFilters.selectedEquipment);
+  let selectedTier = $state(initialFilters.selectedTier);
+  let selectedSockets = $state(initialFilters.selectedSockets);
+  let propertyType = $state(initialFilters.propertyType);
+  let minLevel = $state(initialFilters.minLevel);
+  let maxLevel = $state(initialFilters.maxLevel);
+  let exactType = $state(initialFilters.exactType);
+  let recipeType = $state(initialFilters.recipeType);
+  let selectedRunes = $state<string[]>(initialFilters.selectedRunes);
+  let weaponSort = $state<WeaponSortMode>(initialFilters.weaponSort);
+  let handFilter = $state(initialFilters.handFilter);
   let visibleCount = $state(48);
+  let routerReady = $state(false);
+  let navigationInProgress = $state(false);
 
   // Filtering redraws up to 48 cards, so it waits for a pause rather than every keystroke.
   const settled = debounced(() => search);
@@ -99,6 +107,23 @@
     .flatMap((item: CatalogItem) => item.Runes ?? [])
     .map((rune: { NameKey?: string }) => rune.NameKey ?? '')));
 
+  function optionValue(value: string, choices: Option[]): string {
+    const normalize = (label: string) => label.toLowerCase().replace(/\s+rune(?:\s+\(#\d+\))?$/i, '');
+    const normalized = normalize(value);
+    return choices.find((option) =>
+      option.value.toLowerCase() === normalized
+      || normalize(option.label) === normalized
+    )?.value ?? value;
+  }
+
+  // Legacy links stored translated type/rune labels. Convert those labels to the keyed
+  // values used by the Svelte catalog controls while continuing to accept new keyed URLs.
+  function normalizeFilters(filters: CatalogFilterState, types: Option[], runes: Option[]): CatalogFilterState {
+    filters.selectedType = optionValue(filters.selectedType, types);
+    filters.selectedRunes = filters.selectedRunes.map((value) => optionValue(value, runes));
+    return filters;
+  }
+
   let filtered = $derived.by(() => {
     const searchGroups = tokenizeSearch(query);
     const minimum = minLevel ? Number(minLevel) : undefined;
@@ -138,6 +163,55 @@
     selectedEquipment; selectedTier; selectedSockets; propertyType; minLevel;
     maxLevel; exactType; recipeType; selectedRunes; weaponSort; handFilter;
     visibleCount = 48;
+  });
+
+  $effect(() => {
+    if (!routerReady || navigationInProgress) return;
+    const filters: CatalogFilterState = {
+      search, selectedType, selectedClass, subtype, hideVanilla, runeCount,
+      selectedEquipment, selectedTier, selectedSockets, propertyType, minLevel,
+      maxLevel, exactType, recipeType, selectedRunes, weaponSort, handFilter
+    };
+    const url = writeCatalogFilters(new URL(page.url), filters, data.definition.slug);
+    if (url.search !== page.url.search) replaceState(url, {});
+  });
+
+  beforeNavigate(() => {
+    navigationInProgress = true;
+  });
+
+  afterNavigate(({ to }) => {
+    if (!routerReady) {
+      routerReady = true;
+      return;
+    }
+    const destination = to?.url ?? page.url;
+    const filters = normalizeFilters(
+      readCatalogFilters(destination.searchParams, data.definition.slug),
+      typeOptions,
+      runeOptions
+    );
+    search = filters.search;
+    selectedType = filters.selectedType;
+    selectedClass = filters.selectedClass;
+    subtype = filters.subtype;
+    hideVanilla = filters.hideVanilla;
+    runeCount = filters.runeCount;
+    selectedEquipment = filters.selectedEquipment;
+    selectedTier = filters.selectedTier;
+    selectedSockets = filters.selectedSockets;
+    propertyType = filters.propertyType;
+    minLevel = filters.minLevel;
+    maxLevel = filters.maxLevel;
+    exactType = filters.exactType;
+    recipeType = filters.recipeType;
+    selectedRunes = filters.selectedRunes;
+    weaponSort = filters.weaponSort;
+    handFilter = filters.handFilter;
+
+    const normalizedUrl = writeCatalogFilters(new URL(destination), filters, data.definition.slug);
+    if (normalizedUrl.search !== page.url.search) replaceState(normalizedUrl, {});
+    navigationInProgress = false;
   });
 
   function reset(): void {

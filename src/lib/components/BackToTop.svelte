@@ -19,11 +19,11 @@
 {#if visible}
   <button
     type="button"
-    class="fixed bottom-5 right-5 z-50 grid size-12 place-items-center rounded-full border border-ember-400/70 bg-abyss-900 text-xl text-ember-400 transition hover:-translate-y-0.5 hover:bg-ember-700 hover:text-white"
+    class="fixed bottom-5 right-5 z-50 grid place-items-center p-4 rounded border border-ember-400/70 bg-abyss-900 text-xl text-ember-400 transition hover:-translate-y-0.5 hover:bg-ember-700 hover:text-white"
     aria-label={$i18n.t('aria_back_to_top')}
     title={$i18n.t('sr_top')}
     onclick={goToTop}
   >
-    <span aria-hidden="true">↑</span>
+    <span aria-hidden="true">Jump to Top</span>
   </button>
 {/if}
