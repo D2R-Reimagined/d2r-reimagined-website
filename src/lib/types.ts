@@ -82,6 +82,35 @@ export interface CatalogDefinition {
   description: string;
 }
 
+/**
+ * One line of a skill's in-game description. Same `key` + positional-args contract as
+ * `KeyedLine`, except the numeric arguments arrive as one table per argument, indexed by
+ * `level - 1` — the same line reads differently at every skill level.
+ *
+ * The exporter drops a table's constant tail, so a line that stops scaling ships fewer
+ * entries than the skill has levels; clamp the index to the last element.
+ */
+export interface SkillDescriptionLine {
+  key: string;
+  /** Plural template, chosen whenever the rendered value is not exactly 1. */
+  pluralKey?: string;
+  /** Leading string arguments — translation keys, typically a bonus-granting skill name. */
+  args?: string[];
+  /** One table per numeric argument, each indexed by `level - 1`. */
+  values?: number[][];
+}
+
+export interface SkillDescriptionSet {
+  /** Highest level the value tables cover — the skill cap plus +skills headroom. */
+  MaxLevel: number;
+  /** Main tooltip stats: damage, duration, radius, … */
+  Stats: SkillDescriptionLine[];
+  /** Supplementary lines: mana cost, casting delay, … */
+  Details: SkillDescriptionLine[];
+  /** The "Receives Bonuses From" synergy list. */
+  Synergies: SkillDescriptionLine[];
+}
+
 export interface Skill {
   Id: number;
   Code: string;
@@ -93,6 +122,7 @@ export interface Skill {
   RequiredLevel: number;
   MaxLevel: number;
   PrerequisiteIds: number[];
+  Descriptions?: SkillDescriptionSet;
 }
 
 export interface SkillTab {

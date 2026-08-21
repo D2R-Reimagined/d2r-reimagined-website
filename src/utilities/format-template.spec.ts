@@ -1,4 +1,4 @@
-import { formatTemplate } from './format-template';
+import { countNumericSlots, formatTemplate } from './format-template';
 
 import { describe, expect, it } from 'vitest';
 
@@ -33,5 +33,28 @@ describe('formatTemplate', () => {
         expect(
             formatTemplate('%0%% Reanimate as: %1', [7, 7, 'Voltshade']),
         ).toBe('7% Reanimate as: Voltshade');
+    });
+
+    it('keeps the fraction on skill values the game itself prints with a decimal', () => {
+        // Fire Bolt's mana cost is 640/256 — truncating it to 2 would misstate the skill.
+        expect(formatTemplate('Mana Cost: %d', [2.5])).toBe('Mana Cost: 2.5');
+        expect(formatTemplate('Cold Length: %d seconds', [4.8])).toBe('Cold Length: 4.8 seconds');
+        expect(formatTemplate('%+d%% Damage Reduction', [-1.5])).toBe('-1.5% Damage Reduction');
+        // Whole numbers are unchanged, so every item property renders as before.
+        expect(formatTemplate('Mana Cost: %d', [7])).toBe('Mana Cost: 7');
+    });
+});
+
+describe('countNumericSlots', () => {
+    it('counts the numeric tokens a template can place', () => {
+        expect(countNumericSlots('Fire Damage: %d-%d')).toBe(2);
+        expect(countNumericSlots('Defense: %d')).toBe(1);
+        expect(countNumericSlots('Bound demons gain Extra Strong')).toBe(0);
+        // Leading %s slots belong to the string args, not the numbers.
+        expect(countNumericSlots('%s: %+d%% Fire Damage per Level', 1)).toBe(1);
+    });
+
+    it('resolves indexed templates against their highest index', () => {
+        expect(countNumericSlots('%0%% chance to cast level %1 %2 on attack', 1)).toBe(2);
     });
 });

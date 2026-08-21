@@ -201,7 +201,14 @@
 
   @media (min-width: 1280px) {
     .planner-layout { grid-template-columns: minmax(0, 1fr) 19rem; align-items: start; }
-    .details-column { position: sticky; top: 5.5rem; }
+    .details-column {
+      position: sticky;
+      top: 5.5rem;
+      /* The panel grew past the viewport once it started listing per-level stats and
+         synergies; scroll it internally so the allocate buttons stay reachable. */
+      max-height: calc(100vh - 7rem);
+      overflow-y: auto;
+    }
   }
 
   @media (max-width: 520px) {

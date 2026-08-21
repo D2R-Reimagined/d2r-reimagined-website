@@ -1,9 +1,9 @@
 import { derived, get, writable } from 'svelte/store';
 
-import { formatTemplate, type TemplateArg } from '../utilities/format-template';
+import { countNumericSlots, formatTemplate, type TemplateArg } from '../utilities/format-template';
 import { stripGenderTagsInPlace } from '../utilities/strip-gender-tags';
 import { UI_STRINGS } from '../utilities/ui-strings';
-import type { KeyedLine } from './types';
+import type { KeyedLine, SkillDescriptionLine } from './types';
 
 export const languages = [
   { code: 'enUS', name: 'English' },
@@ -94,7 +94,25 @@ function makeTools(s: I18nState) {
     return result;
   };
 
-  return { code: s.code, t, line };
+  // A skill line is a template plus one value table per numeric argument. The exporter
+  // trims each table's constant tail, so reading past the end means "it stopped scaling".
+  const skillLine = (value: SkillDescriptionLine | undefined | null, level: number): string => {
+    if (!value) return '';
+    const numbers = (value.values ?? []).map(
+      (table) => table[Math.min(Math.max(level, 1) - 1, table.length - 1)]
+    );
+    const key = value.pluralKey && numbers[0] !== 1 ? value.pluralKey : value.key;
+    const template = lookup(s, key);
+    const strings = (value.args ?? []).map((arg) => lookup(s, arg));
+    // A few templates carry fewer slots than the game's data supplies — usually because
+    // the mod's second line was lost upstream ("Defense: %d" for a def-and-AR pair). Pass
+    // only what the template can place; otherwise formatTemplate reads the surplus as a
+    // min-max range and prints "Defense: 25-35" for two unrelated numbers.
+    const slots = countNumericSlots(template, strings.length);
+    return formatTemplate(template, [...strings, ...numbers.slice(0, slots)]);
+  };
+
+  return { code: s.code, t, line, skillLine };
 }
 
 export const i18n = derived(state, makeTools);
