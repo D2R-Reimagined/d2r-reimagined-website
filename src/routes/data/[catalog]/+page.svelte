@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { page } from '$app/state';
+
   import CatalogCard from '$lib/components/CatalogCard.svelte';
   import CatalogFilters from '$lib/components/CatalogFilters.svelte';
   import {
@@ -16,13 +18,15 @@
     type WeaponSortMode
   } from '$lib/catalog-controls';
   import { isVanilla, itemClass, itemType, searchText } from '$lib/catalog';
+  import { debounced } from '$lib/debounce.svelte';
   import { i18n } from '$lib/i18n';
   import type { CatalogItem, KeyedLine } from '$lib/types';
 
   type Option = { value: string; label: string };
 
   let { data } = $props();
-  let search = $state('');
+  // Seeded from ?q= so the all-data search can hand a query straight to a catalog.
+  let search = $state(page.url.searchParams.get('q') ?? '');
   let selectedType = $state('');
   let selectedClass = $state('');
   let subtype = $state('');
@@ -40,6 +44,10 @@
   let weaponSort = $state<WeaponSortMode>('');
   let handFilter = $state('');
   let visibleCount = $state(48);
+
+  // Filtering redraws up to 48 cards, so it waits for a pause rather than every keystroke.
+  const settled = debounced(() => search);
+  let query = $derived(settled.current);
 
   function typeValue(value: string | { Index?: string; Name?: string }): string {
     return typeof value === 'string' ? value : value.Index ?? value.Name ?? '';
@@ -92,7 +100,7 @@
     .map((rune: { NameKey?: string }) => rune.NameKey ?? '')));
 
   let filtered = $derived.by(() => {
-    const searchGroups = tokenizeSearch(search);
+    const searchGroups = tokenizeSearch(query);
     const minimum = minLevel ? Number(minLevel) : undefined;
     const maximum = maxLevel ? Number(maxLevel) : undefined;
 
@@ -126,7 +134,7 @@
   let visible = $derived(filtered.slice(0, visibleCount));
 
   $effect(() => {
-    search; selectedType; selectedClass; subtype; hideVanilla; runeCount;
+    query; selectedType; selectedClass; subtype; hideVanilla; runeCount;
     selectedEquipment; selectedTier; selectedSockets; propertyType; minLevel;
     maxLevel; exactType; recipeType; selectedRunes; weaponSort; handFilter;
     visibleCount = 48;

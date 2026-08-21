@@ -8,29 +8,28 @@ import runewords from '../../../../static/data/keyed/runewords.json';
 import sets from '../../../../static/data/keyed/sets.json';
 import uniques from '../../../../static/data/keyed/uniques.json';
 import weapons from '../../../../static/data/keyed/weapons.json';
+import { buildCatalog } from '$lib/catalog-sources';
 import { catalogDefinitions, catalogSlugs, type CatalogItem, type CatalogSlug } from '$lib/types';
+
+// Bundled here so catalog content is server-rendered; the all-data search fetches the same
+// files at runtime. Both shape their items through buildCatalog.
+const files: Record<string, CatalogItem[]> = {
+  uniques: uniques as CatalogItem[],
+  sets: sets as CatalogItem[],
+  runewords: runewords as CatalogItem[],
+  armors: armors as CatalogItem[],
+  weapons: weapons as CatalogItem[],
+  magicprefix: magicPrefixes as CatalogItem[],
+  magicsuffix: magicSuffixes as CatalogItem[],
+  'cube-recipes': cubeRecipes as CatalogItem[]
+};
 
 export function load({ params }) {
   if (!catalogSlugs.includes(params.catalog as CatalogSlug)) error(404, 'Catalog not found');
   const slug = params.catalog as CatalogSlug;
 
-  const catalogs: Record<CatalogSlug, CatalogItem[]> = {
-    uniques: uniques as CatalogItem[],
-    sets: sets as CatalogItem[],
-    runewords: runewords as CatalogItem[],
-    bases: [
-      ...armors.map((item) => ({ ...item, source: 'armor' as const })),
-      ...weapons.map((item) => ({ ...item, source: 'weapon' as const }))
-    ] as CatalogItem[],
-    affixes: [
-      ...magicPrefixes.map((item) => ({ ...item, source: 'prefix' as const })),
-      ...magicSuffixes.map((item) => ({ ...item, source: 'suffix' as const }))
-    ] as CatalogItem[],
-    'cube-recipes': cubeRecipes as CatalogItem[]
-  };
-
   return {
     definition: catalogDefinitions[slug],
-    items: catalogs[slug]
+    items: buildCatalog(slug, files)
   };
 }
