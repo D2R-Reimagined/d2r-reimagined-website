@@ -1,2 +1,2 @@
 import { redirect } from '@sveltejs/kit';
-export function load() { redirect(308, '/data/sets'); }
+export function load({ url }) { redirect(308, `/data/sets${url.search}`); }
