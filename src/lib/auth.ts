@@ -11,6 +11,7 @@ export interface UserProfile {
   battleTag: string | null;
   battleNetId: string | null;
   steamId: string | null;
+  roles: string[];
   createdAtUtc: string;
 }
 
@@ -29,7 +30,7 @@ interface AuthState {
   user: UserProfile | null;
 }
 
-class ApiError extends Error {
+export class ApiError extends Error {
   constructor(
     message: string,
     readonly status: number
@@ -50,7 +51,7 @@ function accessToken(): string | null {
   return browser ? localStorage.getItem(tokenStorageKey) : null;
 }
 
-async function apiRequest<T>(
+export async function apiRequest<T>(
   path: string,
   init: RequestInit = {},
   authenticated = false
