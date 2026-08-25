@@ -4,7 +4,17 @@
   import { displayStatLines, isHiddenItemStat, type DisplayStatLine, type ItemStatPresentationBundle } from '$lib/item-stat-presentation';
   import type { SaveItem, SaveStat } from '$lib/characters';
 
-  let { item, presentation, statPresentation }: { item: SaveItem; presentation?: ItemPresentation; statPresentation?: ItemStatPresentationBundle } = $props();
+  let {
+    item,
+    presentation,
+    statPresentation,
+    runewordNameKey
+  }: {
+    item: SaveItem;
+    presentation?: ItemPresentation;
+    statPresentation?: ItemStatPresentationBundle;
+    runewordNameKey?: string;
+  } = $props();
   let variant = $derived(presentation ? itemVariant(item, presentation) : null);
 
   function words(value: string): string {
@@ -54,7 +64,7 @@
   }
 </script>
 
-<aside class="item-tooltip pointer-events-none absolute z-50 w-[min(23rem,82vw)] -translate-x-1/2 border border-parchment-300/45 bg-black/95 px-4 py-3 text-center shadow-2xl shadow-black/80" role="tooltip">
+<aside class="item-tooltip pointer-events-none w-full border border-parchment-300/45 bg-black/95 px-4 py-3 text-center shadow-2xl shadow-black/80" role="tooltip">
   <h3 class={`text-lg leading-tight ${qualityClass()}`}>{displayName()}</h3>
   {#if displayName() !== (item.baseName || item.codeText)}
     <p class="mt-0.5 text-sm text-parchment-200">{item.baseName || item.codeText}</p>
@@ -66,7 +76,7 @@
     {#if item.maximumDurability != null}<p>Durability: {item.durability ?? 0} of {item.maximumDurability}</p>{/if}
     {#if item.quantity != null}<p>Quantity: {item.quantity}</p>{/if}
     {#if item.advancedStashStackSize != null}<p>Stack size: {item.advancedStashStackSize}</p>{/if}
-    {#if item.runewordId != null}<p class="text-unique">Runeword ID: {item.runewordId}</p>{/if}
+    {#if item.runewordId != null}<p class="text-unique">{runewordNameKey ? $i18n.t(runewordNameKey) : 'Runeword'}</p>{/if}
   </div>
 
   {#if item.stats.length}
@@ -101,11 +111,5 @@
     <div class="mt-2 border-t border-parchment-300/20 pt-2 text-xs text-parchment-300">
       {#each scalarProperties() as [label, value]}<p>{label}: {value}</p>{/each}
     </div>
-  {/if}
-
-  {#if item.flags.names.length}
-    <p class="mt-2 border-t border-parchment-300/20 pt-2 text-xs text-parchment-300">
-      {item.flags.names.join(' · ')}
-    </p>
   {/if}
 </aside>

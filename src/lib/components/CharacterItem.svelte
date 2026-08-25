@@ -7,14 +7,30 @@
   let {
     item,
     presentation,
+    itemPresentations,
     statPresentation,
-    style
-  }: { item: SaveItem; presentation?: ItemPresentation; statPresentation?: ItemStatPresentationBundle; style: string } = $props();
+    runewordNameKey,
+    style,
+    tooltipSide = 'right'
+  }: {
+    item: SaveItem;
+    presentation?: ItemPresentation;
+    itemPresentations: Map<string, ItemPresentation>;
+    statPresentation?: ItemStatPresentationBundle;
+    runewordNameKey?: string;
+    style: string;
+    tooltipSide?: 'left' | 'right';
+  } = $props();
 
   let open = $state(false);
   let sprite = $derived(itemSprite(item, presentation));
   let variant = $derived(presentation ? itemVariant(item, presentation) : null);
   let label = $derived(variant?.NameKey || item.baseName || item.codeText);
+  let socketItems = $derived(item.sockets.filter((socket): socket is SaveItem => socket !== null));
+
+  function socketSprite(socket: SaveItem): string | null {
+    return itemSprite(socket, itemPresentations.get(socket.codeText.toLowerCase()));
+  }
 </script>
 
 <div
@@ -46,12 +62,34 @@
       {item.codeText}
     </span>
   {/if}
+  {#if socketItems.length}
+    <div
+      class="pointer-events-none absolute bottom-[3%] left-1/2 z-20 grid w-[72%] -translate-x-1/2 gap-[2%]"
+      style={`grid-template-columns:repeat(${socketItems.length},minmax(0,1fr))`}
+      aria-hidden="true"
+    >
+      {#each socketItems as socket, index (`${socket.codeText}-${index}`)}
+        {@const socketImage = socketSprite(socket)}
+        <span class="aspect-square min-w-0 overflow-hidden rounded-full border border-parchment-300/65 bg-black/85 p-[7%] shadow-[0_1px_4px_rgba(0,0,0,0.95)]">
+          {#if socketImage}
+            <img src={socketImage} alt="" class="h-full w-full object-contain" />
+          {:else}
+            <span class="flex h-full w-full items-center justify-center text-[clamp(0.35rem,0.8vw,0.58rem)] text-parchment-100">
+              {socket.codeText}
+            </span>
+          {/if}
+        </span>
+      {/each}
+    </div>
+  {/if}
   {#if item.quantity && item.quantity > 1}
     <span class="absolute bottom-1 right-1 rounded-sm bg-black/80 px-1 text-[clamp(0.45rem,1.1vw,0.7rem)] text-white">{item.quantity}</span>
   {/if}
   {#if open}
-    <div class="absolute bottom-[calc(100%+0.4rem)] left-1/2">
-      <ItemTooltip {item} {presentation} {statPresentation} />
+    <div
+      class={`pointer-events-none absolute bottom-[calc(100%+0.4rem)] left-1/2 z-50 w-[min(23rem,82vw)] -translate-x-1/2 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 sm:translate-x-0 ${tooltipSide === 'left' ? 'sm:left-auto sm:right-[calc(100%+0.5rem)]' : 'sm:left-[calc(100%+0.5rem)]'}`}
+    >
+      <ItemTooltip {item} {presentation} {statPresentation} {runewordNameKey} />
     </div>
   {/if}
 </div>
